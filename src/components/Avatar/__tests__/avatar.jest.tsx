@@ -1,10 +1,10 @@
 import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
-import { Avatar } from "../..";
+import Avatar, { AvatarProps } from "../Avatar";
 import { ELEMENT_TYPES } from "../../../__tests__/interactions-helper";
 
-const renderComponent = props => {
+const renderComponent = (props: AvatarProps) => {
   return render(<Avatar {...props} />);
 };
 

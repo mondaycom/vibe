@@ -1,22 +1,55 @@
-import React, { useCallback, useMemo } from "react";
+import React, { AriaRole, useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
-import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
-import { AvatarBadge } from "./AvatarBadge";
+import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
+import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
+import { iconSubComponentProps } from "../Icon/Icon";
+
 import "./Avatar.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-const Avatar = ({
+type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
+export interface AvatarProps extends VibeComponentProps {
+  id?: string;
+  src?: string;
+  text?: string;
+  tooltipProps?: any;
+  ariaLabel?: string;
+  withoutTooltip?: boolean;
+  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  type?: AvatarTypes;
+  className?: string;
+  textClassName?: string;
+  backgroundColor?: BackgroundColors;
+  customBackgroundColor?: string;
+  role?: AriaRole;
+  size?: AvatarSizes;
+  customSize?: number;
+  tabIndex?: number;
+  ariaHidden?: boolean;
+  disabled?: boolean;
+  isSquare?: boolean;
+  isDisabled?: boolean;
+  square?: boolean;
+  topLeftBadgeProps?: AvatarBadgeProps;
+  topRightBadgeProps?: AvatarBadgeProps;
+  bottomLeftBadgeProps?: AvatarBadgeProps;
+  bottomRightBadgeProps?: AvatarBadgeProps;
+  withoutBorder?: boolean;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+}
+
+const Avatar: React.FC<AvatarProps> = ({
   id,
   type,
   className,
@@ -114,7 +147,7 @@ const Avatar = ({
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const clickHandler = useCallback(
-    event => {
+    (event: React.MouseEvent | React.KeyboardEvent) => {
       event.preventDefault();
       if (onClick) {
         onClick(event);
@@ -166,41 +199,13 @@ const Avatar = ({
   );
 };
 
-Avatar.types = AVATAR_TYPES;
-Avatar.sizes = AVATAR_SIZES;
-Avatar.colors = elementColorsNames;
-Avatar.backgroundColors = elementColorsNames;
+Object.assign(Avatar, {
+  types: AvatarTypes,
+  sizes: AvatarSizes,
+  colors: elementColorsNames,
+  backgroundColors: elementColorsNames
+});
 
-Avatar.propTypes = {
-  id: PropTypes.string,
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  text: PropTypes.string,
-  tooltipProps: PropTypes.shape(Tooltip.propTypes),
-  ariaLabel: PropTypes.string,
-  withoutTooltip: PropTypes.bool,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  className: PropTypes.string,
-  textClassName: PropTypes.string,
-  backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
-  customBackgroundColor: PropTypes.string,
-  role: PropTypes.string,
-  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
-  customSize: PropTypes.number,
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  ariaHidden: PropTypes.bool,
-  disabled: PropTypes.bool,
-  square: PropTypes.bool,
-  topLeftBadgeProps: PropTypes.object,
-  topRightBadgeProps: PropTypes.object,
-  bottomLeftBadgeProps: PropTypes.object,
-  bottomRightBadgeProps: PropTypes.object,
-  withoutBorder: PropTypes.bool,
-  /**
-   * (event) => void
-   */
-  onClick: PropTypes.func
-};
 Avatar.defaultProps = {
   id: undefined,
   src: undefined,
@@ -211,11 +216,11 @@ Avatar.defaultProps = {
   tooltipProps: undefined,
   ariaLabel: undefined,
   withoutTooltip: false,
-  type: AVATAR_TYPES.TEXT,
+  type: AvatarTypes.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   customBackgroundColor: null,
   role: undefined,
-  size: AVATAR_SIZES.LARGE,
+  size: AvatarSizes.LARGE,
   customSize: null,
   tabIndex: 0,
   ariaHidden: false,
