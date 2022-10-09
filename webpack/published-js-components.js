@@ -70,22 +70,6 @@ const publishedJSComponents = {
   ModalContent: "components/ModalContent/ModalContent.jsx",
   // Don't remove next line
   // plop_marker:published-hooks
-  useKeyEvent: "hooks/useKeyEvent/index.js",
-  useEventListener: "hooks/useEventListener/index.js",
-  useDebounceEvent: "hooks/useDebounceEvent/index.js",
-  useClickOutside: "hooks/useClickOutside/index.js",
-  useResizeObserver: "hooks/useResizeObserver.js",
-  useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
-  useTimeout: "hooks/useTimeout/index.js",
-  usePrevious: "hooks/usePrevious/index.js",
-  useSetFocus: "hooks/useSetFocus/index.js",
-  useMergeRefs: "hooks/useMergeRefs.js",
-  useIsMouseOver: "hooks/useIsMouseOver.js",
-  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
-  useIsOverflowing: "hooks/useIsOverflowing",
-  useMediaQuery: "hooks/useMediaQuery",
-  useVibeMediaQuery: "hooks/useVibeMediaQuery",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 // eslint-disable-next-line no-undef
 module.exports = {
