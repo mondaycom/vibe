@@ -38,7 +38,7 @@ const Label = ({
   isAnimationDisabled = false,
   isLegIncluded = false
 }: LabelProps) => {
-  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
+  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
   const classNames = useMemo(
     () =>
       cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`, {

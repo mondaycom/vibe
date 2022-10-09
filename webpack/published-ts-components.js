@@ -16,6 +16,7 @@ const publishedTSComponents = {
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
+  Avatar: "components/Avatar/Avatar",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

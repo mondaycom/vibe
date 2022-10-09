@@ -61,7 +61,6 @@ const publishedJSComponents = {
   AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
-  Avatar: "components/Avatar/Avatar.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
