@@ -8,15 +8,16 @@ import useIconProps from "./hooks/useIconProps";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { MouseEventCallBack } from "src/types/events";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
 
-interface iconSubComponentProps {
-  ref?: Ref<any>;
+export interface iconSubComponentProps {
+  ref?: Ref<HTMLElement>;
   id?: string;
-  size?: string;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  size?: string | number;
+  onClick?: MouseEventCallBack;
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;

@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.68.0 (2022-10-02)
+
+#### New Features
+* [#884](https://github.com/mondaycom/monday-ui-react-core/pull/884) Feature/sergeyro/font change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.67.1 (2022-09-29)
+
+#### Bug Fixes
+* [#890](https://github.com/mondaycom/monday-ui-react-core/pull/890) fix css issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.67.0 (2022-09-28)
+
+#### New Features
+* [#696](https://github.com/mondaycom/monday-ui-react-core/pull/696) Modal ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#888](https://github.com/mondaycom/monday-ui-react-core/pull/888) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.66.0 (2022-09-21)
 
 #### New Features
