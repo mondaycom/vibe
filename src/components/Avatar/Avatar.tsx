@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { AriaRole, useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
@@ -32,15 +32,13 @@ export interface AvatarProps extends VibeComponentProps {
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
-  role?: string;
+  role?: AriaRole;
   size?: AvatarSizes;
   customSize?: number;
   tabIndex?: number;
   ariaHidden?: boolean;
   disabled?: boolean;
-  // Backward compatibility for props naming
   isSquare?: boolean;
-  // Backward compatibility for props naming
   isDisabled?: boolean;
   square?: boolean;
   topLeftBadgeProps?: AvatarBadgeProps;
@@ -48,10 +46,7 @@ export interface AvatarProps extends VibeComponentProps {
   bottomLeftBadgeProps?: AvatarBadgeProps;
   bottomRightBadgeProps?: AvatarBadgeProps;
   withoutBorder?: boolean;
-  /**
-   * (event) => void
-   */
-  onClick?: (event: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -152,7 +147,7 @@ const Avatar: React.FC<AvatarProps> = ({
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const clickHandler = useCallback(
-    (event: React.MouseEvent) => {
+    (event: React.MouseEvent | React.KeyboardEvent) => {
       event.preventDefault();
       if (onClick) {
         onClick(event);

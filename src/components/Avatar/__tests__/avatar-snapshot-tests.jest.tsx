@@ -3,8 +3,7 @@ import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "../../Icon/Icons";
 
-// TODO: Add type for icon
-// jest.mock("../../Icon/Icon", () => ({ icon }) => <div data-testid="icon-mock">{icon}</div>);
+jest.mock("../../Icon/Icon", () => ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>);
 jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 const IMG_SRC =
