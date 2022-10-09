@@ -184,7 +184,6 @@ const IconButton: React.FC<IconButtonProps> & {
   }
 );
 
-
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
