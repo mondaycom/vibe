@@ -1,5 +1,4 @@
 import React, { forwardRef, useCallback } from "react";
-import PropTypes from "prop-types";
 import MenuItem from "./MenuItem";
 import Avatar, { AvatarProps } from "../../Avatar/Avatar";
 import VibeComponentProps from "../../../types/VibeComponentProps";
@@ -19,14 +18,6 @@ const AvatarMenuItem: React.FC<AvatarMenuItemProps> = forwardRef(({ avatarProps,
   // @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuItem is converted to TS
   return <MenuItem {...menuItemProps} icon={renderAvatar} ref={ref} />;
 });
-
-AvatarMenuItem.propTypes = {
-  ...MenuItem.propTypes,
-  avatarProps: PropTypes.shape(Avatar.propTypes)
-};
-AvatarMenuItem.defaultProps = {
-  avatarProps: {}
-};
 
 // @ts-ignore TODO how to solve this?
 AvatarMenuItem.isMenuChild = true;
