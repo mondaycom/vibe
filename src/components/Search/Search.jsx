@@ -63,7 +63,7 @@ const Search = forwardRef(
     return (
       <TextField
         id={id}
-        dataTestId={primaryDataTestId || getTestId(ELEMENT_TYPES.SEARCH, id)}
+        primaryDataTestId={primaryDataTestId || getTestId(ELEMENT_TYPES.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
