@@ -1,5 +1,4 @@
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -10,47 +9,50 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
+import { ChipsSize } from "./ChipsConstants";
+import { AvatarTypes } from "../Avatar/AvatarConstants";
 import styles from "./Chips.module.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import { ChipsSize } from "./ChipsConstant";
-import {AvatarTypes} from '../Avatar/AvatarConstants'
-interface ChipsProps  extends VibeComponentProps {
-  className?: string,
-  id?: string,
-  label?: string,
-  disabled?: boolean,
-  readOnly?: boolean,
-  dataTestId?: string,
+
+interface ChipsProps extends VibeComponentProps {
+  className?: string;
+  id?: string;
+  label?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  dataTestId?: string;
   /** Icon to place on the right */
   rightIcon?: string | React.FunctionComponent | null;
   /** Icon to place on the left */
   leftIcon?: string | React.FunctionComponent | null;
   /** Img to place as avatar on the right */
-  rightAvatar?:string,
+  rightAvatar?: string;
   /** Img to place as avatar on the left */
-  leftAvatar?: string,
+  leftAvatar?: string;
   // color?: Object.keys(Chips.colors),
-  color?: keyof Record<string,string>,
+  color?: keyof Record<string, string>;
   /** size for font icon */
-  iconSize?: number|string,
-  onDelete ?: (id:string,event:React.MouseEvent<HTMLSpanElement>) => void,
+  iconSize?: number | string;
+  onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
   /**
    * Disables the Chips's entry animation
    */
-  noAnimation?: boolean,
+  noAnimation?: boolean;
   /**
    * Allow user to select text
    */
-  allowTextSelection?:boolean,
+  allowTextSelection?: boolean;
   /**
    * Callback function to be called when the user clicks the component.
    */
-  onMouseDown?: (event:React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onMouseDown?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const Chips: React.ForwardRefExoticComponent<ChipsProps & React.RefAttributes<unknown>> & {
+const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
-} = forwardRef<unknown, ChipsProps>(
+  colors?: typeof elementColorsNames;
+} = forwardRef<HTMLElement, ChipsProps>(
   (
     {
       className,
@@ -81,7 +83,7 @@ const Chips: React.ForwardRefExoticComponent<ChipsProps & React.RefAttributes<un
     }, [disabled, color]);
 
     const onDeleteCallback = useCallback(
-      (      e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+      (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         if (onDelete) {
           onDelete(id, e);
         }
@@ -149,12 +151,11 @@ const Chips: React.ForwardRefExoticComponent<ChipsProps & React.RefAttributes<un
         {hasCloseButton && (
           <IconButton
             size={ChipsSize.XXS}
-            color={elementColorsNames.ON_PRIMARY_COLOR}
+            color={IconButton.colors.ON_PRIMARY_COLOR}
             className={cx(styles.icon, styles.close)}
             ariaLabel="Remove"
             hideTooltip
             icon={CloseSmall}
-            iconSize={18}
             onClick={onDeleteCallback}
             dataTestId={`${overrideDataTestId}-close`}
           />
@@ -165,11 +166,9 @@ const Chips: React.ForwardRefExoticComponent<ChipsProps & React.RefAttributes<un
 );
 
 Object.assign(Chips, {
-  sizes:  ChipsSize,
-  colors: elementColorsNames,
+  sizes: ChipsSize,
+  colors: elementColorsNames
 });
-
-
 
 Chips.defaultProps = {
   className: "",

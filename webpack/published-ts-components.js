@@ -18,6 +18,7 @@ const publishedTSComponents = {
   ToastLink: "components/Toast/ToastLink/ToastLink",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
+  Chips: "components/Chips/Chips",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

@@ -5,8 +5,8 @@ import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 
 describe("Chips tests", () => {
   const label = "Chip";
-  
-  const className = "test-class"
+
+  const className = "test-class";
   let onDeletedMock: jest.Mock;
 
   beforeEach(() => {
