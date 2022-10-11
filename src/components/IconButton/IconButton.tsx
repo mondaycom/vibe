@@ -1,19 +1,81 @@
-import { SIZES } from "../../constants/sizes";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
-import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import ToolTip from "../../components/Tooltip/Tooltip";
-import Button from "../../components/Button/Button";
-import Icon from "../../components/Icon/Icon";
-import AddSmall from "../../components/Icon/Icons/components/AddSmall";
-import { getWidthHeight } from "./services/IconButton-helpers";
+import ToolTip from "../Tooltip/Tooltip";
+import Icon from "../Icon/Icon";
+import AddSmall from "../Icon/Icons/components/AddSmall";
+import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./IconButton.module.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
+import Button from "../Button/Button";
+import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
 
-const IconButton = forwardRef(
+export interface IconButtonProps extends VibeComponentProps {
+  /**
+   * id to be added to the element
+   */
+  id?: string;
+  /**
+   * callback function when clicking the icon button
+   */
+  onClick?: (event: React.MouseEvent) => void;
+  /**
+   * class to be added to the button
+   */
+  className?: string;
+  /**
+   * class to be added to the button wrapper
+   */
+  wrapperClassName?: string;
+  /**
+   * Icon to be rendered
+   */
+  icon?: string | React.FunctionComponent | null;
+  /**
+   * a11y property to be added, used for screen reader to know what kind of button it is
+   */
+  ariaLabel?: string;
+  /**
+   * Size of the icon
+   */
+  size?: Size;
+
+  /**
+   * Whether the tooltip should be displayed or not
+   */
+  hideTooltip?: boolean;
+  /**
+   * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
+   */
+  tooltipContent?: string;
+  /**
+   * Kind of button - like <Button />
+   */
+  kind?: ButtonType;
+  active?: boolean;
+  /** The button's color  */
+  color?: ButtonColor;
+  /**
+   * disabled state
+   */
+  disabled?: boolean;
+  /**
+   * if disabled - this will be shown in the tooltip
+   */
+  disabledReason?: string;
+  dataTestId?: string;
+  /** Change the focus indicator from around the button to within it */
+  insetFocus?: boolean;
+}
+
+const IconButton: React.FC<IconButtonProps> & {
+  sizes?: typeof Button.sizes;
+  kinds?: typeof Button.kinds;
+  colors?: typeof Button.colors;
+} = forwardRef(
   (
     {
       className,
@@ -45,12 +107,12 @@ const IconButton = forwardRef(
 
     const iconSize = useMemo(() => {
       switch (size) {
-        case IconButton.sizes.XXS:
-        case IconButton.sizes.XS:
+        case Button.sizes.XXS:
+        case Button.sizes.XS:
           return 16;
-        case IconButton.sizes.SMALL:
-        case IconButton.sizes.MEDIUM:
-        case IconButton.sizes.LARGE:
+        case Button.sizes.SMALL:
+        case Button.sizes.MEDIUM:
+        case Button.sizes.LARGE:
           return BUTTON_ICON_SIZE;
         default:
           return 24;
@@ -62,7 +124,7 @@ const IconButton = forwardRef(
         justifyContent: "center",
         alignItems: "center",
         padding: 0
-      };
+      } as React.CSSProperties;
       if (active && kind !== IconButton.kinds.PRIMARY) {
         style.background = "var(--primary-selected-color)";
       }
@@ -122,77 +184,11 @@ const IconButton = forwardRef(
   }
 );
 
-IconButton.sizes = SIZES;
-IconButton.kinds = Button.kinds;
-IconButton.colors = Button.colors;
-
-IconButton.propTypes = {
-  /**
-   * id to be added to the element
-   */
-  id: PropTypes.string,
-  /**
-   * callback function when clicking the icon button
-   */
-  onClick: PropTypes.func,
-  /**
-   * class to be added to the button
-   */
-  className: PropTypes.string,
-  /**
-   * class to be added to the button wrapper
-   */
-  wrapperClassName: PropTypes.string,
-  /**
-   * Icon to be rendered
-   */
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element, PropTypes.func]),
-  /**
-   * a11y property to be added, used for screen reader to know what kind of button it is
-   */
-  ariaLabel: PropTypes.string,
-  /**
-   * Size of the icon
-   */
-  size: PropTypes.oneOf([
-    IconButton.sizes.XXS,
-    IconButton.sizes.XS,
-    IconButton.sizes.SMALL,
-    IconButton.sizes.MEDIUM,
-    IconButton.sizes.LARGE
-  ]),
-  /**
-   * Whether the tooltip should be displayed or not
-   */
-  hideTooltip: PropTypes.bool,
-  /**
-   * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
-   */
-  tooltipContent: PropTypes.string,
-  /**
-   * Kind of button - like <Button />
-   */
-  kind: PropTypes.oneOf([IconButton.kinds.PRIMARY, IconButton.kinds.SECONDARY, IconButton.kinds.TERTIARY]),
-  /** The button's color  */
-  color: PropTypes.oneOf([
-    Button.colors.PRIMARY,
-    Button.colors.NEGATIVE,
-    Button.colors.POSITIVE,
-    Button.colors.ON_PRIMARY_COLOR,
-    Button.colors.ON_INVERTED_BACKGROUND
-  ]),
-  /**
-   * disabled state
-   */
-  disabled: PropTypes.bool,
-  /**
-   * if disabled - this will be shown in the tooltip
-   */
-  disabledReason: PropTypes.string,
-  dataTestId: PropTypes.string,
-  /** Change the focus indicator from around the button to within it */
-  insetFocus: PropTypes.bool
-};
+Object.assign(IconButton, {
+  sizes: Button.sizes,
+  kinds: Button.kinds,
+  colors: Button.colors
+});
 
 IconButton.defaultProps = {
   className: undefined,
@@ -201,10 +197,10 @@ IconButton.defaultProps = {
   id: undefined,
   icon: AddSmall,
   ariaLabel: undefined,
-  size: IconButton.sizes.MEDIUM,
+  size: IconButton?.sizes.MEDIUM,
   hideTooltip: false,
   tooltipContent: undefined,
-  kind: Button.kinds.TERTIARY,
+  kind: IconButton.kinds.TERTIARY,
   disabled: false,
   disabledReason: undefined,
   color: undefined,

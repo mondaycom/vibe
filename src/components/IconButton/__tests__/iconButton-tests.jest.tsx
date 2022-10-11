@@ -1,11 +1,11 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import IconButton from "../IconButton";
+import IconButton, { IconButtonProps } from "../IconButton";
 
 jest.useFakeTimers();
 
-const renderComponent = props => {
+const renderComponent = (props: IconButtonProps) => {
   return render(<IconButton {...props} />);
 };
 
