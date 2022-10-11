@@ -1,5 +1,85 @@
 # Changelog
 
+## 1.68.0 (2022-10-02)
+
+#### New Features
+* [#884](https://github.com/mondaycom/monday-ui-react-core/pull/884) Feature/sergeyro/font change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.67.1 (2022-09-29)
+
+#### Bug Fixes
+* [#890](https://github.com/mondaycom/monday-ui-react-core/pull/890) fix css issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.67.0 (2022-09-28)
+
+#### New Features
+* [#696](https://github.com/mondaycom/monday-ui-react-core/pull/696) Modal ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#888](https://github.com/mondaycom/monday-ui-react-core/pull/888) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.66.0 (2022-09-21)
+
+#### New Features
+* [#882](https://github.com/mondaycom/monday-ui-react-core/pull/882) Feature/refactor components motion keyframes ([@3dyonic](https://github.com/3dyonic))
+
+## 1.65.0 (2022-09-21)
+
+#### New Features
+* [#883](https://github.com/mondaycom/monday-ui-react-core/pull/883) fix externals issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.64.2 (2022-09-20)
+
+#### Bug Fixes
+* [#879](https://github.com/mondaycom/monday-ui-react-core/pull/879) Fix flex grow loading state size. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.64.1 (2022-09-20)
+
+#### Bug Fixes
+* [#880](https://github.com/mondaycom/monday-ui-react-core/pull/880) Fix Virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.64.0 (2022-09-20)
+
+#### Bug Fixes
+* [#876](https://github.com/mondaycom/monday-ui-react-core/pull/876) Fix for virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#873](https://github.com/mondaycom/monday-ui-react-core/pull/873) add on hover to list item ([@liatmaor](https://github.com/liatmaor))
+
+#### Documentation
+* [#872](https://github.com/mondaycom/monday-ui-react-core/pull/872) add readme for typescript migration process ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#869](https://github.com/mondaycom/monday-ui-react-core/pull/869) Hooks ts ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#877](https://github.com/mondaycom/monday-ui-react-core/pull/877) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.63.1 (2022-09-15)
+
+#### Bug Fixes
+* [#874](https://github.com/mondaycom/monday-ui-react-core/pull/874) fix icon types import ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#870](https://github.com/mondaycom/monday-ui-react-core/pull/870) Feature/sergeyro/ts infra css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#871](https://github.com/mondaycom/monday-ui-react-core/pull/871) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.63.0 (2022-09-14)
+
+#### New Features
+* [#857](https://github.com/mondaycom/monday-ui-react-core/pull/857) Convert icon component and related code to js ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#858](https://github.com/mondaycom/monday-ui-react-core/pull/858) Css modules typescript infra via 'typescript-plugin-css-modules' + eslint ts specification ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.62.1 (2022-09-11)
 
 #### Bug Fixes

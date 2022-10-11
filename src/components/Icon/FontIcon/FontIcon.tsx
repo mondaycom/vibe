@@ -1,13 +1,13 @@
 import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import VibeComponentProps from "../../../interfaces/VibeComponentProps";
-import VibeComponent from "../../../interfaces/VibeComponent";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import VibeComponent from "../../../types/VibeComponent";
 
 interface FontIconProps extends VibeComponentProps {
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   "aria-label"?: string;
   tabIndex?: number;
-  icon?: string | React.Component | null;
+  icon?: string | React.FunctionComponent | null;
   role?: AriaRole;
   "aria-hidden"?: boolean;
 }
@@ -15,7 +15,7 @@ interface FontIconProps extends VibeComponentProps {
 const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
   (
     {
-      id = "",
+      id,
       className,
       onClick,
       "aria-label": iconLabel,
@@ -29,7 +29,6 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
   ) => {
     const isIconFunction = typeof Icon === "function";
     const iconClassName = isIconFunction ? "" : Icon;
-    // @ts-ignore
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <span
@@ -43,11 +42,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         id={id}
         data-testid={dataTestId}
       >
-        {isIconFunction && (
-          //Icon components are not converted to typescript in this stage
-          //@ts-ignore
-          <Icon />
-        )}
+        {isIconFunction && <Icon />}
       </span>
     );
   }

@@ -1,12 +1,10 @@
 import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
-import VibeComponentProps from "../../../interfaces/VibeComponentProps";
-import VibeComponent from "../../../interfaces/VibeComponent";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 
-function modifySvgCode(svg: string, color: string = "currentColor") {
+function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
 }
 
@@ -24,9 +22,9 @@ interface CustomSvgIconProps extends VibeComponentProps {
 }
 
 const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
-  className = "",
+  className,
   ref,
-  src = "",
+  src,
   onClick,
   clickable,
   ariaLabel,

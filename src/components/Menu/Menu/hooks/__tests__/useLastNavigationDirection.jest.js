@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import { NAV_DIRECTIONS } from "../../../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "../../../../../hooks/useFullKeyboardListeners";
 import { useLastNavigationDirection } from "../useLastNavigationDirection";
 
 describe("useLastNavigationDirection", () => {
@@ -21,10 +21,10 @@ describe("useLastNavigationDirection", () => {
   });
 
   [
-    { key: "ArrowUp", direction: NAV_DIRECTIONS.UP },
-    { key: "ArrowLeft", direction: NAV_DIRECTIONS.LEFT },
-    { key: "ArrowRight", direction: NAV_DIRECTIONS.RIGHT },
-    { key: "ArrowDown", direction: NAV_DIRECTIONS.DOWN }
+    { key: "ArrowUp", direction: NavDirections.UP },
+    { key: "ArrowLeft", direction: NavDirections.LEFT },
+    { key: "ArrowRight", direction: NavDirections.RIGHT },
+    { key: "ArrowDown", direction: NavDirections.DOWN }
   ].forEach(({ key, direction }) => {
     it(`should return direction "${direction}" when pressing the key "${key}"`, () => {
       const { result } = renderHookForTest();

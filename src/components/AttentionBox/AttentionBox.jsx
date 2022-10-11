@@ -5,7 +5,7 @@ import Icon from "../../components/Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import AlertIcon from "../../components/Icon/Icons/components/Alert";
-import { ICON_TYPES } from "../../components/Icon/IconConstants";
+import { IconType } from "../../components/Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
@@ -118,7 +118,7 @@ const AttentionBox = ({
 };
 
 AttentionBox.types = ATTENTION_BOX_TYPES;
-AttentionBox.iconTypes = ICON_TYPES;
+AttentionBox.iconTypes = IconType;
 AttentionBox.propTypes = {
   className: PropTypes.string,
   /** we support 4 types of attention boxes */

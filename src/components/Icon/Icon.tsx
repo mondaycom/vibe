@@ -1,24 +1,35 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, Ref, CSSProperties } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { ICON_TYPES } from "./IconConstants";
+import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import VibeComponentProps from "../../interfaces/VibeComponentProps";
-import VibeComponent from "../../interfaces/VibeComponent";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 import "./Icon.scss";
+import { MouseEventCallBack } from "src/types/events";
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
+
+export interface iconSubComponentProps {
+  ref?: Ref<HTMLElement>;
+  id?: string;
+  size?: string | number;
+  onClick?: MouseEventCallBack;
+  className?: string;
+  style?: CSSProperties;
+  "data-testid"?: string;
+}
 
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
-  icon: string | React.Component | null;
+  icon: string | React.FunctionComponent<iconSubComponentProps> | null;
   clickable?: boolean;
   iconLabel?: string;
-  iconType?: typeof ICON_TYPES[keyof typeof ICON_TYPES];
+  iconType?: IconType;
   iconSize?: number | string;
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
@@ -28,18 +39,18 @@ interface IconProps extends VibeComponentProps {
   customColor?: string;
 }
 
-const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES } = forwardRef(
+const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } = forwardRef(
   (
     {
       /**
        * component id
        */
-      id = "",
+      id,
       onClick = CLICK_NOOP,
       /**
        * class name to be added to icon
        */
-      className = "",
+      className,
       /**
        * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
        */
@@ -55,7 +66,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
       /**
        *  the type of the component - svg, font or custom svg (using react-inlinesvg)
        */
-      iconType = ICON_TYPES.SVG,
+      iconType = IconType.SVG,
       /**
        * size for font icon
        */
@@ -82,7 +93,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
     },
     ref
   ) => {
-    const overrideExternalTabIndex = +externalTabIndex;
+    const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
       iconLabel,
@@ -99,12 +110,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
       return null;
     }
 
+    // Replace in major version change with more accurate check
     const isFunctionType = typeof icon === "function";
-    if (iconType === ICON_TYPES.SVG || isFunctionType || typeof icon === "object") {
+    // Replace in major version change with more accurate check
+    if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
       const IconComponent = icon;
       return (
-        // The icons are not converted to ts for js yet.
-        // @ts-ignore
         <IconComponent
           id={id}
           {...screenReaderAccessProps}
@@ -117,7 +128,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
         />
       );
     }
-    if (iconType === ICON_TYPES.SRC) {
+    if (iconType === IconType.SRC) {
       return (
         <CustomSvgIcon
           id={id}
@@ -145,6 +156,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
   }
 );
 
-Icon.type = ICON_TYPES;
+Icon.type = IconType;
 
 export default Icon;

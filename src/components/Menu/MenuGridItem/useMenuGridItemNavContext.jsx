@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
 import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 
 export const useMenuGridItemNavContext = ({
@@ -23,11 +23,11 @@ export const useMenuGridItemNavContext = ({
         innerKeyboardContext.onOutboundNavigation(elementRef, direction);
 
         switch (direction) {
-          case NAV_DIRECTIONS.UP:
+          case NavDirections.UP:
             return setActiveItemIndex(getPreviousSelectableIndex(activeItemIndex));
-          case NAV_DIRECTIONS.DOWN:
+          case NavDirections.DOWN:
             return setActiveItemIndex(getNextSelectableIndex(activeItemIndex));
-          case NAV_DIRECTIONS.LEFT:
+          case NavDirections.LEFT:
             if (isUnderSubMenu) {
               closeMenu();
             }
