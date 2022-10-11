@@ -1,7 +1,8 @@
-import React, { useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { Ref, useMemo } from "react";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
-import Avatar from "../Avatar/Avatar";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarProps } from "../Avatar/Avatar";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
 const LIST_OPTIONS = Object.freeze({
@@ -10,13 +11,20 @@ const LIST_OPTIONS = Object.freeze({
   itemLineWidth: 150
 });
 
-const AvatarGroupCounterTooltipContentVirtualizedList = ({
-  avatarItems,
-  avatarRenderer,
-  type,
-  tooltipContainerAriaLabel,
-  tooltipContentContainerRef
-}) => {
+interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
+  /**
+   * Array of Avatar components
+   */
+  avatarItems?: { value: AvatarProps & { tooltipContent: any } }[];
+  avatarRenderer?: Function;
+  tooltipContainerAriaLabel?: string;
+  tooltipContentContainerRef?: Ref<HTMLDivElement>;
+  type?: AvatarTypes;
+}
+
+const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<
+  AvatarGroupCounterTooltipContentVirtualizedListProps
+> = ({ avatarItems = [], avatarRenderer, type, tooltipContainerAriaLabel, tooltipContentContainerRef }) => {
   const virtualizedItems = useMemo(
     () => avatarItems.map(item => ({ ...item, height: LIST_OPTIONS.itemLineHeight })),
     [avatarItems]
@@ -36,30 +44,16 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
       tabIndex={-1}
     >
       <VirtualizedList
+        // @ts-ignore TODO ts-migration: solve when VirtualizedList is converted to TS
         items={virtualizedItems}
-        itemRenderer={(item, index, style) => avatarRenderer(item, index, style, type, false)}
+        itemRenderer={(item: any, index: number, style: any) => avatarRenderer(item, index, style, type, false)}
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
-        getItemId={(item, index) => index}
+        getItemId={(item: any, index: number) => index}
         style={virtualizedListStyle}
       />
     </div>
   );
-};
-
-AvatarGroupCounterTooltipContentVirtualizedList.propTypes = {
-  avatars: PropTypes.arrayOf(PropTypes.element),
-  avatarRenderer: PropTypes.func,
-  tooltipContainerAriaLabel: PropTypes.string,
-  tooltipContentContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
-  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG])
-};
-AvatarGroupCounterTooltipContentVirtualizedList.defaultProps = {
-  avatars: [],
-  avatarRenderer: undefined,
-  tooltipContainerAriaLabel: undefined,
-  tooltipContentContainerRef: undefined,
-  type: undefined
 };
 
 export default AvatarGroupCounterTooltipContentVirtualizedList;

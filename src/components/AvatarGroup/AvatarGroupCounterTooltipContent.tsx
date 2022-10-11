@@ -1,20 +1,33 @@
-import React, { useCallback, useMemo } from "react";
+import React, { ReactElement, Ref, useCallback, useMemo } from "react";
 import cx from "classnames";
-import PropTypes from "prop-types";
 import Flex from "../Flex/Flex";
-import Avatar from "../Avatar/Avatar";
+import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-const AvatarGroupCounterTooltipContent = ({
-  avatars,
+interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
+  className?: string;
+  type?: AvatarTypes;
+  /**
+   * Array of Avatar components
+   */
+  avatars?: ReactElement<AvatarProps>[];
+  isVirtualizedList?: boolean;
+  tooltipContentContainerRef?: Ref<HTMLDivElement>;
+}
+
+const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipContentProps> = ({
+  avatars = [],
   type,
   className,
-  isVirtualizedList,
+  isVirtualizedList = false,
   tooltipContentContainerRef
 }) => {
-  const getTooltipContent = useCallback(avatarProps => {
+  const getTooltipContent = useCallback((avatarProps: AvatarProps) => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
   }, []);
 
@@ -54,30 +67,12 @@ const AvatarGroupCounterTooltipContent = ({
     className: displayAsGrid
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),
-    direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN,
-    gap: displayAsGrid ? Flex.gaps.XS : Flex.gaps.SMALL,
+    direction: displayAsGrid ? FLEX_DIRECTIONS.ROW : FLEX_DIRECTIONS.COLUMN,
+    gap: displayAsGrid ? FLEX_GAPS.XS : FLEX_GAPS.SMALL,
     wrap: displayAsGrid
   };
 
   return <Flex {...flexProps}>{renderedItems}</Flex>;
-};
-
-AvatarGroupCounterTooltipContent.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  /**
-   * Array of Avatar components
-   */
-  avatars: PropTypes.arrayOf(PropTypes.element),
-  isVirtualizedList: PropTypes.bool,
-  tooltipContentContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
-};
-AvatarGroupCounterTooltipContent.defaultProps = {
-  className: undefined,
-  type: undefined,
-  avatars: [],
-  isVirtualizedList: false,
-  tooltipContentContainerRef: undefined
 };
 
 export default AvatarGroupCounterTooltipContent;

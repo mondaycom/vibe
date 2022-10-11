@@ -1,21 +1,43 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
+import React, { ReactElement, Ref, useCallback, useMemo, useRef, useState } from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
-import Avatar from "../Avatar/Avatar";
+import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
-import { useTooltipContentTabNavigation, TOOLTIP_SHOW_DELAY } from "./AvatarGroupCounterTooltipHelper";
+import { TOOLTIP_SHOW_DELAY, useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { CounterProps } from "../Counter/Counter";
 
-const AvatarGroupCounterTooltipContainer = ({
+interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
+  className?: string;
+  type?: AvatarTypes;
+  /**
+   * Counter element
+   */
+  children?: ReactElement<CounterProps> | ReactElement<CounterProps>[];
+  // children?: any;
+  /**
+   * Array of Avatar elements
+   */
+  avatars?: ReactElement<AvatarProps>[];
+  // TODO ts-migration replace with TooltipProps when Tooltip is converted to TS
+  counterTooltipCustomProps?: any;
+  counterTooltipIsVirtualizedList?: boolean;
+  focusPrevPlaceholderRef?: Ref<HTMLDivElement>;
+  focusNextPlaceholderRef?: Ref<HTMLDivElement>;
+  counterContainerRef?: Ref<HTMLDivElement>;
+}
+
+const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
   counterContainerRef,
-  children,
-  avatars,
+  children = [],
+  avatars = [],
   type,
   className,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList
+  counterTooltipIsVirtualizedList = false
 }) => {
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
   const tooltipContentContainerRef = useRef(null);
@@ -50,7 +72,7 @@ const AvatarGroupCounterTooltipContainer = ({
   const hideTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
-    return children;
+    return children as ReactElement<CounterProps>;
   }
   return (
     <Tooltip
@@ -67,35 +89,6 @@ const AvatarGroupCounterTooltipContainer = ({
       {children}
     </Tooltip>
   );
-};
-
-AvatarGroupCounterTooltipContainer.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  /**
-   * Counter element
-   */
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
-  /**
-   * Array of Avatar elements
-   */
-  avatars: PropTypes.arrayOf(PropTypes.element),
-  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
-  counterTooltipIsVirtualizedList: PropTypes.bool,
-  focusPrevPlaceholderRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
-  focusNextPlaceholderRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
-  counterContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
-};
-AvatarGroupCounterTooltipContainer.defaultProps = {
-  className: undefined,
-  type: undefined,
-  children: [],
-  avatars: [],
-  counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false,
-  focusPrevPlaceholderRef: undefined,
-  focusNextPlaceholderRef: undefined,
-  counterContainerRef: undefined
 };
 
 export default AvatarGroupCounterTooltipContainer;

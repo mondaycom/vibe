@@ -11,14 +11,14 @@ import Tooltip from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
 import { iconSubComponentProps } from "../Icon/Icon";
-
-import "./Avatar.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
+
 export interface AvatarProps extends VibeComponentProps {
   id?: string;
   src?: string;
@@ -46,7 +46,7 @@ export interface AvatarProps extends VibeComponentProps {
   bottomLeftBadgeProps?: AvatarBadgeProps;
   bottomRightBadgeProps?: AvatarBadgeProps;
   withoutBorder?: boolean;
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -150,7 +150,7 @@ const Avatar: React.FC<AvatarProps> = ({
     (event: React.MouseEvent | React.KeyboardEvent) => {
       event.preventDefault();
       if (onClick) {
-        onClick(event);
+        onClick(event, id);
       }
     },
     [onClick]

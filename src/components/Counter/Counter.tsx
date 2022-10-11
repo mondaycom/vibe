@@ -6,10 +6,10 @@ import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { CounterColor, CounterType, CounterSize, getActualSize } from "./CounterConstants";
+import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
 import "./Counter.scss";
 
-interface CounterProps extends VibeComponentProps {
+export interface CounterProps extends VibeComponentProps {
   /** id to pass to the element */
   id?: string;
   /** element id to describe the counter accordingly */
