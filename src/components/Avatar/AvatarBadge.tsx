@@ -3,7 +3,6 @@ import cx from "classnames";
 import React from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSizes } from "./AvatarConstants";
-import "./AvatarBadge.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./AvatarBadge.module.scss";
