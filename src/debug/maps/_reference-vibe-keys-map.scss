@@ -1,7 +1,0 @@
-// DEBUG MAP: REFERENCE KEYS MAP
-// map for validating Vibe tokens
-// - Used within mixin "debug-vibe-tokens"
-$reference-vibe-keys-map: map-collect(
-                $theme-basic-keys,
-                $theme-basic-shadow-keys
-);
