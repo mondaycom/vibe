@@ -299,7 +299,7 @@ export default class Dialog extends PureComponent {
               <Refable
                 className={referenceWrapperClassName}
                 id={id}
-                datatestid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG, id)}
+                data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG, id)}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}

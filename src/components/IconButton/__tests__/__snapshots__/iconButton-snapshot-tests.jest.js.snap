@@ -88,7 +88,7 @@ exports[`IconButton renders correctly with active 1`] = `
 exports[`IconButton renders correctly with aria label 1`] = `
 <span
   className="referenceWrapper"
-  datatestid="tooltip"
+  data-testid="tooltip"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

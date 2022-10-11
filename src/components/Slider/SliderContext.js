@@ -12,7 +12,7 @@ export function SliderProvider({
   ariaLabel,
   ariaLabelledby,
   color,
-  dataTestId,
+  "data-testid": dataTestId,
   defaultValue,
   disabled,
   max,

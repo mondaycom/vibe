@@ -33,19 +33,21 @@ Snapshot Diff:
 -   >
 -     <span
 -       class="referenceWrapper"
+-       data-testid="tooltip"
 -     >
 -       <button
 -         aria-busy="false"
 -         aria-disabled="false"
 -         aria-label="close"
--         class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+-         class="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
 -         data-testid="icon-button"
 -         style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 -         type="button"
 -       >
 -         <svg
 -           aria-hidden="true"
--           class="icon_component icon-button-padding icon_component--no-focus-style"
+-           class="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+-           data-testid="icon"
 -           fill="currentColor"
 -           height="20"
 -           viewBox="0 0 20 20"
@@ -97,7 +99,8 @@ Snapshot Diff:
 +     >
 +       <svg
 +         aria-hidden="true"
-+         class="icon_component icon_component--no-focus-style"
++         class="icon icon_component noFocusStyle icon_component--no-focus-style"
++         data-testid="icon"
 +         fill="currentColor"
 +         height="24"
 +         viewBox="0 0 20 20"
@@ -133,19 +136,21 @@ exports[`ModalHeader with required props 1`] = `
   >
     <span
       class="referenceWrapper"
+      data-testid="tooltip"
     >
       <button
         aria-busy="false"
         aria-disabled="false"
         aria-label="close"
-        class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+        class="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
         data-testid="icon-button"
         style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="icon_component icon-button-padding icon_component--no-focus-style"
+          class="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+          data-testid="icon"
           fill="currentColor"
           height="20"
           viewBox="0 0 20 20"

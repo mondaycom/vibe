@@ -144,7 +144,6 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       <div
         className="marginLeft monday-style-alert-banner-link-margin-left"
         data-testid="alert-banner-link"
-        id=""
       >
         <a
           aria-label=""
@@ -363,7 +362,6 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       <div
         className="marginLeft monday-style-alert-banner-link-margin-left"
         data-testid="alert-banner-link"
-        id=""
       >
         <a
           aria-label=""
