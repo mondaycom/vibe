@@ -2,9 +2,11 @@ import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./Loader.module.scss";
 
-export interface ILoaderProps {
+export interface LoaderProps extends VibeComponentProps {
   id?: string;
   // Backward compatibility for props naming
   svgClassName?: string;
@@ -15,11 +17,14 @@ export interface ILoaderProps {
   hasBackground?: boolean;
 }
 
-const Loader: React.ForwardRefExoticComponent<ILoaderProps> & {
+const Loader: React.ForwardRefExoticComponent<LoaderProps> & {
   sizes?: typeof LoaderSizes;
   colors?: typeof LoaderColors;
-} = forwardRef<unknown, ILoaderProps>(
-  ({ svgClassName, className, size, color, hasBackground, id }: ILoaderProps, ref: ForwardedRef<HTMLDivElement>) => {
+} = forwardRef<unknown, LoaderProps>(
+  (
+    { svgClassName, className, size, color, hasBackground, id, "data-testid": dataTestId }: LoaderProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
     const sizeStyle = useMemo(() => {
@@ -37,6 +42,7 @@ const Loader: React.ForwardRefExoticComponent<ILoaderProps> & {
         title="loading"
         style={sizeStyle}
         id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LOADER, id)}
       >
         <svg
           className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
