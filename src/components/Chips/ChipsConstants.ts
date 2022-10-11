@@ -1,3 +1,3 @@
 export enum ChipsSize {
-    XXS= "xxs"
+  XXS = "xxs"
 }
