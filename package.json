@@ -65,7 +65,7 @@
     "classnames": "^2.3.2",
     "detect-browser": "^5.3.0",
     "lodash": "^4.17.21",
-    "monday-ui-style": "0.1.140",
+    "monday-ui-style": "0.1.141",
     "prop-types": "^15.8.1",
     "react-inlinesvg": "^3.0.1",
     "react-popper": "^2.3.0",
