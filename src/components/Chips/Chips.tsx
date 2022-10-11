@@ -51,6 +51,7 @@ interface ChipsProps extends VibeComponentProps {
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
+  colors?: typeof elementColorsNames;
 } = forwardRef<HTMLElement, ChipsProps>(
   (
     {

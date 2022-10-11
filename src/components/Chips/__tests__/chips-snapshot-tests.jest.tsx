@@ -3,7 +3,6 @@ import renderer from "react-test-renderer";
 import Chips from "../Chips";
 import { Calendar } from "../../Icon/Icons";
 import { person1 } from "../../Avatar/__stories__/assets";
-import { elementColorsNames } from "src/utils/colors-vars-map";
 
 describe("Chips renders correctly", () => {
   it("renders correctly with empty props", () => {
@@ -12,7 +11,7 @@ describe("Chips renders correctly", () => {
   });
 
   it("renders correctly with color", () => {
-    const tree = renderer.create(<Chips color={elementColorsNames.NEGATIVE} />).toJSON();
+    const tree = renderer.create(<Chips color={Chips.colors.NEGATIVE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
