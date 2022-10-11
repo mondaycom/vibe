@@ -3,6 +3,7 @@ const publishedTSComponents = {
   AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
+  IconButton: "components/IconButton/IconButton",
   Link: "components/Link/Link",
   ColorUtils: "utils/colors-utils.ts",
   Counter: "components/Counter/Counter",
