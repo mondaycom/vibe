@@ -30,7 +30,7 @@ export function useTooltipContentTabNavigation({
   setIsKeyboardTooltipVisible: (value: boolean) => void;
 }) {
   const showKeyboardTooltip = useCallback(
-    (event: FocusEvent) => {
+    (_event: FocusEvent) => {
       if (!isKeyboardTooltipVisible) {
         // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
         setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
