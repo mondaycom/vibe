@@ -1,0 +1,42 @@
+import React, { forwardRef, useRef } from "react";
+import cx from "classnames";
+import { useMergeRefs } from "../../hooks";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./{{properCase componentName}}.module.scss";
+
+export interface {{properCase componentName}}Props extends VibeComponentProps {
+  /**
+   * class name to be added to the wrapper
+   */
+  className: string;
+  /**
+   * id to be added to the wrapper
+   */
+  id: string;
+  /**
+   * data-testid to be added to the wrapper
+   */
+  "data-testid": string;
+}
+
+const {{properCase componentName}}: VibeComponent<{{properCase componentName}}Props, HTMLElement> = forwardRef(
+  ({ className, id, "data-testid": dataTestId }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    return (
+      <div
+        ref={mergedRef}
+        className={cx(styles.{{camelCase componentName}}, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.{{constantCase componentName}}, id)}
+      >
+        My awesome new component
+      </div>
+    );
+  }
+);
+
+export default {{properCase componentName}};

@@ -1,4 +1,6 @@
 const publishedTSComponents = {
+  // Don't remove next line
+  // plop_marker:published-components
   Button: "components/Button/Button",
   AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   ToastButton: "components/Toast/ToastButton/ToastButton",
@@ -35,6 +37,8 @@ const publishedTSComponents = {
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
+  // Don't remove next line
+  // plop_marker:published-hooks
 };
 
 // eslint-disable-next-line no-undef
