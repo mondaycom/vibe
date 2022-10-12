@@ -10,15 +10,15 @@ export interface {{properCase componentName}}Props extends VibeComponentProps {
   /**
    * class name to be added to the wrapper
    */
-  className: string;
+  className?: string;
   /**
    * id to be added to the wrapper
    */
-  id: string;
+  id?: string;
   /**
    * data-testid to be added to the wrapper
    */
-  "data-testid": string;
+  "data-testid"?: string;
 }
 
 const {{properCase componentName}}: VibeComponent<{{properCase componentName}}Props, HTMLElement> = forwardRef(
