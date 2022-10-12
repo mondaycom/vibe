@@ -1,11 +1,20 @@
 import { SIZES } from "../../constants/sizes";
 import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
-
+import VibeComponentProps from "src/types/VibeComponentProps";
 import "./DialogContentContainer.scss";
+
+interface DialogContentContainerProps extends VibeComponentProps {
+  children: React.ReactNode;
+  className: string;
+  ariaLabelledby?: string;
+  ariaDescribedby?: string;
+  type: "modal" | "popover";
+  size: "small" | "medium" | "large";
+  style: React.CSSProperties;
+}
 
 const DIALOG_TYPES = {
   MODAL: "modal",
@@ -21,7 +30,7 @@ const DIALOG_SIZES = {
 
 const bemHelper = BEMClass("dialog-content-container");
 
-const DialogContentContainer = forwardRef(
+const DialogContentContainer: React.ForwardRefExoticComponent<DialogContentContainerProps> = forwardRef(
   ({ className, ariaLabelledby, ariaDescribedby, type, size, children, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
@@ -41,27 +50,17 @@ const DialogContentContainer = forwardRef(
   }
 );
 
-DialogContentContainer.types = DIALOG_TYPES;
-DialogContentContainer.sizes = DIALOG_SIZES;
-
-DialogContentContainer.propTypes = {
-  className: PropTypes.string,
-  ariaLabelledby: PropTypes.string,
-  ariaDescribedby: PropTypes.string,
-  type: PropTypes.oneOf([DialogContentContainer.types.MODAL, DialogContentContainer.types.POPOVER]),
-  size: PropTypes.oneOf([
-    DialogContentContainer.sizes.SMALL,
-    DialogContentContainer.sizes.MEDIUM,
-    DialogContentContainer.sizes.LARGE
-  ])
-};
+Object.assign(DialogContentContainer, {
+  types: DIALOG_TYPES,
+  sizes: DIALOG_SIZES
+});
 
 DialogContentContainer.defaultProps = {
   className: "",
   ariaLabelledby: "",
   ariaDescribedby: "",
-  type: DIALOG_TYPES.POPOVER,
-  size: DIALOG_SIZES.MEDIUM
+  type: "popover",
+  size: "medium"
 };
 
 export default DialogContentContainer;
