@@ -16,7 +16,13 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
    * Array of Avatar components
    */
   avatarItems?: { value: AvatarProps & { tooltipContent: any } }[];
-  avatarRenderer?: Function;
+  avatarRenderer?: (
+    item: { value: AvatarProps & { tooltipContent: any } },
+    index: number,
+    style: any,
+    type: AvatarTypes,
+    displayAsGrid: boolean
+  ) => React.ReactNode;
   tooltipContainerAriaLabel?: string;
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
   type?: AvatarTypes;
