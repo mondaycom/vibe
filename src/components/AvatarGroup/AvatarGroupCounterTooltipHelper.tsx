@@ -22,7 +22,7 @@ export function useTooltipContentTabNavigation({
   isKeyboardTooltipVisible,
   setIsKeyboardTooltipVisible
 }: {
-  counterContainerRef: RefObject<HTMLElement>;
+  counterContainerRef: RefObject<HTMLDivElement>;
   tooltipContentContainerRef: RefObject<HTMLElement>;
   focusPrevPlaceholderRef: RefObject<HTMLDivElement>;
   focusNextPlaceholderRef: RefObject<HTMLDivElement>;

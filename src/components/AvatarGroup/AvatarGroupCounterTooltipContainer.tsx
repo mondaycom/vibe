@@ -1,4 +1,4 @@
-import React, { ReactElement, Ref, useCallback, useMemo, useRef, useState } from "react";
+import React, { ReactElement, RefObject, useCallback, useMemo, useRef, useState } from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
 import { AvatarProps } from "../Avatar/Avatar";
@@ -23,9 +23,9 @@ interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   // TODO ts-migration replace with TooltipProps when Tooltip is converted to TS
   counterTooltipCustomProps?: any;
   counterTooltipIsVirtualizedList?: boolean;
-  focusPrevPlaceholderRef?: Ref<HTMLDivElement>;
-  focusNextPlaceholderRef?: Ref<HTMLDivElement>;
-  counterContainerRef?: Ref<HTMLDivElement>;
+  focusPrevPlaceholderRef?: RefObject<HTMLDivElement>;
+  focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
+  counterContainerRef?: RefObject<HTMLDivElement>;
 }
 
 const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({
