@@ -4,6 +4,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponent from "../../types/VibeComponent";
 import styles from "./Loader.module.scss";
 
 export interface LoaderProps extends VibeComponentProps {
@@ -17,12 +18,12 @@ export interface LoaderProps extends VibeComponentProps {
   hasBackground?: boolean;
 }
 
-const Loader: React.ForwardRefExoticComponent<LoaderProps> & {
+const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   sizes?: typeof LoaderSizes;
   colors?: typeof LoaderColors;
-} = forwardRef<unknown, LoaderProps>(
+} = forwardRef(
   (
-    { svgClassName, className, size, color, hasBackground, id, "data-testid": dataTestId }: LoaderProps,
+    { svgClassName, className, size, color, hasBackground, id, "data-testid": dataTestId },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
