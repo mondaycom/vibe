@@ -153,7 +153,7 @@ const Avatar: React.FC<AvatarProps> = ({
         onClick(event, id);
       }
     },
-    [onClick]
+    [onClick, id]
   );
 
   return (

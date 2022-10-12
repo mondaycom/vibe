@@ -81,6 +81,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
+              // eslint-disable-next-line react/jsx-key
               <AvatarMenuItem
                 menuItemProps={{
                   key: avatar.props?.id || index,
