@@ -1,15 +1,19 @@
-import React, { useCallback } from "react";
+import React, { RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
-import Avatar from "../Avatar/Avatar";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
+import { AvatarSizes, AvatarTypes } from "../Avatar/AvatarConstants";
+import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
+import { NOOP } from "../../utils/function-utils";
 
-const KEYS = ["Tab"];
+const TAB = ["Tab"];
 const ESC = ["Escape"];
 export const TOOLTIP_SHOW_DELAY = 200;
+
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
@@ -17,13 +21,23 @@ export function useTooltipContentTabNavigation({
   focusNextPlaceholderRef,
   isKeyboardTooltipVisible,
   setIsKeyboardTooltipVisible
+}: {
+  counterContainerRef: RefObject<HTMLElement>;
+  tooltipContentContainerRef: RefObject<HTMLElement>;
+  focusPrevPlaceholderRef: RefObject<HTMLElement>;
+  focusNextPlaceholderRef: RefObject<HTMLElement>;
+  isKeyboardTooltipVisible: boolean;
+  setIsKeyboardTooltipVisible: (value: boolean) => void;
 }) {
-  const showKeyboardTooltip = useCallback(() => {
-    if (!isKeyboardTooltipVisible) {
-      // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
-      setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
-    }
-  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
+  const showKeyboardTooltip = useCallback(
+    (event: FocusEvent) => {
+      if (!isKeyboardTooltipVisible) {
+        // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
+        setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
+      }
+    },
+    [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]
+  );
 
   const hideKeyboardTooltip = useCallback(() => {
     if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
@@ -32,19 +46,19 @@ export function useTooltipContentTabNavigation({
   // Open tooltip manually when keyboard focusing on counter
   useListenFocusTriggers({
     ref: counterContainerRef,
-    onFocusByKeyboard: showKeyboardTooltip
+    onFocusByKeyboard: showKeyboardTooltip,
+    onFocusByMouse: NOOP
   });
 
   useEventListener({
     eventName: "blur",
     ref: tooltipContentContainerRef,
-    ignoreDocumentFallback: true,
     callback: hideKeyboardTooltip
   });
 
   //Move focus to content by keyboard
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: counterContainerRef,
     withoutAnyModifier: true,
     preventDefault: true,
@@ -55,13 +69,13 @@ export function useTooltipContentTabNavigation({
 
   // Close tooltip by keyboard
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
     callback: hideKeyboardTooltip
   });
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
     callback: useCallback(() => {
@@ -72,7 +86,7 @@ export function useTooltipContentTabNavigation({
     }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: useCallback(() => {
@@ -104,7 +118,13 @@ export function useTooltipContentTabNavigation({
   });
 }
 
-export const avatarRenderer = (item, index, style = {}, type, displayAsGrid) => {
+export const avatarRenderer = (
+  item: { value: AvatarProps & { tooltipContent: any } },
+  index: number,
+  style = {},
+  type: AvatarTypes,
+  displayAsGrid: boolean
+) => {
   const avatarProps = item.value;
   const overrideStyle = { ...style, width: displayAsGrid ? undefined : "100%" };
   const labelId = `tooltip-item-${index}-label`;
@@ -113,17 +133,18 @@ export const avatarRenderer = (item, index, style = {}, type, displayAsGrid) => 
     <ClickableWrapper
       key={index}
       isClickable={!!avatarProps?.onClick}
-      clickableProps={{ onClick: avatarProps.onClick, tabIndex: "-1" }}
+      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
+        {/* @ts-ignore TODO remove when Flex is converted to TS */}
+        <Flex direction={FLEX_DIRECTIONS.ROW} gap={FLEX_GAPS.XS} ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}
             ariaLabel={""}
-            size={Avatar.sizes.SMALL}
+            size={AvatarSizes.SMALL}
             type={type || avatarProps?.type}
-            tabIndex="-1"
+            tabIndex={-1}
           />
           {!displayAsGrid && (
             <div id={labelId} className={avatarGroupCounterTooltipContentStyles.tooltipAvatarItemTitle}>
