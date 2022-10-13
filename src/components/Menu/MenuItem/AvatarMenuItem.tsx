@@ -12,16 +12,18 @@ interface AvatarMenuItemProps extends VibeComponentProps {
 /**
  * MenuItem with Avatar instead of Icon
  */
-const AvatarMenuItem: React.FC<AvatarMenuItemProps> = forwardRef(({ avatarProps, ...menuItemProps }, ref) => {
-  const renderAvatar = useCallback(() => <Avatar {...avatarProps} />, [avatarProps]);
+const AvatarMenuItem: React.FC<AvatarMenuItemProps & { isMenuChild?: boolean; isSelectable?: boolean }> = forwardRef(
+  ({ avatarProps, ...menuItemProps }, ref) => {
+    const renderAvatar = useCallback(() => <Avatar {...avatarProps} />, [avatarProps]);
 
-  // @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuItem is converted to TS
-  return <MenuItem {...menuItemProps} icon={renderAvatar} ref={ref} />;
+    // @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuItem is converted to TS
+    return <MenuItem {...menuItemProps} icon={renderAvatar} ref={ref} />;
+  }
+);
+
+Object.assign(AvatarMenuItem, {
+  isMenuChild: true,
+  isSelectable: true
 });
-
-// @ts-ignore TODO how to solve this?
-AvatarMenuItem.isMenuChild = true;
-// @ts-ignore TODO how to solve this?
-AvatarMenuItem.isSelectable = true;
 
 export default AvatarMenuItem;

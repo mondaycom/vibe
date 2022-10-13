@@ -4,7 +4,7 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
-import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
@@ -27,13 +27,13 @@ export interface AvatarProps extends VibeComponentProps {
   ariaLabel?: string;
   withoutTooltip?: boolean;
   icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
-  type?: AvatarTypes;
+  type?: AvatarType;
   className?: string;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: AriaRole;
-  size?: AvatarSizes;
+  size?: AvatarSize;
   customSize?: number;
   tabIndex?: number;
   ariaHidden?: boolean;
@@ -200,8 +200,8 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 Object.assign(Avatar, {
-  types: AvatarTypes,
-  sizes: AvatarSizes,
+  types: AvatarType,
+  sizes: AvatarSize,
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });
@@ -216,11 +216,11 @@ Avatar.defaultProps = {
   tooltipProps: undefined,
   ariaLabel: undefined,
   withoutTooltip: false,
-  type: AvatarTypes.TEXT,
+  type: AvatarType.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   customBackgroundColor: null,
   role: undefined,
-  size: AvatarSizes.LARGE,
+  size: AvatarSize.LARGE,
   customSize: null,
   tabIndex: 0,
   ariaHidden: false,

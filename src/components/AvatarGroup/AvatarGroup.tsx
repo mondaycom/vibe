@@ -3,7 +3,7 @@ import cx from "classnames";
 import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSizes, AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { CounterColor } from "../Counter/CounterConstants";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroup.module.scss";
@@ -24,8 +24,8 @@ interface AvatarGroupProps extends VibeComponentProps {
    * Array of `Avatar` components
    */
   children?: ReactElement<AvatarProps> | ReactElement<AvatarProps>[];
-  size?: AvatarSizes;
-  type?: AvatarTypes;
+  size?: AvatarSize;
+  type?: AvatarType;
   max?: number;
   /**
    * 4 `Counter.props` for customization + ariaLabelItemsName for specifying the "items" name in aria label

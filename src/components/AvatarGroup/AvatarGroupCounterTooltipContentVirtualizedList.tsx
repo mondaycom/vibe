@@ -1,7 +1,7 @@
 import React, { Ref, useMemo } from "react";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/AvatarConstants";
 import { AvatarProps } from "../Avatar/Avatar";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
@@ -20,12 +20,12 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
     item: { value: AvatarProps & { tooltipContent: any } },
     index: number,
     style: any,
-    type: AvatarTypes,
+    type: AvatarType,
     displayAsGrid: boolean
   ) => React.ReactNode;
   tooltipContainerAriaLabel?: string;
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
-  type?: AvatarTypes;
+  type?: AvatarType;
 }
 
 const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<

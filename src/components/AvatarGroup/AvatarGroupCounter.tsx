@@ -7,7 +7,7 @@ import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarSizes, AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
 import { avatarOnClick } from "./AvatarGroupHelper";
@@ -25,8 +25,8 @@ interface AvatarGroupCounterProps extends VibeComponentProps {
   // TODO ts-migration replace with TooltipProps when Tooltip is converted to TS
   counterTooltipCustomProps?: any;
   counterTooltipIsVirtualizedList?: boolean;
-  size?: AvatarSizes;
-  type?: AvatarTypes;
+  size?: AvatarSize;
+  type?: AvatarType;
 }
 
 const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
@@ -34,7 +34,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  size = AvatarSizes.MEDIUM,
+  size = AvatarSize.MEDIUM,
   type
 }) => {
   const {
@@ -88,7 +88,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
                   title: avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel,
                   onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
                 }}
-                avatarProps={{ ...avatar.props, size: AvatarSizes.SMALL, ariaLabel: "", tabIndex: -1 }}
+                avatarProps={{ ...avatar.props, size: AvatarSize.SMALL, ariaLabel: "", tabIndex: -1 }}
               />
             );
           })}

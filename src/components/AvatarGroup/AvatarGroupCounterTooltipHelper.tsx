@@ -6,7 +6,7 @@ import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
-import { AvatarSizes, AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
 import { NOOP } from "../../utils/function-utils";
 
@@ -122,7 +122,7 @@ export const avatarRenderer = (
   item: { value: AvatarProps & { tooltipContent: any } },
   index: number,
   style = {},
-  type: AvatarTypes,
+  type: AvatarType,
   displayAsGrid: boolean
 ) => {
   const avatarProps = item.value;
@@ -142,7 +142,7 @@ export const avatarRenderer = (
             {...avatarProps}
             tooltipProps={undefined}
             ariaLabel={""}
-            size={AvatarSizes.SMALL}
+            size={AvatarSize.SMALL}
             type={type || avatarProps?.type}
             tabIndex={-1}
           />
