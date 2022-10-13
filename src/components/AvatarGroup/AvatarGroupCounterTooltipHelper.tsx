@@ -1,4 +1,4 @@
-import React, { ReactElement, RefObject, useCallback } from "react";
+import React, { CSSProperties, ReactElement, RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
 import Avatar, { AvatarProps } from "../Avatar/Avatar";
@@ -121,12 +121,12 @@ export function useTooltipContentTabNavigation({
 export const avatarRenderer = (
   item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
   index: number,
-  style = {},
+  style: CSSProperties,
   type: AvatarType,
   displayAsGrid: boolean
 ) => {
   const avatarProps = item.value;
-  const overrideStyle = { ...style, width: displayAsGrid ? undefined : "100%" };
+  const overrideStyle: CSSProperties = { ...style, width: displayAsGrid ? undefined : "100%" };
   const labelId = `tooltip-item-${index}-label`;
 
   return (

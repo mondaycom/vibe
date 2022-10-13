@@ -1,4 +1,4 @@
-import React, { ReactElement, Ref, useMemo } from "react";
+import React, { CSSProperties, ReactElement, Ref, useMemo } from "react";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
@@ -19,7 +19,7 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
   avatarRenderer?: (
     item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
     index: number,
-    style: any,
+    style: CSSProperties,
     type: AvatarType,
     displayAsGrid: boolean
   ) => React.ReactNode;
@@ -52,7 +52,9 @@ const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<
       <VirtualizedList
         // @ts-ignore TODO ts-migration: solve when VirtualizedList is converted to TS
         items={virtualizedItems}
-        itemRenderer={(item: any, index: number, style: any) => avatarRenderer(item, index, style, type, false)}
+        itemRenderer={(item: any, index: number, style: CSSProperties) =>
+          avatarRenderer(item, index, style, type, false)
+        }
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
         getItemId={(item: any, index: number) => index}
