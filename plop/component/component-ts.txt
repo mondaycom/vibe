@@ -8,21 +8,13 @@ import styles from "./{{properCase componentName}}.module.scss";
 
 export interface {{properCase componentName}}Props extends VibeComponentProps {
   /**
-   * class name to be added to the wrapper
+   * some custom prop
    */
-  className?: string;
-  /**
-   * id to be added to the wrapper
-   */
-  id?: string;
-  /**
-   * data-testid to be added to the wrapper
-   */
-  "data-testid"?: string;
+  customProp?: string;
 }
 
 const {{properCase componentName}}: VibeComponent<{{properCase componentName}}Props, HTMLElement> = forwardRef(
-  ({ className, id, "data-testid": dataTestId }, ref) => {
+  ({ className, id, "data-testid": dataTestId, customProp = "defaultValue" }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
