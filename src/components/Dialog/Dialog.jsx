@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { DialogPositions } from "../../constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
+import { DialogPosition } from "../../constants/sizes";
+import { DialogAnimationType } from "../../constants/AnimationTypes";
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
@@ -11,7 +11,7 @@ import { chainFunctions, convertToArray } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../../components/Refable/Refable";
-import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
+import { HideShowEvent } from "../../constants/dialog";
 import "./Dialog.scss";
 
 const NOOP = () => {};
@@ -53,13 +53,13 @@ export default class Dialog extends PureComponent {
     }
     switch (event.key) {
       case "Escape":
-        this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.ESCAPE_KEY);
+        this.hideDialogIfNeeded(event, HideShowEvent.ESCAPE_KEY);
         break;
       case "Tab":
-        this.handleEvent(HIDE_SHOW_EVENTS.TAB_KEY, event);
+        this.handleEvent(HideShowEvent.TAB_KEY, event);
         break;
       case "Enter":
-        this.handleEvent(HIDE_SHOW_EVENTS.ENTER, event);
+        this.handleEvent(HideShowEvent.ENTER, event);
         break;
       default:
         break;
@@ -402,9 +402,9 @@ export default class Dialog extends PureComponent {
   }
 }
 
-Dialog.hideShowTriggers = HIDE_SHOW_EVENTS;
-Dialog.positions = DialogPositions;
-Dialog.animationTypes = DIALOG_ANIMATION_TYPES;
+Dialog.hideShowTriggers = HideShowEvent;
+Dialog.positions = DialogPosition;
+Dialog.animationTypes = DialogAnimationType;
 
 Dialog.propTypes = {
   /**

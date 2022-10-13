@@ -8,7 +8,7 @@ import Button from "../../Button/Button";
 import { modifiers } from "./helper";
 import { Link } from "../../../storybook/components";
 import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
-import { TOOLTIP_THEMES } from "../TooltipConstants";
+import { TooltipTheme } from "../TooltipConstants";
 import "./tooltip.stories.scss";
 
 <Meta title="Popover/Tooltip" component={Tooltip} />
@@ -147,7 +147,7 @@ Tooltip’s arrow can have various themes.
 
 <Canvas>
   <Story name="Themes">
-    {Object.values(TOOLTIP_THEMES).map(theme => (
+    {Object.values(TooltipTheme).map(theme => (
       <div className="monday-storybook-tooltip_top" key={theme}>
         <Tooltip
           modifiers={modifiers}

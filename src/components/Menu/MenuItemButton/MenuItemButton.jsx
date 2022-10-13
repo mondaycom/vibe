@@ -11,7 +11,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 
-import { DialogPositions } from "../../../constants/sizes";
+import { DialogPosition } from "../../../constants/sizes";
 import "./MenuItemButton.scss";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
@@ -104,7 +104,7 @@ const MenuItemButton = ({
 };
 
 MenuItemButton.kinds = Button.kinds;
-MenuItemButton.tooltipPositions = DialogPositions;
+MenuItemButton.tooltipPositions = DialogPosition;
 
 MenuItemButton.defaultProps = {
   className: undefined,

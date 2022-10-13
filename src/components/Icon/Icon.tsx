@@ -36,6 +36,9 @@ interface IconProps extends VibeComponentProps {
   ariaHidden?: boolean;
   style?: React.CSSProperties;
   useCurrentColor?: boolean;
+  /**
+   * If you want to override to coloring of currentColor
+   */
   customColor?: string;
 }
 

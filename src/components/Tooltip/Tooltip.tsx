@@ -1,25 +1,91 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
-import PropTypes from "prop-types";
+import { ReactElement, CSSProperties, PureComponent, isValidElement } from "react";
 import classnames from "classnames";
+import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { DialogPositions } from "../../constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
-import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
+import { BASE_SIZES_WITH_NONE, DialogPosition } from "../../constants";
+import { DialogAnimationType } from "../../constants";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
+import { HideShowEvent, JustifyType } from "../../constants/dialog";
 import "./Tooltip.scss";
 
+export interface TooltipProps extends VibeComponentProps {
+  style?: CSSProperties;
+  children: ReactElement;
+  content: string | ReactElement;
+  arrowPosition?: TooltipArrowPosition;
+  paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
+  moveBy?: { main: number; secondary: number };
+  theme?: TooltipTheme;
+  justify?: JustifyType;
+  getContainer?: () => void;
+  hideDelay?: number;
+  showDelay?: number;
+  disableDialogSlide?: boolean;
+  animationType?: typeof DialogAnimationType[keyof typeof DialogAnimationType];
+  withoutDialog?: boolean;
+  containerSelector?: string;
+  immediateShowDelay?: number;
+  tip?: boolean;
+  hideWhenReferenceHidden?: boolean;
+  onTooltipHide?: () => void;
+  onTooltipShow?: () => void;
+  modifiers?: Modifier<any>[];
+  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  showTrigger?: HideShowEvent;
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  hideTrigger?: HideShowEvent;
+  showOnDialogEnter?: boolean;
+  /**
+   * A Classname to be added to <spam> element which wraps the children
+   */
+  referenceWrapperClassName?: string;
+}
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
 
-// Shared state accross multiple tooltip instances (i.e last tooltip shown time)
-const globalState = {
+// Shared state across multiple tooltip instances (i.e last tooltip shown time)
+const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
   lastTooltipHideTS: null,
   openTooltipsCount: 0
 };
 
-export default class Tooltip extends React.PureComponent {
-  constructor(props) {
+export default class Tooltip extends PureComponent<TooltipProps> {
+  wasShown: boolean;
+  static positions = DialogPosition;
+  static themes = TooltipTheme;
+  static animationTypes = DialogAnimationType;
+  static justifyTypes = JustifyType;
+  static defaultProps = {
+    arrowPosition: TooltipArrowPosition.CENTER,
+    moveBy: { main: 4, secondary: 0 },
+    theme: TooltipTheme.DARK,
+    position: Tooltip.positions.TOP,
+    justify: Tooltip.justifyTypes.CENTER,
+    hideDelay: 0,
+    showDelay: 300,
+    disableDialogSlide: true,
+    animationType: DialogAnimationType.EXPAND,
+    withoutDialog: false,
+    containerSelector: "#tooltips-container",
+    tip: true,
+    hideWhenReferenceHidden: false,
+    modifiers: new Array<Modifier<any>>(),
+    showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+    hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
+    showOnDialogEnter: false,
+    referenceWrapperClassName: ""
+  };
+  constructor(props: TooltipProps) {
     super(props);
     this.renderTooltipContent = this.renderTooltipContent.bind(this);
     this.getShowDelay = this.getShowDelay.bind(this);
@@ -42,7 +108,7 @@ export default class Tooltip extends React.PureComponent {
     let contentValue;
     if (isFunction(content)) {
       contentValue = content();
-    } else if (React.isValidElement(content)) {
+    } else if (isValidElement(content)) {
       contentValue = content;
     } else if (typeof content === "string" && content) {
       contentValue = content;
@@ -148,72 +214,3 @@ export default class Tooltip extends React.PureComponent {
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
 }
-
-Tooltip.positions = DialogPositions;
-Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
-Tooltip.themes = TOOLTIP_THEMES;
-Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
-
-Tooltip.propTypes = {
-  style: PropTypes.object,
-  arrowPosition: PropTypes.string,
-  moveBy: PropTypes.shape({ main: PropTypes.number, secondary: PropTypes.number }),
-  theme: PropTypes.string,
-  position: PropTypes.string,
-  justify: PropTypes.string,
-  hideDelay: PropTypes.number,
-  showDelay: PropTypes.number,
-  disableDialogSlide: PropTypes.bool,
-  animationType: PropTypes.string,
-  withoutDialog: PropTypes.bool,
-  containerSelector: PropTypes.string,
-  immediateShowDelay: PropTypes.number,
-  tip: PropTypes.bool,
-  hideWhenReferenceHidden: PropTypes.bool,
-  onTooltipHide: PropTypes.func,
-  onTooltipShow: PropTypes.func,
-  /**
-   * [PopperJS Modifiers](https://popper.js.org/docs/v2/modifiers/) type.
-   */
-  modifiers: PropTypes.array,
-  /**
-   * an array of hide/show trigger -
-   * Dialog.hideShowTriggers
-   */
-  showTrigger: PropTypes.any,
-  /**
-   * an array of hide/show trigger -
-   * Dialog.hideShowTriggers
-   */
-  hideTrigger: PropTypes.any,
-  showOnDialogEnter: PropTypes.bool,
-  /**
-   * A Classname to be added to <spam> element which wraps the children
-   */
-  referenceWrapperClassName: PropTypes.string
-};
-
-Tooltip.defaultProps = {
-  style: undefined,
-  arrowPosition: "center", // begin, center, end
-  moveBy: { main: 4, secondary: 0 },
-  theme: Tooltip.themes.Dark,
-  position: Tooltip.positions.TOP,
-  justify: Tooltip.justifyTypes.CENTER,
-  hideDelay: 0,
-  showDelay: 300,
-  disableDialogSlide: true,
-  animationType: "expand",
-  withoutDialog: false,
-  containerSelector: "#tooltips-container",
-  immediateShowDelay: null,
-  tip: true,
-  hideWhenReferenceHidden: false,
-  onTooltipHide: null,
-  onTooltipShow: null,
-  modifiers: [],
-  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
-  showOnDialogEnter: false,
-  referenceWrapperClassName: ""
-};

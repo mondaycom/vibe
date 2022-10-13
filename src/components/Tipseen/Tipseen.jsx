@@ -1,5 +1,5 @@
-import { DialogPositions } from "../../constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
+import { DialogPosition } from "../../constants/sizes";
+import { DialogAnimationType } from "../../constants/AnimationTypes";
 import { useRef, forwardRef, useMemo, Fragment } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { TOOLTIP_JUSTIFY_TYPES } from "../../components/Tooltip/TooltipConstants";
+import { JustifyType } from "../../constants/dialog";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import styles from "./Tipseen.module.scss";
@@ -107,13 +107,13 @@ const Tipseen = forwardRef(
 );
 
 Tipseen.positions = {
-  LEFT: DialogPositions.LEFT,
-  RIGHT: DialogPositions.RIGHT,
-  TOP: DialogPositions.TOP,
-  BOTTOM: DialogPositions.BOTTOM
+  LEFT: DialogPosition.LEFT,
+  RIGHT: DialogPosition.RIGHT,
+  TOP: DialogPosition.TOP,
+  BOTTOM: DialogPosition.BOTTOM
 };
-Tipseen.animationTypes = DIALOG_ANIMATION_TYPES;
-Tipseen.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
+Tipseen.animationTypes = DialogAnimationType;
+Tipseen.justifyTypes = JustifyType;
 Tipseen.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
