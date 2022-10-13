@@ -23,6 +23,7 @@ export interface AvatarProps extends VibeComponentProps {
   id?: string;
   src?: string;
   text?: string;
+  // TODO ts-migration: fix after Tooltip is migrated to TS
   tooltipProps?: any;
   ariaLabel?: string;
   withoutTooltip?: boolean;
@@ -49,12 +50,19 @@ export interface AvatarProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<
+  AvatarProps & {
+    types?: AvatarType;
+    sizes?: AvatarSize;
+    colors?: BackgroundColors;
+    backgroundColors?: BackgroundColors;
+  }
+> = ({
   id,
-  type,
+  type = AvatarType.TEXT,
   className,
   textClassName,
-  size,
+  size = AvatarSize.LARGE,
   src,
   icon,
   text,
@@ -62,14 +70,14 @@ const Avatar: React.FC<AvatarProps> = ({
   ariaLabel,
   withoutTooltip,
   role,
-  backgroundColor,
+  backgroundColor = elementColorsNames.CHILI_BLUE,
   square,
   disabled,
   // Backward compatibility for props naming
   isSquare,
   // Backward compatibility for props naming
   isDisabled,
-  tabIndex,
+  tabIndex = 0,
   ariaHidden,
   topLeftBadgeProps,
   topRightBadgeProps,
@@ -205,33 +213,5 @@ Object.assign(Avatar, {
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });
-
-Avatar.defaultProps = {
-  id: undefined,
-  src: undefined,
-  className: "",
-  textClassName: "",
-  icon: undefined,
-  text: undefined,
-  tooltipProps: undefined,
-  ariaLabel: undefined,
-  withoutTooltip: false,
-  type: AvatarType.TEXT,
-  backgroundColor: elementColorsNames.CHILI_BLUE,
-  customBackgroundColor: null,
-  role: undefined,
-  size: AvatarSize.LARGE,
-  customSize: null,
-  tabIndex: 0,
-  ariaHidden: false,
-  disabled: undefined,
-  square: undefined,
-  topLeftBadgeProps: undefined,
-  topRightBadgeProps: undefined,
-  bottomLeftBadgeProps: undefined,
-  bottomRightBadgeProps: undefined,
-  withoutBorder: false,
-  onClick: undefined
-};
 
 export default Avatar;
