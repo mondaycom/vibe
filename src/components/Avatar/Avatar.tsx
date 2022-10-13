@@ -50,14 +50,12 @@ export interface AvatarProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar: React.FC<
-  AvatarProps & {
-    types?: AvatarType;
-    sizes?: AvatarSize;
-    colors?: BackgroundColors;
-    backgroundColors?: BackgroundColors;
-  }
-> = ({
+const Avatar: React.FC<AvatarProps> & {
+  types?: AvatarType;
+  sizes?: AvatarSize;
+  colors?: BackgroundColors;
+  backgroundColors?: BackgroundColors;
+} = ({
   id,
   type = AvatarType.TEXT,
   className,
