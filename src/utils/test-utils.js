@@ -45,7 +45,10 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  DATEPICKER: "date-picker",
+  DATEPICKER_HEADER: "date-picker-header",
+  DATEPICKER_YEAR_SELECTION: "date-picker-year-selection"
 };
 
 export const NAVIGATIONS_COMMANDS = {

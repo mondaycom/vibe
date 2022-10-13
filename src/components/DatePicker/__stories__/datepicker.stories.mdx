@@ -1,6 +1,6 @@
 import { useState } from "react";
 import moment from "moment";
-import DatePickerComponent from "../DatePicker";
+import DatePicker from "../DatePicker";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import {
@@ -8,29 +8,17 @@ import {
   DROPDOWN,
   DIALOG_CONTENT_CONTAINER
 } from "../../../storybook/components/related-components/component-description-map";
-import "./DatePicker.stories.scss";
+import styles from "./DatePicker.stories.module.scss";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 export const metaSettings = createStoryMetaSettings({
-  component: DatePicker
+  component: DatePicker,
+  actionPropsArray: ["onPickDate"]
 });
 
-export const DatePicker = props => {
-  const [date, setDate] = useState(props.range ? {} : null);
-  return (
-    <DialogContentContainer className={"datepicker-dialog-content-container"}>
-      {props.range ? (
-        <DatePickerComponent data-testid="date-picker"  date={date.startDate} endDate={date.endDate} onPickDate={d => setDate(d)} {...props} />
-      ) : (
-        <DatePickerComponent data-testid="date-picker"  date={date} onPickDate={d => setDate(d)} {...props} />
-      )}
-    </DialogContentContainer>
-  );
-};
-
 <Meta
-  title="PICKERS/DatePicker"
-  component={DatePickerComponent}
+  title="Pickers/DatePicker"
+  component={DatePicker}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -53,12 +41,21 @@ export const datePickerTemplate = createComponentTemplate(DatePicker);
 A simple and reusable Datepicker component
 
 <Canvas>
-  <Story name="Overview">{datePickerTemplate.bind({})}</Story>
+  <Story name="Overview">
+    {() => {
+      const [date, setDate] = useState(null);
+      return (
+        <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+          <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
+        </DialogContentContainer>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={DatePickerComponent} />
+<ArgsTable of={DatePicker} />
 
 ## Variants
 
@@ -68,7 +65,14 @@ Allows users to select a single date
 
 <Canvas>
   <Story name="Single Day">
-    <DatePicker />
+    {() => {
+      const [date, setDate] = useState(null);
+      return (
+        <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+          <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
+        </DialogContentContainer>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -78,7 +82,20 @@ Allows users to select a date range
 
 <Canvas>
   <Story name="Date Range">
-    <DatePicker range />
+    {() => {
+      const [date, setDate] = useState({});
+      return (
+        <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+          <DatePicker
+            date={date.startDate}
+            endDate={date.endDate}
+            range
+            data-testid="date-picker"
+            onPickDate={d => setDate(d)}
+          />
+        </DialogContentContainer>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -86,7 +103,14 @@ Allows users to select a date range
 
 <Canvas>
   <Story name="Number Of Months">
-    <DatePicker numberOfMonths={2} />
+    {() => {
+      const [date, setDate] = useState(null);
+      return (
+        <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+          <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
+        </DialogContentContainer>
+      );
+    }}
   </Story>
 </Canvas>
 

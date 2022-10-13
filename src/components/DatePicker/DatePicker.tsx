@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useCallback } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
@@ -12,20 +12,34 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import styles from "./DatePicker.module.scss";
 import "react-dates/initialize";
+import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
 interface DatePickerProps extends VibeComponentProps {
+  /** set the first day of the week to display */
   firstDayOfWeek: DayOfWeekShape;
+  /** current start date */
   date?: Moment;
+  /** current end date */
   endDate?: Moment;
+  /** on date selected callback */
   onPickDate: (date: Moment | RangeDate) => void;
+  /** hide the month navigations keys */
   hideNavigationKeys: boolean;
+  /** show days outside the cuurent month view */
   enableOutsideDays: boolean;
+  /** show week number column */
   showWeekNumber: boolean;
+  /** set the size of single day element */
   daySize: number;
+  /** determine if day should be disabled */
   shouldBlockDay?: (date: Moment) => boolean;
+  /** date range mode*/
   range: boolean;
+  /** number of month to display*/
   numberOfMonths: number;
+  /** determine if year should be disabled */
   shouldBlockYear?: (year: number) => boolean;
-  isOutsideRange?: (date: Moment) => boolean;
+  /** determine if date range should be disabled */
+  shouldBlockRange?: (date: Moment) => boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -48,64 +62,77 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       onPickDate,
       enableOutsideDays = false,
       showWeekNumber = false,
-      isOutsideRange,
+      shouldBlockRange,
       "data-testid": dataTestId
     },
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
-    const [isMonthYearSelection, setIsMonthYearSelection] = useState(false);
+    const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
 
-    const renderMonth = ({ month }: { month: Moment }) => {
-      return (
-        <DatePickerHeaderComponent
-          data-testid={dataTestId}
-          currentDate={month || moment()}
-          isMonthYearSelection={isMonthYearSelection}
-          onToggleMonthYearPicker={() => setIsMonthYearSelection(val => !val)}
-          hideNavigationKeys={hideNavigationKeys}
-        />
-      );
-    };
+    const renderMonth = useCallback(
+      ({ month }: { month: Moment }) => {
+        return (
+          <DatePickerHeaderComponent
+            data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER_HEADER, id)}
+            currentDate={month || moment()}
+            isMonthYearSelection={isMonthYearSelection}
+            onToggleMonthYearPicker={() => setIsMonthYearSelection(val => !val)}
+            hideNavigationKeys={hideNavigationKeys}
+          />
+        );
+      },
+      [dataTestId, isMonthYearSelection, hideNavigationKeys, id]
+    );
 
-    const renderDay = (day: Moment) => {
-      const weekNumber = firstDayOfWeek === 0 ? day.clone().add(1, "d").isoWeek() : day.isoWeek();
-      return (
-        <>
-          <span className={styles.calendarDayWeekNumber}>{weekNumber}</span> {day.format("D")}
-        </>
-      );
-    };
+    const renderDay = useCallback(
+      (day: Moment) => {
+        const weekNumber = firstDayOfWeek === 0 ? day.clone().add(1, "d").isoWeek() : day.isoWeek();
+        return (
+          <>
+            <span className={styles.calendarDayWeekNumber}>{weekNumber}</span> {day.format("D")}
+          </>
+        );
+      },
+      [firstDayOfWeek]
+    );
 
-    const changeCurrentDateFromMonthYearView = (date: Moment | null) => {
+    const changeCurrentDateFromMonthYearView = useCallback((date: Moment | null) => {
       setOverrideDateForView(date);
       setIsMonthYearSelection(false);
-    };
+    }, []);
 
-    const renderMonthYearSelection = () => {
+    const renderMonthYearSelection = useCallback(() => {
       return (
         <YearPicker
-          data-testid={dataTestId}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER_YEAR_SELECTION, id)}
           selectedDate={date}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
       );
-    };
+    }, [dataTestId, shouldBlockYear, changeCurrentDateFromMonthYearView, date, id]);
 
-    const onDateRangeChange = (date: RangeDate) => {
-      if (focusedInput === FocusInput.startDate) {
-        onPickDate({ ...date, endDate: null });
-      } else {
-        onPickDate(date);
-      }
-    };
+    const onDateRangeChange = useCallback(
+      (date: RangeDate) => {
+        if (focusedInput === FocusInput.startDate) {
+          onPickDate({ ...date, endDate: null });
+        } else {
+          onPickDate(date);
+        }
+      },
+      [focusedInput, onPickDate]
+    );
+
+    const onFocuseChange = useCallback((focusedInput: FocusInput) => {
+      setFocusedInput(focusedInput || FocusInput.startDate);
+    }, []);
 
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
-        data-testid={dataTestId}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER, id)}
         ref={ref}
         id={id}
         className={cx(styles.datepickerContainer, className, {
@@ -122,14 +149,14 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
             hideKeyboardShortcutsPanel
             startDate={date}
             endDate={endDate}
-            onDatesChange={(date: RangeDate) => onDateRangeChange(date)}
+            onDatesChange={onDateRangeChange}
             focusedInput={focusedInput}
             minimumNights={0}
-            onFocusChange={(focusedInput: FocusInput) => setFocusedInput(focusedInput || FocusInput.startDate)}
+            onFocusChange={onFocuseChange}
             navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
             navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
             daySize={daySize}
-            isOutsideRange={isOutsideRange}
+            isOutsideRange={shouldBlockRange}
             isDayBlocked={shouldBlockDay}
             renderMonthElement={renderMonth}
             enableOutsideDays={enableOutsideDays || showWeekNumber}

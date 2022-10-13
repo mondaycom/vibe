@@ -27,7 +27,7 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
   const year = localedDated.format("YYYY");
   const string = month + " " + year;
   return (
-    <div className={styles.datePickerHeaderContainer}>
+    <div className={styles.datePickerHeader}>
       <div>{string}</div>
       {!hideNavigationKeys && (
         <button
@@ -39,11 +39,9 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
           <div className={styles.buttonContent}>
             <Icon
               iconType={Icon?.type?.SVG}
-              // @ts-ignore
               icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown}
               iconSize={24}
               clickable={false}
-              ignoreFocusStyle
             />
           </div>
         </button>

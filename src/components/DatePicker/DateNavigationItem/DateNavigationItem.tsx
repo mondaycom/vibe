@@ -16,14 +16,7 @@ interface DateNavigationItemProps {
 const DateNavigationItem = ({ kind, onClick }: DateNavigationItemProps) => {
   return (
     <button type="button" className={styles.navigationItemContainer} onClick={() => onClick && onClick()}>
-      <Icon
-        iconType={Icon?.type?.SVG}
-        // @ts-ignore
-        icon={ICONS[kind]}
-        iconSize={24}
-        clickable={false}
-        ignoreFocusStyle
-      />
+      <Icon iconType={Icon?.type?.SVG} icon={ICONS[kind]} iconSize={24} clickable={false} />
     </button>
   );
 };
