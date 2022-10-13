@@ -2,11 +2,10 @@ import React, { forwardRef, useCallback, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./ExpandCollapse.scss";
 import Icon from "../Icon/Icon";
 import Heading from "../Heading/Heading";
-import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
+import "./ExpandCollapse.scss";
 
 const ExpandCollapse = forwardRef(
   ({ children, headerComponentRenderer, title, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
@@ -16,11 +15,11 @@ const ExpandCollapse = forwardRef(
     const [isOpen, setIsOpen] = useState(defaultOpenState);
     const isExpanded = open === undefined ? isOpen : open;
 
-    const toogleExpand = () => {
+    const toggleExpand = () => {
       setIsOpen(!isOpen);
     };
     const renderHeader = useCallback(() => {
-      return <Heading type={TYPES.h5} value={title} className="expand-collapse__header-content" />;
+      return <Heading type={Heading.types.h5} value={title} className="expand-collapse__header-content" />;
     }, [title]);
 
     return (
@@ -31,7 +30,7 @@ const ExpandCollapse = forwardRef(
             className={cx("expand-collapse__header", "expand-collapse__section", {
               "expand-collapse__header--open": isExpanded
             })}
-            onClickCapture={onClick || toogleExpand}
+            onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >

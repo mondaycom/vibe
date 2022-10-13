@@ -14,9 +14,9 @@ function checkOverflow(element: HTMLElement) {
 }
 
 export default function useIsOverflowing({ ref }: { ref: RefObject<HTMLElement> }) {
-  const [isOverflowing, setIsOverflowing] = useState<boolean>(checkOverflow(ref.current));
+  const [isOverflowing, setIsOverflowing] = useState<boolean>(checkOverflow(ref?.current));
   const callback = useCallback(() => {
-    setIsOverflowing(checkOverflow(ref.current));
+    setIsOverflowing(checkOverflow(ref?.current));
   }, [ref, setIsOverflowing]);
 
   useResizeObserver({
