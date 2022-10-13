@@ -54,7 +54,6 @@ export default function useIconProps({
     ref: iconRef
   });
 
-  //@ts-ignore - We did not convert this hook to ts yet
   useKeyEvent({
     keys: KEYS,
     ref: iconRef,

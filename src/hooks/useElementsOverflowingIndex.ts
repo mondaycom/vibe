@@ -1,5 +1,5 @@
 import { ReactNode, RefObject, useCallback, useEffect, useState } from "react";
-import { last } from "lodash-es";
+import last from "lodash/last";
 import useResizeObserver from "./useResizeObserver";
 
 // Use this hook when you want to get the index of the child which should be hidden from

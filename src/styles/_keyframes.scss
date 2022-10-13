@@ -1,0 +1,25 @@
+// KEYFRAMES: This loader imports animation mixins content for reuse.
+
+// Loading available keyframe content
+@import "keyframes/pop/pop-elastic";
+@import "keyframes/pop/pop-in";
+@import "keyframes/pop/pop-in-from-trigger";
+@import "keyframes/pop/pop-in-emphasized";
+@import "keyframes/pop/pop-in-elastic";
+@import "keyframes/pop/pop-in-elastic-bold";
+@import "keyframes/pop/pop-out-from-trigger";
+@import "keyframes/spin/spin-in-emphasized";
+@import "keyframes/slide/slide-in";
+@import "keyframes/slide/slide-in-elastic";
+@import "keyframes/slide/slide-out";
+
+// MIXIN: Keyframe
+// This mixin defines a keyframe definition using @content.
+// @argument: $animation-name
+// This mixin is used to enable reuse for local keyframes content
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}

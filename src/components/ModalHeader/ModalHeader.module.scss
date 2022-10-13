@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-block-end: var(--spacing-large);
+
+  .title {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text-color);
+    flex-grow: 1;
+    margin-block-start: var(--spacing-large);
+    margin-block-end: 0;
+
+  }
+
+  .icon {
+    vertical-align: middle;
+    margin-right: var(--spacing-small);
+  }
+
+  .description {
+    font: var(--font-subtext);
+    color: var(--primary-text-color);
+    margin-block-start: var(--spacing-small);
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}

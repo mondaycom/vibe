@@ -1,5 +1,73 @@
 # Changelog
 
+## 1.68.1 (2022-10-11)
+
+#### Bug Fixes
+* [#928](https://github.com/mondaycom/monday-ui-react-core/pull/928) modal css fixes ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Dependency Upgrades
+* [#901](https://github.com/mondaycom/monday-ui-react-core/pull/901) upgrade deps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#924](https://github.com/mondaycom/monday-ui-react-core/pull/924) refactor: migrate IconButton to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#921](https://github.com/mondaycom/monday-ui-react-core/pull/921) refactor: migrate Avatar to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#913](https://github.com/mondaycom/monday-ui-react-core/pull/913) Convert label to typescript ([@bautistaaa](https://github.com/bautistaaa))
+* [#914](https://github.com/mondaycom/monday-ui-react-core/pull/914) Migrate hiddentext to ts ([@bautistaaa](https://github.com/bautistaaa))
+* [#916](https://github.com/mondaycom/monday-ui-react-core/pull/916) refactor: migrate Divider in typescript ([@aayushbisen](https://github.com/aayushbisen))
+* [#918](https://github.com/mondaycom/monday-ui-react-core/pull/918) Migrated Radio Button to typescript ([@Suman94310](https://github.com/Suman94310))
+* [#917](https://github.com/mondaycom/monday-ui-react-core/pull/917) refactor(Banner): Migrated from JS to TS ([@suvnshr](https://github.com/suvnshr))
+* [#915](https://github.com/mondaycom/monday-ui-react-core/pull/915) feat: migrate FormattedNumber to ts ([@indremak](https://github.com/indremak))
+* [#907](https://github.com/mondaycom/monday-ui-react-core/pull/907) Migrate Counter component to TS. ([@a11rew](https://github.com/a11rew))
+* [#906](https://github.com/mondaycom/monday-ui-react-core/pull/906) migrate Link component to TypeScript ([@ercusz](https://github.com/ercusz))
+* [#897](https://github.com/mondaycom/monday-ui-react-core/pull/897) convert helpers/utils to typescript ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#902](https://github.com/mondaycom/monday-ui-react-core/pull/902) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.68.0 (2022-10-02)
+
+#### New Features
+* [#884](https://github.com/mondaycom/monday-ui-react-core/pull/884) Feature/sergeyro/font change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.67.1 (2022-09-29)
+
+#### Bug Fixes
+* [#890](https://github.com/mondaycom/monday-ui-react-core/pull/890) fix css issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.67.0 (2022-09-28)
+
+#### New Features
+* [#696](https://github.com/mondaycom/monday-ui-react-core/pull/696) Modal ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#888](https://github.com/mondaycom/monday-ui-react-core/pull/888) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.66.0 (2022-09-21)
+
+#### New Features
+* [#882](https://github.com/mondaycom/monday-ui-react-core/pull/882) Feature/refactor components motion keyframes ([@3dyonic](https://github.com/3dyonic))
+
+## 1.65.0 (2022-09-21)
+
+#### New Features
+* [#883](https://github.com/mondaycom/monday-ui-react-core/pull/883) fix externals issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.64.2 (2022-09-20)
+
+#### Bug Fixes
+* [#879](https://github.com/mondaycom/monday-ui-react-core/pull/879) Fix flex grow loading state size. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.64.1 (2022-09-20)
+
+#### Bug Fixes
+* [#880](https://github.com/mondaycom/monday-ui-react-core/pull/880) Fix Virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.64.0 (2022-09-20)
 
 #### Bug Fixes

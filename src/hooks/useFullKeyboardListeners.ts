@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useEffect, MutableRefObject } from "react";
-import { noop } from "lodash-es";
+import noop from "lodash/noop";
 import useKeyEvent from "./useKeyEvent";
 import { KeyboardEventCallback } from "../types/events";
 

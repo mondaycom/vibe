@@ -1,0 +1,12 @@
+@mixin slide-out($main-translateY:-65px) {
+  0% {
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY($main-translateY);
+    opacity: 0;
+  }
+}

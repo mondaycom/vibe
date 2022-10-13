@@ -1,5 +1,6 @@
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
+@import "../../../../styles/keyframes";
 
 .monday-style-step-indicator-component {
   @include theme-prop(color, text-color-on-primary);
@@ -18,6 +19,7 @@
 
     &__title {
       width: 100%;
+
       .visually-hidden {
         display: none;
       }
@@ -67,7 +69,7 @@
   }
 
   &--with-animation {
-    animation: circle-pop var(--motion-expressive-short);
+    animation: step-indicatior-circle-pop-elastic var(--motion-expressive-short);
   }
 
   &--swap {
@@ -128,6 +130,7 @@
         }
       }
     }
+
     &-danger {
       &__number-container {
         @include theme-prop(background-color, negative-color);
@@ -137,6 +140,7 @@
         }
       }
     }
+
     &-success {
       &__number-container {
         @include theme-prop(background-color, positive-color);
@@ -146,6 +150,7 @@
         }
       }
     }
+
     &-dark {
       &__number-container {
         @include theme-prop(background-color, inverted-color-background);
@@ -231,22 +236,16 @@
       }
     }
   }
+}
 
-  @keyframes circle-pop {
-    0% {
-      transform: scale(1);
-    }
+@include keyframe(step-indicatior-circle-pop-elastic) {
+  @include pop-elastic();
+}
 
-    33% {
-      transform: scale(1.1);
-    }
+.monday-style-step-indicator-component{
+  font-family: var(--font-family);
+}
 
-    66% {
-      transform: scale(0.97);
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
+.monday-style-step-indicator-component__text-container__subtitle__text{
+  font-family: var(--font-family);
 }

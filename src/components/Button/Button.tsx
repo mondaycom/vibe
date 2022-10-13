@@ -20,7 +20,7 @@ const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
-  children: string;
+  children?: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
   /** The button's kind */
