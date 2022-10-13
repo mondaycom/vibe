@@ -8,7 +8,6 @@ const publishedJSComponents = {
   List: "components/List/List.jsx",
   ListTitle: "components/ListTitle/ListTitle.jsx",
   ListItemIcon: "components/ListItemIcon/ListItemIcon.jsx",
-  ListItem: "components/ListItem/ListItem.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
