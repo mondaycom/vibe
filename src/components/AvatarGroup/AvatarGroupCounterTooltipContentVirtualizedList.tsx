@@ -1,4 +1,4 @@
-import React, { Ref, useMemo } from "react";
+import React, { ReactElement, Ref, useMemo } from "react";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
@@ -15,9 +15,9 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
   /**
    * Array of Avatar components
    */
-  avatarItems?: { value: AvatarProps & { tooltipContent: any } }[];
+  avatarItems?: { value: AvatarProps & { tooltipContent: string | ReactElement } }[];
   avatarRenderer?: (
-    item: { value: AvatarProps & { tooltipContent: any } },
+    item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
     index: number,
     style: any,
     type: AvatarType,
