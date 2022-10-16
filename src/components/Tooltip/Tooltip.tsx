@@ -16,23 +16,48 @@ export interface TooltipProps extends VibeComponentProps {
   content: string | ReactElement;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
+  /**
+   * How much to move the dialog in relative to children
+   * main is the axis in which the position is aligned to
+   * secondary is the vertical axes to the position
+   */
   moveBy?: { main: number; secondary: number };
   theme?: TooltipTheme;
   justify?: JustifyType;
   getContainer?: () => void;
+  /**
+   * how much delay should the Dialog wait until it should trigger the hide in MS
+   */
   hideDelay?: number;
+  /**
+   * how much delay should the Dialog wait until it should trigger the show in MS
+   */
   showDelay?: number;
   disableDialogSlide?: boolean;
   animationType?: typeof AnimationType[keyof typeof AnimationType];
   withoutDialog?: boolean;
+  /**
+   * the container selector in which to append the dialog
+   * for examples: "body" , ".my-class", "#my-id"
+   */
   containerSelector?: string;
   immediateShowDelay?: number;
   tip?: boolean;
+  /**
+   * Show the Dialog when the children is mounting
+   */
   shouldShowOnMount?: boolean;
   hideWhenReferenceHidden?: boolean;
   onTooltipHide?: () => void;
   onTooltipShow?: () => void;
+  /**
+   * PopperJS Modifiers type
+   * https://popper.js.org/docs/v2/modifiers/
+   */
   modifiers?: Modifier<any>[];
+  /**
+   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   */
   position?: typeof DialogPosition[keyof typeof DialogPosition];
   /**
    * an array of hide/show trigger -
