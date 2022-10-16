@@ -283,14 +283,14 @@ Array [
       className="monday-style-dialog-content-component top edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-error padding-size-undefined"
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-error padding-size-undefined"
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
