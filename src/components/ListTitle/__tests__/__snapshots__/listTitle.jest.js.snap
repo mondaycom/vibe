@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  aria-level="3"
+  aria-level={3}
   className="list-title"
   role="heading"
 >

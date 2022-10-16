@@ -63,7 +63,17 @@ export interface ListItemProps extends VibeComponentProps {
 
 const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
   (
-    { className, id, onClick = NOOP, onHover = NOOP, selected, disabled, size = SIZES.SMALL, tabIndex = 0, children },
+    {
+      className,
+      id,
+      onClick = NOOP,
+      onHover = NOOP,
+      selected,
+      disabled = false,
+      size = SIZES.SMALL,
+      tabIndex = 0,
+      children
+    },
     ref
   ) => {
     const componentRef = useRef(null);
