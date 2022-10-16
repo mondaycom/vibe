@@ -21,6 +21,7 @@ const publishedTSComponents = {
   Chips: "components/Chips/Chips",
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
+  ListItemIcon: "components/ListItemIcon/ListItemIcon",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

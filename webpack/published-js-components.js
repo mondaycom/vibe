@@ -6,7 +6,6 @@ const publishedJSComponents = {
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
   TextWithHighlight: "components/TextWithHighlight/TextWithHighlight.jsx",
   List: "components/List/List.jsx",
-  ListItemIcon: "components/ListItemIcon/ListItemIcon.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
