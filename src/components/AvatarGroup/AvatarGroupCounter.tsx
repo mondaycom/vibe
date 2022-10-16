@@ -1,6 +1,6 @@
 import React, { ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import { AvatarProps } from "../Avatar/Avatar";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
@@ -34,7 +34,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  size = AvatarSize.MEDIUM,
+  size = Avatar.sizes.MEDIUM,
   type
 }) => {
   const {
@@ -88,7 +88,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
                   title: avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel,
                   onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
                 }}
-                avatarProps={{ ...avatar.props, size: AvatarSize.SMALL, ariaLabel: "", tabIndex: -1 }}
+                avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: -1 }}
               />
             );
           })}

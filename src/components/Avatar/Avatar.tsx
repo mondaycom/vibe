@@ -51,8 +51,8 @@ export interface AvatarProps extends VibeComponentProps {
 }
 
 const Avatar: React.FC<AvatarProps> & {
-  types?: AvatarType;
-  sizes?: AvatarSize;
+  types?: typeof AvatarType;
+  sizes?: typeof AvatarSize;
   colors?: BackgroundColors;
   backgroundColors?: BackgroundColors;
 } = ({

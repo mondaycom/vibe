@@ -5,6 +5,7 @@ import { AvatarSize, AvatarType } from "./AvatarConstants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import Icon, { iconSubComponentProps } from "../Icon/Icon";
 import "./AvatarContent.scss";
+import Avatar from "./Avatar";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
 const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
@@ -24,12 +25,12 @@ interface AvatarContentProps extends VibeComponentProps {
 export const AvatarContent: React.FC<AvatarContentProps> & {
   sizes?: typeof AvatarSize;
   types?: typeof AvatarType;
-} = ({ type = AvatarType.TEXT, src, icon, text, ariaLabel, role, size = AvatarSize.LARGE, textClassName }) => {
+} = ({ type = Avatar.types.TEXT, src, icon, text, ariaLabel, role, size = Avatar.sizes.LARGE, textClassName }) => {
   const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
   switch (type) {
-    case AvatarType.IMG:
+    case Avatar.types.IMG:
       return <img role={role} alt={ariaLabel} src={src} className={className} />;
-    case AvatarType.ICON:
+    case Avatar.types.ICON:
       return (
         <Icon
           icon={icon}
@@ -40,7 +41,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           ariaHidden={false}
         />
       );
-    case AvatarType.TEXT:
+    case Avatar.types.TEXT:
       return (
         <span aria-label={ariaLabel} role={role} className={cx(className, textClassName)}>
           {text}

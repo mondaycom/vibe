@@ -6,8 +6,8 @@ import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
-import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
+import { AvatarType } from "../Avatar/AvatarConstants";
 
 const TAB = ["Tab"];
 const ESC = ["Escape"];
@@ -140,7 +140,7 @@ export const avatarRenderer = (
             {...avatarProps}
             tooltipProps={undefined}
             ariaLabel={""}
-            size={AvatarSize.SMALL}
+            size={Avatar.sizes.SMALL}
             type={type || avatarProps?.type}
             tabIndex={-1}
           />

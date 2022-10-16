@@ -12,7 +12,6 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { ChipsSize } from "./ChipsConstants";
-import { AvatarType } from "../Avatar/AvatarConstants";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -113,7 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
-            type={AvatarType.IMG}
+            type={Avatar.types.IMG}
             key={id}
           />
         ) : null}
@@ -144,7 +143,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
-            type={AvatarType.IMG}
+            type={Avatar.types.IMG}
             key={id}
           />
         ) : null}
