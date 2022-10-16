@@ -28,6 +28,7 @@ export interface TooltipProps extends VibeComponentProps {
   containerSelector?: string;
   immediateShowDelay?: number;
   tip?: boolean;
+  shouldShowOnMount?: boolean;
   hideWhenReferenceHidden?: boolean;
   onTooltipHide?: () => void;
   onTooltipShow?: () => void;
@@ -64,10 +65,11 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   static themes = TooltipTheme;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
+  static arrowPositions = TooltipArrowPosition;
   static defaultProps = {
     arrowPosition: TooltipArrowPosition.CENTER,
     moveBy: { main: 4, secondary: 0 },
-    theme: TooltipTheme.DARK,
+    theme: TooltipTheme.Dark,
     position: Tooltip.positions.TOP,
     justify: Tooltip.justifyTypes.CENTER,
     hideDelay: 0,
