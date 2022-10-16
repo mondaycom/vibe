@@ -5,8 +5,8 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import "./ListTitle.scss";
 
 export interface ListTitleProps extends VibeComponentProps {
-  tabIndex: number;
-  children: string;
+  tabIndex?: number;
+  children?: string;
 }
 
 const ListTitle: React.FC<ListTitleProps> = forwardRef(({ className, id, children, tabIndex }, ref) => {
