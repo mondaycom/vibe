@@ -7,11 +7,11 @@ import { ListItemIconMargin } from "./ListItemIconConstants";
 import "./ListItemIcon.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
-  icon: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
   /**
    * the position of the icon inside the list item (this sets the margins of the icon)
    */
-  margin: ListItemIconMargin;
+  margin?: ListItemIconMargin;
 }
 
 const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
