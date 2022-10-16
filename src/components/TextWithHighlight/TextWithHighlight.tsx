@@ -11,13 +11,12 @@ const getTextPart = (
   text: string,
   key: number,
   shouldHighlight: boolean,
-  wrappingTextTag = "em",
+  wrappingTextTag: keyof JSX.IntrinsicElements = "em",
   wrappingElementClassName: string
 ) => {
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      // @ts-ignore variable-component
       <WrappingElement className={cx("highlight-text", wrappingElementClassName)} key={key}>
         {text}
       </WrappingElement>
@@ -41,7 +40,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   /** Tooltip to show when there is no overflow */
   nonEllipsisTooltip?: string;
   /** HTML tag to wrap the selected text */
-  wrappingTextTag?: string;
+  wrappingTextTag?: keyof JSX.IntrinsicElements;
   wrappingElementClassName?: string;
   tooltipPosition?: typeof DialogPositions;
 }
