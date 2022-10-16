@@ -3,9 +3,9 @@ import cx from "classnames";
 import ListItem, { ListItemProps } from "../../../components/ListItem/ListItem";
 import ListTitle, { ListTitleProps } from "../../ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
-import styles from "./VirtualizedListItems.module.scss";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
+import styles from "./VirtualizedListItems.module.scss";
 
 const ITEM_CHILDREN_TYPES = {
   TITLE: "title",
@@ -16,7 +16,7 @@ const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
 export interface VirtualizedListItemsProps extends VibeComponentProps {
-  children?: React.ReactElement<ListItemProps | ListTitleProps>;
+  children?: React.ReactElement<ListItemProps | ListTitleProps> | React.ReactElement<ListItemProps | ListTitleProps>[];
 }
 
 export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ children }) => {
@@ -24,7 +24,9 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
     const childrenArr = Array.isArray(children) ? children : [children];
     return childrenArr
       .map((child, index) => {
-        if (child.type.displayName === ListTitle.displayName) {
+        // @ts-ignore displayName is coming from Component assigned field: ListTitle, ListItem
+        const childTypeDisplayName = child.type.displayName;
+        if (childTypeDisplayName === ListTitle.displayName) {
           return {
             type: ITEM_CHILDREN_TYPES.TITLE,
             id: `list-title-${index}`,
@@ -32,7 +34,7 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
             // avoid add spacing to the first category on the list
             height: LIST_TITLE_HEIGHT
           };
-        } else if (child.type.displayName === ListItem.displayName) {
+        } else if (childTypeDisplayName === ListItem.displayName) {
           const { id } = child.props;
           return {
             type: ITEM_CHILDREN_TYPES.ITEM,

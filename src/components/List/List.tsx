@@ -1,20 +1,62 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
+import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/KeyCodes";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { ListItemProps } from "../ListItem/ListItem";
+import { ListTitleProps } from "../ListTitle/ListTitle";
+import { ListWrapperComponentType } from "./ListConstants";
 import "./List.scss";
 
-const List = forwardRef(
-  ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
+export interface ListProps extends VibeComponentProps {
+  /**
+   * the wrapping component to wrap the List Items [div, nav, ul, ol]
+   */
+  component?: ListWrapperComponentType;
+  // component?: string;
+  /**
+   * remove the side padding
+   */
+  dense?: boolean;
+  /**
+   * ARIA label string to describe to list
+   */
+  ariaLabel?: string;
+  /**
+   * ARIA described by string to reference an id to describe by
+   */
+  ariaDescribedBy?: string;
+  children?: ReactElement<ListItemProps | ListTitleProps> | ReactElement<ListItemProps | ListTitleProps>[];
+  /**
+   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   */
+  renderOnlyVisibleItems?: boolean;
+  style?: CSSProperties;
+}
+
+const List: FC<ListProps> = forwardRef(
+  (
+    {
+      className,
+      id,
+      component = "ul",
+      children,
+      dense = false,
+      ariaLabel,
+      ariaDescribedBy,
+      renderOnlyVisibleItems = false,
+      style
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
     const childrenRefs = useRef([]);
     const onKeyDown = useCallback(
-      event => {
+      (event: KeyboardEvent) => {
         const isUpKey = event.keyCode === keyCodes.UP_ARROW;
         const isDownKey = event.keyCode === keyCodes.DOWN_ARROW;
         let overrideFocusIndex = undefined;
@@ -34,11 +76,11 @@ const List = forwardRef(
       [focusIndex]
     );
     const overrideChildren = useMemo(() => {
-      let override = children;
+      let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {
-        childrenRefs.current = childrenRefs.current.slice(0, override?.length);
+        childrenRefs.current = childrenRefs.current.slice(0, override.length);
         override = React.Children.map(override, (child, index) => {
           if (!React.isValidElement(child)) {
             return child;
@@ -46,6 +88,7 @@ const List = forwardRef(
           return typeof child === "string"
             ? child
             : React.cloneElement(child, {
+                // @ts-ignore not sure how to deal with ref here
                 ref: ref => (childrenRefs.current[index] = ref),
                 tabIndex: focusIndex === index ? 0 : -1
               });
@@ -56,6 +99,7 @@ const List = forwardRef(
     }, [children, focusIndex, renderOnlyVisibleItems]);
 
     return (
+      // @ts-ignore Component comes from string, so it couldn't have types
       <Component
         ref={mergedRef}
         style={style}
@@ -74,49 +118,5 @@ const List = forwardRef(
     );
   }
 );
-
-List.propTypes = {
-  /**
-   * class name to be add to the wrapper
-   */
-  className: PropTypes.string,
-  /**
-   * id to be add to the wrapper
-   */
-  id: PropTypes.string,
-  /**
-   * the wrapping component to wrap the List Items [div, nav, ul, ol]
-   */
-  component: PropTypes.string,
-  /**
-   * remove the side padding
-   */
-  dense: PropTypes.bool,
-  /**
-   * ARIA label string to describe to list
-   */
-  ariaLabel: PropTypes.string,
-  /**
-   * ARIA described by string to reference an id to describe by
-   */
-  ariaDescribedBy: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-  /**
-   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
-   */
-  renderOnlyVisibleItems: PropTypes.bool,
-  style: PropTypes.object
-};
-List.defaultProps = {
-  className: "",
-  id: undefined,
-  component: "ul",
-  dense: false,
-  ariaLabel: undefined,
-  ariaDescribedBy: undefined,
-  children: undefined,
-  renderOnlyVisibleItems: false,
-  style: undefined
-};
 
 export default List;
