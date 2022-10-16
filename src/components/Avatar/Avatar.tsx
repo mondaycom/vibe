@@ -66,7 +66,7 @@ const Avatar: React.FC<AvatarProps> & {
   text,
   tooltipProps,
   ariaLabel,
-  withoutTooltip,
+  withoutTooltip = false,
   role,
   backgroundColor = elementColorsNames.CHILI_BLUE,
   square,
@@ -76,12 +76,12 @@ const Avatar: React.FC<AvatarProps> & {
   // Backward compatibility for props naming
   isDisabled,
   tabIndex = 0,
-  ariaHidden,
+  ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
-  withoutBorder,
+  withoutBorder = false,
   customSize,
   customBackgroundColor,
   onClick
