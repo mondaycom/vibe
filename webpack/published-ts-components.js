@@ -20,6 +20,7 @@ const publishedTSComponents = {
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
   ListItem: "components/ListItem/ListItem",
+  ListTitle: "components/ListTitle/ListTitle",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

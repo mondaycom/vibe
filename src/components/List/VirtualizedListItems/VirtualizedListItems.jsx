@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import cx from "classnames";
 import ListItem from "../../../components/ListItem/ListItem";
-import ListTitle from "../../../components/ListTitle/ListTitle";
+import ListTitle from "../../ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
 import styles from "./VirtualizedListItems.module.scss";
 
