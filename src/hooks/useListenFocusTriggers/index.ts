@@ -7,8 +7,8 @@ export function useListenFocusTriggers({
   onFocusByMouse
 }: {
   ref: RefObject<HTMLElement>;
-  onFocusByKeyboard: (event: FocusEvent) => void;
-  onFocusByMouse: (event: FocusEvent) => void;
+  onFocusByKeyboard?: (event: FocusEvent) => void;
+  onFocusByMouse?: (event: FocusEvent) => void;
 }) {
   const isElementMouseDown = useRef(false);
 
@@ -20,9 +20,9 @@ export function useListenFocusTriggers({
     (e: FocusEvent) => {
       // if focus triggered by mouse down, call onFocusByMouse
       if (isElementMouseDown.current) {
-        onFocusByMouse(e);
+        onFocusByMouse && onFocusByMouse(e);
       } else {
-        onFocusByKeyboard(e);
+        onFocusByKeyboard && onFocusByKeyboard(e);
       }
     },
     [onFocusByKeyboard, onFocusByMouse]

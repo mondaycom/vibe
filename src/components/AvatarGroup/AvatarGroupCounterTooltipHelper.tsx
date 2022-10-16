@@ -8,7 +8,6 @@ import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
 import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
-import { NOOP } from "../../utils/function-utils";
 
 const TAB = ["Tab"];
 const ESC = ["Escape"];
@@ -46,8 +45,7 @@ export function useTooltipContentTabNavigation({
   // Open tooltip manually when keyboard focusing on counter
   useListenFocusTriggers({
     ref: counterContainerRef,
-    onFocusByKeyboard: showKeyboardTooltip,
-    onFocusByMouse: NOOP
+    onFocusByKeyboard: showKeyboardTooltip
   });
 
   useEventListener({
