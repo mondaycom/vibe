@@ -6,16 +6,14 @@ import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent
 import { TOOLTIP_SHOW_DELAY, useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { CounterProps } from "../Counter/Counter";
 
 interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   className?: string;
   type?: AvatarType;
   /**
-   * Counter element
+   * Counter element & focus placeholders
    */
-  children?: ReactElement<CounterProps> | ReactElement<CounterProps>[];
-  // children?: any;
+  children?: ReactElement[];
   /**
    * Array of Avatar elements
    */
@@ -72,7 +70,7 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   const hideTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
-    return children as ReactElement<CounterProps>;
+    return <>{children}</>;
   }
   return (
     <Tooltip
