@@ -1,10 +1,10 @@
-import React, { useRef, forwardRef, useMemo, useState, useCallback } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { VirtualizedListItems } from "../../components/List/VirtualizedListItems/VirtualizedListItems";
-import "./List.scss";
+import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/KeyCodes";
+import "./List.scss";
 
 const List = forwardRef(
   ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
