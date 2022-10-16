@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { DialogPosition } from "../../constants/sizes";
-import { DialogAnimationType } from "../../constants/AnimationTypes";
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
@@ -11,7 +10,7 @@ import { chainFunctions, convertToArray } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../../components/Refable/Refable";
-import { HideShowEvent } from "../../constants/dialog";
+import { HideShowEvent, AnimationType } from "../../constants/dialog";
 import "./Dialog.scss";
 
 const NOOP = () => {};
@@ -404,7 +403,7 @@ export default class Dialog extends PureComponent {
 
 Dialog.hideShowTriggers = HideShowEvent;
 Dialog.positions = DialogPosition;
-Dialog.animationTypes = DialogAnimationType;
+Dialog.animationTypes = AnimationType;
 
 Dialog.propTypes = {
   /**

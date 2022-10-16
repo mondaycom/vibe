@@ -5,10 +5,9 @@ import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
 import { BASE_SIZES_WITH_NONE, DialogPosition } from "../../constants";
-import { DialogAnimationType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
-import { HideShowEvent, JustifyType } from "../../constants/dialog";
+import { HideShowEvent, JustifyType, AnimationType } from "../../constants/dialog";
 import "./Tooltip.scss";
 
 export interface TooltipProps extends VibeComponentProps {
@@ -24,7 +23,7 @@ export interface TooltipProps extends VibeComponentProps {
   hideDelay?: number;
   showDelay?: number;
   disableDialogSlide?: boolean;
-  animationType?: typeof DialogAnimationType[keyof typeof DialogAnimationType];
+  animationType?: typeof AnimationType[keyof typeof AnimationType];
   withoutDialog?: boolean;
   containerSelector?: string;
   immediateShowDelay?: number;
@@ -63,7 +62,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static positions = DialogPosition;
   static themes = TooltipTheme;
-  static animationTypes = DialogAnimationType;
+  static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
   static defaultProps = {
     arrowPosition: TooltipArrowPosition.CENTER,
@@ -74,7 +73,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     hideDelay: 0,
     showDelay: 300,
     disableDialogSlide: true,
-    animationType: DialogAnimationType.EXPAND,
+    animationType: AnimationType.EXPAND,
     withoutDialog: false,
     containerSelector: "#tooltips-container",
     tip: true,

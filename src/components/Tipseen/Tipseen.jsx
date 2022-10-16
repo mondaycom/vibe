@@ -1,5 +1,4 @@
 import { DialogPosition } from "../../constants/sizes";
-import { DialogAnimationType } from "../../constants/AnimationTypes";
 import { useRef, forwardRef, useMemo, Fragment } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -9,7 +8,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { JustifyType } from "../../constants/dialog";
+import { JustifyType, AnimationType } from "../../constants/dialog";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import styles from "./Tipseen.module.scss";
@@ -112,7 +111,7 @@ Tipseen.positions = {
   TOP: DialogPosition.TOP,
   BOTTOM: DialogPosition.BOTTOM
 };
-Tipseen.animationTypes = DialogAnimationType;
+Tipseen.animationTypes = AnimationType;
 Tipseen.justifyTypes = JustifyType;
 Tipseen.propTypes = {
   className: PropTypes.string,

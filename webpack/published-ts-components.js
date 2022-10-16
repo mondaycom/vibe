@@ -16,6 +16,7 @@ const publishedTSComponents = {
   Clickable: "components/Clickable/Clickable",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
+  Tooltip: "components/Tooltip/Tooltip",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",

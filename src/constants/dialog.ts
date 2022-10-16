@@ -17,3 +17,8 @@ export enum HideShowEvent {
   BLUR = "blur",
   CONTENT_CLICK = "onContentClick"
 }
+
+export enum AnimationType {
+  OPACITY_AND_SLIDE = "opacity-and-slide",
+  EXPAND = "expand"
+}
