@@ -17,6 +17,7 @@ export interface HeadingProps extends VibeComponentProps {
   ellipsis?: boolean;
   ellipsisMaxLines?: number;
   suggestEditOnHover?: boolean;
+  /** Tooltip to show when no overflow */
   nonEllipsisTooltip?: string;
   size?: typeof HeadingSizes;
   highlightTerm?: string;
@@ -45,7 +46,7 @@ const Heading: React.FC<HeadingProps> & {
   highlightTerm = null,
   suggestEditOnHover = false,
   brandFont = false,
-  nonEllipsisTooltip = null // tooltip to show when no overflow
+  nonEllipsisTooltip = null
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
