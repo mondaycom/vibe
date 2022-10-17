@@ -1,5 +1,4 @@
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -8,11 +7,52 @@ import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
-import IconButton from "../../components/IconButton/IconButton";
+import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
+import { ChipsSize } from "./ChipsConstants";
+import { AvatarTypes } from "../Avatar/AvatarConstants";
 import styles from "./Chips.module.scss";
 
-const Chips = forwardRef(
+interface ChipsProps extends VibeComponentProps {
+  className?: string;
+  id?: string;
+  label?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  dataTestId?: string;
+  /** Icon to place on the right */
+  rightIcon?: string | React.FunctionComponent | null;
+  /** Icon to place on the left */
+  leftIcon?: string | React.FunctionComponent | null;
+  /** Img to place as avatar on the right */
+  rightAvatar?: string;
+  /** Img to place as avatar on the left */
+  leftAvatar?: string;
+  // color?: Object.keys(Chips.colors),
+  color?: keyof Record<string, string>;
+  /** size for font icon */
+  iconSize?: number | string;
+  onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
+  /**
+   * Disables the Chips's entry animation
+   */
+  noAnimation?: boolean;
+  /**
+   * Allow user to select text
+   */
+  allowTextSelection?: boolean;
+  /**
+   * Callback function to be called when the user clicks the component.
+   */
+  onMouseDown?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}
+
+const Chips: VibeComponent<ChipsProps, HTMLElement> & {
+  sizes?: typeof ChipsSize;
+  colors?: typeof elementColorsNames;
+} = forwardRef<HTMLElement, ChipsProps>(
   (
     {
       className,
@@ -43,7 +83,7 @@ const Chips = forwardRef(
     }, [disabled, color]);
 
     const onDeleteCallback = useCallback(
-      e => {
+      (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         if (onDelete) {
           onDelete(id, e);
         }
@@ -73,7 +113,7 @@ const Chips = forwardRef(
             className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
-            type={Avatar.types.IMG}
+            type={AvatarTypes.IMG}
             key={id}
           />
         ) : null}
@@ -104,19 +144,18 @@ const Chips = forwardRef(
             className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
-            type={Avatar.types.IMG}
+            type={AvatarTypes.IMG}
             key={id}
           />
         ) : null}
         {hasCloseButton && (
           <IconButton
-            size={IconButton.sizes.XXS}
+            size={ChipsSize.XXS}
             color={IconButton.colors.ON_PRIMARY_COLOR}
             className={cx(styles.icon, styles.close)}
             ariaLabel="Remove"
             hideTooltip
             icon={CloseSmall}
-            iconSize={18}
             onClick={onDeleteCallback}
             dataTestId={`${overrideDataTestId}-close`}
           />
@@ -126,40 +165,11 @@ const Chips = forwardRef(
   }
 );
 
-Chips.colors = elementColorsNames;
+Object.assign(Chips, {
+  sizes: ChipsSize,
+  colors: elementColorsNames
+});
 
-Chips.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  disabled: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  dataTestId: PropTypes.string,
-  /** Icon to place on the right */
-  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** Icon to place on the left */
-  leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** Img to place as avatar on the right */
-  rightAvatar: PropTypes.string,
-  /** Img to place as avatar on the left */
-  leftAvatar: PropTypes.string,
-  color: PropTypes.oneOf(Object.keys(Chips.colors)),
-  /** size for font icon */
-  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onDelete: PropTypes.func,
-  /**
-   * Disables the Chips's entry animation
-   */
-  noAnimation: PropTypes.bool,
-  /**
-   * Allow user to select text
-   */
-  allowTextSelection: PropTypes.bool,
-  /**
-   * Callback function to be called when the user clicks the component.
-   */
-  onMouseDown: PropTypes.func
-};
 Chips.defaultProps = {
   className: "",
   id: "",
@@ -171,9 +181,9 @@ Chips.defaultProps = {
   leftIcon: null,
   leftAvatar: null,
   rightAvatar: null,
-  color: Chips.colors.PRIMARY,
+  color: elementColorsNames.PRIMARY,
   iconSize: 16,
-  onDelete: (_id, _e) => {},
+  onDelete: (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
   onMouseDown: NOOP,
   noAnimation: false,
   allowTextSelection: false

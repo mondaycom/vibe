@@ -24,7 +24,6 @@ const publishedJSComponents = {
   TabPanel: "components/Tabs/TabPanel/TabPanel.jsx",
   Tab: "components/Tabs/Tab/Tab.jsx",
   TabList: "components/Tabs/TabList/TabList.jsx",
-  Chips: "components/Chips/Chips.jsx",
   BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
@@ -62,12 +61,11 @@ const publishedJSComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
   Modal: "components/Modal/Modal.jsx",
   ModalHeader: "components/ModalHeader/ModalHeader.jsx",
   ModalFooter: "components/ModalFooter/ModalFooter.jsx",
-  ModalContent: "components/ModalContent/ModalContent.jsx",
+  ModalContent: "components/ModalContent/ModalContent.jsx"
   // Don't remove next line
   // plop_marker:published-hooks
 };

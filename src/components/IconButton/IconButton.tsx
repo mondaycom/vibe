@@ -184,9 +184,6 @@ const IconButton: React.FC<IconButtonProps> & {
   }
 );
 
-// Button.sizes = SIZES;
-// IconButton.kinds = Button.kinds;
-// IconButton.colors = Button.colors;
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
