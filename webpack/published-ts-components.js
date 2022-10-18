@@ -1,6 +1,5 @@
 const publishedTSComponents = {
   Button: "components/Button/Button",
-  AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
@@ -14,6 +13,8 @@ const publishedTSComponents = {
   RadioButton: "components/RadioButton/RadioButton",
   Banner: "components/Banner/Banner",
   Clickable: "components/Clickable/Clickable",
+  AlertBanner: "components/AlertBanner/AlertBanner",
+  AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",

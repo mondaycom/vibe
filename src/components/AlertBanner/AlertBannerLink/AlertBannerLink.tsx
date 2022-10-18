@@ -4,12 +4,12 @@ import cx from "classnames";
 import Link, { LinkProps } from "../../Link/Link";
 import "./AlertBannerLink.scss";
 
-interface AlertBannerLink extends LinkProps {
+export interface AlertBannerLinkProps extends LinkProps {
   marginLeft?: boolean;
   isDarkBackground?: boolean;
 }
 
-const AlertBannerLink = ({ marginLeft = false, isDarkBackground = false, ...linkProps }: AlertBannerLink) => {
+const AlertBannerLink = ({ marginLeft = false, isDarkBackground = false, ...linkProps }: AlertBannerLinkProps) => {
   const classNames = cx({
     "monday-style-alert-banner-link-margin-left": marginLeft,
     "monday-style-alert-banner-link-dark-background": isDarkBackground

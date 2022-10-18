@@ -8,7 +8,7 @@ import "./AlertBannerText.scss";
 const TOOLTIP_SHOW_TRIGGERS = ["mouseenter"];
 const TOOLTIP_HIDE_TRIGGERS = ["mouseleave"];
 
-interface AlertBannerTextProps extends VibeComponentProps {
+export interface AlertBannerTextProps extends VibeComponentProps {
   text: string;
   marginLeft?: boolean;
 }

@@ -3,7 +3,7 @@ import Button, { ButtonProps } from "../../Button/Button";
 import React from "react";
 import "./AlertBannerButton.scss";
 
-interface AlertBannerButtonProps extends ButtonProps {
+export interface AlertBannerButtonProps extends ButtonProps {
   isDarkBackground?: boolean;
 }
 
