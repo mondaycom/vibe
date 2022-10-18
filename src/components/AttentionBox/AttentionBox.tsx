@@ -37,15 +37,15 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   // Backward compatibility for props naming
   componentClassName,
   // Will remove when releasing version 2 as BREAKING CHANGES
-  withIconWithoutHeader,
-  type,
-  icon,
-  iconType,
+  withIconWithoutHeader = false,
+  type = AttentionBox.types.PRIMARY,
+  icon = AlertIcon,
+  iconType = Icon.type.SVG,
   title,
   text,
-  withoutIcon,
+  withoutIcon = false,
   onClose,
-  compact
+  compact = false
 }) => {
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
@@ -141,18 +141,5 @@ Object.assign(AttentionBox, {
   types: AttentionBoxType,
   iconTypes: IconType
 });
-
-AttentionBox.defaultProps = {
-  className: undefined,
-  type: AttentionBoxType.PRIMARY,
-  icon: AlertIcon,
-  iconType: Icon.type.SVG,
-  title: "",
-  text: "",
-  withoutIcon: false,
-  withIconWithoutHeader: false,
-  compact: false,
-  onClose: undefined
-};
 
 export default AttentionBox;
