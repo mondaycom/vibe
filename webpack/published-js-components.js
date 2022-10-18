@@ -24,7 +24,6 @@ const publishedJSComponents = {
   TabPanel: "components/Tabs/TabPanel/TabPanel.jsx",
   Tab: "components/Tabs/Tab/Tab.jsx",
   TabList: "components/Tabs/TabList/TabList.jsx",
-  BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
