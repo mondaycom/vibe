@@ -38,8 +38,10 @@ const Modal = ({
     alertDialog
   });
 
+  // lock body scroll when modal is open
   useBodyScrollLock({ instance });
 
+  // show/hide and animate the modal
   const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
 
   const header = useMemo(() => {
