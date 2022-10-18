@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
+import { AttentionBoxTypes } from "../AttentionBoxConstants";
 import Icon from "../../Icon/Icon";
 import AttentionBox from "../AttentionBox";
 
@@ -31,7 +31,7 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders correctly dark type", () => {
-    const tree = renderer.create(<AttentionBox title="Title" text="Text" type={ATTENTION_BOX_TYPES.DARK} />).toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" type={AttentionBoxTypes.DARK} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

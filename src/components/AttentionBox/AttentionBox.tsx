@@ -1,18 +1,38 @@
 import React, { useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-import Icon from "../../components/Icon/Icon";
+import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import AlertIcon from "../../components/Icon/Icons/components/Alert";
-import { IconType } from "../../components/Icon/IconConstants";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import AlertIcon from "../Icon/Icons/components/Alert";
+import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { AttentionBoxTypes } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
-
+import VibeComponentProps from "src/types/VibeComponentProps";
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
 
-const AttentionBox = ({
+interface AttentionBoxProps extends VibeComponentProps {
+  className?: string;
+  // Backward compatibility for props naming
+  componentClassName?: string;
+  // Will remove when releasing version 2 as BREAKING CHANGES
+  withIconWithoutHeader?: boolean;
+  /** we support 4 types of attention boxes */
+  type?: AttentionBoxTypes;
+  /** Icon classname for icon font or SVG Icon Component for SVG Type */
+  icon?: string | React.FunctionComponent | null;
+  iconType?: IconType.SVG | IconType.ICON_FONT;
+  title?: string;
+  text?: string;
+  withoutIcon?: boolean;
+  onClose?: (event: React.MouseEvent) => void;
+  compact?: boolean;
+}
+
+const AttentionBox: React.FC<AttentionBoxProps> & {
+  types?: typeof AttentionBoxTypes;
+  iconTypes?: typeof IconType;
+} = ({
   className,
   // Backward compatibility for props naming
   componentClassName,
@@ -28,11 +48,11 @@ const AttentionBox = ({
   compact
 }) => {
   const iconLabel = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
+    if (type === AttentionBoxTypes.DANGER) {
       return "alert";
     }
 
-    if (type === ATTENTION_BOX_TYPES.SUCCESS) {
+    if (type === AttentionBoxTypes.SUCCESS) {
       return "success";
     }
 
@@ -102,7 +122,7 @@ const AttentionBox = ({
       </div>
       {onClose && (
         <IconButton
-          size={IconButton.sizes.SMALL}
+          size={IconButton?.sizes?.SMALL}
           color={IconButton.colors.ON_PRIMARY_COLOR}
           className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`)}
           wrapperClassName={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--wrapper`, {
@@ -117,32 +137,14 @@ const AttentionBox = ({
   );
 };
 
-AttentionBox.types = ATTENTION_BOX_TYPES;
-AttentionBox.iconTypes = IconType;
-AttentionBox.propTypes = {
-  className: PropTypes.string,
-  /** we support 4 types of attention boxes */
-  type: PropTypes.oneOf([
-    ATTENTION_BOX_TYPES.PRIMARY,
-    ATTENTION_BOX_TYPES.SUCCESS,
-    ATTENTION_BOX_TYPES.DANGER,
-    ATTENTION_BOX_TYPES.DARK
-  ]),
-  /** We support two types of icons, SVG and Icon font (please see Icon component for more information) */
-  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  /** Icon classname for icon font or SVG Icon Component for SVG Type */
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  title: PropTypes.string,
-  text: PropTypes.any,
-  withIconWithoutHeader: PropTypes.bool,
-  withoutIcon: PropTypes.bool,
-  compact: PropTypes.bool,
-  onClose: PropTypes.func
-};
+Object.assign(AttentionBox, {
+  types: AttentionBoxTypes,
+  iconTypes: IconType
+});
 
 AttentionBox.defaultProps = {
   className: undefined,
-  type: ATTENTION_BOX_TYPES.PRIMARY,
+  type: AttentionBoxTypes.PRIMARY,
   icon: AlertIcon,
   iconType: Icon.type.SVG,
   title: "",
