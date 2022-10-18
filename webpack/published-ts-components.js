@@ -20,6 +20,7 @@ const publishedTSComponents = {
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
   AttentionBox: "components/AttentionBox/AttentionBox",
+  SplitButton: "components/SplitButton/SplitButton",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

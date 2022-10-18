@@ -41,7 +41,6 @@ const publishedJSComponents = {
   Dialog: "components/Dialog/Dialog.jsx",
   DialogContentContainer: "components/DialogContentContainer/DialogContentContainer.jsx",
   MenuButton: "components/MenuButton/MenuButton.jsx",
-  SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
   SearchComponent: "components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
