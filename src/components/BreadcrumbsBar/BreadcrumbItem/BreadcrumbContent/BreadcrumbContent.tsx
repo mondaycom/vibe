@@ -1,15 +1,33 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { forwardRef, useCallback, useMemo } from "react";
+import React, { FC, ForwardedRef, forwardRef, useCallback, useMemo } from "react";
+import VibeComponentProps from "../../../../types/VibeComponentProps";
+import { iconSubComponentProps } from "../../../Icon/Icon";
 import "./BreadcrumbContent.scss";
 
 const ENTER_KEY = "Enter";
 const SPACE_KEY = " ";
 
-export const BreadcrumbContent = forwardRef(
-  ({ className, isClickable, link, onClick, text, icon, isCurrent, disabled = false }, ref) => {
+export interface BreadcrumbContentProps extends VibeComponentProps {
+  isClickable: boolean;
+  link: string;
+  onClick: () => void;
+  text: string;
+  icon: string | React.FC<iconSubComponentProps> | null;
+  isCurrent: boolean;
+  disabled: boolean;
+}
+
+const iconProps = { className: "breadcrumb-icon", size: 14, clickable: false };
+
+export const BreadcrumbContent: FC<BreadcrumbContentProps> = forwardRef(
+  (
+    { className, isClickable, link, onClick, text, icon, isCurrent, disabled = false },
+    ref: ForwardedRef<HTMLSpanElement>
+  ) => {
     const Icon = icon;
+
     const onKeyDown = useCallback(
-      event => {
+      (event: React.KeyboardEvent) => {
         if (event.key === ENTER_KEY || event.key === SPACE_KEY) {
           link ? (window.parent.location.href = link) : onClick();
         }
@@ -17,13 +35,13 @@ export const BreadcrumbContent = forwardRef(
       [onClick, link]
     );
 
-    const tabIndex = useMemo(() => (disabled ? "-1" : "0"), [disabled]);
+    const tabIndex = useMemo(() => (disabled ? -1 : 0), [disabled]);
 
     if (isClickable && (link || onClick)) {
       if (link) {
         return (
           <a className={className} href={link} onKeyDown={onKeyDown} aria-current={isCurrent ? "page" : undefined}>
-            {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
+            {Icon && <Icon {...iconProps} />}
             <span ref={ref} className="breadcrumb-text">
               {text}
             </span>
@@ -39,7 +57,7 @@ export const BreadcrumbContent = forwardRef(
           aria-current={isCurrent ? "page" : undefined}
           role="button"
         >
-          {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
+          {Icon && <Icon {...iconProps} />}
           <span ref={ref} className="breadcrumb-text">
             {text}
           </span>
@@ -53,7 +71,7 @@ export const BreadcrumbContent = forwardRef(
         tabIndex={tabIndex}
         aria-current={isCurrent ? "page" : undefined}
       >
-        {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
+        {Icon && <Icon {...iconProps} />}
         <span ref={ref} className="breadcrumb-text">
           {text}
         </span>
