@@ -6,10 +6,10 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchIconName, SearchType, SearchTypeClass } from "./SearchConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { iconSubComponentProps } from "../Icon/Icon";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
+import { IconType } from "../Icon/IconConstants";
 import "./Search.scss";
 
 function getType(type: SearchType) {
@@ -17,8 +17,8 @@ function getType(type: SearchType) {
 }
 
 export interface SearchProps extends VibeComponentProps {
-  secondaryIconName?: string | React.FunctionComponent<iconSubComponentProps> | null;
-  iconName?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  secondaryIconName?: IconType;
+  iconName?: IconType;
   onChange?: () => void;
   autoFocus?: boolean;
   underline?: boolean;
@@ -26,8 +26,8 @@ export interface SearchProps extends VibeComponentProps {
   placeholder?: string;
   disabled?: boolean;
   debounceRate?: number;
-  onBlur?: () => void;
-  onFocus?: () => void;
+  onBlur?: (event: React.FocusEvent) => void;
+  onFocus?: (event: React.FocusEvent) => void;
   wrapperClassName?: string;
   setRef?: () => void;
   autoComplete?: string;
@@ -35,10 +35,12 @@ export interface SearchProps extends VibeComponentProps {
   size?: typeof SIZES[keyof typeof SIZES];
   /* TYPES is exposed on the component itself */
   type?: SearchType;
-  validation?: {
-    status: string;
-    text: string;
-  };
+  validation?:
+    | {
+        status: "error" | "success";
+        text: string;
+      }
+    | { text: string };
   inputAriaLabel?: string;
   searchResultsContainerId?: string;
   activeDescendant?: string;
