@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.68.2 (2022-10-18)
+
+#### Bug Fixes
+* [#939](https://github.com/mondaycom/monday-ui-react-core/pull/939) Fix attention box migration to ts ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.68.1 (2022-10-18)
 
 #### Bug Fixes
