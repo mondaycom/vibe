@@ -1,4 +1,4 @@
-export enum AttentionBoxTypes {
+export enum AttentionBoxType {
   PRIMARY = "primary",
   SUCCESS = "success",
   DANGER = "danger",

@@ -6,7 +6,7 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { AttentionBoxTypes } from "./AttentionBoxConstants";
+import { AttentionBoxType } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
@@ -18,7 +18,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
   /** we support 4 types of attention boxes */
-  type?: AttentionBoxTypes;
+  type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: string | React.FunctionComponent | null;
   iconType?: IconType.SVG | IconType.ICON_FONT;
@@ -30,7 +30,7 @@ interface AttentionBoxProps extends VibeComponentProps {
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
-  types?: typeof AttentionBoxTypes;
+  types?: typeof AttentionBoxType;
   iconTypes?: typeof IconType;
 } = ({
   className,
@@ -48,11 +48,11 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   compact
 }) => {
   const iconLabel = useMemo(() => {
-    if (type === AttentionBoxTypes.DANGER) {
+    if (type === AttentionBoxType.DANGER) {
       return "alert";
     }
 
-    if (type === AttentionBoxTypes.SUCCESS) {
+    if (type === AttentionBoxType.SUCCESS) {
       return "success";
     }
 
@@ -138,13 +138,13 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 };
 
 Object.assign(AttentionBox, {
-  types: AttentionBoxTypes,
+  types: AttentionBoxType,
   iconTypes: IconType
 });
 
 AttentionBox.defaultProps = {
   className: undefined,
-  type: AttentionBoxTypes.PRIMARY,
+  type: AttentionBoxType.PRIMARY,
   icon: AlertIcon,
   iconType: Icon.type.SVG,
   title: "",

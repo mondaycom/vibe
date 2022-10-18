@@ -2,7 +2,7 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { AttentionBoxTypes } from "../AttentionBoxConstants";
+import { AttentionBoxType } from "../AttentionBoxConstants";
 import { Link } from "../../../storybook/components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
@@ -85,7 +85,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         <AttentionBox
           title="You're doing great"
           text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          type={AttentionBoxTypes.SUCCESS}
+          type={AttentionBoxType.SUCCESS}
           className="monday-style-attention-box_box"
           icon={ThumbsUp}
         />
@@ -94,7 +94,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         <AttentionBox
           title="Account low on free space"
           text="Your account if out of free space, free some space to prevent data loss."
-          type={AttentionBoxTypes.DANGER}
+          type={AttentionBoxType.DANGER}
           className="monday-style-attention-box_box"
         />
       </StoryDescription>
@@ -102,7 +102,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         <AttentionBox
           title="What a great idea!"
           text="You can also make this list sortable by tagging the items with tags column"
-          type={AttentionBoxTypes.DARK}
+          type={AttentionBoxType.DARK}
           className="monday-style-attention-box_box"
           icon={Favorite}
         />
@@ -186,7 +186,7 @@ Provides additional information about an action or section.
         withIconWithoutHeader
         icon={Info}
         text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
-        type={AttentionBoxTypes.DARK}
+        type={AttentionBoxType.DARK}
       />
     </div>
   </Story>
