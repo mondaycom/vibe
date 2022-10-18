@@ -7,7 +7,7 @@ import "./BreadcrumbContent.scss";
 const ENTER_KEY = "Enter";
 const SPACE_KEY = " ";
 
-export interface BreadcrumbContentProps extends VibeComponentProps {
+interface BreadcrumbContentProps extends VibeComponentProps {
   isClickable?: boolean;
   link?: string;
   onClick?: () => void;

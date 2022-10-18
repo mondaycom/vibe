@@ -19,6 +19,7 @@ const publishedTSComponents = {
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
+  BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar",
   BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
