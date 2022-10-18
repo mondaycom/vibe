@@ -1,15 +1,19 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
+import React, { FC, useRef } from "react";
 import cx from "classnames";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
-
+import VibeComponentProps from "../../../types/VibeComponentProps";
 import "./AlertBannerText.scss";
 
 const TOOLTIP_SHOW_TRIGGERS = ["mouseenter"];
 const TOOLTIP_HIDE_TRIGGERS = ["mouseleave"];
 
-const AlertBannerText = ({ text, marginLeft }) => {
+interface AlertBannerTextProps extends VibeComponentProps {
+  text: string;
+  marginLeft?: boolean;
+}
+
+const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false }) => {
   const componentRef = useRef(null);
   const classNames = cx("monday-style-alert-banner-text", { "monday-style-alert-banner-text-margin-left": marginLeft });
   const isOverflowing = useIsOverflowing({ ref: componentRef });
@@ -28,16 +32,9 @@ const AlertBannerText = ({ text, marginLeft }) => {
   );
 };
 
-AlertBannerText.isAlertBannerItem = true;
-AlertBannerText.isAlertBannerText = true;
-
-AlertBannerText.propTypes = {
-  text: PropTypes.string.isRequired,
-  marginLeft: PropTypes.bool
-};
-
-AlertBannerText.defaultProps = {
-  marginLeft: false
-};
+Object.assign(AlertBannerText, {
+  isAlertBannerItem: true,
+  isAlertBannerText: true
+});
 
 export default AlertBannerText;

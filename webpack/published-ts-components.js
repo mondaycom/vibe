@@ -14,6 +14,7 @@ const publishedTSComponents = {
   RadioButton: "components/RadioButton/RadioButton",
   Banner: "components/Banner/Banner",
   Clickable: "components/Clickable/Clickable",
+  AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
