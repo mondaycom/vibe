@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
-import Icon from "../Icon/Icon";
+import Icon, { iconSubComponentProps } from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
@@ -20,7 +20,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   /** we support 4 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
-  icon?: string | React.FunctionComponent | null;
+  icon?: string | React.FC<iconSubComponentProps> | null;
   iconType?: IconType.SVG | IconType.ICON_FONT;
   title?: string;
   text?: string;
