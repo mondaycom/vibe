@@ -1,13 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import camelCase from "lodash/camelCase";
 import cx from "classnames";
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, useCallback, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import useOnClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HIDE_SHOW_EVENTS } from "../consts/dialog-show-hide-event";
-import { DIALOG_ANIMATION_TYPES } from "../../../constants";
+import { AnimationType } from "../../../constants";
 import styles from "./DialogContent.module.scss";
 
 const transitionOptions = {};
@@ -50,13 +50,13 @@ export const DialogContent = React.forwardRef(
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     switch (animationType) {
-      case DIALOG_ANIMATION_TYPES.OPACITY_AND_SLIDE:
+      case AnimationType.OPACITY_AND_SLIDE:
         transitionOptions.classNames = {
           appear: styles.opacityAndSlideAppear,
           appearActive: styles.opacityAndSlideAppearActive
         };
         break;
-      case DIALOG_ANIMATION_TYPES.EXPAND:
+      case AnimationType.EXPAND:
         transitionOptions.classNames = {
           appear: styles.expandAppear,
           appearActive: styles.expandAppearActive,

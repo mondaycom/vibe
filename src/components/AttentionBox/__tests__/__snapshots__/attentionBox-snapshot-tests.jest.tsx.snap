@@ -166,12 +166,9 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
   data-testid="attention-box"
   role="alert"
 >
-  
   <div
     className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
-  >
-    
-  </div>
+  />
 </aside>
 `;
 

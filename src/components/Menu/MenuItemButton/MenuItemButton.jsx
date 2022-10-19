@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import Button from "../../Button/Button";
@@ -8,7 +8,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPositions } from "../../../constants/sizes";
+import { DialogPosition } from "../../../constants/sizes";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import styles from "./MenuItemButton.module.scss";
 
@@ -104,7 +104,7 @@ const MenuItemButton = ({
 };
 
 MenuItemButton.kinds = Button.kinds;
-MenuItemButton.tooltipPositions = DialogPositions;
+MenuItemButton.tooltipPositions = DialogPosition;
 
 MenuItemButton.defaultProps = {
   className: undefined,

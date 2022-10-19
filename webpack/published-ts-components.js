@@ -16,9 +16,13 @@ const publishedTSComponents = {
   Clickable: "components/Clickable/Clickable",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
+  Tooltip: "components/Tooltip/Tooltip",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
+  AttentionBox: "components/AttentionBox/AttentionBox",
+  SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
+  Search: "components/Search/Search",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

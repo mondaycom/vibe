@@ -2,14 +2,14 @@ import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { DialogPositions } from "../../../constants";
+import { DialogPosition } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import styles from "./SliderThumb.module.scss";
 
-const tooltipPosition = DialogPositions.TOP;
+const tooltipPosition = DialogPosition.TOP;
 
 const SliderThumb = ({ className, index, onMove, position, id, "data-testid": dataTestId }) => {
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();

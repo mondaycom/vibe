@@ -1,42 +1,64 @@
 import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import cx from "classnames";
 import React, { useMemo } from "react";
-import PropTypes from "prop-types";
-import Icon from "../../components/Icon/Icon";
+import Icon, { iconSubComponentProps } from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import AlertIcon from "../../components/Icon/Icons/components/Alert";
-import { IconType } from "../../components/Icon/IconConstants";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import AlertIcon from "../Icon/Icons/components/Alert";
+import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { AttentionBoxType } from "./AttentionBoxConstants";
+import VibeComponentProps from "src/types/VibeComponentProps";
+import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./AttentionBox.module.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
 
-const AttentionBox = ({
+interface AttentionBoxProps extends VibeComponentProps {
+  className?: string;
+  // Backward compatibility for props naming
+  componentClassName?: string;
+  // Will remove when releasing version 2 as BREAKING CHANGES
+  withIconWithoutHeader?: boolean;
+  /** we support 4 types of attention boxes */
+  type?: AttentionBoxType;
+  /** Icon classname for icon font or SVG Icon Component for SVG Type */
+  icon?: string | React.FC<iconSubComponentProps> | null;
+  iconType?: IconType.SVG | IconType.ICON_FONT;
+  title?: string;
+  text?: string;
+  withoutIcon?: boolean;
+  onClose?: (event: React.MouseEvent) => void;
+  compact?: boolean;
+}
+
+const AttentionBox: React.FC<AttentionBoxProps> & {
+  types?: typeof AttentionBoxType;
+  iconTypes?: typeof IconType;
+} = ({
   className,
   // Backward compatibility for props naming
   componentClassName,
   // Will remove when releasing version 2 as BREAKING CHANGES
-  withIconWithoutHeader,
-  type,
-  icon,
-  iconType,
+  withIconWithoutHeader = false,
+  type = AttentionBox.types.PRIMARY,
+  icon = AlertIcon,
+  iconType = Icon.type.SVG,
   title,
   text,
-  withoutIcon,
+  withoutIcon = false,
   onClose,
-  compact,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  compact = false
 }) => {
   const iconLabel = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
+    if (type === AttentionBoxType.DANGER) {
       return "alert";
     }
 
-    if (type === ATTENTION_BOX_TYPES.SUCCESS) {
+    if (type === AttentionBoxType.SUCCESS) {
       return "success";
     }
 
@@ -50,7 +72,7 @@ const AttentionBox = ({
       className={cx(
         styles.attentionBox,
         ATTENTION_BOX_CSS_BASE_CLASS,
-        styles[camelCase(`type-${type}`)],
+        getStyle(styles, camelCase(`type-${type}`)),
         classNameWithType,
         { compact: compact, "with-close": onClose },
         overrideClassName
@@ -64,7 +86,7 @@ const AttentionBox = ({
           className={cx(
             styles.titleContainer,
             `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`,
-            styles[camelCase(`type-${type}__title-container`)],
+            getStyle(styles, camelCase(`type-${type}__title-container`)),
             `${classNameWithType}__title-container`
           )}
         >
@@ -77,7 +99,7 @@ const AttentionBox = ({
               className={cx(
                 styles.titleContainerIcon,
                 `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-                styles[camelCase(`type-${type}__title-container__icon`)],
+                getStyle(styles, camelCase(`type-${type}__title-container__icon`)),
                 `${classNameWithType}__title-container__icon`
               )}
               ignoreFocusStyle
@@ -89,7 +111,7 @@ const AttentionBox = ({
             className={cx(
               styles.titleContainerTitle,
               `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__title`,
-              styles[camelCase(`type-${type}__title-container__title`)],
+              getStyle(styles, camelCase(`type-${type}__title-container__title`)),
               `${classNameWithType}__title-container__title`
             )}
           >
@@ -101,7 +123,7 @@ const AttentionBox = ({
         className={cx(
           styles.text,
           `${ATTENTION_BOX_CSS_BASE_CLASS}__text`,
-          styles[camelCase(`type-${type}__text`)],
+          getStyle(styles, camelCase(`type-${type}__text`)),
           `${classNameWithType}__text`,
           {
             [styles.textCompact]: compact,
@@ -119,7 +141,7 @@ const AttentionBox = ({
             className={cx(
               styles.titleContainerIcon,
               `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-              styles[camelCase(`type-${type}__title-container__icon`)],
+              getStyle(styles, camelCase(`type-${type}__title-container__icon`)),
               `${classNameWithType}__title-container__icon`
             )}
             ignoreFocusStyle
@@ -130,7 +152,7 @@ const AttentionBox = ({
       </div>
       {onClose && (
         <IconButton
-          size={IconButton.sizes.SMALL}
+          size={IconButton?.sizes?.SMALL}
           color={IconButton.colors.ON_PRIMARY_COLOR}
           className={cx(styles.closeIcon, `${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`)}
           wrapperClassName={cx(styles.closeIconWrapper, `${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--wrapper`, {
@@ -146,40 +168,9 @@ const AttentionBox = ({
   );
 };
 
-AttentionBox.types = ATTENTION_BOX_TYPES;
-AttentionBox.iconTypes = IconType;
-AttentionBox.propTypes = {
-  className: PropTypes.string,
-  /** we support 4 types of attention boxes */
-  type: PropTypes.oneOf([
-    ATTENTION_BOX_TYPES.PRIMARY,
-    ATTENTION_BOX_TYPES.SUCCESS,
-    ATTENTION_BOX_TYPES.DANGER,
-    ATTENTION_BOX_TYPES.DARK
-  ]),
-  /** We support two types of icons, SVG and Icon font (please see Icon component for more information) */
-  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  /** Icon classname for icon font or SVG Icon Component for SVG Type */
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  title: PropTypes.string,
-  text: PropTypes.any,
-  withIconWithoutHeader: PropTypes.bool,
-  withoutIcon: PropTypes.bool,
-  compact: PropTypes.bool,
-  onClose: PropTypes.func
-};
-
-AttentionBox.defaultProps = {
-  className: undefined,
-  type: ATTENTION_BOX_TYPES.PRIMARY,
-  icon: AlertIcon,
-  iconType: Icon.type.SVG,
-  title: "",
-  text: "",
-  withoutIcon: false,
-  withIconWithoutHeader: false,
-  compact: false,
-  onClose: undefined
-};
+Object.assign(AttentionBox, {
+  types: AttentionBoxType,
+  iconTypes: IconType
+});
 
 export default AttentionBox;
