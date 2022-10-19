@@ -4,15 +4,14 @@ import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { BASE_SIZES_WITH_NONE, DialogPosition } from "../../constants";
+import { BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType, AnimationType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
-import { HideShowEvent, JustifyType, AnimationType } from "../../constants/dialog";
 import "./Tooltip.scss";
 
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
-  children: ReactElement;
+  children: ReactElement | Array<ReactElement>;
   content: string | ReactElement;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
@@ -21,10 +20,10 @@ export interface TooltipProps extends VibeComponentProps {
    * main is the axis in which the position is aligned to
    * secondary is the vertical axes to the position
    */
-  moveBy?: { main: number; secondary: number };
+  moveBy?: { main?: number; secondary?: number };
   theme?: TooltipTheme;
   justify?: JustifyType;
-  getContainer?: () => void;
+  getContainer?: () => HTMLElement;
   /**
    * how much delay should the Dialog wait until it should trigger the hide in MS
    */
@@ -54,7 +53,7 @@ export interface TooltipProps extends VibeComponentProps {
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
    */
-  modifiers?: Modifier<any>[];
+  modifiers?: Array<Modifier<any>>;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
@@ -63,12 +62,12 @@ export interface TooltipProps extends VibeComponentProps {
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  showTrigger?: HideShowEvent;
+  showTrigger?: HideShowEvent | Array<HideShowEvent>;
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  hideTrigger?: HideShowEvent;
+  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showOnDialogEnter?: boolean;
   /**
    * A Classname to be added to <spam> element which wraps the children
