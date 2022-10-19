@@ -4,9 +4,11 @@ export const BASE_SIZES = {
   LARGE: "large"
 } as const;
 
+export const BASE_SIZES_WITH_NONE = { NONE: "none", ...BASE_SIZES };
+
 export const SIZES = { XXS: "xxs", XS: "xs", ...BASE_SIZES } as const;
 
-export const DialogPositions = {
+export const DialogPosition = {
   LEFT: "left",
   LEFT_START: "left-start",
   LEFT_END: "left-end",

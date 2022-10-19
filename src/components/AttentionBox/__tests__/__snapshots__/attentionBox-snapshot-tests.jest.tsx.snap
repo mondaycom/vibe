@@ -157,12 +157,9 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
   role="alert"
 >
-  
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
-  >
-    
-  </div>
+  />
 </aside>
 `;
 
