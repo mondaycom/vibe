@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef } from "react";
-import { DialogPositions } from "../../../constants";
+import { DialogPosition } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
@@ -7,7 +7,7 @@ import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 
-const tooltipPosition = DialogPositions.TOP;
+const tooltipPosition = DialogPosition.TOP;
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
@@ -32,7 +32,7 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
-  const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const { ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -70,12 +70,7 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   }, [focused, index]);
 
   return (
-    <Tooltip
-      open={active === index || dragging === index}
-      content={showValue ? null : valueText}
-      position={tooltipPosition}
-      showDelay={TOOLTIP_SHOW_DELAY}
-    >
+    <Tooltip content={showValue ? null : valueText} position={tooltipPosition} showDelay={TOOLTIP_SHOW_DELAY}>
       <div
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
