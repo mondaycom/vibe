@@ -1,7 +1,6 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
-
 $tooltip-z-index: 9999999999999999;
 
 .tooltip {
@@ -31,45 +30,45 @@ a.tooltipWhiteLink {
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.monday-style-tooltip-white,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-white {
+.tooltipWhite,
+:global(.monday-style-tooltip-arrow).arrowWhite {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
   @include theme-prop(box-shadow, box-shadow-medium);
 }
 
-.monday-style-tooltip-primary,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-primary {
+.tooltipPrimary,
+:global(.monday-style-tooltip-arrow).arrowPrimary {
   @include theme-prop(background-color, primary-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-success,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-success {
+.tooltipSuccess,
+:global(.monday-style-tooltip-arrow).arrowSuccess {
   @include theme-prop(background-color, positive-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-surface,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-surface {
+.tooltipSurface,
+:global(.monday-style-tooltip-arrow).arrowSurface {
   background-color: $surface-theme-bg-color;
   color: $surface-theme-font-color;
 }
 
-.monday-style-tooltip-private,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-private {
+.tooltipPrivate,
+:global(.monday-style-tooltip-arrow).arrowPrivate {
   @include theme-prop(background-color, private-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-share,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-share {
+.tooltipShare,
+:global(.monday-style-tooltip-arrow).arrowShare {
   @include theme-prop(background-color, shareable-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-error,
-:global(.monday-style-tooltip-arrow).monday-style-arrow-error {
+.tooltipError,
+:global(.monday-style-tooltip-arrow).arrowError {
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
 }
