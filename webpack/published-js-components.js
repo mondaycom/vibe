@@ -60,7 +60,6 @@ const publishedJSComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Slider: "components/Slider/Slider.jsx",
   Modal: "components/Modal/Modal.jsx",
   ModalHeader: "components/ModalHeader/ModalHeader.jsx",
   ModalFooter: "components/ModalFooter/ModalFooter.jsx",
