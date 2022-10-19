@@ -11,7 +11,7 @@ interface ButtonWrapperProps extends VibeComponentProps {
   tooltipHideDelay: number;
   tooltipShowDelay: number;
   tooltipContainerSelector: string;
-  tooltipMovedBy: { main: number, secondary: number};
+  tooltipMoveBy: { main: number, secondary: number};
 }
 
 export const ButtonWrapper = ({
@@ -20,14 +20,14 @@ export const ButtonWrapper = ({
   tooltipHideDelay,
   tooltipShowDelay,
   tooltipContainerSelector,
-  tooltipMovedBy,
+  tooltipMoveBy,
   ...otherProps
 } : ButtonWrapperProps & ButtonProps) => {
   let button = <Button {...otherProps} />;
   if (!isNil(tooltipContent)) {
     button = (
       <Tooltip
-        moveBy={tooltipMovedBy}
+        moveBy={tooltipMoveBy}
         position={tooltipPosition}
         hideDelay={tooltipHideDelay}
         showDelay={tooltipShowDelay}

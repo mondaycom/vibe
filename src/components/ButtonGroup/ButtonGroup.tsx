@@ -1,5 +1,4 @@
 import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
@@ -11,10 +10,11 @@ import "./ButtonGroup.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { BASE_SIZES, SIZES } from "../../constants/sizes";
 import { ButtonType, Size } from "../Button/ButtonConstants";
+import { IconType } from "../Icon/IconConstants";
 
 type ButtonGroupOption = {
-  icon?: string | React.FunctionComponent | null;
-  leftIcon?: string | React.FunctionComponent | null;
+  icon?: IconType;
+  leftIcon?: IconType;
   ariaLabel?: string;
   subText?: string;
   value: number;
@@ -47,22 +47,22 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
 } = forwardRef(
   (
     {
-      className = undefined,
+      className,
       // Backward compatibility for props naming
       componentClassName,
       options,
       name = "",
       disabled = false,
       value = "",
-      onSelect = undefined,
+      onSelect,
       size = BASE_SIZES.SMALL,
       kind = ButtonType.SECONDARY,
       groupAriaLabel = "",
-      tooltipPosition = undefined,
-      tooltipHideDelay = undefined,
-      tooltipShowDelay = undefined,
-      tooltipContainerSelector = undefined,
-      tooltipMoveBy = undefined
+      tooltipPosition,
+      tooltipHideDelay,
+      tooltipShowDelay,
+      tooltipContainerSelector,
+      tooltipMoveBy
     },
     ref
   ) => {
@@ -165,21 +165,5 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
 
 ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
-
-/* ButtonGroup.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onSelect: PropTypes.func,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),
-  kind: PropTypes.oneOf([ButtonGroup.kinds.SECONDARY, ButtonGroup.kinds.TERTIARY]),
-  groupAriaLabel: PropTypes.string,
-  tooltipPosition: PropTypes.string,
-  tooltipHideDelay: PropTypes.number,
-  tooltipShowDelay: PropTypes.number,
-  tooltipContainerSelector: PropTypes.string,
-  tooltipMoveBy: PropTypes.object
-}; */
 
 export default ButtonGroup;
