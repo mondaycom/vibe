@@ -51,7 +51,6 @@ const publishedJSComponents = {
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
-  ButtonGroup: "components/ButtonGroup/ButtonGroup.jsx",
   AlertBanner: "components/AlertBanner/AlertBanner",
   AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
   Toggle: "components/Toggle/Toggle.jsx",
