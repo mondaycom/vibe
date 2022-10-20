@@ -3,9 +3,8 @@ import isNil from "lodash/isNil";
 import Button, { ButtonProps } from "../Button/Button";
 import { DialogPosition, HideShowEvent } from "../../constants";
 import Tooltip from "../Tooltip/Tooltip";
-import VibeComponentProps from "../../types/VibeComponentProps";
 
-interface ButtonWrapperProps extends VibeComponentProps {
+interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
@@ -25,7 +24,7 @@ export const ButtonWrapper = ({
   tooltipContainerSelector,
   tooltipMoveBy,
   ...otherProps
-}: ButtonWrapperProps & ButtonProps) => {
+}: ButtonWrapperProps) => {
   let button = <Button {...otherProps} />;
   if (!isNil(tooltipContent)) {
     button = (

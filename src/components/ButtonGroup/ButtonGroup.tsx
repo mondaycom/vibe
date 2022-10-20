@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./ButtonGroupConstants";
+import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { BASE_SIZES, SIZES, DialogPosition } from "../../constants";
@@ -17,7 +17,7 @@ type ButtonGroupOption = {
   leftIcon?: IconType;
   ariaLabel?: string;
   subText?: string;
-  value: string | number;
+  value: ButtonValue;
   text: string;
   disabled?: boolean;
   tooltipContent?: string;
@@ -30,8 +30,8 @@ interface ButtonGroupProps extends VibeComponentProps {
    */
   componentClassName?: string;
   options: Array<ButtonGroupOption>;
-  value?: string | number;
-  onSelect?: (value: string | number, name: string) => void;
+  value?: ButtonValue;
+  onSelect?: (value: ButtonValue, name: string) => void;
   size?: Size;
   kind?: ButtonType.SECONDARY | ButtonType.TERTIARY;
   name?: string;
