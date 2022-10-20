@@ -32,7 +32,7 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
-  const { ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -70,7 +70,13 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   }, [focused, index]);
 
   return (
-    <Tooltip content={showValue ? null : valueText} position={tooltipPosition} showDelay={TOOLTIP_SHOW_DELAY}>
+    <Tooltip
+      // @ts-ignore TODO TS-migration the comment can be removed once TooltipProps will extend DialogProps, once Dialog is converted to TS
+      open={active === index || dragging === index}
+      content={showValue ? null : valueText}
+      position={tooltipPosition}
+      showDelay={TOOLTIP_SHOW_DELAY}
+    >
       <div
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
