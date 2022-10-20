@@ -1,28 +1,63 @@
 import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-import Button from "../../components/Button/Button";
+import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { BASE_SIZES, SIZES } from "../../constants/sizes";
+import { ButtonType, Size } from "../Button/ButtonConstants";
+import { IconType } from "../Icon/IconConstants";
 
-const ButtonGroup = forwardRef(
+type ButtonGroupOption = {
+  icon?: IconType;
+  leftIcon?: IconType;
+  ariaLabel?: string;
+  subText?: string;
+  value: number;
+  text: string;
+  disabled?: boolean;
+  tooltipContent?: string;
+};
+
+interface ButtonGroupProps extends VibeComponentProps {
+  className?: string;
+  componentClassName?: string;
+  options: ButtonGroupOption[];
+  value: string | number;
+  onSelect: (value: number, name: string) => void;
+  size?: Size;
+  kind?: ButtonType.SECONDARY | ButtonType.TERTIARY;
+  name?: string;
+  disabled?: boolean;
+  groupAriaLabel?: string;
+  tooltipPosition?: string;
+  tooltipHideDelay?: number;
+  tooltipShowDelay?: number;
+  tooltipContainerSelector?: string;
+  tooltipMoveBy?: { main: number; secondary: number };
+}
+
+const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {
+  sizes?: typeof SIZES;
+  kinds?: typeof ButtonType;
+} = forwardRef(
   (
     {
       className,
       // Backward compatibility for props naming
       componentClassName,
       options,
-      name,
-      disabled,
-      value,
+      name = "",
+      disabled = false,
+      value = "",
       onSelect,
-      size,
-      kind,
-      groupAriaLabel,
+      size = BASE_SIZES.SMALL,
+      kind = ButtonType.SECONDARY,
+      groupAriaLabel = "",
       tooltipPosition,
       tooltipHideDelay,
       tooltipShowDelay,
@@ -38,7 +73,7 @@ const ButtonGroup = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
 
     const onClick = useCallback(
-      option => {
+      (option: ButtonGroupOption) => {
         const isDisabled = disabled || option.disabled;
         if (!isDisabled) {
           setValueState(option.value);
@@ -130,37 +165,5 @@ const ButtonGroup = forwardRef(
 
 ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
-
-ButtonGroup.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onSelect: PropTypes.func,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),
-  kind: PropTypes.oneOf([ButtonGroup.kinds.SECONDARY, ButtonGroup.kinds.TERTIARY]),
-  groupAriaLabel: PropTypes.string,
-  tooltipPosition: PropTypes.string,
-  tooltipHideDelay: PropTypes.number,
-  tooltipShowDelay: PropTypes.number,
-  tooltipContainerSelector: PropTypes.string,
-  tooltipMoveBy: PropTypes.object
-};
-
-ButtonGroup.defaultProps = {
-  className: undefined,
-  value: "",
-  name: "",
-  disabled: false,
-  size: ButtonGroup.sizes.SMALL,
-  kind: ButtonGroup.kinds.SECONDARY,
-  groupAriaLabel: "",
-  tooltipContainerSelector: undefined,
-  tooltipPosition: undefined,
-  tooltipHideDelay: undefined,
-  tooltipShowDelay: undefined,
-  tooltipMoveBy: undefined,
-  onSelect: undefined
-};
 
 export default ButtonGroup;

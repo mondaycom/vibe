@@ -1,8 +1,18 @@
 import React from "react";
 import isNil from "lodash/isNil";
-import Button from "../Button/Button";
+import Button, { ButtonProps } from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
 import { HIDE_SHOW_EVENTS } from "../Dialog/consts/dialog-show-hide-event";
+import VibeComponentProps from "../../types/VibeComponentProps";
+
+interface ButtonWrapperProps extends VibeComponentProps {
+  tooltipContent: string;
+  tooltipPosition: string;
+  tooltipHideDelay: number;
+  tooltipShowDelay: number;
+  tooltipContainerSelector: string;
+  tooltipMoveBy: { main: number, secondary: number};
+}
 
 export const ButtonWrapper = ({
   tooltipContent,
@@ -10,14 +20,14 @@ export const ButtonWrapper = ({
   tooltipHideDelay,
   tooltipShowDelay,
   tooltipContainerSelector,
-  tooltipMovedBy,
+  tooltipMoveBy,
   ...otherProps
-}) => {
+} : ButtonWrapperProps & ButtonProps) => {
   let button = <Button {...otherProps} />;
   if (!isNil(tooltipContent)) {
     button = (
       <Tooltip
-        moveBy={tooltipMovedBy}
+        moveBy={tooltipMoveBy}
         position={tooltipPosition}
         hideDelay={tooltipHideDelay}
         showDelay={tooltipShowDelay}
