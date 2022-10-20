@@ -3,7 +3,7 @@ import cx from "classnames";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { ALERT_BANNER_BACKGROUND_COLORS } from "./AlertBannerConstants";
+import { AlertBannerBackgroundColor } from "./AlertBannerConstants";
 import { NOOP } from "../../utils/function-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
@@ -16,16 +16,16 @@ interface AlertBannerProps extends VibeComponentProps {
    * Set external styling to the progress bar.
    */
   className?: string;
-  backgroundColor?: ALERT_BANNER_BACKGROUND_COLORS;
+  backgroundColor?: AlertBannerBackgroundColor;
   isCloseHidden?: boolean;
   /** ARIA description for the progress bar */
   ariaLabel?: string;
-  onClose?: () => void;
+  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 }
 
 const AlertBanner: React.FC<AlertBannerProps> & {
-  backgroundColors?: typeof ALERT_BANNER_BACKGROUND_COLORS;
+  backgroundColors?: typeof AlertBannerBackgroundColor;
 } = forwardRef(
   (
     {
@@ -72,7 +72,6 @@ const AlertBanner: React.FC<AlertBannerProps> & {
             const childTypeIsAlertBannerText = child.type.isAlertBannerText;
             return (
               <div
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={cx("monday-alert-banner__inner-item", {
                   "monday-alert-banner__inner-item-text": childTypeIsAlertBannerText
@@ -103,7 +102,7 @@ const AlertBanner: React.FC<AlertBannerProps> & {
 );
 
 Object.assign(AlertBanner, {
-  backgroundColors: ALERT_BANNER_BACKGROUND_COLORS
+  backgroundColors: AlertBannerBackgroundColor
 });
 
 export default AlertBanner;

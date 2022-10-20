@@ -1,4 +1,4 @@
-export enum ALERT_BANNER_BACKGROUND_COLORS {
+export enum AlertBannerBackgroundColor {
   PRIMARY = "primary",
   POSITIVE = "positive",
   NEGATIVE = "negative",
