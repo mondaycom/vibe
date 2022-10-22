@@ -13,6 +13,7 @@ const publishedTSComponents = {
   Label: "components/Label/Label",
   RadioButton: "components/RadioButton/RadioButton",
   Banner: "components/Banner/Banner",
+  ButtonGroup: "components/ButtonGroup/ButtonGroup",
   Clickable: "components/Clickable/Clickable",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
