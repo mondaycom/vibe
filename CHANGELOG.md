@@ -1,14 +1,26 @@
 # Changelog
 
-## 1.68.1 (2022-10-11)
+## 1.68.2 (2022-10-18)
 
 #### Bug Fixes
+* [#939](https://github.com/mondaycom/monday-ui-react-core/pull/939) Fix attention box migration to ts ([@hadasfa](https://github.com/hadasfa))
+
+## 1.68.1 (2022-10-18)
+
+#### Bug Fixes
+* [#944](https://github.com/mondaycom/monday-ui-react-core/pull/944) Revert release version ([@eran-cohen](https://github.com/eran-cohen))
+* [#942](https://github.com/mondaycom/monday-ui-react-core/pull/942) fix attentionBox snapshot ([@eran-cohen](https://github.com/eran-cohen))
+* [#940](https://github.com/mondaycom/monday-ui-react-core/pull/940) added some docs to modal component ([@eran-cohen](https://github.com/eran-cohen))
 * [#928](https://github.com/mondaycom/monday-ui-react-core/pull/928) modal css fixes ([@eran-cohen](https://github.com/eran-cohen))
 
 #### Dependency Upgrades
 * [#901](https://github.com/mondaycom/monday-ui-react-core/pull/901) upgrade deps ([@orrgottlieb](https://github.com/orrgottlieb))
 
 #### Internal Changes
+* [#925](https://github.com/mondaycom/monday-ui-react-core/pull/925) refactor: migrate AttentionBox to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#930](https://github.com/mondaycom/monday-ui-react-core/pull/930) Fixes in chips migration to ts ([@hadasfa](https://github.com/hadasfa))
+* [#926](https://github.com/mondaycom/monday-ui-react-core/pull/926) Chips Typescript Migration ([@manastelavane](https://github.com/manastelavane))
+* [#929](https://github.com/mondaycom/monday-ui-react-core/pull/929) move IconButton to ts components list ([@eran-cohen](https://github.com/eran-cohen))
 * [#924](https://github.com/mondaycom/monday-ui-react-core/pull/924) refactor: migrate IconButton to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
 * [#921](https://github.com/mondaycom/monday-ui-react-core/pull/921) refactor: migrate Avatar to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
 * [#913](https://github.com/mondaycom/monday-ui-react-core/pull/913) Convert label to typescript ([@bautistaaa](https://github.com/bautistaaa))

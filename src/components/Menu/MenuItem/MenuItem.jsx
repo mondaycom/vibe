@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { DialogPositions } from "../../../constants/sizes";
+import { DialogPosition } from "../../../constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -281,7 +281,7 @@ const MenuItem = forwardRef(
 );
 
 MenuItem.iconType = Icon.type;
-MenuItem.tooltipPositions = DialogPositions;
+MenuItem.tooltipPositions = DialogPosition;
 MenuItem.defaultProps = {
   className: "",
   title: "",

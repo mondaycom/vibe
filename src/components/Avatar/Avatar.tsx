@@ -7,13 +7,12 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import { IconSubComponentProps } from "../Icon/Icon";
-
-import "./Avatar.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import { iconSubComponentProps } from "../Icon/Icon";
+import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
@@ -23,10 +22,10 @@ export interface AvatarProps extends VibeComponentProps {
   id?: string;
   src?: string;
   text?: string;
-  tooltipProps?: any;
+  tooltipProps?: TooltipProps;
   ariaLabel?: string;
   withoutTooltip?: boolean;
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
   type?: AvatarTypes;
   className?: string;
   textClassName?: string;
