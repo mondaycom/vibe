@@ -1,4 +1,4 @@
-import { DialogPositions } from "../../constants/sizes";
+import { DialogPosition } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
@@ -25,7 +25,7 @@ export interface HeadingProps extends VibeComponentProps {
   /** Custom font flag, use to enable new font family on H1 headers */
   brandFont?: boolean;
   style?: CSSStyleDeclaration;
-  tooltipPosition?: typeof DialogPositions;
+  tooltipPosition?: typeof DialogPosition;
 }
 
 const Heading: React.FC<HeadingProps> & {
