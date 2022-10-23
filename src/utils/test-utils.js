@@ -45,7 +45,8 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  LOADER: "loader"
 };
 
 export const NAVIGATIONS_COMMANDS = {
