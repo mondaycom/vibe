@@ -12,23 +12,21 @@ import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import { iconSubComponentProps } from "../Icon/Icon";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import { IconSubComponentProps } from "../Icon/Icon";
 import styles from "./Avatar.module.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
 export interface AvatarProps extends VibeComponentProps {
-  id?: string;
   src?: string;
   text?: string;
   tooltipProps?: TooltipProps;
   ariaLabel?: string;
   withoutTooltip?: boolean;
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
   type?: AvatarTypes;
-  className?: string;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
@@ -242,9 +240,7 @@ Object.assign(Avatar, {
 });
 
 Avatar.defaultProps = {
-  id: undefined,
   src: undefined,
-  className: "",
   textClassName: "",
   icon: undefined,
   text: undefined,

@@ -1,16 +1,24 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import React, { FC, ReactElement } from "react";
 import cx from "classnames";
-import React from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { BreadcrumbsBarType } from "./BreadcrumbsConstants";
+import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
 import styles from "./BreadcrumbsBar.module.scss";
 
-const BREADCRUMBS_BAR_TYPE = {
-  NAVIGATION: "navigation",
-  INDICATION: "indication"
-};
-
-const BreadcrumbsBar = ({ className, children, type, id, "data-testid": dataTestId }) => (
+export interface BreadcrumbBarProps extends VibeComponentProps {
+  /** The type of the bar is responsible for whether it will be navigational or for indication only  */
+  type: typeof BreadcrumbsBarType;
+  children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
+}
+const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarType } = ({
+  className,
+  children,
+  type = BreadcrumbsBarType.INDICATION,
+  id,
+  "data-testid": dataTestId
+}) => (
   <nav
     aria-label="Breadcrumb"
     className={cx(styles.breadcrumbsBarWrapper, "breadcrumbs-bar--wrapper", className)}
@@ -30,7 +38,7 @@ const BreadcrumbsBar = ({ className, children, type, id, "data-testid": dataTest
                 ),
                 React.cloneElement(child, {
                   ...child?.props,
-                  isClickable: type !== BREADCRUMBS_BAR_TYPE.INDICATION
+                  isClickable: type !== BreadcrumbsBarType.INDICATION
                 })
               ]
             : null
@@ -39,17 +47,8 @@ const BreadcrumbsBar = ({ className, children, type, id, "data-testid": dataTest
   </nav>
 );
 
-BreadcrumbsBar.types = BREADCRUMBS_BAR_TYPE;
-
-BreadcrumbsBar.propTypes = {
-  className: PropTypes.string,
-  /** The type of the bar is responsible for whether it will be navigational or for indication only  */
-  type: PropTypes.oneOf([BreadcrumbsBar.types.INDICATION, BreadcrumbsBar.types.NAVIGATION])
-};
-
-BreadcrumbsBar.defaultProps = {
-  className: "",
-  type: BREADCRUMBS_BAR_TYPE.INDICATION
-};
+Object.assign(BreadcrumbsBar, {
+  types: BreadcrumbsBarType
+});
 
 export default BreadcrumbsBar;

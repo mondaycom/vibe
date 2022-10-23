@@ -2,7 +2,7 @@
 
 exports[`AccordionItem renders correctly with children 1`] = `
 <div
-  className="accordion accordion"
+  className="accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -10,24 +10,22 @@ exports[`AccordionItem renders correctly with children 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className="wrapper expand-collapse--wrapper"
-      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      className="expand-collapse--wrapper"
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expandCollapse expand-collapse"
+        className="expand-collapse"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
-          className="header expand-collapse__header section expand-collapse__section headerOpen expand-collapse__header--open"
+          className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
           type="button"
         >
           <svg
             aria-hidden={true}
-            className="icon icon_component animateIconOpen animate-icon-open"
-            data-testid="icon"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -43,7 +41,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
           </svg>
         </button>
         <div
-          className="content expand-collapse__content section expand-collapse__section"
+          className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
           id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         >
@@ -57,7 +55,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
 
 exports[`AccordionItem renders correctly with className 1`] = `
 <div
-  className="accordion accordion"
+  className="accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -65,24 +63,22 @@ exports[`AccordionItem renders correctly with className 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className="wrapper expand-collapse--wrapper"
-      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      className="expand-collapse--wrapper"
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expandCollapse expand-collapse"
+        className="expand-collapse"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
-          className="header expand-collapse__header section expand-collapse__section headerOpen expand-collapse__header--open"
+          className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
           type="button"
         >
           <svg
             aria-hidden={true}
-            className="icon icon_component animateIconOpen animate-icon-open"
-            data-testid="icon"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -98,7 +94,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
           </svg>
         </button>
         <div
-          className="content expand-collapse__content section expand-collapse__section"
+          className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
           id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />
@@ -110,7 +106,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
 
 exports[`AccordionItem renders correctly with iconSize 1`] = `
 <div
-  className="accordion accordion"
+  className="accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -118,24 +114,22 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className="wrapper expand-collapse--wrapper"
-      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      className="expand-collapse--wrapper"
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expandCollapse expand-collapse"
+        className="expand-collapse"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
-          className="header expand-collapse__header section expand-collapse__section headerOpen expand-collapse__header--open"
+          className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
           type="button"
         >
           <svg
             aria-hidden={true}
-            className="icon icon_component animateIconOpen animate-icon-open"
-            data-testid="icon"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="36"
             onClick={[Function]}
@@ -151,7 +145,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
           </svg>
         </button>
         <div
-          className="content expand-collapse__content section expand-collapse__section"
+          className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
           id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />
@@ -163,7 +157,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
 
 exports[`AccordionItem renders correctly with id 1`] = `
 <div
-  className="accordion accordion"
+  className="accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -171,24 +165,22 @@ exports[`AccordionItem renders correctly with id 1`] = `
     id="test"
   >
     <div
-      className="wrapper expand-collapse--wrapper"
-      data-testid="expand-collapse_expand-collapse--test"
+      className="expand-collapse--wrapper"
       id="expand-collapse--test"
     >
       <div
-        className="expandCollapse expand-collapse"
+        className="expand-collapse"
       >
         <button
           aria-controls="expand-collapse--test-controls"
           aria-expanded={true}
-          className="header expand-collapse__header section expand-collapse__section headerOpen expand-collapse__header--open"
+          className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
           type="button"
         >
           <svg
             aria-hidden={true}
-            className="icon icon_component animateIconOpen animate-icon-open"
-            data-testid="icon"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -204,7 +196,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
           </svg>
         </button>
         <div
-          className="content expand-collapse__content section expand-collapse__section"
+          className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
           id="expand-collapse--test-controls"
           role="region"
         />
@@ -216,7 +208,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
 
 exports[`AccordionItem renders correctly with title 1`] = `
 <div
-  className="accordion accordion"
+  className="accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -224,31 +216,28 @@ exports[`AccordionItem renders correctly with title 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className="wrapper expand-collapse--wrapper"
-      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      className="expand-collapse--wrapper"
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expandCollapse expand-collapse"
+        className="expand-collapse"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
-          className="header expand-collapse__header section expand-collapse__section headerOpen expand-collapse__header--open"
+          className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
           type="button"
         >
           <h5
             aria-label=""
-            className="headingComponent heading-component headerContent expand-collapse__header-content element-type-h5 size-large singleLineEllipsis single-line-ellipsis"
-            id=""
+            className="heading-component expand-collapse__header-content element-type-h5 size-large single-line-ellipsis"
           >
             Test title
           </h5>
           <svg
             aria-hidden={true}
-            className="icon icon_component animateIconOpen animate-icon-open"
-            data-testid="icon"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -264,7 +253,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
           </svg>
         </button>
         <div
-          className="content expand-collapse__content section expand-collapse__section"
+          className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
           id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />

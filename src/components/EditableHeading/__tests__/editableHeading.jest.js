@@ -57,7 +57,7 @@ describe("EditableHeading", () => {
   });
 
   it("should play the onStartEditing function with params when click on the input element inside the EditableHeading element", () => {
-    const mockCallback = jest.fn(x => console.log(x));
+    const mockCallback = jest.fn();
     const { getByRole } = render(<EditableHeading onStartEditing={mockCallback} />);
 
     const input = getByRole("input");

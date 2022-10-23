@@ -1,4 +1,6 @@
 export const ELEMENT_TYPES = {
+  // Don't remove next line
+  // plop_marker:default-data-testid-declarations
   COMBOBOX: "combobox",
   DROPDOWN: "dropdown",
   BUTTON: "button",
@@ -59,7 +61,6 @@ export const ELEMENT_TYPES = {
   TAB_LIST: "tab-list",
   TAB_PANELS: "tab-panels",
   TABS_CONTEXT: "tabs-context",
-  DIVIDER: "divider",
   RESPONSIVE_LIST: "responsive-list",
   RADIO_BUTTON: "radio-button",
   ICON: "icon",
@@ -82,7 +83,9 @@ export const ELEMENT_TYPES = {
   SLIDER: "slider",
   SLIDER_FILLED_TRACK: "slider-filled-track",
   SLIDER_INFIX: "slider-infix",
-  LINEAR_PROGRESS_BAR: "linear-progress-bar"
+  LINEAR_PROGRESS_BAR: "linear-progress-bar",
+  DIVIDER: "divider",
+  LOADER: "loader"
 };
 
 export const NAVIGATIONS_COMMANDS = {

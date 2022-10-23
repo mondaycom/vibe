@@ -1,39 +1,59 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import cx from "classnames";
-import { SIZES } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { DialogPosition } from "../../constants/sizes";
+import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
-import TextWithHighlight from "../../components/TextWithHighlight/TextWithHighlight";
-import { TYPES } from "./HeadingConstants";
+import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
+import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Heading.module.scss";
 
-const Heading = ({
+export interface HeadingProps extends VibeComponentProps {
+  type?: HeadingTypes;
+  ariaLabel?: string;
+  value?: string;
+  ellipsis?: boolean;
+  ellipsisMaxLines?: number;
+  suggestEditOnHover?: boolean;
+  /** Tooltip to show when no overflow */
+  nonEllipsisTooltip?: string;
+  size?: typeof HeadingSizes;
+  highlightTerm?: string;
+  customColor?: string;
+  /** Custom font flag, use to enable new font family on H1 headers */
+  brandFont?: boolean;
+  style?: CSSStyleDeclaration;
+  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+}
+
+const Heading: React.FC<HeadingProps> & {
+  sizes?: typeof HeadingSizes;
+  types?: typeof HeadingTypes;
+} = ({
   className,
-  value,
-  type,
-  size,
-  ariaLabel,
+  value = "",
+  type = HeadingTypes.h1,
+  size = HeadingSizes.LARGE,
+  ariaLabel = "",
   id,
   customColor,
-  ellipsis,
-  ellipsisMaxLines,
+  ellipsis = true,
+  ellipsisMaxLines = 1,
   style,
   tooltipPosition,
-  highlightTerm,
-  suggestEditOnHover,
-  brandFont,
-  // tooltip to show when no overflow
-  nonEllipsisTooltip,
-  "data-testId": dataTestId
+  highlightTerm = null,
+  suggestEditOnHover = false,
+  brandFont = false,
+  nonEllipsisTooltip = null,
+  "data-testid": dataTestId
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
-    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
+    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
-  const finalStyle = useStyle(style, { color: customColor });
+  const finalStyle = useStyle(style, { color: customColor } as CSSStyleDeclaration);
   const classNames = cx(
     styles.headingComponent,
     "heading-component",
@@ -47,9 +67,10 @@ const Heading = ({
       ["single-line-ellipsis"]: ellipsis && ellipsisMaxLines <= 1,
       [styles.suggestEditOnHover]: suggestEditOnHover,
       ["suggest-edit-on-hover"]: suggestEditOnHover,
-      "brand-font": type === TYPES.h1 && brandFont
+      "brand-font": type === HeadingTypes.h1 && brandFont
     }
   );
+
   const Element = React.createElement(
     type,
     { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style: finalStyle },
@@ -68,11 +89,11 @@ const Heading = ({
     )
   );
 
-  const isOverflowing = useIsOverflowing({ ref: ellipsis && componentRef });
+  const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null });
 
   useLayoutEffect(() => {
     if (componentRef.current) {
-      componentRef.current.style.setProperty("--heading-clamp-lines", ellipsisMaxLines);
+      componentRef.current.style.setProperty("--heading-clamp-lines", ellipsisMaxLines?.toString());
     }
   }, [componentRef, ellipsisMaxLines, isOverflowing]);
 
@@ -94,50 +115,9 @@ const Heading = ({
   return Element;
 };
 
-Heading.types = TYPES;
-Heading.sizes = SIZES;
-
-Heading.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.oneOf([
-    Heading.types.h1,
-    Heading.types.h2,
-    Heading.types.h3,
-    Heading.types.h4,
-    Heading.types.h5,
-    Heading.types.h6
-  ]),
-  ariaLabel: PropTypes.string,
-  value: PropTypes.string,
-  id: PropTypes.string,
-  ellipsis: PropTypes.bool,
-  ellipsisMaxLines: PropTypes.number,
-  suggestEditOnHover: PropTypes.bool,
-  nonEllipsisTooltip: PropTypes.string,
-  size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
-  highlightTerm: PropTypes.string,
-  customColor: PropTypes.string,
-  /** Custom font flag, use to enable new font family on H1 headers */
-  brandFont: PropTypes.bool
-};
-
-Heading.defaultProps = {
-  className: "",
-  type: TYPES.h1,
-  ariaLabel: "",
-  value: "",
-  id: "",
-  ellipsis: true,
-  ellipsisMaxLines: 1,
-  suggestEditOnHover: false,
-  nonEllipsisTooltip: null,
-  size: SIZES.LARGE,
-  highlightTerm: null,
-  brandFont: false,
-  customColor: undefined
-};
-
-Heading.types = TYPES;
-Heading.sizes = SIZES;
+Object.assign(Heading, {
+  types: HeadingTypes,
+  sizes: HeadingSizes
+});
 
 export default Heading;

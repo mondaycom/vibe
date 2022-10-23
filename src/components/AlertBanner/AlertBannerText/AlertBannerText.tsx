@@ -1,15 +1,21 @@
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import React, { FC, useRef } from "react";
 import cx from "classnames";
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import { HideShowEvent } from "../../../constants";
 import styles from "./AlertBannerText.module.scss";
 
-const TOOLTIP_SHOW_TRIGGERS = ["mouseenter"];
-const TOOLTIP_HIDE_TRIGGERS = ["mouseleave"];
+const TOOLTIP_SHOW_TRIGGERS: Array<HideShowEvent> = [HideShowEvent.MOUSE_ENTER];
+const TOOLTIP_HIDE_TRIGGERS: Array<HideShowEvent> = [HideShowEvent.MOUSE_LEAVE];
 
-const AlertBannerText = ({ text, marginLeft, id, "data-testid": dataTestId }) => {
+export interface AlertBannerTextProps extends VibeComponentProps {
+  text: string;
+  marginLeft?: boolean;
+}
+
+const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, id, "data-testid": dataTestId }) => {
   const componentRef = useRef(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
@@ -35,16 +41,9 @@ const AlertBannerText = ({ text, marginLeft, id, "data-testid": dataTestId }) =>
   );
 };
 
-AlertBannerText.isAlertBannerItem = true;
-AlertBannerText.isAlertBannerText = true;
-
-AlertBannerText.propTypes = {
-  text: PropTypes.string.isRequired,
-  marginLeft: PropTypes.bool
-};
-
-AlertBannerText.defaultProps = {
-  marginLeft: false
-};
+Object.assign(AlertBannerText, {
+  isAlertBannerItem: true,
+  isAlertBannerText: true
+});
 
 export default AlertBannerText;

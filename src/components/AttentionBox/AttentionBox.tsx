@@ -1,7 +1,8 @@
 import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { useMemo } from "react";
-import Icon, { iconSubComponentProps } from "../Icon/Icon";
+import cx from "classnames";
+import Icon, { IconSubComponentProps } from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
@@ -9,7 +10,6 @@ import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./AttentionBox.module.scss";
 
@@ -24,7 +24,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   /** we support 4 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
-  icon?: string | React.FC<iconSubComponentProps> | null;
+  icon?: string | React.FC<IconSubComponentProps> | null;
   iconType?: IconType.SVG | IconType.ICON_FONT;
   title?: string;
   text?: string;

@@ -11,9 +11,9 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { MouseEventCallBack } from "src/types/events";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-const CLICK_NOOP = (event: React.MouseEvent) => {};
+const CLICK_NOOP = (_event: React.MouseEvent) => {};
 
-export interface iconSubComponentProps {
+export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
@@ -26,7 +26,7 @@ export interface iconSubComponentProps {
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
-  icon: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon: string | React.FunctionComponent<IconSubComponentProps> | null;
   clickable?: boolean;
   iconLabel?: string;
   iconType?: IconType;

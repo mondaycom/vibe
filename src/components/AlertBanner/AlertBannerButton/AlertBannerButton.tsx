@@ -5,17 +5,19 @@ import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import Button, { ButtonProps } from "../../Button/Button";
 import styles from "./AlertBannerButton.module.scss";
 
-interface AlertBannerButtonProps extends ButtonProps {
+export interface AlertBannerButtonProps extends ButtonProps {
   isDarkBackground?: boolean;
 }
 
 const AlertBannerButton = ({
-  marginLeft,
-  isDarkBackground,
+  marginLeft = false,
+  isDarkBackground = false,
   id,
   "data-testid": dataTestId,
   ...buttonProps
 }: AlertBannerButtonProps) => {
+  const overrideButtonProps = { ...Button.defaultProps, ...buttonProps };
+
   const classNames = cx({
     [styles.marginLeft]: marginLeft,
     ["monday-style-alert-banner-button-margin-left"]: marginLeft,
@@ -26,7 +28,7 @@ const AlertBannerButton = ({
   return (
     <div className={classNames} id={id} data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_BUTTON, id)}>
       <Button
-        {...buttonProps}
+        {...overrideButtonProps}
         size={Button.sizes.SMALL}
         className={cx(styles.button, "monday-style-alert-banner-button")}
         color={Button.colors.ON_PRIMARY_COLOR}
@@ -35,13 +37,8 @@ const AlertBannerButton = ({
   );
 };
 
-AlertBannerButton.isAlertBannerItem = true;
-
-const { size: _sizeDefaultProp, ...linkDefaultPropTypes } = Button.defaultProps!;
-AlertBannerButton.defaultProps = {
-  ...linkDefaultPropTypes,
-  marginLeft: false,
-  isDarkBackground: false
-};
+Object.assign(AlertBannerButton, {
+  isAlertBannerItem: true
+});
 
 export default AlertBannerButton;

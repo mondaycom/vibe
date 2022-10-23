@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import Heading from "../Heading/Heading";
-import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./ExpandCollapse.module.scss";
@@ -37,7 +36,7 @@ const ExpandCollapse = forwardRef(
     const renderHeader = useCallback(() => {
       return (
         <Heading
-          type={TYPES.h5}
+          type={Heading.types.h5}
           value={title}
           className={cx(styles.headerContent, "expand-collapse__header-content")}
         />

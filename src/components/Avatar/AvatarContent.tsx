@@ -4,9 +4,9 @@ import cx from "classnames";
 import React from "react";
 import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import Icon, { iconSubComponentProps } from "../Icon/Icon";
-import styles from "./AvatarContent.module.scss";
+import Icon, { IconSubComponentProps } from "../Icon/Icon";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./AvatarContent.module.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
 
@@ -17,7 +17,7 @@ interface AvatarContentProps extends VibeComponentProps {
   role?: string;
   ariaLabel?: string;
   /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
   textClassName?: string;
   text?: string;
 }
@@ -49,7 +49,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
         <Icon
           icon={icon}
           aria-label={ariaLabel}
-          // role={role}
+          role={role}
           clickable={false}
           className={className}
           ariaHidden={false}

@@ -1,13 +1,20 @@
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import cx from "classnames";
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
-import PropTypes from "prop-types";
+import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { DialogPosition } from "../../constants";
 import styles from "./TextWithHighlight.module.scss";
 
-const getTextPart = (text, key, shouldHighlight, wrappingTextTag = "em", wrappingElementClassName) => {
+const getTextPart = (
+  text: string,
+  key: number,
+  shouldHighlight: boolean,
+  wrappingTextTag: keyof JSX.IntrinsicElements = "em",
+  wrappingElementClassName: string
+) => {
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
@@ -19,21 +26,41 @@ const getTextPart = (text, key, shouldHighlight, wrappingTextTag = "em", wrappin
   return <span key={key}>{text}</span>;
 };
 
-const TextWithHighlight = forwardRef(
+export interface TextWithHighlightProps extends VibeComponentProps {
+  /** Text to wrap */
+  text?: string;
+  highlightTerm?: string;
+  /** Number of highlighted parts */
+  limit?: number;
+  ignoreCase?: boolean;
+  /** Should use ellipsis */
+  useEllipsis?: boolean;
+  /** Allow highlight every word as a separate term */
+  allowTermSplit?: boolean;
+  linesToClamp?: number;
+  /** Tooltip to show when there is no overflow */
+  nonEllipsisTooltip?: string;
+  /** HTML tag to wrap the selected text */
+  wrappingTextTag?: keyof JSX.IntrinsicElements;
+  wrappingElementClassName?: string;
+  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+}
+
+const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
   (
     {
       className,
       id,
-      text,
+      text = "",
       highlightTerm,
       limit,
-      useEllipsis,
-      linesToClamp,
-      ignoreCase,
-      allowTermSplit,
+      useEllipsis = true,
+      linesToClamp = 3,
+      ignoreCase = true,
+      allowTermSplit = true,
       nonEllipsisTooltip,
       tooltipPosition,
-      wrappingTextTag,
+      wrappingTextTag = "em",
       wrappingElementClassName,
       "data-testid": dataTestId
     },
@@ -75,7 +102,7 @@ const TextWithHighlight = forwardRef(
       }
     }, [componentRef, linesToClamp]);
 
-    let Element = (
+    const Element = (
       <div
         ref={mergedRef}
         className={cx(styles.textWithHighlightWrapper, "text-with-highlight--wrapper", className, {
@@ -100,41 +127,5 @@ const TextWithHighlight = forwardRef(
     return Element;
   }
 );
-
-TextWithHighlight.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  /** Text to wrap */
-  text: PropTypes.string,
-  highlightTerm: PropTypes.string,
-  /** Number of highlighted parts */
-  limit: PropTypes.number,
-  ignoreCase: PropTypes.bool,
-  /** Should use ellipsis */
-  useEllipsis: PropTypes.bool,
-  /** Allow highlight every word as a separate term */
-  allowTermSplit: PropTypes.bool,
-  linesToClamp: PropTypes.number,
-  /** Tooltip to show when there is no overflow */
-  nonEllipsisTooltip: PropTypes.string,
-  /** HTML tag to wrap the selected text */
-  wrappingTextTag: PropTypes.string,
-  wrappingElementClassName: PropTypes.string
-};
-
-TextWithHighlight.defaultProps = {
-  className: "",
-  id: undefined,
-  text: "",
-  highlightTerm: null,
-  allowTermSplit: true,
-  limit: null,
-  ignoreCase: true,
-  useEllipsis: true,
-  linesToClamp: 3,
-  nonEllipsisTooltip: null,
-  wrappingTextTag: "em",
-  wrappingElementClassName: undefined
-};
 
 export default TextWithHighlight;

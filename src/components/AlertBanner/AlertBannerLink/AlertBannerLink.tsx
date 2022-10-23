@@ -1,22 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
-import React from "react";
+import React, { FC } from "react";
 import Link, { LinkProps } from "../../Link/Link";
 import styles from "./AlertBannerLink.module.scss";
 
-interface AlertBannerLink extends LinkProps {
+export interface AlertBannerLinkProps extends LinkProps {
   marginLeft?: boolean;
   isDarkBackground?: boolean;
 }
 
-const AlertBannerLink = ({
-  marginLeft,
-  isDarkBackground,
+const AlertBannerLink: FC<AlertBannerLinkProps> = ({
+  marginLeft = false,
+  isDarkBackground = false,
   id,
   "data-testid": dataTestId,
   ...linkProps
-}: AlertBannerLink) => {
+}) => {
   return (
     <div
       className={cx({
@@ -33,11 +33,8 @@ const AlertBannerLink = ({
   );
 };
 
-AlertBannerLink.isAlertBannerItem = true;
-
-AlertBannerLink.defaultProps = {
-  marginLeft: false,
-  isDarkBackground: false
-};
+Object.assign(AlertBannerLink, {
+  isAlertBannerItem: true
+});
 
 export default AlertBannerLink;
