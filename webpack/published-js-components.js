@@ -1,6 +1,4 @@
 const publishedJSComponents = {
-  // Don't remove next line
-  // plop_marker:published-components
   Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
@@ -60,8 +58,6 @@ const publishedJSComponents = {
   ModalHeader: "components/ModalHeader/ModalHeader.jsx",
   ModalFooter: "components/ModalFooter/ModalFooter.jsx",
   ModalContent: "components/ModalContent/ModalContent.jsx"
-  // Don't remove next line
-  // plop_marker:published-hooks
 };
 // eslint-disable-next-line no-undef
 module.exports = {

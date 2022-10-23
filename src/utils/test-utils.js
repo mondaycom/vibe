@@ -1,4 +1,6 @@
 export const ELEMENT_TYPES = {
+  // Don't remove next line
+  // plop_marker:default-data-testid-declarations
   COMBOBOX: "combobox",
   DROPDOWN: "dropdown",
   BUTTON: "button",
