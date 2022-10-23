@@ -7,7 +7,7 @@ export default function useShowHideModal({ instance, show, triggerElement, onClo
 
   const closeDialogIfNeeded = useCallback(() => {
     if (!alertDialog) {
-      onClose();
+      onClose?.();
     }
   }, [alertDialog, onClose]);
 
@@ -43,7 +43,7 @@ export default function useShowHideModal({ instance, show, triggerElement, onClo
 
   // call onClose when modal is hidden
   useEffect(() => {
-    instance?.on("hide", () => onClose());
+    instance?.on("hide", () => onClose?.());
     return () => {
       instance?.off("hide");
     };

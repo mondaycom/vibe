@@ -1,5 +1,41 @@
 # Changelog
 
+## 1.68.2 (2022-10-18)
+
+#### Bug Fixes
+* [#939](https://github.com/mondaycom/monday-ui-react-core/pull/939) Fix attention box migration to ts ([@hadasfa](https://github.com/hadasfa))
+
+## 1.68.1 (2022-10-18)
+
+#### Bug Fixes
+* [#944](https://github.com/mondaycom/monday-ui-react-core/pull/944) Revert release version ([@eran-cohen](https://github.com/eran-cohen))
+* [#942](https://github.com/mondaycom/monday-ui-react-core/pull/942) fix attentionBox snapshot ([@eran-cohen](https://github.com/eran-cohen))
+* [#940](https://github.com/mondaycom/monday-ui-react-core/pull/940) added some docs to modal component ([@eran-cohen](https://github.com/eran-cohen))
+* [#928](https://github.com/mondaycom/monday-ui-react-core/pull/928) modal css fixes ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Dependency Upgrades
+* [#901](https://github.com/mondaycom/monday-ui-react-core/pull/901) upgrade deps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#925](https://github.com/mondaycom/monday-ui-react-core/pull/925) refactor: migrate AttentionBox to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#930](https://github.com/mondaycom/monday-ui-react-core/pull/930) Fixes in chips migration to ts ([@hadasfa](https://github.com/hadasfa))
+* [#926](https://github.com/mondaycom/monday-ui-react-core/pull/926) Chips Typescript Migration ([@manastelavane](https://github.com/manastelavane))
+* [#929](https://github.com/mondaycom/monday-ui-react-core/pull/929) move IconButton to ts components list ([@eran-cohen](https://github.com/eran-cohen))
+* [#924](https://github.com/mondaycom/monday-ui-react-core/pull/924) refactor: migrate IconButton to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#921](https://github.com/mondaycom/monday-ui-react-core/pull/921) refactor: migrate Avatar to typescript ([@SumeetHaryani](https://github.com/SumeetHaryani))
+* [#913](https://github.com/mondaycom/monday-ui-react-core/pull/913) Convert label to typescript ([@bautistaaa](https://github.com/bautistaaa))
+* [#914](https://github.com/mondaycom/monday-ui-react-core/pull/914) Migrate hiddentext to ts ([@bautistaaa](https://github.com/bautistaaa))
+* [#916](https://github.com/mondaycom/monday-ui-react-core/pull/916) refactor: migrate Divider in typescript ([@aayushbisen](https://github.com/aayushbisen))
+* [#918](https://github.com/mondaycom/monday-ui-react-core/pull/918) Migrated Radio Button to typescript ([@Suman94310](https://github.com/Suman94310))
+* [#917](https://github.com/mondaycom/monday-ui-react-core/pull/917) refactor(Banner): Migrated from JS to TS ([@suvnshr](https://github.com/suvnshr))
+* [#915](https://github.com/mondaycom/monday-ui-react-core/pull/915) feat: migrate FormattedNumber to ts ([@indremak](https://github.com/indremak))
+* [#907](https://github.com/mondaycom/monday-ui-react-core/pull/907) Migrate Counter component to TS. ([@a11rew](https://github.com/a11rew))
+* [#906](https://github.com/mondaycom/monday-ui-react-core/pull/906) migrate Link component to TypeScript ([@ercusz](https://github.com/ercusz))
+* [#897](https://github.com/mondaycom/monday-ui-react-core/pull/897) convert helpers/utils to typescript ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#902](https://github.com/mondaycom/monday-ui-react-core/pull/902) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.68.0 (2022-10-02)
 
 #### New Features
