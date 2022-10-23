@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { DialogPositions } from "../../../constants";
+import { DialogPosition } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 
-const tooltipPosition = DialogPositions.TOP;
+const tooltipPosition = DialogPosition.TOP;
 
 const SliderThumb = ({ className, index, onMove, position }) => {
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
