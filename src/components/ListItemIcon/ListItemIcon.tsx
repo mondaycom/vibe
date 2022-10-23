@@ -4,7 +4,8 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon, { IconSubComponentProps } from "../Icon/Icon";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemIconMargin } from "./ListItemIconConstants";
-import "./ListItemIcon.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
@@ -15,16 +16,17 @@ export interface ListItemIconProps extends VibeComponentProps {
 }
 
 const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
-  ({ className, id, icon, margin = ListItemIconMargin.START }, ref) => {
+  ({ className, id, icon, margin = ListItemIconMargin.START, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     return (
       <div
         ref={mergedRef}
-        className={cx("list-item-icon", className, `list-item-icon--${margin}`)}
-        id={id}
+        className={cx(styles.listItemIcon, "list-item-icon", className, styles[margin], `list-item-icon--${margin}`)}
         aria-hidden="true"
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM_ICON, id)}
       >
         <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={18} />
       </div>

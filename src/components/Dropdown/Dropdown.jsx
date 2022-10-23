@@ -1,6 +1,6 @@
+/* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
-/* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";

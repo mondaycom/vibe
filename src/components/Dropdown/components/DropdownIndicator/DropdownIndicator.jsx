@@ -15,6 +15,7 @@ const DropdownIndicator = props => {
         iconSize={getIndicatorSize(size)}
         tabindex="-1"
         clickable={!isDisabled}
+        role="button"
       />
     </components.DropdownIndicator>
   );

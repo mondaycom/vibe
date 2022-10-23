@@ -12,6 +12,7 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Button.module.scss";
 
 // @ts-ignore
@@ -21,10 +22,8 @@ const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-export interface ButtonProps {
+export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
-  /** Custom class names to pass to the component */
-  className?: string;
   /** The button's kind */
   kind?: ButtonType;
   /** Callback function to run when the button is clicked */
@@ -57,8 +56,6 @@ export interface ButtonProps {
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
-  /** id to pass to the button */
-  id?: string;
   /** adds 8px margin to the right */
   marginRight?: boolean;
   /** adds 8px margin to the left */
@@ -397,10 +394,8 @@ Object.assign(Button, {
 });
 
 Button.defaultProps = {
-  className: undefined,
   name: undefined,
   style: undefined,
-  id: undefined,
   "data-testid": undefined,
   kind: Button.kinds?.PRIMARY,
   onClick: NOOP,

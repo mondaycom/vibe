@@ -21,6 +21,8 @@ export interface IconSubComponentProps {
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;
+  role?: string;
+  clickable?: boolean;
 }
 
 interface IconProps extends VibeComponentProps {
@@ -37,6 +39,7 @@ interface IconProps extends VibeComponentProps {
   style?: React.CSSProperties;
   useCurrentColor?: boolean;
   customColor?: string;
+  role?: string;
 }
 
 const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } = forwardRef(
@@ -89,6 +92,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
        * If you want to override to coloring of currentColor
        */
       customColor,
+      role,
       "data-testid": dataTestId
     },
     ref
@@ -125,6 +129,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           className={computedClassName}
           style={style}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
+          role={role}
         />
       );
     }
@@ -139,6 +144,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
+          role={role}
         />
       );
     }
@@ -151,6 +157,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         ref={mergedRef}
         icon={icon}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
+        role={role}
       />
     );
   }
