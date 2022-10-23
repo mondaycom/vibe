@@ -54,7 +54,7 @@ export interface SearchProps extends VibeComponentProps {
 }
 
 const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<unknown>> & {
-  BASE_SIZES?: typeof BASE_SIZES;
+  sizes?: typeof BASE_SIZES;
   types?: typeof SearchType;
 } = forwardRef<unknown, SearchProps>(
   (
@@ -121,7 +121,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
 );
 
 Object.assign(Search, {
-  BASE_SIZES: BASE_SIZES,
+  sizes: BASE_SIZES,
   types: SearchType
 });
 
