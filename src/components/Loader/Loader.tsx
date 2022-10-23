@@ -1,22 +1,29 @@
-import React, { forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { LOADER_COLORS, LOADER_SIZES } from "../../components/Loader/LoaderConstants";
+import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponent from "../../types/VibeComponent";
 import styles from "./Loader.module.scss";
 
-const Loader = forwardRef(
+export interface LoaderProps extends VibeComponentProps {
+  // Backward compatibility for props naming
+  svgClassName?: string;
+  className?: string;
+  /** The loader's size: `number` or `LoaderSizes` */
+  size?: LoaderSize;
+  color?: LoaderColors;
+  hasBackground?: boolean;
+}
+
+const Loader: VibeComponent<LoaderProps, HTMLElement> & {
+  sizes?: typeof LoaderSizes;
+  colors?: typeof LoaderColors;
+} = forwardRef(
   (
-    {
-      // Backward compatibility for props naming
-      svgClassName,
-      className,
-      size,
-      color,
-      hasBackground,
-      id
-    },
-    ref
+    { svgClassName, className, size, color, hasBackground = false, id, "data-testid": dataTestId },
+    ref: ForwardedRef<HTMLDivElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
@@ -35,6 +42,7 @@ const Loader = forwardRef(
         title="loading"
         style={sizeStyle}
         id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LOADER, id)}
       >
         <svg
           className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
@@ -66,31 +74,9 @@ const Loader = forwardRef(
   }
 );
 
-Loader.colors = LOADER_COLORS;
-Loader.sizes = LOADER_SIZES;
-
-Loader.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  size: PropTypes.oneOfType([
-    PropTypes.oneOf([Loader.sizes.XS, Loader.sizes.SMALL, Loader.sizes.MEDIUM, Loader.sizes.LARGE]),
-    PropTypes.number
-  ]),
-  color: PropTypes.oneOf([
-    Loader.colors.PRIMARY,
-    Loader.colors.ON_PRIMARY,
-    Loader.colors.SECONDARY,
-    Loader.colors.DARK
-  ]),
-  hasBackground: PropTypes.bool
-};
-
-Loader.defaultProps = {
-  id: undefined,
-  className: undefined,
-  size: undefined,
-  color: undefined,
-  hasBackground: false
-};
+Object.assign(Loader, {
+  sizes: LoaderSizes,
+  colors: LoaderColors
+});
 
 export default Loader;

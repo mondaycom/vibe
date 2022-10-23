@@ -11,7 +11,7 @@ module.exports = plop => {
     actions: [
       {
         type: "add",
-        path: "src/hooks/{{camelCase hookName}}/index.js",
+        path: "src/hooks/{{camelCase hookName}}/index.ts",
         templateFile: "plop/hooks/hook.txt"
       },
       {
@@ -33,7 +33,7 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "webpack/published-components.js",
+        path: "webpack/published-ts-components.js",
         pattern: /(\/\/ plop_marker:published-hooks)/g,
         template: `  {{camelCase hookName}}: "hooks/{{camelCase hookName}}",`
       }

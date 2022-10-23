@@ -2,15 +2,14 @@
 import React from "react";
 import cx from "classnames";
 import Link, { LinkProps } from "../../Link/Link";
-
 import "./AlertBannerLink.scss";
 
-interface AlertBannerLink extends LinkProps {
+export interface AlertBannerLinkProps extends LinkProps {
   marginLeft?: boolean;
   isDarkBackground?: boolean;
 }
 
-const AlertBannerLink = ({ marginLeft, isDarkBackground, ...linkProps }: AlertBannerLink) => {
+const AlertBannerLink = ({ marginLeft = false, isDarkBackground = false, ...linkProps }: AlertBannerLinkProps) => {
   const classNames = cx({
     "monday-style-alert-banner-link-margin-left": marginLeft,
     "monday-style-alert-banner-link-dark-background": isDarkBackground
@@ -23,11 +22,8 @@ const AlertBannerLink = ({ marginLeft, isDarkBackground, ...linkProps }: AlertBa
   );
 };
 
-AlertBannerLink.isAlertBannerItem = true;
-
-AlertBannerLink.defaultProps = {
-  marginLeft: false,
-  isDarkBackground: false
-};
+Object.assign(AlertBannerLink, {
+  isAlertBannerItem: true
+});
 
 export default AlertBannerLink;

@@ -1,13 +1,7 @@
 const publishedJSComponents = {
-  // Don't remove next line
-  // plop_marker:published-components
   Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
-  List: "components/List/List.jsx",
-  ListTitle: "components/ListTitle/ListTitle.jsx",
-  ListItemIcon: "components/ListItemIcon/ListItemIcon.jsx",
-  ListItem: "components/ListItem/ListItem.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
@@ -44,13 +38,10 @@ const publishedJSComponents = {
   Dropdown: "components/Dropdown/Dropdown.jsx",
   TextField: "components/TextField/TextField.jsx",
   Toast: "components/Toast/Toast.jsx",
-  Loader: "components/Loader/Loader.jsx",
   Flex: "components/Flex/Flex.jsx",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
-  AlertBanner: "components/AlertBanner/AlertBanner",
-  AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
@@ -59,8 +50,6 @@ const publishedJSComponents = {
   ModalHeader: "components/ModalHeader/ModalHeader.jsx",
   ModalFooter: "components/ModalFooter/ModalFooter.jsx",
   ModalContent: "components/ModalContent/ModalContent.jsx"
-  // Don't remove next line
-  // plop_marker:published-hooks
 };
 // eslint-disable-next-line no-undef
 module.exports = {
