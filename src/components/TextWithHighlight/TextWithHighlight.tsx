@@ -42,7 +42,7 @@ export interface TextWithHighlightProps extends VibeComponentProps {
   /** HTML tag to wrap the selected text */
   wrappingTextTag?: keyof JSX.IntrinsicElements;
   wrappingElementClassName?: string;
-  tooltipPosition?: typeof DialogPosition;
+  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
 }
 
 const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
