@@ -44,7 +44,6 @@ const publishedJSComponents = {
   SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  TextField: "components/TextField/TextField.jsx",
   Toast: "components/Toast/Toast.jsx",
   Loader: "components/Loader/Loader.jsx",
   Flex: "components/Flex/Flex.jsx",
