@@ -25,6 +25,10 @@ const publishedTSComponents = {
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
+  List: "components/List/List",
+  ListItem: "components/ListItem/ListItem",
+  ListTitle: "components/ListTitle/ListTitle",
+  ListItemIcon: "components/ListItemIcon/ListItemIcon",
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
