@@ -31,7 +31,7 @@ export interface SplitButtonProps extends ButtonProps {
   /*
    * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
    */
-  secondaryDialogContent?: ReactElement | (() => void);
+  secondaryDialogContent?: ReactElement | (() => string | ReactElement);
   onSecondaryDialogDidShow?: () => void;
   onSecondaryDialogDidHide?: () => void;
   zIndex?: number;
@@ -84,10 +84,6 @@ const SplitButton: FC<SplitButtonProps> & {
     marginLeft,
     marginRight
   } = overrideButtonProps;
-
-  console.log("Button.defaultProps", Button.defaultProps);
-  console.log("buttonProps", buttonProps);
-  console.log("overrideButtonProps", overrideButtonProps);
 
   // State //
   const [isDialogOpen, setDialogOpen] = useState(false);
