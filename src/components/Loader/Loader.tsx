@@ -8,11 +8,10 @@ import VibeComponent from "../../types/VibeComponent";
 import styles from "./Loader.module.scss";
 
 export interface LoaderProps extends VibeComponentProps {
-  id?: string;
   // Backward compatibility for props naming
   svgClassName?: string;
   className?: string;
-  /** The loader's size: `number` or */
+  /** The loader's size: `number` or `LoaderSizes` */
   size?: LoaderSize;
   color?: LoaderColors;
   hasBackground?: boolean;
