@@ -25,7 +25,7 @@ export interface HeadingProps extends VibeComponentProps {
   /** Custom font flag, use to enable new font family on H1 headers */
   brandFont?: boolean;
   style?: CSSStyleDeclaration;
-  tooltipPosition?: typeof DialogPosition;
+  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
 }
 
 const Heading: React.FC<HeadingProps> & {
