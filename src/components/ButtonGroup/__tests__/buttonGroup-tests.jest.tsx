@@ -9,8 +9,8 @@ describe("ButtonGroup tests", () => {
     { value: 3, text: "Gamma" },
     { value: 4, text: "Delta" }
   ];
-  let onSelectMock;
-  let label;
+  let onSelectMock: jest.Mock;
+  let label: string;
 
   beforeEach(() => {
     onSelectMock = jest.fn();
