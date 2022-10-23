@@ -25,6 +25,8 @@ const publishedTSComponents = {
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
   Chips: "components/Chips/Chips",
+  Heading: "components/Heading/Heading",
+  TextWithHighlight: "components/TextWithHighlight/TextWithHighlight",
   List: "components/List/List",
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
