@@ -37,6 +37,7 @@ const publishedTSComponents = {
   AttentionBox: "components/AttentionBox/AttentionBox",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
+  Skeleton: "components/Skeleton/Skeleton",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

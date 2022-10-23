@@ -41,7 +41,6 @@ const publishedJSComponents = {
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
   Toggle: "components/Toggle/Toggle.jsx",
-  Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   Slider: "components/Slider/Slider.jsx",
   Modal: "components/Modal/Modal.jsx",
