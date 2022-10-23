@@ -5,11 +5,12 @@ import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { iconSubComponentProps } from "../../Icon/Icon";
+import { IconSubComponentProps } from "../../Icon/Icon";
+import { HideShowEvent } from "../../../constants";
 import "./BreadcrumbItem.scss";
 
-const MOUSEENTER = ["mouseenter"];
-const MOUSELEAVE = ["mouseleave"];
+const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
+const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
 
 export interface BreadcrumbItemProps extends VibeComponentProps {
   /** The display text. */
@@ -27,7 +28,8 @@ export interface BreadcrumbItemProps extends VibeComponentProps {
   /** Should be the current Item - mainly effects the item`s style. */
   isCurrent?: boolean;
   /** An Icon - If no icon needed then should be left empty. */
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  // TODO TS-migration fix icon type?
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
 }
 
 const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({

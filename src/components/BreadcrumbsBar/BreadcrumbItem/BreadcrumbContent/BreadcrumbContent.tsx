@@ -1,18 +1,17 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import VibeComponentProps from "../../../../types/VibeComponentProps";
-import { iconSubComponentProps } from "../../../Icon/Icon";
+import { IconSubComponentProps } from "../../../Icon/Icon";
+import { keyCodes } from "../../../../constants";
 import "./BreadcrumbContent.scss";
-
-const ENTER_KEY = "Enter";
-const SPACE_KEY = " ";
 
 interface BreadcrumbContentProps extends VibeComponentProps {
   isClickable?: boolean;
   link?: string;
   onClick?: () => void;
   text?: string;
-  icon?: string | React.FC<iconSubComponentProps> | null;
+  // TODO TS-migration fix icon type?
+  icon?: string | React.FC<IconSubComponentProps> | null;
   isCurrent?: boolean;
   disabled?: boolean;
 }
@@ -29,7 +28,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
 
       const onKeyDown = useCallback(
         (event: React.KeyboardEvent) => {
-          if (event.key === ENTER_KEY || event.key === SPACE_KEY) {
+          if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
             link ? (window.parent.location.href = link) : onClick();
           }
         },
