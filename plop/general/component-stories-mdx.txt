@@ -44,7 +44,7 @@ Please write here the component description
 </Canvas>
 
 ## Props
-<ArgsTable of={ {{properCase componentName}} } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[

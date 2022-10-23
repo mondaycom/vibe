@@ -1,6 +1,7 @@
 const publishedTSComponents = {
+  // Don't remove next line
+  // plop_marker:published-components
   Button: "components/Button/Button",
-  AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
@@ -15,6 +16,9 @@ const publishedTSComponents = {
   Banner: "components/Banner/Banner",
   ButtonGroup: "components/ButtonGroup/ButtonGroup",
   Clickable: "components/Clickable/Clickable",
+  AlertBanner: "components/AlertBanner/AlertBanner",
+  AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
+  AlertBannerText: "components/AlertBanner/AlertBannerText/AlertBannerText",
   AlertBannerLink: "components/AlertBanner/AlertBannerLink/AlertBannerLink",
   ToastLink: "components/Toast/ToastLink/ToastLink",
   Tooltip: "components/Tooltip/Tooltip",
@@ -25,6 +29,7 @@ const publishedTSComponents = {
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
   ListItemIcon: "components/ListItemIcon/ListItemIcon",
+  Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
@@ -44,6 +49,8 @@ const publishedTSComponents = {
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
+  // Don't remove next line
+  // plop_marker:published-hooks
 };
 
 // eslint-disable-next-line no-undef
