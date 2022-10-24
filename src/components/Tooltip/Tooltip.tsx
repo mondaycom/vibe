@@ -7,12 +7,13 @@ import Dialog from "../Dialog/Dialog";
 import { BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType, AnimationType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
+import { ElementContent } from "../../types/ElementContent";
 import "./Tooltip.scss";
 
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;
-  content: string | ReactElement;
+  content: ElementContent;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**

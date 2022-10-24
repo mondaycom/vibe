@@ -2,9 +2,10 @@ import React from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
-import "./AvatarContent.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import Icon, { iconSubComponentProps } from "../Icon/Icon";
+import Icon from "../Icon/Icon";
+import { SubIcon } from "../../types/SubIcon";
+import "./AvatarContent.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
 const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
@@ -16,7 +17,7 @@ interface AvatarContentProps extends VibeComponentProps {
   role?: string;
   ariaLabel?: string;
   /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: SubIcon;
   textClassName?: string;
   text?: string;
 }

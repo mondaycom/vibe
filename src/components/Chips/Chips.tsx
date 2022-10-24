@@ -14,6 +14,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarTypes } from "../Avatar/AvatarConstants";
 import styles from "./Chips.module.scss";
+import { SubIcon } from "../../types/SubIcon";
 
 interface ChipsProps extends VibeComponentProps {
   className?: string;
@@ -23,9 +24,9 @@ interface ChipsProps extends VibeComponentProps {
   readOnly?: boolean;
   dataTestId?: string;
   /** Icon to place on the right */
-  rightIcon?: string | React.FunctionComponent | null;
+  rightIcon?: SubIcon;
   /** Icon to place on the left */
-  leftIcon?: string | React.FunctionComponent | null;
+  leftIcon?: SubIcon;
   /** Img to place as avatar on the right */
   rightAvatar?: string;
   /** Img to place as avatar on the left */

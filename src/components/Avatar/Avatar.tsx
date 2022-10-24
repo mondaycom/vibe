@@ -10,8 +10,8 @@ import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import { iconSubComponentProps } from "../Icon/Icon";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import { SubIcon } from "../../types/SubIcon";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -25,7 +25,7 @@ export interface AvatarProps extends VibeComponentProps {
   tooltipProps?: TooltipProps;
   ariaLabel?: string;
   withoutTooltip?: boolean;
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: SubIcon;
   type?: AvatarTypes;
   className?: string;
   textClassName?: string;

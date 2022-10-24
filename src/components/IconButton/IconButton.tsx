@@ -12,6 +12,7 @@ import styles from "./IconButton.module.scss";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { SubIcon } from "../../types/SubIcon";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
@@ -33,7 +34,7 @@ export interface IconButtonProps extends VibeComponentProps {
   /**
    * Icon to be rendered
    */
-  icon?: string | React.FunctionComponent | null;
+  icon?: SubIcon;
   /**
    * a11y property to be added, used for screen reader to know what kind of button it is
    */

@@ -7,6 +7,7 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import "./Link.scss";
 import { IconPosition, LinkTarget } from "./LinkConsts";
+import { SubIcon } from "../../types/SubIcon";
 
 export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */
@@ -26,7 +27,7 @@ export interface LinkProps extends VibeComponentProps {
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
-  icon?: string | React.FunctionComponent | null;
+  icon?: SubIcon;
   /** the position of the icon in relation to the etext */
   iconPosition?: IconPosition;
   /** disable navigation */
