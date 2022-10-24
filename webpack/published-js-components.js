@@ -10,7 +10,6 @@ const publishedJSComponents = {
   TipseenContent: "components/Tipseen/TipseenContent.jsx",
   TipseenWizard: "components/Tipseen/TipseenWizard.jsx",
   TipseenImage: "components/Tipseen/TipseenImage.jsx",
-  Steps: "components/Steps/Steps.jsx",
   Combobox: "components/Combobox/Combobox.jsx",
   TabPanels: "components/Tabs/TabPanels/TabPanels.jsx",
   TabsContext: "components/Tabs/TabsContext/TabsContext.jsx",

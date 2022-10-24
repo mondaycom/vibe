@@ -1,13 +1,26 @@
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import PropTypes from "prop-types";
 import { BEMClass } from "../../helpers/bem-helper";
-import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
+import { STEPS_CSS_BASE_CLASS, StepsDotAriaCurrent } from "./StepsConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import React, { FC } from "react";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header`;
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const StepsDot = ({ isActive, onClick, ariaCurrent, ariaLabel }) => {
+export interface StepsDotProps extends VibeComponentProps {
+  onClick?: (e: React.MouseEvent) => void;
+  ariaCurrent?: StepsDotAriaCurrent | boolean;
+  isActive?: boolean;
+  ariaLabel?: string;
+}
+
+export const StepsDot: FC<StepsDotProps> = ({
+  isActive,
+  onClick = NOOP,
+  ariaCurrent = StepsDotAriaCurrent.STEP,
+  ariaLabel
+}) => {
   return (
     <button
       type="button"
@@ -19,13 +32,4 @@ export const StepsDot = ({ isActive, onClick, ariaCurrent, ariaLabel }) => {
       onClick={onClick}
     />
   );
-};
-
-StepsDot.propTypes = {
-  onClick: PropTypes.func,
-  ariaCurrent: PropTypes.oneOf(["page", "step", "location", "date", "time", false, true])
-};
-StepsDot.defaultProps = {
-  onClick: NOOP,
-  ariaCurrent: "step"
 };

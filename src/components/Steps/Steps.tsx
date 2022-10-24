@@ -1,30 +1,50 @@
-import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
-import { STEPS_GALLERY_TYPE, STEPS_CSS_BASE_CLASS, STEPS_TYPES } from "./StepsConstants";
+import { STEPS_CSS_BASE_CLASS, StepsType } from "./StepsConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { ButtonProps } from "../Button/Button";
 import "./Steps.scss";
 
 const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
 
-const Steps = forwardRef(
+interface StepsProps extends VibeComponentProps {
+  /**
+   * The index of the current displayed step
+   */
+  activeStepIndex?: number;
+  /**
+   * A callback which called when the active step is changed
+   */
+  onChangeActiveStep?: (e: React.MouseEvent, stepIndex: number) => void;
+  areNavigationButtonsHidden?: boolean;
+  steps?: ReactElement[];
+  type?: StepsType;
+  isOnPrimary?: boolean;
+  isContentOnTop?: boolean;
+  areButtonsIconsHidden?: boolean;
+  backButtonProps?: ButtonProps;
+  nextButtonProps?: ButtonProps;
+}
+
+const Steps: FC<StepsProps> & { types?: typeof StepsType } = forwardRef(
   (
     {
       className,
       id,
-      steps,
-      activeStepIndex,
-      type,
-      onChangeActiveStep,
-      isOnPrimary,
-      areNavigationButtonsHidden,
-      isContentOnTop,
-      backButtonProps,
-      nextButtonProps,
-      areButtonsIconsHidden
+      steps = [],
+      activeStepIndex = 0,
+      type = StepsType.GALLERY,
+      onChangeActiveStep = NOOP,
+      isOnPrimary = false,
+      areNavigationButtonsHidden = false,
+      isContentOnTop = false,
+      backButtonProps = {},
+      nextButtonProps = {},
+      areButtonsIconsHidden = false
     },
     ref
   ) => {
@@ -58,38 +78,8 @@ const Steps = forwardRef(
   }
 );
 
-Steps.types = STEPS_TYPES;
-
-Steps.propTypes = {
-  /**
-   * The index of the current displayed step
-   */
-  activeStepIndex: PropTypes.number,
-  /**
-   * A callback which called when the active step is changed
-   */
-  onChangeActiveStep: PropTypes.func,
-  areNavigationButtonsHidden: PropTypes.bool,
-  steps: PropTypes.arrayOf(PropTypes.element),
-  className: PropTypes.string,
-  id: PropTypes.string,
-  type: PropTypes.oneOf([Steps.types.GALLERY, Steps.types.NUMBERS]),
-  isOnPrimary: PropTypes.bool,
-  isContentOnTop: PropTypes.bool,
-  areButtonsIconsHidden: PropTypes.bool
-};
-
-Steps.defaultProps = {
-  activeStepIndex: 0,
-  isOnPrimary: false,
-  steps: [],
-  className: "",
-  id: "",
-  onChangeActiveStep: NOOP,
-  areNavigationButtonsHidden: false,
-  type: STEPS_GALLERY_TYPE,
-  isContentOnTop: false,
-  areButtonsIconsHidden: false
-};
+Object.assign(Steps, {
+  types: StepsType
+});
 
 export default Steps;
