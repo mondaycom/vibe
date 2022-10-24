@@ -9,7 +9,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
-import { Icon } from "src/types/SubIcon";
+import { SubIcon } from "src/types/SubIcon";
 import "./Search.scss";
 
 function getType(type: SearchType) {
@@ -17,8 +17,8 @@ function getType(type: SearchType) {
 }
 
 export interface SearchProps extends VibeComponentProps {
-  secondaryIconName?: Icon;
-  iconName?: Icon;
+  secondaryIconName?: SubIcon;
+  iconName?: SubIcon;
   onChange?: () => void;
   autoFocus?: boolean;
   underline?: boolean;

@@ -25,7 +25,7 @@ interface AvatarContentProps extends VibeComponentProps {
 export const AvatarContent: React.FC<AvatarContentProps> & {
   sizes?: typeof AvatarSizes;
   types?: typeof AvatarTypes;
-} = ({ type, src, icon, text, ariaLabel, role, size, textClassName }) => {
+} = ({ type = AvatarTypes.TEXT, src, icon, text, ariaLabel, role, size = AvatarSizes.LARGE, textClassName = "" }) => {
   const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
   switch (type) {
     case AvatarTypes.IMG:
@@ -56,14 +56,3 @@ Object.assign(AvatarContent, {
   types: AvatarTypes,
   sizes: AvatarSizes
 });
-
-AvatarContent.defaultProps = {
-  src: undefined,
-  icon: undefined,
-  type: AvatarTypes.TEXT,
-  role: undefined,
-  ariaLabel: undefined,
-  size: AvatarSizes.LARGE,
-  textClassName: "",
-  text: undefined
-};
