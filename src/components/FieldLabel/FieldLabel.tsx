@@ -1,10 +1,23 @@
-import React, { forwardRef } from "react";
+import React, { FC, ForwardedRef, forwardRef } from "react";
 import cx from "classnames";
-import "./FieldLabel.scss";
 import Icon from "../Icon/Icon";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import "./FieldLabel.scss";
 
-const FieldLabel = forwardRef(
-  ({ icon = "", iconLabel = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "" }, ref) => {
+interface FieldLabelProps extends VibeComponentProps {
+  icon?: string | React.FunctionComponent | null;
+  iconLabel?: string;
+  labelText?: string;
+  labelFor?: string;
+  iconClassName?: string;
+  labelClassName?: string;
+}
+
+const FieldLabel: FC<FieldLabelProps> = forwardRef(
+  (
+    { icon = "", iconLabel = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "" },
+    ref: ForwardedRef<HTMLLabelElement>
+  ) => {
     if (!labelText) {
       return null;
     }
