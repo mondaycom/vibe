@@ -13,6 +13,7 @@ const publishedTSComponents = {
   HiddenText: "components/HiddenText/HiddenText",
   Label: "components/Label/Label",
   RadioButton: "components/RadioButton/RadioButton",
+  DialogContentContainer: "components/DialogContentContainer/DialogContentContainer",
   Banner: "components/Banner/Banner",
   ButtonGroup: "components/ButtonGroup/ButtonGroup",
   Clickable: "components/Clickable/Clickable",
@@ -38,6 +39,7 @@ const publishedTSComponents = {
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
   Steps: "components/Steps/Steps",
+  Toggle: "components/Toggle/Toggle",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
