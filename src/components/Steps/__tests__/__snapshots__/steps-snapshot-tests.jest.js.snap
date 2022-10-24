@@ -3,7 +3,6 @@
 exports[`Steps with gallery type renders correctly when hide navigations icons 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
@@ -65,7 +64,6 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
 exports[`Steps with gallery type renders correctly when navigation buttons are hidden 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
@@ -99,7 +97,6 @@ exports[`Steps with gallery type renders correctly when navigation buttons are h
 exports[`Steps with gallery type renders correctly when steps content is on top 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-top"
-  id=""
 >
   <div>
     second
@@ -193,7 +190,6 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
 exports[`Steps with gallery type renders correctly when viewing first step 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
@@ -287,7 +283,6 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
 exports[`Steps with gallery type renders correctly when viewing last step 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
@@ -381,7 +376,6 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
 exports[`Steps with gallery type renders correctly with regular props 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
@@ -475,7 +469,6 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
 exports[`Steps with numeric type renders correctly when hide navigations icons 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
@@ -523,7 +516,6 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
 exports[`Steps with numeric type renders correctly when steps content is on top 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-top"
-  id=""
 >
   <div>
     second
@@ -603,7 +595,6 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
 exports[`Steps with numeric type renders correctly when viewing first step 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
@@ -683,7 +674,6 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
 exports[`Steps with numeric type renders correctly when viewing last step 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
@@ -763,7 +753,6 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
 exports[`Steps with numeric type renders correctly with regular props 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
-  id=""
 >
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
