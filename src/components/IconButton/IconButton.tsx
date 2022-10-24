@@ -8,11 +8,10 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import styles from "./IconButton.module.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import { VibeComponentProps, SubIcon } from "src/types";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
-import { SubIcon } from "../../types/SubIcon";
+import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**

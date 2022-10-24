@@ -4,9 +4,8 @@ import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import VibeComponentProps from "../../../types/VibeComponentProps";
 import { HideShowEvent } from "../../../constants";
-import { SubIcon } from "../../../types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./BreadcrumbItem.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];

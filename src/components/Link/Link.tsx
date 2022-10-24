@@ -1,13 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
-import VibeComponent from "src/types/VibeComponent";
-import VibeComponentProps from "src/types/VibeComponentProps";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
-import "./Link.scss";
 import { IconPosition, LinkTarget } from "./LinkConsts";
-import { SubIcon } from "../../types/SubIcon";
+import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
+import "./Link.scss";
 
 export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */

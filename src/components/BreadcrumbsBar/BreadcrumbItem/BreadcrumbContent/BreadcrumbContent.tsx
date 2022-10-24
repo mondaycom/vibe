@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
-import VibeComponentProps from "../../../../types/VibeComponentProps";
 import { keyCodes } from "../../../../constants";
-import { SubIcon } from "../../../../types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./BreadcrumbContent.scss";
 
 interface BreadcrumbContentProps extends VibeComponentProps {

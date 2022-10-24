@@ -2,9 +2,8 @@ import React from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
-import VibeComponentProps from "src/types/VibeComponentProps";
 import Icon from "../Icon/Icon";
-import { SubIcon } from "../../types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./AvatarContent.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";

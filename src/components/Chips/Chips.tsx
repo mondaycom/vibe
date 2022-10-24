@@ -9,12 +9,10 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
 import styles from "./Chips.module.scss";
-import { SubIcon } from "../../types/SubIcon";
 
 interface ChipsProps extends VibeComponentProps {
   className?: string;

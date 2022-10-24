@@ -2,9 +2,8 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemIconMargin } from "./ListItemIconConstants";
-import { SubIcon } from "../../types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./ListItemIcon.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {

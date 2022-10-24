@@ -5,11 +5,10 @@ import TextField from "../../components/TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchIconName, SearchType, SearchTypeClass } from "./SearchConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
-import { SubIcon } from "src/types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./Search.scss";
 
 function getType(type: SearchType) {

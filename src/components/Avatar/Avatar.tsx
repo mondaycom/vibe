@@ -10,8 +10,7 @@ import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import { SubIcon } from "../../types/SubIcon";
+import { SubIcon, VibeComponentProps } from "src/types";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
