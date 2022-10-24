@@ -1,11 +1,16 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 import "./TabsContext.scss";
 
-const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) => {
+export interface TabsContextProps extends VibeComponentProps {
+  activeTabId?: number;
+  children?: ReactElement | ReactElement[];
+}
+
+const TabsContext: FC<TabsContextProps> = forwardRef(({ className, id, activeTabId = 0, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -22,7 +27,7 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
   }, [activeTabId, prevActiveTabIdProp, activeTabIdState, setPreviousActiveTabIdState, setActiveTabIdState]);
 
   const onTabClick = useCallback(
-    tabId => {
+    (tabId: number) => {
       setPreviousActiveTabIdState(activeTabIdState);
       setActiveTabIdState(tabId);
     },
@@ -32,9 +37,11 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
   return (
     <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
       {React.Children.map(children, child => {
+        // @ts-ignore
         if (child.type.isTabList) {
           return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange: onTabClick });
         }
+        // @ts-ignore
         if (child.type.isTabPanels) {
           const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
           return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection });
@@ -44,16 +51,5 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
     </div>
   );
 });
-
-TabsContext.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  activeTabId: PropTypes.number
-};
-TabsContext.defaultProps = {
-  className: "",
-  id: "",
-  activeTabId: 0
-};
 
 export default TabsContext;

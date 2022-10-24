@@ -1,13 +1,13 @@
-import Tab from "../Tab/Tab.jsx";
-import TabList from "../TabList/TabList.jsx";
-import TabPanel from "../TabPanel/TabPanel.jsx";
-import TabPanels from "../TabPanels/TabPanels.jsx";
-import TabsContext from "../TabsContext/TabsContext.jsx";
+import Tab from "../Tab/Tab";
+import TabList from "../TabList/TabList";
+import TabPanel from "../TabPanel/TabPanel";
+import TabPanels from "../TabPanels/TabPanels";
+import TabsContext from "../TabsContext/TabsContext";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "../../Icon/Icons";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import TextField from "../../TextField/TextField.tsx";
-import { Link } from "../../../storybook/components";
+import TextField from "../../TextField/TextField";
+import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook/components";
 import {
   BREADCRUBMS,
   BUTTON_GROUP,
@@ -16,12 +16,10 @@ import {
 import { tabsTemplate } from "./tabs.overview.jsx";
 import "./tabs.stories.scss";
 
-<Meta
-  title="Navigation/Tabs/Tabs"
-  component={ Tab }
-/>
+<Meta title="Navigation/Tabs/Tabs" component={Tab} />
 
 # Tabs
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -32,30 +30,42 @@ import "./tabs.stories.scss";
 - [Feedback](#feedback)
 
 ## Overview
+
 Tabs allow users to navigate between related views of content while remaining in the context of the page.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {className: "monday-storybook-tabs_bg-color"} }>
-    { tabsTemplate.bind({}) }
+  <Story name="Overview" args={{ className: "monday-storybook-tabs_bg-color" }}>
+    {tabsTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ TabList } />
+
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.",
-  "Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.",
-  "The first tab is selected by default. The default tab is most important use case of the page.",
-  "Stick to only one row of tabs.",
-]}/>
 
-<Tip>Use tabs to navigate between deferent contents, if switching between states within the same 
-content use <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>Button group</Link> instead</Tip>
+<UsageGuidelines
+  guidelines={[
+    "Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.",
+    "Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.",
+    "The first tab is selected by default. The default tab is most important use case of the page.",
+    "Stick to only one row of tabs."
+  ]}
+/>
+
+<Tip>
+  Use tabs to navigate between deferent contents, if switching between states within the same content use{" "}
+  <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Button group
+  </Link>{" "}
+  instead
+</Tip>
 
 ## Variants
+
 ### Default - compact tabs
+
 <Canvas>
   <Story name="Default">
     <TabsContext className="monday-storybook-tabs_bg-color">
@@ -76,10 +86,12 @@ content use <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.s
 </Canvas>
 
 ### Stretched
+
 The width of the list is responsive to the screen's width.
+
 <Canvas>
   <Story name="Stretched">
-    <div style={{width: "100%"}}>
+    <div style={{ width: "100%" }}>
       <TabList tabType="stretched">
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -91,7 +103,9 @@ The width of the list is responsive to the screen's width.
 </Canvas>
 
 ### Motion
+
 Tabs animation direction
+
 <Canvas>
   <Story name="Motion">
     <div className="monday-storybook-tabs_column-wrapper">
@@ -128,62 +142,72 @@ Tabs animation direction
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab icon={Table}>Main Table</Tab>
               <Tab icon={Chart}>Chart</Tab>
               <Tab icon={Calendar}>Calendar</Tab>
             </TabList>
-          </DialogContentContainer>,
-        description:"Use either all text labels, all icon labels, or both, across all labels."
+          </DialogContentContainer>
+        ),
+        description: "Use either all text labels, all icon labels, or both, across all labels."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab>Main Table</Tab>
               <Tab icon={Gantt}> </Tab>
             </TabList>
-          </DialogContentContainer>,
-        description:"Don’t mix tabs that contain only text, with tabs that contain only icons. "
+          </DialogContentContainer>
+        ),
+        description: "Don’t mix tabs that contain only text, with tabs that contain only icons. "
       }
     },
     {
       positive: {
-        component:
-        <DialogContentContainer className="monday-storybook-tabs_spacing">
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab icon={NewTab}>Main Table</Tab>
               <Tab icon={Table}>Table</Tab>
-              <Tab icon={NavigationChevronDown} iconSide="right">More</Tab>
+              <Tab icon={NavigationChevronDown} iconSide="right">
+                More
+              </Tab>
             </TabList>
-          </DialogContentContainer>,
-        description:"When there are too many tabs to fit horizontally across the viewport, use a “More” dropdown."
+          </DialogContentContainer>
+        ),
+        description: "When there are too many tabs to fit horizontally across the viewport, use a “More” dropdown."
       },
       negative: {
-        component:
-        <DialogContentContainer className="monday-storybook-tabs_spacing">
+        component: (
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab>Main...</Tab>
               <Tab>Table</Tab>
               <Tab>Time...</Tab>
               <Tab>Fir...</Tab>
             </TabList>
-          </DialogContentContainer>,
-        description:"Do not cut the tabs name just to make them fit horizontally."
+          </DialogContentContainer>
+        ),
+        description: "Do not cut the tabs name just to make them fit horizontally."
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Board views tabs
-The tabs are presenting the same content, in a different view. 
+
+The tabs are presenting the same content, in a different view.
+
 <Canvas>
   <Story name="Board views tabs">
     <TabList>
@@ -194,8 +218,10 @@ The tabs are presenting the same content, in a different view.
   </Story>
 </Canvas>
 
-### Admin section tabs 
+### Admin section tabs
+
 In the admin section tabs used to navigate between the different preferences
+
 <Canvas>
   <Story name="Admin section tabs">
     <TabsContext className="monday-storybook-tabs_wrapper">
@@ -218,4 +244,5 @@ In the admin section tabs used to navigate between the different preferences
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPPER ]} />
+
+<RelatedComponents componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPPER]} />

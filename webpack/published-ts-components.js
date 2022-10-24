@@ -38,6 +38,11 @@ const publishedTSComponents = {
   AttentionBox: "components/AttentionBox/AttentionBox",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
+  Tab: "components/Tabs/Tab/Tab",
+  TabPanels: "components/Tabs/TabPanels/TabPanels",
+  TabsContext: "components/Tabs/TabsContext/TabsContext",
+  TabPanel: "components/Tabs/TabPanel/TabPanel",
+  TabList: "components/Tabs/TabList/TabList",
   TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
   useKeyEvent: "hooks/useKeyEvent/index.ts",

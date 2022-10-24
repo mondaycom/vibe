@@ -1,14 +1,42 @@
 /* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
-import React, { useRef, forwardRef } from "react";
+import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import NOOP from "lodash/noop";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import Icon from "../../Icon/Icon";
+import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import { IconType } from "../../Icon/IconConstants";
 import "./Tab.scss";
 
-const Tab = forwardRef(
-  ({ className, id, value, disabled, active, focus, onClick, icon, iconType, iconSide, children }, ref) => {
+export interface TabProps extends VibeComponentProps {
+  value?: number;
+  disabled?: boolean;
+  active?: boolean;
+  focus?: boolean;
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  iconType?: IconType;
+  iconSide?: string;
+  onClick?: (value: number) => void;
+  children?: string | ReactElement[];
+}
+
+const Tab: FC<TabProps> = forwardRef(
+  (
+    {
+      className,
+      id,
+      value = 0,
+      disabled = false,
+      active = false,
+      focus = false,
+      onClick = NOOP,
+      icon,
+      iconType,
+      iconSide = "left",
+      children
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -54,30 +82,5 @@ const Tab = forwardRef(
     );
   }
 );
-
-Tab.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  value: PropTypes.number,
-  disabled: PropTypes.bool,
-  active: PropTypes.bool,
-  focus: PropTypes.bool,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  iconSide: PropTypes.string,
-  onClick: PropTypes.func
-};
-Tab.defaultProps = {
-  className: "",
-  id: "",
-  value: 0,
-  disabled: false,
-  active: false,
-  focus: false,
-  icon: null,
-  iconType: undefined,
-  iconSide: "left",
-  onClick: NOOP
-};
 
 export default Tab;
