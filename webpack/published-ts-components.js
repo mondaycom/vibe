@@ -39,6 +39,7 @@ const publishedTSComponents = {
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
   TextField: "components/TextField/TextField",
+  Toggle: "components/Toggle/Toggle",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

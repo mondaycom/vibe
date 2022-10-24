@@ -1,24 +1,42 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FC } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { Switch } from "../../components/Switch/Switch";
-import { MockToggle } from "../../components/Toggle/MockToggle";
+import { Switch } from "../Switch/Switch";
+import { MockToggle } from "./MockToggle";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import "./Toggle.scss";
 
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 
-const Toggle = ({
+interface ToggleProps extends VibeComponentProps {
+  // Backward compatibility for props naming
+  componentClassName?: string;
+  isDefaultSelected?: boolean;
+  isSelected?: boolean;
+  onChange?: (value: boolean) => void;
+  value?: string;
+  name?: string;
+  // Backward compatibility for props naming
+  isDisabled?: boolean;
+  disabled?: boolean;
+  areLabelsHidden?: boolean;
+  onOverrideText?: string;
+  offOverrideText?: string;
+  ariaLabel?: string;
+  ariaControls?: string;
+}
+
+const Toggle: FC<ToggleProps> = ({
   id,
   // Backward compatibility for props naming
   componentClassName,
   className,
-  isDefaultSelected,
+  isDefaultSelected = true,
   isSelected,
-  onChange,
+  onChange = NOOP,
   value,
   name,
   disabled,
@@ -26,12 +44,12 @@ const Toggle = ({
   isDisabled,
   ariaLabel,
   ariaControls,
-  areLabelsHidden,
-  onOverrideText,
-  offOverrideText
+  areLabelsHidden = false,
+  onOverrideText = "On",
+  offOverrideText = "Off"
 }) => {
-  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
   const wrapperClassName = cx(bemHelper({ element: "wrapper" }), {
     [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
   });
@@ -58,38 +76,6 @@ const Toggle = ({
       />
     </Switch>
   );
-};
-
-Toggle.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  isDefaultSelected: PropTypes.bool,
-  isSelected: PropTypes.bool,
-  onChange: PropTypes.func,
-  value: PropTypes.string,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  areLabelsHidden: PropTypes.bool,
-  onOverrideText: PropTypes.string,
-  offOverrideText: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  ariaControls: PropTypes.string
-};
-
-Toggle.defaultProps = {
-  id: undefined,
-  className: undefined,
-  isDefaultSelected: true,
-  isSelected: undefined,
-  onChange: NOOP,
-  value: undefined,
-  name: undefined,
-  disabled: undefined,
-  areLabelsHidden: false,
-  ariaLabel: undefined,
-  ariaControls: undefined,
-  onOverrideText: "On",
-  offOverrideText: "Off"
 };
 
 export default Toggle;
