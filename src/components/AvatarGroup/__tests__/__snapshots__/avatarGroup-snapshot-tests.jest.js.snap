@@ -13,7 +13,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -90,7 +90,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       onMouseLeave={[Function]}
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -168,7 +168,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       onMouseLeave={[Function]}
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -238,7 +238,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -308,7 +308,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -329,7 +329,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -357,7 +357,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -385,7 +385,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -455,7 +455,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}
@@ -476,7 +476,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
-          "backgroundColor": "var(--color-chili-blue",
+          "backgroundColor": "var(--color-chili-blue)",
         }
       }
       tabIndex={0}

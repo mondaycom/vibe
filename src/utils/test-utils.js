@@ -1,4 +1,6 @@
 export const ELEMENT_TYPES = {
+  // Don't remove next line
+  // plop_marker:default-data-testid-declarations
   COMBOBOX: "combobox",
   DROPDOWN: "dropdown",
   BUTTON: "button",
@@ -48,7 +50,8 @@ export const ELEMENT_TYPES = {
   DIVIDER: "divider",
   DATEPICKER: "date-picker",
   DATEPICKER_HEADER: "date-picker-header",
-  DATEPICKER_YEAR_SELECTION: "date-picker-year-selection"
+  DATEPICKER_YEAR_SELECTION: "date-picker-year-selection",
+  LOADER: "loader"
 };
 
 export const NAVIGATIONS_COMMANDS = {

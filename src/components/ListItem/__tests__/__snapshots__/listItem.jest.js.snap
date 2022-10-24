@@ -4,7 +4,6 @@ exports[`renders correctly with disabled 1`] = `
 <div
   aria-disabled={true}
   className="list-item list-item--small list-item--disabled"
-  id=""
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -18,7 +17,6 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-disabled={false}
   className="list-item list-item--small"
-  id=""
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -32,7 +30,6 @@ exports[`renders correctly with selected 1`] = `
 <div
   aria-disabled={false}
   className="list-item list-item--small list-item--selected"
-  id=""
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -46,7 +43,6 @@ exports[`renders correctly with selected and disabled 1`] = `
 <div
   aria-disabled={true}
   className="list-item list-item--small list-item--disabled"
-  id=""
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -60,7 +56,6 @@ exports[`renders correctly with size 1`] = `
 <div
   aria-disabled={false}
   className="list-item list-item--large"
-  id=""
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
