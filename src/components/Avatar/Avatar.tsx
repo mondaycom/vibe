@@ -4,7 +4,7 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
-import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
@@ -24,12 +24,12 @@ export interface AvatarProps extends VibeComponentProps {
   ariaLabel?: string;
   withoutTooltip?: boolean;
   icon?: SubIcon;
-  type?: AvatarTypes;
+  type?: AvatarType;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: AriaRole;
-  size?: AvatarSizes;
+  size?: AvatarSize;
   customSize?: number;
   tabIndex?: number;
   ariaHidden?: boolean;
@@ -47,10 +47,10 @@ export interface AvatarProps extends VibeComponentProps {
 
 const Avatar: React.FC<AvatarProps> = ({
   id,
-  type = AvatarTypes.TEXT,
+  type = AvatarType.TEXT,
   className,
   textClassName = "",
-  size = AvatarSizes.LARGE,
+  size = AvatarSize.LARGE,
   src,
   icon,
   text,
@@ -196,8 +196,8 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 Object.assign(Avatar, {
-  types: AvatarTypes,
-  sizes: AvatarSizes,
+  types: AvatarType,
+  sizes: AvatarSize,
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });

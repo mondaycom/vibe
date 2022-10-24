@@ -10,7 +10,7 @@ import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { ChipsSize } from "./ChipsConstants";
-import { AvatarTypes } from "../Avatar/AvatarConstants";
+import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
 import styles from "./Chips.module.scss";
 
@@ -112,7 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
-            type={AvatarTypes.IMG}
+            type={AvatarType.IMG}
             key={id}
           />
         ) : null}
@@ -143,7 +143,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
-            type={AvatarTypes.IMG}
+            type={AvatarType.IMG}
             key={id}
           />
         ) : null}
