@@ -13,6 +13,7 @@ const publishedTSComponents = {
   HiddenText: "components/HiddenText/HiddenText",
   Label: "components/Label/Label",
   RadioButton: "components/RadioButton/RadioButton",
+  DialogContentContainer: "components/DialogContentContainer/DialogContentContainer",
   Banner: "components/Banner/Banner",
   ButtonGroup: "components/ButtonGroup/ButtonGroup",
   Clickable: "components/Clickable/Clickable",
