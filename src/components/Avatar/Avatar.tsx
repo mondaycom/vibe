@@ -19,7 +19,6 @@ const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
 export interface AvatarProps extends VibeComponentProps {
-  id?: string;
   src?: string;
   text?: string;
   tooltipProps?: TooltipProps;
@@ -27,7 +26,6 @@ export interface AvatarProps extends VibeComponentProps {
   withoutTooltip?: boolean;
   icon?: SubIcon;
   type?: AvatarTypes;
-  className?: string;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
@@ -206,9 +204,7 @@ Object.assign(Avatar, {
 });
 
 Avatar.defaultProps = {
-  id: undefined,
   src: undefined,
-  className: "",
   textClassName: "",
   icon: undefined,
   text: undefined,

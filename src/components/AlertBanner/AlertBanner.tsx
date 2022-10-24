@@ -1,24 +1,52 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
 import cx from "classnames";
-import PropTypes from "prop-types";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { BACKGROUND_COLORS } from "./AlertBannerConstants";
+import { AlertBannerBackgroundColor } from "./AlertBannerConstants";
+import { NOOP } from "../../utils/function-utils";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
+import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
+import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
 import "./AlertBanner.scss";
 
-const NOOP = () => {};
+interface AlertBannerProps extends VibeComponentProps {
+  /**
+   * Set external styling to the progress bar.
+   */
+  className?: string;
+  backgroundColor?: AlertBannerBackgroundColor;
+  isCloseHidden?: boolean;
+  /** ARIA description for the progress bar */
+  ariaLabel?: string;
+  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
+}
 
-const AlertBanner = forwardRef(
-  ({ children: originalChildren, className, backgroundColor, onClose, ariaLabel, isCloseHidden }, ref) => {
+const AlertBanner: React.FC<AlertBannerProps> & {
+  backgroundColors?: typeof AlertBannerBackgroundColor;
+} = forwardRef(
+  (
+    {
+      children: originalChildren,
+      className,
+      backgroundColor = AlertBanner.backgroundColors.PRIMARY,
+      onClose = NOOP,
+      ariaLabel = "",
+      isCloseHidden = false
+    },
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
     const classNames = useMemo(() => {
       return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
     }, [className, backgroundColor]);
 
     const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
     const children = useMemo(() => {
-      const allChildren = React.Children.toArray(originalChildren);
-      const filteredChildren = allChildren.filter(child => {
+      const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
+      const filteredChildren = allChildren.filter((child: ReactElement) => {
+        // @ts-ignore displayName & isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
         if (child.type.isAlertBannerItem || child.type.displayName === "MDXCreateElement") return true;
         console.error(
           "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
@@ -40,15 +68,16 @@ const AlertBanner = forwardRef(
       <div ref={ref} className={classNames} role="banner" aria-label={ariaLabel || "banner"}>
         <div className="monday-alert-banner__inner">
           {children.map((child, index) => {
+            // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
+            const childTypeIsAlertBannerText = child.type.isAlertBannerText;
             return (
               <div
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={cx("monday-alert-banner__inner-item", {
-                  "monday-alert-banner__inner-item-text": child.type.isAlertBannerText
+                  "monday-alert-banner__inner-item-text": childTypeIsAlertBannerText
                 })}
               >
-                {child.type.isAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
+                {childTypeIsAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
               </div>
             );
           })}
@@ -72,30 +101,8 @@ const AlertBanner = forwardRef(
   }
 );
 
-AlertBanner.backgroundColors = BACKGROUND_COLORS;
-AlertBanner.propTypes = {
-  /**
-   * Set external styling to the progress bar.
-   */
-  className: PropTypes.string,
-  backgroundColor: PropTypes.oneOf([
-    AlertBanner.backgroundColors.PRIMARY,
-    AlertBanner.backgroundColors.NEGATIVE,
-    AlertBanner.backgroundColors.POSITIVE,
-    AlertBanner.backgroundColors.DARK
-  ]),
-  isCloseHidden: PropTypes.bool,
-  /** ARIA description for the progress bar */
-  ariaLabel: PropTypes.string,
-  onClose: PropTypes.func
-};
-
-AlertBanner.defaultProps = {
-  backgroundColor: AlertBanner.backgroundColors.PRIMARY,
-  isCloseHidden: false,
-  className: "",
-  ariaLabel: "",
-  onClose: NOOP
-};
+Object.assign(AlertBanner, {
+  backgroundColors: AlertBannerBackgroundColor
+});
 
 export default AlertBanner;
