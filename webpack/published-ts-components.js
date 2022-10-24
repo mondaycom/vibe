@@ -43,6 +43,7 @@ const publishedTSComponents = {
   TabsContext: "components/Tabs/TabsContext/TabsContext",
   TabPanel: "components/Tabs/TabPanel/TabPanel",
   TabList: "components/Tabs/TabList/TabList",
+  TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
