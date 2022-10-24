@@ -1,29 +1,51 @@
 import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import { IconSubComponentProps } from "../../Icon/Icon";
+import { HideShowEvent } from "../../../constants";
 import "./BreadcrumbItem.scss";
 
-const MOUSEENTER = ["mouseenter"];
-const MOUSELEAVE = ["mouseleave"];
+const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
+const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
 
-const BreadcrumbItem = ({
+export interface BreadcrumbItemProps extends VibeComponentProps {
+  /** The display text. */
+  text?: string;
+  /** Should item be disabled. */
+  disabled?: boolean;
+  /** Backward compatibility for props naming */
+  isDisabled?: boolean;
+  /** Should item be clickable - this should be recieved from the breadcrumbsBar ( Navigation/Indication bar ). */
+  isClickable?: boolean;
+  /** If the item is clickable and the type of navigation is a link, this is the link */
+  link?: string;
+  /** If the item is clickable and the type of navigation is a function, this is the function */
+  onClick?: () => void;
+  /** Should be the current Item - mainly effects the item`s style. */
+  isCurrent?: boolean;
+  /** An Icon - If no icon needed then should be left empty. */
+  // TODO TS-migration fix icon type?
+  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+}
+
+const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   className,
-  text,
+  text = "",
   disabled,
   // Backward compatibility for props naming
   isDisabled,
-  isClickable,
+  isClickable = false,
   link,
   onClick,
-  isCurrent,
+  isCurrent = false,
   icon
 }) => {
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
-  const componentRef = useRef(null);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
+  const componentRef = useRef<HTMLSpanElement>(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
   return (
@@ -62,35 +84,6 @@ const BreadcrumbItem = ({
       </li>
     </Tooltip>
   );
-};
-
-BreadcrumbItem.propTypes = {
-  className: PropTypes.string,
-  /** The display text. */
-  text: PropTypes.string,
-  /** Should item be disabled. */
-  disabled: PropTypes.bool,
-  /** Should item be clickable - this should be recieved from the breadcrumbsBar ( Navigation/Indication bar ). */
-  isClickable: PropTypes.bool,
-  /** If the item is clickable and the type of navigation is a link, this is the link */
-  link: PropTypes.string,
-  /** If the item is clickable and the type of navigation is a function, this is the function */
-  onClick: PropTypes.func,
-  /** Should be the current Item - mainly effects the item`s style. */
-  isCurrent: PropTypes.bool,
-  /** An Icon - If no icon needed then should be left empty. */
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-};
-
-BreadcrumbItem.defaultProps = {
-  className: "",
-  text: "",
-  disabled: undefined,
-  isClickable: false,
-  link: undefined,
-  onClick: undefined,
-  isCurrent: false,
-  icon: undefined
 };
 
 export default BreadcrumbItem;

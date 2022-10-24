@@ -1,5 +1,5 @@
 import List from "../List";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Board from "../../Icon/Icons/components/Board";
 import Team from "../../Icon/Icons/components/Team";
 import ThumbsUp from "../../Icon/Icons/components/ThumbsUp";
@@ -7,9 +7,8 @@ import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListTitle from "../../ListTitle/ListTitle";
-import {Link, Tip} from "../../../storybook/components";
+import { Link, Tip } from "../../../storybook/components";
 import { MENU, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
-import Combobox from "../../Combobox/Combobox";
 import Add from "../../Icon/Icons/components/Add";
 import Filter from "../../Icon/Icons/components/Filter";
 import classes from "./List.stories.module.scss";
@@ -17,14 +16,21 @@ import Divider from "../../Divider/Divider";
 import Avatar from "../../Avatar/Avatar";
 import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer"; import {
-    StoryDescription
-} from "../../../storybook/components/story-description/story-description";
-import {Flex} from "../../";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { createStoryMetaSettings } from "../../../storybook";
+import { Flex } from "../../";
+
+export const metaSettings = createStoryMetaSettings({
+  component: List,
+  enumPropNamesArray: ["component"]
+});
 
 <Meta
   title="Navigation/List/List"
   component={ List }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->
@@ -68,7 +74,7 @@ Lists is a group of actionable items containing primary and supplemental actions
 </Canvas>
 
 ## Props
-<ArgsTable of={ List } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[

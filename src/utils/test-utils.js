@@ -1,4 +1,6 @@
 export const ELEMENT_TYPES = {
+  // Don't remove next line
+  // plop_marker:default-data-testid-declarations
   COMBOBOX: "combobox",
   DROPDOWN: "dropdown",
   BUTTON: "button",
@@ -45,7 +47,8 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  LOADER: "loader"
 };
 
 export const NAVIGATIONS_COMMANDS = {
