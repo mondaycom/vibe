@@ -9,6 +9,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./Icon.scss";
 import { MouseEventCallBack } from "src/types/events";
+import { SubIcon } from "../../types/SubIcon";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (_event: React.MouseEvent) => {};
@@ -29,7 +30,7 @@ interface IconProps extends VibeComponentProps {
   /**
    * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
    */
-  icon: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon: SubIcon;
   /**
    * Is icon is a button
    */

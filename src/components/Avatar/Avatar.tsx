@@ -48,33 +48,33 @@ export interface AvatarProps extends VibeComponentProps {
 
 const Avatar: React.FC<AvatarProps> = ({
   id,
-  type,
+  type = AvatarTypes.TEXT,
   className,
-  textClassName,
-  size,
+  textClassName = "",
+  size = AvatarSizes.LARGE,
   src,
   icon,
   text,
   tooltipProps,
   ariaLabel,
-  withoutTooltip,
+  withoutTooltip = false,
   role,
-  backgroundColor,
+  backgroundColor = elementColorsNames.CHILI_BLUE,
   square,
   disabled,
   // Backward compatibility for props naming
   isSquare,
   // Backward compatibility for props naming
   isDisabled,
-  tabIndex,
-  ariaHidden,
+  tabIndex = 0,
+  ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
-  withoutBorder,
-  customSize,
-  customBackgroundColor,
+  withoutBorder = false,
+  customSize = null,
+  customBackgroundColor = null,
   onClick
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
@@ -202,31 +202,5 @@ Object.assign(Avatar, {
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });
-
-Avatar.defaultProps = {
-  src: undefined,
-  textClassName: "",
-  icon: undefined,
-  text: undefined,
-  tooltipProps: undefined,
-  ariaLabel: undefined,
-  withoutTooltip: false,
-  type: AvatarTypes.TEXT,
-  backgroundColor: elementColorsNames.CHILI_BLUE,
-  customBackgroundColor: null,
-  role: undefined,
-  size: AvatarSizes.LARGE,
-  customSize: null,
-  tabIndex: 0,
-  ariaHidden: false,
-  disabled: undefined,
-  square: undefined,
-  topLeftBadgeProps: undefined,
-  topRightBadgeProps: undefined,
-  bottomLeftBadgeProps: undefined,
-  bottomRightBadgeProps: undefined,
-  withoutBorder: false,
-  onClick: undefined
-};
 
 export default Avatar;
