@@ -1,9 +1,27 @@
-import React, { useMemo, useRef } from "react";
+import React, { FC, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
-import { useSwitchChecked } from "../../components/Switch/hooks/useSwitchChecked";
+import { useSwitchChecked } from "./hooks/useSwitchChecked";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { MockToggleProps } from "../Toggle/MockToggle";
 import classes from "./Switch.module.scss";
 
-export const Switch = ({
+interface SwitchProps extends VibeComponentProps {
+  name?: string;
+  value?: string;
+  role?: string;
+  disabled?: boolean;
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
+  checked?: boolean;
+  inputClassName?: string;
+  onChange?: (value: boolean) => void;
+  ariaControls?: string;
+  defaultChecked?: boolean;
+  children?: ReactElement<MockToggleProps>;
+  wrapperClassName?: string;
+}
+
+export const Switch: FC<SwitchProps> = ({
   id,
   name,
   value,
