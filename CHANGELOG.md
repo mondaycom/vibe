@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.69.0 (2022-10-25)
+
+#### New Features
+* [#875](https://github.com/mondaycom/monday-ui-react-core/pull/875) Neil/date picker ([@neilmon](https://github.com/neilmon))
+
+#### Documentation
+* [#932](https://github.com/mondaycom/monday-ui-react-core/pull/932) Add docs about change publish component files for every ts migration update ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#949](https://github.com/mondaycom/monday-ui-react-core/pull/949) Slider and all sub-components: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#958](https://github.com/mondaycom/monday-ui-react-core/pull/958) Tab: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#951](https://github.com/mondaycom/monday-ui-react-core/pull/951) TextField: TS migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#955](https://github.com/mondaycom/monday-ui-react-core/pull/955) Toggle: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#957](https://github.com/mondaycom/monday-ui-react-core/pull/957) Fix dialog container after external contribution ([@hadasfa](https://github.com/hadasfa))
+* [#933](https://github.com/mondaycom/monday-ui-react-core/pull/933) refactor: migrate DialogContentContainer to typescript ([@vishal-codes](https://github.com/vishal-codes))
+
+## 1.68.3 (2022-10-23)
+
+#### Bug Fixes
+* [#952](https://github.com/mondaycom/monday-ui-react-core/pull/952) For "getElementColor" function return, add missing ')'. ([@3dyonic](https://github.com/3dyonic))
+* [#943](https://github.com/mondaycom/monday-ui-react-core/pull/943) fix: onClose can be undefined when hidding the modal ([@gaspoute](https://github.com/gaspoute))
+
+#### Internal Changes
+* [#945](https://github.com/mondaycom/monday-ui-react-core/pull/945) BreadcrumbsBar Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#935](https://github.com/mondaycom/monday-ui-react-core/pull/935) Heading Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#938](https://github.com/mondaycom/monday-ui-react-core/pull/938) List Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#941](https://github.com/mondaycom/monday-ui-react-core/pull/941) AlertBanner: Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#934](https://github.com/mondaycom/monday-ui-react-core/pull/934) Plop Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#862](https://github.com/mondaycom/monday-ui-react-core/pull/862) Loader Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#950](https://github.com/mondaycom/monday-ui-react-core/pull/950) fix button group after migration ([@hadasfa](https://github.com/hadasfa))
+* [#948](https://github.com/mondaycom/monday-ui-react-core/pull/948) refactor(ButtonGroup): migrate ButtonGroup to TypeScript ([@aayushbisen](https://github.com/aayushbisen))
+* [#937](https://github.com/mondaycom/monday-ui-react-core/pull/937) Ts/hadas/tooltip ([@hadasfa](https://github.com/hadasfa))
+* [#946](https://github.com/mondaycom/monday-ui-react-core/pull/946) Search Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.68.2 (2022-10-18)
 
 #### Bug Fixes

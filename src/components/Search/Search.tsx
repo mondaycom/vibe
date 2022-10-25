@@ -1,15 +1,15 @@
-import { SIZES } from "../../constants/sizes";
 import React, { forwardRef } from "react";
-import TextField from "../../components/TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import TextField from "../TextField/TextField";
+import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
-import { SearchIconName, SearchType, SearchTypeClass } from "./SearchConstants";
 import { NOOP } from "../../utils/function-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { IconType } from "../Icon/IconConstants";
 import cx from "classnames";
+import { TextFieldTextType } from "../TextField/TextFieldConstants";
+import { BASE_SIZES } from "../../constants";
 import styles from "./Search.module.scss";
 
 function getType(type: SearchType) {
@@ -17,11 +17,10 @@ function getType(type: SearchType) {
 }
 
 export interface SearchProps extends VibeComponentProps {
-  secondaryIconName?: IconType;
-  iconName?: IconType;
+  secondaryIconName?: string | React.FunctionComponent | null;
+  iconName?: string | React.FunctionComponent | null;
   onChange?: () => void;
   autoFocus?: boolean;
-  underline?: boolean;
   value?: string;
   placeholder?: string;
   disabled?: boolean;
@@ -31,8 +30,8 @@ export interface SearchProps extends VibeComponentProps {
   wrapperClassName?: string;
   setRef?: () => void;
   autoComplete?: string;
-  /* SIZES is exposed on the component itself */
-  size?: typeof SIZES[keyof typeof SIZES];
+  /* BASE_SIZES is exposed on the component itself */
+  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
   /* TYPES is exposed on the component itself */
   type?: SearchType;
   validation?:
@@ -57,7 +56,7 @@ export interface SearchProps extends VibeComponentProps {
 }
 
 const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<unknown>> & {
-  sizes?: typeof SIZES;
+  sizes?: typeof BASE_SIZES;
   types?: typeof SearchType;
 } = forwardRef<unknown, SearchProps>(
   (
@@ -66,7 +65,6 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
       iconName = SearchIcon,
       onChange = NOOP,
       autoFocus = false,
-      underline = false,
       value = "",
       placeholder = "",
       disabled = false,
@@ -76,7 +74,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
       wrapperClassName = "",
       setRef = NOOP,
       autoComplete = "off",
-      size = SIZES.MEDIUM,
+      size = BASE_SIZES.MEDIUM,
       type = SearchType.SQUARE,
       className,
       id = "search",
@@ -84,7 +82,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
       inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
-      iconNames = SearchIconName,
+      iconNames = SearchDefaultIconNames,
       loading = false,
       primaryDataTestId,
       secondaryDataTestId
@@ -94,14 +92,12 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
     const mergedRef = useMergeRefs({ refs: [ref, setRef] });
     return (
       <TextField
-        // @ts-ignore TODO TS-migration convert TextField to TS
         id={id}
         primaryDataTestId={primaryDataTestId || getTestId(ELEMENT_TYPES.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
         autoFocus={autoFocus}
-        underline={underline}
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
@@ -120,7 +116,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
         searchResultsContainerId={searchResultsContainerId}
         activeDescendant={activeDescendant}
         iconsNames={iconNames}
-        type="search"
+        type={TextFieldTextType.SEARCH}
         role="search"
         loading={loading}
       />
@@ -129,7 +125,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
 );
 
 Object.assign(Search, {
-  sizes: SIZES,
+  sizes: BASE_SIZES,
   types: SearchType
 });
 

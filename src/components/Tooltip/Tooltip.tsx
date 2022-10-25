@@ -12,6 +12,7 @@ import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 
+// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;

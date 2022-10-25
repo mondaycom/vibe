@@ -1,4 +1,4 @@
-import {ArgsTable, Canvas, Meta, Story} from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   createComponentTemplate,
   createStoryMetaSettings,
@@ -18,12 +18,14 @@ import Slider from "../Slider";
 import Sound from "../../Icon/Icons/components/Sound";
 import Video from "../../Icon/Icons/components/Video";
 import Chips from "../../Chips/Chips";
-import { nonRangedSliderMouseEventsPlaySuite, rangedSliderMouseEventsPlaySuite } from "../__tests__/Slider.interactions"
+import {
+  nonRangedSliderMouseEventsPlaySuite,
+  rangedSliderMouseEventsPlaySuite
+} from "../__tests__/Slider.interactions";
 
 export const argTypes = createStoryMetaSettings({
   component: Slider,
   enumPropNamesArray: ["color", "size"]
-  // iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"]
 });
 
 <Meta title="Inputs/Slider" component={Slider} argTypes={argTypes} />
@@ -55,7 +57,7 @@ Slider is a visual input component that reflects current state status in its app
 
 ## Props
 
-<ArgsTable of={Slider} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

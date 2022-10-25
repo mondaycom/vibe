@@ -22,3 +22,8 @@ While starting migrating components on your own, please pay attention to the fol
 1. After finish to migrate your component and related file, please also edit the component mdx story file the following way:
 2. Remove the prop "of" from the story ArgsTable and replace it with the "story" prop with the value "Overview" (to update the props table to be displaying the current values for enums). 
 3. Check the call to the function createStoryMetaSettings at the start of the mdx file. If there are props enums that are missing from there, please add them.
+
+### Publish files
+1. Please go over the [published-js-components.js](./webpack/published-js-components.js) file and move all the paths of the converted components to the [published-ts-components.js](./webpack/published-ts-components.js) file.
+   For example, when converting the `Avatar` component from JS to TS, then [published-ts-components.js](./webpack/published-ts-components.js) should contain the following line: `Avatar: "components/Avatar/Avatar"`.
+2. Make sure that the path of the migrated component does not contain an extension. For example: your component path should looks like this: `components/Avatar/Avatar` and not like this: `components/Avatar/Avatar.tsx`.

@@ -85,6 +85,9 @@ export const ELEMENT_TYPES = {
   SLIDER_INFIX: "slider-infix",
   LINEAR_PROGRESS_BAR: "linear-progress-bar",
   DIVIDER: "divider",
+  DATEPICKER: "date-picker",
+  DATEPICKER_HEADER: "date-picker-header",
+  DATEPICKER_YEAR_SELECTION: "date-picker-year-selection",
   LOADER: "loader"
 };
 
