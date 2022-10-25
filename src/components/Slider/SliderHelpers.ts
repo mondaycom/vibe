@@ -1,18 +1,18 @@
 import cx from "classnames";
-import { COMPONENT_ID, BEM_PREFIX } from "./SliderConstants";
+import { BEM_PREFIX, COMPONENT_ID } from "./SliderConstants";
 
-export function _calcDimension({ max, min, value }) {
+export function _calcDimension(max: number, min: number, value: number): [number, number] {
   const valuePoints = max - min;
   const dimension = Math.round(((value - min) * 100) / valuePoints);
   return [dimension, dimension];
 }
 
-function _createBemBlockHelper(block, { isConsume } = {}) {
+function _createBemBlockHelper(block: string, isConsume = false) {
   if (!block || block === "") {
     return () => "";
   }
   const blockClass = isConsume ? block : `${BEM_PREFIX}-${block}`;
-  return function bem(element, modifiers = "", extraClasses = "") {
+  return function bem(element: any, modifiers: any = "", extraClasses = "") {
     const elClass = element !== "" ? `${blockClass}__${element}` : blockClass;
     const modClasses = cx(modifiers)
       .split(" ")
@@ -21,7 +21,7 @@ function _createBemBlockHelper(block, { isConsume } = {}) {
   };
 }
 
-function _ensureSingleValueText(valueText, value, formatter) {
+function _ensureSingleValueText(valueText: string, value: number, formatter: (value: number) => string): string {
   if (valueText) {
     return valueText;
   }
@@ -29,12 +29,12 @@ function _ensureSingleValueText(valueText, value, formatter) {
     return undefined;
   }
   if (typeof formatter !== "function") {
-    return value;
+    return value.toString();
   }
   return formatter(value);
 }
 
-function _ensureStepModulo(pageStep, step) {
+function _ensureStepModulo(pageStep: number, step: number) {
   const moduloToStep = pageStep % step;
   if (moduloToStep === 0) {
     return pageStep;
@@ -44,18 +44,18 @@ function _ensureStepModulo(pageStep, step) {
 
 export const bem = _createBemBlockHelper(COMPONENT_ID);
 
-export function calcDimensions({ max, min, ranged, value }) {
+export function calcDimensions(max: number, min: number, ranged: boolean, value: number | number[]) {
   if (!ranged) {
-    const [dimension, position] = _calcDimension({ max, min, value });
+    const [dimension, position] = _calcDimension(max, min, value as number);
     return { dimension, offset: 0, positions: [position], thumbKeys: ["start"] };
   }
-  const [val1, val2] = value;
-  const [offset, position] = _calcDimension({ max, min, value: val1 });
-  const [dimension, position2] = _calcDimension({ max, min, value: val2 });
+  const [val1, val2] = value as number[];
+  const [offset, position] = _calcDimension(max, min, val1);
+  const [dimension, position2] = _calcDimension(max, min, val2);
   return { dimension, offset, positions: [position, position2], thumbKeys: ["start", "end"] };
 }
 
-export function calculatePageStep({ max, min, step }) {
+export function calculatePageStep(max: number, min: number, step: number) {
   const pageStep = (max - min) / 10;
   if (pageStep < step) {
     // too small pageSize --> return step
@@ -70,7 +70,12 @@ export function calculatePageStep({ max, min, step }) {
   return fixedPageStep;
 }
 
-export function ensureDefaultValue({ defaultValue, min, max, ranged }) {
+export function ensureDefaultValue(
+  defaultValue: number | number[],
+  min: number,
+  max: number,
+  ranged: boolean
+): number | number[] {
   if (ranged && !Array.isArray(defaultValue)) {
     return [min, max];
   }
@@ -83,7 +88,11 @@ export function ensureDefaultValue({ defaultValue, min, max, ranged }) {
   return defaultValue;
 }
 
-export function ensureValueText(valueText, value, formatter) {
+export function ensureValueText(
+  valueText: string,
+  value: number | number[],
+  formatter: (value: number) => string
+): string | string[] {
   if (!Array.isArray(value)) {
     return _ensureSingleValueText(valueText, value, formatter);
   }
@@ -93,16 +102,16 @@ export function ensureValueText(valueText, value, formatter) {
   });
 }
 
-export function getNearest({ newValue, ranged, value }) {
+export function getNearest(newValue: number, ranged: boolean, value: number | number[]) {
   if (!ranged) {
     return 0;
   }
-  const diff0 = Math.abs(value[0] - newValue);
-  const diff1 = Math.abs(value[1] - newValue);
+  const diff0 = Math.abs((value as number[])[0] - newValue);
+  const diff1 = Math.abs((value as number[])[1] - newValue);
   return diff0 > diff1 ? 1 : 0;
 }
 
-export function moveToPx({ offsetInPx, min, max, railCoords, step }) {
+export function moveToPx(offsetInPx: number, min: number, max: number, railCoords: { width: number }, step: number) {
   const valuePoints = max - min;
   const pxToValuePoints = railCoords.width / valuePoints;
   const offsetInValuePoints = Math.round(offsetInPx / pxToValuePoints) + min;

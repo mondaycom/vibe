@@ -35,7 +35,6 @@ const publishedJSComponents = {
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Slider: "components/Slider/Slider.jsx",
   Modal: "components/Modal/Modal.jsx",
   ModalHeader: "components/ModalHeader/ModalHeader.jsx",
   ModalFooter: "components/ModalFooter/ModalFooter.jsx",
