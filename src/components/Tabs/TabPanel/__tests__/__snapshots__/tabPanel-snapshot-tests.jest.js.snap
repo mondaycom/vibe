@@ -3,11 +3,9 @@
 exports[`TabPanel renders correctly with className 1`] = `
 <div
   className="tab-panels--wrapper"
-  id=""
 >
   <div
     className="tab-panel--wrapper tab-panel active animation-direction-rtl test"
-    id=""
     role="tabpanel"
   >
     First
@@ -18,11 +16,9 @@ exports[`TabPanel renders correctly with className 1`] = `
 exports[`TabPanel renders correctly with empty props 1`] = `
 <div
   className="tab-panels--wrapper"
-  id=""
 >
   <div
     className="tab-panel--wrapper tab-panel active animation-direction-rtl"
-    id=""
     role="tabpanel"
   >
     First
@@ -33,7 +29,6 @@ exports[`TabPanel renders correctly with empty props 1`] = `
 exports[`TabPanel renders correctly with id 1`] = `
 <div
   className="tab-panels--wrapper"
-  id=""
 >
   <div
     className="tab-panel--wrapper tab-panel active animation-direction-rtl"

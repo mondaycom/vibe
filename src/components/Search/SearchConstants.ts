@@ -10,7 +10,12 @@ export enum SearchTypeClass {
   square = ""
 }
 
-export enum SearchIconName {
-  primary = "Search",
-  secondary = "Clear Search"
-}
+export const SearchDefaultIconNames: {
+  layout: string;
+  primary: string;
+  secondary: string;
+} = {
+  layout: "",
+  primary: "Search",
+  secondary: "Clear Search"
+};

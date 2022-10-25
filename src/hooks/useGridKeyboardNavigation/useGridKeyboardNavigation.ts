@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useContext, useRef, MutableRefObject } from "react";
+import { MutableRefObject, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import useFullKeyboardListeners, { NavDirections } from "../../hooks/useFullKeyboardListeners";
 import useEventListener from "../../hooks/useEventListener";
@@ -43,8 +43,8 @@ export default function useGridKeyboardNavigation({
   ref: MutableRefObject<HTMLElement>;
   itemsCount: number;
   numberOfItemsInLine: number;
-  onItemClicked: (element: HTMLElement | void, index: number) => void;
-  getItemByIndex: (index: number | void) => HTMLElement | void;
+  onItemClicked: (element: HTMLElement | ReactElement | void, index: number) => void;
+  getItemByIndex: (index: number | void) => HTMLElement | ReactElement | void;
   focusOnMount?: boolean;
   focusItemIndexOnMount?: number;
   disabledIndexes?: number[];

@@ -1,18 +1,37 @@
-import React, { useEffect, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { FC, useEffect, useRef } from "react";
 import { DialogPosition } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 
 const tooltipPosition = DialogPosition.TOP;
 
-const SliderThumb = ({ className, index, onMove, position }) => {
+export interface SliderThumbProps extends VibeComponentProps {
+  /**
+   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   */
+  className?: string;
+  /**
+   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   */
+  index?: number;
+  /**
+   * On SliderThumb move callback
+   */
+  onMove?: (event: PointerEvent) => void;
+  /**
+   * Position (i.e. offset) from start of track/rail, according to value
+   */
+  position?: number;
+}
+
+const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP, position = 0 }) => {
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
-  const value = ranged ? valueOrValues[index] : valueOrValues;
-  const valueText = ranged ? valueOrValuesText[index] : valueOrValuesText;
+  const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
+  const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
   const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
@@ -31,7 +50,7 @@ const SliderThumb = ({ className, index, onMove, position }) => {
     setActive(null);
   }
 
-  function handlePointerDown(e) {
+  function handlePointerDown(e: React.PointerEvent) {
     e.stopPropagation();
     setDragging(index);
     document.addEventListener("pointermove", onMove);
@@ -52,6 +71,7 @@ const SliderThumb = ({ className, index, onMove, position }) => {
 
   return (
     <Tooltip
+      // @ts-ignore TODO TS-migration the comment can be removed once TooltipProps will extend DialogProps, once Dialog is converted to TS
       open={active === index || dragging === index}
       content={showValue ? null : valueText}
       position={tooltipPosition}
@@ -84,32 +104,6 @@ const SliderThumb = ({ className, index, onMove, position }) => {
       </div>
     </Tooltip>
   );
-};
-
-SliderThumb.propTypes = {
-  /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
-   */
-  className: PropTypes.string,
-  /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
-   */
-  index: PropTypes.number,
-  /**
-   * On SliderThumb move callback
-   */
-  onMove: PropTypes.func,
-  /**
-   * Position (i.e. offset) from start of track/rail, according to value
-   */
-  position: PropTypes.number
-};
-
-SliderThumb.defaultProps = {
-  className: "",
-  index: 0,
-  onMove: NOOP,
-  position: 0
 };
 
 export default SliderThumb;

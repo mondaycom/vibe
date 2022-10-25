@@ -1,10 +1,15 @@
-import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { FC, forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 import "./TabPanel.scss";
 
-const TabPanel = forwardRef(({ className, id, children, index }, ref) => {
+export interface TabPanelProps extends VibeComponentProps {
+  children?: string;
+  index?: number;
+}
+
+const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -14,14 +19,5 @@ const TabPanel = forwardRef(({ className, id, children, index }, ref) => {
     </div>
   );
 });
-
-TabPanel.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string
-};
-TabPanel.defaultProps = {
-  className: "",
-  id: ""
-};
 
 export default TabPanel;

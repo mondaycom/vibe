@@ -1,59 +1,118 @@
-/* eslint-disable */
-import React, { forwardRef, useRef, useMemo, useCallback, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
-import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
 import FieldLabel from "../FieldLabel/FieldLabel";
-import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
-import { SIZES } from "../../constants/sizes";
+import {
+  FEEDBACK_CLASSES,
+  getActualSize,
+  SIZE_MAPPER,
+  TextFieldAriaLabel,
+  TextFieldFeedbackState,
+  TextFieldSize,
+  TextFieldTextType
+} from "./TextFieldConstants";
+import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { NOOP } from "../../utils/function-utils";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import "./TextField.scss";
 
-const NOOP = () => {};
+const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
-const EMPTY_OBJECT = { primary: "", secondary: "", label: "" };
-const TextField = forwardRef(
+interface TextFieldProps extends VibeComponentProps {
+  placeholder?: string;
+  /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
+  autoComplete?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+  onBlur?: (event: React.FocusEvent) => void;
+  onFocus?: (event: React.FocusEvent) => void;
+  onKeyDown?: (event: React.KeyboardEvent) => void;
+  debounceRate?: number;
+  autoFocus?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
+  setRef?: (node: HTMLElement) => void;
+  iconName?: string | React.FunctionComponent | null;
+  secondaryIconName?: string | React.FunctionComponent | null;
+  title?: string;
+  /** SIZES is exposed on the component itself */
+  size?: TextFieldSize;
+  /** Don't provide status for plain assistant text */
+  validation?: { status?: "error" | "success"; text?: string }; // TODO make common validation class?
+  wrapperClassName?: string;
+  onIconClick?: (icon: string | React.FunctionComponent | null) => void;
+  clearOnIconClick?: boolean;
+  labelIconName?: string | React.FunctionComponent | null;
+  showCharCount?: boolean;
+  inputAriaLabel?: string;
+  searchResultsContainerId?: string;
+  activeDescendant?: string;
+  /**  Icon names labels for a11y */
+  iconsNames?: {
+    layout: string;
+    primary: string;
+    secondary: string;
+  };
+  /** TEXT_TYPES is exposed on the component itself */
+  type?: TextFieldTextType;
+  maxLength?: number;
+  trim?: boolean;
+  /** ARIA role for container landmark */
+  role?: string;
+  /** adds required to the input element */
+  required?: boolean;
+  /** shows loading animation */
+  loading?: boolean;
+  dataTestId?: string;
+  secondaryDataTestId?: string;
+}
+
+const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttributes<unknown>> & {
+  sizes?: typeof BASE_SIZES;
+  types?: TextFieldTextType;
+  feedbacks?: TextFieldFeedbackState;
+} = forwardRef(
   (
     {
-      className,
-      placeholder,
-      autoComplete,
+      className = "",
+      placeholder = "",
+      autoComplete = "off",
       value,
-      onChange,
-      onBlur,
-      onFocus,
-      onKeyDown,
-      debounceRate,
-      autoFocus,
-      disabled,
-      readonly,
-      setRef,
+      onChange = NOOP,
+      onBlur = NOOP,
+      onFocus = NOOP,
+      onKeyDown = NOOP,
+      debounceRate = 0,
+      autoFocus = false,
+      disabled = false,
+      readonly = false,
+      setRef = NOOP,
       iconName,
       secondaryIconName,
-      id,
-      title,
-      size,
-      validation,
-      wrapperClassName,
-      onIconClick,
-      clearOnIconClick,
+      id = "input",
+      title = "",
+      size = TextField.sizes.SMALL,
+      validation = null,
+      wrapperClassName = "",
+      onIconClick = NOOP,
+      clearOnIconClick = false,
       labelIconName,
-      showCharCount,
+      showCharCount = false,
       inputAriaLabel,
-      searchResultsContainerId,
-      activeDescendant,
-      iconsNames,
-      type,
-      maxLength,
-      trim,
-      role,
-      required,
-      loading,
+      searchResultsContainerId = "",
+      activeDescendant = "",
+      iconsNames = EMPTY_OBJECT,
+      type = TextFieldTextType.TEXT,
+      maxLength = null,
+      trim = false,
+      role = "",
+      required = false,
+      loading = false,
       dataTestId,
       secondaryDataTestId
     },
@@ -89,7 +148,7 @@ const TextField = forwardRef(
     }, [clearValue, currentStateIconName, inputRef, clearOnIconClick, disabled, onIconClick]);
 
     const validationClass = useMemo(() => {
-      if (!validation) {
+      if (!validation || !validation.status) {
         return "";
       }
       return FEEDBACK_CLASSES[validation.status];
@@ -120,7 +179,7 @@ const TextField = forwardRef(
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
           <div
-            className={classNames("input-component__input-wrapper", sizeMapper[getActualSize(size)], validationClass)}
+            className={classNames("input-component__input-wrapper", SIZE_MAPPER[getActualSize(size)], validationClass)}
           >
             <input
               className={classNames(className, "input-component__input", {
@@ -154,6 +213,7 @@ const TextField = forwardRef(
                 })}
               >
                 <div className={"input-component__loader"}>
+                  {/*@ts-ignore TODO TS-migration will be fixed, after Loader is converted to TS*/}
                   <Loader svgClassName="input-component__loader-svg" />
                 </div>
               </div>
@@ -201,12 +261,15 @@ const TextField = forwardRef(
           {shouldShowExtraText && (
             <div className="input-component__sub-text-container">
               {validation && validation.text && (
-                <span className="input-component__sub-text-container-status" aria-label={ARIA_LABELS.VALIDATION_TEXT}>
+                <span
+                  className="input-component__sub-text-container-status"
+                  aria-label={TextFieldAriaLabel.VALIDATION_TEXT}
+                >
                   {validation.text}
                 </span>
               )}
               {showCharCount && (
-                <span className="input-component__sub-text-container-counter" aria-label={ARIA_LABELS.CHAR}>
+                <span className="input-component__sub-text-container-counter" aria-label={TextFieldAriaLabel.CHAR}>
                   {(inputValue && inputValue.length) || 0}
                 </span>
               )}
@@ -218,114 +281,10 @@ const TextField = forwardRef(
   }
 );
 
-TextField.sizes = SIZES;
-TextField.feedbacks = FEEDBACK_STATES;
-TextField.types = TEXT_TYPES;
-
-TextField.propTypes = {
-  className: PropTypes.string,
-  placeholder: PropTypes.string,
-  /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
-  autoComplete: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  debounceRate: PropTypes.number,
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-  readonly: PropTypes.bool,
-  setRef: PropTypes.func,
-  iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  secondaryIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  id: PropTypes.string,
-  title: PropTypes.string,
-  /** SIZES is exposed on the component itself */
-  size: PropTypes.oneOf([TextField.sizes.SMALL, TextField.sizes.MEDIUM, TextField.sizes.LARGE]),
-  validation: PropTypes.oneOfType([
-    PropTypes.shape({
-      /** Don't provide status for plain assistant text */
-      status: PropTypes.oneOf(["error", "success"]),
-
-      text: PropTypes.string
-    }),
-    PropTypes.shape({
-      text: PropTypes.string
-    })
-  ]),
-  wrapperClassName: PropTypes.string,
-  onIconClick: PropTypes.func,
-  clearOnIconClick: PropTypes.bool,
-  labelIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  showCharCount: PropTypes.bool,
-  inputAriaLabel: PropTypes.string,
-  searchResultsContainerId: PropTypes.string,
-  activeDescendant: PropTypes.string,
-  /**  Icon names labels for a11y */
-  iconsNames: PropTypes.shape({
-    layout: PropTypes.string,
-    primary: PropTypes.string,
-    secondary: PropTypes.string
-  }),
-  /** TEXT_TYPES is exposed on the component itself */
-  type: PropTypes.oneOf([
-    TextField.types.TEXT,
-    TextField.types.PASSWORD,
-    TextField.types.SEARCH,
-    TextField.types.DATE,
-    TextField.types.DATE_TIME
-  ]),
-  maxLength: PropTypes.number,
-  trim: PropTypes.bool,
-  /** ARIA role for container landmark */
-  role: PropTypes.string,
-  /** adds required to the input element */
-  required: PropTypes.bool,
-  /** shows loading animation */
-  loading: PropTypes.bool
-};
-
-TextField.defaultProps = {
-  className: "",
-  placeholder: "",
-  autoComplete: "off",
-  value: undefined,
-  onChange: NOOP,
-  onBlur: NOOP,
-  onFocus: NOOP,
-  onKeyDown: NOOP,
-  debounceRate: 0,
-  autoFocus: false,
-  disabled: false,
-  readonly: false,
-  setRef: NOOP,
-  iconName: "",
-  secondaryIconName: "",
-  id: "input",
-  title: "",
-  size: TextField.sizes.SMALL,
-  validation: null,
-  wrapperClassName: "",
-  onIconClick: NOOP,
-  clearOnIconClick: false,
-  labelIconName: "",
-  showCharCount: false,
-  inputAriaLabel: undefined,
-  searchResultsContainerId: "",
-  activeDescendant: "",
-  iconsNames: EMPTY_OBJECT,
-  type: TEXT_TYPES.TEXT,
-  maxLength: null,
-  trim: false,
-  role: "",
-  required: false,
-  loading: false
-};
-
-export const ARIA_LABELS = {
-  CHAR: "Input char count",
-  VALIDATION_TEXT: "Additional helper text"
-};
+Object.assign(TextField, {
+  sizes: BASE_SIZES,
+  feedbacks: TextFieldFeedbackState,
+  types: TextFieldTextType
+});
 
 export default TextField;

@@ -1,11 +1,30 @@
-import React, { useRef, forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
+import { TabPanelProps } from "../TabPanel/TabPanel";
 import "./TabPanels.scss";
 
-const TabPanels = forwardRef(
-  ({ className, id, activeTabId, animationDirection, children, renderOnlyActiveTab }, ref) => {
+export interface TabPanelsProps extends VibeComponentProps {
+  renderOnlyActiveTab?: boolean;
+  activeTabId?: number;
+  animationDirection?: TabPanelsAnimationDirection;
+  children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
+}
+
+const TabPanels: FC<TabPanelsProps> = forwardRef(
+  (
+    {
+      className,
+      id,
+      activeTabId = 0,
+      animationDirection = TabPanelsAnimationDirection.RTL,
+      children,
+      renderOnlyActiveTab = false // TODO BREAKING change to true - breaking change
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const renderedTabs = useMemo(() => {
@@ -30,27 +49,9 @@ const TabPanels = forwardRef(
   }
 );
 
-TabPanels.animationDirections = {
-  RTL: "rtl",
-  LTR: "ltr"
-};
-
-TabPanels.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  renderOnlyActiveTab: PropTypes.bool,
-  activeTabId: PropTypes.number,
-  animationDirection: PropTypes.oneOf([TabPanels.animationDirections.LTR, TabPanels.animationDirections.RTL])
-};
-
-TabPanels.defaultProps = {
-  className: "",
-  id: "",
-  renderOnlyActiveTab: false, // TODO BREAKING change to true - breaking change
-  activeTabId: 0,
-  animationDirection: TabPanels.animationDirections.RTL
-};
-
-TabPanels.isTabPanels = true;
+Object.assign(TabPanels, {
+  isTabPanels: true,
+  animationDirections: TabPanelsAnimationDirection
+});
 
 export default TabPanels;
