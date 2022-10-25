@@ -1,5 +1,5 @@
 import Heading from "../Heading";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { Link, RelatedComponents } from "../../../storybook/components";
 import Divider from "../../Divider/Divider";
@@ -8,13 +8,12 @@ import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "../../Icon/Icons";
 import { emptyStateExample } from "./assets";
-import classes from "./Heading.stories.module.scss";
-import { RelatedComponent } from "../../../storybook/components/related-component/related-component";
 import {
   EDITABLE_HEADING,
   SEARCH,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
+import styles from "./Heading.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Heading,
@@ -52,7 +51,7 @@ Heading components are used to title any page sections or sub-sections in top-le
 
 ## Props
 
-<ArgsTable of={Heading} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -178,11 +177,11 @@ Our heading component support text highlight.
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
       <Divider />
       <div
-        className={classes["page-header_commands"]}
+        className={styles["page-header_commands"]}
         style={{ display: "flex", alignItems: "center" }}
         aria-labelledby="my-work-id"
       >
-        <Search wrapperClassName={classes["page-header_search"]} placeholder="Search" />
+        <Search wrapperClassName={styles["page-header_search"]} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
           Customize
@@ -196,7 +195,7 @@ Our heading component support text highlight.
 
 <Canvas>
   <Story name="Empty state title">
-    <div className={classes["empty-state-container"]} aria-labelledby="empty-state-id">
+    <div className={styles["empty-state-container"]} aria-labelledby="empty-state-id">
       <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
       <Heading type={Heading.types.h2} id="empty-state-id" value="No updates yet for this item" />
       <span style={{ width: "50%", textAlign: "center" }}>
