@@ -1,11 +1,12 @@
-import React, { useRef, forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { BEMClass } from "../../helpers/bem-helper";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "src/types/VibeComponent";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
-import "./DialogContentContainer.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -16,8 +17,6 @@ interface DialogContentContainerProps extends VibeComponentProps {
   size?: DialogSize;
   style?: React.CSSProperties;
 }
-
-const bemHelper = BEMClass("dialog-content-container");
 
 const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
   types?: typeof DialogType;
@@ -31,7 +30,9 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       type = DialogType.POPOVER,
       size = DialogSize.MEDIUM,
       children,
-      style
+      style,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -40,12 +41,22 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
 
     return (
       <div
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG_CONTENT_CONTAINER, id)}
         role="dialog"
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}
         ref={mergedRef}
         style={style}
-        className={cx("dialog-content-container", className, bemHelper({ state: type }), bemHelper({ state: size }))}
+        className={cx(
+          styles.dialogContentContainer,
+          "dialog-content-container",
+          className,
+          getStyle(styles, type),
+          `dialog-content-container--${type}`,
+          getStyle(styles, size),
+          `dialog-content-container--${size}`
+        )}
       >
         {children}
       </div>

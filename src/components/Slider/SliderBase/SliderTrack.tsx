@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { bem } from "../SliderHelpers";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import cx from "classnames";
+import styles from "./SliderTrack.module.scss";
 
 export interface SliderTrackProps extends VibeComponentProps {
   /**
@@ -10,7 +11,13 @@ export interface SliderTrackProps extends VibeComponentProps {
 }
 
 const SliderTrack: FC<SliderTrackProps> = React.memo(({ className }) => {
-  return <div className={bem("track", "", className)} />;
+  return (
+    <div
+      className={cx(styles.sliderTrack, "monday-slider__track", {
+        [`monday-slider__track--${className}`]: className
+      })}
+    />
+  );
 });
 
 export default SliderTrack;
