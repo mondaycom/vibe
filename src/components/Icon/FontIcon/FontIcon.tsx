@@ -1,6 +1,6 @@
 import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 
 interface FontIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;

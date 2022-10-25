@@ -3,7 +3,7 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { ListItemIconMargin } from "./ListItemIconConstants";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./ListItemIcon.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {

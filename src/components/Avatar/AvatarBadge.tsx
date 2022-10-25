@@ -4,7 +4,7 @@ import { BEMClass } from "../../helpers/bem-helper";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
 import "./AvatarBadge.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);

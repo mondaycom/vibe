@@ -8,7 +8,7 @@ import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, SIZES, DialogPosition } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./ButtonGroup.scss";
 
 type ButtonGroupOption = {

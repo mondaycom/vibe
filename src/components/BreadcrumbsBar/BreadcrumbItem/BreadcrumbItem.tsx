@@ -5,7 +5,7 @@ import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import { HideShowEvent } from "../../../constants";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../../types";
 import "./BreadcrumbItem.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];

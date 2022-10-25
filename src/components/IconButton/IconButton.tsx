@@ -8,7 +8,7 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { VibeComponentProps, SubIcon } from "src/types";
+import { VibeComponentProps, SubIcon } from "../../types";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import styles from "./IconButton.module.scss";

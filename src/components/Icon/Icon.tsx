@@ -5,7 +5,7 @@ import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon } from "src/types";
+import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon } from "../../types";
 import "./Icon.scss";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function

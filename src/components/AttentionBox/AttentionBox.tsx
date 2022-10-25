@@ -7,7 +7,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./AttentionBox.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";

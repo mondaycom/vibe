@@ -3,7 +3,7 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import Icon from "../Icon/Icon";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./AvatarContent.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";

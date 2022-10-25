@@ -11,7 +11,7 @@ import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {

@@ -4,7 +4,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
-import { SubIcon, VibeComponent, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import "./Link.scss";
 
 export interface LinkProps extends VibeComponentProps {

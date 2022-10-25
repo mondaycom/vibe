@@ -8,7 +8,7 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
-import { SubIcon, VibeComponentProps } from "src/types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./Search.scss";
 
 function getType(type: SearchType) {
