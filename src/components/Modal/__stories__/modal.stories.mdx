@@ -1,23 +1,22 @@
 import Modal from "../Modal";
 import { useModalHelper } from "./helpers";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import "./Modal.stories.scss";
 import { Button, ModalContent, ModalFooter, ModalHeader } from "../../../components";
 import {
-  TOOLTIP,
+  ATTENTION_BOX,
   TOAST,
-  ATTENTION_BOX
+  TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
-import { RelatedComponents } from "../../../storybook";
 import { useState } from "react";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
-  enumPropNamesArray: [], // List enum props here
+  enumPropNamesArray: ["width"], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: ["onClose"] // List the component's actions here
 });
 
 <Meta
@@ -73,7 +72,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
 
 ## Props
 
-<ArgsTable of={Modal} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -112,7 +111,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            width={Modal.Width.DEFAULT}
+            width={Modal.width.DEFAULT}
           >
             <p className="modal-content">Normal modal</p>
             <ModalFooter>{modalButtons}</ModalFooter>
@@ -135,7 +134,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
             triggerElement={ref.current}
             show={show}
             onClose={closeModal}
-            width={Modal.Width.FULL_WIDTH}
+            width={Modal.width.FULL_WIDTH}
             closeButtonAriaLabel={"close"}
           >
             <p className="modal-content">Full width modal</p>

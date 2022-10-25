@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 
-export default function useAnimationProps(triggerElement, instance) {
+// the type is A11yDialog, but it's not exported, so can't be used
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function useAnimationProps(triggerElement: Element, instance: any) {
   return useCallback(
     (hideAnimation = false) => {
       let animationStart, animationEnd;

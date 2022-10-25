@@ -1,16 +1,18 @@
 import React from "react";
 import A11yDialogLib from "a11y-dialog";
 
-const useA11yDialogInstance = () => {
+// the type is A11yDialog, but it's not exported, so can't be used
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const useA11yDialogInstance = (): [any, (node: Element) => void] => {
   const [instance, setInstance] = React.useState(null);
-  const container = React.useCallback(node => {
+  const container = React.useCallback((node: Element) => {
     if (node !== null) setInstance(new A11yDialogLib(node));
   }, []);
 
   return [instance, container];
 };
 
-export const useA11yDialog = ({ id, alertDialog }) => {
+export const useA11yDialog = ({ id, alertDialog }: { id: string; alertDialog: boolean }) => {
   const [instance, ref] = useA11yDialogInstance();
   const role = alertDialog ? "alertdialog" : "dialog";
   const titleId = id + "-title";

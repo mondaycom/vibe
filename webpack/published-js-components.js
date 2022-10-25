@@ -36,10 +36,10 @@ const publishedJSComponents = {
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   Slider: "components/Slider/Slider.jsx",
-  Modal: "components/Modal/Modal.jsx",
-  ModalHeader: "components/ModalHeader/ModalHeader.jsx",
-  ModalFooter: "components/ModalFooter/ModalFooter.jsx",
-  ModalContent: "components/ModalContent/ModalContent.jsx"
+  Modal: "components/Modal/Modal.tsx",
+  ModalHeader: "components/ModalHeader/ModalHeader.tsx",
+  ModalFooter: "components/ModalFooter/ModalFooter.tsx",
+  ModalContent: "components/ModalContent/ModalContent.tsx"
 };
 // eslint-disable-next-line no-undef
 module.exports = {
