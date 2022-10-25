@@ -47,6 +47,7 @@ const publishedTSComponents = {
   TabList: "components/Tabs/TabList/TabList",
   TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
+  Toast: "components/Toast/Toast",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
