@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.69.0 (2022-10-25)
+
+#### New Features
+* [#875](https://github.com/mondaycom/monday-ui-react-core/pull/875) Neil/date picker ([@neilmon](https://github.com/neilmon))
+
+#### Documentation
+* [#932](https://github.com/mondaycom/monday-ui-react-core/pull/932) Add docs about change publish component files for every ts migration update ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#949](https://github.com/mondaycom/monday-ui-react-core/pull/949) Slider and all sub-components: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#958](https://github.com/mondaycom/monday-ui-react-core/pull/958) Tab: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#951](https://github.com/mondaycom/monday-ui-react-core/pull/951) TextField: TS migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#955](https://github.com/mondaycom/monday-ui-react-core/pull/955) Toggle: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#957](https://github.com/mondaycom/monday-ui-react-core/pull/957) Fix dialog container after external contribution ([@hadasfa](https://github.com/hadasfa))
+* [#933](https://github.com/mondaycom/monday-ui-react-core/pull/933) refactor: migrate DialogContentContainer to typescript ([@vishal-codes](https://github.com/vishal-codes))
+
 ## 1.68.3 (2022-10-23)
 
 #### Bug Fixes
