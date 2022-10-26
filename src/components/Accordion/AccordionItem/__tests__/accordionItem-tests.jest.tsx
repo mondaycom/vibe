@@ -6,7 +6,7 @@ describe("AccordionItem tests", () => {
   let onClickMock: jest.Mock;
 
   beforeEach(() => {
-    let onClickMock = jest.fn();
+    onClickMock = jest.fn();
     render(
       <Accordion>
         <AccordionItem onClick={onClickMock} />
