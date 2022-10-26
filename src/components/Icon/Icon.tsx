@@ -50,7 +50,7 @@ mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
   /**
-   * Hide icon asset from screen reader. No need to set value for this prop when clickable = false
+   * Hide icon asset from screen reader. No need to set value for this prop when `clickable` is false
    */
   ariaHidden?: boolean;
   style?: React.CSSProperties;
@@ -59,7 +59,7 @@ mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web
    */
   useCurrentColor?: boolean;
   /**
-   * If you want to override to coloring of currentColor
+   * Override the default color with a custom one
    */
   customColor?: string;
 }
