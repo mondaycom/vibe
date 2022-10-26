@@ -59,7 +59,7 @@ interface IconProps extends VibeComponentProps {
    */
   useCurrentColor?: boolean;
   /**
-   * If you want to override to coloring of currentColor
+   * Override the default color with a custom one
    */
   customColor?: string;
 }
