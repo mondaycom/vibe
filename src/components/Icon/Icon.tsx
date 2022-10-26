@@ -33,11 +33,11 @@ interface IconProps extends VibeComponentProps {
    */
   clickable?: boolean;
   /**
-   * Icon aria label support
+mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
    */
   iconLabel?: string;
   /**
-   *  The type of the component - svg, font or custom svg (using react-inlinesvg)
+   *  The type of the component - svg, font or custom svg (using [`react-inlinesvg`](https://github.com/gilbarbara/react-inlinesvg#readme))
    */
   iconType?: IconType;
   /**
