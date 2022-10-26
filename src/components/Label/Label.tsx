@@ -3,7 +3,7 @@ import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
 import "./Label.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 
 const LABEL_TYPES = {
   FILL: "fill",

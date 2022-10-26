@@ -1,12 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
-import VibeComponent from "src/types/VibeComponent";
-import VibeComponentProps from "src/types/VibeComponentProps";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
-import "./Link.scss";
 import { IconPosition, LinkTarget } from "./LinkConsts";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import "./Link.scss";
 
 export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */
@@ -26,7 +25,7 @@ export interface LinkProps extends VibeComponentProps {
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
-  icon?: string | React.FunctionComponent | null;
+  icon?: SubIcon;
   /** the position of the icon in relation to the etext */
   iconPosition?: IconPosition;
   /** disable navigation */

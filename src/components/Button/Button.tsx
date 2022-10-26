@@ -10,6 +10,7 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { SubIcon } from "../../types";
 import "./Button.scss";
 
 // @ts-ignore
@@ -41,13 +42,13 @@ export interface ButtonProps {
   /** Whether the button should be disabled or not */
   disabled?: boolean;
   /** Icon to place on the right */
-  rightIcon?: string | React.FunctionComponent | null;
+  rightIcon?: SubIcon;
   /** Icon to place on the left */
-  leftIcon?: string | React.FunctionComponent | null;
+  leftIcon?: SubIcon;
   /** the success props are used when you have async action and wants to display a success message */
   success?: boolean;
   /** Success icon name */
-  successIcon?: string | React.FunctionComponent | null;
+  successIcon?: SubIcon;
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */
