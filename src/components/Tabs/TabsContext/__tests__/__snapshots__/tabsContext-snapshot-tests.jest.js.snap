@@ -3,11 +3,9 @@
 exports[`TabsContext renders correctly with activeTabId 1`] = `
 <div
   className="tabs-context--wrapper"
-  id=""
 >
   <div
     className="tabs--wrapper Compact"
-    id=""
   >
     <ul
       className="tabs-list"
@@ -18,7 +16,6 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-disabled={false}
         aria-selected={false}
         className="tab--wrapper"
-        id=""
         role="tab"
       >
         <a
@@ -32,7 +29,6 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
         aria-disabled={false}
         aria-selected={true}
         className="tab--wrapper active"
-        id=""
         role="tab"
       >
         <a
@@ -46,18 +42,15 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
   </div>
   <div
     className="tab-panels--wrapper"
-    id=""
   >
     <div
       className="tab-panel--wrapper tab-panel non-active"
-      id=""
       role="tabpanel"
     >
       First slide
     </div>
     <div
       className="tab-panel--wrapper tab-panel active animation-direction-rtl"
-      id=""
       role="tabpanel"
     >
       Second slide
@@ -69,11 +62,9 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
 exports[`TabsContext renders correctly with className 1`] = `
 <div
   className="tabs-context--wrapper test"
-  id=""
 >
   <div
     className="tabs--wrapper Compact"
-    id=""
   >
     <ul
       className="tabs-list"
@@ -84,7 +75,6 @@ exports[`TabsContext renders correctly with className 1`] = `
         aria-disabled={false}
         aria-selected={true}
         className="tab--wrapper active"
-        id=""
         role="tab"
       >
         <a
@@ -98,11 +88,9 @@ exports[`TabsContext renders correctly with className 1`] = `
   </div>
   <div
     className="tab-panels--wrapper"
-    id=""
   >
     <div
       className="tab-panel--wrapper tab-panel active animation-direction-rtl"
-      id=""
       role="tabpanel"
     >
       First slide
@@ -114,11 +102,9 @@ exports[`TabsContext renders correctly with className 1`] = `
 exports[`TabsContext renders correctly with empty props 1`] = `
 <div
   className="tabs-context--wrapper"
-  id=""
 >
   <div
     className="tabs--wrapper Compact"
-    id=""
   >
     <ul
       className="tabs-list"
@@ -129,7 +115,6 @@ exports[`TabsContext renders correctly with empty props 1`] = `
         aria-disabled={false}
         aria-selected={true}
         className="tab--wrapper active"
-        id=""
         role="tab"
       >
         <a
@@ -143,11 +128,9 @@ exports[`TabsContext renders correctly with empty props 1`] = `
   </div>
   <div
     className="tab-panels--wrapper"
-    id=""
   >
     <div
       className="tab-panel--wrapper tab-panel active animation-direction-rtl"
-      id=""
       role="tabpanel"
     >
       First slide
@@ -163,7 +146,6 @@ exports[`TabsContext renders correctly with id 1`] = `
 >
   <div
     className="tabs--wrapper Compact"
-    id=""
   >
     <ul
       className="tabs-list"
@@ -174,7 +156,6 @@ exports[`TabsContext renders correctly with id 1`] = `
         aria-disabled={false}
         aria-selected={true}
         className="tab--wrapper active"
-        id=""
         role="tab"
       >
         <a
@@ -188,11 +169,9 @@ exports[`TabsContext renders correctly with id 1`] = `
   </div>
   <div
     className="tab-panels--wrapper"
-    id=""
   >
     <div
       className="tab-panel--wrapper tab-panel active animation-direction-rtl"
-      id=""
       role="tabpanel"
     >
       First slide

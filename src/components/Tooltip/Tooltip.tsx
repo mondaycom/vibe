@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ReactElement, CSSProperties, PureComponent, isValidElement } from "react";
+import { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType, AnimationType } from "../../constants";
+import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import "./Tooltip.scss";
 
+// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;

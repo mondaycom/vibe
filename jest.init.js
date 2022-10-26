@@ -24,6 +24,9 @@ if (TESTING_STORYBOOK) {
     const FakeCSSTransition = jest.fn(props => (props.in ? <FakeTransition>{props.children}</FakeTransition> : null));
     return { CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition };
   });
+  jest.mock("consolidated-events", () => {
+    return { addEventListener: jest.fn()};
+  });
 }
 
 const error = console.error;
