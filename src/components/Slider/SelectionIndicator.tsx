@@ -4,10 +4,16 @@ import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { InfixKind } from "./SliderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const VALUE_UPDATE_DELAY = 300;
 
-function getCurrentLabel(isPostfix: boolean, ranged: boolean, value: number | number[], valueText: string | string[]) {
+function getCurrentLabel(
+  isPostfix: boolean,
+  ranged: boolean,
+  value: number | number[],
+  valueText: string | string[]
+): [number, string] {
   if (!ranged) {
     return [value as number, valueText as string];
   }
@@ -26,7 +32,11 @@ export interface SelectionIndicatorProps extends VibeComponentProps {
   key?: InfixKind;
 }
 
-const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKind.PREFIX }) => {
+const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({
+  kind = InfixKind.PREFIX,
+  id,
+  "data-testid": dataTestId
+}) => {
   const isPostfix = kind === InfixKind.POSTFIX;
   const { ranged, value, valueText } = useSliderSelection();
   const [, currentTextValue] = getCurrentLabel(isPostfix, ranged, value, valueText);
@@ -40,8 +50,14 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKin
       }, VALUE_UPDATE_DELAY),
     [changeThumbValue, isPostfix]
   );
-  // @ts-ignore TODO TS-migration TextField not converted yet
-  return <TextField onChange={handleChange} value={currentTextValue} />;
+  return (
+    <TextField
+      onChange={handleChange}
+      value={currentTextValue}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SELECTION_INDICATOR, id)}
+    />
+  );
 };
 
 export default SelectionIndicator;

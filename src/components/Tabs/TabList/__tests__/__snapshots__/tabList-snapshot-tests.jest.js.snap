@@ -4,7 +4,6 @@ exports[`TabList renders correctly stretched tab list 1`] = `
 <div
   className="tabsWrapper tabs--wrapper stretched stretched"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list"
@@ -16,7 +15,6 @@ exports[`TabList renders correctly stretched tab list 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -31,7 +29,6 @@ exports[`TabList renders correctly stretched tab list 1`] = `
       aria-selected={false}
       className="tabWrapper tab--wrapper"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -46,7 +43,6 @@ exports[`TabList renders correctly stretched tab list 1`] = `
       aria-selected={false}
       className="tabWrapper tab--wrapper"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -64,7 +60,6 @@ exports[`TabList renders correctly with activeTabId 1`] = `
 <div
   className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list"
@@ -76,7 +71,6 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={false}
       className="tabWrapper tab--wrapper"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -91,7 +85,6 @@ exports[`TabList renders correctly with activeTabId 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -109,7 +102,6 @@ exports[`TabList renders correctly with children 1`] = `
 <div
   className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list"
@@ -121,7 +113,6 @@ exports[`TabList renders correctly with children 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -139,7 +130,6 @@ exports[`TabList renders correctly with className 1`] = `
 <div
   className="tabsWrapper tabs--wrapper test Compact Compact"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list"
@@ -151,7 +141,6 @@ exports[`TabList renders correctly with className 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -181,7 +170,6 @@ exports[`TabList renders correctly with id 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -199,7 +187,6 @@ exports[`TabList renders correctly with size 1`] = `
 <div
   className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list lg size"
@@ -211,7 +198,6 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -226,7 +212,6 @@ exports[`TabList renders correctly with size 1`] = `
       aria-selected={false}
       className="tabWrapper tab--wrapper"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -244,7 +229,6 @@ exports[`TabList renders correctly with tabType 1`] = `
 <div
   className="tabsWrapper tabs--wrapper stretched stretched"
   data-testid="tab-list"
-  id=""
 >
   <ul
     className="tabsList tabs-list"
@@ -256,7 +240,6 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={true}
       className="tabWrapper tab--wrapper active"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a
@@ -271,7 +254,6 @@ exports[`TabList renders correctly with tabType 1`] = `
       aria-selected={false}
       className="tabWrapper tab--wrapper"
       data-testid="tab"
-      id=""
       role="tab"
     >
       <a

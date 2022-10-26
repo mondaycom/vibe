@@ -381,8 +381,8 @@ Snapshot Diff:
       <div
         data-testid="mock-text-field-comp"
       >
--       {"value":"20%","data-testid":"SelectionIndicator"}
-+       {"value":"40%","data-testid":"SelectionIndicator"}
+-       {"value":"20%","data-testid":"selection-indicator"}
++       {"value":"40%","data-testid":"selection-indicator"}
       </div>
     </div>
   </div>

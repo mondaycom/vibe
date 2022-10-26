@@ -1,4 +1,6 @@
 import { BASE_SIZES } from "../../constants/sizes";
+import cx from "classnames";
+import styles from "./TextField.module.scss";
 
 export enum TextFieldAriaLabel {
   CHAR = "Input char count",
@@ -35,12 +37,12 @@ export enum TextFieldFeedbackState {
 }
 
 export const FEEDBACK_CLASSES = {
-  [TextFieldFeedbackState.ERROR]: "input-component__input--error-validation",
-  [TextFieldFeedbackState.SUCCESS]: "input-component__input--success-validation"
+  [TextFieldFeedbackState.ERROR]: cx(styles.inputErrorValidation, "input-component__input--error-validation"),
+  [TextFieldFeedbackState.SUCCESS]: cx(styles.inputSuccessValidation, "input-component__input--success-validation")
 };
 
 export const SIZE_MAPPER = {
-  [BASE_SIZES.SMALL]: "input-component__input-wrapper--size-small",
-  [BASE_SIZES.MEDIUM]: "input-component__input-wrapper--size-medium",
-  [BASE_SIZES.LARGE]: "input-component__input-wrapper--size-large"
+  [BASE_SIZES.SMALL]: cx(styles.wrapperSizeSmall, "input-component__input-wrapper--size-small"),
+  [BASE_SIZES.MEDIUM]: cx(styles.wrapperSizeMedium, "input-component__input-wrapper--size-medium"),
+  [BASE_SIZES.LARGE]: cx(styles.wrapperSizeLarge, "input-component__input-wrapper--size-large")
 };

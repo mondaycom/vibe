@@ -332,7 +332,7 @@ Snapshot Diff:
 +     <div
 +       data-testid="mock-text-field-comp"
 +     >
-+       {"value":"0%","data-testid":"SelectionIndicator"}
++       {"value":"0%","data-testid":"selection-indicator"}
 +     </div>
 +   </div>
   </div>

@@ -6,7 +6,6 @@ exports[`Tab renders correctly when active 1`] = `
   aria-selected={true}
   className="tabWrapper tab--wrapper active"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -22,7 +21,6 @@ exports[`Tab renders correctly when disabled 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper disabled"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -38,7 +36,6 @@ exports[`Tab renders correctly when focus 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper tabFocusVisibleInset tab-focus-visible-inset"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -54,7 +51,6 @@ exports[`Tab renders correctly when focus and active 1`] = `
   aria-selected={true}
   className="tabWrapper tab--wrapper active tabFocusVisibleInset tab-focus-visible-inset"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -70,7 +66,6 @@ exports[`Tab renders correctly with className 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper test"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -88,7 +83,6 @@ exports[`Tab renders correctly with empty props 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -104,7 +98,6 @@ exports[`Tab renders correctly with icon on left 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -141,7 +134,6 @@ exports[`Tab renders correctly with icon on right 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a
@@ -196,7 +188,6 @@ exports[`Tab renders correctly with value 1`] = `
   aria-selected={false}
   className="tabWrapper tab--wrapper"
   data-testid="tab"
-  id=""
   role="tab"
 >
   <a

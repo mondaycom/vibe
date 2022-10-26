@@ -84,6 +84,7 @@ export const ELEMENT_TYPES = {
   SLIDER_FILLED_TRACK: "slider-filled-track",
   SLIDER_INFIX: "slider-infix",
   SLIDER_THUMB: "slider-thumb",
+  SELECTION_INDICATOR: "selection-indicator",
   LINEAR_PROGRESS_BAR: "linear-progress-bar",
   DIVIDER: "divider",
   DATEPICKER: "date-picker",
