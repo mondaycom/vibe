@@ -50,7 +50,7 @@ interface IconProps extends VibeComponentProps {
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
   /**
-   * Hide icon asset from screen reader. No need to set value for this prop when clickable = false
+   * Hide icon asset from screen reader. No need to set value for this prop when `clickable` is false
    */
   ariaHidden?: boolean;
   style?: React.CSSProperties;
