@@ -25,7 +25,7 @@ interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
   /**
-   * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
+   * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
    */
   icon: SubIcon;
   /**
@@ -33,19 +33,19 @@ interface IconProps extends VibeComponentProps {
    */
   clickable?: boolean;
   /**
-   * icon aria label support
+   * Icon aria label support
    */
   iconLabel?: string;
   /**
-   *  the type of the component - svg, font or custom svg (using react-inlinesvg)
+   *  The type of the component - svg, font or custom svg (using react-inlinesvg)
    */
   iconType?: IconType;
   /**
-   * size for font icon
+   * Size for font icon
    */
   iconSize?: number | string;
   /**
-   * remove focus style
+   * Remove focus style
    */
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
@@ -55,7 +55,7 @@ interface IconProps extends VibeComponentProps {
   ariaHidden?: boolean;
   style?: React.CSSProperties;
   /**
-   * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
+   * When using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
    */
   useCurrentColor?: boolean;
   /**
