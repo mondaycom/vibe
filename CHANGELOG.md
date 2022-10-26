@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.69.1 (2022-10-26)
+
+#### Bug Fixes
+* [#962](https://github.com/mondaycom/monday-ui-react-core/pull/962) add support for import css files ([@neilmon](https://github.com/neilmon))
+
+#### Internal Changes
+* [#956](https://github.com/mondaycom/monday-ui-react-core/pull/956) TS fixes: add SubIcon and Element types + remove default props ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.69.0 (2022-10-25)
 
 #### New Features
