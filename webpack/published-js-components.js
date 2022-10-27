@@ -15,7 +15,6 @@ const publishedJSComponents = {
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
   EditableInput: "components/EditableInput/EditableInput.jsx",
-  ExpandCollapse: "components/ExpandCollapse/ExpandCollapse.jsx",
   MultiStepIndicator: "components/MultiStepIndicator/MultiStepIndicator.jsx",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle.jsx",
   MenuItem: "components/Menu/MenuItem/MenuItem.jsx",
