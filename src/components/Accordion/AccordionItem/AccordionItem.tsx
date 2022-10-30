@@ -1,42 +1,32 @@
 import cx from "classnames";
-import React, { forwardRef, ForwardRefExoticComponent, ReactNode, useCallback, useRef } from "react";
+import React, { forwardRef, ReactNode, useCallback, useRef } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
+import VibeComponent from "../../../types/VibeComponent";
 
 interface AccordionItemProps extends VibeComponentProps {
   /**
-   * custom style
-   */
-  className: string;
-  /**
-   * id to be add to the wrapper
-   */
-  id: string;
-  /**
    * Header title
    */
-  title: string;
+  title?: string;
   /**
    * The value of the expandable section
    */
-  children: Array<ReactNode> | ReactNode;
+  children?: Array<ReactNode> | ReactNode;
   /**
    * The expand icon font size
    */
-  iconSize: number | string;
+  iconSize?: number | string;
   /**
    * On click callback
    */
-  onClick: () => void;
-  open: boolean;
-  onClickAccordionCallback: () => void;
+  onClick?: () => void;
+  open?: boolean;
+  onClickAccordionCallback?: () => void;
 }
 
-const AccordionItem: ForwardRefExoticComponent<AccordionItemProps & React.PropsWithChildren<unknown>> = forwardRef<
-  unknown,
-  AccordionItemProps
->(
+const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
   (
     { children = null, title = "", className = "", iconSize = 24, id, open, onClick, onClickAccordionCallback },
     ref
@@ -52,6 +42,7 @@ const AccordionItem: ForwardRefExoticComponent<AccordionItemProps & React.PropsW
 
     return (
       <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
+        {/*@ts-ignore TODO ts-migration when ExpandCollapse is converted to TS*/}
         <ExpandCollapse
           iconSize={iconSize}
           id={`expand-collapse--${id}`}

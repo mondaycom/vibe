@@ -2,6 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import VibeComponent from "../../../types/VibeComponent";
 import "./Accordion.scss";
 
 const COMPONENT_ID = "monday-accordion";
@@ -20,30 +21,22 @@ interface AccordionProps extends VibeComponentProps {
   /**
    * List of AccordionItems
    */
-  children: Array<ReactElement> | ReactElement;
-  /**
-   * class name to be add to the wrapper
-   */
-  className: string;
-  /**
-   * id to be add to the wrapper
-   */
-  id: string;
+  children?: Array<ReactElement> | ReactElement;
   /**
    * is allowed multiple opened accordion items
    */
-  allowMultiple: boolean;
+  allowMultiple?: boolean;
   /**
    * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc.)
    */
-  "data-testid": string;
+  "data-testid"?: string;
   /**
    * Array of initial expanded indexes
    */
-  defaultIndex: Array<number>;
+  defaultIndex?: Array<number>;
 }
 
-const Accordion: React.ForwardRefExoticComponent<AccordionProps> = forwardRef(
+const Accordion: VibeComponent<AccordionProps> = forwardRef(
   (
     {
       children: originalChildren = null,
