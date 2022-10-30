@@ -1,10 +1,9 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Accordion from "../../Accordion/Accordion";
 import AccordionItem from "../AccordionItem";
 
 describe("AccordionItem tests", () => {
-  let onClickMock;
+  let onClickMock: jest.Mock;
 
   beforeEach(() => {
     onClickMock = jest.fn();
