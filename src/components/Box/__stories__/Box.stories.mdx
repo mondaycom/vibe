@@ -1,12 +1,11 @@
-import { Box, Flex, Skeleton, Button, Heading, Icon } from "../../../components";
-import { ArgsTable, Story, Canvas, Meta, Preview } from "@storybook/addon-docs";
+import { Box } from "../../../components";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { Time, Item } from "../../Icon/Icons";
-import { RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import {
+  DIALOG_CONTENT_CONTAINER,
   DIVIDER,
-  FLEX,
-  DIALOG_CONTENT_CONTAINER
+  FLEX
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Box.stories.module.scss";
 
@@ -80,7 +79,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 ## Props
 
-<ArgsTable of={Box} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

@@ -1,5 +1,4 @@
 const publishedJSComponents = {
-  Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
