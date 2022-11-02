@@ -68,8 +68,6 @@ const Dropdown = ({
   transformContainerRef,
   ref
 }) => {
-  const overrideId = id | DROPDOWN_ID;
-
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
     if (defaultValue) {
@@ -235,11 +233,11 @@ const Dropdown = ({
   const closeMenuOnScroll = useCallback(
     event => {
       const scrolledElement = event.target;
-      const dropdownContainer = document.getElementById(overrideId);
+      const dropdownContainer = document.getElementById(id);
       if (dropdownContainer?.contains(scrolledElement)) return false;
       return insideOverflowContainer;
     },
-    [insideOverflowContainer, overrideId]
+    [insideOverflowContainer, id]
   );
 
   return (
@@ -286,7 +284,7 @@ const Dropdown = ({
       menuPlacement={menuPlacement}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
-      id={overrideId}
+      id={id}
       autoFocus={autoFocus}
       closeMenuOnSelect={closeMenuOnSelect}
       ref={ref}
@@ -320,7 +318,7 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   onOptionRemove: undefined,
-  id: undefined,
+  id: DROPDOWN_ID,
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
