@@ -15,10 +15,10 @@ import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator"
 import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
-import "./Dropdown.scss";
 import Control from "./components/Control/Control";
 import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import "./Dropdown.scss";
 
 const Dropdown = forwardRef(
   (
