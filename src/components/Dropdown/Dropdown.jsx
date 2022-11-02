@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { SIZES } from "../../constants/sizes";
-import React, { useCallback, useMemo, useRef, useState, forwardRef } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
@@ -17,292 +17,286 @@ import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
 import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
-import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Dropdown.scss";
 
-const Dropdown = forwardRef(
-  (
-    {
-      className,
-      placeholder,
-      disabled,
-      onMenuOpen,
-      onMenuClose,
-      onFocus,
-      onBlur,
-      onChange: customOnChange,
-      searchable,
-      options,
-      defaultValue,
-      value: customValue,
-      noOptionsMessage,
-      openMenuOnFocus,
-      openMenuOnClick,
-      clearable,
-      OptionRenderer,
-      optionRenderer,
-      ValueRenderer,
-      valueRenderer,
-      menuRenderer,
-      menuPlacement,
-      rtl,
+const Dropdown = ({
+  className,
+  placeholder,
+  disabled,
+  onMenuOpen,
+  onMenuClose,
+  onFocus,
+  onBlur,
+  onChange: customOnChange,
+  searchable,
+  options,
+  defaultValue,
+  value: customValue,
+  noOptionsMessage,
+  openMenuOnFocus,
+  openMenuOnClick,
+  clearable,
+  OptionRenderer,
+  optionRenderer,
+  ValueRenderer,
+  valueRenderer,
+  menuRenderer,
+  menuPlacement,
+  rtl,
+  size,
+  asyncOptions,
+  cacheOptions,
+  defaultOptions,
+  isVirtualized,
+  menuPortalTarget,
+  extraStyles,
+  maxMenuHeight,
+  menuIsOpen,
+  tabIndex,
+  id,
+  autoFocus,
+  multi = false,
+  multiline = false,
+  onOptionRemove: customOnOptionRemove,
+  onOptionSelect,
+  onClear,
+  onInputChange,
+  closeMenuOnSelect = !multi,
+  withMandatoryDefaultOptions,
+  isOptionSelected,
+  insideOverflowContainer,
+  transformContainerRef,
+  ref
+}) => {
+  const overrideId = id | DROPDOWN_ID;
+
+  const controlRef = useRef();
+  const overrideDefaultValue = useMemo(() => {
+    if (defaultValue) {
+      return Array.isArray(defaultValue)
+        ? defaultValue.map(df => ({ ...df, isMandatory: true }))
+        : { ...defaultValue, isMandatory: true };
+    }
+
+    return defaultValue;
+  }, [defaultValue]);
+
+  const [selected, setSelected] = useState(overrideDefaultValue || []);
+  const [isDialogShown, setIsDialogShown] = useState(false);
+  const finalOptionRenderer = optionRenderer || OptionRenderer;
+  const finalValueRenderer = valueRenderer || ValueRenderer;
+  const isControlled = !!customValue;
+  const selectedOptions = customValue ?? selected;
+  const selectedOptionsMap = useMemo(() => {
+    if (Array.isArray(selectedOptions)) {
+      return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
+    }
+    return {};
+  }, [selectedOptions]);
+
+  const value = multi ? selectedOptions : customValue;
+
+  const styles = useMemo(() => {
+    // We first want to get the default stylized groups (e.g. "container", "menu").
+    const baseStyles = generateBaseStyles({
       size,
-      asyncOptions,
-      cacheOptions,
-      defaultOptions,
-      isVirtualized,
-      menuPortalTarget,
-      extraStyles,
-      maxMenuHeight,
-      menuIsOpen,
-      tabIndex,
-      id,
-      autoFocus,
-      multi = false,
-      multiline = false,
-      onOptionRemove: customOnOptionRemove,
-      onOptionSelect,
-      onClear,
-      onInputChange,
-      closeMenuOnSelect = !multi,
-      withMandatoryDefaultOptions,
-      isOptionSelected,
+      rtl,
       insideOverflowContainer,
+      controlRef,
       transformContainerRef
-    },
-    ref
-  ) => {
-    const overrideId = id | DROPDOWN_ID;
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const controlRef = useRef();
-    const overrideDefaultValue = useMemo(() => {
-      if (defaultValue) {
-        return Array.isArray(defaultValue)
-          ? defaultValue.map(df => ({ ...df, isMandatory: true }))
-          : { ...defaultValue, isMandatory: true };
-      }
+    });
 
-      return defaultValue;
-    }, [defaultValue]);
+    // Then we want to run the consumer's root-level custom styles with our "base" override groups.
+    const customStyles = extraStyles(baseStyles);
 
-    const [selected, setSelected] = useState(overrideDefaultValue || []);
-    const [isDialogShown, setIsDialogShown] = useState(false);
-    const finalOptionRenderer = optionRenderer || OptionRenderer;
-    const finalValueRenderer = valueRenderer || ValueRenderer;
-    const isControlled = !!customValue;
-    const selectedOptions = customValue ?? selected;
-    const selectedOptionsMap = useMemo(() => {
-      if (Array.isArray(selectedOptions)) {
-        return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
-      }
-      return {};
-    }, [selectedOptions]);
+    // Lastly, we create a style groups object that makes sure we run each custom group with our basic overrides.
+    const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
+      return {
+        ...accumulator,
+        [stylesGroup]: (defaultStyles, state) => {
+          const provided = baseStyles[stylesGroup] ? baseStyles[stylesGroup](defaultStyles, state) : defaultStyles;
 
-    const value = multi ? selectedOptions : customValue;
-
-    const styles = useMemo(() => {
-      // We first want to get the default stylized groups (e.g. "container", "menu").
-      const baseStyles = generateBaseStyles({
-        size,
-        rtl,
-        insideOverflowContainer,
-        controlRef,
-        transformContainerRef
-      });
-
-      // Then we want to run the consumer's root-level custom styles with our "base" override groups.
-      const customStyles = extraStyles(baseStyles);
-
-      // Lastly, we create a style groups object that makes sure we run each custom group with our basic overrides.
-      const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
-        return {
-          ...accumulator,
-          [stylesGroup]: (defaultStyles, state) => {
-            const provided = baseStyles[stylesGroup] ? baseStyles[stylesGroup](defaultStyles, state) : defaultStyles;
-
-            return stylesFn(provided, state);
-          }
-        };
-      }, {});
-
-      if (multi) {
-        if (multiline) {
-          ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
-            const original = mergedStyles[component];
-            mergedStyles[component] = (provided, state) => ({
-              ...original(provided, state),
-              height: "auto"
-            });
-          });
+          return stylesFn(provided, state);
         }
+      };
+    }, {});
 
-        const originalValueContainer = mergedStyles.valueContainer;
-        mergedStyles.valueContainer = (provided, state) => ({
-          ...originalValueContainer(provided, state),
-          paddingLeft: 6
+    if (multi) {
+      if (multiline) {
+        ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
+          const original = mergedStyles[component];
+          mergedStyles[component] = (provided, state) => ({
+            ...original(provided, state),
+            height: "auto"
+          });
         });
       }
 
-      return mergedStyles;
-    }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
+      const originalValueContainer = mergedStyles.valueContainer;
+      mergedStyles.valueContainer = (provided, state) => ({
+        ...originalValueContainer(provided, state),
+        paddingLeft: 6
+      });
+    }
 
-    const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
+    return mergedStyles;
+  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
 
-    const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
+  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
-    const Option = useCallback(
-      props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
-      [finalOptionRenderer]
-    );
+  const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-    const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
+  const Option = useCallback(
+    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
+    [finalOptionRenderer]
+  );
 
-    const SingleValue = useCallback(
-      props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
-      [finalValueRenderer]
-    );
+  const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-    const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
+  const SingleValue = useCallback(
+    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
+    [finalValueRenderer]
+  );
 
-    const onOptionRemove = useMemo(() => {
-      if (customOnOptionRemove) {
-        return (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e);
-      }
-      return function (optionValue, e) {
-        setSelected(selected.filter(option => option.value !== optionValue));
-        e.stopPropagation();
-      };
-    }, [customOnOptionRemove, selected, selectedOptionsMap]);
+  const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
-    const customProps = useMemo(
-      () => ({
-        selectedOptions,
-        onSelectedDelete: onOptionRemove,
-        setIsDialogShown,
-        isDialogShown,
-        isMultiline: multiline,
-        insideOverflowContainer,
-        controlRef
-      }),
-      [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
-    );
+  const onOptionRemove = useMemo(() => {
+    if (customOnOptionRemove) {
+      return (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e);
+    }
+    return function (optionValue, e) {
+      setSelected(selected.filter(option => option.value !== optionValue));
+      e.stopPropagation();
+    };
+  }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
-    const onChange = (option, event) => {
-      if (customOnChange) {
-        customOnChange(option, event);
-      }
+  const customProps = useMemo(
+    () => ({
+      selectedOptions,
+      onSelectedDelete: onOptionRemove,
+      setIsDialogShown,
+      isDialogShown,
+      isMultiline: multiline,
+      insideOverflowContainer,
+      controlRef
+    }),
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
+  );
 
-      switch (event.action) {
-        case "select-option": {
-          const selectedOption = multi ? event.option : option;
+  const onChange = (option, event) => {
+    if (customOnChange) {
+      customOnChange(option, event);
+    }
 
-          if (onOptionSelect) {
-            onOptionSelect(selectedOption);
-          }
+    switch (event.action) {
+      case "select-option": {
+        const selectedOption = multi ? event.option : option;
 
-          if (!isControlled) {
-            setSelected([...selected, selectedOption]);
-          }
-          break;
+        if (onOptionSelect) {
+          onOptionSelect(selectedOption);
         }
 
-        case "clear":
-          if (onClear) {
-            onClear();
-          }
-
-          if (!isControlled) {
-            if (withMandatoryDefaultOptions) setSelected(overrideDefaultValue);
-            else setSelected([]);
-          }
-          break;
+        if (!isControlled) {
+          setSelected([...selected, selectedOption]);
+        }
+        break;
       }
-    };
 
-    const DropDownComponent = asyncOptions ? AsyncSelect : Select;
+      case "clear":
+        if (onClear) {
+          onClear();
+        }
 
-    const asyncAdditions = {
-      ...(asyncOptions && {
-        loadOptions: asyncOptions,
-        cacheOptions,
-        ...(defaultOptions && { defaultOptions })
-      })
-    };
+        if (!isControlled) {
+          if (withMandatoryDefaultOptions) setSelected(overrideDefaultValue);
+          else setSelected([]);
+        }
+        break;
+    }
+  };
 
-    const additions = {
-      ...(!asyncOptions && { options }),
-      ...(multi && {
-        isMulti: true
-      })
-    };
+  const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
-    const closeMenuOnScroll = useCallback(
-      event => {
-        const scrolledElement = event.target;
-        const dropdownContainer = document.getElementById(overrideId);
-        if (dropdownContainer?.contains(scrolledElement)) return false;
-        return insideOverflowContainer;
-      },
-      [insideOverflowContainer, overrideId]
-    );
+  const asyncAdditions = {
+    ...(asyncOptions && {
+      loadOptions: asyncOptions,
+      cacheOptions,
+      ...(defaultOptions && { defaultOptions })
+    })
+  };
 
-    return (
-      <DropDownComponent
-        className={cx("dropdown-wrapper", className)}
-        selectProps={customProps}
-        components={{
-          DropdownIndicator,
-          Menu,
-          ClearIndicator,
-          Input,
-          Option,
-          Control,
-          ...(finalValueRenderer && { SingleValue }),
-          ...(multi && {
-            MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-            ValueContainer
-          }),
-          ...(isVirtualized && { MenuList: WindowedMenuList })
-        }}
-        // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
-        closeMenuOnScroll={closeMenuOnScroll}
-        size={size}
-        noOptionsMessage={noOptionsMessage}
-        placeholder={placeholder}
-        isDisabled={disabled}
-        isClearable={clearable}
-        isSearchable={searchable}
-        defaultValue={defaultValue}
-        value={value}
-        onMenuOpen={onMenuOpen}
-        onMenuClose={onMenuClose}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChange={onChange}
-        onInputChange={onInputChange}
-        openMenuOnFocus={openMenuOnFocus}
-        openMenuOnClick={openMenuOnClick}
-        isRtl={rtl}
-        styles={styles}
-        theme={customTheme}
-        maxMenuHeight={maxMenuHeight}
-        menuPortalTarget={menuPortalTarget}
-        menuPlacement={menuPlacement}
-        menuIsOpen={menuIsOpen}
-        tabIndex={tabIndex}
-        id={overrideId}
-        autoFocus={autoFocus}
-        closeMenuOnSelect={closeMenuOnSelect}
-        ref={mergedRef}
-        withMandatoryDefaultOptions={withMandatoryDefaultOptions}
-        isOptionSelected={isOptionSelected}
-        {...asyncAdditions}
-        {...additions}
-      />
-    );
-  }
-);
+  const additions = {
+    ...(!asyncOptions && { options }),
+    ...(multi && {
+      isMulti: true
+    })
+  };
+
+  const closeMenuOnScroll = useCallback(
+    event => {
+      const scrolledElement = event.target;
+      const dropdownContainer = document.getElementById(overrideId);
+      if (dropdownContainer?.contains(scrolledElement)) return false;
+      return insideOverflowContainer;
+    },
+    [insideOverflowContainer, overrideId]
+  );
+
+  return (
+    <DropDownComponent
+      className={cx("dropdown-wrapper", className)}
+      selectProps={customProps}
+      components={{
+        DropdownIndicator,
+        Menu,
+        ClearIndicator,
+        Input,
+        Option,
+        Control,
+        ...(finalValueRenderer && { SingleValue }),
+        ...(multi && {
+          MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
+          ValueContainer
+        }),
+        ...(isVirtualized && { MenuList: WindowedMenuList })
+      }}
+      // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
+      closeMenuOnScroll={closeMenuOnScroll}
+      size={size}
+      noOptionsMessage={noOptionsMessage}
+      placeholder={placeholder}
+      isDisabled={disabled}
+      isClearable={clearable}
+      isSearchable={searchable}
+      defaultValue={defaultValue}
+      value={value}
+      onMenuOpen={onMenuOpen}
+      onMenuClose={onMenuClose}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onChange={onChange}
+      onInputChange={onInputChange}
+      openMenuOnFocus={openMenuOnFocus}
+      openMenuOnClick={openMenuOnClick}
+      isRtl={rtl}
+      styles={styles}
+      theme={customTheme}
+      maxMenuHeight={maxMenuHeight}
+      menuPortalTarget={menuPortalTarget}
+      menuPlacement={menuPlacement}
+      menuIsOpen={menuIsOpen}
+      tabIndex={tabIndex}
+      id={overrideId}
+      autoFocus={autoFocus}
+      closeMenuOnSelect={closeMenuOnSelect}
+      ref={ref}
+      withMandatoryDefaultOptions={withMandatoryDefaultOptions}
+      isOptionSelected={isOptionSelected}
+      {...asyncAdditions}
+      {...additions}
+    />
+  );
+};
 
 Dropdown.size = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
