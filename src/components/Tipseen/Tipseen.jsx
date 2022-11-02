@@ -39,6 +39,7 @@ const Tipseen = forwardRef(
       width,
       moveBy,
       hideWhenReferenceHidden,
+      hideArrow,
       modifiers
     },
     ref
@@ -96,6 +97,7 @@ const Tipseen = forwardRef(
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          tip={!hideArrow}
           modifiers={modifiers}
         >
           {children}
@@ -140,6 +142,7 @@ Tipseen.propTypes = {
     secondary: PropTypes.number
   }),
   hideWhenReferenceHidden: PropTypes.bool,
+  hideArrow: PropTypes.bool,
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
@@ -164,6 +167,7 @@ Tipseen.defaultProps = {
   width: undefined,
   moveBy: undefined,
   hideWhenReferenceHidden: false,
+  hideArrow: false,
   modifiers: []
 };
 
