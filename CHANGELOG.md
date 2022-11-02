@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.69.2 (2022-11-02)
+
+#### Bug Fixes
+* [#968](https://github.com/mondaycom/monday-ui-react-core/pull/968) Fix bug: scroll inside dropdown in overflow mode ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#967](https://github.com/mondaycom/monday-ui-react-core/pull/967) Box: ts-migration  ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#966](https://github.com/mondaycom/monday-ui-react-core/pull/966) Fix DatePicker tests + refactor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#965](https://github.com/mondaycom/monday-ui-react-core/pull/965) Accordion: ts-migration - refactoring ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#963](https://github.com/mondaycom/monday-ui-react-core/pull/963) Migrate Accordion to TypeScript ([@aayushbisen](https://github.com/aayushbisen))
+
 ## 1.69.1 (2022-10-26)
 
 #### Bug Fixes
