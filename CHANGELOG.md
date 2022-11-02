@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.70.0 (2022-11-02)
+
+#### New Features
+* [#970](https://github.com/mondaycom/monday-ui-react-core/pull/970) tipseen tip prop ([@liorswM](https://github.com/liorswM))
+
 ## 1.69.3 (2022-11-02)
 
 #### Bug Fixes
