@@ -13,11 +13,11 @@ import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
-import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
+import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
-import "./Dropdown.scss";
 import Control from "./components/Control/Control";
 import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import "./Dropdown.scss";
 
 const Dropdown = ({
   className,
@@ -62,11 +62,11 @@ const Dropdown = ({
   onClear,
   onInputChange,
   closeMenuOnSelect = !multi,
-  ref,
   withMandatoryDefaultOptions,
   isOptionSelected,
   insideOverflowContainer,
-  transformContainerRef
+  transformContainerRef,
+  ref
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -230,7 +230,15 @@ const Dropdown = ({
     })
   };
 
-  const closeMenuOnScroll = useCallback(() => insideOverflowContainer, [insideOverflowContainer]);
+  const closeMenuOnScroll = useCallback(
+    event => {
+      const scrolledElement = event.target;
+      const dropdownContainer = document.getElementById(id);
+      if (dropdownContainer?.contains(scrolledElement)) return false;
+      return insideOverflowContainer;
+    },
+    [insideOverflowContainer, id]
+  );
 
   return (
     <DropDownComponent
@@ -310,7 +318,7 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   onOptionRemove: undefined,
-  id: undefined,
+  id: DROPDOWN_ID,
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
