@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.69.3 (2022-11-02)
+
+#### Bug Fixes
+* [#969](https://github.com/mondaycom/monday-ui-react-core/pull/969) fix accordion publish ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.69.2 (2022-11-02)
 
 #### Bug Fixes
