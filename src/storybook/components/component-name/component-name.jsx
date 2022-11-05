@@ -1,7 +1,7 @@
 import cx from "classnames";
 import "./component-name.scss";
 
-export const ComponentName = ({ children, className, withFoundationBackground = false }) => {
+const ComponentName = ({ children, className, withFoundationBackground = false }) => {
   return (
     <h1
       className={cx("monday-storybook-component-name", className, {
@@ -12,3 +12,5 @@ export const ComponentName = ({ children, className, withFoundationBackground = 
     </h1>
   );
 };
+
+export default ComponentName;

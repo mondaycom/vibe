@@ -10,7 +10,8 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/icons/index.js"
+    "./icons": "./dist/icons/index.js",
+    "./storybook": "./dist/storybook/storybook-esm.js"
   },
   "scripts": {
     "auto:bump-patch": "node scripts/autobump_patch.js",
