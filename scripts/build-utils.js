@@ -53,7 +53,8 @@ function buildTSComponentsEsmFile() {
 }
 
 function buildStorybookComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js", "storybook");
+  // buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js", "storybook");
+  buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js");
 }
 
 function buildIconsEsmFile() {

@@ -19,6 +19,14 @@ function getPublishedComponents() {
 }
 
 function getPublishedStorybookComponents() {
+  const res = {};
+  Object.entries(publishedStorybookComponents).forEach(([componentName, componentPath]) => {
+    res[`storybook/${componentName}`] = path.join(STORYBOOK_PATH, componentPath);
+  });
+  return res;
+}
+
+function getPublishedStorybookComponentsPaths() {
   return Object.entries(publishedStorybookComponents).map(([_componentName, componentPath]) =>
     path.join(STORYBOOK_PATH, componentPath)
   );
@@ -31,5 +39,6 @@ module.exports = {
   publishedStorybookComponents,
   getPublishedComponents,
   getPublishedStorybookComponents,
+  getPublishedStorybookComponentsPaths,
   exposeIcons
 };

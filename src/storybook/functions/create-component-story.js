@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from "@storybook/addon-actions";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
@@ -118,3 +118,5 @@ function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
     return Story();
   };
 }
+
+export default { createComponentTemplate, createStoryMetaSettings };

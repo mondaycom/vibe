@@ -22,3 +22,5 @@ export const TokenTable = ({ theadData, tbodyData }) => {
     </div>
   );
 };
+
+export default TokenTable;

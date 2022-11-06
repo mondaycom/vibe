@@ -29,3 +29,5 @@ UsageGuidelines.propTypes = {
 UsageGuidelines.defaultProps = {
   guidelines: []
 };
+
+export default UsageGuidelines;

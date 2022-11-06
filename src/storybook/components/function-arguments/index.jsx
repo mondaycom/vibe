@@ -35,3 +35,5 @@ FunctionArguments.propTypes = {
 FunctionArguments.defaultProps = {
   children: []
 };
+
+export default { FunctionArgument, FunctionArguments };

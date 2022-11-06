@@ -30,3 +30,5 @@ InformationBox.defaultProps = {
   title: "",
   description: ""
 };
+
+export default InformationBox;

@@ -3,7 +3,11 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { getPublishedComponents, getPublishedStorybookComponents } = require("./webpack/published-components");
+const {
+  getPublishedComponents,
+  getPublishedStorybookComponents,
+  getPublishedStorybookComponentsPaths
+} = require("./webpack/published-components");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const ANALYZE_BUNDLE = false;
@@ -59,10 +63,12 @@ module.exports = options => {
   const devtool = storybook ? "eval-cheap-module-source-map" : false;
   const publishedComponents = storybook ? {} : getPublishedComponents();
   const publishedStorybookComponents = getPublishedStorybookComponents();
+  // const publishedStorybookComponentsPaths = getPublishedStorybookComponentsPaths();
 
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
-    "storybook/storybook": [...Object.values(publishedStorybookComponents)],
+    // "storybook/storybook": [...publishedStorybookComponentsPaths],
+    ...publishedStorybookComponents,
     ...publishedComponents
   };
 
@@ -109,6 +115,10 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          loader: "file-loader"
         }
       ]
     },

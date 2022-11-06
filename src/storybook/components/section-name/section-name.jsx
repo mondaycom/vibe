@@ -16,3 +16,5 @@ export const SectionName = ({ className, children, ...props }) => {
 SectionName.propTypes = {
   children: PropTypes.string.isRequired
 };
+
+export default SectionName;
