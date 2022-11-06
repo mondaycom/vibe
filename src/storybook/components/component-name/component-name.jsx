@@ -1,7 +1,7 @@
 import cx from "classnames";
 import "./component-name.scss";
 
-const ComponentName = ({ children, className, withFoundationBackground = false }) => {
+export const ComponentName = ({ children, className, withFoundationBackground = false }) => {
   return (
     <h1
       className={cx("monday-storybook-component-name", className, {
