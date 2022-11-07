@@ -3,11 +3,7 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {
-  getPublishedComponents,
-  getPublishedStorybookComponents,
-  getPublishedStorybookComponentsPaths
-} = require("./webpack/published-components");
+const { getPublishedComponents, getPublishedStorybookComponents } = require("./webpack/published-components");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const ANALYZE_BUNDLE = false;
@@ -115,11 +111,12 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
-        },
-        {
-          test: /\.(png|jpe?g|gif|svg)$/i,
-          loader: "file-loader"
         }
+        // TODO works for the build, but break this storybook :(
+        // {
+        //   test: /\.(png|jpe?g|gif|svg)$/i,
+        //   loader: "file-loader"
+        // }
       ]
     },
     externals: {
