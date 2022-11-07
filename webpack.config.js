@@ -114,8 +114,8 @@ module.exports = options => {
           use: styleLoaders
         },
         {
-          // Straightforward bundle of storybook/components/**/*.scss
-          test: /\/storybook\/components\/.*\.scss$/,
+          // Straightforward bundle of storybook/**/*.scss
+          test: /\/storybook\/.*\.scss$/,
           use: ["style-loader", "css-loader", "sass-loader"]
         },
         {
