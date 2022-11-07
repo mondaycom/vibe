@@ -1,4 +1,4 @@
-import ComponentName from "./component-name/component-name";
+import { ComponentName } from "./component-name/component-name";
 import { SectionName } from "./section-name/section-name";
 import { Title } from "./title/title";
 import { Tip } from "./tip/tip";
