@@ -111,12 +111,20 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
+        },
+        {
+          test: /\.(png|svg|jpg|gif|jpe?g)$/,
+          exclude: [/__stories__/, /stand-alone-documentation/],
+          use: [
+            {
+              options: {
+                name: "[name].[ext]",
+                outputPath: "assets/"
+              },
+              loader: "file-loader"
+            }
+          ]
         }
-        // TODO works for the build, but break this storybook :(
-        // {
-        //   test: /\.(png|jpe?g|gif|svg)$/i,
-        //   loader: "file-loader"
-        // }
       ]
     },
     externals: {

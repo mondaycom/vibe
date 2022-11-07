@@ -16,7 +16,7 @@ const publishedStorybookComponents = {
   LinkComponent: "components/link-component/link-component.jsx",
   MultipleStoryElementsWrapper: "components/multiple-story-elements-wrapper/multiple-story-elements-wrapper.jsx",
   Paragraph: "components/paragraph/paragraph.jsx",
-  RelatedComponents: "components/related-components/related-components.jsx",
+  RelatedComponent: "components/related-component/related-component.jsx",
   SectionName: "components/section-name/section-name.jsx",
   StoryDescription: "components/story-description/story-description.jsx",
   TextColors: "components/text-colors/text-colors.jsx",
