@@ -95,6 +95,7 @@ module.exports = options => {
         },
         {
           test: /\.scss$/,
+          exclude: /\/storybook\//,
           use: [
             ...styleLoaders,
             {
@@ -111,6 +112,11 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
+        },
+        {
+          // Straightforward bundle of storybook/components/**/*.scss
+          test: /\/storybook\/components\/.*\.scss$/,
+          use: ["style-loader", "css-loader", "sass-loader"]
         },
         {
           test: /\.(png|svg|jpg|gif|jpe?g)$/,
