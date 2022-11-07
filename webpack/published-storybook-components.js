@@ -8,7 +8,8 @@ const publishedStorybookComponents = {
   ComponentRules: "components/component-rules/component-rules.jsx",
   DocFooter: "components/doc-footer/doc-footer.jsx",
   Frame: "components/frame/frame.jsx",
-  // FunctionArguments: "components/function-arguments/index.jsx",
+  FunctionArguments: "components/function-arguments/function-arguments.jsx",
+  FunctionArgument: "components/function-arguments/function-argument.jsx",
   InformationBox: "components/information-box/information-box.jsx",
   InformationBoxTitle: "components/information-box-title/information-box-title.jsx",
   Link: "components/link/link.jsx",
@@ -26,12 +27,12 @@ const publishedStorybookComponents = {
   UnstyledListItem: "components/unstyled-list-item/unstyled-list-item.jsx",
   UsageGuidelines: "components/usage-guidelines/usage-guidelines.jsx",
   VisualDescription: "components/visual-description/visual-description.jsx",
-  // // Decorators
-  // VerticalStories: "decorators/vertical-stories/vertical-stories.jsx",
-  withMemoryStats: "decorators/memory-stats.jsx"
+  // Decorators
+  VerticalStories: "decorators/vertical-stories.jsx",
+  withMemoryStats: "decorators/memory-stats.jsx",
   // Functions
-  // createComponentTemplate: "functions/create-component-story.js",
-  // createStoryMetaSettings: "functions/create-component-story.js"
+  createComponentTemplate: "functions/createComponentTemplate.js",
+  createStoryMetaSettings: "functions/createStoryMetaSettings.js"
 };
 // eslint-disable-next-line no-undef
 module.exports = {

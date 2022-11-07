@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Code } from "@storybook/components"; // eslint-disable-line import/no-extraneous-dependencies
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import classes from "./index.module.scss";
@@ -24,16 +23,4 @@ export const FunctionArgument = ({ children, name, type, description, default: d
   </li>
 );
 
-export const FunctionArguments = ({ children }) => {
-  return <ul>{children}</ul>;
-};
-
-FunctionArguments.propTypes = {
-  children: PropTypes.oneOfType([FunctionArgument, PropTypes.arrayOf(FunctionArgument)])
-};
-
-FunctionArguments.defaultProps = {
-  children: []
-};
-
-export default { FunctionArgument, FunctionArguments };
+export default FunctionArgument;

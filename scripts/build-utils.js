@@ -32,9 +32,13 @@ function buildComponentExport(name, path) {
   return `export { default as ${name} } from "${path}";`;
 }
 
+function writeToFile(content, fileName) {
+  fs.writeFileSync(path.join(__dirname, fileName), content, "utf8");
+}
+
 function convertExportsToFile(exportsArray, fileName) {
   const content = exportsArray.join("\n");
-  fs.writeFileSync(path.join(__dirname, `../dist/${fileName}`), content, "utf8");
+  writeToFile(content, `../dist/${fileName}`);
 }
 
 function buildComponentsEsmFileByMap(componentsMap, fileName, exportPath = undefined) {
@@ -53,7 +57,6 @@ function buildTSComponentsEsmFile() {
 }
 
 function buildStorybookComponentsEsmFile() {
-  // buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js", "storybook");
   buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js");
 }
 
@@ -65,7 +68,7 @@ function buildIconsEsmFile() {
       return `export { default as ${nameWithoutExtension} } from "./${nameWithoutExtension}";`;
     })
     .join("\n");
-  fs.writeFileSync(path.join(__dirname, "../dist/icons/index.js"), iconsContent, "utf8");
+  writeToFile(iconsContent, "../dist/icons/index.js");
 }
 
 // eslint-disable-next-line no-unused-vars

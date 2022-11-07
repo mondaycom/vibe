@@ -1,13 +1,7 @@
-import React, { useCallback, useMemo, useState } from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { action } from "@storybook/addon-actions";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import * as AllIcons from "../../components/Icon/Icons";
-
-export function createComponentTemplate(ComponentClass) {
-  // eslint-disable-next-line react/display-name
-  return args => <ComponentClass {...args} />;
-}
+import { useCallback, useMemo, useState } from "react";
+import { action } from "@storybook/addon-actions";
 
 const allowedIcons = iconsMetaData.reduce(
   (acc, icon) => {
@@ -33,6 +27,35 @@ function parseStringForEnums(componentName, enumName, enumObj) {
 
 function parseStringForEnum(componentName, enumName, enumKey) {
   return `${componentName}.${enumName}.${enumKey}`;
+}
+
+/**
+ * Creates a decorator which maps a callback prop to an input prop.
+ * For example: mapping the onChange callback of a Select component to its currentValue prop.
+ * Useful for adding interactivity to stories of controlled components.
+ * Additionally, the callback will trigger a Storybook action, that can be seen on the Actions tab.
+ * @param {string} actionName - the name of the action prop of the component in the story. For example, "setValue" or "onChange".
+ * @param {string} linkedToPropValue - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
+ * @returns A decorate for storybook which updates the {@link linkedToPropValue} input of the component, whenever {@link actionName} is called.
+ */
+function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
+  return (Story, context) => {
+    const [propValue, setPropValue] = useState(context.initialArgs[linkedToPropValue]);
+    const createAction = useMemo(() => action(actionName), []);
+
+    const injectedCallback = useCallback(
+      newPropValue => {
+        setPropValue(newPropValue);
+        createAction(newPropValue);
+      },
+      [setPropValue, createAction]
+    );
+
+    context.args[actionName] = injectedCallback;
+    context.args[linkedToPropValue] = propValue;
+
+    return Story();
+  };
 }
 
 export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray, actionPropsArray }) {
@@ -90,33 +113,4 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
   return { argTypes, decorators };
 }
 
-/**
- * Creates a decorator which maps a callback prop to an input prop.
- * For example: mapping the onChange callback of a Select component to its currentValue prop.
- * Useful for adding interactivity to stories of controlled components.
- * Additionally, the callback will trigger a Storybook action, that can be seen on the Actions tab.
- * @param {string} actionName - the name of the action prop of the component in the story. For example, "setValue" or "onChange".
- * @param {string} linkedToPropValue - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
- * @returns A decorate for storybook which updates the {@link linkedToPropValue} input of the component, whenever {@link actionName} is called.
- */
-function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
-  return (Story, context) => {
-    const [propValue, setPropValue] = useState(context.initialArgs[linkedToPropValue]);
-    const createAction = useMemo(() => action(actionName), []);
-
-    const injectedCallback = useCallback(
-      newPropValue => {
-        setPropValue(newPropValue);
-        createAction(newPropValue);
-      },
-      [setPropValue, createAction]
-    );
-
-    context.args[actionName] = injectedCallback;
-    context.args[linkedToPropValue] = propValue;
-
-    return Story();
-  };
-}
-
-export default { createComponentTemplate, createStoryMetaSettings };
+export default createStoryMetaSettings;
