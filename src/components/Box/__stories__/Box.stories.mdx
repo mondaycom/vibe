@@ -41,16 +41,6 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta title="Layout/Box" component={Box} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
-<!--- Component template -->
-
-export const boxTemplate = args => {
-  return (
-    <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}></Box>
-    </div>
-  );
-};
-
 <!--- Component documentation -->
 
 # Box
@@ -72,8 +62,12 @@ Its purpose is to help scaffold compositions while using Vibe's prop keys withou
 atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
 
 <Canvas>
-  <Story name="Overview" args={{ children: "Box composite component" }}>
-    {boxTemplate.bind({})}
+  <Story name="Overview">
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
+        Box composite component
+      </Box>
+    </div>
   </Story>
 </Canvas>
 
