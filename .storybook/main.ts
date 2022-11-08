@@ -36,7 +36,7 @@ const getAddons = () => {
     "@storybook/addon-toolbars",
     "@storybook/addon-actions"
   ];
-  //addons.push(vibeStorybookConfig.main.addons);
+  addons.push(vibeStorybookConfig.main.addons);
 
   return addons;
 };
