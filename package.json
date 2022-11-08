@@ -25,7 +25,7 @@
     "build": "npm run build:exports && npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
     "build:exports": "./scripts/build-exports.js",
     "build:ts-index": "./scripts/build-ts-index.js",
-    "storybook": "start-storybook -p 7007",
+    "storybook": "start-storybook -p 7008",
     "build-storybook": "npm run build:ts-index && build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
