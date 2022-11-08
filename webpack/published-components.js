@@ -6,21 +6,14 @@ const publishedComponents = { ...publishedJSComponents, ...publishedTSComponents
 
 const SRC_PATH = path.join(__dirname, "../src");
 
-function getPublishedList(publishedList, mergedObject = {}) {
-  return Object.entries(publishedList).reduce(
+function getPublishedComponents() {
+  return Object.entries(publishedComponents).reduce(
     (acc, [componentName, componentPath]) => ({
       ...acc,
       [componentName]: path.join(SRC_PATH, componentPath)
     }),
-    mergedObject
+    exposeIcons()
   );
-}
-function getPublishedStorybookInfra() {
-  return getPublishedList(publishedComponents);
-}
-
-function getPublishedComponents() {
-  return getPublishedList(publishedComponents, exposeIcons);
 }
 
 module.exports = {
@@ -28,6 +21,5 @@ module.exports = {
   publishedJSComponents,
   publishedTSComponents,
   getPublishedComponents,
-  getPublishedStorybookInfra,
   exposeIcons
 };
