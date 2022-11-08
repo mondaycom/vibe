@@ -1,6 +1,7 @@
 const projectConfig = require("../webpack/storybook.config.js");
+const vibeStorybookConfig = require("./vibe-storybook-config.ts");
 
-const mergeConfigRules = (originalConfig, newConfigRules) => {
+const mergeConfigRules = (originalConfig: any, newConfigRules: any) => {
   return {
     ...originalConfig,
     module: { ...originalConfig.module, rules: [...originalConfig.module.rules, ...newConfigRules] },
@@ -12,18 +13,16 @@ const getProjectConfigRules = () => {
   return projectConfig.module.rules;
 };
 
-const getDocsConfigRules = () => {
-  return [];
+const removeCssLoader = (config: any) => {
+  return {
+    ...config,
+    module: { ...config.module, rules: config.module.rules.filter((r: Record<string, any>) => !r.test.test(".css")) }
+  };
 };
 
-const removeCssLoader = config => {
-  return { ...config, module: { ...config.module, rules: config.module.rules.filter(r => !r.test.test(".css")) } };
-};
-
-const buildConfig = config => {
+const buildConfig = (config: any) => {
   config = removeCssLoader(config); //remove storybook default css loader configuration
   config = mergeConfigRules(config, getProjectConfigRules());
-  config = mergeConfigRules(config, getDocsConfigRules());
   return config;
 };
 
@@ -37,22 +36,17 @@ const getAddons = () => {
     "@storybook/addon-toolbars",
     "@storybook/addon-actions"
   ];
-
-  if (process.env.NODE_ENV !== "production") {
-    addons.push("@storybook/addon-interactions");
-  }
+  //addons.push(vibeStorybookConfig.main.addons);
 
   return addons;
 };
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx"],
-  webpackFinal: async config => {
+  webpackFinal: async (config: any) => {
     return buildConfig(config);
   },
-  features: {
-    interactionsDebugger: true
-  },
+  features: vibeStorybookConfig.main.features,
   addons: getAddons(),
   core: {
     builder: "webpack5"

@@ -60,7 +60,8 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
-    ...publishedComponents
+    ...publishedComponents,
+    storybookUtils: path.join(__dirname, "/src/storybook/infra")
   };
 
   return {
@@ -78,7 +79,7 @@ module.exports = options => {
             {
               loader: "ts-loader",
               options: {
-                onlyCompileBundledFiles: true
+                onlyCompileBundledFiles: false
               }
             }
           ]

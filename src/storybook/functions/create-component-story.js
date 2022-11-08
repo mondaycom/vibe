@@ -51,7 +51,7 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     const enums = component[enumName];
     if (enums && enums instanceof Object) {
       // docgen is the parser we using for parsing all our component prop types, default props and
-      // other component data (it's configure under storybook main.js file)
+      // other component data (it's configure under storybook main.ts file)
       const componentName = component.__docgenInfo.displayName;
       argTypes[prop] = {
         options: enums,
