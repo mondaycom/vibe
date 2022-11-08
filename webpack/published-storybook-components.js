@@ -2,9 +2,9 @@ const publishedStorybookComponents = {
   // Components
   AnchorListItem: "components/anchor-list-item/anchor-list-item.jsx",
   ColorsDescription: "components/colors-description/colors-description.jsx",
-  ComingSoon: "components/coming-soon/coming-soon.jsx",
+  // ComingSoon: "components/coming-soon/coming-soon.jsx", - images from storybook/components/* are not exported
   ComponentDescription: "components/component-description/component-description.jsx",
-  ComponentName: "components/component-name/component-name.jsx",
+  ComponentName: "components/component-name/component-name.jsx", // images from storybook/components/* are not exported
   ComponentRules: "components/component-rules/component-rules.jsx",
   DocFooter: "components/doc-footer/doc-footer.jsx",
   Frame: "components/frame/frame.jsx",
