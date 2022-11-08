@@ -13,7 +13,7 @@ function buildStorybookConfig(
     // controls = true
   } = { interactionTests: true }
 ): VibeStorybookConfig {
-  const addons = [];
+  const addons: Array<any> = [];
   const features = {};
   if (interactionTests) {
     const { addons: interactionsAddons, features: interactionsFeatures } = createInteractionTestsSettings();
