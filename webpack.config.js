@@ -56,7 +56,7 @@ module.exports = options => {
     }
   ];
   // why false? we are open source anyway
-  const devtool = storybook ? "eval-cheap-module-source-map" : false;
+  const devtool = storybook ? "eval-cheap-module-source-map" : "source-map";
   const publishedComponents = storybook ? {} : getPublishedComponents();
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
