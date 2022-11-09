@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.70.1 (2022-11-09)
+
+#### Bug Fixes
+* [#974](https://github.com/mondaycom/monday-ui-react-core/pull/974) ComboboxItems: add categories to calculations. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#975](https://github.com/mondaycom/monday-ui-react-core/pull/975) Fix storybook box overview code ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#976](https://github.com/mondaycom/monday-ui-react-core/pull/976) add source maps ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.70.0 (2022-11-02)
 
 #### New Features
