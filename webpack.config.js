@@ -61,7 +61,8 @@ module.exports = options => {
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
     ...publishedComponents,
-    storybookUtils: path.join(__dirname, "/src/storybook/infra")
+    storybookUtils: path.join(__dirname, "/src/storybook/infra/index.ts"),
+    storybookAddon: path.join(__dirname, "/src/storybook/infra/vibe-storybook-preset-addon/preset.ts")
   };
 
   return {
@@ -117,6 +118,7 @@ module.exports = options => {
     entry,
     output: {
       path: path.join(__dirname, "/dist/"),
+      publicPath: "",
       filename: "[name].js",
       library: "monday-style",
       libraryTarget: "umd",
