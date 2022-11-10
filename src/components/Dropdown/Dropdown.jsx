@@ -66,7 +66,8 @@ const Dropdown = ({
   isOptionSelected,
   insideOverflowContainer,
   transformContainerRef,
-  ref
+  ref,
+  tooltipContent
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -176,9 +177,10 @@ const Dropdown = ({
       isDialogShown,
       isMultiline: multiline,
       insideOverflowContainer,
-      controlRef
+      controlRef,
+      tooltipContent
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer, tooltipContent]
   );
 
   const onChange = (option, event) => {
@@ -290,6 +292,7 @@ const Dropdown = ({
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
+      aria-details={tooltipContent}
       {...asyncAdditions}
       {...additions}
     />
@@ -324,7 +327,8 @@ Dropdown.defaultProps = {
   ref: undefined,
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
-  transformContainerRef: undefined
+  transformContainerRef: undefined,
+  tooltipContent: ""
 };
 
 Dropdown.propTypes = {
@@ -530,7 +534,11 @@ Dropdown.propTypes = {
   /**
    * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
    */
-  transformContainerRef: PropTypes.object
+  transformContainerRef: PropTypes.object,
+  /**
+   * When content is passed, the dropdown will include a tooltip on the dropdown's value.
+   */
+  tooltipContent: PropTypes.string
 };
 
 export default Dropdown;
