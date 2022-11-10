@@ -4,7 +4,6 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import "./TabsContext.scss";
 
 export interface TabsContextProps extends VibeComponentProps {
   activeTabId?: number;
