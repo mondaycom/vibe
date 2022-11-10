@@ -50,6 +50,7 @@ const publishedTSComponents = {
   TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
   Box: "components/Box/Box",
+  VirtualizedList: "components/VirtualizedList/VirtualizedList",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

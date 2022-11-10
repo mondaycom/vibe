@@ -1,5 +1,4 @@
 const publishedJSComponents = {
-  VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",

@@ -1,43 +1,156 @@
-import { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, {
+  CSSProperties,
+  ForwardedRef,
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import NOOP from "lodash/noop";
 import cx from "classnames";
-import { VariableSizeList as List } from "react-window";
+import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import {
-  getNormalizedItems,
   easeInOutQuint,
   getMaxOffset,
+  getNormalizedItems,
   getOnItemsRenderedData,
   isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
-import "./VirtualizedList.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
+import "./VirtualizedList.scss";
 
-const VirtualizedList = forwardRef(
+type ItemType = {
+  value: string;
+  height: number;
+  width: number;
+  id: string;
+  offsetTop: number;
+};
+
+interface VirtualizedListProps extends VibeComponentProps {
+  /**
+   * class name to add to the component scrollable container
+   */
+  scrollableClassName?: string;
+  /**
+   * Layout/orientation of the list.
+   * Acceptable values are:
+   * - "vertical" (default) - Up/down scrolling.
+   * - "horizontal" - Left/right scrolling.
+   */
+  layout?: Layout;
+  /**
+   * A list of items to be rendered
+   */
+  items: ItemType[];
+  /**
+   * Will return the element which represent an item in the virtualized list.
+   * Returns `JSX.Element`
+   * @param item - item data
+   * @param _index - item index
+   * @param style - item style, must be injected to the item element wrapper for correct presentation of the item
+   */
+  itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ReactElement;
+  /**
+   * Deprecated - use getItemSize
+   * in order to calculate the number of items to render, the component needs the height of the items
+   * return `number`
+   */
+  getItemHeight?: (item: ItemType, index: number) => number;
+  /**
+   * in order to calculate the number of items to render, the component needs the width/height of the items (according to layout)
+   * return `number`
+   */
+  getItemSize?: (item: ItemType, index: number) => number;
+  /**
+   * returns Id of an items
+   * returns `string`
+   */
+  getItemId: (item: ItemType, index: number) => string;
+  /**
+   * callback to be called when the scroll is finished
+   */
+  onScrollToFinished?: () => void;
+  /**
+   * number of items to render (below/above the fold)
+   */
+  overscanCount?: number;
+  /**
+   * the speed of the scroll (in ms)
+   */
+  scrollDuration?: number;
+  /**
+   * a callback that is being called when the items are rendered
+   */
+  onItemsRendered?: ({
+    firstItemId,
+    secondItemId,
+    lastItemId,
+    centerItemId,
+    firstItemOffsetEnd,
+    currentOffsetTop
+  }: {
+    firstItemId: string;
+    secondItemId: string;
+    lastItemId: string;
+    centerItemId: string;
+    firstItemOffsetEnd: number;
+    currentOffsetTop: number;
+  }) => void;
+  onItemsRenderedThrottleMs?: number;
+  /**
+   * when the list size changes - `=> (width, height)`
+   */
+  onSizeUpdate?: (width: number, height: number) => void;
+  /**
+   * Deprecated - use onLayoutDirectionScrollbarVisibilityChange
+   */
+  onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
+  /**
+   * Callback - called when the vertical/horizontal (depends on layout) scrollbar visibility changed
+   */
+  onLayoutDirectionScrollbarVisibilityChange?: (value: boolean) => void;
+  role?: string;
+  /** Custom style to pass to the component */
+  style?: CSSProperties;
+  /**
+   * index of the item to scroll to
+   */
+  scrollToId?: string;
+  virtualListRef?: ForwardedRef<HTMLElement>;
+  onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
+}
+
+const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
   (
     {
       className,
       id,
-      items,
-      itemRenderer,
-      getItemHeight,
-      getItemSize,
-      layout,
+      items = [],
+      itemRenderer = (item: ItemType, _index: number, _style: CSSProperties) => item,
+      getItemHeight = (item: ItemType, _index: number) => item.height,
+      getItemSize = null, // must be null for backward compatibility
+      layout = "vertical",
       onScroll,
-      overscanCount,
-      getItemId,
+      overscanCount = 0,
+      getItemId = (item: ItemType, _index: number) => item.id,
       scrollToId,
-      scrollDuration,
-      onScrollToFinished,
+      scrollDuration = 200,
+      onScrollToFinished = NOOP,
       onItemsRendered,
-      onItemsRenderedThrottleMs,
-      onSizeUpdate,
-      onVerticalScrollbarVisiblityChange,
-      onLayoutDirectionScrollbarVisibilityChange,
+      onItemsRenderedThrottleMs = 200,
+      onSizeUpdate = NOOP,
+      onVerticalScrollbarVisiblityChange = null,
+      onLayoutDirectionScrollbarVisibilityChange = null,
       virtualListRef,
       scrollableClassName,
       role,
@@ -62,9 +175,14 @@ const VirtualizedList = forwardRef(
     const isVerticalScrollbarVisibleRef = useRef(null);
     const listRef = useRef(null);
     const scrollTopRef = useRef(0);
-    const animationDataRef = useRef({});
+    const animationDataRef = useRef({
+      initialized: false,
+      scrollOffsetInitial: 0,
+      scrollOffsetFinal: 0,
+      animationStartTime: 0
+    });
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] });
+    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] }) as any;
 
     const animationData = animationDataRef.current;
     if (!animationData.initialized) {
@@ -76,7 +194,7 @@ const VirtualizedList = forwardRef(
 
     // Callbacks
     const sizeGetter = useCallback(
-      (item, index) => {
+      (item: ItemType, index: number) => {
         const getSize = getItemSize || getItemHeight;
         const height = getSize(item, index);
         if (height === undefined) {
@@ -88,7 +206,7 @@ const VirtualizedList = forwardRef(
     );
 
     const idGetter = useCallback(
-      (item, index) => {
+      (item: ItemType, index: number) => {
         const itemId = getItemId(item, index);
         if (itemId === undefined) {
           console.error("Couldn't get id for item: ", item);
@@ -110,7 +228,15 @@ const VirtualizedList = forwardRef(
 
     // Callbacks
     const onScrollCB = useCallback(
-      ({ scrollDirection, scrollOffset, scrollUpdateWasRequested }) => {
+      ({
+        scrollDirection,
+        scrollOffset,
+        scrollUpdateWasRequested
+      }: {
+        scrollDirection: ScrollDirection;
+        scrollOffset: number;
+        scrollUpdateWasRequested: boolean;
+      }) => {
         scrollTopRef.current = scrollOffset;
         if (!scrollUpdateWasRequested) {
           animationData.scrollOffsetInitial = scrollOffset;
@@ -141,7 +267,7 @@ const VirtualizedList = forwardRef(
     }, [scrollDuration, animationData, listRef, maxListOffset, onScrollToFinished]);
 
     const startScrollAnimation = useCallback(
-      item => {
+      (item: ItemType) => {
         const { offsetTop } = item;
         if (animationData.animationStartTime) {
           // animation already in progress
@@ -162,7 +288,7 @@ const VirtualizedList = forwardRef(
     );
 
     const rowRenderer = useCallback(
-      ({ index, style }) => {
+      ({ index, style }: { index: number; style: CSSProperties }) => {
         const item = items[index];
         return itemRenderer(item, index, style);
       },
@@ -170,7 +296,7 @@ const VirtualizedList = forwardRef(
     );
 
     const calcItemSize = useCallback(
-      index => {
+      (index: number) => {
         const item = items[index];
         return sizeGetter(item, index);
       },
@@ -178,7 +304,7 @@ const VirtualizedList = forwardRef(
     );
 
     const updateListSize = useCallback(
-      (width, height) => {
+      (width: number, height: number) => {
         if (height !== listHeight || width !== listWidth) {
           setTimeout(() => {
             setListHeight(height);
@@ -213,7 +339,7 @@ const VirtualizedList = forwardRef(
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasScrollbar = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
-        const item = normalizedItems[scrollToId];
+        const item = normalizedItems[scrollToId as keyof typeof normalizedItems];
         hasScrollbar && item && startScrollAnimation(item);
       }
     }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listSizeByLayout]);
@@ -256,7 +382,6 @@ const VirtualizedList = forwardRef(
         <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
-
             return (
               <List
                 ref={mergedListRef}
@@ -270,6 +395,7 @@ const VirtualizedList = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={cx("virtualized-list-scrollable-container", scrollableClassName)}
               >
+                {/*@ts-ignore*/}
                 {rowRenderer}
               </List>
             );
@@ -279,126 +405,5 @@ const VirtualizedList = forwardRef(
     );
   }
 );
-
-VirtualizedList.propTypes = {
-  /**
-   * class name to add to the component wrapper
-   */
-  className: PropTypes.string,
-  /**
-   * class name to add to the component scollable container
-   */
-  scrollableClassName: PropTypes.string,
-  /**
-   * id to add to the component wrapper
-   */
-  id: PropTypes.string,
-  /**
-   * Layout/orientation of the list.
-   *
-   * Acceptable values are:
-   * - "vertical" (default) - Up/down scrolling.
-   * - "horizontal" - Left/right scrolling.
-   */
-  layout: PropTypes.string,
-  /**
-   * A list of items to be rendered
-   */
-  items: PropTypes.arrayOf(PropTypes.object),
-  /**
-   * Will return the element which represent an item in the virtualized list.
-   * Returns `JSX.Element`
-   * @param item - item data
-   * @param _index - item index
-   * @param style - item style, must be injected to the item element wrapper for correct presentation of the item
-   */
-  itemRenderer: PropTypes.func,
-  /**
-   * Deprecated - use getItemSize
-   * in order to calculate the number of items to render, the component needs the height of the items
-   * return `number`
-   */
-  getItemHeight: PropTypes.func,
-  /**
-   * in order to calculate the number of items to render, the component needs the width/height of the items (according to layout)
-   * return `number`
-   */
-  getItemSize: PropTypes.func,
-  /**
-   * returns Id of an items
-   * returns `string`
-   */
-  getItemId: PropTypes.func,
-  /**
-   * callback to be called when the scroll is finished
-   */
-  onScrollToFinished: PropTypes.func,
-  /**
-   * number of items to render (below/above the fold)
-   */
-  overscanCount: PropTypes.number,
-  /**
-   * the speed of the scroll (in ms)
-   */
-  scrollDuration: PropTypes.number,
-  /**
-   * a callback that is being called when the items are rendered
-   *
-   *    `onItemsRendered => {`
-   *
-   *     firstItemId: string
-   *
-   *     secondItemId: string
-   *
-   *     lastItemId: string
-   *
-   *     centerItemId: string
-   *
-   *     firstItemOffsetEnd: number
-   *
-   *     currentOffsetTop: number
-   *
-   * }
-   */
-  onItemsRendered: PropTypes.func,
-  onItemsRenderedThrottleMs: PropTypes.number,
-  /**
-   * when the list size changes - `=> (width, height)`
-   */
-  onSizeUpdate: PropTypes.func,
-  /**
-   * Deprecated - use onLayoutDirectionScrollbarVisibilityChange
-   */
-  onVerticalScrollbarVisiblityChange: PropTypes.func,
-  /**
-   * Callback - called when the vertical/horizontal (depends on layout) scrollbar visibility changed
-   */
-  onLayoutDirectionScrollbarVisibilityChange: PropTypes.func,
-  role: PropTypes.string,
-  /** Custom style to pass to the component */
-  style: PropTypes.object
-};
-VirtualizedList.defaultProps = {
-  className: "",
-  id: "",
-  items: [],
-  // eslint-disable-next-line no-unused-vars
-  itemRenderer: (item, _index, style) => item,
-  getItemHeight: (item, _index) => item.height,
-  getItemSize: null, // must be null for backward compatibility
-  getItemId: (item, _index) => item.id,
-  layout: "vertical",
-  onScrollToFinished: NOOP,
-  overscanCount: 0,
-  scrollDuration: 200,
-  onItemsRendered: null,
-  onItemsRenderedThrottleMs: 200,
-  onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null,
-  onLayoutDirectionScrollbarVisibilityChange: null,
-  role: undefined,
-  scrollableClassName: undefined,
-  style: undefined
-};
 
 export default VirtualizedList;
