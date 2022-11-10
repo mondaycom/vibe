@@ -3,7 +3,7 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";

@@ -13,6 +13,7 @@ import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./hel
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { SubIcon } from "../../types";
 import styles from "./Button.module.scss";
 
 // @ts-ignore
@@ -42,13 +43,13 @@ export interface ButtonProps extends VibeComponentProps {
   /** Whether the button should be disabled or not */
   disabled?: boolean;
   /** Icon to place on the right */
-  rightIcon?: string | React.FunctionComponent | null;
+  rightIcon?: SubIcon;
   /** Icon to place on the left */
-  leftIcon?: string | React.FunctionComponent | null;
+  leftIcon?: SubIcon;
   /** the success props are used when you have async action and wants to display a success message */
   success?: boolean;
   /** Success icon name */
-  successIcon?: string | React.FunctionComponent | null;
+  successIcon?: SubIcon;
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */

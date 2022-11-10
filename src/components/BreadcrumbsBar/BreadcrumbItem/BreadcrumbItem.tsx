@@ -5,9 +5,8 @@ import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { IconSubComponentProps } from "../../Icon/Icon";
 import { HideShowEvent } from "../../../constants";
+import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbItem.module.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
@@ -29,8 +28,7 @@ export interface BreadcrumbItemProps extends VibeComponentProps {
   /** Should be the current Item - mainly effects the item`s style. */
   isCurrent?: boolean;
   /** An Icon - If no icon needed then should be left empty. */
-  // TODO TS-migration fix icon type?
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: SubIcon;
 }
 
 const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({

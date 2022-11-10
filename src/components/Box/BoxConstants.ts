@@ -178,18 +178,11 @@ export const BACKGROUND_COLORS = Object.freeze({
   SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
   GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
   ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
-  INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground,
-  DISABLED_BACKGROUND_COLOR: styles.bgDisabledBackgroundColor
+  INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground
 });
 
 export const COLORS = Object.freeze({
-  PRIMARY_COLOR: styles.textPrimaryColor,
   PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
-  TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnPrimary,
   TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,
-  SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor,
-  PLACEHOLDER_COLOR: styles.textPlaceholderColor,
-  ICON_COLOR: styles.textIconColor,
-  LINK_COLOR: styles.textLinkColor,
-  DISABLED_TEXT_COLOR: styles.textDisabledTextColor
+  SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor
 });

@@ -8,10 +8,10 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import styles from "./IconButton.module.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import { VibeComponentProps, SubIcon } from "../../types";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
@@ -33,7 +33,7 @@ export interface IconButtonProps extends VibeComponentProps {
   /**
    * Icon to be rendered
    */
-  icon?: string | React.FunctionComponent | null;
+  icon?: SubIcon;
   /**
    * a11y property to be added, used for screen reader to know what kind of button it is
    */

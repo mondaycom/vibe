@@ -2,7 +2,7 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
-import { AvatarSizes } from "./AvatarConstants";
+import { AvatarSize } from "./AvatarConstants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./AvatarBadge.module.scss";
@@ -18,7 +18,7 @@ export interface AvatarBadgeProps extends VibeComponentProps {
 }
 
 export const AvatarBadge: React.FC<AvatarBadgeProps> & {
-  sizes?: typeof AvatarSizes;
+  sizes?: typeof AvatarSize;
 } = ({ src, ariaLabel, tabIndex, className, size, id, "data-testid": dataTestId, ...otherProps }) => {
   return src ? (
     <CustomSvgIcon
@@ -33,12 +33,12 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 };
 
 Object.assign(AvatarBadge, {
-  sizes: AvatarSizes
+  sizes: AvatarSize
 });
 
 AvatarBadge.defaultProps = {
   ariaLabel: undefined,
   tabIndex: 0,
   className: "",
-  size: AvatarSizes.LARGE
+  size: AvatarSize.LARGE
 };

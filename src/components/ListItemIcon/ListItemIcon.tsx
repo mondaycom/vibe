@@ -1,14 +1,14 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Icon, { IconSubComponentProps } from "../Icon/Icon";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import Icon from "../Icon/Icon";
 import { ListItemIconMargin } from "./ListItemIconConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { SubIcon, VibeComponentProps } from "../../types";
 import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: SubIcon;
   /**
    * the position of the icon inside the list item (this sets the margins of the icon)
    */

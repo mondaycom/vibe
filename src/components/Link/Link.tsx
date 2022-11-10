@@ -2,11 +2,10 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import VibeComponent from "src/types/VibeComponent";
-import VibeComponentProps from "src/types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
@@ -27,7 +26,7 @@ export interface LinkProps extends VibeComponentProps {
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
-  icon?: string | React.FunctionComponent | null;
+  icon?: SubIcon;
   /** the position of the icon in relation to the etext */
   iconPosition?: IconPosition;
   /** disable navigation */

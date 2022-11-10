@@ -10,15 +10,15 @@ import { ButtonValue } from "./ButtonGroupConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { IconType } from "../Icon/IconConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { SubIcon } from "../../types";
 import styles from "./ButtonGroup.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-button-group-component";
 
 type ButtonGroupOption = {
-  icon?: IconType;
-  leftIcon?: IconType;
+  icon?: SubIcon;
+  leftIcon?: SubIcon;
   ariaLabel?: string;
   subText?: string;
   value: ButtonValue;

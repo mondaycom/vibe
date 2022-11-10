@@ -8,7 +8,7 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Banner.module.scss";
 
 export interface BannerProps extends VibeComponentProps {

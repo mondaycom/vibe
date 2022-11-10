@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.70.1 (2022-11-09)
+
+#### Bug Fixes
+* [#974](https://github.com/mondaycom/monday-ui-react-core/pull/974) ComboboxItems: add categories to calculations. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#975](https://github.com/mondaycom/monday-ui-react-core/pull/975) Fix storybook box overview code ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#976](https://github.com/mondaycom/monday-ui-react-core/pull/976) add source maps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.70.0 (2022-11-02)
+
+#### New Features
+* [#970](https://github.com/mondaycom/monday-ui-react-core/pull/970) tipseen tip prop ([@liorswM](https://github.com/liorswM))
+
+## 1.69.3 (2022-11-02)
+
+#### Bug Fixes
+* [#969](https://github.com/mondaycom/monday-ui-react-core/pull/969) fix accordion publish ([@hadasfa](https://github.com/hadasfa))
+
+## 1.69.2 (2022-11-02)
+
+#### Bug Fixes
+* [#968](https://github.com/mondaycom/monday-ui-react-core/pull/968) Fix bug: scroll inside dropdown in overflow mode ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#967](https://github.com/mondaycom/monday-ui-react-core/pull/967) Box: ts-migration  ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#966](https://github.com/mondaycom/monday-ui-react-core/pull/966) Fix DatePicker tests + refactor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#965](https://github.com/mondaycom/monday-ui-react-core/pull/965) Accordion: ts-migration - refactoring ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#963](https://github.com/mondaycom/monday-ui-react-core/pull/963) Migrate Accordion to TypeScript ([@aayushbisen](https://github.com/aayushbisen))
+
+## 1.69.1 (2022-10-26)
+
+#### Bug Fixes
+* [#962](https://github.com/mondaycom/monday-ui-react-core/pull/962) add support for import css files ([@neilmon](https://github.com/neilmon))
+
+#### Internal Changes
+* [#956](https://github.com/mondaycom/monday-ui-react-core/pull/956) TS fixes: add SubIcon and Element types + remove default props ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.69.0 (2022-10-25)
 
 #### New Features

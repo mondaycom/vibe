@@ -10,13 +10,14 @@ import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, Jus
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ElementContent } from "../../types/ElementContent";
 import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;
-  content: string | ReactElement;
+  content: ElementContent;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
@@ -45,6 +46,9 @@ export interface TooltipProps extends VibeComponentProps {
    */
   containerSelector?: string;
   immediateShowDelay?: number;
+  /**
+   * when false, the arrow of the tooltip is hidden
+   */
   tip?: boolean;
   /**
    * Show the Dialog when the children is mounting
