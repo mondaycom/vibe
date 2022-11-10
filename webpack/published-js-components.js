@@ -27,7 +27,6 @@ const publishedJSComponents = {
   Dropdown: "components/Dropdown/Dropdown.jsx",
   Toast: "components/Toast/Toast.jsx",
   Flex: "components/Flex/Flex.jsx",
-  LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",
