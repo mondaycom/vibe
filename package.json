@@ -116,6 +116,8 @@
     "@types/lodash": "^4.14.184",
     "@types/lodash-es": "^4.17.6",
     "@types/react-transition-group": "^4.4.5",
+    "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/react-window": "^1.8.5",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "acorn": "^8.7.1",
