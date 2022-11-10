@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.70.2 (2022-11-10)
+
+#### Bug Fixes
+* [#982](https://github.com/mondaycom/monday-ui-react-core/pull/982) Fix tooltip-arrow color to adapt to the theme ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.70.1 (2022-11-09)
 
 #### Bug Fixes
