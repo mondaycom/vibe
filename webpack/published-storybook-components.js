@@ -1,12 +1,10 @@
 const publishedStorybookComponents = {
   // Components
   AnchorListItem: "components/anchor-list-item/anchor-list-item.jsx",
-  ColorsDescription: "components/colors-description/colors-description.jsx",
   // ComingSoon: "components/coming-soon/coming-soon.jsx", - images from storybook/components/* are not exported
   ComponentDescription: "components/component-description/component-description.jsx",
   ComponentName: "components/component-name/component-name.jsx", // images from storybook/components/* are not exported
   ComponentRules: "components/component-rules/component-rules.jsx",
-  DocFooter: "components/doc-footer/doc-footer.jsx",
   Frame: "components/frame/frame.jsx",
   FunctionArguments: "components/function-arguments/function-arguments.jsx",
   FunctionArgument: "components/function-arguments/function-argument.jsx",
@@ -14,12 +12,10 @@ const publishedStorybookComponents = {
   InformationBoxTitle: "components/information-box-title/information-box-title.jsx",
   Link: "components/link/link.jsx",
   LinkComponent: "components/link-component/link-component.jsx",
-  MultipleStoryElementsWrapper: "components/multiple-story-elements-wrapper/multiple-story-elements-wrapper.jsx",
   Paragraph: "components/paragraph/paragraph.jsx",
   RelatedComponent: "components/related-component/related-component.jsx",
   SectionName: "components/section-name/section-name.jsx",
   StoryDescription: "components/story-description/story-description.jsx",
-  TextColors: "components/text-colors/text-colors.jsx",
   Tip: "components/tip/tip.jsx",
   Title: "components/title/title.jsx",
   TokenTable: "components/token-table/token-table.jsx",
@@ -28,7 +24,6 @@ const publishedStorybookComponents = {
   UsageGuidelines: "components/usage-guidelines/usage-guidelines.jsx",
   VisualDescription: "components/visual-description/visual-description.jsx",
   // Decorators
-  VerticalStories: "decorators/vertical-stories.jsx",
   withMemoryStats: "decorators/memory-stats.jsx",
   // Functions
   createComponentTemplate: "functions/createComponentTemplate.js",
