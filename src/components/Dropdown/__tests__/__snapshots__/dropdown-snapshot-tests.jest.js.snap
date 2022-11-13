@@ -3286,97 +3286,128 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 `;
 
 exports[`Dropdown renders correctly with tooltipContent 1`] = `
-<DocumentFragment>
+<div
+  className="dropdown-wrapper css-bbwnb8-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
-    id="dropdown-menu-id"
+    className="monday-dropdown_scrollable-wrapper"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
-      </span>
-    </span>
     <div
-      class="monday-dropdown_scrollable-wrapper"
+      className=" css-132xx32-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
     >
       <div
-        class=" css-quv8ei-control"
+        className=" css-1ht1nal-Component"
       >
         <div
-          class=" css-1ht1nal-Component"
+          className=" css-1dtegfv-placeholder"
+        >
+          
+        </div>
+        <div
+          className="css-lkl2xd-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
-          />
-          <div
-            class="css-lkl2xd-Component"
+            className=""
+            style={
+              Object {
+                "display": "inline-block",
+              }
+            }
           >
+            <input
+              aria-autocomplete="list"
+              aria-label="Dropdown input"
+              autoCapitalize="none"
+              autoComplete="off"
+              autoCorrect="off"
+              disabled={false}
+              id="react-select-19-input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              spellCheck="false"
+              style={
+                Object {
+                  "background": 0,
+                  "border": 0,
+                  "boxSizing": "content-box",
+                  "color": "inherit",
+                  "fontSize": "inherit",
+                  "label": "input",
+                  "opacity": 1,
+                  "outline": 0,
+                  "padding": 0,
+                  "width": "1px",
+                }
+              }
+              tabIndex="0"
+              type="text"
+              value=""
+            />
             <div
-              class=""
-              style="display: inline-block;"
+              style={
+                Object {
+                  "height": 0,
+                  "left": 0,
+                  "overflow": "scroll",
+                  "position": "absolute",
+                  "top": 0,
+                  "visibility": "hidden",
+                  "whiteSpace": "pre",
+                }
+              }
             >
-              <input
-                aria-autocomplete="list"
-                aria-label="Dropdown input"
-                autocapitalize="none"
-                autocomplete="off"
-                autocorrect="off"
-                id="react-select-19-input"
-                spellcheck="false"
-                style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-                tabindex="0"
-                type="text"
-                value=""
-              />
-              <div
-                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-              />
+              
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className=" css-1aqjfd-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
         <div
-          class=" css-1aqjfd-Component"
+          aria-hidden="true"
+          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
         >
-          <span
-            class=" css-ds71as-Component"
-          />
-          <div
-            aria-hidden="true"
-            class="dropdown-indicator css-slqvkp-indicatorContainer"
+          <svg
+            aria-hidden={false}
+            className="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            role="button"
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
           >
-            <svg
-              aria-hidden="false"
-              class="icon_component icon_component--clickable"
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
               fill="currentColor"
-              height="20px"
-              role="button"
-              tabindex="-1"
-              viewBox="0 0 20 20"
-              width="20px"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
+              fillRule="evenodd"
+            />
+          </svg>
         </div>
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Dropdown renders correctly with value 1`] = `

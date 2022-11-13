@@ -133,11 +133,8 @@ describe("Dropdown renders correctly", () => {
   });
 
   it("with tooltipContent", () => {
-    const component = new DropdownDriver().withTooltipContent("tooltip content");
-
-    component.focusInput();
-
-    expect(component.snapshot).toMatchSnapshot();
+    const tree = renderer.create(<Dropdown tooltipContent="tooltip content" />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   describe("snapshot driver", () => {
