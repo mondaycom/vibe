@@ -213,4 +213,8 @@ export default class DropdownDriver {
   withOnClear(onClear) {
     return this.setProp("onClear", onClear);
   }
+
+  withTooltipContent(tooltipContent) {
+    return this.setProp("tooltipContent", tooltipContent);
+  }
 }
