@@ -113,6 +113,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
+    "@types/autosize": "^4.0.1",
     "@types/lodash": "^4.14.184",
     "@types/lodash-es": "^4.17.6",
     "@types/react-transition-group": "^4.4.5",

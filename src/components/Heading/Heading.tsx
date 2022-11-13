@@ -1,5 +1,5 @@
 import { DialogPosition } from "../../constants/sizes";
-import React, { useLayoutEffect } from "react";
+import React, { CSSProperties, useLayoutEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
@@ -24,7 +24,7 @@ export interface HeadingProps extends VibeComponentProps {
   customColor?: string;
   /** Custom font flag, use to enable new font family on H1 headers */
   brandFont?: boolean;
-  style?: CSSStyleDeclaration;
+  style?: CSSProperties;
   tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
 }
 
@@ -51,7 +51,7 @@ const Heading: React.FC<HeadingProps> & {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
-  const finalStyle = useStyle(style, { color: customColor } as CSSStyleDeclaration);
+  const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,

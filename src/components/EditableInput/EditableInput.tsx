@@ -1,40 +1,67 @@
-import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import cx from "classnames";
 import autosize from "autosize";
 import useStyle from "../../hooks/useStyle";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import {
-  isEnterEvent,
-  isEscapeEvent,
-  isTabEvent,
-  isArrowUpEvent,
   isArrowDownEvent,
   isArrowLeftEvent,
-  isArrowRightEvent
+  isArrowRightEvent,
+  isArrowUpEvent,
+  isEnterEvent,
+  isEscapeEvent,
+  isTabEvent
 } from "../../utils/dom-event-utils";
+import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps } from "../../types";
+import { InputType } from "./EditableInputConstants";
 import "./EditableInput.scss";
 
-export const TEXTAREA_TYPE = "textarea";
+export interface EditableInputProps extends VibeComponentProps {
+  value?: string;
+  placeholder?: string;
+  inputType?: InputType;
+  autoSize?: boolean;
+  autoComplete?: boolean;
+  maxLength?: number;
+  shouldFocusOnMount?: boolean;
+  textareaSubmitOnEnter?: boolean;
+  ariaLabel?: string;
+  customColor?: string;
+  brandFont?: boolean;
+  tabIndex?: number;
+  isValidValue?: (value: string) => boolean;
+  onFinishEditing?: (value: string, event: React.KeyboardEvent | React.FocusEvent) => void;
+  onArrowKeyDown?: (event: React.KeyboardEvent, value: string) => void;
+  onClick?: () => void;
+  onKeyPress?: () => void;
+  selectOnMount?: () => void;
+  ignoreBlurClass?: string;
+  onIgnoreBlurEvent?: (value: string) => void;
+  onFocus?: (event: React.FocusEvent) => void;
+  onBlur?: (event: React.FocusEvent) => void;
+  onCancelEditing?: (event: React.KeyboardEvent) => void;
+  onChange?: (value: string) => void;
+  onError?: () => void;
+  onSuccess?: () => void;
+  onKeyDown?: (event: React.KeyboardEvent, value: string) => void;
+  onTabHandler?: (value: string, event: React.KeyboardEvent) => void;
+}
 
-const isTextArea = inputType => {
-  return TEXTAREA_TYPE === inputType;
-};
-
-const EditableInput = forwardRef(
+const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
   (
     {
       className,
-      inputType,
-      autoSize,
+      inputType = InputType.INPUT,
+      autoSize = false,
       id,
       tabIndex,
-      autoComplete,
+      autoComplete = true,
       maxLength,
-      placeholder,
+      placeholder = "",
       onClick,
       onKeyPress,
-      shouldFocusOnMount,
+      shouldFocusOnMount = true,
       selectOnMount,
       value,
       customColor,
@@ -50,10 +77,10 @@ const EditableInput = forwardRef(
       onKeyDown,
       onTabHandler,
       onCancelEditing,
-      textareaSubmitOnEnter,
+      textareaSubmitOnEnter = false,
       onArrowKeyDown,
       ariaLabel,
-      brandFont
+      brandFont = false
     },
     ref
   ) => {
@@ -66,7 +93,7 @@ const EditableInput = forwardRef(
 
     // Callbacks
     const autosizeIfNeeded = useCallback(() => {
-      if (componentRef.current && autoSize && isTextArea(inputType)) {
+      if (componentRef.current && autoSize && inputType === InputType.TEXT_AREA) {
         autosize(componentRef.current);
       }
     }, [componentRef, autoSize, inputType]);
@@ -80,7 +107,7 @@ const EditableInput = forwardRef(
     }, [componentRef]);
 
     const onFocusCallback = useCallback(
-      event => {
+      (event: React.FocusEvent) => {
         if (onFocus) {
           onFocus(event);
         }
@@ -89,9 +116,9 @@ const EditableInput = forwardRef(
     );
 
     const onBlurCallback = useCallback(
-      event => {
-        const shouldIgnoreBlur = (el, ignoreClass) => {
-          return el && ignoreBlurClass && el.classList.contains(ignoreClass);
+      (event: React.FocusEvent) => {
+        const shouldIgnoreBlur = (el: EventTarget & Element, ignoreClass: string) => {
+          return el && ignoreClass && el.classList.contains(ignoreClass);
         };
 
         const { relatedTarget } = event;
@@ -101,6 +128,7 @@ const EditableInput = forwardRef(
         }
 
         const enrichedEvent = event;
+        // @ts-ignore
         enrichedEvent.origin = "blur";
 
         if (onFinishEditing) {
@@ -115,7 +143,7 @@ const EditableInput = forwardRef(
     );
 
     const onChangeCallback = useCallback(
-      event => {
+      (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { value: newValue } = event.target;
         if (!isValidValue || isValidValue(newValue)) {
           setValueState(newValue);
@@ -142,17 +170,17 @@ const EditableInput = forwardRef(
     }, [componentRef, valueState]);
 
     const onKeyDownCallback = useCallback(
-      event => {
+      (event: React.KeyboardEvent) => {
         if (onKeyDown) {
           return onKeyDown(event, valueState);
         }
 
-        if (onTabHandler && isTabEvent(event) && !isTextArea(inputType)) {
+        if (onTabHandler && isTabEvent(event) && inputType !== InputType.TEXT_AREA) {
           event.preventDefault();
           return onTabHandler(valueState, event);
         }
 
-        if (onFinishEditing && isEnterEvent(event) && (!isTextArea(inputType) || textareaSubmitOnEnter)) {
+        if (onFinishEditing && isEnterEvent(event) && (inputType !== InputType.TEXT_AREA || textareaSubmitOnEnter)) {
           onFinishEditing(valueState, event);
         }
 
@@ -164,7 +192,7 @@ const EditableInput = forwardRef(
           onArrowKeyDown &&
           (isArrowUpEvent(event) || isArrowDownEvent(event) || isArrowLeftEvent(event) || isArrowRightEvent(event))
         ) {
-          onArrowKeyDown(valueState, event);
+          onArrowKeyDown(event, valueState);
         }
       },
       [
@@ -194,10 +222,10 @@ const EditableInput = forwardRef(
 
     const style = useStyle(undefined, { color: customColor });
 
-    const rows = isTextArea(inputType) && autoSize ? "1" : undefined;
-    const InputType = inputType;
+    const rows = inputType === InputType.TEXT_AREA && autoSize ? 1 : undefined;
+    const InputTypeComponent = inputType;
     return (
-      <InputType
+      <InputTypeComponent
         ref={mergedRef}
         id={id}
         style={style}
@@ -223,40 +251,5 @@ const EditableInput = forwardRef(
     );
   }
 );
-
-EditableInput.propTypes = {
-  className: PropTypes.string,
-  placeholder: PropTypes.string,
-  inputType: PropTypes.oneOf(["input", "textarea"]),
-  autoSize: PropTypes.bool,
-  autoComplete: PropTypes.bool,
-  maxLength: PropTypes.number,
-  shouldFocusOnMount: PropTypes.bool,
-  isValidValue: PropTypes.func,
-  onFinishEditing: PropTypes.func,
-  onArrowKeyDown: PropTypes.func,
-  onCancelEditing: PropTypes.func,
-  textareaSubmitOnEnter: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-  customColor: PropTypes.string,
-  brandFont: PropTypes.bool
-};
-EditableInput.defaultProps = {
-  className: "",
-  placeholder: "",
-  inputType: "input",
-  autoSize: false,
-  autoComplete: true,
-  maxLength: undefined,
-  shouldFocusOnMount: true,
-  isValidValue: undefined,
-  onFinishEditing: undefined,
-  onArrowKeyDown: undefined,
-  onCancelEditing: undefined,
-  textareaSubmitOnEnter: false,
-  ariaLabel: undefined,
-  customColor: undefined,
-  brandFont: false
-};
 
 export default EditableInput;
