@@ -10,10 +10,11 @@ module.exports = api => {
       }
     },
     presets: [
+      "@babel/preset-react",
       [
         "@babel/preset-env",
         {
-          modules: "commonjs",
+          modules: false,
           targets: TESTING_STORYBOOK
             ? {
                 node: "current"
@@ -26,8 +27,7 @@ module.exports = api => {
                 node: "current"
               }
         }
-      ],
-      "@babel/preset-react"
+      ]
     ],
     plugins: [
       "react-require",
