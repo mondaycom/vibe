@@ -10,11 +10,14 @@ import postcss from "rollup-plugin-postcss";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 
-export default {
-  input: ["src/index.js"],
+/**
+ * @type {() => import('rollup').RollupOptions}
+ */
+const buildConfig = ({ input = "index.js", outputDirName, format = "es" } = {}) => ({
+  input: [`src/${input}`],
   output: {
-    dir: path.join(__dirname, "dist"),
-    format: "es",
+    dir: path.join(__dirname, "dist", outputDirName),
+    format,
     indent: false,
     strict: false,
     exports: "named"
@@ -54,4 +57,6 @@ export default {
       autoModules: true
     })
   ]
-};
+});
+
+export default [buildConfig({ outputDirName: "esm" }), buildConfig({ outputDirName: "main", format: "commonjs" })];
