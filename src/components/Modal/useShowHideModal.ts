@@ -1,8 +1,21 @@
-import { useEffect, useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
+import { A11yDialogType } from "./ModalHelper";
 
-export default function useShowHideModal({ instance, show, triggerElement, onClose, alertDialog }) {
+export default function useShowHideModal({
+  instance,
+  show,
+  triggerElement,
+  onClose,
+  alertDialog
+}: {
+  instance: A11yDialogType;
+  show: boolean;
+  triggerElement: Element;
+  onClose: () => void;
+  alertDialog: boolean;
+}) {
   const getAnimationProps = useAnimationProps(triggerElement, instance);
 
   const closeDialogIfNeeded = useCallback(() => {

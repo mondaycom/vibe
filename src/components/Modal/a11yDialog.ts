@@ -1,16 +1,17 @@
 import React from "react";
 import A11yDialogLib from "a11y-dialog";
+import { A11yDialogType } from "./ModalHelper";
 
-const useA11yDialogInstance = () => {
+const useA11yDialogInstance = (): [A11yDialogType, (node: Element) => void] => {
   const [instance, setInstance] = React.useState(null);
-  const container = React.useCallback(node => {
+  const container = React.useCallback((node: Element) => {
     if (node !== null) setInstance(new A11yDialogLib(node));
   }, []);
 
   return [instance, container];
 };
 
-export const useA11yDialog = ({ id, alertDialog }) => {
+export const useA11yDialog = ({ id, alertDialog }: { id: string; alertDialog: boolean }) => {
   const [instance, ref] = useA11yDialogInstance();
   const role = alertDialog ? "alertdialog" : "dialog";
   const titleId = id + "-title";

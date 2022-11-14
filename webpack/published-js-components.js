@@ -29,10 +29,7 @@ const publishedJSComponents = {
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Modal: "components/Modal/Modal.jsx",
-  ModalHeader: "components/ModalHeader/ModalHeader.jsx",
-  ModalFooter: "components/ModalFooter/ModalFooter.jsx",
-  ModalContent: "components/ModalContent/ModalContent.jsx"
+  Slider: "components/Slider/Slider.jsx"
 };
 // eslint-disable-next-line no-undef
 module.exports = {
