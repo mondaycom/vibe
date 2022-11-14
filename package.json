@@ -18,7 +18,7 @@
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
     "test:jest": "jest",
-    "test:jest:stories": "testing=storybook TEST_END_FILES=jest-story jest",
+    "test:jest:stories": "npm run build-storybook-utils && testing=storybook TEST_END_FILES=jest-story jest",
     "test:jest:update": "npm run test:jest -- -u",
     "test:jest:coverage": "npm run test:jest -- --coverage",
     "start": "npm run build:ts-index && npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
