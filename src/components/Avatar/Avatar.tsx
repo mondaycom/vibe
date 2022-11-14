@@ -4,36 +4,32 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
-import { AvatarSizes, AvatarTypes } from "./AvatarConstants";
+import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import { iconSubComponentProps } from "../Icon/Icon";
-
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./Avatar.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
 export interface AvatarProps extends VibeComponentProps {
-  id?: string;
   src?: string;
   text?: string;
-  tooltipProps?: any;
+  tooltipProps?: TooltipProps;
   ariaLabel?: string;
   withoutTooltip?: boolean;
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
-  type?: AvatarTypes;
-  className?: string;
+  icon?: SubIcon;
+  type?: AvatarType;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: AriaRole;
-  size?: AvatarSizes;
+  size?: AvatarSize;
   customSize?: number;
   tabIndex?: number;
   ariaHidden?: boolean;
@@ -51,33 +47,33 @@ export interface AvatarProps extends VibeComponentProps {
 
 const Avatar: React.FC<AvatarProps> = ({
   id,
-  type,
+  type = AvatarType.TEXT,
   className,
-  textClassName,
-  size,
+  textClassName = "",
+  size = AvatarSize.LARGE,
   src,
   icon,
   text,
   tooltipProps,
   ariaLabel,
-  withoutTooltip,
+  withoutTooltip = false,
   role,
-  backgroundColor,
+  backgroundColor = elementColorsNames.CHILI_BLUE,
   square,
   disabled,
   // Backward compatibility for props naming
   isSquare,
   // Backward compatibility for props naming
   isDisabled,
-  tabIndex,
-  ariaHidden,
+  tabIndex = 0,
+  ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
-  withoutBorder,
-  customSize,
-  customBackgroundColor,
+  withoutBorder = false,
+  customSize = null,
+  customBackgroundColor = null,
   onClick
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
@@ -200,38 +196,10 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 Object.assign(Avatar, {
-  types: AvatarTypes,
-  sizes: AvatarSizes,
+  types: AvatarType,
+  sizes: AvatarSize,
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });
-
-Avatar.defaultProps = {
-  id: undefined,
-  src: undefined,
-  className: "",
-  textClassName: "",
-  icon: undefined,
-  text: undefined,
-  tooltipProps: undefined,
-  ariaLabel: undefined,
-  withoutTooltip: false,
-  type: AvatarTypes.TEXT,
-  backgroundColor: elementColorsNames.CHILI_BLUE,
-  customBackgroundColor: null,
-  role: undefined,
-  size: AvatarSizes.LARGE,
-  customSize: null,
-  tabIndex: 0,
-  ariaHidden: false,
-  disabled: undefined,
-  square: undefined,
-  topLeftBadgeProps: undefined,
-  topRightBadgeProps: undefined,
-  bottomLeftBadgeProps: undefined,
-  bottomRightBadgeProps: undefined,
-  withoutBorder: false,
-  onClick: undefined
-};
 
 export default Avatar;

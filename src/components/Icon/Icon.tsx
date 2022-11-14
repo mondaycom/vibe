@@ -1,19 +1,17 @@
-import React, { forwardRef, Ref, CSSProperties } from "react";
+import React, { CSSProperties, forwardRef, Ref } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon } from "../../types";
 import "./Icon.scss";
-import { MouseEventCallBack } from "src/types/events";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-const CLICK_NOOP = (event: React.MouseEvent) => {};
+const CLICK_NOOP = (_event: React.MouseEvent) => {};
 
-export interface iconSubComponentProps {
+export interface IconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
@@ -26,16 +24,43 @@ export interface iconSubComponentProps {
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
-  icon: string | React.FunctionComponent<iconSubComponentProps> | null;
+  /**
+   * We support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
+   */
+  icon: SubIcon;
+  /**
+   * Is icon is a button
+   */
   clickable?: boolean;
+  /**
+mo   * Icon aria label [aria label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+   */
   iconLabel?: string;
+  /**
+   *  The type of the component - svg, font or custom svg (using [`react-inlinesvg`](https://github.com/gilbarbara/react-inlinesvg#readme))
+   */
   iconType?: IconType;
+  /**
+   * Size for font icon
+   */
   iconSize?: number | string;
+  /**
+   * Remove focus style
+   */
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
+  /**
+   * Hide icon asset from screen reader. No need to set value for this prop when `clickable` is false
+   */
   ariaHidden?: boolean;
   style?: React.CSSProperties;
+  /**
+   * When using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
+   */
   useCurrentColor?: boolean;
+  /**
+   * Override the default color with a custom one
+   */
   customColor?: string;
 }
 
@@ -47,47 +72,17 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
        */
       id,
       onClick = CLICK_NOOP,
-      /**
-       * class name to be added to icon
-       */
       className,
-      /**
-       * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
-       */
       icon = "",
-      /**
-       * Is icon is a button
-       */
       clickable = true,
-      /**
-       * icon aria label support
-       */
       iconLabel,
-      /**
-       *  the type of the component - svg, font or custom svg (using react-inlinesvg)
-       */
       iconType = IconType.SVG,
-      /**
-       * size for font icon
-       */
       iconSize = 16,
-      /**
-       * remove focus style
-       */
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
-      /**
-       * Hide icon asset from screen reader. No need to set value for this prop when clickable = false
-       */
       ariaHidden,
       style,
-      /**
-       * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
-       */
       useCurrentColor = false,
-      /**
-       * If you want to override to coloring of currentColor
-       */
       customColor,
       "data-testid": dataTestId
     },

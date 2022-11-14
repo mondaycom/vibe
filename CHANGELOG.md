@@ -1,5 +1,94 @@
 # Changelog
 
+## 1.71.1 (2022-11-13)
+
+#### New Icons
+* [#979](https://github.com/mondaycom/monday-ui-react-core/pull/979) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.71.0 (2022-11-13)
+
+#### New Features
+* [#983](https://github.com/mondaycom/monday-ui-react-core/pull/983) dropdown component tooltip ([@liorswM](https://github.com/liorswM))
+
+## 1.70.2 (2022-11-10)
+
+#### Bug Fixes
+* [#982](https://github.com/mondaycom/monday-ui-react-core/pull/982) Fix tooltip-arrow color to adapt to the theme ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.70.1 (2022-11-09)
+
+#### Bug Fixes
+* [#974](https://github.com/mondaycom/monday-ui-react-core/pull/974) ComboboxItems: add categories to calculations. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#975](https://github.com/mondaycom/monday-ui-react-core/pull/975) Fix storybook box overview code ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#976](https://github.com/mondaycom/monday-ui-react-core/pull/976) add source maps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.70.0 (2022-11-02)
+
+#### New Features
+* [#970](https://github.com/mondaycom/monday-ui-react-core/pull/970) tipseen tip prop ([@liorswM](https://github.com/liorswM))
+
+## 1.69.3 (2022-11-02)
+
+#### Bug Fixes
+* [#969](https://github.com/mondaycom/monday-ui-react-core/pull/969) fix accordion publish ([@hadasfa](https://github.com/hadasfa))
+
+## 1.69.2 (2022-11-02)
+
+#### Bug Fixes
+* [#968](https://github.com/mondaycom/monday-ui-react-core/pull/968) Fix bug: scroll inside dropdown in overflow mode ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#967](https://github.com/mondaycom/monday-ui-react-core/pull/967) Box: ts-migration  ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#966](https://github.com/mondaycom/monday-ui-react-core/pull/966) Fix DatePicker tests + refactor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#965](https://github.com/mondaycom/monday-ui-react-core/pull/965) Accordion: ts-migration - refactoring ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#963](https://github.com/mondaycom/monday-ui-react-core/pull/963) Migrate Accordion to TypeScript ([@aayushbisen](https://github.com/aayushbisen))
+
+## 1.69.1 (2022-10-26)
+
+#### Bug Fixes
+* [#962](https://github.com/mondaycom/monday-ui-react-core/pull/962) add support for import css files ([@neilmon](https://github.com/neilmon))
+
+#### Internal Changes
+* [#956](https://github.com/mondaycom/monday-ui-react-core/pull/956) TS fixes: add SubIcon and Element types + remove default props ([@hadasfa](https://github.com/hadasfa))
+
+## 1.69.0 (2022-10-25)
+
+#### New Features
+* [#875](https://github.com/mondaycom/monday-ui-react-core/pull/875) Neil/date picker ([@neilmon](https://github.com/neilmon))
+
+#### Documentation
+* [#932](https://github.com/mondaycom/monday-ui-react-core/pull/932) Add docs about change publish component files for every ts migration update ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#949](https://github.com/mondaycom/monday-ui-react-core/pull/949) Slider and all sub-components: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#958](https://github.com/mondaycom/monday-ui-react-core/pull/958) Tab: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#951](https://github.com/mondaycom/monday-ui-react-core/pull/951) TextField: TS migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#955](https://github.com/mondaycom/monday-ui-react-core/pull/955) Toggle: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#957](https://github.com/mondaycom/monday-ui-react-core/pull/957) Fix dialog container after external contribution ([@hadasfa](https://github.com/hadasfa))
+* [#933](https://github.com/mondaycom/monday-ui-react-core/pull/933) refactor: migrate DialogContentContainer to typescript ([@vishal-codes](https://github.com/vishal-codes))
+
+## 1.68.3 (2022-10-23)
+
+#### Bug Fixes
+* [#952](https://github.com/mondaycom/monday-ui-react-core/pull/952) For "getElementColor" function return, add missing ')'. ([@3dyonic](https://github.com/3dyonic))
+* [#943](https://github.com/mondaycom/monday-ui-react-core/pull/943) fix: onClose can be undefined when hidding the modal ([@gaspoute](https://github.com/gaspoute))
+
+#### Internal Changes
+* [#945](https://github.com/mondaycom/monday-ui-react-core/pull/945) BreadcrumbsBar Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#935](https://github.com/mondaycom/monday-ui-react-core/pull/935) Heading Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#938](https://github.com/mondaycom/monday-ui-react-core/pull/938) List Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#941](https://github.com/mondaycom/monday-ui-react-core/pull/941) AlertBanner: Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#934](https://github.com/mondaycom/monday-ui-react-core/pull/934) Plop Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#862](https://github.com/mondaycom/monday-ui-react-core/pull/862) Loader Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#950](https://github.com/mondaycom/monday-ui-react-core/pull/950) fix button group after migration ([@hadasfa](https://github.com/hadasfa))
+* [#948](https://github.com/mondaycom/monday-ui-react-core/pull/948) refactor(ButtonGroup): migrate ButtonGroup to TypeScript ([@aayushbisen](https://github.com/aayushbisen))
+* [#937](https://github.com/mondaycom/monday-ui-react-core/pull/937) Ts/hadas/tooltip ([@hadasfa](https://github.com/hadasfa))
+* [#946](https://github.com/mondaycom/monday-ui-react-core/pull/946) Search Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.68.2 (2022-10-18)
 
 #### Bug Fixes

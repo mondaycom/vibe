@@ -1,12 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useRef, useState, useCallback, useEffect, useLayoutEffect } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Heading from "../Heading/Heading";
 import Clickable from "../Clickable/Clickable";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
-import { TYPES } from "../Heading/HeadingConstants";
-import { SIZES } from "../../constants/sizes";
 import usePrevious from "../../hooks/usePrevious";
 import "./EditableHeading.scss";
 
@@ -200,8 +198,8 @@ const EditableHeading = props => {
   );
 };
 
-EditableHeading.types = TYPES;
-EditableHeading.sizes = SIZES;
+EditableHeading.types = Heading.types;
+EditableHeading.sizes = Heading.sizes;
 
 EditableHeading.propTypes = {
   /**
@@ -264,13 +262,13 @@ EditableHeading.defaultProps = {
   className: "",
   id: "",
   placeholder: undefined,
-  type: TYPES.H1,
+  type: Heading.types.h1,
   errorClass: "error",
   errorClassTimeout: 2000,
   displayPlaceholderInTextMode: true,
   suggestEditOnHover: true,
   autoSize: true,
-  size: SIZES.LARGE,
+  size: Heading.sizes.LARGE,
   inputAriaLabel: undefined,
   highlightTerm: null,
   customColor: undefined,
@@ -285,8 +283,5 @@ EditableHeading.defaultProps = {
   brandFont: false,
   maxLength: undefined
 };
-
-EditableHeading.types = TYPES;
-EditableHeading.sizes = SIZES;
 
 export default EditableHeading;

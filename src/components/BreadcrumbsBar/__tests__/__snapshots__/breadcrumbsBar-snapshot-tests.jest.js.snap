@@ -30,7 +30,7 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
       <span
         aria-disabled="true"
         className="breadcrumb-content"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="breadcrumb-text"
@@ -60,7 +60,7 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
       <span
         aria-disabled="true"
         className="breadcrumb-content"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="breadcrumb-text"

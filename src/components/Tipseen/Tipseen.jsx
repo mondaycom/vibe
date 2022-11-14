@@ -1,5 +1,4 @@
-import { DialogPositions } from "../../constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
+import { DialogPosition } from "../../constants/sizes";
 import { useRef, forwardRef, useMemo, Fragment } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -9,7 +8,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { TOOLTIP_JUSTIFY_TYPES } from "../../components/Tooltip/TooltipConstants";
+import { JustifyType, AnimationType } from "../../constants/dialog";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import styles from "./Tipseen.module.scss";
@@ -40,6 +39,7 @@ const Tipseen = forwardRef(
       width,
       moveBy,
       hideWhenReferenceHidden,
+      tip,
       modifiers
     },
     ref
@@ -97,6 +97,7 @@ const Tipseen = forwardRef(
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          tip={tip}
           modifiers={modifiers}
         >
           {children}
@@ -107,13 +108,13 @@ const Tipseen = forwardRef(
 );
 
 Tipseen.positions = {
-  LEFT: DialogPositions.LEFT,
-  RIGHT: DialogPositions.RIGHT,
-  TOP: DialogPositions.TOP,
-  BOTTOM: DialogPositions.BOTTOM
+  LEFT: DialogPosition.LEFT,
+  RIGHT: DialogPosition.RIGHT,
+  TOP: DialogPosition.TOP,
+  BOTTOM: DialogPosition.BOTTOM
 };
-Tipseen.animationTypes = DIALOG_ANIMATION_TYPES;
-Tipseen.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
+Tipseen.animationTypes = AnimationType;
+Tipseen.justifyTypes = JustifyType;
 Tipseen.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
@@ -142,6 +143,10 @@ Tipseen.propTypes = {
   }),
   hideWhenReferenceHidden: PropTypes.bool,
   /**
+   * when false, the arrow of the tooltip is hidden
+   */
+  tip: PropTypes.bool,
+  /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
    */
@@ -165,6 +170,7 @@ Tipseen.defaultProps = {
   width: undefined,
   moveBy: undefined,
   hideWhenReferenceHidden: false,
+  tip: true,
   modifiers: []
 };
 
