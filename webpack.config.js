@@ -60,9 +60,7 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
-    ...publishedComponents,
-    storybookUtils: path.join(__dirname, "/src/storybook/infra/index.ts"),
-    storybookAddon: path.join(__dirname, "/src/storybook/infra/vibe-storybook-preset-addon/preset.ts")
+    ...publishedComponents
   };
 
   return {
@@ -80,7 +78,7 @@ module.exports = options => {
             {
               loader: "ts-loader",
               options: {
-                onlyCompileBundledFiles: false
+                onlyCompileBundledFiles: true
               }
             }
           ]
