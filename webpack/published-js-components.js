@@ -25,7 +25,6 @@ const publishedJSComponents = {
   SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  Toast: "components/Toast/Toast.jsx",
   Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",

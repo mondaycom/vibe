@@ -49,6 +49,7 @@ const publishedTSComponents = {
   TabList: "components/Tabs/TabList/TabList",
   TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
+  Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
