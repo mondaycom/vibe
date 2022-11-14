@@ -9,9 +9,9 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import { ChipsSize } from "./ChipsConstants";
+import { AvatarType } from "../Avatar/AvatarConstants";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -22,9 +22,9 @@ interface ChipsProps extends VibeComponentProps {
   readOnly?: boolean;
   dataTestId?: string;
   /** Icon to place on the right */
-  rightIcon?: string | React.FunctionComponent | null;
+  rightIcon?: SubIcon;
   /** Icon to place on the left */
-  leftIcon?: string | React.FunctionComponent | null;
+  leftIcon?: SubIcon;
   /** Img to place as avatar on the right */
   rightAvatar?: string;
   /** Img to place as avatar on the left */
@@ -112,7 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
-            type={Avatar.types.IMG}
+            type={AvatarType.IMG}
             key={id}
           />
         ) : null}
@@ -143,7 +143,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
-            type={Avatar.types.IMG}
+            type={AvatarType.IMG}
             key={id}
           />
         ) : null}

@@ -2,10 +2,9 @@ import React from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import Icon, { iconSubComponentProps } from "../Icon/Icon";
+import Icon from "../Icon/Icon";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./AvatarContent.scss";
-import Avatar from "./Avatar";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
 const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
@@ -17,7 +16,7 @@ interface AvatarContentProps extends VibeComponentProps {
   role?: string;
   ariaLabel?: string;
   /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: SubIcon;
   textClassName?: string;
   text?: string;
 }
@@ -25,12 +24,12 @@ interface AvatarContentProps extends VibeComponentProps {
 export const AvatarContent: React.FC<AvatarContentProps> & {
   sizes?: typeof AvatarSize;
   types?: typeof AvatarType;
-} = ({ type = Avatar.types.TEXT, src, icon, text, ariaLabel, role, size = Avatar.sizes.LARGE, textClassName }) => {
+} = ({ type = AvatarType.TEXT, src, icon, text, ariaLabel, role, size = AvatarSize.LARGE, textClassName = "" }) => {
   const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
   switch (type) {
-    case Avatar.types.IMG:
+    case AvatarType.IMG:
       return <img role={role} alt={ariaLabel} src={src} className={className} />;
-    case Avatar.types.ICON:
+    case AvatarType.ICON:
       return (
         <Icon
           icon={icon}
@@ -41,7 +40,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           ariaHidden={false}
         />
       );
-    case Avatar.types.TEXT:
+    case AvatarType.TEXT:
       return (
         <span aria-label={ariaLabel} role={role} className={cx(className, textClassName)}>
           {text}

@@ -56,7 +56,7 @@ module.exports = options => {
     }
   ];
   // why false? we are open source anyway
-  const devtool = storybook ? "eval-cheap-module-source-map" : false;
+  const devtool = storybook ? "eval-cheap-module-source-map" : "source-map";
   const publishedComponents = storybook ? {} : getPublishedComponents();
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
@@ -104,7 +104,7 @@ module.exports = options => {
         },
         {
           test: /\.css$/,
-          include: [path.resolve(__dirname, "not_exist_path")],
+          include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
         }
       ]

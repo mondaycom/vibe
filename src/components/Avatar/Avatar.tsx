@@ -10,8 +10,7 @@ import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import { iconSubComponentProps } from "../Icon/Icon";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -25,7 +24,7 @@ export interface AvatarProps extends VibeComponentProps {
   tooltipProps?: TooltipProps;
   ariaLabel?: string;
   withoutTooltip?: boolean;
-  icon?: string | React.FunctionComponent<iconSubComponentProps> | null;
+  icon?: SubIcon;
   type?: AvatarType;
   textClassName?: string;
   backgroundColor?: BackgroundColors;
@@ -56,7 +55,7 @@ const Avatar: React.FC<AvatarProps> & {
   id,
   type = AvatarType.TEXT,
   className,
-  textClassName,
+  textClassName = "",
   size = AvatarSize.LARGE,
   src,
   icon,
@@ -79,8 +78,8 @@ const Avatar: React.FC<AvatarProps> & {
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
   withoutBorder = false,
-  customSize,
-  customBackgroundColor,
+  customSize = null,
+  customBackgroundColor = null,
   onClick
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);

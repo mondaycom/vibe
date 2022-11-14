@@ -38,11 +38,11 @@ export const ComboboxItems = forwardRef(
     const style = useMemo(() => {
       if (maxOptionsWithoutScroll) {
         // Adding 0.5 to show next option to indicate scroll is available
-        const maxCount = Math.min(options.length, maxOptionsWithoutScroll + 0.5);
+        const maxCount = Math.min(options.length + Object.keys(categories ?? {}).length, maxOptionsWithoutScroll + 0.5);
         return { height: optionLineHeight * maxCount };
       }
       return undefined;
-    }, [maxOptionsWithoutScroll, optionLineHeight, options]);
+    }, [maxOptionsWithoutScroll, optionLineHeight, options, categories]);
 
     const createItemElementRenderer = useCallback(
       (item, index, style) =>

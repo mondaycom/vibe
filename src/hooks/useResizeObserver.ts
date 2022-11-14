@@ -1,4 +1,4 @@
-import { useEffect, RefObject, useCallback } from "react";
+import { RefObject, useCallback, useEffect } from "react";
 import debounce from "lodash/debounce";
 
 type ResizeCallback = ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => void;
@@ -18,7 +18,7 @@ export default function useResizeObserver({
     if (!window.ResizeObserver) {
       return;
     }
-    if (!ref.current) return;
+    if (!ref?.current) return;
 
     function borderBoxSizeCallback(borderBoxSize: ResizeObserverSize | ReadonlyArray<ResizeObserverSize>): number {
       const value = Array.isArray(borderBoxSize) ? borderBoxSize[0] : borderBoxSize;
@@ -49,7 +49,7 @@ export default function useResizeObserver({
       }
     });
 
-    resizeObserver.observe(ref.current);
+    resizeObserver.observe(ref?.current);
 
     return () => {
       if (debounceTime !== 0) {
@@ -63,5 +63,5 @@ export default function useResizeObserver({
       resizeObserver.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current, callback, debounceTime, debouncedCallback]);
+  }, [ref?.current, callback, debounceTime, debouncedCallback]);
 }

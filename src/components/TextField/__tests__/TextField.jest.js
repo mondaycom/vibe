@@ -1,6 +1,7 @@
 import React from "react";
-import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
-import TextField, { ARIA_LABELS } from "../TextField";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import TextField from "../TextField";
+import { TextFieldAriaLabel } from "../TextFieldConstants";
 
 describe("TextField Tests", () => {
   let inputComponent;
@@ -166,7 +167,7 @@ describe("TextField Tests", () => {
         );
       });
 
-      const charCount = queryByLabelText(ARIA_LABELS.CHAR);
+      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toBe(value.length);
     });
 
@@ -191,7 +192,7 @@ describe("TextField Tests", () => {
         fireEvent.change(input, { target: { value } });
       });
 
-      const charCount = queryByLabelText(ARIA_LABELS.CHAR);
+      const charCount = queryByLabelText(TextFieldAriaLabel.CHAR);
       expect(parseInt(charCount.innerHTML, 10)).toEqual(value.length);
     });
   });
@@ -199,7 +200,7 @@ describe("TextField Tests", () => {
   describe("validation text", () => {
     it("should not show validation", () => {
       const { queryByLabelText } = inputComponent;
-      const validationTextNode = queryByLabelText(ARIA_LABELS.VALIDATION_TEXT);
+      const validationTextNode = queryByLabelText(TextFieldAriaLabel.VALIDATION_TEXT);
       expect(validationTextNode).toBeNull();
     });
   });

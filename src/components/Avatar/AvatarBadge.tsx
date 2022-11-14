@@ -3,7 +3,7 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import "./AvatarBadge.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";

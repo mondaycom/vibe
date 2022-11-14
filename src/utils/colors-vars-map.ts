@@ -206,7 +206,7 @@ export const elementColorsNames = elementAllowedColors.reduce((acc: Record<strin
 
 export function getElementColor(colorName: string, isSelectedPalette = false): string {
   if (contentColorsByName[colorName]) {
-    return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""}`;
+    return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""})`;
   }
   if (stateSelectedColors[colorName] && isSelectedPalette) {
     return `var(${stateSelectedColors[colorName]})`;
