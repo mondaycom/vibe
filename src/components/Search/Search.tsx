@@ -4,10 +4,10 @@ import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
+import { SubIcon, VibeComponentProps } from "../../types";
 import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
 import "./Search.scss";
@@ -17,8 +17,8 @@ function getType(type: SearchType) {
 }
 
 export interface SearchProps extends VibeComponentProps {
-  secondaryIconName?: string | React.FunctionComponent | null;
-  iconName?: string | React.FunctionComponent | null;
+  secondaryIconName?: SubIcon;
+  iconName?: SubIcon;
   onChange?: () => void;
   autoFocus?: boolean;
   value?: string;

@@ -1,49 +1,48 @@
-import React, { useState, forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
+import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
-import { DayPickerSingleDateController, DayPickerRangeController, DayOfWeekShape } from "react-dates";
+import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
-import { Moment, FocusInput, Direction, RangeDate } from "./types";
+import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
-import "react-dates/initialize";
-import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
+
 interface DatePickerProps extends VibeComponentProps {
   /** set the first day of the week to display */
-  firstDayOfWeek: DayOfWeekShape;
+  firstDayOfWeek?: DayOfWeekShape;
   /** current start date */
   date?: Moment;
   /** current end date */
   endDate?: Moment;
   /** on date selected callback */
-  onPickDate: (date: Moment | RangeDate) => void;
+  onPickDate?: (date: Moment | RangeDate) => void;
   /** hide the month navigations keys */
-  hideNavigationKeys: boolean;
+  hideNavigationKeys?: boolean;
   /** show days outside the cuurent month view */
-  enableOutsideDays: boolean;
+  enableOutsideDays?: boolean;
   /** show week number column */
-  showWeekNumber: boolean;
+  showWeekNumber?: boolean;
   /** set the size of single day element */
-  daySize: number;
+  daySize?: number;
   /** determine if day should be disabled */
   shouldBlockDay?: (date: Moment) => boolean;
   /** date range mode*/
-  range: boolean;
+  range?: boolean;
   /** number of month to display*/
-  numberOfMonths: number;
+  numberOfMonths?: number;
   /** determine if year should be disabled */
   shouldBlockYear?: (year: number) => boolean;
   /** determine if date range should be disabled */
   shouldBlockRange?: (date: Moment) => boolean;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const NOOP = () => {};
 
 const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLDivElement, DatePickerProps>(
   (
@@ -125,7 +124,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       [focusedInput, onPickDate]
     );
 
-    const onFocuseChange = useCallback((focusedInput: FocusInput) => {
+    const onFocusChange = useCallback((focusedInput: FocusInput) => {
       setFocusedInput(focusedInput || FocusInput.startDate);
     }, []);
 
@@ -152,7 +151,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
             onDatesChange={onDateRangeChange}
             focusedInput={focusedInput}
             minimumNights={0}
-            onFocusChange={onFocuseChange}
+            onFocusChange={onFocusChange}
             navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
             navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
             daySize={daySize}

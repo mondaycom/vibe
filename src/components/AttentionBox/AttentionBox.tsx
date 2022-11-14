@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
-import Icon, { IconSubComponentProps } from "../Icon/Icon";
+import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./AttentionBox.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
@@ -21,7 +21,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   /** we support 4 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
-  icon?: string | React.FC<IconSubComponentProps> | null;
+  icon?: SubIcon;
   iconType?: IconType.SVG | IconType.ICON_FONT;
   title?: string;
   text?: string;
