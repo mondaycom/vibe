@@ -225,7 +225,7 @@ const SplitButton: FC<SplitButtonProps> & {
         {children}
       </Button>
       {shouldRenderSplitContent && (
-        <div className={cx(SECONDARY_BUTTON_WRAPPER_CLASSNAME)}>
+        <div className={cx(styles.secondaryButtonWrapper, SECONDARY_BUTTON_WRAPPER_CLASSNAME)}>
           <Dialog
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}

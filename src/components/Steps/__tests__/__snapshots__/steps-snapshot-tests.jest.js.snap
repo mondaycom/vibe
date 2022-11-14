@@ -2,15 +2,17 @@
 
 exports[`Steps with gallery type renders correctly when hide navigations icons 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -22,20 +24,23 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       Back
     </button>
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -43,7 +48,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -63,26 +68,31 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
 
 exports[`Steps with gallery type renders correctly when navigation buttons are hidden 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -96,18 +106,20 @@ exports[`Steps with gallery type renders correctly when navigation buttons are h
 
 exports[`Steps with gallery type renders correctly when steps content is on top 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-top"
+  className="monday-style-steps contentOnTop monday-style-steps--content-on-top"
+  data-testid="steps"
 >
   <div>
     second
   </div>
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -119,7 +131,8 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -135,20 +148,23 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -156,7 +172,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -168,7 +184,8 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -189,15 +206,17 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
 
 exports[`Steps with gallery type renders correctly when viewing first step 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -209,7 +228,8 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -225,20 +245,23 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current="step"
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -246,7 +269,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -258,7 +281,8 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -282,15 +306,17 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
 
 exports[`Steps with gallery type renders correctly when viewing last step 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -302,7 +328,8 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -318,20 +345,23 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -339,7 +369,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -351,7 +381,8 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -375,15 +406,17 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
 
 exports[`Steps with gallery type renders correctly with regular props 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--gallery"
+    className="header monday-style-steps-header monday-style-steps-header--gallery"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -395,7 +428,8 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -411,20 +445,23 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_gallery"
+      className="headerGallery monday-style-steps-header_gallery"
+      data-testid="steps-gallery-header"
       role="group"
     >
       <button
         aria-current="step"
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="headerDot monday-style-steps-header_dot headerDotIsActive monday-style-steps-header_dot--is-active"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot"
+        className="headerDot monday-style-steps-header_dot"
+        data-testid="steps-dot"
         onClick={[Function]}
         type="button"
       />
@@ -432,7 +469,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -444,7 +481,8 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -468,15 +506,17 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
 
 exports[`Steps with numeric type renders correctly when hide navigations icons 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--numbers"
+    className="header monday-style-steps-header monday-style-steps-header--numbers"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -488,14 +528,15 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       Back
     </button>
     <div
-      className="monday-style-steps-header_numbers"
+      className="headerNumbers monday-style-steps-header_numbers"
+      data-testid="steps-numbers-header"
     >
       2 \\ 2
     </div>
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -515,18 +556,20 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
 
 exports[`Steps with numeric type renders correctly when steps content is on top 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-top"
+  className="monday-style-steps contentOnTop monday-style-steps--content-on-top"
+  data-testid="steps"
 >
   <div>
     second
   </div>
   <div
-    className="monday-style-steps-header monday-style-steps-header--numbers"
+    className="header monday-style-steps-header monday-style-steps-header--numbers"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -538,7 +581,8 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -554,14 +598,15 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_numbers"
+      className="headerNumbers monday-style-steps-header_numbers"
+      data-testid="steps-numbers-header"
     >
       2 \\ 2
     </div>
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -573,7 +618,8 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -594,15 +640,17 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
 
 exports[`Steps with numeric type renders correctly when viewing first step 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--numbers"
+    className="header monday-style-steps-header monday-style-steps-header--numbers"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -614,7 +662,8 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -630,14 +679,15 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_numbers"
+      className="headerNumbers monday-style-steps-header_numbers"
+      data-testid="steps-numbers-header"
     >
       1 \\ 2
     </div>
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -649,7 +699,8 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -673,15 +724,17 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
 
 exports[`Steps with numeric type renders correctly when viewing last step 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--numbers"
+    className="header monday-style-steps-header monday-style-steps-header--numbers"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -693,7 +746,8 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -709,14 +763,15 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_numbers"
+      className="headerNumbers monday-style-steps-header_numbers"
+      data-testid="steps-numbers-header"
     >
       2 \\ 2
     </div>
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -728,7 +783,8 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -752,15 +808,17 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
 
 exports[`Steps with numeric type renders correctly with regular props 1`] = `
 <div
-  className="monday-style-steps monday-style-steps--content-on-bottom"
+  className="monday-style-steps contentOnBottom monday-style-steps--content-on-bottom"
+  data-testid="steps"
 >
   <div
-    className="monday-style-steps-header monday-style-steps-header--numbers"
+    className="header monday-style-steps-header monday-style-steps-header--numbers"
+    data-testid="steps-header"
   >
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="command monday-style-steps-command backward monday-style-steps-command--backward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
       data-testid="steps-backward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -772,7 +830,8 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -788,14 +847,15 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       </svg>
     </button>
     <div
-      className="monday-style-steps-header_numbers"
+      className="headerNumbers monday-style-steps-header_numbers"
+      data-testid="steps-numbers-header"
     >
       1 \\ 2
     </div>
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      className="command monday-style-steps-command forward monday-style-steps-command--forward button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -807,7 +867,8 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon icon_component icon monday-style-steps-command_icon"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
