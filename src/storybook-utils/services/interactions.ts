@@ -1,9 +1,10 @@
 import { within, userEvent, fireEvent } from "@storybook/testing-library";
+import { Screen } from "@testing-library/react";
 import { waitFor } from "@testing-library/react";
 import { expect } from "@storybook/jest";
 
 export type QueriedHTMLElement = any;
-export type TestFunction = (canvas: HTMLElement | QueriedHTMLElement, args: Record<string, any>) => unknown;
+export type TestFunction = (canvas: Screen, args: Record<string, any>) => unknown;
 export type Coordinates = { x: number; y: number };
 
 export enum NAVIGATIONS_COMMANDS {
@@ -19,7 +20,7 @@ export enum NAVIGATIONS_COMMANDS {
 
 // Internal functions
 const testFunctionWrapper = (testFunc: TestFunction) => {
-  return async ({ canvasElement, args }: { canvasElement: HTMLElement; args: Record<string, any> }) => {
+  return async ({ canvasElement, args }: { canvasElement: Screen; args: Record<string, any> }) => {
     // Starts querying the component from its root element
     const canvas = getWithin(canvasElement);
     return testFunc(canvas, args);
@@ -84,10 +85,10 @@ export const interactionSuite =
     tests,
     afterEach = null
   }: {
-    beforeEach: TestFunction;
+    beforeEach?: TestFunction;
     tests: Array<TestFunction>;
-    afterEach: TestFunction;
-  }): (({ canvasElement, args }: { canvasElement: HTMLElement; args: Record<string, any> }) => Promise<void>) =>
+    afterEach?: TestFunction;
+  }): (({ canvasElement, args }: { canvasElement: Screen; args: Record<string, any> }) => Promise<void>) =>
   async ({ canvasElement, args }) => {
     for (const test of tests) {
       const fnName = test.name;

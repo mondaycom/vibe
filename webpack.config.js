@@ -116,7 +116,6 @@ module.exports = options => {
     entry,
     output: {
       path: path.join(__dirname, "/dist/"),
-      publicPath: "",
       filename: "[name].js",
       library: "monday-style",
       libraryTarget: "umd",
