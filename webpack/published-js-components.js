@@ -1,7 +1,4 @@
 const publishedJSComponents = {
-  Box: "components/Box/Box.jsx",
-  AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
-  Accordion: "components/Accordion/Accordion/Accordion.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
@@ -28,9 +25,7 @@ const publishedJSComponents = {
   SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  Toast: "components/Toast/Toast.jsx",
   Flex: "components/Flex/Flex.jsx",
-  LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",

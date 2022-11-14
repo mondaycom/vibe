@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
-import VibeComponentProps from "../../../../types/VibeComponentProps";
-import { IconSubComponentProps } from "../../../Icon/Icon";
 import { keyCodes } from "../../../../constants";
+import { SubIcon, VibeComponentProps } from "../../../../types";
 import "./BreadcrumbContent.scss";
 
 interface BreadcrumbContentProps extends VibeComponentProps {
@@ -10,8 +9,7 @@ interface BreadcrumbContentProps extends VibeComponentProps {
   link?: string;
   onClick?: () => void;
   text?: string;
-  // TODO TS-migration fix icon type?
-  icon?: string | React.FC<IconSubComponentProps> | null;
+  icon?: SubIcon;
   isCurrent?: boolean;
   disabled?: boolean;
 }

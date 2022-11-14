@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Banner from "../Banner";
 import { NOOP } from "../../../utils/function-utils";
-import { MouseEventCallBack } from "src/types/events";
+import { MouseEventCallBack } from "../../../types";
 
 jest.mock("../../Button/Button", () => {
   const Button = ({ onClick }: { onClick: MouseEventCallBack }) => (
