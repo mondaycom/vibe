@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
@@ -7,6 +7,7 @@ import { StepsHeader } from "./StepsHeader";
 import { STEPS_CSS_BASE_CLASS, StepsType } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
+import VibeComponent from "../../types/VibeComponent";
 import "./Steps.scss";
 
 const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
@@ -30,7 +31,7 @@ interface StepsProps extends VibeComponentProps {
   nextButtonProps?: ButtonProps;
 }
 
-const Steps: FC<StepsProps> & { types?: typeof StepsType } = forwardRef(
+const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
   (
     {
       className,
