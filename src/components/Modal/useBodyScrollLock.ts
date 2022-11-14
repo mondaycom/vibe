@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { A11yDialogType } from "./ModalHelper";
 
-// the type is A11yDialog, but it's not exported, so can't be used
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function useBodyScrollLock({ instance }: { instance: any }) {
+export default function useBodyScrollLock({ instance }: { instance: A11yDialogType }) {
   // clear all scroll locks on unmount (just to be safe)
   useEffect(() => {
     return () => clearAllBodyScrollLocks();

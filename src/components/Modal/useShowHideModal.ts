@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
+import { A11yDialogType } from "./ModalHelper";
 
 export default function useShowHideModal({
   instance,
@@ -9,9 +10,7 @@ export default function useShowHideModal({
   onClose,
   alertDialog
 }: {
-  // the type is A11yDialog, but it's not exported, so can't be used
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  instance: any;
+  instance: A11yDialogType;
   show: boolean;
   triggerElement: Element;
   onClose: () => void;

@@ -1,9 +1,8 @@
 import React from "react";
 import A11yDialogLib from "a11y-dialog";
+import { A11yDialogType } from "./ModalHelper";
 
-// the type is A11yDialog, but it's not exported, so can't be used
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const useA11yDialogInstance = (): [any, (node: Element) => void] => {
+const useA11yDialogInstance = (): [A11yDialogType, (node: Element) => void] => {
   const [instance, setInstance] = React.useState(null);
   const container = React.useCallback((node: Element) => {
     if (node !== null) setInstance(new A11yDialogLib(node));

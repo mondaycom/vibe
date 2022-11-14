@@ -81,7 +81,10 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   hideCloseButton = false,
   closeButtonAriaLabel = "close"
 }) => {
-  const childrenArray: ReactElement[] = useMemo(() => React.Children.toArray(children) as ReactElement[], [children]);
+  const childrenArray: ReactElement[] = useMemo(
+    () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
+    [children]
+  );
   validateTitleProp(title, childrenArray);
 
   const [instance, attr] = useA11yDialog({
@@ -153,7 +156,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     document.body
   );
 
-  return <>{dialog}</>;
+  return ReactDOM.createPortal(dialog, document.body);
 };
 
 Object.assign(Modal, {
