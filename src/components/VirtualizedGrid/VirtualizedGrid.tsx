@@ -1,8 +1,15 @@
+import React, {
+  ComponentType,
+  CSSProperties,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import cx from "classnames";
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import NOOP from "lodash/noop";
-import { VariableSizeGrid as Grid } from "react-window";
+import { GridChildComponentProps, GridOnScrollProps, ScrollDirection, VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
@@ -12,26 +19,105 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import styles from "./VirtualizedGrid.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import VibeComponentProps from "src/types/VibeComponentProps";
+import { VibeComponent } from "../../types";
+import { NOOP } from "../../utils/function-utils";
+import styles from "./VirtualizedGrid.module.scss";
 
-const VirtualizedGrid = forwardRef(
+type ItemType = {
+  value: string;
+  height: number;
+  width: number;
+  id: string;
+};
+
+interface VirtualizedGridProps extends VibeComponentProps {
+  /**
+   * A list of items to be rendered
+   * {
+   *      item: ItemType,
+   *     index: number,
+   *     style: CSSProperties
+   * }[]
+   */
+  items: ItemType[];
+  /**
+   * item render function
+   * returns `JSX.Element`
+   */
+  itemRenderer: (
+    item: ItemType,
+    index: number,
+    style: CSSProperties
+  ) => ItemType | ComponentType<GridChildComponentProps<ItemType>>;
+  /**
+   * in order to calculate the number of rows to render in the grid, the component needs the height of the row
+   * return `number`
+   */
+  getRowHeight: () => number;
+  /**
+   * in order to calculate the number of columns to render in the grid, the component needs the width of the column
+   * return `number`
+   */
+  getColumnWidth: () => number;
+  /**
+   * returns Id of an items
+   * returns `string`
+   */
+  getItemId?: (item: ItemType, index: number) => string;
+  /**
+   * index of the item to scroll to
+   */
+  scrollToId?: number;
+  onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
+  /**
+   * callback to be called when the scroll is finished
+   */
+  onScrollToFinished?: () => void;
+  /**
+   * a callback that is being called when the items are rendered
+   */
+  onItemsRendered?: ({
+    firstItemId,
+    secondItemId,
+    lastItemId,
+    centerItemId,
+    firstItemOffsetEnd,
+    currentOffsetTop
+  }: {
+    firstItemId: string;
+    secondItemId: string;
+    lastItemId: string;
+    centerItemId: string;
+    firstItemOffsetEnd: number;
+    currentOffsetTop: number;
+  }) => void;
+  onItemsRenderedThrottleMs?: number;
+  /**
+   * when the grid size changes
+   */
+  onSizeUpdate?: (width: number, height: number) => void;
+  onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
+}
+
+const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
   (
     {
       className,
       id,
-      items,
-      itemRenderer,
-      getRowHeight,
-      getColumnWidth,
+      items = [],
+      itemRenderer = (item: ItemType, _index: number, _style: CSSProperties) => item,
+      getRowHeight = () => 50,
+      getColumnWidth = () => 100,
+      getItemId = (item: ItemType, _index: number) => item.id,
       onScroll,
-      getItemId,
-      scrollToId,
-      onScrollToFinished,
-      onItemsRendered,
-      onItemsRenderedThrottleMs,
-      onSizeUpdate,
-      onVerticalScrollbarVisiblityChange,
+      scrollToId = null,
+      onScrollToFinished = NOOP,
+      onItemsRendered = null,
+      onItemsRenderedThrottleMs = 200,
+      onSizeUpdate = NOOP,
+      onVerticalScrollbarVisiblityChange = null,
       "data-testid": dataTestId
     },
     ref
@@ -59,7 +145,7 @@ const VirtualizedGrid = forwardRef(
 
     // Callbacks
     const heightGetter = useCallback(
-      item => {
+      (item: ItemType) => {
         const height = getRowHeight();
         if (!height || Number.isNaN(height)) {
           console.error("Couldn't get height for item: ", item);
@@ -70,9 +156,9 @@ const VirtualizedGrid = forwardRef(
     );
 
     const idGetter = useCallback(
-      (item, index) => {
+      (item: ItemType, index: number) => {
         const itemId = getItemId(item, index);
-        if (!itemId || Number.isNaN(itemId)) {
+        if (itemId === undefined) {
           console.error("Couldn't get id for item: ", item);
         }
         return itemId;
@@ -104,7 +190,7 @@ const VirtualizedGrid = forwardRef(
 
     // Callbacks
     const onScrollCB = useCallback(
-      ({ horizontalScrollDirection, _scrollLeft, scrollTop, scrollUpdateWasRequested, _verticalScrollDirection }) => {
+      ({ horizontalScrollDirection, scrollTop, scrollUpdateWasRequested }: GridOnScrollProps) => {
         scrollTopRef.current = scrollTop;
         if (!scrollUpdateWasRequested) {
           animationData.scrollOffsetInitial = scrollTop;
@@ -115,7 +201,7 @@ const VirtualizedGrid = forwardRef(
     );
 
     const cellRenderer = useCallback(
-      ({ columnIndex, rowIndex, style }) => {
+      ({ columnIndex, rowIndex, style }: { columnIndex: number; rowIndex: number; style: CSSProperties }) => {
         const index = rowIndex * calcColumnCount + columnIndex;
         const item = items[index];
         return itemRenderer(item, index, style);
@@ -124,7 +210,7 @@ const VirtualizedGrid = forwardRef(
     );
 
     const updateGridSize = useCallback(
-      (width, height) => {
+      (width: number, height: number) => {
         if (height !== gridHeight || width !== gridWidth) {
           setTimeout(() => {
             setGridHeight(height);
@@ -184,6 +270,7 @@ const VirtualizedGrid = forwardRef(
         }
       }
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, gridHeight, idGetter]);
+
     return (
       <div
         ref={mergedRef}
@@ -207,6 +294,7 @@ const VirtualizedGrid = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={cx("virtualized-grid-scrollable-container")}
               >
+                {/*@ts-ignore*/}
                 {cellRenderer}
               </Grid>
             );
@@ -216,90 +304,5 @@ const VirtualizedGrid = forwardRef(
     );
   }
 );
-
-VirtualizedGrid.propTypes = {
-  /**
-   * class name to add to the component wrapper
-   */
-  className: PropTypes.string,
-  /**
-   * id to add to the component wrapper
-   */
-  id: PropTypes.string,
-  /**
-   * A list of items to be rendered
-   */
-  items: PropTypes.arrayOf(PropTypes.object),
-  /**
-   * item render function
-   * returns `JSX.Element`
-   */
-  itemRenderer: PropTypes.func,
-  /**
-   * in order to calculate the number of rows to render in the grid, the component needs the height of the row
-   * return `number`
-   */
-  getRowHeight: PropTypes.func,
-  /**
-   * in order to calculate the number of columns to render in the grid, the component needs the width of the column
-   * return `number`
-   */
-  getColumnWidth: PropTypes.func,
-  /**
-   * returns Id of an items
-   * returns `string`
-   */
-  getItemId: PropTypes.func,
-  /**
-   * index of the item to scroll to
-   */
-  scrollToId: PropTypes.number,
-  /**
-   * callback to be called when the scroll is finished
-   */
-  onScrollToFinished: PropTypes.func,
-  /**
-   * a callback that is being called when the items are rendered
-   *
-   *    `onItemsRendered => {`
-   *
-   *     firstItemId: string
-   *
-   *     secondItemId: string
-   *
-   *     lastItemId: string
-   *
-   *     centerItemId: string
-   *
-   *     firstItemOffsetEnd: number
-   *
-   *     currentOffsetTop: number
-   *
-   * }
-   */
-  onItemsRendered: PropTypes.func,
-  onItemsRenderedThrottleMs: PropTypes.number,
-  /**
-   * when the grid size changes - `=> (width, height)`
-   */
-  onSizeUpdate: PropTypes.func,
-  onVerticalScrollbarVisiblityChange: PropTypes.func
-};
-VirtualizedGrid.defaultProps = {
-  className: "",
-  id: "",
-  items: [],
-  itemRenderer: (item, _index, _style) => item,
-  getRowHeight: () => 50,
-  getColumnWidth: () => 100,
-  getItemId: (item, _index) => item.id,
-  onScrollToFinished: NOOP,
-  // overscanCount: 0,
-  onItemsRendered: null,
-  onItemsRenderedThrottleMs: 200,
-  onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null,
-  scrollToId: null
-};
 
 export default VirtualizedGrid;

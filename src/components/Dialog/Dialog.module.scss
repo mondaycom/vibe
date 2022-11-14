@@ -7,7 +7,7 @@ $arrow-size: 12px;
   height: $arrow-size;
   position: absolute;
   border-radius: 2px;
-  background-color: $white-theme-bg-color;
+  background-color: var(--secondary-background-color);
 
   &[data-placement*="bottom"] {
     top: 1px;

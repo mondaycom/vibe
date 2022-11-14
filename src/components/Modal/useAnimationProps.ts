@@ -1,6 +1,7 @@
 import { useCallback } from "react";
+import { A11yDialogType } from "./ModalHelper";
 
-export default function useAnimationProps(triggerElement, instance) {
+export default function useAnimationProps(triggerElement: Element, instance: A11yDialogType) {
   return useCallback(
     (hideAnimation = false) => {
       let animationStart, animationEnd;

@@ -1,71 +1,87 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-/* eslint-disable react/jsx-props-no-spreading */
-// Libraries import
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
-// Constants import
-import { keyCodes } from "../../constants/KeyCodes";
-// Utils import
+import {
+  DEFAULT_DIALOG_HIDE_TRIGGER,
+  DEFAULT_DIALOG_SHOW_TRIGGER,
+  DIALOG_MOVE_BY,
+  EMPTY_ARR,
+  ENTER_KEYS,
+  SECONDARY_BUTTON_ARIA_LABEL,
+  SECONDARY_BUTTON_WRAPPER_CLASSNAME,
+  SplitButtonSecondaryContentPosition
+} from "./SplitButtonConstants";
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
-// Hooks import
 import useKeyEvent from "../../hooks/useKeyEvent";
-// Components import
-import Button from "../Button/Button";
-import Dialog from "../Dialog/Dialog";
 import useEventListener from "../../hooks/useEventListener";
+import Button, { ButtonProps } from "../Button/Button";
+import Dialog from "../Dialog/Dialog";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-// Styles import
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import styles from "./SplitButton.module.scss";
 
-// Constants
-const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
-const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
-const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
-const SECONDARY_BUTTON_WRAPPER_CLASSNAME = [
-  styles.secondaryButtonWrapper,
-  "monday-style-split-button__secondary-button-wrapper"
-];
-const EMPTY_ARR = [];
+export interface SplitButtonProps extends ButtonProps {
+  /*
+   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+   */
+  secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  onSecondaryDialogDidShow?: () => void;
+  onSecondaryDialogDidHide?: () => void;
+  zIndex?: number;
+  /*
+   * Class name to provide the element which wraps the popover/modal/dialog
+   */
+  secondaryDialogClassName?: string;
+  secondaryDialogPosition?: SplitButtonSecondaryContentPosition;
+  /*
+    Popover Container padding size
+   */
+  dialogPaddingSize?: DialogSize;
+  shouldCloseOnClickInsideDialog?: boolean;
+}
 
-const ENTER_KEYS = [keyCodes.ENTER];
-
-const SECONDARY_CONTENT_POSITIONS = {
-  BOTTOM_START: "bottom-start",
-  BOTTOM_MIDDLE: "bottom",
-  BOTTOM_END: "bottom-end"
-};
-
-export const SECONDARY_BUTTON_ARIA_LABEL = "additional actions";
-
-const SplitButton = ({
-  marginLeft,
-  marginRight,
-  success,
-  loading,
-  children,
-  leftIcon,
-  rightIcon,
-  color,
-  kind,
-  className,
-  onClick,
+const SplitButton: FC<SplitButtonProps> & {
+  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
+  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
+  sizes?: typeof Button.sizes;
+  colors?: typeof Button.colors;
+  kinds?: typeof Button.kinds;
+  inputTags?: typeof Button.inputTags;
+  dialogPaddingSizes?: typeof DialogContentContainer.sizes;
+} = ({
   secondaryDialogContent,
-  onSecondaryDialogDidShow,
-  onSecondaryDialogDidHide,
-  disabled,
+  onSecondaryDialogDidShow = NOOP,
+  onSecondaryDialogDidHide = NOOP,
   shouldCloseOnClickInsideDialog,
-  zIndex,
+  zIndex = null,
   secondaryDialogClassName,
-  secondaryDialogPosition,
-  dialogPaddingSize,
+  secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
+  dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   id,
   "data-testid": dataTestId,
   ...buttonProps
 }) => {
+  const overrideButtonProps = { ...Button.defaultProps, ...buttonProps };
+  const {
+    disabled,
+    success,
+    loading,
+    kind,
+    color,
+    className,
+    leftIcon,
+    rightIcon,
+    onClick,
+    children,
+    marginLeft,
+    marginRight
+  } = overrideButtonProps;
+
   // State //
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isHovered, setIsHover] = useState(false);
@@ -79,15 +95,15 @@ const SplitButton = ({
   const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
 
   const shouldSetActive = useCallback(
-    e => {
+    (e: React.KeyboardEvent<HTMLElement>) => {
       if (disabled) return false;
-      return !isInsideClass(e.target, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
+      return !isInsideClass(e.target as HTMLElement, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
     },
     [disabled]
   );
 
   const setActive = useCallback(
-    e => {
+    (e: React.KeyboardEvent<HTMLElement>) => {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
@@ -95,7 +111,7 @@ const SplitButton = ({
   );
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
-    e => {
+    (e: React.KeyboardEvent<HTMLElement>) => {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
@@ -135,9 +151,9 @@ const SplitButton = ({
       cx(
         styles.button,
         "monday-style-split-button",
-        styles[camelCase("kind-" + kind)],
+        getStyle(styles, camelCase("kind-" + kind)),
         `monday-style-split-button--kind-${kind}`,
-        styles[camelCase("color-" + color)],
+        getStyle(styles, camelCase("color-" + color)),
         `monday-style-split-button--color-${color}`,
         {
           [styles.active]: isActive,
@@ -171,10 +187,10 @@ const SplitButton = ({
   }, [secondaryDialogContent, dialogPaddingSize]);
 
   const animationEdgePosition = useMemo(() => {
-    if (secondaryDialogPosition === SECONDARY_CONTENT_POSITIONS.BOTTOM_MIDDLE) {
+    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_MIDDLE) {
       return "";
     }
-    if (secondaryDialogPosition === SECONDARY_CONTENT_POSITIONS.BOTTOM_START) {
+    if (secondaryDialogPosition === SplitButtonSecondaryContentPosition.BOTTOM_START) {
       return "bottom";
     }
 
@@ -191,7 +207,7 @@ const SplitButton = ({
     >
       <Button
         {
-          ...buttonProps /* We are enriching button with other props so we must use spreading */
+          ...overrideButtonProps /* We are enriching button with other props so we must use spreading */
         }
         preventClickAnimation
         leftIcon={leftIcon}
@@ -224,7 +240,7 @@ const SplitButton = ({
             hideTrigger={dialogHideTrigger}
           >
             <Button
-              {...buttonProps}
+              {...overrideButtonProps}
               preventClickAnimation
               leftFlat
               noSidePadding
@@ -256,51 +272,16 @@ const SplitButton = ({
   );
 };
 
-// Backward compatibility for enum naming
-SplitButton.secondaryPositions = SECONDARY_CONTENT_POSITIONS;
-SplitButton.secondaryDialogPositions = SECONDARY_CONTENT_POSITIONS;
-SplitButton.sizes = Button.sizes;
-SplitButton.colors = Button.colors;
-SplitButton.kinds = Button.kinds;
-SplitButton.inputTags = Button.inputTags;
-SplitButton.dialogPaddingSizes = DialogContentContainer.sizes;
+Object.assign(SplitButton, {
+  // Backward compatibility for enum naming
+  secondaryPositions: SplitButtonSecondaryContentPosition,
+  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
+  sizes: Button.sizes,
+  colors: Button.colors,
+  kinds: Button.kinds,
+  inputTags: Button.inputTags,
+  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
+  dialogPaddingSizes: DialogContentContainer.sizes
+});
 
-SplitButton.propTypes = {
-  ...Button.propTypes,
-  /*
-   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
-   */
-  secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  onSecondaryDialogDidShow: PropTypes.func,
-  onSecondaryDialogDidHide: PropTypes.func,
-  zIndex: PropTypes.number,
-  /*
-   * Class name to provide the element which wraps the popover/modal/dialog
-   */
-  secondaryDialogClassName: PropTypes.string,
-  secondaryDialogPosition: PropTypes.oneOf([
-    SplitButton.secondaryPositions.BOTTOM_START,
-    SplitButton.secondaryPositions.BOTTOM_MIDDLE,
-    SplitButton.secondaryPositions.BOTTOM_END
-  ]),
-  /*
-    Popover Container padding size
-   */
-  dialogPaddingSize: PropTypes.oneOf([
-    SplitButton.dialogPaddingSizes.NONE,
-    SplitButton.dialogPaddingSizes.SMALL,
-    SplitButton.dialogPaddingSizes.MEDIUM,
-    SplitButton.dialogPaddingSizes.LARGE
-  ])
-};
-
-SplitButton.defaultProps = {
-  ...Button.defaultProps,
-  onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP,
-  zIndex: null,
-  secondaryDialogClassName: "",
-  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START,
-  dialogPaddingSize: SplitButton.dialogPaddingSizes.MEDIUM
-};
 export default SplitButton;

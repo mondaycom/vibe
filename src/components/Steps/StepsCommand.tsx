@@ -1,24 +1,34 @@
+import React, { FC, useCallback, useMemo } from "react";
 import cx from "classnames";
-import React, { useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
 import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
 import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
 import Icon from "../../components/Icon/Icon";
-import Button from "../../components/Button/Button";
+import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
 import { BACK_COMMAND_TEST_ID, BACK_DESCRIPTION, NEXT_COMMAND_TEST_ID, NEXT_DESCRIPTION } from "./StepsConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./StepsCommand.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-steps-command";
 
-export const StepsCommand = ({
-  isNext,
-  onChangeActiveStep,
+export interface StepsCommandProps extends VibeComponentProps {
+  isNext?: boolean;
+  onChangeActiveStep?: (e: React.MouseEvent, newStepIndex: number) => void;
+  activeStepIndex: number;
+  stepsCount: number;
+  isIconHidden?: boolean;
+  buttonProps?: ButtonProps;
+  isOnPrimary?: boolean;
+}
+
+export const StepsCommand: FC<StepsCommandProps> = ({
+  isNext = false,
+  onChangeActiveStep = NOOP,
   activeStepIndex,
   stepsCount,
-  isIconHidden,
-  isOnPrimary,
-  buttonProps,
+  isIconHidden = false,
+  isOnPrimary = false,
+  buttonProps = {},
   id
 }) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
@@ -28,7 +38,10 @@ export const StepsCommand = ({
   }, [isNext, buttonChildren]);
   const buttonBaseColor = isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined;
   const newStepIndex = isNext ? activeStepIndex + 1 : activeStepIndex - 1;
-  const onClick = useCallback(e => onChangeActiveStep(e, newStepIndex), [newStepIndex, onChangeActiveStep]);
+  const onClick = useCallback(
+    (e: React.MouseEvent) => onChangeActiveStep(e, newStepIndex),
+    [newStepIndex, onChangeActiveStep]
+  );
   const isDisable = (isNext && activeStepIndex === stepsCount - 1) || (!isNext && activeStepIndex === 0);
 
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
@@ -54,21 +67,4 @@ export const StepsCommand = ({
       )}
     </Button>
   );
-};
-
-StepsCommand.propTyps = {
-  isNext: PropTypes.bool,
-  onChangeActiveStep: PropTypes.func,
-  activeStepIndex: PropTypes.number.isRequired,
-  stepsCount: PropTypes.number.isRequired,
-  isIconHidden: PropTypes.bool,
-  buttonProps: PropTypes.object,
-  isOnPrimary: PropTypes.bool
-};
-StepsCommand.defaultProps = {
-  isNext: false,
-  onChangeActiveStep: NOOP,
-  isIconHidden: false,
-  isOnPrimary: false,
-  buttonProps: {}
 };

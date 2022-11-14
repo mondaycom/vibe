@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { A11yDialogType } from "./ModalHelper";
 
-export default function useBodyScrollLock({ instance }) {
+export default function useBodyScrollLock({ instance }: { instance: A11yDialogType }) {
   // clear all scroll locks on unmount (just to be safe)
   useEffect(() => {
     return () => clearAllBodyScrollLocks();
