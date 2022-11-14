@@ -1,4 +1,4 @@
 // a temporary solution until we will move storybook utils to a different package
-const { buildStorybookConfig } = require("../dist/storybookUtils");
+const { buildStorybookMainConfig } = require("../dist/storybook-utils/services");
 
-module.exports = buildStorybookConfig();
+module.exports = buildStorybookMainConfig();

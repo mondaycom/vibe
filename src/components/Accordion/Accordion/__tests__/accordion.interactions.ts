@@ -1,8 +1,8 @@
 import { expect } from "@storybook/jest";
-import { userEvent, within } from "@storybook/testing-library";
+import { within } from "@storybook/testing-library";
 import { Screen } from "@testing-library/react";
-import { delay, interactionSuite, resetFocus } from "../../../../__tests__/interactions-helper";
-
+import { resetFocus } from "../../../../__tests__/interactions-helper";
+import { userEvent, delay, interactionSuite } from "../../../../../dist/storybook-utils/services/interactions.js";
 const CHANGES_DELAY = 1;
 
 function getAccordionHeadingByText(canvas: Screen, title: string) {

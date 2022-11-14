@@ -10,7 +10,8 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/icons/index.js"
+    "./icons": "./dist/icons/index.js",
+    "/storybookUtils": "./dist/storybookUtils/"
   },
   "scripts": {
     "auto:bump-patch": "node scripts/autobump_patch.js",
@@ -21,7 +22,7 @@
     "test:jest:update": "npm run test:jest -- -u",
     "test:jest:coverage": "npm run test:jest -- --coverage",
     "start": "npm run build:ts-index && npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
-    "build": "npm run build:exports && npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
+    "build": "npm run build:exports && npm run build-storybook-utils && npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
     "build:exports": "./scripts/build-exports.js",
     "build:ts-index": "./scripts/build-ts-index.js",
     "storybook": "start-storybook -p 7007",
@@ -37,6 +38,7 @@
     "eslint-fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
+    "build-storybook-utils": "babel --extensions \".ts\" --config-file ./src/storybook-utils/.babelrc --out-dir ./dist/storybook-utils ./src/storybook-utils",
     "release": "./scripts/release.js"
   },
   "repository": {
@@ -56,6 +58,7 @@
   },
   "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
+    "@babel/cli": "^7.19.3",
     "@popperjs/core": "2.11.6",
     "@react-hook/merged-ref": "^1.3.2",
     "@react-stately/toggle": "3.2.7",
@@ -82,7 +85,7 @@
     "@babel/core": "^7.16.5",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-proposal-class-properties": "^7.16.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.16.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "@babel/plugin-transform-react-jsx": "^7.16.5",
     "@babel/plugin-transform-runtime": "^7.16.7",
     "@babel/preset-env": "^7.16.5",
