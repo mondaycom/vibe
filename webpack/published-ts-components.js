@@ -42,6 +42,7 @@ const publishedTSComponents = {
   SplitButton: "components/SplitButton/SplitButton",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
+  Steps: "components/Steps/Steps",
   DatePicker: "components/DatePicker/DatePicker",
   Tab: "components/Tabs/Tab/Tab",
   TabPanels: "components/Tabs/TabPanels/TabPanels",

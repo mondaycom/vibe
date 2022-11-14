@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
-import Steps from "../../components/Steps/Steps";
+import Steps from "../Steps/Steps";
 import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import TipseenBasicContent from "./TipseenBasicContent";

@@ -1,16 +1,29 @@
-import React, { useCallback, useMemo } from "react";
+import React, { FC, useCallback, useMemo } from "react";
 import range from "lodash/range";
 import { StepsDot } from "./StepsDot";
 import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
+import VibeComponentProps from "../../types/VibeComponentProps";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header_gallery`;
 
-export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActiveStep, stepDescriptionFunc }) => {
+export interface StepsGalleryHeaderProps extends VibeComponentProps {
+  activeStepIndex: number;
+  stepsCount: number;
+  onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
+  stepDescriptionFunc: (stepIndex: number) => string;
+}
+
+export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
+  activeStepIndex,
+  stepsCount,
+  onChangeActiveStep,
+  stepDescriptionFunc
+}) => {
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
-  const defaultStepDescriptionFunc = useCallback(stepIndex => `Step number ${stepIndex}`, []);
+  const defaultStepDescriptionFunc = useCallback((stepIndex: number) => `Step number ${stepIndex}`, []);
   const overrideStepDescriptionFunc = stepDescriptionFunc || defaultStepDescriptionFunc;
   const onClickFunctions = useMemo(
-    () => stepsPlaceholders.map(stepIndex => e => onChangeActiveStep(e, stepIndex)),
+    () => stepsPlaceholders.map(stepIndex => (e: React.MouseEvent) => onChangeActiveStep(e, stepIndex)),
     [onChangeActiveStep, stepsPlaceholders]
   );
 
@@ -21,7 +34,6 @@ export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActive
           <StepsDot
             isActive={activeStepIndex === stepIndex}
             key={`monday-style-step-dot-${stepIndex + 1}`}
-            stepIndex={stepIndex}
             ariaLabel={overrideStepDescriptionFunc(stepIndex)}
             onClick={onClickFunctions[stepIndex]}
           />
