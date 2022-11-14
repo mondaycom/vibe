@@ -56,6 +56,7 @@ const publishedTSComponents = {
   ModalContent: "components/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
+  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
