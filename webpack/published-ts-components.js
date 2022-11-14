@@ -39,6 +39,7 @@ const publishedTSComponents = {
   ListItemIcon: "components/ListItemIcon/ListItemIcon",
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
+  SplitButton: "components/SplitButton/SplitButton",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
   DatePicker: "components/DatePicker/DatePicker",

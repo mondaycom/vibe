@@ -22,7 +22,6 @@ const publishedJSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   MenuButton: "components/MenuButton/MenuButton.jsx",
-  SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
   Flex: "components/Flex/Flex.jsx",
