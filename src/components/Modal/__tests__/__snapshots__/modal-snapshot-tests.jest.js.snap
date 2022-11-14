@@ -3,7 +3,7 @@
 exports[`Modal with Footer 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}},"className":""},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
         <p>
@@ -24,7 +24,7 @@ Snapshot Diff:
 exports[`Modal with Header 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title","id":"","className":"","description":"","iconSize":24,"titleClassName":"","descriptionClassName":"","iconClassName":"","closeButtonAriaLabel":"close"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
       <div
@@ -36,7 +36,6 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
-+           id=""
 +           role="heading"
 +         >
 +           ModalHeader Title
@@ -88,7 +87,7 @@ Compared values have no visual difference.
 exports[`Modal with all parts 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title","id":"","className":"","description":"","iconSize":24,"titleClassName":"","descriptionClassName":"","iconClassName":"","closeButtonAriaLabel":"close"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"className":""},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}},"className":""},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
       <div
@@ -100,7 +99,6 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
-+           id=""
 +           role="heading"
 +         >
 +           ModalHeader Title

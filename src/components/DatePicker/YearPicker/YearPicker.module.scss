@@ -1,0 +1,47 @@
+.monthYearPicker {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+
+  :global(.slide-down-appear) {
+    opacity: 0;
+  }
+
+  :global(.slide-down-appear-active) {
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+
+  .navigationWrapper {
+    position: absolute;
+    top: 21px;
+    pointer-events: all;
+    cursor: pointer;
+
+    &.navigationLeft {
+      left: 21px;
+    }
+
+    &.navigationRight {
+      right: 21px;
+    }
+  }
+
+  .pickerOptions {
+    text-align: center;
+    background-color: #fff;
+    background-color: var(--secondary-background-color);
+    position: absolute;
+    top: 55px;
+    pointer-events: all;
+  }
+
+  :global(.CalendarYear--blocked) {
+    color: var(--disabled-text-color);
+    cursor: default;
+  }
+}

@@ -30,7 +30,7 @@ import "monday-ui-react-core/dist/main.css"
 ```
 
 ### Peer dependecies
-We are relaient on React and React DOM, we are using them as externals and we don't oackage them to the package so you must have them in your project
+We are relaient on React and React DOM, we are using them as externals and we don't package them to the package so you must have them in your project
 
 
 ## Storybook

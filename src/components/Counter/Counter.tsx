@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";

@@ -16,7 +16,12 @@ const getDocsConfigRules = () => {
   return [];
 };
 
+const removeCssLoader = config => {
+  return { ...config, module: { ...config.module, rules: config.module.rules.filter(r => !r.test.test(".css")) } };
+};
+
 const buildConfig = config => {
+  config = removeCssLoader(config); //remove storybook default css loader configuration
   config = mergeConfigRules(config, getProjectConfigRules());
   config = mergeConfigRules(config, getDocsConfigRules());
   return config;

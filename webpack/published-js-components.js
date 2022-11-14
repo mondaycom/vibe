@@ -1,9 +1,5 @@
 const publishedJSComponents = {
-  Box: "components/Box/Box.jsx",
-  AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
-  Accordion: "components/Accordion/Accordion/Accordion.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
-  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
   Tipseen: "components/Tipseen/Tipseen.jsx",
@@ -11,11 +7,6 @@ const publishedJSComponents = {
   TipseenWizard: "components/Tipseen/TipseenWizard.jsx",
   TipseenImage: "components/Tipseen/TipseenImage.jsx",
   Combobox: "components/Combobox/Combobox.jsx",
-  TabPanels: "components/Tabs/TabPanels/TabPanels.jsx",
-  TabsContext: "components/Tabs/TabsContext/TabsContext.jsx",
-  TabPanel: "components/Tabs/TabPanel/TabPanel.jsx",
-  Tab: "components/Tabs/Tab/Tab.jsx",
-  TabList: "components/Tabs/TabList/TabList.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
   EditableInput: "components/EditableInput/EditableInput.jsx",
@@ -29,22 +20,14 @@ const publishedJSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   MenuButton: "components/MenuButton/MenuButton.jsx",
-  SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  TextField: "components/TextField/TextField.jsx",
-  Toast: "components/Toast/Toast.jsx",
   Flex: "components/Flex/Flex.jsx",
-  LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Slider: "components/Slider/Slider.jsx",
-  Modal: "components/Modal/Modal.jsx",
-  ModalHeader: "components/ModalHeader/ModalHeader.jsx",
-  ModalFooter: "components/ModalFooter/ModalFooter.jsx",
-  ModalContent: "components/ModalContent/ModalContent.jsx"
+  Slider: "components/Slider/Slider.jsx"
 };
 // eslint-disable-next-line no-undef
 module.exports = {
