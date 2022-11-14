@@ -6,15 +6,14 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { BASE_SIZES, SIZES, DialogPosition } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { IconType } from "../Icon/IconConstants";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./ButtonGroup.scss";
 
 type ButtonGroupOption = {
-  icon?: IconType;
-  leftIcon?: IconType;
+  icon?: SubIcon;
+  leftIcon?: SubIcon;
   ariaLabel?: string;
   subText?: string;
   value: ButtonValue;
