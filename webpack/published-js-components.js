@@ -25,7 +25,7 @@ const publishedJSComponents = {
   Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
-  Skeleton: "components/Skeleton/Skeleton.jsx",
+  Toggle: "components/Toggle/Toggle.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   Slider: "components/Slider/Slider.jsx"
 };
