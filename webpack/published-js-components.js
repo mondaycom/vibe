@@ -21,20 +21,14 @@ const publishedJSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   MenuButton: "components/MenuButton/MenuButton.jsx",
-  SplitButton: "components/SplitButton/SplitButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.js",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  Toast: "components/Toast/Toast.jsx",
   Flex: "components/Flex/Flex.jsx",
-  LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Modal: "components/Modal/Modal.jsx",
-  ModalHeader: "components/ModalHeader/ModalHeader.jsx",
-  ModalFooter: "components/ModalFooter/ModalFooter.jsx",
-  ModalContent: "components/ModalContent/ModalContent.jsx"
+  Slider: "components/Slider/Slider.jsx"
 };
 // eslint-disable-next-line no-undef
 module.exports = {

@@ -1,13 +1,13 @@
-import { useState, useCallback, useMemo } from "react";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { useCallback, useMemo, useState } from "react";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toast from "../Toast";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import Button from "../../Button/Button";
-import { Link } from "../../../storybook/components";
+import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
 import {
-  TOOLTIP,
+  ALERT_BANNER,
   ATTENTION_BOX,
-  ALERT_BANNER
+  TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import { Delete } from "../../Icon/Icons";
 import "./toast.stories.scss";
@@ -57,7 +57,7 @@ A toast notification is a message object that presents timely information, inclu
 
 ## Props
 
-<ArgsTable of={Toast} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -238,7 +238,7 @@ After a user has done an action, provide feedback to close the loop. For example
       const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
       const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
       const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Undo" }], []);
-      return useMemo(() => (
+      return (
         <>
           <Button leftIcon={Delete} onClick={onClickCallback}>
             Delete item
@@ -254,7 +254,7 @@ After a user has done an action, provide feedback to close the loop. For example
             We successfully deleted 1 item
           </Toast>
         </>
-      ));
+      );
     }}
   </Story>
 </Canvas>

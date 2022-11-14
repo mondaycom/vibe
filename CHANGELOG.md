@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.71.1 (2022-11-13)
+
+#### New Icons
+* [#979](https://github.com/mondaycom/monday-ui-react-core/pull/979) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.71.0 (2022-11-13)
+
+#### New Features
+* [#983](https://github.com/mondaycom/monday-ui-react-core/pull/983) dropdown component tooltip ([@liorswM](https://github.com/liorswM))
+
+## 1.70.2 (2022-11-10)
+
+#### Bug Fixes
+* [#982](https://github.com/mondaycom/monday-ui-react-core/pull/982) Fix tooltip-arrow color to adapt to the theme ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.70.1 (2022-11-09)
 
 #### Bug Fixes

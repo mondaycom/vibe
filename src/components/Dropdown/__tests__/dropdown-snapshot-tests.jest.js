@@ -132,6 +132,11 @@ describe("Dropdown renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with tooltipContent", () => {
+    const tree = renderer.create(<Dropdown tooltipContent="tooltip content" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   describe("snapshot driver", () => {
     it("should render correctly with empty props", () => {
       const component = new DropdownDriver();

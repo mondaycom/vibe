@@ -1,24 +1,25 @@
 import cx from "classnames";
 import Button, { ButtonProps } from "../../Button/Button";
+import React, { FC } from "react";
 
-const ToastButton = ({ className, ...buttonProps }: ButtonProps) => {
+export type ToastButtonProps = ButtonProps;
+
+const ToastButton: FC<ToastButtonProps> = ({ className, ...buttonProps }) => {
+  const overrideButtonProps = {
+    ...Button.defaultProps,
+    kind: Button.kinds.SECONDARY,
+    marginLeft: false,
+    ...buttonProps
+  };
+
   return (
     <Button
-      {...buttonProps}
+      {...overrideButtonProps}
       className={cx("monday-style-toast-action_button", className)}
       size={Button.sizes.SMALL}
       color={Button.colors.ON_PRIMARY_COLOR}
     />
   );
-};
-
-const { size: _sizeDefaultProp, ...buttonDefaultPropTypes } = Button.defaultProps!;
-ToastButton.defaultProps = {
-  ...buttonDefaultPropTypes,
-  size: Button.sizes.SMALL,
-  kind: Button.kinds.SECONDARY,
-  marginLeft: false,
-  isDarkBackground: false
 };
 
 export default ToastButton;
