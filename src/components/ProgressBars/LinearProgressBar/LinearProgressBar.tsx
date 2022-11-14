@@ -1,28 +1,94 @@
 import { SIZES } from "../../../constants/sizes";
-import React, { useMemo, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
-import { baseClassName, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
+import { baseClassName, ProgressBarStyle } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
+import { VibeComponent, VibeComponentProps } from "../../../types";
 import "./LinearProgressBar.scss";
 
-const LinearProgressBar = forwardRef(
+interface LinearProgressBarProps extends VibeComponentProps {
+  /**
+   * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
+   */
+  barStyle?: ProgressBarStyle;
+  /**
+   * The progress bar starting value.
+   */
+  min?: number;
+  /**
+   * The progress bar ending value.
+   */
+  max?: number;
+  /**
+   * The progress bar current value.
+   */
+  value?: number;
+  /**
+   * The progress bar secondary value.
+   */
+  valueSecondary?: number;
+  /**
+   * If set to *true*, animations are used.
+   */
+  animated?: boolean;
+  /**
+   * Set external styling to the progress bar.
+   */
+  className?: string;
+  /**
+   * Determine the progress bar height (Supported options exposed through `LinearProgressBar.sizes`)
+   */
+  size?: typeof SIZES;
+  /**
+   * Show progress bar progression in percentages
+   */
+  indicateProgress?: boolean;
+  /**
+   * Use multiple bars.
+   * ***Note:*** `value`, `valueSecondary` & `barStyle` won't be used
+   */
+  multi?: boolean;
+  /**
+   * Array of bar value objects {
+   * `value` - The progress value,
+   * `color` - hex [`#000000` ~ `#ffffff`] of the current bar
+   * }
+   */
+  multiValues?: {
+    /**
+     * The progress bar current value.
+     */
+    value?: number;
+    /**
+     * The bar color in hex - #000000 ~ #ffffff
+     */
+    color?: string;
+  }[];
+  /** ARIA description for the progress bar */
+  ariaLabel?: string;
+}
+
+const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
+  styles?: ProgressBarStyle;
+  barStyles?: ProgressBarStyle;
+  sizes?: typeof SIZES;
+} = forwardRef(
   (
     {
-      min,
-      max,
-      value,
-      valueSecondary,
-      animated,
-      barStyle,
+      min = 0,
+      max = 100,
+      value = 0,
+      valueSecondary = 0,
+      animated = true,
+      barStyle = ProgressBarStyle.PRIMARY,
       className,
-      size,
-      indicateProgress,
-      multi,
-      multiValues,
-      ariaLabel
+      size = SIZES.SMALL,
+      indicateProgress = false,
+      multi = false,
+      multiValues = [],
+      ariaLabel = ""
     },
     ref
   ) => {
@@ -47,7 +113,7 @@ const LinearProgressBar = forwardRef(
         <>
           {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
             <Bar
-              barStyle="none"
+              barStyle={ProgressBarStyle.NONE}
               value={baseValue}
               animated={animated}
               baseClass={baseClassName}
@@ -94,87 +160,10 @@ const LinearProgressBar = forwardRef(
   }
 );
 
-LinearProgressBar.styles = PROGRESS_BAR_STYLES;
-LinearProgressBar.barStyles = PROGRESS_BAR_STYLES;
-LinearProgressBar.sizes = SIZES;
-
-LinearProgressBar.propTypes = {
-  /**
-   * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
-   */
-  barStyle: PropTypes.oneOf(Object.values(PROGRESS_BAR_STYLES)),
-  /**
-   * The progress bar starting value.
-   */
-  min: PropTypes.number,
-  /**
-   * The progress bar ending value.
-   */
-  max: PropTypes.number,
-  /**
-   * The progress bar current value.
-   */
-  value: PropTypes.number,
-  /**
-   * The progress bar secondary value.
-   */
-  valueSecondary: PropTypes.number,
-  /**
-   * If set to *true*, animations are used.
-   */
-  animated: PropTypes.bool,
-  /**
-   * Set external styling to the progress bar.
-   */
-  className: PropTypes.string,
-  /**
-   * Determine the progress bar height (Supported options exposed through `LinearProgressBar.sizes`)
-   */
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  /**
-   * Show progress bar progression in percentages
-   */
-  indicateProgress: PropTypes.bool,
-  /**
-   * Use multiple bars.
-   * ***Note:*** `value`, `valueSecondary` & `barStyle` won't be used
-   */
-  multi: PropTypes.bool,
-  /**
-   * Array of bar value objects {
-   * `value` - The progress value,
-   * `color` - hex [`#000000` ~ `#ffffff`] of the current bar
-   * }
-   */
-  multiValues: PropTypes.arrayOf(
-    PropTypes.shape({
-      /**
-       * The progress bar current value.
-       */
-      value: PropTypes.number.isRequired,
-      /**
-       * The bar color in hex - #000000 ~ #ffffff
-       */
-      color: PropTypes.string.isRequired
-    }).isRequired
-  ),
-  /** ARIA description for the progress bar */
-  ariaLabel: PropTypes.string
-};
-
-LinearProgressBar.defaultProps = {
-  barStyle: PROGRESS_BAR_STYLES.PRIMARY,
-  size: SIZES.SMALL,
-  className: "",
-  multi: false,
-  indicateProgress: false,
-  valueSecondary: 0,
-  value: 0,
-  min: 0,
-  max: 100,
-  animated: true,
-  multiValues: [],
-  ariaLabel: ""
-};
+Object.assign(LinearProgressBar, {
+  styles: ProgressBarStyle,
+  barStyles: ProgressBarStyle,
+  sizes: SIZES
+});
 
 export default LinearProgressBar;
