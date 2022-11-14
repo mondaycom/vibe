@@ -1,14 +1,8 @@
 import React, { FC, useMemo } from "react";
-import cx from "classnames";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import { ProgressBarStyle } from "../LinearProgressBarConstants";
 
 interface BarProps extends VibeComponentProps {
-  /**
-   * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
-   */
-  barStyle?: ProgressBarStyle;
   /**
    * The progress bar starting value.
    */
@@ -28,19 +22,12 @@ interface BarProps extends VibeComponentProps {
   /**
    * Set external styling to the progress bar.
    */
-  className?: string;
-  baseClass?: string;
+  classNames?: string;
   barLabelName?: string;
   color?: string;
 }
 
-const Bar: FC<BarProps> = ({ value, baseClass, barStyle, animated, min, max, color, barLabelName }) => {
-  const classNames = useMemo(() => {
-    return cx(baseClass, `${baseClass}--${barStyle}`, {
-      [`${baseClass}--animate`]: animated
-    });
-  }, [barStyle, animated, baseClass]);
-
+const Bar: FC<BarProps> = ({ value, classNames, animated, min, max, color, barLabelName }) => {
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;
     return calculatePercentage(value, min, max);
