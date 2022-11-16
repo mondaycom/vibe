@@ -1,12 +1,11 @@
 {
   "include": ["src/**/*", "types/**/*"],
-  "exclude": ["src/__tests_/**/*"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "target": "es6",
-    "module": "ESNext",
+    "module": "CommonJS",
     "sourceMap": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,

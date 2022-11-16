@@ -31,7 +31,7 @@ export default {
       extensions: [...EXTENSIONS, ".json"]
     }),
     typescript({
-      tsconfig: path.join(ROOT_PATH, "tsconfig.json")
+      tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json")
     }),
     babel({
       babelHelpers: "bundled",
