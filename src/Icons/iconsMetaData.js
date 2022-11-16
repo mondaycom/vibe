@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Form",
+      file: "Form.svg",
+      description: "Form icon",
+      tags: "form,note,page"
+  },
+
+  {
       name: "Launch",
       file: "Launch.svg",
       description: "Launch icon",
