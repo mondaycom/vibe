@@ -19,7 +19,7 @@ jobs:
       - name: Test
         if: success()
         run: |
-          npm run test:jest
+          npm run test
 
   lint:
     runs-on: ubuntu-latest
@@ -91,4 +91,4 @@ jobs:
       - name: Test
         if: success()
         run: |
-          npm run test:jest:stories
+          npm run test:stories

@@ -1,5 +1,6 @@
 {
   "include": ["src/**/*", "types/**/*"],
+  "exclude": ["src/__tests_/**/*"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],

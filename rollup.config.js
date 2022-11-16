@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import * as path from "path";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
@@ -7,31 +5,33 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
+import autoprefixer from "autoprefixer";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
+const ROOT_PATH = path.join(__dirname);
+const SRC_PATH = path.join(ROOT_PATH, "src");
+const DIST_PATH = path.join(ROOT_PATH, "dist");
 
-/**
- * @type {() => import('rollup').RollupOptions}
- */
-const buildConfig = ({ input = "index.js", outputDirName, format = "es" } = {}) => ({
-  input: [`src/${input}`],
+export default {
   output: {
-    dir: path.join(__dirname, "dist", outputDirName),
-    format,
+    dir: path.join(DIST_PATH, "esm"),
     indent: false,
     strict: false,
-    exports: "named"
+    exports: "named",
+    preserveModules: true
+  },
+  input: {
+    index: path.join(SRC_PATH, "index.js"),
+    icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts")
   },
   external: [/node_modules/],
-  preserveModules: true,
   plugins: [
     commonjs(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json"]
     }),
     typescript({
-      tsconfig: "./tsconfig.json",
-      allowJs: true
+      tsconfig: path.join(ROOT_PATH, "tsconfig.json")
     }),
     babel({
       babelHelpers: "bundled",
@@ -53,10 +53,8 @@ const buildConfig = ({ input = "index.js", outputDirName, format = "es" } = {}) 
       inject(cssVariableName) {
         return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`;
       },
-      plugins: [],
+      plugins: [autoprefixer()],
       autoModules: true
     })
   ]
-});
-
-export default [buildConfig({ outputDirName: "esm" }), buildConfig({ outputDirName: "main", format: "commonjs" })];
+};
