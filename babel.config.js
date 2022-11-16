@@ -1,7 +1,8 @@
-const { testing } = process.env;
-const TESTING_STORYBOOK = testing === "storybook";
+const TESTING_STORYBOOK = process.env.testing === "storybook";
+
 module.exports = api => {
-  api.cache.using(() => process.env.NODE_ENV);
+  const env = process.env.NODE_ENV;
+  api.cache.using(() => env);
 
   return {
     env: {
@@ -10,11 +11,10 @@ module.exports = api => {
       }
     },
     presets: [
-      "@babel/preset-react",
       [
         "@babel/preset-env",
         {
-          modules: false,
+          modules: env === "test" ? "commonjs" : false,
           targets: TESTING_STORYBOOK
             ? {
                 node: "current"
@@ -27,7 +27,8 @@ module.exports = api => {
                 node: "current"
               }
         }
-      ]
+      ],
+      "@babel/preset-react"
     ],
     plugins: [
       "react-require",
