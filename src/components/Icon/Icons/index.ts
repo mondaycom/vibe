@@ -90,6 +90,7 @@ export {default as Feedback} from './components/Feedback';
 export {default as File} from './components/File';
 export {default as Filter} from './components/Filter';
 export {default as Folder} from './components/Folder';
+export {default as Form} from './components/Form';
 export {default as Formula} from './components/Formula';
 export {default as Forum} from './components/Forum';
 export {default as Fullscreen} from './components/Fullscreen';
