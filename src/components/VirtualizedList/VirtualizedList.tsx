@@ -28,8 +28,8 @@ import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";
 
-type ItemType = {
-  value?: string;
+export type VirtualizedListItem = {
+  value?: string | Record<string, unknown>;
   height?: number;
   width?: number;
   id?: string;
@@ -51,7 +51,7 @@ interface VirtualizedListProps extends VibeComponentProps {
   /**
    * A list of items to be rendered
    */
-  items: ItemType[];
+  items: VirtualizedListItem[];
   /**
    * Will return the element which represent an item in the virtualized list.
    * Returns `JSX.Element`
@@ -59,23 +59,23 @@ interface VirtualizedListProps extends VibeComponentProps {
    * @param _index - item index
    * @param style - item style, must be injected to the item element wrapper for correct presentation of the item
    */
-  itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ReactElement;
+  itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement | JSX.Element;
   /**
    * Deprecated - use getItemSize
    * in order to calculate the number of items to render, the component needs the height of the items
    * return `number`
    */
-  getItemHeight?: (item: ItemType, index: number) => number;
+  getItemHeight?: (item: VirtualizedListItem, index: number) => number;
   /**
    * in order to calculate the number of items to render, the component needs the width/height of the items (according to layout)
    * return `number`
    */
-  getItemSize?: (item: ItemType, index: number) => number;
+  getItemSize?: (item: VirtualizedListItem, index: number) => number;
   /**
    * returns Id of an items
    * returns `string`
    */
-  getItemId: (item: ItemType, index: number) => string;
+  getItemId: (item: VirtualizedListItem, index: number) => string;
   /**
    * callback to be called when the scroll is finished
    */
@@ -136,13 +136,13 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       className,
       id,
       items = [],
-      itemRenderer = (item: ItemType, _index: number, _style: CSSProperties) => item,
-      getItemHeight = (item: ItemType, _index: number) => item.height,
+      itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item,
+      getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
       getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
       onScroll,
       overscanCount = 0,
-      getItemId = (item: ItemType, _index: number) => item.id,
+      getItemId = (item: VirtualizedListItem, _index: number) => item.id,
       scrollToId,
       scrollDuration = 200,
       onScrollToFinished = NOOP,
@@ -194,7 +194,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
 
     // Callbacks
     const sizeGetter = useCallback(
-      (item: ItemType, index: number) => {
+      (item: VirtualizedListItem, index: number) => {
         const getSize = getItemSize || getItemHeight;
         const height = getSize(item, index);
         if (height === undefined) {
@@ -206,7 +206,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     );
 
     const idGetter = useCallback(
-      (item: ItemType, index: number) => {
+      (item: VirtualizedListItem, index: number) => {
         const itemId = getItemId(item, index);
         if (itemId === undefined) {
           console.error("Couldn't get id for item: ", item);
@@ -267,7 +267,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     }, [scrollDuration, animationData, listRef, maxListOffset, onScrollToFinished]);
 
     const startScrollAnimation = useCallback(
-      (item: ItemType) => {
+      (item: VirtualizedListItem) => {
         const { offsetTop } = item;
         if (animationData.animationStartTime) {
           // animation already in progress

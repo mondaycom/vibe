@@ -10,6 +10,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
+import { TooltipProps } from "../Tooltip/Tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 
@@ -22,8 +23,7 @@ interface AvatarGroupCounterProps extends VibeComponentProps {
    * AvatarGroupCounterVisualProps: props for counter
    */
   counterProps?: AvatarGroupCounterVisualProps;
-  // TODO ts-migration replace with TooltipProps when Tooltip is converted to TS
-  counterTooltipCustomProps?: any;
+  counterTooltipCustomProps?: TooltipProps;
   counterTooltipIsVirtualizedList?: boolean;
   size?: AvatarSize;
   type?: AvatarType;

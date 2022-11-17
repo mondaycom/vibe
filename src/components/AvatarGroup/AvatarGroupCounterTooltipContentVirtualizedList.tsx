@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactElement, Ref, useMemo } from "react";
-import VirtualizedList from "../VirtualizedList/VirtualizedList";
+import VirtualizedList, { VirtualizedListItem } from "../VirtualizedList/VirtualizedList";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { AvatarProps } from "../Avatar/Avatar";
@@ -11,18 +11,22 @@ const LIST_OPTIONS = Object.freeze({
   itemLineWidth: 150
 });
 
+export type AvatarItem = {
+  value: AvatarProps & { tooltipContent: string | ReactElement };
+};
+
 interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
    * Array of Avatar components
    */
-  avatarItems?: { value: AvatarProps & { tooltipContent: string | ReactElement } }[];
+  avatarItems?: AvatarItem[];
   avatarRenderer?: (
-    item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
+    item: AvatarItem,
     index: number,
     style: CSSProperties,
     type: AvatarType,
     displayAsGrid: boolean
-  ) => React.ReactNode;
+  ) => ReactElement;
   tooltipContainerAriaLabel?: string;
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
   type?: AvatarType;
@@ -31,8 +35,8 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
 const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<
   AvatarGroupCounterTooltipContentVirtualizedListProps
 > = ({ avatarItems = [], avatarRenderer, type, tooltipContainerAriaLabel, tooltipContentContainerRef }) => {
-  const virtualizedItems = useMemo(
-    () => avatarItems.map(item => ({ ...item, height: LIST_OPTIONS.itemLineHeight })),
+  const virtualizedItems: VirtualizedListItem[] = useMemo(
+    () => avatarItems.map(item => ({ value: item, height: LIST_OPTIONS.itemLineHeight } as VirtualizedListItem)),
     [avatarItems]
   );
 
@@ -50,14 +54,13 @@ const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<
       tabIndex={-1}
     >
       <VirtualizedList
-        // @ts-ignore TODO ts-migration: solve when VirtualizedList is converted to TS
         items={virtualizedItems}
-        itemRenderer={(item: any, index: number, style: CSSProperties) =>
-          avatarRenderer(item, index, style, type, false)
+        itemRenderer={(item: VirtualizedListItem, index: number, style: CSSProperties) =>
+          avatarRenderer(item.value as AvatarItem, index, style, type, false)
         }
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
-        getItemId={(item: any, index: number) => index}
+        getItemId={(item: VirtualizedListItem, index: number) => String(index)}
         style={virtualizedListStyle}
       />
     </div>

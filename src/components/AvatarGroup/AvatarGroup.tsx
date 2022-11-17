@@ -6,6 +6,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
 import { CounterColor } from "../Counter/CounterConstants";
 import { avatarOnClick } from "./AvatarGroupHelper";
+import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./AvatarGroup.module.scss";
 
 export type AvatarGroupCounterVisualProps = {
@@ -17,9 +18,7 @@ export type AvatarGroupCounterVisualProps = {
 };
 
 interface AvatarGroupProps extends VibeComponentProps {
-  className?: string;
   avatarClassName?: string;
-  id?: string;
   /**
    * Array of `Avatar` components
    */
@@ -34,8 +33,7 @@ interface AvatarGroupProps extends VibeComponentProps {
   /**
    * `Tooltip.props`: props for custom counter tooltip
    */
-  // TODO ts-migration replace with TooltipProps when Tooltip is converted to TS
-  counterTooltipCustomProps?: any;
+  counterTooltipCustomProps?: TooltipProps;
   /**
    * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
    */

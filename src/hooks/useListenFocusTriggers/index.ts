@@ -20,7 +20,7 @@ export function useListenFocusTriggers({
     (e: FocusEvent) => {
       // if focus triggered by mouse down, call onFocusByMouse
       if (isElementMouseDown.current) {
-        onFocusByMouse && onFocusByMouse(e);
+        onFocusByMouse?.(e);
       } else {
         onFocusByKeyboard && onFocusByKeyboard(e);
       }
