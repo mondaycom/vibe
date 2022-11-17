@@ -5,6 +5,7 @@ import Heading from "../Heading/Heading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import { VibeComponentProps } from "../../types";
 import cx from "classnames";
+import { ElementContent } from "../../types/ElementContent";
 import "./ExpandCollapse.scss";
 
 interface ExpandCollapseProps extends VibeComponentProps {
@@ -19,8 +20,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * The value of the expandable section
    */
-  // children?: ReactElement | ReactElement[] | React.ReactNode | React.ReactNode[];
-  children?: any;
+  children?: ElementContent;
   /**
    * The expand icon font size
    */
@@ -30,7 +30,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
    */
   defaultOpenState?: boolean;
   open?: boolean;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
