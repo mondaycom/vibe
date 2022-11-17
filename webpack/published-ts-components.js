@@ -52,6 +52,7 @@ const publishedTSComponents = {
   TabList: "components/Tabs/TabList/TabList",
   TextField: "components/TextField/TextField",
   Toggle: "components/Toggle/Toggle",
+  ExpandCollapse: "components/ExpandCollapse/ExpandCollapse",
   Modal: "components/Modal/Modal",
   ModalHeader: "components/ModalHeader/ModalHeader",
   ModalFooter: "components/ModalFooter/ModalFooter",
