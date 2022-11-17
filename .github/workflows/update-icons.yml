@@ -1,7 +1,7 @@
 name: Update monday-ui-style
 on:
   schedule:
-    - cron:  '*/10 * * * *'
+    - cron: "*/10 * * * *"
 
 jobs:
   get-version:
@@ -46,7 +46,7 @@ jobs:
         id: build-react-icons
         run: |
           npm install
-          npm run build-react-icons
+          npm run build:react-icons
           echo ::set-output name=success::$(echo "true")
 
       - name: Create a pr
@@ -58,7 +58,7 @@ jobs:
           committer: Monday Style <mondaystyle@monday.com>
           author: Monday Style <mondaystyle@monday.com>
           branch: update-version/style-version-${{env.LATEST_VERSION}}
-          title: 'Upgrade icons'
+          title: "Upgrade icons"
           body: |
             New icons version
           labels: |

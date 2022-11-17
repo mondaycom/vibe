@@ -5,7 +5,7 @@
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "target": "es6",
-    "module": "commonjs",
+    "module": "CommonJS",
     "sourceMap": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,

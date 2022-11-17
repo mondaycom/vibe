@@ -28,15 +28,12 @@ export function useTooltipContentTabNavigation({
   isKeyboardTooltipVisible: boolean;
   setIsKeyboardTooltipVisible: (value: boolean) => void;
 }) {
-  const showKeyboardTooltip = useCallback(
-    (_event: FocusEvent) => {
-      if (!isKeyboardTooltipVisible) {
-        // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
-        setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
-      }
-    },
-    [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]
-  );
+  const showKeyboardTooltip = useCallback(() => {
+    if (!isKeyboardTooltipVisible) {
+      // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
+      setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
+    }
+  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
 
   const hideKeyboardTooltip = useCallback(() => {
     if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);

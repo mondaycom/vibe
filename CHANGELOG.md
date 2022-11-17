@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.71.2 (2022-11-16)
+
+#### Bug Fixes
+* [#985](https://github.com/mondaycom/monday-ui-react-core/pull/985) Check if contributorsJson is an array before filtering ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#954](https://github.com/mondaycom/monday-ui-react-core/pull/954) Skeleton: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#959](https://github.com/mondaycom/monday-ui-react-core/pull/959) TS-migration: Steps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#980](https://github.com/mondaycom/monday-ui-react-core/pull/980) TS-migration: VirtualizedGrid ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#960](https://github.com/mondaycom/monday-ui-react-core/pull/960) Modal: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#947](https://github.com/mondaycom/monday-ui-react-core/pull/947) SplitButton: Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#961](https://github.com/mondaycom/monday-ui-react-core/pull/961) Toast: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#978](https://github.com/mondaycom/monday-ui-react-core/pull/978) TS-migration: LinearProgressBar, Bar ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#987](https://github.com/mondaycom/monday-ui-react-core/pull/987) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.71.1 (2022-11-13)
 
 #### New Icons
