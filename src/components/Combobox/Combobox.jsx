@@ -14,7 +14,7 @@ import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
-import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
+import { getOptionId } from "./helpers";
 import "./Combobox.scss";
 
 const Combobox = forwardRef(

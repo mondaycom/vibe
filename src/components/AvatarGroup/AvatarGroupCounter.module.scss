@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../../components/Avatar/Avatar";
 
 .counterContainer {
@@ -19,7 +20,7 @@
   @mixin counterSize($size) {
     height: $size;
     min-width: $size;
-    border-radius: $size / 2;
+    border-radius: math.div($size, 2);
   }
   &.small {
     @include counterSize($avatar-size-small);

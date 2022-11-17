@@ -1,12 +1,10 @@
 const publishedJSComponents = {
-  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
   Tipseen: "components/Tipseen/Tipseen.jsx",
   TipseenContent: "components/Tipseen/TipseenContent.jsx",
   TipseenWizard: "components/Tipseen/TipseenWizard.jsx",
   TipseenImage: "components/Tipseen/TipseenImage.jsx",
-  Steps: "components/Steps/Steps.jsx",
   Combobox: "components/Combobox/Combobox.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
@@ -21,12 +19,12 @@ const publishedJSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   MenuButton: "components/MenuButton/MenuButton.jsx",
-  Checkbox: "components/Checkbox/Checkbox.js",
+  Checkbox: "components/Checkbox/Checkbox.jsx",
   Dropdown: "components/Dropdown/Dropdown.jsx",
   Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons",
-  Skeleton: "components/Skeleton/Skeleton.jsx",
+  Toggle: "components/Toggle/Toggle.jsx",
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   Slider: "components/Slider/Slider.jsx"
 };

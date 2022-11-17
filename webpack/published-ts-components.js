@@ -42,6 +42,8 @@ const publishedTSComponents = {
   SplitButton: "components/SplitButton/SplitButton",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
+  Skeleton: "components/Skeleton/Skeleton",
+  Steps: "components/Steps/Steps",
   DatePicker: "components/DatePicker/DatePicker",
   Tab: "components/Tabs/Tab/Tab",
   TabPanels: "components/Tabs/TabPanels/TabPanels",
@@ -57,6 +59,7 @@ const publishedTSComponents = {
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
   VirtualizedList: "components/VirtualizedList/VirtualizedList",
+  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
