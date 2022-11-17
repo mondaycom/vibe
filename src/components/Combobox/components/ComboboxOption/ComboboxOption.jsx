@@ -4,7 +4,7 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
 import { keyCodes } from "../../../../constants/KeyCodes";
-import { getOptionId } from "../../ComboboxHelpers/ComboboxHelpers";
+import { getOptionId } from "../../helpers";
 import "./ComboboxOption.scss";
 
 const ComboboxOption = ({

@@ -52,7 +52,7 @@ export const OtherContributorsList = () => {
   }, []);
 
   const contributors = useMemo(() => {
-    if (contributorsJson) {
+    if (contributorsJson && Array.isArray(contributorsJson)) {
       // developer contributors
       const developerContributors = contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))

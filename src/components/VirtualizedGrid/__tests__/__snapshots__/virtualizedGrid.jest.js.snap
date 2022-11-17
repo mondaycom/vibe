@@ -3,7 +3,6 @@
 exports[`renders correctly with empty props 1`] = `
 <div
   className="virtualized-grid--wrapper"
-  id=""
 >
   <div
     style={
