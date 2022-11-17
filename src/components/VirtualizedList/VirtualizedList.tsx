@@ -29,11 +29,11 @@ import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";
 
 type ItemType = {
-  value: string;
-  height: number;
-  width: number;
-  id: string;
-  offsetTop: number;
+  value?: string;
+  height?: number;
+  width?: number;
+  id?: string;
+  offsetTop?: number;
 };
 
 interface VirtualizedListProps extends VibeComponentProps {
