@@ -1,15 +1,20 @@
 import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import Checkbox from "../../../Checkbox/Checkbox.js";
-import { WIZARD, BREADCRUBMS, STEPPER } from "../../../../storybook/components/related-components/component-description-map";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import Checkbox from "../../../Checkbox/Checkbox";
+import {
+  BREADCRUBMS,
+  STEPPER,
+  WIZARD
+} from "../../../../storybook/components/related-components/component-description-map";
+import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/accordion.interactions";
+import { RelatedComponents, UsageGuidelines } from "../../../../storybook";
 import "./accordion.stories.scss";
-import { accordionSingleActivePlaySuite, accordionMultiActivePlaySuite } from "../__tests__/accordion.interactions"
 
 <Meta
   title="Data display/Accordion"
-  component={ Accordion }
-  subcomponents = {{AccordionItem}}
+  component={Accordion}
+  subcomponents={{ AccordionItem }}
   argTypes={{
     children: { control: false },
     defaultIndex: { control: false }
@@ -18,7 +23,7 @@ import { accordionSingleActivePlaySuite, accordionMultiActivePlaySuite } from ".
 
 <!--- Component template -->
 
-export const accordionTemplate = (args) => {
+export const accordionTemplate = args => {
   return (
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]} {...args}>
       <AccordionItem title="Notifications" />
@@ -31,12 +36,13 @@ export const accordionTemplate = (args) => {
       <AccordionItem title="Integration" />
       <AccordionItem title="Assets" />
     </Accordion>
-  )
+  );
 };
 
 <!--- Component documentation -->
 
 # Accordion
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -47,84 +53,119 @@ export const accordionTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
+
 Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
 
 <Canvas>
-  <Story name="Overview" args={ {} }>
-    { accordionTemplate.bind({}) }
+  <Story name="Overview" args={{}}>
+    {accordionTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use accordion reduce clutter and chunk the information one by one",
-  "Accordion Label must be short, clear, and understandable to indicate what's inside",
-  "Default state of accordion is closed unless used for navigation",
-  "Accordion content can include icons, radio buttons, and checkboxes.",
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Use accordion reduce clutter and chunk the information one by one",
+    "Accordion Label must be short, clear, and understandable to indicate what's inside",
+    "Default state of accordion is closed unless used for navigation",
+    "Accordion content can include icons, radio buttons, and checkboxes."
+  ]}
+/>
 
 ## Variants
+
 ### Multi active
+
 Each section can be expanded without closing the others
+
 <Canvas>
   <Story name="Multi active" play={accordionMultiActivePlaySuite}>
     <Accordion className="monday-storybook-accordion_small-wrapepr" allowMultiple defaultIndex={[1, 3]}>
-      <AccordionItem title="Notifications"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Connectivity"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Integration"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Assets"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
+      <AccordionItem title="Notifications">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Setting">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Connectivity">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Integration">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Assets">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
     </Accordion>
   </Story>
 </Canvas>
 
 ### Single active
+
 Only one section can be open at the time
+
 <Canvas>
   <Story name="Single active" play={accordionSingleActivePlaySuite}>
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]}>
-      <AccordionItem title="Notifications"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Connectivity"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Integration"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
-      <AccordionItem title="Assets"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
+      <AccordionItem title="Notifications">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Setting">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Connectivity">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Integration">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Assets">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
     </Accordion>
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       className: "monday-storybook-accordion_big-figure",
       positive: {
-        component:
+        component: (
           <Accordion className="monday-storybook-accordion_box-small">
             <AccordionItem title="Notifications" />
             <AccordionItem title="Security" />
             <AccordionItem title="InfoAssets" />
-          </Accordion>,
-        description:"Use informative short labels."
+          </Accordion>
+        ),
+        description: "Use informative short labels."
       },
       negative: {
         className: "monday-storybook-accordion_big-figure",
-        component:
+        component: (
           <Accordion className="monday-storybook-accordion_box-small">
             <AccordionItem title="Closed" />
             <AccordionItem title="Closed" />
             <AccordionItem title="Closed" />
-          </Accordion>,
-        description:"Indicate the accordion state with labels."
+          </Accordion>
+        ),
+        description: "Indicate the accordion state with labels."
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Preferences Accordion
+
 <Canvas>
   <Story name="Preferences Accordion">
     <Accordion className="monday-storybook-accordion_wrapper" defaultIndex={[0]}>
@@ -142,4 +183,5 @@ Only one section can be open at the time
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[WIZARD, BREADCRUBMS, STEPPER]} />

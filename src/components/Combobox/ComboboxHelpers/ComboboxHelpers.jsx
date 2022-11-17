@@ -9,10 +9,6 @@ import styles from "./ComboboxHelpers.module.scss";
 const DIVIDER_HEIGHT = 17;
 const CATEGORY_HEIGHT = 32;
 
-export function getOptionId(id, index) {
-  return id !== undefined ? `combobox-item-${id}` : `combobox-item-${index}`;
-}
-
 export function createDividerItemObject({ categoryId }) {
   return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };
 }

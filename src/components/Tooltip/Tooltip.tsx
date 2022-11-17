@@ -43,6 +43,9 @@ export interface TooltipProps extends VibeComponentProps {
    */
   containerSelector?: string;
   immediateShowDelay?: number;
+  /**
+   * when false, the arrow of the tooltip is hidden
+   */
   tip?: boolean;
   /**
    * Show the Dialog when the children is mounting

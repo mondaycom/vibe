@@ -13,11 +13,11 @@ import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
-import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
+import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
-import "./Dropdown.scss";
 import Control from "./components/Control/Control";
 import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import "./Dropdown.scss";
 
 const Dropdown = ({
   className,
@@ -62,11 +62,12 @@ const Dropdown = ({
   onClear,
   onInputChange,
   closeMenuOnSelect = !multi,
-  ref,
   withMandatoryDefaultOptions,
   isOptionSelected,
   insideOverflowContainer,
-  transformContainerRef
+  transformContainerRef,
+  ref,
+  tooltipContent
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -176,9 +177,10 @@ const Dropdown = ({
       isDialogShown,
       isMultiline: multiline,
       insideOverflowContainer,
-      controlRef
+      controlRef,
+      tooltipContent
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer, tooltipContent]
   );
 
   const onChange = (option, event) => {
@@ -230,7 +232,15 @@ const Dropdown = ({
     })
   };
 
-  const closeMenuOnScroll = useCallback(() => insideOverflowContainer, [insideOverflowContainer]);
+  const closeMenuOnScroll = useCallback(
+    event => {
+      const scrolledElement = event.target;
+      const dropdownContainer = document.getElementById(id);
+      if (dropdownContainer?.contains(scrolledElement)) return false;
+      return insideOverflowContainer;
+    },
+    [insideOverflowContainer, id]
+  );
 
   return (
     <DropDownComponent
@@ -282,6 +292,7 @@ const Dropdown = ({
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
+      aria-details={tooltipContent}
       {...asyncAdditions}
       {...additions}
     />
@@ -310,13 +321,14 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   onOptionRemove: undefined,
-  id: undefined,
+  id: DROPDOWN_ID,
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
-  transformContainerRef: undefined
+  transformContainerRef: undefined,
+  tooltipContent: ""
 };
 
 Dropdown.propTypes = {
@@ -522,7 +534,11 @@ Dropdown.propTypes = {
   /**
    * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
    */
-  transformContainerRef: PropTypes.object
+  transformContainerRef: PropTypes.object,
+  /**
+   * When content is passed, the dropdown will include a tooltip on the dropdown's value.
+   */
+  tooltipContent: PropTypes.string
 };
 
 export default Dropdown;
