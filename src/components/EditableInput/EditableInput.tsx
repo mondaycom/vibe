@@ -32,7 +32,7 @@ export interface EditableInputProps extends VibeComponentProps {
   tabIndex?: number;
   isValidValue?: (value: string) => boolean;
   onFinishEditing?: (value: string, event: React.KeyboardEvent | React.FocusEvent) => void;
-  onArrowKeyDown?: (event: React.KeyboardEvent, value: string) => void;
+  onArrowKeyDown?: (value: string, event: React.KeyboardEvent) => void;
   onClick?: () => void;
   onKeyPress?: () => void;
   selectOnMount?: () => void;
@@ -128,7 +128,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
         }
 
         const enrichedEvent = event;
-        // @ts-ignore
+        // @ts-ignore TS2339: Property 'origin' does not exist on type 'FocusEvent'
         enrichedEvent.origin = "blur";
 
         if (onFinishEditing) {
@@ -192,7 +192,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
           onArrowKeyDown &&
           (isArrowUpEvent(event) || isArrowDownEvent(event) || isArrowLeftEvent(event) || isArrowRightEvent(event))
         ) {
-          onArrowKeyDown(event, valueState);
+          onArrowKeyDown(valueState, event);
         }
       },
       [
