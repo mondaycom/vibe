@@ -71,7 +71,8 @@
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
-    "react-windowed-select": "^2.0.4"
+    "react-windowed-select": "^2.0.4",
+    "style-inject": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
