@@ -10,7 +10,7 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./storybook": "./dist/storybook/storybook-esm.js"
+    "./storybook": "./dist/storybook/storybook-esm.js",
     "./icons": "./dist/esm/components/Icon/Icons/icons.js"
   },
   "scripts": {
