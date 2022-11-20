@@ -8,3 +8,5 @@ export const ComingSoon = () => (
     <Heading type={Heading.types.h3} ellipsis={false} className={classes["coming-soon-title"]} value="Coming soon..." />
   </div>
 );
+
+export default ComingSoon;

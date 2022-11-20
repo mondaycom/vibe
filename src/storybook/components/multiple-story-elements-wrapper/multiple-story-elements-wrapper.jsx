@@ -9,3 +9,5 @@ export const MultipleStoryElementsWrapper = ({ className, children }) => {
     </div>
   );
 };
+
+export default MultipleStoryElementsWrapper;

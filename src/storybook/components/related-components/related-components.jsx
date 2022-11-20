@@ -30,3 +30,5 @@ RelatedComponents.propTypes = {
 RelatedComponents.defaultProps = {
   componentsNames: []
 };
+
+export default RelatedComponents;

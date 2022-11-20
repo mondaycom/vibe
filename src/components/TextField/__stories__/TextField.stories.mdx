@@ -1,10 +1,15 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import TextField from "../TextField";
 import { TextFieldTextType } from "../TextFieldConstants";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import {
+  ComponentRules,
+  createComponentTemplate,
+  createStoryMetaSettings,
+  RelatedComponents,
+  UsageGuidelines
+} from "../../../storybook";
 import { Check, CloseSmall, Email } from "../../Icon/Icons";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
-import { ComponentRules, RelatedComponents, UsageGuidelines } from "../../../storybook";
 import "./TextField.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({

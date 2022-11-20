@@ -1,12 +1,13 @@
 import Steps from "../Steps";
 import { useMemo } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import Tipseen from "../../Tipseen/Tipseen.jsx";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
 import { modifiers } from "./helpers.js";
 import { BREADCRUBMS, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import { ComponentRules, RelatedComponents, UsageGuidelines } from "../../../storybook";
+import createComponentTemplate from "../../../storybook/functions/createComponentTemplate";
+import createStoryMetaSettings from "../../../storybook/functions/createStoryMetaSettings";
 import "./steps.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({

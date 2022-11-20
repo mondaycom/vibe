@@ -12,3 +12,5 @@ export function withMemoryStats(Story, options) {
   }
   return <Story />;
 }
+
+export default withMemoryStats;

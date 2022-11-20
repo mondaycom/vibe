@@ -37,3 +37,5 @@ Link.propTypes = {
   size: PropTypes.oneOf([Link.sizes.SMALL, Link.sizes.MEDIUM]),
   withoutSpacing: PropTypes.bool
 };
+
+export default Link;
