@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.0 (2022-11-20)
+
+#### New Features
+* [#973](https://github.com/mondaycom/monday-ui-react-core/pull/973) Feature/sergeyro/export storybook components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.72.0 (2022-11-20)
 
 #### New Features
