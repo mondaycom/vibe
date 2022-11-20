@@ -177,7 +177,6 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
         })}
         role={role}
         aria-busy={loading}
-        tabIndex={tabIndex}
       >
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
@@ -208,6 +207,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
               aria-activedescendant={activeDescendant}
               required={required}
               data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
+              tabIndex={tabIndex}
             />
             {loading && (
               <div
