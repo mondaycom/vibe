@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.71.3 (2022-11-20)
+
+#### Internal Changes
+* [#931](https://github.com/mondaycom/monday-ui-react-core/pull/931) AvatarGroup Typescript migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#984](https://github.com/mondaycom/monday-ui-react-core/pull/984) TS-migration: EditableInput ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#964](https://github.com/mondaycom/monday-ui-react-core/pull/964) ExpandCollapse: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#981](https://github.com/mondaycom/monday-ui-react-core/pull/981) TS-migration: VirtualizedList ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#989](https://github.com/mondaycom/monday-ui-react-core/pull/989) Install `style-inject` explicitly ([@sahariko](https://github.com/sahariko))
+* [#988](https://github.com/mondaycom/monday-ui-react-core/pull/988) Rollup ([@sahariko](https://github.com/sahariko))
+
+#### New Icons
+* [#990](https://github.com/mondaycom/monday-ui-react-core/pull/990) Bump monday-ui-styles version to "0.1.144": team icon ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.71.2 (2022-11-16)
 
 #### Bug Fixes
