@@ -116,7 +116,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
       loading = false,
       dataTestId,
       secondaryDataTestId,
-      tabIndex = 0
+      tabIndex
     },
     ref
   ) => {
@@ -171,7 +171,8 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
     }, [inputRef, autoFocus]);
 
     return (
-      <div
+        // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
+        <div
         className={classNames("input-component", wrapperClassName, {
           "input-component--disabled": disabled
         })}
