@@ -27,6 +27,7 @@ const publishedTSComponents = {
   Tooltip: "components/Tooltip/Tooltip",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   Avatar: "components/Avatar/Avatar",
+  AvatarGroup: "components/AvatarGroup/AvatarGroup",
   Chips: "components/Chips/Chips",
   Slider: "components/Slider/Slider",
   BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar",

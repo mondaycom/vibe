@@ -21,10 +21,7 @@ const publishedJSComponents = {
   Dropdown: "components/Dropdown/Dropdown.jsx",
   Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
-  allIcons: "components/Icon/Icons",
-  Toggle: "components/Toggle/Toggle.jsx",
-  AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Slider: "components/Slider/Slider.jsx"
+  allIcons: "components/Icon/Icons"
 };
 // eslint-disable-next-line no-undef
 module.exports = {

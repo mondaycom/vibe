@@ -17,6 +17,7 @@ const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
+
 export interface AvatarProps extends VibeComponentProps {
   src?: string;
   text?: string;
@@ -42,10 +43,15 @@ export interface AvatarProps extends VibeComponentProps {
   bottomLeftBadgeProps?: AvatarBadgeProps;
   bottomRightBadgeProps?: AvatarBadgeProps;
   withoutBorder?: boolean;
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<AvatarProps> & {
+  types?: typeof AvatarType;
+  sizes?: typeof AvatarSize;
+  colors?: BackgroundColors;
+  backgroundColors?: BackgroundColors;
+} = ({
   id,
   type = AvatarType.TEXT,
   className,
@@ -146,10 +152,10 @@ const Avatar: React.FC<AvatarProps> = ({
     (event: React.MouseEvent | React.KeyboardEvent) => {
       event.preventDefault();
       if (onClick) {
-        onClick(event);
+        onClick(event, id);
       }
     },
-    [onClick]
+    [onClick, id]
   );
 
   return (
