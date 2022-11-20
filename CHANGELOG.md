@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.72.0 (2022-11-20)
+
+#### New Features
+* [#993](https://github.com/mondaycom/monday-ui-react-core/pull/993) support tab index for text field ([@etaylib](https://github.com/etaylib))
+
+#### New Icons
+* [#992](https://github.com/mondaycom/monday-ui-react-core/pull/992) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.71.3 (2022-11-20)
 
 #### Internal Changes
