@@ -183,6 +183,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
           <div
             className={classNames("input-component__input-wrapper", SIZE_MAPPER[getActualSize(size)], validationClass)}
           >
+            {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={classNames(className, "input-component__input", {
