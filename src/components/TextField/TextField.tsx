@@ -171,8 +171,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
     }, [inputRef, autoFocus]);
 
     return (
-        // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-        <div
+      <div
         className={classNames("input-component", wrapperClassName, {
           "input-component--disabled": disabled
         })}
@@ -184,6 +183,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
           <div
             className={classNames("input-component__input-wrapper", SIZE_MAPPER[getActualSize(size)], validationClass)}
           >
+            {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={classNames(className, "input-component__input", {
                 "input-component__input--has-icon": !!hasIcon
