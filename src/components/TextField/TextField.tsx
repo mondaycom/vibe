@@ -70,6 +70,7 @@ interface TextFieldProps extends VibeComponentProps {
   loading?: boolean;
   dataTestId?: string;
   secondaryDataTestId?: string;
+  tabIndex?: number;
 }
 
 const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttributes<unknown>> & {
@@ -114,7 +115,8 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
       required = false,
       loading = false,
       dataTestId,
-      secondaryDataTestId
+      secondaryDataTestId,
+      tabIndex
     },
     ref
   ) => {
@@ -175,6 +177,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
         })}
         role={role}
         aria-busy={loading}
+        tabIndex={tabIndex}
       >
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
