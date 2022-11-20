@@ -18,7 +18,6 @@ import { UnstyledListItem } from "./unstyled-list-item/unstyled-list-item";
 import { FunctionArgument } from "./function-arguments/function-argument";
 import { FunctionArguments } from "./function-arguments/function-arguments";
 
-export * from "./function-arguments/function-arguments";
 export { default as LinkComponent } from "./link-component/link-component";
 export {
   SectionName,
