@@ -63,7 +63,7 @@ Use this component if you need to stack avatars as a group.
 
 ## Props
 
-<ArgsTable of={AvatarGroup} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -270,7 +270,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
   <Story name="Hover vs Clickable">
     {() => {
       const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
-      const avatarOnClick = useCallback(avatarId => {
+      const avatarOnClick = useCallback((_event, avatarId) => {
         setLastClickedAvatarId(avatarId);
       }, []);
       const avatarsProps = [
@@ -280,7 +280,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
       ];
       const getDummyAvatarsProps = useCallback(multiplier => {
         let result = [];
-        for (let i = 0; i < multiplier; ++i) {
+        for (let i = 0; i <= multiplier; ++i) {
           result = result.concat(avatarsProps);
         }
         return result;
@@ -293,7 +293,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
               max={3}
               counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
             >
-              {getDummyAvatarsProps(4).map(avatarProps => (
+              {getDummyAvatarsProps(3).map(avatarProps => (
                 <Avatar {...avatarProps} />
               ))}
             </AvatarGroup>
@@ -301,8 +301,8 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
           <StoryDescription description="Counter click" vertical align={Flex.align.START}>
             <Flex>
               <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-                {getDummyAvatarsProps(4).map((avatarProps, index) => (
-                  <Avatar {...avatarProps} onClick={avatarOnClick} id={`${index}`} />
+                {getDummyAvatarsProps(3).map((avatarProps, index) => (
+                  <Avatar {...avatarProps} onClick={avatarOnClick} id={index} />
                 ))}
               </AvatarGroup>
               <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id: {lastClickedAvatarId}</div>

@@ -41,36 +41,6 @@ function convertExportsToFile(exportsArray, fileName) {
   writeToFile(content, `../dist/${fileName}`);
 }
 
-function buildComponentsEsmFileByMap(componentsMap, fileName, exportPath = undefined) {
-  const exports = Object.keys(componentsMap).map(componentName =>
-    buildComponentExport(componentName, `./${exportPath || componentName}`)
-  );
-  convertExportsToFile(exports, fileName);
-}
-
-function buildComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedComponents, "esm.js");
-}
-
-function buildTSComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedTSComponents, "ts-esm.js");
-}
-
-function buildStorybookComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedStorybookComponents, "storybook/storybook-esm.js");
-}
-
-function buildIconsEsmFile() {
-  const icons = fs.readdirSync(path.join(__dirname, "../dist/icons")).filter(file => file !== "index.js");
-  const iconsContent = icons
-    .map(name => {
-      const nameWithoutExtension = name.split(".")[0];
-      return `export { default as ${nameWithoutExtension} } from "./${nameWithoutExtension}";`;
-    })
-    .join("\n");
-  writeToFile(iconsContent, "../dist/icons/index.js");
-}
-
 // eslint-disable-next-line no-unused-vars
 function buildComponentsTypesIndexFile() {
   const exports = Object.entries(publishedTSComponents).map(([name, path]) =>
@@ -81,9 +51,5 @@ function buildComponentsTypesIndexFile() {
 
 module.exports = {
   createFoldersIfNotExist,
-  buildComponentsEsmFile,
-  buildTSComponentsEsmFile,
-  buildStorybookComponentsEsmFile,
-  buildComponentsTypesIndexFile,
-  buildIconsEsmFile
+  buildComponentsTypesIndexFile
 };

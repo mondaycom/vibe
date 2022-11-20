@@ -3,7 +3,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toast from "../Toast";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import Button from "../../Button/Button";
-import { Link } from "../../../storybook/components";
+import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
 import {
   ALERT_BANNER,
   ATTENTION_BOX,
@@ -57,7 +57,7 @@ A toast notification is a message object that presents timely information, inclu
 
 ## Props
 
-<ArgsTable of={Toast} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -238,7 +238,7 @@ After a user has done an action, provide feedback to close the loop. For example
       const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
       const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
       const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Undo" }], []);
-      return useMemo(() => (
+      return (
         <>
           <Button leftIcon={Delete} onClick={onClickCallback}>
             Delete item
@@ -254,7 +254,7 @@ After a user has done an action, provide feedback to close the loop. For example
             We successfully deleted 1 item
           </Toast>
         </>
-      ));
+      );
     }}
   </Story>
 </Canvas>
