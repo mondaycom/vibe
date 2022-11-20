@@ -1,21 +1,17 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const {
-  publishedComponents,
-  publishedTSComponents,
-  publishedStorybookComponents
-} = require("../webpack/published-components");
+const { publishedTSComponents, publishedStorybookComponents } = require("../webpack/published-components");
 
 function createFoldersIfNotExist() {
-  // if dist does not exist let's create it
+  // if dist is not exist let's create it
   const distDir = path.join(__dirname, `../dist/`);
 
   if (!fs.existsSync(distDir)) {
     fs.mkdirSync(distDir);
   }
 
-  // if dist/icons does not exist let's create it
+  // if dist/icons not exist let's create it
   const iconsDir = path.join(distDir, `/icons`);
   if (!fs.existsSync(iconsDir)) {
     fs.mkdirSync(iconsDir);
@@ -32,13 +28,9 @@ function buildComponentExport(name, path) {
   return `export { default as ${name} } from "${path}";`;
 }
 
-function writeToFile(content, fileName) {
-  fs.writeFileSync(path.join(__dirname, fileName), content, "utf8");
-}
-
 function convertExportsToFile(exportsArray, fileName) {
   const content = exportsArray.join("\n");
-  writeToFile(content, `../dist/${fileName}`);
+  fs.writeFileSync(path.join(__dirname, `../dist/${fileName}`), content, "utf8");
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -49,7 +41,16 @@ function buildComponentsTypesIndexFile() {
   convertExportsToFile(exports, "types.d.ts");
 }
 
+function buildStorybookComponentsIndexFile() {
+  const exports = Object.entries(publishedStorybookComponents).map(([name, _path]) => {
+    const fileName = name.split("/").slice(-1);
+    return buildComponentExport(fileName, `./${fileName}`);
+  });
+  convertExportsToFile(exports, "storybook/index.js");
+}
+
 module.exports = {
   createFoldersIfNotExist,
-  buildComponentsTypesIndexFile
+  buildComponentsTypesIndexFile,
+  buildStorybookComponentsIndexFile
 };

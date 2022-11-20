@@ -3,7 +3,7 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { getPublishedComponents, getPublishedStorybookComponents } = require("./webpack/published-components");
+const { getPublishedComponents } = require("./webpack/published-components");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const ANALYZE_BUNDLE = false;
@@ -58,13 +58,9 @@ module.exports = options => {
   // why false? we are open source anyway
   const devtool = storybook ? "eval-cheap-module-source-map" : "source-map";
   const publishedComponents = storybook ? {} : getPublishedComponents();
-  const publishedStorybookComponents = getPublishedStorybookComponents();
-  // const publishedStorybookComponentsPaths = getPublishedStorybookComponentsPaths();
 
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
-    // "storybook/storybook": [...publishedStorybookComponentsPaths],
-    ...publishedStorybookComponents,
     ...publishedComponents
   };
 

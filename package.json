@@ -10,7 +10,7 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./storybook": "./dist/storybook/storybook-esm.js",
+    "./storybookComponents": "./dist/storybook/index.js",
     "./icons": "./dist/esm/components/Icon/Icons/icons.js"
   },
   "scripts": {
@@ -19,8 +19,9 @@
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
-    "build": "npm run build:react-icons && npm run build:commonjs && npm run build:esm",
+    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm",
     "build:exports": "./scripts/build-exports.js",
+    "build:storybook-exports": "./scripts/build-storybook-exports.js",
     "build:commonjs": "webpack --mode production --config webpack/default.config.js",
     "build:esm": "rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
