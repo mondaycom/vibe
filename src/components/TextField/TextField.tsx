@@ -116,7 +116,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
       loading = false,
       dataTestId,
       secondaryDataTestId,
-      tabIndex
+      tabIndex = 0
     },
     ref
   ) => {
