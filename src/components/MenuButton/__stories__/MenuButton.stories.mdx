@@ -1,15 +1,15 @@
 import MenuButton from "../MenuButton";
 import NOOP from "lodash/noop";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { Menu, MenuItem, MenuTitle, MenuItemButton } from "../../index";
-import { BUTTON, ICON_BUTTON, SPLIT_BUTTON } from "../../../storybook/components/related-components/component-description-map";
-import { Favorite, Sun, Moon, AddSmall } from "../../Icon/Icons";
-import Bolt from "../../Icon/Icons/components/Bolt";
-import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { Menu, MenuItem, MenuTitle } from "../../index";
+import {
+  BUTTON,
+  ICON_BUTTON,
+  SPLIT_BUTTON
+} from "../../../storybook/components/related-components/component-description-map";
+import { Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
-import MoveArrowLeft from "../../Icon/Icons/components/MoveArrowLeft";
-import MoveArrowRight from "../../Icon/Icons/components/MoveArrowRight";
 
 
 export const metaSettings = createStoryMetaSettings({

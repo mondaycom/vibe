@@ -1,25 +1,40 @@
-import React, { useCallback, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import Tooltip from "../Tooltip/Tooltip";
-import Avatar from "../Avatar/Avatar";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { AvatarSize, AvatarType } from "../Avatar/AvatarConstants";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
+import { TooltipProps } from "../Tooltip/Tooltip";
+import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 
-const avatarOnClick = avatarProps => {
-  return avatarProps?.onClick && (() => avatarProps.onClick(avatarProps?.id));
-};
+interface AvatarGroupCounterProps extends VibeComponentProps {
+  /**
+   * Array of Avatar elements
+   */
+  counterTooltipAvatars?: ReactElement<AvatarProps>[];
+  /**
+   * AvatarGroupCounterVisualProps: props for counter
+   */
+  counterProps?: AvatarGroupCounterVisualProps;
+  counterTooltipCustomProps?: TooltipProps;
+  counterTooltipIsVirtualizedList?: boolean;
+  size?: AvatarSize;
+  type?: AvatarType;
+}
 
-const AvatarGroupCounter = ({
-  counterTooltipAvatars,
+const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
+  counterTooltipAvatars = [],
   counterProps,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList,
-  size,
+  counterTooltipIsVirtualizedList = false,
+  size = Avatar.sizes.MEDIUM,
   type
 }) => {
   const {
@@ -30,7 +45,7 @@ const AvatarGroupCounter = ({
     ariaLabelItemsName: counterAriaLabelItemsName = "items"
   } = counterProps || {};
 
-  const counterSizeStyle = styles[size?.toString()];
+  const counterSizeStyle = getStyle(styles, size?.toString());
   const counterColorStyle = styles[counterColor];
 
   const focusPrevPlaceholderRef = useRef(null);
@@ -55,20 +70,25 @@ const AvatarGroupCounter = ({
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
   if (areAvatarsClickable) {
     return (
+      // @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuButton is converted to TS
       <MenuButton
         component={counterComponent}
         zIndex={1}
         componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={`${counterValue} additional ${counterAriaLabelItemsName}`}
       >
+        {/* @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuButton is converted to TS*/}
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
+              // eslint-disable-next-line react/jsx-key
               <AvatarMenuItem
-                key={avatar.props?.id || index}
-                title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
-                onClick={avatarOnClick(avatar.props)}
-                avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: "-1" }}
+                menuItemProps={{
+                  key: avatar.props?.id || index,
+                  title: avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel,
+                  onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
+                }}
+                avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: -1 }}
               />
             );
           })}
@@ -100,35 +120,6 @@ const AvatarGroupCounter = ({
       </div>
     </AvatarGroupCounterTooltipContainer>
   );
-};
-
-AvatarGroupCounter.propTypes = {
-  /**
-   * Array of Avatar elements
-   */
-  counterTooltipAvatars: PropTypes.arrayOf(PropTypes.element),
-  /**
-   * Counter.propTypes: props for counter
-   */
-  counterProps: PropTypes.shape({
-    color: PropTypes.oneOf([Counter.colors.LIGHT, Counter.colors.DARK]),
-    count: PropTypes.number,
-    prefix: PropTypes.string,
-    maxDigits: PropTypes.number,
-    ariaLabelItemsName: PropTypes.string
-  }),
-  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
-  counterTooltipIsVirtualizedList: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(Avatar.sizes)),
-  type: PropTypes.oneOf(Object.values(Avatar.types))
-};
-AvatarGroupCounter.defaultProps = {
-  counterTooltipAvatars: [],
-  counterProps: undefined,
-  counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false,
-  size: Avatar.sizes.MEDIUM,
-  type: undefined
 };
 
 export default AvatarGroupCounter;

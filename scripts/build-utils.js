@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const { publishedComponents, publishedTSComponents } = require("../webpack/published-components");
+const { publishedTSComponents, publishedStorybookComponents } = require("../webpack/published-components");
 
 function createFoldersIfNotExist() {
   // if dist is not exist let's create it
@@ -16,6 +16,12 @@ function createFoldersIfNotExist() {
   if (!fs.existsSync(iconsDir)) {
     fs.mkdirSync(iconsDir);
   }
+
+  // if dist/storybook does not exist let's create it
+  const storybookDir = path.join(distDir, `/storybook`);
+  if (!fs.existsSync(storybookDir)) {
+    fs.mkdirSync(storybookDir);
+  }
 }
 
 function buildComponentExport(name, path) {
@@ -27,32 +33,6 @@ function convertExportsToFile(exportsArray, fileName) {
   fs.writeFileSync(path.join(__dirname, `../dist/${fileName}`), content, "utf8");
 }
 
-function buildComponentsEsmFileByMap(componentsMap, fileName) {
-  const exports = Object.keys(componentsMap).map(componentName =>
-    buildComponentExport(componentName, `./${componentName}`)
-  );
-  convertExportsToFile(exports, fileName);
-}
-
-function buildComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedComponents, "esm.js");
-}
-
-function buildTSComponentsEsmFile() {
-  buildComponentsEsmFileByMap(publishedTSComponents, "ts-esm.js");
-}
-
-function buildIconsEsmFile() {
-  const icons = fs.readdirSync(path.join(__dirname, "../dist/icons")).filter(file => file !== "index.js");
-  const iconsContent = icons
-    .map(name => {
-      const nameWithoutExtention = name.split(".")[0];
-      return `export { default as ${nameWithoutExtention} } from "./${nameWithoutExtention}";`;
-    })
-    .join("\n");
-  fs.writeFileSync(path.join(__dirname, "../dist/icons/index.js"), iconsContent, "utf8");
-}
-
 // eslint-disable-next-line no-unused-vars
 function buildComponentsTypesIndexFile() {
   const exports = Object.entries(publishedTSComponents).map(([name, path]) =>
@@ -61,10 +41,16 @@ function buildComponentsTypesIndexFile() {
   convertExportsToFile(exports, "types.d.ts");
 }
 
+function buildStorybookComponentsIndexFile() {
+  const exports = Object.entries(publishedStorybookComponents).map(([name, _path]) => {
+    const fileName = name.split("/").slice(-1);
+    return buildComponentExport(fileName, `./${fileName}`);
+  });
+  convertExportsToFile(exports, "storybook/index.js");
+}
+
 module.exports = {
   createFoldersIfNotExist,
-  buildComponentsEsmFile,
-  buildTSComponentsEsmFile,
   buildComponentsTypesIndexFile,
-  buildIconsEsmFile
+  buildStorybookComponentsIndexFile
 };

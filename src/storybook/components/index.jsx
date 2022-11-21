@@ -15,8 +15,9 @@ import { VisualDescription } from "./visual-description/visual-description";
 import { ColorsDescription } from "./colors-description/colors-description";
 import { UnstyledList } from "./unstyled-list/unstyled-list";
 import { UnstyledListItem } from "./unstyled-list-item/unstyled-list-item";
+import { FunctionArgument } from "./function-arguments/function-argument";
+import { FunctionArguments } from "./function-arguments/function-arguments";
 
-export * from "./function-arguments";
 export { default as LinkComponent } from "./link-component/link-component";
 export {
   SectionName,
@@ -35,5 +36,7 @@ export {
   VisualDescription,
   ColorsDescription,
   UnstyledList,
-  UnstyledListItem
+  UnstyledListItem,
+  FunctionArgument,
+  FunctionArguments
 };

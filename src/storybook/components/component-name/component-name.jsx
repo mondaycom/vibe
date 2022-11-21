@@ -12,3 +12,5 @@ export const ComponentName = ({ children, className, withFoundationBackground = 
     </h1>
   );
 };
+
+export default ComponentName;
