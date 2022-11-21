@@ -1,5 +1,5 @@
-/* stylelint-disable-next-line scss/at-import-partial-extension */
 @import "../../components/Avatar/Avatar.module.scss";
+@use "sass:math";
 
 .counterContainer {
   background: var(--primary-background-hover-color);
@@ -20,7 +20,7 @@
   @mixin counterSize($size) {
     height: $size;
     min-width: $size;
-    border-radius: $size / 2;
+    border-radius: math.div($size, 2);
   }
   &.small {
     @include counterSize($avatar-size-small);

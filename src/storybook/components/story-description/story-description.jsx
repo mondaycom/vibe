@@ -48,3 +48,5 @@ StoryDescription.defaultProps = {
   children: null,
   vertical: false
 };
+
+export default StoryDescription;

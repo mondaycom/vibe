@@ -19,7 +19,16 @@ export interface AvatarBadgeProps extends VibeComponentProps {
 
 export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   sizes?: typeof AvatarSize;
-} = ({ src, ariaLabel, tabIndex, className, size, id, "data-testid": dataTestId, ...otherProps }) => {
+} = ({
+  src,
+  ariaLabel,
+  tabIndex = 0,
+  className,
+  size = AvatarSize.LARGE,
+  id,
+  "data-testid": dataTestId,
+  ...otherProps
+}) => {
   return src ? (
     <CustomSvgIcon
       src={src}
@@ -35,10 +44,3 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 Object.assign(AvatarBadge, {
   sizes: AvatarSize
 });
-
-AvatarBadge.defaultProps = {
-  ariaLabel: undefined,
-  tabIndex: 0,
-  className: "",
-  size: AvatarSize.LARGE
-};

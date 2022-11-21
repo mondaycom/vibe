@@ -14,3 +14,5 @@ export function VerticalStories(Story) {
     </div>
   );
 }
+
+export default VerticalStories;

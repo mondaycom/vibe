@@ -1,6 +1,5 @@
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -14,7 +13,7 @@ import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
-import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
+import { getOptionId } from "./helpers";
 import styles from "./Combobox.module.scss";
 
 const Combobox = forwardRef(

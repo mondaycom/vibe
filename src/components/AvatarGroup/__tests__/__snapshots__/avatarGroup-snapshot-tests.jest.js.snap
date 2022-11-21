@@ -5,31 +5,38 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
     className=""
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -41,7 +48,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   />
   <div
     className="counterContainer medium light"
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -58,10 +64,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
-          data-testid="counter"
           id="counter-"
         >
           +1
@@ -80,40 +85,46 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      data-testid="tooltip"
-      onBlur={[Function]}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
       onClick={[Function]}
-      onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        aria-label="Person 1"
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          aria-label="Person 1"
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
     className=""
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -125,7 +136,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
   />
   <div
     className="counterContainer medium light"
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -142,10 +152,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
-          data-testid="counter"
           id="counter-"
         >
           +1
@@ -164,39 +173,45 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      data-testid="tooltip"
-      onBlur={[Function]}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
       onClick={[Function]}
-      onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
     className=""
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -208,7 +223,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   />
   <div
     className="counterContainer medium light"
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -225,10 +239,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
-          data-testid="counter"
           id="counter-"
         >
           +1
@@ -247,31 +260,38 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
     className=""
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -283,7 +303,6 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   />
   <div
     className="counterContainer medium light"
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -300,10 +319,9 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
-          data-testid="counter"
           id="counter-"
         >
           +1
@@ -322,49 +340,65 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P2
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P2
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -375,26 +409,34 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
   className="avatarGroupContainer dummy-class-name"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -405,31 +447,38 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
     className=""
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -441,7 +490,6 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   />
   <div
     className="counterContainer large light"
-    data-testid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -458,10 +506,9 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
-          data-testid="counter"
           id="counter-"
         >
           +1
@@ -480,49 +527,65 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
-    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
-    data-testid="avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue)",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex="-1"
     >
-      <span
-        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
-        data-testid="avatar-content"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P2
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P2
+        </span>
+      </div>
     </div>
   </div>
 </div>

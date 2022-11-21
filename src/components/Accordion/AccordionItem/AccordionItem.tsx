@@ -1,9 +1,10 @@
 import cx from "classnames";
-import React, { forwardRef, ReactNode, useCallback, useRef } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import VibeComponent from "../../../types/VibeComponent";
+import { ElementContent } from "../../../types/ElementContent";
 
 interface AccordionItemProps extends VibeComponentProps {
   /**
@@ -13,7 +14,7 @@ interface AccordionItemProps extends VibeComponentProps {
   /**
    * The value of the expandable section
    */
-  children?: Array<ReactNode> | ReactNode;
+  children?: ElementContent;
   /**
    * The expand icon font size
    */
@@ -42,7 +43,6 @@ const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
-        {/*@ts-ignore TODO ts-migration when ExpandCollapse is converted to TS*/}
         <ExpandCollapse
           iconSize={iconSize}
           id={`expand-collapse--${id}`}

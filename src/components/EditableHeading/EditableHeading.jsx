@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Heading from "../Heading/Heading";
 import Clickable from "../Clickable/Clickable";
-import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
+import EditableInput from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
+import { InputType } from "../EditableInput/EditableInputConstants";
 import styles from "./EditableHeading.module.scss";
 
 const EditableHeading = props => {
@@ -142,7 +143,7 @@ const EditableHeading = props => {
   };
 
   const getInputProps = () => {
-    const textAreaType = props.ellipsisMaxLines > 1 ? TEXTAREA_TYPE : undefined;
+    const textAreaType = props.ellipsisMaxLines > 1 ? InputType.TEXT_AREA : undefined;
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,

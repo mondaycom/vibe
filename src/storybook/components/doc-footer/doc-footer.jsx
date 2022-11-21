@@ -19,3 +19,5 @@ export const DocFooter = () => (
     </div>
   </div>
 );
+
+export default DocFooter;

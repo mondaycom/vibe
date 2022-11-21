@@ -74,7 +74,8 @@ module.exports = {
         "scripts/**/*.js",
         "webpack/**/*.js",
         "__mocks__/**/*.js",
-        "plop/**/*.js"
+        "plop/**/*.js",
+        "rollup.config.js"
       ],
       env: {
         node: true

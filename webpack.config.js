@@ -58,6 +58,7 @@ module.exports = options => {
   // why false? we are open source anyway
   const devtool = storybook ? "eval-cheap-module-source-map" : "source-map";
   const publishedComponents = storybook ? {} : getPublishedComponents();
+
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
     ...publishedComponents
@@ -90,6 +91,7 @@ module.exports = options => {
         },
         {
           test: /\.scss$/,
+          exclude: /\/storybook\//,
           use: [
             ...styleLoaders,
             {
@@ -106,7 +108,25 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
+        },
+        {
+          // Straightforward bundle of storybook/**/*.scss
+          test: /\/storybook\/.*\.scss$/,
+          use: ["style-loader", "css-loader", "sass-loader"]
         }
+        // TODO Bundling pictures from storybook/components/* - doesn't work right now
+        // {
+        //   test: /\/storybook\/components\/.*\.(png|svg|jpg|gif|jpe?g)$/,
+        //   use: [
+        //     {
+        //       options: {
+        //         name: "[name].[ext]",
+        //         outputPath: "assets/"
+        //       },
+        //       loader: "file-loader"
+        //     }
+        //   ]
+        // }
       ]
     },
     externals: {

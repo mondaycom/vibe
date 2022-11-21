@@ -11,3 +11,5 @@ AnchorListItem.propTypes = {
 AnchorListItem.defaultProps = {
   children: null
 };
+
+export default AnchorListItem;

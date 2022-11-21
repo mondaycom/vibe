@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { CSSProperties, useLayoutEffect } from "react";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { DialogPosition } from "../../constants/sizes";
 import cx from "classnames";
@@ -25,7 +25,7 @@ export interface HeadingProps extends VibeComponentProps {
   customColor?: string;
   /** Custom font flag, use to enable new font family on H1 headers */
   brandFont?: boolean;
-  style?: CSSStyleDeclaration;
+  style?: CSSProperties;
   tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
 }
 
@@ -53,7 +53,7 @@ const Heading: React.FC<HeadingProps> & {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
-  const finalStyle = useStyle(style, { color: customColor } as CSSStyleDeclaration);
+  const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx(
     styles.headingComponent,
     "heading-component",

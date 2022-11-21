@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
 import useEventListener from "../useEventListener";
-import { usePrevious } from "../../hooks";
+import usePrevious from "../../hooks/usePrevious";
 
 export default function useSetFocus({
   ref,

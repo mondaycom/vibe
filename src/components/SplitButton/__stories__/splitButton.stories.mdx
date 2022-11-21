@@ -2,7 +2,8 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
+import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
 import { Add, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
@@ -12,22 +13,22 @@ import "./splitButton.stories.scss";
 export const metaSettings = createStoryMetaSettings({
   component: SplitButton,
   enumPropNamesArray: [
-      "kind",
-      "dialogPaddingSize",
-      {
-          propName: "secondaryDialogPosition",
-          enumName: "secondaryPositions"
-      }
+    "kind",
+    "dialogPaddingSize",
+    {
+      propName: "secondaryDialogPosition",
+      enumName: "secondaryPositions"
+    }
   ],
   iconPropNamesArray: ["leftIcon", "rightIcon"],
   actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"]
 });
 
-<Meta 
+<Meta
   title="Buttons/Split Button"
-  component={ SplitButton }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={SplitButton}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -107,19 +108,35 @@ The split button has three variants: primary, secondary, and tertiary.
 The split button has supports multiple sizes: small, medium and large.
 
 <Canvas>
-    <Story name="Sizes">
-        <SplitButton children="Small" size={SplitButton.sizes.SMALL} secondaryDialogContent={<SplitButtonExampleDialog />} />
-        <SplitButton children="Medium" size={SplitButton.sizes.MEDIUM} secondaryDialogContent={<SplitButtonExampleDialog />} />
-        <SplitButton children="Large" size={SplitButton.sizes.LARGE} secondaryDialogContent={<SplitButtonExampleDialog />} />
-    </Story>
+  <Story name="Sizes">
+    <SplitButton
+      children="Small"
+      size={SplitButton.sizes.SMALL}
+      secondaryDialogContent={<SplitButtonExampleDialog />}
+    />
+    <SplitButton
+      children="Medium"
+      size={SplitButton.sizes.MEDIUM}
+      secondaryDialogContent={<SplitButtonExampleDialog />}
+    />
+    <SplitButton
+      children="Large"
+      size={SplitButton.sizes.LARGE}
+      secondaryDialogContent={<SplitButtonExampleDialog />}
+    />
+  </Story>
 </Canvas>
 
 ### Icon usage
 
 <Canvas>
   <Story name="Split button with icons">
-    <SplitButton leftIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Left icon</SplitButton>
-    <SplitButton rightIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Right icon</SplitButton>
+    <SplitButton leftIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>
+      Left icon
+    </SplitButton>
+    <SplitButton rightIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>
+      Right icon
+    </SplitButton>
   </Story>
 </Canvas>
 
@@ -177,8 +194,7 @@ The split button has supports multiple sizes: small, medium and large.
             Don’t use split button if there’s only one option within the menu. Use
             <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>
               Button
-            </Link>{" "}
-            instead (see example in the secondary dialog).
+            </Link> instead (see example in the secondary dialog).
           </>
         )
       }
