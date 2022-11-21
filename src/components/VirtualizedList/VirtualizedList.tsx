@@ -25,8 +25,8 @@ import {
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import styles from "./VirtualizedList.module.scss";
 import NOOP from "lodash/noop";
+import styles from "./VirtualizedList.module.scss";
 
 export type VirtualizedListItem = {
   value?: string | Record<string, unknown>;

@@ -43,7 +43,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       className,
       defaultOpenState = false,
       iconSize = 24,
-      id,
+      id = "",
       open,
       onClick = null,
       "data-testid": dataTestId
