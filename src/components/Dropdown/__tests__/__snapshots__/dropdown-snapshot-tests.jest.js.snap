@@ -101,42 +101,66 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           id="react-select-29-option-0"
           tabindex="-1"
         >
-          Ocean
+          <div
+            class="valueContainer"
+          >
+            Ocean
+          </div>
         </div>
         <div
           class="dropdown-wrapper__option--reset css-15bbhzv-option"
           id="react-select-29-option-1"
           tabindex="-1"
         >
-          Blue
+          <div
+            class="valueContainer"
+          >
+            Blue
+          </div>
         </div>
         <div
           class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-29-option-2"
           tabindex="-1"
         >
-          Purple
+          <div
+            class="valueContainer"
+          >
+            Purple
+          </div>
         </div>
         <div
           class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-29-option-3"
           tabindex="-1"
         >
-          Red
+          <div
+            class="valueContainer"
+          >
+            Red
+          </div>
         </div>
         <div
           class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-29-option-4"
           tabindex="-1"
         >
-          Orange
+          <div
+            class="valueContainer"
+          >
+            Orange
+          </div>
         </div>
         <div
           class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-29-option-5"
           tabindex="-1"
         >
-          Yellow
+          <div
+            class="valueContainer"
+          >
+            Yellow
+          </div>
         </div>
       </div>
     </div>
@@ -929,7 +953,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-0"
                 tabindex="-1"
               >
-                1
+                <div
+                  class="valueContainer"
+                >
+                  1
+                </div>
               </div>
             </div>
           </div>
@@ -942,7 +970,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-1"
                 tabindex="-1"
               >
-                2
+                <div
+                  class="valueContainer"
+                >
+                  2
+                </div>
               </div>
             </div>
           </div>
@@ -955,7 +987,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-2"
                 tabindex="-1"
               >
-                3
+                <div
+                  class="valueContainer"
+                >
+                  3
+                </div>
               </div>
             </div>
           </div>
@@ -968,7 +1004,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-3"
                 tabindex="-1"
               >
-                4
+                <div
+                  class="valueContainer"
+                >
+                  4
+                </div>
               </div>
             </div>
           </div>
@@ -981,7 +1021,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-4"
                 tabindex="-1"
               >
-                5
+                <div
+                  class="valueContainer"
+                >
+                  5
+                </div>
               </div>
             </div>
           </div>
@@ -994,7 +1038,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-5"
                 tabindex="-1"
               >
-                6
+                <div
+                  class="valueContainer"
+                >
+                  6
+                </div>
               </div>
             </div>
           </div>
@@ -1007,7 +1055,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-6"
                 tabindex="-1"
               >
-                7
+                <div
+                  class="valueContainer"
+                >
+                  7
+                </div>
               </div>
             </div>
           </div>
@@ -1020,7 +1072,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-7"
                 tabindex="-1"
               >
-                8
+                <div
+                  class="valueContainer"
+                >
+                  8
+                </div>
               </div>
             </div>
           </div>
@@ -1033,7 +1089,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-8"
                 tabindex="-1"
               >
-                9
+                <div
+                  class="valueContainer"
+                >
+                  9
+                </div>
               </div>
             </div>
           </div>
@@ -1046,7 +1106,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-9"
                 tabindex="-1"
               >
-                10
+                <div
+                  class="valueContainer"
+                >
+                  10
+                </div>
               </div>
             </div>
           </div>
@@ -1059,7 +1123,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 id="react-select-26-option-10"
                 tabindex="-1"
               >
-                11
+                <div
+                  class="valueContainer"
+                >
+                  11
+                </div>
               </div>
             </div>
           </div>
@@ -1875,9 +1943,13 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1f92y5n-singleValue"
+          className="dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
-          Ocean
+          <div
+            className="valueContainer"
+          >
+            Ocean
+          </div>
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3428,9 +3500,13 @@ exports[`Dropdown renders correctly with value 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1f92y5n-singleValue"
+          className="dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
-          Ocean
+          <div
+            className="valueContainer"
+          >
+            Ocean
+          </div>
         </div>
         <div
           className="css-lkl2xd-Component"
