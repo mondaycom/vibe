@@ -1,12 +1,12 @@
-import React, { useRef, forwardRef, useCallback, useMemo } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./RadioButtonConstants";
-import "./RadioButton.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import "./RadioButton.scss";
 
 interface RadioButtonProps extends VibeComponentProps {
   className?: string;
