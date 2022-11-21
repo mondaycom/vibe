@@ -2,9 +2,10 @@
 import React from "react";
 import { components } from "react-select";
 import Tooltip from "../../../Tooltip/Tooltip";
+import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import "./option.scss";
 
-const Option = ({ Renderer, data, ...props }) => {
+const Option = ({ Renderer, data, children, ...props }) => {
   const tooltipProps = data.tooltipProps || {};
   return (
     <Tooltip {...tooltipProps} position={Tooltip.positions.RIGHT}>
@@ -13,7 +14,9 @@ const Option = ({ Renderer, data, ...props }) => {
           <Renderer {...data} />
         </components.Option>
       ) : (
-        <components.Option {...props} className="dropdown-wrapper__option--reset" />
+        <components.Option {...props} className="dropdown-wrapper__option--reset">
+          <ChildrenContent data={data}>{children}</ChildrenContent>
+        </components.Option>
       )}
     </Tooltip>
   );
