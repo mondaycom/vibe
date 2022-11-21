@@ -154,7 +154,7 @@ const Dropdown = ({
 
   const SingleValue = useCallback(
     props => <SingleValueComponent {...props} Renderer={finalValueRenderer} selectedOption={selectedOptions[0]} />,
-    [finalValueRenderer]
+    [finalValueRenderer, selectedOptions]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
