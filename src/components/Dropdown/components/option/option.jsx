@@ -15,7 +15,9 @@ const Option = ({ Renderer, data, children, ...props }) => {
         </components.Option>
       ) : (
         <components.Option {...props} className="dropdown-wrapper__option--reset">
-          <ChildrenContent data={data}>{children}</ChildrenContent>
+          <ChildrenContent data={data} avatarSize={22}>
+            {children}
+          </ChildrenContent>
         </components.Option>
       )}
     </Tooltip>
