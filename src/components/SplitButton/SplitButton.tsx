@@ -13,6 +13,8 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition
 } from "./SplitButtonConstants";
+import { AnimationType } from "../../constants";
+import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -43,7 +45,6 @@ export interface SplitButtonProps extends ButtonProps {
   /*
     Popover Container padding size
    */
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSize?: typeof DialogContentContainer.sizes;
   shouldCloseOnClickInsideDialog?: boolean;
 }
@@ -55,7 +56,6 @@ const SplitButton: FC<SplitButtonProps> & {
   colors?: typeof Button.colors;
   kinds?: typeof Button.kinds;
   inputTags?: typeof Button.inputTags;
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSizes?: typeof DialogContentContainer.sizes;
 } = ({
   secondaryDialogContent,
@@ -65,7 +65,6 @@ const SplitButton: FC<SplitButtonProps> & {
   zIndex = null,
   secondaryDialogClassName,
   secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   ...buttonProps
 }) => {
@@ -166,10 +165,13 @@ const SplitButton: FC<SplitButtonProps> & {
     [className, kind, color, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(() => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
+  const dialogShowTrigger = useMemo(
+    () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
+    [disabled]
+  );
 
   const dialogHideTrigger = useMemo(() => {
-    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
+    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
@@ -223,7 +225,7 @@ const SplitButton: FC<SplitButtonProps> & {
             content={actionsContent}
             position={secondaryDialogPosition}
             startingEdge={animationEdgePosition}
-            animationType="expand"
+            animationType={AnimationType.EXPAND}
             moveBy={DIALOG_MOVE_BY}
             onDialogDidShow={showDialog}
             onDialogDidHide={hideDialog}
@@ -266,7 +268,6 @@ Object.assign(SplitButton, {
   colors: Button.colors,
   kinds: Button.kinds,
   inputTags: Button.inputTags,
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSizes: DialogContentContainer.sizes
 });
 

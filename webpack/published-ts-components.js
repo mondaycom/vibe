@@ -64,6 +64,8 @@ const publishedTSComponents = {
   VirtualizedList: "components/VirtualizedList/VirtualizedList",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
+  Dialog: "components/Dialog/Dialog.tsx",
+  MenuButton: "components/MenuButton/MenuButton.tsx",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
