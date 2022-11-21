@@ -129,7 +129,6 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
             <Bar
               value={baseValue}
-              animated={animated}
               classNames={cx(
                 styles.linearProgressBar,
                 CSS_BASE_CLASS,
@@ -165,7 +164,6 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           barLabelName={ariaLabel}
           id="linear-progress-bar"
           value={valueSecondary}
-          animated={animated}
           classNames={cx(
             styles.linearProgressBarSecondary,
             [`${CSS_BASE_CLASS}__secondary`],
@@ -181,7 +179,6 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         />
         <Bar
           value={value}
-          animated={animated}
           classNames={cx(
             styles.linearProgressBar,
             CSS_BASE_CLASS,

@@ -27,7 +27,7 @@ interface BarProps extends VibeComponentProps {
   color?: string;
 }
 
-const Bar: FC<BarProps> = ({ value, classNames, animated, min, max, color, barLabelName }) => {
+const Bar: FC<BarProps> = ({ value, classNames, min, max, color, barLabelName }) => {
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;
     return calculatePercentage(value, min, max);
