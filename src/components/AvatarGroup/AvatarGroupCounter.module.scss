@@ -1,5 +1,6 @@
-@import "../../components/Avatar/Avatar.module.scss";
 @use "sass:math";
+// eslint-disable-next-line scss/at-import-partial-extension
+@import "../../components/Avatar/Avatar.module.scss";
 
 .counterContainer {
   background: var(--primary-background-hover-color);
