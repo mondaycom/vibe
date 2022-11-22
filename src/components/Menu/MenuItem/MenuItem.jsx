@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { DialogPosition } from "../../../constants/sizes";
+import { DialogPosition } from "../../../constants/positions";
 import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";

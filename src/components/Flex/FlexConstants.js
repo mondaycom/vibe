@@ -1,7 +1,8 @@
-import { BASE_POSITIONS } from "../../constants/positions";
-
 export const FLEX_POSITIONS = Object.freeze({
-  ...BASE_POSITIONS,
+  START: "Start",
+  CENTER: "Center",
+  END: "End",
+  STRETCH: "Stretch",
   SPACE_AROUND: "SpaceAround",
   SPACE_BETWEEN: "SpaceBetween"
 });

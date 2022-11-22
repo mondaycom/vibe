@@ -1,10 +1,9 @@
-import { BASE_POSITIONS } from "../../constants/positions";
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
-import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
+import { FLEX_DIRECTIONS, FLEX_GAPS, FLEX_POSITIONS } from "./FlexConstants";
 import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
@@ -63,7 +62,7 @@ const Flex = forwardRef(
 );
 
 Flex.justify = FLEX_POSITIONS;
-Flex.align = BASE_POSITIONS;
+Flex.align = FLEX_POSITIONS;
 Flex.gaps = FLEX_GAPS;
 Flex.directions = FLEX_DIRECTIONS;
 
