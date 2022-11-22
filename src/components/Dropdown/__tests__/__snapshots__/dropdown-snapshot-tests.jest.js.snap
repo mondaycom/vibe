@@ -1943,7 +1943,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className="dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
+          className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
           <div
             className="valueContainer"
@@ -2347,8 +2347,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 className="monday-style-avatar avatar left monday-style-avatar--large"
                 style={
                   Object {
-                    "height": 16,
-                    "width": 16,
+                    "height": 18,
+                    "width": 18,
                   }
                 }
               >
@@ -3500,7 +3500,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className="dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
+          className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
           <div
             className="valueContainer"

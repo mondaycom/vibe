@@ -10,10 +10,7 @@ const SingleValue = props => {
 
   const value = Renderer ? <Renderer {...data} /> : <ChildrenContent data={data}>{children}</ChildrenContent>;
   return (
-    <components.SingleValue
-      {...props}
-      className={cx(styles.singleValue, "dd", "dropdown-wrapper__single-value--reset")}
-    >
+    <components.SingleValue {...props} className={cx(styles.singleValue, "dropdown-wrapper__single-value--reset")}>
       {value}
     </components.SingleValue>
   );
