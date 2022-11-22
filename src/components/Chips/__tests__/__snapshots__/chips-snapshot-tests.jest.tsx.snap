@@ -154,8 +154,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
     className="monday-style-avatar avatar left monday-style-avatar--large"
     style={
       Object {
-        "height": 16,
-        "width": 16,
+        "height": 18,
+        "width": 18,
       }
     }
   >
