@@ -16,11 +16,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
+  const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
     isMultiline,
     ref,
     chipClassName,
+    chipWrapperClassName,
     selectedOptionsCount: selectedOptions.length
   });
   const isCounterShown = hiddenOptionsCount > 0;
@@ -67,14 +69,20 @@ export default function Container({ children, selectProps, ...otherProps }) {
         >
           {isCounterShown ? (
             <>
-              {renderOptions(0, overflowIndex)}
-              {clickHandler}
+              {renderOptions(0, overflowIndex - 1)}
+              <div className={chipWrapperClassName}>
+                {renderOptions(overflowIndex - 1, overflowIndex)}
+                {clickHandler}
+              </div>
               {renderOptions(overflowIndex)}
             </>
           ) : (
             <>
-              {renderOptions()}
-              {clickHandler}
+              {renderOptions(0, selectedOptions.length - 1)}
+              <div className={chipWrapperClassName}>
+                {renderOptions(selectedOptions.length - 1)}
+                {clickHandler}
+              </div>
             </>
           )}
         </div>

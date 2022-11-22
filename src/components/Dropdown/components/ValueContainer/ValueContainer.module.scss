@@ -1,6 +1,11 @@
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 
+.chip-with-input-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 30px;
+}
 .placeholder-container {
   margin-left: 6px;
 }
