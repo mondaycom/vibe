@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.2 (2022-11-22)
+
+#### Bug Fixes
+* [#1000](https://github.com/mondaycom/monday-ui-react-core/pull/1000) SplitButton temp fix - secondary button no click event ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.73.1 (2022-11-22)
 
 #### Bug Fixes
