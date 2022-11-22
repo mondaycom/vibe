@@ -235,16 +235,27 @@ The Dropdown component supports multiple options selection in two different stat
         []
       );
       return (
-        <StoryDescription vertical>
-          <div>
-            <Dropdown
-              defaultValue={[optionsAvatar[0]]}
-              options={optionsAvatar}
-              multi
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
+          <Flex gap={Flex.gaps.SMALL}>
+              <StoryDescription vertical description="Single value">
+                  <div>
+                      <Dropdown
+                          defaultValue={[optionsAvatar[0]]}
+                          options={optionsAvatar}
+                          className="dropdown-stories-styles_with-chips"
+                      />
+                  </div>
+              </StoryDescription>
+              <StoryDescription vertical description="Multiple values">
+                  <div>
+                      <Dropdown
+                          defaultValue={[optionsAvatar[0]]}
+                          options={optionsAvatar}
+                          multi
+                          className="dropdown-stories-styles_with-chips"
+                      />
+                  </div>
+              </StoryDescription>
+          </Flex>
       );
     }}
   </Story>
@@ -271,17 +282,28 @@ The Dropdown component supports multiple options selection in two different stat
         []
       );
       return (
-        <StoryDescription vertical>
-          <div>
-            <Dropdown
-              defaultValue={[optionsIcons[0]]}
-              options={optionsIcons}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
+        <Flex gap={Flex.gaps.SMALL}>
+            <StoryDescription vertical description="Single value">
+                <div>
+                    <Dropdown
+                        defaultValue={[optionsIcons[0]]}
+                        options={optionsIcons}
+                        className="dropdown-stories-styles_with-chips"
+                    />
+                </div>
+            </StoryDescription>
+            <StoryDescription vertical description="Multiple values">
+                <div>
+                    <Dropdown
+                        defaultValue={[optionsIcons[0]]}
+                        options={optionsIcons}
+                        multi
+                        multiline
+                        className="dropdown-stories-styles_with-chips"
+                    />
+                </div>
+            </StoryDescription>
+        </Flex>
       );
     }}
   </Story>
