@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.3 (2022-11-22)
+
+#### Bug Fixes
+* [#1001](https://github.com/mondaycom/monday-ui-react-core/pull/1001) Fix: Revert splitButton default props to old-fashioned defaultProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.73.2 (2022-11-22)
 
 #### Bug Fixes
