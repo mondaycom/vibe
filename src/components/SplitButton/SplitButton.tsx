@@ -232,6 +232,7 @@ const SplitButton: FC<SplitButtonProps> & {
           >
             <Button
               {...overrideButtonProps}
+              onClick={NOOP} // TODO temp fix, might need to dig into that
               preventClickAnimation
               leftFlat
               noSidePadding
