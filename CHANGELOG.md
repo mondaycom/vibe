@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.1 (2022-11-22)
+
+#### Bug Fixes
+* [#994](https://github.com/mondaycom/monday-ui-react-core/pull/994) Display avatar/icon in single value and in options for multi and single ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.73.0 (2022-11-20)
 
 #### New Features
