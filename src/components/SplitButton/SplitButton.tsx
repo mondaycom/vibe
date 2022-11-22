@@ -43,8 +43,7 @@ export interface SplitButtonProps extends ButtonProps {
   /*
     Popover Container padding size
    */
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
-  dialogPaddingSize?: typeof DialogContentContainer.sizes;
+  dialogPaddingSize?: typeof DialogContentContainer.sizes[keyof typeof DialogContentContainer.sizes];
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
@@ -55,7 +54,6 @@ const SplitButton: FC<SplitButtonProps> & {
   colors?: typeof Button.colors;
   kinds?: typeof Button.kinds;
   inputTags?: typeof Button.inputTags;
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSizes?: typeof DialogContentContainer.sizes;
 } = ({
   secondaryDialogContent,
@@ -65,26 +63,21 @@ const SplitButton: FC<SplitButtonProps> & {
   zIndex = null,
   secondaryDialogClassName,
   secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
+  disabled,
+  success,
+  loading,
+  kind,
+  color,
+  className,
+  leftIcon,
+  rightIcon,
+  onClick,
+  children,
+  marginLeft,
+  marginRight,
   ...buttonProps
 }) => {
-  const overrideButtonProps = { ...Button.defaultProps, ...buttonProps };
-  const {
-    disabled,
-    success,
-    loading,
-    kind,
-    color,
-    className,
-    leftIcon,
-    rightIcon,
-    onClick,
-    children,
-    marginLeft,
-    marginRight
-  } = overrideButtonProps;
-
   // State //
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [isHovered, setIsHover] = useState(false);
@@ -176,7 +169,6 @@ const SplitButton: FC<SplitButtonProps> & {
   const actionsContent = useCallback(() => {
     const content = typeof secondaryDialogContent === "function" ? secondaryDialogContent() : secondaryDialogContent;
     return (
-      // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
       <DialogContentContainer type={DialogContentContainer.types.POPOVER} size={dialogPaddingSize}>
         {content}
       </DialogContentContainer>
@@ -198,7 +190,7 @@ const SplitButton: FC<SplitButtonProps> & {
     <div className={classNames} ref={ref} role="button">
       <Button
         {
-          ...overrideButtonProps /* We are enriching button with other props so we must use spreading */
+          ...buttonProps /* We are enriching button with other props so we must use spreading */
         }
         preventClickAnimation
         leftIcon={leftIcon}
@@ -231,8 +223,7 @@ const SplitButton: FC<SplitButtonProps> & {
             hideTrigger={dialogHideTrigger}
           >
             <Button
-              {...overrideButtonProps}
-              onClick={NOOP} // TODO temp fix, might need to dig into that
+              {...buttonProps}
               preventClickAnimation
               leftFlat
               noSidePadding
@@ -267,8 +258,17 @@ Object.assign(SplitButton, {
   colors: Button.colors,
   kinds: Button.kinds,
   inputTags: Button.inputTags,
-  // @ts-ignore TODO TS-migration, when DialogContentContainer is converted to TS
   dialogPaddingSizes: DialogContentContainer.sizes
 });
+
+SplitButton.defaultProps = {
+  ...Button.defaultProps,
+  onSecondaryDialogDidShow: NOOP,
+  onSecondaryDialogDidHide: NOOP,
+  zIndex: null,
+  secondaryDialogClassName: "",
+  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
+  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
+};
 
 export default SplitButton;
