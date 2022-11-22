@@ -7,7 +7,14 @@ export const ChildrenContent = ({ data, children }) => {
   return (
     <div className={styles.valueContainer}>
       {data?.leftAvatar && (
-        <Avatar withoutBorder customSize={18} src={data.leftAvatar} className={styles.avatar} type={Avatar.types.IMG} />
+        <Avatar
+          withoutBorder
+          square={data.square}
+          src={data.leftAvatar}
+          className={styles.avatar}
+          type={Avatar.types.IMG}
+          customSize={18}
+        />
       )}
       {data?.leftIcon && <Icon icon={data.leftIcon} clickable={false} />}
       {children}
@@ -15,6 +22,7 @@ export const ChildrenContent = ({ data, children }) => {
       {data?.rightAvatar && (
         <Avatar
           withoutBorder
+          square={data.square}
           src={data.rightAvatar}
           className={styles.avatar}
           type={Avatar.types.IMG}
