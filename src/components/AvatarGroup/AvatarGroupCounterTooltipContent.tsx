@@ -6,7 +6,7 @@ import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounte
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { FLEX_DIRECTIONS, FLEX_GAPS } from "../Flex/FlexConstants";
+import { FlexDirection, FlexGap } from "../Flex/FlexConstants";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
@@ -68,8 +68,8 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),
     // TODO replace with enum when Flex is converted to TS
-    direction: displayAsGrid ? FLEX_DIRECTIONS.ROW : FLEX_DIRECTIONS.COLUMN,
-    gap: displayAsGrid ? FLEX_GAPS.XS : FLEX_GAPS.SMALL,
+    direction: displayAsGrid ? FlexDirection.ROW : FlexDirection.COLUMN,
+    gap: displayAsGrid ? FlexGap.XS : FlexGap.SMALL,
     wrap: displayAsGrid
   };
 
