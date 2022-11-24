@@ -1,11 +1,6 @@
 import { expect } from "@storybook/jest";
-import {
-  getByLabelText,
-  pressNavigationKey,
-  interactionSuite,
-  resetFocus
-} from "../../../__tests__/interactions-helper";
-import { NAVIGATIONS_COMMANDS } from "../../../utils/test-utils";
+
+import { getByLabelText, pressNavigationKey, interactionSuite } from "../../../storybook-utils/interactionsTestsUtils";
 
 async function states_onClickTabFocusElementTest(canvas) {
   const CLICKABLE_LABEL = "clickable button";
