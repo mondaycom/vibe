@@ -630,8 +630,7 @@ Dropdown with group.
 
 ### Dropdown inside scrollable dialog
 Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable dialog / container, or container
-with overflow hidden content. If your dropdown container use transform css function
-(like in vibe dialogs for example), please also attached the <b>transformContainerRef</b> like in the following story:
+with overflow hidden content.
 
 <Canvas>
     <Story name="Dropdown inside scrollable dialog">
@@ -653,7 +652,6 @@ with overflow hidden content. If your dropdown container use transform css funct
                     placeholder="Dropdown inside a scrollable dialog"
                     options={options}
                     insideOverflowContainer
-                    transformContainerRef={dialogRef}
                 />
             </DialogContentContainer>;
             return (

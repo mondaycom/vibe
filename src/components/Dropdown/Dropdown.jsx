@@ -65,7 +65,6 @@ const Dropdown = ({
   withMandatoryDefaultOptions,
   isOptionSelected,
   insideOverflowContainer,
-  transformContainerRef,
   ref,
   tooltipContent
 }) => {
@@ -101,8 +100,7 @@ const Dropdown = ({
       size,
       rtl,
       insideOverflowContainer,
-      controlRef,
-      transformContainerRef
+      controlRef
     });
 
     // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -139,7 +137,7 @@ const Dropdown = ({
     }
 
     return mergedStyles;
-  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
+  }, [size, rtl, insideOverflowContainer, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -327,7 +325,6 @@ Dropdown.defaultProps = {
   ref: undefined,
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
-  transformContainerRef: undefined,
   tooltipContent: ""
 };
 
@@ -531,10 +528,6 @@ Dropdown.propTypes = {
    * For display the drop down menu in overflow hidden/scroll container.
    */
   insideOverflowContainer: PropTypes.bool,
-  /**
-   * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
-   */
-  transformContainerRef: PropTypes.object,
   /**
    * When content is passed, the dropdown will include a tooltip on the dropdown's value.
    */

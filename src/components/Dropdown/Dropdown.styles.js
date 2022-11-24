@@ -267,7 +267,7 @@ const valueContainer =
   });
 
 const menu =
-  ({ controlRef, insideOverflowContainer, transformContainerRef }) =>
+  ({ controlRef, insideOverflowContainer }) =>
   provided => {
     const baseStyle = {
       ...provided,
@@ -285,15 +285,7 @@ const menu =
     // If no location found do not add anything to hard coded style
     if (!parentPositionData) return baseStyle;
 
-    let overrideTop = parentPositionData.bottom;
-
-    if (transformContainerRef?.current !== undefined) {
-      const transformContainerPositionData = transformContainerRef?.current?.getBoundingClientRect();
-
-      overrideTop = parentPositionData.bottom - transformContainerPositionData.top + 7; //7 for margin;
-    }
-
-    return { ...baseStyle, top: overrideTop, width: parentPositionData.width };
+    return { ...baseStyle, width: parentPositionData.width };
   };
 
 const option = () => (provided, state) => ({
