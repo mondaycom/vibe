@@ -39,7 +39,7 @@ async function selectMultiColorsWithKeyboardAndMouse(canvas) {
   await expectColorToBeSelected(canvas, contentColorsByName.DARK_PURPLE);
 
   //move with keyboard to a different color
-  await keyboardMultipleTimes("{arrowRight}", 3);
+  await pressMultipleTimes("{arrowRight}", 3);
   await expectColorToBeActive(canvas, contentColorsByName.INDIGO);
 
   //select this color as well
