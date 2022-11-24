@@ -14,8 +14,8 @@ import { ComponentDefaultTestId, NavigationCommand } from "../../../storybook-ut
 import { getTestId } from "../../../utils/test-utils";
 
 async function getComponentElements(canvas) {
-  const comboboxElement = await getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
-  const searchElement = await getByLabelText(comboboxElement, "Search for content");
+  const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
+  const searchElement = getByLabelText(comboboxElement, "Search for content");
   return { comboboxElement, searchElement };
 }
 

@@ -95,7 +95,7 @@ export const interactionSuite =
   };
 
 export const getByTestId = (rootElement: HTMLElement, dataTestId: string) => {
-  return within(rootElement).getByTestId(dataTestId);
+  return getWithin(rootElement).getByTestId(dataTestId);
 };
 
 export const getByPlaceholderText = (rootElement: HTMLElement, text: string) => {
@@ -107,7 +107,7 @@ export const getByClassName = (className: string) => {
 };
 
 export const getFirstByClassName = (className: string) => {
-  return document.getElementsByClassName(className);
+  return document.getElementsByClassName(className)[0];
 };
 
 export const getByRole = (rootElement: HTMLElement, role: string) => {

@@ -4,7 +4,7 @@ import {
   getByText,
   clickElement,
   typeText,
-  getByClassName,
+  getFirstByClassName,
   interactionSuite
 } from "../../../storybook-utils/interactionsTestsUtils";
 import { expect } from "@storybook/jest";
@@ -19,7 +19,7 @@ const selectAndClearTest = async canvas => {
   const optionToSelect = getByText(canvas, "Option 1");
   await clickElement(optionToSelect);
   // click the clear button
-  const clearButton = getByClassName("clear-indicator");
+  const clearButton = getFirstByClassName("clear-indicator");
   await clickElement(clearButton);
   // Validate we see the placeholder again
   getByText(canvas, "Placeholder text here");
