@@ -60,6 +60,7 @@
   &__radio-label {
     line-height: 21px;
     font-weight: 400;
+    font-size: var(--font-size-general-label);
     @include theme-prop(color, primary-text-color);
   }
 
