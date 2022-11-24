@@ -15,7 +15,7 @@ describe("Chips tests", () => {
   });
 
   it("should call the click callback when clicked", () => {
-    const testId = getTestId(ELEMENT_TYPES.CHIP, `close`);
+    const testId = `${ELEMENT_TYPES.CHIP}-close`;
     fireEvent.click(screen.getByTestId(testId));
     expect(onDeletedMock.mock.calls.length).toBe(1);
   });
