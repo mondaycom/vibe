@@ -17,3 +17,5 @@ export const TextColors = () => {
   );
   return <ColorsDescription colorNames={colorKeys} />;
 };
+
+export default TextColors;

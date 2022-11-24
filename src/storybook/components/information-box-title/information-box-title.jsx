@@ -16,3 +16,5 @@ InformationBoxTitle.propTypes = {
 InformationBoxTitle.defaultProps = {
   component: ""
 };
+
+export default InformationBoxTitle;

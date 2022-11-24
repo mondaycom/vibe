@@ -1,9 +1,15 @@
 import Loader from "../Loader";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import {
+  ComponentRules,
+  createComponentTemplate,
+  createStoryMetaSettings,
+  RelatedComponents,
+  Tip,
+  UsageGuidelines
+} from "../../../storybook";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Button, DialogContentContainer, Flex, Search } from "../..";
-import { ComponentRules, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import { Link } from "../../../storybook/components";
 import { useCallback, useState } from "react";
 import {

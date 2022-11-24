@@ -16,3 +16,5 @@ ComponentDescription.defaultProps = {
   description: "",
   children: null
 };
+
+export default ComponentDescription;

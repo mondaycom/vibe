@@ -70,6 +70,7 @@ interface TextFieldProps extends VibeComponentProps {
   loading?: boolean;
   dataTestId?: string;
   secondaryDataTestId?: string;
+  tabIndex?: number;
 }
 
 const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttributes<unknown>> & {
@@ -114,7 +115,8 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
       required = false,
       loading = false,
       dataTestId,
-      secondaryDataTestId
+      secondaryDataTestId,
+      tabIndex
     },
     ref
   ) => {
@@ -181,6 +183,8 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
           <div
             className={classNames("input-component__input-wrapper", SIZE_MAPPER[getActualSize(size)], validationClass)}
           >
+            {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
+            {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={classNames(className, "input-component__input", {
                 "input-component__input--has-icon": !!hasIcon
@@ -205,6 +209,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
               aria-activedescendant={activeDescendant}
               required={required}
               data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
+              tabIndex={tabIndex}
             />
             {loading && (
               <div
