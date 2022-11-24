@@ -1,7 +1,7 @@
 import { within, userEvent, fireEvent } from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
 import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
-import { NavigationCommand as NAVIGATIONS_COMMANDS } from "../storybook-utils/testsConstants";
+import { NavigationCommand as NAVIGATIONS_COMMANDS } from "../interactions-tests/constants";
 import { expect } from "@storybook/jest";
 
 export const ELEMENT_TYPES = types;

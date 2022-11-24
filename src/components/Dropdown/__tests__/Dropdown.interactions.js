@@ -6,7 +6,7 @@ import {
   typeText,
   getFirstByClassName,
   interactionSuite
-} from "../../../storybook-utils/interactionsTestsUtils";
+} from "../../../interactions-tests/utils";
 import { expect } from "@storybook/jest";
 
 const selectAndClearTest = async canvas => {

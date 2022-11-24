@@ -2,7 +2,7 @@ import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
 import Avatar, { AvatarProps } from "../Avatar";
-import { ComponentDefaultTestId } from "../../../storybook-utils/testsConstants";
+import { ComponentDefaultTestId } from "../../../interactions-tests";
 
 const renderComponent = (props: AvatarProps) => {
   return render(<Avatar {...props} />);

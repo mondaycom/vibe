@@ -1,10 +1,5 @@
 import { expect } from "@storybook/jest";
-import {
-  getByText,
-  interactionSuite,
-  clickElement,
-  pressMultipleTimes
-} from "../../../storybook-utils/interactionsTestsUtils";
+import { getByText, interactionSuite, clickElement, pressMultipleTimes } from "../../../interactions-tests";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 
 //NOTE: this test may fail if it runs when the storybook page isn't focused. (For example, during an HMR refresh without focusing the storybook tab)

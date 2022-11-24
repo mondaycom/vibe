@@ -1,8 +1,7 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
 import { resetFocus } from "../../../__tests__/interactions-helper";
-import { ComponentDefaultTestId } from "../../../storybook-utils/testsConstants";
-import { pressMultipleTimes, interactionSuite } from "../../../storybook-utils/interactionsTestsUtils";
+import { pressMultipleTimes, interactionSuite, ComponentDefaultTestId } from "../../../interactions-tests";
 import { expect } from "@storybook/jest";
 import { getTestId } from "../../../utils/test-utils";
 

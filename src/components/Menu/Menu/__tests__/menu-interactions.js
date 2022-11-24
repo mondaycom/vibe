@@ -7,10 +7,10 @@ import {
   waitForElementVisible,
   interactionSuite,
   expectActiveElementToHavePartialText,
-  pressNavigationKey
-} from "../../../../storybook-utils/interactionsTestsUtils";
+  pressNavigationKey,
+  NavigationCommand
+} from "../../../../interactions-tests";
 import { expect } from "@storybook/jest";
-import { NavigationCommand } from "../../../../storybook-utils/testsConstants";
 
 const TWO_DEPTHS_MENU_TEXTS = {
   TOP_MENU_SUB_MENU_ITEM: "With Sub menu",

@@ -1,6 +1,6 @@
 import { within, userEvent, fireEvent, queries } from "@storybook/testing-library";
 import { Screen, waitFor, BoundFunctions } from "@testing-library/react";
-import { NavigationCommand } from "./testsConstants";
+import { NavigationCommand } from "./constants";
 import { expect } from "@storybook/jest";
 export type TestFunction = (canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => unknown;
 export type Coordinates = { x: number; y: number };

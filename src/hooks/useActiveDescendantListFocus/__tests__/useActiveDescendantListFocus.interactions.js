@@ -1,6 +1,11 @@
 import { resetFocus } from "../../../__tests__/interactions-helper";
-import { getByTestId, interactionSuite, pressNavigationKey } from "../../../storybook-utils/interactionsTestsUtils";
-import { ComponentDefaultTestId, NavigationCommand } from "../../../storybook-utils/testsConstants";
+import {
+  getByTestId,
+  interactionSuite,
+  pressNavigationKey,
+  ComponentDefaultTestId,
+  NavigationCommand
+} from "../../../interactions-tests";
 import { expect } from "@storybook/jest";
 import { getTestId } from "../../../utils/test-utils";
 import styles from "../__stories__/useActiveDescendantListFocus.module.scss";
