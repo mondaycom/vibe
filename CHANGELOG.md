@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.73.3 (2022-11-22)
+
+#### Bug Fixes
+* [#1001](https://github.com/mondaycom/monday-ui-react-core/pull/1001) Fix: Revert splitButton default props to old-fashioned defaultProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.2 (2022-11-22)
+
+#### Bug Fixes
+* [#1000](https://github.com/mondaycom/monday-ui-react-core/pull/1000) SplitButton temp fix - secondary button no click event ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.1 (2022-11-22)
+
+#### Bug Fixes
+* [#994](https://github.com/mondaycom/monday-ui-react-core/pull/994) Display avatar/icon in single value and in options for multi and single ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.73.0 (2022-11-20)
 
 #### New Features

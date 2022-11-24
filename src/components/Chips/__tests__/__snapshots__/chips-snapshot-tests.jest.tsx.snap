@@ -157,8 +157,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
     data-testid="avatar"
     style={
       Object {
-        "height": 16,
-        "width": 16,
+        "height": 18,
+        "width": 18,
       }
     }
   >
