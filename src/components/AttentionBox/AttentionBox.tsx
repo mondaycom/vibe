@@ -76,7 +76,13 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       role="alert"
     >
       {/* @ts-ignore */}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER}>
+      <Flex
+        /* @ts-ignore */
+        justify={Flex.justify.START}
+        /* @ts-ignore */
+        align={Flex.align.CENTER}
+        className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}
+      >
         {!withoutIcon && (
           <Icon
             iconType={iconType}
@@ -92,13 +98,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {title && (
-          <Heading
-            value={title}
-            type={Heading.types.h4}
-            className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}
-          />
-        )}
+        {title && <Heading value={title} type={Heading.types.h4} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`}/>}
       </Flex>
       <div
         className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__text`, `${classNameWithType}__text`, {
