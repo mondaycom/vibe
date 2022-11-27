@@ -2,7 +2,7 @@
 @import "./content-spacing";
 
 // font family
-$header-primary-font: "Sofia Pro", Roboto, sans-serif;
+$header-primary-font: var(--title-font-family);
 $text-primary-font: var(--font-family);
 
 // sizes

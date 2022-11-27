@@ -16,7 +16,6 @@
   @include theme-prop(border-color, primary-color);
   vertical-align: top;
   text-align: left;
-  @include font-default();
 }
 
 .noResize {

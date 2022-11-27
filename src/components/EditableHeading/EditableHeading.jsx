@@ -24,7 +24,6 @@ const EditableHeading = props => {
     onIgnoreBlurEvent,
     errorClassTimeout,
     style,
-    brandFont,
     customColor,
     onStartEditing,
     contentRenderer,
@@ -129,8 +128,7 @@ const EditableHeading = props => {
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
       size: props.size,
-      highlightTerm,
-      brandFont
+      highlightTerm
     };
   };
   const renderContentComponent = () => {
@@ -161,7 +159,6 @@ const EditableHeading = props => {
       shouldFocusOnMount: props.shouldFocusOnMount,
       selectOnMount: props.selectOnMount,
       inputType,
-      brandFont,
       ignoreBlurClass: props.ignoreBlurClass,
       autoSize: props.autoSize,
       textareaSubmitOnEnter: props.textareaSubmitOnEnter,
@@ -243,8 +240,6 @@ EditableHeading.propTypes = {
   size: PropTypes.oneOf([EditableHeading.sizes.SMALL, EditableHeading.sizes.MEDIUM, EditableHeading.sizes.LARGE]),
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
-  /** Custom font flag, use to enable new font family on H1 headers */
-  brandFont: PropTypes.bool,
   autoSize: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
   placeholder: PropTypes.string,
@@ -283,7 +278,6 @@ EditableHeading.defaultProps = {
   dataTestId: "",
   inputClassName: "",
   insetFocus: false,
-  brandFont: false,
   maxLength: undefined
 };
 

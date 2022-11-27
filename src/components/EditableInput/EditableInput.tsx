@@ -29,7 +29,6 @@ export interface EditableInputProps extends VibeComponentProps {
   textareaSubmitOnEnter?: boolean;
   ariaLabel?: string;
   customColor?: string;
-  brandFont?: boolean;
   tabIndex?: number;
   isValidValue?: (value: string) => boolean;
   onFinishEditing?: (value: string, event: React.KeyboardEvent | React.FocusEvent) => void;
@@ -81,7 +80,6 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       textareaSubmitOnEnter = false,
       onArrowKeyDown,
       ariaLabel,
-      brandFont = false,
       "data-testid": dataTestId
     },
     ref
@@ -234,8 +232,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
         style={style}
         className={cx(styles.wrapper, "editable-input--wrapper", className, {
           [styles.noResize]: autoSize,
-          ["no-resize"]: autoSize,
-          "brand-font": brandFont
+          ["no-resize"]: autoSize
         })}
         onChange={onChangeCallback}
         onKeyDown={onKeyDownCallback}

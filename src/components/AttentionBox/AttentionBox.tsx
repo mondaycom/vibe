@@ -3,14 +3,16 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { useMemo } from "react";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
-import IconButton from "../IconButton/IconButton";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { SubIcon, VibeComponentProps } from "../../types";
+import Heading from "../Heading/Heading";
+import Flex from "../Flex/Flex";
+import IconButton from "../IconButton/IconButton";
+import { CloseSmall } from "../Icon/Icons";
 import styles from "./AttentionBox.module.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
@@ -67,6 +69,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const classNameWithType = `${ATTENTION_BOX_CSS_BASE_CLASS}--type-${type}`;
+
   return (
     <aside
       className={cx(
@@ -81,44 +84,41 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       data-testid={dataTestId || getTestId(ELEMENT_TYPES.ATTENTION_BOX, id)}
       id={id}
     >
-      {title && (
-        <h2
-          className={cx(
-            styles.titleContainer,
-            `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`,
-            getStyle(styles, camelCase(`type-${type}__title-container`)),
-            `${classNameWithType}__title-container`
-          )}
-        >
-          {!withoutIcon && (
-            <Icon
-              iconType={iconType}
-              ariaHidden
-              clickable={false}
-              icon={icon}
-              className={cx(
-                styles.titleContainerIcon,
-                `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-                getStyle(styles, camelCase(`type-${type}__title-container__icon`)),
-                `${classNameWithType}__title-container__icon`
-              )}
-              ignoreFocusStyle
-              iconSize="24"
-              iconLabel={iconLabel}
-            />
-          )}
-          <span
+      <Flex
+        justify={Flex.justify.START}
+        align={Flex.align.CENTER}
+        className={cx(
+          styles.titleContainer,
+          `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`,
+          getStyle(styles, camelCase(`type-${type}__title-container`)),
+          `${classNameWithType}__title-container`
+        )}
+      >
+        {title && !withoutIcon && (
+          <Icon
+            iconType={iconType}
+            ariaHidden
+            clickable={false}
+            icon={icon}
             className={cx(
-              styles.titleContainerTitle,
-              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__title`,
-              getStyle(styles, camelCase(`type-${type}__title-container__title`)),
-              `${classNameWithType}__title-container__title`
+              styles.titleContainerIcon,
+              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
+              getStyle(styles, camelCase(`type-${type}__title-container__icon`)),
+              `${classNameWithType}__title-container__icon`
             )}
-          >
-            {title}
-          </span>
-        </h2>
-      )}
+            ignoreFocusStyle
+            iconSize="24"
+            iconLabel={iconLabel}
+          />
+        )}
+        {title && (
+          <Heading
+            value={title}
+            type={Heading.types.h4}
+            className={cx(styles.title, `${ATTENTION_BOX_CSS_BASE_CLASS}__title`)}
+          />
+        )}
+      </Flex>
       <div
         className={cx(
           styles.text,
