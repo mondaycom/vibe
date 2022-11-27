@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useEffect, MutableRefObject } from "react";
+import { MutableRefObject, useCallback, useEffect, useMemo } from "react";
 import noop from "lodash/noop";
 import useKeyEvent from "./useKeyEvent";
 import { KeyboardEventCallback } from "../types/events";
@@ -15,6 +15,7 @@ export const ARROW_UP_KEYS = ["ArrowUp"];
 export const ARROW_RIGHT_KEYS = ["ArrowRight"];
 export const ARROW_LEFT_KEYS = ["ArrowLeft"];
 export const SELECTION_KEYS = ["Enter", " "];
+export const ENTER_KEYS = ["Enter"];
 export const ESCAPE_KEYS = ["Escape"];
 
 export default function useFullKeyboardListeners({

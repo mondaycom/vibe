@@ -1,11 +1,11 @@
 import { useCallback, useState } from "react";
 
 export default function useSubMenuIndex() {
-  const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null);
-  const hasOpenSubMenu = openSubMenuIndex || openSubMenuIndex === 0;
+  const [openSubMenuIndex, setOpenSubMenuIndex] = useState<number>(null);
+  const hasOpenSubMenu = !!openSubMenuIndex || openSubMenuIndex === 0;
 
   const setSubMenuIsOpenByIndex = useCallback(
-    (index, isOpen) => {
+    (index: number, isOpen: boolean) => {
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
     },

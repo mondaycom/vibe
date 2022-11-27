@@ -32,7 +32,7 @@ export interface UseKeyEventArgs {
   modifier?: Modifier;
   keyEventName?: string;
   withoutAnyModifier?: boolean;
-  ref?: RefObject<HTMLElement>;
+  ref?: RefObject<HTMLElement | Document>;
   ignoreDocumentFallback?: boolean;
   capture?: boolean;
   preventDefault?: boolean;

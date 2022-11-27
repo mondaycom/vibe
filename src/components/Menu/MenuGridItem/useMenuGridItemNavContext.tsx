@@ -1,6 +1,7 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
 import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { CloseMenuOption } from "../Menu/MenuConstants";
 
 export const useMenuGridItemNavContext = ({
   wrapperRef,
@@ -10,6 +11,14 @@ export const useMenuGridItemNavContext = ({
   activeItemIndex,
   isUnderSubMenu,
   closeMenu
+}: {
+  wrapperRef?: (node: HTMLElement) => void;
+  setActiveItemIndex?: (index: number) => void;
+  getNextSelectableIndex?: (activeItemIndex: number) => number;
+  getPreviousSelectableIndex?: (activeItemIndex: number) => number;
+  activeItemIndex?: number;
+  isUnderSubMenu?: boolean;
+  closeMenu?: (option: CloseMenuOption) => void;
 }) => {
   /*
    * This is an "adapter" between the Grid Keyboard Navigation mechanism and the Menu navigation mechanism.
@@ -19,7 +28,7 @@ export const useMenuGridItemNavContext = ({
   const innerKeyboardContext = useGridKeyboardNavigationContext([], wrapperRef);
   const keyboardContext = useMemo(
     () => ({
-      onOutboundNavigation: (elementRef, direction) => {
+      onOutboundNavigation: (elementRef: React.RefObject<HTMLElement>, direction: NavDirections) => {
         innerKeyboardContext.onOutboundNavigation(elementRef, direction);
 
         switch (direction) {
@@ -29,7 +38,7 @@ export const useMenuGridItemNavContext = ({
             return setActiveItemIndex(getNextSelectableIndex(activeItemIndex));
           case NavDirections.LEFT:
             if (isUnderSubMenu) {
-              closeMenu();
+              closeMenu({});
             }
         }
       }
