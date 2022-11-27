@@ -12,6 +12,10 @@
   @include theme-prop(color, dark-color);
 }
 
+.title {
+  margin: 0;
+}
+
 .textCompact {
   display: flex;
   align-items: center;
@@ -58,19 +62,15 @@
 }
 
 .titleContainer {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
   margin-bottom: var(--spacing-small);
+
+  :global(&:empty) {
+    margin-bottom: 0;
+  }
 }
 
 .titleContainerIcon {
-  margin-right: var(--spacing-small);
-}
-
-.titleContainerTitle {
-  font-size: 18px;
-  font-weight: 500;
+  margin-right: var(--spacing-xs);
 }
 
 .closeIcon:global(.monday-style-attention-box-component__close-icon) {
