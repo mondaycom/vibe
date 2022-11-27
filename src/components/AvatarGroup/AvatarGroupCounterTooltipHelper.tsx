@@ -131,7 +131,6 @@ export const avatarRenderer = (
       clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        {/* @ts-ignore TODO remove when Flex is converted to TS */}
         <Flex direction={FlexDirection.ROW} gap={FlexGap.XS} ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}

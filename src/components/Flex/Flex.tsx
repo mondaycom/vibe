@@ -51,7 +51,7 @@ const Flex: VibeComponent<FlexProps> & {
     },
     ref
   ) => {
-    const componentRef = useRef(null);
+    const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
     const onClickProps = useMemo(() => {
