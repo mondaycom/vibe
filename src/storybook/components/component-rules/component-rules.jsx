@@ -57,3 +57,5 @@ ComponentRules.propTypes = {
 ComponentRules.defaultProps = {
   rules: []
 };
+
+export default ComponentRules;

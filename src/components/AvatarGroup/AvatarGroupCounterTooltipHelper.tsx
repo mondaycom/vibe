@@ -1,15 +1,18 @@
-import React, { useCallback } from "react";
+import React, { CSSProperties, ReactElement, RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
-import Avatar from "../Avatar/Avatar";
+import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
+import { FlexDirection, FlexGap } from "../Flex/FlexConstants";
+import { AvatarType } from "../Avatar/AvatarConstants";
 
-const KEYS = ["Tab"];
+const TAB = ["Tab"];
 const ESC = ["Escape"];
 export const TOOLTIP_SHOW_DELAY = 200;
+
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
@@ -17,6 +20,13 @@ export function useTooltipContentTabNavigation({
   focusNextPlaceholderRef,
   isKeyboardTooltipVisible,
   setIsKeyboardTooltipVisible
+}: {
+  counterContainerRef: RefObject<HTMLDivElement>;
+  tooltipContentContainerRef: RefObject<HTMLElement>;
+  focusPrevPlaceholderRef: RefObject<HTMLDivElement>;
+  focusNextPlaceholderRef: RefObject<HTMLDivElement>;
+  isKeyboardTooltipVisible: boolean;
+  setIsKeyboardTooltipVisible: (value: boolean) => void;
 }) {
   const showKeyboardTooltip = useCallback(() => {
     if (!isKeyboardTooltipVisible) {
@@ -38,13 +48,12 @@ export function useTooltipContentTabNavigation({
   useEventListener({
     eventName: "blur",
     ref: tooltipContentContainerRef,
-    ignoreDocumentFallback: true,
     callback: hideKeyboardTooltip
   });
 
   //Move focus to content by keyboard
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: counterContainerRef,
     withoutAnyModifier: true,
     preventDefault: true,
@@ -55,13 +64,13 @@ export function useTooltipContentTabNavigation({
 
   // Close tooltip by keyboard
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
     callback: hideKeyboardTooltip
   });
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
     callback: useCallback(() => {
@@ -72,7 +81,7 @@ export function useTooltipContentTabNavigation({
     }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
   useKeyEvent({
-    keys: KEYS,
+    keys: TAB,
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: useCallback(() => {
@@ -104,26 +113,32 @@ export function useTooltipContentTabNavigation({
   });
 }
 
-export const avatarRenderer = (item, index, style = {}, type, displayAsGrid) => {
+export const avatarRenderer = (
+  item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
+  index: number,
+  style: CSSProperties,
+  type: AvatarType,
+  displayAsGrid: boolean
+) => {
   const avatarProps = item.value;
-  const overrideStyle = { ...style, width: displayAsGrid ? undefined : "100%" };
+  const overrideStyle: CSSProperties = { ...style, width: displayAsGrid ? undefined : "100%" };
   const labelId = `tooltip-item-${index}-label`;
 
   return (
     <ClickableWrapper
       key={index}
       isClickable={!!avatarProps?.onClick}
-      clickableProps={{ onClick: avatarProps.onClick, tabIndex: "-1" }}
+      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
+        <Flex direction={FlexDirection.ROW} gap={FlexGap.XS} ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}
             ariaLabel={""}
             size={Avatar.sizes.SMALL}
             type={type || avatarProps?.type}
-            tabIndex="-1"
+            tabIndex={-1}
           />
           {!displayAsGrid && (
             <div id={labelId} className={avatarGroupCounterTooltipContentStyles.tooltipAvatarItemTitle}>

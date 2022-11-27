@@ -25,3 +25,5 @@ export const ColorsDescription = ({ colorNames }) => {
   );
   return <Frame>{descriptions}</Frame>;
 };
+
+export default ColorsDescription;

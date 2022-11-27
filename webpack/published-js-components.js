@@ -1,5 +1,4 @@
 const publishedJSComponents = {
-  VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
   Tipseen: "components/Tipseen/Tipseen.jsx",
@@ -9,8 +8,6 @@ const publishedJSComponents = {
   Combobox: "components/Combobox/Combobox.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
-  EditableInput: "components/EditableInput/EditableInput.jsx",
-  ExpandCollapse: "components/ExpandCollapse/ExpandCollapse.jsx",
   MultiStepIndicator: "components/MultiStepIndicator/MultiStepIndicator.jsx",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle.jsx",
   MenuItem: "components/Menu/MenuItem/MenuItem.jsx",
@@ -22,12 +19,8 @@ const publishedJSComponents = {
   MenuButton: "components/MenuButton/MenuButton.jsx",
   Checkbox: "components/Checkbox/Checkbox.jsx",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
-  allIcons: "components/Icon/Icons",
-  Toggle: "components/Toggle/Toggle.jsx",
-  AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
-  Slider: "components/Slider/Slider.jsx"
+  allIcons: "components/Icon/Icons"
 };
 // eslint-disable-next-line no-undef
 module.exports = {

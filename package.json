@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.71.2",
+  "version": "1.73.3",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "exports": {
@@ -10,6 +10,7 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
+    "./storybookComponents": "./dist/storybook/index.js",
     "./icons": "./dist/esm/components/Icon/Icons/icons.js"
   },
   "scripts": {
@@ -18,8 +19,9 @@
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
-    "build": "npm run build:react-icons && npm run build:commonjs && npm run build:esm",
+    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm",
     "build:exports": "./scripts/build-exports.js",
+    "build:storybook-exports": "./scripts/build-storybook-exports.js",
     "build:commonjs": "webpack --mode production --config webpack/default.config.js",
     "build:esm": "rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
@@ -62,7 +64,7 @@
     "classnames": "^2.3.2",
     "detect-browser": "^5.3.0",
     "lodash": "^4.17.21",
-    "monday-ui-style": "0.1.143",
+    "monday-ui-style": "0.1.146",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^3.0.1",
@@ -113,6 +115,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
+    "@types/autosize": "^4.0.1",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/lodash": "^4.14.184",
     "@types/lodash-es": "^4.17.6",

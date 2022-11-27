@@ -12,7 +12,7 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import ValueContainer from "./components/ValueContainer/ValueContainer";
+import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
@@ -153,8 +153,8 @@ const Dropdown = ({
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
   const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
-    [finalValueRenderer]
+    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} selectedOption={selectedOptions[0]} />,
+    [finalValueRenderer, selectedOptions]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -253,10 +253,10 @@ const Dropdown = ({
         Input,
         Option,
         Control,
-        ...(finalValueRenderer && { SingleValue }),
+        SingleValue,
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-          ValueContainer
+          ValueContainer: MultiValueContainer
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}

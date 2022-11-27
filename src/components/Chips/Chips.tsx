@@ -110,7 +110,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.left)}
-            customSize={16}
+            customSize={18}
             src={leftAvatar}
             type={AvatarType.IMG}
             key={id}

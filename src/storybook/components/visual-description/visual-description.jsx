@@ -14,3 +14,5 @@ export const VisualDescription = ({ title, ariaLabel, children, description, cla
     </div>
   );
 };
+
+export default VisualDescription;

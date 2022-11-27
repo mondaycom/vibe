@@ -3,8 +3,8 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
-import "./AvatarBadge.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import "./AvatarBadge.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
@@ -19,7 +19,7 @@ export interface AvatarBadgeProps extends VibeComponentProps {
 
 export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   sizes?: typeof AvatarSize;
-} = ({ src, ariaLabel, tabIndex, className, size, ...otherProps }) => {
+} = ({ src, ariaLabel, tabIndex = 0, className, size = AvatarSize.LARGE, ...otherProps }) => {
   return src ? (
     <CustomSvgIcon
       src={src}
@@ -34,10 +34,3 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 Object.assign(AvatarBadge, {
   sizes: AvatarSize
 });
-
-AvatarBadge.defaultProps = {
-  ariaLabel: undefined,
-  tabIndex: 0,
-  className: "",
-  size: AvatarSize.LARGE
-};
