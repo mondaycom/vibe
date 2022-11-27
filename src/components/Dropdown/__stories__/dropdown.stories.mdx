@@ -629,9 +629,10 @@ Dropdown with group.
 </Canvas>
 
 ### Dropdown inside scrollable dialog
-Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable dialog / container, or container
-with overflow hidden content.
-
+Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable container (like our modal
+component) or container with overflow hidden content.
+Use <b>insideOverflowWithTransformContainer</b> prop attribute for displaying drop down inside scrollable container which use CSS transform function (like our dialog component) or container
+with overflow hidden content which use CSS transform function.
 <Canvas>
     <Story name="Dropdown inside scrollable dialog">
         {() => {
@@ -651,7 +652,7 @@ with overflow hidden content.
                 <Dropdown
                     placeholder="Dropdown inside a scrollable dialog"
                     options={options}
-                    insideOverflowContainer
+                    insideOverflowWithTransformContainer
                 />
             </DialogContentContainer>;
             return (

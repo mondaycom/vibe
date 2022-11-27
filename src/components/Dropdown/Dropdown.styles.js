@@ -267,7 +267,7 @@ const valueContainer =
   });
 
 const menu =
-  ({ controlRef, insideOverflowContainer }) =>
+  ({ controlRef, insideOverflowContainer, insideOverflowWithTransformContainer }) =>
   provided => {
     const baseStyle = {
       ...provided,
@@ -277,15 +277,15 @@ const menu =
       boxShadow: getCSSVar("box-shadow-small")
     };
 
-    if (!insideOverflowContainer) return baseStyle;
-
-    // If the dropdown is inside a scroll, we try to get dropdown location at the dom
+    if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
     const parentPositionData = controlRef?.current?.getBoundingClientRect();
-
     // If no location found do not add anything to hard coded style
     if (!parentPositionData) return baseStyle;
 
-    return { ...baseStyle, width: parentPositionData.width };
+    // If the dropdown is inside a scroll in a regular container, w
+    let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
+
+    return { ...baseStyle, top, width: parentPositionData.width };
   };
 
 const option = () => (provided, state) => ({

@@ -51,7 +51,7 @@ const Dropdown = ({
   menuPortalTarget,
   extraStyles,
   maxMenuHeight,
-  menuIsOpen,
+  menuIsOpen = true,
   tabIndex,
   id,
   autoFocus,
@@ -177,6 +177,7 @@ const Dropdown = ({
       isDialogShown,
       isMultiline: multiline,
       insideOverflowContainer,
+      insideOverflowWithTransformContainer,
       controlRef,
       tooltipContent
     }),
