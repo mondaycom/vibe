@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import SplitButton from "../SplitButton";
+import Delete from "../../Icon/Icons/components/Delete";
 
 const secondaryContentText = "Test secondary dialog content";
 const secondaryContent = <div>{secondaryContentText}</div>;
@@ -49,6 +50,16 @@ describe("SplitButton renders correctly", () => {
 
   it("with zIndex", () => {
     const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} zIndex={2} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with left icon", () => {
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} leftIcon={Delete} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with right icon", () => {
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} rightIcon={Delete} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
