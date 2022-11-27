@@ -75,15 +75,12 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       )}
       role="alert"
     >
-      {/* @ts-ignore */}
       <Flex
-        /* @ts-ignore */
         justify={Flex.justify.START}
-        /* @ts-ignore */
         align={Flex.align.CENTER}
         className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}
       >
-        {!withoutIcon && (
+        {title && !withoutIcon && (
           <Icon
             iconType={iconType}
             ariaHidden
