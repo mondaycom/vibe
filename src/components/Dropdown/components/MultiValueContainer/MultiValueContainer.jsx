@@ -8,7 +8,7 @@ import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import { DROPDOWN_CHIP_COLORS } from "../../dropdown-constants";
-import classes from "./ValueContainer.module.scss";
+import classes from "./MultiValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
   const {
