@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.7 (2022-11-27)
+
+#### Bug Fixes
+* [#1011](https://github.com/mondaycom/monday-ui-react-core/pull/1011) Heading component main font ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.73.6 (2022-11-27)
 
 #### Bug Fixes
