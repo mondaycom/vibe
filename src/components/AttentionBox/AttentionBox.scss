@@ -70,11 +70,14 @@
 
   &__title-container {
     margin-bottom: var(--spacing-small);
+
+    &:empty {
+      margin-bottom: 0;
+    }
+
     &__icon {
       margin-right: var(--spacing-xs);
     }
-
-
   }
 
   &__close-icon {
@@ -92,10 +95,10 @@
   }
 }
 
-.monday-style-attention-box-component{
+.monday-style-attention-box-component {
   font-family: var(--font-family);
 }
 
-.monday-style-attention-box-component__title-container__title{
+.monday-style-attention-box-component__title-container__title {
   font-family: var(--title-font-family);
 }
