@@ -42,6 +42,7 @@ export interface MenuItemProps extends VibeComponentProps {
   activeItemIndex?: number;
   setActiveItemIndex?: (index: number) => void;
   index?: number;
+  key?: string;
   isParentMenuVisible?: boolean;
   resetOpenSubMenuIndex?: () => void;
   hasOpenSubMenu?: boolean;
@@ -86,6 +87,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       activeItemIndex = -1,
       setActiveItemIndex,
       index,
+      key,
       menuId,
       children,
       isParentMenuVisible = false,
@@ -273,6 +275,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
         id={`${menuId}-${index}`}
+        key={key}
         {...a11yProps}
         className={cx("monday-style-menu-item", overrideClassName, {
           "monday-style-menu-item--disabled": disabled,
