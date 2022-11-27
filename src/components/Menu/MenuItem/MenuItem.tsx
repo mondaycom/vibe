@@ -1,6 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { DialogPosition } from "../../../constants/sizes";
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, {
+  ForwardedRef,
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef
+} from "react";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";
@@ -13,14 +22,14 @@ import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import "./MenuItem.scss";
 
 const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
 
-interface MenuItemProps extends VibeComponentProps {
+export interface MenuItemProps extends VibeComponentProps {
   title?: string;
   label?: string;
   icon?: SubIcon;
@@ -53,7 +62,7 @@ interface MenuItemProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
 }
 
-const MenuItem: FC<MenuItemProps> & {
+const MenuItem: VibeComponent<MenuItemProps> & {
   iconType?: typeof Icon.type;
   tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
@@ -93,7 +102,7 @@ const MenuItem: FC<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu
     },
-    ref
+    ref: ForwardedRef<HTMLElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
