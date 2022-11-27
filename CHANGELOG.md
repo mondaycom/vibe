@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.73.4 (2022-11-27)
+
+#### Bug Fixes
+* [#1003](https://github.com/mondaycom/monday-ui-react-core/pull/1003) align usages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1006](https://github.com/mondaycom/monday-ui-react-core/pull/1006) TS-migration: Flex ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1005](https://github.com/mondaycom/monday-ui-react-core/pull/1005) Feature/sergeyro/split button improve tests ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1002](https://github.com/mondaycom/monday-ui-react-core/pull/1002) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.73.3 (2022-11-22)
 
 #### Bug Fixes
