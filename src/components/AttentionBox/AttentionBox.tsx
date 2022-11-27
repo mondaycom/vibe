@@ -98,7 +98,9 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {title && <Heading value={title} type={Heading.types.h4} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`}/>}
+        {title && (
+          <Heading value={title} type={Heading.types.h4} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`} />
+        )}
       </Flex>
       <div
         className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__text`, `${classNameWithType}__text`, {
