@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.6 (2022-11-27)
+
+#### Bug Fixes
+* [#1009](https://github.com/mondaycom/monday-ui-react-core/pull/1009) Fix editable heading bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.73.5 (2022-11-27)
 
 #### Bug Fixes
