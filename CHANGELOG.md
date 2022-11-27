@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.5 (2022-11-27)
+
+#### Bug Fixes
+* [#1008](https://github.com/mondaycom/monday-ui-react-core/pull/1008) Fix attention box icon bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.73.4 (2022-11-27)
 
 #### Bug Fixes
