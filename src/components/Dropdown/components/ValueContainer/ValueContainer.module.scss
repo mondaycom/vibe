@@ -13,6 +13,10 @@
   margin: 5px 2px;
 }
 
+.multiselect-chip-disabled {
+  border: var(--disabled-text-color) var(--border-width) solid;
+}
+
 .value-container {
   display: flex;
   align-items: center;

@@ -145,12 +145,14 @@ const control =
     ...disabledContainerStyle(isDisabled)
   });
 
-const placeholder = () => provided => ({
-  ...provided,
-  ...getFont(),
-  color: getCSSVar("secondary-text-color"),
-  fontWeight: 400
-});
+const placeholder =
+  () =>
+  (provided, { isDisabled }) => ({
+    ...provided,
+    ...getFont(),
+    color: !isDisabled ? getCSSVar("secondary-text-color") : getCSSVar("disabled-text-color"),
+    fontWeight: 400
+  });
 
 const indicatorsContainer =
   ({ size }) =>
@@ -165,7 +167,7 @@ const indicatorsContainer =
 
 const dropdownIndicator =
   ({ size }) =>
-  (provided, { selectProps }) => {
+  (provided, { selectProps, isDisabled }) => {
     return {
       ...provided,
       display: "flex",
@@ -180,7 +182,7 @@ const dropdownIndicator =
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
         transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
       },
-      color: getCSSVar("icon-color"),
+      color: !isDisabled ? getCSSVar("icon-color") : getCSSVar("disabled-text-color"),
       ":hover, :active": {
         backgroundColor: getCSSVar("primary-background-hover-color"),
         color: getCSSVar("icon-color")
