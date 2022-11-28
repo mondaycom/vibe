@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.10 (2022-11-28)
+
+#### Bug Fixes
+* [#999](https://github.com/mondaycom/monday-ui-react-core/pull/999) Support all edge cases for multi select drop with counter (hidden chips in dropdown with defined width edge case) ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.73.9 (2022-11-28)
 
 #### Bug Fixes
