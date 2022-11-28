@@ -27,7 +27,7 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
     }
 
     setOverflowIndex(finalOverflowingIndex);
-  }, [ref, isMultiline, selectedOptionsCount, chipClassName, setOverflowIndex]);
+  }, [ref, isMultiline, selectedOptionsCount, chipClassName, setOverflowIndex, chipWrapperClassName]);
 
   const hiddenOptionsCount = overflowIndex > -1 ? selectedOptionsCount - overflowIndex : 0;
   return { overflowIndex, hiddenOptionsCount };
