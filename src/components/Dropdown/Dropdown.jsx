@@ -51,7 +51,7 @@ const Dropdown = ({
   menuPortalTarget,
   extraStyles,
   maxMenuHeight,
-  menuIsOpen = true,
+  menuIsOpen,
   tabIndex,
   id,
   autoFocus,
