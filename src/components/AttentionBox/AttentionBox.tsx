@@ -9,6 +9,8 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
 import "./AttentionBox.scss";
+import Heading from "../Heading/Heading";
+import Flex from "../Flex/Flex";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
 
@@ -62,6 +64,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const classNameWithType = `${ATTENTION_BOX_CSS_BASE_CLASS}--type-${type}`;
+
   return (
     <aside
       className={cx(
@@ -72,33 +75,30 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       )}
       role="alert"
     >
-      {title && (
-        <h2 className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}>
-          {!withoutIcon && (
-            <Icon
-              iconType={iconType}
-              ariaHidden
-              clickable={false}
-              icon={icon}
-              className={cx(
-                `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-                `${classNameWithType}__title-container__icon`
-              )}
-              ignoreFocusStyle
-              iconSize="24"
-              iconLabel={iconLabel}
-            />
-          )}
-          <span
+      <Flex
+        justify={Flex.justify.START}
+        align={Flex.align.CENTER}
+        className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}
+      >
+        {title && !withoutIcon && (
+          <Icon
+            iconType={iconType}
+            ariaHidden
+            clickable={false}
+            icon={icon}
             className={cx(
-              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__title`,
-              `${classNameWithType}__title-container__title`
+              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
+              `${classNameWithType}__title-container__icon`
             )}
-          >
-            {title}
-          </span>
-        </h2>
-      )}
+            ignoreFocusStyle
+            iconSize="24"
+            iconLabel={iconLabel}
+          />
+        )}
+        {title && (
+          <Heading value={title} type={Heading.types.h4} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`} />
+        )}
+      </Flex>
       <div
         className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__text`, `${classNameWithType}__text`, {
           [`${ATTENTION_BOX_CSS_BASE_CLASS}_text--compact`]: compact

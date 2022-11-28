@@ -1,5 +1,52 @@
 # Changelog
 
+## 1.73.9 (2022-11-28)
+
+#### Bug Fixes
+* [#1014](https://github.com/mondaycom/monday-ui-react-core/pull/1014) fix letter spacing in non h1 headers ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.8 (2022-11-27)
+
+#### Bug Fixes
+* [#1012](https://github.com/mondaycom/monday-ui-react-core/pull/1012) Heading font ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.7 (2022-11-27)
+
+#### Bug Fixes
+* [#1011](https://github.com/mondaycom/monday-ui-react-core/pull/1011) Heading component main font ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.6 (2022-11-27)
+
+#### Bug Fixes
+* [#1009](https://github.com/mondaycom/monday-ui-react-core/pull/1009) Fix editable heading bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.5 (2022-11-27)
+
+#### Bug Fixes
+* [#1008](https://github.com/mondaycom/monday-ui-react-core/pull/1008) Fix attention box icon bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.4 (2022-11-27)
+
+#### Bug Fixes
+* [#1003](https://github.com/mondaycom/monday-ui-react-core/pull/1003) align usages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1006](https://github.com/mondaycom/monday-ui-react-core/pull/1006) TS-migration: Flex ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1005](https://github.com/mondaycom/monday-ui-react-core/pull/1005) Feature/sergeyro/split button improve tests ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1002](https://github.com/mondaycom/monday-ui-react-core/pull/1002) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.73.3 (2022-11-22)
+
+#### Bug Fixes
+* [#1001](https://github.com/mondaycom/monday-ui-react-core/pull/1001) Fix: Revert splitButton default props to old-fashioned defaultProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.2 (2022-11-22)
+
+#### Bug Fixes
+* [#1000](https://github.com/mondaycom/monday-ui-react-core/pull/1000) SplitButton temp fix - secondary button no click event ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.73.1 (2022-11-22)
 
 #### Bug Fixes
