@@ -69,14 +69,27 @@ function getWithin(canvasOrValidTestElement: HTMLElement | BoundFunctions<typeof
 export const interactionSuite =
   ({
     beforeEach = null,
+    beforeAll = null,
+    skip = false,
     tests,
-    afterEach = null
+    afterEach = null,
+    afterAll = null
   }: {
     beforeEach?: TestFunction;
+    beforeAll?: TestFunction;
+    skip?: boolean;
     tests: Array<TestFunction>;
+    afterAll?: TestFunction;
     afterEach?: TestFunction;
   }): (({ canvasElement, args }: { canvasElement: Screen; args: Record<string, any> }) => Promise<void>) =>
   async ({ canvasElement, args }) => {
+    if (skip) return;
+
+    if (beforeAll) {
+      logFunctionStart("Before all:");
+      await testFunctionWrapper(beforeAll)({ canvasElement, args });
+    }
+
     for (const test of tests) {
       const fnName = test.name;
       if (beforeEach) {
@@ -91,6 +104,11 @@ export const interactionSuite =
         logFunctionStart(`After: ${fnName}`);
         await testFunctionWrapper(afterEach)({ canvasElement, args });
       }
+    }
+
+    if (afterAll) {
+      logFunctionStart("After all:");
+      await testFunctionWrapper(afterAll)({ canvasElement, args });
     }
   };
 
