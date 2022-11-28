@@ -284,7 +284,7 @@ const menu =
 
     /** If the dropdown is inside a scroll in a regular container,position: fixed content (like our dropdown menu) will be attached to the start of the viewport.
      * For this case we will override the top menu position value to be the according the the drop down location for correct dispaly.
-     * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative inner container, which our menu will be attach to it's
+     * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative positioned inner container, which our menu will be attach to it's
      * start when the menu position is fixed, and this is why in this case we define top:auto.
      */
     let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
