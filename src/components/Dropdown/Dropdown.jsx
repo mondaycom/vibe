@@ -535,7 +535,7 @@ Dropdown.propTypes = {
   /**
    * For display the drop down menu in overflow hidden/scroll container which contains transform css function usage.
    */
-  insideOverflowWithTransformContainer: PropTypes.object,
+  insideOverflowWithTransformContainer: PropTypes.bool,
   /**
    * When content is passed, the dropdown will include a tooltip on the dropdown's value.
    */
