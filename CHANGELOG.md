@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.9 (2022-11-28)
+
+#### Bug Fixes
+* [#1014](https://github.com/mondaycom/monday-ui-react-core/pull/1014) fix letter spacing in non h1 headers ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.73.8 (2022-11-27)
 
 #### Bug Fixes
