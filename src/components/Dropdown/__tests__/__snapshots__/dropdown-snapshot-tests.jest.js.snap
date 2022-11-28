@@ -31,7 +31,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -199,7 +199,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -278,7 +278,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           class=" css-18qqyiw-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -357,7 +357,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           class=" css-18qqyiw-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -436,7 +436,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           class=" css-18qqyiw-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -515,7 +515,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -594,7 +594,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           class=" css-rxqqti-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -673,7 +673,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -767,7 +767,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -875,7 +875,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           class=" css-1ht1nal-Component"
         >
           <div
-            class=" css-1dtegfv-placeholder"
+            class=" css-1usuuna-placeholder"
           />
           <div
             class="css-lkl2xd-Component"
@@ -1156,7 +1156,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         className=" css-fkye4g-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -1273,7 +1273,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         className=" css-xu0d8l-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -1391,7 +1391,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -1825,7 +1825,7 @@ exports[`Dropdown renders correctly with className 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -2090,7 +2090,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -2208,7 +2208,7 @@ exports[`Dropdown renders correctly with id 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -2777,7 +2777,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
             className="placeholder-container"
           >
             <div
-              className=" css-1dtegfv-placeholder"
+              className=" css-1usuuna-placeholder"
             >
               
             </div>
@@ -2903,7 +2903,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -3021,7 +3021,7 @@ exports[`Dropdown renders correctly with options 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -3139,7 +3139,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           text
         </div>
@@ -3257,7 +3257,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -3382,7 +3382,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
@@ -3647,7 +3647,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         className=" css-1ht1nal-Component"
       >
         <div
-          className=" css-1dtegfv-placeholder"
+          className=" css-1usuuna-placeholder"
         >
           
         </div>
