@@ -1,7 +1,7 @@
 import { ArrayLastElement } from "src/types/ArrayLastElement";
 import { SplitString } from "src/types/SplitString";
-import { keysOf } from "src/helpers/key-of";
 import { exposeIcons } from "../../../utils/icon-utils";
+import { keysOf } from "../../../helpers/key-of";
 import * as allIcons from "../Icons";
 
 type IconPath = `/icons/${keyof typeof allIcons}`;
