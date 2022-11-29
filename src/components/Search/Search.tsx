@@ -3,13 +3,15 @@ import classNames from "classnames";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/base-tests-utils";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, VibeComponent } from "../../types";
 import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
+import { ComponentDefaultTestId } from "../../tests";
+
 import "./Search.scss";
 
 function getType(type: SearchType) {
@@ -53,7 +55,7 @@ export interface SearchProps extends VibeComponentProps {
   loading?: boolean;
 }
 
-const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<unknown>> & {
+const Search: VibeComponent<SearchProps, unknown> & {
   sizes?: typeof BASE_SIZES;
   types?: typeof SearchType;
 } = forwardRef<unknown, SearchProps>(
@@ -89,7 +91,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
     return (
       <TextField
         id={id}
-        dataTestId={getTestId(ELEMENT_TYPES.SEARCH, id)}
+        dataTestId={getTestId(ComponentDefaultTestId.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
@@ -99,7 +101,7 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
         debounceRate={debounceRate}
         className={classNames(className, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
-        secondaryDataTestId={getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
+        secondaryDataTestId={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
         wrapperClassName={classNames(wrapperClassName, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}
@@ -122,7 +124,8 @@ const Search: React.ForwardRefExoticComponent<SearchProps & React.RefAttributes<
 
 Object.assign(Search, {
   sizes: BASE_SIZES,
-  types: SearchType
+  types: SearchType,
+  defaultTestId: ComponentDefaultTestId.SEARCH
 });
 
 export default Search;
