@@ -12,6 +12,7 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import useIsHovered from "../../hooks/useIsHovered";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -74,12 +75,21 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     ref
   ) => {
     const overrideDataTestId = dataTestId || getTestId(ELEMENT_TYPES.CHIP, id);
+    const [hoverRef, isHovered] = useIsHovered();
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
     const backgroundColorStyle = useMemo(() => {
-      return { backgroundColor: disabled ? getCSSVar("disabled-background-color") : getElementColor(color, true) };
-    }, [disabled, color]);
+      let cssVar;
+      if (disabled) {
+        cssVar = getCSSVar("disabled-background-color");
+      } else if (isHovered) {
+        cssVar = getElementColor(color, true, true);
+      } else {
+        cssVar = getElementColor(color, true);
+      }
+      return { backgroundColor: cssVar };
+    }, [isHovered, disabled, color]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
