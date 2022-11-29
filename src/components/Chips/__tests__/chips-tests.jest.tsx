@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import Chips from "../Chips";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import { ComponentDefaultTestId } from "../../../tests";
 
 describe("Chips tests", () => {
   const label = "Chip";
@@ -15,7 +15,7 @@ describe("Chips tests", () => {
   });
 
   it("should call the click callback when clicked", () => {
-    const testId = getTestId(`${ELEMENT_TYPES.CHIP}-close`);
+    const testId = `${ComponentDefaultTestId.CHIP}-close`;
     fireEvent.click(screen.getByTestId(testId));
     expect(onDeletedMock.mock.calls.length).toBe(1);
   });

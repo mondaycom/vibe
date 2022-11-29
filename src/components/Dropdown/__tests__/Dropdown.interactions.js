@@ -1,12 +1,5 @@
 import { userEvent } from "@storybook/testing-library";
-import {
-  getByRole,
-  getByText,
-  clickElement,
-  typeText,
-  getByClassName,
-  interactionSuite
-} from "../../../__tests__/interactions-helper";
+import { getByRole, getByText, clickElement, typeText, getFirstByClassName, interactionSuite } from "../../../tests";
 import { expect } from "@storybook/jest";
 
 const selectAndClearTest = async canvas => {
@@ -19,7 +12,7 @@ const selectAndClearTest = async canvas => {
   const optionToSelect = getByText(canvas, "Option 1");
   await clickElement(optionToSelect);
   // click the clear button
-  const clearButton = getByClassName("clear-indicator");
+  const clearButton = getFirstByClassName("clear-indicator");
   await clickElement(clearButton);
   // Validate we see the placeholder again
   getByText(canvas, "Placeholder text here");
