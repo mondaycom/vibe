@@ -2,6 +2,7 @@ const TESTING_STORYBOOK = process.env.testing === "storybook";
 
 module.exports = api => {
   const env = process.env.NODE_ENV;
+  const storybook = !!process.env.storybook;
   api.cache.using(() => env);
 
   return {
@@ -50,7 +51,7 @@ module.exports = api => {
           loose: true
         }
       ],
-      "react-docgen"
-    ]
+      storybook ? "react-docgen" : undefined
+    ].filter(Boolean)
   };
 };
