@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.75.0 (2022-11-29)
+
+#### New Features
+* [#1022](https://github.com/mondaycom/monday-ui-react-core/pull/1022) Revert "Interactions tests exports (#1004)" ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.74.2 (2022-11-29)
 
 #### Bug Fixes
