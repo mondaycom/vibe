@@ -61,7 +61,7 @@ module.exports = options => {
 
   const entry = {
     main: path.join(__dirname, "/src/index.js"),
-    interactionTests: path.join(__dirname, "/src/tests/"),
+    tests: path.join(__dirname, "/src/tests/"),
     ...publishedComponents
   };
 
