@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.74.2 (2022-11-29)
+
+#### Bug Fixes
+* [#1021](https://github.com/mondaycom/monday-ui-react-core/pull/1021) revert changes ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.74.1 (2022-11-29)
 
 #### Dependency Upgrades
