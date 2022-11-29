@@ -1,6 +1,5 @@
-import { ArrayLastElement } from "src/types/ArrayLastElement";
-import { SplitString } from "src/types/SplitString";
-import { keysOf } from "src/helpers/key-of";
+import { ArrayLastElement, SplitString } from "../../../types";
+import { keysOf } from "../../../helpers/key-of";
 import { exposeIcons } from "../../../utils/icon-utils";
 import * as allIcons from "../Icons";
 
