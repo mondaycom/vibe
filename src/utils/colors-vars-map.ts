@@ -220,11 +220,11 @@ export function getElementColor(colorName: string, isSelectedPalette = false, is
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""})`;
   }
-  if (stateSelectedColors[colorName] && isSelectedPalette) {
-    return `var(${stateSelectedColors[colorName]})`;
-  }
   if (stateSelectedHoverColors[colorName] && isSelectedHoverPalette) {
     return `var(${stateSelectedHoverColors[colorName]})`;
+  }
+  if (stateSelectedColors[colorName] && isSelectedPalette) {
+    return `var(${stateSelectedColors[colorName]})`;
   }
   return colorName;
 }
