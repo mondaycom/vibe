@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.73.12 (2022-11-29)
+
+#### Bug Fixes
+* [#1007](https://github.com/mondaycom/monday-ui-react-core/pull/1007) Fix ability to display dropdown menu inside dialog or modal ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#986](https://github.com/mondaycom/monday-ui-react-core/pull/986) TS-Migration: Reduced amount of ts-ignore ([@khitrind](https://github.com/khitrind))
+
 ## 1.73.11 (2022-11-28)
 
 #### New Icons
