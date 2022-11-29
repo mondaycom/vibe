@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
 import cx from "classnames";
-import { ComponentDefaultTestId } from "../../tests";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
@@ -184,7 +183,7 @@ const Combobox = forwardRef(
           "sticky-category": stickyCategories
         })}
         id={id}
-        data-testid={getTestId(ComponentDefaultTestId.COMBOBOX, id)}
+        data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
@@ -235,7 +234,6 @@ const Combobox = forwardRef(
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
-Combobox.defaultTestId = ComponentDefaultTestId.COMBOBOX;
 
 Combobox.propTypes = {
   className: PropTypes.string,

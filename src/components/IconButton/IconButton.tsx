@@ -7,8 +7,7 @@ import ToolTip from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { VibeComponentProps, SubIcon } from "../../types";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
@@ -163,7 +162,7 @@ const IconButton: React.FC<IconButtonProps> & {
             ariaLabel={buttonAriaLabel}
             ref={mergedRef}
             id={id}
-            dataTestId={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}
@@ -188,8 +187,7 @@ const IconButton: React.FC<IconButtonProps> & {
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors,
-  defaultTestId: ComponentDefaultTestId.ICON_BUTTON
+  colors: Button.colors
 });
 
 IconButton.defaultProps = {

@@ -1,22 +1,21 @@
 import { expect } from "@storybook/jest";
-import { queryByText } from "@storybook/testing-library";
-import { resetFocus } from "../../../__tests__/interactions-helper";
 import {
-  ComponentDefaultTestId,
-  NavigationCommand,
+  ELEMENT_TYPES,
   getByLabelText,
   getByTestId,
   getByText,
   clickElement,
+  resetFocus,
   typeText,
   interactionSuite,
   pressNavigationKey
-} from "../../../tests";
-import { getTestId } from "../../../tests/base-tests-utils";
+} from "../../../__tests__/interactions-helper";
+import { queryByText } from "@storybook/testing-library";
+import { getTestId, NAVIGATIONS_COMMANDS } from "../../../utils/test-utils";
 
 async function getComponentElements(canvas) {
-  const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
-  const searchElement = getByLabelText(comboboxElement, "Search for content");
+  const comboboxElement = await getByTestId(canvas, ELEMENT_TYPES.COMBOBOX);
+  const searchElement = await getByLabelText(comboboxElement, "Search for content");
   return { comboboxElement, searchElement };
 }
 
@@ -31,7 +30,7 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
   await typeText(searchElement, "jjj");
   const cleanSearchButton = getByTestId(
     comboboxElement,
-    getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, "combobox-search")
+    getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, "combobox-search")
   );
   await clickElement(cleanSearchButton);
   expect(searchElement).toHaveValue("");
@@ -58,7 +57,7 @@ async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
   await clickElement(searchElement);
 
   // Navigate to first option with down arrow
-  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   const option1 = getByText(comboboxElement, "Option 1").parentElement;
 
   // Check active option by aria is the one we navigate to it by keyboard
@@ -66,7 +65,7 @@ async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
   expect(ariaActiveDescendant).toEqual(option1.id);
 
   // Navigate to second option with down arrow
-  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   const option2 = getByText(comboboxElement, "Option 2").parentElement;
 
   // Check active option by aria is the one we navigate to it by keyboard
@@ -74,7 +73,7 @@ async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
   expect(ariaActiveDescendant).toEqual(option2.id);
 
   // Navigate to first option with up arrow
-  await pressNavigationKey(NavigationCommand.UP_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
 
   // Check active option by aria is the one we navigate to it by keyboard
   ariaActiveDescendant = searchElement.getAttribute("aria-activedescendant");
