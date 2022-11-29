@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.74.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1020](https://github.com/mondaycom/monday-ui-react-core/pull/1020) remove not needed packages ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.74.0 (2022-11-29)
 
 #### New Features
