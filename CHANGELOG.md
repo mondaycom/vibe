@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.75.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1023](https://github.com/mondaycom/monday-ui-react-core/pull/1023) remove docgen on production build ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.75.0 (2022-11-29)
 
 #### New Features
