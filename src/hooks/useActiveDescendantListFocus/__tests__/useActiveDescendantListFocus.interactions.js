@@ -1,13 +1,12 @@
-import { resetFocus } from "../../../__tests__/interactions-helper";
 import {
+  ELEMENT_TYPES,
   getByTestId,
   interactionSuite,
   pressNavigationKey,
-  ComponentDefaultTestId,
-  NavigationCommand
-} from "../../../tests";
+  resetFocus
+} from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../tests/base-tests-utils";
+import { getTestId, NAVIGATIONS_COMMANDS } from "../../../utils/test-utils";
 import styles from "../__stories__/useActiveDescendantListFocus.module.scss";
 
 export const overviewInteractionSuite = interactionSuite({
@@ -18,7 +17,7 @@ export const overviewInteractionSuite = interactionSuite({
 });
 
 async function getSearchElement(canvas) {
-  return await getByTestId(canvas, getTestId(ComponentDefaultTestId.SEARCH, "search"));
+  return await getByTestId(canvas, getTestId(ELEMENT_TYPES.SEARCH, "search"));
 }
 
 async function expectElementToBeNaturallyFocused(element) {
@@ -36,27 +35,27 @@ async function keyboardNavAndFocusForVerticalList(canvas) {
   // set focus on the list's element which in charge on natural focus element
   element.focus();
   // move visual focus to first item
-  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
   await expectElementToBeNaturallyFocused(element);
 
   // move visual focus to second item
-  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 2");
   await expectElementToBeNaturallyFocused(element);
 
   // move visual focus to first item again
-  await pressNavigationKey(NavigationCommand.UP_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
   await expectElementToBeNaturallyFocused(element);
 
   // move to last item by press up keyboard button
-  await pressNavigationKey(NavigationCommand.UP_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
   await expectElementVisuallyFocusedByText("Item 3");
   await expectElementToBeNaturallyFocused(element);
 
   // move to first item again by press down keyboard button while visual focus is on the last item
-  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
   await expectElementToBeNaturallyFocused(element);
 }

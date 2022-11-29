@@ -9,10 +9,9 @@ import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import { getTestId } from "../../tests/base-tests-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { SubIcon } from "../../types";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent } from "../../types";
-import { ComponentDefaultTestId } from "../../tests";
 import "./Button.scss";
 
 // min button width
@@ -86,7 +85,7 @@ export interface ButtonProps {
   insetFocus?: boolean;
 }
 
-const Button: VibeComponent<ButtonProps, unknown> & {
+const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
   sizes?: typeof SIZES;
   colors?: typeof ButtonColor;
   kinds?: typeof ButtonType;
@@ -256,7 +255,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
-        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -369,8 +368,7 @@ Object.assign(Button, {
   colors: ButtonColor,
   kinds: ButtonType,
   types: ButtonInputType,
-  inputTags: ButtonInputType,
-  defaultTestId: ComponentDefaultTestId.BUTTON
+  inputTags: ButtonInputType
 });
 
 Button.defaultProps = {

@@ -8,11 +8,10 @@ import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { getTestId } from "../../tests/base-tests-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId } from "../../tests";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -74,7 +73,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     },
     ref
   ) => {
-    const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
+    const overrideDataTestId = dataTestId || getTestId(ELEMENT_TYPES.CHIP, id);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -167,7 +166,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 Object.assign(Chips, {
   sizes: ChipsSize,
-  defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames
 });
 

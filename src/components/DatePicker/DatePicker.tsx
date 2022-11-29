@@ -11,8 +11,7 @@ import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 
@@ -75,7 +74,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       ({ month }: { month: Moment }) => {
         return (
           <DatePickerHeaderComponent
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_HEADER, id)}
+            data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER_HEADER, id)}
             currentDate={month || moment()}
             isMonthYearSelection={isMonthYearSelection}
             onToggleMonthYearPicker={() => setIsMonthYearSelection(val => !val)}
@@ -106,7 +105,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
     const renderMonthYearSelection = useCallback(() => {
       return (
         <YearPicker
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_YEAR_SELECTION, id)}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER_YEAR_SELECTION, id)}
           selectedDate={date}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
@@ -132,7 +131,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER, id)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.DATEPICKER, id)}
         ref={ref}
         id={id}
         className={cx(styles.datepickerContainer, className, {
@@ -189,7 +188,4 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
   }
 );
 
-Object.assign(DatePicker, {
-  defaultTestId: ComponentDefaultTestId.DATEPICKER
-});
 export default DatePicker;

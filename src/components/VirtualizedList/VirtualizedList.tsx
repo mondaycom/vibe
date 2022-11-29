@@ -23,8 +23,7 @@ import {
   getOnItemsRenderedData,
   isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
-import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";
@@ -377,7 +376,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         className={cx("virtualized-list--wrapper", className)}
         id={id}
         role={role}
-        data-testid={getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
+        data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
         style={style}
       >
         <AutoSizer>
@@ -406,7 +405,5 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     );
   }
 );
-
-Object.assign(VirtualizedList, { defaultTestId: ComponentDefaultTestId.VIRTUALIZED_LIST });
 
 export default VirtualizedList;
