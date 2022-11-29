@@ -1,12 +1,5 @@
 import { userEvent } from "@storybook/testing-library";
-import {
-  getByRole,
-  getByText,
-  clickElement,
-  typeText,
-  getFirstByClassName,
-  interactionSuite
-} from "../../../interactions-tests/utils";
+import { getByRole, getByText, clickElement, typeText, getFirstByClassName, interactionSuite } from "../../../tests";
 import { expect } from "@storybook/jest";
 
 const selectAndClearTest = async canvas => {

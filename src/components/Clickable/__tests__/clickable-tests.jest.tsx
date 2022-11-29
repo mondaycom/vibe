@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
-import { ComponentDefaultTestId } from "../../../interactions-tests";
+import { ComponentDefaultTestId } from "../../../tests";
 import Clickable from "../Clickable";
 import userEvent from "@testing-library/user-event";
 import { ClickableProps } from "../Clickable";

@@ -5,9 +5,9 @@ import {
   pressNavigationKey,
   ComponentDefaultTestId,
   NavigationCommand
-} from "../../../interactions-tests";
+} from "../../../tests";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../utils/test-utils";
+import { getTestId } from "../../../tests/base-tests-utils";
 import styles from "../__stories__/useActiveDescendantListFocus.module.scss";
 
 export const overviewInteractionSuite = interactionSuite({

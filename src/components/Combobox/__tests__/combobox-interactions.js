@@ -11,8 +11,8 @@ import {
   typeText,
   interactionSuite,
   pressNavigationKey
-} from "../../../interactions-tests";
-import { getTestId } from "../../../utils/test-utils";
+} from "../../../tests";
+import { getTestId } from "../../../tests/base-tests-utils";
 
 async function getComponentElements(canvas) {
   const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);

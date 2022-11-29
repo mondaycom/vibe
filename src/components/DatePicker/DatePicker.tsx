@@ -11,8 +11,8 @@ import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import { getTestId } from "../../utils/test-utils";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { getTestId } from "../../tests/base-tests-utils";
+import { ComponentDefaultTestId } from "../../tests";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 

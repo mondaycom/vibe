@@ -2,9 +2,9 @@ import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
-import { getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/base-tests-utils";
 import { VibeComponent, VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { ComponentDefaultTestId } from "../../tests";
 import styles from "./Loader.module.scss";
 
 export interface LoaderProps extends VibeComponentProps {

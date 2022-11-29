@@ -1,9 +1,9 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
 import { resetFocus } from "../../../__tests__/interactions-helper";
-import { pressMultipleTimes, interactionSuite, ComponentDefaultTestId } from "../../../interactions-tests";
+import { pressMultipleTimes, interactionSuite, ComponentDefaultTestId } from "../../../tests";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../utils/test-utils";
+import { getTestId } from "../../../tests/base-tests-utils";
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, contentColorsByName.BRIGHT_GREEN);

@@ -8,11 +8,11 @@ import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/base-tests-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { ComponentDefaultTestId } from "../../tests";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {

@@ -9,7 +9,7 @@ import {
   expectActiveElementToHavePartialText,
   pressNavigationKey,
   NavigationCommand
-} from "../../../../interactions-tests";
+} from "../../../../tests";
 import { expect } from "@storybook/jest";
 
 const TWO_DEPTHS_MENU_TEXTS = {

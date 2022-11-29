@@ -23,8 +23,8 @@ import {
   getOnItemsRenderedData,
   isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
-import { getTestId } from "../../utils/test-utils";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { getTestId } from "../../tests/base-tests-utils";
+import { ComponentDefaultTestId } from "../../tests";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";

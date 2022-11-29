@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentDefaultTestId } from "../interactions-tests";
+import { ComponentDefaultTestId } from "../tests";
 type VibeComponent<T, P = HTMLElement> = React.ForwardRefExoticComponent<T & React.RefAttributes<P>> & {
   defaultTestId?: ComponentDefaultTestId;
 };

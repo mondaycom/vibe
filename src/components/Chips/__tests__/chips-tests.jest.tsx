@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import Chips from "../Chips";
-import { ComponentDefaultTestId } from "../../../interactions-tests";
+import { ComponentDefaultTestId } from "../../../tests";
 
 describe("Chips tests", () => {
   const label = "Chip";

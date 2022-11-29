@@ -16,9 +16,9 @@ import {
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
-import { getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/base-tests-utils";
 import { NOOP } from "../../utils/function-utils";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { ComponentDefaultTestId } from "../../tests";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import "./TextField.scss";
 
