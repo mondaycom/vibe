@@ -12,6 +12,7 @@
 $theme-dark-primary-color: $primary-color;
 $theme-dark-primary-hover-color: $primary-hover-color;
 $theme-dark-primary-selected-color: $color-ocean_blue;
+$theme-dark-primary-selected-hover-color: $color-deep_blue;
 $theme-dark-primary-text-color: $color-snow;
 
 $theme-dark-text-color-on-primary: $text-color-on-primary; // todo: fix, value from basic theme
@@ -39,9 +40,11 @@ $theme-dark-disabled-background-color: $color-silver_muted;
 $theme-dark-positive-color: $positive-color;
 $theme-dark-positive-color-hover: $positive-color-hover;
 $theme-dark-positive-color-selected: $color-forest_green;
+$theme-dark-positive-color-selected-hover: $color-darker_green;
 $theme-dark-negative-color: $negative-color;
 $theme-dark-negative-color-hover: $negative-color-hover;
 $theme-dark-negative-color-selected: $color-maroon_red;
+$theme-dark-negative-color-selected-hover: $color-amber_red;
 $theme-dark-private-color: $private-color;
 $theme-dark-shareable-color: $shareable-color;
 

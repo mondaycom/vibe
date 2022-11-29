@@ -14,6 +14,7 @@
 $theme-hacker-primary-color: $color-pink-plastic;
 $theme-hacker-primary-hover-color:  #{color.adjust($color-pink-plastic, $lightness: -6%)};
 $theme-hacker-primary-selected-color: $color-viola-vivid;
+$theme-hacker-primary-selected-hover-color: $color-deep_blue;
 $theme-hacker-primary-text-color: $color-snow;
 
 $theme-hacker-text-color-on-inverted: $color-mud_black; // todo: fix, value from basic theme
@@ -40,9 +41,11 @@ $theme-hacker-disabled-background-color: $color-dust-muted;
 $theme-hacker-positive-color: $color-green-grotesque;
 $theme-hacker-positive-color-hover: $positive-color-hover;
 $theme-hacker-positive-color-selected: $color-green-blackboard;
+$theme-hacker-positive-color-selected-hover: $color-darker_green;
 $theme-hacker-negative-color: $color-red-fluorescent;
 $theme-hacker-negative-color-hover: $negative-color-hover;
 $theme-hacker-negative-color-selected: $color-maroon_red;
+$theme-hacker-negative-color-selected-hover: $color-amber_red;
 $theme-hacker-private-color: $private-color;
 $theme-hacker-shareable-color: $shareable-color;
 

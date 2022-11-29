@@ -12,6 +12,7 @@
 $theme-black-primary-color: $primary-color;
 $theme-black-primary-hover-color: $primary-hover-color;
 $theme-black-primary-selected-color: $color-ocean_blue;
+$theme-black-primary-selected-hover-color: $color-deep_blue;
 $theme-black-primary-text-color: $color-smog;
 
 $theme-black-text-color-on-primary: $text-color-on-primary;
@@ -38,9 +39,11 @@ $theme-black-disabled-background-color: $color-dust-muted;
 $theme-black-positive-color: $positive-color;
 $theme-black-positive-color-hover: $positive-color-hover;
 $theme-black-positive-color-selected: $color-forest_green;
+$theme-black-positive-color-selected-hover: $color-darker_green;
 $theme-black-negative-color: $negative-color;
 $theme-black-negative-color-hover: $negative-color-hover;
 $theme-black-negative-color-selected: $color-maroon_red;
+$theme-black-negative-color-selected-hover: $color-amber_red;
 $theme-black-private-color: $private-color;
 $theme-black-shareable-color: $shareable-color;
 
