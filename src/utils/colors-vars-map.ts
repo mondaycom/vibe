@@ -10,6 +10,7 @@ export const colorsMap = [
     description: "Use only as a hover on primary color on secondary background color"
   },
   { color: "--primary-selected-color", description: "Use this to indicate selected state of primary items" },
+  { color: "--primary-selected-hover-color", description: "description" }, // TODO
   {
     color: "--primary-selected-on-secondary-color",
     description: "Use this to indicate selected state of primary items on secondary background color"
@@ -39,12 +40,14 @@ export const colorsMap = [
   },
   { color: "--positive-color-hover", description: "Use only as hover color on positive color" },
   { color: "--positive-color-selected", description: "Use only as selected indication for a positive colors" },
+  { color: "--positive-color-selected-hover", description: "description" }, // TODO
   {
     color: "--negative-color",
     description: "Use when you want to indicate a negative action/state (delete, failed action..., error)"
   },
   { color: "--negative-color-hover", description: "Use only as hover color on negative color" },
   { color: "--negative-color-selected", description: "Use as selected indication for negative colors" },
+  { color: "--negative-color-selected-hover", description: "description" }, // TODO
   {
     color: "--private-color",
     description: "Use when you want to indicate that something is private (board, icons...)"
@@ -198,18 +201,30 @@ export const stateSelectedColors: Record<string, string> = {
   NEGATIVE: "--negative-color-selected",
   PRIMARY: "--primary-selected-color"
 };
-export const elementAllowedColors = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)];
+export const stateSelectedHoverColors: Record<string, string> = {
+  POSITIVE: "--positive-color-selected-hover",
+  NEGATIVE: "--negative-color-selected-hover",
+  PRIMARY: "--primary-selected-hover-color"
+};
+export const elementAllowedColors = [
+  ...Object.keys(contentColorsByName),
+  ...Object.keys(stateSelectedColors),
+  ...Object.keys(stateSelectedHoverColors)
+];
 export const elementColorsNames = elementAllowedColors.reduce((acc: Record<string, string>, key) => {
   acc[key] = key;
   return acc;
 }, {});
 
-export function getElementColor(colorName: string, isSelectedPalette = false): string {
+export function getElementColor(colorName: string, isSelectedPalette = false, isSelectedHoverPalette = false): string {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""})`;
   }
   if (stateSelectedColors[colorName] && isSelectedPalette) {
     return `var(${stateSelectedColors[colorName]})`;
+  }
+  if (stateSelectedHoverColors[colorName] && isSelectedHoverPalette) {
+    return `var(${stateSelectedHoverColors[colorName]})`;
   }
   return colorName;
 }
