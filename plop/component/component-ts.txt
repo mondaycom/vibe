@@ -4,7 +4,7 @@ import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../utils/test-utils";
-import { ComponentDefaultTestId } from "../../interactions-tests";
+import { ComponentDefaultTestId } from "../../tests";
 import styles from "./{{properCase componentName}}.module.scss";
 
 export interface {{properCase componentName}}Props extends VibeComponentProps {
