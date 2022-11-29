@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.73.13 (2022-11-29)
+
+#### Bug Fixes
+* [#1016](https://github.com/mondaycom/monday-ui-react-core/pull/1016) Hot fix after external PR ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.73.12 (2022-11-29)
 
 #### Bug Fixes
