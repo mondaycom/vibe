@@ -12,7 +12,7 @@ import { getTestId } from "../../tests/base-tests-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import useIsHovered from "../../hooks/useIsHovered";
+import useHover from "../../hooks/useHover";
 import { ComponentDefaultTestId } from "../../tests";
 import styles from "./Chips.module.scss";
 
@@ -76,7 +76,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     ref
   ) => {
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const [hoverRef, isHovered] = useIsHovered();
+    const [hoverRef, isHovered] = useHover();
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
