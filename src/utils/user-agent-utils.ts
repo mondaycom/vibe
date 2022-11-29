@@ -11,3 +11,7 @@ export function getBrowserName() {
 export function isFirefox() {
   return getBrowserName() === "firefox";
 }
+
+export function isIE11() {
+  return !!window.MSInputMethodContext && !!document.documentMode;
+}

@@ -219,7 +219,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 })}
               >
                 <div className={"input-component__loader"}>
-                  {/*@ts-ignore TODO TS-migration will be fixed, after Loader is converted to TS*/}
                   <Loader svgClassName="input-component__loader-svg" />
                 </div>
               </div>

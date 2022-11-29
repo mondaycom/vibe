@@ -10,15 +10,13 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../utils/test-utils";
+import { isIE11 } from "src/utils/user-agent-utils";
 import { SubIcon, VibeComponent } from "../../types";
 import { ComponentDefaultTestId } from "../../interactions-tests";
 import "./Button.scss";
 
-// @ts-ignore
-const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
 // min button width
-const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
+const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
