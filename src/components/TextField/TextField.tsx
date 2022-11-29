@@ -16,9 +16,10 @@ import {
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../utils/test-utils";
 import { NOOP } from "../../utils/function-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId } from "../../interactions-tests";
+import { VibeComponentProps, VibeComponent } from "../../types";
 import "./TextField.scss";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
@@ -73,7 +74,7 @@ interface TextFieldProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttributes<unknown>> & {
+const TextField: VibeComponent<TextFieldProps, unknown> & {
   sizes?: typeof BASE_SIZES;
   types?: TextFieldTextType;
   feedbacks?: TextFieldFeedbackState;
@@ -208,7 +209,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
-              data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
               tabIndex={tabIndex}
             />
             {loading && (
@@ -249,7 +250,7 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
-              dataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
+              dataTestId={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}
@@ -289,7 +290,8 @@ const TextField: React.ForwardRefExoticComponent<TextFieldProps & React.RefAttri
 Object.assign(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackState,
-  types: TextFieldTextType
+  types: TextFieldTextType,
+  defaultTestId: ComponentDefaultTestId.TEXT_FIELD
 });
 
 export default TextField;

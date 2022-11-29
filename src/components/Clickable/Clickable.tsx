@@ -5,10 +5,11 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import "./Clickable.scss";
+import { getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId } from "../../interactions-tests";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import "./Clickable.scss";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
@@ -65,7 +66,7 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
           disabled,
           [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
         }),
-        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.CLICKABLE, id),
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
         role: role,
         onClick: disabled ? undefined : onClick,
         id: id,
@@ -82,5 +83,9 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
     );
   }
 );
+
+Object.assign(Clickable, {
+  defaultTestId: ComponentDefaultTestId.CLICKABLE
+});
 
 export default Clickable;

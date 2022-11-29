@@ -9,8 +9,9 @@ import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { SubIcon } from "../../types";
+import { getTestId } from "../../utils/test-utils";
+import { SubIcon, VibeComponent } from "../../types";
+import { ComponentDefaultTestId } from "../../interactions-tests";
 import "./Button.scss";
 
 // @ts-ignore
@@ -87,7 +88,7 @@ export interface ButtonProps {
   insetFocus?: boolean;
 }
 
-const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
+const Button: VibeComponent<ButtonProps, unknown> & {
   sizes?: typeof SIZES;
   colors?: typeof ButtonColor;
   kinds?: typeof ButtonType;
@@ -257,7 +258,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         id,
         onFocus,
         onBlur,
-        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -370,7 +371,8 @@ Object.assign(Button, {
   colors: ButtonColor,
   kinds: ButtonType,
   types: ButtonInputType,
-  inputTags: ButtonInputType
+  inputTags: ButtonInputType,
+  defaultTestId: ComponentDefaultTestId.BUTTON
 });
 
 Button.defaultProps = {
