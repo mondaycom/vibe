@@ -16,9 +16,9 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "src/tests/constants.ts",
+        path: "src/utils/test-utils.js",
         pattern: /(\/\/ plop_marker:default-data-testid-declarations)/g,
-        template: '  {{constantCase componentName}} = "{{dashCase componentName}}",'
+        template: '  {{constantCase componentName}}: "{{dashCase componentName}}",'
       },
       {
         type: "add",

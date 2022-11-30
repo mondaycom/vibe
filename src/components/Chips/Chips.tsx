@@ -7,7 +7,7 @@ import { getCSSVar } from "../../services/themes";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../utils/test-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
@@ -184,7 +184,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 Object.assign(Chips, {
   sizes: ChipsSize,
-  defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames
 });
 

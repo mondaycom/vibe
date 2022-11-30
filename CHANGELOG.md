@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.75.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1023](https://github.com/mondaycom/monday-ui-react-core/pull/1023) remove docgen on production build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.75.0 (2022-11-29)
+
+#### New Features
+* [#1022](https://github.com/mondaycom/monday-ui-react-core/pull/1022) Revert "Interactions tests exports (#1004)" ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.2 (2022-11-29)
+
+#### Bug Fixes
+* [#1021](https://github.com/mondaycom/monday-ui-react-core/pull/1021) revert changes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1020](https://github.com/mondaycom/monday-ui-react-core/pull/1020) remove not needed packages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.0 (2022-11-29)
+
+#### New Features
+* [#1019](https://github.com/mondaycom/monday-ui-react-core/pull/1019) remove docogen from build ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1004](https://github.com/mondaycom/monday-ui-react-core/pull/1004) Interactions tests exports ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.73.13 (2022-11-29)
 
 #### Bug Fixes

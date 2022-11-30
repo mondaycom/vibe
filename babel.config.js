@@ -2,7 +2,31 @@ const TESTING_STORYBOOK = process.env.testing === "storybook";
 
 module.exports = api => {
   const env = process.env.NODE_ENV;
+  const storybook = !!process.env.storybook;
   api.cache.using(() => env);
+
+  const plugins = [
+    "react-require",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        loose: true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-methods",
+      {
+        loose: true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-property-in-object",
+      {
+        loose: true
+      }
+    ],
+    storybook ? "react-docgen" : undefined
+  ].filter(Boolean);
 
   return {
     env: {
@@ -30,27 +54,6 @@ module.exports = api => {
       ],
       "@babel/preset-react"
     ],
-    plugins: [
-      "react-require",
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          loose: true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-private-methods",
-        {
-          loose: true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-private-property-in-object",
-        {
-          loose: true
-        }
-      ],
-      "react-docgen"
-    ]
+    plugins
   };
 };

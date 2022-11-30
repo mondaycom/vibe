@@ -9,7 +9,7 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { COLOR_SHAPES } from "../../ColorPickerConstants";
-import { getTestId } from "../../../../tests/base-tests-utils";
+import { getTestId } from "../../../../utils/test-utils";
 
 const ColorPickerItemComponent = ({
   color,
