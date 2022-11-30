@@ -25,7 +25,8 @@ module.exports = api => {
         loose: true
       }
     ],
-    storybook ? "react-docgen" : undefined
+    storybook ? "react-docgen" : undefined,
+    "transform-react-remove-prop-types"
   ].filter(Boolean);
 
   return {
