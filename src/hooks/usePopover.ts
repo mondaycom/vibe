@@ -1,9 +1,8 @@
 import { useMemo, useLayoutEffect } from "react";
 import { usePopper } from "react-popper";
 import { Placement } from "./popoverConstants";
-
 import useForceUpdate from "./useForceUpdate";
-import { Options, State } from "@popperjs/core";
+import type { Options, State } from "@popperjs/core";
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
