@@ -7,9 +7,9 @@ import {
   waitForElementVisible,
   interactionSuite,
   expectActiveElementToHavePartialText,
-  pressNavigationKey,
-  NavigationCommand
+  pressNavigationKey
 } from "../../../../tests";
+import { NavigationCommand } from "../../../../tests/constants";
 import { expect } from "@storybook/jest";
 
 const TWO_DEPTHS_MENU_TEXTS = {
