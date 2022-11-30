@@ -8,7 +8,7 @@ import {
   interactionSuite,
   expectActiveElementToHavePartialText,
   pressNavigationKey
-} from "../../../../tests";
+} from "../../../../tests/interactions-utils";
 import { NavigationCommand } from "../../../../tests/constants";
 import { expect } from "@storybook/jest";
 

@@ -9,7 +9,7 @@ import {
   typeText,
   interactionSuite,
   pressNavigationKey
-} from "../../../tests";
+} from "../../../tests/interactions-utils";
 import { getTestId } from "../../../tests/base-tests-utils";
 import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
 async function getComponentElements(canvas) {

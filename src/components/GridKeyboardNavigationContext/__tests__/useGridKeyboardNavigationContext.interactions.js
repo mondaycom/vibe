@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { getByText, interactionSuite, clickElement, pressMultipleTimes } from "../../../tests";
+import { getByText, interactionSuite, clickElement, typeMultipleTimes } from "../../../tests/interactions-utils";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 
 //NOTE: this test may fail if it runs when the storybook page isn't focused. (For example, during an HMR refresh without focusing the storybook tab)
@@ -7,28 +7,28 @@ const multiGridLayoutKeyboardNavigation = async canvas => {
   const topLeft3Item = await getByText(canvas, "TL 3");
   clickElement(topLeft3Item);
 
-  await pressMultipleTimes("{arrowRight}", 2);
+  await typeMultipleTimes("{arrowRight}", 2);
   await assertElementWithTextToBeActive("TL 5");
 
-  await pressMultipleTimes("{arrowRight}", 2);
+  await typeMultipleTimes("{arrowRight}", 2);
   await assertElementWithTextToBeActive("TR 1");
 
-  await pressMultipleTimes("{arrowDown}", 2);
+  await typeMultipleTimes("{arrowDown}", 2);
   await assertElementWithTextToBeActive("TR 5");
 
-  await pressMultipleTimes("{arrowLeft}", 3);
+  await typeMultipleTimes("{arrowLeft}", 3);
   await assertElementWithTextToBeActive("TL 1");
 
-  await pressMultipleTimes("{arrowDown}", 4);
+  await typeMultipleTimes("{arrowDown}", 4);
   await assertElementWithTextToBeActive("TB 5");
 
-  await pressMultipleTimes("{arrowDown}", 1);
+  await typeMultipleTimes("{arrowDown}", 1);
   await assertElementWithTextToBeActive("BL 1");
 
-  await pressMultipleTimes("{arrowUp}", 1);
+  await typeMultipleTimes("{arrowUp}", 1);
   await assertElementWithTextToBeActive("TB 5");
 
-  await pressMultipleTimes("{arrowUp}", 3);
+  await typeMultipleTimes("{arrowUp}", 3);
   await assertElementWithTextToBeActive("TL 4");
 };
 

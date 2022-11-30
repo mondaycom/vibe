@@ -191,7 +191,7 @@ export const waitForElementVisible = (getterFunc: () => HTMLElement) => {
   });
 };
 
-export const pressMultipleTimes = async (text: string, count: number, options = { delay: 70 }) => {
+export const typeMultipleTimes = async (text: string, count: number, options = { delay: 70 }) => {
   text = text.repeat(count);
   await userEvent.keyboard(text, options);
 };
