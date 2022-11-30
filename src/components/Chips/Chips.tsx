@@ -4,7 +4,6 @@ import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
-import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
@@ -48,6 +47,10 @@ interface ChipsProps extends VibeComponentProps {
    * Callback function to be called when the user clicks the component.
    */
   onMouseDown?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  /**
+   * Callback function to be called when the user clicks the component.
+   */
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -70,6 +73,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       iconSize,
       onDelete,
       onMouseDown,
+      onClick,
       noAnimation,
       dataTestId
     },
@@ -84,13 +88,13 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       let cssVar;
       if (disabled) {
         cssVar = getCSSVar("disabled-background-color");
-      } else if (isHovered) {
+      } else if (isHovered && (onMouseDown || onClick)) {
         cssVar = getElementColor(color, true, true);
       } else {
         cssVar = getElementColor(color, true);
       }
       return { backgroundColor: cssVar };
-    }, [isHovered, disabled, color]);
+    }, [disabled, isHovered, onMouseDown, onClick, color]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -104,6 +108,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const hasCloseButton = !readOnly && !disabled;
 
     return (
+      // TODO need to make it accessible? - clickable via keyboard
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <div
         ref={mergedRef}
         className={cx(styles.chips, "chips--wrapper", className, {
@@ -115,6 +121,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         id={id}
         style={backgroundColorStyle}
         onMouseDown={onMouseDown}
+        onClick={onClick}
         data-testid={overrideDataTestId}
       >
         {leftAvatar ? (
@@ -195,7 +202,8 @@ Chips.defaultProps = {
   color: elementColorsNames.PRIMARY,
   iconSize: 16,
   onDelete: (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
-  onMouseDown: NOOP,
+  onMouseDown: undefined,
+  onClick: undefined,
   noAnimation: false,
   allowTextSelection: false
 };

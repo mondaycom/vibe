@@ -1,9 +1,9 @@
 import _chunk from "lodash/chunk";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
-import { TOOLTIP, COUNTER, LABEL } from "../../../storybook/components/related-components/component-description-map";
-import { Link, createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -15,7 +15,7 @@ export const metaSettings = createStoryMetaSettings({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
-  actionPropsArray: ["onDelete", "onMouseDown"]
+  actionPropsArray: ["onDelete", "onMouseDown", "onClick"]
 });
 
 <Meta
@@ -47,14 +47,14 @@ export const chipsTemplate = createComponentTemplate(Chips);
 Chips are compact elements that represent an input, attribute, or action. They may display text, icons, or both.
 
 <Canvas>
-  <Story name="Overview" args={{ label: "This is a chip"}}>
+  <Story name="Overview" args={{ label: "This is a chip", onMouseDown: undefined, onClick: undefined }}>
     {chipsTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={Chips} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -78,9 +78,9 @@ Chips are compact elements that represent an input, attribute, or action. They m
 ### With read only state
 
 <Canvas>
-    <Story name="Chips with read only state">
-        <Chips label="Read only chip" readOnly />
-    </Story>
+  <Story name="Chips with read only state">
+    <Chips label="Read only chip" readOnly />
+  </Story>
 </Canvas>
 
 ### With icons
