@@ -2,8 +2,6 @@ import { expect } from "@storybook/jest";
 import { queryByText } from "@storybook/testing-library";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 import {
-  ComponentDefaultTestId,
-  NavigationCommand,
   getByLabelText,
   getByTestId,
   getByText,
@@ -13,7 +11,7 @@ import {
   pressNavigationKey
 } from "../../../tests";
 import { getTestId } from "../../../tests/base-tests-utils";
-
+import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
 async function getComponentElements(canvas) {
   const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
   const searchElement = getByLabelText(comboboxElement, "Search for content");

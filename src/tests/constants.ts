@@ -54,6 +54,8 @@ export enum ComponentDefaultTestId {
   LOADER = "loader"
 }
 
+export const BUTTON_DEFAULT_TEST_ID = ComponentDefaultTestId.BUTTON;
+
 export enum NavigationCommand {
   RIGHT_ARROW = "{arrowright}",
   LEFT_ARROW = "{arrowleft}",
