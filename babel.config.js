@@ -5,10 +5,6 @@ module.exports = api => {
   const storybook = !!process.env.storybook;
   api.cache.using(() => env);
 
-  console.log("-----------------------------------------------");
-  console.log("env: ", env);
-  console.log("-----------------------------------------------");
-
   const plugins = [
     "react-require",
     [
@@ -30,7 +26,7 @@ module.exports = api => {
       }
     ],
     storybook ? "react-docgen" : undefined,
-    "transform-react-remove-prop-types",
+    "transform-react-remove-prop-types"
   ].filter(Boolean);
 
   return {
