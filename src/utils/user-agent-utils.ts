@@ -1,15 +1,5 @@
-import { detect } from "detect-browser";
-
-const browser = detect();
-
-export function getBrowserName() {
-  if (browser && browser.name) {
-    return browser.name;
-  }
-}
-
 export function isFirefox() {
-  return getBrowserName() === "firefox";
+  return  !!/Firefox\/([0-9\.]+)(?:\s|$)/.exec(window.navigator.userAgent);
 }
 
 export function isIE11() {
