@@ -1,5 +1,5 @@
 import React from "react";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import DatePicker from "../DatePicker";
 import moment, { Moment } from "moment";
 import { RangeDate } from "../types";
