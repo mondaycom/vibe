@@ -24,7 +24,7 @@ import {
   isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";

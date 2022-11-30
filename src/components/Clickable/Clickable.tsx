@@ -6,7 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./Clickable.scss";

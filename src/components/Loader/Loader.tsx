@@ -4,7 +4,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
 import { getTestId } from "../../tests/base-tests-utils";
 import { VibeComponent, VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 
 export interface LoaderProps extends VibeComponentProps {

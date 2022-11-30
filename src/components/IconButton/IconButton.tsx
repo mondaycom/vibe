@@ -8,7 +8,7 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, SubIcon } from "../../types";
 import Button from "../Button/Button";
 import { ButtonColor, ButtonType } from "../Button/ButtonConstants";

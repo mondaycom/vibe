@@ -12,7 +12,7 @@ import { getTestId } from "../../tests/base-tests-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {

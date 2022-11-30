@@ -12,7 +12,7 @@ import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./hel
 import { getTestId } from "../../tests/base-tests-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
 import { SubIcon, VibeComponent } from "../../types";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import "./Button.scss";
 
 // min button width

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
 import cx from "classnames";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/base-tests-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";

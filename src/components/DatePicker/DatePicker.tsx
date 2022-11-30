@@ -12,7 +12,7 @@ import { Direction, FocusInput, Moment, RangeDate } from "./types";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/base-tests-utils";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 

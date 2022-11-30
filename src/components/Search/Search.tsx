@@ -10,7 +10,7 @@ import { NOOP } from "../../utils/function-utils";
 import { SubIcon, VibeComponentProps, VibeComponent } from "../../types";
 import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
-import { ComponentDefaultTestId } from "../../tests";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 import "./Search.scss";
 
