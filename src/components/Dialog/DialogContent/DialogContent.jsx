@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, useRef, useCallback } from "react";
 import classNames from "classnames";
-import { CSSTransition } from "react-transition-group";
+import CSSTransition from "react-transition-group/CSSTransition";
 import useOnClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions } from "../../../utils/function-utils";
 import "./DialogContent.scss";
