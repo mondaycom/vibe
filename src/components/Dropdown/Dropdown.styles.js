@@ -184,8 +184,8 @@ const dropdownIndicator =
       },
       color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {
-        backgroundColor: getCSSVar("primary-background-hover-color"),
-        color: getCSSVar("icon-color")
+        backgroundColor: isDisabled ? undefined : getCSSVar("primary-background-hover-color"),
+        color: isDisabled ? undefined : getCSSVar("icon-color")
       }
     };
   };
