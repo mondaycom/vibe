@@ -67,7 +67,7 @@
   &.disabled {
     cursor: not-allowed;
     .monday-style-radio-button-component__radio-label {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
     }
   }
 

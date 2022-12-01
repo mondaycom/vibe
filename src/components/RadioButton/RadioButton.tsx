@@ -6,8 +6,8 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { baseClassName } from "./RadioButtonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import "./RadioButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
+import "./RadioButton.scss";
 
 interface RadioButtonProps extends VibeComponentProps {
   className?: string;
