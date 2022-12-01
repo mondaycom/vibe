@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.75.2 (2022-11-30)
+
+#### Dependency Upgrades
+* [#1024](https://github.com/mondaycom/monday-ui-react-core/pull/1024) Import optimizations ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.75.1 (2022-11-29)
 
 #### Dependency Upgrades
