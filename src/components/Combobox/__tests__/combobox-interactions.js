@@ -13,7 +13,7 @@ import {
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
 async function getComponentElements(canvas) {
-  const comboboxElement = getByTestId(canvas, Combox.defaultTestId);
+  const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
   const searchElement = getByLabelText(comboboxElement, "Search for content");
   return { comboboxElement, searchElement };
 }
