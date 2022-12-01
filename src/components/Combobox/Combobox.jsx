@@ -5,7 +5,7 @@ import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
 import cx from "classnames";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";

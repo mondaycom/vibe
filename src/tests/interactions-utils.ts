@@ -1,6 +1,6 @@
 import { within, userEvent, fireEvent, queries } from "@storybook/testing-library";
 import { Screen, waitFor, BoundFunctions } from "@testing-library/react";
-import { NavigationCommand } from "./constants";
+import { NavigationCommand as NavigationCommandType } from "./constants";
 import { expect } from "@storybook/jest";
 export type TestFunction = (canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => unknown;
 export type Coordinates = { x: number; y: number };
@@ -64,6 +64,9 @@ function getWithin(canvasOrValidTestElement: HTMLElement | BoundFunctions<typeof
     return result;
   } else if (canvasOrValidTestElement.getByRole) return canvasOrValidTestElement;
 }
+
+// External constants
+export const NavigationCommand = NavigationCommandType;
 
 // External functions
 export const interactionSuite =
@@ -165,8 +168,8 @@ export const expectActiveElementToHavePartialText = (text: string) => {
   expect(document.activeElement).toHaveTextContent(text);
 };
 
-export const pressNavigationKey = async (command = NavigationCommand.TAB, waitForDebounceMs = 0) => {
-  const promise = command === NavigationCommand.TAB ? userEvent.tab() : userEvent.keyboard(command);
+export const pressNavigationKey = async (command = NavigationCommandType.TAB, waitForDebounceMs = 0) => {
+  const promise = command === NavigationCommandType.TAB ? userEvent.tab() : userEvent.keyboard(command);
   const result = await promise;
   await delay(waitForDebounceMs);
   return result;

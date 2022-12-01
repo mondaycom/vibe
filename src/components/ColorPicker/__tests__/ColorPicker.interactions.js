@@ -4,7 +4,7 @@ import { resetFocus } from "../../../__tests__/interactions-helper";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { typeMultipleTimes, interactionSuite } from "../../../tests/interactions-utils";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../tests/base-tests-utils";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, contentColorsByName.BRIGHT_GREEN);

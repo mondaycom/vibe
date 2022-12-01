@@ -3,7 +3,7 @@ import { expect } from "@storybook/jest";
 
 import { getByTestId, interactionSuite, pressNavigationKey } from "../../../tests/interactions-utils";
 import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
-import { getTestId } from "../../../tests/base-tests-utils";
+import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "../__stories__/useActiveDescendantListFocus.module.scss";
 
 export const overviewInteractionSuite = interactionSuite({

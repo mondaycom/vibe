@@ -9,7 +9,7 @@ import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
 import { SubIcon, VibeComponent } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
