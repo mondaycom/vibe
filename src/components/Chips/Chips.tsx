@@ -96,7 +96,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       <div
         ref={mergedRef}
         className={cx(styles.chips, "chips--wrapper", className, {
-          disabled,
+          [styles.disabled]: disabled,
           [styles.withClose]: hasCloseButton,
           [styles.noAnimation]: noAnimation,
           [styles.withUserSelect]: allowTextSelection
