@@ -62,11 +62,15 @@ input:checked:disabled + .radioControl {
 .radioLabel {
   line-height: 21px;
   font-weight: 400;
+  font-size: var(--font-size-general-label);
   @include theme-prop(color, primary-text-color);
 }
 
 .radioButton.disabled {
   cursor: not-allowed;
+  :global(.monday-style-radio-button-component__radio-label) {
+    color: var(--disabled-text-color);
+  }
 }
 
 .inputContainer input:focus-visible + .radioControl {
