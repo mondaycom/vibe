@@ -6,9 +6,8 @@ import styles from "./menu.module.scss";
 
 const Menu = props => {
   const { children, Renderer, selectProps, id, "data-testid": dataTestId } = props;
-
-  const withFixedPosition = selectProps?.selectProps?.insideOverflowContainer;
-
+  const withFixedPosition =
+    selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
   return (
     <components.Menu
       {...props}

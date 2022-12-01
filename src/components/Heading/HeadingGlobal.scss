@@ -20,7 +20,6 @@
 }
 
 .element-type-h2 {
-  letter-spacing: -1px;
   @include font-title();
   &.size-small,
   &.size-medium {
@@ -28,7 +27,6 @@
   }
 }
 .element-type-h3 {
-  letter-spacing: -1px;
   @include font-title-secondary();
   &.size-small,
   &.size-medium {
@@ -37,7 +35,6 @@
 }
 
 .element-type-h4 {
-  letter-spacing: -1px;
   @include font-subtitle();
 }
 

@@ -53,7 +53,7 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({
   return (
     <TextField
       onChange={handleChange}
-      value={currentTextValue}
+      value={String(currentTextValue)}
       id={id}
       data-testid={dataTestId || getTestId(ELEMENT_TYPES.SELECTION_INDICATOR, id)}
     />

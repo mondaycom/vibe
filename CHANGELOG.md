@@ -1,5 +1,64 @@
 # Changelog
 
+## 1.75.2 (2022-11-30)
+
+#### Dependency Upgrades
+* [#1024](https://github.com/mondaycom/monday-ui-react-core/pull/1024) Import optimizations ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.75.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1023](https://github.com/mondaycom/monday-ui-react-core/pull/1023) remove docgen on production build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.75.0 (2022-11-29)
+
+#### New Features
+* [#1022](https://github.com/mondaycom/monday-ui-react-core/pull/1022) Revert "Interactions tests exports (#1004)" ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.2 (2022-11-29)
+
+#### Bug Fixes
+* [#1021](https://github.com/mondaycom/monday-ui-react-core/pull/1021) revert changes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1020](https://github.com/mondaycom/monday-ui-react-core/pull/1020) remove not needed packages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.0 (2022-11-29)
+
+#### New Features
+* [#1019](https://github.com/mondaycom/monday-ui-react-core/pull/1019) remove docogen from build ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1004](https://github.com/mondaycom/monday-ui-react-core/pull/1004) Interactions tests exports ([@hadasfa](https://github.com/hadasfa))
+
+## 1.73.13 (2022-11-29)
+
+#### Bug Fixes
+* [#1016](https://github.com/mondaycom/monday-ui-react-core/pull/1016) Hot fix after external PR ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.12 (2022-11-29)
+
+#### Bug Fixes
+* [#1007](https://github.com/mondaycom/monday-ui-react-core/pull/1007) Fix ability to display dropdown menu inside dialog or modal ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#986](https://github.com/mondaycom/monday-ui-react-core/pull/986) TS-Migration: Reduced amount of ts-ignore ([@khitrind](https://github.com/khitrind))
+
+## 1.73.11 (2022-11-28)
+
+#### New Icons
+* [#1015](https://github.com/mondaycom/monday-ui-react-core/pull/1015) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.73.10 (2022-11-28)
+
+#### Bug Fixes
+* [#999](https://github.com/mondaycom/monday-ui-react-core/pull/999) Support all edge cases for multi select drop with counter (hidden chips in dropdown with defined width edge case) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.73.9 (2022-11-28)
+
+#### Bug Fixes
+* [#1014](https://github.com/mondaycom/monday-ui-react-core/pull/1014) fix letter spacing in non h1 headers ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.73.8 (2022-11-27)
 
 #### Bug Fixes

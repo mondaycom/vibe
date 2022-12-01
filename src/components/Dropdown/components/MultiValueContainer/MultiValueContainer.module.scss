@@ -5,12 +5,21 @@
   margin-left: 6px;
 }
 
+.chipWithInputWrapper {
+  display: flex;
+  min-height: 30px;
+}
+
 .multiselectChipMultiLine {
   margin: 2px;
 }
 
 .multiselectChipSingleLine {
   margin: 5px 2px;
+}
+
+.multiselectChipDisabled {
+  background-color: var(--primary-background-hover-color) !important;
 }
 
 .valueContainer {

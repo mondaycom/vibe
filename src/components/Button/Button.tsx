@@ -14,13 +14,11 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { SubIcon } from "../../types";
+import { isIE11 } from "../../utils/user-agent-utils";
 import styles from "./Button.module.scss";
 
-// @ts-ignore
-const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
 // min button width
-const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
+const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps extends VibeComponentProps {
