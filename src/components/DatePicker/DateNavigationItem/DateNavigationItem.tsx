@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "../../Icon/Icon";
-import { MoveArrowLeft, MoveArrowRight } from "../../Icon/Icons";
+import MoveArrowLeft from "../../Icon/Icons/components/MoveArrowLeft";
+import MoveArrowRight from "../../Icon/Icons/components/MoveArrowRight";
 import styles from "./DateNavigationItem.module.scss";
 
 const ICONS = {

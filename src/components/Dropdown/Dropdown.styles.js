@@ -269,7 +269,7 @@ const valueContainer =
   });
 
 const menu =
-  ({ controlRef, insideOverflowContainer, transformContainerRef }) =>
+  ({ controlRef, insideOverflowContainer, insideOverflowWithTransformContainer }) =>
   provided => {
     const baseStyle = {
       ...provided,
@@ -279,23 +279,19 @@ const menu =
       boxShadow: getCSSVar("box-shadow-small")
     };
 
-    if (!insideOverflowContainer) return baseStyle;
-
-    // If the dropdown is inside a scroll, we try to get dropdown location at the dom
+    if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
     const parentPositionData = controlRef?.current?.getBoundingClientRect();
-
     // If no location found do not add anything to hard coded style
     if (!parentPositionData) return baseStyle;
 
-    let overrideTop = parentPositionData.bottom;
+    /** If the dropdown is inside a scroll in a regular container,position: fixed content (like our dropdown menu) will be attached to the start of the viewport.
+     * For this case we will override the top menu position value to be the according the the drop down location for correct dispaly.
+     * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative positioned inner container, which our menu will be attach to it's
+     * start when the menu position is fixed, and this is why in this case we define top:auto.
+     */
+    let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
 
-    if (transformContainerRef?.current !== undefined) {
-      const transformContainerPositionData = transformContainerRef?.current?.getBoundingClientRect();
-
-      overrideTop = parentPositionData.bottom - transformContainerPositionData.top + 7; //7 for margin;
-    }
-
-    return { ...baseStyle, top: overrideTop, width: parentPositionData.width };
+    return { ...baseStyle, top, width: parentPositionData.width };
   };
 
 const option = () => (provided, state) => ({
