@@ -18,7 +18,7 @@
 }
 
 .multiselect-chip-disabled {
-  border: var(--disabled-text-color) var(--border-width) solid;
+  background-color: var(--primary-background-hover-color) !important;
 }
 
 .value-container {
