@@ -238,7 +238,7 @@ const Dropdown = ({
       const scrolledElement = event.target;
       const dropdownContainer = document.getElementById(id);
       if (dropdownContainer?.contains(scrolledElement)) return false;
-      return insideOverflowContainer;
+      return insideOverflowContainer || insideOverflowWithTransformContainer;
     },
     [insideOverflowContainer, id]
   );
