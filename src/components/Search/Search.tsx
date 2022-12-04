@@ -3,7 +3,7 @@ import classNames from "classnames";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";

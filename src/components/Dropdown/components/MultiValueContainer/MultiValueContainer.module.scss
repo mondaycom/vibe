@@ -17,6 +17,10 @@
   margin: 5px 2px;
 }
 
+.multiselect-chip-disabled {
+  background-color: var(--primary-background-hover-color) !important;
+}
+
 .value-container {
   display: flex;
   align-items: center;

@@ -8,7 +8,7 @@ import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
@@ -97,7 +97,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       <div
         ref={mergedRef}
         className={cx(styles.chips, "chips--wrapper", className, {
-          disabled,
+          [styles.disabled]: disabled,
           [styles.withClose]: hasCloseButton,
           [styles.noAnimation]: noAnimation,
           [styles.withUserSelect]: allowTextSelection

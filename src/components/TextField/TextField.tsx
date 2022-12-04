@@ -16,7 +16,7 @@ import {
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent } from "../../types";

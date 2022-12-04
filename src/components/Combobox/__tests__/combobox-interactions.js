@@ -10,7 +10,7 @@ import {
   interactionSuite,
   pressNavigationKey
 } from "../../../tests/interactions-utils";
-import { getTestId } from "../../../tests/base-tests-utils";
+import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
 async function getComponentElements(canvas) {
   const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);

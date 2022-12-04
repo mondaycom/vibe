@@ -5,7 +5,7 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";

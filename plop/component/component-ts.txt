@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import { getTestId } from "../../tests/base-tests-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./{{properCase componentName}}.module.scss";
 

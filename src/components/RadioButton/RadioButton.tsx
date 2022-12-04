@@ -1,12 +1,13 @@
-import React, { useRef, forwardRef, useCallback, useMemo } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./RadioButtonConstants";
-import "./RadioButton.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import Tooltip from "../Tooltip/Tooltip";
+import "./RadioButton.scss";
 
 interface RadioButtonProps extends VibeComponentProps {
   className?: string;
@@ -15,6 +16,7 @@ interface RadioButtonProps extends VibeComponentProps {
   value?: string;
   name?: string;
   disabled?: boolean;
+  disabledReason?: string;
   defaultChecked?: boolean;
   children?: React.ReactNode;
   onSelect?: (event: React.ChangeEvent<HTMLInputElement | null>) => void;
@@ -34,6 +36,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       value = "",
       name = "",
       disabled = false,
+      disabledReason,
       defaultChecked = false,
       children,
       onSelect,
@@ -64,32 +67,36 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       return { defaultChecked };
     }, [checked, defaultChecked]);
 
+    const tooltipContent = disabled ? disabledReason : null;
+
     return (
-      <label className={cx(baseClassName, overrideClassName, { disabled })}>
-        <span className={`${baseClassName}__radio-input-container`}>
-          <input
-            className={`${baseClassName}__radio-input-container__radio-input`}
-            type="radio"
-            value={value}
-            name={name}
-            disabled={disabled}
-            {...checkedProps}
-            onChange={onSelect}
-            ref={mergedRef}
-          />
-          <span
-            className={cx(`${baseClassName}__radio-input-container__radio-control`, {
-              [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
-            })}
-          />
-        </span>
-        {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
-        {children && (
-          <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
-            {children}
-          </Clickable>
-        )}
-      </label>
+      <Tooltip content={tooltipContent}>
+        <label className={cx(baseClassName, overrideClassName, { disabled })}>
+          <span className={`${baseClassName}__radio-input-container`}>
+            <input
+              className={`${baseClassName}__radio-input-container__radio-input`}
+              type="radio"
+              value={value}
+              name={name}
+              disabled={disabled}
+              {...checkedProps}
+              onChange={onSelect}
+              ref={mergedRef}
+            />
+            <span
+              className={cx(`${baseClassName}__radio-input-container__radio-control`, {
+                [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
+              })}
+            />
+          </span>
+          {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
+          {children && (
+            <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
+              {children}
+            </Clickable>
+          )}
+        </label>
+      </Tooltip>
     );
   }
 );

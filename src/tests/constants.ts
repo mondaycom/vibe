@@ -1,7 +1,6 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
-  DD = "dd",
   COMBOBOX = "combobox",
   DROPDOWN = "dropdown",
   BUTTON = "button",
@@ -54,8 +53,6 @@ export enum ComponentDefaultTestId {
   DATEPICKER_YEAR_SELECTION = "date-picker-year-selection",
   LOADER = "loader"
 }
-
-export const BUTTON_DEFAULT_TEST_ID = ComponentDefaultTestId.BUTTON;
 
 export enum NavigationCommand {
   RIGHT_ARROW = "{arrowright}",
