@@ -1,12 +1,13 @@
-import { within, userEvent, fireEvent, queries } from "@storybook/testing-library";
-import { Screen, waitFor, BoundFunctions } from "@testing-library/react";
+import { fireEvent, queries, userEvent, within } from "@storybook/testing-library";
+import { BoundFunctions, Screen, waitFor } from "@testing-library/react";
 import { NavigationCommand as NavigationCommandType } from "./constants";
 import { expect } from "@storybook/jest";
+
 export type TestFunction = (canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => unknown;
 export type Coordinates = { x: number; y: number };
 
 // Internal functions
-const testFunctionWrapper = (testFunc: TestFunction) => {
+export const testFunctionWrapper = (testFunc: TestFunction) => {
   return async ({ canvasElement, args }: { canvasElement: Screen; args: Record<string, any> }) => {
     // Starts querying the component from its root element
     const canvas = getWithin(canvasElement);

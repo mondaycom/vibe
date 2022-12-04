@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { getByText, getByRole, clickElement, testFunctionWrapper } from "../../../__tests__/interactions-helper";
+import { clickElement, getByRole, getByText, testFunctionWrapper } from "../../../tests/interactions-utils";
 
 export const clickRadioButton = testFunctionWrapper(async canvas => {
   const radioToClick = getByText(canvas, "I was mentioned");
