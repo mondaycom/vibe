@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.76.0 (2022-12-04)
+
+#### Bug Fixes
+* [#1029](https://github.com/mondaycom/monday-ui-react-core/pull/1029) close while scrolling with in dialog/modal mode ([@hadasfa](https://github.com/hadasfa))
+* [#996](https://github.com/mondaycom/monday-ui-react-core/pull/996) RadioButton: add disabled-text-color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1027](https://github.com/mondaycom/monday-ui-react-core/pull/1027) Remove indicator hover state when dropdown is disabled ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1010](https://github.com/mondaycom/monday-ui-react-core/pull/1010) Feature/sergeyro/dropdown disabled color fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1025](https://github.com/mondaycom/monday-ui-react-core/pull/1025) Export interactions 2 ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.75.2 (2022-11-30)
 
 #### Dependency Upgrades
