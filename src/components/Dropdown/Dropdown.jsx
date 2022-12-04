@@ -191,7 +191,6 @@ const Dropdown = ({
       tooltipContent
     ]
   );
-  s;
   const onChange = (option, event) => {
     if (customOnChange) {
       customOnChange(option, event);
