@@ -1,20 +1,17 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
-import {
-  ELEMENT_TYPES,
-  interactionSuite,
-  keyboardMultipleTimes,
-  resetFocus
-} from "../../../__tests__/interactions-helper";
+import { resetFocus } from "../../../__tests__/interactions-helper";
+import { ComponentDefaultTestId } from "../../../tests/constants";
+import { typeMultipleTimes, interactionSuite } from "../../../tests/interactions-utils";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../utils/test-utils";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, contentColorsByName.BRIGHT_GREEN);
   await expectColorToBeSelected(canvas, contentColorsByName.BRIGHT_GREEN);
 
   //move to a color in the last row
-  await keyboardMultipleTimes("{arrowDown}", 7);
+  await typeMultipleTimes("{arrowDown}", 7);
   await expectColorToBeActive(canvas, contentColorsByName.STEEL);
 
   //move to a color in the last row
@@ -42,7 +39,7 @@ async function selectMultiColorsWithKeyboardAndMouse(canvas) {
   await expectColorToBeSelected(canvas, contentColorsByName.DARK_PURPLE);
 
   //move with keyboard to a different color
-  await keyboardMultipleTimes("{arrowRight}", 3);
+  await typeMultipleTimes("{arrowRight}", 3);
   await expectColorToBeActive(canvas, contentColorsByName.INDIGO);
 
   //select this color as well
@@ -95,5 +92,5 @@ async function expectColorToBeNotActive(canvas, color) {
 }
 
 async function findColorItem(canvas, color) {
-  return await canvas.findByTestId(getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM, color));
+  return await canvas.findByTestId(getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color));
 }
