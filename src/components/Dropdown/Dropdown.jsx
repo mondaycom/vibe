@@ -181,9 +181,17 @@ const Dropdown = ({
       controlRef,
       tooltipContent
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer, tooltipContent]
+    [
+      selectedOptions,
+      onOptionRemove,
+      isDialogShown,
+      multiline,
+      insideOverflowContainer,
+      insideOverflowWithTransformContainer,
+      tooltipContent
+    ]
   );
-
+  s;
   const onChange = (option, event) => {
     if (customOnChange) {
       customOnChange(option, event);
