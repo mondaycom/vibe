@@ -109,19 +109,16 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     const isFunctionType = typeof icon === "function";
     // Replace in major version change with more accurate check
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
-      const IconComponent = icon;
-      return (
-        <IconComponent
-          id={id}
-          {...screenReaderAccessProps}
-          ref={isFunctionType ? undefined : mergedRef}
-          size={iconSize.toString()}
-          onClick={onClick}
-          className={computedClassName}
-          style={style}
-          data-testid={dataTestId}
-        />
-      );
+      return React.createElement(icon, {
+        id,
+        ...screenReaderAccessProps,
+        ref: isFunctionType ? undefined : mergedRef,
+        size: iconSize.toString(),
+        onClick,
+        className: computedClassName,
+        style,
+        "data-testid": dataTestId
+      });
     }
     if (iconType === IconType.SRC) {
       return (
