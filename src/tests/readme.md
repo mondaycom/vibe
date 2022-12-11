@@ -1,8 +1,8 @@
-#Implementing interactions tests using Storybook & Vibe
+# Implementing interactions tests using Storybook & Vibe
 For implementing more complex e2e tests in the storybook environment, we recommend using storybook interaction tests combined with the tools exported by our repository.
 For example, interaction tests can be a more straightforward tool for testing keyboard navigation support flow on your composites or pages, happy path flows, or reproducing error or empty complex scenarios.
 
-##Implement interactions tests for stories by using interactions suites
+## Implement interactions tests for stories by using interactions suites
 Interactions tests are functions that can interact with your story elements.
 You can see an example of connecting a test function to a story below:
 ````
@@ -111,7 +111,7 @@ The interactionSuite functions received the following attributes:
 - **afterEach**: (`(canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run after each test in the suite.
 - **afterAll**: (`canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run once after all the suite's tests.
 
-##Query elements by using vibe helpers
+## Query elements by using vibe helpers
 - **getByTestId**: Parameters: (`rootElement: HTMLElement, dataTestId: string`)
 - **getByPlaceholderText**: Parameters:  (`rootElement: HTMLElement, text: string`)
 - **getByClassName**: Return Array of elements with the given class name. Parameters: (`className: string`)
@@ -120,7 +120,7 @@ The interactionSuite functions received the following attributes:
 - **getByText**: Search inside the root element for the first element with the given text. Parameters: (`rootElement: HTMLElement, text: string`)
 - **getByLabelText**: Search inside the root element for the first element with the given text as aria label. Parameters: (rootElement: HTMLElement, text: string`)
 
-##Interact elements by using storybook & vibe helpers
+## Interact elements by using storybook & vibe helpers
 You can use the storybook's userEvent to interact with different elements. Read more about this here: https://github.com/storybookjs/storybook/blob/next/docs/writing-tests/interaction-testing.md
 Vibe export more useful functions for a few scenarios:
 - **clickElement**: click on a given element. (`element: HTMLElement`)
@@ -149,10 +149,10 @@ onst selectAndClearTest = async canvas => {
 };
 ```
 
-##Manipulate timing by using vibe helpers
+## Manipulate timing by using vibe helpers
 - **delay**: async function, received the following parameters (`timeout: number`).
 - **waitForElementVisible**: async function for cases of querying an element which takes time until it will appear. Receiving the following parameters: (`getterFunc: () => HTMLElement`)
 
-##Accessibility tests using vibe helpers
+## Accessibility tests using vibe helpers
 - **expectActiveElementToHaveExactText**: Parameters (`text: string`).
 - **expectActiveElementToHavePartialText**: Parameters (`text: string`). 
