@@ -68,22 +68,22 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     {
       className,
       id,
-      label,
-      leftIcon,
-      rightIcon,
-      leftAvatar,
-      rightAvatar,
-      disabled,
-      readOnly,
-      allowTextSelection,
-      color,
-      iconSize,
-      onDelete,
+      label = "",
+      leftIcon = null,
+      rightIcon = null,
+      leftAvatar = null,
+      rightAvatar = null,
+      disabled = false,
+      readOnly = false,
+      allowTextSelection = false,
+      color = elementColorsNames.PRIMARY,
+      iconSize = 16,
+      onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
-      noAnimation,
+      noAnimation = false,
       ariaLabel,
-      isClickable,
+      isClickable = false,
       dataTestId
     },
     ref
@@ -219,25 +219,5 @@ Object.assign(Chips, {
   defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames
 });
-
-Chips.defaultProps = {
-  label: "",
-  disabled: false,
-  dataTestId: undefined,
-  readOnly: false,
-  rightIcon: null,
-  leftIcon: null,
-  leftAvatar: null,
-  rightAvatar: null,
-  color: elementColorsNames.PRIMARY,
-  iconSize: 16,
-  onDelete: (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
-  onMouseDown: undefined,
-  onClick: undefined,
-  noAnimation: false,
-  allowTextSelection: false,
-  ariaLabel: undefined,
-  isClickable: false
-};
 
 export default Chips;
