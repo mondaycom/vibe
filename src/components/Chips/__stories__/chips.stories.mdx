@@ -244,7 +244,7 @@ Chips can be clickable.
       }, []);
       return (
         <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <Chips label="Click me!" onClick={onClick} onDelete={onDelete} />
+          <Chips label="Click me!" onClick={onClick} onDelete={onDelete} isClickable />
           <StoryDescription description="Click count" vertical align={Flex.align.START}>
             <Counter count={onClickCount} />
           </StoryDescription>

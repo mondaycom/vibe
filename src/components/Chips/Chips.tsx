@@ -55,7 +55,7 @@ interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
-   * Should support keyboard focus?
+   * Should element be focusable & clickable - for backward compatability
    */
   isClickable?: boolean;
 }
@@ -129,15 +129,26 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [onClick]
     );
 
+    const onMouseDownCallback = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if ((e.target as HTMLElement) !== iconButtonRef.current && onMouseDown) {
+          e.preventDefault();
+          onMouseDown(e);
+        }
+      },
+      [onMouseDown]
+    );
+
     return (
       <div className={cx(styles.chipsWrapper, className)}>
         <ClickableWrapper
           isClickable={hasClickableWrapper}
           clickableProps={{
             onClick: onClickCallback,
+            onMouseDown: onMouseDownCallback,
             disabled,
             ariaLabel: ariaLabel || label,
-            className: cx(styles.clickableWrapper)
+            className: styles.clickableWrapper
           }}
         >
           <div
