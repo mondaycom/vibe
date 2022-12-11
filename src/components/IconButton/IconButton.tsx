@@ -1,4 +1,4 @@
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -8,9 +8,8 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { VibeComponentProps, SubIcon } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import Button from "../Button/Button";
-import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -71,7 +70,7 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
 }
 
-const IconButton: React.FC<IconButtonProps> & {
+const IconButton: VibeComponent<IconButtonProps> & {
   sizes?: typeof Button.sizes;
   kinds?: typeof Button.kinds;
   colors?: typeof Button.colors;

@@ -12,11 +12,10 @@ import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
+import ClickableWrapper from "../Clickable/ClickableWrapper";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
-  className?: string;
-  id?: string;
   label?: string;
   disabled?: boolean;
   readOnly?: boolean;
@@ -49,7 +48,12 @@ interface ChipsProps extends VibeComponentProps {
   /**
    * Callback function to be called when the user clicks the component.
    */
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent<HTMLDivElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  /**
+   * Applies when element has onClick or onMouseDown props
+   */
+  ariaLabel?: string;
+  isClickable?: boolean;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -74,12 +78,18 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       onMouseDown,
       onClick,
       noAnimation,
+      ariaLabel,
+      isClickable,
       dataTestId
     },
     ref
   ) => {
     const overrideDataTestId = dataTestId || getTestId(ELEMENT_TYPES.CHIP, id);
+    const hasClickableWrapper = isClickable && (!!onClick || !!onMouseDown);
+    const hasCloseButton = !readOnly && !disabled;
+
     const [hoverRef, isHovered] = useHover();
+    const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
@@ -87,16 +97,17 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       let cssVar;
       if (disabled) {
         cssVar = getCSSVar("disabled-background-color");
-      } else if (isHovered && (onMouseDown || onClick)) {
+      } else if (isHovered && hasClickableWrapper) {
         cssVar = getElementColor(color, true, true);
       } else {
         cssVar = getElementColor(color, true);
       }
       return { backgroundColor: cssVar };
-    }, [disabled, isHovered, onMouseDown, onClick, color]);
+    }, [disabled, isHovered, hasClickableWrapper, color]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        e.stopPropagation();
         if (onDelete) {
           onDelete(id, e);
         }
@@ -104,78 +115,95 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [id, onDelete]
     );
 
-    const hasCloseButton = !readOnly && !disabled;
+    const onClickCallback = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if ((e.target as HTMLElement) !== iconButtonRef.current && onClick) {
+          e.preventDefault();
+          onClick(e);
+        }
+      },
+      [onClick]
+    );
 
     return (
-      // TODO need to make it accessible? - clickable via keyboard
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-      <div
-        ref={mergedRef}
-        className={cx(styles.chips, "chips--wrapper", className, {
-          disabled,
-          [styles.withClose]: hasCloseButton,
-          [styles.noAnimation]: noAnimation,
-          [styles.withUserSelect]: allowTextSelection
-        })}
-        id={id}
-        style={backgroundColorStyle}
-        onMouseDown={onMouseDown}
-        onClick={onClick}
-        data-testid={overrideDataTestId}
-      >
-        {leftAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.left)}
-            customSize={18}
-            src={leftAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {leftIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.left)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={leftIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        <div className={styles.label}>{label}</div>
-        {rightIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.right)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={rightIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        {rightAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.right)}
-            customSize={16}
-            src={rightAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {hasCloseButton && (
-          <IconButton
-            size={ChipsSize.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
-            className={cx(styles.icon, styles.close)}
-            ariaLabel="Remove"
-            hideTooltip
-            icon={CloseSmall}
-            onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
-          />
-        )}
+      <div className={cx(styles.chipsWrapper, className)}>
+        <ClickableWrapper
+          isClickable={hasClickableWrapper}
+          clickableProps={{
+            onClick: onClickCallback,
+            disabled,
+            ariaLabel: ariaLabel || label,
+            className: cx(styles.clickableWrapper)
+          }}
+        >
+          <div
+            ref={mergedRef}
+            className={cx(styles.chips, "chips--wrapper", className, {
+              disabled,
+              [styles.withClose]: hasCloseButton,
+              [styles.noAnimation]: noAnimation,
+              [styles.withUserSelect]: allowTextSelection
+            })}
+            id={id}
+            style={backgroundColorStyle}
+            data-testid={overrideDataTestId}
+          >
+            {leftAvatar ? (
+              <Avatar
+                withoutBorder
+                className={cx(styles.avatar, styles.left)}
+                customSize={18}
+                src={leftAvatar}
+                type={AvatarType.IMG}
+                key={id}
+              />
+            ) : null}
+            {leftIcon ? (
+              <Icon
+                className={cx(styles.icon, styles.left)}
+                iconType={Icon.type.ICON_FONT}
+                clickable={false}
+                icon={leftIcon}
+                iconSize={iconSize}
+                ignoreFocusStyle
+              />
+            ) : null}
+            <div className={styles.label}>{label}</div>
+            {rightIcon ? (
+              <Icon
+                className={cx(styles.icon, styles.right)}
+                iconType={Icon.type.ICON_FONT}
+                clickable={false}
+                icon={rightIcon}
+                iconSize={iconSize}
+                ignoreFocusStyle
+              />
+            ) : null}
+            {rightAvatar ? (
+              <Avatar
+                withoutBorder
+                className={cx(styles.avatar, styles.right)}
+                customSize={16}
+                src={rightAvatar}
+                type={AvatarType.IMG}
+                key={id}
+              />
+            ) : null}
+            {hasCloseButton && (
+              <IconButton
+                size={ChipsSize.XXS}
+                color={IconButton.colors.ON_PRIMARY_COLOR}
+                className={cx(styles.icon, styles.close)}
+                ariaLabel="Remove"
+                hideTooltip
+                icon={CloseSmall}
+                onClick={onDeleteCallback}
+                dataTestId={`${overrideDataTestId}-close`}
+                ref={iconButtonRef}
+              />
+            )}
+          </div>
+        </ClickableWrapper>
       </div>
     );
   }
@@ -187,8 +215,6 @@ Object.assign(Chips, {
 });
 
 Chips.defaultProps = {
-  className: "",
-  id: "",
   label: "",
   disabled: false,
   dataTestId: undefined,
@@ -203,7 +229,9 @@ Chips.defaultProps = {
   onMouseDown: undefined,
   onClick: undefined,
   noAnimation: false,
-  allowTextSelection: false
+  allowTextSelection: false,
+  ariaLabel: undefined,
+  isClickable: false
 };
 
 export default Chips;
