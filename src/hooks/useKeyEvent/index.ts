@@ -63,8 +63,6 @@ export default function useKeyEvent({
         return;
       }
       if (withoutAnyModifier && !checkWithoutModifierInEvent(event)) {
-        console.log("### useKeyEvent, withoutAnyModifier=true, modifier = ", modifier);
-        console.log("### useKeyEvent, event = ", event);
         return;
       }
 
