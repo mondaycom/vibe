@@ -129,23 +129,13 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [onClick]
     );
 
-    const onMouseDownCallback = useCallback(
-      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if ((e.target as HTMLElement) !== iconButtonRef.current && onMouseDown) {
-          e.preventDefault();
-          onMouseDown(e);
-        }
-      },
-      [onMouseDown]
-    );
-
     return (
       <div className={cx(styles.chipsWrapper, className)}>
         <ClickableWrapper
           isClickable={hasClickableWrapper}
           clickableProps={{
             onClick: onClickCallback,
-            onMouseDown: onMouseDownCallback,
+            onMouseDown,
             disabled,
             ariaLabel: ariaLabel || label,
             className: styles.clickableWrapper
