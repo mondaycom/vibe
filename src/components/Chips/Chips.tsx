@@ -7,12 +7,13 @@ import { getCSSVar } from "../../services/themes";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -53,6 +54,9 @@ interface ChipsProps extends VibeComponentProps {
    * Applies when element has onClick or onMouseDown props
    */
   ariaLabel?: string;
+  /**
+   * Should support keyboard focus?
+   */
   isClickable?: boolean;
 }
 
@@ -84,7 +88,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     },
     ref
   ) => {
-    const overrideDataTestId = dataTestId || getTestId(ELEMENT_TYPES.CHIP, id);
+    const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = isClickable && (!!onClick || !!onMouseDown);
     const hasCloseButton = !readOnly && !disabled;
 
@@ -139,7 +143,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           <div
             ref={mergedRef}
             className={cx(styles.chips, "chips--wrapper", className, {
-              disabled,
+              [styles.disabled]: disabled,
               [styles.withClose]: hasCloseButton,
               [styles.noAnimation]: noAnimation,
               [styles.withUserSelect]: allowTextSelection
@@ -211,6 +215,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 Object.assign(Chips, {
   sizes: ChipsSize,
+  defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames
 });
 

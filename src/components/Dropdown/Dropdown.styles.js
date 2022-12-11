@@ -44,7 +44,7 @@ const disabledContainerStyle = isDisabled => {
   if (!isDisabled) return {};
   return {
     backgroundColor: getCSSVar("disabled-background-color"),
-    color: getCSSVar("primary-text-color"),
+    color: getCSSVar("disabled-text-color"),
     borderColor: "transparent",
     cursor: "not-allowed",
     ":active, :focus, :hover": {
@@ -145,12 +145,14 @@ const control =
     ...disabledContainerStyle(isDisabled)
   });
 
-const placeholder = () => provided => ({
-  ...provided,
-  ...getFont(),
-  color: getCSSVar("secondary-text-color"),
-  fontWeight: 400
-});
+const placeholder =
+  () =>
+  (provided, { isDisabled }) => ({
+    ...provided,
+    ...getFont(),
+    color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
+    fontWeight: getCSSVar("font-weight-normal")
+  });
 
 const indicatorsContainer =
   ({ size }) =>
@@ -165,7 +167,7 @@ const indicatorsContainer =
 
 const dropdownIndicator =
   ({ size }) =>
-  (provided, { selectProps }) => {
+  (provided, { selectProps, isDisabled }) => {
     return {
       ...provided,
       display: "flex",
@@ -180,10 +182,10 @@ const dropdownIndicator =
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
         transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
       },
-      color: getCSSVar("icon-color"),
+      color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {
-        backgroundColor: getCSSVar("primary-background-hover-color"),
-        color: getCSSVar("icon-color")
+        backgroundColor: isDisabled ? undefined : getCSSVar("primary-background-hover-color"),
+        color: isDisabled ? undefined : getCSSVar("icon-color")
       }
     };
   };

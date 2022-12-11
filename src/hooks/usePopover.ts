@@ -1,9 +1,8 @@
 import { useMemo, useLayoutEffect } from "react";
 import { usePopper } from "react-popper";
 import { Placement } from "./popoverConstants";
-
 import useForceUpdate from "./useForceUpdate";
-import * as PopperJS from "@popperjs/core";
+import type { Options, State } from "@popperjs/core";
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
@@ -33,7 +32,7 @@ export default function usePopover(
     forceUpdate();
   }, [referenceElement, popperElement, forceUpdate]);
 
-  const popperOptions: Pick<PopperJS.Options, "placement" | "modifiers"> = useMemo(() => {
+  const popperOptions: Pick<Options, "placement" | "modifiers"> = useMemo(() => {
     return {
       placement,
       modifiers: [
@@ -42,7 +41,7 @@ export default function usePopover(
           name: "displayNone",
           enabled: true,
           phase: "write",
-          fn: ({ state }: { state: PopperJS.State }) => {
+          fn: ({ state }: { state: State }) => {
             // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;
