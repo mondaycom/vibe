@@ -31,7 +31,7 @@ it("renders correctly with size Large", () => {
 it("renders correctly with Bolt Icon", () => {
   const tree = renderer
     .create(
-      <MenuButton component={Bolt}>
+      <MenuButton component={Bolt} text="Hello">
         <div>Menu</div>
       </MenuButton>
     )
@@ -39,7 +39,7 @@ it("renders correctly with Bolt Icon", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders correctly with Bolt Icon", () => {
+it("renders correctly with .dummy-class-name", () => {
   const tree = renderer
     .create(
       <MenuButton className="dummy-class-name">
@@ -54,6 +54,17 @@ it("renders correctly with tooltip content", () => {
   const tree = renderer
     .create(
       <MenuButton tooltipContent="tooltip content">
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with a default Menu icon at the end", () => {
+  const tree = renderer
+    .create(
+      <MenuButton text="Hello" componentPosition="end">
         <div>Menu</div>
       </MenuButton>
     )
