@@ -11,7 +11,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 
-import { DialogPosition } from "../../../constants/sizes";
+import { DialogPosition } from "../../../constants/positions";
 import "./MenuItemButton.scss";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
