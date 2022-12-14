@@ -1,21 +1,24 @@
 import _chunk from "lodash/chunk";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
-import { TOOLTIP, COUNTER, LABEL } from "../../../storybook/components/related-components/component-description-map";
-import { Link, createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
+import { useCallback, useState } from "react";
+import Counter from "../../Counter/Counter";
+import StoryDescription from "../../../storybook/components/story-description/story-description";
 import "./chips.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
-  actionPropsArray: ["onDelete", "onMouseDown"]
+  actionPropsArray: ["onDelete", "onMouseDown", "onClick"]
 });
 
 <Meta
@@ -47,14 +50,14 @@ export const chipsTemplate = createComponentTemplate(Chips);
 Chips are compact elements that represent an input, attribute, or action. They may display text, icons, or both.
 
 <Canvas>
-  <Story name="Overview" args={{ label: "This is a chip"}}>
+  <Story name="Overview" args={{ label: "This is a chip", onMouseDown: undefined, onClick: undefined }}>
     {chipsTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={Chips} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -78,9 +81,9 @@ Chips are compact elements that represent an input, attribute, or action. They m
 ### With read only state
 
 <Canvas>
-    <Story name="Chips with read only state">
-        <Chips label="Read only chip" readOnly />
-    </Story>
+  <Story name="Chips with read only state">
+    <Chips label="Read only chip" readOnly />
+  </Story>
 </Canvas>
 
 ### With icons
@@ -221,6 +224,48 @@ Chips can be removable.
         </div>
       </div>
     </DialogContentContainer>
+  </Story>
+</Canvas>
+
+### Clickable Chip
+
+Chips can be clickable.
+
+<Canvas>
+  <Story name="Clickable Chip">
+    {() => {
+      const [onClickCount, setOnClickCount] = useState(0);
+      const [onDeleteCount, setOnDeleteCount] = useState(0);
+      const [onMouseDownCount, setOnMouseDownCount] = useState(0);
+      const onClick = useCallback(e => {
+        setOnClickCount(prevState => prevState + 1);
+      }, []);
+      const onDelete = useCallback(e => {
+        setOnDeleteCount(prevState => prevState + 1);
+      }, []);
+      const onMouseDown = useCallback(e => {
+        setOnMouseDownCount(prevState => prevState + 1);
+      }, []);
+      return (
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+          <Chips label="Click me!" onClick={onClick} onDelete={onDelete} onMouseDown={onMouseDown} isClickable />
+          <StoryDescription description="Click count" vertical align={Flex.align.START}>
+            <Counter count={onClickCount} />
+          </StoryDescription>
+          <StoryDescription description="Delete count" vertical align={Flex.align.START}>
+            <Counter count={onDeleteCount} />
+          </StoryDescription>
+          <StoryDescription
+            description="Mouse down count"
+            vertical
+            align={Flex.align.START}
+            headerStyle={{ width: 150 }}
+          >
+            <Counter count={onMouseDownCount} />
+          </StoryDescription>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
