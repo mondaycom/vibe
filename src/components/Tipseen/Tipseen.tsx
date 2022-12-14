@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { AnimationType, HideShowEvent, JustifyType } from "../../constants/dialog";
+import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
@@ -70,14 +70,14 @@ const Tipseen: VibeComponent<TipseenProps> & {
       content,
       justify = JustifyType.CENTER,
       containerSelector,
-      hideTrigger = [],
+      hideTrigger = EMPTY_ARR,
       isCloseButtonOnImage,
-      showTrigger = [],
+      showTrigger = EMPTY_ARR,
       width,
       moveBy,
       hideWhenReferenceHidden = false,
       tip = true,
-      modifiers = []
+      modifiers = EMPTY_ARR
     },
     ref
   ) => {
