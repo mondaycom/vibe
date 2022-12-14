@@ -375,7 +375,7 @@ MenuButton.defaultProps = {
   id: undefined,
   className: undefined,
   component: Menu,
-  componentPosition: "start",
+  componentPosition: MenuButton.componentPositions.START,
   size: MenuButtonSizes.SMALL,
   open: false,
   onClick: NOOP,
