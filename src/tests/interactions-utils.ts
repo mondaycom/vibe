@@ -120,8 +120,16 @@ export const getByTestId = (rootElement: HTMLElement, dataTestId: string) => {
   return getWithin(rootElement).getByTestId(dataTestId);
 };
 
+export const getAllByTestId = (rootElement: HTMLElement, dataTestId: string) => {
+  return getWithin(rootElement).getAllByTestId(dataTestId);
+};
+
 export const getByPlaceholderText = (rootElement: HTMLElement, text: string) => {
   return getWithin(rootElement).getByPlaceholderText(text);
+};
+
+export const getAllByPlaceholderText = (rootElement: HTMLElement, text: string) => {
+  return getWithin(rootElement).getAllByPlaceholderText(text);
 };
 
 export const getByClassName = (className: string) => {
@@ -136,12 +144,24 @@ export const getByRole = (rootElement: HTMLElement, role: string) => {
   return getWithin(rootElement).getByRole(role);
 };
 
+export const getAllByRole = (rootElement: HTMLElement, role: string) => {
+  return getWithin(rootElement).getAllByRole(role);
+};
+
 export const getByLabelText = (rootElement: HTMLElement, text: string) => {
   return getWithin(rootElement).getByLabelText(text);
 };
 
+export const getAllByLabelText = (rootElement: HTMLElement, text: string) => {
+  return getWithin(rootElement).getAllByLabelText(text);
+};
+
 export const getByText = (rootElement: HTMLElement, text: string) => {
   return getWithin(rootElement).getByText(text);
+};
+
+export const getAllByText = (rootElement: HTMLElement, text: string) => {
+  return getWithin(rootElement).getAllByText(text);
 };
 
 export const clickElement = (element: HTMLElement) => {
