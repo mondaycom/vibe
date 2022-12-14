@@ -21,6 +21,10 @@ export interface IconSubComponentProps {
   "data-testid"?: string;
 }
 
+function renderIcon(Icon: SubIcon, props: IconSubComponentProps): JSX.Element {
+  return <Icon {...props} />;
+}
+
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
@@ -109,7 +113,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     const isFunctionType = typeof icon === "function";
     // Replace in major version change with more accurate check
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
-      return React.createElement(icon, {
+      return renderIcon(icon, {
         id,
         ...screenReaderAccessProps,
         ref: isFunctionType ? undefined : mergedRef,
