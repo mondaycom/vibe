@@ -68,6 +68,7 @@ const publishedTSComponents = {
   TipseenContent: "components/Tipseen/TipseenContent",
   TipseenWizard: "components/Tipseen/TipseenWizard",
   TipseenImage: "components/Tipseen/TipseenImage",
+  Flex: "components/Flex/Flex",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

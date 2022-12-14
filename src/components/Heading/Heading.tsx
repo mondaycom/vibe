@@ -22,8 +22,6 @@ export interface HeadingProps extends VibeComponentProps {
   size?: typeof HeadingSizes;
   highlightTerm?: string;
   customColor?: string;
-  /** Custom font flag, use to enable new font family on H1 headers */
-  brandFont?: boolean;
   style?: CSSProperties;
   tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
 }
@@ -45,7 +43,6 @@ const Heading: React.FC<HeadingProps> & {
   tooltipPosition,
   highlightTerm = null,
   suggestEditOnHover = false,
-  brandFont = false,
   nonEllipsisTooltip = null
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
@@ -55,8 +52,7 @@ const Heading: React.FC<HeadingProps> & {
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-    "suggest-edit-on-hover": suggestEditOnHover,
-    "brand-font": type === HeadingTypes.h1 && brandFont
+    "suggest-edit-on-hover": suggestEditOnHover
   });
   const Element = React.createElement(
     type,

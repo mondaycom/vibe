@@ -2,9 +2,9 @@ import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import VibeComponent from "../../types/VibeComponent";
+import { getTestId } from "../../tests/test-ids-utils";
+import { VibeComponent, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 
 export interface LoaderProps extends VibeComponentProps {
@@ -42,7 +42,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
         title="loading"
         style={sizeStyle}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LOADER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LOADER, id)}
       >
         <svg
           className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
@@ -76,7 +76,8 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 
 Object.assign(Loader, {
   sizes: LoaderSizes,
-  colors: LoaderColors
+  colors: LoaderColors,
+  defaultTestId: ComponentDefaultTestId.LOADER
 });
 
 export default Loader;

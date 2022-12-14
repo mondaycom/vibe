@@ -55,14 +55,14 @@ describe("Dropdown", () => {
     it("Should display the provided value", () => {
       component.render();
 
-      expect(component.singleValueText).toBe("Ocean");
+      expect(component.singleValueText).toContain("Ocean");
     });
 
     it("Should not change value internally", () => {
       component.selectOption(2);
       component.render();
 
-      expect(component.singleValueText).toBe("Ocean");
+      expect(component.singleValueText).toContain("Ocean");
     });
 
     it("Should change displayed value when passed a new value", () => {
@@ -74,7 +74,7 @@ describe("Dropdown", () => {
       component.selectOption(2);
       component.render();
 
-      expect(component.singleValueText).toBe("Purple");
+      expect(component.singleValueText).toContain("Purple");
     });
   });
 

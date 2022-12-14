@@ -5,7 +5,8 @@ import "./menu.scss";
 
 const Menu = props => {
   const { children, Renderer, selectProps } = props;
-  const withFixedPosition = selectProps?.selectProps?.insideOverflowContainer;
+  const withFixedPosition =
+    selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
   return (
     <components.Menu
       {...props}

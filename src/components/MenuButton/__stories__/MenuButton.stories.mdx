@@ -8,7 +8,7 @@ import {
   ICON_BUTTON,
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
-import { Favorite, Moon, Sun } from "../../Icon/Icons";
+import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 
 
@@ -105,7 +105,7 @@ MenuButton is a component that opens a Dialog next to a button, the content of t
 
 <Canvas>
   <Story name="Different Icon">
-    <MenuButton component={MoveArrowDown} >
+    <MenuButton component={MoveArrowDown}>
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
              <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
              <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
@@ -128,6 +128,19 @@ MenuButton is a component that opens a Dialog next to a button, the content of t
   </Story>
 </Canvas>
 
+### With Text and Icon at the end
+<Canvas>
+  <Story name="With Text and Icon at the end">
+  <div style={{ width: 200}}>
+    <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+       </Menu>
+    </MenuButton>
+    </div>
+  </Story>
+</Canvas>
 
 ### Disabled
 <Canvas>

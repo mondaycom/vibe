@@ -1,5 +1,136 @@
 # Changelog
 
+## 1.77.0 (2022-12-14)
+
+#### Bug Fixes
+* [#1028](https://github.com/mondaycom/monday-ui-react-core/pull/1028) Fix AvatarGroup tooltip keyboard navigation: fix checkWithoutModifierInEvent ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1031](https://github.com/mondaycom/monday-ui-react-core/pull/1031) Fix interactions-utils imports in RadioButton ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1034](https://github.com/mondaycom/monday-ui-react-core/pull/1034) MenuButton: allow to specify position of an icon ([@arutkowski00](https://github.com/arutkowski00))
+* [#1035](https://github.com/mondaycom/monday-ui-react-core/pull/1035) Feature/sergeyro/export test infra ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1033](https://github.com/mondaycom/monday-ui-react-core/pull/1033) Test readme markdown fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1026](https://github.com/mondaycom/monday-ui-react-core/pull/1026) Add interactions basic readme file ([@hadasfa](https://github.com/hadasfa))
+
+## 1.76.0 (2022-12-04)
+
+#### Bug Fixes
+* [#1029](https://github.com/mondaycom/monday-ui-react-core/pull/1029) close while scrolling with in dialog/modal mode ([@hadasfa](https://github.com/hadasfa))
+* [#996](https://github.com/mondaycom/monday-ui-react-core/pull/996) RadioButton: add disabled-text-color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1027](https://github.com/mondaycom/monday-ui-react-core/pull/1027) Remove indicator hover state when dropdown is disabled ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1010](https://github.com/mondaycom/monday-ui-react-core/pull/1010) Feature/sergeyro/dropdown disabled color fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1025](https://github.com/mondaycom/monday-ui-react-core/pull/1025) Export interactions 2 ([@hadasfa](https://github.com/hadasfa))
+
+## 1.75.2 (2022-11-30)
+
+#### Dependency Upgrades
+* [#1024](https://github.com/mondaycom/monday-ui-react-core/pull/1024) Import optimizations ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.75.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1023](https://github.com/mondaycom/monday-ui-react-core/pull/1023) remove docgen on production build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.75.0 (2022-11-29)
+
+#### New Features
+* [#1022](https://github.com/mondaycom/monday-ui-react-core/pull/1022) Revert "Interactions tests exports (#1004)" ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.2 (2022-11-29)
+
+#### Bug Fixes
+* [#1021](https://github.com/mondaycom/monday-ui-react-core/pull/1021) revert changes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.1 (2022-11-29)
+
+#### Dependency Upgrades
+* [#1020](https://github.com/mondaycom/monday-ui-react-core/pull/1020) remove not needed packages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.74.0 (2022-11-29)
+
+#### New Features
+* [#1019](https://github.com/mondaycom/monday-ui-react-core/pull/1019) remove docogen from build ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1004](https://github.com/mondaycom/monday-ui-react-core/pull/1004) Interactions tests exports ([@hadasfa](https://github.com/hadasfa))
+
+## 1.73.13 (2022-11-29)
+
+#### Bug Fixes
+* [#1016](https://github.com/mondaycom/monday-ui-react-core/pull/1016) Hot fix after external PR ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.12 (2022-11-29)
+
+#### Bug Fixes
+* [#1007](https://github.com/mondaycom/monday-ui-react-core/pull/1007) Fix ability to display dropdown menu inside dialog or modal ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#986](https://github.com/mondaycom/monday-ui-react-core/pull/986) TS-Migration: Reduced amount of ts-ignore ([@khitrind](https://github.com/khitrind))
+
+## 1.73.11 (2022-11-28)
+
+#### New Icons
+* [#1015](https://github.com/mondaycom/monday-ui-react-core/pull/1015) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.73.10 (2022-11-28)
+
+#### Bug Fixes
+* [#999](https://github.com/mondaycom/monday-ui-react-core/pull/999) Support all edge cases for multi select drop with counter (hidden chips in dropdown with defined width edge case) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.73.9 (2022-11-28)
+
+#### Bug Fixes
+* [#1014](https://github.com/mondaycom/monday-ui-react-core/pull/1014) fix letter spacing in non h1 headers ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.8 (2022-11-27)
+
+#### Bug Fixes
+* [#1012](https://github.com/mondaycom/monday-ui-react-core/pull/1012) Heading font ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.7 (2022-11-27)
+
+#### Bug Fixes
+* [#1011](https://github.com/mondaycom/monday-ui-react-core/pull/1011) Heading component main font ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.6 (2022-11-27)
+
+#### Bug Fixes
+* [#1009](https://github.com/mondaycom/monday-ui-react-core/pull/1009) Fix editable heading bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.5 (2022-11-27)
+
+#### Bug Fixes
+* [#1008](https://github.com/mondaycom/monday-ui-react-core/pull/1008) Fix attention box icon bug ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.73.4 (2022-11-27)
+
+#### Bug Fixes
+* [#1003](https://github.com/mondaycom/monday-ui-react-core/pull/1003) align usages ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1006](https://github.com/mondaycom/monday-ui-react-core/pull/1006) TS-migration: Flex ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1005](https://github.com/mondaycom/monday-ui-react-core/pull/1005) Feature/sergeyro/split button improve tests ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1002](https://github.com/mondaycom/monday-ui-react-core/pull/1002) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.73.3 (2022-11-22)
+
+#### Bug Fixes
+* [#1001](https://github.com/mondaycom/monday-ui-react-core/pull/1001) Fix: Revert splitButton default props to old-fashioned defaultProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.2 (2022-11-22)
+
+#### Bug Fixes
+* [#1000](https://github.com/mondaycom/monday-ui-react-core/pull/1000) SplitButton temp fix - secondary button no click event ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.73.1 (2022-11-22)
+
+#### Bug Fixes
+* [#994](https://github.com/mondaycom/monday-ui-react-core/pull/994) Display avatar/icon in single value and in options for multi and single ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.73.0 (2022-11-20)
 
 #### New Features
