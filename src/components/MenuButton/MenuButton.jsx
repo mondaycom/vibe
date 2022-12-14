@@ -32,6 +32,7 @@ const MenuButton = forwardRef(
       openDialogComponentClassName,
       children,
       component,
+      componentPosition,
       size,
       open,
       onClick,
@@ -168,6 +169,7 @@ const MenuButton = forwardRef(
           return 24;
       }
     }, [size]);
+    const icon = Icon ? <Icon size={iconSize.toString()} role="img" aria-hidden="true" /> : null;
 
     useLayoutEffect(() => {
       setIsOpen(open);
@@ -220,8 +222,9 @@ const MenuButton = forwardRef(
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
           >
-            <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
+            {componentPosition === "start" && icon}
             {text && <span className={BEMClass("inner-text")}>{text}</span>}
+            {componentPosition === "end" && icon}
           </button>
         </Dialog>
       </Tooltip>
@@ -235,6 +238,11 @@ const MenuButtonSizes = {
   SMALL: "32",
   MEDIUM: "40",
   LARGE: "48"
+};
+
+const MenuButtonComponentPositions = {
+  START: "start",
+  END: "end"
 };
 
 const DialogPositions = {
@@ -253,6 +261,7 @@ const DialogPositions = {
 };
 
 MenuButton.sizes = MenuButtonSizes;
+MenuButton.componentPositions = MenuButtonComponentPositions;
 MenuButton.paddingSizes = DialogContentContainer.sizes;
 MenuButton.dialogPositions = DialogPositions;
 MenuButton.hideTriggers = Dialog.hideShowTriggers;
@@ -271,6 +280,10 @@ MenuButton.propTypes = {
    * Receives React Component
    */
   component: PropTypes.func,
+  /**
+   * Specifies whether to render the component before or after the text
+   */
+  componentPosition: PropTypes.oneOf(Object.values(MenuButton.componentPositions)),
   size: PropTypes.oneOf([
     MenuButton.sizes.XXS,
     MenuButton.sizes.XS,
@@ -362,6 +375,7 @@ MenuButton.defaultProps = {
   id: undefined,
   className: undefined,
   component: Menu,
+  componentPosition: MenuButton.componentPositions.START,
   size: MenuButtonSizes.SMALL,
   open: false,
   onClick: NOOP,
