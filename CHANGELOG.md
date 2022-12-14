@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.77.0 (2022-12-14)
+
+#### Bug Fixes
+* [#1028](https://github.com/mondaycom/monday-ui-react-core/pull/1028) Fix AvatarGroup tooltip keyboard navigation: fix checkWithoutModifierInEvent ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1031](https://github.com/mondaycom/monday-ui-react-core/pull/1031) Fix interactions-utils imports in RadioButton ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1034](https://github.com/mondaycom/monday-ui-react-core/pull/1034) MenuButton: allow to specify position of an icon ([@arutkowski00](https://github.com/arutkowski00))
+* [#1035](https://github.com/mondaycom/monday-ui-react-core/pull/1035) Feature/sergeyro/export test infra ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1033](https://github.com/mondaycom/monday-ui-react-core/pull/1033) Test readme markdown fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1026](https://github.com/mondaycom/monday-ui-react-core/pull/1026) Add interactions basic readme file ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.76.0 (2022-12-04)
 
 #### Bug Fixes
