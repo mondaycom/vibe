@@ -10,8 +10,10 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
+    "./icons": "./dist/esm/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
-    "./icons": "./dist/esm/components/Icon/Icons/icons.js"
+    "./interactionsTests": "./dist/esm/tests/interactionsTests.js",
+    "./testIds": "./dist/esm/tests/test-ids-utils.js"
   },
   "scripts": {
     "test": "jest",
