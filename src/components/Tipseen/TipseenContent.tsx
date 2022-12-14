@@ -21,11 +21,11 @@ interface TipseenContentProps extends VibeComponentProps {
   isSubmitHidden?: boolean;
   submitButtonText?: string;
   /** Backward compatibility for props naming **/
-  submitButtonProps?: ButtonProps;
+  submitButtonProps?: ButtonProps & { content?: ElementContent };
   onSubmit?: (event: React.MouseEvent) => void;
   dismissButtonText?: string;
   /** Backward compatibility for props naming **/
-  dismissButtonProps?: ButtonProps;
+  dismissButtonProps?: ButtonProps & { content?: ElementContent };
   onDismiss?: (event: React.MouseEvent) => void;
 }
 
@@ -43,8 +43,8 @@ const TipseenContent: FC<TipseenContentProps> = ({
   // Backward compatibility for props naming
   submitButtonProps
 }) => {
+  const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
   const {
-    children: dismissContent,
     className: dismissClassName,
     onClick: dismissDeprecatedOnClick,
     ...otherDismissButtonProps
@@ -53,9 +53,10 @@ const TipseenContent: FC<TipseenContentProps> = ({
     [dismissButtonText, dismissContent],
     DISMISS_BUTTON_TEXT
   );
+
+  const submitContent = submitButtonProps.content || submitButtonProps.children;
   const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
   const {
-    children: submitContent,
     className: submitClassName,
     onClick: submitDeprecatedOnClick,
     ...otherSubmitButtonProps
