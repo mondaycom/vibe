@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
-import Button, { ButtonProps } from "../../components/Button/Button";
+import Button from "../../components/Button/Button";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
+import { ButtonPropsBackwardCompatible, DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
@@ -12,7 +12,7 @@ import styles from "./TipseenContent.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
-const EMPTY_OBJECT: ButtonProps = {};
+const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
 interface TipseenContentProps extends VibeComponentProps {
   title?: string;
@@ -21,11 +21,11 @@ interface TipseenContentProps extends VibeComponentProps {
   isSubmitHidden?: boolean;
   submitButtonText?: string;
   /** Backward compatibility for props naming **/
-  submitButtonProps?: ButtonProps & { content?: ElementContent };
+  submitButtonProps?: ButtonPropsBackwardCompatible;
   onSubmit?: (event: React.MouseEvent) => void;
   dismissButtonText?: string;
   /** Backward compatibility for props naming **/
-  dismissButtonProps?: ButtonProps & { content?: ElementContent };
+  dismissButtonProps?: ButtonPropsBackwardCompatible;
   onDismiss?: (event: React.MouseEvent) => void;
 }
 
@@ -39,33 +39,30 @@ const TipseenContent: FC<TipseenContentProps> = ({
   dismissButtonText,
   onDismiss = NOOP,
   // Backward compatibility for props naming
-  dismissButtonProps,
+  dismissButtonProps = EMPTY_OBJECT,
   // Backward compatibility for props naming
-  submitButtonProps
+  submitButtonProps = EMPTY_OBJECT
 }) => {
   const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
   const {
     className: dismissClassName,
     onClick: dismissDeprecatedOnClick,
     ...otherDismissButtonProps
-  } = dismissButtonProps || EMPTY_OBJECT;
+  } = dismissButtonProps;
   const overrideDismissContent = backwardCompatibilityForProperties(
     [dismissButtonText, dismissContent],
     DISMISS_BUTTON_TEXT
   );
+  const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
 
   const submitContent = submitButtonProps.content || submitButtonProps.children;
-  const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
-  const {
-    className: submitClassName,
-    onClick: submitDeprecatedOnClick,
-    ...otherSubmitButtonProps
-  } = submitButtonProps || EMPTY_OBJECT;
+  const { className: submitClassName, onClick: submitDeprecatedOnClick, ...otherSubmitButtonProps } = submitButtonProps;
   const overrideSubmitContent = backwardCompatibilityForProperties(
     [submitButtonText, submitContent],
     SUBMIT_BUTTON_TEXT
   );
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
+
   return (
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
       {children ? <span className={cx(bemHelper({ element: "content" }))}>{children}</span> : null}
