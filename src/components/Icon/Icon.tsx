@@ -21,7 +21,7 @@ export interface IconSubComponentProps {
   "data-testid"?: string;
 }
 
-function renderIcon(Icon: SubIcon, props: IconSubComponentProps): JSX.Element {
+function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
   return <Icon {...props} />;
 }
 
