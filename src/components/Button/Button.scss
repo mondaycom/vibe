@@ -194,7 +194,7 @@
         &--color {
           &-primary {
             &-active {
-              background: var(--primary-selected-color);
+              background-color: var(--primary-selected-color);
               border-color: var(--primary-color);
             }
             &:hover,
@@ -253,7 +253,7 @@
         &--color {
           &-primary {
             &-active {
-              background: var(--primary-selected-color);
+              background-color: var(--primary-selected-color);
             }
             &:hover,
             &:focus {
