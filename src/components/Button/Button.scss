@@ -193,7 +193,10 @@
         }
         &--color {
           &-primary {
-            &-active,
+            &-active {
+              background: var(--primary-selected-color);
+              border-color: var(--primary-color);
+            }
             &:hover,
             &:focus {
               @include theme-prop(background-color, primary-background-hover-color);
@@ -249,7 +252,9 @@
       &.monday-style-button {
         &--color {
           &-primary {
-            &-active,
+            &-active {
+              background: var(--primary-selected-color);
+            }
             &:hover,
             &:focus {
               @include theme-prop(background-color, primary-background-hover-color);
