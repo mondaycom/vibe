@@ -55,7 +55,6 @@ exports[`IconButton renders correctly with active 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "background": "var(--primary-selected-color)",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
