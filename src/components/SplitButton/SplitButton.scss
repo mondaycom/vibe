@@ -51,7 +51,7 @@
                 &.monday-style-split-button--split-content-open {
                   .monday-style-split-button__secondary-button,
                   .monday-style-split-button__secondary-button:hover {
-                    @include theme-prop(color, primary-color);
+                    color: var(--primary-color);
                   }
                 }
               }

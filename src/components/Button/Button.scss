@@ -302,7 +302,7 @@
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        &:hover, {
+        &:hover {
           background-color: transparent;
         }
       }
