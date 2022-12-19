@@ -193,12 +193,12 @@
         }
         &--color {
           &-primary {
-            &-active {
+            &-active, &-active:hover {
               background-color: var(--primary-selected-color);
               border-color: var(--primary-color);
             }
-            &:hover,
-            &:focus {
+            &:hover:not(.monday-style-button--color-primary-active),
+            &:focus:not(.monday-style-button--color-primary-active) {
               @include theme-prop(background-color, primary-background-hover-color);
             }
           }
@@ -252,11 +252,11 @@
       &.monday-style-button {
         &--color {
           &-primary {
-            &-active {
+            &-active, &-active:hover {
               background-color: var(--primary-selected-color);
             }
-            &:hover,
-            &:focus {
+            &:hover:not(.monday-style-button--color-primary-active),
+            &:focus:not(.monday-style-button--color-primary-active){
               @include theme-prop(background-color, primary-background-hover-color);
             }
           }
@@ -302,7 +302,7 @@
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        &:hover {
+        &:hover, {
           background-color: transparent;
         }
       }

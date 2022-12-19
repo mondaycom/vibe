@@ -37,44 +37,47 @@
       &.monday-style-split-button {
         &--color {
           &-primary {
-            &.monday-style-split-button--split-content-open,
-            &.monday-style-split-button--hovered,
-            &:hover,
-            &:focus {
-              .monday-style-split-button__secondary-button {
-                border-color: transparent;
-
-                @include theme-prop(background-color, primary-background-hover-color);
-              }
-
+            &.monday-style-split-button--main-active {
               .monday-style-split-button__main-button {
-                @include theme-prop(background-color, primary-background-hover-color);
+                background-color: var(--primary-selected-hover-color);
               }
-            }
 
-            &.monday-style-split-button--split-content-open {
-              .monday-style-split-button__secondary-button,
-              .monday-style-split-button__secondary-button:hover {
-                @include theme-prop(color, primary-color);
-                @include theme-prop(background-color, primary-selected-color);
+              .monday-style-split-button__secondary-button {
+                background-color: var(--primary-selected-color);
               }
-            }
 
-            .monday-style-split-button__secondary-button {
-              &:hover,
-              &:focus {
-                @include theme-prop(background-color, ui-border-color);
+              &.monday-style-split-button--split-content-open {
+                .monday-style-split-button__main-button {
+                  .monday-style-split-button__main-button {
+                    background-color: var(--primary-selected-color);
+                  }
+
+                  .monday-style-split-button__secondary-button {
+                    background-color: var(--primary-selected-hover-color) !important;
+                  }
+                }
               }
-            }
 
-            .monday-style-split-button__main-button {
-              &:hover,
-              &:focus {
-                @include theme-prop(background-color, ui-border-color);
+              &.monday-style-split-button--split-content-open,
+              &.monday-style-split-button--hovered {
+                &:not(.monday-style-split-button--main-active) {
+                  .monday-style-split-button__secondary-button {
+                    border-color: transparent;
+                    @include theme-prop(background-color, primary-background-hover-color);
+
+                  }
+                }
+
+                &.monday-style-split-button--split-content-open {
+                  .monday-style-split-button__secondary-button,
+                  .monday-style-split-button__secondary-button:hover {
+                    @include theme-prop(color, primary-color);
+                    @include theme-prop(background-color, primary-selected-color);
+                  }
+                }
               }
             }
           }
-
           &-positive {
             &.monday-style-split-button--split-content-open,
             &:hover,
@@ -168,6 +171,25 @@
       &.monday-style-split-button {
         &--color {
           &-primary {
+            &.monday-style-split-button--main-active {
+              .monday-style-split-button__main-button {
+                background-color: var(--primary-selected-hover-color);
+              }
+              .monday-style-split-button__secondary-button {
+                background-color: var(--primary-selected-color);
+                border-color: var(--primary-color);
+              }
+
+              &.monday-style-split-button--split-content-open {
+                .monday-style-split-button__main-button {
+                  background-color: var(--primary-selected-color);
+                }
+                .monday-style-split-button__secondary-button {
+                  background-color: var(--primary-selected-hover-color) !important;
+                }
+              }
+            }
+
             &.monday-style-split-button--split-content-open {
               .monday-style-split-button__secondary-button,
               .monday-style-split-button__secondary-button:hover {
