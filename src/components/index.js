@@ -60,6 +60,7 @@ export { default as TipseenContent } from "./Tipseen/TipseenContent";
 export { default as TipseenWizard } from "./Tipseen/TipseenWizard";
 export { default as TipseenImage } from "./Tipseen/TipseenImage";
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
+export { default as DatePicker } from "./DatePicker/DatePicker";
 export { default as ColorPickerContent } from "./ColorPicker/components/ColorPickerContent/ColorPickerContentComponent";
 export { default as ListItem } from "./ListItem/ListItem";
 export { default as ListItemIcon } from "./ListItemIcon/ListItemIcon";
