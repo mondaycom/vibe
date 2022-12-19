@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { CSSProperties, isValidElement, PureComponent } from "react";
+import React, { CSSProperties, isValidElement, PureComponent } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
