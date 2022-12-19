@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.78.1 (2022-12-19)
+
+#### Bug Fixes
+* [#1038](https://github.com/mondaycom/monday-ui-react-core/pull/1038) export date picker as part of esm ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.78.0 (2022-12-19)
 
 #### Bug Fixes
