@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.78.0 (2022-12-19)
+
+#### Bug Fixes
+* [#1039](https://github.com/mondaycom/monday-ui-react-core/pull/1039) Import react to prevent cypress tests (in docs team e.g.) from failing ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1018](https://github.com/mondaycom/monday-ui-react-core/pull/1018) Feature/sergeyro/chips hovered state + clickable ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1036](https://github.com/mondaycom/monday-ui-react-core/pull/1036) Accessability story navigation fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1032](https://github.com/mondaycom/monday-ui-react-core/pull/1032) Icon: follow create component best practices. ([@m-binygal](https://github.com/m-binygal))
+* [#998](https://github.com/mondaycom/monday-ui-react-core/pull/998) TS-migration: Tipseen + some constants usage refactoring ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.77.0 (2022-12-14)
 
 #### Bug Fixes
