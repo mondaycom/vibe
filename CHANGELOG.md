@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.78.2 (2022-12-19)
+
+#### Bug Fixes
+* [#1037](https://github.com/mondaycom/monday-ui-react-core/pull/1037) Same behaviour for active button ,active split button and active icon button ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.78.1 (2022-12-19)
 
 #### Bug Fixes
