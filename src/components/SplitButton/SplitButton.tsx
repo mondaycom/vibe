@@ -153,7 +153,7 @@ const SplitButton: FC<SplitButtonProps> & {
           "monday-style-split-button--main-active": active,
           "monday-style-split-button--active": isActive,
           "monday-style-split-button--split-content-open": isDialogOpen,
-          "monday-style-split-button--hovered": isHovered && !active,
+          "monday-style-split-button--hovered": isHovered,
           "monday-style-split-button--disabled": disabled
         },
         className
