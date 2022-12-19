@@ -112,6 +112,7 @@
             &.monday-style-split-button--main-active {
               .monday-style-split-button__secondary-button {
                 background-color: var(--primary-hover-color);
+                border-color: var(--text-color-on-primary)
               }
             }
             .monday-style-split-button__secondary-button {
