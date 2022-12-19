@@ -125,19 +125,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
         alignItems: "center",
         padding: 0
       } as React.CSSProperties;
-      if (active && kind !== IconButton.kinds.PRIMARY) {
-        style.background = "var(--primary-selected-color)";
-      }
-
-      if (active && kind === IconButton.kinds.SECONDARY) {
-        style.borderColor = "var(--primary-color)";
-      }
 
       if (size) {
         style = { ...style, ...getWidthHeight(size) };
       }
       return style;
-    }, [active, kind, size]);
+    }, [size]);
 
     const calculatedTooltipContent = useMemo(() => {
       if (hideTooltip) return null;

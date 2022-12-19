@@ -76,6 +76,7 @@ const SplitButton: FC<SplitButtonProps> & {
   children,
   marginLeft,
   marginRight,
+  active,
   ...buttonProps
 }) => {
   // State //
@@ -149,6 +150,7 @@ const SplitButton: FC<SplitButtonProps> & {
         `monday-style-split-button--kind-${kind}`,
         `monday-style-split-button--color-${color}`,
         {
+          "monday-style-split-button--main-active": active,
           "monday-style-split-button--active": isActive,
           "monday-style-split-button--split-content-open": isDialogOpen,
           "monday-style-split-button--hovered": isHovered,
@@ -198,6 +200,7 @@ const SplitButton: FC<SplitButtonProps> & {
         rightFlat
         color={color}
         kind={kind}
+        active={active}
         onClick={onClick}
         className="monday-style-split-button__main-button"
         marginLeft={marginLeft}
