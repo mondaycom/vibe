@@ -1,4 +1,4 @@
-import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useLayoutEffect, useMemo, useRef, useEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
@@ -98,7 +98,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       if (componentRef.current) {
         componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp);
       }
-    }, [componentRef, linesToClamp]);
+    }, [componentRef.current, linesToClamp]);
 
     const Element = (
       <div
