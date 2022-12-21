@@ -24,7 +24,7 @@ export interface HeadingProps extends VibeComponentProps {
   customColor?: string;
   style?: CSSProperties;
   tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
-  weight: FontWeights;
+  weight?: FontWeights;
 }
 
 const Heading: React.FC<HeadingProps> & {

@@ -1,4 +1,4 @@
-import React, { forwardRef, useLayoutEffect, useMemo, useRef, useEffect } from "react";
+import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
