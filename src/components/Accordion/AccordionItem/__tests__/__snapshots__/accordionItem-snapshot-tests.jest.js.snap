@@ -231,7 +231,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
         >
           <h5
             aria-label=""
-            className="heading-component expand-collapse__header-content element-type-h5 size-large single-line-ellipsis"
+            className="heading-component expand-collapse__header-content element-type-h5 size-large font-weight-normal single-line-ellipsis"
           >
             Test title
           </h5>

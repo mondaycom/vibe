@@ -8,6 +8,7 @@ import EditableInput from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
 import "./EditableHeading.scss";
+import { FontWeights } from "../Heading/HeadingConstants";
 
 const EditableHeading = props => {
   const {
@@ -127,7 +128,8 @@ const EditableHeading = props => {
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
       size: props.size,
-      highlightTerm
+      highlightTerm,
+      weight: props.weight
     };
   };
   const renderContentComponent = () => {
@@ -144,7 +146,13 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: cx(`editable-heading-input`, `element-type-${props.type}`, `size-${props.size}`, inputClassName),
+      className: cx(
+        `editable-heading-input`,
+        `element-type-${props.type}`,
+        `font-weight-${props.weight}`,
+        `size-${props.size}`,
+        inputClassName
+      ),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -166,7 +174,8 @@ const EditableHeading = props => {
       onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
-      ariaLabel: props.inputAriaLabel
+      ariaLabel: props.inputAriaLabel,
+      weight: props.weight
     };
   };
 
@@ -198,6 +207,7 @@ const EditableHeading = props => {
 
 EditableHeading.types = Heading.types;
 EditableHeading.sizes = Heading.sizes;
+EditableHeading.weights = Heading.weights;
 
 EditableHeading.propTypes = {
   /**
@@ -252,7 +262,9 @@ EditableHeading.propTypes = {
   onCancelEditing: PropTypes.func,
   /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
   onIgnoreBlurEvent: PropTypes.func,
-  insetFocus: PropTypes.bool
+  insetFocus: PropTypes.bool,
+  /** font weight of the editable heading */
+  weight: PropTypes.oneOf([EditableHeading.weights.light, EditableHeading.weights.normal, EditableHeading.weights.bold])
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -276,7 +288,8 @@ EditableHeading.defaultProps = {
   dataTestId: "",
   inputClassName: "",
   insetFocus: false,
-  maxLength: undefined
+  maxLength: undefined,
+  weight: FontWeights.normal
 };
 
 export default EditableHeading;
