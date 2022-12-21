@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.79.0 (2022-12-21)
+
+#### Bug Fixes
+* [#1040](https://github.com/mondaycom/monday-ui-react-core/pull/1040) Fix TabList undefined error ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#1041](https://github.com/mondaycom/monday-ui-react-core/pull/1041) Heading Weights ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.78.2 (2022-12-19)
 
 #### Bug Fixes
