@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.79.1 (2022-12-22)
+
+#### Bug Fixes
+* [#1042](https://github.com/mondaycom/monday-ui-react-core/pull/1042) Revert "TS-migration: Tipseen + some constants usage refactoring (#998)" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.79.0 (2022-12-21)
 
 #### Bug Fixes
