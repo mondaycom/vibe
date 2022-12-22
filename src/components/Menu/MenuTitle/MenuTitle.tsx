@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { MenuTitleCaptionPositions } from "./MenuTitleConstants";
+import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps } from "../../../types";
 import "./MenuTitle.scss";
 
@@ -9,12 +9,12 @@ interface MenuTitleProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
   caption?: string;
-  captionPosition?: MenuTitleCaptionPositions;
+  captionPosition?: MenuTitleCaptionPosition;
 }
 
 const MenuTitle: FC<MenuTitleProps> & {
-  positions?: typeof MenuTitleCaptionPositions;
-  captionPositions?: typeof MenuTitleCaptionPositions;
+  positions?: typeof MenuTitleCaptionPosition;
+  captionPositions?: typeof MenuTitleCaptionPosition;
   isMenuChild?: boolean;
 } = ({
   className,
@@ -41,8 +41,8 @@ const MenuTitle: FC<MenuTitleProps> & {
 };
 
 Object.assign(MenuTitle, {
-  positions: MenuTitleCaptionPositions,
-  captionPositions: MenuTitleCaptionPositions,
+  positions: MenuTitleCaptionPosition,
+  captionPositions: MenuTitleCaptionPosition,
   isMenuChild: true
 });
 

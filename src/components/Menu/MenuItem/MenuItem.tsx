@@ -24,10 +24,9 @@ import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
+import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import "./MenuItem.scss";
-
-const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -49,7 +48,7 @@ export interface MenuItemProps extends VibeComponentProps {
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
   useDocumentEventListeners?: boolean;
   tooltipContent?: string;
-  tooltipPosition?: typeof MenuItem.tooltipPositions[keyof typeof MenuItem.tooltipPositions];
+  tooltipPosition?: TooltipPosition;
   tooltipShowDelay?: number;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;

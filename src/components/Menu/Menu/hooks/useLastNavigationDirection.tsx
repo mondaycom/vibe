@@ -21,14 +21,14 @@ export const useLastNavigationDirection = () => {
   }, []);
 
   const onKeyEvent = useCallback(
-    (event: KeyboardEvent) => {
-      if (ARROW_UP_KEYS.includes(event.key)) {
+    ({ key }: KeyboardEvent) => {
+      if (ARROW_UP_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.UP);
-      } else if (ARROW_RIGHT_KEYS.includes(event.key)) {
+      } else if (ARROW_RIGHT_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.RIGHT);
-      } else if (ARROW_DOWN_KEYS.includes(event.key)) {
+      } else if (ARROW_DOWN_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.DOWN);
-      } else if (ARROW_LEFT_KEYS.includes(event.key)) {
+      } else if (ARROW_LEFT_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.LEFT);
       }
     },

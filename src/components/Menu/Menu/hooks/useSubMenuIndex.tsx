@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 export default function useSubMenuIndex() {
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState<number>(null);
-  const hasOpenSubMenu = !!openSubMenuIndex || openSubMenuIndex === 0;
+  const hasOpenSubMenu = typeof openSubMenuIndex === "number";
 
   const setSubMenuIsOpenByIndex = useCallback(
     (index: number, isOpen: boolean) => {

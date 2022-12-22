@@ -1,6 +1,6 @@
 import { FocusEvent, useCallback, useMemo, useRef } from "react";
 
-type ResultType = {
+type Result = {
   focusWithinProps?: {
     onFocus?: (e: FocusEvent) => void;
     onBlur?: (e: FocusEvent) => void;
@@ -17,7 +17,7 @@ export function useFocusWithin({
   onBlurWithin?: (event: FocusEvent) => void;
   onFocusWithinChange?: (isWithinChange: boolean) => void;
   isDisabled?: boolean;
-}): ResultType {
+}): Result {
   const state = useRef({
     isFocusWithin: false
   }).current;
