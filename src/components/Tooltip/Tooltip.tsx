@@ -1,21 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { CSSProperties, isValidElement, PureComponent } from "react";
+import { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
-import { DialogPosition } from "../../constants/positions";
+import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
-import { MoveBy } from "../../types/MoveBy";
 import "./Tooltip.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
   style?: CSSProperties;
-  children: ElementContent | Array<ElementContent>;
+  children: ReactElement | Array<ReactElement>;
   content: ElementContent;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
@@ -24,7 +22,7 @@ export interface TooltipProps extends VibeComponentProps {
    * main is the axis in which the position is aligned to
    * secondary is the vertical axes to the position
    */
-  moveBy?: MoveBy;
+  moveBy?: { main?: number; secondary?: number };
   theme?: TooltipTheme;
   justify?: JustifyType;
   getContainer?: () => HTMLElement;
