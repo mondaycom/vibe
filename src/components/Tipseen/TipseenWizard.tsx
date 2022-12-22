@@ -1,15 +1,21 @@
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import cx from "classnames";
-import Steps from "../Steps/Steps";
+import Steps, { StepsProps } from "../Steps/Steps";
 import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
+import { VibeComponentProps } from "../../types";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-wizard";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
-const TipseenWizard = ({ title, className, ...stepsProps }) => {
+interface TipseenWizardProps extends VibeComponentProps {
+  title?: string;
+}
+
+const TipseenWizard: FC<TipseenWizardProps> = ({ title, className, ...stepsProps }) => {
+  const overrideStepsProps = stepsProps as StepsProps;
   const nextButtonProps = useMemo(
     () => ({
       kind: Button.kinds.PRIMARY,
@@ -32,7 +38,7 @@ const TipseenWizard = ({ title, className, ...stepsProps }) => {
         areButtonsIconsHidden
         backButtonProps={backButtonProps}
         nextButtonProps={nextButtonProps}
-        {...stepsProps}
+        {...overrideStepsProps}
       />
     </TipseenBasicContent>
   );

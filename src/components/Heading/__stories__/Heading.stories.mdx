@@ -77,13 +77,25 @@ Heading components are used to title any page sections or sub-sections in top-le
 <Canvas>
   <Story name="Sizes">
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Heading type={Heading.types.h1} value="Hello H1" brandFont/>
+      <Heading type={Heading.types.h1} value="Hello H1" brandFont />
       <Heading type={Heading.types.h1} value="Hello H1 medium" size="medium" brandFont />
       <Heading type={Heading.types.h2} value="Hello H2" />
       <Heading type={Heading.types.h2} value="Hello H2 small" size="small" />
       <Heading type={Heading.types.h3} value="Hello H3" />
       <Heading type={Heading.types.h4} value="Suggest Edit H4" suggestEditOnHover />
       <Heading type={Heading.types.h5} value="H5 with tooltip" nonEllipsisTooltip="Click to edit" />
+    </div>
+  </Story>
+</Canvas>
+
+### Weights
+
+<Canvas>
+  <Story name="Weights">
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Heading type={Heading.types.h1} value="Hello H1 light" weight={Heading.weights.light} />
+      <Heading type={Heading.types.h1} value="Hello H1 normal" weight={Heading.weights.normal} />
+      <Heading type={Heading.types.h1} value="Hello H1 bold" weight={Heading.weights.bold} />
     </div>
   </Story>
 </Canvas>

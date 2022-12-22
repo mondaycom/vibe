@@ -2,39 +2,37 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-.tipseen {
-  &Wrapper {
-    min-width: 100px;
-    min-height: 40px;
-    padding: 0;
-    border-radius: $border-radius-medium;
+.wrapper {
+  min-width: 100px;
+  min-height: 40px;
+  padding: 0;
+  border-radius: $border-radius-medium;
+}
 
-    &WithoutCustomWidth {
-      max-width: 320px;
-    }
-  }
+.wrapperWithoutCustomWidth {
+  max-width: 320px;
+}
 
-  &Header {
-    display: flex;
-    justify-content: flex-start;
-  }
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
 
-  &Title {
-    padding: $spacing-medium $spacing-medium 0 $spacing-medium;
-  }
+.title {
+  padding: $spacing-medium $spacing-medium 0 $spacing-medium;
+}
 
-  &Content {
-    @include font-default;
-    @include theme-prop(color, text-color-on-primary);
-  }
+.content {
+  @include font-default;
+  @include theme-prop(color, text-color-on-primary);
+}
 
-  &CloseButton {
-    position: absolute;
-    top: $spacing-xs;
-    right: $spacing-xs;
+.closeButton {
+  position: absolute;
+  top: $spacing-xs;
+  right: $spacing-xs;
+}
 
-    &OnImage {
-      z-index: 2;
-    }
-  }
+.closeButtonOnImage {
+  z-index: 2;
 }

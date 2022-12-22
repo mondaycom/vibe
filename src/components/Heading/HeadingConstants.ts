@@ -9,4 +9,10 @@ export enum HeadingTypes {
   h6 = "h6"
 }
 
+export enum FontWeights {
+  light = "light",
+  normal = "normal",
+  bold = "bold"
+}
+
 export const HeadingSizes = SIZES;

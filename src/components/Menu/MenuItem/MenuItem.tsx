@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { DialogPosition } from "../../../constants/sizes";
 import React, {
   ForwardedRef,
   forwardRef,
@@ -10,6 +9,7 @@ import React, {
   useMemo,
   useRef
 } from "react";
+import { DialogPosition } from "../../../constants/positions";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";

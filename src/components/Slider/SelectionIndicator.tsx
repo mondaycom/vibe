@@ -40,8 +40,7 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKin
       }, VALUE_UPDATE_DELAY),
     [changeThumbValue, isPostfix]
   );
-  // @ts-ignore TODO TS-migration TextField not converted yet
-  return <TextField onChange={handleChange} value={currentTextValue} />;
+  return <TextField onChange={handleChange} value={String(currentTextValue)} />;
 };
 
 export default SelectionIndicator;

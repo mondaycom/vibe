@@ -53,7 +53,7 @@ const TabList: FC<TabListProps> = forwardRef(
 
     const onTabClick = useCallback(
       (value: HTMLElement | void, tabId: number) => {
-        const tabCallbackFunc = children[tabId].props.onClick;
+        const tabCallbackFunc = children[tabId].props?.onClick;
         if (disabledTabIds.has(tabId)) return;
         if (tabCallbackFunc) tabCallbackFunc(tabId);
         onTabSelect(tabId);

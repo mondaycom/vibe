@@ -44,7 +44,7 @@ const disabledContainerStyle = isDisabled => {
   if (!isDisabled) return {};
   return {
     backgroundColor: getCSSVar("disabled-background-color"),
-    color: getCSSVar("primary-text-color"),
+    color: getCSSVar("disabled-text-color"),
     borderColor: "transparent",
     cursor: "not-allowed",
     ":active, :focus, :hover": {
@@ -145,12 +145,14 @@ const control =
     ...disabledContainerStyle(isDisabled)
   });
 
-const placeholder = () => provided => ({
-  ...provided,
-  ...getFont(),
-  color: getCSSVar("secondary-text-color"),
-  fontWeight: 400
-});
+const placeholder =
+  () =>
+  (provided, { isDisabled }) => ({
+    ...provided,
+    ...getFont(),
+    color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
+    fontWeight: getCSSVar("font-weight-normal")
+  });
 
 const indicatorsContainer =
   ({ size }) =>
@@ -165,7 +167,7 @@ const indicatorsContainer =
 
 const dropdownIndicator =
   ({ size }) =>
-  (provided, { selectProps }) => {
+  (provided, { selectProps, isDisabled }) => {
     return {
       ...provided,
       display: "flex",
@@ -180,10 +182,10 @@ const dropdownIndicator =
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
         transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
       },
-      color: getCSSVar("icon-color"),
+      color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {
-        backgroundColor: getCSSVar("primary-background-hover-color"),
-        color: getCSSVar("icon-color")
+        backgroundColor: isDisabled ? undefined : getCSSVar("primary-background-hover-color"),
+        color: isDisabled ? undefined : getCSSVar("icon-color")
       }
     };
   };
@@ -267,7 +269,7 @@ const valueContainer =
   });
 
 const menu =
-  ({ controlRef, insideOverflowContainer, transformContainerRef }) =>
+  ({ controlRef, insideOverflowContainer, insideOverflowWithTransformContainer }) =>
   provided => {
     const baseStyle = {
       ...provided,
@@ -277,23 +279,19 @@ const menu =
       boxShadow: getCSSVar("box-shadow-small")
     };
 
-    if (!insideOverflowContainer) return baseStyle;
-
-    // If the dropdown is inside a scroll, we try to get dropdown location at the dom
+    if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
     const parentPositionData = controlRef?.current?.getBoundingClientRect();
-
     // If no location found do not add anything to hard coded style
     if (!parentPositionData) return baseStyle;
 
-    let overrideTop = parentPositionData.bottom;
+    /** If the dropdown is inside a scroll in a regular container,position: fixed content (like our dropdown menu) will be attached to the start of the viewport.
+     * For this case we will override the top menu position value to be the according the the drop down location for correct dispaly.
+     * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative positioned inner container, which our menu will be attach to it's
+     * start when the menu position is fixed, and this is why in this case we define top:auto.
+     */
+    let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
 
-    if (transformContainerRef?.current !== undefined) {
-      const transformContainerPositionData = transformContainerRef?.current?.getBoundingClientRect();
-
-      overrideTop = parentPositionData.bottom - transformContainerPositionData.top + 7; //7 for margin;
-    }
-
-    return { ...baseStyle, top: overrideTop, width: parentPositionData.width };
+    return { ...baseStyle, top, width: parentPositionData.width };
   };
 
 const option = () => (provided, state) => ({

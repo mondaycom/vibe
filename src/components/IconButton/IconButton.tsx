@@ -1,4 +1,4 @@
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -7,10 +7,10 @@ import ToolTip from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { VibeComponentProps, SubIcon } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
-import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -71,7 +71,7 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
 }
 
-const IconButton: React.FC<IconButtonProps> & {
+const IconButton: VibeComponent<IconButtonProps> & {
   sizes?: typeof Button.sizes;
   kinds?: typeof Button.kinds;
   colors?: typeof Button.colors;
@@ -125,19 +125,12 @@ const IconButton: React.FC<IconButtonProps> & {
         alignItems: "center",
         padding: 0
       } as React.CSSProperties;
-      if (active && kind !== IconButton.kinds.PRIMARY) {
-        style.background = "var(--primary-selected-color)";
-      }
-
-      if (active && kind === IconButton.kinds.SECONDARY) {
-        style.borderColor = "var(--primary-color)";
-      }
 
       if (size) {
         style = { ...style, ...getWidthHeight(size) };
       }
       return style;
-    }, [active, kind, size]);
+    }, [size]);
 
     const calculatedTooltipContent = useMemo(() => {
       if (hideTooltip) return null;
@@ -162,7 +155,7 @@ const IconButton: React.FC<IconButtonProps> & {
             ariaLabel={buttonAriaLabel}
             ref={mergedRef}
             id={id}
-            dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
+            dataTestId={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}
@@ -187,7 +180,8 @@ const IconButton: React.FC<IconButtonProps> & {
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors
+  colors: Button.colors,
+  defaultTestId: ComponentDefaultTestId.ICON_BUTTON
 });
 
 IconButton.defaultProps = {
