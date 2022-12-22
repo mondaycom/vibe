@@ -3,7 +3,7 @@ import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react"
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
-import { keyCodes } from "../../constants/keyCodes";
+import { keyCodes } from "../../constants/KeyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import "./ListItem.scss";

@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import cx from "classnames";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
@@ -6,11 +6,9 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { BASE_SIZES, SIZES } from "../../constants";
+import { BASE_SIZES, SIZES, DialogPosition } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
-import { MoveBy } from "../../types/MoveBy";
-import { DialogPosition } from "../../constants/positions";
 import "./ButtonGroup.scss";
 
 type ButtonGroupOption = {
@@ -45,7 +43,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
-  tooltipMoveBy?: MoveBy;
+  tooltipMoveBy?: { main?: number; secondary?: number };
 }
 
 const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {

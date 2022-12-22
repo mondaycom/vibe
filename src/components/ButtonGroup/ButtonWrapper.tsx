@@ -1,10 +1,8 @@
 import React from "react";
 import isNil from "lodash/isNil";
 import Button, { ButtonProps } from "../Button/Button";
-import { HideShowEvent } from "../../constants";
+import { DialogPosition, HideShowEvent } from "../../constants";
 import Tooltip from "../Tooltip/Tooltip";
-import { MoveBy } from "../../types/MoveBy";
-import { DialogPosition } from "../../constants/positions";
 
 interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
@@ -15,7 +13,7 @@ interface ButtonWrapperProps extends ButtonProps {
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
-  tooltipMoveBy?: MoveBy;
+  tooltipMoveBy?: { main?: number; secondary?: number };
 }
 
 export const ButtonWrapper = ({

@@ -1,77 +1,64 @@
-import React, { FC } from "react";
 import cx from "classnames";
+import PropTypes from "prop-types";
 import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
 import Button from "../../components/Button/Button";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ButtonPropsBackwardCompatible, DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
+import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
-const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
+const EMPTY_OBJECT = {};
 
-interface TipseenContentProps extends VibeComponentProps {
-  title?: string;
-  isDismissHidden?: boolean;
-  children?: ElementContent;
-  isSubmitHidden?: boolean;
-  submitButtonText?: string;
-  /** Backward compatibility for props naming **/
-  submitButtonProps?: ButtonPropsBackwardCompatible;
-  onSubmit?: (event: React.MouseEvent) => void;
-  dismissButtonText?: string;
-  /** Backward compatibility for props naming **/
-  dismissButtonProps?: ButtonPropsBackwardCompatible;
-  onDismiss?: (event: React.MouseEvent) => void;
-}
-
-const TipseenContent: FC<TipseenContentProps> = ({
+const TipseenContent = ({
   title,
-  children = null,
-  isDismissHidden = true,
-  isSubmitHidden = false,
+  children,
+  isDismissHidden,
+  isSubmitHidden,
   submitButtonText,
-  onSubmit = NOOP,
+  onSubmit,
   dismissButtonText,
-  onDismiss = NOOP,
+  onDismiss,
   // Backward compatibility for props naming
-  dismissButtonProps = EMPTY_OBJECT,
+  dismissButtonProps,
   // Backward compatibility for props naming
-  submitButtonProps = EMPTY_OBJECT
+  submitButtonProps
 }) => {
-  const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
   const {
+    content: dismissContent,
     className: dismissClassName,
     onClick: dismissDeprecatedOnClick,
     ...otherDismissButtonProps
-  } = dismissButtonProps;
+  } = dismissButtonProps || EMPTY_OBJECT;
   const overrideDismissContent = backwardCompatibilityForProperties(
     [dismissButtonText, dismissContent],
     DISMISS_BUTTON_TEXT
   );
   const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
-
-  const submitContent = submitButtonProps.content || submitButtonProps.children;
-  const { className: submitClassName, onClick: submitDeprecatedOnClick, ...otherSubmitButtonProps } = submitButtonProps;
+  const {
+    content: submitContent,
+    className: submitClassName,
+    onClick: submitDeprecatedOnClick,
+    ...otherSubmitButtonProps
+  } = submitButtonProps || EMPTY_OBJECT;
   const overrideSubmitContent = backwardCompatibilityForProperties(
     [submitButtonText, submitContent],
     SUBMIT_BUTTON_TEXT
   );
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
-
   return (
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
-      {children ? <span className={cx(bemHelper({ element: "content" }))}>{children}</span> : null}
-      <div className={cx(styles.buttons, bemHelper({ element: "buttons" }))}>
+      {children ? (
+        <span className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{children}</span>
+      ) : null}
+      <div className={cx(styles.tipseenContentButtons, bemHelper({ element: "buttons" }))}>
         {isDismissHidden ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
-            className={cx(styles.dismiss, bemHelper({ element: "dismiss" }), dismissClassName)}
+            className={cx(styles.tipseenContentButtonsDismiss, bemHelper({ element: "dismiss" }), dismissClassName)}
             size={Button.sizes.SMALL}
             onClick={overrideDismissOnClick}
             {...otherDismissButtonProps}
@@ -94,6 +81,28 @@ const TipseenContent: FC<TipseenContentProps> = ({
       </div>
     </TipseenBasicContent>
   );
+};
+
+TipseenContent.propTypes = {
+  title: PropTypes.string,
+  isDismissHidden: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  isSubmitHidden: PropTypes.bool,
+  submitButtonText: PropTypes.string,
+  onSubmit: PropTypes.func,
+  dismissButtonText: PropTypes.string,
+  onDismiss: PropTypes.func
+};
+
+TipseenContent.defaultProps = {
+  title: undefined,
+  children: null,
+  isDismissHidden: true,
+  isSubmitHidden: false,
+  submitButtonText: undefined,
+  onSubmit: NOOP,
+  dismissButtonText: undefined,
+  onDismiss: NOOP
 };
 
 export default TipseenContent;

@@ -1,5 +1,5 @@
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
-import { keyCodes } from "../../../../constants/keyCodes";
+import { keyCodes } from "../../../../constants/KeyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";

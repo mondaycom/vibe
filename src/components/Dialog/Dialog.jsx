@@ -1,16 +1,16 @@
 /* eslint-disable no-param-reassign */
-import { DialogPosition } from "../../constants/positions";
+import { DialogPosition } from "../../constants/sizes";
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
-import { Manager, Popper, Reference } from "react-popper";
+import { Manager, Reference, Popper } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
 import { chainFunctions, convertToArray } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../../components/Refable/Refable";
-import { AnimationType, HideShowEvent } from "../../constants/dialog";
+import { HideShowEvent, AnimationType } from "../../constants/dialog";
 import "./Dialog.scss";
 
 const NOOP = () => {};
