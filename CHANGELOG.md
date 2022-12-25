@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.79.2 (2022-12-25)
+
+#### Bug Fixes
+* [#1043](https://github.com/mondaycom/monday-ui-react-core/pull/1043) Revert "Heading Weights" ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.79.1 (2022-12-22)
 
 #### Bug Fixes
