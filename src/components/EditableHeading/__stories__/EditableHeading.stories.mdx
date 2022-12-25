@@ -3,15 +3,15 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 
 export const metaSettings = createStoryMetaSettings({
-  component: EditableHeading,
-  enumPropNamesArray: ["size", "type"]
+    component: EditableHeading,
+    enumPropNamesArray: ["size", "type"]
 });
 
 <Meta
-  title="Inputs/EditableHeading"
-  component={EditableHeading}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
+    title="Inputs/EditableHeading"
+    component={EditableHeading}
+    argTypes={metaSettings.argTypes}
+    decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -33,23 +33,23 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 An extension of Heading component, it allows built in editing capabilities
 
 <Canvas>
-  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1, brandFont: true }}>
-    {editableHeadingTemplate.bind({})}
-  </Story>
+    <Story name="Overview" args={{value: "This heading is editable", type: EditableHeading.types.h1, brandFont: true}}>
+        {editableHeadingTemplate.bind({})}
+    </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={EditableHeading} />
+<ArgsTable of={EditableHeading}/>
 
 ## Usage
 
 <UsageGuidelines
-  guidelines={[
-    "Use when the title (Heading) is editable and you want to inline edit it",
-    "Always provide a meaningful placeholder",
-    "The component takes 100% of width and height of its container"
-  ]}
+    guidelines={[
+        "Use when the title (Heading) is editable and you want to inline edit it",
+        "Always provide a meaningful placeholder",
+        "The component takes 100% of width and height of its container"
+    ]}
 />
 
 ## Variants
@@ -57,54 +57,40 @@ An extension of Heading component, it allows built in editing capabilities
 ### Heading types
 
 <Canvas>
-  <Story name="Types">
-    <EditableHeading type={EditableHeading.types.h1} value="H1 Header" />
-    <EditableHeading type={EditableHeading.types.h2} value="H2 Header" />
-    <EditableHeading type={EditableHeading.types.h3} value="H3 Header" />
-    <EditableHeading type={EditableHeading.types.h4} value="H4 Header" />
-    <EditableHeading type={EditableHeading.types.h5} value="H5 Header" />
-    <EditableHeading type={EditableHeading.types.h6} value="H6 Header" />
-  </Story>
-</Canvas>
-
-### Heading Weights
-
-<Canvas>
-  <Story name="Weights">
-    <EditableHeading type={EditableHeading.types.h2} weight={EditableHeading.weights.light} value="H2 Header light" />
-    <EditableHeading
-      type={EditableHeading.types.h2}
-      weight={EditableHeading.weights.normal}
-      value="H2 Header normal"
-    />
-    <EditableHeading type={EditableHeading.types.h2} weight={EditableHeading.weights.bold} value="H2 Header bold" />
-  </Story>
+    <Story name="Types">
+        <EditableHeading type={EditableHeading.types.h1} value="H1 Header" brandFont={true}/>
+        <EditableHeading type={EditableHeading.types.h2} value="H2 Header"/>
+        <EditableHeading type={EditableHeading.types.h3} value="H3 Header"/>
+        <EditableHeading type={EditableHeading.types.h4} value="H4 Header"/>
+        <EditableHeading type={EditableHeading.types.h5} value="H5 Header"/>
+        <EditableHeading type={EditableHeading.types.h6} value="H6 Header"/>
+    </Story>
 </Canvas>
 
 ### Placeholder
 
 <Canvas>
-  <Story name="Placeholder">
-    <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" />
-  </Story>
+    <Story name="Placeholder">
+        <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" brandFont={true}/>
+    </Story>
 </Canvas>
 
 ### With text highlight
 
 <Canvas>
-  <Story name="Text Highlight">
-    <EditableHeading type={EditableHeading.types.h1} value="H1 Header" highlightTerm="head" />
-    <EditableHeading type={EditableHeading.types.h2} value="H2 Header" highlightTerm="head" />
-    <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" />
-  </Story>
+    <Story name="Text Highlight">
+        <EditableHeading type={EditableHeading.types.h1} value="H1 Header" highlightTerm="head" brandFont={true}/>
+        <EditableHeading type={EditableHeading.types.h2} value="H2 Header" highlightTerm="head"/>
+        <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head"/>
+    </Story>
 </Canvas>
 
 ### With text colors
 
 <Canvas>
-  <Story name="Colors">
-    <EditableHeading type={EditableHeading.types.h1} value="H1 Header" customColor="blue" />
-    <EditableHeading type={EditableHeading.types.h2} value="H2 Header" customColor="red" />
-    <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" customColor="#AA33FF" />
-  </Story>
+    <Story name="Colors">
+        <EditableHeading type={EditableHeading.types.h1} value="H1 Header" customColor="blue" brandFont={true}/>
+        <EditableHeading type={EditableHeading.types.h2} value="H2 Header" customColor="red"/>
+        <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" customColor="#AA33FF"/>
+    </Story>
 </Canvas>

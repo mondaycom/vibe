@@ -28,9 +28,7 @@ export const textWithHighlightTemplate = createComponentTemplate(TextWithHighlig
 Component for displaying highlighted text
 
 <Canvas>
-  <Story name="Overview" args={{
-      text: "As a front-end developer at a fast-growing software company, Sarah was always on the lookout for new tools and technologies to improve her work. When she heard about a new React component that could automatically truncate text with ellipsis, she was intrigued. Sarah quickly added the component to her project and began testing it out. At first, it seemed to work perfectly, smoothly truncating text to fit within the allotted space. But as Sarah continued to use the component, she began to notice strange bugs and glitches. Sometimes, the ellipsis would appear in the middle of a word, breaking up the text in unexpected ways. Other times, the component would simply stop working altogether, leaving Sarah with long stretches of unformatted text. Determined to get to the bottom of the issue, Sarah dug deep into the component's code. It was then that she discovered the problem: the component had been designed to handle only a limited range of text lengths and styles. Any text outside of that range would cause the component to break down. Sarah knew she had to find a solution. She spent hours tinkering with the code, experimenting with different approaches and techniques. Finally, after much trial and error, she hit upon a solution: a series of adjustments to the component's algorithms that would allow it to handle a wider range of text. Excited to see her hard work pay off, Sarah tested the updated component and was thrilled to see it working perfectly. The ellipsis now appeared smoothly and consistently, no matter the length or style of the text. Proud of her achievement, Sarah shared her solution with the rest of the team, and soon the improved component was being used throughout the company. And as for Sarah, she knew she had found a new favorite tool in her toolkit.", highlightTerm: "Sarah" }}
->
+  <Story name="Overview" args={{ text: "Hello world, hello world again", highlightTerm: "Hello again" }}>
     {textWithHighlightTemplate.bind({})}
   </Story>
 </Canvas>
