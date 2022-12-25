@@ -6,7 +6,7 @@ import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
-import { FontWeights, HeadingSizes, HeadingTypes } from "./HeadingConstants";
+import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import "./Heading.scss";
 
@@ -24,13 +24,11 @@ export interface HeadingProps extends VibeComponentProps {
   customColor?: string;
   style?: CSSProperties;
   tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
-  weight?: FontWeights;
 }
 
 const Heading: React.FC<HeadingProps> & {
   sizes?: typeof HeadingSizes;
   types?: typeof HeadingTypes;
-  weights?: typeof FontWeights;
 } = ({
   className,
   value = "",
@@ -45,25 +43,17 @@ const Heading: React.FC<HeadingProps> & {
   tooltipPosition,
   highlightTerm = null,
   suggestEditOnHover = false,
-  nonEllipsisTooltip = null,
-  weight = FontWeights.normal
+  nonEllipsisTooltip = null
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
   const finalStyle = useStyle(style, { color: customColor });
-  const classNames = cx(
-    "heading-component",
-    className,
-    `element-type-${type}`,
-    `size-${size}`,
-    `font-weight-${weight}`,
-    {
-      "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
-      "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-      "suggest-edit-on-hover": suggestEditOnHover
-    }
-  );
+  const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
+    "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
+    "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
+    "suggest-edit-on-hover": suggestEditOnHover
+  });
   const Element = React.createElement(
     type,
     { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style: finalStyle },
@@ -105,8 +95,7 @@ const Heading: React.FC<HeadingProps> & {
 
 Object.assign(Heading, {
   types: HeadingTypes,
-  sizes: HeadingSizes,
-  weights: FontWeights
+  sizes: HeadingSizes
 });
 
 export default Heading;

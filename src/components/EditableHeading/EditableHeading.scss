@@ -13,24 +13,10 @@
   &:active {
     outline: none;
   }
-
-  &.inset-focus {
-    @include focus-style-inset();
-  }
-
-  .font-weight {
-    &-light {
-      font-weight: 300;
-    }
-    &-normal {
-      font-weight: 500;
-    }
-    &-bold {
-      font-weight: 700;
-    }
-  }
-
   .heading-component {
     margin: 0;
+  }
+  &.inset-focus {
+    @include focus-style-inset();
   }
 }

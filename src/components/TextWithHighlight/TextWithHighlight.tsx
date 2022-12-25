@@ -98,7 +98,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       if (componentRef.current) {
         componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp);
       }
-    }, [componentRef.current, linesToClamp]);
+    }, [componentRef, linesToClamp]);
 
     const Element = (
       <div
