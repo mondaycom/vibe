@@ -79,7 +79,7 @@ $small-empty-state-height: 12px;
 }
 
 @mixin line-clamp($lines: 1le) {
-  overflow-x: hidden;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
@@ -91,7 +91,7 @@ $small-empty-state-height: 12px;
 }
 
 @mixin ellipsis {
-  overflow-x: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
