@@ -1,6 +1,10 @@
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 
+.chip-with-input-wrapper {
+  display: flex;
+  min-height: 30px;
+}
 .placeholder-container {
   margin-left: 6px;
 }
@@ -11,6 +15,10 @@
 
 .multiselect-chip-single-line {
   margin: 5px 2px;
+}
+
+.multiselect-chip-disabled {
+  background-color: var(--primary-background-hover-color) !important;
 }
 
 .value-container {

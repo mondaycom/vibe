@@ -8,7 +8,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
-import { MenuButtonSize } from "./MenuButtonConstants";
+import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
@@ -102,6 +102,10 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   disabledReason?: boolean;
   children?: string | ReactElement | ReactElement[];
+  /**
+   * Specifies whether to render the component before or after the text
+   */
+  componentPosition: typeof MenuButtonComponentPosition[keyof typeof MenuButtonComponentPosition];
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -109,6 +113,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
   paddingSizes?: typeof DialogContentContainer.sizes;
   dialogPositions?: typeof DialogPosition;
   hideTriggers?: typeof Dialog.hideShowTriggers;
+  componentPositions?: typeof MenuButtonComponentPosition;
 } = forwardRef(
   (
     {
@@ -119,6 +124,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       openDialogComponentClassName,
       children,
       component = Menu,
+      componentPosition = MenuButton.componentPositions.START,
       size = MenuButtonSize.SMALL,
       open = false,
       onClick = NOOP,
@@ -257,6 +263,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           return 24;
       }
     }, [size]);
+    const icon = Icon ? <Icon size={iconSize.toString()} role="img" aria-hidden="true" /> : null;
 
     useLayoutEffect(() => {
       setIsOpen(open);
@@ -309,8 +316,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
           >
-            <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
+            {componentPosition === "start" && icon}
             {text && <span className={BEMClass("inner-text")}>{text}</span>}
+            {componentPosition === "end" && icon}
           </button>
         </Dialog>
       </Tooltip>
@@ -322,7 +330,8 @@ Object.assign(MenuButton, {
   sizes: MenuButtonSize,
   paddingSizes: DialogContentContainer.sizes,
   dialogPositions: DialogPosition,
-  hideTriggers: Dialog.hideShowTriggers
+  hideTriggers: Dialog.hideShowTriggers,
+  componentPosition: MenuButtonComponentPosition
 });
 
 export default MenuButton;

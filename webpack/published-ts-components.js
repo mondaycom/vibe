@@ -66,6 +66,7 @@ const publishedTSComponents = {
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
   Dialog: "components/Dialog/Dialog.tsx",
   MenuButton: "components/MenuButton/MenuButton.tsx",
+  Flex: "components/Flex/Flex",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",

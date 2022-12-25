@@ -17,7 +17,6 @@ const publishedJSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Checkbox: "components/Checkbox/Checkbox.jsx",
   Dropdown: "components/Dropdown/Dropdown.jsx",
-  Flex: "components/Flex/Flex.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
   allIcons: "components/Icon/Icons"
 };

@@ -1,16 +1,16 @@
 import { userEvent, within } from "@storybook/testing-library";
+import { resetFocus } from "../../../../__tests__/interactions-helper";
 import {
   getByRole,
   getByText,
   clickElement,
   waitForElementVisible,
   interactionSuite,
-  resetFocus,
   expectActiveElementToHavePartialText,
   pressNavigationKey
-} from "../../../../__tests__/interactions-helper";
+} from "../../../../tests/interactions-utils";
+import { NavigationCommand } from "../../../../tests/constants";
 import { expect } from "@storybook/jest";
-import { NAVIGATIONS_COMMANDS } from "../../../../utils/test-utils";
 
 const TWO_DEPTHS_MENU_TEXTS = {
   TOP_MENU_SUB_MENU_ITEM: "With Sub menu",
@@ -49,25 +49,25 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await userEvent.click(topMenuItem);
 
   //open sub menu
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
+  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
     within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM}$`))
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //open sub sub menu
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
+  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NavigationCommand.DOWN_ARROW);
+  await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
     within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM}$`))
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close sub-sub-menu - using left arrow
-  await pressNavigationKey(NAVIGATIONS_COMMANDS.LEFT_ARROW);
+  await pressNavigationKey(NavigationCommand.LEFT_ARROW);
   expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)).not.toBeInTheDocument();
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 

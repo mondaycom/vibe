@@ -193,9 +193,12 @@
         }
         &--color {
           &-primary {
-            &-active,
-            &:hover,
-            &:focus {
+            &-active, &-active:hover {
+              background-color: var(--primary-selected-color);
+              border-color: var(--primary-color);
+            }
+            &:hover:not(.monday-style-button--color-primary-active),
+            &:focus:not(.monday-style-button--color-primary-active) {
               @include theme-prop(background-color, primary-background-hover-color);
             }
           }
@@ -249,9 +252,11 @@
       &.monday-style-button {
         &--color {
           &-primary {
-            &-active,
-            &:hover,
-            &:focus {
+            &-active, &-active:hover {
+              background-color: var(--primary-selected-color);
+            }
+            &:hover:not(.monday-style-button--color-primary-active),
+            &:focus:not(.monday-style-button--color-primary-active){
               @include theme-prop(background-color, primary-background-hover-color);
             }
           }

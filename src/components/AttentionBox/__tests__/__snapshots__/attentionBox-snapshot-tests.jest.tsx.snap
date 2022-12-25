@@ -5,8 +5,13 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -24,12 +29,13 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -43,8 +49,13 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary test-classNmae"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -62,12 +73,13 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -81,8 +93,13 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-dark"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-dark__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-dark__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -100,12 +117,13 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-dark__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-dark__text"
   >
@@ -119,8 +137,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary compact"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -138,12 +161,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
   >
@@ -158,6 +182,14 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
   role="alert"
 >
   <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
+  />
+  <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   />
 </aside>
@@ -168,7 +200,17 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
   role="alert"
 >
-  
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
+  >
+    
+    
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -182,15 +224,21 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -204,8 +252,13 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary with-close"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <svg
       aria-hidden={true}
@@ -223,12 +276,13 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -296,8 +350,13 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
   role="alert"
 >
-  <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
     <span
       aria-hidden={true}
@@ -305,12 +364,13 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       onClick={[Function]}
       role="img"
     />
-    <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    <h4
+      aria-label=""
+      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
     >
       Title
-    </span>
-  </h2>
+    </h4>
+  </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
