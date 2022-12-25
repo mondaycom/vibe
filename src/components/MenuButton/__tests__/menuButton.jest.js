@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent, screen, act } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import MenuButton from "../MenuButton";
 import Bolt from "../../Icon/Icons/components/Bolt";
 
@@ -64,7 +64,7 @@ it("renders correctly with tooltip content", () => {
 it("renders correctly with a default Menu icon at the end", () => {
   const tree = renderer
     .create(
-      <MenuButton text="Hello" componentPosition="end">
+      <MenuButton text="Hello" componentPosition={MenuButton.componentPositions.START}>
         <div>Menu</div>
       </MenuButton>
     )

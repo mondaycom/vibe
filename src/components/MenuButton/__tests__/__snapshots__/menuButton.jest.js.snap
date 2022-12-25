@@ -90,11 +90,6 @@ exports[`renders correctly with a default Menu icon at the end 1`] = `
   onMouseUp={[Function]}
   type="button"
 >
-  <span
-    className="menu-button--wrapper--inner-text"
-  >
-    Hello
-  </span>
   <svg
     aria-hidden="true"
     fill="currentColor"
@@ -108,6 +103,11 @@ exports[`renders correctly with a default Menu icon at the end 1`] = `
       fill="currentColor"
     />
   </svg>
+  <span
+    className="menu-button--wrapper--inner-text"
+  >
+    Hello
+  </span>
 </button>
 `;
 

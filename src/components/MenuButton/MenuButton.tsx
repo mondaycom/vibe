@@ -105,7 +105,7 @@ interface MenuButtonProps extends VibeComponentProps {
   /**
    * Specifies whether to render the component before or after the text
    */
-  componentPosition: typeof MenuButtonComponentPosition[keyof typeof MenuButtonComponentPosition];
+  componentPosition?: typeof MenuButtonComponentPosition[keyof typeof MenuButtonComponentPosition];
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -316,9 +316,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
           >
-            {componentPosition === "start" && icon}
+            {componentPosition === MenuButton.componentPositions.START && icon}
             {text && <span className={BEMClass("inner-text")}>{text}</span>}
-            {componentPosition === "end" && icon}
+            {componentPosition === MenuButton.componentPositions.END && icon}
           </button>
         </Dialog>
       </Tooltip>
@@ -331,7 +331,7 @@ Object.assign(MenuButton, {
   paddingSizes: DialogContentContainer.sizes,
   dialogPositions: DialogPosition,
   hideTriggers: Dialog.hideShowTriggers,
-  componentPosition: MenuButtonComponentPosition
+  componentPositions: MenuButtonComponentPosition
 });
 
 export default MenuButton;

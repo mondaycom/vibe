@@ -106,7 +106,6 @@ exports[`SplitButton renders correctly with left icon 1`] = `
     className="monday-style-split-button__secondary-button-wrapper"
   >
     <span
-      className=""
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -328,7 +327,6 @@ exports[`SplitButton renders correctly with right icon 1`] = `
     className="monday-style-split-button__secondary-button-wrapper"
   >
     <span
-      className=""
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
