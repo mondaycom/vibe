@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
+import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
@@ -12,9 +12,9 @@ import "./Tooltip.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
-  style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;
   content: ElementContent;
+  style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
@@ -35,7 +35,7 @@ export interface TooltipProps extends VibeComponentProps {
    */
   showDelay?: number;
   disableDialogSlide?: boolean;
-  animationType?: typeof AnimationType[keyof typeof AnimationType];
+  animationType?: AnimationType;
   withoutDialog?: boolean;
   /**
    * the container selector in which to append the dialog
@@ -233,7 +233,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       getContainer: getContainer || this.getContainer,
       moveBy,
       tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`,
-      animationType: "expand",
+      animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
