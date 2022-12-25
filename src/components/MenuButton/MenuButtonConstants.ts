@@ -5,3 +5,8 @@ export enum MenuButtonSize {
   MEDIUM = "40",
   LARGE = "48"
 }
+
+export enum MenuButtonComponentPosition {
+  START = "start",
+  END = "end"
+}
