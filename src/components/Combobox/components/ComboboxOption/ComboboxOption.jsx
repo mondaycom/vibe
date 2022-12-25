@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useMemo } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
-import { keyCodes } from "../../../../constants/keyCodes";
+import { keyCodes } from "../../../../constants/KeyCodes";
 import { getOptionId } from "../../helpers";
 import "./ComboboxOption.scss";
 

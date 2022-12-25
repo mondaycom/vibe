@@ -1,6 +1,10 @@
 const publishedJSComponents = {
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
+  Tipseen: "components/Tipseen/Tipseen.jsx",
+  TipseenContent: "components/Tipseen/TipseenContent.jsx",
+  TipseenWizard: "components/Tipseen/TipseenWizard.jsx",
+  TipseenImage: "components/Tipseen/TipseenImage.jsx",
   Combobox: "components/Combobox/Combobox.jsx",
   ResponsiveList: "components/ResponsiveList/ResponsiveList.jsx",
   EditableHeading: "components/EditableHeading/EditableHeading.jsx",
