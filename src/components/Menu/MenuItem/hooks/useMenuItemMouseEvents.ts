@@ -1,9 +1,8 @@
-import { useLayoutEffect } from "react";
-
+import React, { useLayoutEffect } from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
 
-export default function useMenuItemMouseEvents(
+export default function useMenuItemMouseEvents({
   ref,
   resetOpenSubMenuIndex,
   setSubMenuIsOpenByIndex,
@@ -11,7 +10,15 @@ export default function useMenuItemMouseEvents(
   setActiveItemIndex,
   index,
   hasChildren
-) {
+}: {
+  ref: React.RefObject<HTMLElement>;
+  resetOpenSubMenuIndex: () => void;
+  setSubMenuIsOpenByIndex: (index: number, isOpen: boolean) => void;
+  isActive: boolean;
+  setActiveItemIndex: (index: number) => void;
+  index: number;
+  hasChildren: boolean;
+}) {
   const isMouseEnter = useIsMouseEnter({ ref });
 
   const prevIsMouseEnter = usePrevious(isMouseEnter);

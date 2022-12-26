@@ -1,4 +1,11 @@
-import { FocusEvent, useCallback, useRef, useMemo } from "react";
+import { FocusEvent, useCallback, useMemo, useRef } from "react";
+
+type Result = {
+  focusWithinProps?: {
+    onFocus?: (e: FocusEvent) => void;
+    onBlur?: (e: FocusEvent) => void;
+  };
+};
 
 export function useFocusWithin({
   onFocusWithin,
@@ -6,11 +13,11 @@ export function useFocusWithin({
   isDisabled,
   onBlurWithin
 }: {
-  onFocusWithin: (event: FocusEvent) => void;
-  onBlurWithin: (event: FocusEvent) => void;
-  onFocusWithinChange: (isWithinChange: boolean) => void;
-  isDisabled: boolean;
-}) {
+  onFocusWithin?: (event: FocusEvent) => void;
+  onBlurWithin?: (event: FocusEvent) => void;
+  onFocusWithinChange?: (isWithinChange: boolean) => void;
+  isDisabled?: boolean;
+}): Result {
   const state = useRef({
     isFocusWithin: false
   }).current;

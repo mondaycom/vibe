@@ -1,4 +1,4 @@
-import { DialogPosition } from "../../constants/sizes";
+import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";

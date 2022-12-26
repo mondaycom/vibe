@@ -1,16 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FC } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { CAPTION_POSITIONS } from "./MenuTitleConstants";
+import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
+import { VibeComponentProps } from "../../../types";
 import "./MenuTitle.scss";
 
-const MenuTitle = ({
+interface MenuTitleProps extends VibeComponentProps {
+  /** Backward compatibility for props naming **/
+  classname?: string;
+  caption?: string;
+  captionPosition?: MenuTitleCaptionPosition;
+}
+
+const MenuTitle: FC<MenuTitleProps> & {
+  positions?: typeof MenuTitleCaptionPosition;
+  captionPositions?: typeof MenuTitleCaptionPosition;
+  isMenuChild?: boolean;
+} = ({
   className,
   // Backward compatibility for props naming
   classname,
-  caption,
-  captionPosition,
+  caption = "",
+  captionPosition = MenuTitle.positions.BOTTOM,
   id
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
@@ -29,22 +40,10 @@ const MenuTitle = ({
   return <div className={cx("monday-style-menu-title", overrideClassName)}>{renderCaptionIfNeeded()}</div>;
 };
 
-MenuTitle.positions = CAPTION_POSITIONS;
-MenuTitle.captionPositions = CAPTION_POSITIONS;
-MenuTitle.isMenuChild = true;
-
-MenuTitle.defaultProps = {
-  className: undefined,
-  caption: "",
-  id: "",
-  captionPosition: MenuTitle.positions.BOTTOM
-};
-
-MenuTitle.propTypes = {
-  className: PropTypes.string,
-  caption: PropTypes.string,
-  id: PropTypes.string,
-  captionPosition: PropTypes.oneOf([MenuTitle.positions.BOTTOM, MenuTitle.positions.TOP, MenuTitle.positions.CENTER])
-};
+Object.assign(MenuTitle, {
+  positions: MenuTitleCaptionPosition,
+  captionPositions: MenuTitleCaptionPosition,
+  isMenuChild: true
+});
 
 export default MenuTitle;

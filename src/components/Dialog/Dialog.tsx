@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-import { DialogPosition } from "../../constants/sizes";
 import React, { PureComponent, ReactElement } from "react";
 import { createPortal } from "react-dom";
+import { DialogPosition } from "../../constants/positions";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";

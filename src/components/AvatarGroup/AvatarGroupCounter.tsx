@@ -77,15 +77,14 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={`${counterValue} additional ${counterAriaLabelItemsName}`}
       >
-        {/* @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuButton is converted to TS*/}
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               // eslint-disable-next-line react/jsx-key
               <AvatarMenuItem
                 menuItemProps={{
-                  key: avatar.props?.id || index,
-                  title: avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel,
+                  key: avatar.props?.id || String(index),
+                  title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.ariaLabel,
                   onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
                 }}
                 avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: -1 }}
