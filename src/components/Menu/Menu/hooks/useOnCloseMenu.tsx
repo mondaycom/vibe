@@ -11,10 +11,10 @@ export default function useOnCloseMenu({
   onClose: (option: CloseMenuOption) => void;
 }) {
   return useCallback(
-    (options = {}) => {
+    (option: CloseMenuOption = { propagate: false }) => {
       setActiveItemIndex(-1);
       setOpenSubMenuIndex(null);
-      onClose && onClose(options);
+      onClose && onClose(option);
     },
     [onClose, setOpenSubMenuIndex, setActiveItemIndex]
   );

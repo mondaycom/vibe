@@ -3,7 +3,7 @@ import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { CloseMenuOption } from "../MenuConstants";
 import { keyCodes } from "../../../../constants";
 
-const KEYS = ["Escape", "ArrowLeft"];
+const KEYS = [keyCodes.ESCAPE, keyCodes.LEFT_ARROW];
 
 export default function useCloseMenuOnKeyEvent({
   hasOpenSubMenu,
@@ -20,18 +20,18 @@ export default function useCloseMenuOnKeyEvent({
   isSubMenu: boolean;
   useDocumentEventListeners: boolean;
 }) {
-  const onEscapeOrLeftArrowClick = useCallback(
+  const onEscapeOrLeftArrowKey = useCallback(
     (event: React.KeyboardEvent) => {
-      const isArrowLeftClick = event.key === "ArrowLeft";
+      const isArrowLeftClick = event.key === keyCodes.LEFT_ARROW;
 
       if (isArrowLeftClick && !isSubMenu) {
         return;
       }
 
       if (hasOpenSubMenu) return false;
-      onCloseMenu(event as CloseMenuOption);
+      onCloseMenu({ propagate: false });
       if (onClose) {
-        onClose(event as CloseMenuOption, isArrowLeftClick ? keyCodes.LEFT_ARROW : keyCodes.ESCAPE);
+        onClose({ propagate: false }, isArrowLeftClick ? keyCodes.LEFT_ARROW : keyCodes.ESCAPE);
         event.preventDefault();
         event.stopPropagation();
       }
@@ -41,7 +41,7 @@ export default function useCloseMenuOnKeyEvent({
 
   useKeyEvent({
     keys: KEYS,
-    callback: onEscapeOrLeftArrowClick,
+    callback: onEscapeOrLeftArrowKey,
     ref: useDocumentEventListeners ? undefined : ref
   });
 }
