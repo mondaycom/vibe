@@ -1,9 +1,3 @@
-export enum JustifyType {
-  START = "start",
-  CENTER = "center",
-  END = "end"
-}
-
 export enum HideShowEvent {
   CLICK = "click",
   CLICK_OUTSIDE = "clickoutside",
@@ -17,13 +11,3 @@ export enum HideShowEvent {
   BLUR = "blur",
   CONTENT_CLICK = "onContentClick"
 }
-
-export enum AnimationType {
-  OPACITY_AND_SLIDE = "opacity-and-slide",
-  EXPAND = "expand"
-}
-
-export type DialogOffset = {
-  main?: number;
-  secondary?: number;
-};

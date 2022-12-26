@@ -64,6 +64,8 @@ const publishedTSComponents = {
   VirtualizedList: "components/VirtualizedList/VirtualizedList",
   VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar",
+  Dialog: "components/Dialog/Dialog.tsx",
+  MenuButton: "components/MenuButton/MenuButton.tsx",
   Flex: "components/Flex/Flex",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle",
   MenuItem: "components/Menu/MenuItem/MenuItem",

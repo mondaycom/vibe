@@ -1,20 +1,39 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { cloneElement, useRef, useCallback } from "react";
+import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import useOnClickOutside from "../../../hooks/useClickOutside";
-import { chainFunctions } from "../../../utils/function-utils";
-import "./DialogContent.scss";
+import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { HIDE_SHOW_EVENTS } from "../consts/dialog-show-hide-event";
+import { HideShowEvent } from "../consts/dialog-show-hide-event";
+import { VibeComponent, VibeComponentProps } from "../../../types";
+import { ESCAPE_KEYS } from "../../../constants";
+import * as PopperJS from "@popperjs/core";
+import "./DialogContent.scss";
 
-const transitionOptions = {};
-const NOOP = () => {};
+const transitionOptions: { classNames?: string } = {};
 const EMPTY_OBJECT = {};
 
-const KEYS = ["Esc", "Escape"];
+export interface DialogContentProps extends VibeComponentProps {
+  children?: ReactElement | ReactElement[];
+  position?: PopperJS.Placement;
+  wrapperClassName?: string;
+  isOpen?: boolean;
+  startingEdge?: any;
+  animationType?: string;
+  onEsc?: (event: React.KeyboardEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
+  onClickOutside?: (event: React.MouseEvent, hideShowEvent: HideShowEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
+  showDelay?: number;
+  styleObject?: CSSProperties;
+  isReferenceHidden?: boolean;
+  hasTooltip?: boolean;
+  disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
+}
 
-export const DialogContent = React.forwardRef(
+export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
   (
     {
       onEsc = NOOP,
@@ -37,14 +56,14 @@ export const DialogContent = React.forwardRef(
   ) => {
     const ref = useRef(null);
     const onOutSideClick = useCallback(
-      event => {
+      (event: React.MouseEvent) => {
         if (isOpen) {
-          return onClickOutside(event, HIDE_SHOW_EVENTS.CLICK_OUTSIDE);
+          return onClickOutside(event, HideShowEvent.CLICK_OUTSIDE);
         }
       },
       [isOpen, onClickOutside]
     );
-    useKeyEvent({ keys: KEYS, callback: onEsc });
+    useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     if (animationType) {
@@ -66,7 +85,7 @@ export const DialogContent = React.forwardRef(
             })}
             ref={ref}
           >
-            {React.Children.toArray(children).map(child => {
+            {React.Children.toArray(children).map((child: ReactElement) => {
               return cloneElement(child, {
                 onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
                 onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])

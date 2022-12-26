@@ -13,6 +13,8 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition
 } from "./SplitButtonConstants";
+import { AnimationType } from "../../constants";
+import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -158,13 +160,16 @@ const SplitButton: FC<SplitButtonProps> & {
         },
         className
       ),
-    [className, kind, color, isActive, isDialogOpen, isHovered, disabled]
+    [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(() => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
+  const dialogShowTrigger = useMemo(
+    () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
+    [disabled]
+  );
 
   const dialogHideTrigger = useMemo(() => {
-    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
+    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
@@ -218,7 +223,7 @@ const SplitButton: FC<SplitButtonProps> & {
             content={actionsContent}
             position={secondaryDialogPosition}
             startingEdge={animationEdgePosition}
-            animationType="expand"
+            animationType={AnimationType.EXPAND}
             moveBy={DIALOG_MOVE_BY}
             onDialogDidShow={showDialog}
             onDialogDidHide={hideDialog}
