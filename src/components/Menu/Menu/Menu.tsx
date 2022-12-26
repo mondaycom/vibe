@@ -113,7 +113,7 @@ const Menu: VibeComponent<MenuProps> & {
       onClose
     });
 
-    useClickOutside({ ref, callback: onCloseMenu });
+    useClickOutside({ ref, callback: () => onCloseMenu() });
     useCloseMenuOnKeyEvent({ hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners });
 
     const { getNextSelectableIndex, getPreviousSelectableIndex } = useAdjacentSelectableMenuIndex({
@@ -154,8 +154,8 @@ const Menu: VibeComponent<MenuProps> & {
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const { focusWithinProps } = useFocusWithin({
-      onBlurWithin: e => {
-        onCloseMenu && onCloseMenu(e);
+      onBlurWithin: () => {
+        onCloseMenu && onCloseMenu();
       }
     });
 
