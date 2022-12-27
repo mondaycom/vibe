@@ -67,11 +67,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   role="menuitem"
   tabIndex={-1}
 >
-  <div
-    className="monday-style-menu-item__title"
-  >
-    
-  </div>
+  
   
   <div
     className="monday-style-menu-item__popover"
@@ -96,11 +92,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   role="menuitem"
   tabIndex={-1}
 >
-  <div
-    className="monday-style-menu-item__title"
-  >
-    
-  </div>
+  
   
   <div
     className="monday-style-menu-item__popover"

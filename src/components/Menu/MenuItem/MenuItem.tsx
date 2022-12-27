@@ -290,16 +290,17 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
-        {renderMenuItemIconIfNeeded()}
-
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
-          <div ref={titleRef} className="monday-style-menu-item__title">
-            {title}
-          </div>
+          {renderMenuItemIconIfNeeded()}
+          {title && (
+            <div ref={titleRef} className="monday-style-menu-item__title">
+              {title}
+            </div>
+          )}
         </Tooltip>
         {label && (
           <div ref={titleRef} className="monday-style-menu-item__label">
