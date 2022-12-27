@@ -46,6 +46,11 @@ export interface SplitButtonProps extends ButtonProps {
     Popover Container padding size
    */
   dialogPaddingSize?: typeof DialogContentContainer.sizes[keyof typeof DialogContentContainer.sizes];
+  /**
+   * the container selector in which to append the dialog
+   * for examples: "body" , ".my-class", "#my-id"
+   */
+  dialogContainerSelector?: string;
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
@@ -65,6 +70,7 @@ const SplitButton: FC<SplitButtonProps> & {
   zIndex = null,
   secondaryDialogClassName,
   secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
+  dialogContainerSelector,
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   disabled,
   success,
@@ -222,6 +228,7 @@ const SplitButton: FC<SplitButtonProps> & {
             zIndex={zIndex}
             content={actionsContent}
             position={secondaryDialogPosition}
+            containerSelector={dialogContainerSelector}
             startingEdge={animationEdgePosition}
             animationType={AnimationType.EXPAND}
             moveBy={DIALOG_MOVE_BY}
