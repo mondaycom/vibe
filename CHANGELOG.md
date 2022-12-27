@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.80.1 (2022-12-27)
+
+#### Bug Fixes
+* [#1047](https://github.com/mondaycom/monday-ui-react-core/pull/1047) Increase Tipseen styles specificity to override Tooltip styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.80.0 (2022-12-27)
 
 #### New Features
