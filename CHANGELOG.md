@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.80.0 (2022-12-27)
+
+#### New Features
+* [#1045](https://github.com/mondaycom/monday-ui-react-core/pull/1045) Feature/sergeyro/more of dialog container selectors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1013](https://github.com/mondaycom/monday-ui-react-core/pull/1013) Feature/sergeyro/ts migration menu ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#995](https://github.com/mondaycom/monday-ui-react-core/pull/995) Dialog, DialogContent, MenuButton: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.79.2 (2022-12-25)
 
 #### Bug Fixes
