@@ -271,64 +271,62 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     }, [disableReason, disabled, title, tooltipContent]);
 
     return (
-      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-      <li
-        id={`${menuId}-${index}`}
-        key={key}
-        {...a11yProps}
-        className={cx("monday-style-menu-item", overrideClassName, {
-          "monday-style-menu-item--disabled": disabled,
-          "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected,
-          "monday-style-menu-item-initial-selected": isInitialSelectedState
-        })}
-        ref={mergedRef}
-        onClick={onClickCallback}
-        role="menuitem"
-        aria-current={isActive}
-        onMouseLeave={onMouseLeave}
-        onMouseEnter={onMouseEnter}
-        tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
+      <Tooltip
+        content={shouldShowTooltip ? finalTooltipContent : null}
+        position={tooltipPosition}
+        showDelay={tooltipShowDelay}
       >
-        <Tooltip
-          content={shouldShowTooltip ? finalTooltipContent : null}
-          position={tooltipPosition}
-          showDelay={tooltipShowDelay}
+        {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
+        <li
+          id={`${menuId}-${index}`}
+          key={key}
+          {...a11yProps}
+          className={cx("monday-style-menu-item", overrideClassName, {
+            "monday-style-menu-item--disabled": disabled,
+            "monday-style-menu-item--focused": isActive,
+            "monday-style-menu-item--selected": selected,
+            "monday-style-menu-item-initial-selected": isInitialSelectedState
+          })}
+          ref={mergedRef}
+          onClick={onClickCallback}
+          role="menuitem"
+          aria-current={isActive}
+          onMouseLeave={onMouseLeave}
+          onMouseEnter={onMouseEnter}
+          tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
         >
           {renderMenuItemIconIfNeeded()}
-          {title && (
-            <div ref={titleRef} className="monday-style-menu-item__title">
-              {title}
+          <div ref={titleRef} className="monday-style-menu-item__title">
+            {title}
+          </div>
+          {label && (
+            <div ref={titleRef} className="monday-style-menu-item__label">
+              {label}
             </div>
           )}
-        </Tooltip>
-        {label && (
-          <div ref={titleRef} className="monday-style-menu-item__label">
-            {label}
+          {renderSubMenuIconIfNeeded()}
+          <div
+            style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...attributes.popper}
+            className="monday-style-menu-item__popover"
+            ref={popperElementRef}
+          >
+            {menuChild && shouldShowSubMenu && (
+              <DialogContentContainer>
+                {React.cloneElement(menuChild, {
+                  ...menuChild?.props,
+                  isVisible: shouldShowSubMenu,
+                  isSubMenu: true,
+                  onClose: closeSubMenu,
+                  ref: childRef,
+                  useDocumentEventListeners
+                })}
+              </DialogContentContainer>
+            )}
           </div>
-        )}
-        {renderSubMenuIconIfNeeded()}
-        <div
-          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          className="monday-style-menu-item__popover"
-          ref={popperElementRef}
-        >
-          {menuChild && shouldShowSubMenu && (
-            <DialogContentContainer>
-              {React.cloneElement(menuChild, {
-                ...menuChild?.props,
-                isVisible: shouldShowSubMenu,
-                isSubMenu: true,
-                onClose: closeSubMenu,
-                ref: childRef,
-                useDocumentEventListeners
-              })}
-            </DialogContentContainer>
-          )}
-        </div>
-      </li>
+        </li>
+      </Tooltip>
     );
   }
 );
