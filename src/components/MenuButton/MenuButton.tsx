@@ -58,6 +58,11 @@ interface MenuButtonProps extends VibeComponentProps {
   dialogShowTriggerIgnoreClass?: string;
   dialogHideTriggerIgnoreClass?: string;
   /**
+   * the container selector in which to append the dialog
+   * for examples: "body" , ".my-class", "#my-id"
+   */
+  dialogContainerSelector?: string;
+  /**
    * Dialog Alignment
    */
   startingEdge?: string;
@@ -149,7 +154,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       startingEdge = "bottom",
       removeTabCloseTrigger = false,
       tooltipReferenceClassName,
-      hideWhenReferenceHidden = false
+      hideWhenReferenceHidden = false,
+      dialogContainerSelector
     },
     ref
   ) => {
@@ -284,6 +290,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         <Dialog
           wrapperClassName={dialogClassName}
           position={dialogPosition}
+          containerSelector={dialogContainerSelector}
           startingEdge={startingEdge}
           animationType={AnimationType.EXPAND}
           content={content}
