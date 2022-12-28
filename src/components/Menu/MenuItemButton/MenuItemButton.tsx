@@ -6,7 +6,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPosition } from "../../../constants/positions";
+import { DialogPosition, DialogPositions } from "../../../constants/positions";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import { ElementContent } from "../../../types/ElementContent";
@@ -24,7 +24,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
   disabled?: boolean;
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  tooltipPosition?: typeof MenuItemButton.tooltipPositions[keyof typeof MenuItemButton.tooltipPositions];
+  tooltipPosition?: DialogPosition;
   tooltipShowDelay?: number;
   resetOpenSubMenuIndex?: () => void;
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
@@ -37,7 +37,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
 
 const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
-  tooltipPositions?: typeof DialogPosition;
+  tooltipPositions?: typeof DialogPositions;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = ({
@@ -130,7 +130,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
 
 Object.assign(MenuItemButton, {
   kinds: Button.kinds,
-  tooltipPositions: DialogPosition,
+  tooltipPositions: DialogPositions,
   isSelectable: true,
   isMenuChild: true
 });

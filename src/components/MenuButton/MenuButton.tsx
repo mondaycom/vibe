@@ -9,7 +9,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
-import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
+import { AnimationType, DialogOffset, DialogPosition, DialogPositions } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
@@ -54,7 +54,7 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   dialogOffset?: DialogOffset;
   dialogPaddingSize?: DialogSize;
-  dialogPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  dialogPosition?: DialogPosition;
   dialogShowTriggerIgnoreClass?: string;
   dialogHideTriggerIgnoreClass?: string;
   /**
@@ -93,7 +93,7 @@ interface MenuButtonProps extends VibeComponentProps {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  tooltipPosition?: DialogPosition;
   /**
    * Tooltip Element Wrapper ClassName
    */
@@ -116,7 +116,7 @@ interface MenuButtonProps extends VibeComponentProps {
 const MenuButton: VibeComponent<MenuButtonProps> & {
   sizes?: MenuButtonSize;
   paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPosition;
+  dialogPositions?: typeof DialogPositions;
   hideTriggers?: typeof Dialog.hideShowTriggers;
   componentPositions?: typeof MenuButtonComponentPosition;
 } = forwardRef(
@@ -137,7 +137,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       ariaLabel = "Menu",
       closeDialogOnContentClick = false,
       dialogOffset = MOVE_BY,
-      dialogPosition = DialogPosition.BOTTOM_START,
+      dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
       dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
       dialogShowTriggerIgnoreClass,
@@ -336,7 +336,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 Object.assign(MenuButton, {
   sizes: MenuButtonSize,
   paddingSizes: DialogContentContainer.sizes,
-  dialogPositions: DialogPosition,
+  dialogPositions: Dialog.positions,
   hideTriggers: Dialog.hideShowTriggers,
   componentPositions: MenuButtonComponentPosition
 });

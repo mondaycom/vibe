@@ -9,7 +9,7 @@ import React, {
   useMemo,
   useRef
 } from "react";
-import { DialogPosition } from "../../../constants/positions";
+import { DialogPositions } from "../../../constants/positions";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";
@@ -64,7 +64,7 @@ export interface MenuItemProps extends VibeComponentProps {
 
 const MenuItem: VibeComponent<MenuItemProps> & {
   iconType?: typeof Icon.type;
-  tooltipPositions?: typeof DialogPosition;
+  tooltipPositions?: typeof DialogPositions;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = forwardRef(
@@ -334,7 +334,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
 Object.assign(MenuItem, {
   iconType: Icon.type,
-  tooltipPositions: DialogPosition,
+  tooltipPositions: DialogPositions,
   isSelectable: true,
   isMenuChild: true
 });

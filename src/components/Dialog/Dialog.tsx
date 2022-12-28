@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { PureComponent, ReactElement } from "react";
 import { createPortal } from "react-dom";
-import { DialogPosition } from "../../constants/positions";
+import { DialogPosition, DialogPositions } from "../../constants/positions";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
@@ -23,7 +23,7 @@ export interface DialogProps extends VibeComponentProps {
    * Where the dialog should be in reference to the children,
    * Top, Left, Right, Bottom ...
    */
-  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  position?: DialogPosition;
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
@@ -144,7 +144,7 @@ export type DialogEvent = React.MouseEvent | React.KeyboardEvent | KeyboardEvent
 
 export default class Dialog extends PureComponent<DialogProps, DialogState> {
   static hideShowTriggers = HideShowEvent;
-  static positions = DialogPosition;
+  static positions = DialogPositions;
   static animationTypes = AnimationType;
   static defaultProps = {
     position: "top",

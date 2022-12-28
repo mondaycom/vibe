@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
@@ -6,7 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { BASE_SIZES, SIZES, DialogPosition } from "../../constants";
+import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
 import "./ButtonGroup.scss";
@@ -39,7 +39,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  tooltipPosition?: DialogPosition;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;

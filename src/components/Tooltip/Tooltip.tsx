@@ -4,7 +4,14 @@ import classnames from "classnames";
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
+import {
+  AnimationType,
+  BASE_SIZES_WITH_NONE,
+  DialogPosition,
+  DialogPositions,
+  HideShowEvent,
+  JustifyType
+} from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
@@ -62,7 +69,7 @@ export interface TooltipProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  position?: DialogPosition;
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
@@ -90,7 +97,7 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static positions = DialogPosition;
+  static positions = DialogPositions;
   static themes = TooltipTheme;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;

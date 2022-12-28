@@ -5,7 +5,7 @@ export const BASE_POSITIONS = {
   STRETCH: "Stretch"
 };
 
-export const DialogPosition = {
+export const DialogPositions = {
   LEFT: "left",
   LEFT_START: "left-start",
   LEFT_END: "left-end",
@@ -19,3 +19,5 @@ export const DialogPosition = {
   BOTTOM_START: "bottom-start",
   BOTTOM_END: "bottom-end"
 };
+
+export type DialogPosition = typeof DialogPositions[keyof typeof DialogPositions];
