@@ -87,7 +87,6 @@ const IconButton: VibeComponent<IconButtonProps> & {
       icon,
       size,
       tooltipProps,
-      // Backward compatibility for props naming
       tooltipContent,
       ariaLabel,
       hideTooltip,
