@@ -275,6 +275,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
+    // TODO disabledReason - boolean, why?
     const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]) as string;
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 

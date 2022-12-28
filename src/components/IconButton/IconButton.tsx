@@ -2,7 +2,7 @@ import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
@@ -11,7 +11,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
-import { DialogPosition } from "../../constants";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -48,17 +48,13 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   hideTooltip?: boolean;
   /**
-   * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
+   * Props for Tooltip wrapper component
+   */
+  tooltipProps?: Partial<TooltipProps>;
+  /**
+   * Backward compatibility for props naming
    */
   tooltipContent?: string;
-  /**
-   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
-   */
-  tooltipPosition?: DialogPosition;
-  /**
-   * With which delay tooltip is going to be shown
-   */
-  tooltipImmediateShowDelay?: number;
   /**
    * Kind of button - like <Button />
    */
@@ -91,9 +87,9 @@ const IconButton: VibeComponent<IconButtonProps> & {
       id,
       icon,
       size,
+      tooltipProps,
+      // Backward compatibility for props naming
       tooltipContent,
-      tooltipPosition,
-      tooltipImmediateShowDelay,
       ariaLabel,
       hideTooltip,
       kind,
@@ -109,11 +105,13 @@ const IconButton: VibeComponent<IconButtonProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipProps?.content, tooltipContent]);
+
     const buttonAriaLabel = useMemo(() => {
       if (ariaLabel) return ariaLabel;
-      if (typeof tooltipContent === "string") return tooltipContent;
+      if (typeof overrideTooltipContent === "string") return overrideTooltipContent;
       return undefined;
-    }, [ariaLabel, tooltipContent]);
+    }, [ariaLabel, overrideTooltipContent]);
 
     const iconSize = useMemo(() => {
       switch (size) {
@@ -145,9 +143,9 @@ const IconButton: VibeComponent<IconButtonProps> & {
     const calculatedTooltipContent = useMemo(() => {
       if (hideTooltip) return null;
       if (disabled && disabledReason) return disabledReason;
-      if (tooltipContent) return tooltipContent;
+      if (overrideTooltipContent) return overrideTooltipContent as never;
       return ariaLabel;
-    }, [hideTooltip, disabled, disabledReason, tooltipContent, ariaLabel]);
+    }, [hideTooltip, disabled, disabledReason, overrideTooltipContent, ariaLabel]);
 
     const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
     const iconButtonWrapperProps = useMemo(() => {
@@ -157,9 +155,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
         <Tooltip
+          {...tooltipProps}
           content={calculatedTooltipContent}
-          position={tooltipPosition}
-          immediateShowDelay={tooltipImmediateShowDelay}
           referenceWrapperClassName={styles.referenceWrapper}
         >
           <Button
@@ -209,6 +206,7 @@ IconButton.defaultProps = {
   size: IconButton?.sizes.MEDIUM,
   hideTooltip: false,
   tooltipContent: undefined,
+  tooltipProps: {} as TooltipProps,
   kind: IconButton.kinds.TERTIARY,
   disabled: false,
   disabledReason: undefined,
