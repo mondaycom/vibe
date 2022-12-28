@@ -42,6 +42,9 @@ export interface TooltipProps extends VibeComponentProps {
    * for examples: "body" , ".my-class", "#my-id"
    */
   containerSelector?: string;
+  /**
+   * With which delay tooltip is going to be shown
+   */
   immediateShowDelay?: number;
   /**
    * when false, the arrow of the tooltip is hidden
@@ -62,7 +65,7 @@ export interface TooltipProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  position?: DialogPosition;
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers

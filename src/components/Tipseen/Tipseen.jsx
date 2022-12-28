@@ -1,4 +1,3 @@
-import { DialogPosition } from "../../constants/positions";
 import { forwardRef, Fragment, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -8,6 +7,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import { DialogPosition } from "../../constants/positions";
 import { AnimationType, JustifyType } from "../../constants/dialog";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";

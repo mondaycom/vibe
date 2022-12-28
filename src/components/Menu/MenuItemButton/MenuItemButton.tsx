@@ -24,7 +24,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
   disabled?: boolean;
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  tooltipPosition?: typeof MenuItemButton.tooltipPositions[keyof typeof MenuItemButton.tooltipPositions];
+  tooltipPosition?: DialogPosition;
   tooltipShowDelay?: number;
   resetOpenSubMenuIndex?: () => void;
   setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;

@@ -54,7 +54,7 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   dialogOffset?: DialogOffset;
   dialogPaddingSize?: DialogSize;
-  dialogPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  dialogPosition?: DialogPosition;
   dialogShowTriggerIgnoreClass?: string;
   dialogHideTriggerIgnoreClass?: string;
   /**
@@ -93,7 +93,7 @@ interface MenuButtonProps extends VibeComponentProps {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  tooltipPosition?: DialogPosition;
   /**
    * Tooltip Element Wrapper ClassName
    */
@@ -137,7 +137,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       ariaLabel = "Menu",
       closeDialogOnContentClick = false,
       dialogOffset = MOVE_BY,
-      dialogPosition = DialogPosition.BOTTOM_START,
+      dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
       dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
       dialogShowTriggerIgnoreClass,
@@ -275,6 +275,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
+    // TODO disabledReason - boolean, why?
     const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]) as string;
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
@@ -336,7 +337,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 Object.assign(MenuButton, {
   sizes: MenuButtonSize,
   paddingSizes: DialogContentContainer.sizes,
-  dialogPositions: DialogPosition,
+  dialogPositions: Dialog.positions,
   hideTriggers: Dialog.hideShowTriggers,
   componentPositions: MenuButtonComponentPosition
 });

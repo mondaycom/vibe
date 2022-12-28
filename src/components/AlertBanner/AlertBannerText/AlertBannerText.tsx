@@ -21,7 +21,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false })
 
   return (
     <Tooltip
-      position="bottom"
+      position={Tooltip.positions.BOTTOM}
       content={isOverflowing && text}
       showTrigger={TOOLTIP_SHOW_TRIGGERS}
       hideTrigger={TOOLTIP_HIDE_TRIGGERS}

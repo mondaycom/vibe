@@ -23,7 +23,7 @@ export interface DialogProps extends VibeComponentProps {
    * Where the dialog should be in reference to the children,
    * Top, Left, Right, Bottom ...
    */
-  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  position?: DialogPosition;
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
