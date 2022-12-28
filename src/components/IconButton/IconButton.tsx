@@ -2,7 +2,7 @@ import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import ToolTip from "../Tooltip/Tooltip";
+import Tooltip from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
@@ -152,7 +152,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
 
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
-        <ToolTip
+        <Tooltip
           content={calculatedTooltipContent}
           position={tooltipPosition}
           referenceWrapperClassName={styles.referenceWrapper}
@@ -181,7 +181,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
               clickable={false}
             />
           </Button>
-        </ToolTip>
+        </Tooltip>
       </IconButtonWrapper>
     );
   }
