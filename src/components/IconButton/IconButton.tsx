@@ -11,7 +11,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -48,11 +47,11 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   hideTooltip?: boolean;
   /**
-   * Props for Tooltip wrapper component
+   * Props for Tooltip component
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Backward compatibility for props naming
+   * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
    */
   tooltipContent?: string;
   /**
@@ -105,7 +104,10 @@ const IconButton: VibeComponent<IconButtonProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipProps?.content, tooltipContent]);
+    const overrideTooltipContent = useMemo(
+      () => tooltipProps?.content || tooltipContent,
+      [tooltipProps?.content, tooltipContent]
+    );
 
     const buttonAriaLabel = useMemo(() => {
       if (ariaLabel) return ariaLabel;
