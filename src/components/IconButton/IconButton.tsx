@@ -43,7 +43,6 @@ export interface IconButtonProps extends VibeComponentProps {
    * Size of the icon
    */
   size?: Size;
-
   /**
    * Whether the tooltip should be displayed or not
    */
@@ -56,6 +55,10 @@ export interface IconButtonProps extends VibeComponentProps {
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
   tooltipPosition?: DialogPosition;
+  /**
+   * With which delay tooltip is going to be shown
+   */
+  tooltipImmediateShowDelay?: number;
   /**
    * Kind of button - like <Button />
    */
@@ -90,6 +93,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       size,
       tooltipContent,
       tooltipPosition,
+      tooltipImmediateShowDelay,
       ariaLabel,
       hideTooltip,
       kind,
@@ -155,6 +159,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
         <Tooltip
           content={calculatedTooltipContent}
           position={tooltipPosition}
+          immediateShowDelay={tooltipImmediateShowDelay}
           referenceWrapperClassName={styles.referenceWrapper}
         >
           <Button

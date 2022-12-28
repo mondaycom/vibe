@@ -49,6 +49,9 @@ export interface TooltipProps extends VibeComponentProps {
    * for examples: "body" , ".my-class", "#my-id"
    */
   containerSelector?: string;
+  /**
+   * With which delay tooltip is going to be shown
+   */
   immediateShowDelay?: number;
   /**
    * when false, the arrow of the tooltip is hidden
