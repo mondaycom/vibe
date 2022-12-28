@@ -9,7 +9,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
-import { AnimationType, DialogOffset, DialogPosition, DialogPositions } from "../../constants";
+import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
@@ -116,7 +116,7 @@ interface MenuButtonProps extends VibeComponentProps {
 const MenuButton: VibeComponent<MenuButtonProps> & {
   sizes?: MenuButtonSize;
   paddingSizes?: typeof DialogContentContainer.sizes;
-  dialogPositions?: typeof DialogPositions;
+  dialogPositions?: typeof DialogPosition;
   hideTriggers?: typeof Dialog.hideShowTriggers;
   componentPositions?: typeof MenuButtonComponentPosition;
 } = forwardRef(

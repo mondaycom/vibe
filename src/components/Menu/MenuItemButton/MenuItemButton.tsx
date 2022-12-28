@@ -6,7 +6,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPosition, DialogPositions } from "../../../constants/positions";
+import { DialogPosition } from "../../../constants/positions";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import { ElementContent } from "../../../types/ElementContent";
@@ -37,7 +37,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
 
 const MenuItemButton: FC<MenuItemButtonProps> & {
   kinds?: typeof Button.kinds;
-  tooltipPositions?: typeof DialogPositions;
+  tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
   isMenuChild?: boolean;
 } = ({
@@ -130,7 +130,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
 
 Object.assign(MenuItemButton, {
   kinds: Button.kinds,
-  tooltipPositions: DialogPositions,
+  tooltipPositions: DialogPosition,
   isSelectable: true,
   isMenuChild: true
 });

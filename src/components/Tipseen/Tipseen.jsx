@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { DialogPositions } from "../../constants/positions";
+import { DialogPosition } from "../../constants/positions";
 import { AnimationType, JustifyType } from "../../constants/dialog";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
@@ -108,10 +108,10 @@ const Tipseen = forwardRef(
 );
 
 Tipseen.positions = {
-  LEFT: DialogPositions.LEFT,
-  RIGHT: DialogPositions.RIGHT,
-  TOP: DialogPositions.TOP,
-  BOTTOM: DialogPositions.BOTTOM
+  LEFT: DialogPosition.LEFT,
+  RIGHT: DialogPosition.RIGHT,
+  TOP: DialogPosition.TOP,
+  BOTTOM: DialogPosition.BOTTOM
 };
 Tipseen.animationTypes = AnimationType;
 Tipseen.justifyTypes = JustifyType;

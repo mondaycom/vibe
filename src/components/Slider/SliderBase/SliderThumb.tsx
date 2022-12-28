@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef } from "react";
-import { DialogPositions } from "../../../constants/positions";
+import { DialogPosition } from "../../../constants/positions";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
@@ -7,7 +7,7 @@ import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 
-const tooltipPosition = DialogPositions.TOP;
+const tooltipPosition = DialogPosition.TOP;
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**

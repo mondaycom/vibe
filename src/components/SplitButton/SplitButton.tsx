@@ -13,7 +13,7 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition
 } from "./SplitButtonConstants";
-import { AnimationType } from "../../constants";
+import { AnimationType, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
@@ -41,7 +41,7 @@ export interface SplitButtonProps extends ButtonProps {
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
-  secondaryDialogPosition?: SplitButtonSecondaryContentPosition;
+  secondaryDialogPosition?: DialogPosition;
   /*
     Popover Container padding size
    */
@@ -227,7 +227,7 @@ const SplitButton: FC<SplitButtonProps> & {
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
             content={actionsContent}
-            position={secondaryDialogPosition}
+            position={secondaryDialogPosition as DialogPosition}
             containerSelector={dialogContainerSelector}
             startingEdge={animationEdgePosition}
             animationType={AnimationType.EXPAND}
@@ -282,7 +282,7 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
+  secondaryDialogPosition: DialogPosition.BOTTOM_START,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 

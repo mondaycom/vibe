@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { PureComponent, ReactElement } from "react";
 import { createPortal } from "react-dom";
-import { DialogPosition, DialogPositions } from "../../constants/positions";
+import { DialogPosition } from "../../constants/positions";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
@@ -144,7 +144,7 @@ export type DialogEvent = React.MouseEvent | React.KeyboardEvent | KeyboardEvent
 
 export default class Dialog extends PureComponent<DialogProps, DialogState> {
   static hideShowTriggers = HideShowEvent;
-  static positions = DialogPositions;
+  static positions = DialogPosition;
   static animationTypes = AnimationType;
   static defaultProps = {
     position: "top",
