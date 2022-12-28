@@ -1,4 +1,3 @@
-import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -11,6 +10,8 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { DialogPosition } from "../../constants";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -52,6 +53,10 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   tooltipContent?: string;
   /**
+   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   */
+  tooltipPosition?: DialogPosition;
+  /**
    * Kind of button - like <Button />
    */
   kind?: ButtonType;
@@ -84,6 +89,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       icon,
       size,
       tooltipContent,
+      tooltipPosition,
       ariaLabel,
       hideTooltip,
       kind,
@@ -146,7 +152,11 @@ const IconButton: VibeComponent<IconButtonProps> & {
 
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
-        <ToolTip content={calculatedTooltipContent} referenceWrapperClassName={styles.referenceWrapper}>
+        <ToolTip
+          content={calculatedTooltipContent}
+          position={tooltipPosition}
+          referenceWrapperClassName={styles.referenceWrapper}
+        >
           <Button
             onClick={onClick}
             disabled={disabled}
