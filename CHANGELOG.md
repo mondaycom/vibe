@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.81.0 (2022-12-28)
+
+#### New Features
+* [#1048](https://github.com/mondaycom/monday-ui-react-core/pull/1048) Feature/sergeyro/icon button tooltipProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.80.1 (2022-12-27)
 
 #### Bug Fixes
