@@ -1,8 +1,8 @@
 import React, { FC, forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabPanel.module.scss";
 
 export interface TabPanelProps extends VibeComponentProps {
@@ -21,7 +21,7 @@ const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index
       className={cx(styles.tabPanelWrapper, "tab-panel--wrapper", className)}
       id={id}
       role="tabpanel"
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_PANEL, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
     >
       {children}
     </div>

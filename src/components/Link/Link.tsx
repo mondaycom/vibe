@@ -1,4 +1,3 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -6,6 +5,7 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
@@ -93,7 +93,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINK, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINK, id)}
       >
         {getIcon(isStart, icon, cx(styles.iconStart, "monday-style-link--icon-start"))}
         <span className={cx(styles.linkText, "monday-style-link--text")}>{text}</span>

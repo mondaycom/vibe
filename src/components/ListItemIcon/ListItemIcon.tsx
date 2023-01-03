@@ -3,8 +3,8 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { ListItemIconMargin } from "./ListItemIconConstants";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { SubIcon, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
@@ -26,7 +26,7 @@ const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
         className={cx(styles.listItemIcon, "list-item-icon", className, styles[margin], `list-item-icon--${margin}`)}
         aria-hidden="true"
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM_ICON, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM_ICON, id)}
       >
         <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={18} />
       </div>

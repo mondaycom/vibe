@@ -4,8 +4,8 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "src/types/VibeComponent";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
@@ -42,7 +42,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
     return (
       <div
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG_CONTENT_CONTAINER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)}
         role="dialog"
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}

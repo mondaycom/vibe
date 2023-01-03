@@ -1,5 +1,4 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { useMemo } from "react";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -13,6 +12,7 @@ import Heading from "../Heading/Heading";
 import Flex from "../Flex/Flex";
 import IconButton from "../IconButton/IconButton";
 import { CloseSmall } from "../Icon/Icons";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./AttentionBox.module.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
@@ -81,7 +81,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         overrideClassName
       )}
       role="alert"
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.ATTENTION_BOX, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
       id={id}
     >
       <Flex

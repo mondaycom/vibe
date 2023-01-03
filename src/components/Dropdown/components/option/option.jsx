@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import { components } from "react-select";
@@ -15,7 +15,7 @@ const Option = ({ Renderer, data, children, id, "data-testid": dataTestId, ...pr
         <components.Option
           {...props}
           className={cx(styles.dropdownWrapperOptionReset, "dropdown-wrapper__option--reset")}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.DROPDOWN_OPTION, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN_OPTION, id)}
         >
           <Renderer {...data} />
         </components.Option>

@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useRef, useState } from "react";
@@ -305,7 +305,7 @@ const Dropdown = ({
       aria-details={tooltipContent}
       {...asyncAdditions}
       {...additions}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.DROPDOWN, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
     />
   );
 };

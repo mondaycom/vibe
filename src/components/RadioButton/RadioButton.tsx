@@ -3,10 +3,10 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-radio-button-component";
@@ -94,7 +94,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               onChange={onSelect}
               ref={mergedRef}
               id={id}
-              data-testid={dataTestId || getTestId(ELEMENT_TYPES.RADIO_BUTTON, id)}
+              data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
             />
             <span
               className={cx(

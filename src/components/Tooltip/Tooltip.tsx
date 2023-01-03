@@ -5,13 +5,13 @@ import React, { CSSProperties, isValidElement, PureComponent, ReactElement } fro
 import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { getTestId } from "../../utils/test-utils";
 import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ElementContent } from "../../types/ElementContent";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS

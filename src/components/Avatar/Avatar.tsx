@@ -1,6 +1,5 @@
 import camelCase from "lodash/camelCase";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
@@ -13,6 +12,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
 import { SubIcon, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Avatar.module.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -185,7 +185,7 @@ const Avatar: React.FC<AvatarProps> & {
       id={id}
       className={cx(styles.avatar, AVATAR_CSS_BASE_CLASS, className, styles[size], `monday-style-avatar--${size}`)}
       style={sizeStyle}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR, id)}
     >
       <ClickableWrapper
         isClickable={!!onClick}

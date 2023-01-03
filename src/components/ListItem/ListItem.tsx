@@ -5,9 +5,9 @@ import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/KeyCodes";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ListItem.module.scss";
 
 const CSS_BASE_CLASS = "list-item";
@@ -129,7 +129,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         onFocus={componentOnHover}
         role="listitem"
         tabIndex={tabIndex}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
       >
         {children}
       </div>

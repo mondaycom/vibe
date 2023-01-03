@@ -2,8 +2,8 @@ import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef, us
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export interface TabsContextProps extends VibeComponentProps {
   activeTabId?: number;
@@ -40,7 +40,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         ref={mergedRef}
         className={cx("tabs-context--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TABS_CONTEXT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABS_CONTEXT, id)}
       >
         {React.Children.map(children, child => {
           // @ts-ignore

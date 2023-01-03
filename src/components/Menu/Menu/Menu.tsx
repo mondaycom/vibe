@@ -21,11 +21,10 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { getTestId } from "../../../utils/test-utils";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Menu.module.scss";
 
 interface MenuProps extends VibeComponentProps {

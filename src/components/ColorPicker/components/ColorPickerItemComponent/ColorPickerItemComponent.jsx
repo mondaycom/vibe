@@ -1,4 +1,4 @@
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
@@ -60,7 +60,7 @@ const ColorPickerItemComponent = ({
   return (
     <Tooltip
       content={tooltipContent}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM_COMPONENT, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM_COMPONENT, id)}
     >
       <li
         className={cx(styles.itemWrapper, "monday-style-color-item-wrapper", {

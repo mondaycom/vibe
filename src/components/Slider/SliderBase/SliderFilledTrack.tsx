@@ -1,7 +1,7 @@
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import React, { FC } from "react";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./SliderFilledTrack.module.scss";
 
 function defineFilledTrackProps(dimension: number, offset: number, reverse: boolean) {
@@ -51,7 +51,7 @@ const SliderFilledTrack: FC<SliderFilledTrackProps> = ({
       className={cx(styles.sliderFilledTrack, "monday-slider__filled-track", className)}
       style={filledTrackStyle}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER_FILLED_TRACK, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SLIDER_FILLED_TRACK, id)}
     />
   );
 };

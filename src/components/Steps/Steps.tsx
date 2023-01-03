@@ -3,11 +3,11 @@ import React, { forwardRef, ReactElement, useRef } from "react";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { StepsType } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
 import VibeComponent from "../../types/VibeComponent";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Steps.module.scss";
 
 const STEPS_CSS_BASE_CLASS = "monday-style-steps";
@@ -64,7 +64,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           ["monday-style-steps--content-on-bottom"]: !isContentOnTop
         })}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS, id)}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader

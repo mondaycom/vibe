@@ -2,9 +2,9 @@ import cx from "classnames";
 import React, { forwardRef, useMemo } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./FormattedNumber.module.scss";
 
 const CSS_BASE_CLASS = "formatted-number-component";
@@ -91,7 +91,7 @@ const FormattedNumber: FormattedNumberType = forwardRef(
         <span
           className={`${CSS_BASE_CLASS}__place-holder`}
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.FORMATTED_NUMBER, id)}
         >
           {emptyPlaceHolder}
         </span>
@@ -103,7 +103,7 @@ const FormattedNumber: FormattedNumberType = forwardRef(
         ref={ref}
         className={cx(className, styles.formattedNumber, CSS_BASE_CLASS)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.FORMATTED_NUMBER, id)}
       >
         {rtl ? renderSuffix : renderPrefix}
         <span className={`${CSS_BASE_CLASS}__number`}>{calculatedValue}</span>

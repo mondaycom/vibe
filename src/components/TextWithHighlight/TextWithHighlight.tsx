@@ -1,4 +1,3 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
@@ -6,6 +5,7 @@ import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { DialogPosition } from "../../constants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./TextWithHighlight.module.scss";
 
 const getTextPart = (
@@ -110,7 +110,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
           ["with-ellipsis"]: useEllipsis
         })}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_WITH_HIGHLIGHT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_WITH_HIGHLIGHT, id)}
       >
         {textWithHighlights}
       </div>

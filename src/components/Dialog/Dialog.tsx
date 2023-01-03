@@ -8,11 +8,11 @@ import isFunction from "lodash/isFunction";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { AnimationType, HideShowEvent } from "../../constants/dialog";
 import { Refable } from "../Refable/Refable";
 import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Dialog.module.scss";
 
 export interface DialogProps extends VibeComponentProps {
@@ -462,7 +462,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
               <Refable
                 className={referenceWrapperClassName}
                 id={id}
-                data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG, id)}
+                data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIALOG, id)}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}

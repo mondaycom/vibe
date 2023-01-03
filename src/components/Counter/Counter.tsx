@@ -1,5 +1,4 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
@@ -10,6 +9,7 @@ import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
@@ -125,7 +125,7 @@ const Counter: React.FC<CounterProps> & {
 
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
   const counter = (
-    <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COUNTER, id)}>
+    <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
       {prefix + countText}
     </span>
   );
@@ -156,7 +156,7 @@ const Counter: React.FC<CounterProps> & {
                 node.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COUNTER, id)}>
+              <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
                 {prefix + countText}
               </span>
             </CSSTransition>

@@ -19,10 +19,10 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
 
 type ItemType = {
@@ -276,7 +276,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
         ref={mergedRef}
         className={cx(styles.virtualizedGridWrapper, "virtualized-grid--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.VIRTUALIZED_GRID, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_GRID, id)}
       >
         <AutoSizer>
           {({ height, width }) => {

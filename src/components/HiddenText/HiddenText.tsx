@@ -1,8 +1,8 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";
 
 interface HiddenTextProps extends VibeComponentProps {
@@ -18,7 +18,7 @@ const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(
       <span
         ref={mergedRef}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.HIDDEN_TEXT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.HIDDEN_TEXT, id)}
         className={cx(styles.wrapper, "hidden-text--wrapper", className)}
       >
         {text}

@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ListTitle.module.scss";
 
 export interface ListTitleProps extends VibeComponentProps {
@@ -23,7 +23,7 @@ const ListTitle: React.FC<ListTitleProps> = forwardRef(
         ref={mergedRef}
         className={cx(styles.listTitle, "list-title", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_TITLE, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_TITLE, id)}
       >
         {children}
       </div>

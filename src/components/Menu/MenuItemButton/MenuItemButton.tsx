@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, useRef } from "react";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
@@ -11,6 +10,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { DialogPosition } from "../../../constants/positions";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import { ElementContent } from "../../../types/ElementContent";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./MenuItemButton.module.scss";
 
 interface MenuItemButtonProps extends VibeComponentProps {
@@ -109,7 +109,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
     >
       <li
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM_BUTTON, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
         className={cx(styles.itemButton, "monday-style-menu-item-button", overrideClassName)}
         ref={mergedRef}
         role="menuitem"

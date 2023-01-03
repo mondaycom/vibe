@@ -2,9 +2,9 @@
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
 import cx from "classnames";
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 import { IconSubComponentProps } from "../../../Icon/Icon";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./BreadcrumbContent.module.scss";
 
 interface BreadcrumbContentProps extends VibeComponentProps {
@@ -64,7 +64,7 @@ export const BreadcrumbContent: VibeComponent<BreadcrumbContentProps> = forwardR
             onKeyDown={onKeyDown}
             aria-current={isCurrent ? "page" : undefined}
             id={id}
-            data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMB_CONTENT, id)}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_CONTENT, id)}
           >
             {Icon && <Icon {...iconProps} />}
             <span ref={ref} className={cx(styles.breadcrumbText, "breadcrumb-text")}>
@@ -82,7 +82,7 @@ export const BreadcrumbContent: VibeComponent<BreadcrumbContentProps> = forwardR
           aria-current={isCurrent ? "page" : undefined}
           role="button"
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMB_CONTENT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_CONTENT, id)}
         >
           {Icon && <Icon {...iconProps} />}
           <span ref={ref} className={cx(styles.breadcrumbText, "breadcrumb-text")}>
@@ -98,7 +98,7 @@ export const BreadcrumbContent: VibeComponent<BreadcrumbContentProps> = forwardR
         tabIndex={tabIndex}
         aria-current={isCurrent ? "page" : undefined}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMB_CONTENT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_CONTENT, id)}
       >
         {Icon && <Icon {...iconProps} />}
         <span ref={ref} className={cx(styles.breadcrumbText, "breadcrumb-text")}>

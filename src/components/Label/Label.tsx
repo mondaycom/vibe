@@ -1,11 +1,11 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Label.module.scss";
 
 const LABEL_TYPES = {
@@ -63,7 +63,7 @@ const Label = ({
     [kind, color, isAnimationDisabled, isLegIncluded]
   );
   return (
-    <span className={overrideClassName} data-testid={dataTestId || getTestId(ELEMENT_TYPES.LABEL, id)}>
+    <span className={overrideClassName} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
       <div className={classNames}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper, "monday-style-label__leg-wrapper")}>

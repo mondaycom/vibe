@@ -5,7 +5,7 @@ import { Switch } from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Toggle.module.scss";
 
 interface ToggleProps extends VibeComponentProps {
@@ -65,7 +65,7 @@ const Toggle: FC<ToggleProps> = ({
       ariaLabel={ariaLabel}
       ariaControls={ariaControls}
       inputClassName="monday-style-toggle_input"
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOGGLE, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE, id)}
     >
       <MockToggle
         areLabelsHidden={areLabelsHidden}

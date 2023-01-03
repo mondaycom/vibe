@@ -14,7 +14,7 @@ import {
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import "./ColorPickerContentComponent.module.scss";
 
 const ColorPickerContentComponent = forwardRef(
@@ -89,7 +89,7 @@ const ColorPickerContentComponent = forwardRef(
         ref={ref}
         tabIndex={-1}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER_CONTENT_COMPONENT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_CONTENT_COMPONENT, id)}
       >
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid

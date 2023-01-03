@@ -1,10 +1,9 @@
-import { getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";

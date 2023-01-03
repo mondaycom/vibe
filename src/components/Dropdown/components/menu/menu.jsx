@@ -1,4 +1,4 @@
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import { components } from "react-select";
@@ -15,7 +15,7 @@ const Menu = props => {
         [styles.fixedPosition]: withFixedPosition,
         ["dropdown-menu-wrapper--fixed-position"]: withFixedPosition
       })}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.DROPDOWN_MENU, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN_MENU, id)}
     >
       {Renderer && Renderer(props)}
       {!Renderer && children}

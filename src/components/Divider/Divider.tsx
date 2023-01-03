@@ -1,10 +1,10 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DirectionType } from "./DividerConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Divider.module.scss";
 
 interface DividerProps extends VibeComponentProps {
@@ -31,7 +31,7 @@ const Divider = ({
         `monday-style-divider--${direction}`
       )}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIVIDER, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
     />
   );
 };

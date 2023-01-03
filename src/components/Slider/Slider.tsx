@@ -9,7 +9,7 @@ import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
 import { IconType } from "../Icon/IconConstants";
 import { SliderColor, SliderSize } from "./SliderConstants";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Slider.module.scss";
 
 export type SliderProps = {
@@ -189,7 +189,7 @@ const Slider: React.FC<SliderProps> & {
             },
             className
           )}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.SLIDER, id)}
           id={id}
           ref={mergedRef}
         >

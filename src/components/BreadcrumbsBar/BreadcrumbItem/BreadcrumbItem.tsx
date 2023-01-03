@@ -1,4 +1,3 @@
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import React, { useRef } from "react";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
@@ -7,6 +6,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./BreadcrumbItem.module.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
@@ -59,7 +59,7 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
     >
       <li
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMB_ITEM, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
         className={cx(styles.wrapper, "breadcrumbItem--wrapper", className, {
           [styles.clickable]: isClickable,
           ["clickable"]: isClickable,

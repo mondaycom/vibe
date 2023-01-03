@@ -6,7 +6,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import Icon, { IconSubComponentProps } from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { IconType } from "../../Icon/IconConstants";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
 
 export interface TabProps extends VibeComponentProps {
@@ -79,7 +79,7 @@ const Tab: FC<TabProps> = forwardRef(
         role="tab"
         aria-selected={active}
         aria-disabled={disabled}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
       >
         <a className={cx(styles.tabInner, "tab-inner")} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}

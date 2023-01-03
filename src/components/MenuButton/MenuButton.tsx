@@ -14,9 +14,8 @@ import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import { Menu } from "../Icon/Icons";
-import { getTestId } from "../../utils/test-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./MenuButton.module.scss";
 
 const CSS_BASE_CLASS = "menu-button--wrapper";

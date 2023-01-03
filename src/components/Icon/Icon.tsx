@@ -5,8 +5,8 @@ import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { MouseEventCallBack, SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (_event: React.MouseEvent) => {};
@@ -138,7 +138,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, id)}
           role={role}
         />
       );
@@ -151,7 +151,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, id)}
         role={role}
       />
     );

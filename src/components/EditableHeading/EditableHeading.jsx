@@ -1,6 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Heading from "../Heading/Heading";
@@ -8,6 +7,7 @@ import Clickable from "../Clickable/Clickable";
 import EditableInput from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./EditableHeading.module.scss";
 
 const EditableHeading = props => {
@@ -137,7 +137,9 @@ const EditableHeading = props => {
       return contentRenderer(contentProps);
     }
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Heading {...contentProps} data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_HEADING, id)} />;
+    return (
+      <Heading {...contentProps} data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)} />
+    );
   };
 
   const getInputProps = () => {
@@ -174,7 +176,12 @@ const EditableHeading = props => {
   const renderInputComponent = () => {
     const inputProps = getInputProps();
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return <EditableInput {...inputProps} data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_HEADING, id)} />;
+    return (
+      <EditableInput
+        {...inputProps}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+      />
+    );
   };
 
   const shouldEdit = !disabled && isEditing;

@@ -1,13 +1,13 @@
 import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/KeyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
@@ -113,7 +113,7 @@ const List: FC<ListProps> = forwardRef(
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
         tabIndex={-1}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
       >
         {overrideChildren}
       </Component>

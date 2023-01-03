@@ -1,9 +1,9 @@
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import Divider from "../../Divider/Divider";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { VibeComponentProps } from "../../../types";
 import { FC } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./MenuDivider.module.scss";
 
 interface MenuDividerProps extends VibeComponentProps {
@@ -23,7 +23,7 @@ const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
     <Divider
       classname={cx(styles.divider, "menu-child-divider", overrideClassName)}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_DIVIDER, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_DIVIDER, id)}
     />
   );
 };

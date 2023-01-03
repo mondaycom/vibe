@@ -4,11 +4,11 @@ import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import Bar from "./Bar/Bar";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import { ProgressBarStyle } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
 
 const CSS_BASE_CLASS = "linear-progress-bar";
@@ -200,7 +200,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         className={wrapperClassName}
         ref={ref}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINEAR_PROGRESS_BAR, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
       >
         <div className={cx(styles.linearProgressBarContainer, `${CSS_BASE_CLASS}__container`)}>
           {renderBaseBars}

@@ -1,5 +1,4 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import cx from "classnames";
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import { keyCodes } from "../../../../constants/KeyCodes";
@@ -15,6 +14,7 @@ import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./StepIndicator.module.scss";
 
 export const CSS_BASE_CLASS = "monday-style-step-indicator-component";
@@ -149,7 +149,7 @@ const StepIndicator = ({
           tabIndex="0"
           role="button"
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEP_INDICATOR, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
         >
           <SwitchTransition mode="out-in">
             <CSSTransition

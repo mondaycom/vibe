@@ -1,5 +1,4 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { FC } from "react";
 import cx from "classnames";
 import {
@@ -11,6 +10,8 @@ import {
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./Skeleton.module.scss";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
@@ -38,7 +39,10 @@ const Skeleton: FC<SkeletonProps> & {
   const typeDescription = skeletonType.toUpperCase() as keyof typeof SKELETON_ALLOWED_SIZES;
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
   return (
-    <div className={cx(SKELETON_CSS_BASE_CLASS)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.SKELETON, id)}>
+    <div
+      className={cx(SKELETON_CSS_BASE_CLASS)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SKELETON, id)}
+    >
       <div
         className={cx(
           getStyle(styles, skeletonType),

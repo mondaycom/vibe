@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import MenuButton from "../MenuButton/MenuButton";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ResponsiveList.module.scss";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
@@ -66,7 +66,7 @@ const ResponsiveList = forwardRef(
       <div
         className={cx(styles.root, "responsive-list--root", rootClassName)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.RESPONSIVE_LIST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.RESPONSIVE_LIST, id)}
       >
         {index !== null && (
           <div className={cx(styles.wrapper, "responsive-list--wrapper", className)}>

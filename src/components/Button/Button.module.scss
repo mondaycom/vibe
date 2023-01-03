@@ -59,7 +59,9 @@
 
 .button.loading.hasStyleSize {
   width: var(--element-height);
+  max-width: var(--element-height);
   height: var(--element-height);
+  max-height: var(--element-height);
 }
 
 .button.loading {

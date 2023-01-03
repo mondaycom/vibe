@@ -1,4 +1,4 @@
-import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
@@ -76,7 +76,7 @@ const ComboboxOption = ({
         icon={icon}
         iconSize={iconSize}
         ignoreFocusStyle
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX_OPTION, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX_OPTION, id)}
       />
     );
   };
@@ -130,7 +130,7 @@ const ComboboxOption = ({
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <Tooltip content={tooltipContent} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX_OPTION, id)}>
+    <Tooltip content={tooltipContent} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX_OPTION, id)}>
       <div
         ref={ref}
         key={id || label}

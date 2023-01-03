@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import { InfixKind } from "./SliderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./SliderInfix.module.scss";
 
 interface SliderInfixProps extends VibeComponentProps {
@@ -32,7 +33,7 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({
         })}
         style={inlineStyle}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER_INFIX, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SLIDER_INFIX, id)}
       >
         {InfixComponent}
       </div>

@@ -2,11 +2,11 @@ import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
 import { TabPanelProps } from "../TabPanel/TabPanel";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
@@ -55,7 +55,7 @@ const TabPanels: FC<TabPanelsProps> = forwardRef(
         ref={mergedRef}
         className={cx(styles.tabPanelsWrapper, "tab-panels--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_PANELS, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANELS, id)}
       >
         {renderedTabs}
       </div>

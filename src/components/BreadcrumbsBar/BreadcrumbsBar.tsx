@@ -1,10 +1,10 @@
 import React, { FC, ReactElement } from "react";
 import cx from "classnames";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { BreadcrumbsBarType } from "./BreadcrumbsConstants";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./BreadcrumbsBar.module.scss";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
@@ -12,6 +12,7 @@ export interface BreadcrumbBarProps extends VibeComponentProps {
   type: typeof BreadcrumbsBarType;
   children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
 }
+
 const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarType } = ({
   className,
   children,
@@ -22,7 +23,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   <nav
     aria-label="Breadcrumb"
     className={cx(styles.breadcrumbsBarWrapper, "breadcrumbs-bar--wrapper", className)}
-    data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMBS_BAR, id)}
+    data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMBS_BAR, id)}
   >
     <ol>
       {children &&

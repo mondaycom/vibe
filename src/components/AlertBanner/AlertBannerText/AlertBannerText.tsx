@@ -3,8 +3,8 @@ import cx from "classnames";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import { HideShowEvent } from "../../../constants";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./AlertBannerText.module.scss";
 
 const TOOLTIP_SHOW_TRIGGERS: Array<HideShowEvent> = [HideShowEvent.MOUSE_ENTER];
@@ -28,7 +28,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
     >
       <div
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_TEXT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_TEXT, id)}
         ref={componentRef}
         className={cx(styles.text, "monday-style-alert-banner-text", {
           [styles.marginLeft]: marginLeft,

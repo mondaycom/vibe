@@ -4,9 +4,9 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import Heading from "../Heading/Heading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 
 interface ExpandCollapseProps extends VibeComponentProps {
@@ -74,7 +74,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         ref={mergedRef}
         className={cx(styles.wrapper, "expand-collapse--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.EXPAND_COLLAPSE, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
       >
         <div className={cx(styles.expandCollapse, "expand-collapse")}>
           <button

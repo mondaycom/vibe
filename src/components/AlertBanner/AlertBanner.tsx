@@ -1,5 +1,4 @@
 import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
@@ -10,6 +9,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./AlertBanner.module.scss";
 
 interface AlertBannerProps extends VibeComponentProps {
@@ -77,7 +77,7 @@ const AlertBanner: React.FC<AlertBannerProps> & {
       <div
         ref={ref}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
         className={classNames}
         role="banner"
         aria-label={ariaLabel || "banner"}

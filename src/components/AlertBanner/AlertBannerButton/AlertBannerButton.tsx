@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import cx from "classnames";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import Button, { ButtonProps } from "../../Button/Button";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./AlertBannerButton.module.scss";
 
 export interface AlertBannerButtonProps extends ButtonProps {
@@ -26,7 +26,11 @@ const AlertBannerButton = ({
   });
 
   return (
-    <div className={classNames} id={id} data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_BUTTON, id)}>
+    <div
+      className={classNames}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_BUTTON, id)}
+    >
       <Button
         {...overrideButtonProps}
         size={Button.sizes.SMALL}

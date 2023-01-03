@@ -4,7 +4,8 @@ import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { InfixKind } from "./SliderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 const VALUE_UPDATE_DELAY = 300;
 
@@ -55,7 +56,7 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({
       onChange={handleChange}
       value={String(currentTextValue)}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SELECTION_INDICATOR, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SELECTION_INDICATOR, id)}
     />
   );
 };

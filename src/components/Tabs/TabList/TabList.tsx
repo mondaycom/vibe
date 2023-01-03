@@ -6,8 +6,8 @@ import usePrevious from "../../../hooks/usePrevious";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
 import { TabProps } from "../Tab/Tab";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {
@@ -104,7 +104,7 @@ const TabList: FC<TabListProps> = forwardRef(
         ref={mergedRef}
         className={cx(styles.tabsWrapper, "tabs--wrapper", className, getStyle(styles, tabType), tabType)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_LIST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
         <ul
           ref={ulRef}

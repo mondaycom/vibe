@@ -1,4 +1,3 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { FC } from "react";
 import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
@@ -7,6 +6,7 @@ import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeade
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
 import { StepsType } from "./StepsConstants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./StepsHeader.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-steps-header";
@@ -42,7 +42,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   return (
     <div
       className={cx(styles.header, CSS_BASE_CLASS, `monday-style-steps-header--${type}`)}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS_HEADER, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS_HEADER, id)}
     >
       {areNavigationButtonsHidden ? null : (
         <StepsCommand

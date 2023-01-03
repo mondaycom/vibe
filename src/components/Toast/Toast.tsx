@@ -1,6 +1,5 @@
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
@@ -13,6 +12,7 @@ import { ToastAction, ToastActionType, ToastType } from "./ToastConstants";
 import { getIcon } from "./ToastHelpers";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Toast.module.scss";
 
 interface ToastProps extends VibeComponentProps {
@@ -123,7 +123,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         className={classNames}
         role="alert"
         aria-live="polite"
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
       >
         {iconElement && <div className={cx(styles.icon, "monday-style-toast-icon")}>{iconElement}</div>}
         <div

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import React, { FC } from "react";
 import Link, { LinkProps } from "../../Link/Link";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./AlertBannerLink.module.scss";
 
 export interface AlertBannerLinkProps extends LinkProps {
@@ -26,7 +26,7 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
         ["monday-style-alert-banner-link-dark-background"]: isDarkBackground
       })}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_LINK, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_LINK, id)}
     >
       <Link {...linkProps} className={cx(styles.link, "monday-style-alert-banner-link")} />
     </div>

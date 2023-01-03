@@ -1,9 +1,9 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import range from "lodash/range";
 import { StepsDot } from "./StepsDot";
 import React, { FC, useCallback, useMemo } from "react";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./StepsGalleryHeader.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-steps-header_gallery";
@@ -52,7 +52,7 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
       role="group"
       className={cx(styles.headerGallery, CSS_BASE_CLASS)}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS_GALLERY_HEADER, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS_GALLERY_HEADER, id)}
     >
       {galleryDots || null}
     </div>

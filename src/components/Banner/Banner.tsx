@@ -6,9 +6,10 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./Banner.module.scss";
 
 export interface BannerProps extends VibeComponentProps {
@@ -147,7 +148,7 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
       >
         <div
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.BANNER, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.BANNER, id)}
           className={cx(
             styles.bannerContent,
             "banner--content",

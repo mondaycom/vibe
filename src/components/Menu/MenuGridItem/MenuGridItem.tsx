@@ -5,10 +5,9 @@ import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationConte
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "../Menu/MenuConstants";
-import "./MenuGridItem.scss";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 interface MenuGridItemProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
@@ -98,7 +97,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
         ref={mergedRef}
         className={cx("menu-grid-item--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_GRID_ITEM, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_GRID_ITEM, id)}
         tabIndex={-1}
         role="grid"
         {...focusWithinProps}

@@ -12,10 +12,11 @@ import {
   isEscapeEvent,
   isTabEvent
 } from "../../utils/dom-event-utils";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import VibeComponent from "../../types/VibeComponent";
 import { VibeComponentProps } from "../../types";
 import { InputType } from "./EditableInputConstants";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./EditableInput.module.scss";
 
 export interface EditableInputProps extends VibeComponentProps {
@@ -228,7 +229,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       <InputTypeComponent
         ref={mergedRef}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_INPUT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_INPUT, id)}
         style={style}
         className={cx(styles.wrapper, "editable-input--wrapper", className, {
           [styles.noResize]: autoSize,

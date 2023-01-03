@@ -1,11 +1,11 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import Icon from "../Icon/Icon";
 import { SubIcon, VibeComponentProps } from "../../types";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./AvatarContent.module.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
@@ -52,7 +52,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           src={src}
           className={className}
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />
       );
     case AvatarType.ICON:
@@ -65,7 +65,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           className={className}
           ariaHidden={false}
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />
       );
     case AvatarType.TEXT:
@@ -75,7 +75,7 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           role={role}
           className={cx(className, textClassName)}
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         >
           {text}
         </span>

@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import {
@@ -25,6 +24,7 @@ import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./SplitButton.module.scss";
 
 export interface SplitButtonProps extends ButtonProps {
@@ -211,7 +211,7 @@ const SplitButton: FC<SplitButtonProps> & {
       ref={ref}
       role="button"
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SPLIT_BUTTON, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
     >
       <Button
         {

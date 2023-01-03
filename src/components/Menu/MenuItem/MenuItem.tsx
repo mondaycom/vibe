@@ -26,9 +26,8 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./MenuItem.module.scss";
-import { getTestId } from "../../../utils/test-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;

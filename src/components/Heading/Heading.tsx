@@ -1,6 +1,5 @@
 import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
@@ -9,6 +8,7 @@ import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import "./HeadingGlobal.scss";
 import styles from "./Heading.module.scss";
 
@@ -79,7 +79,7 @@ const Heading: React.FC<HeadingProps> & {
         useEllipsis={ellipsis}
         nonEllipsisTooltip={nonEllipsisTooltip}
         tooltipPosition={tooltipPosition}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.HEADING, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.HEADING, id)}
       />
     ) : (
       value
@@ -102,7 +102,7 @@ const Heading: React.FC<HeadingProps> & {
         <Tooltip
           content={tooltipContent}
           position={tooltipPosition}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.HEADING, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.HEADING, id)}
         >
           {Element}
         </Tooltip>

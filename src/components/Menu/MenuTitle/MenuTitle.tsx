@@ -1,11 +1,11 @@
 import camelCase from "lodash/camelCase";
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import React, { FC } from "react";
 import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
 interface MenuTitleProps extends VibeComponentProps {
@@ -40,7 +40,7 @@ const MenuTitle: FC<MenuTitleProps> & {
             `monday-style-menu-title__caption--${captionPosition}`
           )}
           id={id}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_TITLE, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
         >
           {caption}
         </label>
@@ -51,7 +51,7 @@ const MenuTitle: FC<MenuTitleProps> & {
     <div
       className={cx(styles.title, "monday-style-menu-title", overrideClassName)}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_TITLE, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
     >
       {renderCaptionIfNeeded()}
     </div>

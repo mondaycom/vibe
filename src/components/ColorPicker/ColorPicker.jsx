@@ -9,7 +9,7 @@ import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
 
 const ColorPicker = forwardRef(
@@ -48,7 +48,7 @@ const ColorPicker = forwardRef(
     return (
       <DialogContentContainer
         ref={mergedRef}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
         className={cx(
           styles.wrapper,
           "color-picker--wrapper",
