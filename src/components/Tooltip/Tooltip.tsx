@@ -2,22 +2,23 @@
 import camelCase from "lodash/camelCase";
 import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
+import { Modifier } from "react-popper";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { Modifier } from "react-popper";
+import { getTestId } from "../../utils/test-utils";
 import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ElementContent } from "../../types/ElementContent";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
-  style?: CSSProperties;
   children: ReactElement | Array<ReactElement>;
   content: ElementContent;
+  style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
@@ -38,13 +39,16 @@ export interface TooltipProps extends VibeComponentProps {
    */
   showDelay?: number;
   disableDialogSlide?: boolean;
-  animationType?: typeof AnimationType[keyof typeof AnimationType];
+  animationType?: AnimationType;
   withoutDialog?: boolean;
   /**
    * the container selector in which to append the dialog
    * for examples: "body" , ".my-class", "#my-id"
    */
   containerSelector?: string;
+  /**
+   * With which delay tooltip is going to be shown
+   */
   immediateShowDelay?: number;
   /**
    * when false, the arrow of the tooltip is hidden
@@ -65,7 +69,7 @@ export interface TooltipProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  position?: typeof DialogPosition[keyof typeof DialogPosition];
+  position?: DialogPosition;
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
@@ -253,14 +257,14 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           [`padding-size-${paddingSize}`]: paddingSize
         }
       ),
-      animationType: "expand",
+      animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
       showTrigger,
       hideTrigger,
       showOnDialogEnter,
-      "data-testid": dataTestId || getTestId(ELEMENT_TYPES.TOOLTIP, id)
+      "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id)
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }

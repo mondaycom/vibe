@@ -1,6 +1,6 @@
+import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { DialogPosition } from "../../constants/sizes";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
@@ -25,7 +25,7 @@ export interface HeadingProps extends VibeComponentProps {
   highlightTerm?: string;
   customColor?: string;
   style?: CSSProperties;
-  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  tooltipPosition?: DialogPosition;
 }
 
 const Heading: React.FC<HeadingProps> & {

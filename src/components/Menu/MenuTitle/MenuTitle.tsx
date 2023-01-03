@@ -1,18 +1,30 @@
 import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
-import React from "react";
-import PropTypes from "prop-types";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { CAPTION_POSITIONS } from "./MenuTitleConstants";
+import React, { FC } from "react";
+import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
+import { VibeComponentProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-const MenuTitle = ({
+interface MenuTitleProps extends VibeComponentProps {
+  /** Backward compatibility for props naming **/
+  classname?: string;
+  caption?: string;
+  captionPosition?: MenuTitleCaptionPosition;
+}
+
+const MenuTitle: FC<MenuTitleProps> & {
+  positions?: typeof MenuTitleCaptionPosition;
+  captionPositions?: typeof MenuTitleCaptionPosition;
+  isMenuChild?: boolean;
+} = ({
   className,
   // Backward compatibility for props naming
   classname,
-  caption,
-  captionPosition,
+  caption = "",
+  captionPosition = MenuTitle.positions.BOTTOM,
   id,
   "data-testid": dataTestId
 }) => {
@@ -24,7 +36,7 @@ const MenuTitle = ({
           className={cx(
             styles.caption,
             "monday-style-menu-title__caption",
-            styles[camelCase("caption--" + captionPosition)],
+            getStyle(styles, camelCase("caption--" + captionPosition)),
             `monday-style-menu-title__caption--${captionPosition}`
           )}
           id={id}
@@ -46,22 +58,10 @@ const MenuTitle = ({
   );
 };
 
-MenuTitle.positions = CAPTION_POSITIONS;
-MenuTitle.captionPositions = CAPTION_POSITIONS;
-MenuTitle.isMenuChild = true;
-
-MenuTitle.defaultProps = {
-  className: undefined,
-  caption: "",
-  id: undefined,
-  captionPosition: MenuTitle.positions.BOTTOM
-};
-
-MenuTitle.propTypes = {
-  className: PropTypes.string,
-  caption: PropTypes.string,
-  id: PropTypes.string,
-  captionPosition: PropTypes.oneOf([MenuTitle.positions.BOTTOM, MenuTitle.positions.TOP, MenuTitle.positions.CENTER])
-};
+Object.assign(MenuTitle, {
+  positions: MenuTitleCaptionPosition,
+  captionPositions: MenuTitleCaptionPosition,
+  isMenuChild: true
+});
 
 export default MenuTitle;

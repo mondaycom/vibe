@@ -1,32 +1,61 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import React, { FC, useRef } from "react";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { DialogPosition } from "../../../constants/sizes";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
+import { DialogPosition } from "../../../constants/positions";
+import { SubIcon, VibeComponentProps } from "../../../types";
+import { ElementContent } from "../../../types/ElementContent";
 import styles from "./MenuItemButton.module.scss";
 
-const MenuItemButton = ({
+interface MenuItemButtonProps extends VibeComponentProps {
+  /** Backward compatibility for props naming **/
+  classname?: string;
+  menuId?: string;
+  kind?: typeof MenuItemButton.kinds[keyof typeof MenuItemButton.kinds];
+  leftIcon?: SubIcon;
+  rightIcon?: SubIcon;
+  index?: number;
+  activeItemIndex?: number;
+  disabled?: boolean;
+  disableReason?: string;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  tooltipPosition?: DialogPosition;
+  tooltipShowDelay?: number;
+  resetOpenSubMenuIndex?: () => void;
+  setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
+  setActiveItemIndex?: (index: number) => void;
+  menuRef?: React.RefObject<HTMLElement>;
+  closeMenu?: () => void;
+  useDocumentEventListeners?: boolean;
+  children?: ElementContent | ElementContent[];
+}
+
+const MenuItemButton: FC<MenuItemButtonProps> & {
+  kinds?: typeof Button.kinds;
+  tooltipPositions?: typeof DialogPosition;
+  isSelectable?: boolean;
+  isMenuChild?: boolean;
+} = ({
   className,
   // Backward compatibility for props naming
   classname,
-  kind,
-  leftIcon,
-  rightIcon,
-  disabled,
+  kind = MenuItemButton.kinds.PRIMARY,
+  leftIcon = null,
+  rightIcon = null,
+  disabled = false,
   disableReason,
   index,
-  activeItemIndex,
+  activeItemIndex = -1,
   onClick,
   menuId,
-  tooltipPosition,
-  tooltipShowDelay,
+  tooltipPosition = MenuItemButton.tooltipPositions.RIGHT,
+  tooltipShowDelay = 300,
   children,
   resetOpenSubMenuIndex,
   setSubMenuIsOpenByIndex,
@@ -47,30 +76,30 @@ const MenuItemButton = ({
 
   const isActive = activeItemIndex === index;
 
-  const isMouseEnter = useMenuItemMouseEvents(
+  const isMouseEnter = useMenuItemMouseEvents({
     ref,
     resetOpenSubMenuIndex,
     setSubMenuIsOpenByIndex,
     isActive,
     setActiveItemIndex,
     index,
-    false
-  );
+    hasChildren: false
+  });
 
-  const { onClickCallback } = useMenuItemKeyboardEvents(
+  const { onClickCallback } = useMenuItemKeyboardEvents({
     onClick,
     disabled,
     isActive,
     index,
     setActiveItemIndex,
-    false,
-    false,
+    hasChildren: false,
+    shouldShowSubMenu: false,
     setSubMenuIsOpenByIndex,
     menuRef,
     isMouseEnter,
     closeMenu,
     useDocumentEventListeners
-  );
+  });
 
   return (
     <Tooltip
@@ -103,43 +132,11 @@ const MenuItemButton = ({
   );
 };
 
-MenuItemButton.kinds = Button.kinds;
-MenuItemButton.tooltipPositions = DialogPosition;
-
-MenuItemButton.defaultProps = {
-  className: undefined,
-  kind: MenuItemButton.kinds.PRIMARY,
-  leftIcon: null,
-  rightIcon: null,
-  index: undefined,
-  activeItemIndex: -1,
-  disabled: false,
-  disableReason: undefined,
-  onClick: undefined,
-  tooltipPosition: "right",
-  tooltipShowDelay: 300
-};
-
-MenuItemButton.propTypes = {
-  className: PropTypes.string,
-  kind: PropTypes.oneOf([MenuItemButton.kinds.PRIMARY, MenuItemButton.kinds.SECONDARY, MenuItemButton.kinds.TERTIARY]),
-  leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  index: PropTypes.number,
-  activeItemIndex: PropTypes.number,
-  disabled: PropTypes.bool,
-  disableReason: PropTypes.string,
-  onClick: PropTypes.func,
-  tooltipPosition: PropTypes.oneOf([
-    MenuItemButton.tooltipPositions.RIGHT,
-    MenuItemButton.tooltipPositions.LEFT,
-    MenuItemButton.tooltipPositions.TOP,
-    MenuItemButton.tooltipPositions.BOTTOM
-  ]),
-  tooltipShowDelay: PropTypes.number
-};
-
-MenuItemButton.isSelectable = true;
-MenuItemButton.isMenuChild = true;
+Object.assign(MenuItemButton, {
+  kinds: Button.kinds,
+  tooltipPositions: DialogPosition,
+  isSelectable: true,
+  isMenuChild: true
+});
 
 export default MenuItemButton;

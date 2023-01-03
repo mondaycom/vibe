@@ -1,22 +1,41 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import camelCase from "lodash/camelCase";
 import cx from "classnames";
-import React, { cloneElement, useCallback, useRef } from "react";
+import { AnimationType, ESCAPE_KEYS } from "../../../constants";
+import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import useOnClickOutside from "../../../hooks/useClickOutside";
-import { chainFunctions } from "../../../utils/function-utils";
+import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import { HIDE_SHOW_EVENTS } from "../consts/dialog-show-hide-event";
-import { AnimationType } from "../../../constants";
+import { HideShowEvent } from "../consts/dialog-show-hide-event";
+import { VibeComponent, VibeComponentProps } from "../../../types";
+import * as PopperJS from "@popperjs/core";
 import styles from "./DialogContent.module.scss";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-const transitionOptions = {};
-const NOOP = () => {};
+const transitionOptions: { classNames?: { appear?: string; appearActive?: string; exit?: string } } = {};
 const EMPTY_OBJECT = {};
 
-const KEYS = ["Esc", "Escape"];
+export interface DialogContentProps extends VibeComponentProps {
+  children?: ReactElement | ReactElement[];
+  position?: PopperJS.Placement;
+  wrapperClassName?: string;
+  isOpen?: boolean;
+  startingEdge?: any;
+  animationType?: string;
+  onEsc?: (event: React.KeyboardEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
+  onClickOutside?: (event: React.MouseEvent, hideShowEvent: HideShowEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
+  showDelay?: number;
+  styleObject?: CSSProperties;
+  isReferenceHidden?: boolean;
+  hasTooltip?: boolean;
+  disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
+}
 
-export const DialogContent = React.forwardRef(
+export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
   (
     {
       onEsc = NOOP,
@@ -39,14 +58,14 @@ export const DialogContent = React.forwardRef(
   ) => {
     const ref = useRef(null);
     const onOutSideClick = useCallback(
-      event => {
+      (event: React.MouseEvent) => {
         if (isOpen) {
-          return onClickOutside(event, HIDE_SHOW_EVENTS.CLICK_OUTSIDE);
+          return onClickOutside(event, HideShowEvent.CLICK_OUTSIDE);
         }
       },
       [isOpen, onClickOutside]
     );
-    useKeyEvent({ keys: KEYS, callback: onEsc });
+    useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     switch (animationType) {
@@ -76,14 +95,14 @@ export const DialogContent = React.forwardRef(
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
             className={cx(styles.contentComponent, "monday-style-dialog-content-component", position, {
-              [styles[camelCase("edge-" + startingEdge)]]: startingEdge,
+              [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
               [`edge-${startingEdge}`]: startingEdge,
               [styles.hasTooltip]: hasTooltip,
               ["has-tooltip"]: hasTooltip
             })}
             ref={ref}
           >
-            {React.Children.toArray(children).map(child => {
+            {React.Children.toArray(children).map((child: ReactElement) => {
               return cloneElement(child, {
                 onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
                 onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])

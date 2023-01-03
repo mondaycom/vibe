@@ -1,29 +1,53 @@
+import React, { forwardRef, ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import React, { forwardRef, useCallback, useRef } from "react";
-import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import { VibeComponent, VibeComponentProps } from "../../../types";
+import { CloseMenuOption } from "../Menu/MenuConstants";
+import "./MenuGridItem.scss";
 
-const MenuGridItem = forwardRef(
+interface MenuGridItemProps extends VibeComponentProps {
+  children?: ReactElement | ReactElement[];
+  /** if true, keyboard navigation will skip on this item. Also, this prop will be passed on to the child **/
+  disabled?: boolean;
+  /** a callback to close the wrapping menu **/
+  closeMenu?: (option: CloseMenuOption) => void;
+  /** the currently active index of the wrapping menu **/
+  activeItemIndex?: number;
+  setActiveItemIndex?: (index: number) => void;
+  getNextSelectableIndex?: (activeItemIndex: number) => number;
+  getPreviousSelectableIndex?: (activeItemIndex: number) => number;
+  /** the index of this item **/
+  index?: number;
+  /** true if this item is under a submenu, and not a top-level menu **/
+  isUnderSubMenu?: boolean;
+  setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
+  useDocumentEventListeners?: boolean;
+}
+
+const MenuGridItem: VibeComponent<MenuGridItemProps> & {
+  isMenuChild?: boolean;
+  isSelectable?: boolean;
+} = forwardRef(
   (
     {
       className,
       id,
       children,
       index,
-      activeItemIndex,
+      activeItemIndex = -1,
       closeMenu,
       getNextSelectableIndex,
       getPreviousSelectableIndex,
       setActiveItemIndex,
       setSubMenuIsOpenByIndex,
-      isUnderSubMenu,
-      disabled,
-      useDocumentEventListeners,
+      isUnderSubMenu = false,
+      disabled = false,
+      useDocumentEventListeners = false,
       "data-testid": dataTestId
     },
     ref
@@ -41,7 +65,7 @@ const MenuGridItem = forwardRef(
     }
 
     const onFocusWithinChange = useCallback(
-      isFocusWithin => {
+      (isFocusWithin: boolean) => {
         setSubMenuIsOpenByIndex(index, isFocusWithin);
         if (isFocusWithin) {
           setActiveItemIndex(index);
@@ -91,39 +115,9 @@ const MenuGridItem = forwardRef(
   }
 );
 
-MenuGridItem.isMenuChild = true;
-MenuGridItem.isSelectable = true;
-
-MenuGridItem.propTypes = {
-  children: PropTypes.element,
-  className: PropTypes.string,
-  disabled: PropTypes.bool, // if true, keyboard navigation will skip on this item. Also, this prop will be passed on to the child
-  closeMenu: PropTypes.func, // a callback to close the wrapping menu
-  id: PropTypes.string,
-  activeItemIndex: PropTypes.number, // the currently active index of the wrapping menu
-  setActiveItemIndex: PropTypes.func,
-  getNextSelectableIndex: PropTypes.func,
-  getPreviousSelectableIndex: PropTypes.func,
-  index: PropTypes.number, // the index of this item
-  isUnderSubMenu: PropTypes.bool, // true if this item is under a submenu, and not a top-level menu
-  setSubMenuIsOpenByIndex: PropTypes.func,
-  useDocumentEventListeners: PropTypes.bool
-};
-
-MenuGridItem.defaultProps = {
-  children: undefined,
-  className: undefined,
-  disabled: false,
-  id: undefined,
-  isUnderSubMenu: false,
-  closeMenu: undefined,
-  activeItemIndex: -1,
-  setActiveItemIndex: undefined,
-  index: undefined,
-  setSubMenuIsOpenByIndex: undefined,
-  getNextSelectableIndex: undefined,
-  getPreviousSelectableIndex: undefined,
-  useDocumentEventListeners: false
-};
+Object.assign(MenuGridItem, {
+  isMenuChild: true,
+  isSelectable: true
+});
 
 export default MenuGridItem;

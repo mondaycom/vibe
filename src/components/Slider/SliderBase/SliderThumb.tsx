@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef } from "react";
 import cx from "classnames";
-import { DialogPosition } from "../../../constants";
+import { DialogPosition } from "../../../constants/positions";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";

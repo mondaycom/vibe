@@ -1,6 +1,5 @@
 import React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
-import { ELEMENT_TYPES } from "../../../__tests__/interactions-helper";
 import Clickable from "../Clickable";
 import userEvent from "@testing-library/user-event";
 import { ClickableProps } from "../Clickable";
@@ -17,7 +16,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when clicked", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(ELEMENT_TYPES.CLICKABLE);
+    const component = getByTestId(Clickable.defaultTestId);
     fireEvent.click(component);
     expect(onClick.mock.calls.length).toBe(1);
   });
@@ -25,7 +24,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when focused and enter pressed", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(ELEMENT_TYPES.CLICKABLE);
+    const component = getByTestId(Clickable.defaultTestId);
     component.focus();
     userEvent.keyboard("{enter}");
     expect(onClick.mock.calls.length).toBe(1);
@@ -34,7 +33,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when focused and space pressed", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(ELEMENT_TYPES.CLICKABLE);
+    const component = getByTestId(Clickable.defaultTestId);
     component.focus();
     userEvent.keyboard("{space}");
     expect(onClick.mock.calls.length).toBe(1);

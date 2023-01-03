@@ -23,6 +23,10 @@ export interface IconSubComponentProps {
   clickable?: boolean;
 }
 
+function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
+  return <Icon {...props} />;
+}
+
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
@@ -113,20 +117,16 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     const isFunctionType = typeof icon === "function";
     // Replace in major version change with more accurate check
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
-      const IconComponent = icon;
-      return (
-        <IconComponent
-          id={id}
-          {...screenReaderAccessProps}
-          ref={isFunctionType ? undefined : mergedRef}
-          size={iconSize.toString()}
-          onClick={onClick}
-          className={computedClassName}
-          style={style}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
-          role={role}
-        />
-      );
+      return renderIcon(icon, {
+        id,
+        ...screenReaderAccessProps,
+        ref: isFunctionType ? undefined : mergedRef,
+        size: iconSize.toString(),
+        onClick,
+        className: computedClassName,
+        style,
+        "data-testid": dataTestId
+      });
     }
     if (iconType === IconType.SRC) {
       return (

@@ -44,7 +44,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
-  tooltipPosition?: typeof DialogPosition[keyof typeof DialogPosition];
+  tooltipPosition?: DialogPosition;
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;

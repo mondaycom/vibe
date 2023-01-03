@@ -1,16 +1,16 @@
-import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import ToolTip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import { VibeComponentProps, SubIcon } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
-import { ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -42,11 +42,14 @@ export interface IconButtonProps extends VibeComponentProps {
    * Size of the icon
    */
   size?: Size;
-
   /**
    * Whether the tooltip should be displayed or not
    */
   hideTooltip?: boolean;
+  /**
+   * Props for Tooltip component
+   */
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
    */
@@ -71,7 +74,7 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
 }
 
-const IconButton: React.FC<IconButtonProps> & {
+const IconButton: VibeComponent<IconButtonProps> & {
   sizes?: typeof Button.sizes;
   kinds?: typeof Button.kinds;
   colors?: typeof Button.colors;
@@ -83,6 +86,7 @@ const IconButton: React.FC<IconButtonProps> & {
       id,
       icon,
       size,
+      tooltipProps,
       tooltipContent,
       ariaLabel,
       hideTooltip,
@@ -99,11 +103,16 @@ const IconButton: React.FC<IconButtonProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const overrideTooltipContent = useMemo(
+      () => tooltipProps?.content || tooltipContent,
+      [tooltipProps?.content, tooltipContent]
+    );
+
     const buttonAriaLabel = useMemo(() => {
       if (ariaLabel) return ariaLabel;
-      if (typeof tooltipContent === "string") return tooltipContent;
+      if (typeof overrideTooltipContent === "string") return overrideTooltipContent;
       return undefined;
-    }, [ariaLabel, tooltipContent]);
+    }, [ariaLabel, overrideTooltipContent]);
 
     const iconSize = useMemo(() => {
       switch (size) {
@@ -125,26 +134,19 @@ const IconButton: React.FC<IconButtonProps> & {
         alignItems: "center",
         padding: 0
       } as React.CSSProperties;
-      if (active && kind !== IconButton.kinds.PRIMARY) {
-        style.background = "var(--primary-selected-color)";
-      }
-
-      if (active && kind === IconButton.kinds.SECONDARY) {
-        style.borderColor = "var(--primary-color)";
-      }
 
       if (size) {
         style = { ...style, ...getWidthHeight(size) };
       }
       return style;
-    }, [active, kind, size]);
+    }, [size]);
 
     const calculatedTooltipContent = useMemo(() => {
       if (hideTooltip) return null;
       if (disabled && disabledReason) return disabledReason;
-      if (tooltipContent) return tooltipContent;
+      if (overrideTooltipContent) return overrideTooltipContent as never;
       return ariaLabel;
-    }, [hideTooltip, disabled, disabledReason, tooltipContent, ariaLabel]);
+    }, [hideTooltip, disabled, disabledReason, overrideTooltipContent, ariaLabel]);
 
     const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
     const iconButtonWrapperProps = useMemo(() => {
@@ -153,7 +155,11 @@ const IconButton: React.FC<IconButtonProps> & {
 
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
-        <ToolTip content={calculatedTooltipContent} referenceWrapperClassName={styles.referenceWrapper}>
+        <Tooltip
+          {...tooltipProps}
+          content={calculatedTooltipContent}
+          referenceWrapperClassName={styles.referenceWrapper}
+        >
           <Button
             onClick={onClick}
             disabled={disabled}
@@ -162,7 +168,7 @@ const IconButton: React.FC<IconButtonProps> & {
             ariaLabel={buttonAriaLabel}
             ref={mergedRef}
             id={id}
-            data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}
@@ -178,7 +184,7 @@ const IconButton: React.FC<IconButtonProps> & {
               clickable={false}
             />
           </Button>
-        </ToolTip>
+        </Tooltip>
       </IconButtonWrapper>
     );
   }
@@ -187,7 +193,8 @@ const IconButton: React.FC<IconButtonProps> & {
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors
+  colors: Button.colors,
+  defaultTestId: ComponentDefaultTestId.ICON_BUTTON
 });
 
 IconButton.defaultProps = {
@@ -200,6 +207,7 @@ IconButton.defaultProps = {
   size: IconButton?.sizes.MEDIUM,
   hideTooltip: false,
   tooltipContent: undefined,
+  tooltipProps: {} as TooltipProps,
   kind: IconButton.kinds.TERTIARY,
   disabled: false,
   disabledReason: undefined,

@@ -183,9 +183,16 @@ const Dropdown = ({
       controlRef,
       tooltipContent
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer, tooltipContent]
+    [
+      selectedOptions,
+      onOptionRemove,
+      isDialogShown,
+      multiline,
+      insideOverflowContainer,
+      insideOverflowWithTransformContainer,
+      tooltipContent
+    ]
   );
-
   const onChange = (option, event) => {
     if (customOnChange) {
       customOnChange(option, event);
@@ -240,7 +247,7 @@ const Dropdown = ({
       const scrolledElement = event.target;
       const dropdownContainer = document.getElementById(id);
       if (dropdownContainer?.contains(scrolledElement)) return false;
-      return insideOverflowContainer;
+      return insideOverflowContainer || insideOverflowWithTransformContainer;
     },
     [insideOverflowContainer, id]
   );

@@ -1,9 +1,10 @@
-import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
@@ -190,7 +191,7 @@ const Combobox = forwardRef(
           ["sticky-category"]: stickyCategories
         })}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
       >
         <div
           className={cx(styles.wrapperList, "combobox--wrapper-list")}
@@ -245,6 +246,7 @@ const Combobox = forwardRef(
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
+Combobox.defaultTestId = ComponentDefaultTestId.COMBOBOX;
 
 Combobox.propTypes = {
   className: PropTypes.string,

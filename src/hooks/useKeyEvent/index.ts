@@ -21,8 +21,9 @@ const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifier) => {
 };
 const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
   return !Object.values(useKeyEvent.modifiers).some((m: Modifier) => {
-    if (m === CTRL_OR_META) return true;
-    return !!event[m];
+    if (m !== CTRL_OR_META) {
+      return !!event[m];
+    }
   });
 };
 
@@ -32,7 +33,7 @@ export interface UseKeyEventArgs {
   modifier?: Modifier;
   keyEventName?: string;
   withoutAnyModifier?: boolean;
-  ref?: RefObject<HTMLElement>;
+  ref?: RefObject<HTMLElement | Document>;
   ignoreDocumentFallback?: boolean;
   capture?: boolean;
   preventDefault?: boolean;

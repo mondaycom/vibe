@@ -22,3 +22,8 @@ export enum AnimationType {
   OPACITY_AND_SLIDE = "opacity-and-slide",
   EXPAND = "expand"
 }
+
+export type DialogOffset = {
+  main?: number;
+  secondary?: number;
+};

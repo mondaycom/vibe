@@ -1,5 +1,92 @@
 # Changelog
 
+## 1.81.0 (2022-12-28)
+
+#### New Features
+* [#1048](https://github.com/mondaycom/monday-ui-react-core/pull/1048) Feature/sergeyro/icon button tooltipProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.80.1 (2022-12-27)
+
+#### Bug Fixes
+* [#1047](https://github.com/mondaycom/monday-ui-react-core/pull/1047) Increase Tipseen styles specificity to override Tooltip styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.80.0 (2022-12-27)
+
+#### New Features
+* [#1045](https://github.com/mondaycom/monday-ui-react-core/pull/1045) Feature/sergeyro/more of dialog container selectors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1013](https://github.com/mondaycom/monday-ui-react-core/pull/1013) Feature/sergeyro/ts migration menu ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#995](https://github.com/mondaycom/monday-ui-react-core/pull/995) Dialog, DialogContent, MenuButton: TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.79.2 (2022-12-25)
+
+#### Bug Fixes
+* [#1043](https://github.com/mondaycom/monday-ui-react-core/pull/1043) Revert "Heading Weights" ([@hadasfa](https://github.com/hadasfa))
+
+## 1.79.1 (2022-12-22)
+
+#### Bug Fixes
+* [#1042](https://github.com/mondaycom/monday-ui-react-core/pull/1042) Revert "TS-migration: Tipseen + some constants usage refactoring (#998)" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.79.0 (2022-12-21)
+
+#### Bug Fixes
+* [#1040](https://github.com/mondaycom/monday-ui-react-core/pull/1040) Fix TabList undefined error ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#1041](https://github.com/mondaycom/monday-ui-react-core/pull/1041) Heading Weights ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.78.2 (2022-12-19)
+
+#### Bug Fixes
+* [#1037](https://github.com/mondaycom/monday-ui-react-core/pull/1037) Same behaviour for active button ,active split button and active icon button ([@hadasfa](https://github.com/hadasfa))
+
+## 1.78.1 (2022-12-19)
+
+#### Bug Fixes
+* [#1038](https://github.com/mondaycom/monday-ui-react-core/pull/1038) export date picker as part of esm ([@hadasfa](https://github.com/hadasfa))
+
+## 1.78.0 (2022-12-19)
+
+#### Bug Fixes
+* [#1039](https://github.com/mondaycom/monday-ui-react-core/pull/1039) Import react to prevent cypress tests (in docs team e.g.) from failing ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1018](https://github.com/mondaycom/monday-ui-react-core/pull/1018) Feature/sergeyro/chips hovered state + clickable ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1036](https://github.com/mondaycom/monday-ui-react-core/pull/1036) Accessability story navigation fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1032](https://github.com/mondaycom/monday-ui-react-core/pull/1032) Icon: follow create component best practices. ([@m-binygal](https://github.com/m-binygal))
+* [#998](https://github.com/mondaycom/monday-ui-react-core/pull/998) TS-migration: Tipseen + some constants usage refactoring ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.77.0 (2022-12-14)
+
+#### Bug Fixes
+* [#1028](https://github.com/mondaycom/monday-ui-react-core/pull/1028) Fix AvatarGroup tooltip keyboard navigation: fix checkWithoutModifierInEvent ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1031](https://github.com/mondaycom/monday-ui-react-core/pull/1031) Fix interactions-utils imports in RadioButton ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1034](https://github.com/mondaycom/monday-ui-react-core/pull/1034) MenuButton: allow to specify position of an icon ([@arutkowski00](https://github.com/arutkowski00))
+* [#1035](https://github.com/mondaycom/monday-ui-react-core/pull/1035) Feature/sergeyro/export test infra ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1033](https://github.com/mondaycom/monday-ui-react-core/pull/1033) Test readme markdown fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1026](https://github.com/mondaycom/monday-ui-react-core/pull/1026) Add interactions basic readme file ([@hadasfa](https://github.com/hadasfa))
+
+## 1.76.0 (2022-12-04)
+
+#### Bug Fixes
+* [#1029](https://github.com/mondaycom/monday-ui-react-core/pull/1029) close while scrolling with in dialog/modal mode ([@hadasfa](https://github.com/hadasfa))
+* [#996](https://github.com/mondaycom/monday-ui-react-core/pull/996) RadioButton: add disabled-text-color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1027](https://github.com/mondaycom/monday-ui-react-core/pull/1027) Remove indicator hover state when dropdown is disabled ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1010](https://github.com/mondaycom/monday-ui-react-core/pull/1010) Feature/sergeyro/dropdown disabled color fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1025](https://github.com/mondaycom/monday-ui-react-core/pull/1025) Export interactions 2 ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.75.2 (2022-11-30)
 
 #### Dependency Upgrades

@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import { useCallback, useRef } from "react";
 import useEventListener from "../../../../hooks/useEventListener";
 import {
   ARROW_DOWN_KEYS,
@@ -14,14 +14,14 @@ const NAVIGATION_KEYS = [...ARROW_UP_KEYS, ...ARROW_RIGHT_KEYS, ...ARROW_DOWN_KE
 export const useLastNavigationDirection = () => {
   const documentRef = useRef(document);
 
-  const lastNavigationDirectionRef = useRef();
+  const lastNavigationDirectionRef = useRef<NavDirections>();
 
-  const setLastNavigationDirection = useCallback(dir => {
+  const setLastNavigationDirection = useCallback((dir: NavDirections) => {
     lastNavigationDirectionRef.current = dir;
   }, []);
 
   const onKeyEvent = useCallback(
-    ({ key }) => {
+    ({ key }: KeyboardEvent) => {
       if (ARROW_UP_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.UP);
       } else if (ARROW_RIGHT_KEYS.includes(key)) {

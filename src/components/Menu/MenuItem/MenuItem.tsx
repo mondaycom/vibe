@@ -1,9 +1,16 @@
-import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
-import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
-import { DialogPosition } from "../../../constants/sizes";
-import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
-import PropTypes from "prop-types";
+import React, {
+  ForwardedRef,
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef
+} from "react";
+import cx from "classnames";
+import { DialogPosition } from "../../../constants/positions";
 import isFunction from "lodash/isFunction";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
@@ -15,47 +22,91 @@ import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { IconType } from "../../Icon/IconConstants";
+import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
+import { CloseMenuOption } from "../Menu/MenuConstants";
 import styles from "./MenuItem.module.scss";
+import { getTestId } from "../../../utils/test-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
-const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
+export interface MenuItemProps extends VibeComponentProps {
+  title?: string;
+  label?: string;
+  icon?: SubIcon;
+  iconType?: IconType;
+  iconBackgroundColor?: string;
+  disabled?: boolean;
+  disableReason?: string;
+  selected?: boolean;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  activeItemIndex?: number;
+  setActiveItemIndex?: (index: number) => void;
+  index?: number;
+  key?: string;
+  isParentMenuVisible?: boolean;
+  resetOpenSubMenuIndex?: () => void;
+  hasOpenSubMenu?: boolean;
+  setSubMenuIsOpenByIndex?: (index: number, isOpen: boolean) => void;
+  useDocumentEventListeners?: boolean;
+  tooltipContent?: string;
+  tooltipPosition?: TooltipPosition;
+  tooltipShowDelay?: number;
+  onMouseLeave?: (event: React.MouseEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  /** Backward compatibility for props naming **/
+  classname?: string;
+  menuId?: string;
+  isInitialSelectedState?: boolean;
+  shouldScrollMenu?: boolean;
+  closeMenu?: (option: CloseMenuOption) => void;
+  menuRef?: React.RefObject<HTMLElement>;
+  children?: ReactElement | ReactElement[];
+}
 
-const MenuItem = forwardRef(
+const MenuItem: VibeComponent<MenuItemProps> & {
+  iconType?: typeof Icon.type;
+  tooltipPositions?: typeof DialogPosition;
+  isSelectable?: boolean;
+  isMenuChild?: boolean;
+} = forwardRef(
   (
     {
       className,
       // Backward compatibility for props naming
       classname,
-      title,
-      label,
-      icon,
+      title = "",
+      label = "",
+      icon = "",
       menuRef,
       iconType,
       iconBackgroundColor,
-      disabled,
+      disabled = false,
       disableReason,
-      selected,
+      selected = false,
       onClick,
-      activeItemIndex,
+      activeItemIndex = -1,
       setActiveItemIndex,
       index,
+      key,
       menuId,
       children,
-      isParentMenuVisible,
+      isParentMenuVisible = false,
       resetOpenSubMenuIndex,
-      hasOpenSubMenu,
+      hasOpenSubMenu = false,
       setSubMenuIsOpenByIndex,
       closeMenu,
-      useDocumentEventListeners,
+      useDocumentEventListeners = false,
       tooltipContent,
-      tooltipPosition,
-      tooltipShowDelay,
+      tooltipPosition = MenuItem.tooltipPositions.RIGHT,
+      tooltipShowDelay = 300,
       isInitialSelectedState,
       onMouseEnter,
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId
     },
-    ref
+    ref: ForwardedRef<HTMLElement>
   ) => {
     const id = menuId && `${menuId}-${index}`;
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
@@ -65,6 +116,7 @@ const MenuItem = forwardRef(
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild = children && React.Children.only(children);
     let menuChild;
+    // @ts-ignore
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
       menuChild = submenuChild;
     } else if (submenuChild) {
@@ -75,7 +127,7 @@ const MenuItem = forwardRef(
     }
 
     const titleRef = useRef();
-    const childRef = useRef();
+    const childRef = useRef<HTMLElement>();
     const referenceElementRef = useRef(null);
     const popperElementRef = useRef(null);
     const popperElement = popperElementRef.current;
@@ -98,17 +150,17 @@ const MenuItem = forwardRef(
       }
     }, [isActive, referenceElement, shouldScrollMenu]);
 
-    const isMouseEnter = useMenuItemMouseEvents(
-      referenceElementRef,
+    const isMouseEnter = useMenuItemMouseEvents({
+      ref: referenceElementRef,
       resetOpenSubMenuIndex,
       setSubMenuIsOpenByIndex,
       isActive,
       setActiveItemIndex,
       index,
       hasChildren
-    );
+    });
 
-    const { onClickCallback } = useMenuItemKeyboardEvents(
+    const { onClickCallback } = useMenuItemKeyboardEvents({
       onClick,
       disabled,
       isActive,
@@ -121,7 +173,7 @@ const MenuItem = forwardRef(
       isMouseEnter,
       closeMenu,
       useDocumentEventListeners
-    );
+    });
 
     useLayoutEffect(() => {
       if (useDocumentEventListeners) return;
@@ -141,7 +193,7 @@ const MenuItem = forwardRef(
     }, [isActive, referenceElement, useDocumentEventListeners]);
 
     const closeSubMenu = useCallback(
-      (options = {}) => {
+      (options: { propagate?: boolean } = {}) => {
         setSubMenuIsOpenByIndex(index, false);
         if (options.propagate) {
           closeMenu(options);
@@ -225,8 +277,9 @@ const MenuItem = forwardRef(
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM, id)}
+        id={`${menuId}-${index}`}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, id)}
+        key={key}
         {...a11yProps}
         className={cx(styles.item, "monday-style-menu-item", overrideClassName, {
           [styles.disabled]: disabled,
@@ -288,66 +341,11 @@ const MenuItem = forwardRef(
   }
 );
 
-MenuItem.iconType = Icon.type;
-MenuItem.tooltipPositions = DialogPosition;
-MenuItem.defaultProps = {
-  className: "",
-  title: "",
-  label: "",
-  icon: "",
-  iconType: undefined,
-  iconBackgroundColor: undefined,
-  disabled: false,
-  disableReason: undefined,
-  selected: false,
-  onClick: undefined,
-  activeItemIndex: -1,
-  setActiveItemIndex: undefined,
-  index: undefined,
-  isParentMenuVisible: false,
-  hasOpenSubMenu: false,
-  setSubMenuIsOpenByIndex: undefined,
-  resetOpenSubMenuIndex: undefined,
-  useDocumentEventListeners: false,
-  tooltipContent: undefined,
-  tooltipPosition: MenuItem.tooltipPositions.RIGHT,
-  tooltipShowDelay: 300,
-  onMouseLeave: undefined,
-  onMouseEnter: undefined
-};
-
-MenuItem.propTypes = {
-  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  className: PropTypes.string,
-  title: PropTypes.string,
-  label: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  iconBackgroundColor: PropTypes.string,
-  disabled: PropTypes.bool,
-  disableReason: PropTypes.string,
-  selected: PropTypes.bool,
-  onClick: PropTypes.func,
-  activeItemIndex: PropTypes.number,
-  setActiveItemIndex: PropTypes.func,
-  index: PropTypes.number,
-  isParentMenuVisible: PropTypes.bool,
-  resetOpenSubMenuIndex: PropTypes.func,
-  hasOpenSubMenu: PropTypes.bool,
-  setSubMenuIsOpenByIndex: PropTypes.func,
-  useDocumentEventListeners: PropTypes.bool,
-  tooltipContent: PropTypes.string,
-  tooltipPosition: PropTypes.oneOf([
-    MenuItem.tooltipPositions.RIGHT,
-    MenuItem.tooltipPositions.LEFT,
-    MenuItem.tooltipPositions.TOP,
-    MenuItem.tooltipPositions.BOTTOM
-  ]),
-  tooltipShowDelay: PropTypes.number,
-  onMouseLeave: PropTypes.func,
-  onMouseEnter: PropTypes.func
-};
-
-MenuItem.isSelectable = true;
-MenuItem.isMenuChild = true;
+Object.assign(MenuItem, {
+  iconType: Icon.type,
+  tooltipPositions: DialogPosition,
+  isSelectable: true,
+  isMenuChild: true
+});
 
 export default MenuItem;

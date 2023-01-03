@@ -22,7 +22,9 @@ export default {
   },
   input: {
     index: path.join(SRC_PATH, "index.js"),
-    icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts")
+    icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
+    interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
+    testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts")
   },
   external: [/node_modules/],
   plugins: [

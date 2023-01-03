@@ -1,15 +1,8 @@
-import { useCallback, useMemo } from "react";
-import { ARROW_DOWN_KEYS, ARROW_UP_KEYS } from "../../../../hooks/useFullKeyboardListeners";
+import React, { useCallback, useMemo } from "react";
+import { ARROW_DOWN_KEYS, ARROW_UP_KEYS, ENTER_KEYS, NavDirections } from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
-const ArrowDirections = {
-  UP: "up",
-  DOWN: "down"
-};
-
-const ENTER_KEYS = ["Enter"];
-
-export default function useMenuKeyboardNavigation(
+export default function useMenuKeyboardNavigation({
   hasOpenSubMenu,
   getNextSelectableIndex,
   getPreviousSelectableIndex,
@@ -18,16 +11,25 @@ export default function useMenuKeyboardNavigation(
   isVisible,
   ref,
   useDocumentEventListeners
-) {
+}: {
+  hasOpenSubMenu: boolean;
+  getNextSelectableIndex: (index: number) => number;
+  getPreviousSelectableIndex: (index: number) => number;
+  activeItemIndex: number;
+  setActiveItemIndex: (index: number) => void;
+  isVisible: boolean;
+  ref: React.RefObject<HTMLElement>;
+  useDocumentEventListeners: boolean;
+}) {
   const onArrowKeyEvent = useCallback(
-    direction => {
+    (direction: NavDirections) => {
       let newIndex;
 
       if (hasOpenSubMenu) return false;
 
-      if (direction === ArrowDirections.DOWN) {
+      if (direction === NavDirections.DOWN) {
         newIndex = getNextSelectableIndex(activeItemIndex);
-      } else if (direction === ArrowDirections.UP) {
+      } else if (direction === NavDirections.UP) {
         newIndex = getPreviousSelectableIndex(activeItemIndex);
       }
 
@@ -36,15 +38,15 @@ export default function useMenuKeyboardNavigation(
     [activeItemIndex, getNextSelectableIndex, getPreviousSelectableIndex, hasOpenSubMenu, setActiveItemIndex]
   );
   const onArrowUp = useCallback(() => {
-    onArrowKeyEvent(ArrowDirections.UP);
+    onArrowKeyEvent(NavDirections.UP);
   }, [onArrowKeyEvent]);
 
   const onArrowDown = useCallback(() => {
-    onArrowKeyEvent(ArrowDirections.DOWN);
+    onArrowKeyEvent(NavDirections.DOWN);
   }, [onArrowKeyEvent]);
 
   const onEnterClickCallback = useCallback(
-    _event => {
+    (_event: React.KeyboardEvent) => {
       if (!isVisible) return;
 
       if (activeItemIndex === -1) {

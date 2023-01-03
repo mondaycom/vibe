@@ -13,6 +13,8 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition
 } from "./SplitButtonConstants";
+import { AnimationType, DialogPosition } from "../../constants";
+import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
@@ -37,12 +39,16 @@ export interface SplitButtonProps extends ButtonProps {
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
-  secondaryDialogPosition?: SplitButtonSecondaryContentPosition;
+  secondaryDialogPosition?: DialogPosition;
   /*
     Popover Container padding size
    */
   dialogPaddingSize?: DialogSize;
-  // dialogPaddingSize?: typeof DialogContentContainer.sizes[keyof typeof DialogContentContainer.sizes];
+  /**
+   * the container selector in which to append the dialog
+   * for examples: "body" , ".my-class", "#my-id"
+   */
+  dialogContainerSelector?: string;
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
@@ -62,6 +68,7 @@ const SplitButton: FC<SplitButtonProps> & {
   zIndex = null,
   secondaryDialogClassName,
   secondaryDialogPosition = SplitButtonSecondaryContentPosition.BOTTOM_START,
+  dialogContainerSelector,
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   disabled,
   success,
@@ -75,6 +82,7 @@ const SplitButton: FC<SplitButtonProps> & {
   children,
   marginLeft,
   marginRight,
+  active,
   id,
   "data-testid": dataTestId,
   ...buttonProps
@@ -164,13 +172,16 @@ const SplitButton: FC<SplitButtonProps> & {
         },
         className
       ),
-    [className, kind, color, isActive, isDialogOpen, isHovered, disabled]
+    [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(() => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
+  const dialogShowTrigger = useMemo(
+    () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
+    [disabled]
+  );
 
   const dialogHideTrigger = useMemo(() => {
-    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
+    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
@@ -212,6 +223,7 @@ const SplitButton: FC<SplitButtonProps> & {
         rightFlat
         color={color}
         kind={kind}
+        active={active}
         onClick={onClick}
         className={cx(styles.mainButton, "monday-style-split-button__main-button")}
         marginLeft={marginLeft}
@@ -227,9 +239,10 @@ const SplitButton: FC<SplitButtonProps> & {
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
             content={actionsContent}
-            position={secondaryDialogPosition}
+            position={secondaryDialogPosition as DialogPosition}
+            containerSelector={dialogContainerSelector}
             startingEdge={animationEdgePosition}
-            animationType="expand"
+            animationType={AnimationType.EXPAND}
             moveBy={DIALOG_MOVE_BY}
             onDialogDidShow={showDialog}
             onDialogDidHide={hideDialog}
@@ -286,7 +299,7 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: SplitButtonSecondaryContentPosition.BOTTOM_START,
+  secondaryDialogPosition: DialogPosition.BOTTOM_START,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
