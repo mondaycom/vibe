@@ -1,5 +1,5 @@
-import { forwardRef, Fragment, useMemo, useRef } from "react";
-import PropTypes from "prop-types";
+import { forwardRef, Fragment, ReactElement, useMemo, useRef } from "react";
+import { DialogPosition } from "../../constants/positions";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Tooltip from "../../components/Tooltip/Tooltip";
@@ -7,40 +7,77 @@ import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { DialogPosition } from "../../constants/positions";
-import { AnimationType, JustifyType } from "../../constants/dialog";
+import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
+import { VibeComponent, VibeComponentProps } from "../../types";
+import { MoveBy } from "../../types/MoveBy";
+import { ElementContent } from "../../types/ElementContent";
+import { Modifier } from "react-popper";
 import styles from "./Tipseen.module.scss";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
 
-const Tipseen = forwardRef(
+interface TipseenProps extends VibeComponentProps {
+  position?: DialogPosition;
+  animationType?: AnimationType;
+  hideDelay?: number;
+  showDelay?: number;
+  title?: string;
+  isCloseButtonHidden?: boolean;
+  children?: ReactElement;
+  containerSelector?: string;
+  hideTrigger?: HideShowEvent | Array<HideShowEvent>;
+  showTrigger?: HideShowEvent | Array<HideShowEvent>;
+  justify?: JustifyType;
+  width?: number;
+  moveBy?: MoveBy;
+  hideWhenReferenceHidden?: boolean;
+  /**
+   * when false, the arrow of the tooltip is hidden
+   */
+  tip?: boolean;
+  /**
+   * PopperJS Modifiers type
+   * https://popper.js.org/docs/v2/modifiers/
+   */
+  modifiers?: Array<Modifier<any>>;
+  closeAriaLabel?: string;
+  isCloseButtonOnImage?: boolean;
+  onClose?: () => void;
+  content?: ElementContent;
+}
+
+const Tipseen: VibeComponent<TipseenProps> & {
+  positions?: typeof DialogPosition;
+  animationTypes?: AnimationType;
+  justifyTypes?: JustifyType;
+} = forwardRef(
   (
     {
       className,
       id,
-      position,
-      animationType,
-      hideDelay,
-      showDelay,
+      position = DialogPosition.BOTTOM,
+      animationType = AnimationType.EXPAND,
+      hideDelay = 0,
+      showDelay = 0,
       title,
-      isCloseButtonHidden,
+      isCloseButtonHidden = false,
       onClose,
       closeAriaLabel,
-      children,
+      children = null,
       content,
-      justify,
+      justify = JustifyType.CENTER,
       containerSelector,
-      hideTrigger,
+      hideTrigger = EMPTY_ARR,
       isCloseButtonOnImage,
-      showTrigger,
+      showTrigger = EMPTY_ARR,
       width,
       moveBy,
-      hideWhenReferenceHidden,
-      tip,
-      modifiers
+      hideWhenReferenceHidden = false,
+      tip = true,
+      modifiers = EMPTY_ARR
     },
     ref
   ) => {
@@ -50,7 +87,7 @@ const Tipseen = forwardRef(
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
       () => (
-        <div className={cx(styles.tipseen, TIPSEEN_BASE_CSS_CLASS)}>
+        <div className={cx(TIPSEEN_BASE_CSS_CLASS)}>
           <div className={cx(styles.tipseenHeader, bemHelper({ element: "header" }))}>
             {isCloseButtonHidden ? null : (
               <Button
@@ -107,71 +144,10 @@ const Tipseen = forwardRef(
   }
 );
 
-Tipseen.positions = {
-  LEFT: DialogPosition.LEFT,
-  RIGHT: DialogPosition.RIGHT,
-  TOP: DialogPosition.TOP,
-  BOTTOM: DialogPosition.BOTTOM
-};
-Tipseen.animationTypes = AnimationType;
-Tipseen.justifyTypes = JustifyType;
-Tipseen.propTypes = {
-  className: PropTypes.string,
-  id: PropTypes.string,
-  position: PropTypes.oneOf([
-    Tipseen.positions.LEFT,
-    Tipseen.positions.RIGHT,
-    Tipseen.positions.TOP,
-    Tipseen.positions.BOTTOM
-  ]),
-  animationType: PropTypes.oneOf([Tipseen.animationTypes.EXPAND, Tipseen.animationTypes.OPACITY_AND_SLIDE]),
-  hideDelay: PropTypes.number,
-  showDelay: PropTypes.number,
-  title: PropTypes.string,
-  isCloseButtonHidden: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  containerSelector: PropTypes.string,
-  // eslint-disable-next-line react/no-unused-prop-types
-  hideTrigger: PropTypes.array,
-  // eslint-disable-next-line react/no-unused-prop-types
-  showTrigger: PropTypes.array,
-  justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END]),
-  width: PropTypes.number,
-  moveBy: PropTypes.shape({
-    main: PropTypes.number,
-    secondary: PropTypes.number
-  }),
-  hideWhenReferenceHidden: PropTypes.bool,
-  /**
-   * when false, the arrow of the tooltip is hidden
-   */
-  tip: PropTypes.bool,
-  /**
-   * PopperJS Modifiers type
-   * https://popper.js.org/docs/v2/modifiers/
-   */
-  modifiers: PropTypes.array
-};
-
-Tipseen.defaultProps = {
-  className: "",
-  id: "",
-  position: Tipseen.positions.BOTTOM,
-  animationType: Tipseen.animationTypes.EXPAND,
-  hideDelay: 0,
-  showDelay: 0,
-  title: undefined,
-  isCloseButtonHidden: false,
-  children: null,
-  containerSelector: undefined,
-  hideTrigger: [],
-  showTrigger: [],
-  justify: Tipseen.justifyTypes.CENTER,
-  width: undefined,
-  moveBy: undefined,
-  hideWhenReferenceHidden: false,
-  tip: true,
-  modifiers: []
-};
+Object.assign(Tipseen, {
+  positions: DialogPosition,
+  animationTypes: AnimationType,
+  justifyTypes: JustifyType
+});
 
 export default Tipseen;
