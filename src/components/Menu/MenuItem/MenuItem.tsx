@@ -211,6 +211,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconLabel={title}
             className="monday-style-menu-item__sub_menu_icon"
             ignoreFocusStyle
+            iconSize={20}
           />
         </div>
       );
@@ -249,6 +250,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             className="monday-style-menu-item__icon"
             ignoreFocusStyle
             style={iconStyle}
+            iconSize={20}
           />
         </div>
       );

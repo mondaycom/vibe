@@ -26,7 +26,7 @@ const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
         id={id}
         aria-hidden="true"
       >
-        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={18} />
+        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={20} />
       </div>
     );
   }
