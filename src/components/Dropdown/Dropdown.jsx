@@ -247,7 +247,7 @@ const Dropdown = ({
       if (dropdownContainer?.contains(scrolledElement)) return false;
       return insideOverflowContainer || insideOverflowWithTransformContainer;
     },
-    [insideOverflowContainer, id]
+    [id, insideOverflowContainer, insideOverflowWithTransformContainer]
   );
 
   return (
