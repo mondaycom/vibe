@@ -163,6 +163,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "plop": "2.7.6",
     "postcss": "^8.4.5",
+    "postcss-import": "^15.1.0",
     "postcss-loader": "^6.2.1",
     "postcss-scss": "^4.0.2",
     "preact": "^10.8.0",
@@ -173,6 +174,7 @@
     "react-resizable": "^3.0.4",
     "react-test-renderer": "^16.14.0",
     "rollup": "^2.79.1",
+    "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
@@ -207,7 +209,9 @@
   },
   "sideEffects": [
     "*.scss",
-    "*.css"
+    "*.css",
+    "*.scss.js",
+    "*.css.js"
   ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"

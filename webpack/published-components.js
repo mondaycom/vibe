@@ -12,7 +12,7 @@ function getPublishedComponents() {
   return Object.entries(publishedComponents).reduce(
     (acc, [componentName, componentPath]) => ({
       ...acc,
-      [componentName]: path.join(SRC_PATH, componentPath)
+      [componentName]: [path.join(SRC_PATH, componentPath), path.join(SRC_PATH, "/style-imports.js")]
     }),
     exposeIcons()
   );
