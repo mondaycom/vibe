@@ -4,7 +4,7 @@ import NOOP from "lodash/noop";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import useClickable from "../../hooks/useClickable";
+import useClickableProps from "../../hooks/useClickableProps";
 
 export interface ClickableProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
@@ -47,7 +47,7 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
     },
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const clickableProps = useClickable(
+    const clickableProps = useClickableProps(
       {
         onClick,
         onMouseDown,

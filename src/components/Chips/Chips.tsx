@@ -13,7 +13,7 @@ import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import useClickable from "../../hooks/useClickable";
+import useClickableProps from "../../hooks/useClickableProps";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -136,7 +136,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.withUserSelect]: allowTextSelection
     });
 
-    const clickableProps = useClickable(
+    const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
         onMouseDown,

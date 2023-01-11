@@ -12,7 +12,7 @@ import "../components/Clickable/Clickable.scss";
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export default function useClickable(
+export default function useClickableProps(
   {
     onClick = NOOP,
     onMouseDown = NOOP,
