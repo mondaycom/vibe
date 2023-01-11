@@ -12,8 +12,8 @@ import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
-import ClickableWrapper from "../Clickable/ClickableWrapper";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import useClickable from "../../hooks/useClickable";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -129,86 +129,96 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [onClick]
     );
 
+    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
+      [styles.disabled]: disabled,
+      [styles.withClose]: hasCloseButton,
+      [styles.noAnimation]: noAnimation,
+      [styles.withUserSelect]: allowTextSelection
+    });
+
+    const clickableProps = useClickable(
+      {
+        onClick: onClickCallback,
+        onMouseDown,
+        className: overrideClassName,
+        enableTextSelection: allowTextSelection,
+        disabled,
+        id,
+        dataTestId: overrideDataTestId,
+        ariaLabel: ariaLabel || label,
+        ariaHidden: false,
+        ariaHasPopup: false,
+        ariaExpanded: false,
+        style: backgroundColorStyle
+      },
+      mergedRef
+    );
+    const wrapperProps = hasClickableWrapper
+      ? clickableProps
+      : {
+          ref: mergedRef,
+          className: overrideClassName,
+          id: id,
+          style: backgroundColorStyle,
+          "data-testid": overrideDataTestId
+        };
+
     return (
-      <div className={cx(styles.chipsWrapper, className)}>
-        <ClickableWrapper
-          isClickable={hasClickableWrapper}
-          clickableProps={{
-            onClick: onClickCallback,
-            onMouseDown,
-            disabled,
-            ariaLabel: ariaLabel || label,
-            className: styles.clickableWrapper
-          }}
-        >
-          <div
-            ref={mergedRef}
-            className={cx(styles.chips, "chips--wrapper", className, {
-              [styles.disabled]: disabled,
-              [styles.withClose]: hasCloseButton,
-              [styles.noAnimation]: noAnimation,
-              [styles.withUserSelect]: allowTextSelection
-            })}
-            id={id}
-            style={backgroundColorStyle}
-            data-testid={overrideDataTestId}
-          >
-            {leftAvatar ? (
-              <Avatar
-                withoutBorder
-                className={cx(styles.avatar, styles.left)}
-                customSize={18}
-                src={leftAvatar}
-                type={AvatarType.IMG}
-                key={id}
-              />
-            ) : null}
-            {leftIcon ? (
-              <Icon
-                className={cx(styles.icon, styles.left)}
-                iconType={Icon.type.ICON_FONT}
-                clickable={false}
-                icon={leftIcon}
-                iconSize={iconSize}
-                ignoreFocusStyle
-              />
-            ) : null}
-            <div className={styles.label}>{label}</div>
-            {rightIcon ? (
-              <Icon
-                className={cx(styles.icon, styles.right)}
-                iconType={Icon.type.ICON_FONT}
-                clickable={false}
-                icon={rightIcon}
-                iconSize={iconSize}
-                ignoreFocusStyle
-              />
-            ) : null}
-            {rightAvatar ? (
-              <Avatar
-                withoutBorder
-                className={cx(styles.avatar, styles.right)}
-                customSize={16}
-                src={rightAvatar}
-                type={AvatarType.IMG}
-                key={id}
-              />
-            ) : null}
-            {hasCloseButton && (
-              <IconButton
-                size={ChipsSize.XXS}
-                color={IconButton.colors.ON_PRIMARY_COLOR}
-                className={cx(styles.icon, styles.close)}
-                ariaLabel="Remove"
-                hideTooltip
-                icon={CloseSmall}
-                onClick={onDeleteCallback}
-                dataTestId={`${overrideDataTestId}-close`}
-                ref={iconButtonRef}
-              />
-            )}
-          </div>
-        </ClickableWrapper>
+      <div {...wrapperProps}>
+        {leftAvatar ? (
+          <Avatar
+            withoutBorder
+            className={cx(styles.avatar, styles.left)}
+            customSize={18}
+            src={leftAvatar}
+            type={AvatarType.IMG}
+            key={id}
+          />
+        ) : null}
+        {leftIcon ? (
+          <Icon
+            className={cx(styles.icon, styles.left)}
+            iconType={Icon.type.ICON_FONT}
+            clickable={false}
+            icon={leftIcon}
+            iconSize={iconSize}
+            ignoreFocusStyle
+          />
+        ) : null}
+        <div className={styles.label}>{label}</div>
+        {rightIcon ? (
+          <Icon
+            className={cx(styles.icon, styles.right)}
+            iconType={Icon.type.ICON_FONT}
+            clickable={false}
+            icon={rightIcon}
+            iconSize={iconSize}
+            ignoreFocusStyle
+          />
+        ) : null}
+        {rightAvatar ? (
+          <Avatar
+            withoutBorder
+            className={cx(styles.avatar, styles.right)}
+            customSize={16}
+            src={rightAvatar}
+            type={AvatarType.IMG}
+            key={id}
+          />
+        ) : null}
+        {hasCloseButton && (
+          <IconButton
+            size={ChipsSize.XXS}
+            color={IconButton.colors.ON_PRIMARY_COLOR}
+            className={cx(styles.icon, styles.close)}
+            ariaLabel="Remove"
+            hideTooltip
+            icon={CloseSmall}
+            onClick={onDeleteCallback}
+            dataTestId={`${overrideDataTestId}-close`}
+            ref={iconButtonRef}
+          />
+        )}
       </div>
     );
   }

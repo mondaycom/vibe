@@ -1,12 +1,10 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
+import { keyCodes } from "../constants";
 
-const KEYDOWN_SPACE_EVENT = 32;
-const KEYDOWN_ENTER_EVENT = 13;
-
-export function useKeyboardButtonPressedFunc(onClick: (event: KeyboardEvent) => void) {
+export function useKeyboardButtonPressedFunc(onClick: (event: React.KeyboardEvent) => void) {
   return useCallback(
-    (e: KeyboardEvent) => {
-      if (e.keyCode === KEYDOWN_SPACE_EVENT || e.keyCode === KEYDOWN_ENTER_EVENT) {
+    (e: React.KeyboardEvent) => {
+      if (e.key === keyCodes.SPACE || e.key === keyCodes.ENTER) {
         onClick(e);
       }
     },
