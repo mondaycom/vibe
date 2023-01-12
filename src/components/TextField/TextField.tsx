@@ -72,6 +72,7 @@ interface TextFieldProps extends VibeComponentProps {
   dataTestId?: string;
   secondaryDataTestId?: string;
   tabIndex?: number;
+  name?: string;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -117,7 +118,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       loading = false,
       dataTestId,
       secondaryDataTestId,
-      tabIndex
+      tabIndex,
+      name
     },
     ref
   ) => {
@@ -199,6 +201,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               ref={mergedRef}
               type={type}
               id={id}
+              name={name}
               onBlur={onBlur}
               onFocus={onFocus}
               onKeyDown={onKeyDown}
