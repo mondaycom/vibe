@@ -6,7 +6,9 @@ import styles from "./TipseenImage.module.scss";
 const BASE_CSS_CLASS = "monday-style-tipseen-image";
 
 interface TipseenImageProps extends VibeComponentProps {
+  // Better be required, but it might be a breaking change
   src?: string | undefined;
+  // Better be required, but it might be a breaking change
   alt?: string;
 }
 

@@ -31,6 +31,7 @@ interface TipseenProps extends VibeComponentProps {
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
+  // Better be required, but it might be a breaking change
   children?: ReactElement;
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
@@ -55,6 +56,7 @@ interface TipseenProps extends VibeComponentProps {
   isCloseButtonOnImage?: boolean;
   closeButtonOnImage?: boolean;
   onClose?: () => void;
+  // Better be required, but it might be a breaking change
   content?: ElementContent;
 }
 
