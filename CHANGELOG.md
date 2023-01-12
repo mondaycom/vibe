@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.83.1 (2023-01-12)
+
+#### Bug Fixes
+* [#1059](https://github.com/mondaycom/monday-ui-react-core/pull/1059) fix mapping ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.83.0 (2023-01-12)
 
 #### New Features
