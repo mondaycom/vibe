@@ -31,7 +31,7 @@ interface TipseenProps extends VibeComponentProps {
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
-  children: ReactElement;
+  children?: ReactElement;
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showTrigger?: HideShowEvent | Array<HideShowEvent>;
@@ -55,7 +55,7 @@ interface TipseenProps extends VibeComponentProps {
   isCloseButtonOnImage?: boolean;
   closeButtonOnImage?: boolean;
   onClose?: () => void;
-  content: ElementContent;
+  content?: ElementContent;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
@@ -77,7 +77,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       isCloseButtonHidden = false,
       onClose,
       closeAriaLabel,
-      children,
+      children = null,
       content,
       justify = JustifyType.CENTER,
       containerSelector,
