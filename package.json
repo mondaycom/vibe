@@ -10,7 +10,7 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/esm/components/Icon/Icons/icons.js",
+    "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/tests/interactionsTests.js",
     "./testIds": "./dist/esm/tests/test-ids-utils.js"
