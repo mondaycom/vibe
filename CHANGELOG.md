@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.82.0 (2023-01-12)
+
+#### Bug Fixes
+* [#1057](https://github.com/mondaycom/monday-ui-react-core/pull/1057) fix css build issue :( ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1049](https://github.com/mondaycom/monday-ui-react-core/pull/1049) Feature/sergeyro/unify icon sizes list menu ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1054](https://github.com/mondaycom/monday-ui-react-core/pull/1054) Change welcome page to display current team ([@hadasfa](https://github.com/hadasfa))
+* [#1053](https://github.com/mondaycom/monday-ui-react-core/pull/1053) Revert "Fix storybook menu colors (#1050)" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1052](https://github.com/mondaycom/monday-ui-react-core/pull/1052) Clickable chips redesign story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1050](https://github.com/mondaycom/monday-ui-react-core/pull/1050) Fix storybook menu colors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.81.0 (2022-12-28)
 
 #### New Features
