@@ -5,6 +5,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
+import postCssImport from "postcss-import";
+
 import autoprefixer from "autoprefixer";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
@@ -26,11 +28,12 @@ export default {
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts")
   },
-  external: [/node_modules/],
+  // external: [/node_modules/],
+  external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
     commonjs(),
     nodeResolve({
-      extensions: [...EXTENSIONS, ".json"]
+      extensions: [...EXTENSIONS, ".json", ".css"]
     }),
     typescript({
       tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json")
@@ -55,7 +58,7 @@ export default {
       inject(cssVariableName) {
         return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`;
       },
-      plugins: [autoprefixer()],
+      plugins: [autoprefixer(), postCssImport()],
       autoModules: true
     })
   ]

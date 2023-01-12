@@ -12,7 +12,7 @@ function getPublishedComponents() {
   return Object.entries(publishedComponents).reduce(
     (acc, [componentName, componentPath]) => ({
       ...acc,
-      [componentName]: path.join(SRC_PATH, componentPath)
+      [componentName]: [path.join(SRC_PATH, componentPath), "/node_modules/monday-ui-style/dist/index.min.css"]
     }),
     exposeIcons()
   );
