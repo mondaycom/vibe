@@ -6,7 +6,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./dist/esm/index.js",
+      "import": "./dist/esm/src/index.js",
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
