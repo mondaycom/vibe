@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.83.2 (2023-01-12)
+
+#### Bug Fixes
+* [#1061](https://github.com/mondaycom/monday-ui-react-core/pull/1061) Fix all icons ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.83.1 (2023-01-12)
 
 #### Bug Fixes
