@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.83.0 (2023-01-12)
+
+#### New Features
+* [#1058](https://github.com/mondaycom/monday-ui-react-core/pull/1058) added name prop to textField ([@etaylib](https://github.com/etaylib))
+
 ## 1.82.0 (2023-01-12)
 
 #### Bug Fixes
