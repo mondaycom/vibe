@@ -1,7 +1,7 @@
+import { FC } from "react";
 import cx from "classnames";
 import TipseenTitle from "./TipseenTitle";
 import { VibeComponentProps } from "../../types";
-import { FC } from "react";
 import { ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenBasicContent.module.scss";
 

@@ -16,9 +16,17 @@ const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
 interface TipseenContentProps extends VibeComponentProps {
   title?: string;
+  /**
+   * Backward compatability for hideDismiss prop
+   */
   isDismissHidden?: boolean;
+  hideDismiss?: boolean;
   children?: ElementContent;
+  /**
+   * Backward compatability for hideSubmit prop
+   */
   isSubmitHidden?: boolean;
+  hideSubmit?: boolean;
   submitButtonText?: string;
   /** Backward compatibility for props naming **/
   submitButtonProps?: ButtonPropsBackwardCompatible;
@@ -32,8 +40,12 @@ interface TipseenContentProps extends VibeComponentProps {
 const TipseenContent: FC<TipseenContentProps> = ({
   title,
   children = null,
-  isDismissHidden = true,
-  isSubmitHidden = false,
+  // Backward compatability
+  isDismissHidden,
+  hideDismiss,
+  // Backward compatability
+  isSubmitHidden,
+  hideSubmit,
   submitButtonText,
   onSubmit = NOOP,
   dismissButtonText,
@@ -43,6 +55,8 @@ const TipseenContent: FC<TipseenContentProps> = ({
   // Backward compatibility for props naming
   submitButtonProps = EMPTY_OBJECT
 }) => {
+  const overrideHideDismiss = backwardCompatibilityForProperties([hideDismiss, isDismissHidden], true);
+  const overrideHideSubmit = backwardCompatibilityForProperties([hideSubmit, isSubmitHidden], false);
   const dismissContent = dismissButtonProps.content || dismissButtonProps.children;
   const {
     className: dismissClassName,
@@ -67,7 +81,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
       {children ? <span className={cx(bemHelper({ element: "content" }))}>{children}</span> : null}
       <div className={cx(styles.buttons, bemHelper({ element: "buttons" }))}>
-        {isDismissHidden ? null : (
+        {overrideHideDismiss ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
@@ -79,7 +93,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
             {overrideDismissContent}
           </Button>
         )}
-        {isSubmitHidden ? null : (
+        {overrideHideSubmit ? null : (
           <Button
             kind={Button.kinds.PRIMARY}
             color={Button.colors.ON_PRIMARY_COLOR}

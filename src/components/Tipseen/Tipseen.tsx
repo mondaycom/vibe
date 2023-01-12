@@ -14,6 +14,7 @@ import { VibeComponent, VibeComponentProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { ElementContent } from "../../types/ElementContent";
 import { Modifier } from "react-popper";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Tipseen.module.scss";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
@@ -25,8 +26,12 @@ interface TipseenProps extends VibeComponentProps {
   hideDelay?: number;
   showDelay?: number;
   title?: string;
+  /**
+   * Backward compatability for hideCloseButton prop
+   */
   isCloseButtonHidden?: boolean;
-  children?: ReactElement;
+  hideCloseButton?: boolean;
+  children: ReactElement;
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showTrigger?: HideShowEvent | Array<HideShowEvent>;
@@ -44,9 +49,13 @@ interface TipseenProps extends VibeComponentProps {
    */
   modifiers?: Array<Modifier<any>>;
   closeAriaLabel?: string;
+  /**
+   * Backward compatability for isCloseButtonOnImage prop
+   */
   isCloseButtonOnImage?: boolean;
+  closeButtonOnImage?: boolean;
   onClose?: () => void;
-  content?: ElementContent;
+  content: ElementContent;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
@@ -63,14 +72,18 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideDelay = 0,
       showDelay = 0,
       title,
+      hideCloseButton = false,
+      // Backward compatability for hideCloseButton
       isCloseButtonHidden = false,
       onClose,
       closeAriaLabel,
-      children = null,
+      children,
       content,
       justify = JustifyType.CENTER,
       containerSelector,
       hideTrigger = EMPTY_ARR,
+      closeButtonOnImage,
+      // Backward compatability for closeButtonOnImage
       isCloseButtonOnImage,
       showTrigger = EMPTY_ARR,
       width,
@@ -84,21 +97,26 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
+    const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
+    const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden]);
+
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
       () => (
         <div className={cx(TIPSEEN_BASE_CSS_CLASS)}>
           <div className={cx(styles.tipseenHeader, bemHelper({ element: "header" }))}>
-            {isCloseButtonHidden ? null : (
+            {overrideHideCloseButton ? null : (
               <Button
                 className={cx(styles.tipseenCloseButton, bemHelper({ element: "close-button" }), {
-                  [styles.tipseenCloseButtonOnImage]: isCloseButtonOnImage,
-                  [bemHelper({ element: "close-button", state: "on-image" })]: isCloseButtonOnImage
+                  [styles.tipseenCloseButtonOnImage]: overrideCloseButtonOnImage,
+                  [bemHelper({ element: "close-button", state: "on-image" })]: overrideCloseButtonOnImage
                 })}
                 onClick={onClose}
                 size={Button.sizes.SMALL}
                 kind={Button.kinds.TERTIARY}
-                color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+                color={
+                  overrideCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR
+                }
                 ariaLabel={overrideCloseAriaLabel}
               >
                 <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
@@ -109,7 +127,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           <div className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{content}</div>
         </div>
       ),
-      [content, isCloseButtonHidden, isCloseButtonOnImage, onClose, overrideCloseAriaLabel, title]
+      [content, onClose, overrideCloseAriaLabel, overrideCloseButtonOnImage, overrideHideCloseButton, title]
     );
 
     return (
