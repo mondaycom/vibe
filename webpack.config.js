@@ -61,7 +61,7 @@ module.exports = options => {
 
   const entry = {
     main: [
-      path.join(__dirname, "/node_modules/monday-ui-style/dist/index.min.css"),
+      path.join(__dirname, "/src/style-imports"),
       path.join(__dirname, "/src/index.js")
     ],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
