@@ -1,5 +1,5 @@
 import React from "react";
-import isNil from "lodash/isNil";
+import { isNil } from "lodash-es";
 import Button, { ButtonProps } from "../Button/Button";
 import { DialogPosition, HideShowEvent } from "../../constants";
 import Tooltip from "../Tooltip/Tooltip";

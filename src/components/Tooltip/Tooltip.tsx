@@ -2,7 +2,7 @@
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
-import isFunction from "lodash/isFunction";
+import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
 import VibeComponentProps from "../../types/VibeComponentProps";

@@ -1,5 +1,5 @@
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { BEMClass } from "../../helpers/bem-helper";
 import { STEPS_CSS_BASE_CLASS, StepsDotAriaCurrent } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";

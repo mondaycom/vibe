@@ -1,5 +1,5 @@
 import MenuButton from "../MenuButton";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import { Menu, MenuItem, MenuTitle } from "../../index";
@@ -11,7 +11,6 @@ import {
 import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 
-
 export const metaSettings = createStoryMetaSettings({
   component: MenuButton,
   iconPropNamesArray: ["component"]
@@ -19,9 +18,9 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta
   title="Buttons/MenuButton"
-  component={ MenuButton }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={MenuButton}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -31,6 +30,7 @@ export const menuButtonTemplate = createComponentTemplate(MenuButton);
 <!--- Component documentation -->
 
 # MenuButton
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -39,64 +39,75 @@ export const menuButtonTemplate = createComponentTemplate(MenuButton);
 - [Feedback](#feedback)
 
 ## Overview
+
 MenuButton is a component that opens a Dialog next to a button, the content of the dialog could be anything you want.
 
 <Canvas>
-  <Story name="Overview"
-         args={ {
-            children: <Menu id="menu" size={Menu.sizes.MEDIUM}>
-                         <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-                         <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-                         <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-                         <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
-                       </Menu>
-                       }}>
-    { menuButtonTemplate.bind({}) }
+  <Story
+    name="Overview"
+    args={{
+      children: (
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        </Menu>
+      )
+    }}
+  >
+    {menuButtonTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ MenuButton } />
+
+<ArgsTable of={MenuButton} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "When you want to place content next to an element",
-  "When the content needs to be on top of adjacent content "
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "When you want to place content next to an element",
+    "When the content needs to be on top of adjacent content "
+  ]}
+/>
 
 ## Variants
+
 ### Sizes
+
 <Canvas>
   <Story name="Sizes">
     <MenuButton size={MenuButton.sizes.XXS}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
     <MenuButton size={MenuButton.sizes.XS}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
     <MenuButton size={MenuButton.sizes.SMALL}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
     <MenuButton size={MenuButton.sizes.MEDIUM}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
     <MenuButton size={MenuButton.sizes.LARGE}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
   </Story>
 </Canvas>
@@ -106,53 +117,57 @@ MenuButton is a component that opens a Dialog next to a button, the content of t
 <Canvas>
   <Story name="Different Icon">
     <MenuButton component={MoveArrowDown}>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
   </Story>
 </Canvas>
 
 ### With Text
+
 <Canvas>
   <Story name="With Text">
-  <div style={{ width: 200}}>
-    <MenuButton text="Open" >
+    <div style={{ width: 200 }}>
+      <MenuButton text="Open">
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
-    </MenuButton>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
     </div>
   </Story>
 </Canvas>
 
 ### With Text and Icon at the end
+
 <Canvas>
   <Story name="With Text and Icon at the end">
-  <div style={{ width: 200}}>
-    <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
+    <div style={{ width: 200 }}>
+      <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
-    </MenuButton>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
     </div>
   </Story>
 </Canvas>
 
 ### Disabled
+
 <Canvas>
   <Story name="Disabled">
-    <MenuButton disabled tooltipContent="This action is not available now" >
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
-             <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-             <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-       </Menu>
+    <MenuButton disabled tooltipContent="This action is not available now">
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+      </Menu>
     </MenuButton>
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[BUTTON, ICON_BUTTON, SPLIT_BUTTON]} />
