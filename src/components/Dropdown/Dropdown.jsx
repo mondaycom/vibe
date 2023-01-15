@@ -3,7 +3,7 @@ import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";

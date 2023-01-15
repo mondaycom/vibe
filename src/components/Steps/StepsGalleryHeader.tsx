@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo } from "react";
-import range from "lodash/range";
+import { range } from "lodash-es";
 import { StepsDot } from "./StepsDot";
 import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
