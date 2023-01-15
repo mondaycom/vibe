@@ -176,7 +176,7 @@ const Combobox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-      (<div
+      <div
         ref={mergedRef}
         className={cx("combobox--wrapper", className, `size-${size}`, {
           empty: !hasResults,
@@ -223,7 +223,7 @@ const Combobox = forwardRef(
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
-      </div>)
+      </div>
     );
   }
 );

@@ -67,7 +67,7 @@ export const Checkbox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      (<label
+      <label
         className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
         onMouseUp={onMouseUpCallback}
         htmlFor={id}
@@ -99,7 +99,7 @@ export const Checkbox = forwardRef(
           />
         </div>
         {label === false ? null : <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>}
-      </label>)
+      </label>
     );
   }
 );
