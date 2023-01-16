@@ -16,7 +16,7 @@ import MultiValueContainer from "./components/MultiValueContainer/MultiValueCont
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import { DROPDOWN_CHIP_COLORS, MENU_WRAPPER_CLASS_NAME } from "./dropdown-constants";
 import "./Dropdown.scss";
 
 const Dropdown = ({
@@ -141,7 +141,10 @@ const Dropdown = ({
     return mergedStyles;
   }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
-  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
+  const Menu = useCallback(
+    props => <MenuComponent innerRef={menuRef} {...props} Renderer={menuRenderer} />,
+    [menuRenderer]
+  );
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
@@ -240,14 +243,16 @@ const Dropdown = ({
     })
   };
 
+  const menuRef = useRef();
   const closeMenuOnScroll = useCallback(
     event => {
       const scrolledElement = event.target;
-      const dropdownContainer = document.getElementById(id);
-      if (dropdownContainer?.contains(scrolledElement)) return false;
+      if (scrolledElement?.parentElement?.classList.contains(MENU_WRAPPER_CLASS_NAME)) {
+        return false;
+      }
       return insideOverflowContainer || insideOverflowWithTransformContainer;
     },
-    [insideOverflowContainer, id]
+    [insideOverflowContainer, id, insideOverflowWithTransformContainer]
   );
 
   return (
