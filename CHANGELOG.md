@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.84.1 (2023-01-16)
+
+#### Bug Fixes
+* [#1066](https://github.com/mondaycom/monday-ui-react-core/pull/1066) move lodash-es from devDependencies to dependencies ([@eran-cohen](https://github.com/eran-cohen))
+
 ## 1.84.0 (2023-01-16)
 
 #### Bug Fixes
