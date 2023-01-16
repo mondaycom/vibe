@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.84.0 (2023-01-16)
+
+#### Bug Fixes
+* [#1065](https://github.com/mondaycom/monday-ui-react-core/pull/1065) fix inject location ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1051](https://github.com/mondaycom/monday-ui-react-core/pull/1051) Tipseen TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1063](https://github.com/mondaycom/monday-ui-react-core/pull/1063) Use lodash-es instead of lodash - to align our dependency and better support esm ([@mentaman](https://github.com/mentaman))
+
+#### Documentation
+* [#1060](https://github.com/mondaycom/monday-ui-react-core/pull/1060) AvatarGroup: teams use case fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.83.3 (2023-01-13)
 
 #### Bug Fixes
