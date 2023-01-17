@@ -3,15 +3,17 @@ import camelCase from "lodash/camelCase";
 import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
-import isFunction from "lodash/isFunction";
+import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
-import { AnimationType, BASE_SIZES_WITH_NONE, DialogPosition, HideShowEvent, JustifyType } from "../../constants";
+import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
+import { DialogPosition } from "../../constants/positions";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ElementContent } from "../../types/ElementContent";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
+import { MoveBy } from "../../types/MoveBy";
 import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
@@ -26,7 +28,7 @@ export interface TooltipProps extends VibeComponentProps {
    * main is the axis in which the position is aligned to
    * secondary is the vertical axes to the position
    */
-  moveBy?: { main?: number; secondary?: number };
+  moveBy?: MoveBy;
   theme?: TooltipTheme;
   justify?: JustifyType;
   getContainer?: () => HTMLElement;

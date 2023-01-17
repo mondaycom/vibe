@@ -2,7 +2,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import Icon from "../../../Icon/Icon";

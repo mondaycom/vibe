@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from "react";
-import noop from "lodash/noop";
+import { noop } from "lodash-es";
 
 export default function useTimeout({
   time = 0,

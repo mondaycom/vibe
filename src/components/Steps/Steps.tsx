@@ -12,7 +12,7 @@ import styles from "./Steps.module.scss";
 
 const STEPS_CSS_BASE_CLASS = "monday-style-steps";
 
-interface StepsProps extends VibeComponentProps {
+export interface StepsProps extends VibeComponentProps {
   /**
    * The index of the current displayed step
    */

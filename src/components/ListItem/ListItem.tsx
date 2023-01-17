@@ -4,7 +4,7 @@ import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react"
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
-import { keyCodes } from "../../constants/KeyCodes";
+import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";

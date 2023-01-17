@@ -1,4 +1,4 @@
-import _chunk from "lodash/chunk";
+import { chunk as _chunk } from "lodash-es";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
@@ -9,9 +9,7 @@ import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
-import { useCallback, useState } from "react";
-import Counter from "../../Counter/Counter";
-import StoryDescription from "../../../storybook/components/story-description/story-description";
+import { NOOP } from "../../../utils/function-utils";
 import "./chips.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -112,6 +110,21 @@ Chips are compact elements that represent an input, attribute, or action. They m
     <Chips label="Chip negative" color={Chips.colors.NEGATIVE} />
     <Chips label="Chip positive" color={Chips.colors.POSITIVE} />
     <Chips label="Disabled" disabled />
+  </Story>
+</Canvas>
+
+### Clickable
+
+<Canvas>
+  <Story name="Clickable">
+    {() => {
+      return (
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+          <Chips label="Clickable default chip" readOnly isClickable onClick={NOOP} />
+          <Chips label="Clickable removable chip" isClickable onClick={NOOP} />
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -224,48 +237,6 @@ Chips can be removable.
         </div>
       </div>
     </DialogContentContainer>
-  </Story>
-</Canvas>
-
-### Clickable Chip
-
-Chips can be clickable.
-
-<Canvas>
-  <Story name="Clickable Chip">
-    {() => {
-      const [onClickCount, setOnClickCount] = useState(0);
-      const [onDeleteCount, setOnDeleteCount] = useState(0);
-      const [onMouseDownCount, setOnMouseDownCount] = useState(0);
-      const onClick = useCallback(e => {
-        setOnClickCount(prevState => prevState + 1);
-      }, []);
-      const onDelete = useCallback(e => {
-        setOnDeleteCount(prevState => prevState + 1);
-      }, []);
-      const onMouseDown = useCallback(e => {
-        setOnMouseDownCount(prevState => prevState + 1);
-      }, []);
-      return (
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <Chips label="Click me!" onClick={onClick} onDelete={onDelete} onMouseDown={onMouseDown} isClickable />
-          <StoryDescription description="Click count" vertical align={Flex.align.START}>
-            <Counter count={onClickCount} />
-          </StoryDescription>
-          <StoryDescription description="Delete count" vertical align={Flex.align.START}>
-            <Counter count={onDeleteCount} />
-          </StoryDescription>
-          <StoryDescription
-            description="Mouse down count"
-            vertical
-            align={Flex.align.START}
-            headerStyle={{ width: 150 }}
-          >
-            <Counter count={onMouseDownCount} />
-          </StoryDescription>
-        </Flex>
-      );
-    }}
   </Story>
 </Canvas>
 

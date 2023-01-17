@@ -6,12 +6,12 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { ButtonValue } from "./ButtonGroupConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { SubIcon } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { SubIcon, VibeComponentProps } from "../../types";
+import { MoveBy } from "../../types/MoveBy";
 import styles from "./ButtonGroup.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-button-group-component";
@@ -48,7 +48,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
-  tooltipMoveBy?: { main?: number; secondary?: number };
+  tooltipMoveBy?: MoveBy;
 }
 
 const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {

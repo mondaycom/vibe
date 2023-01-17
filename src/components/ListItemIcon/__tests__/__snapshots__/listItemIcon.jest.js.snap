@@ -11,10 +11,10 @@ exports[`renders correctly with empty props 1`] = `
     className="icon icon_component noFocusStyle icon_component--no-focus-style"
     data-testid="icon"
     fill="currentColor"
-    height="18"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="18"
+    width="20"
   >
     <path
       clipRule="evenodd"

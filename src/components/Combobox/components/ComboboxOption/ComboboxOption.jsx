@@ -1,10 +1,10 @@
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
-import { keyCodes } from "../../../../constants/KeyCodes";
+import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import styles from "./ComboboxOption.module.scss";
 

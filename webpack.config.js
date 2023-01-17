@@ -60,7 +60,10 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
 
   const entry = {
-    main: path.join(__dirname, "/src/index.js"),
+    main: [
+      path.join(__dirname, "/src/style-imports"),
+      path.join(__dirname, "/src/index.js")
+    ],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
     testIds: path.join(__dirname, "/src/tests/test-ids-utils"),
     ...publishedComponents
@@ -88,7 +91,7 @@ module.exports = options => {
         },
         {
           test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
+          exclude: /node_modules\/(?!monday-ui-style)(.*)/,
           use: ["babel-loader"]
         },
         {

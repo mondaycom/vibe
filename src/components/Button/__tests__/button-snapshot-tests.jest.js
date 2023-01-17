@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
 

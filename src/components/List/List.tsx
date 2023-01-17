@@ -2,7 +2,7 @@ import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMem
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
-import { keyCodes } from "../../constants/KeyCodes";
+import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";

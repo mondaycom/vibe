@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState
 } from "react";
+import { noop as NOOP } from "lodash-es";
 import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
@@ -26,7 +27,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import NOOP from "lodash/noop";
 import styles from "./VirtualizedList.module.scss";
 
 export type VirtualizedListItem = {

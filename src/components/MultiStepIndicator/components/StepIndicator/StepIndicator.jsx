@@ -1,7 +1,7 @@
 import camelCase from "lodash/camelCase";
 import cx from "classnames";
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
-import { keyCodes } from "../../../../constants/KeyCodes";
+import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";

@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import React, { PureComponent, ReactElement } from "react";
 import { DialogPosition } from "../../constants/positions";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
-import isFunction from "lodash/isFunction";
+import { isFunction } from "lodash-es";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";

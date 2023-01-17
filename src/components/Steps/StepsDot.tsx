@@ -1,5 +1,5 @@
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import React, { FC } from "react";
 import { StepsDotAriaCurrent } from "./StepsConstants";

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { Switch } from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";

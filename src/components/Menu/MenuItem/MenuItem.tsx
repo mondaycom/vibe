@@ -11,7 +11,7 @@ import React, {
 } from "react";
 import cx from "classnames";
 import { DialogPosition } from "../../../constants/positions";
-import isFunction from "lodash/isFunction";
+import { isFunction } from "lodash-es";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
@@ -214,6 +214,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconLabel={title}
             className={cx(styles.subMenuIcon, "monday-style-menu-item__sub_menu_icon")}
             ignoreFocusStyle
+            iconSize={20}
           />
         </div>
       );
@@ -252,6 +253,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             className={cx(styles.icon, "monday-style-menu-item__icon")}
             ignoreFocusStyle
             style={iconStyle}
+            iconSize={20}
           />
         </div>
       );

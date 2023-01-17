@@ -1,7 +1,7 @@
 import cx from "classnames";
-import range from "lodash/range";
-import { StepsDot } from "./StepsDot";
 import React, { FC, useCallback, useMemo } from "react";
+import { range } from "lodash-es";
+import { StepsDot } from "./StepsDot";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./StepsGalleryHeader.module.scss";

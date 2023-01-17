@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
+import { Activity } from "../../../Icon/Icons";
 
 describe("Snapshots", () => {
   it("renders correctly with empty props", () => {
@@ -13,8 +14,13 @@ describe("Snapshots", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with title and icon", () => {
+  it("renders correctly with title and font icon", () => {
     const tree = renderer.create(<MenuItem title="my item" icon="fa fa-star" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with title and SVG icon", () => {
+    const tree = renderer.create(<MenuItem title="my item" icon={Activity} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

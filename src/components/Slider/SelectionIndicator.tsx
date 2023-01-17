@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import debounce from "lodash/debounce";
+import { debounce } from "lodash-es";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { InfixKind } from "./SliderConstants";

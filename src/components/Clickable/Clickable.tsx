@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { AriaRole, forwardRef, useRef } from "react";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";

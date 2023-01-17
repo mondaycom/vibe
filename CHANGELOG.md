@@ -1,5 +1,63 @@
 # Changelog
 
+## 1.84.2 (2023-01-17)
+
+#### Bug Fixes
+* [#1064](https://github.com/mondaycom/monday-ui-react-core/pull/1064) fix dropdown with modal/dialog state (support scroll inside dropdown) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.84.1 (2023-01-16)
+
+#### Bug Fixes
+* [#1066](https://github.com/mondaycom/monday-ui-react-core/pull/1066) move lodash-es from devDependencies to dependencies ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.84.0 (2023-01-16)
+
+#### Bug Fixes
+* [#1065](https://github.com/mondaycom/monday-ui-react-core/pull/1065) fix inject location ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1051](https://github.com/mondaycom/monday-ui-react-core/pull/1051) Tipseen TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1063](https://github.com/mondaycom/monday-ui-react-core/pull/1063) Use lodash-es instead of lodash - to align our dependency and better support esm ([@mentaman](https://github.com/mentaman))
+
+#### Documentation
+* [#1060](https://github.com/mondaycom/monday-ui-react-core/pull/1060) AvatarGroup: teams use case fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.83.3 (2023-01-13)
+
+#### Bug Fixes
+* [#1062](https://github.com/mondaycom/monday-ui-react-core/pull/1062) fix link to build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.83.2 (2023-01-12)
+
+#### Bug Fixes
+* [#1061](https://github.com/mondaycom/monday-ui-react-core/pull/1061) Fix all icons ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.83.1 (2023-01-12)
+
+#### Bug Fixes
+* [#1059](https://github.com/mondaycom/monday-ui-react-core/pull/1059) fix mapping ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.83.0 (2023-01-12)
+
+#### New Features
+* [#1058](https://github.com/mondaycom/monday-ui-react-core/pull/1058) added name prop to textField ([@etaylib](https://github.com/etaylib))
+
+## 1.82.0 (2023-01-12)
+
+#### Bug Fixes
+* [#1057](https://github.com/mondaycom/monday-ui-react-core/pull/1057) fix css build issue :( ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1049](https://github.com/mondaycom/monday-ui-react-core/pull/1049) Feature/sergeyro/unify icon sizes list menu ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1054](https://github.com/mondaycom/monday-ui-react-core/pull/1054) Change welcome page to display current team ([@hadasfa](https://github.com/hadasfa))
+* [#1053](https://github.com/mondaycom/monday-ui-react-core/pull/1053) Revert "Fix storybook menu colors (#1050)" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1052](https://github.com/mondaycom/monday-ui-react-core/pull/1052) Clickable chips redesign story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1050](https://github.com/mondaycom/monday-ui-react-core/pull/1050) Fix storybook menu colors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.81.0 (2022-12-28)
 
 #### New Features

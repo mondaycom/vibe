@@ -1,6 +1,6 @@
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
