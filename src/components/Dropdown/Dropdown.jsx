@@ -141,10 +141,7 @@ const Dropdown = ({
     return mergedStyles;
   }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
-  const Menu = useCallback(
-    props => <MenuComponent innerRef={menuRef} {...props} Renderer={menuRenderer} />,
-    [menuRenderer]
-  );
+  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
@@ -243,7 +240,6 @@ const Dropdown = ({
     })
   };
 
-  const menuRef = useRef();
   const closeMenuOnScroll = useCallback(
     event => {
       const scrolledElement = event.target;
