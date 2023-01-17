@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.84.2 (2023-01-17)
+
+#### Bug Fixes
+* [#1064](https://github.com/mondaycom/monday-ui-react-core/pull/1064) fix dropdown with modal/dialog state (support scroll inside dropdown) ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.84.1 (2023-01-16)
 
 #### Bug Fixes
