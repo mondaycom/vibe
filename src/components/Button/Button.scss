@@ -46,7 +46,6 @@
   min-width: var(--element-width);
 
   &.monday-style-button--loading {
-    left: auto;
     min-width: 0;
     &.has-style-size {
       width: var(--element-height);
@@ -61,8 +60,8 @@
     width: calc(var(--element-height) - var(--loader-padding) * 2);
     height: calc(var(--element-height) - var(--loader-padding) * 2);
     position: absolute;
-    left: var(--loader-padding);
     top: var(--loader-padding);
+    left: auto;
 
     .monday-style-button-loader-svg {
       width: calc(var(--element-height) - var(--loader-padding) * 2);
