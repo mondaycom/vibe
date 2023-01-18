@@ -23,7 +23,8 @@ export interface ClickableProps extends VibeComponentProps {
   onMouseDown?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
   ariaHidden?: boolean;
-  ariaHasPopup?: boolean;
+  // TODO remove string in Vibe 2.0
+  ariaHasPopup?: boolean | string;
   ariaExpanded?: boolean;
   // TODO remove string in Vibe 2.0
   tabIndex?: string | number;
