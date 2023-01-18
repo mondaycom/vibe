@@ -28,6 +28,8 @@ export default function useClickableProps(
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
   const componentRef = useRef<HTMLElement | null>(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  // Remove when ariaHasPopup is no longer a string
+  const overrideAriaHasPopup = ariaHasPopup === undefined ? undefined : !!ariaHasPopup;
 
   return {
     ref: mergedRef,
@@ -40,7 +42,7 @@ export default function useClickableProps(
     tabIndex: disabled ? -1 : Number(tabIndex),
     "aria-label": ariaLabel,
     "aria-hidden": ariaHidden,
-    "aria-haspopup": !!ariaHasPopup,
+    "aria-haspopup": overrideAriaHasPopup,
     "aria-expanded": ariaExpanded
   };
 }
