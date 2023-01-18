@@ -7,9 +7,9 @@ import { ClickableProps } from "../components/Clickable/Clickable";
 import { NOOP } from "../utils/function-utils";
 
 /**
- * Adds clickable functionality to the element except for the styles and classNames
+ * Return props for adding clickable functionality to the element except for the styles and classNames
  */
-export default function useClickable(
+export default function useClickableProps(
   {
     onClick = NOOP,
     onMouseDown = NOOP,

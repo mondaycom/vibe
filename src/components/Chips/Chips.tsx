@@ -13,7 +13,7 @@ import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import useClickable from "../../hooks/useClickable";
+import useClickableProps from "../../hooks/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
@@ -145,7 +145,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
     });
 
-    const clickableProps = useClickable(
+    const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
         onMouseDown,
