@@ -46,6 +46,7 @@
   min-width: var(--element-width);
 
   &.monday-style-button--loading {
+    left: auto;
     min-width: 0;
     &.has-style-size {
       width: var(--element-height);
