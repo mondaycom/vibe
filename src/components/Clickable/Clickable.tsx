@@ -1,16 +1,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { AriaRole, forwardRef, useRef } from "react";
-import { noop as NOOP } from "lodash-es";
+import React, { AriaRole, forwardRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import { BEMClass } from "../../helpers/bem-helper";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { getTestId } from "../../tests/test-ids-utils";
+import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps";
-import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
 
