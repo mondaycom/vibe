@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, screen } from "@testing-library/react";
-import _difference from "lodash/difference";
+import { difference as _difference } from "lodash-es";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
 import { ColorPickerColorsGrid } from "../../ColorPicker/components/ColorPickerContent/ColorPickerColorsGrid";

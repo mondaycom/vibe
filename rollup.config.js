@@ -56,7 +56,7 @@ export default {
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
       inject(cssVariableName) {
-        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`;
+        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}, { insertAt: 'top' });`;
       },
       plugins: [autoprefixer(), postCssImport()],
       autoModules: true

@@ -1,4 +1,4 @@
-export enum BASE_POSITIONS {
+export enum BasePosition {
   START = "Start",
   CENTER = "Center",
   END = "End",

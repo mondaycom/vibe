@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.84.3 (2023-01-18)
+
+#### Bug Fixes
+* [#1068](https://github.com/mondaycom/monday-ui-react-core/pull/1068) Fix/hadas/center loader ([@hadasfa](https://github.com/hadasfa))
+
+## 1.84.2 (2023-01-17)
+
+#### Bug Fixes
+* [#1064](https://github.com/mondaycom/monday-ui-react-core/pull/1064) fix dropdown with modal/dialog state (support scroll inside dropdown) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.84.1 (2023-01-16)
+
+#### Bug Fixes
+* [#1066](https://github.com/mondaycom/monday-ui-react-core/pull/1066) move lodash-es from devDependencies to dependencies ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.84.0 (2023-01-16)
+
+#### Bug Fixes
+* [#1065](https://github.com/mondaycom/monday-ui-react-core/pull/1065) fix inject location ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1051](https://github.com/mondaycom/monday-ui-react-core/pull/1051) Tipseen TS-migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1063](https://github.com/mondaycom/monday-ui-react-core/pull/1063) Use lodash-es instead of lodash - to align our dependency and better support esm ([@mentaman](https://github.com/mentaman))
+
+#### Documentation
+* [#1060](https://github.com/mondaycom/monday-ui-react-core/pull/1060) AvatarGroup: teams use case fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.83.3 (2023-01-13)
 
 #### Bug Fixes

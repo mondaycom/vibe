@@ -1,4 +1,4 @@
-import range from "lodash/range";
+import { range } from "lodash-es";
 import { forwardRef, useMemo, useCallback, useRef } from "react";
 import cx from "classnames";
 import { action } from "@storybook/addon-actions";

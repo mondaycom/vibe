@@ -9,7 +9,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";

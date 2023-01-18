@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import Icon, { IconSubComponentProps } from "../../Icon/Icon";
