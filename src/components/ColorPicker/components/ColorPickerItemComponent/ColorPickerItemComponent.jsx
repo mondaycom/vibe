@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";

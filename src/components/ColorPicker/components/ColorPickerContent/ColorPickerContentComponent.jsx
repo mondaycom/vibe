@@ -1,6 +1,5 @@
 import cx from "classnames";
-import _difference from "lodash/difference";
-import _intersection from "lodash/intersection";
+import { difference as _difference, intersection as _intersection } from "lodash-es";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { SIZES } from "../../../../constants/sizes";

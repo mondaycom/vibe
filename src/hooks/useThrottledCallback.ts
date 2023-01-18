@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo, useCallback } from "react";
-import throttle from "lodash/throttle";
+import { throttle } from "lodash-es";
 
 export default function useThrottledCallback(
   callback: (...args: Array<unknown>) => void,

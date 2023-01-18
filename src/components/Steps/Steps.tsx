@@ -12,7 +12,7 @@ import "./Steps.scss";
 
 const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
 
-interface StepsProps extends VibeComponentProps {
+export interface StepsProps extends VibeComponentProps {
   /**
    * The index of the current displayed step
    */

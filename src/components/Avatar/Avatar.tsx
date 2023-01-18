@@ -1,5 +1,5 @@
 import React, { AriaRole, useCallback, useMemo } from "react";
-import isNil from "lodash/isNil";
+import { isNil } from "lodash-es";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";

@@ -1,27 +1,24 @@
+import { FC } from "react";
 import cx from "classnames";
-import PropTypes from "prop-types";
 import TipseenTitle from "./TipseenTitle";
+import { VibeComponentProps } from "../../types";
+import { ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenBasicContent.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-basic-content";
 
-const TipseenBasicContent = ({ title, children, className }) => {
+interface TipseenBasicContentProps extends VibeComponentProps {
+  title?: string;
+  children?: ElementContent | ElementContent[];
+}
+
+const TipseenBasicContent: FC<TipseenBasicContentProps> = ({ title, children = null, className }) => {
   return (
     <div className={cx(styles.tipseenBasicContent, BASE_CSS_CLASS, className)}>
       <TipseenTitle text={title} />
       {children}
     </div>
   );
-};
-
-TipseenBasicContent.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.any
-};
-
-TipseenBasicContent.defaultProps = {
-  title: undefined,
-  children: null
 };
 
 export default TipseenBasicContent;
