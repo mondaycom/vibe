@@ -40,7 +40,7 @@ export default function useClickableProps(
     tabIndex: disabled ? -1 : Number(tabIndex),
     "aria-label": ariaLabel,
     "aria-hidden": ariaHidden,
-    "aria-haspopup": ariaHasPopup,
+    "aria-haspopup": !!ariaHasPopup,
     "aria-expanded": ariaExpanded
   };
 }
