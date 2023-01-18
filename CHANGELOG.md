@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.84.4 (2023-01-18)
+
+#### Bug Fixes
+* [#1069](https://github.com/mondaycom/monday-ui-react-core/pull/1069) fix center loader  ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.84.3 (2023-01-18)
 
 #### Bug Fixes
