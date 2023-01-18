@@ -4,7 +4,13 @@ import NOOP from "lodash/noop";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickable from "../../hooks/useClickable";
+import cx from "classnames";
+import { BEMClass } from "../../helpers/bem-helper";
+import "./Clickable.scss";
+
+const CSS_BASE_CLASS = "monday-style-clickable";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export interface ClickableProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
@@ -19,6 +25,7 @@ export interface ClickableProps extends VibeComponentProps {
   ariaHidden?: boolean;
   ariaHasPopup?: boolean;
   ariaExpanded?: boolean;
+  // TODO remove string in Vibe 2.0
   tabIndex?: string | number;
   disabled?: boolean;
   style?: React.CSSProperties;
@@ -47,12 +54,10 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
     },
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const clickableProps = useClickableProps(
+    const clickableProps = useClickable(
       {
         onClick,
         onMouseDown,
-        className,
-        enableTextSelection,
         disabled,
         id,
         dataTestId,
@@ -61,16 +66,21 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
         ariaLabel,
         ariaHidden,
         ariaHasPopup,
-        ariaExpanded,
-        style
+        ariaExpanded
       },
       ref
     );
+    const overrideClassName = cx(CSS_BASE_CLASS, className, {
+      disabled,
+      [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
+    });
 
     return React.createElement(
       elementType,
       {
-        ...clickableProps
+        ...clickableProps,
+        className: overrideClassName,
+        style: style
       },
       children
     );

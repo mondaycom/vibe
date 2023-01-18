@@ -13,8 +13,13 @@ import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickable from "../../hooks/useClickable";
+import { BEMClass } from "../../helpers/bem-helper";
+import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
+
+const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
+const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -135,32 +140,37 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection
     });
+    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
+      disabled,
+      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    });
 
-    const clickableProps = useClickableProps(
+    const clickableProps = useClickable(
       {
         onClick: onClickCallback,
         onMouseDown,
-        className: overrideClassName,
-        enableTextSelection: allowTextSelection,
         disabled,
         id,
         dataTestId: overrideDataTestId,
         ariaLabel: ariaLabel || label,
         ariaHidden: false,
         ariaHasPopup: false,
-        ariaExpanded: false,
-        style: backgroundColorStyle
+        ariaExpanded: false
       },
       mergedRef
     );
     const wrapperProps = hasClickableWrapper
-      ? clickableProps
+      ? {
+          ...clickableProps,
+          className: clickableClassName,
+          style: backgroundColorStyle
+        }
       : {
           ref: mergedRef,
-          className: overrideClassName,
           id: id,
-          style: backgroundColorStyle,
-          "data-testid": overrideDataTestId
+          "data-testid": overrideDataTestId,
+          className: overrideClassName,
+          style: backgroundColorStyle
         };
 
     return (
