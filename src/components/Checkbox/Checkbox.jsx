@@ -114,11 +114,11 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   /**
-   * ClassName for icon container
+   * Class name for the checkbox marker container
    */
   checkboxClassName: PropTypes.string,
   /**
-   * ClassName for label
+   * Class name for the checkbox label
    */
   labelClassName: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.bool]),
