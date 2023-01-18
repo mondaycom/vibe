@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.85.0 (2023-01-18)
+
+#### New Features
+* [#1067](https://github.com/mondaycom/monday-ui-react-core/pull/1067) Checkbox: checkbox and label className props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.84.4 (2023-01-18)
 
 #### Bug Fixes
