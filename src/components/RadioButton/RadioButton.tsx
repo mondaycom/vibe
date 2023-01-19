@@ -82,7 +82,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
     return (
       <Tooltip content={tooltipContent}>
         <label className={cx(baseClassName, overrideClassName, { disabled })}>
-          <span className={cx(`${baseClassName}__radio-input-container`, radioButtonClassName)}>
+          <span className={`${baseClassName}__radio-input-container`}>
             <input
               className={`${baseClassName}__radio-input-container__radio-input`}
               type="radio"
@@ -94,7 +94,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               ref={mergedRef}
             />
             <span
-              className={cx(`${baseClassName}__radio-input-container__radio-control`, {
+              className={cx(`${baseClassName}__radio-input-container__radio-control`, radioButtonClassName, {
                 [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
               })}
             />
