@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.86.0 (2023-01-22)
+
+#### New Features
+* [#1071](https://github.com/mondaycom/monday-ui-react-core/pull/1071) Expose Vibe components and related TS types ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.85.0 (2023-01-18)
 
 #### New Features
