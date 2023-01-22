@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.86.1 (2023-01-22)
+
+#### Bug Fixes
+* [#1055](https://github.com/mondaycom/monday-ui-react-core/pull/1055) Feature/sergeyro/fix clickable chips breaking changes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.86.0 (2023-01-22)
 
 #### New Features
