@@ -12,6 +12,7 @@ import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
+import useFocus from "../../hooks/useFocus";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import useClickableProps from "../../hooks/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
@@ -98,21 +99,23 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const hasCloseButton = !readOnly && !disabled;
 
     const [hoverRef, isHovered] = useHover();
+    const [focusRef, isFocused] = useFocus();
+
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef, focusRef] });
 
     const backgroundColorStyle = useMemo(() => {
       let cssVar;
       if (disabled) {
         cssVar = getCSSVar("disabled-background-color");
-      } else if (isHovered && hasClickableWrapper) {
+      } else if (hasClickableWrapper && (isHovered || isFocused)) {
         cssVar = getElementColor(color, true, true);
       } else {
         cssVar = getElementColor(color, true);
       }
       return { backgroundColor: cssVar };
-    }, [disabled, isHovered, hasClickableWrapper, color]);
+    }, [disabled, hasClickableWrapper, isHovered, isFocused, color]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
