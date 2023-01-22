@@ -9,6 +9,7 @@ import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
+import { MoveBy } from "../../types/MoveBy";
 import "./ButtonGroup.scss";
 
 type ButtonGroupOption = {
@@ -43,7 +44,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipHideDelay?: number;
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
-  tooltipMoveBy?: { main?: number; secondary?: number };
+  tooltipMoveBy?: MoveBy;
 }
 
 const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {

@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import isFunction from "lodash/isFunction";
-import NOOP from "lodash/noop";
+import { isFunction, noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";

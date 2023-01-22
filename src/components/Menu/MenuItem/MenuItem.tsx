@@ -10,7 +10,7 @@ import React, {
   useRef
 } from "react";
 import { DialogPosition } from "../../../constants/positions";
-import isFunction from "lodash/isFunction";
+import { isFunction } from "lodash-es";
 import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";

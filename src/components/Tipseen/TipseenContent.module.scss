@@ -1,10 +1,9 @@
-.tipseenContent {
-  &Buttons {
-    margin-top: var(--spacing-medium);
-    display: flex;
-    justify-content: flex-end;
-    &Dismiss {
-      margin-right: var(--spacing-small)
-    }
-  }
+.buttons {
+  margin-top: var(--spacing-medium);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dismiss {
+  margin-right: var(--spacing-small)
 }

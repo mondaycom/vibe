@@ -1,16 +1,17 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.81.0",
+  "version": "1.86.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
+  "types": "./dist/types.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./dist/esm/index.js",
+      "import": "./dist/esm/src/index.js",
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/esm/components/Icon/Icons/icons.js",
+    "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/tests/interactionsTests.js",
     "./testIds": "./dist/esm/tests/test-ids-utils.js"
@@ -21,8 +22,9 @@
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
-    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm",
+    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:types",
     "build:exports": "./scripts/build-exports.js",
+    "build:types": "./scripts/build-types.js",
     "build:storybook-exports": "./scripts/build-storybook-exports.js",
     "build:commonjs": "webpack --mode production --config webpack/default.config.js",
     "build:esm": "rollup -c",
@@ -62,7 +64,6 @@
     "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
-    "lodash": "^4.17.21",
     "monday-ui-style": "0.1.148",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
@@ -73,7 +74,8 @@
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
-    "style-inject": "^0.3.0"
+    "style-inject": "^0.3.0",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -148,6 +150,7 @@
     "eslint-plugin-jest": "^25.3.4",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-lodash": "^7.4.0",
     "eslint-plugin-markdown": "^2.2.1",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0.0",
@@ -163,6 +166,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "plop": "2.7.6",
     "postcss": "^8.4.5",
+    "postcss-import": "^15.1.0",
     "postcss-loader": "^6.2.1",
     "postcss-scss": "^4.0.2",
     "preact": "^10.8.0",
@@ -173,6 +177,7 @@
     "react-resizable": "^3.0.4",
     "react-test-renderer": "^16.14.0",
     "rollup": "^2.79.1",
+    "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
@@ -207,7 +212,9 @@
   },
   "sideEffects": [
     "*.scss",
-    "*.css"
+    "*.css",
+    "*.scss.js",
+    "*.css.js"
   ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"

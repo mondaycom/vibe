@@ -8,7 +8,7 @@ exports[`renders correctly with empty props 1`] = `
   onKeyDown={[Function]}
   onMouseDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 />
 `;
 
@@ -20,7 +20,7 @@ exports[`renders correctly with props 1`] = `
   onKeyDown={[Function]}
   onMouseDown={[Function]}
   role="banner"
-  tabIndex="0"
+  tabIndex={0}
 >
   Children text
 </div>

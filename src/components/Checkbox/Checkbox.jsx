@@ -1,6 +1,5 @@
-import React, { useRef, useCallback, useEffect, forwardRef } from "react";
-import NOOP from "lodash/noop";
-import isNil from "lodash/isNil";
+import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import { isNil, noop as NOOP } from "lodash-es";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -8,18 +7,20 @@ import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
-
-import "./Checkbox.scss";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
+// TODO TS-migration
 export const Checkbox = forwardRef(
   (
     {
       className,
       // Backward compatibility for props naming
       componentClassName,
+      checkboxClassName,
+      labelClassName,
       ariaLabel,
       label,
       ariaLabelledBy,
@@ -49,7 +50,11 @@ export const Checkbox = forwardRef(
       });
     }, [inputRef]);
 
-    const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
+    const checkboxClassNames = [
+      `${BASE_CLASS_NAME}__checkbox`,
+      `${BASE_CLASS_NAME}__prevent-animation`,
+      checkboxClassName
+    ];
     let overrideDefaultChecked = defaultChecked;
 
     // If component did not receive default checked and checked props, choose default checked as
@@ -99,7 +104,7 @@ export const Checkbox = forwardRef(
             iconSize="16"
           />
         </div>
-        {label === false ? null : <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>}
+        {label === false ? null : <span className={cx(`${BASE_CLASS_NAME}__label`, labelClassName)}>{label}</span>}
       </label>
     );
   }
@@ -108,6 +113,14 @@ export const Checkbox = forwardRef(
 Checkbox.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
+  /**
+   * Class name for the checkbox marker container
+   */
+  checkboxClassName: PropTypes.string,
+  /**
+   * Class name for the checkbox label
+   */
+  labelClassName: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.bool]),
   ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
@@ -126,6 +139,8 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: undefined,
   className: undefined,
+  checkboxClassName: undefined,
+  labelClassName: undefined,
   label: undefined,
   onChange: NOOP,
   disabled: false,

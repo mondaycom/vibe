@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import classes from "./Switch.module.scss";
-import isNil from "lodash/isNil";
+import { isNil } from "lodash-es";
 
 // TODO should be migrated to TS? Not used rn
 export function useHiddenSwitch({
