@@ -41,7 +41,7 @@ exports[`Search renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -69,7 +69,7 @@ exports[`Search renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -136,7 +136,7 @@ exports[`Search renders correctly when underline 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -164,7 +164,7 @@ exports[`Search renders correctly when underline 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -231,7 +231,7 @@ exports[`Search renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -259,7 +259,7 @@ exports[`Search renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -326,7 +326,7 @@ exports[`Search renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
@@ -344,7 +344,7 @@ exports[`Search renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -411,7 +411,7 @@ exports[`Search renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -439,7 +439,7 @@ exports[`Search renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -535,7 +535,7 @@ exports[`Search renders correctly with loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -563,7 +563,7 @@ exports[`Search renders correctly with loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -630,7 +630,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -658,7 +658,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -725,7 +725,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -753,7 +753,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
@@ -810,7 +810,7 @@ exports[`Search renders correctly with underline type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -838,7 +838,7 @@ exports[`Search renders correctly with underline type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -905,7 +905,7 @@ exports[`Search renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -933,7 +933,7 @@ exports[`Search renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1000,7 +1000,7 @@ exports[`Search renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1028,7 +1028,7 @@ exports[`Search renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <svg
           aria-hidden={true}
@@ -1095,7 +1095,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1123,7 +1123,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1190,7 +1190,7 @@ exports[`Search renders correctly without props 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1218,7 +1218,7 @@ exports[`Search renders correctly without props 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}

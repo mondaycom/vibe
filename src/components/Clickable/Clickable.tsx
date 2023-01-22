@@ -1,14 +1,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { AriaRole, forwardRef, useRef } from "react";
-import { noop as NOOP } from "lodash-es";
+import React, { AriaRole, forwardRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import { BEMClass } from "../../helpers/bem-helper";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { getTestId } from "../../tests/test-ids-utils";
+import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import useClickableProps from "../../hooks/useClickableProps";
+import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
@@ -20,14 +18,16 @@ export interface ClickableProps extends VibeComponentProps {
   id?: string;
   children?: React.ReactNode;
   role?: AriaRole;
-  onClick?: (event: React.MouseEvent) => void;
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   enableTextSelection?: boolean;
   onMouseDown?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
   ariaHidden?: boolean;
+  // TODO remove string in Vibe 2.0
   ariaHasPopup?: boolean | string;
   ariaExpanded?: boolean;
-  tabIndex?: string;
+  // TODO remove string in Vibe 2.0
+  tabIndex?: string | number;
   disabled?: boolean;
   style?: React.CSSProperties;
   dataTestId?: string;
@@ -55,28 +55,32 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
     },
     ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const componentRef = useRef<HTMLElement | null>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const onKeyDown = useKeyboardButtonPressedFunc(onClick);
+    const clickableProps = useClickableProps(
+      {
+        onClick,
+        onMouseDown,
+        disabled,
+        id,
+        dataTestId,
+        role,
+        tabIndex,
+        ariaLabel,
+        ariaHidden,
+        ariaHasPopup,
+        ariaExpanded
+      },
+      ref
+    );
+    const overrideClassName = cx(CSS_BASE_CLASS, className, {
+      disabled,
+      [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
+    });
+
     return React.createElement(
       elementType,
       {
-        ref: mergedRef,
-        className: cx(CSS_BASE_CLASS, className, {
-          disabled,
-          [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
-        }),
-        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
-        role: role,
-        onClick: disabled ? undefined : onClick,
-        id: id,
-        onKeyDown: disabled ? undefined : onKeyDown,
-        tabIndex: disabled ? -1 : tabIndex,
-        "aria-label": ariaLabel,
-        "aria-hidden": ariaHidden,
-        "aria-haspopup": ariaHasPopup,
-        "aria-expanded": ariaExpanded,
-        onMouseDown: onMouseDown,
+        ...clickableProps,
+        className: overrideClassName,
         style: style
       },
       children
