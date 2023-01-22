@@ -3,6 +3,7 @@
   "version": "1.85.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
+  "types": "./dist/types.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -21,8 +22,9 @@
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
-    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm",
+    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:types",
     "build:exports": "./scripts/build-exports.js",
+    "build:types": "./scripts/build-types.js",
     "build:storybook-exports": "./scripts/build-storybook-exports.js",
     "build:commonjs": "webpack --mode production --config webpack/default.config.js",
     "build:esm": "rollup -c",
