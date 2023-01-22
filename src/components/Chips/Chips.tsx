@@ -12,7 +12,7 @@ import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
-import useFocus from "../../hooks/useFocus";
+import useSetFocus from "../../hooks/useSetFocus";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useClickableProps from "../../hooks/useClickableProps";
@@ -105,8 +105,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const hasClickableWrapper = overrideClickable && (!!onClick || !!onMouseDown);
     const hasCloseButton = !readOnly && !disabled;
 
+    const focusRef = useRef(null);
     const [hoverRef, isHovered] = useHover();
-    const [focusRef, isFocused] = useFocus();
+    const { isFocused } = useSetFocus({ ref: focusRef });
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
