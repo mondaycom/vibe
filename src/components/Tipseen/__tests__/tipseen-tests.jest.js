@@ -5,7 +5,6 @@ import TipseenContent from "../TipseenContent";
 import Tipseen from "../Tipseen";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 import renderer from "react-test-renderer";
-import List from "../../List/List";
 
 jest.mock("react-transition-group", () => {
   const FakeTransition = jest.fn(({ children }) => children);
