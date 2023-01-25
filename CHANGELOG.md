@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.86.3 (2023-01-25)
+
+#### Bug Fixes
+* [#1072](https://github.com/mondaycom/monday-ui-react-core/pull/1072) Fix tipssen hide close button ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.86.2 (2023-01-23)
 
 #### Bug Fixes
