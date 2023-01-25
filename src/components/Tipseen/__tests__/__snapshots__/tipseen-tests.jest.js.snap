@@ -1,12 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot tests Tipseen content tests renders correctly without dismiss - deprecated version 1`] = `
+exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - deprecated version 1`] = `
 <div
   className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
 >
   <div
     className="buttons monday-style-tipseen-content_buttons"
   >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Dismiss
+    </button>
     <button
       aria-busy={false}
       aria-disabled={false}
@@ -25,13 +39,27 @@ exports[`Snapshot tests Tipseen content tests renders correctly without dismiss 
 </div>
 `;
 
-exports[`Snapshot tests Tipseen content tests renders correctly without dismiss 1`] = `
+exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`] = `
 <div
   className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
 >
   <div
     className="buttons monday-style-tipseen-content_buttons"
   >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Dismiss
+    </button>
     <button
       aria-busy={false}
       aria-disabled={false}

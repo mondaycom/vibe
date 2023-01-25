@@ -27,16 +27,16 @@ describe("Snapshot tests", () => {
       const tree = renderer.create(<TipseenContent />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly without dismiss", () => {
-      const tree = renderer.create(<TipseenContent hideDismiss />).toJSON();
+    it("renders correctly with dismiss", () => {
+      const tree = renderer.create(<TipseenContent hideDismiss={false} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without submit", () => {
       const tree = renderer.create(<TipseenContent hideSubmit />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly without dismiss - deprecated version", () => {
-      const tree = renderer.create(<TipseenContent isDismissHidden />).toJSON();
+    it("renders correctly with dismiss - deprecated version", () => {
+      const tree = renderer.create(<TipseenContent isDismissHidden={false} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without submit - deprecated version", () => {
@@ -82,7 +82,22 @@ describe("Integration Tests", () => {
     it("call onDismiss function when click on dismiss button", () => {
       const onDismissMock = jest.fn();
       const { getByText } = render(
-        <TipseenContent isDismissHidden={false} onDismiss={onDismissMock}>
+        <TipseenContent hideDismiss={false} onDismiss={onDismissMock}>
+          content
+        </TipseenContent>
+      );
+      const dismissButton = getByText(DISMISS_BUTTON_TEXT);
+
+      act(() => {
+        fireEvent.click(dismissButton);
+      });
+      expect(onDismissMock.mock.calls.length).toBe(1);
+    });
+
+    it("call onDismiss function when click on dismiss button (deprecated version)", () => {
+      const onDismissMock = jest.fn();
+      const { getByText } = render(
+        <TipseenContent hideDismiss={false} onDismiss={onDismissMock}>
           content
         </TipseenContent>
       );
