@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests Tipseen content tests renders correctly without dismiss - deprecated version 1`] = `
+<div
+  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <div
+    className="buttons monday-style-tipseen-content_buttons"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshot tests Tipseen content tests renders correctly without dismiss 1`] = `
+<div
+  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <div
+    className="buttons monday-style-tipseen-content_buttons"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshot tests Tipseen content tests renders correctly without props 1`] = `
+<div
+  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <div
+    className="buttons monday-style-tipseen-content_buttons"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshot tests Tipseen content tests renders correctly without submit - deprecated version 1`] = `
+<div
+  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <div
+    className="buttons monday-style-tipseen-content_buttons"
+  />
+</div>
+`;
+
+exports[`Snapshot tests Tipseen content tests renders correctly without submit 1`] = `
+<div
+  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <div
+    className="buttons monday-style-tipseen-content_buttons"
+  />
+</div>
+`;
+
+exports[`Snapshot tests Tipseen tests renders correctly without close - deprecated version 1`] = `
+Array [
+  <div
+    className="monday-style-story-tipseen_container"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="monday-style-tipseen"
+        >
+          <div
+            className="tipseenHeader monday-style-tipseen_header"
+          />
+          <div
+            className="tipseenContent monday-style-tipseen_content"
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
+Array [
+  <div
+    className="monday-style-story-tipseen_container"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="monday-style-tipseen"
+        >
+          <div
+            className="tipseenHeader monday-style-tipseen_header"
+          />
+          <div
+            className="tipseenContent monday-style-tipseen_content"
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
+Array [
+  <div
+    className="monday-style-story-tipseen_container"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <div
+          className="monday-style-tipseen"
+        >
+          <div
+            className="tipseenHeader monday-style-tipseen_header"
+          >
+            <button
+              aria-busy={false}
+              aria-disabled={false}
+              aria-label="Close"
+              className="tipseenCloseButton monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              data-testid="button"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={true}
+                className="icon_component icon_component--no-focus-style"
+                fill="currentColor"
+                height="20"
+                onClick={[Function]}
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            className="tipseenContent monday-style-tipseen_content"
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;

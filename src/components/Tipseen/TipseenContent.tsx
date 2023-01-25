@@ -47,9 +47,9 @@ const TipseenContent: FC<TipseenContentProps> = ({
   isSubmitHidden,
   hideSubmit,
   submitButtonText,
-  onSubmit = NOOP,
+  onSubmit,
   dismissButtonText,
-  onDismiss = NOOP,
+  onDismiss,
   // Backward compatibility for props naming
   dismissButtonProps = EMPTY_OBJECT,
   // Backward compatibility for props naming
