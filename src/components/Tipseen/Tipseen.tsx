@@ -74,7 +74,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideDelay = 0,
       showDelay = 0,
       title,
-      hideCloseButton = false,
+      hideCloseButton,
       // Backward compatability for hideCloseButton
       isCloseButtonHidden,
       onClose,
