@@ -4,6 +4,8 @@ import { act } from "@testing-library/react-hooks";
 import TipseenContent from "../TipseenContent";
 import Tipseen from "../Tipseen";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
+import renderer from "react-test-renderer";
+import List from "../../List/List";
 
 jest.mock("react-transition-group", () => {
   const FakeTransition = jest.fn(({ children }) => children);
@@ -17,6 +19,48 @@ jest.mock("react-transition-group", () => {
 });
 
 jest.useFakeTimers();
+
+const tipseenMockChildren = <div className="monday-style-story-tipseen_container" />;
+
+describe("Snapshot tests", () => {
+  describe("Tipseen content tests", () => {
+    it("renders correctly without props", () => {
+      const tree = renderer.create(<TipseenContent />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without dismiss", () => {
+      const tree = renderer.create(<TipseenContent hideDismiss />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without submit", () => {
+      const tree = renderer.create(<TipseenContent hideSubmit />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without dismiss - deprecated version", () => {
+      const tree = renderer.create(<TipseenContent isDismissHidden />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without submit - deprecated version", () => {
+      const tree = renderer.create(<TipseenContent isSubmitHidden />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe("Tipseen tests", () => {
+    it("renders correctly without props", () => {
+      const tree = renderer.create(<Tipseen>{tipseenMockChildren}</Tipseen>).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without close", () => {
+      const tree = renderer.create(<Tipseen hideCloseButton>{tipseenMockChildren}</Tipseen>).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly without close - deprecated version", () => {
+      const tree = renderer.create(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+});
 
 describe("Integration Tests", () => {
   describe("Tipseen tests", () => {
