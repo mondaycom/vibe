@@ -7,12 +7,15 @@ import { VibeComponentProps } from "../../types";
 import cx from "classnames";
 import { ElementContent } from "../../types/ElementContent";
 import "./ExpandCollapse.scss";
+import extraStyles from "./styles.module.scss";
 
 interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * Component as parameter to be rendered as header
    */
   headerComponentRenderer?: () => ReactElement;
+  headerClassName?: string;
+  contentClassName?: string;
   /**
    * Header title
    */
@@ -31,6 +34,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
   defaultOpenState?: boolean;
   open?: boolean;
   onClick?: (event: React.MouseEvent) => void;
+  hideBorder?: boolean;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
@@ -44,7 +48,10 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       iconSize = 24,
       id = "",
       open,
-      onClick = null
+      onClick = null,
+      hideBorder = false,
+      headerClassName,
+      contentClassName
     },
     ref
   ) => {
@@ -63,11 +70,12 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
-        <div className="expand-collapse">
+        <div className={cx("expand-collapse", { [extraStyles.hideBorder]: hideBorder })}>
           <button
             type="button"
-            className={cx("expand-collapse__header", "expand-collapse__section", {
-              "expand-collapse__header--open": isExpanded
+            className={cx("expand-collapse__header", "expand-collapse__section", headerClassName, {
+              "expand-collapse__header--open": isExpanded,
+              [extraStyles.hideBorderBottom]: hideBorder
             })}
             onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
@@ -84,9 +92,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           </button>
           {isExpanded && (
             <div
-              className={`expand-collapse__content expand-collapse__section ${
-                isExpanded && "animate-expand-collapse__content"
-              }`}
+              className={cx("expand-collapse__content", "expand-collapse__section", contentClassName, {
+                "animate-expand-collapse__content": isExpanded
+              })}
               id={`${id}-controls`}
               role="region"
             >
