@@ -250,7 +250,7 @@ const Dropdown = ({
       }
       return insideOverflowContainer || insideOverflowWithTransformContainer;
     },
-    [insideOverflowContainer, id, insideOverflowWithTransformContainer]
+    [insideOverflowContainer, insideOverflowWithTransformContainer]
   );
 
   return (

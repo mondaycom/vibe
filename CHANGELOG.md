@@ -1,5 +1,54 @@
 # Changelog
 
+## 1.87.0 (2023-01-26)
+
+#### Bug Fixes
+* [#1075](https://github.com/mondaycom/monday-ui-react-core/pull/1075) Tipseen: snapshot tests & fix bug on onDismiss and onSubmit overrides ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1077](https://github.com/mondaycom/monday-ui-react-core/pull/1077) Feature/sergeyro/avatar classname props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1074](https://github.com/mondaycom/monday-ui-react-core/pull/1074) Docs/hadas/responsive list docs ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1076](https://github.com/mondaycom/monday-ui-react-core/pull/1076) small tipseen test fix ([@hadasfa](https://github.com/hadasfa))
+
+## 1.86.3 (2023-01-25)
+
+#### Bug Fixes
+* [#1072](https://github.com/mondaycom/monday-ui-react-core/pull/1072) Fix tipssen hide close button ([@hadasfa](https://github.com/hadasfa))
+
+## 1.86.2 (2023-01-23)
+
+#### Bug Fixes
+* [#1056](https://github.com/mondaycom/monday-ui-react-core/pull/1056) Feature/sergeyro/fix chips dropdown alignment ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.86.1 (2023-01-22)
+
+#### Bug Fixes
+* [#1055](https://github.com/mondaycom/monday-ui-react-core/pull/1055) Feature/sergeyro/fix clickable chips breaking changes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.86.0 (2023-01-22)
+
+#### New Features
+* [#1071](https://github.com/mondaycom/monday-ui-react-core/pull/1071) Expose Vibe components and related TS types ([@hadasfa](https://github.com/hadasfa))
+
+## 1.85.0 (2023-01-18)
+
+#### New Features
+* [#1067](https://github.com/mondaycom/monday-ui-react-core/pull/1067) Checkbox: checkbox and label className props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.84.4 (2023-01-18)
+
+#### Bug Fixes
+* [#1069](https://github.com/mondaycom/monday-ui-react-core/pull/1069) fix center loader  ([@hadasfa](https://github.com/hadasfa))
+
+## 1.84.3 (2023-01-18)
+
+#### Bug Fixes
+* [#1068](https://github.com/mondaycom/monday-ui-react-core/pull/1068) Fix/hadas/center loader ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.84.2 (2023-01-17)
 
 #### Bug Fixes

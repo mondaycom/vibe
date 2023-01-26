@@ -27,7 +27,10 @@ export interface AvatarProps extends VibeComponentProps {
   withoutTooltip?: boolean;
   icon?: SubIcon;
   type?: AvatarType;
+  /** Class name for the avatar content of text type */
   textClassName?: string;
+  /** Class name for a div-wrapper of avatar content */
+  avatarContentWrapperClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: AriaRole;
@@ -56,6 +59,7 @@ const Avatar: React.FC<AvatarProps> & {
   id,
   type = AvatarType.TEXT,
   className,
+  avatarContentWrapperClassName,
   textClassName = "",
   size = AvatarSize.LARGE,
   src,
@@ -213,7 +217,8 @@ const Avatar: React.FC<AvatarProps> & {
                 ["monday-style-avatar_circle--is-square"]: overrideSquare,
                 [styles.withoutBorder]: withoutBorder,
                 ["monday-style-avatar_circle--without-border"]: withoutBorder
-              }
+              },
+              avatarContentWrapperClassName
             )}
             aria-hidden={ariaHidden}
             tabIndex={tabIndex}

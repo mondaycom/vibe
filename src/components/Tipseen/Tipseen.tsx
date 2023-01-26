@@ -74,9 +74,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideDelay = 0,
       showDelay = 0,
       title,
-      hideCloseButton = false,
+      hideCloseButton,
       // Backward compatability for hideCloseButton
-      isCloseButtonHidden = false,
+      isCloseButtonHidden,
       onClose,
       closeAriaLabel,
       children = null,
@@ -100,7 +100,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
     const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
-    const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden]);
+    const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(

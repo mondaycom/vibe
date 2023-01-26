@@ -33,7 +33,6 @@ function convertExportsToFile(exportsArray, fileName) {
   fs.writeFileSync(path.join(__dirname, `../dist/${fileName}`), content, "utf8");
 }
 
-// eslint-disable-next-line no-unused-vars
 function buildComponentsTypesIndexFile() {
   const exports = Object.entries(publishedTSComponents).map(([name, path]) =>
     buildComponentExport(name, `./types/${path}`)

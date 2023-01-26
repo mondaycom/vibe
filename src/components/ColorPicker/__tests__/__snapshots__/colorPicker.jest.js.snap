@@ -47,7 +47,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-grass_green)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -75,7 +75,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-done-green)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -103,7 +103,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-bright-green)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -131,7 +131,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-saladish)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -159,7 +159,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-egg_yolk)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -187,7 +187,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-working_orange)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -215,7 +215,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-dark-orange)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -243,7 +243,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-peach)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -271,7 +271,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-sunset)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -299,7 +299,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-stuck-red)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -327,7 +327,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-dark-red)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -355,7 +355,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-sofia_pink)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -383,7 +383,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-lipstick)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -411,7 +411,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-bubble)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -439,7 +439,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-purple)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -467,7 +467,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-dark_purple)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -495,7 +495,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-berry)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -523,7 +523,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-dark_indigo)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -551,7 +551,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-indigo)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -579,7 +579,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-navy)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -607,7 +607,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-bright-blue)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -635,7 +635,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-dark-blue)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -663,7 +663,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-aquamarine)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -691,7 +691,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-chili-blue)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -719,7 +719,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-river)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -747,7 +747,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-winter)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -775,7 +775,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-explosive)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -803,7 +803,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-american_gray)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -831,7 +831,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-blackish)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -859,7 +859,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-brown)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -887,7 +887,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-orchid)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -915,7 +915,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-tan)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -943,7 +943,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-sky)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -971,7 +971,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-coffee)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -999,7 +999,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-royal)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -1027,7 +1027,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-teal)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -1055,7 +1055,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-lavender)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -1083,7 +1083,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-steel)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -1111,7 +1111,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-lilac)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"
@@ -1139,7 +1139,7 @@ exports[`renders correctly with empty props 1`] = `
               "background": "var(--color-pecan)",
             }
           }
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div
             className="colorIndicatorWrapper color-indicator-wrapper"

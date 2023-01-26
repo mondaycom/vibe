@@ -55,7 +55,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -84,7 +84,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -172,7 +172,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -201,7 +201,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -289,7 +289,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -318,7 +318,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -406,7 +406,7 @@ exports[`Combobox renders correctly with className 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -435,7 +435,7 @@ exports[`Combobox renders correctly with className 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -523,7 +523,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -552,7 +552,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -738,7 +738,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -767,7 +767,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -855,7 +855,7 @@ exports[`Combobox renders correctly with id 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -884,7 +884,7 @@ exports[`Combobox renders correctly with id 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1001,7 +1001,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1030,7 +1030,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1118,7 +1118,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1147,7 +1147,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1235,7 +1235,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1264,7 +1264,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1403,7 +1403,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1432,7 +1432,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1520,7 +1520,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1549,7 +1549,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1637,7 +1637,7 @@ exports[`Combobox renders correctly with size 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}
@@ -1666,7 +1666,7 @@ exports[`Combobox renders correctly with size 1`] = `
             onKeyDown={[Function]}
             onMouseDown={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
           >
             <svg
               aria-hidden={true}

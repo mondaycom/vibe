@@ -16,7 +16,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -101,7 +101,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -195,7 +195,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -288,7 +288,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -373,7 +373,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -406,7 +406,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -446,7 +446,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -486,7 +486,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -571,7 +571,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -604,7 +604,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       onKeyDown={[Function]}
       onMouseDown={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}

@@ -3,26 +3,14 @@
 @import "../../styles/states";
 @import "../../styles/keyframes";
 
-.chipsWrapper {
-  margin: 0 var(--spacing-xs);
-  align-items: center;
-  height: 24px;
-  display: inline-flex;
-}
-
-.clickableWrapper {
-  height: 100%;
-  width: 100%;
-}
-
 .chips {
   display: inline-flex;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  height: 24px;
   border-radius: 4px;
   padding: 1px 8px;
   align-items: center;
+  margin: 0 var(--spacing-xs);
   user-select: none;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
 
