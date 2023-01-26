@@ -26,7 +26,10 @@ export interface AvatarProps extends VibeComponentProps {
   withoutTooltip?: boolean;
   icon?: SubIcon;
   type?: AvatarType;
+  /** Class name for the avatar content of text type */
   textClassName?: string;
+  /** Class name for a div-wrapper of avatar content */
+  avatarContentWrapperClassName?: string;
   backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: AriaRole;
@@ -55,6 +58,7 @@ const Avatar: React.FC<AvatarProps> & {
   id,
   type = AvatarType.TEXT,
   className,
+  avatarContentWrapperClassName,
   textClassName = "",
   size = AvatarSize.LARGE,
   src,
@@ -174,11 +178,16 @@ const Avatar: React.FC<AvatarProps> & {
           {...overrideTooltipProps}
         >
           <div
-            className={cx(bemHelper({ element: "circle" }), bemHelper({ element: "circle", state: type }), {
-              [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-              [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
-              [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
-            })}
+            className={cx(
+              bemHelper({ element: "circle" }),
+              bemHelper({ element: "circle", state: type }),
+              {
+                [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
+                [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
+                [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
+              },
+              avatarContentWrapperClassName
+            )}
             aria-hidden={ariaHidden}
             tabIndex={tabIndex}
             style={{ ...backgroundColorStyle }}
