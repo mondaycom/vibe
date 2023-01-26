@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SIZES } from "../../constants/sizes";
