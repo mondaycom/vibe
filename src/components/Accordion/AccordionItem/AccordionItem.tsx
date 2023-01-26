@@ -26,6 +26,8 @@ interface AccordionItemProps extends VibeComponentProps {
   open?: boolean;
   onClickAccordionCallback?: () => void;
   hideBorder?: boolean;
+  headerClassName?: string;
+  contentClassName?: string;
 }
 
 const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
@@ -39,7 +41,9 @@ const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
       open,
       onClick,
       onClickAccordionCallback,
-      hideBorder = false
+      hideBorder = false,
+      headerClassName,
+      contentClassName
     },
     ref
   ) => {
@@ -61,6 +65,8 @@ const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
           open={open}
           title={title}
           hideBorder={hideBorder}
+          headerClassName={headerClassName}
+          contentClassName={contentClassName}
         >
           {children}
         </ExpandCollapse>
