@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.87.0 (2023-01-26)
+
+#### Bug Fixes
+* [#1075](https://github.com/mondaycom/monday-ui-react-core/pull/1075) Tipseen: snapshot tests & fix bug on onDismiss and onSubmit overrides ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1077](https://github.com/mondaycom/monday-ui-react-core/pull/1077) Feature/sergeyro/avatar classname props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1074](https://github.com/mondaycom/monday-ui-react-core/pull/1074) Docs/hadas/responsive list docs ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1076](https://github.com/mondaycom/monday-ui-react-core/pull/1076) small tipseen test fix ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.86.3 (2023-01-25)
 
 #### Bug Fixes
