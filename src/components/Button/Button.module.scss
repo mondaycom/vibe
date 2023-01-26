@@ -139,9 +139,11 @@
 }
 
 .kindPrimary.colorPrimaryActive,
-.kindPrimary.colorPrimary:hover,
-.kindPrimary.colorPrimary:focus {
-  @include theme-prop(background-color, primary-hover-color);
+.kindPrimary.colorPrimaryActive:hover,
+.kindPrimary.colorPrimary:hover:not(.colorPrimaryActive),
+.kindPrimary.colorPrimary:focus:not(.colorPrimaryActive) {
+  background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
 }
 
 .kindPrimary.colorPositive {
@@ -267,9 +269,10 @@
 }
 
 .kindTertiary.colorPrimaryActive,
-.kindTertiary.colorPrimary:hover,
-.kindTertiary.colorPrimary:focus {
-  @include theme-prop(background-color, primary-background-hover-color);
+.kindTertiary.colorPrimaryActive:hover,
+.kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
+.kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
+  background-color: var(--primary-selected-color);
 }
 
 .kindTertiary.colorPositive {

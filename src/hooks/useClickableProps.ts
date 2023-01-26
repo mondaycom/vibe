@@ -15,7 +15,7 @@ export default function useClickableProps(
     onMouseDown = NOOP,
     disabled = false,
     id,
-    dataTestId,
+    "data-testid": dataTestId,
     role = "button",
     tabIndex = 0,
     ariaLabel,
