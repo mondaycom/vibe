@@ -36,6 +36,10 @@ interface ChipsProps extends VibeComponentProps {
   rightAvatar?: string;
   /** Img to place as avatar on the left */
   leftAvatar?: string;
+  /** ClassName for left or right icon */
+  iconClassName?: string;
+  /** ClassName for left or right avatar */
+  avatarClassName?: string;
   // color?: Object.keys(Chips.colors),
   color?: keyof Record<string, string>;
   /** size for font icon */
@@ -78,6 +82,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   (
     {
       className,
+      avatarClassName,
+      iconClassName,
       id,
       label = "",
       leftIcon = null,
@@ -189,7 +195,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         {leftAvatar ? (
           <Avatar
             withoutBorder
-            className={cx(styles.avatar, styles.left)}
+            className={cx(styles.avatar, styles.left, avatarClassName)}
             customSize={18}
             src={leftAvatar}
             type={AvatarType.IMG}
@@ -198,7 +204,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         ) : null}
         {leftIcon ? (
           <Icon
-            className={cx(styles.icon, styles.left)}
+            className={cx(styles.icon, styles.left, iconClassName)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
@@ -209,7 +215,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         <div className={styles.label}>{label}</div>
         {rightIcon ? (
           <Icon
-            className={cx(styles.icon, styles.right)}
+            className={cx(styles.icon, styles.right, iconClassName)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
@@ -220,7 +226,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         {rightAvatar ? (
           <Avatar
             withoutBorder
-            className={cx(styles.avatar, styles.right)}
+            className={cx(styles.avatar, styles.right, avatarClassName)}
             customSize={16}
             src={rightAvatar}
             type={AvatarType.IMG}
