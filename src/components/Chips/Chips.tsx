@@ -16,12 +16,10 @@ import useSetFocus from "../../hooks/useSetFocus";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useClickableProps from "../../hooks/useClickableProps";
-import { BEMClass } from "../../helpers/bem-helper";
-import "../Clickable/Clickable.scss";
+import clickableStyles from "../Clickable/Clickable.module.scss";
 import styles from "./Chips.module.scss";
 
 const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
-const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -157,9 +155,11 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection
     });
-    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
-      disabled,
-      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    const clickableClassName = cx(clickableStyles.clickable, CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
+      [clickableStyles.disabled]: disabled,
+      ["disabled"]: disabled,
+      [clickableStyles.disableTextSelection]: !allowTextSelection,
+      ["monday-style-clickable--disable-text-selection"]: !allowTextSelection
     });
 
     const clickableProps = useClickableProps(
@@ -168,7 +168,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         onMouseDown,
         disabled,
         id,
-        dataTestId: overrideDataTestId,
+        "data-testid": overrideDataTestId,
         ariaLabel: ariaLabel || label,
         ariaHidden: false,
         ariaHasPopup: false,
