@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.88.1 (2023-01-29)
+
+#### Bug Fixes
+* [#1079](https://github.com/mondaycom/monday-ui-react-core/pull/1079) Update Dropdown.jsx ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.88.0 (2023-01-29)
 
 #### New Features
