@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.88.0 (2023-01-29)
+
+#### New Features
+* [#1070](https://github.com/mondaycom/monday-ui-react-core/pull/1070) add class names to marker and description of radiobutton ([@hadasfa](https://github.com/hadasfa))
+* [#1078](https://github.com/mondaycom/monday-ui-react-core/pull/1078) AccordionItem and ExpandAble preparation for css modules transition ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.87.0 (2023-01-26)
 
 #### Bug Fixes
