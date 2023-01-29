@@ -12,6 +12,8 @@ import "./RadioButton.scss";
 interface RadioButtonProps extends VibeComponentProps {
   className?: string;
   componentClassName?: string;
+  labelClassName?: string;
+  radioButtonClassName?: string;
   text?: string;
   value?: string;
   name?: string;
@@ -35,6 +37,14 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       text = "",
       value = "",
       name = "",
+      /**
+       * Radio button label class name
+       */
+      labelClassName,
+      /**
+       * Radio button marker class name
+       */
+      radioButtonClassName,
       disabled = false,
       disabledReason,
       defaultChecked = false,
@@ -84,12 +94,12 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               ref={mergedRef}
             />
             <span
-              className={cx(`${baseClassName}__radio-input-container__radio-control`, {
+              className={cx(`${baseClassName}__radio-input-container__radio-control`, radioButtonClassName, {
                 [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
               })}
             />
           </span>
-          {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
+          {text && <span className={cx(`${baseClassName}__radio-label`, labelClassName)}>{text}</span>}
           {children && (
             <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
               {children}
