@@ -36,7 +36,7 @@ const Skeleton: FC<SkeletonProps> & {
   wrapperClassName,
   width,
   height,
-  fullWidth
+  fullWidth = false
 }) => {
   const skeletonType = SKELETON_ALLOWED_TYPES.indexOf(type) > -1 ? type : SKELETON_TYPES.RECTANGLE;
   const typeDescription = skeletonType.toUpperCase() as keyof typeof SKELETON_ALLOWED_SIZES;
