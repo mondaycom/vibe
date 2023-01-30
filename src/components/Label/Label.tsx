@@ -17,13 +17,20 @@ const LABEL_COLORS = {
   POSITIVE: "positive"
 } as const;
 
-type LabelTypes = typeof LABEL_TYPES;
-type LabelColors = typeof LABEL_COLORS;
+type LabelType = typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
+type LabelColor = typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
 
 interface LabelProps extends VibeComponentProps {
+  /**
+   * Class name for the wrapper
+   */
+  className?: string;
+  /**
+   * Backward compatibility for props naming - please use className instead
+   */
   wrapperClassName?: string;
-  kind?: LabelTypes[keyof LabelTypes];
-  color?: LabelColors[keyof LabelColors];
+  kind?: LabelType;
+  color?: LabelColor;
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
