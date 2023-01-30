@@ -22,10 +22,6 @@ type LabelColor = typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
 
 interface LabelProps extends VibeComponentProps {
   /**
-   * Class name for the wrapper
-   */
-  className?: string;
-  /**
    * Backward compatibility for props naming - please use className instead
    */
   wrapperClassName?: string;
