@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
-import "./Label.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import "./Label.scss";
 
 const LABEL_TYPES = {
   FILL: "fill",
@@ -17,13 +17,20 @@ const LABEL_COLORS = {
   POSITIVE: "positive"
 } as const;
 
-type LabelTypes = typeof LABEL_TYPES;
-type LabelColors = typeof LABEL_COLORS;
+type LabelType = typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
+type LabelColor = typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
 
 interface LabelProps extends VibeComponentProps {
+  /**
+   * Backward compatibility for props naming - please use className instead
+   */
   wrapperClassName?: string;
-  kind?: LabelTypes[keyof LabelTypes];
-  color?: LabelColors[keyof LabelColors];
+  /**
+   * Class name for an inner text wrapper
+   */
+  labelClassName?: string;
+  kind?: LabelType;
+  color?: LabelColor;
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
@@ -32,6 +39,7 @@ interface LabelProps extends VibeComponentProps {
 const Label = ({
   className,
   wrapperClassName,
+  labelClassName,
   kind = LABEL_TYPES.FILL,
   color = LABEL_COLORS.PRIMARY,
   text = "",
@@ -41,11 +49,17 @@ const Label = ({
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
   const classNames = useMemo(
     () =>
-      cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`, {
-        "monday-style-label--with-animation": !isAnimationDisabled,
-        "monday-style-label--with-leg": isLegIncluded
-      }),
-    [kind, color, isAnimationDisabled, isLegIncluded]
+      cx(
+        "monday-style-label",
+        `monday-style-label--kind-${kind}`,
+        `monday-style-label--color-${color}`,
+        {
+          "monday-style-label--with-animation": !isAnimationDisabled,
+          "monday-style-label--with-leg": isLegIncluded
+        },
+        labelClassName
+      ),
+    [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
   return (
     <span className={overrideClassName}>
