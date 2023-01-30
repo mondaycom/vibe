@@ -46,6 +46,12 @@
 }
 
 .monday-style-skeleton {
+  display: flex;
+
+  .full-width {
+    width: 100%;
+  }
+
   &_rectangle {
     $rectangle-default-size: 160px;
     height: $rectangle-default-size;
