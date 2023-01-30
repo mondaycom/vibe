@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.89.0 (2023-01-30)
+
+#### New Features
+* [#1080](https://github.com/mondaycom/monday-ui-react-core/pull/1080) Skeleton - wrapperClassName and fullWidth props added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.88.1 (2023-01-29)
 
 #### Bug Fixes
