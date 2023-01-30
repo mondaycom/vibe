@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
-import "./Label.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import "./Label.scss";
 
 const LABEL_TYPES = {
   FILL: "fill",
@@ -29,6 +29,10 @@ interface LabelProps extends VibeComponentProps {
    * Backward compatibility for props naming - please use className instead
    */
   wrapperClassName?: string;
+  /**
+   * Class name for an inner text wrapper
+   */
+  labelClassName?: string;
   kind?: LabelType;
   color?: LabelColor;
   text?: string;
@@ -39,6 +43,7 @@ interface LabelProps extends VibeComponentProps {
 const Label = ({
   className,
   wrapperClassName,
+  labelClassName,
   kind = LABEL_TYPES.FILL,
   color = LABEL_COLORS.PRIMARY,
   text = "",
@@ -48,11 +53,17 @@ const Label = ({
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
   const classNames = useMemo(
     () =>
-      cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`, {
-        "monday-style-label--with-animation": !isAnimationDisabled,
-        "monday-style-label--with-leg": isLegIncluded
-      }),
-    [kind, color, isAnimationDisabled, isLegIncluded]
+      cx(
+        "monday-style-label",
+        `monday-style-label--kind-${kind}`,
+        `monday-style-label--color-${color}`,
+        {
+          "monday-style-label--with-animation": !isAnimationDisabled,
+          "monday-style-label--with-leg": isLegIncluded
+        },
+        labelClassName
+      ),
+    [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
   return (
     <span className={overrideClassName}>
