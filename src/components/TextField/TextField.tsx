@@ -21,6 +21,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import "./TextField.scss";
+import { Description } from "../Icon/Icons";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -49,6 +50,8 @@ interface TextFieldProps extends VibeComponentProps {
   onIconClick?: (icon: string | React.FunctionComponent | null) => void;
   clearOnIconClick?: boolean;
   labelIconName?: string | React.FunctionComponent | null;
+  descriptionIcon?: string | React.FunctionComponent | null;
+  description?: string;
   showCharCount?: boolean;
   inputAriaLabel?: string;
   searchResultsContainerId?: string;
@@ -105,6 +108,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       onIconClick = NOOP,
       clearOnIconClick = false,
       labelIconName,
+      descriptionIcon,
+      description,
       showCharCount = false,
       inputAriaLabel,
       searchResultsContainerId = "",
@@ -182,7 +187,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className="input-component__label--wrapper">
-          <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
+          <FieldLabel
+            labelText={title}
+            icon={labelIconName}
+            descriptionIcon={descriptionIcon}
+            description={description}
+            iconLabel={iconsNames.layout}
+            labelFor={id}
+          />
           <div
             className={classNames("input-component__input-wrapper", SIZE_MAPPER[getActualSize(size)], validationClass)}
           >

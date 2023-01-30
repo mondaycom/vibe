@@ -18,6 +18,11 @@
   }
 }
 
+.label-component--tooltipicon {
+  margin-left: var(--spacing-xs);
+  display: flex;
+}
+
 .label-component--wrapper .label-component--icon{
   font-family: var(--font-family)
 }
