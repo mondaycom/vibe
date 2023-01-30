@@ -22,7 +22,7 @@ const Divider = ({
   return (
     <div
       className={cx("monday-style-divider", overrideClassName, `monday-style-divider--${direction}`, {
-        [`monday-style-divider--with-margin`]: !withoutMargin
+        [`monday-style-divider--without-margin`]: withoutMargin
       })}
     />
   );

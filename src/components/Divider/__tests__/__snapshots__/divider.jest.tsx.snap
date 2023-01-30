@@ -2,12 +2,12 @@
 
 exports[`renders correctly with custom class name 1`] = `
 <div
-  className="monday-style-divider dummy-class-name monday-style-divider--horizontal monday-style-divider--with-margin"
+  className="monday-style-divider dummy-class-name monday-style-divider--horizontal"
 />
 `;
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="monday-style-divider monday-style-divider--horizontal monday-style-divider--with-margin"
+  className="monday-style-divider monday-style-divider--horizontal"
 />
 `;

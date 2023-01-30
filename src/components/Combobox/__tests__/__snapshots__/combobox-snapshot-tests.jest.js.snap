@@ -622,7 +622,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           }
         >
           <div
-            className="monday-style-divider divider monday-style-divider--horizontal monday-style-divider--with-margin"
+            className="monday-style-divider divider monday-style-divider--horizontal"
           />
         </div>
       </div>
