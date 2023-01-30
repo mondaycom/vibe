@@ -8,12 +8,18 @@
   &--horizontal {
     height: 1px;
     width: 100%;
-    margin: $spacing-small 0;
+
+    &.monday-style-divider--with-margin  {
+      margin: var(--spacing-small) 0;
+    }
   }
 
   &--vertical {
     height: 100%;
     width: 1px;
-    margin: 0 $spacing-xs;
+
+    &.monday-style-divider--with-margin  {
+      margin: 0 var(--spacing);
+    }
   }
 }
