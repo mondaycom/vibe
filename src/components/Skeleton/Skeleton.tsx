@@ -9,6 +9,7 @@ import {
   SKELETON_TYPES
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import styles from "./Skeleton.module.scss";
 import "./Skeleton.scss";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
@@ -42,7 +43,7 @@ const Skeleton: FC<SkeletonProps> & {
   const typeDescription = skeletonType.toUpperCase() as keyof typeof SKELETON_ALLOWED_SIZES;
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
   return (
-    <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { "full-width": fullWidth })}>
+    <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}>
       <div
         className={cx(
           bemHelper({ element: skeletonType }),
