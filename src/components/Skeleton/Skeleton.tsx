@@ -22,7 +22,7 @@ interface SkeletonProps extends VibeComponentProps {
   height?: number;
   wrapperClassName?: string;
   /**
-   * Is wrapper width = 100%
+   * Is the skeleton wrapper width equal to its container
    */
   fullWidth?: boolean;
 }
