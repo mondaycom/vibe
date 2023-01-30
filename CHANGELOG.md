@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.90.0 (2023-01-30)
+
+#### New Features
+* [#1084](https://github.com/mondaycom/monday-ui-react-core/pull/1084) Feature/sergeyro/label class name props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.89.0 (2023-01-30)
 
 #### New Features
