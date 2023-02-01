@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.91.0 (2023-02-01)
+
+#### New Features
+* [#1082](https://github.com/mondaycom/monday-ui-react-core/pull/1082) Add support for "without margin" prop in Divider component ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.90.0 (2023-01-30)
 
 #### New Features
