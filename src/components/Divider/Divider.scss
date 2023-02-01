@@ -5,15 +5,19 @@
 .monday-style-divider {
   @include theme-prop(background-color, layout-border-color);
 
+  &.monday-style-divider--without-margin  {
+    margin: 0;
+  }
+
   &--horizontal {
     height: 1px;
     width: 100%;
-    margin: $spacing-small 0;
+    margin: var(--spacing-small) 0;
   }
 
   &--vertical {
     height: 100%;
     width: 1px;
-    margin: 0 $spacing-xs;
+    margin: 0 var(--spacing-xs);
   }
 }
