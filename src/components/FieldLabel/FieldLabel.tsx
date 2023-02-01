@@ -3,13 +3,13 @@ import cx from "classnames";
 import Icon from "../Icon/Icon";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import "./FieldLabel.scss";
-import { descriptionTypesMap } from "src/storybook/components/related-components/component-description-map";
 import { Tooltip } from "monday-ui-react-core";
 import { Info } from "../Icon/Icons";
+import { SubIcon } from "monday-ui-react-core/dist/types/types";
 
 interface FieldLabelProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent | null;
-  descriptionIcon?: string | React.FunctionComponent | null;
+  descriptionIcon?: SubIcon;
   description?: string;
   iconLabel?: string;
   labelText?: string;
@@ -22,7 +22,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
     {
       icon = "",
-      descriptionIcon = undefined,
+      descriptionIcon = Info,
       description = "",
       iconLabel = "",
       labelText = "",
@@ -35,19 +35,6 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
     if (!labelText) {
       return null;
     }
-
-    const renderIconWithToolTip = () => {
-      return (
-        <Tooltip content={description}>
-          <Icon
-            icon={descriptionIcon ?? Info}
-            clickable={false}
-            iconType={Icon.type.ICON_FONT}
-            className="label-component--tooltipicon"
-          />
-        </Tooltip>
-      );
-    };
 
     return (
       <section className="label-component--wrapper">
@@ -62,7 +49,16 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
         <label htmlFor={labelFor} ref={ref} className={cx("label-component--text", labelClassName)}>
           {labelText}
         </label>
-        {description && renderIconWithToolTip()}
+        {description && (
+          <Tooltip content={description}>
+            <Icon
+              icon={descriptionIcon}
+              clickable={false}
+              iconType={Icon.type.SVG}
+              className="label-component--tooltipicon"
+            />
+          </Tooltip>
+        )}
       </section>
     );
   }

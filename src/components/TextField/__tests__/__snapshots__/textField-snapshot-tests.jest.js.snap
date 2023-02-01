@@ -542,6 +542,120 @@ exports[`TextField renders correctly with date-time type 1`] = `
 </div>
 `;
 
+exports[`TextField renders correctly with description 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with description with different icon 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TextField renders correctly with icon 1`] = `
 <div
   aria-busy={false}

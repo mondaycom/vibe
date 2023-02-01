@@ -109,4 +109,14 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField type={TextField.types.DATE_TIME} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with description", () => {
+    const tree = renderer.create(<TextField description="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with description with different icon", () => {
+    const tree = renderer.create(<TextField description="test" descriptionIcon="fa-star" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -21,7 +21,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import "./TextField.scss";
-import { Description } from "../Icon/Icons";
+import { SubIcon } from "monday-ui-react-core/dist/types/types";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
@@ -50,7 +50,7 @@ interface TextFieldProps extends VibeComponentProps {
   onIconClick?: (icon: string | React.FunctionComponent | null) => void;
   clearOnIconClick?: boolean;
   labelIconName?: string | React.FunctionComponent | null;
-  descriptionIcon?: string | React.FunctionComponent | null;
+  descriptionIcon?: SubIcon;
   description?: string;
   showCharCount?: boolean;
   inputAriaLabel?: string;
