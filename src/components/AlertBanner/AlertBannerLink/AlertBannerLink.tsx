@@ -9,15 +9,23 @@ export interface AlertBannerLinkProps extends LinkProps {
   isDarkBackground?: boolean;
 }
 
-const AlertBannerLink = ({ marginLeft = false, isDarkBackground = false, ...linkProps }: AlertBannerLinkProps) => {
-  const classNames = cx({
-    "monday-style-alert-banner-link-margin-left": marginLeft,
-    "monday-style-alert-banner-link-dark-background": isDarkBackground
-  });
+const AlertBannerLink = ({
+  marginLeft = false,
+  isDarkBackground = false,
+  className,
+  ...linkProps
+}: AlertBannerLinkProps) => {
+  const classNames = cx(
+    {
+      "monday-style-alert-banner-link-margin-left": marginLeft,
+      "monday-style-alert-banner-link-dark-background": isDarkBackground
+    },
+    className
+  );
 
   return (
     <div className={classNames}>
-      <Link {...linkProps} componentClassName="monday-style-alert-banner-link" />
+      <Link {...linkProps} className="monday-style-alert-banner-link" />
     </div>
   );
 };
