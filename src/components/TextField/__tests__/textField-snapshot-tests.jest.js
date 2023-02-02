@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import Email from "../../Icon/Icons/components/Email";
 import TextField from "../TextField";
 
 describe("TextField renders correctly", () => {
@@ -116,7 +117,7 @@ describe("TextField renders correctly", () => {
   });
 
   it("with description with different icon", () => {
-    const tree = renderer.create(<TextField description="test" descriptionIcon="fa-star" />).toJSON();
+    const tree = renderer.create(<TextField description="test" descriptionIcon={Email} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
