@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.92.0 (2023-02-04)
+
+#### New Features
+* [#1090](https://github.com/mondaycom/monday-ui-react-core/pull/1090) update Figtree and Poppins ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.91.0 (2023-02-01)
 
 #### New Features
