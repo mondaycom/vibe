@@ -28,7 +28,7 @@
 
 // Override tags styles
 .element-type-h1 {
-  letter-spacing: -1px;
+  letter-spacing: -0.2px;
   font-size: $h1-legacy-font-size;
   line-height: $h1-legacy-line-height;
   font-weight: var(--font-weight-bold);
@@ -44,6 +44,7 @@
 }
 
 .element-type-h2 {
+  letter-spacing: -0.2px;
   @include font-title();
   &.size-small,
   &.size-medium {
@@ -51,6 +52,7 @@
   }
 }
 .element-type-h3 {
+  letter-spacing: -0.2px;
   @include font-title-secondary();
   &.size-small,
   &.size-medium {
@@ -59,6 +61,7 @@
 }
 
 .element-type-h4 {
+  letter-spacing: -0.2px;
   @include font-subtitle();
 }
 
