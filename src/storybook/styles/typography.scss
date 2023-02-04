@@ -45,7 +45,7 @@ $text-line-height: 24px;
 
 @mixin title-appearance{
   margin-bottom: $spacing-between-title-to-content;
-  font-family: $text-primary-font;
+  font-family: $header-primary-font;
   @include basic-text;
   font-size: $h3-font-size;
   line-height: 28px;
