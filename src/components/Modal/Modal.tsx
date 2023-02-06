@@ -103,7 +103,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     if (attr?.container?.ref?.current) {
       attr.container.ref.current.style.setProperty("--monday-modal-z-index", zIndex.toString());
     }
-  }, [attr.container.ref, zIndex]);
+  }, [attr?.container?.ref, zIndex]);
 
   // show/hide and animate the modal
   const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
