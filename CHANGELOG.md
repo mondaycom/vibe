@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.95.0 (2023-02-06)
+
+#### New Features
+* [#1087](https://github.com/mondaycom/monday-ui-react-core/pull/1087) Counter: counterClassName added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.94.1 (2023-02-06)
 
 #### Bug Fixes
