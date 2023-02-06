@@ -21,7 +21,7 @@ function getType(type: SearchType) {
 export interface SearchProps extends VibeComponentProps {
   secondaryIconName?: SubIcon;
   iconName?: SubIcon;
-  onChange?: () => void;
+  onChange?: (value: string) => void;
   autoFocus?: boolean;
   value?: string;
   placeholder?: string;
