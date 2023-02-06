@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.94.1 (2023-02-06)
+
+#### Bug Fixes
+* [#1095](https://github.com/mondaycom/monday-ui-react-core/pull/1095) fix: Search component onChange callback type ([@itaymndy](https://github.com/itaymndy))
+
 ## 1.94.0 (2023-02-06)
 
 #### New Features
