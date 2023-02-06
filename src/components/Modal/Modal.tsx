@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useEffect, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -99,12 +99,6 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   // lock body scroll when modal is open
   useBodyScrollLock({ instance });
 
-  useEffect(() => {
-    if (attr?.container?.ref?.current) {
-      attr.container.ref.current.style.setProperty("--monday-modal-z-index", zIndex.toString());
-    }
-  }, [attr?.container?.ref, zIndex]);
-
   // show/hide and animate the modal
   const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
 
@@ -144,6 +138,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
       {...attr.container}
       className={cx(styles.container, classNames.container)}
       data-testid="monday-dialog-container"
+      style={{ "--monday-modal-z-index": zIndex }}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
