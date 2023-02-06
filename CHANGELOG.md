@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.94.0 (2023-02-06)
+
+#### New Features
+* [#1092](https://github.com/mondaycom/monday-ui-react-core/pull/1092) Add support for combobox optionClassName & combobox dark mode fixes ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.93.0 (2023-02-06)
 
 #### Bug Fixes
