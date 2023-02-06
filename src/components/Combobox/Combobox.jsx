@@ -21,6 +21,7 @@ const Combobox = forwardRef(
   (
     {
       className,
+      optionClassName,
       id,
       placeholder,
       size,
@@ -209,6 +210,7 @@ const Combobox = forwardRef(
             options={filteredOptions}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
+            optionClassName={optionClassName}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
             visualFocusItemIndex={visualFocusItemIndex}
@@ -238,6 +240,7 @@ Combobox.defaultTestId = ComponentDefaultTestId.COMBOBOX;
 
 Combobox.propTypes = {
   className: PropTypes.string,
+  optionClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */
@@ -313,6 +316,7 @@ Combobox.propTypes = {
 
 Combobox.defaultProps = {
   className: "",
+  optionClassName: "",
   placeholder: "",
   id: "",
   noResultsMessage: "No results found",

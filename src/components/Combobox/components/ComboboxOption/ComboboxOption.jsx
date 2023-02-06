@@ -10,6 +10,7 @@ import "./ComboboxOption.scss";
 const ComboboxOption = ({
   index,
   option,
+  className,
   isActive,
   visualFocus,
   scrollRef,
@@ -139,7 +140,7 @@ const ComboboxOption = ({
         onClick={onClick}
         onKeyDown={onKeyDown}
         onMouseLeave={onMouseLEave}
-        className={cx("combobox-option", {
+        className={cx("combobox-option", className, {
           disabled,
           selected,
           active: isActive,
