@@ -19,6 +19,26 @@ exports[`Counter renders correctly with ariaLabeledBy 1`] = `
 </span>
 `;
 
+exports[`Counter renders correctly with className 1`] = `
+<span
+  aria-label=" 0"
+  aria-labelledby=""
+  className="className"
+  onMouseDown={[Function]}
+>
+  <div
+    aria-label="0"
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
+  >
+    <span
+      id="counter-"
+    >
+      0
+    </span>
+  </div>
+</span>
+`;
+
 exports[`Counter renders correctly with count above limit 1`] = `
 <span
   aria-label=" 999+"
@@ -71,6 +91,25 @@ exports[`Counter renders correctly with count below the limit 1`] = `
       id="counter-"
     >
       1
+    </span>
+  </div>
+</span>
+`;
+
+exports[`Counter renders correctly with counterClassName 1`] = `
+<span
+  aria-label=" 0"
+  aria-labelledby=""
+  onMouseDown={[Function]}
+>
+  <div
+    aria-label="0"
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary counterClassName"
+  >
+    <span
+      id="counter-"
+    >
+      0
     </span>
   </div>
 </span>
