@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.93.0 (2023-02-06)
+
+#### Bug Fixes
+* [#1093](https://github.com/mondaycom/monday-ui-react-core/pull/1093) feat(ListItemIcon): export icon size ([@shiraWeiss](https://github.com/shiraWeiss))
+
+#### New Features
+* [#1094](https://github.com/mondaycom/monday-ui-react-core/pull/1094) Modal: Add zIndex prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1091](https://github.com/mondaycom/monday-ui-react-core/pull/1091) Fix docs ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.92.0 (2023-02-04)
 
 #### New Features
