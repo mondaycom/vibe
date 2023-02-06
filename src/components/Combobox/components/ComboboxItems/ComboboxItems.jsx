@@ -8,13 +8,14 @@ import {
   createOptionItemObject
 } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../../components/ComboboxConstants";
+import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
 export const ComboboxItems = forwardRef(
   (
     {
       className,
+      optionClassName,
       categories,
       options,
       filterValue,
@@ -56,6 +57,7 @@ export const ComboboxItems = forwardRef(
             onOptionLeave
           },
           optionRenderData: {
+            className: optionClassName,
             optionLineHeight,
             optionRenderer,
             visualFocusItemIndex,

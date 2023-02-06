@@ -56,7 +56,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
         { id: "2", label: "Option 2" },
         { id: "3", label: "Option 3" }
       ],
-        onClick: () =>  alert("clicked"),
+      onClick: () => alert("clicked"),
       placeholder: "Placeholder text here",
       clearFilterOnSelection: true
     }}
@@ -368,19 +368,15 @@ better user experience.
         []
       );
       return (
-        <Flex
-          gap={Flex.gaps.SMALL}
-          style={{ width: "100%" }}
-          justify={Flex.justify.SPACE_AROUND}
-          align={Flex.align.START}
-        >
+        <Flex gap={Flex.gaps.SMALL} style={{ width: "100%" }} justify={Flex.justify.CENTER} align={Flex.align.START}>
           <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
             align={Flex.align.START}
             description="Virtualization optimization without categories"
             vertical
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
-            <div style={{ width: "300px" }}>
+            <div style={{ width: "280px" }}>
               <DialogContentContainer>
                 <Combobox
                   options={options}
@@ -392,14 +388,35 @@ better user experience.
             </div>
           </StoryDescription>
           <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
             align={Flex.align.START}
             description="Virtualization optimization with categories"
             vertical
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
-            <div style={{ width: "300px" }}>
+            <div style={{ width: "280px" }}>
               <DialogContentContainer>
                 <Combobox
+                  options={options}
+                  renderOnlyVisibleOptions
+                  categories={categories}
+                  placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
+                />
+              </DialogContentContainer>
+            </div>
+          </StoryDescription>
+          <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
+            align={Flex.align.START}
+            description="Virtualization optimization with sticky categories"
+            vertical
+            headerStyle={{ width: "70%", textAlign: "start" }}
+          >
+            <div style={{ width: "280px" }}>
+              <DialogContentContainer>
+                <Combobox
+                  stickyCategories
                   options={options}
                   renderOnlyVisibleOptions
                   categories={categories}

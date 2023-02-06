@@ -19,7 +19,7 @@
   &.sticky-category {
     .combobox-category {
       z-index: 10;
-      background-color: var(--primary-background-color);
+      background-color: var(--secondary-background-color)
     }
 
     // Relative to Search height
@@ -47,7 +47,6 @@
   &-search-wrapper {
     position: sticky;
     top: 0;
-    background-color: var(--primary-background-color);
     z-index: 12;
   }
 
