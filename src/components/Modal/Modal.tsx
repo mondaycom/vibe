@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -6,16 +6,15 @@ import ModalContent from "../ModalContent/ModalContent";
 import ModalHeader from "../ModalHeader/ModalHeader";
 import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./Modal.module.scss";
 
-interface ModalProps extends VibeComponentProps {
+interface ModalProps {
   /**
    * Id of the modal, used internally and for accessibility
    */
-  id: string;
+  id?: string;
   /**
    * Show/hide the Dialog
    */
@@ -65,6 +64,10 @@ interface ModalProps extends VibeComponentProps {
    *  Dialog content
    */
   children?: ReactElement | ReactElement[];
+  /**
+   * z-index attribute of the container
+   */
+  zIndex?: number;
 }
 
 const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
@@ -79,7 +82,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   triggerElement,
   width = ModalWidth.DEFAULT,
   hideCloseButton = false,
-  closeButtonAriaLabel = "close"
+  closeButtonAriaLabel = "close",
+  zIndex = 10000
 }) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
@@ -94,6 +98,12 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
 
   // lock body scroll when modal is open
   useBodyScrollLock({ instance });
+
+  useEffect(() => {
+    if (attr?.container?.ref?.current) {
+      attr.container.ref.current.style.setProperty("--monday-modal-z-index", zIndex.toString());
+    }
+  }, [attr?.container?.ref, zIndex]);
 
   // show/hide and animate the modal
   const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
