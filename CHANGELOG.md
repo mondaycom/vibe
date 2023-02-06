@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.95.1 (2023-02-06)
+
+#### Bug Fixes
+* [#1096](https://github.com/mondaycom/monday-ui-react-core/pull/1096) Feature/sergeyro/fix modal z index prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.95.0 (2023-02-06)
 
 #### New Features
