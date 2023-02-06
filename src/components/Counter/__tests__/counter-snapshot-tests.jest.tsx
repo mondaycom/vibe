@@ -41,4 +41,14 @@ describe("Counter renders correctly", () => {
     const tree = renderer.create(<Counter ariaLabeledBy="aria label" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with className", () => {
+    const tree = renderer.create(<Counter className="className" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with counterClassName", () => {
+    const tree = renderer.create(<Counter counterClassName="counterClassName" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
