@@ -5,7 +5,6 @@
 }
 
 .container {
-  --monday-modal-z-index: 10000;
   z-index: var(--monday-modal-z-index);
   display: flex;
   justify-content: center;
