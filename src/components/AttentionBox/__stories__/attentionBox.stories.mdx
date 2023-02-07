@@ -60,7 +60,7 @@ Attention box lets users know important information within content areas, as clo
       onClose: () => null,
       title: "Attention box title",
       text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
-      className: "monday-style-attention-box_box"
+      className: "monday-storybook-attention-box_box"
     }}
   >
     {attentionBoxTemplate.bind({})}
@@ -102,7 +102,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         <AttentionBox
           title="Enabling SSO Login"
           text="Will cause all yout team lose access to the account until using the correct SSO source."
-          className="monday-style-attention-box_box"
+          className="monday-storybook-attention-box_box"
           icon={Info}
         />
       </StoryDescription>
@@ -111,7 +111,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           title="You're doing great"
           text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
           type={AttentionBox.types.SUCCESS}
-          className="monday-style-attention-box_box"
+          className="monday-storybook-attention-box_box"
           icon={ThumbsUp}
         />
       </StoryDescription>
@@ -120,7 +120,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           title="Account low on free space"
           text="Your account if out of free space, free some space to prevent data loss."
           type={AttentionBox.types.DANGER}
-          className="monday-style-attention-box_box"
+          className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
       <StoryDescription description="Dark">
@@ -128,7 +128,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           title="What a great idea!"
           text="You can also make this list sortable by tagging the items with tags column"
           type={AttentionBox.types.DARK}
-          className="monday-style-attention-box_box"
+          className="monday-storybook-attention-box_box"
           icon={Favorite}
         />
       </StoryDescription>
@@ -143,19 +143,19 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
     {() => {
       const mockOnClose = useCallback(() => null, []);
       return (
-        <div className="monday-style-attention-box_row-wrapper">
+        <div className="monday-storybook-attention-box_row-wrapper">
           <AttentionBox
             title="Regular attention box"
             text="Dismissable attention box with two lines of content."
             onClose={mockOnClose}
-            className="monday-style-attention-box_box"
+            className="monday-storybook-attention-box_box"
             icon={Info}
           />
           <AttentionBox
             text="Attention box in compact mode"
             onClose={mockOnClose}
             compact
-            className="monday-style-attention-box_box"
+            className="monday-storybook-attention-box_box"
           />
         </div>
       );
@@ -173,7 +173,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           <AttentionBox
             title="Attention box title"
             text="Studies show that 100% of people who celebrate birthdays, will eventually die."
-            className="monday-style-attention-box_box"
+            className="monday-storybook-attention-box_box"
           />
         ),
         description: "Provide a short and brief title, and explanation related to the title."
@@ -187,15 +187,15 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
       positive: {
         component: (
           <div>
-            <span className="monday-style-attention-box_title">Inbox</span>
-            <span className="monday-style-attention-box_text">Catch up on updates from all your boards.</span>
+            <span className="monday-storybook-attention-box_title">Inbox</span>
+            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
             <AttentionBox
               text={
-                <span className="monday-style-attention-box_info">
+                <span className="monday-storybook-attention-box_info">
                   Get your monday.com notifications<Link>Learn More</Link>
                 </span>
               }
-              className="monday-style-attention-box_att-box"
+              className="monday-storybook-attention-box_att-box"
             />
           </div>
         ),
@@ -205,16 +205,16 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
       negative: {
         component: (
           <div>
-            <span className="monday-style-attention-box_title">Inbox</span>
-            <span className="monday-style-attention-box_text">Catch up on updates from all your boards.</span>
+            <span className="monday-storybook-attention-box_title">Inbox</span>
+            <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
             <AttentionBox
               text={
-                <span className="monday-style-attention-box_info">
+                <span className="monday-storybook-attention-box_info">
                   7 days left on your free trial <Link>Learn More</Link>
                 </span>
               }
               compact
-              className="monday-style-attention-box_att-box"
+              className="monday-storybook-attention-box_att-box"
             />
           </div>
         ),
@@ -240,9 +240,9 @@ Provides additional information about an action or section.
 
 <Canvas>
   <Story name="Natural attention box">
-    <div className="monday-style-attention-box_wrapper">
-      <span className="monday-style-attention-box_title">Cross-Account Copier</span>
-      <span className="monday-style-attention-box_text">Copy boards and dashboards to another account</span>
+    <div className="monday-storybook-attention-box_wrapper">
+      <span className="monday-storybook-attention-box_title">Cross-Account Copier</span>
+      <span className="monday-storybook-attention-box_text">Copy boards and dashboards to another account</span>
       <AttentionBox
         compact
         withIconWithoutHeader
@@ -263,19 +263,19 @@ Provides cotextual and related information.
     {() => {
       const mockOnClose = useCallback(() => null, []);
       return (
-        <DialogContentContainer className="monday-style-attention-box_search-bar">
+        <DialogContentContainer className="monday-storybook-attention-box_search-bar">
           <Search placeholder="Search by name, role, team, or email" />
-          <div className="monday-style-attention-box_lable">Suggested people</div>
-          <div className="monday-style-attention-box_search">
-            <div className="monday-style-attention-box_inline-container">
+          <div className="monday-storybook-attention-box_lable">Suggested people</div>
+          <div className="monday-storybook-attention-box_search">
+            <div className="monday-storybook-attention-box_inline-container">
               <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
-              <span className="monday-style-attention-box_name">
+              <span className="monday-storybook-attention-box_name">
                 May Kishon <span>(UX/UI Product Designer)</span>
               </span>
             </div>
-            <div className="monday-style-attention-box_inline-container">
-              <Icon iconSize="24" icon={Invite} className="monday-style-attention-box_icon" />
-              <span className="monday-style-attention-box_name">Invite new board member by email</span>
+            <div className="monday-storybook-attention-box_inline-container">
+              <Icon iconSize="24" icon={Invite} className="monday-storybook-attention-box_icon" />
+              <span className="monday-storybook-attention-box_name">Invite new board member by email</span>
             </div>
             <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />
           </div>

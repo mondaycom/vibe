@@ -8,9 +8,9 @@ import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
-import "./AttentionBox.scss";
 import Heading from "../Heading/Heading";
 import Flex from "../Flex/Flex";
+import "./AttentionBox.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
 
