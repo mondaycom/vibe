@@ -1,13 +1,17 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
-import Search  from "../../Search/Search";
+import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
-import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/related-components/component-description-map";
+import {
+  ALERT_BANNER,
+  TOAST,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
@@ -24,8 +28,8 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Feedback/AttentionBox"
   component={AttentionBox}
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -35,6 +39,7 @@ export const attentionBoxTemplate = createComponentTemplate(AttentionBox);
 <!--- Component documentation -->
 
 # Attention Box
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -45,29 +50,51 @@ export const attentionBoxTemplate = createComponentTemplate(AttentionBox);
 - [Feedback](#feedback)
 
 ## Overview
+
 Attention box lets users know important information within content areas, as close as possible to the content it’s about.
+
 <Canvas>
-  <Story name="Overview"
-         args={{ onClose: () => null, title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", className: "monday-style-attention-box_box" }}>
-    { attentionBoxTemplate.bind({}) }
+  <Story
+    name="Overview"
+    args={{
+      onClose: () => null,
+      title: "Attention box title",
+      text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
+      className: "monday-style-attention-box_box"
+    }}
+  >
+    {attentionBoxTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable story={ "Overview" }/>
+
+<ArgsTable story={"Overview"} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
-  "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
-  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
-]}/>
 
-<Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
+<UsageGuidelines
+  guidelines={[
+    "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
+    "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
+    "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
+  ]}
+/>
+
+<Tip title="Check yourself">
+  If the information about a component isn’t critical for the user, use a{" "}
+  <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Tooltip
+  </Link>{" "}
+  instead.
+</Tip>
 
 ## Variants
+
 ### States
+
 There are four types of attention boxes: Primary, success, danger, and dark (natural).
+
 <Canvas>
   <Story name="States">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
@@ -106,41 +133,49 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         />
       </StoryDescription>
     </Flex>
-</Story>
+  </Story>
 </Canvas>
 
-### Dismissable 
+### Dismissable
+
 <Canvas>
   <Story name="Dismissable ">
-    {() => { 
-      const mockOnClose = useCallback(() => null, []); 
+    {() => {
+      const mockOnClose = useCallback(() => null, []);
       return (
         <div className="monday-style-attention-box_row-wrapper">
-          <AttentionBox 
-            title="Regular attention box" 
-            text="Dismissable attention box with two lines of content." 
-            onClose={mockOnClose} 
-            className="monday-style-attention-box_box" 
-            icon={Info} 
+          <AttentionBox
+            title="Regular attention box"
+            text="Dismissable attention box with two lines of content."
+            onClose={mockOnClose}
+            className="monday-style-attention-box_box"
+            icon={Info}
           />
-          <AttentionBox 
-            text="Attention box in compact mode" 
-            onClose={mockOnClose} 
-            compact 
-            className="monday-style-attention-box_box" 
+          <AttentionBox
+            text="Attention box in compact mode"
+            onClose={mockOnClose}
+            compact
+            className="monday-style-attention-box_box"
           />
         </div>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component: <AttentionBox title="Attention box title" text="Studies show that 100% of people who celebrate birthdays, will eventually die." className="monday-style-attention-box_box"/>,
+        component: (
+          <AttentionBox
+            title="Attention box title"
+            text="Studies show that 100% of people who celebrate birthdays, will eventually die."
+            className="monday-style-attention-box_box"
+          />
+        ),
         description: "Provide a short and brief title, and explanation related to the title."
       },
       negative: {
@@ -150,35 +185,64 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
     },
     {
       positive: {
-        component:
+        component: (
           <div>
             <span className="monday-style-attention-box_title">Inbox</span>
-            <span className="monday-style-attention-box_text" >Catch up on updates from all your boards.</span>
-            <AttentionBox text={<span className="monday-style-attention-box_info">Get your monday.com notifications<Link>Learn More</Link></span>} className="monday-style-attention-box_att-box"  />
-          </div>,
-        description: "Use when you are speaking directly to a piece of content and the notification can be positioned close to the content."
+            <span className="monday-style-attention-box_text">Catch up on updates from all your boards.</span>
+            <AttentionBox
+              text={
+                <span className="monday-style-attention-box_info">
+                  Get your monday.com notifications<Link>Learn More</Link>
+                </span>
+              }
+              className="monday-style-attention-box_att-box"
+            />
+          </div>
+        ),
+        description:
+          "Use when you are speaking directly to a piece of content and the notification can be positioned close to the content."
       },
       negative: {
-        component:
+        component: (
           <div>
             <span className="monday-style-attention-box_title">Inbox</span>
-            <span className="monday-style-attention-box_text" >Catch up on updates from all your boards.</span>
-            <AttentionBox text={<span className="monday-style-attention-box_info">7 days left on your free trial <Link>Learn More</Link></span>} compact className="monday-style-attention-box_att-box" />
-          </div>,
-        description: <>Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs to alert all users. On those cases, use <Link href="?path=/docs/feedback-alertbanner--overview" withoutSpacing>Alert banner.</Link></>
+            <span className="monday-style-attention-box_text">Catch up on updates from all your boards.</span>
+            <AttentionBox
+              text={
+                <span className="monday-style-attention-box_info">
+                  7 days left on your free trial <Link>Learn More</Link>
+                </span>
+              }
+              compact
+              className="monday-style-attention-box_att-box"
+            />
+          </div>
+        ),
+        description: (
+          <>
+            Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs
+            to alert all users. On those cases, use{" "}
+            <Link href="?path=/docs/feedback-alertbanner--overview" withoutSpacing>
+              Alert banner.
+            </Link>
+          </>
+        )
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Natural attention box
+
 Provides additional information about an action or section.
+
 <Canvas>
   <Story name="Natural attention box">
     <div className="monday-style-attention-box_wrapper">
       <span className="monday-style-attention-box_title">Cross-Account Copier</span>
-      <span className="monday-style-attention-box_text" >Copy boards and dashboards to another account</span>
+      <span className="monday-style-attention-box_text">Copy boards and dashboards to another account</span>
       <AttentionBox
         compact
         withIconWithoutHeader
@@ -191,10 +255,12 @@ Provides additional information about an action or section.
 </Canvas>
 
 ### Attention box inside a dialog/combobox
+
 Provides cotextual and related information.
+
 <Canvas>
   <Story name="Attention box inside a dialog/combobox">
-    {() => { 
+    {() => {
       const mockOnClose = useCallback(() => null, []);
       return (
         <DialogContentContainer className="monday-style-attention-box_search-bar">
@@ -203,23 +269,22 @@ Provides cotextual and related information.
           <div className="monday-style-attention-box_search">
             <div className="monday-style-attention-box_inline-container">
               <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
-              <span className="monday-style-attention-box_name">May Kishon <span>(UX/UI Product Designer)</span></span>
+              <span className="monday-style-attention-box_name">
+                May Kishon <span>(UX/UI Product Designer)</span>
+              </span>
             </div>
             <div className="monday-style-attention-box_inline-container">
               <Icon iconSize="24" icon={Invite} className="monday-style-attention-box_icon" />
               <span className="monday-style-attention-box_name">Invite new board member by email</span>
             </div>
-            <AttentionBox 
-                text="Hold ⌘ to select more than one person or team"
-                compact
-                onClose={mockOnClose}
-              />
+            <AttentionBox text="Hold ⌘ to select more than one person or team" compact onClose={mockOnClose} />
           </div>
         </DialogContentContainer>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[ALERT_BANNER, TOAST, TOOLTIP]} />
