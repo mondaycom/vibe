@@ -82,7 +82,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-1" />
             <RadioButton text="Item 2" name="radio-buttons-group-1" defaultChecked />
           </DialogContentContainer>
@@ -91,7 +91,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
             <RadioButton text="Item 1" checked />
             <RadioButton text="Item 2" checked />
           </DialogContentContainer>
@@ -110,7 +110,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
     {
       positive: {
         component: (
-          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-2" defaultChecked />
             <RadioButton text="Item 2" name="radio-buttons-group-2" />
             <RadioButton text="Item 3" name="radio-buttons-group-2" />
@@ -120,7 +120,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
       },
       negative: {
         component: (
-          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+          <DialogContentContainer className="monday-storybook-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-3" />
             <RadioButton text="Item 2" name="radio-buttons-group-3" />
             <RadioButton text="Item 3" name="radio-buttons-group-3" />
@@ -147,7 +147,7 @@ The user needs to select only one option.
 
 <Canvas>
   <Story name="Radio button in items list" play={clickRadioButton}>
-    <div className="monday-style-radio-buttons_wrapper-column">
+    <div className="monday-storybook-radio-buttons_wrapper-column">
       <div>Inbox view options</div>
       <RadioButton text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
       <RadioButton text="I was mentioned" name="radio-buttons-group-4" />
@@ -156,7 +156,7 @@ The user needs to select only one option.
   </Story>
 </Canvas>
 
-Controled externally.
+Controlled externally.
 
 <Canvas>
   <Story name="Controlled Radio buttons" play={controlRadioButton}>
