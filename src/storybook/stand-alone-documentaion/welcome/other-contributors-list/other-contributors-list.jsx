@@ -72,10 +72,8 @@ export const OtherContributorsList = () => {
   return (
     <>
       <Paragraph className={BASE_CLASS}>
-        Special thanks to our founding designers <Contributors contributorsData={STATIC_FOUNDING_DESIGNERS} />
-      </Paragraph>
-      <Paragraph className={BASE_CLASS}>
-        {contributors ? <>Thanks to all of our contributors {contributors}</> : null}
+        Special thanks to our founding designers: <Contributors contributorsData={STATIC_FOUNDING_DESIGNERS} /> <br />
+        {contributors ? <>Thanks to all of our contributors: {contributors}</> : null}
       </Paragraph>
     </>
   );
