@@ -60,7 +60,9 @@ export default function useShowHideModal({
     return () => {
       instance?.off("hide");
     };
-  }, [instance, onClose]);
+    // needs to be run only once - to avoid multiple callbacks
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return { closeDialogIfNeeded };
 }
