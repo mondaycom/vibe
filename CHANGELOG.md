@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.95.3 (2023-02-08)
+
+#### Bug Fixes
+* [#1100](https://github.com/mondaycom/monday-ui-react-core/pull/1100) Fix modal zIndex breaking change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1097](https://github.com/mondaycom/monday-ui-react-core/pull/1097) Add founding designers to welcome page ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.95.2 (2023-02-07)
 
 #### Bug Fixes
