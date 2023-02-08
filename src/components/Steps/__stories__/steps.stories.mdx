@@ -77,14 +77,14 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <div className="monday-style-story-steps_column-wrapper">
+        <div className="monday-storybook-steps_column-wrapper">
           <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={4} />
           <Steps steps={steps} activeStepIndex={2} />
           <Steps
             steps={steps}
             activeStepIndex={2}
             areNavigationButtonsHidden
-            className="monday-style-story-steps_padding"
+            className="monday-storybook-steps_padding"
           />
         </div>
       );
@@ -100,7 +100,7 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color">
+        <div className="monday-storybook-steps_column-wrapper monday-storybook-steps_color">
           <Steps steps={steps} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
           <Steps steps={steps} activeStepIndex={2} isOnPrimary />
           <Steps
@@ -108,7 +108,7 @@ Steps with a number view or gallery view.
             activeStepIndex={2}
             isOnPrimary
             areNavigationButtonsHidden
-            className="monday-style-story-steps_padding"
+            className="monday-storybook-steps_padding"
           />
         </div>
       );
@@ -154,7 +154,7 @@ Our Tipseen component includes support for steps as content.
         []
       );
       return (
-        <div className="monday-style-story-steps_block">
+        <div className="monday-storybook-steps_block">
           <Tipseen
             position={Tipseen.positions.LEFT}
             modifiers={modifiers}
@@ -167,7 +167,7 @@ Our Tipseen component includes support for steps as content.
               />
             }
           >
-            <div className="monday-style-story-steps_container" />
+            <div className="monday-storybook-steps_container" />
           </Tipseen>
         </div>
       );

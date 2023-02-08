@@ -19,7 +19,7 @@ jest.mock("react-transition-group", () => {
 
 jest.useFakeTimers();
 
-const tipseenMockChildren = <div className="monday-style-story-tipseen_container" />;
+const tipseenMockChildren = <div className="monday-storybook-tipseen_container" />;
 
 describe("Snapshot tests", () => {
   describe("Tipseen content tests", () => {

@@ -85,7 +85,7 @@ Allow users to turn an single option on or off. They are usually used to activat
 
 <Canvas>
   <Story name="States">
-    <MultipleStoryElementsWrapper className="monday-style-story-toggle_column">
+    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} />
       <Toggle />
     </MultipleStoryElementsWrapper>
@@ -96,7 +96,7 @@ Allow users to turn an single option on or off. They are usually used to activat
 
 <Canvas>
   <Story name="Disabled">
-    <MultipleStoryElementsWrapper className="monday-style-story-toggle_column">
+    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} disabled />
       <Toggle disabled />
     </MultipleStoryElementsWrapper>
@@ -110,7 +110,7 @@ Allow users to turn an single option on or off. They are usually used to activat
     {
       positive: {
         component: (
-          <div className="monday-style-story-toggle_row">
+          <div className="monday-storybook-toggle_row">
             Dark mode <Toggle />
           </div>
         ),
@@ -118,7 +118,7 @@ Allow users to turn an single option on or off. They are usually used to activat
       },
       negative: {
         component: (
-          <div className="monday-style-story-toggle_row">
+          <div className="monday-storybook-toggle_row">
             Theme <Toggle offOverrideText="Light mode" onOverrideText="Dark mode" />
           </div>
         ),
@@ -143,7 +143,7 @@ Allow users to turn an single option on or off. They are usually used to activat
       },
       negative: {
         component: (
-          <div className="monday-style-story-toggle_column">
+          <div className="monday-storybook-toggle_column">
             <Toggle offOverrideText="" />
             <Toggle areLabelsHidden />
           </div>
