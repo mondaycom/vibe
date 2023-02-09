@@ -2,6 +2,7 @@ const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
   Button: "components/Button/Button",
+  Checkbox: "components/Checkbox/Checkbox",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",

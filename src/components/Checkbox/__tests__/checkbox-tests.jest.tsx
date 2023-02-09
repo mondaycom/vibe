@@ -25,6 +25,22 @@ function createCheckboxesVariables() {
   };
 }
 
+type RenderHelper = {
+  formName: string;
+  checkbox1Name: string;
+  option1Value: string;
+  option1Text: string;
+  onChangeMock1: jest.MockedFunction<any>;
+  checkbox2Name: string;
+  option2Text: string;
+  option2Value: string;
+  onChangeMock2: jest.MockedFunction<any>;
+  checkbox3Name: string;
+  option3Text: string;
+  option3Value: string;
+  onChangeMock3: jest.MockedFunction<any>;
+};
+
 function renderCheckboxes({
   formName,
   checkbox1Name,
@@ -39,7 +55,7 @@ function renderCheckboxes({
   option3Text,
   option3Value,
   onChangeMock3
-}) {
+}: RenderHelper) {
   render(
     <form name={formName}>
       <Checkbox
@@ -55,10 +71,10 @@ function renderCheckboxes({
   );
 }
 
-function testUnselectFirstOption(option1Text, option2Text, option3Text, clickOptions) {
-  const option1 = screen.getByLabelText(option1Text);
-  const option2 = screen.getByLabelText(option2Text);
-  const option3 = screen.getByLabelText(option3Text);
+function testUnselectFirstOption(option1Text: string, option2Text: string, option3Text: string, clickOptions?: any) {
+  const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
+  const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
+  const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
   fireEvent.click(option1, clickOptions);
   expect(option1.checked).toBeFalsy();
   expect(option2.checked).toBeFalsy();
@@ -80,7 +96,9 @@ describe("Checkbox tests", () => {
       option3Text
     } = createCheckboxesVariables();
 
-    let onChangeMock1, onChangeMock2, onChangeMock3;
+    let onChangeMock1: jest.MockedFunction<any>,
+      onChangeMock2: jest.MockedFunction<any>,
+      onChangeMock3: jest.MockedFunction<any>;
     beforeEach(() => {
       onChangeMock1 = jest.fn();
       onChangeMock2 = jest.fn();
@@ -108,9 +126,9 @@ describe("Checkbox tests", () => {
     });
 
     it("should default select 1st option", () => {
-      const option1 = screen.getByLabelText(option1Text);
-      const option2 = screen.getByLabelText(option2Text);
-      const option3 = screen.getByLabelText(option3Text);
+      const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
+      const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
+      const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
       expect(option1.checked).toBeTruthy();
       expect(option2.checked).toBeFalsy();
       expect(option3.checked).toBeFalsy();
@@ -121,9 +139,9 @@ describe("Checkbox tests", () => {
     });
 
     it("should default select 1st option and should select 2nd option", () => {
-      const option1 = screen.getByLabelText(option1Text);
-      const option2 = screen.getByLabelText(option2Text);
-      const option3 = screen.getByLabelText(option3Text);
+      const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
+      const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
+      const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
       fireEvent.click(option2);
       expect(option1.checked).toBeTruthy();
       expect(option2.checked).toBeTruthy();
@@ -174,7 +192,9 @@ describe("Checkbox tests", () => {
       isFirefox.mockImplementation(() => true);
     });
 
-    let onChangeMock1, onChangeMock2, onChangeMock3;
+    let onChangeMock1: jest.MockedFunction<any>,
+      onChangeMock2: jest.MockedFunction<any>,
+      onChangeMock3: jest.MockedFunction<any>;
 
     beforeEach(() => {
       onChangeMock1 = jest.fn();
@@ -203,7 +223,7 @@ describe("Checkbox tests", () => {
 
     it("should call on change with shiftKey true when unselect option with shift key (with firefox browser - check workaround for known firefox bug", () => {
       let isShift = false;
-      onChangeMock1.mockImplementation(e => {
+      onChangeMock1.mockImplementation((e: React.KeyboardEvent) => {
         isShift = e.nativeEvent.shiftKey;
       });
       const option1 = screen.getByLabelText(option1Text);
