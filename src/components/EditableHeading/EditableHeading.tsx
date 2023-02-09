@@ -157,7 +157,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
-      size: size as HeadingTypes,
+      size: size as typeof HeadingSizes,
       highlightTerm
     };
 
