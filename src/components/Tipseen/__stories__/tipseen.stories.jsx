@@ -16,7 +16,7 @@ export const tipseenTemplate = ({ isDismissHidden, title, children, position, ..
       }
       {...otherArgs}
     >
-      <div className="monday-style-story-tipseen_container" />
+      <div className="monday-storybook-tipseen_container" />
     </Tipseen>
   );
 };

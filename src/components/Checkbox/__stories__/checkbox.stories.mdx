@@ -1,8 +1,12 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import { Link, UnstyledList, UnstyledListItem, createComponentTemplate } from "../../../storybook";
+import { createComponentTemplate, Link, UnstyledList, UnstyledListItem } from "../../../storybook";
 import { Calendar } from "../../Icon/Icons";
-import { RADIO_BUTTON, TOGGLE, DROPDOWN } from "../../../storybook/components/related-components/component-description-map";
+import {
+  DROPDOWN,
+  RADIO_BUTTON,
+  TOGGLE
+} from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import "./checkbox.stories.scss";
 
@@ -41,9 +45,9 @@ Checkboxes allow users to select one or more items from a set of options.
 
 ## Usage
 <UsageGuidelines guidelines={[
-  <span className="monday-style-story-checkbox_list">Use checkboxes to:
-    <span className="monday-style-story-checkbox_list-item">1. Select one or more options from a list</span>
-    <span className="monday-style-story-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
+  <span className="monday-storybook-checkbox_list">Use checkboxes to:
+    <span className="monday-storybook-checkbox_list-item">1. Select one or more options from a list</span>
+    <span className="monday-storybook-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
   </span>,
   "Use checkboxes independently from each other: selecting one checkbox shouldn’t change the selection status of another checkbox in the list. The exception is when a checkbox is used to make a bulk selection.",
   "Ensure both label and input are clickable to select the checkbox field. ",
@@ -94,7 +98,7 @@ Check React source and rendered HTML.
     {
       positive: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" />
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
@@ -103,7 +107,7 @@ Check React source and rendered HTML.
       },
       negative: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" checked />
             <Checkbox label="Item 2" name="Item 2" disabled />
             <Checkbox label="Item 3" name="Item 3" disabled />
@@ -113,15 +117,15 @@ Check React source and rendered HTML.
     },
     {
       positive: {
-        component:<div className="monday-style-story-checkbox_border"><Checkbox label="Option" checked /></div>,
+        component:<div className="monday-storybook-checkbox_border"><Checkbox label="Option" checked /></div>,
         description: "Use the checkbox label’s prop to describe the option purpse."
       },
       negative: {
         component: [
-          <div className="monday-style-story-checkbox_border">
-            <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
+          <div className="monday-storybook-checkbox_border">
+            <Checkbox className="monday-storybook-checkbox_minus-margin" checked />
           </div>,
-          <div className="monday-style-story-checkbox_border">Option</div>
+          <div className="monday-storybook-checkbox_border">Option</div>
         ],
         description: "Don’t use a separte div which is not related to the Checkbox component."
       }
@@ -129,7 +133,7 @@ Check React source and rendered HTML.
     {
       positive: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" />
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
@@ -138,18 +142,18 @@ Check React source and rendered HTML.
       },
       negative: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
-            <div className="monday-style-story-checkbox_inline-wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
+            <div className="monday-storybook-checkbox_inline-wrapper">
               <span>Item 1</span>
-              <Checkbox className="monday-style-story-checkbox_minus-margin" />
+              <Checkbox className="monday-storybook-checkbox_minus-margin" />
             </div>
-            <div className="monday-style-story-checkbox_inline-wrapper">
+            <div className="monday-storybook-checkbox_inline-wrapper">
               <span>Item 2</span>
-              <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
+              <Checkbox className="monday-storybook-checkbox_minus-margin" checked />
             </div>
-            <div className="monday-style-story-checkbox_inline-wrapper">
+            <div className="monday-storybook-checkbox_inline-wrapper">
               <span>Item 3</span>
-              <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
+              <Checkbox className="monday-storybook-checkbox_minus-margin" checked />
             </div>
           </DialogContentContainer>,
         description:"Don’t change the position of the checkbox. Keep it to the left side of the label."
@@ -158,14 +162,14 @@ Check React source and rendered HTML.
     {
       positive: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Only show incomplete items" checked />
           </DialogContentContainer>,
         description: "Always keep a positive tone of voice."
       },
       negative: {
         component:
-          <DialogContentContainer className="monday-style-story-checkbox_wrapper">
+          <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Hide done items" checked />
           </DialogContentContainer>,
         description: "Avoid negative language that makes the user check the box in order for something not to happen."

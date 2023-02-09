@@ -10,7 +10,7 @@ const ControlledRadioButton = () => {
   const onChange = useCallback(() => {}, []);
 
   return (
-    <div className="monday-style-radio-buttons_wrapper-column">
+    <div className="monday-storybook-radio-buttons_wrapper-column">
       <div>Controlled radio buttons</div>
       <Button kind={Button.kinds.SECONDARY} onClick={onClickCB}>{`Select next radio button (Radio ${
         ((selectedIndex + 1) % 3) + 1
