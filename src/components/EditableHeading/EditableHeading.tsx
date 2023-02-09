@@ -2,14 +2,42 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Heading from "../Heading/Heading";
+import Heading, { HeadingProps } from "../Heading/Heading";
 import Clickable from "../Clickable/Clickable";
-import EditableInput from "../EditableInput/EditableInput";
+import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
 import "./EditableHeading.scss";
+import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 
-const EditableHeading = props => {
+export interface EditableHeadingProps extends HeadingProps, EditableInputProps {
+  type?: HeadingTypes;
+  size?: typeof HeadingSizes;
+  displayPlaceholderInTextMode?: boolean;
+  suggestEditOnHover?: boolean;
+  autoSize?: boolean;
+  inputAriaLabel?: string;
+  placeholder?: string;
+  errorClass?: string;
+  ignoreBlurClass?: string;
+  id?: string;
+  className?: string;
+  inputClassName?: string;
+  dataTestId?: string;
+  value?: string;
+  editing?: boolean;
+  disabled?: boolean;
+  errorClassTimeout?: number;
+  style?: React.CSSProperties;
+  customColor?: string;
+  onStartEditing?: (event: React.KeyboardEvent) => void;
+  tooltip?: string;
+  highlightTerm?: string;
+  insetFocus?: boolean;
+  contentRenderer?: React.FC;
+}
+
+const EditableHeading = (props: EditableHeadingProps) => {
   const {
     id,
     className,
@@ -42,7 +70,7 @@ const EditableHeading = props => {
 
   // Callbacks
   const onClick = useCallback(
-    event => {
+    (event: React.KeyboardEvent) => {
       if (disabled || isEditing) return;
       setIsEditing(true);
       onStartEditing && onStartEditing(event);
@@ -51,7 +79,7 @@ const EditableHeading = props => {
   );
 
   const onFinishEditingCallback = useCallback(
-    (newValue, event) => {
+    (newValue: string, event: React.KeyboardEvent | React.FocusEvent) => {
       setIsEditing(false);
       setValueState(newValue);
       onFinishEditing?.(newValue, event);
@@ -60,7 +88,7 @@ const EditableHeading = props => {
   );
 
   const onCancelEditingCallback = useCallback(
-    event => {
+    (event: React.KeyboardEvent) => {
       setIsEditing(false);
       onCancelEditing?.(event);
     },
@@ -68,7 +96,7 @@ const EditableHeading = props => {
   );
 
   const onIgnoreBlurEventCallback = useCallback(
-    value => {
+    (value: string) => {
       onIgnoreBlurEvent?.(value);
     },
     [onIgnoreBlurEvent]
@@ -107,7 +135,7 @@ const EditableHeading = props => {
   }, [editing, value, prevValue, valueState, setValueState]);
 
   useEffect(() => {
-    let timer;
+    let timer: ReturnType<typeof setTimeout>;
     if (isError) {
       timer = setTimeout(clearErrorState, errorClassTimeout);
     }
