@@ -22,6 +22,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
   index?: number;
   activeItemIndex?: number;
   disabled?: boolean;
+  // TODO rename in Vibe 2.0
   disableReason?: string;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   tooltipPosition?: DialogPosition;
