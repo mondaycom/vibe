@@ -1,8 +1,6 @@
-import Modal from "../Modal";
-import { useModalHelper } from "./helpers";
+import { useState, useCallback } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
-import "./Modal.stories.scss";
 import { Button, ModalContent, ModalFooter, ModalHeader } from "../../../components";
 import {
   ATTENTION_BOX,
@@ -10,7 +8,9 @@ import {
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
-import { useState } from "react";
+import Modal from "../Modal";
+import { createHelperOpenModalButton } from "./helpers";
+import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
@@ -18,6 +18,38 @@ export const metaSettings = createStoryMetaSettings({
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: ["onClose"] // List the component's actions here
 });
+
+export const modalTemplate = (openModalButtonTitle, ...modalProps) => {
+  {
+    // Control if modal is display or hidden
+    const [show, setShow] = useState();
+    const openModalButtonRef = useRef(null);
+    const closeModal = useCallback(() => setShow(false), []);
+    const modalButtons = <ModalButtons closeModal={closeModal} />;
+    // This is internal helper method for creating basic button which change the show state to true in order to display the modal
+    // This method is not part of our external API and not required for creating function modal component
+    const openModalButton = createHelperOpenModalButton({ setShow, openModalButtonRef });
+    return (
+      <div>
+        {openModalButton}
+        <Modal
+          id={"story-book-modal"}
+          title={"Modal title"}
+          triggerElement={ref.current}
+          show={show}
+          onClose={closeModal}
+          closeButtonAriaLabel={"close"}
+          width={Modal.width.DEFAULT}
+        >
+          <ModalContent>
+            <p className="modal-content">Modal content goes here</p>
+          </ModalContent>
+          <ModalFooter>{modalButtons}</ModalFooter>
+        </Modal>
+      </div>
+    );
+  }
+};
 
 <Meta
   title="Feedback/Modal"
@@ -98,6 +130,11 @@ Modal allows the user to focus on one task or a piece of information, by popping
 <Canvas>
   <Story name="Width variants - Normal">
     {() => {
+      // Control if modal is display or hidden
+      const [show, setShow] = useState(openOnStart);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallbacl(() => setShow(false), []);
+      const modalButtons = <ModalButtons closeModal={closeModal} />;
       const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
         openButtonTitle: "Default"
       });
