@@ -1,6 +1,5 @@
 import React, { ReactElement, RefObject, useCallback, useMemo, useRef, useState } from "react";
 import Tooltip from "../Tooltip/Tooltip";
-import Dialog from "../Dialog/Dialog";
 import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { TOOLTIP_SHOW_DELAY, useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
@@ -66,8 +65,8 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   const onHide = useCallback(() => {
     setIsKeyboardTooltipVisible(false);
   }, []);
-  const showTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_ENTER], []);
-  const hideTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_LEAVE], []);
+  const showTrigger = useMemo(() => [Tooltip.hideShowTriggers.MOUSE_ENTER], []);
+  const hideTrigger = useMemo(() => [Tooltip.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return <>{children}</>;
