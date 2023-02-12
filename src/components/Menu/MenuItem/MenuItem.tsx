@@ -28,6 +28,7 @@ import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstan
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import "./MenuItem.scss";
 
+// TODO add tooltip on keyboard focus
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
   label?: string;
