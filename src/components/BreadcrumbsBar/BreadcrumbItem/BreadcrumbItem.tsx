@@ -8,8 +8,8 @@ import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import "./BreadcrumbItem.scss";
 
-const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
-const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
+const SHOW_TRIGGERS = [HideShowEvent.FOCUS, HideShowEvent.MOUSE_ENTER];
+const HIDE_TRIGGERS = [HideShowEvent.BLUR, HideShowEvent.MOUSE_LEAVE];
 
 export interface BreadcrumbItemProps extends VibeComponentProps {
   /** The display text. */
@@ -51,8 +51,8 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
       disableDialogSlide={true}
       withoutDialog={false}
       content={isOverflowing && text}
-      showTrigger={MOUSEENTER}
-      hideTrigger={MOUSELEAVE}
+      showTrigger={SHOW_TRIGGERS}
+      hideTrigger={HIDE_TRIGGERS}
     >
       <li
         className={classNames(
