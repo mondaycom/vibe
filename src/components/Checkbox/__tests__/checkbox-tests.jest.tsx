@@ -200,7 +200,7 @@ describe("Checkbox tests", () => {
           isFirefox: jest.fn()
         };
       });
-    })
+    });
 
     let onChangeMock1: jest.MockedFunction<any>,
       onChangeMock2: jest.MockedFunction<any>,
