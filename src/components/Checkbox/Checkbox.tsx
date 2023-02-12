@@ -31,8 +31,7 @@ export interface CheckBoxProps {
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-// TODO TS-migration
-export const Checkbox: VibeComponent<CheckBoxProps, unknown> = forwardRef(
+export const Checkbox: VibeComponent<CheckBoxProps> = forwardRef(
   (
     {
       className,

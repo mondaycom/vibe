@@ -11,25 +11,17 @@ import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
-  suggestEditOnHover?: boolean;
-  autoSize?: boolean;
   inputAriaLabel?: string;
-  placeholder?: string;
   errorClass?: string;
-  ignoreBlurClass?: string;
-  id?: string;
-  className?: string;
   inputClassName?: string;
   dataTestId?: string;
-  value?: string;
+  "data-testid"?: string;
   editing?: boolean;
   disabled?: boolean;
   errorClassTimeout?: number;
   style?: React.CSSProperties;
-  customColor?: string;
   onStartEditing?: (event: React.KeyboardEvent) => void;
   tooltip?: string;
-  highlightTerm?: string;
   insetFocus?: boolean;
   contentRenderer?: React.FC;
 }
@@ -43,6 +35,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     className,
     inputClassName = "",
     dataTestId = "",
+    "data-testid": dataTestIdOverride = "",
     value,
     editing,
     disabled,
@@ -216,7 +209,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestId}
+      data-testid={dataTestId || dataTestIdOverride}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
