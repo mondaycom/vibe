@@ -14,7 +14,6 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useClickableProps from "../../hooks/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "../Clickable/Clickable.scss";
@@ -66,13 +65,9 @@ interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
-   * Should element be focusable & clickable - for backward compatability
+   * If you are using onMouseDown or onClick but do not want your chip to be used as a button (in terms of appearance or aria attributes)
    */
-  clickable?: boolean;
-  /**
-   * Backward compatibility for props naming - please use clickable instead
-   */
-  isClickable?: boolean;
+  disableClickableBehavior?: boolean;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -100,15 +95,13 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       onClick,
       noAnimation = false,
       ariaLabel,
-      isClickable,
-      clickable,
-      dataTestId
+      dataTestId,
+      disableClickableBehavior = false
     },
     ref
   ) => {
-    const overrideClickable = backwardCompatibilityForProperties([clickable, isClickable], false);
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = overrideClickable && (!!onClick || !!onMouseDown);
+    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
 
     const focusRef = useRef(null);
@@ -184,6 +177,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         }
       : {
           ref: mergedRef,
+          onClick: onClickCallback,
+          onMouseDown,
           id: id,
           "data-testid": overrideDataTestId,
           className: overrideClassName,
