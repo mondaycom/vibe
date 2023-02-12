@@ -7,6 +7,7 @@ import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import "./ComboboxOption.scss";
 
+// TODO add tooltip on keyboard focus
 const ComboboxOption = ({
   index,
   option,
