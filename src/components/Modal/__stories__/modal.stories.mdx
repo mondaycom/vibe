@@ -1,7 +1,11 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
-import { Button, ModalContent, ModalFooter, ModalHeader } from "../../../components";
+import Button from "../../Button/Button";
+import ModalContent from "../ModalContent/ModalContent";
+import ModalFooter from "../ModalFooter/ModalFooter";
+import ModalHeader from "../ModalHeader/ModalHeader";
+import ModalButtons from "../ModalButtons/ModalButtons";
 import {
   ATTENTION_BOX,
   TOAST,
@@ -9,7 +13,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
-import { createHelperOpenModalButton } from "./helpers";
+import { createHelperOpenModalButton, useModalHelper } from "./helpers";
 import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -19,42 +23,42 @@ export const metaSettings = createStoryMetaSettings({
   actionPropsArray: ["onClose"] // List the component's actions here
 });
 
-export const modalTemplate = (openModalButtonTitle, ...modalProps) => {
-  {
-    // Control if modal is display or hidden
-    const [show, setShow] = useState();
-    const openModalButtonRef = useRef(null);
-    const closeModal = useCallback(() => setShow(false), []);
-    const modalButtons = <ModalButtons closeModal={closeModal} />;
-    // This is internal helper method for creating basic button which change the show state to true in order to display the modal
-    // This method is not part of our external API and not required for creating function modal component
-    const openModalButton = createHelperOpenModalButton({ setShow, openModalButtonRef });
-    return (
-      <div>
-        {openModalButton}
-        <Modal
-          id={"story-book-modal"}
-          title={"Modal title"}
-          triggerElement={ref.current}
-          show={show}
-          onClose={closeModal}
-          closeButtonAriaLabel={"close"}
-          width={Modal.width.DEFAULT}
-        >
-          <ModalContent>
-            <p className="modal-content">Modal content goes here</p>
-          </ModalContent>
-          <ModalFooter>{modalButtons}</ModalFooter>
-        </Modal>
-      </div>
-    );
-  }
+export const modalTemplate = ({ openModalButtonTitle, ...modalProps }) => {
+  // Control if modal is display or hidden
+  const [show, setShow] = useState();
+  const openModalButtonRef = useRef(null);
+  const closeModal = useCallback(() => setShow(false), []);
+  // This is internal helper method for creating basic button which change the show state to true in order to display the modal
+  // This method is not part of our external API and not required for creating function modal component
+  const openModalButton = createHelperOpenModalButton({ setShow, openModalButtonRef });
+  return (
+    <div>
+      {openModalButton}
+      <Modal
+        id={"story-book-modal"}
+        title={"Modal title"}
+        triggerElement={openModalButtonRef.current}
+        show={show}
+        onClose={closeModal}
+        closeButtonAriaLabel={"close"}
+        width={Modal.width.DEFAULT}
+        {...modalProps}
+      >
+        <ModalContent>
+          <p className="modal-content">Modal content goes here</p>
+        </ModalContent>
+        <ModalFooter>
+          <ModalButtons cancelCallback={closeModal} confirmCallback={closeModal} />
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
 };
 
 <Meta
   title="Feedback/Modal"
   component={Modal}
-  subcomponents={{ ModalHeader, ModalContent, ModalFooter }}
+  subcomponents={{ ModalHeader, ModalContent, ModalFooter, ModalButtons }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -77,29 +81,7 @@ export const modalTemplate = (openModalButtonTitle, ...modalProps) => {
 Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            closeButtonAriaLabel={"close"}
-          >
-            <ModalContent>
-              <span className="modal-content">Modal content goes here</span>
-            </ModalContent>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
+  <Story name="Overview">{modalTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
@@ -128,58 +110,11 @@ Modal allows the user to focus on one task or a piece of information, by popping
 ### Sizes
 
 <Canvas>
-  <Story name="Width variants - Normal">
-    {() => {
-      // Control if modal is display or hidden
-      const [show, setShow] = useState(openOnStart);
-      const openModalButtonRef = useRef(null);
-      const closeModal = useCallbacl(() => setShow(false), []);
-      const modalButtons = <ModalButtons closeModal={closeModal} />;
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Default"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            closeButtonAriaLabel={"close"}
-            width={Modal.width.DEFAULT}
-          >
-            <p className="modal-content">Normal modal</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
+  <Story name="Width variants - Normal" args={{ width: Modal.width.DEFAULT }}>
+    {modalTemplate.bind({})}
   </Story>
-  <Story name="Width variants - Full">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Full screen"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            width={Modal.width.FULL_WIDTH}
-            closeButtonAriaLabel={"close"}
-          >
-            <p className="modal-content">Full width modal</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
+  <Story name="Width variants - Full" args={{ width: Modal.width.FULL_WIDTH }}>
+    {modalTemplate.bind({})}
   </Story>
 </Canvas>
 
@@ -189,27 +124,8 @@ Use this variant in case of sensitive or important messages, and in modals that 
 The Alert modal will not be closed by clicking outside the modal or by the ESC key. It will be closed only by the close button and the footer buttons.
 
 <Canvas>
-  <Story name="Alert Modal">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            alertDialog
-            closeButtonAriaLabel={"close"}
-          >
-            <p className="modal-content">Use the close button to dismiss this Modal.</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
+  <Story name="Alert Modal" args={{ alertDialog: true }}>
+    {modalTemplate.bind({})}
   </Story>
 </Canvas>
 

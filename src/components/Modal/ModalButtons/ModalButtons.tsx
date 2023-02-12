@@ -1,13 +1,12 @@
-import React, { FC, ReactElement } from "react";
-import cx from "classnames";
+import React, { FC } from "react";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import classes from "./ModalFooter.module.scss";
-import { Button, Flex } from "../../index";
+import Button from "../../Button/Button";
+import Flex from "../../Flex/Flex";
 
 interface ModalButtonsProps extends VibeComponentProps {
   className: string;
-  cancelCallback: () => void;
-  confirmCallback: () => void;
+  cancelCallback: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  confirmCallback: (event: React.MouseEvent<HTMLButtonElement>) => void;
   cancelText: string;
   confirmText: string;
 }
@@ -16,8 +15,8 @@ const ModalButtons: FC<ModalButtonsProps> = ({
   className,
   cancelCallback,
   confirmCallback,
-  cancelText,
-  confirmText
+  cancelText = "Cancel",
+  confirmText = "Confirm"
 }) => {
   return (
     <Flex justify={Flex.justify.END} gap={12} className={className}>
