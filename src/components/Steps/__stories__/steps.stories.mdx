@@ -1,5 +1,5 @@
 import Steps from "../Steps";
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Tipseen from "../../Tipseen/Tipseen";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
@@ -9,6 +9,7 @@ import { ComponentRules, RelatedComponents, UsageGuidelines } from "../../../sto
 import createComponentTemplate from "../../../storybook/functions/createComponentTemplate";
 import createStoryMetaSettings from "../../../storybook/functions/createStoryMetaSettings";
 import "./steps.stories.scss";
+import { Button } from "../../index";
 
 export const metaSettings = createStoryMetaSettings({
   component: Steps,
@@ -143,6 +144,13 @@ Our Tipseen component includes support for steps as content.
 <Canvas>
   <Story name="Steps inside a tipseen">
     {() => {
+      const [activeStepIndex, setActiveStepIndex] = useState(2);
+      const stepPrev = useCallback(() => {
+        setActiveStepIndex(prevState => prevState - 1);
+      }, []);
+      const stepNext = useCallback(() => {
+        setActiveStepIndex(prevState => prevState + 1);
+      }, []);
       const content = useMemo(
         () => [
           <div>Message number 1</div>,
@@ -163,7 +171,16 @@ Our Tipseen component includes support for steps as content.
                 animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
                 title="This is a title"
                 steps={content}
-                activeStepIndex={2}
+                activeStepIndex={activeStepIndex}
+                backButtonProps={{
+                  size: Button.sizes.SMALL,
+                  onClick: stepPrev
+                }}
+                nextButtonProps={{
+                  kind: Button.kinds.PRIMARY,
+                  size: Button.sizes.SMALL,
+                  onClick: stepNext
+                }}
               />
             }
           >
