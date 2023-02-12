@@ -65,8 +65,15 @@ interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
-   * If you are using onMouseDown or onClick but do not want your chip to be used as a button (in terms of appearance or aria attributes)
+   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
+   * @deprecated
    */
+  clickable?: boolean;
+  /**
+   * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
+   * @deprecated
+   */
+  isClickable?: boolean;
   disableClickableBehavior?: boolean;
 }
 
@@ -136,7 +143,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     const onClickCallback = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if ((e.target as HTMLElement) !== iconButtonRef.current && onClick) {
+        if (onClick !== undefined && (e.target as HTMLElement) !== iconButtonRef.current) {
           e.preventDefault();
           onClick(e);
         }
@@ -177,7 +184,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         }
       : {
           ref: mergedRef,
-          onClick: onClick ? onClickCallback : undefined,
+          onClick: onClickCallback,
           onMouseDown,
           id: id,
           "data-testid": overrideDataTestId,

@@ -1519,6 +1519,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
+              onClick={[Function]}
               onMouseDown={[Function]}
               style={
                 Object {
@@ -1575,6 +1576,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
+              onClick={[Function]}
               onMouseDown={[Function]}
               style={
                 Object {
@@ -1634,6 +1636,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
+                onClick={[Function]}
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -2343,6 +2346,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
+                onClick={[Function]}
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -2572,6 +2576,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
+                onClick={[Function]}
                 onMouseDown={[Function]}
                 style={
                   Object {
