@@ -158,12 +158,16 @@ Navigable steps example.
       const stepNext = useCallback(() => {
         setActiveStepIndex(prevState => prevState + 1);
       }, []);
+      const onChangeActiveStep = useCallback((_e, stepIndex) => {
+        setActiveStepIndex(stepIndex);
+      }, []);
       return (
         <div>
           <Steps
             steps={steps5WithText}
             isContentOnTop
             activeStepIndex={activeStepIndex}
+            onChangeActiveStep={onChangeActiveStep}
             backButtonProps={{
               size: Button.sizes.SMALL,
               onClick: stepPrev
@@ -193,6 +197,9 @@ Our Tipseen component includes support for steps as content.
       const stepNext = useCallback(() => {
         setActiveStepIndex(prevState => prevState + 1);
       }, []);
+      const onChangeActiveStep = useCallback((_e, stepIndex) => {
+        setActiveStepIndex(stepIndex);
+      }, []);
       return (
         <div className="monday-storybook-steps_block">
           <Tipseen
@@ -203,6 +210,7 @@ Our Tipseen component includes support for steps as content.
                 animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
                 title="This is a title"
                 steps={steps5WithText}
+                onChangeActiveStep={onChangeActiveStep}
                 activeStepIndex={activeStepIndex}
                 backButtonProps={{
                   size: Button.sizes.SMALL,
