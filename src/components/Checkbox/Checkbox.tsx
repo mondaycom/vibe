@@ -1,4 +1,4 @@
-import React, {forwardRef, useCallback, useEffect, useMemo, useRef} from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -90,8 +90,8 @@ export const Checkbox: VibeComponent<CheckBoxProps> = forwardRef(
     const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
 
     const finalAriaLabel = useMemo(() => {
-      if(ariaLabel) return ariaLabel;
-      if(typeof label === "string") return label;
+      if (ariaLabel) return ariaLabel;
+      if (typeof label === "string") return label;
       return "";
     }, [ariaLabel, label]);
 
