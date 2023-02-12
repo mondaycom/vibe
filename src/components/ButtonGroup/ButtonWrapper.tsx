@@ -6,6 +6,9 @@ import Tooltip from "../Tooltip/Tooltip";
 import { MoveBy } from "../../types/MoveBy";
 import { DialogPosition } from "../../constants/positions";
 
+const SHOW_TRIGGERS = [HideShowEvent.FOCUS, HideShowEvent.MOUSE_ENTER];
+const HIDE_TRIGGERS = [HideShowEvent.BLUR, HideShowEvent.MOUSE_LEAVE];
+
 interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
   /**
@@ -36,8 +39,8 @@ export const ButtonWrapper = ({
         hideDelay={tooltipHideDelay}
         showDelay={tooltipShowDelay}
         content={tooltipContent}
-        showTrigger={[HideShowEvent.MOUSE_ENTER]}
-        hideTrigger={[HideShowEvent.MOUSE_LEAVE]}
+        showTrigger={SHOW_TRIGGERS}
+        hideTrigger={HIDE_TRIGGERS}
         containerSelector={tooltipContainerSelector}
       >
         {button}
