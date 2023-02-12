@@ -11,7 +11,11 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { HideShowEvent } from "../../constants";
 import styles from "./IconButton.module.scss";
+
+const SHOW_TRIGGERS = [HideShowEvent.FOCUS, HideShowEvent.MOUSE_ENTER];
+const HIDE_TRIGGERS = [HideShowEvent.BLUR, HideShowEvent.MOUSE_LEAVE];
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
@@ -156,6 +160,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
         <Tooltip
+          showTrigger={SHOW_TRIGGERS}
+          hideTrigger={HIDE_TRIGGERS}
           {...tooltipProps}
           content={calculatedTooltipContent}
           referenceWrapperClassName={styles.referenceWrapper}
