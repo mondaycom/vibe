@@ -7,7 +7,6 @@ import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import "./ComboboxOption.scss";
 
-// TODO add tooltip on keyboard focus
 const ComboboxOption = ({
   index,
   option,
@@ -129,7 +128,7 @@ const ComboboxOption = ({
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <Tooltip content={tooltipContent}>
+    <Tooltip content={tooltipContent} open={visualFocus}>
       <div
         ref={ref}
         key={id || label}
