@@ -9,7 +9,7 @@ describe("Chips tests", () => {
   const defaultTestId = getTestId(ComponentDefaultTestId.CHIP);
   const className = "test-class";
 
-  it("Should call the click callback when clicked", () => {
+  it("Should call the onDelete callback when on close button clicked", () => {
     const testId = `${Chips.defaultTestId}-close`;
     const onDeletedMock = jest.fn();
     render(<Chips className={className} onDelete={onDeletedMock} label={label} />);
