@@ -1,6 +1,5 @@
 import React from "react";
 import { components } from "react-select";
-import Dialog from "../../../../components/Dialog/Dialog";
 import Tooltip from "../../../../components/Tooltip/Tooltip";
 
 const Control = props => {
@@ -11,8 +10,8 @@ const Control = props => {
     return (
       <Tooltip
         content={selectProps?.selectProps?.tooltipContent}
-        hideTrigger={[Dialog.hideShowTriggers.MOUSE_LEAVE, Dialog.hideShowTriggers.CLICK]}
-        showTrigger={[Dialog.hideShowTriggers.MOUSE_ENTER]}
+        hideTrigger={[Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.CLICK]}
+        showTrigger={[Tooltip.hideShowTriggers.MOUSE_ENTER]}
       >
         <div className="monday-dropdown_scrollable-wrapper" ref={controlRef}>
           {control}
