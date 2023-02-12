@@ -177,7 +177,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         }
       : {
           ref: mergedRef,
-          onClick: onClickCallback,
+          onClick: onClick ? onClickCallback : undefined,
           onMouseDown,
           id: id,
           "data-testid": overrideDataTestId,

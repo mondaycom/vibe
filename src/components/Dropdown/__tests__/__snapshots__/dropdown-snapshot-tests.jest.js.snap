@@ -1519,6 +1519,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
+              onMouseDown={[Function]}
               style={
                 Object {
                   "backgroundColor": "var(--primary-selected-color)",
@@ -1574,6 +1575,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
+              onMouseDown={[Function]}
               style={
                 Object {
                   "backgroundColor": "var(--positive-color-selected)",
@@ -1632,6 +1634,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
+                onMouseDown={[Function]}
                 style={
                   Object {
                     "backgroundColor": "var(--negative-color-selected)",
@@ -2340,6 +2343,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
+                onMouseDown={[Function]}
                 style={
                   Object {
                     "backgroundColor": "var(--primary-selected-color)",
@@ -2568,6 +2572,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
+                onMouseDown={[Function]}
                 style={
                   Object {
                     "backgroundColor": "var(--primary-selected-color)",
