@@ -8,8 +8,6 @@ jest.mock("../../../utils/user-agent-utils", () => {
   };
 });
 
-const { isFirefox } = require("../../../utils/user-agent-utils");
-
 function createCheckboxesVariables() {
   return {
     formName: "myForm",
@@ -189,8 +187,20 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      isFirefox.mockImplementation(() => true);
+      jest.mock("../../../utils/user-agent-utils", () => {
+        return {
+          isFirefox: jest.fn().mockImplementation(() => true)
+        };
+      });
     });
+
+    afterAll(() => {
+      jest.mock("../../../utils/user-agent-utils", () => {
+        return {
+          isFirefox: jest.fn()
+        };
+      });
+    })
 
     let onChangeMock1: jest.MockedFunction<any>,
       onChangeMock2: jest.MockedFunction<any>,
