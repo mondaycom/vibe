@@ -3,8 +3,9 @@ import { useCallback, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
+import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
-import { modifiers } from "./helpers.js";
+import { modifiers, NavigableStepsTemplate, StepsGalleryDontTemplate, StepsNumbersDoTemplate } from "./helpers.js";
 import { BREADCRUBMS, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import { ComponentRules, RelatedComponents, UsageGuidelines } from "../../../storybook";
 import createComponentTemplate from "../../../storybook/functions/createComponentTemplate";
@@ -28,14 +29,6 @@ export const metaSettings = createStoryMetaSettings({
 
 export const stepsTemplate = createComponentTemplate(Steps);
 const steps5 = [<div />, <div />, <div />, <div />, <div />];
-const steps5WithText = [
-  <div>Message number 1</div>,
-  <div>Message number 2</div>,
-  <div>Message number 3</div>,
-  <div>Message number 4</div>,
-  <div>Message number 5</div>
-];
-const steps6 = [<div />, <div />, <div />, <div />, <div />, <div />];
 
 <!--- Component documentation -->
 
@@ -55,8 +48,8 @@ const steps6 = [<div />, <div />, <div />, <div />, <div />, <div />];
 Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.
 
 <Canvas>
-  <Story name="Overview" args={{ steps: steps5, activeStepIndex: 2 }}>
-    {stepsTemplate.bind({})}
+  <Story name="Overview" args={{ steps: steps5 }}>
+    {NavigableStepsTemplate.bind({})}
   </Story>
 </Canvas>
 
@@ -85,7 +78,7 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <div className="monday-storybook-steps_column-wrapper">
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
           <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={4} />
           <Steps steps={steps} activeStepIndex={2} />
           <Steps
@@ -94,7 +87,7 @@ Steps with a number view or gallery view.
             areNavigationButtonsHidden
             className="monday-storybook-steps_padding"
           />
-        </div>
+        </Flex>
       );
     }}
     ;
@@ -108,7 +101,7 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <div className="monday-storybook-steps_column-wrapper monday-storybook-steps_color">
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} className="monday-storybook-steps_color">
           <Steps steps={steps} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
           <Steps steps={steps} activeStepIndex={2} isOnPrimary />
           <Steps
@@ -118,7 +111,7 @@ Steps with a number view or gallery view.
             areNavigationButtonsHidden
             className="monday-storybook-steps_padding"
           />
-        </div>
+        </Flex>
       );
     }}
     ;
@@ -131,11 +124,11 @@ Steps with a number view or gallery view.
   rules={[
     {
       positive: {
-        component: <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />,
+        component: <StepsNumbersDoTemplate />,
         description: "Use steps with numbers type for use cases of steps with more than 5 steps."
       },
       negative: {
-        component: <Steps steps={steps6} activeStepIndex={3} />,
+        component: <StepsGalleryDontTemplate />,
         description: "Don't use the gallery type steps component for more than 5 steps."
       }
     }
@@ -151,6 +144,7 @@ Navigable steps example.
 <Canvas>
   <Story name="Navigable Steps">
     {() => {
+      const steps = [<div />, <div />, <div />, <div />, <div />];
       const [activeStepIndex, setActiveStepIndex] = useState(2);
       const stepPrev = useCallback(() => {
         setActiveStepIndex(prevState => prevState - 1);
@@ -164,16 +158,14 @@ Navigable steps example.
       return (
         <div>
           <Steps
-            steps={steps5WithText}
+            steps={steps}
             isContentOnTop
             activeStepIndex={activeStepIndex}
             onChangeActiveStep={onChangeActiveStep}
             backButtonProps={{
-              size: Button.sizes.SMALL,
               onClick: stepPrev
             }}
             nextButtonProps={{
-              size: Button.sizes.SMALL,
               onClick: stepNext
             }}
           />
@@ -190,6 +182,16 @@ Our Tipseen component includes support for steps as content.
 <Canvas>
   <Story name="Steps inside a tipseen">
     {() => {
+      const steps = useMemo(
+        () => [
+          <div>Message number 1</div>,
+          <div>Message number 2</div>,
+          <div>Message number 3</div>,
+          <div>Message number 4</div>,
+          <div>Message number 5</div>
+        ],
+        []
+      );
       const [activeStepIndex, setActiveStepIndex] = useState(2);
       const stepPrev = useCallback(() => {
         setActiveStepIndex(prevState => prevState - 1);
@@ -209,7 +211,7 @@ Our Tipseen component includes support for steps as content.
               <TipseenWizard
                 animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
                 title="This is a title"
-                steps={steps5WithText}
+                steps={steps}
                 onChangeActiveStep={onChangeActiveStep}
                 activeStepIndex={activeStepIndex}
                 backButtonProps={{
