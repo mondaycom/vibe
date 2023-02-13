@@ -168,7 +168,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -209,7 +209,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -351,7 +351,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -395,7 +395,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -573,7 +573,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -614,7 +614,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -728,7 +728,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -772,7 +772,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component monday-style-steps-command_icon"
+        className="icon_component monday-style-steps-command_icon disabled"
         fill="currentColor"
         height="16"
         onClick={[Function]}
