@@ -48,7 +48,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
     (e: React.MouseEvent) => onChangeActiveStep(e, newStepIndex),
     [newStepIndex, onChangeActiveStep]
   );
-  const isDisable = (isNext && activeStepIndex === stepsCount - 1) || (!isNext && activeStepIndex === 0);
+  const isDisabled = (isNext && activeStepIndex === stepsCount - 1) || (!isNext && activeStepIndex === 0);
 
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
@@ -57,12 +57,14 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       dataTestId={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
-      disabled={isDisable}
+      disabled={isDisabled}
       color={buttonBaseColor}
       {...otherButtonProps}
     >
       {description}
-      {isIconHidden ? null : <Icon icon={icon} clickable={false} className={bemHelper({ element: "icon" })} />}
+      {isIconHidden ? null : (
+        <Icon icon={icon} clickable={false} className={cx(bemHelper({ element: "icon" }), { disabled: isDisabled })} />
+      )}
     </Button>
   );
 };
