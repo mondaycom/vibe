@@ -234,45 +234,43 @@ Use the `alertDialog` boolean prop in order to allow closing the modal only by t
 clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
 
 <Canvas>
-  <Canvas>
-    <Story name="Alert Modal">
-      {() => {
-        // Boilerplate for creating a modal, not relevant for add icon to the header
-        const [show, setShow] = useState(false);
-        const openModalButtonRef = useRef(null);
-        const closeModal = useCallback(() => {
-          setShow(false);
-        }, []);
-        const openModalButton = // Internal helper, not part of the API
-          useHelperOpenModalButton({
-            title: "Modal header with an alert dialog",
-            setShow,
-            openModalButtonRef
-          });
-        return (
-          // Modal header with an icon example
-          <div>
-            {openModalButton}
-            <Modal
-              alertDialog // this makes your modal as alert dialog
-              id="story-book-modal"
-              title="A"
-              triggerElement={openModalButtonRef.current}
-              show={show}
-              onClose={closeModal}
-            >
-              <ModalContent>
-                <p className="modal-content">Modal content goes here</p>
-              </ModalContent>
-              <ModalFooter>
-                <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
-              </ModalFooter>
-            </Modal>
-          </div>
-        );
-      }}
-    </Story>
-  </Canvas>
+  <Story name="Alert Modal">
+    {() => {
+      // Boilerplate for creating a modal, not relevant for add icon to the header
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({
+          title: "Modal header with an alert dialog",
+          setShow,
+          openModalButtonRef
+        });
+      return (
+        // Modal header with an icon example
+        <div>
+          {openModalButton}
+          <Modal
+            alertDialog // this makes your modal as alert dialog
+            id="story-book-modal"
+            title="Alert modal"
+            triggerElement={openModalButtonRef.current}
+            show={show}
+            onClose={closeModal}
+          >
+            <ModalContent>
+              <p className="modal-content">Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Do’s and Don’ts
