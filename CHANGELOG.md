@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.96.0 (2023-02-13)
+
+#### Bug Fixes
+* [#1105](https://github.com/mondaycom/monday-ui-react-core/pull/1105) Set chips clickable behavior as default instead of extra prop for backward support and clearer API  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1103](https://github.com/mondaycom/monday-ui-react-core/pull/1103) Tooltip.hideShowTriggers - static property ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1099](https://github.com/mondaycom/monday-ui-react-core/pull/1099) Feature/sergeyro/remove storybook styles overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.95.3 (2023-02-08)
 
 #### Bug Fixes
