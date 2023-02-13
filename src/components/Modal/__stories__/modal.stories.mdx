@@ -30,8 +30,8 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   const closeModal = useCallback(() => {
     setShow(false);
   }, []);
-  // This is internal helper method for creating basic button which change the show state to true in order to display the modal
-  // This method is not part of our external API and not required for creating function modal component
+  // Internal helper method for creating basic button which change the show state to true in order to display the modal
+  // This method is not part of our external API and not required for creating functional modal component
   const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
   return (
     <div>

@@ -14,8 +14,7 @@ export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openMo
   );
 };
 
-// This is internal helper method for creating basic button which change the show state to true in order to display the modal
-// This method is not part of our external API and not required for creating function modal component
+// Internal component for create all boilerplate needed for implementing modal example to the "Do and don't" section
 export const ModalExampleWrapper = ({
   bestPractice,
   modalTitle,
