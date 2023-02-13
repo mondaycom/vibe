@@ -78,8 +78,8 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-          <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={4} />
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+          <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={2} />
           <Steps steps={steps} activeStepIndex={2} />
           <Steps
             steps={steps}
@@ -101,8 +101,8 @@ Steps with a number view or gallery view.
     {() => {
       const steps = useMemo(() => [<div />, <div />, <div />, <div />, <div />], []);
       return (
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} className="monday-storybook-steps_color">
-          <Steps steps={steps} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} className="monday-storybook-steps_color">
+          <Steps steps={steps} activeStepIndex={2} isOnPrimary type={Steps.types.NUMBERS} />
           <Steps steps={steps} activeStepIndex={2} isOnPrimary />
           <Steps
             steps={steps}
@@ -139,7 +139,7 @@ Steps with a number view or gallery view.
 
 ### Navigable Steps
 
-Navigable steps example.
+Navigable steps with proper code example.
 
 <Canvas>
   <Story name="Navigable Steps">
