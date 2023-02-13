@@ -120,8 +120,8 @@ Chips are compact elements that represent an input, attribute, or action. They m
     {() => {
       return (
         <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <Chips label="Clickable default chip" readOnly isClickable onClick={NOOP} />
-          <Chips label="Clickable removable chip" isClickable onClick={NOOP} />
+          <Chips label="Clickable default chip" readOnly onClick={NOOP} />
+          <Chips label="Clickable removable chip" onClick={NOOP} />
         </Flex>
       );
     }}
@@ -159,7 +159,7 @@ e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
         description: "When using a chip, the width will automatically size itself to fit the content."
       },
       negative: {
-        component: <Chips label="This is a chip" className="monday-style-story-chips_chip-padding" readOnly />,
+        component: <Chips label="This is a chip" className="monday-storybook-chips_chip-padding" readOnly />,
         description: "Don’t change the chip width."
       }
     }
@@ -174,18 +174,18 @@ Sometimes when needed, chips can change fill color.
 
 <Canvas>
   <Story name="Colorful chips for different content">
-    <DialogContentContainer className="monday-style-story-chips_search-bar">
-      <div className="monday-style-story-chips_item">
+    <DialogContentContainer className="monday-storybook-chips_search-bar">
+      <div className="monday-storybook-chips_item">
         <Chips label="January" color={Chips.colors.POSITIVE} />
       </div>
       <Search />
-      <div className="monday-style-story-chips_item">
+      <div className="monday-storybook-chips_item">
         <Chips label="August" readOnly color={Chips.colors.LIPSTICK} />
       </div>
-      <div className="monday-style-story-chips_item">
+      <div className="monday-storybook-chips_item">
         <Chips label="April" readOnly color={Chips.colors.BUBBLE} />
       </div>
-      <div className="monday-style-story-chips_item">
+      <div className="monday-storybook-chips_item">
         <Chips label="March" readOnly color={Chips.colors.EGG_YOLK} />
       </div>
     </DialogContentContainer>
@@ -198,40 +198,40 @@ Chips can be removable.
 
 <Canvas>
   <Story name="Chips in Person Column">
-    <DialogContentContainer className="monday-style-story-chips_search-bar">
+    <DialogContentContainer className="monday-storybook-chips_search-bar">
       <Search placeholder="Search names, positions, or a team" />
-      <div className="monday-style-story-chips_inline-container">
+      <div className="monday-storybook-chips_inline-container">
         <Chips label="Esther Schanler" />
         <Chips label="Itai Shabtai" />
       </div>
-      <div className="monday-style-story-chips_lable">Suggested people</div>
-      <div className="monday-style-story-chips_search">
-        <div className="monday-style-story-chips_inline-container" key="cont-1">
+      <div className="monday-storybook-chips_lable">Suggested people</div>
+      <div className="monday-storybook-chips_search">
+        <div className="monday-storybook-chips_inline-container" key="cont-1">
           <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} />
-          <span className="monday-style-story-chips_name">
+          <span className="monday-storybook-chips_name">
             May Kishon <span>(UX/UI Product Designer)</span>
           </span>
         </div>
-        <div className="monday-style-story-chips_inline-container" key="cont-2">
+        <div className="monday-storybook-chips_inline-container" key="cont-2">
           <Avatar
             size={Avatar.sizes.MEDIUM}
             backgroundColor={Avatar.colors.DARK_PURPLE}
             text="LC"
             type={Avatar.types.TEXT}
           />
-          <span className="monday-style-story-chips_name">
+          <span className="monday-storybook-chips_name">
             Liron Cohen <span>(Customer Experience)</span>
           </span>
         </div>
-        <div className="monday-style-story-chips_inline-container" key="cont-3">
+        <div className="monday-storybook-chips_inline-container" key="cont-3">
           <Avatar size={Avatar.sizes.MEDIUM} text="DY" type={Avatar.types.TEXT} />
-          <span className="monday-style-story-chips_name">
+          <span className="monday-storybook-chips_name">
             Amanda Lawrence <span>(Customer Experience Designer)</span>
           </span>
         </div>
-        <div className="monday-style-story-chips_inline-container" key="cont-4">
+        <div className="monday-storybook-chips_inline-container" key="cont-4">
           <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} />
-          <span className="monday-style-story-chips_name">
+          <span className="monday-storybook-chips_name">
             Dor Yehuda <span>(Customer Experience Designer)</span>
           </span>
         </div>

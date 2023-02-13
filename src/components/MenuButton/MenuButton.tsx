@@ -20,7 +20,7 @@ function BEMClass(className: string) {
   return `menu-button--wrapper--${className}`;
 }
 
-const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
+const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 
 const showTrigger = [HideShowEvent.CLICK, HideShowEvent.ENTER];
 const EMPTY_ARRAY: HideShowEvent[] = [];

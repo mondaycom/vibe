@@ -4,6 +4,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
   className="chips chips--wrapper disabled"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": undefined,
@@ -22,6 +23,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   className="chips chips--wrapper withClose"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--negative-color-selected)",
@@ -79,6 +81,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   className="chips chips--wrapper withClose"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -136,6 +139,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
   className="chips chips--wrapper"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -175,6 +179,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
   className="chips chips--wrapper"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -209,6 +214,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
   className="chips chips--wrapper"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -248,6 +254,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   className="chips chips--wrapper"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -282,6 +289,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   className="chips chips--wrapper withClose"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -339,6 +347,7 @@ exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
   className="chips chips--wrapper"
   data-testid="chip"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",

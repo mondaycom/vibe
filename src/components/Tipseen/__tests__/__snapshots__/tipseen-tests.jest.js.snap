@@ -126,7 +126,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without submit 1
 exports[`Snapshot tests Tipseen tests renders correctly without close - deprecated version 1`] = `
 Array [
   <div
-    className="monday-style-story-tipseen_container"
+    className="monday-storybook-tipseen_container"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -185,7 +185,7 @@ Array [
 exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
 Array [
   <div
-    className="monday-style-story-tipseen_container"
+    className="monday-storybook-tipseen_container"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -244,7 +244,7 @@ Array [
 exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
 Array [
   <div
-    className="monday-style-story-tipseen_container"
+    className="monday-storybook-tipseen_container"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

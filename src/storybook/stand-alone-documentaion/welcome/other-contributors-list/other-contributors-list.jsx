@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, Paragraph } from "../../../components";
+import { Paragraph } from "../../../components";
+import { Contributors } from "./contributors";
 import "./other-contributors-list.scss";
 
 const BASE_CLASS = "monday-other-contributors-list";
@@ -8,6 +9,16 @@ const excludedDevelopers = new Set();
 excludedDevelopers.add(41898282); // github-actions[bot]
 excludedDevelopers.add(49699333); // dependabot[bot]
 
+const STATIC_FOUNDING_DESIGNERS = [
+  {
+    name: "Evgeniy Kazinec",
+    href: "https://www.linkedin.com/in/evgeniy-kazinec/"
+  },
+  {
+    name: "Rotem Dekel",
+    href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/"
+  }
+];
 const STATIC_CONTRIBUTERS = [
   {
     name: "Devorah Friedman",
@@ -34,10 +45,6 @@ const STATIC_CONTRIBUTERS = [
     href: "mailto:noafe@monday.com"
   },
   {
-    name: "RotemDekel",
-    href: "https://il.linkedin.com/in/rotem-dekel-7a8b12133"
-  },
-  {
     name: "LeanyLabs",
     href: "https://github.com/LeanyLabs"
   }
@@ -57,18 +64,17 @@ export const OtherContributorsList = () => {
       const developerContributors = contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => ({ name: contributor.login, href: contributor.html_url, key: contributor.id }));
-
-      return STATIC_CONTRIBUTERS.concat(developerContributors).map(({ name, href, key }) => (
-        <Link key={key || href} href={href} className={`${BASE_CLASS}_developer`}>
-          {name}
-        </Link>
-      ));
+      const contributorsData = STATIC_CONTRIBUTERS.concat(developerContributors);
+      return <Contributors contributorsData={contributorsData} />;
     }
   }, [contributorsJson]);
 
   return (
-    <Paragraph className={BASE_CLASS}>
-      {contributors ? <>Thanks to all of our contributors {contributors}</> : null}
-    </Paragraph>
+    <>
+      <Paragraph className={BASE_CLASS}>
+        Special thanks to our founding designers: <Contributors contributorsData={STATIC_FOUNDING_DESIGNERS} /> <br />
+        {contributors ? <>Thanks to all of our contributors: {contributors}</> : null}
+      </Paragraph>
+    </>
   );
 };
