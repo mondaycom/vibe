@@ -120,8 +120,8 @@ Chips are compact elements that represent an input, attribute, or action. They m
     {() => {
       return (
         <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <Chips label="Clickable default chip" readOnly isClickable onClick={NOOP} />
-          <Chips label="Clickable removable chip" isClickable onClick={NOOP} />
+          <Chips label="Clickable default chip" readOnly onClick={NOOP} />
+          <Chips label="Clickable removable chip" onClick={NOOP} />
         </Flex>
       );
     }}
