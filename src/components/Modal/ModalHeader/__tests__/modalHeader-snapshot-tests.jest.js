@@ -1,8 +1,8 @@
 import React from "react";
 import ModalHeader from "../ModalHeader";
-import { Settings } from "../../../components/Icon/Icons";
+import { Settings } from "../../../Icon/Icons";
 import { cleanup, render } from "@testing-library/react";
-import { snapshotDiff } from "../../../utils/jest-utils";
+import { snapshotDiff } from "../../../../utils/jest-utils";
 
 async function renderModalHeader(props) {
   const { asFragment } = render(<ModalHeader id="modal-title-id" title={"Default title"} {...props} />);
