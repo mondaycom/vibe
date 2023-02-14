@@ -83,4 +83,3 @@ export { default as ModalHeader } from "./Modal/ModalHeader/ModalHeader";
 export { default as ModalContent } from "./Modal/ModalContent/ModalContent";
 export { default as ModalFooter } from "./Modal/ModalFooter/ModalFooter";
 export { default as Box } from "./Box/Box";
-export { default as ModalButtons } from "./Modal/ModalButtons/ModalButtons";

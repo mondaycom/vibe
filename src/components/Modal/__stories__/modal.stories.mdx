@@ -4,7 +4,6 @@ import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageG
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
-import ModalButtons from "../ModalButtons/ModalButtons";
 import {
   ATTENTION_BOX,
   TOAST,
@@ -50,7 +49,12 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
           <p className="modal-content">Modal content goes here</p>
         </ModalContent>
         <ModalFooter>
-          <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+          <Flex justify={Flex.justify.END} gap={12}>
+            <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+              Cancel
+            </Button>
+            <Button onClick={closeModal}>Confirm</Button>
+          </Flex>
         </ModalFooter>
       </Modal>
     </div>
@@ -60,7 +64,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
 <Meta
   title="Feedback/Modal"
   component={Modal}
-  subcomponents={{ ModalHeader, ModalContent, ModalFooter, ModalButtons }}
+  subcomponents={{ ModalHeader, ModalContent, ModalFooter }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -143,7 +147,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
               <p className="modal-content">Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
-              <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
             </ModalFooter>
           </Modal>
         </>
@@ -177,7 +186,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
               <p className="modal-content">Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
-              <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
             </ModalFooter>
           </Modal>
         </>
@@ -224,7 +238,12 @@ Use the ModalHeader component to display a Header with an icon
               <p className="modal-content">Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
-              <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
             </ModalFooter>
           </Modal>
         </div>
@@ -269,7 +288,12 @@ clicking outside. Use this variant in case of sensitive or important messages, a
               <p className="modal-content">Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
-              <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
             </ModalFooter>
           </Modal>
         </div>

@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import Button from "../../Button/Button";
 import Modal from "../Modal";
-import { Dialog, DialogContentContainer, Heading, ModalButtons, ModalFooter } from "../../../components";
+import { Dialog, DialogContentContainer, Heading, ModalFooter } from "../../../components";
 import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
 
@@ -38,7 +38,12 @@ export const ModalExampleWrapper = ({
   });
   const footer = hideFooter ? null : (
     <ModalFooter>
-      <ModalButtons onCancel={closeModal} onConfirm={closeModal} />
+      <Flex justify={Flex.justify.END} gap={12}>
+        <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+          Cancel
+        </Button>
+        <Button onClick={closeModal}>Confirm</Button>
+      </Flex>
     </ModalFooter>
   );
 
