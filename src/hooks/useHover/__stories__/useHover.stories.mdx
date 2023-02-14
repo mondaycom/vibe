@@ -1,0 +1,58 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import useHover from "../useHover";
+import UsageGuidelines from "../../../storybook/components/usage-guidelines/usage-guidelines";
+import "../../__stories__/general-hooks-stories.scss";
+
+<Meta title="Hooks/useHover" />
+
+# useHover
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Attaches a listener for <code>mouseover</code> and <code>mouseout</code> DOM events on a specific element, returning <code>isHovered</code> state.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const [hoverRef, isHovered] = useHover();
+      return (
+        <div ref={hoverRef} className="hooks-reference-element">
+          Hover me! {isHovered ? "Boom!" : undefined}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook to get element hovered state",
+    "No arguments are needed just assign returned ref to the element"
+  ]}
+/>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="ref"
+    type="React.MutableRefObject"
+    description={
+      <>
+        A React{" "}
+        <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">
+          ref
+        </a>{" "}
+        object.
+      </>
+    }
+  />
+  <FunctionArgument name="isHovered" type="boolean" description="Whether the element is hovered or not." />
+</FunctionArguments>

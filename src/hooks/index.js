@@ -9,7 +9,7 @@ export { default as usePrevious } from "./usePrevious";
 export { default as useSetFocus } from "./useSetFocus";
 export { default as useMergeRefs } from "./useMergeRefs";
 export { default as useIsMouseOver } from "./useIsMouseOver";
-export { default as useHover } from "./useHover";
+export { default as useHover } from "./useHover/useHover";
 export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
 export { default as useIsOverflowing } from "./useIsOverflowing";
 export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
