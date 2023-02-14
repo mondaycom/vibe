@@ -6,9 +6,9 @@ import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
 
 // internal custom hook to help with writing tests and stories.
-export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openModalButtonRef, color }) => {
+export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openModalButtonRef, color, testId }) => {
   return (
-    <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color}>
+    <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} dataTestId={testId}>
       {title}
     </Button>
   );
@@ -21,16 +21,19 @@ export const ModalExampleWrapper = ({
   buttonTitle,
   children,
   hideFooter,
+  show: defaultShow = false,
+  openModalTestId,
   ...otherModalProps
 }) => {
   // Control if modal is display or hidden
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(defaultShow);
   const openModalButtonRef = useRef(null);
   const closeModal = useCallback(() => {
     setShow(false);
   }, []);
   const openModalColor = bestPractice ? Button.colors.POSITIVE : Button.colors.NEGATIVE;
   const openModalButton = useHelperOpenModalButton({
+    testId: openModalTestId,
     title: buttonTitle || modalTitle,
     setShow,
     openModalButtonRef,
