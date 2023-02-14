@@ -24,7 +24,7 @@ const ModalButtons: FC<ModalButtonsProps> = ({
     <Flex justify={Flex.justify.END} gap={12} className={className}>
       <Button
         onClick={onCancel}
-        kind={Button.kinds.SECONDARY}
+        kind={Button.kinds.TERTIARY}
         dataTestId={getTestId(ComponentDefaultTestId.MODAL_BUTTONS, "cancel")}
       >
         {cancelText}

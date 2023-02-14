@@ -74,8 +74,13 @@ export const DialogAsModalBadExample = () => {
   }, []);
   const dialogContent = (
     <DialogContentContainer style={{ width: "500px", margin: "auto" }}>
-      <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.START} align={Flex.align.START}>
-        <Heading value="Dialog title"></Heading>
+      <Flex
+        className="monday-storybook-modal-dialog-content"
+        direction={Flex.directions.COLUMN}
+        justify={Flex.justify.START}
+        align={Flex.align.START}
+      >
+        <Heading className="monday-storybook-modal-dialog-heading" type={Heading.types.h2} value="Dialog title" />
         <p>Dialog content</p>
         <Flex justify={Flex.justify.END} style={{ width: "100%" }} gap={12}>
           <Button onClick={closeDialog} kind={Button.kinds.SECONDARY}>
@@ -95,7 +100,7 @@ export const DialogAsModalBadExample = () => {
       showTrigger={DEFAULT_DIALOG_SHOW_TRIGGER}
     >
       <Button onClick={onShow} color={Button.colors.NEGATIVE}>
-        Centered Dialog component
+        Click here
       </Button>
     </Dialog>
   );

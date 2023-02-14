@@ -81,6 +81,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
 ## Overview
 
 Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
+Use modal for short and non-frequent tasks. For common tasks consider using the main flow.
 
 <Canvas>
   <Story name="Overview">{modalTemplate.bind({})}</Story>
@@ -97,13 +98,17 @@ Modal allows the user to focus on one task or a piece of information, by popping
     "Modals appear centered on the page, with a visible backdrop dimming the rest of the page for focus.",
     "Modals height is dynamic according to its content.",
     "All modals must have a title and a close button",
-    "By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons",
-    "Use modal for short and non-frequent tasks. For common tasks consider using the main flow."
+    "By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons."
   ]}
 />
 
 <Tip>
-  If you desire to create a popup which position next to other component in the site, check out our dialog component.
+  Set `alertDialog` to `true` in order to allow closing the modal only by the close buttons and not by ESC or by
+  clicking outside. <Link>Learn more</Link>
+</Tip>
+<Tip>
+  If you wish to create a popover positioned next to other components, like customized menus, check out our Dialog
+  component.
 </Tip>
 
 ## Variants
@@ -127,7 +132,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
           {openModalButton}
           <Modal
             id="story-book-modal"
-            title="Default"
+            title="Modal title"
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
@@ -161,7 +166,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
           {openModalButton}
           <Modal
             id="story-book-modal"
-            title="Full size"
+            title="Modal title"
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
@@ -196,7 +201,7 @@ Use the ModalHeader component to display a Header with an icon
       }, []);
       const openModalButton = // Internal helper, not part of the API
         useHelperOpenModalButton({
-          title: "Modal header with an icon",
+          title: "Header with icon",
           setShow,
           openModalButtonRef
         });
@@ -244,7 +249,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
       }, []);
       const openModalButton = // Internal helper, not part of the API
         useHelperOpenModalButton({
-          title: "Modal header with an alert dialog",
+          title: "Alert dialog",
           setShow,
           openModalButtonRef
         });
@@ -280,7 +285,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     {
       positive: {
         component: (
-          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Modal with a proper CTA">
+          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
             <p>Modal with a proper CTA example</p>
           </ModalExampleWrapper>
         ),
@@ -288,30 +293,9 @@ clicking outside. Use this variant in case of sensitive or important messages, a
       },
       negative: {
         component: (
-          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
-            <ModalExampleWrapper
-              bestPractice={false}
-              hideFooter
-              modalTitle="Modal title"
-              buttonTitle="Modal without cancel button"
-            >
-              <p>Modal without a cancel button</p>
-              <ModalFooter>
-                <Flex justify={Flex.justify.END} style={{ width: "100%" }}>
-                  <Button>Confirm</Button>
-                </Flex>
-              </ModalFooter>
-            </ModalExampleWrapper>
-            <ModalExampleWrapper
-              bestPractice={false}
-              hideCloseButton
-              modalTitle="Modal title"
-              buttonTitle="Modal without close button"
-            >
-              <p>Modal without close button</p>
-              <ModalFooter></ModalFooter>
-            </ModalExampleWrapper>
-          </Flex>
+          <ModalExampleWrapper bestPractice={false} hideCloseButton modalTitle="Modal title" buttonTitle="Click here">
+            <p>Modal without close button</p>
+          </ModalExampleWrapper>
         ),
         description: "Don't implement a modal without a close button or cancel button."
       }
@@ -319,16 +303,15 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     {
       positive: {
         component: (
-          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Centered Modal component">
+          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
             <p>Modal content</p>
           </ModalExampleWrapper>
         ),
-        description: "Use modal for creating a popup which appear in the center of the page."
+        description: "Modal must include backdrop element."
       },
       negative: {
         component: <DialogAsModalBadExample />,
-        description:
-          "Don’t use other components such as our Dialog component for creating a popup which appear in the center of your site."
+        description: "Don't remove the backdrop element of the modal or the modal's title."
       }
     }
   ]}
