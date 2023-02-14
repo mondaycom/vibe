@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
+import cx from "classnames";
 import { BEMClass } from "../../../helpers/bem-helper";
 import { ComponentRule } from "../component-rule/component-rule";
 import "./component-rules.scss";
@@ -7,13 +8,13 @@ import "./component-rules.scss";
 const CSS_BASE_CLASS = "monday-storybook-component-rules";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const ComponentRules = ({ rules }) => {
+export const ComponentRules = ({ rules, className }) => {
   const componentRulesElements = useMemo(
     () =>
       rules.map((rule, index) => {
         const key = `rule-${index}`;
         return (
-          <section className={bemHelper({ element: "pair" })} key={key}>
+          <section className={cx(bemHelper({ element: "pair" }), className)} key={key}>
             <ComponentRule
               component={rule.positive?.component}
               description={rule.positive?.description}
