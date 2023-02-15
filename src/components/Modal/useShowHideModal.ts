@@ -1,7 +1,10 @@
-import { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
 import { A11yDialogType } from "./ModalHelper";
+import { keyCodes } from "../../constants";
+
+const KEYS = [keyCodes.ESCAPE];
 
 export default function useShowHideModal({
   instance,
@@ -18,21 +21,35 @@ export default function useShowHideModal({
 }) {
   const getAnimationProps = useAnimationProps(triggerElement, instance);
 
-  const closeDialogIfNeeded = useCallback(() => {
-    if (!alertDialog) {
-      onClose?.();
-    }
-  }, [alertDialog, onClose]);
+  const onCloseCallback = useCallback(() => {
+    console.log("%%% onCloseCallback");
+    onClose?.();
+  }, [onClose]);
 
-  useKeyEvent({
-    callback: event => {
+  const closeModalIfNotAlert = useCallback(() => {
+    if (!alertDialog) {
+      instance.hide();
+    }
+  }, [alertDialog, instance]);
+
+  const closeModal = useCallback(() => {
+    instance.hide();
+  }, [instance]);
+
+  const closeOnEsc = useCallback(
+    (event: React.KeyboardEvent) => {
       if (instance?.$el.contains(document.activeElement)) {
         event.stopPropagation();
-        closeDialogIfNeeded();
+        closeModalIfNotAlert();
       }
     },
+    [closeModalIfNotAlert, instance?.$el]
+  );
+
+  useKeyEvent({
+    callback: closeOnEsc,
     capture: true,
-    keys: ["Escape"]
+    keys: KEYS
   });
 
   // show/hide and animate the modal
@@ -56,11 +73,15 @@ export default function useShowHideModal({
 
   // call onClose when modal is hidden
   useEffect(() => {
-    instance?.on("hide", () => onClose?.());
-    return () => {
-      instance?.off("hide");
-    };
-  }, [instance, onClose]);
+    if (!instance) {
+      return;
+    }
 
-  return { closeDialogIfNeeded };
+    instance.on("hide", onCloseCallback);
+    return () => {
+      instance.off("hide");
+    };
+  }, [instance, onCloseCallback]);
+
+  return { closeModalIfNotAlert, closeModal };
 }

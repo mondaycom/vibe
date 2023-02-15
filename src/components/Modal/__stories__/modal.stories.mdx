@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import ModalContent from "../ModalContent/ModalContent";
@@ -11,7 +11,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
-import { useHelperOpenModalButton, ModalExampleWrapper, DialogAsModalBadExample } from "./helpers";
+import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
 import { Button, Flex } from "../../../components";
 import "./Modal.stories.scss";
 
@@ -27,6 +27,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   const [show, setShow] = useState(false);
   const openModalButtonRef = useRef(null);
   const closeModal = useCallback(() => {
+    console.log("### closeModal");
     setShow(false);
   }, []);
   // Internal helper method for creating basic button which change the show state to true in order to display the modal

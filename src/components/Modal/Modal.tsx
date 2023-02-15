@@ -100,26 +100,32 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   useBodyScrollLock({ instance });
 
   // show/hide and animate the modal
-  const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
+  const { closeModalIfNotAlert, closeModal } = useShowHideModal({
+    instance,
+    show,
+    triggerElement,
+    onClose,
+    alertDialog
+  });
 
   const header = useMemo(() => {
     const { id } = attr.title;
     const header = childrenArray.find(isModalHeader);
     if (header) {
-      return cloneElement(header, { id, closeModal: onClose });
+      return cloneElement(header, { id, closeModal: closeModal });
     }
 
     return (
       <ModalHeader
         title={title}
         description={description}
-        closeModal={onClose}
+        closeModal={closeModal}
         id={id}
         hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  }, [attr.title, childrenArray, title, description, onClose, hideCloseButton, closeButtonAriaLabel]);
+  }, [attr.title, childrenArray, title, description, closeModal, hideCloseButton, closeButtonAriaLabel]);
 
   const content = useMemo(() => {
     return (
@@ -142,7 +148,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        onClick={closeDialogIfNeeded}
+        onClick={closeModalIfNotAlert}
         className={cx(styles.overlay, classNames.overlay)}
         data-testid="monday-modal-overlay"
       />
