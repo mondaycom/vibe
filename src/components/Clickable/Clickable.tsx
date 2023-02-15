@@ -14,8 +14,6 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export interface ClickableProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
-  className?: string;
-  id?: string;
   children?: React.ReactNode;
   role?: AriaRole;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
