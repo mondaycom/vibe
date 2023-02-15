@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { RefObject, useCallback, useState } from "react";
-import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "../useResizeObserver";
 
 function checkOverflow(element: HTMLElement) {
   if (!element) {
