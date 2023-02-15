@@ -15,3 +15,4 @@ export { default as useIsOverflowing } from "./useIsOverflowing";
 export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
+export { default as useListenFocusTriggers } from "./useListenFocusTriggers";
