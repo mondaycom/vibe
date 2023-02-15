@@ -22,7 +22,7 @@ export function useListenFocusTriggers({
       if (isElementMouseDown.current) {
         onFocusByMouse?.(e);
       } else {
-        onFocusByKeyboard && onFocusByKeyboard(e);
+        onFocusByKeyboard?.(e);
       }
     },
     [onFocusByKeyboard, onFocusByMouse]
