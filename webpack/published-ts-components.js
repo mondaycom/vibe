@@ -77,6 +77,8 @@ const publishedTSComponents = {
   MenuDivider: "components/Menu/MenuDivider/MenuDivider",
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
@@ -92,9 +94,8 @@ const publishedTSComponents = {
   useIsOverflowing: "hooks/useIsOverflowing.ts",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
-  // Don't remove next line
-  // plop_marker:published-hooks
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
+  useHover: "hooks/useHover/useHover.ts"
 };
 
 // eslint-disable-next-line no-undef
