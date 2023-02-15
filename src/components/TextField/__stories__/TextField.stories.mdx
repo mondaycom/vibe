@@ -8,7 +8,7 @@ import {
   RelatedComponents,
   UsageGuidelines
 } from "../../../storybook";
-import { Check, CloseSmall, Email } from "../../Icon/Icons";
+import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
@@ -46,7 +46,7 @@ An input field includes a label and a text field users can type text into. They 
 
 <Canvas>
   <Story name="Overview"
-         args={{ title: "Name", iconName: "fa fa-square", validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here" }}>
+         args={{ title: "Name", iconName: Show, validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here" }}>
     { textFieldTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -56,7 +56,7 @@ An input field includes a label and a text field users can type text into. They 
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "Always use placeholer in input field",
+  "Always use placeholder in input field",
   "Icons can be used to message alerts as well. Pair them with error messages to provide redundant alerts.",
   "Character or word counters should be used if there is a character or word limit.",
 ]}/>
@@ -68,7 +68,7 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
   <Story name="Sizes">
     <div className="monday-storybook-text-field_column-wrapper">
       <TextField placeholder="Small" />
-      <TextField placeholder="Meduim" size={TextField.sizes.MEDIUM} />
+      <TextField placeholder="Medium" size={TextField.sizes.MEDIUM} />
       <TextField placeholder="Large" size={TextField.sizes.LARGE} />
     </div>
   </Story>
