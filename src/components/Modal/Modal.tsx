@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -96,11 +96,17 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     alertDialog
   });
 
+  const closeIfNotAlertType = useCallback(() => {
+    if (!alertDialog) {
+      onClose?.();
+    }
+  }, [alertDialog, onClose]);
+
   // lock body scroll when modal is open
   useBodyScrollLock({ instance });
 
   // show/hide and animate the modal
-  const { closeModalIfNotAlert, closeModal } = useShowHideModal({
+  useShowHideModal({
     instance,
     show,
     triggerElement,
@@ -112,20 +118,20 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     const { id } = attr.title;
     const header = childrenArray.find(isModalHeader);
     if (header) {
-      return cloneElement(header, { id, closeModal: closeModal });
+      return cloneElement(header, { id, closeModal: onClose });
     }
 
     return (
       <ModalHeader
         title={title}
         description={description}
-        closeModal={closeModal}
+        closeModal={onClose}
         id={id}
         hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  }, [attr.title, childrenArray, title, description, closeModal, hideCloseButton, closeButtonAriaLabel]);
+  }, [attr.title, childrenArray, title, description, onClose, hideCloseButton, closeButtonAriaLabel]);
 
   const content = useMemo(() => {
     return (
@@ -148,7 +154,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        onClick={closeModalIfNotAlert}
+        onClick={closeIfNotAlertType}
         className={cx(styles.overlay, classNames.overlay)}
         data-testid="monday-modal-overlay"
       />
