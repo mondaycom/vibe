@@ -1,7 +1,10 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 import useHover from "../useHover";
 import UsageGuidelines from "../../../storybook/components/usage-guidelines/usage-guidelines";
+import { Link } from "../../../storybook";
+import cx from "classnames";
 import "../../__stories__/general-hooks-stories.scss";
+import styles from "./useHover.stories.module.scss";
 
 <Meta title="Hooks/useHover" />
 
@@ -14,15 +17,15 @@ import "../../__stories__/general-hooks-stories.scss";
 
 ## Overview
 
-Attaches a listener for <code>mouseover</code> and <code>mouseout</code> DOM events on a specific element, returning <code>isHovered</code> state.
+Detect whether the mouse is hovering an element by returning its <code>isHovered</code> state.
 
 <Canvas>
   <Story name="Overview">
     {() => {
       const [hoverRef, isHovered] = useHover();
       return (
-        <div ref={hoverRef} className="hooks-reference-element">
-          Hover me! {isHovered ? "Boom!" : undefined}
+        <div ref={hoverRef} className={cx("hooks-reference-element", { [styles.isHovered]: isHovered })}>
+          {isHovered ? "Boom!" : "Hover me!"}
         </div>
       );
     }}
@@ -34,7 +37,7 @@ Attaches a listener for <code>mouseover</code> and <code>mouseout</code> DOM eve
 <UsageGuidelines
   guidelines={[
     "Use this hook to get element hovered state",
-    "No arguments are needed just assign returned ref to the element"
+    "Please assign the returned ref as the reference of the element"
   ]}
 />
 
@@ -46,11 +49,11 @@ Attaches a listener for <code>mouseover</code> and <code>mouseout</code> DOM eve
     type="React.MutableRefObject"
     description={
       <>
-        A React{" "}
-        <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">
+        A React
+        <Link size={Link.sizes.MEDIUM} href="https://reactjs.org/docs/hooks-reference.html#useref">
           ref
-        </a>{" "}
-        object.
+        </Link>
+        object to assign to the element which hover state needs to be tracked.
       </>
     }
   />
