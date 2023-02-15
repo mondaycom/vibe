@@ -92,9 +92,10 @@ const publishedTSComponents = {
   useIsOverflowing: "hooks/useIsOverflowing.ts",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   // Don't remove next line
   // plop_marker:published-hooks
+  useClickableProps: "hooks/useClickableProps/useClickableProps.ts"
 };
 
 // eslint-disable-next-line no-undef
