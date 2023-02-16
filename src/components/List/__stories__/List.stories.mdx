@@ -20,6 +20,8 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { createStoryMetaSettings } from "../../../storybook";
 import { Flex } from "../../";
+import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
+import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 export const metaSettings = createStoryMetaSettings({
   component: List,
@@ -28,32 +30,28 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta
   title="Navigation/List/List"
-  component={ List }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={List}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
 
 export const listTemplate = args => {
-  const onClick = useCallback(() => alert('On click!'), []);
+  const onClick = useCallback(() => alert("On click!"), []);
   return (
     <List {...args}>
-      <ListItem onClick={onClick}>
-        Board Power up
-      </ListItem>
-      <ListItem oonClick={onClick}>
-        Team Power up
-      </ListItem>
-      <ListItem onClick={onClick}>
-        Essentials
-      </ListItem>
-    </List>);
+      <ListItem onClick={onClick}>Board Power up</ListItem>
+      <ListItem oonClick={onClick}>Team Power up</ListItem>
+      <ListItem onClick={onClick}>Essentials</ListItem>
+    </List>
+  );
 };
 
 <!--- Component documentation -->
 
 # List
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -64,68 +62,90 @@ export const listTemplate = args => {
 - [Feedback](#feedback)
 
 ## Overview
+
 Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text.
 
 <Canvas>
-  <Story name="Overview"
-         args={{}}>
-    { listTemplate.bind({}) }
+  <Story name="Overview" args={{}}>
+    {listTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use list component for display a list of navigable items in a column.",
-  "List purpose is usually allowing navigation in context to the navigable  content.",
-  "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes.",
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Use list component for display a list of navigable items in a column.",
+    "List purpose is usually allowing navigation in context to the navigable  content.",
+    "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes."
+  ]}
+/>
 
 <Tip title="Check yourself">
   For implementing a menu inside a dialog, please use our
-  <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL}>Menu</Link>
+  <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL}>
+    Menu
+  </Link>
   component
 </Tip>
 
 ## Variants
+
 ### List with categories
+
 <Canvas>
   <Story name="List with categories">
     <List>
       <ListTitle>First category</ListTitle>
-      <ListItem>
-        List item 1
-      </ListItem>
-      <ListItem>
-        List item 2
-      </ListItem>
+      <ListItem>List item 1</ListItem>
+      <ListItem>List item 2</ListItem>
       <ListTitle>Second category</ListTitle>
-      <ListItem>
-        List item 3
-      </ListItem>
-      <ListItem>
-        List item 4
-      </ListItem>
+      <ListItem>List item 3</ListItem>
+      <ListItem>List item 4</ListItem>
     </List>
   </Story>
 </Canvas>
 
 ### List with icons
+
 <Canvas>
   <Story name="List with icons">
     <List>
       <ListItem id="list-1">
-        <ListItemIcon icon={Board}/>
+        <ListItemIcon icon={Board} />
         List item 1
       </ListItem>
       <ListItem id="list-2">
-        <ListItemIcon icon={Team}/>
+        <ListItemIcon icon={Team} />
         List item 2
       </ListItem>
       <ListItem id="list-3">
-        <ListItemIcon icon={ThumbsUp}/>
+        <ListItemIcon icon={ThumbsUp} />
+        List item 3
+      </ListItem>
+    </List>
+  </Story>
+</Canvas>
+
+### List with avatars
+
+<Canvas>
+  <Story name="List with avatars">
+    <List>
+      <ListItem id="list-1">
+        <ListItemAvatar src={person1} />
+        List item 1
+      </ListItem>
+      <ListItem id="list-2">
+        <ListItemAvatar src={person2} />
+        List item 2
+      </ListItem>
+      <ListItem id="list-3">
+        <ListItemAvatar src={person3} />
         List item 3
       </ListItem>
     </List>
@@ -136,188 +156,148 @@ Lists is a group of actionable items containing primary and supplemental actions
 
 When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
+
 <Canvas>
-    <Story name="List with virtualization optimization">
-        <Flex align={Flex.align.START} gap={Flex.gaps.LARGE} style={{width:"100%"}}direction={Flex.directions.COLUMN}>
-            <StoryDescription description="Regular">
-                <DialogContentContainer style={{height: "162px", width: "200px"}}>
-                    <List renderOnlyVisibleItems style={{height: "100%", width: "100%"}}>
-                    <ListItem>
-                        List item 1
-                    </ListItem>
-                    <ListItem>
-                        List item 2
-                    </ListItem>
-                    <ListItem>
-                        List item 3
-                    </ListItem>
-                    <ListItem>
-                        List item 4
-                    </ListItem>
-                    <ListItem>
-                        List item 5
-                    </ListItem>
-                    <ListItem>
-                        List item 6
-                    </ListItem>
-                    <ListItem>
-                        List item 7
-                    </ListItem>
-                    <ListItem>
-                        List item 8
-                    </ListItem>
-                    <ListItem>
-                        List item 9
-                    </ListItem>
-                    <ListItem>
-                        List item 10
-                    </ListItem>
-                    <ListItem>
-                        List item 11
-                    </ListItem>
-                    <ListItem>
-                        List item 12
-                    </ListItem>
-                </List>
-                </DialogContentContainer>
-            </StoryDescription>
-            <StoryDescription description="With categories">
-                <DialogContentContainer style={{height: "159px", width: "200px"}}>
-                    <List renderOnlyVisibleItems style={{height: "100%", width: "100%"}}>
-                        <ListTitle>First category</ListTitle>
-                        <ListItem>
-                            List item 1
-                        </ListItem>
-                        <ListItem>
-                            List item 2
-                        </ListItem>
-                        <ListTitle>Second category</ListTitle>
-                        <ListItem>
-                            List item 3
-                        </ListItem>
-                        <ListItem>
-                            List item 4
-                        </ListItem>
-                        <ListItem>
-                            List item 5
-                        </ListItem>
-                        <ListItem>
-                            List item 6
-                        </ListItem>
-                        <ListItem>
-                            List item 7
-                        </ListItem>
-                        <ListItem>
-                            List item 8
-                        </ListItem>
-                        <ListItem>
-                            List item 9
-                        </ListItem>
-                        <ListItem>
-                            List item 10
-                        </ListItem>
-                        <ListItem>
-                            List item 11
-                        </ListItem>
-                        <ListItem>
-                            List item 12
-                        </ListItem>
-                    </List>
-                </DialogContentContainer>
-            </StoryDescription>
-        </Flex>
-    </Story>
+  <Story name="List with virtualization optimization">
+    <Flex align={Flex.align.START} gap={Flex.gaps.LARGE} style={{ width: "100%" }} direction={Flex.directions.COLUMN}>
+      <StoryDescription description="Regular">
+        <DialogContentContainer style={{ height: "162px", width: "200px" }}>
+          <List renderOnlyVisibleItems style={{ height: "100%", width: "100%" }}>
+            <ListItem>List item 1</ListItem>
+            <ListItem>List item 2</ListItem>
+            <ListItem>List item 3</ListItem>
+            <ListItem>List item 4</ListItem>
+            <ListItem>List item 5</ListItem>
+            <ListItem>List item 6</ListItem>
+            <ListItem>List item 7</ListItem>
+            <ListItem>List item 8</ListItem>
+            <ListItem>List item 9</ListItem>
+            <ListItem>List item 10</ListItem>
+            <ListItem>List item 11</ListItem>
+            <ListItem>List item 12</ListItem>
+          </List>
+        </DialogContentContainer>
+      </StoryDescription>
+      <StoryDescription description="With categories">
+        <DialogContentContainer style={{ height: "159px", width: "200px" }}>
+          <List renderOnlyVisibleItems style={{ height: "100%", width: "100%" }}>
+            <ListTitle>First category</ListTitle>
+            <ListItem>List item 1</ListItem>
+            <ListItem>List item 2</ListItem>
+            <ListTitle>Second category</ListTitle>
+            <ListItem>List item 3</ListItem>
+            <ListItem>List item 4</ListItem>
+            <ListItem>List item 5</ListItem>
+            <ListItem>List item 6</ListItem>
+            <ListItem>List item 7</ListItem>
+            <ListItem>List item 8</ListItem>
+            <ListItem>List item 9</ListItem>
+            <ListItem>List item 10</ListItem>
+            <ListItem>List item 11</ListItem>
+            <ListItem>List item 12</ListItem>
+          </List>
+        </DialogContentContainer>
+      </StoryDescription>
+    </Flex>
+  </Story>
 </Canvas>
 
 <Tip>
-    While using virtualization optimization on your list component, please be aware your list needs to contain a constant height and width
-    for function properly
+  While using virtualization optimization on your list component, please be aware your list needs to contain a constant
+  height and width for function properly
 </Tip>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component: <div className={classes["leftpane-workspaces-section"]}>
-          <List>
-            <ListItem>
-              <ListItemIcon icon={Add}/>
-              Add
-            </ListItem>
-            <ListItem>
-              <ListItemIcon icon={Filter} />
-              Filter
-            </ListItem>
-          </List>
-          <Divider/>
-          <List>
-            <ListItem>
-              <ListItemIcon icon={Board} />
-              Board name
-            </ListItem>
-            <ListItem>
-              <ListItemIcon icon={Board} />
-              Board name
-            </ListItem>
-          </List>
-        </div>,
-        description:"Use a list component to create a menu displayed on one of the various sections of your web page."
+        component: (
+          <div className={classes["leftpane-workspaces-section"]}>
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Add} />
+                Add
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Filter} />
+                Filter
+              </ListItem>
+            </List>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+            </List>
+          </div>
+        ),
+        description: "Use a list component to create a menu displayed on one of the various sections of your web page."
       },
       negative: {
-        component:<DialogContentContainer>
-          <List>
-            <ListItem>
-              <ListItemIcon icon={Add}/>
-              Add
-            </ListItem>
-            <ListItem>
-              <ListItemIcon icon={Filter} />
-              Filter
-            </ListItem>
-          </List>
-          <Divider />
-          <List>
-          <ListItem>
-            <ListItemIcon icon={Board} />
-            Board name
-          </ListItem>
-          <ListItem>
-            <ListItemIcon icon={Board} />
-            Board name
-          </ListItem>
-        </List></DialogContentContainer>,
-        description:<>
-          Do not use the list to implement a menu displayed inside a dialog. See <Link href="/?path=/docs/navigation-menu--overview" withoutSpacing>Menu</Link>.
-        </>
+        component: (
+          <DialogContentContainer>
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Add} />
+                Add
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Filter} />
+                Filter
+              </ListItem>
+            </List>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+            </List>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Do not use the list to implement a menu displayed inside a dialog. See{" "}
+            <Link href="/?path=/docs/navigation-menu--overview" withoutSpacing>
+              Menu
+            </Link>
+            .
+          </>
+        )
       }
     }
   ]}
 />
 
-
 ## Use cases and examples
 
 ### List as leftpane
+
 <Canvas>
   <Story name="List as leftpane">
     <div className={classes["leftpane-workspaces-section"]}>
       <span className={classes["leftpane-workspaces-title"]}>Workspace</span>
       <span className={classes["leftpane-workspaces-options"]}>
         <div className={classes["leftpane-workspaces-description"]}>
-        <Avatar
-          size={Avatar.sizes.SMALL}
-          text="W"
-          backgroundColor={Avatar.colors.INDIGO}
-          isSquare
-        />
-        Workspace name
+          <Avatar size={Avatar.sizes.SMALL} text="W" backgroundColor={Avatar.colors.INDIGO} isSquare />
+          Workspace name
         </div>
-        <Icon className={classes["leftpane-workspaces-options-icon"]} icon={DropdownChevronDown}/>
+        <Icon className={classes["leftpane-workspaces-options-icon"]} icon={DropdownChevronDown} />
       </span>
       <List>
         <ListItem>
-          <ListItemIcon icon={Add}/>
+          <ListItemIcon icon={Add} />
           Add
         </ListItem>
         <ListItem>
@@ -325,7 +305,7 @@ better user experience.
           Filter
         </ListItem>
       </List>
-      <Divider/>
+      <Divider />
       <List>
         <ListItem>
           <ListItemIcon icon={Board} />
@@ -345,4 +325,5 @@ better user experience.
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[MENU, TABS, WIZARD]} />

@@ -2,8 +2,8 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
-import { ListItemIconMargin, LIST_ITEM_ICON_SIZE } from "./ListItemIconConstants";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import "./ListItemIcon.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
@@ -14,23 +14,23 @@ export interface ListItemIconProps extends VibeComponentProps {
   margin?: ListItemIconMargin;
 }
 
-const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
-  ({ className, id, icon, margin = ListItemIconMargin.START }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const ListItemIcon: VibeComponent<ListItemIconProps> & {
+  margin?: typeof ListItemIconMargin;
+} = forwardRef(({ className, id, icon, margin = ListItemIconMargin.START }, ref) => {
+  const componentRef = useRef(null);
+  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    return (
-      <div
-        ref={mergedRef}
-        className={cx("list-item-icon", className, `list-item-icon--${margin}`)}
-        id={id}
-        aria-hidden="true"
-      >
-        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      ref={mergedRef}
+      className={cx("list-item-icon", className, `list-item-icon--${margin}`)}
+      id={id}
+      aria-hidden="true"
+    >
+      <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
+    </div>
+  );
+});
 
 Object.assign(ListItemIcon, {
   margin: ListItemIconMargin
