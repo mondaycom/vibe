@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.97.0 (2023-02-16)
+
+#### Bug Fixes
+* [#1118](https://github.com/mondaycom/monday-ui-react-core/pull/1118) Fix modal components exposion ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1086](https://github.com/mondaycom/monday-ui-react-core/pull/1086) Add disabled param to editable input component ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#1108](https://github.com/mondaycom/monday-ui-react-core/pull/1108) Docs/hadas/modal improvements ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1106](https://github.com/mondaycom/monday-ui-react-core/pull/1106) Feature/sergeyro/steps story clickable example ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1109](https://github.com/mondaycom/monday-ui-react-core/pull/1109) TextField stories - change icon in overview + fix a few typos ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1113](https://github.com/mondaycom/monday-ui-react-core/pull/1113) Fix responsive dos and dont's by change min width and fix tipseen story ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.96.0 (2023-02-13)
 
 #### Bug Fixes
