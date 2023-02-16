@@ -6,6 +6,7 @@ import ThumbsUp from "../../Icon/Icons/components/ThumbsUp";
 import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
+import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import ListTitle from "../../ListTitle/ListTitle";
 import { Link, Tip } from "../../../storybook/components";
 import { MENU, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
@@ -20,7 +21,6 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { createStoryMetaSettings } from "../../../storybook";
 import { Flex } from "../../";
-import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 export const metaSettings = createStoryMetaSettings({
@@ -31,6 +31,7 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Navigation/List/List"
   component={List}
+  subcomponents={{ ListItem, ListItemIcon, ListItemAvatar }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
