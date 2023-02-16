@@ -24,8 +24,11 @@ Detect whether the mouse is hovering an element by returning its <code>isHovered
     {() => {
       const [hoverRef, isHovered] = useHover();
       return (
-        <div ref={hoverRef} className={cx("hooks-reference-element", { [styles.isHovered]: isHovered })}>
-          {isHovered ? "Boom!" : "Hover me!"}
+        <div
+          ref={hoverRef}
+          className={cx("hooks-reference-element", styles.container, { [styles.isHovered]: isHovered })}
+        >
+          {isHovered ? "Boom!" : "Hover me"}
         </div>
       );
     }}
