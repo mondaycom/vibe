@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 import { FunctionArgument, FunctionArguments, Link, Tip } from "../../../storybook";
 import useIsOverflowing from "../useIsOverflowing";
-import { EditableInput, Flex, Label, Tooltip } from "../../../components";
+import { EditableInput, Flex, Tooltip } from "../../../components";
 import styles from "./useIsOverflowing.stories.module.scss";
 
 <Meta title="Hooks/useIsOverflowing" />
@@ -26,11 +26,7 @@ Use this hook, when there is a chance that content won't fit into the container,
         const isOverflowing = useIsOverflowing({ ref });
         return (
           <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-            <Label
-              color={isOverflowing ? Label.colors.NEGATIVE : Label.colors.POSITIVE}
-              text={isOverflowing ? "Overflowing" : "No overflowing"}
-              className={styles.label}
-            />
+            <div>Is overflowing: {isOverflowing.toString()}</div>
             <Tooltip content={isOverflowing ? text : undefined}>
               <div ref={ref} className={styles.textContainer}>
                 {text}
@@ -41,8 +37,8 @@ Use this hook, when there is a chance that content won't fit into the container,
       };
       const [text, setText] = useState("");
       return (
-        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <EditableInput onChange={setText} placeholder={"Type text here"} className={styles.input} />
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} align={Flex.align.START}>
+          <EditableInput onChange={setText} placeholder="Type text here" className={styles.input} />
           <ComponentWithOverflow text={text} />
         </Flex>
       );
