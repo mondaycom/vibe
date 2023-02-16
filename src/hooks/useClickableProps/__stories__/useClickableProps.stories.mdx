@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { FunctionArgument, FunctionArguments, Link } from "../../../storybook";
+import { Link, Tip } from "../../../storybook";
 import useClickableProps from "../useClickableProps";
 import "./useClickableProps.stories.scss";
 
@@ -41,6 +41,14 @@ Return props for adding clickable functionality to the element except for the st
   </Story>
 </Canvas>
 
+<Tip title="Alternative">
+  Most of the times you might want to use
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/accessibility-clickable--overview">
+    Clickable component
+  </Link>
+  to apply the styles as well. Use this hook when you want to customize styles by yourself.
+</Tip>
+
 ## Arguments
 
 <FunctionArguments>
@@ -52,7 +60,7 @@ Return props for adding clickable functionality to the element except for the st
   <FunctionArgument
     name="onMouseDown"
     type="(event: React.MouseEvent) => void"
-    description={<>Mouse down callback,</>}
+    description={<>Mouse down callback.</>}
   />
   <FunctionArgument name="disabled" type="boolean" description={<>Whether element is disabled or not</>} />
   <FunctionArgument name="id" type="string" description={<>Id of the element</>} />
