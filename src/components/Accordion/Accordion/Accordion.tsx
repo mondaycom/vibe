@@ -78,7 +78,11 @@ const Accordion: VibeComponent<AccordionProps> = forwardRef(
           return;
         }
 
-        setExpandedItems([itemIndex]);
+        if (isChildExpanded(itemIndex)) {
+          setExpandedItems([]);
+        } else {
+          setExpandedItems([itemIndex]);
+        }
       },
       [isChildExpanded, expandedItems, allowMultiple]
     );
