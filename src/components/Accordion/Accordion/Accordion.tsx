@@ -2,7 +2,6 @@ import cx from "classnames";
 import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import VibeComponent from "../../../types/VibeComponent";
 import "./Accordion.scss";
 
 const COMPONENT_ID = "monday-accordion";
@@ -36,7 +35,7 @@ interface AccordionProps extends VibeComponentProps {
   defaultIndex?: Array<number>;
 }
 
-const Accordion: VibeComponent<AccordionProps> = forwardRef(
+const Accordion: React.FC<AccordionProps> = forwardRef(
   (
     {
       children: originalChildren = null,
