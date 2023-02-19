@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { AriaRole, forwardRef } from "react";
+import React, { AriaRole, FC, forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
@@ -31,7 +30,7 @@ export interface ClickableProps extends VibeComponentProps {
   dataTestId?: string;
 }
 
-const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
+const Clickable: FC<ClickableProps> = forwardRef(
   (
     {
       elementType = "div",

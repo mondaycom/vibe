@@ -20,7 +20,7 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Accessibility/Clickable"
   component={Clickable}
-  argTypes={metaSettings.argTypes}
+  argTypes={{ ...metaSettings.argTypes, children: { control: false } }}
   decorators={metaSettings.decorators}
 />
 
