@@ -20,7 +20,7 @@ import styles from "./MenuButton.module.scss";
 
 const CSS_BASE_CLASS = "menu-button--wrapper";
 
-const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
+const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 
 const showTrigger = [HideShowEvent.CLICK, HideShowEvent.ENTER];
 const EMPTY_ARRAY: HideShowEvent[] = [];

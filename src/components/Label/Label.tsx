@@ -20,13 +20,20 @@ const LABEL_COLORS = {
   POSITIVE: "positive"
 } as const;
 
-type LabelTypes = typeof LABEL_TYPES;
-type LabelColors = typeof LABEL_COLORS;
+type LabelType = typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
+type LabelColor = typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
 
 interface LabelProps extends VibeComponentProps {
+  /**
+   * Backward compatibility for props naming - please use className instead
+   */
   wrapperClassName?: string;
-  kind?: LabelTypes[keyof LabelTypes];
-  color?: LabelColors[keyof LabelColors];
+  /**
+   * Class name for an inner text wrapper
+   */
+  labelClassName?: string;
+  kind?: LabelType;
+  color?: LabelColor;
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
@@ -35,6 +42,7 @@ interface LabelProps extends VibeComponentProps {
 const Label = ({
   className,
   wrapperClassName,
+  labelClassName,
   kind = LABEL_TYPES.FILL,
   color = LABEL_COLORS.PRIMARY,
   text = "",
@@ -58,9 +66,10 @@ const Label = ({
           ["monday-style-label--with-animation"]: !isAnimationDisabled,
           [styles.withLeg]: isLegIncluded,
           ["monday-style-label--with-leg"]: isLegIncluded
-        }
+        },
+        labelClassName
       ),
-    [kind, color, isAnimationDisabled, isLegIncluded]
+    [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
   return (
     <span className={overrideClassName} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>

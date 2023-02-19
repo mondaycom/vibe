@@ -1,28 +1,45 @@
 @import "../../../styles/themes";
 
-.monday-storybook-modal-new {
-
-  &-content-wrapper {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-block-end: 24px;
+.monday-storybook-modal {
+  &-dialog {
+    &-wrapper {
+      position: sticky !important;
+      transform: none !important;
+      bottom: 50% !important;
+    }
+    &-content {
+      margin-bottom: var(--spacing-large);
+      margin-inline: var(--spacing-large);
+    }
+    &-heading {
+      padding: 0;
+    }
   }
 
-
-  &-buttons {
-    display: flex;
-    justify-content: end;
-    margin-top: 24px;
-    button+button {
-      margin-inline-start: 12px;
+  &-new {
+    &-content-wrapper {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-block-end: 24px;
     }
 
-  }
 
-  &-display-none {
-    display: none;
+    &-buttons {
+      display: flex;
+      justify-content: end;
+      margin-top: 24px;
+
+      button + button {
+        margin-inline-start: 12px;
+      }
+
+    }
+
+    &-display-none {
+      display: none;
+    }
   }
 }
 

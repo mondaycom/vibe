@@ -89,7 +89,8 @@ export enum ComponentDefaultTestId {
   DATEPICKER = "date-picker",
   DATEPICKER_HEADER = "date-picker-header",
   DATEPICKER_YEAR_SELECTION = "date-picker-year-selection",
-  LOADER = "loader"
+  LOADER = "loader",
+  MODAL_BUTTONS = "modal-buttons"
 }
 
 export enum NavigationCommand {

@@ -3,24 +3,15 @@
 .monday-storybook-toast {
   &_wrapper {
     position: static;
-    width: 390px;
-    margin: 0;
     transform: translate(0, 0);
+    // overriding margin for storybook wrapper
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
 
-  &_inline-wrapper {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  &_big {
-    width: 420px;
-    .monday-style-toast-content {
-      justify-content: center;
-    }
+  &_negative_rule {
+    margin-bottom: 0;
+    margin-top: 0;
   }
 
   &_toast-line-wrapper {
@@ -33,11 +24,8 @@
 
   &_box {
     width: 390px;
+    // overriding margin for storybook wrapper
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
-}
-
-// overriding margin for storybook wrapper
-.monday-storybook_multiple-story-elements-wrapper .monday-style-toast{
-  margin-right:auto;
-  margin-left:auto;
 }

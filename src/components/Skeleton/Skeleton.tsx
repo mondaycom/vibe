@@ -1,4 +1,4 @@
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import React, { FC } from "react";
 import cx from "classnames";
 import {
@@ -21,6 +21,11 @@ interface SkeletonProps extends VibeComponentProps {
   size?: keyof typeof SKELETON_ALLOWED_SIZES;
   width?: number;
   height?: number;
+  wrapperClassName?: string;
+  /**
+   * Is the skeleton wrapper width equal to its container
+   */
+  fullWidth?: boolean;
 }
 
 const Skeleton: FC<SkeletonProps> & {
@@ -30,8 +35,10 @@ const Skeleton: FC<SkeletonProps> & {
   type = SKELETON_TYPES.RECTANGLE,
   size = SKELETON_SIZES.CUSTOM,
   className,
+  wrapperClassName,
   width,
   height,
+  fullWidth = false,
   id,
   "data-testid": dataTestId
 }) => {
@@ -40,7 +47,7 @@ const Skeleton: FC<SkeletonProps> & {
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
   return (
     <div
-      className={cx(SKELETON_CSS_BASE_CLASS)}
+      className={cx(SKELETON_CSS_BASE_CLASS, styles.skeleton, wrapperClassName, { [styles.fullWidth]: fullWidth })}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SKELETON, id)}
     >
       <div

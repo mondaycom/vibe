@@ -98,6 +98,7 @@ export function optionItemRenderer({
   id,
   index,
   option,
+  className,
   onOptionClick,
   onOptionEnter,
   onOptionLeave,
@@ -112,6 +113,7 @@ export function optionItemRenderer({
 }) {
   return (
     <ComboboxOption
+      className={className}
       index={index}
       key={id}
       option={option}

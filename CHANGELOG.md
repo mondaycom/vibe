@@ -1,5 +1,110 @@
 # Changelog
 
+## 1.97.1 (2023-02-19)
+
+#### Bug Fixes
+* [#1115](https://github.com/mondaycom/monday-ui-react-core/pull/1115) Feature/sergeyro/modal fix rerendering issues ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.97.0 (2023-02-16)
+
+#### Bug Fixes
+* [#1118](https://github.com/mondaycom/monday-ui-react-core/pull/1118) Fix modal components exposion ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1086](https://github.com/mondaycom/monday-ui-react-core/pull/1086) Add disabled param to editable input component ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#1108](https://github.com/mondaycom/monday-ui-react-core/pull/1108) Docs/hadas/modal improvements ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1106](https://github.com/mondaycom/monday-ui-react-core/pull/1106) Feature/sergeyro/steps story clickable example ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1109](https://github.com/mondaycom/monday-ui-react-core/pull/1109) TextField stories - change icon in overview + fix a few typos ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1113](https://github.com/mondaycom/monday-ui-react-core/pull/1113) Fix responsive dos and dont's by change min width and fix tipseen story ([@hadasfa](https://github.com/hadasfa))
+
+## 1.96.0 (2023-02-13)
+
+#### Bug Fixes
+* [#1105](https://github.com/mondaycom/monday-ui-react-core/pull/1105) Set chips clickable behavior as default instead of extra prop for backward support and clearer API  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1103](https://github.com/mondaycom/monday-ui-react-core/pull/1103) Tooltip.hideShowTriggers - static property ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1099](https://github.com/mondaycom/monday-ui-react-core/pull/1099) Feature/sergeyro/remove storybook styles overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.95.3 (2023-02-08)
+
+#### Bug Fixes
+* [#1100](https://github.com/mondaycom/monday-ui-react-core/pull/1100) Fix modal zIndex breaking change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1097](https://github.com/mondaycom/monday-ui-react-core/pull/1097) Add founding designers to welcome page ([@hadasfa](https://github.com/hadasfa))
+
+## 1.95.2 (2023-02-07)
+
+#### Bug Fixes
+* [#1098](https://github.com/mondaycom/monday-ui-react-core/pull/1098) Fix modal title font family ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.95.1 (2023-02-06)
+
+#### Bug Fixes
+* [#1096](https://github.com/mondaycom/monday-ui-react-core/pull/1096) Feature/sergeyro/fix modal z index prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.95.0 (2023-02-06)
+
+#### New Features
+* [#1087](https://github.com/mondaycom/monday-ui-react-core/pull/1087) Counter: counterClassName added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.94.1 (2023-02-06)
+
+#### Bug Fixes
+* [#1095](https://github.com/mondaycom/monday-ui-react-core/pull/1095) fix: Search component onChange callback type ([@itaymndy](https://github.com/itaymndy))
+
+## 1.94.0 (2023-02-06)
+
+#### New Features
+* [#1092](https://github.com/mondaycom/monday-ui-react-core/pull/1092) Add support for combobox optionClassName & combobox dark mode fixes ([@hadasfa](https://github.com/hadasfa))
+
+## 1.93.0 (2023-02-06)
+
+#### Bug Fixes
+* [#1093](https://github.com/mondaycom/monday-ui-react-core/pull/1093) feat(ListItemIcon): export icon size ([@shiraWeiss](https://github.com/shiraWeiss))
+
+#### New Features
+* [#1094](https://github.com/mondaycom/monday-ui-react-core/pull/1094) Modal: Add zIndex prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1091](https://github.com/mondaycom/monday-ui-react-core/pull/1091) Fix docs ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.92.0 (2023-02-04)
+
+#### New Features
+* [#1090](https://github.com/mondaycom/monday-ui-react-core/pull/1090) update Figtree and Poppins ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.91.0 (2023-02-01)
+
+#### New Features
+* [#1082](https://github.com/mondaycom/monday-ui-react-core/pull/1082) Add support for "without margin" prop in Divider component ([@hadasfa](https://github.com/hadasfa))
+
+## 1.90.0 (2023-01-30)
+
+#### New Features
+* [#1084](https://github.com/mondaycom/monday-ui-react-core/pull/1084) Feature/sergeyro/label class name props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.89.0 (2023-01-30)
+
+#### New Features
+* [#1080](https://github.com/mondaycom/monday-ui-react-core/pull/1080) Skeleton - wrapperClassName and fullWidth props added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.88.1 (2023-01-29)
+
+#### Bug Fixes
+* [#1079](https://github.com/mondaycom/monday-ui-react-core/pull/1079) Update Dropdown.jsx ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.88.0 (2023-01-29)
+
+#### New Features
+* [#1070](https://github.com/mondaycom/monday-ui-react-core/pull/1070) add class names to marker and description of radiobutton ([@hadasfa](https://github.com/hadasfa))
+* [#1078](https://github.com/mondaycom/monday-ui-react-core/pull/1078) AccordionItem and ExpandAble preparation for css modules transition ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.87.0 (2023-01-26)
 
 #### Bug Fixes

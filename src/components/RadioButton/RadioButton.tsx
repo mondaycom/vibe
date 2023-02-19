@@ -13,6 +13,8 @@ const CSS_BASE_CLASS = "monday-style-radio-button-component";
 
 interface RadioButtonProps extends VibeComponentProps {
   componentClassName?: string;
+  labelClassName?: string;
+  radioButtonClassName?: string;
   text?: string;
   value?: string;
   name?: string;
@@ -36,6 +38,14 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       text = "",
       value = "",
       name = "",
+      /**
+       * Radio button label class name
+       */
+      labelClassName,
+      /**
+       * Radio button marker class name
+       */
+      radioButtonClassName,
       disabled = false,
       disabledReason,
       defaultChecked = false,
@@ -84,7 +94,8 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
             <input
               className={cx(
                 styles.radioInput,
-                "monday-style-radio-button-component__radio-input-container__radio-input"
+                "monday-style-radio-button-component__radio-input-container__radio-input",
+                radioButtonClassName
               )}
               type="radio"
               value={value}
@@ -109,7 +120,9 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
             />
           </span>
           {text && (
-            <span className={cx(styles.radioLabel, "monday-style-radio-button-component__radio-label")}>{text}</span>
+            <span className={cx(styles.radioLabel, "monday-style-radio-button-component__radio-label", labelClassName)}>
+              {text}
+            </span>
           )}
           {children && (
             <Clickable className={cx("radio-children-wrapper")} onClick={onChildClick} tabIndex={childrenTabIndex}>

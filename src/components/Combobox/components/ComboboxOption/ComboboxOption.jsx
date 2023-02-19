@@ -11,6 +11,7 @@ import styles from "./ComboboxOption.module.scss";
 const ComboboxOption = ({
   index,
   option,
+  className,
   isActive,
   visualFocus,
   scrollRef,
@@ -142,7 +143,7 @@ const ComboboxOption = ({
         onClick={onClick}
         onKeyDown={onKeyDown}
         onMouseLeave={onMouseLEave}
-        className={cx(styles.comboboxOption, "combobox-option", {
+        className={cx(className, styles.comboboxOption, "combobox-option", {
           [styles.disabled]: disabled,
           ["disabled"]: disabled,
           [styles.selected]: selected,

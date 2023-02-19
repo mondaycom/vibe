@@ -49,6 +49,10 @@
   @include shine-animation;
 }
 
+.skeleton {
+  display: flex;
+}
+
 .rectangle {
   $rectangle-default-size: 160px;
   height: $rectangle-default-size;
@@ -96,4 +100,8 @@
 .textSmall,
 .textCustom {
   height: $small-empty-state-height;
+}
+
+.fullWidth {
+  width: 100%;
 }

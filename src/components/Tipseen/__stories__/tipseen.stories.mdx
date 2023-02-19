@@ -19,19 +19,20 @@ import "./tipseen.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Tipseen,
-  enumPropNamesArray: ["position", "animationType", "justify"],
+  enumPropNamesArray: ["position", "animationType", "justify"]
 });
 
 <Meta
   title="Popover/Tipseen"
-  component={ Tipseen }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={Tipseen}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component documentation -->
 
 # Tipseen
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -42,35 +43,52 @@ export const metaSettings = createStoryMetaSettings({
 - [Feedback](#feedback)
 
 ## Overview
+
 Tipseen is an virtual unboxing experience that helps users get started with the system.
+
 <Canvas>
-  <Story name="Overview"
-         args={
-           {
-            title: "title",
-            children: "Popover message will appear here loremipsum dolor samet…",
-            position: Tipseen.positions.RIGHT,
-            isDismissHidden: false
-           }
-         }>
-    { tipseenTemplate.bind({}) }
+  <Story
+    name="Overview"
+    args={{
+      title: "title",
+      children: "Popover message will appear here loremipsum dolor samet…",
+      position: Tipseen.positions.RIGHT,
+      isDismissHidden: false
+    }}
+  >
+    {tipseenTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use for onboarding screens, new features, or any guidance a user needs.",
-  "Use when the user is not yet familiar with the system’s UI or ready to learn about it.",
-  "The tip will appear until closed by an X button or call to action button.",
-]}/>
 
-<Tip title="Check yourself">If you need to provide additional information about a component, use the <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> or <Link href="/?path=/docs/feedback-attentionbox--overview" size={Link.sizes.SMALL} withoutSpacing>Attention box.</Link></Tip>
+<UsageGuidelines
+  guidelines={[
+    "Use for onboarding screens, new features, or any guidance a user needs.",
+    "Use when the user is not yet familiar with the system’s UI or ready to learn about it.",
+    "The tip will appear until closed by an X button or call to action button."
+  ]}
+/>
+
+<Tip title="Check yourself">
+  If you need to provide additional information about a component, use the{" "}
+  <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Tooltip
+  </Link>{" "}
+  or{" "}
+  <Link href="/?path=/docs/feedback-attentionbox--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Attention box.
+  </Link>
+</Tip>
 
 ## Variants
+
 ### Default
+
 <Canvas>
   <Story name="Default">
     <Tipseen
@@ -79,21 +97,20 @@ Tipseen is an virtual unboxing experience that helps users get started with the 
       modifiers={modifiers}
       position={Tipseen.positions.RIGHT}
       content={
-        <TipseenContent
-          title="This is a title"
-          isDismissHidden
-        >
+        <TipseenContent title="This is a title" isDismissHidden>
           Popover message will appear here loremipsum dolor samet…
         </TipseenContent>
       }
     >
-      <div className="monday-style-story-tipseen_container" />
+      <div className="monday-storybook-tipseen_container" />
     </Tipseen>
   </Story>
 </Canvas>
 
 ### Tipseen with a wizard
+
 Use when the tip is too long or when you want to teach something in steps.
+
 <Canvas>
   <Story name="Tipseen with a wizard">
     {() => {
@@ -110,22 +127,17 @@ Use when the tip is too long or when you want to teach something in steps.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
-          content={
-            <TipseenWizard
-              title="This is a title"
-              steps={content}
-              activeStepIndex={2}
-            />
-          }
+          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />}
         >
-          <div className="monday-style-story-tipseen_container" />
+          <div className="monday-storybook-tipseen_container" />
         </Tipseen>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### Tipseen with image
+
 <Canvas>
   <Story name="Tipseen with image">
     {() => {
@@ -145,74 +157,80 @@ Use when the tip is too long or when you want to teach something in steps.
           isCloseButtonOnImage
           content={
             <>
-              <TipseenImage
-                className="monday-style-story-tipseen_image"
-                src={picture}
-              />
-              <TipseenWizard
-                title="This is a title"
-                steps={content}
-                activeStepIndex={2}
-              />
+              <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+              <TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />
             </>
           }
         >
-          <div className="monday-style-story-tipseen_big-container" />
+          <div className="monday-storybook-tipseen_big-container" />
         </Tipseen>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
+  className="monday-storybook-tipseen_rules"
   rules={[
     {
       positive: {
-        component:
-          <div className="monday-style-story-tipseen_box">
-            <div className="monday-style-story-tipseen_column-item">
-              <Icon icon={Board} iconSize="24" /><span>💫 Research tasks</span>
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <div className="monday-storybook-tipseen_column-item">
+              <Icon icon={Board} iconSize="24" />
+              <span>💫 Research tasks</span>
             </div>
             <Tipseen
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT}
-              content={
-                <TipseenContent title="Step1 of 7">
-                  Click on the “Sales” board to get started
-                </TipseenContent>
-              }
+              content={<TipseenContent title="Step1 of 7">Click on the “Sales” board to get started</TipseenContent>}
             >
-              <div className="monday-style-story-tipseen_column-item monday-style-story-tipseen_hovered">
-                <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
               </div>
             </Tipseen>
-            <div className="monday-style-story-tipseen_column-item">
-              <Icon icon={BoardPrivate} iconSize="24" /><span>Marketing</span>
+            <div className="monday-storybook-tipseen_column-item">
+              <Icon icon={BoardPrivate} iconSize="24" />
+              <span>Marketing</span>
             </div>
-          </div>,
-        description:"Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
+          </div>
+        ),
+        description:
+          "Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
       },
       negative: {
-        component:
-          <div className="monday-style-story-tipseen_column-wrapper">
+        component: (
+          <div className="monday-storybook-tipseen_column-wrapper">
             <Tipseen
               modifiers={modifiers}
               position={Tipseen.positions.TOP}
-              content={
-                <TipseenContent>
-                  You still have 14 days on your Pro trial, Enjoy it!
-                </TipseenContent>
-              }
+              content={<TipseenContent>You still have 14 days on your Pro trial, Enjoy it!</TipseenContent>}
             >
-              <div className="monday-style-story-tipseen_inline-container" />
+              <div className="monday-storybook-tipseen_inline-container" />
             </Tipseen>
-          </div>,
-        description:<>Don’t use tipseen to provide additional information on a familiar UI. Use a <Link href="/?path=/docs/popover-tooltip--overview" withoutSpacing>Tooltip</Link> or <Link href="/?path=/docs/feedback-attentionbox--overview" withoutSpacing>Attention box</Link> instead.</>
+          </div>
+        ),
+        description: (
+          <>
+            Don’t use tipseen to provide additional information on a familiar UI. Use a{" "}
+            <Link href="/?path=/docs/popover-tooltip--overview" withoutSpacing>
+              Tooltip
+            </Link>{" "}
+            or{" "}
+            <Link href="/?path=/docs/feedback-attentionbox--overview" withoutSpacing>
+              Attention box
+            </Link>{" "}
+            instead.
+          </>
+        )
       }
     }
   ]}
 />
 
 ## Related components
+
 <RelatedComponents componentsNames={[TOOLTIP, ATTENTION_BOX, CHIP]} />

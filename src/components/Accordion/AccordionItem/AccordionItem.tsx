@@ -25,11 +25,26 @@ interface AccordionItemProps extends VibeComponentProps {
   onClick?: () => void;
   open?: boolean;
   onClickAccordionCallback?: () => void;
+  hideBorder?: boolean;
+  headerClassName?: string;
+  contentClassName?: string;
 }
 
 const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
   (
-    { children = null, title = "", className = "", iconSize = 24, id, open, onClick, onClickAccordionCallback },
+    {
+      children = null,
+      title = "",
+      className = "",
+      iconSize = 24,
+      id,
+      open,
+      onClick,
+      onClickAccordionCallback,
+      hideBorder = false,
+      headerClassName,
+      contentClassName
+    },
     ref
   ) => {
     // Change onClick param name to onClickCallback in 1.0.0
@@ -49,6 +64,9 @@ const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
           onClick={onClickCallback}
           open={open}
           title={title}
+          hideBorder={hideBorder}
+          headerClassName={headerClassName}
+          contentClassName={contentClassName}
         >
           {children}
         </ExpandCollapse>

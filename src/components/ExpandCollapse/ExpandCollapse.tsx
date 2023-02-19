@@ -6,7 +6,8 @@ import Heading from "../Heading/Heading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./ExpandCollapse.module.scss";
 
 interface ExpandCollapseProps extends VibeComponentProps {
@@ -14,6 +15,8 @@ interface ExpandCollapseProps extends VibeComponentProps {
    * Component as parameter to be rendered as header
    */
   headerComponentRenderer?: () => ReactElement;
+  headerClassName?: string;
+  contentClassName?: string;
   /**
    * Header title
    */
@@ -32,6 +35,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
   defaultOpenState?: boolean;
   open?: boolean;
   onClick?: (event: React.MouseEvent) => void;
+  hideBorder?: boolean;
 }
 
 const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
@@ -46,6 +50,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       id = "",
       open,
       onClick = null,
+      hideBorder = false,
+      headerClassName,
+      contentClassName,
       "data-testid": dataTestId
     },
     ref
@@ -76,13 +83,21 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
       >
-        <div className={cx(styles.expandCollapse, "expand-collapse")}>
+        <div className={cx(styles.expandCollapse, "expand-collapse", { [styles.hideBorder]: hideBorder })}>
           <button
             type="button"
-            className={cx(styles.header, "expand-collapse__header", styles.section, "expand-collapse__section", {
-              [styles.headerOpen]: isExpanded,
-              ["expand-collapse__header--open"]: isExpanded
-            })}
+            className={cx(
+              headerClassName,
+              styles.header,
+              "expand-collapse__header",
+              styles.section,
+              "expand-collapse__section",
+              {
+                [styles.headerOpen]: isExpanded,
+                ["expand-collapse__header--open"]: isExpanded,
+                [styles.hideBorderBottom]: hideBorder
+              }
+            )}
             onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
@@ -102,7 +117,14 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           </button>
           {isExpanded && (
             <div
-              className={cx(styles.content, "expand-collapse__content", styles.section, "expand-collapse__section")}
+              className={cx(
+                styles.content,
+                "expand-collapse__content",
+                styles.section,
+                "expand-collapse__section",
+                contentClassName,
+                { [styles.animateExpandCollapseContent]: isExpanded, "animate-expand-collapse__content": isExpanded }
+              )}
               id={`${id}-controls`}
               role="region"
             >

@@ -17,8 +17,14 @@ export interface CounterProps extends VibeComponentProps {
   id?: string;
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
-  /** Custom class names to pass to the component */
+  /** Use className instead
+   * @deprecated
+   */
+  wrapperClassName?: string;
+  /** Custom class names to pass to the component wrapper */
   className?: string;
+  /** Custom class names to pass to the component */
+  counterClassName?: string;
   /** The numeric value of the counter */
   count?: number;
   /** Counter description */
@@ -29,10 +35,6 @@ export interface CounterProps extends VibeComponentProps {
   kind?: CounterType;
   /** The color of the counter */
   color?: CounterColor;
-  /** Use className instead
-   * @deprecated
-   */
-  wrapperClassName?: string;
   /** maximum number of digits to display (see relevant story) */
   maxDigits?: number;
   /** Text prepended to counter value */
@@ -51,6 +53,7 @@ const Counter: React.FC<CounterProps> & {
   className,
   // Backward compatibility for props naming
   wrapperClassName,
+  counterClassName,
   count,
   size,
   kind,
@@ -119,9 +122,10 @@ const Counter: React.FC<CounterProps> & {
       {
         [styles.withAnimation]: countChangeAnimationState,
         ["monday-style-counter--with-animation"]: countChangeAnimationState
-      }
+      },
+      counterClassName
     );
-  }, [size, kind, color, countChangeAnimationState]);
+  }, [size, kind, color, countChangeAnimationState, counterClassName]);
 
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
   const counter = (

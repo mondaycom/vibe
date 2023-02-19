@@ -30,7 +30,7 @@ export const TextStyles = () => {
       <VisualDescription
         className="monday-storybook-text-description"
         ariaLabel="H2"
-        title="Secondary heading (Roboto 24px bold)"
+        title="Secondary heading (Poppins 24px bold)"
         description="Use as secondary header on a page"
       >
         <Heading
@@ -46,7 +46,7 @@ export const TextStyles = () => {
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H3"
-        title="Tertiary heading (Roboto 24px light)"
+        title="Tertiary heading (Poppins 24px light)"
         description="Use after heading, profile page headings"
       >
         <Heading
@@ -61,7 +61,7 @@ export const TextStyles = () => {
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H4"
-        title="Fourth heading (Roboto 18px bold)"
+        title="Fourth heading (Poppins 18px bold)"
         description="Use for subtitles, group name, subheading in admin"
       >
         <Heading
@@ -75,7 +75,7 @@ export const TextStyles = () => {
       </VisualDescription>
       <VisualDescription
         ariaLabel="H5"
-        title="Fourth heading (Roboto 16px bold)"
+        title="Fourth heading (Poppins 16px bold)"
         className={CSS_BASE_CLASS}
         description="Use as subtitles for paragraphs"
       >
@@ -90,7 +90,7 @@ export const TextStyles = () => {
       </VisualDescription>
       <VisualDescription
         ariaLabel="text"
-        title="UI labels / General text (Roboto 14px normal)"
+        title="UI labels / General text (Figtree 14px normal)"
         description="Use for general text or labels"
         className={CSS_BASE_CLASS}
       >
@@ -106,7 +106,7 @@ export const TextStyles = () => {
       <VisualDescription
         ariaLabel="paragraph"
         className={CSS_BASE_CLASS}
-        title="Paragraph text (Roboto 16px normal)"
+        title="Paragraph text (Figtree 16px normal)"
         description="Use for item name, text in update"
       >
         <span
@@ -119,7 +119,7 @@ export const TextStyles = () => {
         </span>
       </VisualDescription>
       <VisualDescription
-        title="Caption/Subtext (Roboto 14px normal)"
+        title="Caption/Subtext (Figtree 14px normal)"
         className={CSS_BASE_CLASS}
         description="Use for subtexts"
       >
@@ -133,7 +133,7 @@ export const TextStyles = () => {
         </span>
       </VisualDescription>
       <VisualDescription
-        title="Link text (Roboto 14px normal)"
+        title="Link text (Figtree 14px normal)"
         className="monday-storybook-text-description"
         description="Use for links"
       >

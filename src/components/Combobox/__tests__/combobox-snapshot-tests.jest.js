@@ -13,6 +13,11 @@ describe("Combobox renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with optionClassName", () => {
+    const tree = renderer.create(<Combobox optionClassName="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with id", () => {
     const tree = renderer.create(<Combobox id="test" />).toJSON();
     expect(tree).toMatchSnapshot();

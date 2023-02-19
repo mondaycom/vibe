@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
-import { ListItemIconMargin } from "./ListItemIconConstants";
+import { ListItemIconMargin, LIST_ITEM_ICON_SIZE } from "./ListItemIconConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ListItemIcon.module.scss";
@@ -28,7 +28,7 @@ const ListItemIcon: React.FC<ListItemIconProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM_ICON, id)}
       >
-        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={20} />
+        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
       </div>
     );
   }

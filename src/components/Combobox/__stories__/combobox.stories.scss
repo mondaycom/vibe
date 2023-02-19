@@ -1,6 +1,9 @@
 @import "../../../styles/states";
 
 .combobox-stories-styles {
+  &_virtualized-description {
+    width: 300px
+  }
   &_category-wrapper {
     width: 300px;
   }

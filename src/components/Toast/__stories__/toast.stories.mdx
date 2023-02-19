@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toast from "../Toast";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
 import {
@@ -175,26 +176,26 @@ Use when something was deleted, a problem has occured, etc.
       },
       negative: {
         component: (
-          <div className="monday-storybook-toast_inline-wrapper">
+          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
             <Toast
               type={Toast.types.NEGATIVE}
               open
               hideIcon
-              className="monday-storybook-toast_wrapper monday-storybook-toast_big"
+              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
               actions={[{ type: Toast.actionTypes.LINK, text: "Try again", href: "https://monday.com" }]}
             >
               Couldn’t load board items
             </Toast>
             <Toast
               type={Toast.types.POSITIVE}
-              className="monday-storybook-toast_wrapper"
+              className="monday-storybook-toast_wrapper monday-storybook-toast_negative_rule"
               hideIcon
               text="Duplicating Board"
               open
             >
               Duplicating Board
-            </Toast>,
-          </div>
+            </Toast>
+          </Flex>
         ),
         description: <>Don’t place more than one toast on a screen at a time.</>
       }

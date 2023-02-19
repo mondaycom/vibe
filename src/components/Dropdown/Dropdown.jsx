@@ -69,7 +69,8 @@ const Dropdown = ({
   insideOverflowWithTransformContainer,
   "data-testid": dataTestId,
   ref,
-  tooltipContent
+  tooltipContent,
+  onKeyDown
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -286,6 +287,7 @@ const Dropdown = ({
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       onInputChange={onInputChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}

@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import cx from "classnames";
-import IconButton from "../../components/IconButton/IconButton";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import Icon, { IconSubComponentProps } from "../../components/Icon/Icon";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { NOOP } from "../../utils/function-utils";
+import IconButton from "../../IconButton/IconButton";
+import CloseSmall from "../../Icon/Icons/components/CloseSmall";
+import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import { NOOP } from "../../../utils/function-utils";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {

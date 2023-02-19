@@ -1,6 +1,5 @@
 import cx from "classnames";
 import React from "react";
-import PropTypes from "prop-types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DirectionType } from "./DividerConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -10,12 +9,14 @@ import styles from "./Divider.module.scss";
 interface DividerProps extends VibeComponentProps {
   direction?: DirectionType;
   classname?: string;
+  withoutMargin?: boolean;
 }
 
 const Divider = ({
   // Backward compatibility for props naming
   classname,
   className = undefined,
+  withoutMargin = false,
   direction = DirectionType.HORIZONTAL,
   id,
   "data-testid": dataTestId
@@ -28,7 +29,11 @@ const Divider = ({
         "monday-style-divider",
         overrideClassName,
         styles[direction],
-        `monday-style-divider--${direction}`
+        `monday-style-divider--${direction}`,
+        {
+          [styles.withoutMargin]: withoutMargin,
+          [`monday-style-divider--without-margin`]: withoutMargin
+        }
       )}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
@@ -37,10 +42,5 @@ const Divider = ({
 };
 
 Divider.directions = DirectionType;
-
-Divider.propTypes = {
-  className: PropTypes.string,
-  direction: PropTypes.oneOf([Divider.directions.HORIZONTAL, Divider.directions.VERTICAL])
-};
 
 export default Divider;

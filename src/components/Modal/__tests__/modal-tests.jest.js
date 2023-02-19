@@ -1,29 +1,28 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import Modal from "../Modal";
-import { useModalHelper } from "../__stories__/helpers";
 import { ModalHeader } from "../../../components";
 import "@testing-library/jest-dom";
+import { ModalExampleWrapper } from "../__stories__/helpers";
 
 const MODAL_TITLE_TEXT = "Modal title";
 const MODAL_ID = "story-book-modal";
-const CLOSE_BUTTON_LABEL = "close-button";
+const CLOSE_BUTTON_LABEL = "close";
 const OPEN_BUTTON_TEXT = "Open";
 
 const ModalManager = props => {
   const { children, openOnStart = false, isAlertDialog = false, title } = props;
-  const { openModalButton, modalProps } = useModalHelper({
-    openButtonTitle: OPEN_BUTTON_TEXT,
-    closeButtonAriaLabel: CLOSE_BUTTON_LABEL,
-    openOnStart
-  });
   return (
-    <div>
-      {openModalButton}
-      <Modal {...modalProps} id={MODAL_ID} title={title || MODAL_TITLE_TEXT} alertDialog={isAlertDialog}>
-        {children}
-      </Modal>
-    </div>
+    <ModalExampleWrapper
+      buttonTitle="Open"
+      show={openOnStart}
+      id={MODAL_ID}
+      title={title || MODAL_TITLE_TEXT}
+      alertDialog={isAlertDialog}
+      s
+      openModalTestId={OPEN_BUTTON_TEXT}
+    >
+      {children}
+    </ModalExampleWrapper>
   );
 };
 

@@ -73,13 +73,11 @@ export interface TooltipProps extends VibeComponentProps {
    */
   position?: DialogPosition;
   /**
-   * an array of hide/show trigger -
-   * Dialog.hideShowTriggers
+   * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
   showTrigger?: HideShowEvent | Array<HideShowEvent>;
   /**
-   * an array of hide/show trigger -
-   * Dialog.hideShowTriggers
+   * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
   showOnDialogEnter?: boolean;
@@ -100,6 +98,7 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   static positions = DialogPosition;
+  static hideShowTriggers = HideShowEvent;
   static themes = TooltipTheme;
   static animationTypes = AnimationType;
   static justifyTypes = JustifyType;
@@ -119,8 +118,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     tip: true,
     hideWhenReferenceHidden: false,
     modifiers: new Array<Modifier<any>>(),
-    showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-    hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
+    showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
+    hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: false,
     referenceWrapperClassName: ""
   };

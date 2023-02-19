@@ -1,21 +1,20 @@
-import React, { cloneElement, FC, ReactElement, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
-import ModalContent from "../ModalContent/ModalContent";
-import ModalHeader from "../ModalHeader/ModalHeader";
+import ModalContent from "./ModalContent/ModalContent";
+import ModalHeader from "./ModalHeader/ModalHeader";
 import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./Modal.module.scss";
 
-interface ModalProps extends VibeComponentProps {
+interface ModalProps {
   /**
    * Id of the modal, used internally and for accessibility
    */
-  id: string;
+  id?: string;
   /**
    * Show/hide the Dialog
    */
@@ -57,14 +56,18 @@ interface ModalProps extends VibeComponentProps {
    *  classNames for specific parts of the dialog
    */
   classNames?: {
-    container: string;
-    overlay: string;
-    modal: string;
+    container?: string;
+    overlay?: string;
+    modal?: string;
   };
   /**
    *  Dialog content
    */
   children?: ReactElement | ReactElement[];
+  /**
+   * z-index attribute of the container
+   */
+  zIndex?: number;
 }
 
 const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
@@ -79,7 +82,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   triggerElement,
   width = ModalWidth.DEFAULT,
   hideCloseButton = false,
-  closeButtonAriaLabel = "close"
+  closeButtonAriaLabel = "close",
+  zIndex = 10000
 }) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
@@ -92,11 +96,23 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     alertDialog
   });
 
+  const closeIfNotAlertType = useCallback(() => {
+    if (!alertDialog) {
+      onClose?.();
+    }
+  }, [alertDialog, onClose]);
+
   // lock body scroll when modal is open
   useBodyScrollLock({ instance });
 
   // show/hide and animate the modal
-  const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
+  useShowHideModal({
+    instance,
+    show,
+    triggerElement,
+    onClose,
+    alertDialog
+  });
 
   const header = useMemo(() => {
     const { id } = attr.title;
@@ -134,10 +150,11 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
       {...attr.container}
       className={cx(styles.container, classNames.container)}
       data-testid="monday-dialog-container"
+      style={{ "--monday-modal-z-index": zIndex }}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        onClick={closeDialogIfNeeded}
+        onClick={closeIfNotAlertType}
         className={cx(styles.overlay, classNames.overlay)}
         data-testid="monday-modal-overlay"
       />
