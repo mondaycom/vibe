@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import ModalContent from "../ModalContent/ModalContent";
@@ -11,7 +11,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
-import { useHelperOpenModalButton, ModalExampleWrapper, DialogAsModalBadExample } from "./helpers";
+import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
 import { Button, Flex } from "../../../components";
 import "./Modal.stories.scss";
 
@@ -26,9 +26,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   // Control if modal is display or hidden
   const [show, setShow] = useState(false);
   const openModalButtonRef = useRef(null);
-  const closeModal = useCallback(() => {
-    setShow(false);
-  }, []);
+  const closeModal = useCallback(() => setShow(false), []);
   // Internal helper method for creating basic button which change the show state to true in order to display the modal
   // This method is not part of our external API and not required for creating functional modal component
   const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
@@ -107,8 +105,8 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
 />
 
 <Tip>
-  Set `alertDialog` to `true` in order to allow closing the modal only by the close buttons and not by ESC or by
-  clicking outside. <Link>Learn more</Link>
+  Set <code>alertDialog</code> to <code>true</code> in order to allow closing the modal only by the close buttons and
+  not by ESC or by clicking outside.
 </Tip>
 <Tip>
   If you wish to create a popover positioned next to other components, like customized menus, check out our Dialog
@@ -254,7 +252,7 @@ Use the ModalHeader component to display a Header with an icon
 
 ### Alert Modal
 
-Use the `alertDialog` boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by
+Use the <code>alertDialog</code> boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by
 clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
 
 <Canvas>
