@@ -56,9 +56,9 @@ interface ModalProps {
    *  classNames for specific parts of the dialog
    */
   classNames?: {
-    container: string;
-    overlay: string;
-    modal: string;
+    container?: string;
+    overlay?: string;
+    modal?: string;
   };
   /**
    *  Dialog content
