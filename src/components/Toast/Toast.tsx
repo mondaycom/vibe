@@ -1,5 +1,5 @@
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import { CSSTransition } from "react-transition-group";

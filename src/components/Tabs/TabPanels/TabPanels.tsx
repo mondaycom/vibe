@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
 import { TabPanelProps } from "../TabPanel/TabPanel";

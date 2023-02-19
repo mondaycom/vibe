@@ -1,4 +1,4 @@
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React from "react";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

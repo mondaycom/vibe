@@ -1,4 +1,4 @@
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import { keyCodes } from "../../../../constants/keyCodes";

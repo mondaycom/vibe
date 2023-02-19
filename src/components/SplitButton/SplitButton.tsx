@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import camelCase from "lodash/camelCase";
+import { camelCase } from "lodash-es";
 import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import {

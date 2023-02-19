@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import camelCase from "lodash/camelCase";
+import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import { Modifier } from "react-popper";
-import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
 import { DialogPosition } from "../../constants/positions";

@@ -1,8 +1,7 @@
-import camelCase from "lodash/camelCase";
+import { camelCase, isNil } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
-import { isNil } from "lodash-es";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
