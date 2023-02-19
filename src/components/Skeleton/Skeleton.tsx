@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import {
-  SKELETON_ALLOWED_SIZES,
-  SKELETON_ALLOWED_TYPES,
   SKELETON_CUSTOM_SIZE,
   SKELETON_SIZES,
-  SKELETON_TYPES
+  SkeletonSizeType,
+  SkeletonType,
+  TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Skeleton.module.scss";
@@ -16,8 +16,8 @@ const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
 const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);
 
 interface SkeletonProps extends VibeComponentProps {
-  type?: keyof typeof SKELETON_TYPES;
-  size?: keyof typeof SKELETON_ALLOWED_SIZES;
+  type?: SkeletonType;
+  size?: SkeletonSizeType;
   width?: number;
   height?: number;
   wrapperClassName?: string;
@@ -28,10 +28,10 @@ interface SkeletonProps extends VibeComponentProps {
 }
 
 const Skeleton: FC<SkeletonProps> & {
-  types?: typeof SKELETON_TYPES;
+  types?: typeof SkeletonType;
   sizes?: typeof SKELETON_SIZES;
 } = ({
-  type = SKELETON_TYPES.RECTANGLE,
+  type = SkeletonType.RECTANGLE,
   size = SKELETON_SIZES.CUSTOM,
   className,
   wrapperClassName,
@@ -39,16 +39,21 @@ const Skeleton: FC<SkeletonProps> & {
   height,
   fullWidth = false
 }) => {
-  const skeletonType = SKELETON_ALLOWED_TYPES.indexOf(type) > -1 ? type : SKELETON_TYPES.RECTANGLE;
-  const typeDescription = skeletonType.toUpperCase() as keyof typeof SKELETON_ALLOWED_SIZES;
-  const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
+  console.log(fullWidth);
+  const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
+
+  // Skeleton has sizes only for text type, other types support only custom size
+  const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
   return (
     <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}>
       <div
         className={cx(
           bemHelper({ element: skeletonType }),
           bemHelper({ element: skeletonType, state: skeletonSize }),
-          className
+          className,
+          {
+            [styles.fullWidth]: bemHelper({ element: skeletonType, state: "full-width" })
+          }
         )}
         style={{ width, height }}
       />
@@ -57,7 +62,7 @@ const Skeleton: FC<SkeletonProps> & {
 };
 
 Object.assign(Skeleton, {
-  types: SKELETON_TYPES,
+  types: SkeletonType,
   sizes: SKELETON_SIZES
 });
 

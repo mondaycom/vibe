@@ -8,6 +8,7 @@ import useEventListener from "../../hooks/useEventListener";
 import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
 import { FlexDirection, FlexGap } from "../Flex/FlexConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
+import { ElementContent } from "src/types/ElementContent";
 
 const TAB = ["Tab"];
 const ESC = ["Escape"];
@@ -114,7 +115,7 @@ export function useTooltipContentTabNavigation({
 }
 
 export const avatarRenderer = (
-  item: { value: AvatarProps & { tooltipContent: string | ReactElement } },
+  item: { value: AvatarProps & { tooltipContent: ElementContent } },
   index: number,
   style: CSSProperties,
   type: AvatarType,

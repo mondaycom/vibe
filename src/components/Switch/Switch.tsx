@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
-import { useSwitchChecked } from "./hooks/useSwitchChecked";
+import { useSwitch } from "./hooks/useSwitch";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { MockToggleProps } from "../Toggle/MockToggle";
 import classes from "./Switch.module.scss";
@@ -38,8 +38,9 @@ export const Switch: FC<SwitchProps> = ({
   wrapperClassName
 }) => {
   const ref = useRef();
-  const { onChange: overrideOnChange, checked: overrideChecked } = useSwitchChecked({
-    checked,
+  const { onChange: overrideOnChange, isChecked: overrideChecked } = useSwitch({
+    isDisabled: disabled,
+    isChecked: checked,
     defaultChecked,
     onChange
   });

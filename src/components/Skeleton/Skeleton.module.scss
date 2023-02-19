@@ -1,3 +1,17 @@
+@import "./SkeletonVariables.module";
+
 .fullWidth {
   width: 100%;
+}
+
+:global(.monday-style-skeleton):not(.fullWidth) {
+  :global(.monday-style-skeleton_text) {
+    width: 162px;
+  }
+  :global(.monday-style-skeleton_circle) {
+    width: $circle-default-size;
+  }
+  :global(.monday-style-skeleton_rectangle) {
+    width: $rectangle-default-size;
+  }
 }
