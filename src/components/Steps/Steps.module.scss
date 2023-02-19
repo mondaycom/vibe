@@ -27,3 +27,7 @@
 .onPrimary :global(.monday-style-steps-command_icon) {
   @include theme-prop(color, text-color-on-primary);
 }
+
+.disabled {
+  @include theme-prop(color, disabled-text-color);
+}

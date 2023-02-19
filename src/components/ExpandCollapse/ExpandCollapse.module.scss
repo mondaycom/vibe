@@ -60,7 +60,7 @@
   transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
 }
 
-.wrapper .animateExpandCollapseContent {
+.animateExpandCollapseContent {
   animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
@@ -73,4 +73,12 @@
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+.hideBorder {
+  border: none;
+}
+
+.hideBorderBottom {
+  border-bottom: none;
 }

@@ -30,3 +30,7 @@
 .forward .icon {
   margin-left: $spacing-small-medium;
 }
+
+.disabled {
+  @include theme-prop(color, disabled-text-color);
+}
