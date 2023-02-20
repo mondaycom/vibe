@@ -92,7 +92,8 @@ const publishedTSComponents = {
   useIsOverflowing: "hooks/useIsOverflowing.ts",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
+  useSwitch: "hooks/useSwitch"
   // Don't remove next line
   // plop_marker:published-hooks
 };
