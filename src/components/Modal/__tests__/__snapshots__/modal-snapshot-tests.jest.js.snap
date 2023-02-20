@@ -50,6 +50,7 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
++               aria-pressed="false"
 +               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -113,6 +114,7 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
++               aria-pressed="false"
 +               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -196,6 +198,7 @@ exports[`Modal with base props 1`] = `
             aria-busy="false"
             aria-disabled="false"
             aria-label="close"
+            aria-pressed="false"
             class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
             data-testid="icon-button"
             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -272,9 +275,9 @@ Snapshot Diff:
               aria-disabled="false"
 -             aria-label="close"
 +             aria-label="closeButtonAriaLabel"
+              aria-pressed="false"
               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
               data-testid="icon-button"
-              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 `;
 
 exports[`Modal with description 1`] = `
@@ -331,6 +334,7 @@ Snapshot Diff:
 -             aria-busy="false"
 -             aria-disabled="false"
 -             aria-label="close"
+-             aria-pressed="false"
 -             class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 -             data-testid="icon-button"
 -             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
