@@ -8,6 +8,7 @@
       {
         "ignorePseudoClasses": ["global","local"]
       }
-    ]
+    ],
+    "scss/at-import-partial-extension": ["error", { "extensions" : ["module"] }]
   }
 }

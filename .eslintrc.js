@@ -92,7 +92,6 @@ module.exports = {
       plugins: [...commonPlugins, "@typescript-eslint"],
       rules: {
         ...commonRules,
-        "scss/at-import-partial-extension": ["error", { extensions: ["module"] }],
         "@typescript-eslint/ban-ts-comment": ["warn"],
         "no-unused-vars": "off",
         "react/require-default-props": "off",
