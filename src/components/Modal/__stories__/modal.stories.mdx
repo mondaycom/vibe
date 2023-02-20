@@ -1,23 +1,63 @@
-import Modal from "../Modal";
-import { useModalHelper } from "./helpers";
+import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
-import "./Modal.stories.scss";
-import { Button, ModalContent, ModalFooter, ModalHeader } from "../../../components";
+import ModalContent from "../ModalContent/ModalContent";
+import ModalFooter from "../ModalFooter/ModalFooter";
+import ModalHeader from "../ModalHeader/ModalHeader";
 import {
   ATTENTION_BOX,
   TOAST,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
-import { useState } from "react";
+import Modal from "../Modal";
+import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
+import { Button, Flex } from "../../../components";
+import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
   enumPropNamesArray: ["width"], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: ["onClose"] // List the component's actions here
 });
+
+export const modalTemplate = ({ onClose, ...modalProps }) => {
+  // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
+  // Control if modal is display or hidden
+  const [show, setShow] = useState(false);
+  const openModalButtonRef = useRef(null);
+  const closeModal = useCallback(() => setShow(false), []);
+  // Internal helper method for creating basic button which change the show state to true in order to display the modal
+  // This method is not part of our external API and not required for creating functional modal component
+  const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
+  return (
+    <div>
+      {openModalButton}
+      <Modal
+        id={"story-book-modal"}
+        title={"Modal title"}
+        triggerElement={openModalButtonRef.current}
+        // is modal show or hidden
+        show={show}
+        // set show state to close
+        onClose={closeModal}
+        {...modalProps}
+      >
+        <ModalContent>
+          <p className="modal-content">Modal content goes here</p>
+        </ModalContent>
+        <ModalFooter>
+          <Flex justify={Flex.justify.END} gap={12}>
+            <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+              Cancel
+            </Button>
+            <Button onClick={closeModal}>Confirm</Button>
+          </Flex>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
 
 <Meta
   title="Feedback/Modal"
@@ -43,30 +83,10 @@ export const metaSettings = createStoryMetaSettings({
 ## Overview
 
 Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
+Use modal for short and non-frequent tasks. For common tasks consider using the main flow.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            closeButtonAriaLabel={"close"}
-          >
-            <ModalContent>
-              <span className="modal-content">Modal content goes here</span>
-            </ModalContent>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
+  <Story name="Overview">{modalTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
@@ -80,15 +100,18 @@ Modal allows the user to focus on one task or a piece of information, by popping
     "Modals appear centered on the page, with a visible backdrop dimming the rest of the page for focus.",
     "Modals height is dynamic according to its content.",
     "All modals must have a title and a close button",
-    " By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons"
+    "By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons."
   ]}
 />
 
 <Tip>
-  Set `alertDialog` to `true` in order to allow closing the modal only by the close buttons and not by ESC or by
-  clicking outside. Learn more
+  Set <code>alertDialog</code> to <code>true</code> in order to allow closing the modal only by the close buttons and
+  not by ESC or by clicking outside.
 </Tip>
-<Tip>Use modal for short and non-frequent tasks. For common tasks consider using the main flow.</Tip>
+<Tip>
+  If you wish to create a popover positioned next to other components, like customized menus, check out our Dialog
+  component.
+</Tip>
 
 ## Variants
 
@@ -97,151 +120,79 @@ Modal allows the user to focus on one task or a piece of information, by popping
 <Canvas>
   <Story name="Width variants - Normal">
     {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Default"
-      });
+      // Boilerplate for creating a modal, not relevant for this example
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({ title: "Default", setShow, openModalButtonRef }); // internal helper, not part of the API
       return (
-        <div>
+        // Modal with default width variant
+        <>
           {openModalButton}
           <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
+            id="story-book-modal"
+            title="Modal title"
+            triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            closeButtonAriaLabel={"close"}
+            // Width prop effects on the modal width
             width={Modal.width.DEFAULT}
           >
-            <p className="modal-content">Normal modal</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
+            <ModalContent>
+              <p className="modal-content">Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
+            </ModalFooter>
           </Modal>
-        </div>
+        </>
       );
     }}
   </Story>
   <Story name="Width variants - Full">
     {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Full screen"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            width={Modal.width.FULL_WIDTH}
-            closeButtonAriaLabel={"close"}
-          >
-            <p className="modal-content">Full width modal</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Alert Modal (Modal)
-
-Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
-The Alert modal will not be closed by clicking outside the modal or by the ESC key. It will be closed only by the close button and the footer buttons.
-
-<Canvas>
-  <Story name="Alert Modal">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            alertDialog
-            closeButtonAriaLabel={"close"}
-          >
-            <p className="modal-content">Use the close button to dismiss this Modal.</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-## Use cases and examples
-
-### Showing the Modal
-
-Use this variant in case of sensitive or importent masseges, and in modals that requires data from the user, such as forms.
-
-The Alert modal will not be closed by clicking outside the modal or by the ESC key. It will be closed only by the close button and the footer buttons.
-
-<Canvas>
-  <Story name="Showing the Modal">
-    {() => {
-      const { modalButtons } = useModalHelper();
+      // Boilerplate for creating a modal, not relevant for this example
       const [show, setShow] = useState(false);
-      const closeModal = () => {
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
         setShow(false);
-      };
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({ title: "Full size", setShow, openModalButtonRef });
       return (
-        <div>
-          <Button onClick={() => setShow(true)}>Show</Button>
+        // Modal with full width variant
+        <>
+          {openModalButton}
           <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
+            id="story-book-modal"
+            title="Modal title"
+            triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            closeButtonAriaLabel={"close"}
+            // Width prop effects on the modal width
+            width={Modal.width.FULL_WIDTH}
           >
             <ModalContent>
-              <span className="modal-content">Modal content goes here</span>
+              <p className="modal-content">Modal content goes here</p>
             </ModalContent>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Modal with footer buttons
-
-As there are many possible combinations of buttons to display on the modal footer, we don't provide a build in support for footer buttons. However, you can use the ModalFooter component to place any content at the bottom of the modal, including buttons.
-
-<Canvas>
-  <Story name="Modal with footer buttons">
-    {() => {
-      const { openModalButton, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Modal with buttons"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            closeButtonAriaLabel={"close"}
-          >
-            <div className="modal-content">Modal content goes here</div>
-            <ModalFooter className="monday-storybook-modal-new-buttons">
-              <Button kind={Button.kinds.SECONDARY} onClick={closeModal}>
-                Dismiss
-              </Button>
-              <Button onClick={closeModal}>Close</Button>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
             </ModalFooter>
           </Modal>
-        </div>
+        </>
       );
     }}
   </Story>
@@ -254,22 +205,94 @@ Use the ModalHeader component to display a Header with an icon
 <Canvas>
   <Story name="Modal with icon">
     {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Header with icon"
-      });
+      // Boilerplate for creating a modal, not relevant for add icon to the header
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({
+          title: "Header with icon",
+          setShow,
+          openModalButtonRef
+        });
       return (
+        // Modal header with an icon example
         <div>
           {openModalButton}
           <Modal
             id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
+            title="Modal header with an Icon"
+            triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
+            width={Modal.width.DEFAULT}
           >
+            {/** Please implement your an custom Modal header and set it as child for adding an Icon to your modal*/}
             <ModalHeader title={"Modal Title"} icon={Settings} />
-            <ModalFooter>{modalButtons}</ModalFooter>
+            <ModalContent>
+              <p className="modal-content">Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Alert Modal
+
+Use the <code>alertDialog</code> boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by
+clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
+
+<Canvas>
+  <Story name="Alert Modal">
+    {() => {
+      // Boilerplate for creating a modal, not relevant for add icon to the header
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({
+          title: "Alert dialog",
+          setShow,
+          openModalButtonRef
+        });
+      return (
+        // Modal header with an icon example
+        <div>
+          {openModalButton}
+          <Modal
+            alertDialog // this makes your modal as alert dialog
+            id="story-book-modal"
+            title="Alert modal"
+            triggerElement={openModalButtonRef.current}
+            show={show}
+            onClose={closeModal}
+          >
+            <ModalContent>
+              <p className="modal-content">Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
+            </ModalFooter>
           </Modal>
         </div>
       );
@@ -283,12 +306,34 @@ Use the ModalHeader component to display a Header with an icon
   rules={[
     {
       positive: {
-        component: <div></div>,
-        description: "Allow the user to easly close the modal by CTA and a close button.."
+        component: (
+          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
+            <p>Modal with a proper CTA example</p>
+          </ModalExampleWrapper>
+        ),
+        description: "Allow the user to easily close the modal by CTA and a close button."
       },
       negative: {
-        component: <div></div>,
-        description: "Don’t align the footer buttons to the left."
+        component: (
+          <ModalExampleWrapper bestPractice={false} hideCloseButton modalTitle="Modal title" buttonTitle="Click here">
+            <p>Modal without close button</p>
+          </ModalExampleWrapper>
+        ),
+        description: "Don't implement a modal without a close button or cancel button."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
+            <p>Modal content</p>
+          </ModalExampleWrapper>
+        ),
+        description: "Modal must include backdrop element."
+      },
+      negative: {
+        component: <DialogAsModalBadExample />,
+        description: "Don't remove the backdrop element of the modal or the modal's title."
       }
     }
   ]}

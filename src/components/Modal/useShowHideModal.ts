@@ -1,7 +1,10 @@
-import { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import useAnimationProps from "./useAnimationProps";
 import useKeyEvent from "../../hooks/useKeyEvent/index";
 import { A11yDialogType } from "./ModalHelper";
+import { keyCodes } from "../../constants";
+
+const KEYS = [keyCodes.ESCAPE];
 
 export default function useShowHideModal({
   instance,
@@ -18,21 +21,20 @@ export default function useShowHideModal({
 }) {
   const getAnimationProps = useAnimationProps(triggerElement, instance);
 
-  const closeDialogIfNeeded = useCallback(() => {
-    if (!alertDialog) {
-      onClose?.();
-    }
-  }, [alertDialog, onClose]);
-
-  useKeyEvent({
-    callback: event => {
-      if (instance?.$el.contains(document.activeElement)) {
+  const closeOnEsc = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (!alertDialog && instance?.$el.contains(document.activeElement)) {
         event.stopPropagation();
-        closeDialogIfNeeded();
+        onClose?.();
       }
     },
+    [alertDialog, instance?.$el, onClose]
+  );
+
+  useKeyEvent({
+    callback: closeOnEsc,
     capture: true,
-    keys: ["Escape"]
+    keys: KEYS
   });
 
   // show/hide and animate the modal
@@ -53,14 +55,4 @@ export default function useShowHideModal({
       }
     }
   }, [show, instance, getAnimationProps]);
-
-  // call onClose when modal is hidden
-  useEffect(() => {
-    instance?.on("hide", () => onClose?.());
-    return () => {
-      instance?.off("hide");
-    };
-  }, [instance, onClose]);
-
-  return { closeDialogIfNeeded };
 }

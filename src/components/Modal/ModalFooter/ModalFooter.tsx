@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import cx from "classnames";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 import classes from "./ModalFooter.module.scss";
 
 interface ModalFooterProps extends VibeComponentProps {

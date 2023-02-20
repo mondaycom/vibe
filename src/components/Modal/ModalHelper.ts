@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import ModalHeader from "../ModalHeader/ModalHeader";
-import ModalContent from "../ModalContent/ModalContent";
-import ModalFooter from "../ModalFooter/ModalFooter";
+import ModalHeader from "./ModalHeader/ModalHeader";
+import ModalContent from "./ModalContent/ModalContent";
+import ModalFooter from "./ModalFooter/ModalFooter";
 
 export enum ModalWidth {
   DEFAULT = "default",
