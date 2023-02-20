@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement, RefObject, useCallback } from "react";
+import React, { CSSProperties, RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
 import Avatar, { AvatarProps } from "../Avatar/Avatar";
