@@ -1,6 +1,6 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
-@import "./SkeletonVariables.module";
+@import "SkeletonVariables";
 
 @mixin shine-animation() {
   overflow: hidden;
