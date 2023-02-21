@@ -23,6 +23,7 @@ export interface EditableInputProps extends VibeComponentProps {
   inputType?: InputType;
   autoSize?: boolean;
   autoComplete?: boolean;
+  disabled?: boolean;
   maxLength?: number;
   shouldFocusOnMount?: boolean;
   textareaSubmitOnEnter?: boolean;
@@ -56,6 +57,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       id,
       tabIndex,
       autoComplete = true,
+      disabled = false,
       maxLength,
       placeholder = "",
       onClick,
@@ -244,6 +246,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
         rows={rows}
         maxLength={maxLength}
         aria-label={ariaLabel}
+        disabled={disabled}
       />
     );
   }

@@ -55,9 +55,9 @@ const publishedTSComponents = {
   Toggle: "components/Toggle/Toggle",
   ExpandCollapse: "components/ExpandCollapse/ExpandCollapse",
   Modal: "components/Modal/Modal",
-  ModalHeader: "components/ModalHeader/ModalHeader",
-  ModalFooter: "components/ModalFooter/ModalFooter",
-  ModalContent: "components/ModalContent/ModalContent",
+  ModalHeader: "components/Modal/ModalHeader/ModalHeader",
+  ModalFooter: "components/Modal/ModalFooter/ModalFooter",
+  ModalContent: "components/Modal/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
   EditableInput: "components/EditableInput/EditableInput",
@@ -77,6 +77,8 @@ const publishedTSComponents = {
   MenuDivider: "components/Menu/MenuDivider/MenuDivider",
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
@@ -89,13 +91,14 @@ const publishedTSComponents = {
   useMergeRefs: "hooks/useMergeRefs.ts",
   useIsMouseOver: "hooks/useIsMouseOver.ts",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.ts",
-  useIsOverflowing: "hooks/useIsOverflowing.ts",
+  useIsOverflowing: "hooks/useIsOverflowing/useIsOverflowing",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   // Don't remove next line
   // plop_marker:published-hooks
-  useClickableProps: "hooks/useClickableProps/useClickableProps"
+  useClickableProps: "hooks/useClickableProps/useClickableProps",
+  useHover: "hooks/useHover/useHover"
 };
 
 // eslint-disable-next-line no-undef

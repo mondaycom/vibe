@@ -2,7 +2,7 @@ import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";

@@ -65,10 +65,17 @@ $grid-auto-fit-cell-width-xl: 300px;
 // - $grid-cell-array-calc: {mandatory}, defined max num of items using calc
 
 
-@mixin grid-auto-fit($grid-gap: null, $grid-column-gap: null, $grid-row-gap: null, $grid-cell-min-width, $grid-cell-array-calc:null) {
+@mixin grid-auto-fit($grid-gap: null, $grid-column-gap: null, $grid-row-gap: null, $grid-cell-min-width, $grid-cell-array-calc:null, $important:false) {
   display: grid;
-  grid-template-columns:repeat(auto-fit, minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr));
-  gap: $grid-gap;
-  column-gap: $grid-column-gap;
-  row-gap: $grid-row-gap;
+  @if $important {
+    grid-template-columns:repeat(auto-fit, minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)) !important;
+    gap: $grid-gap !important;
+    column-gap: $grid-column-gap !important;
+    row-gap: $grid-row-gap !important;
+  } @else {
+    grid-template-columns:repeat(auto-fit, minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr));
+    gap: $grid-gap;
+    column-gap: $grid-column-gap;
+    row-gap: $grid-row-gap;
+  }
 }
