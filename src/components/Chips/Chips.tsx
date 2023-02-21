@@ -14,7 +14,7 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
