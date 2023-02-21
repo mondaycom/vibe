@@ -6,8 +6,9 @@ import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
-
 import autoprefixer from "autoprefixer";
+
+const version = require("./package.json").version;
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
@@ -55,8 +56,38 @@ export default {
        * we're externalizing all "node_modules", it doesn't exist.
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
-      inject(cssVariableName) {
-        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}, { insertAt: 'top' });`;
+      inject: function (cssVariableName) {
+        const hashValue = `s_id-${version}-${performance.now()}`.replaceAll(".", "_");
+        return `function styleInject(css, { insertAt } = {}) {
+    const head = document.head || document.getElementsByTagName('head')[0]
+    const id = "${hashValue}";
+    const styleExists = head.querySelector("#${hashValue}");
+    if(styleExists) return;
+    
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.id = id;
+  
+    if (insertAt === 'top') {
+      if (head.firstChild) {
+        head.insertBefore(style, head.firstChild)
+      } else {
+        head.appendChild(style)
+      }
+    } else {
+      head.appendChild(style)
+    }
+  
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css
+    } else {
+      style.appendChild(document.createTextNode(css))
+    }
+  }
+  
+  styleInject(${cssVariableName}, { insertAt: 'top' });
+  
+  `;
       },
       plugins: [autoprefixer(), postCssImport()],
       autoModules: true
