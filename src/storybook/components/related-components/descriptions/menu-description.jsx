@@ -23,6 +23,7 @@ export const MenuDescription = () => {
     <RelatedComponent
       component={component}
       title="Menu"
+      href="/?path=/docs/navigation-menu--overview"
       description="Displays information related to an element over it."
     />
   );

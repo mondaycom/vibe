@@ -14,6 +14,7 @@ export const EditableHeadingDescription = () => {
     <RelatedComponent
       component={component}
       title="Editable heading"
+      href="/?path=/docs/inputs-editableheading--overview"
       description="An extension of Heading component, it allows built in editing capabilities."
     />
   );

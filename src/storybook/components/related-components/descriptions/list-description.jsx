@@ -22,8 +22,8 @@ export const ListDescription = () => {
     <RelatedComponent
       component={component}
       title="List"
-      description="Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text.
-"
+      href="/?path=/docs/navigation-list-list--overview"
+      description="Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text."
     />
   );
 };

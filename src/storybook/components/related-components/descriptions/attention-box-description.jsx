@@ -17,6 +17,11 @@ export const AttentionBoxDescription = () => {
     );
   }, []);
   return (
-    <RelatedComponent component={component} title="Attention box" description="Displays content classification." />
+    <RelatedComponent
+      component={component}
+      title="Attention box"
+      href="/?path=/docs/feedback-attentionbox--overview"
+      description="Displays content classification."
+    />
   );
 };

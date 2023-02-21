@@ -34,7 +34,8 @@ export const WizardDescription = () => {
     <RelatedComponent
       component={component}
       title="Wizard"
-      description="Shows information related to a compontent when a user hovers over it."
+      href="/?path=/docs/navigation-wizard--overview"
+      description="Shows information related to a component when a user hovers over it."
     />
   );
 };

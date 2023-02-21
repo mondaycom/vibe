@@ -8,6 +8,7 @@ export const CheckboxDescription = () => {
     <RelatedComponent
       component={component}
       title="Checkbox"
+      href="/?path=/docs/inputs-checkbox--overview"
       description="Allow users to select one or more items from a set of options."
     />
   );
