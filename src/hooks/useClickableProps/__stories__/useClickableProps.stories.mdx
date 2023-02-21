@@ -15,16 +15,16 @@ import "./useClickableProps.stories.scss";
 
 ## Overview
 
-Return props for adding clickable functionality to the element except for the styles and classNames.
+Return props for making an element or component clickable by mouse and keyboard with screen reader support.
 
 <Canvas>
   <Story name="Overview">
     {() => {
       const ref = useRef(null);
-      const onClickCallback = useCallback(() => alert("click!"), []);
+      const onClick = useCallback(() => alert("click!"), []);
       const clickableProps = useClickableProps(
         {
-          onClick: onClickCallback,
+          onClick: onClick,
           id: "clickable-id",
           ariaHidden: false,
           ariaHasPopup: false,
@@ -41,13 +41,21 @@ Return props for adding clickable functionality to the element except for the st
   </Story>
 </Canvas>
 
-<Tip title="Alternative">
-  Most of the times you might want to use
+<Tip title="Check out our component solution for this use case">
+  For more simple use cases, you also can use our
   <Link size={Link.sizes.SMALL} href="/?path=/docs/accessibility-clickable--overview">
-    Clickable component
+    Clickable
   </Link>
-  to apply the styles as well. Use this hook when you want to customize styles by yourself.
+  component wrapper.
 </Tip>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook instead of Clickable component wrapper when you want to customize clickable styles by yourself."
+  ]}
+/>
 
 ## Arguments
 
