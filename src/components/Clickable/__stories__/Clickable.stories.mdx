@@ -6,6 +6,7 @@ import {
   HIDDEN_TEXT,
   ICON_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
+import { Link } from "../../../storybook";
 import { statesPlaySuite } from "../__tests__/clickable-interactions-tests";
 import "./clickable.stories.scss";
 
@@ -64,11 +65,20 @@ You can use the component className and style props to change the component appe
   </Story>
 </Canvas>
 
+<Tip title="Check out our hook solution for this use case">
+  If you'd like to set clickable functionality on a specific element inside your React component instead of using a
+  wrapper, please, take a look on our
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/hooks-useclickableprops--overview">
+    useClickableProps
+  </Link>
+  hook.
+</Tip>
+
 ## Usage
 
 <UsageGuidelines
   guidelines={[
-    "When you can't use button but want need to provide keyboard intractability",
+    "When you can't use button, but need to provide keyboard intractability",
     "This component behaves like a button, treat it like one"
   ]}
 />

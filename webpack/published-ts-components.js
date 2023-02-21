@@ -95,7 +95,7 @@ const publishedTSComponents = {
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   // Don't remove next line
   // plop_marker:published-hooks
-  useClickableProps: "hooks/useClickableProps/useClickableProps.ts"
+  useClickableProps: "hooks/useClickableProps/useClickableProps"
 };
 
 // eslint-disable-next-line no-undef
