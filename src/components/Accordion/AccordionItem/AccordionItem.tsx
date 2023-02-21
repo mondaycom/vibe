@@ -3,7 +3,6 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
-import VibeComponent from "../../../types/VibeComponent";
 import { ElementContent } from "../../../types/ElementContent";
 
 interface AccordionItemProps extends VibeComponentProps {
@@ -30,7 +29,7 @@ interface AccordionItemProps extends VibeComponentProps {
   contentClassName?: string;
 }
 
-const AccordionItem: VibeComponent<AccordionItemProps> = forwardRef(
+const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
   (
     {
       children = null,
