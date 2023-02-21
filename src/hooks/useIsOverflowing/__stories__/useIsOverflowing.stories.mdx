@@ -1,0 +1,83 @@
+import { useRef, useState } from "react";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { FunctionArgument, FunctionArguments, Link, Tip } from "../../../storybook";
+import useIsOverflowing from "../useIsOverflowing";
+import { EditableInput, Flex, Tooltip } from "../../../components";
+import styles from "./useIsOverflowing.stories.module.scss";
+
+<Meta title="Hooks/useIsOverflowing" />
+
+# useIsOverflowing
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this hook, when there is a chance that content won't fit into the container, to track if overflow occurs.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const ComponentWithOverflow = ({ text }) => {
+        const ref = useRef(null);
+        const isOverflowing = useIsOverflowing({ ref });
+        return (
+          <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+            <div>Is overflowing: {isOverflowing.toString()}</div>
+            <Tooltip content={isOverflowing ? text : undefined}>
+              <div ref={ref} className={styles.textContainer}>
+                {text}
+              </div>
+            </Tooltip>
+          </Flex>
+        );
+      };
+      const [text, setText] = useState("");
+      return (
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} align={Flex.align.START}>
+          <EditableInput onChange={setText} placeholder="Type text here" className={styles.input} />
+          <ComponentWithOverflow text={text} />
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Usage
+
+<UsageGuidelines guidelines={["Use this when content might not fit into it's container."]} />
+
+<Tip title={"What to do when overflow is detected?"}>
+  You might want to use
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-tooltip--overview">
+    Tooltip
+  </Link>
+  to display all the content.
+</Tip>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument
+    name="ref"
+    type="React.MutableRefObject"
+    description={
+      <>
+        A React
+        <Link size={Link.sizes.MEDIUM} href="https://reactjs.org/docs/hooks-reference.html#useref">
+          ref
+        </Link>
+        object for the container of likely to overflow content.
+      </>
+    }
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="isOverflowing" type="bool" description={<>Is content overflow the container.</>} />
+</FunctionArguments>
