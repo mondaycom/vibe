@@ -95,7 +95,7 @@ const publishedTSComponents = {
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
-  useHover: "hooks/useHover/useHover.ts"
+  useHover: "hooks/useHover/useHover"
 };
 
 // eslint-disable-next-line no-undef
