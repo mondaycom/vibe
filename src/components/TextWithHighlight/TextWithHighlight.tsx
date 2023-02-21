@@ -1,7 +1,7 @@
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { DialogPosition } from "../../constants";

@@ -17,7 +17,7 @@ import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
