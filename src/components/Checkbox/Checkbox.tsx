@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, FC } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -8,9 +8,9 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Checkbox.scss";
-import { VibeComponent } from "../../types";
+import { VibeComponentProps } from "../../types";
 
-export interface CheckBoxProps {
+export interface CheckBoxProps extends VibeComponentProps {
   className?: string;
   // Backward compatibility for props naming
   componentClassName?: string;
@@ -31,7 +31,7 @@ export interface CheckBoxProps {
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-export const Checkbox: VibeComponent<CheckBoxProps> = forwardRef(
+const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   (
     {
       className,

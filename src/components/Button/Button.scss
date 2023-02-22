@@ -159,6 +159,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: 0.45;
               color: var(--text-color-on-primary);
             }
           }
@@ -230,6 +231,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: 0.45;
               color: var(--text-color-on-primary);
             }
           }
@@ -285,6 +287,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: 0.45;
               color: var(--text-color-on-primary);
             }
           }
