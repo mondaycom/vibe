@@ -190,7 +190,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           style: backgroundColorStyle
         }
       : {
-          tabIndex: isOverflowing ? 0 : -1,
+          tabIndex: isOverflowing ? 0 : undefined,
           "aria-label": isOverflowing ? ariaLabel || label : undefined,
           ref: mergedRef,
           onClick: onClickCallback,

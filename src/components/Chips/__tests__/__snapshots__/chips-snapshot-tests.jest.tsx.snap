@@ -10,7 +10,6 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
       "backgroundColor": undefined,
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -30,7 +29,6 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
       "backgroundColor": "var(--negative-color-selected)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -89,7 +87,6 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -148,7 +145,6 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="monday-style-avatar avatar left monday-style-avatar--large"
@@ -189,7 +185,6 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <svg
     aria-hidden={true}
@@ -225,7 +220,6 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -266,7 +260,6 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -302,7 +295,6 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
@@ -361,7 +353,6 @@ exports[`Chips renders correctly renders correctly without close button 1`] = `
       "backgroundColor": "var(--primary-selected-color)",
     }
   }
-  tabIndex={-1}
 >
   <div
     className="label"
