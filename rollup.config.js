@@ -65,7 +65,6 @@ export default {
     if(styleExists) return;
     
     const style = document.createElement('style');
-    style.type = 'text/css';
     style.id = id;
   
     if (insertAt === 'top') {
