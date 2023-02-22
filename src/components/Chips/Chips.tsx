@@ -192,13 +192,16 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       : {
           tabIndex: isOverflowing ? 0 : undefined,
           "aria-label": isOverflowing ? ariaLabel || label : undefined,
+          className: cx(overrideClassName, {
+            [clickableClassName]: isOverflowing,
+            [styles.defaultCursor]: isOverflowing
+          }),
+          style: backgroundColorStyle,
           ref: mergedRef,
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": overrideDataTestId,
-          className: cx(overrideClassName, { [clickableClassName]: isOverflowing }),
-          style: backgroundColorStyle
+          "data-testid": overrideDataTestId
         };
 
     return (
