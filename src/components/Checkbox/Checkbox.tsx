@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, FC } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
