@@ -149,6 +149,24 @@ e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
   </Story>
 </Canvas>
 
+### Overflowing chip
+
+[Example for designer]. Probably shouldn't be in storybook, right? Though second example might be useful for developer
+
+<Canvas>
+  <Story name="Overflowing chip">
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+      <Chips label="Chip with limited width" className="monday-storybook-chips_overflowing_chip" />
+      <div className="monday-storybook-chips_overflowing_chip_container">
+        <Chips
+          label="Chip inside container with limited width"
+          className="monday-storybook-chips_overflowing_chip_container--chip"
+        />
+      </div>
+    </Flex>
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 
 <ComponentRules
