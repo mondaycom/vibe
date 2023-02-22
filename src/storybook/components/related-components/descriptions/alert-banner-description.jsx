@@ -20,6 +20,7 @@ export const AlertBannerDescription = () => {
     <RelatedComponent
       component={component}
       title="Alert banner"
+      href="/?path=/docs/feedback-alertbanner--overview"
       description="Noticed high-signal messages, such as system alerts."
     />
   );

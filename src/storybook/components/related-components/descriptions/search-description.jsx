@@ -13,5 +13,12 @@ export const SearchDescription = () => {
       </div>
     );
   }, []);
-  return <RelatedComponent component={component} title="Search" description="Displays content classification." />;
+  return (
+    <RelatedComponent
+      component={component}
+      title="Search"
+      href="/?path=/docs/inputs-search--overview"
+      description="Displays content classification."
+    />
+  );
 };
