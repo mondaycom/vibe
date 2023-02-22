@@ -7,20 +7,25 @@ import { getCSSVar } from "../../services/themes";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
+import Tooltip from "../Tooltip/Tooltip";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import { BEMClass } from "../../helpers/bem-helper";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
 
 const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
 const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
+
+const showTriggers = [Tooltip.hideShowTriggers.MOUSE_ENTER, Tooltip.hideShowTriggers.FOCUS];
+const hideTriggers = [Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.BLUR];
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -111,13 +116,15 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
 
-    const focusRef = useRef(null);
-    const [hoverRef, isHovered] = useHover();
-    const { isFocused } = useSetFocus({ ref: focusRef });
-
     const iconButtonRef = useRef(null);
+    const labelRef = useRef(null);
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef, focusRef] });
+
+    const [hoverRef, isHovered] = useHover();
+    const { isFocused } = useSetFocus({ ref: componentRef });
+    const isOverflowing = useIsOverflowing({ ref: labelRef });
+
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
     const backgroundColorStyle = useMemo(() => {
       let cssVar;
@@ -183,72 +190,78 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           style: backgroundColorStyle
         }
       : {
+          tabIndex: isOverflowing ? 0 : -1,
+          "aria-label": isOverflowing ? ariaLabel || label : undefined,
           ref: mergedRef,
           onClick: onClickCallback,
           onMouseDown,
           id: id,
           "data-testid": overrideDataTestId,
-          className: overrideClassName,
+          className: cx(overrideClassName, { [clickableClassName]: isOverflowing }),
           style: backgroundColorStyle
         };
 
     return (
-      <div {...wrapperProps}>
-        {leftAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={18}
-            src={leftAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {leftIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={leftIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        <div className={styles.label}>{label}</div>
-        {rightIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={rightIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        {rightAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={16}
-            src={rightAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {hasCloseButton && (
-          <IconButton
-            size={ChipsSize.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
-            className={cx(styles.icon, styles.close)}
-            ariaLabel="Remove"
-            hideTooltip
-            icon={CloseSmall}
-            onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
-            ref={iconButtonRef}
-          />
-        )}
-      </div>
+      <Tooltip content={isOverflowing && label} showTrigger={showTriggers} hideTrigger={hideTriggers}>
+        <div {...wrapperProps}>
+          {leftAvatar ? (
+            <Avatar
+              withoutBorder
+              className={cx(styles.avatar, styles.left, avatarClassName)}
+              customSize={18}
+              src={leftAvatar}
+              type={AvatarType.IMG}
+              key={id}
+            />
+          ) : null}
+          {leftIcon ? (
+            <Icon
+              className={cx(styles.icon, styles.left, iconClassName)}
+              iconType={Icon.type.ICON_FONT}
+              clickable={false}
+              icon={leftIcon}
+              iconSize={iconSize}
+              ignoreFocusStyle
+            />
+          ) : null}
+          <div className={styles.label} ref={labelRef}>
+            {label}
+          </div>
+          {rightIcon ? (
+            <Icon
+              className={cx(styles.icon, styles.right, iconClassName)}
+              iconType={Icon.type.ICON_FONT}
+              clickable={false}
+              icon={rightIcon}
+              iconSize={iconSize}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {rightAvatar ? (
+            <Avatar
+              withoutBorder
+              className={cx(styles.avatar, styles.right, avatarClassName)}
+              customSize={16}
+              src={rightAvatar}
+              type={AvatarType.IMG}
+              key={id}
+            />
+          ) : null}
+          {hasCloseButton && (
+            <IconButton
+              size={ChipsSize.XXS}
+              color={IconButton.colors.ON_PRIMARY_COLOR}
+              className={cx(styles.icon, styles.close)}
+              ariaLabel="Remove"
+              hideTooltip
+              icon={CloseSmall}
+              onClick={onDeleteCallback}
+              dataTestId={`${overrideDataTestId}-close`}
+              ref={iconButtonRef}
+            />
+          )}
+        </div>
+      </Tooltip>
     );
   }
 );
