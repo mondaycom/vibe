@@ -3,6 +3,8 @@
 @import "../../styles/themes";
 @import "../../styles/states";
 
+$disabled-on-primary-color-opacity: 0.45;
+
 .monday-style-button {
   --loader-padding: 8px;
   outline: none;
@@ -159,7 +161,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
-              opacity: 0.45;
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }
@@ -231,7 +233,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
-              opacity: 0.45;
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }
@@ -287,7 +289,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
-              opacity: 0.45;
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }
