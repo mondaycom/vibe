@@ -1,6 +1,5 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
@@ -9,11 +8,30 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Checkbox.scss";
+import { VibeComponent } from "../../types";
+
+export interface CheckBoxProps {
+  className?: string;
+  // Backward compatibility for props naming
+  componentClassName?: string;
+  checkboxClassName?: string;
+  labelClassName?: string;
+  ariaLabel?: string;
+  label?: React.ReactNode | Array<React.ReactNode>;
+  ariaLabelledBy?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  checked?: boolean;
+  indeterminate?: boolean;
+  disabled?: boolean;
+  defaultChecked?: boolean;
+  value?: string;
+  name?: string;
+  id?: string;
+}
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-// TODO TS-migration
-export const Checkbox = forwardRef(
+export const Checkbox: VibeComponent<CheckBoxProps> = forwardRef(
   (
     {
       className,
@@ -24,19 +42,19 @@ export const Checkbox = forwardRef(
       ariaLabel,
       label,
       ariaLabelledBy,
-      onChange,
+      onChange = NOOP,
       checked,
-      indeterminate,
-      disabled,
+      indeterminate = false,
+      disabled = false,
       defaultChecked,
-      value,
-      name,
+      value = "",
+      name = "",
       id
     },
     ref
   ) => {
-    const iconContainerRef = useRef(null);
-    const inputRef = useRef(null);
+    const iconContainerRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onMouseUpCallback = useCallback(() => {
@@ -71,6 +89,12 @@ export const Checkbox = forwardRef(
 
     const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
 
+    const finalAriaLabel = useMemo(() => {
+      if (ariaLabel) return ariaLabel;
+      if (typeof label === "string") return label;
+      return "";
+    }, [ariaLabel, label]);
+
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
@@ -89,7 +113,7 @@ export const Checkbox = forwardRef(
           onChange={onChange}
           defaultChecked={overrideDefaultChecked}
           disabled={disabled}
-          aria-label={ariaLabel || label}
+          aria-label={finalAriaLabel}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
         />
@@ -109,49 +133,5 @@ export const Checkbox = forwardRef(
     );
   }
 );
-
-Checkbox.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  /**
-   * Class name for the checkbox marker container
-   */
-  checkboxClassName: PropTypes.string,
-  /**
-   * Class name for the checkbox label
-   */
-  labelClassName: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.bool]),
-  ariaLabelledBy: PropTypes.string,
-  onChange: PropTypes.func,
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  value: PropTypes.string,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  ref: PropTypes.shape({
-    current: PropTypes.element
-  })
-};
-
-Checkbox.defaultProps = {
-  id: undefined,
-  className: undefined,
-  checkboxClassName: undefined,
-  labelClassName: undefined,
-  label: undefined,
-  onChange: NOOP,
-  disabled: false,
-  name: "",
-  value: "",
-  ariaLabelledBy: undefined,
-  checked: undefined,
-  indeterminate: false,
-  defaultChecked: undefined,
-  ariaLabel: undefined,
-  ref: undefined
-};
 
 export default Checkbox;

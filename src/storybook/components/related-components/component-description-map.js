@@ -37,8 +37,8 @@ import { IconButtonDescription } from "./descriptions/icon-button-description";
 import { MenuButtonDescription } from "./descriptions/menu-button-description";
 import { ClickableDescription } from "./descriptions/clickable-description/clickable-description";
 import { HiddenTextDescription } from "./descriptions/hidden-text-description";
-import { ListDescription } from "./descriptions/list";
-import { FlexDescription } from "./descriptions/flex";
+import { ListDescription } from "./descriptions/list-description";
+import { FlexDescription } from "./descriptions/flex-description";
 import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 

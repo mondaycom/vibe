@@ -2,6 +2,8 @@ const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
   Button: "components/Button/Button",
+  Checkbox: "components/Checkbox/Checkbox",
+  EditableHeading: "components/EditableHeading/EditableHeading",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
@@ -95,6 +97,7 @@ const publishedTSComponents = {
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
+  useListenFocusTriggers: "hooks/useListenFocusTriggers",
   useSwitch: "hooks/useSwitch",
   // Don't remove next line
   // plop_marker:published-hooks
