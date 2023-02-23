@@ -76,6 +76,9 @@ export interface TooltipProps extends VibeComponentProps {
    * an array of hide/show trigger - Tooltip.hideShowTriggers
    */
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
+  /**
+   * If true, prevents open Tooltip from closing on mouseEnter and closes Tooltip, when mouse leaves it
+   */
   showOnDialogEnter?: boolean;
   /**
    * A Classname to be added to <spam> element which wraps the children
