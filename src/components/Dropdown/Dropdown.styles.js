@@ -128,22 +128,25 @@ const container =
 
 const control =
   ({ size }) =>
-  (provided, { isDisabled }) => ({
-    ...provided,
-    ...getInnerSize(size),
-    ...getColor(),
-    minHeight: "30px",
-    border: "0 solid transparent",
-    borderRadius: getCSSVar("border-radius-small"),
-    ...(!isDisabled && {
-      ":hover": {
-        borderColor: "transparent",
-        borderRadius: getCSSVar("border-radius-small")
-      }
-    }),
-    cursor: "pointer",
-    ...disabledContainerStyle(isDisabled)
-  });
+  (provided, { isDisabled, selectProps }) => {
+    const { readOnly } = selectProps;
+    return {
+      ...provided,
+      ...getInnerSize(size),
+      ...getColor(),
+      minHeight: "30px",
+      border: "0 solid transparent",
+      borderRadius: getCSSVar("border-radius-small"),
+      ...(!isDisabled && {
+        ":hover": {
+          borderColor: "transparent",
+          borderRadius: getCSSVar("border-radius-small")
+        }
+      }),
+      cursor: readOnly ? "not-allowed" : "pointer",
+      ...disabledContainerStyle(isDisabled)
+    };
+  };
 
 const placeholder =
   () =>
@@ -168,9 +171,10 @@ const indicatorsContainer =
 const dropdownIndicator =
   ({ size }) =>
   (provided, { selectProps, isDisabled }) => {
+    const { menuIsOpen, readOnly } = selectProps;
     return {
       ...provided,
-      display: "flex",
+      display: readOnly ? "none" : "flex",
       alignItems: "center",
       justifyContent: "center",
       padding: "0px",
@@ -180,7 +184,7 @@ const dropdownIndicator =
       borderRadius: getCSSVar("border-radius-small"),
       svg: {
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
-        transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
+        transform: menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
       },
       color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {

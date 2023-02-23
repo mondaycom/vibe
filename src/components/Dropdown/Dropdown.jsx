@@ -23,6 +23,7 @@ const Dropdown = ({
   className,
   placeholder,
   disabled,
+  readOnly,
   onMenuOpen,
   onMenuClose,
   onFocus,
@@ -276,8 +277,9 @@ const Dropdown = ({
       noOptionsMessage={noOptionsMessage}
       placeholder={placeholder}
       isDisabled={disabled}
-      isClearable={clearable}
-      isSearchable={searchable}
+      isClearable={!readOnly && clearable}
+      isSearchable={!readOnly && searchable}
+      readOnly={readOnly}
       defaultValue={defaultValue}
       value={value}
       onMenuOpen={onMenuOpen}
@@ -295,7 +297,7 @@ const Dropdown = ({
       maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
       menuPlacement={menuPlacement}
-      menuIsOpen={menuIsOpen}
+      menuIsOpen={!readOnly && menuIsOpen}
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
@@ -339,7 +341,9 @@ Dropdown.defaultProps = {
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
   insideOverflowWithTransformContainer: false,
-  tooltipContent: ""
+  tooltipContent: "",
+  disabled: false,
+  readOnly: false
 };
 
 Dropdown.propTypes = {
@@ -355,6 +359,10 @@ Dropdown.propTypes = {
    * If set to true, dropdown will be disabled
    */
   disabled: PropTypes.bool,
+  /**
+   * If set to true, dropdown won't be editable
+   */
+  readOnly: PropTypes.bool,
   /**
    * Called when menu is opened
    */
