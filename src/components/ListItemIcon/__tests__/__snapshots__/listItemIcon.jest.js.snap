@@ -4,6 +4,13 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-hidden="true"
   className="list-item-icon list-item-icon--start"
+/>
+`;
+
+exports[`renders correctly with icon 1`] = `
+<div
+  aria-hidden="true"
+  className="list-item-icon list-item-icon--start"
 >
   <svg
     aria-hidden={true}
