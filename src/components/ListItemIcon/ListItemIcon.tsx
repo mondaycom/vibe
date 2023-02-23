@@ -1,9 +1,9 @@
-import React, { forwardRef, useRef } from "react";
+import React, { FC, forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps } from "../../types";
 import "./ListItemIcon.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
@@ -14,7 +14,7 @@ export interface ListItemIconProps extends VibeComponentProps {
   margin?: ListItemIconMargin;
 }
 
-const ListItemIcon: VibeComponent<ListItemIconProps> & {
+const ListItemIcon: FC<ListItemIconProps> & {
   margin?: typeof ListItemIconMargin;
 } = forwardRef(({ className, id, icon, margin = ListItemIconMargin.START }, ref) => {
   const componentRef = useRef(null);
