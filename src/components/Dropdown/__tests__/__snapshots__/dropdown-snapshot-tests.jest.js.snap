@@ -1255,6 +1255,78 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 </div>
 `;
 
+exports[`Dropdown renders correctly when readOnly 1`] = `
+<div
+  className="dropdown-wrapper css-bbwnb8-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-hrcn4l-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-1ht1nal-Component"
+      >
+        <div
+          className=" css-1usuuna-placeholder"
+        >
+          
+        </div>
+        <input
+          aria-autocomplete="list"
+          className="css-62g3xt-dummyInput"
+          disabled={false}
+          id="react-select-6-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          readOnly={true}
+          tabIndex="0"
+          value=""
+        />
+      </div>
+      <div
+        className=" css-1aqjfd-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1omzgld-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={false}
+            className="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            role="button"
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Dropdown renders correctly when rtl 1`] = `
 <div
   className="dropdown-wrapper css-b0xr5u-container"
@@ -2878,6 +2950,285 @@ exports[`Dropdown renders correctly with multi 1`] = `
         <div
           aria-hidden="true"
           className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={false}
+            className="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            role="button"
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown renders correctly with multi and disabled 1`] = `
+<div
+  className="dropdown-wrapper css-1gsgnpy-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-ai89z2-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-126qe5a-Component"
+      >
+        <div
+          className="value-container"
+        >
+          <div
+            className="value-container-chips without-placeholder"
+            data-testid="value-container-chips"
+          >
+            <div
+              className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              data-testid="value-container-chip"
+              id="ocean"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                }
+              }
+            >
+              <div
+                className="label"
+              >
+                Ocean
+              </div>
+            </div>
+            <div
+              className="chip-with-input-wrapper"
+            >
+              <div
+                className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                data-testid="value-container-chip"
+                id="blue"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                  }
+                }
+              >
+                <div
+                  className="label"
+                >
+                  Blue
+                </div>
+              </div>
+              <div
+                className="css-lkl2xd-Component"
+              >
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "display": "inline-block",
+                    }
+                  }
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-label="Dropdown input"
+                    autoCapitalize="none"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    disabled={true}
+                    id="react-select-13-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    spellCheck="false"
+                    style={
+                      Object {
+                        "background": 0,
+                        "border": 0,
+                        "boxSizing": "content-box",
+                        "color": "inherit",
+                        "fontSize": "inherit",
+                        "label": "input",
+                        "opacity": 1,
+                        "outline": 0,
+                        "padding": 0,
+                        "width": "1px",
+                      }
+                    }
+                    tabIndex="0"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    style={
+                      Object {
+                        "height": 0,
+                        "left": 0,
+                        "overflow": "scroll",
+                        "position": "absolute",
+                        "top": 0,
+                        "visibility": "hidden",
+                        "whiteSpace": "pre",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+      <div
+        className=" css-slt7ro-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="icon_component"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown renders correctly with multi and readonly 1`] = `
+<div
+  className="dropdown-wrapper css-bbwnb8-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-hrcn4l-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-yilbcx-Component"
+      >
+        <div
+          className="value-container"
+        >
+          <div
+            className="value-container-chips without-placeholder"
+            data-testid="value-container-chips"
+          >
+            <div
+              className="chips chips--wrapper multiselect-chip-single-line noAnimation"
+              data-testid="value-container-chip"
+              id="ocean"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "var(--primary-selected-color)",
+                }
+              }
+            >
+              <div
+                className="label"
+              >
+                Ocean
+              </div>
+            </div>
+            <div
+              className="chip-with-input-wrapper"
+            >
+              <div
+                className="chips chips--wrapper multiselect-chip-single-line noAnimation"
+                data-testid="value-container-chip"
+                id="blue"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "var(--primary-selected-color)",
+                  }
+                }
+              >
+                <div
+                  className="label"
+                >
+                  Blue
+                </div>
+              </div>
+              <input
+                aria-autocomplete="list"
+                className="css-62g3xt-dummyInput"
+                disabled={false}
+                id="react-select-14-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                readOnly={true}
+                tabIndex="0"
+                value=""
+              />
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+      <div
+        className=" css-1aqjfd-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1omzgld-indicatorContainer"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
