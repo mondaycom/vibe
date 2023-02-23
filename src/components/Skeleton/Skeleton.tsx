@@ -39,7 +39,6 @@ const Skeleton: FC<SkeletonProps> & {
   height,
   fullWidth = false
 }) => {
-  console.log(fullWidth);
   const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
 
   // Skeleton has sizes only for text type, other types support only custom size

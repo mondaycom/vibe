@@ -8,7 +8,7 @@ interface ExampleContent {
 export const ExampleContent: FC<ExampleContent> = ({ rowsCount = 3 }) => {
   const children = Array.from({ length: rowsCount }, (_value, index: number) => (
     <Flex key={index} gap={Flex.gaps.SMALL} style={{ width: "100%" }}>
-      <Skeleton type={Skeleton.types.CIRCLE} />
+      <Skeleton type={Skeleton.types.CIRCLE} width={20} height={20} />
       <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} fullWidth />
     </Flex>
   ));

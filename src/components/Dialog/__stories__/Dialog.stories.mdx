@@ -29,7 +29,7 @@ export const metaSettings = createStoryMetaSettings({
 
 <!--- Component template -->
 
-export const dialogTemplate = dialogProps => {
+export const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
   const modifiers =
     // for prevent dialog to move while scrolling
     [
@@ -44,11 +44,11 @@ export const dialogTemplate = dialogProps => {
     <div className="monday-storybook-dialog--story-padding">
       <Dialog
         modifiers={modifiers}
-        shouldShowOnMount
+        shouldShowOnMount={shouldShowOnMount || true}
         {...dialogProps}
         showTrigger={[Dialog.hideShowTriggers.CLICK]}
         hideTrigger={[Dialog.hideShowTriggers.CLICK]}
-        position={Dialog.positions.RIGHT}
+        position={position || Dialog.positions.RIGHT}
         content={
           <DialogContentContainer>
             <ExampleContent />
@@ -69,8 +69,6 @@ export const dialogTemplate = dialogProps => {
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
@@ -99,7 +97,7 @@ Please be aware that the dialog component is not responsible for the appearance 
 
 <UsageGuidelines
   guidelines={[
-    "Dialog can appear from top, bottom, left or right to an element",
+    "Dialog can appear from top, bottom, left and right to an element",
     "Usually, the dialog will be positioned next to the triggered element.",
     <span>
       The Dialog component is mainly used to create customized menus that cannot be developed using our
@@ -132,9 +130,17 @@ Please be aware that the dialog component is not responsible for the appearance 
     {() => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedTopStart, onChange: onChangeTopStart } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedTopEnd, onChange: onChangeTopEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedBottom, onChange: onChangeBottom } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedBottomStart, onChange: onChangeBottomStart } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedBottomEnd, onChange: onChangeBottomEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedRight, onChange: onChangeRight } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedRightStart, onChange: onChangeRightStart } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedRightEnd, onChange: onChangeRightEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedLeft, onChange: onChangeLeft } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedLeftStart, onChange: onChangeLeftStart } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedLeftEnd, onChange: onChangeLeftEnd } = useSwitch({ defaultChecked: false });
       const modifiers =
         // for prevent dialog to move while scrolling
         [
@@ -181,6 +187,38 @@ Please be aware that the dialog component is not responsible for the appearance 
           </Dialog>
           <Dialog
             modifiers={modifiers}
+            position={Dialog.positions.BOTTOM_START} // set dialog position
+            showTrigger={[]}
+            hideTrigger={[]}
+            open={checkedBottomStart}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottomStart} active={checkedBottomStart}>
+              Bottom start
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            position={Dialog.positions.BOTTOM_END} // set dialog position
+            showTrigger={[]}
+            hideTrigger={[]}
+            open={checkedBottomEnd}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottomEnd} active={checkedBottomEnd}>
+              Bottom end
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
             showTrigger={[]}
             hideTrigger={[]}
             position={Dialog.positions.RIGHT} // set dialog position
@@ -219,7 +257,7 @@ Please be aware that the dialog component is not responsible for the appearance 
 
 ### Dialog show triggers
 
-We can chose what will be the related element's trigger which will be responsible for the dialog appearance
+We can choose what will be the related element's trigger which will be responsible for the dialog appearance
 
 <Canvas>
   <Story name="Show triggers">
@@ -464,20 +502,6 @@ We can set the triggers which will be responsible for hide the dialog
     }}
   </Story>
 </Canvas>
-
-## Use cases and examples
-
-### Control dialog show / hide states without triggers
-
-<b> Coming soon </b>
-
-### Dialog inside scrollable container
-
-<b> Coming soon </b>
-
-### Dialog for implementing customize menus
-
-<b> Coming soon </b>
 
 ## Related components
 
