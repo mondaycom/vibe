@@ -22,7 +22,7 @@ describe("EditableHeading", () => {
   });
 
   it("should render a button when editing = true", () => {
-    const { getByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing={true} />);
+    const { getByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing />);
 
     const button = getByRole("button");
 
@@ -32,7 +32,7 @@ describe("EditableHeading", () => {
   it("should render a button when editing prop changes from false to true", () => {
     const { getByRole, rerender } = render(<EditableHeading type={EditableHeading.types.h1} />);
 
-    rerender(<EditableHeading type={EditableHeading.types.h1} editing={true} />);
+    rerender(<EditableHeading type={EditableHeading.types.h1} editing />);
     const button = getByRole("button");
 
     expect(button).toBeInTheDocument();

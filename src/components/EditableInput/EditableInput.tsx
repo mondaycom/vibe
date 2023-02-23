@@ -23,6 +23,7 @@ export interface EditableInputProps extends VibeComponentProps {
   inputType?: InputType;
   autoSize?: boolean;
   autoComplete?: boolean;
+  disabled?: boolean;
   maxLength?: number;
   shouldFocusOnMount?: boolean;
   textareaSubmitOnEnter?: boolean;
@@ -32,7 +33,7 @@ export interface EditableInputProps extends VibeComponentProps {
   isValidValue?: (value: string) => boolean;
   onFinishEditing?: (value: string, event: React.KeyboardEvent | React.FocusEvent) => void;
   onArrowKeyDown?: (value: string, event: React.KeyboardEvent) => void;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onKeyPress?: () => void;
   selectOnMount?: () => void;
   ignoreBlurClass?: string;
@@ -56,6 +57,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       id,
       tabIndex,
       autoComplete = true,
+      disabled = false,
       maxLength,
       placeholder = "",
       onClick,
@@ -244,6 +246,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
         rows={rows}
         maxLength={maxLength}
         aria-label={ariaLabel}
+        disabled={disabled}
       />
     );
   }

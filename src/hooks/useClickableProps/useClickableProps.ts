@@ -1,10 +1,10 @@
-import { useKeyboardButtonPressedFunc } from "./useKeyboardButtonPressedFunc";
+import { useKeyboardButtonPressedFunc } from "../useKeyboardButtonPressedFunc";
 import React, { useRef } from "react";
-import useMergeRefs from "./useMergeRefs";
-import { getTestId } from "../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../tests/constants";
-import { ClickableProps } from "../components/Clickable/Clickable";
-import { NOOP } from "../utils/function-utils";
+import useMergeRefs from "../useMergeRefs";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { ClickableProps } from "../../components/Clickable/Clickable";
+import { NOOP } from "../../utils/function-utils";
 
 /**
  * Return props for adding clickable functionality to the element except for the styles and classNames
@@ -33,13 +33,13 @@ export default function useClickableProps(
 
   return {
     ref: mergedRef,
-    role,
     id,
     "data-testid": dataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
     onClick: disabled ? undefined : onClick,
     onKeyDown: disabled ? undefined : onKeyDown,
     onMouseDown,
     tabIndex: disabled ? -1 : Number(tabIndex),
+    role,
     "aria-label": ariaLabel,
     "aria-hidden": ariaHidden,
     "aria-haspopup": overrideAriaHasPopup,

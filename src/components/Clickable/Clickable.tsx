@@ -5,7 +5,7 @@ import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
 

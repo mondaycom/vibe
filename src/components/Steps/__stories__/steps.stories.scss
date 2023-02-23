@@ -10,12 +10,6 @@
     width: 100px;
   }
 
-  &_column-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   &_spacing {
     margin-left: 90px;
   }
@@ -36,6 +30,7 @@
   }
 
   &_color {
+    padding: var(--spacing-small);
     @include theme-prop(background-color, primary-color);
   }
 }

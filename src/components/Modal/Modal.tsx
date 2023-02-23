@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -56,9 +56,9 @@ interface ModalProps {
    *  classNames for specific parts of the dialog
    */
   classNames?: {
-    container: string;
-    overlay: string;
-    modal: string;
+    container?: string;
+    overlay?: string;
+    modal?: string;
   };
   /**
    *  Dialog content
@@ -96,11 +96,23 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     alertDialog
   });
 
+  const closeIfNotAlertType = useCallback(() => {
+    if (!alertDialog) {
+      onClose?.();
+    }
+  }, [alertDialog, onClose]);
+
   // lock body scroll when modal is open
   useBodyScrollLock({ instance });
 
   // show/hide and animate the modal
-  const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
+  useShowHideModal({
+    instance,
+    show,
+    triggerElement,
+    onClose,
+    alertDialog
+  });
 
   const header = useMemo(() => {
     const { id } = attr.title;
@@ -142,7 +154,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
-        onClick={closeDialogIfNeeded}
+        onClick={closeIfNotAlertType}
         className={cx(styles.overlay, classNames.overlay)}
         data-testid="monday-modal-overlay"
       />
