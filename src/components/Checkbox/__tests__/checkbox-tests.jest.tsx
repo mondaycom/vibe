@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import { Checkbox } from "../Checkbox";
+import Checkbox from "../Checkbox";
 
 jest.mock("../../../utils/user-agent-utils", () => {
   return {
