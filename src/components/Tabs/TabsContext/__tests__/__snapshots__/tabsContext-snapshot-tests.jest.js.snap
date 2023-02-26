@@ -3,23 +3,26 @@
 exports[`TabsContext renders correctly with activeTabId 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tabs-context"
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
+    data-testid="tab-list"
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
       <li
         aria-disabled={false}
         aria-selected={false}
-        className="tab--wrapper"
+        className="tabWrapper tab--wrapper"
+        data-testid="tab"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -28,11 +31,12 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           Second
@@ -41,16 +45,19 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
   >
     <div
-      className="tab-panel--wrapper tab-panel non-active"
+      className="tabPanelWrapper tab-panel--wrapper tabPanel tab-panel non-active non-active"
+      data-testid="tab-panel"
       role="tabpanel"
     >
       First slide
     </div>
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       role="tabpanel"
     >
       Second slide
@@ -62,23 +69,26 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
 exports[`TabsContext renders correctly with className 1`] = `
 <div
   className="tabs-context--wrapper test"
+  data-testid="tabs-context"
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
+    data-testid="tab-list"
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -87,10 +97,12 @@ exports[`TabsContext renders correctly with className 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       role="tabpanel"
     >
       First slide
@@ -102,23 +114,26 @@ exports[`TabsContext renders correctly with className 1`] = `
 exports[`TabsContext renders correctly with empty props 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tabs-context"
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
+    data-testid="tab-list"
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -127,10 +142,12 @@ exports[`TabsContext renders correctly with empty props 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       role="tabpanel"
     >
       First slide
@@ -142,24 +159,27 @@ exports[`TabsContext renders correctly with empty props 1`] = `
 exports[`TabsContext renders correctly with id 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tabs-context_test"
   id="test"
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
+    data-testid="tab-list"
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -168,10 +188,12 @@ exports[`TabsContext renders correctly with id 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       role="tabpanel"
     >
       First slide

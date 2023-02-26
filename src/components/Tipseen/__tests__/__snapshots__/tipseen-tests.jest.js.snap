@@ -151,7 +151,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -167,7 +167,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -210,7 +210,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -226,7 +226,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -269,7 +269,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -316,7 +316,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
