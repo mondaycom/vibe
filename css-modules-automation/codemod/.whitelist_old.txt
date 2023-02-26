@@ -42,12 +42,12 @@
 // monday-ui-react-core/src/components/Dropdown/components/option/option.tsx
 // 7
 // monday-ui-react-core/src/components/Clickable/Clickable.tsx
-// monday-ui-react-core/src/components/ColorPicker/ColorPicker.tsx
-// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.tsx
-// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.tsx
-// monday-ui-react-core/src/components/Combobox/Combobox.tsx
-// monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.tsx
-// monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.tsx
+// monday-ui-react-core/src/components/ColorPicker/ColorPicker.jsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.jsx
+// monday-ui-react-core/src/components/Combobox/Combobox.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx
 // 8
 // monday-ui-react-core/src/components/Banner/Banner.tsx
 // monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.tsx
@@ -64,4 +64,4 @@
 // monday-ui-react-core/src/components/MultiStepIndicator/MultiStepIndicator.tsx // set cssBaseClass in a standard way and then rerun the migration
 // monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.tsx // set cssBaseClass in a standard way and then rerun the migration
 // monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.tsx // Problematic CSS transition animation
-// monday-ui-react-core/src/components/Dropdown/Dropdown.tsx // problems with applying animation styles, though everything looks godo
+// monday-ui-react-core/src/components/Dropdown/Dropdown.jsx // problems with applying animation styles, though everything looks godo
