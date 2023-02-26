@@ -11,6 +11,10 @@
   height: fit-content;
   @include theme-prop(color, dark-color);
 
+  &__title {
+    margin: 0;
+  }
+
   &_text--compact {
     display: flex;
     align-items: center;
@@ -65,18 +69,14 @@
   }
 
   &__title-container {
-    display: flex;
-    align-items: center;
-    margin-top: 0;
     margin-bottom: var(--spacing-small);
 
-    &__icon {
-      margin-right: var(--spacing-small);
+    &:empty {
+      margin-bottom: 0;
     }
 
-    &__title {
-      font-size: 18px;
-      font-weight: 500;
+    &__icon {
+      margin-right: var(--spacing-xs);
     }
   }
 
@@ -93,4 +93,12 @@
       top: calc(50% - 16px);
     }
   }
+}
+
+.monday-style-attention-box-component {
+  font-family: var(--font-family);
+}
+
+.monday-style-attention-box-component__title-container__title {
+  font-family: var(--title-font-family);
 }

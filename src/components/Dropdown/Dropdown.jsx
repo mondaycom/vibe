@@ -3,7 +3,7 @@ import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -12,11 +12,12 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import ValueContainer from "./components/ValueContainer/ValueContainer";
-import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
+import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
+import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
-import "./Dropdown.scss";
 import Control from "./components/Control/Control";
+import { DROPDOWN_CHIP_COLORS, MENU_WRAPPER_CLASS_NAME } from "./dropdown-constants";
+import "./Dropdown.scss";
 
 const Dropdown = ({
   className,
@@ -61,11 +62,13 @@ const Dropdown = ({
   onClear,
   onInputChange,
   closeMenuOnSelect = !multi,
-  ref,
   withMandatoryDefaultOptions,
   isOptionSelected,
   insideOverflowContainer,
-  transformContainerRef
+  insideOverflowWithTransformContainer,
+  ref,
+  tooltipContent,
+  onKeyDown
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -100,7 +103,7 @@ const Dropdown = ({
       rtl,
       insideOverflowContainer,
       controlRef,
-      transformContainerRef
+      insideOverflowWithTransformContainer
     });
 
     // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -137,7 +140,7 @@ const Dropdown = ({
     }
 
     return mergedStyles;
-  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
+  }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -151,8 +154,8 @@ const Dropdown = ({
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
   const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
-    [finalValueRenderer]
+    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} selectedOption={selectedOptions[0]} />,
+    [finalValueRenderer, selectedOptions]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -175,11 +178,20 @@ const Dropdown = ({
       isDialogShown,
       isMultiline: multiline,
       insideOverflowContainer,
-      controlRef
+      insideOverflowWithTransformContainer,
+      controlRef,
+      tooltipContent
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
+    [
+      selectedOptions,
+      onOptionRemove,
+      isDialogShown,
+      multiline,
+      insideOverflowContainer,
+      insideOverflowWithTransformContainer,
+      tooltipContent
+    ]
   );
-
   const onChange = (option, event) => {
     if (customOnChange) {
       customOnChange(option, event);
@@ -229,7 +241,16 @@ const Dropdown = ({
     })
   };
 
-  const closeMenuOnScroll = useCallback(() => insideOverflowContainer, [insideOverflowContainer]);
+  const closeMenuOnScroll = useCallback(
+    event => {
+      const scrolledElement = event.target;
+      if (scrolledElement?.parentElement?.classList.contains(MENU_WRAPPER_CLASS_NAME)) {
+        return false;
+      }
+      return insideOverflowContainer || insideOverflowWithTransformContainer;
+    },
+    [insideOverflowContainer, insideOverflowWithTransformContainer]
+  );
 
   return (
     <DropDownComponent
@@ -242,10 +263,10 @@ const Dropdown = ({
         Input,
         Option,
         Control,
-        ...(finalValueRenderer && { SingleValue }),
+        SingleValue,
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-          ValueContainer
+          ValueContainer: MultiValueContainer
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
@@ -264,6 +285,7 @@ const Dropdown = ({
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       onInputChange={onInputChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
@@ -281,6 +303,7 @@ const Dropdown = ({
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
+      aria-details={tooltipContent}
       {...asyncAdditions}
       {...additions}
     />
@@ -288,6 +311,7 @@ const Dropdown = ({
 };
 
 Dropdown.size = SIZES;
+Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 
 Dropdown.defaultProps = {
   className: "",
@@ -308,13 +332,14 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   onOptionRemove: undefined,
-  id: undefined,
+  id: DROPDOWN_ID,
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
-  transformContainerRef: undefined
+  insideOverflowWithTransformContainer: false,
+  tooltipContent: ""
 };
 
 Dropdown.propTypes = {
@@ -518,9 +543,13 @@ Dropdown.propTypes = {
    */
   insideOverflowContainer: PropTypes.bool,
   /**
-   * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
+   * For display the drop down menu in overflow hidden/scroll container which contains transform css function usage.
    */
-  transformContainerRef: PropTypes.object
+  insideOverflowWithTransformContainer: PropTypes.bool,
+  /**
+   * When content is passed, the dropdown will include a tooltip on the dropdown's value.
+   */
+  tooltipContent: PropTypes.string
 };
 
 export default Dropdown;

@@ -1,10 +1,10 @@
-.monday-style-story-avatar {
+.monday-storybook-avatar {
   &_multiple {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 20px 10px 20px;
-    .monday-style-avatar {
+    .multiple-avatar {
       margin: -8px;
     }
   }
@@ -13,7 +13,7 @@
     display: flex;
     align-items: flex-start;
 
-    .monday-style-avatar {
+    .multiple-reverse-avatar {
       margin: -5px;
       &:first-child {
         z-index: 2;

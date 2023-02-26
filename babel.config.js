@@ -1,7 +1,33 @@
-const { testing } = process.env;
-const TESTING_STORYBOOK = testing === "storybook";
+const TESTING_STORYBOOK = process.env.testing === "storybook";
+
 module.exports = api => {
-  api.cache.using(() => process.env.NODE_ENV);
+  const env = process.env.NODE_ENV;
+  const storybook = !!process.env.storybook;
+  api.cache.using(() => env);
+
+  const plugins = [
+    "react-require",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        loose: true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-methods",
+      {
+        loose: true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-property-in-object",
+      {
+        loose: true
+      }
+    ],
+    storybook ? "react-docgen" : undefined,
+    "transform-react-remove-prop-types"
+  ].filter(Boolean);
 
   return {
     env: {
@@ -13,7 +39,7 @@ module.exports = api => {
       [
         "@babel/preset-env",
         {
-          modules: "commonjs",
+          modules: env === "test" ? "commonjs" : false,
           targets: TESTING_STORYBOOK
             ? {
                 node: "current"
@@ -29,27 +55,6 @@ module.exports = api => {
       ],
       "@babel/preset-react"
     ],
-    plugins: [
-      "react-require",
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          loose: true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-private-methods",
-        {
-          loose: true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-private-property-in-object",
-        {
-          loose: true
-        }
-      ],
-      "react-docgen"
-    ]
+    plugins
   };
 };

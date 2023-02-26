@@ -17,6 +17,7 @@ export const TextFieldDescription = () => {
     <RelatedComponent
       component={component}
       title="Input field"
+      href="/?path=/docs/inputs-textfield--overview"
       description="Allows users take actions with a single click."
     />
   );

@@ -5,8 +5,8 @@ import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { defaultPlaySuite } from "../__tests__/combobox-interactions";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer.jsx";
-import Button from "../../Button/Button.jsx";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
 import { Update, Time, Upgrade, ThumbsUp, Wand, Person } from "../../Icon/Icons";
 import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
@@ -56,7 +56,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
         { id: "2", label: "Option 2" },
         { id: "3", label: "Option 3" }
       ],
-        onClick: () =>  alert("clicked"),
+      onClick: () => alert("clicked"),
       placeholder: "Placeholder text here",
       clearFilterOnSelection: true
     }}
@@ -67,7 +67,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
 
 ## Props
 
-<ArgsTable of={Combobox} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -368,19 +368,15 @@ better user experience.
         []
       );
       return (
-        <Flex
-          gap={Flex.gaps.SMALL}
-          style={{ width: "100%" }}
-          justify={Flex.justify.SPACE_AROUND}
-          align={Flex.align.START}
-        >
+        <Flex gap={Flex.gaps.SMALL} style={{ width: "100%" }} justify={Flex.justify.CENTER} align={Flex.align.START}>
           <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
             align={Flex.align.START}
             description="Virtualization optimization without categories"
             vertical
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
-            <div style={{ width: "300px" }}>
+            <div style={{ width: "280px" }}>
               <DialogContentContainer>
                 <Combobox
                   options={options}
@@ -392,14 +388,35 @@ better user experience.
             </div>
           </StoryDescription>
           <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
             align={Flex.align.START}
             description="Virtualization optimization with categories"
             vertical
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
-            <div style={{ width: "300px" }}>
+            <div style={{ width: "280px" }}>
               <DialogContentContainer>
                 <Combobox
+                  options={options}
+                  renderOnlyVisibleOptions
+                  categories={categories}
+                  placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
+                />
+              </DialogContentContainer>
+            </div>
+          </StoryDescription>
+          <StoryDescription
+            className="combobox-stories-styles_virtualized-description"
+            align={Flex.align.START}
+            description="Virtualization optimization with sticky categories"
+            vertical
+            headerStyle={{ width: "70%", textAlign: "start" }}
+          >
+            <div style={{ width: "280px" }}>
+              <DialogContentContainer>
+                <Combobox
+                  stickyCategories
                   options={options}
                   renderOnlyVisibleOptions
                   categories={categories}

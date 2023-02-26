@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalContent renders correctly with children 1`] = `
+<div
+  className="container"
+>
+  <div>
+    children
+  </div>
+</div>
+`;
+
+exports[`ModalContent renders correctly with empty props 1`] = `
+<div
+  className="container"
+/>
+`;

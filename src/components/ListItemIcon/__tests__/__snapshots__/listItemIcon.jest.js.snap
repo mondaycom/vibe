@@ -4,15 +4,22 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-hidden="true"
   className="list-item-icon list-item-icon--start"
+/>
+`;
+
+exports[`renders correctly with icon 1`] = `
+<div
+  aria-hidden="true"
+  className="list-item-icon list-item-icon--start"
 >
   <svg
     aria-hidden={true}
     className="icon_component icon_component--no-focus-style"
     fill="currentColor"
-    height="18"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="18"
+    width="20"
   >
     <path
       clipRule="evenodd"

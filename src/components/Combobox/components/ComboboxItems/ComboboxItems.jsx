@@ -8,13 +8,14 @@ import {
   createOptionItemObject
 } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../../components/ComboboxConstants";
+import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
 export const ComboboxItems = forwardRef(
   (
     {
       className,
+      optionClassName,
       categories,
       options,
       filterValue,
@@ -38,11 +39,11 @@ export const ComboboxItems = forwardRef(
     const style = useMemo(() => {
       if (maxOptionsWithoutScroll) {
         // Adding 0.5 to show next option to indicate scroll is available
-        const maxCount = Math.min(options.length, maxOptionsWithoutScroll + 0.5);
+        const maxCount = Math.min(options.length + Object.keys(categories ?? {}).length, maxOptionsWithoutScroll + 0.5);
         return { height: optionLineHeight * maxCount };
       }
       return undefined;
-    }, [maxOptionsWithoutScroll, optionLineHeight, options]);
+    }, [maxOptionsWithoutScroll, optionLineHeight, options, categories]);
 
     const createItemElementRenderer = useCallback(
       (item, index, style) =>
@@ -56,6 +57,7 @@ export const ComboboxItems = forwardRef(
             onOptionLeave
           },
           optionRenderData: {
+            className: optionClassName,
             optionLineHeight,
             optionRenderer,
             visualFocusItemIndex,

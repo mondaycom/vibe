@@ -1,0 +1,24 @@
+{
+  "include": ["src/**/*", "types/**/*"],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "target": "es6",
+    "module": "CommonJS",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declarationDir": "dist/types",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "esModuleInterop": true
+  }
+}

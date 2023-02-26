@@ -29,6 +29,21 @@ You also need to import Main CSS file to your project
 import "monday-ui-react-core/dist/main.css"
 ```
 
+### Font installation
+We don't import fonts ourselves, we work best with the following fonts - 
+Poppins, Figtree and Roboto, we recommend adding the following `link` import to your application
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+```
+
+
+### Peer dependecies
+We are relaient on React and React DOM, we are using them as externals and we don't package them to the package so you must have them in your project
+
+
 ## Storybook
 We are using storybook in order to develop the components independently from any consumer.
 run this to build & run the storybook locally:

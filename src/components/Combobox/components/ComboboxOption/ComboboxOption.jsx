@@ -1,15 +1,16 @@
-import React, { useCallback, useEffect, useRef, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
-import useIsOverflowing from "../../../../hooks/useIsOverflowing";
-import { keyCodes } from "../../../../constants/KeyCodes";
-import { getOptionId } from "../../ComboboxHelpers/ComboboxHelpers";
+import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
+import { keyCodes } from "../../../../constants/keyCodes";
+import { getOptionId } from "../../helpers";
 import "./ComboboxOption.scss";
 
 const ComboboxOption = ({
   index,
   option,
+  className,
   isActive,
   visualFocus,
   scrollRef,
@@ -139,7 +140,7 @@ const ComboboxOption = ({
         onClick={onClick}
         onKeyDown={onKeyDown}
         onMouseLeave={onMouseLEave}
-        className={cx("combobox-option", {
+        className={cx("combobox-option", className, {
           disabled,
           selected,
           active: isActive,

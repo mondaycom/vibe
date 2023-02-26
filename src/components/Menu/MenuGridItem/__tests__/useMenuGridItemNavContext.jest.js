@@ -1,5 +1,5 @@
 import { cleanup, renderHook } from "@testing-library/react-hooks";
-import { NAV_DIRECTIONS } from "../../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "../../../../hooks/useFullKeyboardListeners";
 import * as GridKeyboardNavigationContextModule from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "../useMenuGridItemNavContext";
 
@@ -27,9 +27,9 @@ describe("useMenuGridItemNavContext", () => {
       const mockedInnerUseContext = { onOutboundNavigation: jest.fn() };
       const { result } = renderHookForTest({ mockedInnerUseContext });
 
-      result.current.onOutboundNavigation(outBoundingElement, NAV_DIRECTIONS.UP);
+      result.current.onOutboundNavigation(outBoundingElement, NavDirections.UP);
 
-      expect(mockedInnerUseContext.onOutboundNavigation).toHaveBeenCalledWith(outBoundingElement, NAV_DIRECTIONS.UP);
+      expect(mockedInnerUseContext.onOutboundNavigation).toHaveBeenCalledWith(outBoundingElement, NavDirections.UP);
     });
 
     it("should set the previous item as active when navigating up", () => {
@@ -37,7 +37,7 @@ describe("useMenuGridItemNavContext", () => {
       const setActiveItemIndex = jest.fn();
       const { result } = renderHookForTest({ activeItemIndex: 15, getPreviousSelectableIndex, setActiveItemIndex });
 
-      result.current.onOutboundNavigation(outBoundingElement, NAV_DIRECTIONS.UP);
+      result.current.onOutboundNavigation(outBoundingElement, NavDirections.UP);
 
       expect(getPreviousSelectableIndex).toHaveBeenCalledTimes(1);
       expect(getPreviousSelectableIndex).toHaveBeenCalledWith(15);
@@ -50,7 +50,7 @@ describe("useMenuGridItemNavContext", () => {
       const setActiveItemIndex = jest.fn();
       const { result } = renderHookForTest({ activeItemIndex: 15, getNextSelectableIndex, setActiveItemIndex });
 
-      result.current.onOutboundNavigation(outBoundingElement, NAV_DIRECTIONS.DOWN);
+      result.current.onOutboundNavigation(outBoundingElement, NavDirections.DOWN);
 
       expect(getNextSelectableIndex).toHaveBeenCalledTimes(1);
       expect(getNextSelectableIndex).toHaveBeenCalledWith(15);
@@ -63,7 +63,7 @@ describe("useMenuGridItemNavContext", () => {
       const closeMenu = jest.fn();
       const { result } = renderHookForTest({ setActiveItemIndex, closeMenu });
 
-      result.current.onOutboundNavigation(outBoundingElement, NAV_DIRECTIONS.LEFT);
+      result.current.onOutboundNavigation(outBoundingElement, NavDirections.LEFT);
 
       expect(setActiveItemIndex).not.toHaveBeenCalled();
       expect(closeMenu).not.toHaveBeenCalled();
@@ -73,7 +73,7 @@ describe("useMenuGridItemNavContext", () => {
       const closeMenu = jest.fn();
       const { result } = renderHookForTest({ closeMenu, isUnderSubMenu: true });
 
-      result.current.onOutboundNavigation(outBoundingElement, NAV_DIRECTIONS.LEFT);
+      result.current.onOutboundNavigation(outBoundingElement, NavDirections.LEFT);
 
       expect(closeMenu).toHaveBeenCalledTimes(1);
     });

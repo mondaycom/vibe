@@ -11,3 +11,5 @@ UnstyledListItem.propTypes = {
 UnstyledListItem.defaultProps = {
   children: null
 };
+
+export default UnstyledListItem;

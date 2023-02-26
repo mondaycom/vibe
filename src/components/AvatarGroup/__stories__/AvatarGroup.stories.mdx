@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
 import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
@@ -10,7 +10,6 @@ import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import Slider from "../../Slider/Slider";
-import Divider from "../../Divider/Divider";
 import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./AvatarGroup.stories.module.scss";
 
@@ -63,7 +62,7 @@ Use this component if you need to stack avatars as a group.
 
 ## Props
 
-<ArgsTable of={AvatarGroup} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -270,7 +269,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
   <Story name="Hover vs Clickable">
     {() => {
       const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
-      const avatarOnClick = useCallback(avatarId => {
+      const avatarOnClick = useCallback((_event, avatarId) => {
         setLastClickedAvatarId(avatarId);
       }, []);
       const avatarsProps = [
@@ -280,7 +279,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
       ];
       const getDummyAvatarsProps = useCallback(multiplier => {
         let result = [];
-        for (let i = 0; i < multiplier; ++i) {
+        for (let i = 0; i <= multiplier; ++i) {
           result = result.concat(avatarsProps);
         }
         return result;
@@ -293,7 +292,7 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
               max={3}
               counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
             >
-              {getDummyAvatarsProps(4).map(avatarProps => (
+              {getDummyAvatarsProps(3).map(avatarProps => (
                 <Avatar {...avatarProps} />
               ))}
             </AvatarGroup>
@@ -301,8 +300,8 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
           <StoryDescription description="Counter click" vertical align={Flex.align.START}>
             <Flex>
               <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-                {getDummyAvatarsProps(4).map((avatarProps, index) => (
-                  <Avatar {...avatarProps} onClick={avatarOnClick} id={`${index}`} />
+                {getDummyAvatarsProps(3).map((avatarProps, index) => (
+                  <Avatar {...avatarProps} onClick={avatarOnClick} id={index} />
                 ))}
               </AvatarGroup>
               <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id: {lastClickedAvatarId}</div>
@@ -400,11 +399,6 @@ Counter tooltip props can be specified in order to render tooltip with custom co
           <th width={200} align="left">
             Teams
           </th>
-        </tr>
-        <tr>
-          <td colSpan={3}>
-            <Divider />
-          </td>
         </tr>
       </thead>
       <tbody>

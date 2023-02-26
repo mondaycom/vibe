@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import isFunction from "lodash/isFunction";
-import NOOP from "lodash/noop";
+import { isFunction, noop as NOOP } from "lodash-es";
 import cx from "classnames";
-import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
@@ -14,13 +14,14 @@ import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
-import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
+import { getOptionId } from "./helpers";
 import "./Combobox.scss";
 
 const Combobox = forwardRef(
   (
     {
       className,
+      optionClassName,
       id,
       placeholder,
       size,
@@ -183,7 +184,7 @@ const Combobox = forwardRef(
           "sticky-category": stickyCategories
         })}
         id={id}
-        data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
+        data-testid={getTestId(ComponentDefaultTestId.COMBOBOX, id)}
       >
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
@@ -209,6 +210,7 @@ const Combobox = forwardRef(
             options={filteredOptions}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
+            optionClassName={optionClassName}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
             visualFocusItemIndex={visualFocusItemIndex}
@@ -234,9 +236,11 @@ const Combobox = forwardRef(
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
+Combobox.defaultTestId = ComponentDefaultTestId.COMBOBOX;
 
 Combobox.propTypes = {
   className: PropTypes.string,
+  optionClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */
@@ -312,6 +316,7 @@ Combobox.propTypes = {
 
 Combobox.defaultProps = {
   className: "",
+  optionClassName: "",
   placeholder: "",
   id: "",
   noResultsMessage: "No results found",

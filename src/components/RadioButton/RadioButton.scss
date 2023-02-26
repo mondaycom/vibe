@@ -60,11 +60,15 @@
   &__radio-label {
     line-height: 21px;
     font-weight: 400;
+    font-size: var(--font-size-general-label);
     @include theme-prop(color, primary-text-color);
   }
 
   &.disabled {
     cursor: not-allowed;
+    .monday-style-radio-button-component__radio-label {
+      color: var(--disabled-text-color);
+    }
   }
 
   &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {

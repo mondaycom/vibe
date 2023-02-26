@@ -1,7 +1,7 @@
 @import "../../../styles/themes";
 @import "../../../styles/typography";
 
-.monday-style-attention-box {
+.monday-storybook-attention-box {
   &_column-wrapper {
     display: flex;
     flex-direction: column;
@@ -92,9 +92,5 @@
   &_att-box {
     width: 430px;
     margin-top: 10px;
-    .monday-style-attention-box-component__text {
-      align-content: center;
-      gap: 20px;
-    }
   }
 }

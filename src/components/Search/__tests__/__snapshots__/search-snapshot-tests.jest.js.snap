@@ -41,7 +41,7 @@ exports[`Search renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -49,6 +49,7 @@ exports[`Search renders correctly when disabled 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -68,7 +69,7 @@ exports[`Search renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -76,6 +77,7 @@ exports[`Search renders correctly when disabled 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -134,7 +136,7 @@ exports[`Search renders correctly when underline 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -142,6 +144,7 @@ exports[`Search renders correctly when underline 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -161,7 +164,7 @@ exports[`Search renders correctly when underline 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -169,6 +172,7 @@ exports[`Search renders correctly when underline 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -227,7 +231,7 @@ exports[`Search renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -235,6 +239,7 @@ exports[`Search renders correctly with className 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -254,7 +259,7 @@ exports[`Search renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -262,6 +267,7 @@ exports[`Search renders correctly with className 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -320,12 +326,13 @@ exports[`Search renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
           aria-label="Search"
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="search"
           onClick={[Function]}
           role="img"
         />
@@ -337,7 +344,7 @@ exports[`Search renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -345,6 +352,7 @@ exports[`Search renders correctly with icon 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -403,7 +411,7 @@ exports[`Search renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -411,6 +419,7 @@ exports[`Search renders correctly with id 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="testId"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -430,7 +439,7 @@ exports[`Search renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -438,6 +447,7 @@ exports[`Search renders correctly with id 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="testId"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -497,6 +507,7 @@ exports[`Search renders correctly with loading 1`] = `
         >
           <div
             className="monday-loader-component loaderContainer"
+            data-testid="loader"
             role="alert"
             title="loading"
           >
@@ -524,7 +535,7 @@ exports[`Search renders correctly with loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -532,6 +543,7 @@ exports[`Search renders correctly with loading 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -551,7 +563,7 @@ exports[`Search renders correctly with loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -559,6 +571,7 @@ exports[`Search renders correctly with loading 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -617,7 +630,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -625,6 +638,7 @@ exports[`Search renders correctly with placeholder 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -644,7 +658,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -652,6 +666,7 @@ exports[`Search renders correctly with placeholder 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -710,7 +725,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -718,6 +733,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -737,12 +753,13 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
           aria-label="Clear Search"
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="search"
           onClick={[Function]}
           role="img"
         />
@@ -793,7 +810,7 @@ exports[`Search renders correctly with underline type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -801,6 +818,7 @@ exports[`Search renders correctly with underline type 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -820,7 +838,7 @@ exports[`Search renders correctly with underline type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -828,6 +846,7 @@ exports[`Search renders correctly with underline type 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -886,7 +905,7 @@ exports[`Search renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -894,6 +913,7 @@ exports[`Search renders correctly with validation 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -913,7 +933,7 @@ exports[`Search renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -921,6 +941,7 @@ exports[`Search renders correctly with validation 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -979,7 +1000,7 @@ exports[`Search renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -987,6 +1008,7 @@ exports[`Search renders correctly with value 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1006,7 +1028,7 @@ exports[`Search renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <svg
           aria-hidden={true}
@@ -1014,6 +1036,7 @@ exports[`Search renders correctly with value 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1072,7 +1095,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1080,6 +1103,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1099,7 +1123,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1107,6 +1131,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1165,7 +1190,7 @@ exports[`Search renders correctly without props 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1173,6 +1198,7 @@ exports[`Search renders correctly without props 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1192,7 +1218,7 @@ exports[`Search renders correctly without props 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <svg
           aria-hidden={true}
@@ -1200,6 +1226,7 @@ exports[`Search renders correctly without props 1`] = `
           className="icon_component input-component__icon icon_component--no-focus-style"
           fill="currentColor"
           height="18px"
+          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"

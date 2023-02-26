@@ -1,5 +1,6 @@
 import React from "react";
 import { components } from "react-select";
+import Tooltip from "../../../../components/Tooltip/Tooltip";
 
 const Control = props => {
   const { selectProps } = props;
@@ -7,9 +8,15 @@ const Control = props => {
   const controlRef = selectProps?.selectProps?.controlRef;
   if (controlRef)
     return (
-      <div className="monday-dropdown_scrollable-wrapper" ref={controlRef}>
-        {control}
-      </div>
+      <Tooltip
+        content={selectProps?.selectProps?.tooltipContent}
+        hideTrigger={[Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.CLICK]}
+        showTrigger={[Tooltip.hideShowTriggers.MOUSE_ENTER]}
+      >
+        <div className="monday-dropdown_scrollable-wrapper" ref={controlRef}>
+          {control}
+        </div>
+      </Tooltip>
     );
   return control;
 };

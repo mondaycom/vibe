@@ -1,5 +1,5 @@
 import Dropdown from "../Dropdown";
-import {useCallback, useMemo, useRef, useState} from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings, Link } from "../../../storybook";
 import {
@@ -8,16 +8,16 @@ import {
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
 import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
-import Label from "../../Label/Label.jsx";
+import Label from "../../Label/Label";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import Avatar from "../../Avatar/Avatar.jsx";
+import Avatar from "../../Avatar/Avatar";
 import { OptionRenderer } from "./OptionRenderer.js";
-import Flex from "../../../components/Flex/Flex";
+import Flex from "../../Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Attach, Email } from "../../Icon/Icons";
-import {DialogContentContainer} from "../../index";
+import { DialogContentContainer } from "../../index";
 import Dialog from "../../Dialog/Dialog";
 import Button from "../../Button/Button";
 import "./dropdown.stories.scss";
@@ -125,7 +125,33 @@ There are three sizes available: Small, Medium, and Large
 
 <Canvas>
   <Story name="Disabled">
-    <Dropdown placeholder="Disabled" disabled className="dropdown-stories-styles_spacing" />
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      return (
+        <Flex direction={Flex.directions.ROW}>
+          <Dropdown
+            defaultValue={[options[0]]}
+            options={options}
+            disabled
+            className="dropdown-stories-styles_spacing"
+          />
+          <Dropdown
+            multi
+            defaultValue={[options[0], options[1]]}
+            options={options}
+            disabled
+            className="dropdown-stories-styles_spacing"
+          />
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -191,7 +217,7 @@ The Dropdown component supports multiple options selection in two different stat
               />
             </div>
           </StoryDescription>
-          <StoryDescription description="Mandatory default values" vertical>
+          <StoryDescription description="Mandatory default values" vertical headerStyle={{ width: 190 }}>
             <div style={{ width: "400px" }}>
               <Dropdown
                 defaultValue={[options[0]]}
@@ -235,17 +261,28 @@ The Dropdown component supports multiple options selection in two different stat
         []
       );
       return (
-        <StoryDescription vertical>
-          <div>
-            <Dropdown
-              defaultValue={[optionsAvatar[0]]}
-              options={optionsAvatar}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
+        <Flex gap={Flex.gaps.SMALL}>
+          <StoryDescription vertical description="Single value">
+            <div>
+              <Dropdown
+                defaultValue={[optionsAvatar[0]]}
+                options={optionsAvatar}
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription vertical description="Multiple values">
+            <div>
+              <Dropdown
+                defaultValue={[optionsAvatar[0]]}
+                options={optionsAvatar}
+                multi
+                multiline
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+        </Flex>
       );
     }}
   </Story>
@@ -272,11 +309,64 @@ The Dropdown component supports multiple options selection in two different stat
         []
       );
       return (
+        <Flex gap={Flex.gaps.SMALL}>
+          <StoryDescription vertical description="Single value">
+            <div>
+              <Dropdown
+                defaultValue={[optionsIcons[0]]}
+                options={optionsIcons}
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription vertical description="Multiple values">
+            <div>
+              <Dropdown
+                defaultValue={[optionsIcons[0]]}
+                options={optionsIcons}
+                multi
+                multiline
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with chip colors
+
+<Canvas>
+  <Story name="Dropdown with chip colors">
+    {() => {
+      const optionsWithChipColors = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel",
+            chipColor: Dropdown.chipColors.NEGATIVE
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi",
+            chipColor: Dropdown.chipColors.POSITIVE
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller",
+            chipColor: Dropdown.chipColors.PRIMARY
+          }
+        ],
+        []
+      );
+      return (
         <StoryDescription vertical>
           <div>
             <Dropdown
-              defaultValue={[optionsIcons[0]]}
-              options={optionsIcons}
+              defaultValue={[optionsWithChipColors[0]]}
+              options={optionsWithChipColors}
               multi
               multiline
               className="dropdown-stories-styles_with-chips"
@@ -565,49 +655,53 @@ Dropdown with group.
 </Canvas>
 
 ### Dropdown inside scrollable dialog
-Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable dialog / container, or container
-with overflow hidden content. If your dropdown container use transform css function
-(like in vibe dialogs for example), please also attached the <b>transformContainerRef</b> like in the following story:
+
+Use <b>insideOverflowContainer</b> prop attribute for displaying dropdown inside scrollable container (like our modal
+component) or container with overflow hidden content.
+Use <b>insideOverflowWithTransformContainer</b> prop attribute for displaying drop down inside scrollable container which use CSS transform function (like our dialog component) or container
+with overflow hidden content which use CSS transform function.
 
 <Canvas>
-    <Story name="Dropdown inside scrollable dialog">
-        {() => {
-            const options = useMemo(
-                () => [
-                    { value: "1", label: "Option 1" },
-                    { value: "2", label: "Option 2" },
-                    { value: "3", label: "Option 3" },
-                    { value: "4", label: "Option 4" },
-                    { value: "5", label: "Option 5" },
-                ],
-                []
-            );
-            const dialogRef = useRef();
-            const dialogStyle = {width: "300px", height: "200px", overflow: "auto"};
-            const secondDialogContent = <DialogContentContainer style={dialogStyle} ref={dialogRef}>
-                <Dropdown
-                    placeholder="Dropdown inside a scrollable dialog"
-                    options={options}
-                    insideOverflowContainer
-                    transformContainerRef={dialogRef}
-                />
-            </DialogContentContainer>;
-            return (
-                <Flex gap={Flex.gaps.LARGE}>
-                    <DialogContentContainer style={dialogStyle}>
-                        <Dropdown
-                            placeholder="Dropdown inside a scrollable dialog"
-                            options={options}
-                            insideOverflowContainer
-                        />
-                    </DialogContentContainer>
-                    <Dialog ref={dialogRef} content={secondDialogContent} hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE} showTrigger={Dialog.hideShowTriggers.CLICK}>
-                        <Button>Press me for dropdown inside dialog!</Button>
-                    </Dialog>
-                </Flex>
-            );
-        }}
-    </Story>
+  <Story name="Dropdown inside scrollable dialog">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" },
+          { value: "4", label: "Option 4" },
+          { value: "5", label: "Option 5" }
+        ],
+        []
+      );
+      const dialogRef = useRef();
+      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
+      const secondDialogContent = (
+        <DialogContentContainer style={dialogStyle} ref={dialogRef}>
+          <Dropdown
+            placeholder="Dropdown inside a scrollable dialog"
+            options={options}
+            insideOverflowWithTransformContainer
+          />
+        </DialogContentContainer>
+      );
+      return (
+        <Flex gap={Flex.gaps.LARGE}>
+          <DialogContentContainer style={dialogStyle}>
+            <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+          </DialogContentContainer>
+          <Dialog
+            ref={dialogRef}
+            content={secondDialogContent}
+            hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+            showTrigger={Dialog.hideShowTriggers.CLICK}
+          >
+            <Button>Press me for dropdown inside dialog!</Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Related components

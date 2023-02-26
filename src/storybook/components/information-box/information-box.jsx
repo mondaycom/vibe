@@ -7,8 +7,9 @@ const BASE_CSS_CLASS = "monday-storybook-information-box";
 
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
-export const InformationBox = ({ component, title, description }) => {
-  const overrideTitle = typeof title === "string" ? <InformationBoxTitle>{title}</InformationBoxTitle> : title;
+export const InformationBox = ({ component, title, description, href }) => {
+  const overrideTitle =
+    typeof title === "string" ? <InformationBoxTitle href={href}>{title}</InformationBoxTitle> : title;
 
   return (
     <section className={BASE_CSS_CLASS}>
@@ -30,3 +31,5 @@ InformationBox.defaultProps = {
   title: "",
   description: ""
 };
+
+export default InformationBox;

@@ -1,6 +1,7 @@
 import { addParameters } from "@storybook/react";
 import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withPerformance } from "storybook-addon-performance";
+import "monday-ui-style/dist/index.min.css";
 import {
   AnchorListItem,
   ComponentName,

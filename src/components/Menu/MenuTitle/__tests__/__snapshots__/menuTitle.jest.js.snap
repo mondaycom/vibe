@@ -6,7 +6,6 @@ exports[`renders correctly with caption 1`] = `
 >
   <label
     className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
-    id=""
   >
     my title
   </label>

@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal with Footer 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
+
+@@ --- --- @@
+        <p>
+          content
+        </p>
++       <div
++         class="container"
++       >
++         <p>
++           footer
++         </p>
++       </div>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`Modal with Header 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
+
+@@ --- --- @@
+      <div
+        class="container"
+      >
++       <div
++         class="container"
++       >
++         <p
++           aria-level="1"
++           class="title"
++           role="heading"
++         >
++           ModalHeader Title
++         </p>
++         <div
++           class="closeButton"
++         >
++           <span
++             class="referenceWrapper"
++           >
++             <button
++               aria-busy="false"
++               aria-disabled="false"
++               aria-label="close"
++               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
++               data-testid="icon-button"
++               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
++               type="button"
++             >
++               <svg
++                 aria-hidden="true"
++                 class="icon_component icon-button-padding icon_component--no-focus-style"
++                 fill="currentColor"
++                 height="20"
++                 viewBox="0 0 20 20"
++                 width="20"
++               >
++                 <path
++                   clip-rule="evenodd"
++                   d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
++                   fill="currentColor"
++                   fill-rule="evenodd"
++                 />
++               </svg>
++             </button>
++           </span>
++         </div>
++       </div>
+        <p>
+          content
+        </p>
+`;
+
+exports[`Modal with alertDialog 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Modal with all parts 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
+
+@@ --- --- @@
+      <div
+        class="container"
+      >
++       <div
++         class="container"
++       >
++         <p
++           aria-level="1"
++           class="title"
++           role="heading"
++         >
++           ModalHeader Title
++         </p>
++         <div
++           class="closeButton"
++         >
++           <span
++             class="referenceWrapper"
++           >
++             <button
++               aria-busy="false"
++               aria-disabled="false"
++               aria-label="close"
++               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
++               data-testid="icon-button"
++               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
++               type="button"
++             >
++               <svg
++                 aria-hidden="true"
++                 class="icon_component icon-button-padding icon_component--no-focus-style"
++                 fill="currentColor"
++                 height="20"
++                 viewBox="0 0 20 20"
++                 width="20"
++               >
++                 <path
++                   clip-rule="evenodd"
++                   d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
++                   fill="currentColor"
++                   fill-rule="evenodd"
++                 />
++               </svg>
++             </button>
++           </span>
++         </div>
++       </div>
++       <div
++         class="container"
++       >
+          <p>
+            content
+          </p>
++       </div>
++       <div
++         class="container"
++       >
++         <p>
++           footer
++         </p>
++       </div>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`Modal with base props 1`] = `
+<div
+  aria-labelledby="modal-id-title"
+  aria-modal="true"
+  class="container"
+  data-testid="monday-dialog-container"
+  id="modal-id"
+  role="dialog"
+  style="--monday-modal-z-index: 10000;"
+  tabindex="-1"
+>
+  <div
+    class="overlay"
+    data-testid="monday-modal-overlay"
+  />
+  <div
+    class="dialog default"
+    role="document"
+  >
+    <div
+      class="container"
+    >
+      <p
+        aria-level="1"
+        class="title"
+        id="modal-id-title"
+        role="heading"
+      >
+        Modal Title
+      </p>
+      <div
+        class="closeButton"
+      >
+        <span
+          class="referenceWrapper"
+        >
+          <button
+            aria-busy="false"
+            aria-disabled="false"
+            aria-label="close"
+            class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+            data-testid="icon-button"
+            style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="icon_component icon-button-padding icon_component--no-focus-style"
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <p>
+        content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal with class names 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"classNames":{"container":"container","overlay":"overlay","modal":"modal"}}
+
+@@ --- --- @@
+  <div
+    aria-labelledby="modal-id-title"
+    aria-modal="true"
+-   class="container"
++   class="container container"
+    data-testid="monday-dialog-container"
+    id="modal-id"
+    role="dialog"
+@@ --- --- @@
+    tabindex="-1"
+  >
+    <div
+-     class="overlay"
++     class="overlay overlay"
+      data-testid="monday-modal-overlay"
+    />
+    <div
+-     class="dialog default"
++     class="dialog modal default"
+      role="document"
+    >
+      <div
+`;
+
+exports[`Modal with closeButtonAriaLabel 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"closeButtonAriaLabel":"closeButtonAriaLabel"}
+
+@@ --- --- @@
+            <button
+              aria-busy="false"
+              aria-disabled="false"
+-             aria-label="close"
++             aria-label="closeButtonAriaLabel"
+              class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+              data-testid="icon-button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+`;
+
+exports[`Modal with description 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
+
+@@ --- --- @@
+          Modal Title
+        </p>
+        <div
++         class="description"
++       >
++         description
++       </div>
++       <div
+          class="closeButton"
+        >
+          <span
+`;
+
+exports[`Modal with full width 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"full_width"}
+
+@@ --- --- @@
+      data-testid="monday-modal-overlay"
+    />
+    <div
+-     class="dialog default"
++     class="dialog full"
+      role="document"
+    >
+      <div
+`;
+
+exports[`Modal with hideCloseButton 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"hideCloseButton":true}
+
+@@ --- --- @@
+        >
+          Modal Title
+        </p>
+-       <div
+-         class="closeButton"
+-       >
+-         <span
+-           class="referenceWrapper"
+-         >
+-           <button
+-             aria-busy="false"
+-             aria-disabled="false"
+-             aria-label="close"
+-             class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+-             data-testid="icon-button"
+-             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+-             type="button"
+-           >
+-             <svg
+-               aria-hidden="true"
+-               class="icon_component icon-button-padding icon_component--no-focus-style"
+-               fill="currentColor"
+-               height="20"
+-               viewBox="0 0 20 20"
+-               width="20"
+-             >
+-               <path
+-                 clip-rule="evenodd"
+-                 d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+-                 fill="currentColor"
+-                 fill-rule="evenodd"
+-               />
+-             </svg>
+-           </button>
+-         </span>
+-       </div>
+      </div>
+      <div
+        class="container"
+`;

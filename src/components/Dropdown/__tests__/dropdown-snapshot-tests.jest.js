@@ -82,6 +82,28 @@ describe("Dropdown renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with chip colors", () => {
+    const options = [
+      {
+        value: "primary",
+        label: "Primary",
+        chipColor: Dropdown.chipColors.PRIMARY
+      },
+      {
+        value: "positive",
+        label: "Positive",
+        chipColor: Dropdown.chipColors.POSITIVE
+      },
+      {
+        value: "negative",
+        label: "Negative",
+        chipColor: Dropdown.chipColors.NEGATIVE
+      }
+    ];
+    const tree = renderer.create(<Dropdown options={options} defaultValue={options} multi multiline />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with leftIcon", () => {
     const options = [
       {
@@ -107,6 +129,11 @@ describe("Dropdown renders correctly", () => {
 
   it("with defaultValue", () => {
     const tree = renderer.create(<Dropdown defaultValue={mockOptions[0]} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with tooltipContent", () => {
+    const tree = renderer.create(<Dropdown tooltipContent="tooltip content" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

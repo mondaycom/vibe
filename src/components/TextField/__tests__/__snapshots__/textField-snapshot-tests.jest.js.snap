@@ -41,7 +41,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -50,7 +50,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -99,6 +99,7 @@ exports[`TextField renders correctly when loading 1`] = `
         >
           <div
             className="monday-loader-component loaderContainer"
+            data-testid="loader"
             role="alert"
             title="loading"
           >
@@ -126,7 +127,7 @@ exports[`TextField renders correctly when loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -135,7 +136,7 @@ exports[`TextField renders correctly when loading 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -183,7 +184,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -192,7 +193,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -240,7 +241,7 @@ exports[`TextField renders correctly when required 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -249,7 +250,7 @@ exports[`TextField renders correctly when required 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -297,7 +298,7 @@ exports[`TextField renders correctly with another type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -306,7 +307,7 @@ exports[`TextField renders correctly with another type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -354,7 +355,7 @@ exports[`TextField renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -363,7 +364,7 @@ exports[`TextField renders correctly with className 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -411,7 +412,7 @@ exports[`TextField renders correctly with className 2`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -420,7 +421,7 @@ exports[`TextField renders correctly with className 2`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -468,7 +469,7 @@ exports[`TextField renders correctly with date type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -477,7 +478,7 @@ exports[`TextField renders correctly with date type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -525,7 +526,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -534,7 +535,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -582,12 +583,13 @@ exports[`TextField renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
           aria-label=""
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="input"
           onClick={[Function]}
           role="img"
         />
@@ -599,7 +601,7 @@ exports[`TextField renders correctly with icon 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -647,7 +649,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -656,7 +658,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -704,7 +706,7 @@ exports[`TextField renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -713,7 +715,7 @@ exports[`TextField renders correctly with id 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -761,7 +763,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -770,7 +772,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -818,7 +820,7 @@ exports[`TextField renders correctly with large size 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -827,7 +829,7 @@ exports[`TextField renders correctly with large size 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -875,7 +877,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -884,7 +886,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -932,7 +934,7 @@ exports[`TextField renders correctly with role 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -941,7 +943,7 @@ exports[`TextField renders correctly with role 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -989,7 +991,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
@@ -998,12 +1000,13 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
           aria-label=""
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="input"
           onClick={[Function]}
           role="img"
         />
@@ -1054,7 +1057,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -1063,7 +1066,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
     <div
@@ -1121,7 +1124,7 @@ exports[`TextField renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -1130,7 +1133,7 @@ exports[`TextField renders correctly with validation 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
     <div
@@ -1188,7 +1191,7 @@ exports[`TextField renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -1197,7 +1200,7 @@ exports[`TextField renders correctly with value 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -1245,7 +1248,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
@@ -1254,7 +1257,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>

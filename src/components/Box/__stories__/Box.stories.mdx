@@ -1,12 +1,11 @@
-import { Box, Flex, Skeleton, Button, Heading, Icon } from "../../../components";
-import { ArgsTable, Story, Canvas, Meta, Preview } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { Time, Item } from "../../Icon/Icons";
-import { RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { Box } from "../../../components";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import {
+  DIALOG_CONTENT_CONTAINER,
   DIVIDER,
-  FLEX,
-  DIALOG_CONTENT_CONTAINER
+  FLEX
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Box.stories.module.scss";
 
@@ -42,16 +41,6 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta title="Layout/Box" component={Box} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
-<!--- Component template -->
-
-export const boxTemplate = args => {
-  return (
-    <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}></Box>
-    </div>
-  );
-};
-
 <!--- Component documentation -->
 
 # Box
@@ -73,14 +62,18 @@ Its purpose is to help scaffold compositions while using Vibe's prop keys withou
 atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
 
 <Canvas>
-  <Story name="Overview" args={{ children: "Box composite component" }}>
-    {boxTemplate.bind({})}
+  <Story name="Overview">
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
+        Box composite component
+      </Box>
+    </div>
   </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={Box} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

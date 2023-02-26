@@ -1,0 +1,11 @@
+@import "../../../styles/states";
+
+.monday-storybook-use-clickable-props {
+  @include focus-style;
+  cursor: pointer;
+
+  background-color: var(--primary-selected-color);
+  padding: var(--spacing-small);
+  border-radius: var(--border-radius-small);
+  width: 40%;
+}

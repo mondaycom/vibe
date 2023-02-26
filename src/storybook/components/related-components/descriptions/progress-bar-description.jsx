@@ -17,6 +17,7 @@ export const ProgressBarDescription = () => {
     <RelatedComponent
       component={component}
       title="Progress Bar"
+      href="/?path=/docs/feedback-linearprogressbar--overview"
       description="Progress bars show continuous progress through a process, such as a percentage value."
     />
   );

@@ -11,8 +11,14 @@ module.exports = plop => {
     actions: [
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",
-        templateFile: "plop/component/component-js.txt"
+        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.tsx",
+        templateFile: "plop/component/component-ts.txt"
+      },
+      {
+        type: "append",
+        path: "src/tests/constants.ts",
+        pattern: /(\/\/ plop_marker:default-data-testid-declarations)/g,
+        template: '  {{constantCase componentName}} = "{{dashCase componentName}}",'
       },
       {
         type: "add",
@@ -49,10 +55,10 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "src/published-components.js",
+        path: "webpack/published-ts-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
         template:
-          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",'
+          '  {{properCase componentName}}: "/src/components/{{properCase componentName}}/{{properCase componentName}}",'
       }
     ]
   });

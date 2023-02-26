@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
@@ -9,7 +9,7 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { COLOR_SHAPES } from "../../ColorPickerConstants";
-import { getTestId } from "../../../../utils/test-utils";
+import { getTestId } from "../../../../tests/test-ids-utils";
 
 const ColorPickerItemComponent = ({
   color,

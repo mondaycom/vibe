@@ -1,6 +1,6 @@
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import range from "lodash/range";
+import { range } from "lodash-es";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
 import userEvent from "@testing-library/user-event";
 

@@ -1,5 +1,5 @@
 import Avatar from "../Avatar";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   AVATAR_GROUP,
@@ -71,7 +71,7 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 ## Props
 
-<ArgsTable of={Avatar} />
+<ArgsTable story={"Overview"} />
 
 ## Usage
 
@@ -222,20 +222,20 @@ Use for non-person avatars, such as a workspace or team.
     {
       positive: {
         component: (
-          <div className="monday-style-story-avatar_multiple-reverse">
-            <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
-            <Avatar size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
-            <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
+          <div className="monday-storybook-avatar_multiple">
+            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
+            <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
           </div>
         ),
         description: "Use consistent avatar sizes for common use cases to convey their purpose."
       },
       negative: {
         component: (
-          <div className="monday-style-story-avatar_multiple-reverse">
-            <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-            <Avatar size={Avatar.sizes.MEDIUM} src={person2} type={Avatar.types.IMG} />
-            <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
+          <div className="monday-storybook-avatar_multiple-reverse">
+            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
+            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.MEDIUM} src={person2} type={Avatar.types.IMG} />
+            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
           </div>
         ),
         description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
@@ -262,10 +262,10 @@ When there is more than one avatar, use an -8 margin between avatars.
 
 <Canvas>
   <Story name="Multiple avatars">
-    <MultipleStoryElementsWrapper className="monday-style-story-avatar_multiple">
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+    <MultipleStoryElementsWrapper className="monday-storybook-avatar_multiple">
+      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
     </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>

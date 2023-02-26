@@ -1,21 +1,17 @@
 import Icon from "../Icon";
 import Bolt from "../Icons/components/Bolt";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import { IconsList } from "./icon.stories.helperComponents";
 import "./Icon.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Icon,
+  enumPropNamesArray: [{ enumName: "type", propName: "iconType" }],
   iconPropNamesArray: ["icon"]
 });
 
-<Meta
-  title="Media/Icon"
-  component={ Icon }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
-/>
+<Meta title="Media/Icon" component={Icon} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -45,7 +41,7 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 
 ## Props
 
-<ArgsTable of={Icon} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -62,12 +58,7 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 
 <Canvas>
   <Story name="Vibe Icon">
-    <Icon
-        iconType={Icon.type.SVG}
-        icon={Bolt}
-        iconLabel="my bolt svg icon"
-        iconSize={16}
-    />
+    <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
   </Story>
 </Canvas>
 
@@ -94,33 +85,25 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 </Canvas>
 
 ## States
+
 ### Color
+
 As a default the icon will inherit the color of it's parent container
+
 <Canvas>
   <Story name="Color">
     <div style={{ color: "var(--color-lipstick)" }}>
-        <Icon
-            iconType={Icon.type.SVG}
-            icon={Bolt}
-            iconLabel="my bolt svg icon"
-            iconSize={16}
-        />
+      <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
     </div>
   </Story>
 </Canvas>
 
 ## Icons List
 
-Each icon is exported as a react component under the `monday-ui-react-core/dist/icons` folder or exported under one bundle `monday-ui-react-core/dist/allIcons`
-
-Just import the icon by it's name as shown in the list below
+Icons are exported by name from `monday-ui-react-core/icons`:
 
 ```javascript
-import { DoubleCheck } from "monday-ui-react-core/dist/allIcons";
-```
-
-```javascript
-import DoubleCheck from "monday-ui-react-core/dist/icons/DoubleCheck";
+import { DoubleCheck } from "monday-ui-react-core/icons";
 ```
 
 <Canvas>

@@ -1,0 +1,14 @@
+@mixin slide-in-elastic($main-translateY: -115px) {
+  0% {
+    transform: translateY($main-translateY);
+  }
+  33% {
+    transform: translateY(15px);
+  }
+  66% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

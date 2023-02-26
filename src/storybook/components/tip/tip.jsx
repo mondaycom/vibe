@@ -32,3 +32,5 @@ Tip.defaultProps = {
   children: undefined,
   className: ""
 };
+
+export default Tip;

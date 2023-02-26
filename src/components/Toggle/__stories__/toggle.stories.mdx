@@ -1,14 +1,28 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toggle from "../Toggle";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { BUTTON_GROUP, RADIO_BUTTON, CHECKBOX } from "../../../storybook/components/related-components/component-description-map";
-import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import {
+  BUTTON_GROUP,
+  CHECKBOX,
+  RADIO_BUTTON
+} from "../../../storybook/components/related-components/component-description-map";
+import {
+  ComponentRules,
+  Link,
+  MultipleStoryElementsWrapper,
+  RelatedComponents,
+  UsageGuidelines
+} from "../../../storybook/components";
 import "./toggle.stories.scss";
 
-<Meta 
-  title="Inputs/Toggle"
-  component={Toggle} 
-/>
+export const metaSettings = createStoryMetaSettings({
+  component: Toggle,
+  enumPropNamesArray: [],
+  iconPropNamesArray: [],
+  actionPropsArray: ["onChange"]
+});
+
+<Meta title="Inputs/Toggle" component={Toggle} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -17,6 +31,7 @@ export const toggleTemplate = createComponentTemplate(Toggle);
 <!--- Component documentation -->
 
 # Toggle
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -27,87 +42,124 @@ export const toggleTemplate = createComponentTemplate(Toggle);
 - [Feedback](#feedback)
 
 ## Overview
+
 Allow users to turn an single option on or off. They are usually used to activate or deactivate a specific setting.
+
 <Canvas>
-  <Story name="Overview">
-    {toggleTemplate.bind({})}
-  </Story>
+  <Story name="Overview">{toggleTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={Toggle} />
+
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use toggles when your intent is to turn something on or off instantly.",
-  "Let users know what happens when the toggle is switched by using a tooltip.",
-  <>Toggle can either be selected or not selected. They cannot be in an indeterminate state (unlike <Link href="/?path=/docs/inputs-checkbox--overview">checkboxes</Link>).</>,
-  "Use labels such as “on” and “off” or “enable” and “disable” to communicate the state of the toggle."
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Use toggles when your intent is to turn something on or off instantly.",
+    "Let users know what happens when the toggle is switched by using a tooltip.",
+    <>
+      Toggle can either be selected or not selected. They cannot be in an indeterminate state (unlike{" "}
+      <Link href="/?path=/docs/inputs-checkbox--overview">checkboxes</Link>).
+    </>,
+    "Use labels such as “on” and “off” or “enable” and “disable” to communicate the state of the toggle."
+  ]}
+/>
 
 <Tip>
-  If the user needs to choose an item from a set of options, use <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>Checkboxes</Link> instead.
+  If the user needs to choose an item from a set of options, use{" "}
+  <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Radio button
+  </Link>{" "}
+  or{" "}
+  <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Checkboxes
+  </Link>{" "}
+  instead.
 </Tip>
 
 ## Variants
+
 ### States
+
 <Canvas>
   <Story name="States">
-    <MultipleStoryElementsWrapper className="monday-style-story-toggle_column">
+    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} />
-      <Toggle  />
-      </MultipleStoryElementsWrapper>
+      <Toggle />
+    </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
 
 ### Disabled
+
 <Canvas>
   <Story name="Disabled">
-    <MultipleStoryElementsWrapper className="monday-style-story-toggle_column">
+    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
       <Toggle isDefaultSelected={false} disabled />
-      <Toggle disabled/>
+      <Toggle disabled />
     </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
-          <div className="monday-style-story-toggle_row">
+        component: (
+          <div className="monday-storybook-toggle_row">
             Dark mode <Toggle />
-          </div>,
-        description:"Use toggle only for on and off actions. We recommend not to change these lables values."
+          </div>
+        ),
+        description: "Use toggle only for on and off actions. We recommend not to change these lables values."
       },
       negative: {
-        component:
-          <div className="monday-style-story-toggle_row"> 
+        component: (
+          <div className="monday-storybook-toggle_row">
             Theme <Toggle offOverrideText="Light mode" onOverrideText="Dark mode" />
-          </div>,
-        description:<>Don’t use toggle for configurations. Instead, use <Link href="/?path=/docs/inputs-checkbox--overview" withoutSpacing>Checkboxes</Link> or <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>Radio buttons.</Link></>
+          </div>
+        ),
+        description: (
+          <>
+            Don’t use toggle for configurations. Instead, use{" "}
+            <Link href="/?path=/docs/inputs-checkbox--overview" withoutSpacing>
+              Checkboxes
+            </Link>{" "}
+            or{" "}
+            <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>
+              Radio buttons.
+            </Link>
+          </>
+        )
       }
     },
     {
       positive: {
-        component:<Toggle  />,
-        description: "Toggle will always appear with labels",
+        component: <Toggle />,
+        description: "Toggle will always appear with labels"
       },
       negative: {
-        component:
-        <div className="monday-style-story-toggle_column">
-          <Toggle offOverrideText="" /><Toggle areLabelsHidden />
-        </div>,
-        description:"Don’t remove toggle labels, since users would not know what state it represents. "
+        component: (
+          <div className="monday-storybook-toggle_column">
+            <Toggle offOverrideText="" />
+            <Toggle areLabelsHidden />
+          </div>
+        ),
+        description: "Don’t remove toggle labels, since users would not know what state it represents. "
       }
-    },
+    }
   ]}
 />
 
 ## Use cases and examples
+
 ### Turn on/ off an automation
+
 In the automations center, a user can turn the automation on or off.
+
 <Canvas>
   <Story name="Turn on/ off an automation">
     <h5>Board automations</h5>
@@ -115,6 +167,6 @@ In the automations center, a user can turn the automation on or off.
   </Story>
 </Canvas>
 
-
 ## Related components
-<RelatedComponents componentsNames={[CHECKBOX, RADIO_BUTTON, BUTTON_GROUP]}/>
+
+<RelatedComponents componentsNames={[CHECKBOX, RADIO_BUTTON, BUTTON_GROUP]} />

@@ -9,20 +9,30 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -53,7 +63,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -79,28 +89,38 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      onBlur={[Function]}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
       onClick={[Function]}
-      onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        aria-label="Person 1"
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          aria-label="Person 1"
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -131,7 +151,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -157,27 +177,37 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      onBlur={[Function]}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
       onClick={[Function]}
-      onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -208,7 +238,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -234,20 +264,30 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -278,7 +318,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -304,20 +344,30 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -325,20 +375,30 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P2
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P2
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -353,20 +413,30 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -381,20 +451,30 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -425,7 +505,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -451,20 +531,30 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P1
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P1
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -472,20 +562,30 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     style={Object {}}
   >
     <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
+      className="monday-style-clickable monday-style-avatar_clickableWrapper monday-style-clickable--disable-text-selection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={-1}
     >
-      <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      <div
+        aria-hidden={false}
+        className="monday-style-avatar_circle monday-style-avatar_circle--text"
+        style={
+          Object {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
       >
-        P2
-      </span>
+        <span
+          className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        >
+          P2
+        </span>
+      </div>
     </div>
   </div>
 </div>

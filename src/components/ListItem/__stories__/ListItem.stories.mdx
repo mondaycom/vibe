@@ -1,19 +1,22 @@
 import ListItem from "../ListItem";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import Send from "../../Icon/Icons/components/Send";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
+import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
+import { person1 } from "../../Avatar/__stories__/assets";
 
 export const metaSettings = createStoryMetaSettings({
   component: ListItem,
   enumPropNamesArray: ["size"]
-  });
+});
 
 <Meta
   title="Navigation/List/ListItem"
-  component={ ListItem }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={ListItem}
+  subcomponents={{ ListItemIcon, ListItemAvatar }}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -23,6 +26,7 @@ export const listItemTemplate = createComponentTemplate(ListItem);
 <!--- Component documentation -->
 
 # ListItem
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -30,26 +34,32 @@ export const listItemTemplate = createComponentTemplate(ListItem);
 - [Feedback](#feedback)
 
 ## Overview
+
 An item of a List component
 
 <Canvas>
-  <Story name="Overview"
-         args={{children: "List item"}}>
-    { listItemTemplate.bind({}) }
+  <Story name="Overview" args={{ children: "List item" }}>
+    {listItemTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ ListItem } />
+
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "List item can include an ListItemIcon or text.",
-  "List item icon should always be displayed before the item's text (left or right depending on the item's text language)",
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "List item can include an ListItemIcon or text.",
+    "List item icon should always be displayed before the item's text (left or right depending on the item's text language)"
+  ]}
+/>
 
 ## Variants
+
 ### States
+
 <Canvas>
   <Story name="States">
     <ListItem>Default state</ListItem>
@@ -59,6 +69,7 @@ An item of a List component
 </Canvas>
 
 ### Sizes
+
 <Canvas>
   <Story name="Sizes">
     <ListItem size={ListItem.sizes.SMALL}>Small item</ListItem>
@@ -68,10 +79,23 @@ An item of a List component
 </Canvas>
 
 ### List item with an icon
+
 <Canvas>
   <Story name="List item with an icon">
     <ListItem>
-      <ListItemIcon icon={Send}/>
-      Productivity</ListItem>
+      <ListItemIcon icon={Send} />
+      Productivity
+    </ListItem>
+  </Story>
+</Canvas>
+
+### List item with an avatar
+
+<Canvas>
+  <Story name="List item with an avatar">
+    <ListItem>
+      <ListItemAvatar src={person1} />
+      Hadas Farhi
+    </ListItem>
   </Story>
 </Canvas>

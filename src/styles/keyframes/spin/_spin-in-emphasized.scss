@@ -1,0 +1,12 @@
+@mixin spin-in-emphasized($rotate: 25deg) {
+  0% {
+    transform: rotate($rotate);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

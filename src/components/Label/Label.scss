@@ -1,6 +1,7 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
+@import "../../styles/keyframes";
 
 .monday-style-label {
   display: inline-flex;
@@ -25,7 +26,7 @@
   }
 
   &--with-animation {
-    animation: label-pop var(--motion-expressive-short) var(--motion-timing-emphasize);
+    animation: label-spin-in-emphasized var(--motion-expressive-short) var(--motion-timing-emphasize);
     transform-origin: bottom left;
   }
 
@@ -36,33 +37,40 @@
           &-primary {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, primary-color);
+
             svg {
               path {
                 @include theme-prop(fill, primary-color);
               }
             }
           }
+
           &-dark {
             @include theme-prop(color, text-color-on-inverted);
             @include theme-prop(background-color, inverted-color-background);
+
             svg {
               path {
                 @include theme-prop(fill, inverted-color-background);
               }
             }
           }
+
           &-negative {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, negative-color);
+
             svg {
               path {
                 @include theme-prop(fill, negative-color);
               }
             }
           }
+
           &-positive {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, positive-color);
+
             svg {
               path {
                 @include theme-prop(fill, positive-color);
@@ -75,38 +83,47 @@
 
     &-line {
       border: 1px solid currentColor;
+
       .monday-style-label__leg-wrapper {
         left: -1px;
         top: calc(100% + 1px);
       }
+
       &.monday-style-label {
         &--color {
           &-primary {
             @include theme-prop(color, primary-color);
+
             svg {
               path {
                 @include theme-prop(fill, primary-color);
               }
             }
           }
+
           &-dark {
             @include theme-prop(color, inverted-color-background);
+
             svg {
               path {
                 @include theme-prop(fill, inverted-color-background);
               }
             }
           }
+
           &-negative {
             @include theme-prop(color, negative-color);
+
             svg {
               path {
                 @include theme-prop(fill, negative-color);
               }
             }
           }
+
           &-positive {
             @include theme-prop(color, positive-color);
+
             svg {
               path {
                 @include theme-prop(fill, positive-color);
@@ -117,19 +134,8 @@
       }
     }
   }
+}
 
-  @keyframes label-pop {
-    0% {
-      transform: scale(0.8) rotate(25deg);
-      opacity: 0;
-    }
-
-    70% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: rotate(0deg);
-    }
-  }
+@include keyframe(label-spin-in-emphasized) {
+  @include spin-in-emphasized();
 }

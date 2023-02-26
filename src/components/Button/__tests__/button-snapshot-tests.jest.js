@@ -1,15 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import NOOP from "lodash/noop";
+import { noop as NOOP } from "lodash-es";
 import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
 
-jest.mock("../../Icon/Icon", () => {
-  const Icon = ({ icon }) => <div data-testid="icon-mock">{icon}</div>;
-  Icon.type = {};
-  return Icon;
-});
-jest.mock("../../Icon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
+jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 describe("Button renders correctly", () => {
   it("renders correctly with empty props", () => {
