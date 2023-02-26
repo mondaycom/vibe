@@ -45,7 +45,6 @@
     "modify react-core/list-title": "shell_scripts/run.sh ../../src/components/ListTitle/ListTitle.jsx",
     "modify react-core/split-button": "shell_scripts/run.sh ../../src/components/SplitButton/SplitButton.jsx",
     "modify react-core/editable-heading": "shell_scripts/run.sh ../../src/components/EditableHeading/EditableHeading.jsx",
-
     "modify tests": "shell_scripts/run.sh tests",
     "modify tests/anchor-list-item": "shell_scripts/run.sh tests/anchor-list-item.jsx",
     "modify tests/anchor-list-item-media": "shell_scripts/run.sh tests/anchor-list-item-media.jsx",
