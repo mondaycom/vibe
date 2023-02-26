@@ -1,0 +1,67 @@
+// Migrated
+// 1
+// monday-ui-react-core/src/components/Tabs/Tab/Tab.tsx
+// monday-ui-react-core/src/components/Tabs/TabPanel/TabPanel.tsx
+// monday-ui-react-core/src/components/TextWithHighlight/TextWithHighlight.tsx
+// monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.tsx
+// monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.tsx
+// 2
+// monday-ui-react-core/src/components/Toast/Toast.tsx
+// monday-ui-react-core/src/components/Toast/ToastLink/ToastLink.tsx
+// monday-ui-react-core/src/components/Tooltip/Tooltip.tsx
+// monday-ui-react-core/src/components/Tabs/TabList/TabList.tsx
+// monday-ui-react-core/src/components/Tabs/TabPanels/TabPanels.tsx
+// monday-ui-react-core/src/components/Tabs/TabsContext/TabsContext.tsx
+// 3
+// monday-ui-react-core/src/components/Search/Search.tsx
+// monday-ui-react-core/src/components/Skeleton/Skeleton.tsx
+// monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.tsx
+// monday-ui-react-core/src/components/RadioButton/RadioButton.tsx
+// monday-ui-react-core/src/components/TextField/TextField.tsx
+// 4
+// monday-ui-react-core/src/components/Icon/Icon.tsx
+// monday-ui-react-core/src/components/Label/Label.tsx
+// monday-ui-react-core/src/components/Link/Link.tsx
+// monday-ui-react-core/src/components/List/List.tsx
+// monday-ui-react-core/src/components/ListItem/ListItem.tsx
+// monday-ui-react-core/src/components/ListItemIcon/ListItemIcon.tsx
+// monday-ui-react-core/src/components/ListTitle/ListTitle.tsx
+// 5
+// monday-ui-react-core/src/components/EditableHeading.tsx
+// monday-ui-react-core/src/components/EditableInput.tsx
+// monday-ui-react-core/src/components/ExpandCollapse.tsx
+// monday-ui-react-core/src/components/FieldLabel.tsx
+// monday-ui-react-core/src/components/FormattedNumber.tsx
+// monday-ui-react-core/src/components/Heading.tsx
+// 6
+// monday-ui-react-core/src/components/Counter/Counter.tsx
+// monday-ui-react-core/src/components/Dialog/Dialog.tsx
+// monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.tsx
+// monday-ui-react-core/src/components/Divider/Divider.tsx
+// monday-ui-react-core/src/components/Dropdown/components/menu/menu.tsx
+// monday-ui-react-core/src/components/Dropdown/components/option/option.tsx
+// 7
+// monday-ui-react-core/src/components/Clickable/Clickable.tsx
+// monday-ui-react-core/src/components/ColorPicker/ColorPicker.tsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.tsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.tsx
+// monday-ui-react-core/src/components/Combobox/Combobox.tsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.tsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.tsx
+// 8
+// monday-ui-react-core/src/components/Banner/Banner.tsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.tsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.tsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbsBar.tsx
+// monday-ui-react-core/src/components/Button/Button.tsx
+// monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.tsx
+
+// Troubles
+// monday-ui-react-core/src/components/Slider/Slider.tsx // custom bem function is used - need to change that before migration
+// monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.tsx
+// monday-ui-react-core/src/components/SplitButton/SplitButton.tsx // bad looking stylesheet, wrong animation on secondaryButton click
+// monday-ui-react-core/src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.tsx // custom bem function is used - need to change that before migration
+// monday-ui-react-core/src/components/MultiStepIndicator/MultiStepIndicator.tsx // set cssBaseClass in a standard way and then rerun the migration
+// monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.tsx // set cssBaseClass in a standard way and then rerun the migration
+// monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.tsx // Problematic CSS transition animation
+// monday-ui-react-core/src/components/Dropdown/Dropdown.tsx // problems with applying animation styles, though everything looks godo
