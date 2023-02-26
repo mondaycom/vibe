@@ -6,10 +6,10 @@ import { printWithCondition } from "../utils/commonProcess/print";
 
 const camelCaseImportDeclaration = t.importDeclaration(
   [t.importSpecifier(t.identifier("camelCase"), t.identifier("camelCase"))],
-  t.stringLiteral("lodash")
+  t.stringLiteral("lodash-es")
 );
 
-// 14: Adds `import { camelCase } from "lodash"` to the top of the imports
+// 14: Adds `import { camelCase } from "lodash-es"` to the top of the imports
 export const addCamelCaseImportVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     if (state.camelCaseImported) {
