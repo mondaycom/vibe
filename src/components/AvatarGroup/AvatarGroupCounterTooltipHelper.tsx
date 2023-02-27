@@ -5,7 +5,7 @@ import Avatar, { AvatarProps } from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
-import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
+import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
 import { FlexDirection, FlexGap } from "../Flex/FlexConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 
