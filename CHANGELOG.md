@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.100.2 (2023-02-27)
+
+#### Bug Fixes
+* [#1140](https://github.com/mondaycom/monday-ui-react-core/pull/1140) Fix storybook build ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.100.1 (2023-02-27)
 
 #### Bug Fixes
