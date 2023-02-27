@@ -35,6 +35,7 @@ interface RadioButtonProps extends VibeComponentProps {
   onSelect?: (event: React.ChangeEvent<HTMLInputElement | null>) => void;
   /** controlled parameter */
   checked?: boolean;
+  /** react to click on children */
   retainChildClick?: boolean;
   /** add tab index to the children */
   childrenTabIndex?: string;
