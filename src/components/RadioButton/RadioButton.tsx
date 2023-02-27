@@ -24,7 +24,7 @@ interface RadioButtonProps extends VibeComponentProps {
   value?: string;
   /** A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted. */
   name?: string;
-    /** is disabled */
+  /** is disabled */
   disabled?: boolean;
   /** why the input is disabled */
   disabledReason?: string;
