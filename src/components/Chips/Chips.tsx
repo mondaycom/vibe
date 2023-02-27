@@ -8,7 +8,7 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Tooltip from "../Tooltip/Tooltip";
-import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
@@ -16,16 +16,13 @@ import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
 import { BEMClass } from "../../helpers/bem-helper";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
 
 const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
 const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
-
-const showTriggers = [Tooltip.hideShowTriggers.MOUSE_ENTER, Tooltip.hideShowTriggers.FOCUS];
-const hideTriggers = [Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.BLUR];
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -115,6 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
+    const overrideAriaLabel = ariaLabel || label;
 
     const iconButtonRef = useRef(null);
     const labelRef = useRef(null);
@@ -125,6 +123,24 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const isOverflowing = useIsOverflowing({ ref: labelRef });
 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
+
+    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
+      [styles.disabled]: disabled,
+      [styles.withClose]: hasCloseButton,
+      [styles.noAnimation]: noAnimation,
+      [styles.withUserSelect]: allowTextSelection
+    });
+    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
+      disabled,
+      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    });
+
+    const overflowProps = useChipOverflowTooltip({
+      isOverflowing,
+      wrapperClassName: overrideClassName,
+      clickableClassName,
+      label
+    });
 
     const backgroundColorStyle = useMemo(() => {
       let cssVar;
@@ -158,17 +174,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [onClick]
     );
 
-    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
-      [styles.disabled]: disabled,
-      [styles.withClose]: hasCloseButton,
-      [styles.noAnimation]: noAnimation,
-      [styles.withUserSelect]: allowTextSelection
-    });
-    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
-      disabled,
-      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
-    });
-
     const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
@@ -176,7 +181,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         disabled,
         id,
         dataTestId: overrideDataTestId,
-        ariaLabel: ariaLabel || label,
+        ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
         ariaExpanded: false
@@ -190,12 +195,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           style: backgroundColorStyle
         }
       : {
-          tabIndex: isOverflowing ? 0 : undefined,
-          "aria-label": isOverflowing ? ariaLabel || label : undefined,
-          className: cx(overrideClassName, {
-            [clickableClassName]: isOverflowing,
-            [styles.defaultCursor]: isOverflowing
-          }),
+          className: overrideClassName,
+          ...overflowProps.wrapperProps,
+          "aria-label": overrideAriaLabel,
           style: backgroundColorStyle,
           ref: mergedRef,
           onClick: onClickCallback,
@@ -205,7 +207,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         };
 
     return (
-      <Tooltip content={isOverflowing && label} showTrigger={showTriggers} hideTrigger={hideTriggers}>
+      <Tooltip {...overflowProps.tooltipProps}>
         <div {...wrapperProps}>
           {leftAvatar ? (
             <Avatar
