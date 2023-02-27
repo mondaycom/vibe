@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.100.3 (2023-02-27)
+
+#### Bug Fixes
+* [#1141](https://github.com/mondaycom/monday-ui-react-core/pull/1141) Fix invalid hook referemce ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.100.2 (2023-02-27)
 
 #### Bug Fixes
