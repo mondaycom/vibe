@@ -19,7 +19,7 @@ jobs:
           node-version: 16.13.1
       - name: Build & deploy Storybook to GitHub Pages
         run: |
-          npm install
+          npm ci
           npm run build-storybook -- -o static_storybook
           cd static_storybook
           echo "style.monday.com" > ./CNAME
