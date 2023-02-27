@@ -3,7 +3,7 @@ import useKeyEvent, { UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
-import { useListenFocusTriggers } from "../useListenFocusTriggers";
+import useListenFocusTriggers from "../useListenFocusTriggers";
 
 enum ArrowDirection {
   UP = "ArrowUp",
