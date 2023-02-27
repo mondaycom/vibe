@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.100.0 (2023-02-27)
+
+#### New Features
+* [#1138](https://github.com/mondaycom/monday-ui-react-core/pull/1138) add more docs ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.97.1 (2023-02-19)
 
 #### Bug Fixes
