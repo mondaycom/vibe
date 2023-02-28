@@ -1,0 +1,35 @@
+# This workflow will ensure all PRs are labeled so we can later create releases
+
+name: PR labeling for release
+on:
+  pull_request:
+    types: [labeled, unlabeled]
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for prerelase label
+        uses: docker://agilepathway/pull-request-label-checker:latest
+        with:
+          all_of: "PR: Prerelease 🚀"
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Prepare env
+        if: success()
+        uses: ./.github/workflows/prepare-release.yml
+      - name: Update version
+        if: success()
+        run: npm version prerelease
+      - name: Commit and push changes
+        if: success()
+        run: |
+          git add .
+          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
+          git tag prerelease
+          git push --follow-tags
+    - name: Publish the new version to npm
+      if: 1==2
+      run: | # Compare the latest version and the current version and publish only if the version changed
+        if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
