@@ -35,7 +35,6 @@ jobs:
         if: success()
         run: |
           git add .
-          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
           git tag prerelease
           git push --follow-tags
       - name: Publish the new version to npm
