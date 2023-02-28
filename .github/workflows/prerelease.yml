@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -35,6 +36,7 @@ jobs:
         if: success()
         run: |
           git add .
+          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
           git tag prerelease
           git push --follow-tags
       - name: Publish the new version to npm
