@@ -7,7 +7,7 @@ on:
     types: [opened, labeled, unlabeled, synchronize]
 
 jobs:
-  prerelease-branch:
+  ensure-label:
     runs-on: ubuntu-latest
     steps:
       - name: Check Labels

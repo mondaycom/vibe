@@ -28,9 +28,9 @@ jobs:
           git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
           git tag prerelease
           git push --follow-tags
-    - name: Publish the new version to npm
-      if: 1==2
-      run: | # Compare the latest version and the current version and publish only if the version changed
-        if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Publish the new version to npm
+        if: 1==2
+        run: | # Compare the latest version and the current version and publish only if the version changed
+          if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
