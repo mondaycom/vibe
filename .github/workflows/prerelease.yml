@@ -43,9 +43,9 @@ jobs:
           if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-       - uses: "marvinpinto/action-automatic-releases@latest"
-         if: success()
-         with:
-           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-           prerelease: true
-           automatic_release_tag: prerelease
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        if: success()
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          automatic_release_tag: prerelease
