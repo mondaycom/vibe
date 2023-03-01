@@ -84,6 +84,10 @@ export interface TooltipProps extends VibeComponentProps {
    * A Classname to be added to <spam> element which wraps the children
    */
   referenceWrapperClassName?: string;
+  /**
+   * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
+   */
+  addKeyboardHideShowTriggersByDefault?: boolean;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -120,7 +124,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: false,
-    referenceWrapperClassName: ""
+    referenceWrapperClassName: "",
+    addKeyboardHideShowTriggersByDefault: false
   };
   constructor(props: TooltipProps) {
     super(props);
@@ -221,7 +226,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tip,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      addKeyboardHideShowTriggersByDefault
     } = this.props;
 
     if (!children) {
@@ -246,7 +252,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       getDynamicShowDelay: this.getShowDelay,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      addKeyboardHideShowTriggersByDefault
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
