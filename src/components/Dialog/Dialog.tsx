@@ -54,6 +54,9 @@ export interface DialogProps extends VibeComponentProps {
    * Dialog.hideShowTriggers
    */
   hideTrigger?: HideShowEvent | HideShowEvent[];
+  /**
+   * If true, prevents open Dialog from closing on mouseEnter and closes Dialog, when  mouse leaves it
+   */
   showOnDialogEnter?: boolean;
   /**
    * Show the Dialog when the children are mounting

@@ -2,8 +2,18 @@
 @import "../../styles/typography";
 
 .monday-storybook-information-box-title{
-  @include content-text;
-  font-weight: bold;
-  margin-bottom: $spacing-xs;
-  margin-top: $spacing-xs;
+  &_content {
+    @include content-text-without-color;
+    font-weight: bold;
+    margin-bottom: $spacing-xs;
+    margin-top: $spacing-xs;
+    display: inline;
+    &--link {
+      cursor: pointer;
+    }
+  }
+  &_link {
+    color: var(--link-color);
+    text-decoration: none;
+  }
 }

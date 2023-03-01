@@ -14,6 +14,7 @@ export const HeadingDescription = () => {
     <RelatedComponent
       component={component}
       title="Heading"
+      href="/?path=/docs/text-heading--overview"
       description="Heading components are used to title any page sections or sub-sections in top-level page sections."
     />
   );

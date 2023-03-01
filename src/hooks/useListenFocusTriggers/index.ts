@@ -1,7 +1,7 @@
 import useEventListener from "../useEventListener";
 import { RefObject, useCallback, useRef } from "react";
 
-export function useListenFocusTriggers({
+export default function useListenFocusTriggers({
   ref,
   onFocusByKeyboard,
   onFocusByMouse
@@ -22,7 +22,7 @@ export function useListenFocusTriggers({
       if (isElementMouseDown.current) {
         onFocusByMouse?.(e);
       } else {
-        onFocusByKeyboard && onFocusByKeyboard(e);
+        onFocusByKeyboard?.(e);
       }
     },
     [onFocusByKeyboard, onFocusByMouse]

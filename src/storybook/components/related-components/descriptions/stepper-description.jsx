@@ -24,6 +24,7 @@ export const StepperDescription = () => {
     <RelatedComponent
       component={component}
       title="Stepper"
+      href="/?path=/docs/data-display-steps--overview"
       description="Compact elements that represent an input, attribute, or action."
     />
   );

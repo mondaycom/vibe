@@ -9,6 +9,7 @@ export const AvatarDescription = () => {
     <RelatedComponent
       component={component}
       title="Avatar"
+      href="/?path=/docs/media-avatar-avatar--overview"
       description="An avatar is a visual representation of a user or entity."
     />
   );

@@ -1,6 +1,5 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
@@ -9,11 +8,45 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Checkbox.scss";
+import { VibeComponentProps } from "../../types";
+
+export interface CheckBoxProps extends VibeComponentProps {
+  /** A classname to be added to the wrapping element */
+  className?: string;
+  // Backward compatibility for props naming
+  /** deprecated */
+  componentClassName?: string;
+  /** A classname to be added to the cehckbox element label */
+  checkboxClassName?: string;
+  /** A classname to be added to the label element */
+  labelClassName?: string;
+  /** A11y prop to describe the content for screen readers */
+  ariaLabel?: string;
+  /** The content to be rendered within the option */
+  label?: React.ReactNode | Array<React.ReactNode>;
+  /** A11y prop - An Id of an element which describes this option  */
+  ariaLabelledBy?: string;
+  /** callback function when the value changes */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Use this when you want to control the component, this will set the state of the component  */
+  checked?: boolean;
+  /** An in between state to display a non selected */
+  indeterminate?: boolean;
+  /** Set the option to be disabled */
+  disabled?: boolean;
+  /** the default value which the checkbox will start from  */
+  defaultChecked?: boolean;
+  /** The input control's value. When specified in the HTML, this is the initial value, and from then on it can be altered or retrieved at any time using JavaScript to access the respective HTMLInputElement object's value property. The value attribute is always optional, though should be considered mandatory for checkbox, radio, and hidden.l */
+  value?: string;
+  /** A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted. */
+  name?: string;
+  /** An id to be added the input element */
+  id?: string;
+}
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-// TODO TS-migration
-export const Checkbox = forwardRef(
+const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   (
     {
       className,
@@ -24,19 +57,19 @@ export const Checkbox = forwardRef(
       ariaLabel,
       label,
       ariaLabelledBy,
-      onChange,
+      onChange = NOOP,
       checked,
-      indeterminate,
-      disabled,
+      indeterminate = false,
+      disabled = false,
       defaultChecked,
-      value,
-      name,
+      value = "",
+      name = "",
       id
     },
     ref
   ) => {
-    const iconContainerRef = useRef(null);
-    const inputRef = useRef(null);
+    const iconContainerRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onMouseUpCallback = useCallback(() => {
@@ -71,6 +104,12 @@ export const Checkbox = forwardRef(
 
     const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
 
+    const finalAriaLabel = useMemo(() => {
+      if (ariaLabel) return ariaLabel;
+      if (typeof label === "string") return label;
+      return "";
+    }, [ariaLabel, label]);
+
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
@@ -89,7 +128,7 @@ export const Checkbox = forwardRef(
           onChange={onChange}
           defaultChecked={overrideDefaultChecked}
           disabled={disabled}
-          aria-label={ariaLabel || label}
+          aria-label={finalAriaLabel}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
         />
@@ -109,49 +148,5 @@ export const Checkbox = forwardRef(
     );
   }
 );
-
-Checkbox.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  /**
-   * Class name for the checkbox marker container
-   */
-  checkboxClassName: PropTypes.string,
-  /**
-   * Class name for the checkbox label
-   */
-  labelClassName: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.bool]),
-  ariaLabelledBy: PropTypes.string,
-  onChange: PropTypes.func,
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  value: PropTypes.string,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  ref: PropTypes.shape({
-    current: PropTypes.element
-  })
-};
-
-Checkbox.defaultProps = {
-  id: undefined,
-  className: undefined,
-  checkboxClassName: undefined,
-  labelClassName: undefined,
-  label: undefined,
-  onChange: NOOP,
-  disabled: false,
-  name: "",
-  value: "",
-  ariaLabelledBy: undefined,
-  checked: undefined,
-  indeterminate: false,
-  defaultChecked: undefined,
-  ariaLabel: undefined,
-  ref: undefined
-};
 
 export default Checkbox;

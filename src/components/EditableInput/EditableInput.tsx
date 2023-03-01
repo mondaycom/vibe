@@ -33,7 +33,7 @@ export interface EditableInputProps extends VibeComponentProps {
   isValidValue?: (value: string) => boolean;
   onFinishEditing?: (value: string, event: React.KeyboardEvent | React.FocusEvent) => void;
   onArrowKeyDown?: (value: string, event: React.KeyboardEvent) => void;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onKeyPress?: () => void;
   selectOnMount?: () => void;
   ignoreBlurClass?: string;

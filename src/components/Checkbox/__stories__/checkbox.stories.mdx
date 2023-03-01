@@ -1,6 +1,12 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import { createComponentTemplate, Link, UnstyledList, UnstyledListItem } from "../../../storybook";
+import {
+    createComponentTemplate,
+    createStoryMetaSettings,
+    Link, RelatedComponents,
+    UnstyledList,
+    UnstyledListItem
+} from "../../../storybook";
 import { Calendar } from "../../Icon/Icons";
 import {
   DROPDOWN,
@@ -10,10 +16,9 @@ import {
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import "./checkbox.stories.scss";
 
-<Meta
-  title="Inputs/Checkbox"
-  component={ Checkbox }
-/>
+export const metaSettings = createStoryMetaSettings({ component: Checkbox });
+
+<Meta title="Inputs/Checkbox" component={Checkbox} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -22,6 +27,7 @@ export const checkboxTemplate = createComponentTemplate(Checkbox);
 <!--- Component documentation -->
 
 # Checkbox
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -32,36 +38,50 @@ export const checkboxTemplate = createComponentTemplate(Checkbox);
 - [Feedback](#feedback)
 
 ## Overview
+
 Checkboxes allow users to select one or more items from a set of options.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {label: "Option", defaultChecked: true} }>
-    { checkboxTemplate.bind({}) }
+  <Story name="Overview" args={{ label: "Option", defaultChecked: true }}>
+    {checkboxTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Checkbox } />
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  <span className="monday-storybook-checkbox_list">Use checkboxes to:
-    <span className="monday-storybook-checkbox_list-item">1. Select one or more options from a list</span>
-    <span className="monday-storybook-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
-  </span>,
-  "Use checkboxes independently from each other: selecting one checkbox shouldn’t change the selection status of another checkbox in the list. The exception is when a checkbox is used to make a bulk selection.",
-  "Ensure both label and input are clickable to select the checkbox field. ",
-  "Keep a positive tone of voice. For example: “Turn on notifications” instead of “Turn off notifications”.",
-  "Checkboxes should be listed according to a logical order.",
-  "Place checkboxes vertically, using 16px spacing.",
-  "Checkbox will always apear with a label.",
-]}/>
 
-<Tip title="Am I using the right component?">For settings that are immediately applied, consider using a <Link href="/?path=/docs/inputs-toggle--overview" size={Link.sizes.SMALL} withoutSpacing>toggle switch</Link> instead.</Tip>
+<UsageGuidelines
+  guidelines={[
+    <span className="monday-storybook-checkbox_list">
+      Use checkboxes to:
+      <span className="monday-storybook-checkbox_list-item">1. Select one or more options from a list</span>
+      <span className="monday-storybook-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
+    </span>,
+    "Use checkboxes independently from each other: selecting one checkbox shouldn’t change the selection status of another checkbox in the list. The exception is when a checkbox is used to make a bulk selection.",
+    "Ensure both label and input are clickable to select the checkbox field. ",
+    "Keep a positive tone of voice. For example: “Turn on notifications” instead of “Turn off notifications”.",
+    "Checkboxes should be listed according to a logical order.",
+    "Place checkboxes vertically, using 16px spacing.",
+    "Checkbox will always apear with a label."
+  ]}
+/>
+
+<Tip title="Am I using the right component?">
+  For settings that are immediately applied, consider using a{" "}
+  <Link href="/?path=/docs/inputs-toggle--overview" size={Link.sizes.SMALL} withoutSpacing>
+    toggle switch
+  </Link>{" "}
+  instead.
+</Tip>
 
 ## Variants
+
 ### States
+
 Has 4 states: regular, hover, selected, and disabled.
+
 <Canvas>
   <Story name="States">
     <Checkbox label="Regular" />
@@ -74,7 +94,9 @@ Has 4 states: regular, hover, selected, and disabled.
 </Canvas>
 
 ### Variants of Checkboxes' Labels
+
 Component have ability to render with:
+
 <UnstyledList>
   <UnstyledListItem>with text label</UnstyledListItem>
   <UnstyledListItem>with component label</UnstyledListItem>
@@ -86,38 +108,61 @@ Check React source and rendered HTML.
 <Canvas>
   <Story name="Labels">
     <Checkbox ariaLabel="With Label" label="With label" />
-    <Checkbox ariaLabel="With Component Label" label={<span class="custom-component-label"><Calendar size="12" />Component Label</span>} />
+    <Checkbox
+      ariaLabel="With Component Label"
+      label={
+        <span class="custom-component-label">
+          <Calendar size="12" />
+          Component Label
+        </span>
+      }
+    />
     <Checkbox ariaLabel="With Empty Label" label="" />
     <Checkbox ariaLabel="Without Label" label={false} />
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" />
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
-          </DialogContentContainer>,
+          </DialogContentContainer>
+        ),
         description: "Use checkboxes when one or more items can be selected."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" checked />
             <Checkbox label="Item 2" name="Item 2" disabled />
             <Checkbox label="Item 3" name="Item 3" disabled />
-          </DialogContentContainer>,
-        description: <>Don't use checkboxes when only one item can be selected from a list. Use <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>radio buttons</Link> instead.</>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don't use checkboxes when only one item can be selected from a list. Use{" "}
+            <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>
+              radio buttons
+            </Link>{" "}
+            instead.
+          </>
+        )
       }
     },
     {
       positive: {
-        component:<div className="monday-storybook-checkbox_border"><Checkbox label="Option" checked /></div>,
+        component: (
+          <div className="monday-storybook-checkbox_border">
+            <Checkbox label="Option" checked />
+          </div>
+        ),
         description: "Use the checkbox label’s prop to describe the option purpse."
       },
       negative: {
@@ -132,16 +177,17 @@ Check React source and rendered HTML.
     },
     {
       positive: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" />
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
-          </DialogContentContainer>,
+          </DialogContentContainer>
+        ),
         description: "Place the checkbox on the left side of the label."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <div className="monday-storybook-checkbox_inline-wrapper">
               <span>Item 1</span>
@@ -155,23 +201,26 @@ Check React source and rendered HTML.
               <span>Item 3</span>
               <Checkbox className="monday-storybook-checkbox_minus-margin" checked />
             </div>
-          </DialogContentContainer>,
-        description:"Don’t change the position of the checkbox. Keep it to the left side of the label."
+          </DialogContentContainer>
+        ),
+        description: "Don’t change the position of the checkbox. Keep it to the left side of the label."
       }
     },
     {
       positive: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Only show incomplete items" checked />
-          </DialogContentContainer>,
+          </DialogContentContainer>
+        ),
         description: "Always keep a positive tone of voice."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer className="monday-storybook-checkbox_wrapper">
             <Checkbox label="Hide done items" checked />
-          </DialogContentContainer>,
+          </DialogContentContainer>
+        ),
         description: "Avoid negative language that makes the user check the box in order for something not to happen."
       }
     }
@@ -179,8 +228,11 @@ Check React source and rendered HTML.
 />
 
 ## Use cases and examples
+
 ### Single checkbox
+
 Allows the user to choose a single option. For example: accept terms of use.
+
 <Canvas>
   <Story name="Single checkbox">
     <Checkbox checked label={
@@ -190,4 +242,5 @@ Allows the user to choose a single option. For example: accept terms of use.
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[RADIO_BUTTON, TOGGLE, DROPDOWN]} />
