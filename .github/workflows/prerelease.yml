@@ -3,29 +3,17 @@
 name: Prerelease
 
 on:
+  workflow_run:
+    workflows: [ "Test", "Chromatic" ]
+    types:
+      - completed
   pull_request:
     types: [labeled]
     if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
 
 jobs:
-  ensure-prerelease-label:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for prerelase label
-        uses: docker://agilepathway/pull-request-label-checker:latest
-        with:
-          all_of: "PR: Prerelease 🚀"
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
   prerelease:
     runs-on: ubuntu-latest
-    needs:
-      - workflow: Test
-        if: success()
-      - workflow: Chromatic
-        if: success()
-      - job: ensure-prerelease-label
-        if: success()
-    if: ${{ needs.Test.result == 'success' && needs.Chromatic.result == 'success' && needs.ensure-prerelease-label.result == 'success' }}
     steps:
       - uses: actions/checkout@v2
         with:
