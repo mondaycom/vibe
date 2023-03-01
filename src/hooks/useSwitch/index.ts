@@ -16,7 +16,8 @@ export default function useSwitch({
   onChange?: (value: boolean) => void;
   isDisabled?: boolean;
 }) {
-  const overrideCheckedInitial = isChecked === undefined ? (defaultChecked ? defaultChecked : false) : isChecked;
+  // if isChecked is empty, set defaultChecked value (default false value)
+  const overrideCheckedInitial = isChecked ?? !!defaultChecked;
   const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);
 
   const overrideOnChange = useCallback(() => {
@@ -31,7 +32,9 @@ export default function useSwitch({
   }, [isChecked, isDisabled, onChange, overrideChecked]);
 
   useEffect(() => {
-    isChecked !== undefined && setOverrideChecked(isChecked);
+    if (isChecked !== undefined) {
+      setOverrideChecked(isChecked);
+    }
   }, [isChecked]);
 
   return { isChecked: overrideChecked, onChange: overrideOnChange };

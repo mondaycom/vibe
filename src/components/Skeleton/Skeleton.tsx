@@ -51,7 +51,7 @@ const Skeleton: FC<SkeletonProps> & {
           bemHelper({ element: skeletonType, state: skeletonSize }),
           className,
           {
-            [styles.fullWidth]: bemHelper({ element: skeletonType, state: "full-width" })
+            [styles.fullWidth]: fullWidth
           }
         )}
         style={{ width, height }}
