@@ -21,7 +21,7 @@ jobs:
       - Test
       - Chromatic
       - ensure-prerelease-label
-    if: ${{ job.status == 'success' }}
+    if: ${{ needs.Test.result == 'success' && needs.Chromatic.result == 'success' && needs.ensure-prerelease-label.result == 'success' }}
     steps:
       - uses: actions/checkout@v2
         with:
