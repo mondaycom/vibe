@@ -8,17 +8,20 @@ on:
     if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
 
 jobs:
-  prerelease:
+  ensure-prerelease-label:
     runs-on: ubuntu-latest
-    needs:
-      - Test
-      - Chromatic
     steps:
       - name: Check for prerelase label
         uses: docker://agilepathway/pull-request-label-checker:latest
         with:
           all_of: "PR: Prerelease 🚀"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+  prerelease:
+    needs:
+      - Test
+      - Chromatic
+      - ensure-prerelease-label
+    steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
