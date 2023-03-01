@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import {
-  SKELETON_CUSTOM_SIZE,
   SKELETON_SIZES,
   SkeletonSizeType,
   SkeletonType,
+  ShapeSkeletonSize,
   TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -42,7 +42,7 @@ const Skeleton: FC<SkeletonProps> & {
   const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
 
   // Skeleton has sizes only for text type, other types support only custom size
-  const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
+  const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : ShapeSkeletonSize.CUSTOM;
   return (
     <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}>
       <div

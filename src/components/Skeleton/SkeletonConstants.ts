@@ -29,9 +29,3 @@ export const SKELETON_SIZES = {
 };
 
 export type SkeletonSizeType = TextSkeletonSize | ShapeSkeletonSize;
-
-export const SKELETON_ALLOWED_SIZES = {
-  CIRCLE: [SKELETON_CUSTOM_SIZE],
-  RECTANGLE: [SKELETON_CUSTOM_SIZE],
-  TEXT: [...Object.values(SKELETON_SIZES.TEXT), SKELETON_CUSTOM_SIZE]
-};
