@@ -287,6 +287,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
+  aria-label="text"
   className="chips chips--wrapper withClose"
   data-testid="chip"
   onClick={[Function]}

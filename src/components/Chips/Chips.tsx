@@ -112,7 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
-    const overrideAriaLabel = ariaLabel || label;
+    const overrideAriaLabel = ariaLabel || label ? ariaLabel || label : undefined;
 
     const iconButtonRef = useRef(null);
     const labelRef = useRef(null);
