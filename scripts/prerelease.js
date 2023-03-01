@@ -19,8 +19,11 @@ function getVersionPreid() {
 
 function pushBumpedVersion() {
   const preid = getVersionPreid();
-  execa.sync("npm", ["version", "prerelease", `--preid=${preid}`]);
-  execa.sync("git", ["tag", `prerelease-${preid}`]);
+  const versionId = execa
+    .sync("npm", ["version", "prerelease", `--preid=${preid}`])
+    .toString()
+    .trim();
+  execa.sync("git", ["tag", `prerelease-${versionId}`]);
   execa.sync("git", ["push", `--follow-tags`]);
 }
 
