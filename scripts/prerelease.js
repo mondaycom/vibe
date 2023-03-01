@@ -17,9 +17,11 @@ function getVersionPreid() {
   return branchName;
 }
 
-function bumpVersion(branchName) {
-  const preid = getVersionPreid(branchName);
+function pushBumpedVersion() {
+  const preid = getVersionPreid();
   execa.sync("npm", ["version", "prerelease", `--preid=${preid}`]);
+  execa.sync("git", ["tag", `prerelease-${preid}`]);
+  execa.sync("git", ["push", `--follow-tags`]);
 }
 
-bumpVersion();
+pushBumpedVersion();
