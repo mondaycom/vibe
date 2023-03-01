@@ -31,7 +31,9 @@ jobs:
           git config --global user.email 'deploy@monday.com'ßß
       - name: Update version
         if: success()
-        run: npm version prerelease
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+        run: npm run prerelease -- --branch-name=$BRANCH_NAME
       - name: Commit and push changes
         if: success()
         run: |
