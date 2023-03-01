@@ -19,9 +19,12 @@ jobs:
   prerelease:
     runs-on: ubuntu-latest
     needs:
-      - test-workflow
-      - chromatic
-      - ensure-prerelease-label
+      - workflow: Test
+        if: success()
+      - workflow: Chromatic
+        if: success()
+      - job: ensure-prerelease-label
+        if: success()
     if: ${{ needs.Test.result == 'success' && needs.Chromatic.result == 'success' && needs.ensure-prerelease-label.result == 'success' }}
     steps:
       - uses: actions/checkout@v2
