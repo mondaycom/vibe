@@ -2,7 +2,7 @@
 
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
-  className="chips chips--wrapper disabled"
+  className="chips chips--wrapper disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -21,7 +21,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
-  className="chips chips--wrapper withClose"
+  className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -79,7 +79,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
-  className="chips chips--wrapper withClose"
+  className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -137,7 +137,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
-  className="chips chips--wrapper"
+  className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -177,7 +177,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
-  className="chips chips--wrapper"
+  className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -212,7 +212,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
-  className="chips chips--wrapper"
+  className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -252,7 +252,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
-  className="chips chips--wrapper"
+  className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -287,7 +287,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
-  className="chips chips--wrapper withClose"
+  className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -345,7 +345,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
-  className="chips chips--wrapper"
+  className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
