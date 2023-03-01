@@ -56,7 +56,7 @@ jobs:
           comment-author: "github-actions[bot]"
           body-includes: "Prerelease version published"
       - name: Delete comment
-        if: ${{ steps.fc.outputs.comment-id }} # Otherwise it fails the workflow
+        if: ${{ steps.fc.outputs.comment-id }}
         uses: jungwinter/comment@v1
         with:
           type: delete
