@@ -30,4 +30,4 @@ function pushBumpedVersion() {
   return versionId;
 }
 
-pushBumpedVersion();
+process.stdout.write(pushBumpedVersion());
