@@ -40,8 +40,11 @@ jobs:
       - name: Create Updated version
         id: create-update-version
         if: success()
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
-          echo "package_version=$(BRANCH_NAME=${{ github.head_ref }} node ./scripts/prerelease.js)" >> $GITHUB_OUTPUT
+          package_version=$(BRANCH_NAME=$BRANCH_NAME node ./scripts/prerelease.js)
+          echo "package_version=$package_version" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
