@@ -24,9 +24,6 @@ function pushBumpedVersion() {
 
   // Notify new prerelease version was created
   console.log(`New prerelease version was created: ${versionId}`);
-
-  execa.sync("git", ["tag", `prerelease-${versionId}`]);
-  execa.sync("git", ["push", `--follow-tags`]);
 }
 
 pushBumpedVersion();
