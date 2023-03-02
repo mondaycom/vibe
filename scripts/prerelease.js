@@ -3,7 +3,8 @@
 const execa = require("execa");
 
 function getVersionPreid() {
-  const branchName = process.argv.find(arg => arg.startsWith("--branch-name=")).substring(9);
+  const branchName = process.env.BRANCH_NAME;
+  console.log("# getVersionPreid = branchName", branchName);
 
   // Find the last occurrence of the '/' character
   const index = branchName.lastIndexOf("/");
@@ -18,12 +19,15 @@ function getVersionPreid() {
 }
 
 function pushBumpedVersion() {
+  console.log("### pushBumpedVersion");
   const preid = getVersionPreid();
   const { stdout } = execa.sync("npm", ["version", "prerelease", `--preid=${preid}`]);
   const versionId = stdout.toString().trim();
+  console.log("### pushBumpedVersion versionId=", versionId);
 
   // Notify new prerelease version was created
   console.log(`New prerelease version was created: ${versionId}`);
+  return versionId;
 }
 
 pushBumpedVersion();
