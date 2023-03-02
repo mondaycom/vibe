@@ -49,5 +49,5 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Prerelease version published: ${{ env.package_version }}
+            Prerelease version published : ${{ env.package_version }}
           edit-mode: create
