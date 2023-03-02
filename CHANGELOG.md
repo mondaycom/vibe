@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.101.0 (2023-03-01)
+
+#### New Features
+* [#1124](https://github.com/mondaycom/monday-ui-react-core/pull/1124) Dialog, Tooltip addKeyboardHideShowTriggersByDefault prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1142](https://github.com/mondaycom/monday-ui-react-core/pull/1142) Use .nvmrc and npm ci in CI ([@sahariko](https://github.com/sahariko))
+
+## 1.100.3 (2023-02-27)
+
+#### Bug Fixes
+* [#1141](https://github.com/mondaycom/monday-ui-react-core/pull/1141) Fix invalid hook referemce ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.2 (2023-02-27)
+
+#### Bug Fixes
+* [#1140](https://github.com/mondaycom/monday-ui-react-core/pull/1140) Fix storybook build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.1 (2023-02-27)
+
+#### Bug Fixes
+* [#1139](https://github.com/mondaycom/monday-ui-react-core/pull/1139) Fix exported function ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.0 (2023-02-27)
+
+#### New Features
+* [#1138](https://github.com/mondaycom/monday-ui-react-core/pull/1138) add more docs ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.97.1 (2023-02-19)
 
 #### Bug Fixes
