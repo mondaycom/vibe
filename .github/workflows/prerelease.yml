@@ -24,7 +24,6 @@ jobs:
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
       - name: "Wait for tests to succeed"
-        if: false
         uses: fountainhead/action-wait-for-check@v1.1.0
         id: wait-for-tests
         with:
@@ -34,7 +33,7 @@ jobs:
           timeoutSeconds: 1200
           intervalSeconds: 20
       - name: "Tests failed - exit"
-        if: false && steps.wait-for-tests.outputs.conclusion != 'success'
+        if: steps.wait-for-tests.outputs.conclusion != 'success'
         run: |
           echo "::error::test check failed - prerelease cancelled"
           exit 1
