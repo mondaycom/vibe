@@ -24,12 +24,15 @@ jobs:
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
       - name: "Wait for tests to succeed"
-        uses: lewagon/wait-on-check-action@v1.3.1
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        id: wait-for-tests
         with:
-          ref: ${{ github.ref }}
-          check-name: "Test"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Test
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Tests failed - exit
+        if: steps.wait-for-tests.outputs.conclusion == 'failure'
+        run: exit 1
       - name: Create Updated version
         if: success()
         env:
