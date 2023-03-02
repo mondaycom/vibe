@@ -4,15 +4,15 @@ name: Prerelease
 
 on:
   workflow_run:
-    workflows: ["Test", "Chromatic"]
+    workflows: ["Test"]
     types:
       - completed
     branches:
-      - ${{ github.head_ref }}
+      - "*"
 
 jobs:
   prerelease:
-    if: "contains(github.event.head_commit.message, '[prerelease]') && ${{ github.event.workflow_run.conclusion == 'success' }}"
+    if: "contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -46,3 +46,10 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
+      - name: Create comment
+        if: success()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Prerelease version published: $(node -e "console.log(require('./package.json').version)")
