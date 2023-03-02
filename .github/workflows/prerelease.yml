@@ -43,7 +43,7 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref }}
         run: |
-          echo "package_version=$(node ./scripts/prerelease.js)" >> GITHUB_OUTPUT
+          echo "package_version=$(node ./scripts/prerelease.js)" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
