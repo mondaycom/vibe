@@ -4,12 +4,11 @@ name: Prerelease
 
 on:
   workflow_run:
-    workflows: [ "Test", "Chromatic" ]
+    workflows: ["Test", "Chromatic"]
     types:
       - completed
-  pull_request:
-    types: [labeled]
-    if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
+  push:
+    if: "contains(github.event.head_commit.message, '[prerelease]')"
 
 jobs:
   prerelease:
@@ -28,15 +27,18 @@ jobs:
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'ßß
+          git config --global user.email 'deploy@monday.com'
       - name: Push Updated version
         if: success()
         env:
           BRANCH_NAME: ${{ github.head_ref }}
         run: npm run prerelease -- --branch-name=$BRANCH_NAME
       - name: Publish the new version to npm
+        id: publish_version
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
+          echo "prerelease_version=$(node -e 'console.log(require('./package.json').version)')\n" >> $GITHUB_OUTPUT
+          echo "# prerelease_version=${{ steps.publish_version.outputs.stdout }}"
           if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -46,3 +48,11 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
+      - name: Create comment
+        if: always()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Prerelease version published: ${{ env.package_version }}
+          edit-mode: create
