@@ -135,6 +135,10 @@ export interface DialogProps extends VibeComponentProps {
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
   content?: (() => JSX.Element) | JSX.Element;
   children?: ReactElement | ReactElement[] | string;
+  /**
+   * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
+   */
+  addKeyboardHideShowTriggersByDefault?: boolean;
 }
 
 interface DialogState {
@@ -172,7 +176,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     useDerivedStateFromProps: false,
     hideWhenReferenceHidden: false,
     shoudlCallbackOnMount: false,
-    instantShowAndHide: false
+    instantShowAndHide: false,
+    addKeyboardHideShowTriggersByDefault: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -354,13 +359,29 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   isShowTrigger(eventName: HideShowEvent) {
-    const { showTrigger } = this.props;
-    return convertToArray(showTrigger).indexOf(eventName) > -1;
+    const { showTrigger, addKeyboardHideShowTriggersByDefault } = this.props;
+    const showTriggersArray = convertToArray(showTrigger);
+
+    if (addKeyboardHideShowTriggersByDefault) {
+      if (eventName === HideShowEvent.FOCUS && showTriggersArray.indexOf(HideShowEvent.MOUSE_ENTER) > -1) {
+        return true;
+      }
+    }
+
+    return showTriggersArray.indexOf(eventName) > -1;
   }
 
   isHideTrigger(eventName: HideShowEvent) {
-    const { hideTrigger } = this.props;
-    return convertToArray(hideTrigger).indexOf(eventName) > -1;
+    const { hideTrigger, addKeyboardHideShowTriggersByDefault } = this.props;
+    const hideTriggersArray = convertToArray(hideTrigger);
+
+    if (addKeyboardHideShowTriggersByDefault) {
+      if (eventName === HideShowEvent.BLUR && hideTriggersArray.indexOf(HideShowEvent.MOUSE_LEAVE) > -1) {
+        return true;
+      }
+    }
+
+    return hideTriggersArray.indexOf(eventName) > -1;
   }
 
   onMouseEnter(e: React.MouseEvent) {

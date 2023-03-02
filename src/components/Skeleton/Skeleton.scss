@@ -17,23 +17,16 @@
     animation-name: shine;
     animation-timing-function: var(--motion-timing-enter);
   }
+
   @keyframes shine {
     0% {
-      margin-left: -500%;
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
     }
     100% {
-      margin-left: 500%;
-    }
-  }
-
-  // the better options which does not work
-  @keyframes shine2 {
-    0% {
-      background-position: 500px 0;
-    }
-
-    100% {
-      background-position: -500px 0;
+      transform: translateX(100%);
     }
   }
 }
