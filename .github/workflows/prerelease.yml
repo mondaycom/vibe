@@ -11,7 +11,7 @@ on:
 
 jobs:
   prerelease:
-    if: "contains(github.event.head_commit.message, '[prerelease]')"
+    if: "contains(github.event.head_commit.message, '[prerelease]') && ${{ github.event.workflow_run.conclusion == 'success' }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
