@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.101.1 (2023-03-02)
+
+#### Bug Fixes
+* [#1146](https://github.com/mondaycom/monday-ui-react-core/pull/1146) skeleton animation use transform ([@doronbrikman](https://github.com/doronbrikman))
+
 ## 1.101.0 (2023-03-01)
 
 #### New Features
