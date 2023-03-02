@@ -2,6 +2,7 @@
 
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper disabled"
   data-testid="chip"
   onClick={[Function]}
@@ -21,6 +22,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper withClose"
   data-testid="chip"
   onClick={[Function]}
@@ -79,6 +81,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper withClose"
   data-testid="chip"
   onClick={[Function]}
@@ -137,6 +140,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper"
   data-testid="chip"
   onClick={[Function]}
@@ -177,6 +181,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper"
   data-testid="chip"
   onClick={[Function]}
@@ -212,6 +217,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper"
   data-testid="chip"
   onClick={[Function]}
@@ -252,6 +258,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper"
   data-testid="chip"
   onClick={[Function]}
@@ -287,6 +294,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
+  aria-label="text"
   className="chips chips--wrapper withClose"
   data-testid="chip"
   onClick={[Function]}
@@ -345,6 +353,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper"
   data-testid="chip"
   onClick={[Function]}
