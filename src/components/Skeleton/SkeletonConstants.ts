@@ -18,20 +18,11 @@ export enum TextSkeletonSize {
   SMALL = "small"
 }
 
-export enum ShapeSkeletonSize {
-  CUSTOM = "custom"
-}
 export const SKELETON_SIZES = {
-  CUSTOM: ShapeSkeletonSize.CUSTOM,
+  CUSTOM: SKELETON_CUSTOM_SIZE,
   CIRCLE: {},
   RECTANGLE: {},
   TEXT: TextSkeletonSize
 };
 
-export type SkeletonSizeType = TextSkeletonSize | ShapeSkeletonSize;
-
-export const SKELETON_ALLOWED_SIZES = {
-  CIRCLE: [SKELETON_CUSTOM_SIZE],
-  RECTANGLE: [SKELETON_CUSTOM_SIZE],
-  TEXT: [...Object.values(SKELETON_SIZES.TEXT), SKELETON_CUSTOM_SIZE]
-};
+export type SkeletonSizeType = TextSkeletonSize | typeof SKELETON_CUSTOM_SIZE;

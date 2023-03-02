@@ -17,3 +17,4 @@ export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
 export { default as useListenFocusTriggers } from "./useListenFocusTriggers";
 export { default as useClickableProps } from "./useClickableProps/useClickableProps";
+export { default as useSwitch } from "./useSwitch";

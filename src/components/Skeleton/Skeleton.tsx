@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import {
-  SKELETON_CUSTOM_SIZE,
   SKELETON_SIZES,
   SkeletonSizeType,
   SkeletonType,
+  SKELETON_CUSTOM_SIZE,
   TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -51,7 +51,7 @@ const Skeleton: FC<SkeletonProps> & {
           bemHelper({ element: skeletonType, state: skeletonSize }),
           className,
           {
-            [styles.fullWidth]: bemHelper({ element: skeletonType, state: "full-width" })
+            [styles.fullWidth]: fullWidth
           }
         )}
         style={{ width, height }}
