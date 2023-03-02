@@ -4,15 +4,13 @@ name: Prerelease
 
 on:
   workflow_run:
-    workflows: [ "Test", "Chromatic" ]
+    workflows: ["Test", "Chromatic"]
     types:
       - completed
-  pull_request:
-    types: [labeled]
-    if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
 
 jobs:
   prerelease:
+    if: "contains(github.event.head_commit.message, '[prerelease]') && ${{ github.event.workflow_run.conclusion == 'success' }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +26,8 @@ jobs:
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'ßß
-      - name: Push Updated version
+          git config --global user.email 'deploy@monday.com'
+      - name: Create Updated version
         if: success()
         env:
           BRANCH_NAME: ${{ github.head_ref }}
