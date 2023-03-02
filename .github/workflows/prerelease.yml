@@ -2,7 +2,12 @@
 
 name: Prerelease
 
-on: push
+on:
+  push:
+  workflow_run:
+    workflows: ["Test", "Chromatic"]
+    types:
+      - completed
 
 jobs:
   prerelease:
