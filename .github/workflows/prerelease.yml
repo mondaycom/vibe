@@ -28,9 +28,9 @@ jobs:
         id: wait-for-tests
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: Test
+          checkName: "test"
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: Tests failed - exit
+      - name: "Tests failed - exit"
         if: steps.wait-for-tests.outputs.conclusion == 'failure'
         run: exit 1
       - name: Create Updated version
