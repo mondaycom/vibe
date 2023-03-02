@@ -1,0 +1,48 @@
+# This workflow will ensure all PRs are labeled so we can later create releases
+
+name: Prerelease
+
+on:
+  workflow_run:
+    workflows: [ "Test", "Chromatic" ]
+    types:
+      - completed
+  pull_request:
+    types: [labeled]
+    if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: npm ci
+      - name: Set up git credentials
+        run: |
+          git config --global user.name 'ci'
+          git config --global user.email 'deploy@monday.com'ßß
+      - name: Push Updated version
+        if: success()
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+        run: npm run prerelease -- --branch-name=$BRANCH_NAME
+      - name: Publish the new version to npm
+        if: success()
+        run: | # Compare the latest version and the current version and publish only if the version changed
+          if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        if: success()
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          automatic_release_tag: prerelease
