@@ -2,16 +2,11 @@
 
 name: Prerelease
 
-on:
-  workflow_run:
-    workflows: ["Test", "Chromatic"]
-    types:
-      - completed
-  push:
-    if: "contains(github.event.head_commit.message, '[prerelease]')"
+on: push
 
 jobs:
   prerelease:
+    if: "contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +32,7 @@ jobs:
         id: publish_version
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
-          echo "prerelease_version=$(node -e 'console.log(require('./package.json').version)')\n" >> $GITHUB_OUTPUT
+          echo "prerelease_version=$(node -e "console.log(require('./package.json').version)")\n" >> $GITHUB_OUTPUT
           echo "# prerelease_version=${{ steps.publish_version.outputs.stdout }}"
           if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
         env:
