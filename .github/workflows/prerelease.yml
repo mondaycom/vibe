@@ -35,7 +35,7 @@ jobs:
       - name: "Tests failed - exit"
         if: steps.wait-for-tests.outputs.conclusion != 'success'
         run: |
-          echo "::error test check failed - prerelease cancelled"
+          echo "::error::test check failed - prerelease cancelled"
           exit 1
       - name: Create Updated version
         if: success()
@@ -56,8 +56,8 @@ jobs:
           automatic_release_tag: prerelease
       - name: Create comment
         if: always()
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Prerelease version published: $(node -e "console.log(require('./package.json').version)")
+            Prerelease version published!
