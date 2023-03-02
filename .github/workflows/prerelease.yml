@@ -7,6 +7,8 @@ on:
     workflows: ["Test", "Chromatic"]
     types:
       - completed
+    branches:
+      - ${{ github.head_ref }}
 
 jobs:
   prerelease:
