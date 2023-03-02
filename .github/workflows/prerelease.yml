@@ -54,10 +54,13 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
+      - name: print PR number
+        run: echo "#PR number = ${{ github.event.pull_request.number }}"
       - name: Create comment
         if: always()
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
           body: |
             Prerelease version published!

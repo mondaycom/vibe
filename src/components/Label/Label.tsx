@@ -50,7 +50,7 @@ const Label = ({
   const classNames = useMemo(
     () =>
       cx(
-        "FAIL-monday-style-label",
+        "monday-style-label",
         `monday-style-label--kind-${kind}`,
         `monday-style-label--color-${color}`,
         {
