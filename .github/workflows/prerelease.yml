@@ -1,20 +1,20 @@
 # This workflow will ensure all PRs are labeled so we can later create releases
 
-name: PR labeles for prerelease
+name: Prerelease
 
 on:
+  workflow_run:
+    workflows: [ "Test", "Chromatic" ]
+    types:
+      - completed
   pull_request:
-    types: [labeled, unlabeled]
+    types: [labeled]
+    if: "contains(github.event.pull_request.labels.*.name, 'PR: Prerelease 🚀')"
 
 jobs:
   prerelease:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for prerelase label
-        uses: docker://agilepathway/pull-request-label-checker:latest
-        with:
-          all_of: "PR: Prerelease 🚀"
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -28,46 +28,21 @@ jobs:
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'
-      - name: Update version
+          git config --global user.email 'deploy@monday.com'ßß
+      - name: Push Updated version
         if: success()
-        run: npm version prerelease
-      - name: Commit and push changes
-        if: success()
-        run: |
-          git add .
-          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_ENV
-          echo "package version = ${{ env.package_version }}"
-          git commit -m "Release version ${{ env.package_version }}"
-          git tag prerelease
-          git push --follow-tags
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+        run: npm run prerelease -- --branch-name=$BRANCH_NAME
       - name: Publish the new version to npm
-        if: 1==2
+        if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
-          if [ $(npm view monday-ui-react-core version) != ${{ env.package_version }} ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
+          if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Find Comment
-        if: always()
-        uses: peter-evans/find-comment@v1
-        id: fc
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        if: success()
         with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-author: "github-actions[bot]"
-          body-includes: "Prerelease version published"
-      - name: Delete comment
-        if: ${{ steps.fc.outputs.comment-id }}
-        uses: jungwinter/comment@v1
-        with:
-          type: delete
-          comment_id: ${{ steps.fc.outputs.comment-id }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create comment
-        if: always()
-        uses: peter-evans/create-or-update-comment@v1
-        with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Prerelease version published: ${{ env.package_version }}
-          edit-mode: create
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          automatic_release_tag: prerelease
