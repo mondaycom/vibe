@@ -5,7 +5,7 @@ import {
   SKELETON_SIZES,
   SkeletonSizeType,
   SkeletonType,
-  ShapeSkeletonSize,
+  SKELETON_CUSTOM_SIZE,
   TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -42,7 +42,7 @@ const Skeleton: FC<SkeletonProps> & {
   const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
 
   // Skeleton has sizes only for text type, other types support only custom size
-  const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : ShapeSkeletonSize.CUSTOM;
+  const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
   return (
     <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}>
       <div
