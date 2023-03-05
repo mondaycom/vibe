@@ -52,12 +52,10 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
           npm run prerelease
-          echo "package_version=$(node -e "console.log(require('./package.json').version)")"
           echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
-          echo "# Publish the new version to npm. package_version='${{ steps.create-update-version.outputs.package_version }}'"
           if [ $(npm view monday-ui-react-core version) != ${{ steps.create-update-version.outputs.package_version }} ]; then npm run build && npm publish --tag prerelease; else echo ''; fi;
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -73,5 +71,4 @@ jobs:
         with:
           issue-number: ${{ steps.PR.outputs.number }}
           body: |
-            Prerelease version published!
-          reactions: rocket
+            Prerelease version published: `${{ steps.PR.outputs.number }}`
