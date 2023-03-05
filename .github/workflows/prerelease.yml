@@ -27,12 +27,8 @@ jobs:
         if: always()
         with:
           PR_A: ${{github.event.pull_request.number}}
-          PR_B: ${{github.event.number}}
-          PR_C: ${{github.event.issue.number}}
         run: |
           echo "$PR_A"
-          echo "$PR_B"
-          echo "$PR_C"
       - name: "Wait for tests to succeed"
         uses: fountainhead/action-wait-for-check@v1.1.0
         if: false
