@@ -287,6 +287,7 @@ const Dropdown = ({
       isClearable={!readOnly && clearable}
       isSearchable={!readOnly && searchable}
       readOnly={readOnly}
+      aria-readonly={readOnly}
       defaultValue={defaultValue}
       value={value}
       onMenuOpen={onMenuOpen}
