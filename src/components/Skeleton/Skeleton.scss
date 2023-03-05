@@ -1,5 +1,6 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
+@import "SkeletonVariables";
 
 @mixin shine-animation() {
   overflow: hidden;
@@ -42,22 +43,16 @@
   display: flex;
 
   &_rectangle {
-    $rectangle-default-size: 160px;
     height: $rectangle-default-size;
-    width: $rectangle-default-size;
     @include skeleton;
   }
 
   &_circle {
-    $circle-default-size: 40px;
-    $circle-radius: 50%;
     height: $circle-default-size;
-    width: $circle-default-size;
     @include skeleton($circle-radius);
   }
 
   &_text {
-    width: 162px;
     @include skeleton;
     &--h1 {
       height: $h1-empty-state-height

@@ -12,7 +12,7 @@ const LIST_OPTIONS = Object.freeze({
 });
 
 export type AvatarItem = {
-  value: AvatarProps & { tooltipContent: string | ReactElement };
+  value: AvatarProps & { tooltipContent: string | ReactElement | ReactElement[] };
 };
 
 interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
