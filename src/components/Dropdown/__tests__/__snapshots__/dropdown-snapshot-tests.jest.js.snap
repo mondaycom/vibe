@@ -97,7 +97,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         class=" css-bknh9q-Component"
       >
         <div
-          class="dropdown-wrapper__option--reset css-14cnnyc-option"
+          class="dropdown-wrapper__option--reset css-1iwu591-option"
           id="react-select-32-option-0"
           tabindex="-1"
         >
@@ -108,7 +108,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-15bbhzv-option"
+          class="dropdown-wrapper__option--reset css-qj04r2-option"
           id="react-select-32-option-1"
           tabindex="-1"
         >
@@ -119,7 +119,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
           id="react-select-32-option-2"
           tabindex="-1"
         >
@@ -130,7 +130,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
           id="react-select-32-option-3"
           tabindex="-1"
         >
@@ -141,7 +141,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
           id="react-select-32-option-4"
           tabindex="-1"
         >
@@ -152,7 +152,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
           id="react-select-32-option-5"
           tabindex="-1"
         >
@@ -949,7 +949,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-14cnnyc-option"
+                class="dropdown-wrapper__option--reset css-1iwu591-option"
                 id="react-select-29-option-0"
                 tabindex="-1"
               >
@@ -966,7 +966,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-1"
                 tabindex="-1"
               >
@@ -983,7 +983,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-2"
                 tabindex="-1"
               >
@@ -1000,7 +1000,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-3"
                 tabindex="-1"
               >
@@ -1017,7 +1017,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-4"
                 tabindex="-1"
               >
@@ -1034,7 +1034,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-5"
                 tabindex="-1"
               >
@@ -1051,7 +1051,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-6"
                 tabindex="-1"
               >
@@ -1068,7 +1068,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-7"
                 tabindex="-1"
               >
@@ -1085,7 +1085,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-8"
                 tabindex="-1"
               >
@@ -1102,7 +1102,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-9"
                 tabindex="-1"
               >
@@ -1119,7 +1119,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
                 id="react-select-29-option-10"
                 tabindex="-1"
               >
@@ -1153,7 +1153,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1af240r-ValueContainer"
+        className=" css-fkye4g-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -1161,7 +1161,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -1220,10 +1220,10 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         </div>
       </div>
       <div
-        className=" css-bodkip-IndicatorsContainer"
+        className=" css-slt7ro-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -1257,7 +1257,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when readOnly 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown-wrapper css-1n2d3pk-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1265,12 +1265,12 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
     className="monday-dropdown_scrollable-wrapper"
   >
     <div
-      className=" css-hrcn4l-control"
+      className=" css-1wupeiw-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -1291,10 +1291,10 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         />
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -1342,7 +1342,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1q407wa-ValueContainer"
+        className=" css-xu0d8l-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -1350,7 +1350,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -1409,10 +1409,10 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -1460,7 +1460,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -1468,7 +1468,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -1527,10 +1527,10 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -1578,7 +1578,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-djgksh-ValueContainer"
+        className=" css-11miohr-Component"
       >
         <div
           className="value-container"
@@ -1768,7 +1768,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 </button>
               </div>
               <div
-                className="css-1m8eskj-Input"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -1831,11 +1831,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
-          className="clear-indicator css-bter05-ClearIndicator"
+          className="clear-indicator css-11of1qg-Component"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -1859,7 +1859,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           </svg>
         </div>
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -1907,7 +1907,7 @@ exports[`Dropdown renders correctly with className 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -1915,7 +1915,7 @@ exports[`Dropdown renders correctly with className 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -1974,10 +1974,10 @@ exports[`Dropdown renders correctly with className 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2025,19 +2025,20 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
           <div
             className="valueContainer"
+            onMouseDown={[Function]}
           >
             Ocean
           </div>
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -2096,11 +2097,11 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
-          className="clear-indicator css-bter05-ClearIndicator"
+          className="clear-indicator css-11of1qg-Component"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2124,7 +2125,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
           </svg>
         </div>
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2172,7 +2173,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -2180,7 +2181,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -2239,10 +2240,10 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2290,7 +2291,7 @@ exports[`Dropdown renders correctly with id 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -2298,7 +2299,7 @@ exports[`Dropdown renders correctly with id 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -2357,10 +2358,10 @@ exports[`Dropdown renders correctly with id 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2408,7 +2409,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-djgksh-ValueContainer"
+        className=" css-11miohr-Component"
       >
         <div
           className="value-container"
@@ -2501,7 +2502,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 </button>
               </div>
               <div
-                className="css-1m8eskj-Input"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -2564,11 +2565,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
-          className="clear-indicator css-bter05-ClearIndicator"
+          className="clear-indicator css-11of1qg-Component"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2592,7 +2593,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           </svg>
         </div>
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2640,7 +2641,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-djgksh-ValueContainer"
+        className=" css-11miohr-Component"
       >
         <div
           className="value-container"
@@ -2728,7 +2729,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 </button>
               </div>
               <div
-                className="css-1m8eskj-Input"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -2791,11 +2792,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
-          className="clear-indicator css-bter05-ClearIndicator"
+          className="clear-indicator css-11of1qg-Component"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -2819,7 +2820,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           </svg>
         </div>
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -2867,7 +2868,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1b6uivj-ValueContainer"
+        className=" css-yilbcx-Component"
       >
         <div
           className="value-container"
@@ -2889,7 +2890,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
-                className="css-1m8eskj-Input"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -2952,10 +2953,10 @@ exports[`Dropdown renders correctly with multi 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3003,7 +3004,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1qxzdro-ValueContainer"
+        className=" css-126qe5a-Component"
       >
         <div
           className="value-container"
@@ -3013,6 +3014,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-label="Ocean"
               className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
               id="ocean"
@@ -3034,6 +3036,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Blue"
                 className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
                 id="blue"
@@ -3052,7 +3055,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
                 </div>
               </div>
               <div
-                className="css-1m8eskj-Input"
+                className="css-lkl2xd-Component"
               >
                 <div
                   className=""
@@ -3115,10 +3118,10 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
         </div>
       </div>
       <div
-        className=" css-bodkip-IndicatorsContainer"
+        className=" css-slt7ro-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3152,7 +3155,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 
 exports[`Dropdown renders correctly with multi and readonly 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown-wrapper css-1n2d3pk-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3160,12 +3163,12 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
     className="monday-dropdown_scrollable-wrapper"
   >
     <div
-      className=" css-hrcn4l-control"
+      className=" css-1wupeiw-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-1b6uivj-ValueContainer"
+        className=" css-yilbcx-Component"
       >
         <div
           className="value-container"
@@ -3175,7 +3178,8 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             data-testid="value-container-chips"
           >
             <div
-              className="chips chips--wrapper multiselect-chip-single-line noAnimation"
+              aria-label="Ocean"
+              className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3196,7 +3200,8 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
-                className="chips chips--wrapper multiselect-chip-single-line noAnimation"
+                aria-label="Blue"
+                className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3231,10 +3236,10 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3282,7 +3287,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3290,7 +3295,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3349,10 +3354,10 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3400,7 +3405,7 @@ exports[`Dropdown renders correctly with options 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3408,7 +3413,7 @@ exports[`Dropdown renders correctly with options 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3467,10 +3472,10 @@ exports[`Dropdown renders correctly with options 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3518,7 +3523,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3526,7 +3531,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
           text
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3585,10 +3590,10 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3636,7 +3641,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3644,7 +3649,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3703,10 +3708,10 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3761,7 +3766,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -3769,7 +3774,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3828,10 +3833,10 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -3879,19 +3884,20 @@ exports[`Dropdown renders correctly with value 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className="singleValue dropdown-wrapper__single-value--reset css-1f92y5n-singleValue"
         >
           <div
             className="valueContainer"
+            onMouseDown={[Function]}
           >
             Ocean
           </div>
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -3950,11 +3956,11 @@ exports[`Dropdown renders correctly with value 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
-          className="clear-indicator css-bter05-ClearIndicator"
+          className="clear-indicator css-11of1qg-Component"
           onMouseDown={[Function]}
           onTouchEnd={[Function]}
         >
@@ -3978,7 +3984,7 @@ exports[`Dropdown renders correctly with value 1`] = `
           </svg>
         </div>
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -4026,7 +4032,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-j6eacz-ValueContainer"
+        className=" css-1ht1nal-Component"
       >
         <div
           className=" css-1usuuna-placeholder"
@@ -4034,7 +4040,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
           
         </div>
         <div
-          className="css-1m8eskj-Input"
+          className="css-lkl2xd-Component"
         >
           <div
             className=""
@@ -4093,10 +4099,10 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         </div>
       </div>
       <div
-        className=" css-hcxwnl-IndicatorsContainer"
+        className=" css-1aqjfd-Component"
       >
         <span
-          className=" css-1xjgjl1-IndicatorSeparator"
+          className=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
