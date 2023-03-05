@@ -2,15 +2,11 @@
 
 name: Prerelease
 
-on:
-  workflow_run:
-    workflows: ["Test", "Chromatic"]
-    types:
-      - completed
+on: push
 
 jobs:
   prerelease:
-    if: "contains(github.event.head_commit.message, '[prerelease]') && ${{ github.event.workflow_run.conclusion == 'success' }}"
+    if: "contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +23,21 @@ jobs:
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
+      - name: "Wait for tests to succeed"
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        if: true
+        id: wait-for-tests
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: "test"
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          timeoutSeconds: 1200
+          intervalSeconds: 20
+      - name: "Tests failed - exit"
+        if: steps.wait-for-tests.outputs.conclusion != 'success'
+        run: |
+          echo "::error::test check failed - prerelease cancelled"
+          exit 1
       - name: Create Updated version
         if: success()
         env:
