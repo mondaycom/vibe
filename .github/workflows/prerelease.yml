@@ -17,22 +17,19 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - uses: 8BitJonny/gh-get-current-pr@2.2.0
+        id: PR
+        if: always()
+      - name: Print PR
+        if: always()
+        run: |
+          echo "PR number: ${{ steps.PR.outputs.number }}"
       - name: Install dependencies
         run: npm ci
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
-      - name: print PR number
-        if: always()
-        env:
-          PR_A: ${{ github.event.pull_request.number }}
-          PR_B: ${{ github.event.number }}
-          PR_C: ${{ github.event.issue.number }}
-        run: |
-          echo "$PR_A = $PR_A"
-          echo "$PR_B = $PR_B"
-          echo "$PR_C = $PR_C"
       - name: "Wait for tests to succeed"
         uses: fountainhead/action-wait-for-check@v1.1.0
         if: false
@@ -74,7 +71,7 @@ jobs:
         if: always()
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.number }}
+          issue-number: ${{ steps.PR.outputs.number }}
           body: |
             Prerelease version published!
           reactions: rocket
