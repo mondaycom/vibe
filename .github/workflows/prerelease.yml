@@ -26,13 +26,13 @@ jobs:
       - name: print PR number
         if: always()
         with:
-          PR_first: ${{ github.event.pull_request.number }}
-          PR_second: ${{ github.event.number }}
-          PR_third: ${{ github.event.issue.number }}
+          PR-a: ${{ github.event.pull_request.number }}
+          PR-b: ${{ github.event.number }}
+          PR-c: ${{ github.event.issue.number }}
         run: |
-          echo $PR_first
-          echo $PR_second
-          echo $PR_third
+          echo $PR-a
+          echo $PR-b
+          echo $PR-c
       - name: "Wait for tests to succeed"
         uses: fountainhead/action-wait-for-check@v1.1.0
         if: false
