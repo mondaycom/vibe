@@ -270,11 +270,11 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-label": ariaLabel,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
-        "aria-controls": ariaControls
+        "aria-controls": ariaControls,
+        "aria-pressed": active
       };
       return props;
     }, [
-      disabled,
       mergedRef,
       type,
       classNames,
@@ -287,12 +287,14 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       onBlur,
       dataTestId,
       onMouseDownClicked,
+      disabled,
+      loading,
       ariaLabeledBy,
       ariaLabel,
-      loading,
       ariaHasPopup,
       ariaExpanded,
-      ariaControls
+      ariaControls,
+      active
     ]);
 
     const leftIconSize = useMemo(() => {

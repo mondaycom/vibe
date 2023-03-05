@@ -18,7 +18,7 @@ import "./Modal.stories.scss";
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
   enumPropNamesArray: ["width"], // List enum props here
-  iconPropNamesArray: [] // List props that are typed as icons here
+  actionPropsArray: ["onClose"] // List the component's actions here
 });
 
 export const modalTemplate = ({ onClose, ...modalProps }) => {

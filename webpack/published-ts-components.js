@@ -98,6 +98,9 @@ const publishedTSComponents = {
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   useListenFocusTriggers: "hooks/useListenFocusTriggers",
+  useSwitch: "hooks/index",
+  // Don't remove next line
+  // plop_marker:published-hooks
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover"
 };
