@@ -14,7 +14,7 @@ function getVersionPreid() {
     finalPrName = branchName.substring(index + 1);
   }
 
-  return `${finalPrName}_${commitSHA}`;
+  return `${finalPrName}-${commitSHA}`;
 }
 
 function pushBumpedVersion() {

@@ -59,10 +59,11 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
-      - uses: 8BitJonny/gh-get-current-pr@2.2.0
+      - name: Get current PR id 
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
         if: success()
-      - name: Create comment
+      - name: Create comment with prerelease version number
         if: success()
         uses: peter-evans/create-or-update-comment@v1
         with:
