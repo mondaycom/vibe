@@ -30,9 +30,9 @@ jobs:
           PR_second: ${{ github.event.number }}
           PR_third: ${{ github.event.issue.number }}
         run: |
-          echo "#PR1 = $PR_first"
-          echo "#PR2 = $PR_second"
-          echo "#PR3 = $PR_third"
+          echo $PR_first
+          echo $PR_second
+          echo $PR_third
       - name: "Wait for tests to succeed"
         uses: fountainhead/action-wait-for-check@v1.1.0
         if: false
