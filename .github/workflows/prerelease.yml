@@ -69,4 +69,4 @@ jobs:
         with:
           issue-number: ${{ steps.PR.outputs.number }}
           body: |
-            Prerelease version published: `${{ steps.PR.outputs.number }}`
+            Prerelease version published: `${{ steps.create-update-version.outputs.package_version }}`
