@@ -69,7 +69,9 @@ const Dropdown = ({
   insideOverflowWithTransformContainer,
   ref,
   tooltipContent,
-  onKeyDown
+  onKeyDown,
+  isLoading,
+  loadingMessage
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -314,6 +316,8 @@ const Dropdown = ({
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
       aria-details={tooltipContent}
+      isLoading={isLoading}
+      loadingMessage={loadingMessage}
       {...asyncAdditions}
       {...additions}
     />
@@ -351,7 +355,9 @@ Dropdown.defaultProps = {
   insideOverflowWithTransformContainer: false,
   tooltipContent: "",
   disabled: false,
-  readOnly: false
+  readOnly: false,
+  isLoading: false,
+  loadingMessage: undefined
 };
 
 Dropdown.propTypes = {
@@ -565,7 +571,15 @@ Dropdown.propTypes = {
   /**
    * When content is passed, the dropdown will include a tooltip on the dropdown's value.
    */
-  tooltipContent: PropTypes.string
+  tooltipContent: PropTypes.string,
+  /**
+   * Display the drop down with loading state.
+   */
+  isLoading: PropTypes.bool,
+  /**
+   * Overrides the built-in logic of loading message design
+   */
+  loadingMessage: PropTypes.func
 };
 
 export default Dropdown;

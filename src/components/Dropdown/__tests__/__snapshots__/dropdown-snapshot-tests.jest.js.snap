@@ -1588,6 +1588,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-label="Primary"
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
@@ -1608,6 +1609,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
+                aria-pressed={false}
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
@@ -1645,6 +1647,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               </button>
             </div>
             <div
+              aria-label="Positive"
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
@@ -1665,6 +1668,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
+                aria-pressed={false}
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
@@ -1705,6 +1709,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Negative"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
@@ -1725,6 +1730,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
@@ -2415,6 +2421,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Ocean"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
@@ -2456,6 +2463,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
@@ -2645,6 +2653,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Ocean"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
@@ -2681,6 +2690,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}

@@ -738,6 +738,45 @@ with overflow hidden content which use CSS transform function.
   </Story>
 </Canvas>
 
+### Dropdown with loading
+
+If importing the drop down options may take time, you can reflect this to the user using Dropdown isLoading flag with optional custom message.
+
+<Canvas>
+  <Story name="Dropdown with loading">
+    {() => {
+      const [isLoading, setIsLoading] = useState(false);
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      const loadingOnInputChange = useCallback(
+        () => {
+          setIsLoading(true);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 1000);
+        },
+        []
+      );
+      return (
+        <Dropdown
+          placeholder={"Type to start loading"}
+          options={options}
+          isLoading={isLoading}
+          loadingMessage={() => "Loading options..."}
+          className="dropdown-stories-styles_big-spacing"
+          onInputChange={loadingOnInputChange}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Related components
 
 <RelatedComponents componentsNames={[COMBOBOX, SPLIT_BUTTON, MENU]} />
