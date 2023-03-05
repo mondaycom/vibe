@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: print PR number
         if: always()
-        run: echo "#PR number = ${{ github.event.issue.number }}"
+        run: echo "#PR number = ${{ github.event.number }}"
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -67,7 +67,7 @@ jobs:
         if: always()
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.number }}
           body: |
             Prerelease version published!
           reactions: rocket
