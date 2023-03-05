@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: print PR number
         if: always()
-        run: echo "#PR number = ${{ github.event.issue.number }}
+        run: echo "#PR number = ${{ github.event.issue.number }}"
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
