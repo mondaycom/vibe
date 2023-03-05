@@ -155,8 +155,15 @@ const Dropdown = ({
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
   const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} selectedOption={selectedOptions[0]} />,
-    [finalValueRenderer, selectedOptions]
+    props => (
+      <SingleValueComponent
+        {...props}
+        readOnly={readOnly}
+        Renderer={finalValueRenderer}
+        selectedOption={selectedOptions[0]}
+      />
+    ),
+    [finalValueRenderer, readOnly, selectedOptions]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);

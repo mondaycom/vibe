@@ -58,6 +58,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               e.stopPropagation();
             }}
             readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
+            allowTextSelection={readOnly}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}

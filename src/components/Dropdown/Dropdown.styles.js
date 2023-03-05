@@ -143,7 +143,7 @@ const control =
           borderRadius: getCSSVar("border-radius-small")
         }
       }),
-      cursor: readOnly ? "not-allowed" : "pointer",
+      cursor: readOnly ? "text" : "pointer",
       ...disabledContainerStyle(isDisabled)
     };
   };
