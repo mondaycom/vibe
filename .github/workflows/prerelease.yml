@@ -9,6 +9,9 @@ jobs:
     if: "contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
+      - name: print PR number
+        if: always()
+        run: echo "#PR number = ${{ github.event.issue.number }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -44,9 +47,9 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
-          package_version=$(BRANCH_NAME='$BRANCH_NAME' node ./scripts/prerelease.js)
-          echo "package_version=$package_version"
-          echo "package_version=$package_version" >> $GITHUB_OUTPUT
+          npm run prerelease
+          echo "package_version=$(node -e "console.log(require('./package.json').version)")"
+          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
         run: | # Compare the latest version and the current version and publish only if the version changed
@@ -60,14 +63,11 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
-      - name: print PR number
-        if: always()
-        run: echo "#PR number = ${{ github.event.pull_request.number }}"
       - name: Create comment
         if: always()
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.issue.number }}
           body: |
             Prerelease version published!
           reactions: rocket
