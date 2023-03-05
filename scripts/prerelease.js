@@ -8,14 +8,13 @@ function getVersionPreid() {
 
   // Find the last occurrence of the '/' character
   const index = branchName.lastIndexOf("/");
-
+  let finalPrName = branchName;
   // If the character was found, return the substring after it
   if (index !== -1) {
-    return branchName.substring(index + 1);
+    finalPrName = branchName.substring(index + 1);
   }
 
-  // If the character was not found, return the original string
-  return `${branchName}_${commitSHA}`;
+  return `${finalPrName}_${commitSHA}`;
 }
 
 function pushBumpedVersion() {
