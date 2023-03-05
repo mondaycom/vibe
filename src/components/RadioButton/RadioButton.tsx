@@ -5,7 +5,6 @@ import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./RadioButtonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
 import "./RadioButton.scss";
 

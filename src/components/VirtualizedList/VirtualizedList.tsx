@@ -26,7 +26,6 @@ import {
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";
 
 export type VirtualizedListItem = {

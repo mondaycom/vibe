@@ -20,7 +20,6 @@ import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import "./VirtualizedGrid.scss";
 
