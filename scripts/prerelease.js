@@ -4,6 +4,7 @@ const execa = require("execa");
 
 function getVersionPreid() {
   const branchName = process.env.BRANCH_NAME;
+  const commitSHA = process.env.COMMIT_SHA;
 
   // Find the last occurrence of the '/' character
   const index = branchName.lastIndexOf("/");
@@ -14,7 +15,7 @@ function getVersionPreid() {
   }
 
   // If the character was not found, return the original string
-  return branchName;
+  return `${branchName}_${commitSHA}`;
 }
 
 function pushBumpedVersion() {
