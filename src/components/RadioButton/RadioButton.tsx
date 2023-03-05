@@ -9,7 +9,7 @@ import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
 import "./RadioButton.scss";
 
-interface RadioButtonProps extends VibeComponentProps {
+export interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
   className?: string;
   /** deprecated */
@@ -43,7 +43,7 @@ interface RadioButtonProps extends VibeComponentProps {
   noLabelAnimation?: boolean;
 }
 
-const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
+const RadioButton: React.FC<RadioButtonProps> = forwardRef(
   (
     {
       className,

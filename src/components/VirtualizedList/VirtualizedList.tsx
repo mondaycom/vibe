@@ -131,7 +131,7 @@ interface VirtualizedListProps extends VibeComponentProps {
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
-const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
+const VirtualizedList: React.FC<VirtualizedListProps> = forwardRef(
   (
     {
       className,

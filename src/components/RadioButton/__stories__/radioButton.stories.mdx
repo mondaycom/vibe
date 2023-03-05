@@ -7,8 +7,11 @@ import { Link } from "../../../storybook/components";
 import { clickRadioButton, controlRadioButton } from "./interactions";
 import { controlledRadioButton } from "./radioButton.stories";
 import "./radioButton.stories.scss";
+import { createStoryMetaSettings } from "../../../storybook";
 
-<Meta title="Inputs/Radio Button" component={RadioButton} />
+export const metaSettings = createStoryMetaSettings({ component: RadioButton });
+
+<Meta title="Inputs/Radio Button" component={RadioButton} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -39,7 +42,7 @@ A radio represents an item in a single selection list.
 
 ## Props
 
-<ArgsTable of={RadioButton} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

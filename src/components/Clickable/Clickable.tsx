@@ -33,7 +33,7 @@ export interface ClickableProps extends VibeComponentProps {
   dataTestId?: string;
 }
 
-const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
+const Clickable: React.FC<ClickableProps> = forwardRef(
   (
     {
       elementType = "div",

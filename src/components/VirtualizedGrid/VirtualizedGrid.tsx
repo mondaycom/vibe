@@ -100,7 +100,7 @@ interface VirtualizedGridProps extends VibeComponentProps {
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
 }
 
-const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
+const VirtualizedGrid: React.FC<VirtualizedGridProps> = forwardRef(
   (
     {
       className,

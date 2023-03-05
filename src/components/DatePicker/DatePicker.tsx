@@ -45,7 +45,7 @@ interface DatePickerProps extends VibeComponentProps {
   shouldBlockRange?: (date: Moment) => boolean;
 }
 
-const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLDivElement, DatePickerProps>(
+const DatePicker: React.FC<DatePickerProps> = forwardRef<HTMLDivElement, DatePickerProps>(
   (
     {
       id,
