@@ -10,6 +10,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -24,6 +25,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -49,6 +51,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -63,6 +66,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -88,6 +92,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -283,6 +288,7 @@ Array [
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
+              aria-pressed={false}
               className="tipseenCloseButton monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
               data-testid="button"
               onBlur={[Function]}

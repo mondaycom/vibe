@@ -54,6 +54,10 @@
       @include theme-prop(color, disabled-text-color);
     }
   }
+
+  &.defaultCursor {
+    cursor: default;
+  }
 }
 
 @include keyframe(chips-pop-in-emphasized) {
