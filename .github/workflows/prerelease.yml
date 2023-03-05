@@ -13,9 +13,6 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-      - name: print PR number
-        if: always()
-        run: echo "#PR number = ${{ github.event.pull_request.number || github.event.number || github.event.issue.number }}"
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -26,6 +23,16 @@ jobs:
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
+      - name: print PR number
+        if: always()
+        with:
+          PR1: ${{ github.event.pull_request.number }}
+          PR2: ${{ github.event.number }}
+          PR3: ${{ github.event.issue.number }}
+        run: |
+          echo "#PR1 = $PR1"
+          echo "#PR2 = $PR2"
+          echo "#PR3 = $PR3"
       - name: "Wait for tests to succeed"
         uses: fountainhead/action-wait-for-check@v1.1.0
         if: false

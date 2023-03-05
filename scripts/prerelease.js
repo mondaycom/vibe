@@ -4,7 +4,7 @@ const execa = require("execa");
 
 function getVersionPreid() {
   const branchName = process.env.BRANCH_NAME;
-  console.log("# getVersionPreid = branchName", branchName);
+  // console.log("# getVersionPreid = branchName", branchName);
 
   // Find the last occurrence of the '/' character
   const index = branchName.lastIndexOf("/");
