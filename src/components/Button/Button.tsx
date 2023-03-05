@@ -27,6 +27,7 @@ export interface ButtonProps {
   kind?: ButtonType;
   /** Callback function to run when the button is clicked */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Callback function to run when the mouseDown event is being invoked*/
   onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /** Blur on button click */
   blurOnMouseUp?: boolean;
@@ -75,12 +76,17 @@ export interface ButtonProps {
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
   onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
+  /** Make the right side of the button flat (no rounded corners) */
   rightFlat?: boolean;
+  /** Make the right side of the button flat (no rounded corners) */
   leftFlat?: boolean;
+  /** Disables the click animation */
   preventClickAnimation?: boolean;
+  /** Removes the padding in the side of the button */
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
+  /** id to att for the data-test attribute */
   dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;

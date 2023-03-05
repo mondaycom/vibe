@@ -24,26 +24,38 @@ type ButtonGroupOption = {
 };
 
 interface ButtonGroupProps extends VibeComponentProps {
+  /** A classname to be added to the wrapping element */
   className?: string;
   /**
    * Backward compatibility for props naming - please use className instead
    */
   componentClassName?: string;
+  /** An array of `ButtonGroupOption` */
   options: Array<ButtonGroupOption>;
+  /** the selected value of the button group, should be one of the value within ButtonGroupOption */
   value?: ButtonValue;
+  /** Callback function for the selected button */
   onSelect?: (value: ButtonValue, name: string) => void;
+  /** Size of the button group */
   size?: Size;
+  /** Kind of the button group */
   kind?: ButtonType.SECONDARY | ButtonType.TERTIARY;
   name?: string;
+  /** Is disabled */
   disabled?: boolean;
+  /** A11y prop, this is being read to a screen reader when the user focuses on the boutton group */
   groupAriaLabel?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
   tooltipPosition?: DialogPosition;
+  /** Time in MS to delay the appearance of the tooltip */
   tooltipHideDelay?: number;
+  /** Time in MS to delay the hide of the tooltip */
   tooltipShowDelay?: number;
+  /** This should be a valid DOM selector, if you wish to render the tooltip inside a different DOM node */
   tooltipContainerSelector?: string;
+  /** Tooltip offset */
   tooltipMoveBy?: MoveBy;
 }
 

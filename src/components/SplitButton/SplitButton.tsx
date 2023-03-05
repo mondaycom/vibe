@@ -30,19 +30,25 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import "./SplitButton.scss";
 
 export interface SplitButtonProps extends ButtonProps {
-  /*
+  /**
    * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
    */
   secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /** callback function to be invoked when the secondary dialog is opened */
   onSecondaryDialogDidShow?: () => void;
+  /** callback function to be invoked when the secondary dialog is closed */
   onSecondaryDialogDidHide?: () => void;
+  /** z-index for the content of the secondary action */
   zIndex?: number;
-  /*
+  /**
    * Class name to provide the element which wraps the popover/modal/dialog
    */
   secondaryDialogClassName?: string;
+  /**
+   * The desired position of which the secondary content will open to
+   */
   secondaryDialogPosition?: DialogPosition;
-  /*
+  /**
     Popover Container padding size
    */
   dialogPaddingSize?: typeof DialogContentContainer.sizes[keyof typeof DialogContentContainer.sizes];

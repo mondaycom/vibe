@@ -31,7 +31,7 @@ interface MenuButtonProps extends VibeComponentProps {
    * Backward compatibility for props naming
    */
   componentClassName?: string;
-  /*
+  /**
     Class name to add to the button when the dialog is open
    */
   openDialogComponentClassName?: string;
@@ -39,13 +39,19 @@ interface MenuButtonProps extends VibeComponentProps {
    * Receives React Component
    */
   component?: () => JSX.Element;
+  /** The size of the button which open the menu button */
   size?: MenuButtonSize;
+  /** control the state of the menu button, open/close */
   open?: boolean;
+  /** callback function when a user clicks on the button */
   onClick?: (event: React.MouseEvent) => void;
+  /** z-index for the menu */
   zIndex?: number;
+  /** A11y prop, the content of this prop will be read by a screen reader, should describe the purpose of the menu */
   ariaLabel?: string;
+  /** close the menu when a user click on some of the content within the opened dialog */
   closeDialogOnContentClick?: boolean;
-  /*
+  /**
     Class name to provide the element which wraps the popover/modal/dialog
    */
   dialogClassName?: string;
@@ -53,9 +59,21 @@ interface MenuButtonProps extends VibeComponentProps {
    * main - `dialogOffset.main` - main axis offset; `dialogOffset.secondary` secondary axis offset
    */
   dialogOffset?: DialogOffset;
+  /**
+   * Padding size of the opened dialog
+   */
   dialogPaddingSize?: DialogSize;
+  /**
+   * The desired position of which the Dialog will open to
+   */
   dialogPosition?: DialogPosition;
+  /**
+   * Ignore Dialog opening trigger when interaction with these classes
+   */
   dialogShowTriggerIgnoreClass?: string;
+  /**
+   * Ignore Dialog closing trigger when interaction with these classes
+   */
   dialogHideTriggerIgnoreClass?: string;
   /**
    * the container selector in which to append the dialog
@@ -66,11 +84,11 @@ interface MenuButtonProps extends VibeComponentProps {
    * Dialog Alignment
    */
   startingEdge?: string;
-  /*
+  /**
     Callback function to be called when the menu is shown
    */
   onMenuShow?: () => void;
-  /*
+  /**
   Callback function to be called when the menu is shown
  */
   onMenuHide?: () => void;
@@ -78,7 +96,13 @@ interface MenuButtonProps extends VibeComponentProps {
    * Text to be displayed after the icon
    */
   text?: string;
+  /**
+   * Disable the MenuButton
+   */
   disabled?: boolean;
+  /**
+   * the content of the Button Tooltip
+   */
   tooltipContent?: string;
   /**
    Remove "Tab" key from the hide trigger
