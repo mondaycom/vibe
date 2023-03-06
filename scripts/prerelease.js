@@ -3,6 +3,7 @@
 const execa = require("execa");
 
 function getVersionPreid() {
+  console.log("Node.js version:", process.version);
   const branchName = process.env.BRANCH_NAME;
   const commitSHA = process.env.COMMIT_SHA;
 
