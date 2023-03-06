@@ -13,8 +13,8 @@ export type TemplateLiteralPart = {
 };
 
 export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLiteralPart[] => {
-  printWithCondition(false, "))) getTemplateLiteralParts, node.quasis", node.quasis);
-  printWithCondition(false, "))) getTemplateLiteralParts, node.expressions", node.expressions);
+  printWithCondition(true, "))) getTemplateLiteralParts, node.quasis", node.quasis);
+  printWithCondition(true, "))) getTemplateLiteralParts, node.expressions", node.expressions);
 
   const quasis: TemplateLiteralPart[] = node.quasis.map(q => ({
     value: q.value.cooked,
@@ -61,7 +61,7 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
       return 0;
     });
 
-  printWithCondition(false, "))) getTemplateLiteralParts, parts", parts);
+  printWithCondition(true, "))) getTemplateLiteralParts, parts", parts);
   return parts;
 };
 
@@ -79,31 +79,31 @@ export const buildClassnameStringFromTemplateLiteral = (
   addCamelCaseWrapping: boolean = true,
   separateIdentifiers: boolean = true
 ): string => {
-  printWithCondition(false, "))) buildStringFromTemplateLiteral, node", node);
+  printWithCondition(true, "))) buildStringFromTemplateLiteral, node", node);
 
   const parts: TemplateLiteralPart[] = getTemplateLiteralParts(node);
-  printWithCondition(false, "))) buildStringFromTemplateLiteral, parts", parts);
+  printWithCondition(true, "))) buildStringFromTemplateLiteral, parts", parts);
 
   let newString = "";
   for (let i = 0; i < parts.length; ++i) {
     const p = parts[i];
     if (p.type === "TemplateElement") {
       if (separateIdentifiers) {
-        printWithCondition(false, "))) buildStringFromTemplateLiteral, TemplateElement", i, p);
+        printWithCondition(true, "))) buildStringFromTemplateLiteral, TemplateElement", i, p);
         const baseClassNameIsPrev: boolean =
           i !== 0 && isTemplateLiteralPartBaseClassIdentifier(parts[i - 1], state.baseCssClass);
         const baseClassNameIsNext: boolean =
           i !== parts.length - 1 && isTemplateLiteralPartBaseClassIdentifier(parts[i + 1], state.baseCssClass);
-        printWithCondition(false, "))) buildStringFromTemplateLiteral, baseClassNameIsPrev", baseClassNameIsPrev);
-        printWithCondition(false, "))) buildStringFromTemplateLiteral, baseClassNameIsNext", baseClassNameIsNext);
-        printWithCondition(false, "))) buildStringFromTemplateLiteral, before newString", newString);
+        printWithCondition(true, "))) buildStringFromTemplateLiteral, baseClassNameIsPrev", baseClassNameIsPrev);
+        printWithCondition(true, "))) buildStringFromTemplateLiteral, baseClassNameIsNext", baseClassNameIsNext);
+        printWithCondition(true, "))) buildStringFromTemplateLiteral, before newString", newString);
 
         if (!baseClassNameIsPrev && i !== 0) newString += " + ";
         if (!baseClassNameIsPrev || i === 0) newString += "'";
         newString += p.value;
         if (!baseClassNameIsNext || i === parts.length - 1) newString += "'";
         if (!baseClassNameIsNext && i !== parts.length - 1) newString += " + ";
-        printWithCondition(false, "))) buildStringFromTemplateLiteral, after newString", newString);
+        printWithCondition(true, "))) buildStringFromTemplateLiteral, after newString", newString);
       } else {
         newString += p.value;
       }
@@ -120,14 +120,14 @@ export const buildClassnameStringFromTemplateLiteral = (
         newString += `\$\{${p.value}\}`;
       }
     }
-    printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
+    printWithCondition(true, "))) buildStringFromTemplateLiteral, newString", newString);
   }
 
   // if (newString.startsWith("'") && newString.endsWith("'") && !newString.slice(1, newString.length - 1).includes("'")) {
   //   newString = newString.slice(1, newString.length - 1);
   // }
 
-  printWithCondition(false, "))) buildStringFromTemplateLiteral, newString remove prefix", newString);
+  printWithCondition(true, "))) buildStringFromTemplateLiteral, newString remove prefix", newString);
   newString = removePrefix(newString);
 
   const emptyStringRegex = /\s?\+?\s?''\s?\+?\s?/g;
@@ -139,7 +139,7 @@ export const buildClassnameStringFromTemplateLiteral = (
     newString = `\`\$\{camelCase(${newString})\}\``;
   }
 
-  printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
+  printWithCondition(true, "))) buildStringFromTemplateLiteral, newString", newString);
 
   return newString;
 };

@@ -16,8 +16,8 @@ import { splitTemplateLiteralClassNames } from "../utils/templateLiterals/splitT
  */
 export const templateLiteralReplacementVisitors: Visitor<State> = {
   TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
-    printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
+    printWithCondition(true, "### templateLiteralReplacementVisitors, path.node", path.node);
+    printWithCondition(true, "### templateLiteralReplacementVisitors, path.parent", path.parent);
 
     // TODO or const declaration
     if (
@@ -28,7 +28,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
       if (t.isJSXExpressionContainer(path.parent) && !isCxCallExpression(path.parent.expression)) {
         const newPath = embedCxCallExpression(path.parent);
         path.parentPath.replaceWith(newPath);
-        printWithCondition(false, "### templateLiteralReplacementVisitors, wrappedWithCxCallExpression");
+        printWithCondition(true, "### templateLiteralReplacementVisitors, wrappedWithCxCallExpression");
         return;
       }
 
@@ -68,9 +68,9 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
           "### templateLiteralReplacementVisitors, modularClassnameString",
           modularClassnameString
         );
-        printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
+        printWithCondition(true, "### templateLiteralReplacementVisitors, path.parent", path.parent);
         printWithCondition(
-          false,
+            true,
           "### templateLiteralReplacementVisitors, isCxCallExpression, path.parentPath.parent",
           path.parentPath.parent
         );
@@ -81,7 +81,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
           p.getPrevSibling().skip();
         });
 
-        printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
+        printWithCondition(true, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
         state.camelCaseImportNeeded = true;
       } else {
@@ -91,7 +91,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
 
     if (t.isObjectProperty(path.parent)) {
       printWithCondition(
-        false,
+        true,
         "### templateLiteralReplacementVisitors, isObjectProperty, parentNode.value = ",
         path.parent.value
       );
