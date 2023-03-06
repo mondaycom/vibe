@@ -2,6 +2,7 @@
 
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -21,6 +22,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -39,6 +41,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
+    aria-pressed={false}
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
@@ -79,6 +82,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -97,6 +101,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
+    aria-pressed={false}
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
@@ -137,6 +142,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -177,6 +183,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -212,6 +219,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -252,6 +260,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -287,6 +296,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
+  aria-label="text"
   className="chips chips--wrapper withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
@@ -305,6 +315,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
+    aria-pressed={false}
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
@@ -345,6 +356,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
+  aria-label=""
   className="chips chips--wrapper noAnimation"
   data-testid="chip"
   onClick={[Function]}

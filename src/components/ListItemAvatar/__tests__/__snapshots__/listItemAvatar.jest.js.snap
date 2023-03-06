@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-hidden="true"
+  className="listItemAvatar"
+>
+  <div
+    className="monday-style-avatar avatar monday-style-avatar--small"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--img"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue)",
+        }
+      }
+      tabIndex={0}
+    >
+      <img
+        className="monday-style-avatar-content_img monday-style-avatar-content_img--small"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly with picture 1`] = `
+<div
+  aria-hidden="true"
+  className="listItemAvatar"
+>
+  <div
+    className="monday-style-avatar avatar monday-style-avatar--small"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--img"
+      style={Object {}}
+      tabIndex={0}
+    >
+      <img
+        className="monday-style-avatar-content_img monday-style-avatar-content_img--small"
+        src="person1.png"
+      />
+    </div>
+  </div>
+</div>
+`;
