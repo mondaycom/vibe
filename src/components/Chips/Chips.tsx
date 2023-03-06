@@ -41,7 +41,7 @@ interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
-  // color?: Object.keys(Chips.colors),
+  // color?: Object.keys(Chips.colors)
   color?: keyof Record<string, string>;
   /** size for font icon */
   iconSize?: number | string;
