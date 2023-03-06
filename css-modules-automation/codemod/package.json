@@ -52,6 +52,7 @@
     "modify tests/anchor-list-item-conditional": "shell_scripts/run.sh tests/anchor-list-item-conditional.jsx",
     "modify tests/anchor-list-item-no-such-style": "shell_scripts/run.sh tests/anchor-list-item-no-such-style.jsx",
     "modify tests/anchor-list-item-cx": "shell_scripts/run.sh tests/anchor-list-item-cx.jsx",
+    "modify tests/anchor-list-item-template-literal": "shell_scripts/run.sh tests/anchor-list-item-template-literal.jsx",
     "modify tests/anchor-list-item-classnames": "shell_scripts/run.sh tests/anchor-list-item-classnames.jsx",
     "modify tests/anchor-list-item-multiple-classes": "shell_scripts/run.sh tests/anchor-list-item-multiple-classes.jsx",
     "modify tests/anchor-list-item-const-base-class": "shell_scripts/run.sh tests/anchor-list-item-const-base-class.jsx",
