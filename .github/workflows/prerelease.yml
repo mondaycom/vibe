@@ -62,7 +62,7 @@ jobs:
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
         if: success()
-      - name: Create comment with prerelease version number
+      - name: Create comment with prerelease version details
         if: success()
         uses: peter-evans/create-or-update-comment@v1
         with:
