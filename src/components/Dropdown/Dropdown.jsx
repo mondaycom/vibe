@@ -97,6 +97,11 @@ const Dropdown = ({
     return {};
   }, [selectedOptions]);
 
+  const ariaLabel = useMemo(() => {
+    return `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
+      selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : ""
+    }`;
+  }, [readOnly, selectedOptions, tooltipContent]);
   const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
@@ -290,6 +295,8 @@ const Dropdown = ({
       isSearchable={!readOnly && searchable}
       readOnly={readOnly}
       aria-readonly={readOnly}
+      aria-label={ariaLabel}
+      aria-details={tooltipContent}
       defaultValue={defaultValue}
       value={value}
       onMenuOpen={onMenuOpen}
@@ -315,7 +322,6 @@ const Dropdown = ({
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
-      aria-details={tooltipContent}
       isLoading={isLoading}
       loadingMessage={loadingMessage}
       {...asyncAdditions}
