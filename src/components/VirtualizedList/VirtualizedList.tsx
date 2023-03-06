@@ -26,6 +26,7 @@ import {
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 import "./VirtualizedList.scss";
 
 export type VirtualizedListItem = {
@@ -130,7 +131,7 @@ interface VirtualizedListProps extends VibeComponentProps {
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
 }
 
-const VirtualizedList: React.FC<VirtualizedListProps> = forwardRef(
+const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
   (
     {
       className,

@@ -4,10 +4,10 @@ import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
-import VibeComponent from "../../types/VibeComponent";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
