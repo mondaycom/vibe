@@ -62,7 +62,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
 
     if (isCxCallExpression(path.parent)) {
       if (isModularClassnameNodeIdentifier) {
-        const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), modularClassnameNode, true);
+        const newPath = t.callExpression(t.identifier("getStyle"), [t.identifier(state.opts.importIdentifier), modularClassnameNode]);
         printWithCondition(
           false,
           "### templateLiteralReplacementVisitors, modularClassnameString",
@@ -84,6 +84,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
         printWithCondition(true, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
         state.camelCaseImportNeeded = true;
+        state.getStyleImportNeeded = true;
       } else {
         path.replaceWith(modularClassnameNode);
       }

@@ -136,7 +136,7 @@ export const buildClassnameStringFromTemplateLiteral = (
   }
 
   if (addCamelCaseWrapping) {
-    newString = `\`\$\{camelCase(${newString})\}\``;
+    newString = `camelCase(${newString})`;
   }
 
   printWithCondition(true, "))) buildStringFromTemplateLiteral, newString", newString);

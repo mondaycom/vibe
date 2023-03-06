@@ -13,6 +13,8 @@ export type State = {
   cxImported: boolean;
   camelCaseImported: boolean;
   camelCaseImportNeeded: boolean;
+  getStyleImported: boolean;
+  getStyleImportNeeded: boolean;
   dataTestIdImported: boolean;
   dataTestIdImportNeeded: boolean;
   baseCssClass: CssBaseClass | undefined;
@@ -32,6 +34,8 @@ export default (): PluginObj<State> => ({
         cxImported: false,
         camelCaseImported: false,
         camelCaseImportNeeded: false,
+        getStyleImported: false,
+        getStyleImportNeeded: false,
         dataTestIdImported: false,
         dataTestIdImportNeeded: false,
         classNames: new Map<string, string>(),
