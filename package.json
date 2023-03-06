@@ -40,7 +40,8 @@
     "eslint-fix": "npm run eslint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "npm run stylelint -- --fix",
-    "release": "./scripts/release.js"
+    "release": "./scripts/release.js",
+    "prerelease": "./scripts/prerelease.js"
   },
   "repository": {
     "type": "git",
