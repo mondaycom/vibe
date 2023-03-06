@@ -186,7 +186,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Select is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -754,7 +754,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Select is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -1257,7 +1257,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when readOnly 1`] = `
 <div
-  className="dropdown-wrapper css-1n2d3pk-container"
+  className="dropdown-wrapper css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1265,7 +1265,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
     className="monday-dropdown_scrollable-wrapper"
   >
     <div
-      className=" css-1wupeiw-control"
+      className=" css-uninrv-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1279,6 +1279,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
+          aria-label="Readonly   Select"
           className="css-62g3xt-dummyInput"
           disabled={false}
           id="react-select-6-input"
@@ -3155,7 +3156,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 
 exports[`Dropdown renders correctly with multi and readonly 1`] = `
 <div
-  className="dropdown-wrapper css-1n2d3pk-container"
+  className="dropdown-wrapper css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3163,7 +3164,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
     className="monday-dropdown_scrollable-wrapper"
   >
     <div
-      className=" css-1wupeiw-control"
+      className=" css-uninrv-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3220,6 +3221,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
               </div>
               <input
                 aria-autocomplete="list"
+                aria-label="Readonly   Selected: Ocean, Blue"
                 className="css-62g3xt-dummyInput"
                 disabled={false}
                 id="react-select-14-input"

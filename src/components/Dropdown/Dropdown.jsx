@@ -99,7 +99,7 @@ const Dropdown = ({
 
   const ariaLabel = useMemo(() => {
     return `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
-      selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : ""
+      selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
     }`;
   }, [readOnly, selectedOptions, tooltipContent]);
   const value = multi ? selectedOptions : customValue;
