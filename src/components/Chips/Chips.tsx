@@ -102,7 +102,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
-      noAnimation = false,
+      noAnimation = true,
       ariaLabel,
       dataTestId,
       disableClickableBehavior = false
