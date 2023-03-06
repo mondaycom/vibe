@@ -7,6 +7,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
+import VibeComponent from "../../types/VibeComponent";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
@@ -32,7 +33,7 @@ export interface ClickableProps extends VibeComponentProps {
   dataTestId?: string;
 }
 
-const Clickable: React.FC<ClickableProps> = forwardRef(
+const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
   (
     {
       elementType = "div",

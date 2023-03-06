@@ -22,6 +22,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import "./VirtualizedGrid.scss";
+import VibeComponent from "../../types/VibeComponent";
 
 type ItemType = {
   value: string;
@@ -99,7 +100,7 @@ interface VirtualizedGridProps extends VibeComponentProps {
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
 }
 
-const VirtualizedGrid: React.FC<VirtualizedGridProps> = forwardRef(
+const VirtualizedGrid: VibeComponent<VirtualizedGridProps, HTMLDivElement> = forwardRef(
   (
     {
       className,
