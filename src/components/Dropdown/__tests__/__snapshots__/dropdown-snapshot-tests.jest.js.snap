@@ -186,7 +186,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu,
+           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -754,7 +754,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu,
+           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -1158,7 +1158,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1214,7 +1214,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1275,7 +1275,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1331,7 +1331,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1393,7 +1393,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1449,7 +1449,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1749,7 +1749,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                       }
                     }
                   >
-
+                    
                   </div>
                 </div>
               </div>
@@ -1840,7 +1840,7 @@ exports[`Dropdown renders correctly with className 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1896,7 +1896,7 @@ exports[`Dropdown renders correctly with className 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2018,7 +2018,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2105,7 +2105,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2161,7 +2161,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2223,7 +2223,7 @@ exports[`Dropdown renders correctly with id 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2279,7 +2279,7 @@ exports[`Dropdown renders correctly with id 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2482,7 +2482,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                       }
                     }
                   >
-
+                    
                   </div>
                 </div>
               </div>
@@ -2709,7 +2709,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                       }
                     }
                   >
-
+                    
                   </div>
                 </div>
               </div>
@@ -2806,7 +2806,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
             <div
               className=" css-1usuuna-placeholder"
             >
-
+              
             </div>
           </div>
           <div
@@ -2870,7 +2870,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
                       }
                     }
                   >
-
+                    
                   </div>
                 </div>
               </div>
@@ -2936,7 +2936,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2992,7 +2992,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3054,7 +3054,7 @@ exports[`Dropdown renders correctly with options 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3110,7 +3110,7 @@ exports[`Dropdown renders correctly with options 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3228,7 +3228,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3290,7 +3290,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3346,7 +3346,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3415,7 +3415,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3471,7 +3471,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3593,7 +3593,7 @@ exports[`Dropdown renders correctly with value 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3680,7 +3680,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         <div
           className=" css-1usuuna-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3736,7 +3736,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
