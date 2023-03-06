@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "modify files-from-list": "shell_scripts/run_for_files_list.sh",
-
     "modify react-core": "shell_scripts/run.sh ../../src/components",
     "modify react-core/accordion": "shell_scripts/run.sh ../../src/components/Accordion",
     "modify react-core/avatar": "shell_scripts/run.sh ../../src/components/Avatar/Avatar.jsx",
@@ -84,6 +83,7 @@
     "postcss-modules": "^4.3.1",
     "postcss-scss": "^4.0.4",
     "prettier": "^2.5.1",
+    "prop-types": "^15.8.1",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
   },
