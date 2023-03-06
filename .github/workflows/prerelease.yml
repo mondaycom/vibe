@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
