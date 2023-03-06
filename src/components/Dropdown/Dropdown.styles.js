@@ -60,7 +60,6 @@ const disabledContainerStyle = isDisabled => {
 const readOnlyContainerStyle = readOnly => {
   if (!readOnly) return {};
   return {
-    userSelect: "text",
     border: "hidden"
   };
 };
@@ -153,7 +152,7 @@ const control =
           borderRadius: getCSSVar("border-radius-small")
         }
       }),
-      cursor: readOnly ? "text" : "pointer",
+      cursor: readOnly ? "default" : "pointer",
       ...disabledContainerStyle(isDisabled),
       ...readOnlyContainerStyle(readOnly)
     };
@@ -232,13 +231,20 @@ const singleValue =
   () =>
   (provided, { isDisabled, selectProps }) => {
     const { readOnly } = selectProps;
+    const readOnlyProps = readOnly
+      ? {
+          ...readOnlyContainerStyle(readOnly),
+          cursor: "text"
+        }
+      : {};
+
     return {
       ...provided,
       ...getFont(),
       ...getColor(),
       ...disabledContainerStyle(isDisabled),
-      ...readOnlyContainerStyle(readOnly),
       ...menuOpenOpacity(selectProps),
+      ...readOnlyProps,
       display: "flex",
       alignItems: "center",
       height: "100%"
