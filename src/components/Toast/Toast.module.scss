@@ -43,8 +43,9 @@
   display: flex;
 }
 
-:global(.monday-style-toast-action_button),
-:global(.monday-style-toast-action_link) {
+// Could have been put to ToastButton and ToastLink, but would be a breaking change
+.actionButton,
+.actionLink {
   margin-left: $spacing-small;
 }
 

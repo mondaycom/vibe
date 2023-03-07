@@ -55,7 +55,9 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
     return actions
       ? actions
           .filter(action => action.type === ToastActionType.LINK)
-          .map(({ type: _type, ...otherProps }) => <ToastLink key={otherProps.href} {...otherProps} />)
+          .map(({ type: _type, ...otherProps }) => (
+            <ToastLink key={otherProps.href} className={styles.actionLink} {...otherProps} />
+          ))
       : null;
   }, [actions]);
 
@@ -64,7 +66,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       ? actions
           .filter(action => action.type === ToastActionType.BUTTON)
           .map(({ type: _type, content, ...otherProps }, index) => (
-            <ToastButton key={`alert-button-${index}`} {...otherProps}>
+            <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
               {content}
             </ToastButton>
           ))
