@@ -6,7 +6,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
   data-testid="tabs-context"
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact Compact"
+    className="tabsWrapper tabs--wrapper compact Compact"
     data-testid="tab-list"
   >
     <ul
@@ -17,12 +17,12 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={false}
-        className="tabWrapper tab--wrapper"
+        className="tabWrapper tab--wrapper tabWrapperOverride"
         data-testid="tab"
         role="tab"
       >
         <a
-          className="tabInner tab-inner"
+          className="tabInner tab-inner tabInnerOverride"
           onClick={[Function]}
         >
           First
@@ -31,12 +31,12 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tabWrapper tab--wrapper active"
+        className="tabWrapper tab--wrapper tabWrapperOverride active"
         data-testid="tab"
         role="tab"
       >
         <a
-          className="tabInner tab-inner"
+          className="tabInner tab-inner tabInnerOverride"
           onClick={[Function]}
         >
           Second
@@ -72,7 +72,7 @@ exports[`TabsContext renders correctly with className 1`] = `
   data-testid="tabs-context"
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact Compact"
+    className="tabsWrapper tabs--wrapper compact Compact"
     data-testid="tab-list"
   >
     <ul
@@ -83,12 +83,12 @@ exports[`TabsContext renders correctly with className 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tabWrapper tab--wrapper active"
+        className="tabWrapper tab--wrapper tabWrapperOverride active"
         data-testid="tab"
         role="tab"
       >
         <a
-          className="tabInner tab-inner"
+          className="tabInner tab-inner tabInnerOverride"
           onClick={[Function]}
         >
           First
@@ -117,7 +117,7 @@ exports[`TabsContext renders correctly with empty props 1`] = `
   data-testid="tabs-context"
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact Compact"
+    className="tabsWrapper tabs--wrapper compact Compact"
     data-testid="tab-list"
   >
     <ul
@@ -128,12 +128,12 @@ exports[`TabsContext renders correctly with empty props 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tabWrapper tab--wrapper active"
+        className="tabWrapper tab--wrapper tabWrapperOverride active"
         data-testid="tab"
         role="tab"
       >
         <a
-          className="tabInner tab-inner"
+          className="tabInner tab-inner tabInnerOverride"
           onClick={[Function]}
         >
           First
@@ -163,7 +163,7 @@ exports[`TabsContext renders correctly with id 1`] = `
   id="test"
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact Compact"
+    className="tabsWrapper tabs--wrapper compact Compact"
     data-testid="tab-list"
   >
     <ul
@@ -174,12 +174,12 @@ exports[`TabsContext renders correctly with id 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tabWrapper tab--wrapper active"
+        className="tabWrapper tab--wrapper tabWrapperOverride active"
         data-testid="tab"
         role="tab"
       >
         <a
-          className="tabInner tab-inner"
+          className="tabInner tab-inner tabInnerOverride"
           onClick={[Function]}
         >
           First
