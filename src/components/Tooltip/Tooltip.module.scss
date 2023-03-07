@@ -72,11 +72,3 @@ $tooltip-z-index: 9999999999999999;
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
 }
-
-.contentComponent {
-  padding: 6px;
-}
-
-.contentComponent:focus {
-  outline: none;
-}
