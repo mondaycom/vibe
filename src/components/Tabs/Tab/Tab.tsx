@@ -11,9 +11,12 @@ import styles from "./Tab.module.scss";
 
 export interface TabProps extends VibeComponentProps {
   /**
-   * Class name for tab name-link
+   * Class name for tab link-name
    */
   tabInnerClassName?: string;
+  /**
+   * Tab index
+   */
   value?: number;
   disabled?: boolean;
   active?: boolean;
@@ -22,6 +25,9 @@ export interface TabProps extends VibeComponentProps {
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
+  /**
+   * Tab link-name
+   */
   children?: string | ReactElement[];
 }
 
