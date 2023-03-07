@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -93,7 +94,9 @@ const TabList: FC<TabListProps> = forwardRef(
           value: index,
           active: activeTabState === index,
           focus: focusIndex === index,
-          onClick: onSelectionAction
+          onClick: onSelectionAction,
+          className: styles.tabWrapper,
+          tabInnerClassName: styles.tabInner
         });
       });
       return childrenToRender;
@@ -102,7 +105,7 @@ const TabList: FC<TabListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, "tabs--wrapper", className, [getStyle(styles, tabType)], tabType)}
+        className={cx(styles.tabsWrapper, "tabs--wrapper", className, [getStyle(styles, camelCase(tabType))], tabType)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >

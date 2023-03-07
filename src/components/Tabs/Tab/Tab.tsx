@@ -10,6 +10,10 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import styles from "./Tab.module.scss";
 
 export interface TabProps extends VibeComponentProps {
+  /**
+   * Class name for tab name-link
+   */
+  tabInnerClassName?: string;
   value?: number;
   disabled?: boolean;
   active?: boolean;
@@ -25,6 +29,7 @@ const Tab: FC<TabProps> = forwardRef(
   (
     {
       className,
+      tabInnerClassName,
       id,
       value = 0,
       disabled = false,
@@ -82,7 +87,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-disabled={disabled}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
       >
-        <a className={cx(styles.tabInner, "tab-inner")} onClick={() => !disabled && onClick(value)}>
+        <a className={cx(styles.tabInner, "tab-inner", tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>
       </li>

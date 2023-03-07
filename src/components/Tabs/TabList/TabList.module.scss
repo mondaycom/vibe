@@ -13,6 +13,7 @@
   position: relative;
   height: 40px;
   outline: none;
+  font-family: var(--font-family);
 }
 
 .tabsWrapper .tabsList.sm {
@@ -27,10 +28,12 @@
   width: 100%;
 }
 
+// Override of tabWrapper class from Tab.module.scss
 .tabsWrapper.stretched .tabsList .tabWrapper {
   width: 100%;
 }
 
+// Override of tabWrapper and tabInner class from Tab.module.scss
 .tabsWrapper.stretched .tabsList .tabWrapper .tabInner {
   width: 100%;
 }
@@ -42,10 +45,7 @@
   pointer-events: none;
 }
 
-.tabsWrapper.disabled .tabsList .tabWrapper .tabInner:hover {
-  cursor: default;
-}
-
-.tabsWrapper .tabsList {
-  font-family: var(--font-family);
-}
+// TODO css-modules-prerelease-1 this is not working, but do we need this? makes cursor "default" instead of "not-allowed" on disabled tab in tabsList
+//.tabsWrapper.disabled .tabsList .tabWrapper .tabInner {
+//  cursor: default;
+//}
