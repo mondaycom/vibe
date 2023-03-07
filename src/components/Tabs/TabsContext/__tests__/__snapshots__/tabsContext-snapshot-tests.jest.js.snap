@@ -15,11 +15,11 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={false}
-        className="tab--wrapper"
+        className="tab--wrapper tab--wrapper-override"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tab-inner tab-inner-override"
           onClick={[Function]}
         >
           First
@@ -28,11 +28,11 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tab--wrapper tab--wrapper-override active"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tab-inner tab-inner-override"
           onClick={[Function]}
         >
           Second
@@ -74,11 +74,11 @@ exports[`TabsContext renders correctly with className 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tab--wrapper tab--wrapper-override active"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tab-inner tab-inner-override"
           onClick={[Function]}
         >
           First
@@ -114,11 +114,11 @@ exports[`TabsContext renders correctly with empty props 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tab--wrapper tab--wrapper-override active"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tab-inner tab-inner-override"
           onClick={[Function]}
         >
           First
@@ -155,11 +155,11 @@ exports[`TabsContext renders correctly with id 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tab--wrapper tab--wrapper-override active"
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tab-inner tab-inner-override"
           onClick={[Function]}
         >
           First
