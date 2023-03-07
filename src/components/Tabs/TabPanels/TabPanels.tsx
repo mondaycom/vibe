@@ -16,7 +16,9 @@ export interface TabPanelsProps extends VibeComponentProps {
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
 }
 
-const TabPanels: FC<TabPanelsProps> = forwardRef(
+const TabPanels: FC<TabPanelsProps> & {
+  animationDirections?: typeof TabPanelsAnimationDirection;
+} = forwardRef(
   (
     {
       className,
@@ -24,7 +26,7 @@ const TabPanels: FC<TabPanelsProps> = forwardRef(
       activeTabId = 0,
       animationDirection = TabPanelsAnimationDirection.RTL,
       children,
-      // TODO BREAKING change to true - breaking change
+      // TODO Vibe 2.0 BREAKING change to true - breaking change
       renderOnlyActiveTab = false,
       "data-testid": dataTestId
     },
