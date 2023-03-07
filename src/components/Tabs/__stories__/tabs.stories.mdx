@@ -16,7 +16,7 @@ import {
 import { tabsTemplate } from "./tabs.overview.jsx";
 import "./tabs.stories.scss";
 
-<Meta title="Navigation/Tabs/Tabs" component={Tab} />
+<Meta title="Navigation/Tabs/Tabs" component={Tab} subcomponents={{ TabsContext, TabList, TabPanels, TabPanel }} />
 
 # Tabs
 
@@ -55,7 +55,7 @@ Tabs allow users to navigate between related views of content while remaining in
 />
 
 <Tip>
-  Use tabs to navigate between deferent contents, if switching between states within the same content use{" "}
+  Use tabs to navigate between different contents, if switching between states within the same content use{" "}
   <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>
     Button group
   </Link>{" "}
@@ -104,6 +104,7 @@ The width of the list is responsive to the screen's width.
 
 ### Motion
 
+// TODO this example demonstrates nothing - TabPanels animationDirection is getting overriden by TabsContext here, so no sense in passing animationDirection to TabPanels
 Tabs animation direction
 
 <Canvas>
@@ -116,7 +117,7 @@ Tabs animation direction
           <Tab>Third</Tab>
           <Tab disabled>Disabled</Tab>
         </TabList>
-        <TabPanels animationDirection="ltr">
+        <TabPanels animationDirection={TabPanels.animationDirections.LTR}>
           <TabPanel>First slide</TabPanel>
           <TabPanel>Second slide</TabPanel>
           <TabPanel>Third slide</TabPanel>
@@ -130,7 +131,7 @@ Tabs animation direction
           <Tab>Third</Tab>
           <Tab disabled>Disabled</Tab>
         </TabList>
-        <TabPanels>
+        <TabPanels animationDirection={TabPanels.animationDirections.RTL}>
           <TabPanel>First slide</TabPanel>
           <TabPanel>Second slide</TabPanel>
           <TabPanel>Third slide</TabPanel>
