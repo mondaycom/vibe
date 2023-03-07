@@ -41,6 +41,7 @@
   margin-bottom: $margin-bottom;
   cursor: pointer;
   @include theme-prop(color, primary-text-color);
+  font-family: var(--font-family);
 }
 
 .tabWrapper .tabInner:focus {
@@ -75,8 +76,4 @@
 .tabWrapper:not(.disabled) .tabInner:hover {
   border-radius: 4px;
   @include theme-prop(background-color, primary-background-hover-color);
-}
-
-.tabWrapper .tabInner {
-  font-family: var(--font-family);
 }
