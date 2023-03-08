@@ -52,7 +52,7 @@ jobs:
         run: npm run build && npm publish --tag prerelease
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "marvinpinto/action-automatic-releases@prerelease"
         if: success()
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
