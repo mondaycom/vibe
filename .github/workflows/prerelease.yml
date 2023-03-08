@@ -45,7 +45,7 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          npm run prerelease
+          npm run pre-release
           echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
