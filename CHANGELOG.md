@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.102.1 (2023-03-08)
+
+#### Bug Fixes
+* [#1153](https://github.com/mondaycom/monday-ui-react-core/pull/1153) Fix Heading sizes type issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.102.0 (2023-03-08)
 
 #### Bug Fixes
