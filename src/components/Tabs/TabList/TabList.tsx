@@ -80,8 +80,8 @@ const TabList: FC<TabListProps> = forwardRef(
           active: activeTabState === index,
           focus: focusIndex === index,
           onClick: onSelectionAction,
-          className: cx("tab--wrapper-override", child.props.className),
-          tabInnerClassName: cx("tab-inner-override", child.props.tabInnerClassName)
+          className: cx("tabs-list_tab--wrapper", child.props.className),
+          tabInnerClassName: cx("tabs-list_tab-inner", child.props.tabInnerClassName)
         });
       });
       return childrenToRender;
