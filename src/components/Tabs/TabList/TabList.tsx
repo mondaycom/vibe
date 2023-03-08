@@ -79,7 +79,9 @@ const TabList: FC<TabListProps> = forwardRef(
           value: index,
           active: activeTabState === index,
           focus: focusIndex === index,
-          onClick: onSelectionAction
+          onClick: onSelectionAction,
+          className: cx("tabs-list_tab--wrapper", child.props.className),
+          tabInnerClassName: cx("tabs-list_tab-inner", child.props.tabInnerClassName)
         });
       });
       return childrenToRender;
