@@ -9,6 +9,7 @@ import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import "./Heading.scss";
+import { Sizes } from "../../constants";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -19,7 +20,7 @@ export interface HeadingProps extends VibeComponentProps {
   suggestEditOnHover?: boolean;
   /** Tooltip to show when no overflow */
   nonEllipsisTooltip?: string;
-  size?: typeof HeadingSizes;
+  size?: Sizes;
   highlightTerm?: string;
   customColor?: string;
   style?: CSSProperties;
@@ -27,7 +28,7 @@ export interface HeadingProps extends VibeComponentProps {
 }
 
 const Heading: React.FC<HeadingProps> & {
-  sizes?: typeof HeadingSizes;
+  sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = ({
   className,
@@ -95,7 +96,7 @@ const Heading: React.FC<HeadingProps> & {
 
 Object.assign(Heading, {
   types: HeadingTypes,
-  sizes: HeadingSizes
+  sizes: Sizes
 });
 
 export default Heading;
