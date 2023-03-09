@@ -1,14 +1,108 @@
-import React from "react";
+import React, { useMemo } from "react";
 import cx from "classnames";
 import ComboboxOption from "../components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "../components/ComboboxCategory/ComboboxCategory";
 import Divider from "../../Divider/Divider";
 import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../components/ComboboxConstants";
+import useActiveDescendantListFocus from "../../../hooks/useActiveDescendantListFocus";
+import { getOptionsByCategories } from "../ComboboxService";
 import styles from "./ComboboxHelpers.module.scss";
 
 const DIVIDER_HEIGHT = 17;
 const CATEGORY_HEIGHT = 32;
 
+export function useItemsData({ categories, options, filterValue, withCategoriesDivider, optionLineHeight }) {
+  return useMemo(() => {
+    let items = [];
+    let selectableItems = [];
+    const itemsMap = new Map();
+
+    if (categories) {
+      const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
+      let optionIndex = 0;
+      Object.keys(optionsByCategories).forEach((categoryId, categoryIndex) => {
+        const withDivider = withCategoriesDivider && categoryIndex !== 0;
+        if (withDivider) {
+          items.push(createDividerItemObject({ categoryId }));
+        }
+
+        const isCategoryWithOptions = optionsByCategories[categoryId].length > 0;
+        const isFirstCategory = categoryIndex === 0;
+
+        const categoryObject = createCategoryItemObject({
+          categoryId,
+          categoryData: categories[categoryId],
+          withDivider,
+          className: cx({
+            [styles.categoryWithOptions]: isCategoryWithOptions,
+            [styles.categoryWithoutOptions]: !isCategoryWithOptions,
+            [styles.firstCategory]: isFirstCategory
+          })
+        });
+
+        // save category object in both items array and categories map
+        items.push(categoryObject);
+        itemsMap.set(categoryId, categoryObject);
+
+        optionsByCategories[categoryId].forEach(option => {
+          const itemObject = createOptionItemObject({
+            height: optionLineHeight,
+            option,
+            index: optionIndex,
+            categoryId: categoryObject.id
+          });
+
+          itemsMap.set(itemObject.id, itemObject);
+          items.push(itemObject);
+          selectableItems.push(option);
+          optionIndex++;
+        });
+      });
+    } else {
+      selectableItems = options;
+      items = options.map((option, index) => {
+        return createOptionItemObject({
+          height: optionLineHeight,
+          option,
+          index
+        });
+      });
+    }
+    return { items, itemsMap, selectableItems };
+  }, [categories, options, filterValue, withCategoriesDivider, optionLineHeight]);
+}
+
+export function useKeyboardNavigation({
+  defaultVisualFocusFirstIndex,
+  inputRef,
+  resultsContainerRef,
+  onClick,
+  isChildSelectable,
+  options,
+  getOptionId
+}) {
+  const filteredOptionsIds = useMemo(
+    () => options.map((option, index) => getOptionId(option?.id, index)),
+    [getOptionId, options]
+  );
+
+  const {
+    visualFocusItemIndex,
+    visualFocusItemId,
+    onItemClickCallback: onOptionClick
+  } = useActiveDescendantListFocus({
+    defaultVisualFocusFirstIndex,
+    focusedElementRef: inputRef,
+    containerElementRef: resultsContainerRef,
+    focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
+    itemsIds: filteredOptionsIds,
+    onItemClick: onClick,
+    isItemSelectable: isChildSelectable,
+    isIgnoreSpaceAsItemSelection: true
+  });
+
+  return { visualFocusItemIndex, visualFocusItemId, onOptionClick };
+}
 export function createDividerItemObject({ categoryId }) {
   return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };
 }

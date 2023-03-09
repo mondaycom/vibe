@@ -1,6 +1,12 @@
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, cleanup } from "@testing-library/react";
 import Combobox from "../Combobox";
+
+function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, numberOfCall = 1) {
+  fireEvent.click(getByLabelText(labelText));
+  expect(onClickMock.mock.calls.length).toBe(numberOfCall);
+  expect(onClickMock).toHaveBeenCalledWith(expect.objectContaining({ label: labelText, value }));
+}
 
 describe("Combobox tests", () => {
   beforeEach(() => {
@@ -9,6 +15,7 @@ describe("Combobox tests", () => {
 
   afterEach(() => {
     jest.useRealTimers();
+    cleanup();
   });
 
   const mockOptions = [
@@ -20,9 +27,7 @@ describe("Combobox tests", () => {
     const onClickMock = jest.fn();
     const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
 
-    fireEvent.click(getByLabelText("Yellow"));
-    expect(onClickMock.mock.calls.length).toBe(1);
-    expect(onClickMock).toHaveBeenCalledWith(expect.objectContaining({ value: "yellow", label: "Yellow" }));
+    clickValueCheckCallback(getByLabelText, onClickMock, "Yellow", "yellow");
   });
 
   it("should call callback func when onOptionHover", () => {
@@ -68,6 +73,45 @@ describe("Combobox tests", () => {
     await waitFor(() => {
       fireEvent.click(screen.getByText("Add new"));
       expect(onAddMock.mock.calls.length).toBe(1);
+    });
+  });
+
+  describe("Should trigger the on click callback on the correct item with categories", () => {
+    const options = [
+      { id: "item 1", label: "item 1", categoryId: "third", value: "item 1" },
+      { id: "item 2", label: "item 2", categoryId: "second", value: "item 2" },
+      { id: "item 3", label: "item 3", categoryId: "first", value: "item 3" },
+      { id: "item 4", label: "item 4", categoryId: "third", value: "item 4" },
+      { id: "item 5", label: "item 5", categoryId: "first", value: "item 5" },
+      { id: "item 6", label: "item 6", categoryId: "second", value: "item 6" },
+      { id: "item 7", label: "item 7", categoryId: "third", value: "item 7" }
+    ];
+    const categories = {
+      first: { id: "first", label: "first" },
+      second: { id: "second", label: "second" },
+      third: { id: "third", label: "third" }
+    };
+
+    it("with regular categories", () => {
+      const onClickMock = jest.fn();
+      const { getByLabelText } = render(<Combobox onClick={onClickMock} options={options} categories={categories} />);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 3", "item 3", 3);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 4", "item 4", 4);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 5", "item 5", 5);
+    });
+
+    it("with divider", () => {
+      const onClickMock = jest.fn();
+      const { getByLabelText } = render(
+        <Combobox onClick={onClickMock} options={options} categories={categories} withCategoriesDivider />
+      );
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 3", "item 3", 3);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 4", "item 4", 4);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 5", "item 5", 5);
     });
   });
 });

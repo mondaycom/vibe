@@ -14,6 +14,7 @@ import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
+import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
 import "./Combobox.scss";
 
@@ -95,45 +96,11 @@ const Combobox = forwardRef(
       [filteredOptions]
     );
 
-    const filteredOptionsIds = useMemo(
-      () => filteredOptions.map((option, index) => getOptionId(option?.id, index)),
-      [filteredOptions]
-    );
-
     const onAddNewCallback = useCallback(() => {
       onAddNew && onAddNew(filterValue);
       // clear filter after adding
       setFilterValue("");
     }, [onAddNew, filterValue, setFilterValue]);
-
-    const overrideOnClick = useCallback(
-      (event, itemIndex) => {
-        onClick(filteredOptions[itemIndex]);
-        if (isChildSelectable(itemIndex)) {
-          setActiveOptionIndex(itemIndex);
-        }
-        if (clearFilterOnSelection) {
-          // clear filter after adding
-          onChangeCallback("");
-        }
-      },
-      [onClick, filteredOptions, isChildSelectable, clearFilterOnSelection, onChangeCallback]
-    );
-
-    const {
-      visualFocusItemIndex,
-      visualFocusItemId,
-      onItemClickCallback: onOptionClick
-    } = useActiveDescendantListFocus({
-      defaultVisualFocusFirstIndex,
-      focusedElementRef: inputRef,
-      containerElementRef: resultsContainerRef,
-      focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
-      itemsIds: filteredOptionsIds,
-      onItemClick: overrideOnClick,
-      isItemSelectable: isChildSelectable,
-      isIgnoreSpaceAsItemSelection: true
-    });
 
     const hasResults = filteredOptions.length > 0;
     const hasFilter = filterValue.length > 0;
@@ -175,6 +142,43 @@ const Combobox = forwardRef(
       [activeCategoryLabel]
     );
 
+    const { items, itemsMap, selectableItems } = useItemsData({
+      categories,
+      options: filteredOptions,
+      filterValue,
+      withCategoriesDivider,
+      optionLineHeight
+    });
+
+    const overrideOnClick = useCallback(
+      (event, itemIndex) => {
+        console.log(itemIndex, selectableItems[itemIndex]);
+        onClick(selectableItems[itemIndex]);
+        if (isChildSelectable(itemIndex)) {
+          setActiveOptionIndex(itemIndex);
+        }
+        if (clearFilterOnSelection) {
+          // clear filter after adding
+          onChangeCallback("");
+        }
+      },
+      [onClick, selectableItems, isChildSelectable, clearFilterOnSelection, onChangeCallback]
+    );
+
+    const {
+      visualFocusItemIndex,
+      visualFocusItemId,
+      onOptionClick: overrideOnOptionClick
+    } = useKeyboardNavigation({
+      getOptionId,
+      defaultVisualFocusFirstIndex,
+      resultsContainerRef,
+      onClick: overrideOnClick,
+      isChildSelectable,
+      options: selectableItems,
+      inputRef
+    });
+
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
@@ -207,21 +211,27 @@ const Combobox = forwardRef(
             forceUndoScrollNullCheck={forceUndoScrollNullCheck}
             ref={resultsContainerRef}
             categories={categories}
-            options={filteredOptions}
+            options={items}
+            itemsMap={itemsMap}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
             optionClassName={optionClassName}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
-            visualFocusItemIndex={visualFocusItemIndex}
             onActiveCategoryChanged={onActiveCategoryChanged}
-            onOptionClick={onOptionClick}
+            onOptionClick={overrideOnOptionClick}
             onOptionEnter={onOptionHoverCB}
             onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
             shouldScrollToSelectedItem={shouldScrollToSelectedItem}
             renderOnlyVisibleOptions={renderOnlyVisibleOptions}
             maxOptionsWithoutScroll={maxOptionsWithoutScroll}
+            isChildSelectable={isChildSelectable}
+            setActiveOptionIndex={setActiveOptionIndex}
+            clearFilterOnSelection={clearFilterOnSelection}
+            onChangeCallback={onChangeCallback}
+            resultsContainerRef={resultsContainerRef}
+            defaultVisualFocusFirstIndex={defaultVisualFocusFirstIndex}
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
