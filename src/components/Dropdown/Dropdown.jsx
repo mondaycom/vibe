@@ -71,7 +71,8 @@ const Dropdown = ({
   tooltipContent,
   onKeyDown,
   isLoading,
-  loadingMessage
+  loadingMessage,
+  ariaLabel
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -97,11 +98,14 @@ const Dropdown = ({
     return {};
   }, [selectedOptions]);
 
-  const ariaLabel = useMemo(() => {
-    return `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
-      selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
-    }`;
-  }, [readOnly, selectedOptions, tooltipContent]);
+  const overrideAriaLabel = useMemo(() => {
+    return (
+      ariaLabel ||
+      `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
+        selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
+      }`
+    );
+  }, [ariaLabel, readOnly, selectedOptions, tooltipContent]);
   const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
@@ -295,7 +299,7 @@ const Dropdown = ({
       isSearchable={!readOnly && searchable}
       readOnly={readOnly}
       aria-readonly={readOnly}
-      aria-label={ariaLabel}
+      aria-label={overrideAriaLabel}
       aria-details={tooltipContent}
       defaultValue={defaultValue}
       value={value}
@@ -363,7 +367,8 @@ Dropdown.defaultProps = {
   disabled: false,
   readOnly: false,
   isLoading: false,
-  loadingMessage: undefined
+  loadingMessage: undefined,
+  ariaLabel: undefined
 };
 
 Dropdown.propTypes = {
@@ -585,7 +590,11 @@ Dropdown.propTypes = {
   /**
    * Overrides the built-in logic of loading message design
    */
-  loadingMessage: PropTypes.func
+  loadingMessage: PropTypes.func,
+  /**
+   * aria-label attribute for dropdown
+   */
+  ariaLabel: PropTypes.string
 };
 
 export default Dropdown;
