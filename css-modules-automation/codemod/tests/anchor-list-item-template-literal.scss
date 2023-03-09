@@ -6,6 +6,10 @@
   font-size: $anchor-font-size;
   line-height: $text-line-height;
 
+  &-test {
+    background-color: red;
+  }
+
   &:not(:last-child) {
     margin-bottom: $spacing-small;
   }

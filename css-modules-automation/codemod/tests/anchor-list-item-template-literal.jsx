@@ -4,7 +4,17 @@ import "./anchor-list-item-template-literal.scss";
 
 export const AnchorListItem = ({ children }) => {
   const type = "template-literal";
-  return <li className={cx(`monday-style-anchor-list-item-${type} a`, {[`monday-style-anchor-list-item-${type}`]: true})}>{children}</li>;
+  const test = "test";
+  return (
+    <li
+      className={cx(`monday-style-anchor-list-item-${type} a`, {
+        [`monday-style-anchor-list-item-${type}`]: true,
+        [`monday-style-anchor-list-item-${test}`]: false
+      })}
+    >
+      {children}
+    </li>
+  );
 };
 AnchorListItem.propTypes = {
   children: PropTypes.element
