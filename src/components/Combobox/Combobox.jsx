@@ -151,7 +151,6 @@ const Combobox = forwardRef(
 
     const overrideOnClick = useCallback(
       (event, itemIndex) => {
-        console.log(itemIndex, selectableItems[itemIndex]);
         onClick(selectableItems[itemIndex]);
         if (isChildSelectable(itemIndex)) {
           setActiveOptionIndex(itemIndex);
