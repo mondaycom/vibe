@@ -58,7 +58,7 @@ export interface IconButtonProps extends VibeComponentProps {
    * Kind of button - like <Button />
    */
   kind?: ButtonType;
-  /** Control the button, set it in an active state */
+  /** Change the button appearance to active (pressed) state */
   active?: boolean;
   /** The button's color  */
   color?: ButtonColor;
