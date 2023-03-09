@@ -45,14 +45,14 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          npm run prerelease
+          npm run pre-release
           echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
       - name: Publish the new version to npm
         if: success()
         run: npm run build && npm publish --tag prerelease
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "marvinpinto/action-automatic-releases@prerelease"
         if: success()
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"

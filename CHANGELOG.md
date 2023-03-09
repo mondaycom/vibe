@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.102.1 (2023-03-08)
+
+#### Bug Fixes
+* [#1153](https://github.com/mondaycom/monday-ui-react-core/pull/1153) Fix Heading sizes type issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.102.0 (2023-03-08)
+
+#### Bug Fixes
+* [#1129](https://github.com/mondaycom/monday-ui-react-core/pull/1129) set no animation on chip as default ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1151](https://github.com/mondaycom/monday-ui-react-core/pull/1151) Feature/sergeyro/tab remove inner css overrides - new prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1128](https://github.com/mondaycom/monday-ui-react-core/pull/1128) Skeleton types + aria pressed + switch ([@hadasfa](https://github.com/hadasfa))
+* [#1127](https://github.com/mondaycom/monday-ui-react-core/pull/1127) Feature/sergeyro/chips elipsis tooltip ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1152](https://github.com/mondaycom/monday-ui-react-core/pull/1152) Rename prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1133](https://github.com/mondaycom/monday-ui-react-core/pull/1133) Fix getStyle if no such style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.101.1 (2023-03-02)
 
 #### Bug Fixes

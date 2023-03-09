@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.101.1",
+  "version": "1.102.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -41,7 +41,7 @@
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "npm run stylelint -- --fix",
     "release": "./scripts/release.js",
-    "prerelease": "./scripts/prerelease.js"
+    "pre-release": "./scripts/prerelease.js"
   },
   "repository": {
     "type": "git",
