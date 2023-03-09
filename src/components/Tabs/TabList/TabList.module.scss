@@ -28,11 +28,11 @@
   width: 100%;
 }
 
-.tabsWrapper.stretched .tabsList .tabWrapperOverride {
+.tabsWrapper.stretched .tabsList .tabListTabWrapper {
   width: 100%;
 }
 
-.tabsWrapper.stretched .tabsList .tabWrapperOverride .tabInnerOverride {
+.tabsWrapper.stretched .tabsList .tabListTabWrapper .tabListTabInner {
   width: 100%;
 }
 
@@ -44,6 +44,6 @@
 }
 
 // TODO css-modules-prerelease-1 this is not working, but do we need this? makes cursor "default" instead of "not-allowed" on disabled tab in tabsList
-//.tabsWrapper.disabled .tabsList .tabWrapperOverride .tabInnerOverride {
+//.tabsWrapper.disabled .tabsList .tabListTabWrapper .tabListTabInner {
 //  cursor: default;
 //}
