@@ -13,7 +13,6 @@ import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
-import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
 import "./Combobox.scss";
@@ -226,12 +225,7 @@ const Combobox = forwardRef(
             shouldScrollToSelectedItem={shouldScrollToSelectedItem}
             renderOnlyVisibleOptions={renderOnlyVisibleOptions}
             maxOptionsWithoutScroll={maxOptionsWithoutScroll}
-            isChildSelectable={isChildSelectable}
-            setActiveOptionIndex={setActiveOptionIndex}
-            clearFilterOnSelection={clearFilterOnSelection}
-            onChangeCallback={onChangeCallback}
-            resultsContainerRef={resultsContainerRef}
-            defaultVisualFocusFirstIndex={defaultVisualFocusFirstIndex}
+            visualFocusItemIndex={visualFocusItemIndex}
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
