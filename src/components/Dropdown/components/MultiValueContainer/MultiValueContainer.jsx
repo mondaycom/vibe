@@ -16,7 +16,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
     placeholder,
     inputValue,
     selectProps: customProps = {},
-    withMandatoryDefaultOptions
+    withMandatoryDefaultOptions,
+    readOnly
   } = selectProps;
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
@@ -56,14 +57,15 @@ export default function Container({ children, selectProps, ...otherProps }) {
             onMouseDown={e => {
               e.stopPropagation();
             }}
-            readOnly={withMandatoryDefaultOptions && option.isMandatory}
+            readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
+            allowTextSelection={readOnly}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}
           />
         ) : null;
       }),
-    [selectedOptions, chipClassName, isDisabled, onSelectedDelete, withMandatoryDefaultOptions]
+    [selectedOptions, chipClassName, isDisabled, onSelectedDelete, readOnly, withMandatoryDefaultOptions]
   );
 
   return (

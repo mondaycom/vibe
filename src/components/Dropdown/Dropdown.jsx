@@ -23,6 +23,7 @@ const Dropdown = ({
   className,
   placeholder,
   disabled,
+  readOnly,
   onMenuOpen,
   onMenuClose,
   onFocus,
@@ -70,7 +71,8 @@ const Dropdown = ({
   tooltipContent,
   onKeyDown,
   isLoading,
-  loadingMessage
+  loadingMessage,
+  ariaLabel
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -96,6 +98,14 @@ const Dropdown = ({
     return {};
   }, [selectedOptions]);
 
+  const overrideAriaLabel = useMemo(() => {
+    return (
+      ariaLabel ||
+      `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
+        selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
+      }`
+    );
+  }, [ariaLabel, readOnly, selectedOptions, tooltipContent]);
   const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
@@ -156,8 +166,15 @@ const Dropdown = ({
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
   const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} selectedOption={selectedOptions[0]} />,
-    [finalValueRenderer, selectedOptions]
+    props => (
+      <SingleValueComponent
+        {...props}
+        readOnly={readOnly}
+        Renderer={finalValueRenderer}
+        selectedOption={selectedOptions[0]}
+      />
+    ),
+    [finalValueRenderer, readOnly, selectedOptions]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -278,8 +295,12 @@ const Dropdown = ({
       noOptionsMessage={noOptionsMessage}
       placeholder={placeholder}
       isDisabled={disabled}
-      isClearable={clearable}
-      isSearchable={searchable}
+      isClearable={!readOnly && clearable}
+      isSearchable={!readOnly && searchable}
+      readOnly={readOnly}
+      aria-readonly={readOnly}
+      aria-label={overrideAriaLabel}
+      aria-details={tooltipContent}
       defaultValue={defaultValue}
       value={value}
       onMenuOpen={onMenuOpen}
@@ -297,7 +318,7 @@ const Dropdown = ({
       maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
       menuPlacement={menuPlacement}
-      menuIsOpen={menuIsOpen}
+      menuIsOpen={!readOnly && menuIsOpen}
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
@@ -305,7 +326,6 @@ const Dropdown = ({
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
-      aria-details={tooltipContent}
       isLoading={isLoading}
       loadingMessage={loadingMessage}
       {...asyncAdditions}
@@ -344,8 +364,11 @@ Dropdown.defaultProps = {
   insideOverflowContainer: false,
   insideOverflowWithTransformContainer: false,
   tooltipContent: "",
+  disabled: false,
+  readOnly: false,
   isLoading: false,
-  loadingMessage: undefined
+  loadingMessage: undefined,
+  ariaLabel: undefined
 };
 
 Dropdown.propTypes = {
@@ -361,6 +384,10 @@ Dropdown.propTypes = {
    * If set to true, dropdown will be disabled
    */
   disabled: PropTypes.bool,
+  /**
+   * If set to true, dropdown won't be editable
+   */
+  readOnly: PropTypes.bool,
   /**
    * Called when menu is opened
    */
@@ -563,7 +590,11 @@ Dropdown.propTypes = {
   /**
    * Overrides the built-in logic of loading message design
    */
-  loadingMessage: PropTypes.func
+  loadingMessage: PropTypes.func,
+  /**
+   * aria-label attribute for dropdown
+   */
+  ariaLabel: PropTypes.string
 };
 
 export default Dropdown;
