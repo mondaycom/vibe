@@ -76,8 +76,8 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
 export const buildClassnameStringFromTemplateLiteral = (
   node: t.TemplateLiteral,
   state: State,
-  addCamelCaseWrapping: boolean = true,
-  separateIdentifiers: boolean = true
+  addCamelCaseWrapping = true,
+  separateIdentifiers = true
 ): string => {
   printWithCondition(true, "))) buildStringFromTemplateLiteral, node", node);
 

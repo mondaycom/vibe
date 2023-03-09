@@ -16,8 +16,8 @@ import { splitTemplateLiteralClassNames } from "../utils/templateLiterals/splitT
  */
 export const templateLiteralReplacementVisitors: Visitor<State> = {
   TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(true, "### templateLiteralReplacementVisitors, path.node", path.node);
-    printWithCondition(true, "### templateLiteralReplacementVisitors, path.parent", path.parent);
+    printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
+    printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
 
     // TODO or const declaration
     if (
@@ -28,7 +28,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
       if (t.isJSXExpressionContainer(path.parent) && !isCxCallExpression(path.parent.expression)) {
         const newPath = embedCxCallExpression(path.parent);
         path.parentPath.replaceWith(newPath);
-        printWithCondition(true, "### templateLiteralReplacementVisitors, wrappedWithCxCallExpression");
+        printWithCondition(false, "### templateLiteralReplacementVisitors, wrappedWithCxCallExpression");
         return;
       }
 
@@ -62,17 +62,14 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
 
     if (isCxCallExpression(path.parent)) {
       if (isModularClassnameNodeIdentifier) {
-        const newPath = t.callExpression(t.identifier("getStyle"), [t.identifier(state.opts.importIdentifier), modularClassnameNode]);
+        const newPath = t.callExpression(t.identifier("getStyle"), [
+          t.identifier(state.opts.importIdentifier),
+          modularClassnameNode
+        ]);
         printWithCondition(
           false,
           "### templateLiteralReplacementVisitors, modularClassnameString",
           modularClassnameString
-        );
-        printWithCondition(true, "### templateLiteralReplacementVisitors, path.parent", path.parent);
-        printWithCondition(
-            true,
-          "### templateLiteralReplacementVisitors, isCxCallExpression, path.parentPath.parent",
-          path.parentPath.parent
         );
 
         const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
@@ -81,7 +78,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
           p.getPrevSibling().skip();
         });
 
-        printWithCondition(true, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
+        printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
         state.camelCaseImportNeeded = true;
         state.getStyleImportNeeded = true;
@@ -98,18 +95,52 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
       );
       if (isModularClassnameNodeIdentifier) {
         const parentNode = path.parentPath.node as t.ObjectProperty;
-        print("### stringLiteralReplacementVisitors, isObjectProperty, parentNode.value = ", parentNode.value);
-        const overrideNewPath = t.objectProperty(modularClassnameNode, parentNode.value, true, false);
+
+        printWithCondition(
+          false,
+          "### templateLiteralReplacementVisitors, isObjectProperty, parentNode.value = ",
+          parentNode.value
+        );
+
+        const getStyleExpression = t.callExpression(t.identifier("getStyle"), [
+          t.identifier(state.opts.importIdentifier),
+          modularClassnameNode
+        ]);
+
+        printWithCondition(
+          false,
+          "### templateLiteralReplacementVisitors, path.getAllNextSiblings",
+          path.getAllNextSiblings()
+        );
+        printWithCondition(false, "### templateLiteralReplacementVisitors, getStyleExpression", getStyleExpression);
+
+        const prevSibling = path.getPrevSibling();
+        if (
+          prevSibling &&
+          t.isCallExpression(prevSibling.node) &&
+          prevSibling.node.callee === getStyleExpression.callee &&
+          prevSibling.node.arguments === getStyleExpression.arguments
+        ) {
+          printWithCondition(false, "### templateLiteralReplacementVisitors, prev sibling is equal!!!");
+          return;
+        }
+
         const insertedPaths = path.parentPath.replaceInline([
-          overrideNewPath,
+          t.objectProperty(getStyleExpression, parentNode.value, true, false),
           t.objectProperty(t.templateLiteral(path.node.quasis, path.node.expressions), parentNode.value, true, false)
         ]);
+        printWithCondition(
+          false,
+          "### templateLiteralReplacementVisitors, isObjectProperty, insertedPaths = ",
+          insertedPaths
+        );
         insertedPaths.forEach(p => {
           p.skip();
           p.getPrevSibling().skip();
         });
 
         state.camelCaseImportNeeded = true;
+        state.getStyleImportNeeded = true;
       } else {
         const overrideNewPath = t.objectProperty(modularClassnameNode, path.parent.value, false, false);
         path.parentPath.replaceWith(overrideNewPath);
