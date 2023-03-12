@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.103.1 (2023-03-12)
+
+#### Bug Fixes
+* [#1157](https://github.com/mondaycom/monday-ui-react-core/pull/1157) export list item avatar ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.103.0 (2023-03-12)
 
 #### Bug Fixes
