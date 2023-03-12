@@ -9,6 +9,7 @@ import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
+import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
 import "./chips.stories.scss";
 
@@ -192,17 +193,17 @@ Sometimes when needed, chips can change fill color.
   </Story>
 </Canvas>
 
-### Chips in person column
+### Chips in a person picker combo box
 
-Chips can be removable.
+Chips can be removable, and can be used in a multiple options selection use cases.
 
 <Canvas>
-  <Story name="Chips in Person Column">
+  <Story name="Chips in a person picker combo box">
     <DialogContentContainer className="monday-storybook-chips_search-bar">
       <Search placeholder="Search names, positions, or a team" />
       <div className="monday-storybook-chips_inline-container">
-        <Chips label="Esther Schanler" />
-        <Chips label="Itai Shabtai" />
+        <Chips label="Esther Schanler" leftAvatar={person1} />
+        <Chips label="Rotem Dekel" leftAvatar={rotem} />
       </div>
       <div className="monday-storybook-chips_lable">Suggested people</div>
       <div className="monday-storybook-chips_search">
