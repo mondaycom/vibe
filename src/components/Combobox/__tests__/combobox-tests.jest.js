@@ -1,6 +1,12 @@
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, cleanup } from "@testing-library/react";
 import Combobox from "../Combobox";
+
+function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, numberOfCall = 1) {
+  fireEvent.click(getByLabelText(labelText));
+  expect(onClickMock.mock.calls.length).toBe(numberOfCall);
+  expect(onClickMock).toHaveBeenCalledWith(expect.objectContaining({ label: labelText, value }));
+}
 
 describe("Combobox tests", () => {
   beforeEach(() => {
@@ -9,65 +15,105 @@ describe("Combobox tests", () => {
 
   afterEach(() => {
     jest.useRealTimers();
+    cleanup();
   });
 
-  const mockOptions = [
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" }
-  ];
+  describe("Without categories", () => {
+    const mockOptions = [
+      { value: "orange", label: "Orange" },
+      { value: "yellow", label: "Yellow" }
+    ];
 
-  it("should call item on click callback func when onClick", () => {
-    const onClickMock = jest.fn();
-    const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
+    it("should call item on click callback func when onClick", () => {
+      const onClickMock = jest.fn();
+      const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
 
-    fireEvent.click(getByLabelText("Yellow"));
-    expect(onClickMock.mock.calls.length).toBe(1);
-    expect(onClickMock).toHaveBeenCalledWith(expect.objectContaining({ value: "yellow", label: "Yellow" }));
+      clickValueCheckCallback(getByLabelText, onClickMock, "Yellow", "yellow");
+    });
+
+    it("should call callback func when onOptionHover", () => {
+      const onMouseOverMock = jest.fn();
+      const { getByLabelText } = render(<Combobox onOptionHover={onMouseOverMock} options={mockOptions} />);
+
+      fireEvent.mouseOver(getByLabelText("Yellow"));
+      expect(onMouseOverMock.mock.calls.length).toBe(1);
+    });
+
+    it("should call callback func when onOptionLeave", () => {
+      const onMouseLeaveMock = jest.fn();
+      const { getByLabelText } = render(<Combobox onOptionLeave={onMouseLeaveMock} options={mockOptions} />);
+
+      fireEvent.mouseLeave(getByLabelText("Yellow"));
+      expect(onMouseLeaveMock.mock.calls.length).toBe(1);
+    });
+
+    it("should call callback func when noResultsRenderer", async () => {
+      const noResRendereMock = jest.fn();
+      const { getByLabelText } = render(<Combobox noResultsRenderer={noResRendereMock} options={mockOptions} />);
+      const input = getByLabelText("Search for content");
+      expect(noResRendereMock.mock.calls.length).toBe(0);
+      fireEvent.change(input, { target: { value: "No text in option" } });
+      await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
+    });
+
+    it("should display no results message", async () => {
+      const noRes = "NO MESSAGE";
+      const { getByLabelText } = render(<Combobox options={mockOptions} noResultsMessage={noRes} />);
+      const input = getByLabelText("Search for content");
+      fireEvent.change(input, { target: { value: "No text in option" } });
+      await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
+    });
+
+    it("should call onAddNew func when add new", async () => {
+      const onAddMock = jest.fn();
+
+      const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
+      const input = getByLabelText("Search for content");
+      fireEvent.change(input, { target: { value: "No text in option" } });
+
+      await waitFor(() => {
+        fireEvent.click(screen.getByText("Add new"));
+        expect(onAddMock.mock.calls.length).toBe(1);
+      });
+    });
   });
 
-  it("should call callback func when onOptionHover", () => {
-    const onMouseOverMock = jest.fn();
-    const { getByLabelText } = render(<Combobox onOptionHover={onMouseOverMock} options={mockOptions} />);
+  describe("With categories", () => {
+    const options = [
+      { id: "item 1", label: "item 1", categoryId: "third", value: "item 1" },
+      { id: "item 2", label: "item 2", categoryId: "second", value: "item 2" },
+      { id: "item 3", label: "item 3", categoryId: "first", value: "item 3" },
+      { id: "item 4", label: "item 4", categoryId: "third", value: "item 4" },
+      { id: "item 5", label: "item 5", categoryId: "first", value: "item 5" },
+      { id: "item 6", label: "item 6", categoryId: "second", value: "item 6" },
+      { id: "item 7", label: "item 7", categoryId: "third", value: "item 7" }
+    ];
+    const categories = {
+      first: { id: "first", label: "first" },
+      second: { id: "second", label: "second" },
+      third: { id: "third", label: "third" }
+    };
 
-    fireEvent.mouseOver(getByLabelText("Yellow"));
-    expect(onMouseOverMock.mock.calls.length).toBe(1);
-  });
+    it("Should trigger the on click callback on the correct item with regular categories", () => {
+      const onClickMock = jest.fn();
+      const { getByLabelText } = render(<Combobox onClick={onClickMock} options={options} categories={categories} />);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 3", "item 3", 3);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 4", "item 4", 4);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 5", "item 5", 5);
+    });
 
-  it("should call callback func when onOptionLeave", () => {
-    const onMouseLeaveMock = jest.fn();
-    const { getByLabelText } = render(<Combobox onOptionLeave={onMouseLeaveMock} options={mockOptions} />);
-
-    fireEvent.mouseLeave(getByLabelText("Yellow"));
-    expect(onMouseLeaveMock.mock.calls.length).toBe(1);
-  });
-
-  it("should call callback func when noResultsRenderer", async () => {
-    const noResRendereMock = jest.fn();
-    const { getByLabelText } = render(<Combobox noResultsRenderer={noResRendereMock} options={mockOptions} />);
-    const input = getByLabelText("Search for content");
-    expect(noResRendereMock.mock.calls.length).toBe(0);
-    fireEvent.change(input, { target: { value: "No text in option" } });
-    await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
-  });
-
-  it("should display no results message", async () => {
-    const noRes = "NO MESSAGE";
-    const { getByLabelText } = render(<Combobox options={mockOptions} noResultsMessage={noRes} />);
-    const input = getByLabelText("Search for content");
-    fireEvent.change(input, { target: { value: "No text in option" } });
-    await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
-  });
-
-  it("should call onAddNew func when add new", async () => {
-    const onAddMock = jest.fn();
-
-    const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
-    const input = getByLabelText("Search for content");
-    fireEvent.change(input, { target: { value: "No text in option" } });
-
-    await waitFor(() => {
-      fireEvent.click(screen.getByText("Add new"));
-      expect(onAddMock.mock.calls.length).toBe(1);
+    it("Should trigger the on click callback on the correct item with divided categories", () => {
+      const onClickMock = jest.fn();
+      const { getByLabelText } = render(
+        <Combobox onClick={onClickMock} options={options} categories={categories} withCategoriesDivider />
+      );
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 3", "item 3", 3);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 4", "item 4", 4);
+      clickValueCheckCallback(getByLabelText, onClickMock, "item 5", "item 5", 5);
     });
   });
 });
