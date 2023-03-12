@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.103.0 (2023-03-12)
+
+#### Bug Fixes
+* [#1155](https://github.com/mondaycom/monday-ui-react-core/pull/1155) Fix combobox bug: trigger onclick event with the wrong option when categories and options not sorted ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1130](https://github.com/mondaycom/monday-ui-react-core/pull/1130) Feature/sergeyro/dropdown readonly ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1154](https://github.com/mondaycom/monday-ui-react-core/pull/1154) Fix back prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.102.1 (2023-03-08)
 
 #### Bug Fixes
