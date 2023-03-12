@@ -5,11 +5,12 @@ exports[`Toast renders correctly (renders nothing) with empty props 1`] = `null`
 exports[`Toast renders correctly and don't renders close button if closeable=false 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-normal"
+  className="toast monday-style-toast typeNormal monday-style-toast--type-normal"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -29,7 +30,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
   </div>
@@ -43,11 +44,12 @@ exports[`Toast renders correctly when icon is hidden 1`] = `null`;
 exports[`Toast renders correctly when open is true 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-normal"
+  className="toast monday-style-toast typeNormal monday-style-toast--type-normal"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -67,7 +69,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
   </div>
@@ -76,7 +78,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     aria-disabled={false}
     aria-label="close-toast"
     aria-pressed={false}
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -108,11 +110,12 @@ exports[`Toast renders correctly when open is true 1`] = `
 exports[`Toast renders correctly with button 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-normal"
+  className="toast monday-style-toast typeNormal monday-style-toast--type-normal"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -132,18 +135,18 @@ exports[`Toast renders correctly with button 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
   </div>
   <div
-    className="monday-style-toast-action"
+    className="action monday-style-toast-action"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
+      className="monday-style-toast-action_button actionButton monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -160,7 +163,7 @@ exports[`Toast renders correctly with button 1`] = `
     aria-disabled={false}
     aria-label="close-toast"
     aria-pressed={false}
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -192,11 +195,12 @@ exports[`Toast renders correctly with button 1`] = `
 exports[`Toast renders correctly with button and link 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-normal"
+  className="toast monday-style-toast typeNormal monday-style-toast--type-normal"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -216,13 +220,13 @@ exports[`Toast renders correctly with button and link 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
     <a
       aria-label=""
       aria-labelledby=""
-      className="monday-style-link monday-style-toast-action_link"
+      className="monday-style-link actionLink monday-style-toast-action_link actionLink"
       href="https://monday.com"
       id=""
       onClick={[Function]}
@@ -237,13 +241,13 @@ exports[`Toast renders correctly with button and link 1`] = `
     </a>
   </div>
   <div
-    className="monday-style-toast-action"
+    className="action monday-style-toast-action"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
+      className="monday-style-toast-action_button actionButton monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -260,7 +264,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     aria-disabled={false}
     aria-label="close-toast"
     aria-pressed={false}
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -292,11 +296,12 @@ exports[`Toast renders correctly with button and link 1`] = `
 exports[`Toast renders correctly with link 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-normal"
+  className="toast monday-style-toast typeNormal monday-style-toast--type-normal"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -316,13 +321,13 @@ exports[`Toast renders correctly with link 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
     <a
       aria-label=""
       aria-labelledby=""
-      className="monday-style-link monday-style-toast-action_link"
+      className="monday-style-link actionLink monday-style-toast-action_link actionLink"
       href="https://monday.com"
       id=""
       onClick={[Function]}
@@ -337,14 +342,14 @@ exports[`Toast renders correctly with link 1`] = `
     </a>
   </div>
   <div
-    className="monday-style-toast-action"
+    className="action monday-style-toast-action"
   />
   <button
     aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     aria-pressed={false}
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -376,11 +381,12 @@ exports[`Toast renders correctly with link 1`] = `
 exports[`Toast renders correctly with negative type 1`] = `
 <div
   aria-live="polite"
-  className="monday-style-toast monday-style-toast--type-negative"
+  className="toast monday-style-toast typeNegative monday-style-toast--type-negative"
+  data-testid="toast"
   role="alert"
 >
   <div
-    className="monday-style-toast-icon"
+    className="icon monday-style-toast-icon"
   >
     <svg
       aria-hidden={true}
@@ -400,7 +406,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-toast-content"
+    className="content monday-style-toast-content"
   >
     Something Happened
   </div>
@@ -409,7 +415,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     aria-disabled={false}
     aria-label="close-toast"
     aria-pressed={false}
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
