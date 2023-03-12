@@ -40,6 +40,7 @@ const publishedTSComponents = {
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
   ListItemIcon: "components/ListItemIcon/ListItemIcon",
+  ListItemAvatar: "components/ListItemAvatar/ListItemAvatar",
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",

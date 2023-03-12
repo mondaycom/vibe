@@ -64,6 +64,7 @@ export { default as DatePicker } from "./DatePicker/DatePicker";
 export { default as ColorPickerContent } from "./ColorPicker/components/ColorPickerContent/ColorPickerContentComponent";
 export { default as ListItem } from "./ListItem/ListItem";
 export { default as ListItemIcon } from "./ListItemIcon/ListItemIcon";
+export { default as ListItemAvatar } from "./ListItemAvatar/ListItemAvatar";
 export { default as ListTitle } from "./ListTitle/ListTitle";
 export { default as List } from "./List/List";
 export { default as VirtualizedList } from "./VirtualizedList/VirtualizedList";
