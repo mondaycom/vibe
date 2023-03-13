@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.104.1 (2023-03-13)
+
+#### Bug Fixes
+* [#1159](https://github.com/mondaycom/monday-ui-react-core/pull/1159) Fix dropdown bug when passing a damaged value ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.104.0 (2023-03-13)
 
 #### New Features
