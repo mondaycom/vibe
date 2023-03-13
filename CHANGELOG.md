@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.104.0 (2023-03-13)
+
+#### New Features
+* [#1158](https://github.com/mondaycom/monday-ui-react-core/pull/1158) TextField story & fix story in Chips ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.103.2 (2023-03-12)
 
 #### Bug Fixes
