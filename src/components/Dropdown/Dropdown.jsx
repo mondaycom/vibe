@@ -102,7 +102,7 @@ const Dropdown = ({
     return (
       ariaLabel ||
       `${readOnly ? "Readonly " : ""} ${tooltipContent} ${
-        selectedOptions.length ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
+        Array.isArray(selectedOptions) ? `Selected: ${selectedOptions.map(o => o.label).join(", ")}` : "Select"
       }`
     );
   }, [ariaLabel, readOnly, selectedOptions, tooltipContent]);
