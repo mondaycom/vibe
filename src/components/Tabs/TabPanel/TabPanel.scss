@@ -1,6 +1,0 @@
-@import "../../../styles/themes";
-@import "../../../styles/typography";
-
-.tab-panel--wrapper {
-  @include theme-prop(color, primary-text-color);
-}
