@@ -82,6 +82,7 @@ const publishedTSComponents = {
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
   // Don't remove next line
   // plop_marker:published-hooks
+  useSupportFirefoxLabelClick: "hooks/useSupportFirefoxLabelClick",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
@@ -102,6 +103,7 @@ const publishedTSComponents = {
   useSwitch: "hooks/index",
   // Don't remove next line
   // plop_marker:published-hooks
+  useSupportFirefoxLabelClick: "hooks/useSupportFirefoxLabelClick",
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover"
 };
