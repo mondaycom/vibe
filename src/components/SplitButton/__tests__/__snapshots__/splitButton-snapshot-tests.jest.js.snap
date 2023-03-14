@@ -90,7 +90,8 @@ exports[`SplitButton renders correctly with left icon 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
@@ -317,7 +318,8 @@ exports[`SplitButton renders correctly with right icon 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}

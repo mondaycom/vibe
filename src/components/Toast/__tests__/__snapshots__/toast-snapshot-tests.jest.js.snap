@@ -14,7 +14,8 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -53,7 +54,8 @@ exports[`Toast renders correctly when open is true 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -89,7 +91,8 @@ exports[`Toast renders correctly when open is true 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
@@ -119,7 +122,8 @@ exports[`Toast renders correctly with button 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -174,7 +178,8 @@ exports[`Toast renders correctly with button 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
@@ -204,7 +209,8 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -226,7 +232,8 @@ exports[`Toast renders correctly with button and link 1`] = `
     <a
       aria-label=""
       aria-labelledby=""
-      className="monday-style-link actionLink monday-style-toast-action_link actionLink"
+      className="link monday-style-link actionLink monday-style-toast-action_link actionLink"
+      data-testid="toast-link"
       href="https://monday.com"
       id=""
       onClick={[Function]}
@@ -234,7 +241,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       target="_blank"
     >
       <span
-        className="monday-style-link--text"
+        className="text monday-style-link--text"
       >
         Lorem ipsum
       </span>
@@ -275,7 +282,8 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
@@ -305,7 +313,8 @@ exports[`Toast renders correctly with link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -327,7 +336,8 @@ exports[`Toast renders correctly with link 1`] = `
     <a
       aria-label=""
       aria-labelledby=""
-      className="monday-style-link actionLink monday-style-toast-action_link actionLink"
+      className="link monday-style-link actionLink monday-style-toast-action_link actionLink"
+      data-testid="toast-link"
       href="https://monday.com"
       id=""
       onClick={[Function]}
@@ -335,7 +345,7 @@ exports[`Toast renders correctly with link 1`] = `
       target="_blank"
     >
       <span
-        className="monday-style-link--text"
+        className="text monday-style-link--text"
       >
         Lorem ipsum
       </span>
@@ -360,7 +370,8 @@ exports[`Toast renders correctly with link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
@@ -390,7 +401,8 @@ exports[`Toast renders correctly with negative type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
@@ -426,7 +438,8 @@ exports[`Toast renders correctly with negative type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20px"
       onClick={[Function]}

@@ -59,7 +59,8 @@ exports[`AlertBanner should render correctly with props 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component icon_component--no-focus-style"
+        className="icon_component icon icon_component--no-focus-style noFocusStyle"
+        data-testid="icon"
         fill="currentColor"
         height="20px"
         onClick={[Function]}
@@ -106,7 +107,8 @@ exports[`AlertBanner should render correctly without props 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component icon_component--no-focus-style"
+        className="icon_component icon icon_component--no-focus-style noFocusStyle"
+        data-testid="icon"
         fill="currentColor"
         height="20px"
         onClick={[Function]}
@@ -158,7 +160,8 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="link monday-style-link monday-style-alert-banner-link"
+          data-testid="link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -166,7 +169,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="text monday-style-link--text"
           >
             Lorem ipsum
           </span>
@@ -231,7 +234,8 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component icon_component--no-focus-style"
+        className="icon_component icon icon_component--no-focus-style noFocusStyle"
+        data-testid="icon"
         fill="currentColor"
         height="20px"
         onClick={[Function]}
@@ -283,7 +287,8 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="link monday-style-link monday-style-alert-banner-link"
+          data-testid="link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -291,7 +296,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="text monday-style-link--text"
           >
             Lorem ipsum
           </span>
@@ -318,7 +323,8 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component icon_component--no-focus-style"
+        className="icon_component icon icon_component--no-focus-style noFocusStyle"
+        data-testid="icon"
         fill="currentColor"
         height="20px"
         onClick={[Function]}
@@ -404,7 +410,8 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component icon_component--no-focus-style"
+        className="icon_component icon icon_component--no-focus-style noFocusStyle"
+        data-testid="icon"
         fill="currentColor"
         height="20px"
         onClick={[Function]}

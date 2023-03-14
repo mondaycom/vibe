@@ -25,7 +25,8 @@ exports[`AccordionItem renders correctly with children 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open"
+            className="icon_component icon animate-icon-open"
+            data-testid="icon"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -78,7 +79,8 @@ exports[`AccordionItem renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open"
+            className="icon_component icon animate-icon-open"
+            data-testid="icon"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -129,7 +131,8 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open"
+            className="icon_component icon animate-icon-open"
+            data-testid="icon"
             fill="currentColor"
             height="36"
             onClick={[Function]}
@@ -180,7 +183,8 @@ exports[`AccordionItem renders correctly with id 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open"
+            className="icon_component icon animate-icon-open"
+            data-testid="icon"
             fill="currentColor"
             height="24"
             onClick={[Function]}
@@ -237,7 +241,8 @@ exports[`AccordionItem renders correctly with title 1`] = `
           </h5>
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open"
+            className="icon_component icon animate-icon-open"
+            data-testid="icon"
             fill="currentColor"
             height="24"
             onClick={[Function]}

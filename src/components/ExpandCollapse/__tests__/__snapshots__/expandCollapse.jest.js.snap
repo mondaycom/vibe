@@ -17,7 +17,8 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="icon_component animate-icon-close"
+        className="icon_component icon animate-icon-close"
+        data-testid="icon"
         fill="currentColor"
         height="24"
         onClick={[Function]}

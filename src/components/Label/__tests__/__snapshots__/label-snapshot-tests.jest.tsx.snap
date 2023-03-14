@@ -1,135 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label renders correctly fill dark 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-dark monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colordark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly fill negative 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-negative monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colornegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly fill positive 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-positive monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorpositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly fill primary 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorprimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line dark 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-line monday-style-label--color-dark monday-style-label--with-animation"
+    className="label monday-style-label kindline monday-style-label--kind-line colordark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line negative 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-line monday-style-label--color-negative monday-style-label--with-animation"
+    className="label monday-style-label kindline monday-style-label--kind-line colornegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line positive 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-line monday-style-label--color-positive monday-style-label--with-animation"
+    className="label monday-style-label kindline monday-style-label--kind-line colorpositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line primary 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-line monday-style-label--color-primary monday-style-label--with-animation"
+    className="label monday-style-label kindline monday-style-label--kind-line colorprimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line with leg 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation monday-style-label--with-leg"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorprimary monday-style-label--color-primary withAnimation monday-style-label--with-animation withLeg monday-style-label--with-leg"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     >
       <svg
         fill="none"
@@ -151,45 +178,52 @@ exports[`Label renders correctly line with leg 1`] = `
 exports[`Label renders correctly line with wrapperClassName 1`] = `
 <span
   className="test"
+  data-testid="label"
 >
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorprimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly line without animation 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorprimary monday-style-label--color-primary"
   >
     <span>
       Test
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>
 `;
 
 exports[`Label renders correctly with empty props 1`] = `
-<span>
+<span
+  className=""
+  data-testid="label"
+>
   <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+    className="label monday-style-label kindfill monday-style-label--kind-fill colorprimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       
     </span>
     <span
-      className="monday-style-label__leg-wrapper"
+      className="legWrapper monday-style-label__leg-wrapper"
     />
   </div>
 </span>

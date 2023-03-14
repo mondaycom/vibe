@@ -26,7 +26,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -204,7 +205,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -388,7 +390,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -729,7 +732,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -907,7 +911,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -1085,7 +1090,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component icon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
