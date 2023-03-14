@@ -1,5 +1,6 @@
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -7,7 +8,7 @@ import { baseClassName } from "./RadioButtonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
-import "./RadioButton.scss";
+import styles from "./RadioButton.module.scss";
 
 interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
@@ -68,7 +69,9 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       checked,
       retainChildClick = true,
       childrenTabIndex = "0",
-      noLabelAnimation = false
+      noLabelAnimation = false,
+      id,
+      "data-testid": dataTestId
     },
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
@@ -96,10 +99,15 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
 
     return (
       <Tooltip content={tooltipContent}>
-        <label className={cx(baseClassName, overrideClassName, { disabled })}>
-          <span className={`${baseClassName}__radio-input-container`}>
+        <label
+          className={cx(baseClassName, overrideClassName, styles.radioButton, {
+            [styles.disabled]: disabled,
+            disabled: disabled
+          })}
+        >
+          <span className={cx(styles.inputContainer, `${baseClassName}__radio-input-container`)}>
             <input
-              className={`${baseClassName}__radio-input-container__radio-input`}
+              className={cx(styles.input, `${baseClassName}__radio-input-container__radio-input`)}
               type="radio"
               value={value}
               name={name}
@@ -109,12 +117,18 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               ref={mergedRef}
             />
             <span
-              className={cx(`${baseClassName}__radio-input-container__radio-control`, radioButtonClassName, {
-                [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
-              })}
+              className={cx(
+                styles.control,
+                `${baseClassName}__radio-input-container__radio-control`,
+                radioButtonClassName,
+                {
+                  [styles.labelAnimation]: !noLabelAnimation,
+                  [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
+                }
+              )}
             />
           </span>
-          {text && <span className={cx(`${baseClassName}__radio-label`, labelClassName)}>{text}</span>}
+          {text && <span className={cx(styles.label, `${baseClassName}__radio-label`, labelClassName)}>{text}</span>}
           {children && (
             <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
               {children}

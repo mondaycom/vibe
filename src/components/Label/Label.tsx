@@ -1,9 +1,11 @@
-import React, { useMemo } from "react";
+import { camelCase } from "lodash-es";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import "./Label.scss";
+import styles from "./Label.module.scss";
 
 const LABEL_TYPES = {
   FILL: "fill",
@@ -44,28 +46,37 @@ const Label = ({
   color = LABEL_COLORS.PRIMARY,
   text = "",
   isAnimationDisabled = false,
-  isLegIncluded = false
+  isLegIncluded = false,
+  id,
+  "data-testid": dataTestId
 }: LabelProps) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
   const classNames = useMemo(
     () =>
       cx(
+        styles.label,
         "monday-style-label",
+        styles[`${camelCase("kind" + kind)}`],
         `monday-style-label--kind-${kind}`,
+        styles[`${camelCase("color" + color)}`],
         `monday-style-label--color-${color}`,
         {
-          "monday-style-label--with-animation": !isAnimationDisabled,
-          "monday-style-label--with-leg": isLegIncluded
+          [styles.withAnimation]: !isAnimationDisabled,
+          ["monday-style-label--with-animation"]: !isAnimationDisabled,
+          [styles.withLeg]: isLegIncluded,
+          ["monday-style-label--with-leg"]: isLegIncluded
         },
         labelClassName
       ),
     [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
   return (
-    <span className={overrideClassName}>
+    <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
       <div className={classNames}>
         <span>{text}</span>
-        <span className="monday-style-label__leg-wrapper">{isLegIncluded ? <Leg /> : null}</span>
+        <span className={cx(styles.legWrapper, "monday-style-label__leg-wrapper")}>
+          {isLegIncluded ? <Leg /> : null}
+        </span>
       </div>
     </span>
   );

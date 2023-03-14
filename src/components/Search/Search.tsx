@@ -1,5 +1,5 @@
+import cx from "classnames";
 import React, { forwardRef } from "react";
-import classNames from "classnames";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
@@ -12,7 +12,7 @@ import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
 import { ComponentDefaultTestId } from "../../tests/constants";
 
-import "./Search.scss";
+import styles from "./Search.module.scss";
 
 function getType(type: SearchType) {
   return SearchTypeClass[type] || "";
@@ -83,7 +83,8 @@ const Search: VibeComponent<SearchProps, unknown> & {
       searchResultsContainerId = "",
       activeDescendant = "",
       iconNames = SearchDefaultIconNames,
-      loading = false
+      loading = false,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -91,7 +92,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
     return (
       <TextField
         id={id}
-        dataTestId={getTestId(ComponentDefaultTestId.SEARCH, id)}
+        dataTestId={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
@@ -99,10 +100,10 @@ const Search: VibeComponent<SearchProps, unknown> & {
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
-        className={classNames(className, "search_component", getType(type))}
+        className={cx(className, styles.search, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
         secondaryDataTestId={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
-        wrapperClassName={classNames(wrapperClassName, "search_component_wrapper")}
+        wrapperClassName={cx(wrapperClassName, styles.searchWrapper, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}
         ref={mergedRef}

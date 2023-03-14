@@ -1,5 +1,5 @@
-import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
+import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/keyCodes";
@@ -7,7 +7,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
-import "./List.scss";
+import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
@@ -46,7 +46,8 @@ const List: FC<ListProps> = forwardRef(
       ariaLabel,
       ariaDescribedBy,
       renderOnlyVisibleItems = false,
-      style
+      style,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -104,7 +105,7 @@ const List: FC<ListProps> = forwardRef(
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx("monday-style-list", className, {
+        className={cx(styles.list, "monday-style-list", className, {
           "monday-style-list--dense": dense,
           "monday-style-list-container": renderOnlyVisibleItems
         })}
