@@ -8,13 +8,13 @@ import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
 import styles from "./List.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
   component?: ListWrapperComponentType;
-  // component?: string;
   /**
    * remove the side padding
    */
@@ -102,6 +102,7 @@ const List: FC<ListProps> = forwardRef(
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
       <Component
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
@@ -120,4 +121,5 @@ const List: FC<ListProps> = forwardRef(
   }
 );
 
+Object.assign(List, { defaultTestId: ComponentDefaultTestId.LIST });
 export default List;

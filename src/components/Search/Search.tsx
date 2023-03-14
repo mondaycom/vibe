@@ -3,15 +3,13 @@ import React, { forwardRef } from "react";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
-import { getTestId } from "../../tests/test-ids-utils";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
 import { SubIcon, VibeComponentProps, VibeComponent } from "../../types";
 import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
-import { ComponentDefaultTestId } from "../../tests/constants";
-
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
 
 function getType(type: SearchType) {

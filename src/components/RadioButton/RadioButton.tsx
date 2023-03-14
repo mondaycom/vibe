@@ -9,6 +9,9 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
 import styles from "./RadioButton.module.scss";
+import { SIZES } from "../../constants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import ListItem from "../ListItem/ListItem";
 
 interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
@@ -100,6 +103,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
     return (
       <Tooltip content={tooltipContent}>
         <label
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
           className={cx(baseClassName, overrideClassName, styles.radioButton, {
             [styles.disabled]: disabled,
             disabled: disabled
@@ -139,5 +143,9 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
     );
   }
 );
+
+Object.assign(RadioButton, {
+  defaultTestId: ComponentDefaultTestId.RADIO_BUTTON
+});
 
 export default RadioButton;

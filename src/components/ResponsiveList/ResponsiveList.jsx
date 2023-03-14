@@ -5,6 +5,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import MenuButton from "../MenuButton/MenuButton";
 import styles from "./ResponsiveList.module.scss";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
 const EMPTY_ARRAY = [];
@@ -62,7 +63,11 @@ const ResponsiveList = forwardRef(
     }, [children]);
 
     return (
-      <div className={cx(styles.responsiveListRoot, "responsive-list--root", rootClassName)} id={id}>
+      <div
+        className={cx(styles.responsiveListRoot, "responsive-list--root", rootClassName)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.RESPONSIVE_LIST, id)}
+      >
         {index !== null && (
           <div className={cx(styles.responsiveList, "responsive-list--wrapper", className)}>
             {directChildren}
@@ -144,5 +149,7 @@ ResponsiveList.defaultProps = {
   dialogZIndex: 9999,
   resizeDebounceTime: 0
 };
+
+ResponsiveList.defaultTestId = ComponentDefaultTestId.RESPONSIVE_LIST;
 
 export default ResponsiveList;

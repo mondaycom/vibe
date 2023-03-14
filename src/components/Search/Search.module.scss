@@ -1,23 +1,23 @@
-.searchComponentWrapper input[type="search"] {
+.searchWrapper input[type="search"] {
   -webkit-appearance: textfield;
 }
 
-.searchComponentWrapper input[type="search"]::-webkit-search-decoration,
-.searchComponentWrapper input[type="search"]::-webkit-search-cancel-button,
-.searchComponentWrapper input[type="search"]::-webkit-search-results-button,
-.searchComponentWrapper input[type="search"]::-webkit-search-results-decoration {
+.searchWrapper input[type="search"]::-webkit-search-decoration,
+.searchWrapper input[type="search"]::-webkit-search-cancel-button,
+.searchWrapper input[type="search"]::-webkit-search-results-button,
+.searchWrapper input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
 
-.searchComponentWrapper:focus-within .searchFocusElementFirst {
+.searchWrapper:focus-within .searchFocusElementFirst {
   animation: dashForward 5s linear forwards;
 }
 
-.searchComponentWrapper:focus-within .searchFocusElementSecond {
+.searchWrapper:focus-within .searchFocusElementSecond {
   animation: dashBackwards 5s linear forwards;
 }
 
-.searchComponent.searchComponentRound {
+.search.round {
   border-radius: 50px !important;
 }
 

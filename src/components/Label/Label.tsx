@@ -82,7 +82,10 @@ const Label = ({
   );
 };
 
-Label.colors = LABEL_COLORS;
-Label.kinds = LABEL_TYPES;
+Object.assign(Label, {
+  colors: LABEL_COLORS,
+  kinds: LABEL_TYPES,
+  defaultTestId: ComponentDefaultTestId.LABEL
+});
 
 export default Label;

@@ -1,34 +1,115 @@
-.searchWrapper input[type="search"] {
-  -webkit-appearance: textfield;
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.radioButton {
+  display: grid;
+  grid-template-columns: 1.5em auto;
+  grid-gap: 0.5em;
+  cursor: pointer;
 }
 
-.searchWrapper input[type="search"]::-webkit-search-decoration,
-.searchWrapper input[type="search"]::-webkit-search-cancel-button,
-.searchWrapper input[type="search"]::-webkit-search-results-button,
-.searchWrapper input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.searchWrapper:focus-within .searchFocusElementFirst {
-  animation: dashForward 5s linear forwards;
+.input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
 }
 
-.searchWrapper:focus-within .searchFocusElementSecond {
-  animation: dashBackwards 5s linear forwards;
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid;
+  box-sizing: border-box;
+  @include theme-prop(border-color, ui-border-color);
+  border-radius: 50%;
+  transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
-.search.round {
-  border-radius: 50px !important;
+input:checked + .control {
+  @include theme-prop(border-color, primary-color);
+  border-width: 0.3em;
 }
 
-@keyframes dashForward {
-  to {
-    stroke-dashoffset: 0;
+input:checked + .labelAnimation {
+  animation-name: radioCheckedAnimation;
+  animation-duration: var(--motion-productive-medium);
+  animation-timing-function: var(--motion-timing-enter);
+  animation-fill-mode: forwards;
+}
+
+input:disabled + .control {
+  border: 0.5em solid;
+  @include theme-prop(border-color, disabled-background-color);
+  border-radius: 50%;
+}
+
+input:checked:disabled + .control {
+  border: 0.3em solid;
+  @include theme-prop(border-color, disabled-background-color);
+  @include theme-prop(background-color, secondary-text-color);
+}
+
+.label {
+  line-height: 21px;
+  font-weight: 400;
+  font-size: var(--font-size-general-label);
+  @include theme-prop(color, primary-text-color);
+}
+
+.radioButton.disabled {
+  cursor: not-allowed;
+}
+
+.radioButton.disabled .label {
+  color: var(--disabled-text-color);
+}
+
+.inputContainer input:focus-visible + .control {
+  outline: none;
+  @include theme-prop(border-color, primary-color);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+  border-radius: 50%;
+}
+
+.radioButton:hover
+.inputContainer
+input:enabled:checked
++ .control {
+  @include theme-prop(border-color, primary-hover-color);
+}
+
+.radioButton:hover
+.inputContainer
+input:enabled:not(:checked)
++ .control,
+.radioButton:focus-within
+.inputContainer
+input:enabled:not(:checked)
++ .control {
+  @include theme-prop(border-color, primary-text-color);
+}
+
+@keyframes radioCheckedAnimation {
+  0% {
+    height: 1em;
+    width: 1em;
   }
-}
-
-@keyframes dashBackwards {
-  to {
-    stroke-dashoffset: 2000;
+  50% {
+    height: 0.8em;
+    width: 0.8em;
+  }
+  100% {
+    height: 1em;
+    width: 1em;
   }
 }
