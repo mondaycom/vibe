@@ -11,6 +11,10 @@ import styles from "./Link.module.scss";
 export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */
   componentClassName?: string;
+  /**
+   * Class name for overriding link text styles
+   */
+  textClassName?: string;
   /** Specifies the location (URL) of the external resource */
   href?: string;
   /** The link text */
@@ -47,6 +51,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
     {
       className,
       componentClassName,
+      textClassName,
       href,
       text,
       rel,
@@ -96,7 +101,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         aria-labelledby={ariaLabeledBy}
       >
         {getIcon(isStart, icon, "monday-style-link--icon-start")}
-        <span className={cx(styles.text, "monday-style-link--text")}>{text}</span>
+        <span className={cx(styles.text, "monday-style-link--text", textClassName)}>{text}</span>
         {getIcon(!isStart, icon, "monday-style-link--icon-end")}
       </a>
     );

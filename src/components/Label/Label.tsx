@@ -1,6 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
@@ -56,9 +57,10 @@ const Label = ({
       cx(
         styles.label,
         "monday-style-label",
-        styles[`${camelCase("kind" + kind)}`],
+        getStyle(styles, camelCase("kind" + "-" + kind)),
+        getStyle(styles, camelCase("kind" + "-" + kind)),
         `monday-style-label--kind-${kind}`,
-        styles[`${camelCase("color" + color)}`],
+        getStyle(styles, camelCase("color" + "-" + color)),
         `monday-style-label--color-${color}`,
         {
           [styles.withAnimation]: !isAnimationDisabled,

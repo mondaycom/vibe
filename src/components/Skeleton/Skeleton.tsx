@@ -11,6 +11,7 @@ import {
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Skeleton.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
 
@@ -53,7 +54,7 @@ const Skeleton: FC<SkeletonProps> & {
         className={cx(
           styles[skeletonType],
           `monday-style-skeleton_${skeletonType}`,
-          styles[`${camelCase(skeletonType + "-" + skeletonSize)}`],
+          getStyle(styles, camelCase(skeletonType + "-" + skeletonSize)),
           `monday-style-skeleton_${skeletonType}--${skeletonSize}`,
           className,
           {

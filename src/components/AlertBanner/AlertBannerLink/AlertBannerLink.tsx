@@ -17,7 +17,7 @@ const AlertBannerLink = ({ marginLeft = false, isDarkBackground = false, ...link
 
   return (
     <div className={classNames}>
-      <Link {...linkProps} componentClassName="monday-style-alert-banner-link" />
+      <Link {...linkProps} textClassName="monday-style-alert-banner-link" />
     </div>
   );
 };

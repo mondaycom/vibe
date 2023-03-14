@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.105.0 (2023-03-14)
+
+#### New Features
+* [#1160](https://github.com/mondaycom/monday-ui-react-core/pull/1160) Feature/sergeyro/link add text classname prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.104.1 (2023-03-13)
 
 #### Bug Fixes
