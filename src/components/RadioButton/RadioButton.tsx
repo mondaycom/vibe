@@ -1,4 +1,3 @@
-import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -9,9 +8,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
 import styles from "./RadioButton.module.scss";
-import { SIZES } from "../../constants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import ListItem from "../ListItem/ListItem";
 
 interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
