@@ -4,12 +4,6 @@ export enum SearchType {
   UNDERLINE = "underline"
 }
 
-export enum SearchTypeClass {
-  round = "search_component--round",
-  underline = "input-component__input--only-underline",
-  square = ""
-}
-
 export const SearchDefaultIconNames: {
   layout: string;
   primary: string;

@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef } from "react";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { SearchDefaultIconNames, SearchType, SearchTypeClass } from "./SearchConstants";
+import { SearchDefaultIconNames, SearchType } from "./SearchConstants";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
@@ -11,10 +11,6 @@ import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
-
-function getType(type: SearchType) {
-  return SearchTypeClass[type] || "";
-}
 
 export interface SearchProps extends VibeComponentProps {
   secondaryIconName?: SubIcon;
@@ -98,7 +94,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
-        className={cx(className, styles.search, "search_component", getType(type))}
+        className={cx(className, styles.search, "search_component", { [styles.round]: type === SearchType.ROUND })}
         secondaryIconName={secondaryIconName}
         secondaryDataTestId={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
         wrapperClassName={cx(wrapperClassName, styles.searchWrapper, "search_component_wrapper")}
@@ -116,6 +112,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
         type={TextFieldTextType.SEARCH}
         role="search"
         loading={loading}
+        underline={type === SearchType.UNDERLINE}
       />
     );
   }

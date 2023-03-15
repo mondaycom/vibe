@@ -101,7 +101,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       <Tooltip content={tooltipContent}>
         <label
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
-          className={cx(baseClassName, overrideClassName, styles.radioButton, {
+          className={cx(styles.radioButton, baseClassName, overrideClassName, {
             [styles.disabled]: disabled,
             disabled: disabled
           })}

@@ -6,7 +6,7 @@ exports[`Label renders correctly fill dark 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorDark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorDark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -24,7 +24,7 @@ exports[`Label renders correctly fill negative 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorNegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorNegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -42,7 +42,7 @@ exports[`Label renders correctly fill positive 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -60,7 +60,7 @@ exports[`Label renders correctly fill primary 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -78,7 +78,7 @@ exports[`Label renders correctly line dark 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindLine kindLine monday-style-label--kind-line colorDark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindLine monday-style-label--kind-line colorDark monday-style-label--color-dark withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -96,7 +96,7 @@ exports[`Label renders correctly line negative 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindLine kindLine monday-style-label--kind-line colorNegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindLine monday-style-label--kind-line colorNegative monday-style-label--color-negative withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -114,7 +114,7 @@ exports[`Label renders correctly line positive 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindLine kindLine monday-style-label--kind-line colorPositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindLine monday-style-label--kind-line colorPositive monday-style-label--color-positive withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -132,7 +132,7 @@ exports[`Label renders correctly line primary 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindLine kindLine monday-style-label--kind-line colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindLine monday-style-label--kind-line colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       Test
@@ -150,7 +150,7 @@ exports[`Label renders correctly line with leg 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation withLeg monday-style-label--with-leg"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation withLeg monday-style-label--with-leg"
   >
     <span>
       Test
@@ -181,7 +181,7 @@ exports[`Label renders correctly line with wrapperClassName 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       
@@ -199,7 +199,7 @@ exports[`Label renders correctly line without animation 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary"
   >
     <span>
       Test
@@ -217,7 +217,7 @@ exports[`Label renders correctly with empty props 1`] = `
   data-testid="label"
 >
   <div
-    className="label monday-style-label kindFill kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
+    className="label monday-style-label kindFill monday-style-label--kind-fill colorPrimary monday-style-label--color-primary withAnimation monday-style-label--with-animation"
   >
     <span>
       

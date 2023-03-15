@@ -10,7 +10,7 @@ exports[`Search renders correctly when disabled 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -107,7 +107,7 @@ exports[`Search renders correctly when underline 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -204,7 +204,7 @@ exports[`Search renders correctly with className 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -301,7 +301,7 @@ exports[`Search renders correctly with icon 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -388,7 +388,7 @@ exports[`Search renders correctly with id 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -485,7 +485,7 @@ exports[`Search renders correctly with loading 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -523,7 +523,7 @@ exports[`Search renders correctly with loading 1`] = `
           >
             <svg
               aria-hidden={true}
-              className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+              className="circle-loader-spinner circleLoaderSpinner loaderSvg input-component__loader-svg"
               viewBox="0 0 50 50"
             >
               <circle
@@ -611,7 +611,7 @@ exports[`Search renders correctly with placeholder 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -708,7 +708,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -788,14 +788,14 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
 exports[`Search renders correctly with underline type 1`] = `
 <div
   aria-busy={false}
-  className="textField input-component searchWrapper search_component_wrapper"
+  className="textField input-component searchWrapper search_component_wrapper onlyUnderline"
   role="search"
 >
   <div
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -803,7 +803,7 @@ exports[`Search renders correctly with underline type 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search search_component input-component__input--only-underline input input-component__input inputHasIcon input-component__input--has-icon"
+        className="search search_component input input-component__input inputHasIcon input-component__input--has-icon"
         data-testid="search_search"
         disabled={false}
         id="search"
@@ -892,7 +892,7 @@ exports[`Search renders correctly with validation 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium input-component__input--error-validation"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium inputErrorValidation"
     >
       <input
         aria-activedescendant=""
@@ -989,7 +989,7 @@ exports[`Search renders correctly with value 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -1086,7 +1086,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -1183,7 +1183,7 @@ exports[`Search renders correctly without props 1`] = `
     className="labelWrapper input-component__label--wrapper"
   >
     <div
-      className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""

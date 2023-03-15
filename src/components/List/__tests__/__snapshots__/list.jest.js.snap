@@ -3,7 +3,7 @@
 exports[`renders correctly with empty props 1`] = `
 <ul
   className="list monday-style-list"
-  data-testid="virtualized-list"
+  data-testid="list"
   onKeyDown={[Function]}
   tabIndex={-1}
 >
@@ -14,7 +14,7 @@ exports[`renders correctly with empty props 1`] = `
 exports[`renders correctly without props 1`] = `
 <ul
   className="list monday-style-list"
-  data-testid="virtualized-list"
+  data-testid="list"
   onKeyDown={[Function]}
   tabIndex={-1}
 />

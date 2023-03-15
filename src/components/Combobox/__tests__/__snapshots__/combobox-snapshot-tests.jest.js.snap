@@ -24,7 +24,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -141,7 +141,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -258,7 +258,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -375,7 +375,7 @@ exports[`Combobox renders correctly with className 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -492,7 +492,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -704,7 +704,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -821,7 +821,7 @@ exports[`Combobox renders correctly with id 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -938,7 +938,7 @@ exports[`Combobox renders correctly with loading 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -976,7 +976,7 @@ exports[`Combobox renders correctly with loading 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner loaderSvg input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
@@ -1084,7 +1084,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1201,7 +1201,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1318,7 +1318,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1486,7 +1486,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1603,7 +1603,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1720,7 +1720,7 @@ exports[`Combobox renders correctly with size 1`] = `
         className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="inputWrapper input-component__input-wrapper input-component__input-wrapper--size-large"
+          className="inputWrapper input-component__input-wrapper wrapperSizeLarge"
         >
           <input
             aria-activedescendant=""

@@ -74,6 +74,7 @@ interface TextFieldProps extends VibeComponentProps {
   secondaryDataTestId?: string;
   tabIndex?: number;
   name?: string;
+  underline?: boolean;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -121,6 +122,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       "data-testid": dataTestId,
       secondaryDataTestId,
       tabIndex,
+      underline = false,
       name
     },
     ref
@@ -183,7 +185,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       <div
         className={cx(styles.textField, "input-component", wrapperClassName, {
           [styles.disabled]: disabled,
-          ["input-component--disabled"]: disabled
+          ["input-component--disabled"]: disabled,
+          [styles.onlyUnderline]: underline
         })}
         role={role}
         aria-busy={loading}
@@ -236,7 +239,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 })}
               >
                 <div className={cx(styles.loader, "input-component__loader")}>
-                  <Loader svgClassName="input-component__loader-svg" />
+                  <Loader svgClassName={cx(styles.loaderSvg, "input-component__loader-svg")} />
                 </div>
               </div>
             )}
