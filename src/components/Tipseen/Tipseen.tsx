@@ -101,12 +101,11 @@ const Tipseen: VibeComponent<TipseenProps> & {
       Array.isArray(hideTrigger) &&
       showTrigger.length === 0 &&
       hideTrigger.length === 0 &&
-      showDelay > 0
-        ? false
-        : undefined;
+      showDelay > 0;
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const [delayedOpen, setDelayOpen] = useState(defaultDelayOpen);
+    const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
     const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
     const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
@@ -115,7 +114,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
       let timeout: NodeJS.Timeout;
       if (showDelay) {
         timeout = setTimeout(() => {
-          console.log("@@@@", defaultDelayOpen);
           setDelayOpen(true);
         }, showDelay);
       }
@@ -162,7 +160,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
           })}
           style={width ? { width } : undefined}
-          shouldShowOnMount={defaultDelayOpen === undefined}
+          shouldShowOnMount={!defaultDelayOpen}
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
@@ -178,7 +176,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideWhenReferenceHidden={hideWhenReferenceHidden}
           tip={tip}
           modifiers={modifiers}
-          open={delayedOpen}
+          open={defaultDelayOpen ? delayedOpen : undefined}
         >
           {children}
         </Tooltip>
