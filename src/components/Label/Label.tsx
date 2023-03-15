@@ -2,26 +2,23 @@ import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./Label.module.scss";
 
-const LABEL_TYPES = {
-  FILL: "fill",
-  LINE: "line"
-} as const;
+enum LabelKind {
+  FILL = "fill",
+  LINE = "line"
+}
 
-const LABEL_COLORS = {
-  PRIMARY: "primary",
-  DARK: "dark",
-  NEGATIVE: "negative",
-  POSITIVE: "positive"
-} as const;
-
-type LabelType = typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
-type LabelColor = typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
+enum LabelColor {
+  PRIMARY = "primary",
+  DARK = "dark",
+  NEGATIVE = "negative",
+  POSITIVE = "positive"
+}
 
 interface LabelProps extends VibeComponentProps {
   /**
@@ -32,25 +29,29 @@ interface LabelProps extends VibeComponentProps {
    * Class name for an inner text wrapper
    */
   labelClassName?: string;
-  kind?: LabelType;
+  kind?: LabelKind;
   color?: LabelColor;
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
 }
 
-const Label = ({
+const Label: FC<LabelProps> & {
+  colors?: typeof LabelColor;
+  kinds?: typeof LabelKind;
+  defaultTestId?: typeof ComponentDefaultTestId;
+} = ({
   className,
   wrapperClassName,
   labelClassName,
-  kind = LABEL_TYPES.FILL,
-  color = LABEL_COLORS.PRIMARY,
+  kind = LabelKind.FILL,
+  color = LabelColor.PRIMARY,
   text = "",
   isAnimationDisabled = false,
   isLegIncluded = false,
   id,
   "data-testid": dataTestId
-}: LabelProps) => {
+}) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
   const classNames = useMemo(
     () =>
@@ -85,8 +86,8 @@ const Label = ({
 };
 
 Object.assign(Label, {
-  colors: LABEL_COLORS,
-  kinds: LABEL_TYPES,
+  colors: LabelColor,
+  kinds: LabelKind,
   defaultTestId: ComponentDefaultTestId.LABEL
 });
 

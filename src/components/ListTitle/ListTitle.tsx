@@ -11,7 +11,7 @@ export interface ListTitleProps extends VibeComponentProps {
   children?: string;
 }
 
-const ListTitle: React.FC<ListTitleProps> = forwardRef(
+const ListTitle: React.FC<ListTitleProps> & { defaultTestId?: string } = forwardRef(
   ({ className, id, children, tabIndex, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });

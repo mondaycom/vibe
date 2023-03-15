@@ -35,7 +35,7 @@ export interface ListProps extends VibeComponentProps {
   style?: CSSProperties;
 }
 
-const List: FC<ListProps> = forwardRef(
+const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
   (
     {
       className,
