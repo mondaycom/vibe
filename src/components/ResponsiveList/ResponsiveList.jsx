@@ -3,9 +3,9 @@ import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import MenuButton from "../MenuButton/MenuButton";
-import styles from "./ResponsiveList.module.scss";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./ResponsiveList.module.scss";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
 const EMPTY_ARRAY = [];

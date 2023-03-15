@@ -47,6 +47,7 @@ const Skeleton: FC<SkeletonProps> & {
   const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
   return (
     <div
+      id={id}
       className={cx(styles.skeleton, SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SKELETON, id)}
     >

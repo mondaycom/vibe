@@ -100,9 +100,9 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
       >
-        {getIcon(isStart, icon, "monday-style-link--icon-start")}
+        {getIcon(isStart, icon, cx(styles.iconStart, "monday-style-link--icon-start"))}
         <span className={cx(styles.text, "monday-style-link--text", textClassName)}>{text}</span>
-        {getIcon(!isStart, icon, "monday-style-link--icon-end")}
+        {getIcon(!isStart, icon, cx(styles.iconEnd, "monday-style-link--icon-end"))}
       </a>
     );
   }

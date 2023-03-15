@@ -5,6 +5,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
@@ -28,7 +29,7 @@ const ListItemIcon: FC<ListItemIconProps> & {
         styles.listItemIcon,
         "list-item-icon",
         className,
-        styles[`${camelCase(margin)}`],
+        getStyle(styles, camelCase(margin)),
         `list-item-icon--${margin}`
       )}
       id={id}

@@ -1,5 +1,6 @@
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -8,6 +9,7 @@ import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./ListItem.module.scss";
+import { camelCase } from "lodash-es";
 
 const BEM_BASE_CLASS = "list-item";
 
@@ -113,12 +115,19 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       <div
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
-        className={cx(styles.listItem, "list-item", className, BEMHelper(size.toString()), {
-          [BEMHelper("selected")]: selected && !disabled,
-          [styles.selected]: selected && !disabled,
-          [BEMHelper("disabled")]: disabled,
-          [styles.disabled]: disabled
-        })}
+        className={cx(
+          styles.listItem,
+          "list-item",
+          className,
+          getStyle(styles, camelCase(size)),
+          BEMHelper(size.toString()),
+          {
+            [BEMHelper("selected")]: selected && !disabled,
+            [styles.selected]: selected && !disabled,
+            [BEMHelper("disabled")]: disabled,
+            [styles.disabled]: disabled
+          }
+        )}
         id={id}
         aria-disabled={disabled}
         onClick={componentOnClick}

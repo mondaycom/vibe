@@ -102,7 +102,7 @@ const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
       <Component
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}

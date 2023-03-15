@@ -6,19 +6,8 @@ import React, { FC, useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { LabelColor, LabelKind } from "./LabelConstants";
 import styles from "./Label.module.scss";
-
-enum LabelKind {
-  FILL = "fill",
-  LINE = "line"
-}
-
-enum LabelColor {
-  PRIMARY = "primary",
-  DARK = "dark",
-  NEGATIVE = "negative",
-  POSITIVE = "positive"
-}
 
 interface LabelProps extends VibeComponentProps {
   /**
@@ -58,7 +47,6 @@ const Label: FC<LabelProps> & {
       cx(
         styles.label,
         "monday-style-label",
-        getStyle(styles, camelCase("kind" + "-" + kind)),
         getStyle(styles, camelCase("kind" + "-" + kind)),
         `monday-style-label--kind-${kind}`,
         getStyle(styles, camelCase("color" + "-" + color)),
