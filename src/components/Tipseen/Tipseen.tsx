@@ -97,11 +97,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
     ref
   ) => {
     const defaultDelayOpen =
-      Array.isArray(showTrigger) &&
-      Array.isArray(hideTrigger) &&
-      showTrigger.length === 0 &&
-      hideTrigger.length === 0 &&
-      showDelay > 0;
+      Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
 
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
