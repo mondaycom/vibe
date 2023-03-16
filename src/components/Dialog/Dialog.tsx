@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
+import cx from "classnames";
 import React, { PureComponent, ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import { DialogPosition } from "../../constants/positions";
-import cx from "classnames";
 import { isFunction } from "lodash-es";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
@@ -12,7 +12,7 @@ import { Refable } from "../Refable/Refable";
 import { AnimationType, HideShowEvent } from "../../constants/dialog";
 import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
-import "./Dialog.scss";
+import styles from "./Dialog.module.scss";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -481,7 +481,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
             return (
               // @ts-ignore TODO convert Refable to TS
               <Refable
-                className={referenceWrapperClassName}
+                className={cx(referenceWrapperClassName)}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}
@@ -574,7 +574,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     <div
                       style={arrowProps.style}
                       ref={arrowProps.ref}
-                      className={cx("monday-style-tooltip-arrow", tooltipClassName)}
+                      className={cx(styles.arrow, "monday-style-tooltip-arrow", tooltipClassName)}
                       data-placement={placement}
                     />
                   )}

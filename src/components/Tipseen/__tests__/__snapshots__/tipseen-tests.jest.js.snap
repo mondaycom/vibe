@@ -141,7 +141,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -153,7 +153,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -172,7 +172,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
+        className="arrow monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -200,7 +200,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -212,7 +212,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -231,7 +231,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
+        className="arrow monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -259,7 +259,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -271,7 +271,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -322,7 +322,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
+        className="arrow monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

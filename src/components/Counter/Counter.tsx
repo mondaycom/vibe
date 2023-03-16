@@ -1,5 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
@@ -7,7 +10,7 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
-import "./Counter.scss";
+import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
   /** id to pass to the element */
@@ -60,7 +63,8 @@ const Counter: React.FC<CounterProps> & {
   id,
   prefix,
   onMouseDown,
-  noAnimation
+  noAnimation,
+  "data-testid": dataTestId
 }) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
@@ -106,42 +110,58 @@ const Counter: React.FC<CounterProps> & {
   // Memos
   const classNames = useMemo(() => {
     return cx(
+      styles.counter,
       "monday-style-counter",
+      getStyle(styles, camelCase("size-" + getActualSize(size))),
       `monday-style-counter--size-${getActualSize(size)}`,
+      getStyle(styles, camelCase("kind-" + kind)),
       `monday-style-counter--kind-${kind}`,
+      getStyle(styles, camelCase("color-" + color)),
       `monday-style-counter--color-${color}`,
       {
-        "monday-style-counter--with-animation": countChangeAnimationState
+        [styles.withAnimation]: countChangeAnimationState,
+        ["monday-style-counter--with-animation"]: countChangeAnimationState
       },
       counterClassName
     );
   }, [size, kind, color, countChangeAnimationState, counterClassName]);
 
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
-  const counter = <span id={`counter-${id}`}>{prefix + countText}</span>;
+  const counter = (
+    <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+      {prefix + countText}
+    </span>
+  );
 
   return (
     <span
-      className={overrideClassName}
+      className={cx(overrideClassName)}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
     >
-      <div className={classNames} aria-label={countText} ref={ref}>
+      <div className={cx(classNames)} aria-label={countText} ref={ref}>
         {noAnimation ? (
           counter
         ) : (
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={countText}
-              classNames="monday-style-counter--fade"
+              classNames={{
+                enter: styles.fadeEnter,
+                enterActive: styles.fadeEnterActive,
+                exit: styles.fadeExit,
+                exitActive: styles.fadeExitActive
+              }}
               // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
               // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
               addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={`counter-${id}`}>{prefix + countText}</span>
+              <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+                {prefix + countText}
+              </span>
             </CSSTransition>
           </SwitchTransition>
         )}
@@ -170,5 +190,9 @@ Counter.defaultProps = {
   prefix: "",
   size: CounterSize.LARGE
 };
+
+Object.assign(Counter, {
+  defaultTestId: ComponentDefaultTestId.COUNTER
+});
 
 export default Counter;

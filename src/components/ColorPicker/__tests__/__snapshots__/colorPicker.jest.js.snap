@@ -4,7 +4,7 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-describedby="Pick color"
   aria-labelledby="Color Picker Dialog"
-  className="dialog-content-container color-picker--wrapper color-picker-dialog-content dialog-content-container--popover dialog-content-container--medium"
+  className="dialogContentContainer dialog-content-container color-picker--wrapper color-picker-dialog-content typePopover dialog-content-container--popover sizeMedium dialog-content-container--medium"
   role="dialog"
   style={
     Object {
