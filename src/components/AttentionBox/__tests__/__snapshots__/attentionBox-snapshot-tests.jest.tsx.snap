@@ -31,7 +31,8 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -75,7 +76,8 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -119,7 +121,8 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -163,7 +166,8 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -234,7 +238,8 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
   >
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -278,7 +283,8 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>
@@ -367,7 +373,8 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
     />
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="headingComponent heading-component monday-style-attention-box-component__title elementTypeH4 element-type-h4 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+      data-testid="heading"
     >
       Title
     </h4>

@@ -3,20 +3,23 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/states";
 
-.editable-heading--wrapper {
+.editableHeadingWrapper {
   width: 100%;
   min-width: 0;
   border: 1px solid transparent;
   border-radius: $border-radius-small;
   @include focus-style();
-  &:focus,
-  &:active {
-    outline: none;
-  }
-  .heading-component {
-    margin: 0;
-  }
-  &.inset-focus {
-    @include focus-style-inset();
-  }
+}
+
+.editableHeadingWrapper:focus,
+.editableHeadingWrapper:active {
+  outline: none;
+}
+
+.headingComponent {
+  margin: 0;
+}
+
+.editableHeadingWrapper.insetFocus {
+  @include focus-style-inset();
 }

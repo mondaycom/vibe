@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-.editable-input--wrapper {
+.editableInputWrapper {
   @include theme-prop(background-color, primary-background-color);
   display: inline-block;
   width: 100%;
@@ -16,7 +16,8 @@
   @include theme-prop(border-color, primary-color);
   vertical-align: top;
   text-align: left;
-  &.no-resize {
-    resize: none;
-  }
+}
+
+.editableInputWrapper.noResize {
+  resize: none;
 }

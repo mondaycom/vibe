@@ -3,7 +3,8 @@
 exports[`renders correctly with empty props 1`] = `
 <h1
   aria-label=""
-  className="heading-component element-type-h1 size-large single-line-ellipsis"
+  className="headingComponent heading-component elementTypeH1 element-type-h1 sizeLarge size-large singleLineEllipsis single-line-ellipsis"
+  data-testid="heading"
 >
   
 </h1>

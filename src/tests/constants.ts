@@ -34,6 +34,8 @@ export enum ComponentDefaultTestId {
   COUNTER = "counter",
   MENU = "menu",
   OPTION = "option",
+  EXPAND_COLLAPSE = "expand-collapse",
+  EDITABLE_INPUT = "editable-input",
   EDITABLE_HEADING = "editable-heading",
   HEADING = "heading",
   LABEL = "label",
@@ -55,7 +57,9 @@ export enum ComponentDefaultTestId {
   DATEPICKER_HEADER = "date-picker-header",
   DATEPICKER_YEAR_SELECTION = "date-picker-year-selection",
   LOADER = "loader",
-  MODAL_BUTTONS = "modal-buttons"
+  MODAL_BUTTONS = "modal-buttons",
+  FORMATTED_NUMBER = "formatted-number",
+  HIDDEN_TEXT = "hidden-text"
 }
 
 export enum NavigationCommand {
