@@ -121,7 +121,6 @@ const ResponsiveList = forwardRef(
 );
 
 ResponsiveList.menuButtonSizes = MenuButton.sizes;
-
 ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
