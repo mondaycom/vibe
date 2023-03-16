@@ -15,16 +15,7 @@ interface FieldLabelProps extends VibeComponentProps {
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
-    {
-      icon = "",
-      iconLabel = "",
-      labelText = "",
-      labelFor = "",
-      iconClassName = "",
-      labelClassName = "",
-      id,
-      "data-testid": dataTestId
-    },
+    { icon = "", iconLabel = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "" },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
     if (!labelText) {

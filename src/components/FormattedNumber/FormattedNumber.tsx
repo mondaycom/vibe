@@ -1,5 +1,3 @@
-import { camelCase } from "lodash-es";
-import { getStyle } from "src/helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
