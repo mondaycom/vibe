@@ -1,9 +1,11 @@
-import React from "react";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DirectionType } from "./DividerConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import "./Divider.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./Divider.module.scss";
 
 interface DividerProps extends VibeComponentProps {
   direction?: DirectionType;
@@ -11,23 +13,40 @@ interface DividerProps extends VibeComponentProps {
   withoutMargin?: boolean;
 }
 
-const Divider = ({
+const Divider: React.FC<DividerProps> & {
+  directions?: typeof DirectionType;
+} = ({
   // Backward compatibility for props naming
   classname,
   className = undefined,
   withoutMargin = false,
-  direction = DirectionType.HORIZONTAL
-}: DividerProps) => {
+  direction = DirectionType.HORIZONTAL,
+  id,
+  "data-testid": dataTestId
+}) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
     <div
-      className={cx("monday-style-divider", overrideClassName, `monday-style-divider--${direction}`, {
-        [`monday-style-divider--without-margin`]: withoutMargin
-      })}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
+      className={cx(
+        styles.divider,
+        "monday-style-divider",
+        overrideClassName,
+        getStyle(styles, direction),
+        `monday-style-divider--${direction}`,
+        {
+          [`monday-style-divider--without-margin`]: withoutMargin,
+          [styles.withoutMargin]: withoutMargin
+        }
+      )}
     />
   );
 };
 
-Divider.directions = DirectionType;
+Object.assign(Divider, {
+  directions: DirectionType,
+  defaultTestId: ComponentDefaultTestId.DIVIDER
+});
 
 export default Divider;
