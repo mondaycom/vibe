@@ -6,10 +6,10 @@ import { printWithCondition } from "../utils/commonProcess/print";
 
 const getStyleImportDeclaration = t.importDeclaration(
   [t.importSpecifier(t.identifier("getStyle"), t.identifier("getStyle"))],
-  t.stringLiteral("src/helpers/typesciptCssModulesHelper")
+  t.stringLiteral("../../helpers/typesciptCssModulesHelper")
 );
 
-// 14: Adds `import { getStyle } from "src/helpers/typesciptCssModulesHelper";` to the top of the imports
+// 14: Adds `import { getStyle } from "../../helpers/typesciptCssModulesHelper";` to the top of the imports
 export const addGetStyleImportVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     if (state.getStyleImported) {
