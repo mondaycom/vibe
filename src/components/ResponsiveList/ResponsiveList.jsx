@@ -73,9 +73,13 @@ const ResponsiveList = forwardRef(
             {directChildren}
             {!!menuChildren.length && (
               <MenuButton
-                componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
+                componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
                 size={menuButtonSize}
-                openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
+                openDialogComponentClassName={cx(
+                  styles.menuButtonDialog,
+                  "responsive-list--menu-button-dialog",
+                  dialogClassName
+                )}
                 zIndex={dialogZIndex}
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
@@ -97,9 +101,13 @@ const ResponsiveList = forwardRef(
         >
           {hiddenChildren}
           <MenuButton
-            componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
+            componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
             size={menuButtonSize}
-            openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
+            openDialogComponentClassName={cx(
+              styles.menuButtonDialog,
+              "responsive-list--menu-button-dialog",
+              dialogClassName
+            )}
             zIndex={dialogZIndex}
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
