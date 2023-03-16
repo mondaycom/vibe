@@ -1,7 +1,6 @@
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import { modifiers } from "./helper";
-import { Button, Dialog } from "../../index";
 
 export const tipseenTemplate = ({ isDismissHidden, title, children, position, ...otherArgs }) => {
   return (
@@ -10,7 +9,6 @@ export const tipseenTemplate = ({ isDismissHidden, title, children, position, ..
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
       position={position}
-      showDelay={12000}
       content={
         <TipseenContent isDismissHidden={isDismissHidden} title={title}>
           {children}
@@ -18,7 +16,7 @@ export const tipseenTemplate = ({ isDismissHidden, title, children, position, ..
       }
       {...otherArgs}
     >
-      <Button>Hey</Button>
+      <div className="monday-storybook-tipseen_container" />
     </Tipseen>
   );
 };
