@@ -10,6 +10,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -24,6 +25,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -49,6 +51,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -63,6 +66,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -88,6 +92,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
     <button
       aria-busy={false}
       aria-disabled={false}
+      aria-pressed={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -151,7 +156,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -167,7 +172,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -210,7 +215,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -226,7 +231,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -269,7 +274,7 @@ Array [
       className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip monday-style-tooltip primary monday-style-tooltip-primary paddingSizeUndefined padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -283,6 +288,7 @@ Array [
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
+              aria-pressed={false}
               className="tipseenCloseButton monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
               data-testid="button"
               onBlur={[Function]}
@@ -316,7 +322,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="monday-style-tooltip-arrow arrow monday-style-arrow primary monday-style-arrow-primary paddingSizeUndefined padding-size-undefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

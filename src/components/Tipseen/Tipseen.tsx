@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactElement, useMemo, useRef } from "react";
+import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { DialogPosition } from "../../constants/positions";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -96,11 +96,27 @@ const Tipseen: VibeComponent<TipseenProps> & {
     },
     ref
   ) => {
+    const defaultDelayOpen =
+      Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
     const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
     const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
+
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+      if (showDelay) {
+        timeout = setTimeout(() => {
+          setDelayOpen(true);
+        }, showDelay);
+      }
+      return () => {
+        clearTimeout(timeout);
+      };
+    }, [showDelay, setDelayOpen]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
@@ -140,7 +156,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
           })}
           style={width ? { width } : undefined}
-          shouldShowOnMount
+          shouldShowOnMount={!defaultDelayOpen}
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
@@ -156,6 +172,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideWhenReferenceHidden={hideWhenReferenceHidden}
           tip={tip}
           modifiers={modifiers}
+          open={defaultDelayOpen ? delayedOpen : undefined}
         >
           {children}
         </Tooltip>

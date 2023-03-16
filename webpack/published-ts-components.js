@@ -40,6 +40,7 @@ const publishedTSComponents = {
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
   ListItemIcon: "components/ListItemIcon/ListItemIcon",
+  ListItemAvatar: "components/ListItemAvatar/ListItemAvatar",
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",
@@ -98,6 +99,9 @@ const publishedTSComponents = {
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   useListenFocusTriggers: "hooks/useListenFocusTriggers",
+  useSwitch: "hooks/index",
+  // Don't remove next line
+  // plop_marker:published-hooks
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover"
 };

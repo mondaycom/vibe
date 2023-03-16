@@ -1,7 +1,7 @@
 import useEventListener from "../useEventListener";
 import { RefObject, useCallback, useRef } from "react";
 
-export function useListenFocusTriggers({
+export default function useListenFocusTriggers({
   ref,
   onFocusByKeyboard,
   onFocusByMouse

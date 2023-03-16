@@ -1,5 +1,93 @@
 # Changelog
 
+## 1.105.0 (2023-03-14)
+
+#### New Features
+* [#1160](https://github.com/mondaycom/monday-ui-react-core/pull/1160) Feature/sergeyro/link add text classname prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.104.1 (2023-03-13)
+
+#### Bug Fixes
+* [#1159](https://github.com/mondaycom/monday-ui-react-core/pull/1159) Fix dropdown bug when passing a damaged value ([@hadasfa](https://github.com/hadasfa))
+
+## 1.104.0 (2023-03-13)
+
+#### New Features
+* [#1158](https://github.com/mondaycom/monday-ui-react-core/pull/1158) TextField story & fix story in Chips ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.103.2 (2023-03-12)
+
+#### Bug Fixes
+* [#1134](https://github.com/mondaycom/monday-ui-react-core/pull/1134) Feature/sergeyro/css modules prerelease 1 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.103.1 (2023-03-12)
+
+#### Bug Fixes
+* [#1157](https://github.com/mondaycom/monday-ui-react-core/pull/1157) export list item avatar ([@hadasfa](https://github.com/hadasfa))
+
+## 1.103.0 (2023-03-12)
+
+#### Bug Fixes
+* [#1155](https://github.com/mondaycom/monday-ui-react-core/pull/1155) Fix combobox bug: trigger onclick event with the wrong option when categories and options not sorted ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1130](https://github.com/mondaycom/monday-ui-react-core/pull/1130) Feature/sergeyro/dropdown readonly ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1154](https://github.com/mondaycom/monday-ui-react-core/pull/1154) Fix back prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.102.1 (2023-03-08)
+
+#### Bug Fixes
+* [#1153](https://github.com/mondaycom/monday-ui-react-core/pull/1153) Fix Heading sizes type issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.102.0 (2023-03-08)
+
+#### Bug Fixes
+* [#1129](https://github.com/mondaycom/monday-ui-react-core/pull/1129) set no animation on chip as default ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1151](https://github.com/mondaycom/monday-ui-react-core/pull/1151) Feature/sergeyro/tab remove inner css overrides - new prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1128](https://github.com/mondaycom/monday-ui-react-core/pull/1128) Skeleton types + aria pressed + switch ([@hadasfa](https://github.com/hadasfa))
+* [#1127](https://github.com/mondaycom/monday-ui-react-core/pull/1127) Feature/sergeyro/chips elipsis tooltip ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1152](https://github.com/mondaycom/monday-ui-react-core/pull/1152) Rename prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1133](https://github.com/mondaycom/monday-ui-react-core/pull/1133) Fix getStyle if no such style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.101.1 (2023-03-02)
+
+#### Bug Fixes
+* [#1146](https://github.com/mondaycom/monday-ui-react-core/pull/1146) skeleton animation use transform ([@doronbrikman](https://github.com/doronbrikman))
+
+## 1.101.0 (2023-03-01)
+
+#### New Features
+* [#1124](https://github.com/mondaycom/monday-ui-react-core/pull/1124) Dialog, Tooltip addKeyboardHideShowTriggersByDefault prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1142](https://github.com/mondaycom/monday-ui-react-core/pull/1142) Use .nvmrc and npm ci in CI ([@sahariko](https://github.com/sahariko))
+
+## 1.100.3 (2023-02-27)
+
+#### Bug Fixes
+* [#1141](https://github.com/mondaycom/monday-ui-react-core/pull/1141) Fix invalid hook referemce ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.2 (2023-02-27)
+
+#### Bug Fixes
+* [#1140](https://github.com/mondaycom/monday-ui-react-core/pull/1140) Fix storybook build ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.1 (2023-02-27)
+
+#### Bug Fixes
+* [#1139](https://github.com/mondaycom/monday-ui-react-core/pull/1139) Fix exported function ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.100.0 (2023-02-27)
+
+#### New Features
+* [#1138](https://github.com/mondaycom/monday-ui-react-core/pull/1138) add more docs ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.97.1 (2023-02-19)
 
 #### Bug Fixes

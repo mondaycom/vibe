@@ -16,6 +16,7 @@
 
   &.withUserSelect {
     user-select: text;
+    cursor: text;
   }
 
   .label {
@@ -53,6 +54,10 @@
     .label {
       @include theme-prop(color, disabled-text-color);
     }
+  }
+
+  &.defaultCursor {
+    cursor: default;
   }
 }
 

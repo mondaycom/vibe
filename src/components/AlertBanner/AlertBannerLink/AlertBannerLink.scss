@@ -2,7 +2,7 @@
 @import "../../../styles/typography";
 @import "../../../styles/themes";
 
-.monday-style-link.monday-style-alert-banner-link {
+.monday-style-alert-banner-link {
   @include theme-prop(color, text-color-on-primary);
   text-decoration: underline;
   -webkit-font-smoothing: auto;
@@ -10,7 +10,7 @@
 }
 
 .monday-style-alert-banner-link-dark-background {
-  .monday-style-link.monday-style-alert-banner-link {
+  .monday-style-alert-banner-link {
     @include theme-prop(color, text-color-on-inverted);
   }
 }
