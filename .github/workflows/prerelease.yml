@@ -2,7 +2,9 @@
 
 name: Prerelease
 
-on: push
+on:
+  - push
+  - workflow_dispatch
 
 jobs:
   prerelease:
@@ -58,7 +60,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
-      - name: Get current PR id 
+      - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
         if: success()
@@ -69,7 +71,7 @@ jobs:
           issue-number: ${{ steps.PR.outputs.number }}
           body: |
             A new prerelease version of this PR has been published: `${{ steps.create-update-version.outputs.package_version }}`
-            
+
             ```
             // To install this prerelease version using npm, please run the following command in your terminal:
             npm i monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}
