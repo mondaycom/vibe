@@ -1,12 +1,11 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import cx from "classnames";
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { DialogPosition } from "../../constants";
-import styles from "./TextWithHighlight.module.scss";
+import "./TextWithHighlight.scss";
 
 const getTextPart = (
   text: string,
@@ -18,7 +17,7 @@ const getTextPart = (
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      <WrappingElement className={cx(styles.highlightText, "highlight-text", wrappingElementClassName)} key={key}>
+      <WrappingElement className={cx("highlight-text", wrappingElementClassName)} key={key}>
         {text}
       </WrappingElement>
     );
@@ -61,8 +60,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       nonEllipsisTooltip,
       tooltipPosition,
       wrappingTextTag = "em",
-      wrappingElementClassName,
-      "data-testid": dataTestId
+      wrappingElementClassName
     },
     ref
   ) => {
@@ -98,19 +96,17 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
 
     useLayoutEffect(() => {
       if (componentRef.current) {
-        componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp.toString());
+        componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp);
       }
     }, [componentRef, linesToClamp]);
 
     const Element = (
       <div
         ref={mergedRef}
-        className={cx(styles.textWithHighlightWrapper, "text-with-highlight--wrapper", className, {
-          [styles.withEllipsis]: useEllipsis,
-          ["with-ellipsis"]: useEllipsis
+        className={cx("text-with-highlight--wrapper", className, {
+          "with-ellipsis": useEllipsis
         })}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_WITH_HIGHLIGHT, id)}
       >
         {textWithHighlights}
       </div>

@@ -4,12 +4,11 @@ exports[`Tab renders correctly when active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tabWrapper tab--wrapper active"
-  data-testid="tab"
+  className="tab--wrapper active"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   />
 </li>
@@ -19,12 +18,11 @@ exports[`Tab renders correctly when disabled 1`] = `
 <li
   aria-disabled={true}
   aria-selected={false}
-  className="tabWrapper tab--wrapper disabled"
-  data-testid="tab"
+  className="tab--wrapper disabled"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   />
 </li>
@@ -34,12 +32,11 @@ exports[`Tab renders correctly when focus 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper tabFocusVisibleInset tab-focus-visible-inset"
-  data-testid="tab"
+  className="tab--wrapper tab-focus-visible-inset"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   />
 </li>
@@ -49,12 +46,11 @@ exports[`Tab renders correctly when focus and active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tabWrapper tab--wrapper active tabFocusVisibleInset tab-focus-visible-inset"
-  data-testid="tab"
+  className="tab--wrapper active tab-focus-visible-inset"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   />
 </li>
@@ -64,12 +60,11 @@ exports[`Tab renders correctly with className 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper test"
-  data-testid="tab"
+  className="tab--wrapper test"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   >
     Tab
@@ -81,12 +76,11 @@ exports[`Tab renders correctly with empty props 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper"
-  data-testid="tab"
+  className="tab--wrapper"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   />
 </li>
@@ -96,17 +90,16 @@ exports[`Tab renders correctly with icon on left 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper"
-  data-testid="tab"
+  className="tab--wrapper"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   >
     <svg
       aria-hidden={true}
-      className="icon_component tabIcon tab-icon left icon_component--no-focus-style"
+      className="icon_component tab-icon left icon_component--no-focus-style"
       fill="currentColor"
       height="18"
       onClick={[Function]}
@@ -131,12 +124,11 @@ exports[`Tab renders correctly with icon on right 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper"
-  data-testid="tab"
+  className="tab--wrapper"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   >
     T
@@ -144,7 +136,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
     b
     <svg
       aria-hidden={true}
-      className="icon_component tabIcon tab-icon right icon_component--no-focus-style"
+      className="icon_component tab-icon right icon_component--no-focus-style"
       fill="currentColor"
       height="18"
       onClick={[Function]}
@@ -166,13 +158,12 @@ exports[`Tab renders correctly with id 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper"
-  data-testid="tab_test"
+  className="tab--wrapper"
   id="test"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   >
     Tab
@@ -184,12 +175,11 @@ exports[`Tab renders correctly with value 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tabWrapper tab--wrapper"
-  data-testid="tab"
+  className="tab--wrapper"
   role="tab"
 >
   <a
-    className="tabInner tab-inner"
+    className="tab-inner"
     onClick={[Function]}
   >
     Tab

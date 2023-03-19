@@ -1,0 +1,18 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+
+.text-with-highlight--wrapper {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  em.highlight-text {
+    @include theme-prop(background-color, primary-selected-color);
+    @include theme-prop(color, primary-text-color);
+    border-radius: 2px;
+  }
+
+  &.with-ellipsis {
+    @include line-clamp(var(--heading-clamp-lines));
+  }
+}
