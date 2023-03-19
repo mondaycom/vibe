@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.106.1 (2023-03-19)
+
+#### Bug Fixes
+* [#1168](https://github.com/mondaycom/monday-ui-react-core/pull/1168) Revert css modules part 1 migration ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.106.0 (2023-03-16)
 
 #### New Features
