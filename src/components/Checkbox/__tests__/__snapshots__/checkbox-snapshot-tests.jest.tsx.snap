@@ -21,7 +21,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -64,7 +64,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -107,7 +107,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -150,7 +150,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -194,7 +194,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -237,7 +237,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -280,7 +280,7 @@ exports[`Checkbox renders correctly with name 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -323,7 +323,7 @@ exports[`Checkbox renders correctly with props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -368,7 +368,7 @@ exports[`Checkbox renders correctly with value 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -411,7 +411,7 @@ exports[`Checkbox renders correctly without label 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon monday-style-checkbox__icon icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component monday-style-checkbox__icon noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"

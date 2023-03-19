@@ -74,7 +74,7 @@ exports[`Link renders correctly with icon 1`] = `
 >
   <span
     aria-hidden={true}
-    className="icon_component icon iconStart monday-style-link--icon-start fa fa fa-star"
+    className="icon icon_component iconStart monday-style-link--icon-start fa fa fa-star"
     data-testid="icon"
     onClick={[Function]}
     role="img"
@@ -126,7 +126,7 @@ exports[`Link renders correctly with right icon 1`] = `
   </span>
   <span
     aria-hidden={true}
-    className="icon_component icon iconEnd monday-style-link--icon-end fa fa fa-star"
+    className="icon icon_component iconEnd monday-style-link--icon-end fa fa fa-star"
     data-testid="icon"
     onClick={[Function]}
     role="img"

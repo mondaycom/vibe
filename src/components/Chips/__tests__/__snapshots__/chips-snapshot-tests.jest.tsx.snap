@@ -62,7 +62,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon icon-button-padding icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -123,7 +123,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon icon-button-padding icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"
@@ -197,7 +197,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon icon left icon_component--no-focus-style noFocusStyle"
+    className="icon icon_component icon left noFocusStyle icon_component--no-focus-style"
     data-testid="icon"
     fill="currentColor"
     height="16"
@@ -280,7 +280,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
   </div>
   <svg
     aria-hidden={true}
-    className="icon_component icon icon right icon_component--no-focus-style noFocusStyle"
+    className="icon icon_component icon right noFocusStyle icon_component--no-focus-style"
     data-testid="icon"
     fill="currentColor"
     height="16"
@@ -340,7 +340,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon icon-button-padding icon_component--no-focus-style noFocusStyle"
+      className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="16"

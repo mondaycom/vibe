@@ -3,7 +3,7 @@
 exports[`renders correctly with disabled 1`] = `
 <div
   aria-disabled={true}
-  className="listItem list-item small list-item--small list-item--disabled disabled"
+  className="listItem list-item small list-item--small disabled list-item--disabled"
   data-testid="list-item"
   onClick={[Function]}
   onFocus={[Function]}
@@ -31,7 +31,7 @@ exports[`renders correctly with empty props 1`] = `
 exports[`renders correctly with selected 1`] = `
 <div
   aria-disabled={false}
-  className="listItem list-item small list-item--small list-item--selected selected"
+  className="listItem list-item small list-item--small selected list-item--selected"
   data-testid="list-item"
   onClick={[Function]}
   onFocus={[Function]}
@@ -45,7 +45,7 @@ exports[`renders correctly with selected 1`] = `
 exports[`renders correctly with selected and disabled 1`] = `
 <div
   aria-disabled={true}
-  className="listItem list-item small list-item--small list-item--disabled disabled"
+  className="listItem list-item small list-item--small disabled list-item--disabled"
   data-testid="list-item"
   onClick={[Function]}
   onFocus={[Function]}

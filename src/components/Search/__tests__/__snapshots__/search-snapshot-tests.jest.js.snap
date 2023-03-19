@@ -46,7 +46,7 @@ exports[`Search renders correctly when disabled 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -75,7 +75,7 @@ exports[`Search renders correctly when disabled 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -143,7 +143,7 @@ exports[`Search renders correctly when underline 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -172,7 +172,7 @@ exports[`Search renders correctly when underline 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -240,7 +240,7 @@ exports[`Search renders correctly with className 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -269,7 +269,7 @@ exports[`Search renders correctly with className 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -337,7 +337,7 @@ exports[`Search renders correctly with icon 1`] = `
         <span
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle fa fa-star"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style fa fa-star"
           data-testid="icon_search"
           id="search"
           onClick={[Function]}
@@ -356,7 +356,7 @@ exports[`Search renders correctly with icon 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -424,7 +424,7 @@ exports[`Search renders correctly with id 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_testId"
           fill="currentColor"
           height="18px"
@@ -453,7 +453,7 @@ exports[`Search renders correctly with id 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_testId"
           fill="currentColor"
           height="18px"
@@ -550,7 +550,7 @@ exports[`Search renders correctly with loading 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -579,7 +579,7 @@ exports[`Search renders correctly with loading 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -647,7 +647,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -676,7 +676,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -744,7 +744,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -773,7 +773,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         <span
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle fa fa-star"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style fa fa-star"
           data-testid="icon_search"
           id="search"
           onClick={[Function]}
@@ -831,7 +831,7 @@ exports[`Search renders correctly with underline type 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -860,7 +860,7 @@ exports[`Search renders correctly with underline type 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -928,7 +928,7 @@ exports[`Search renders correctly with validation 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -957,7 +957,7 @@ exports[`Search renders correctly with validation 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1025,7 +1025,7 @@ exports[`Search renders correctly with value 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1054,7 +1054,7 @@ exports[`Search renders correctly with value 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1122,7 +1122,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1151,7 +1151,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1219,7 +1219,7 @@ exports[`Search renders correctly without props 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
@@ -1248,7 +1248,7 @@ exports[`Search renders correctly without props 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component icon inputIcon input-component__icon icon_component--no-focus-style noFocusStyle"
+          className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
           data-testid="icon_search"
           fill="currentColor"
           height="18px"
