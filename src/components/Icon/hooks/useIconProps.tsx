@@ -43,11 +43,11 @@ export default function useIconProps({
   }, []);
 
   const computedClassName = useMemo(() => {
-    return cx("icon_component", styles.icon, className, {
-      "icon_component--clickable": clickable,
+    return cx(styles.icon, "icon_component", className, {
       [styles.clickable]: clickable,
-      "icon_component--no-focus-style": ignoreFocusStyle,
-      [styles.noFocusStyle]: ignoreFocusStyle
+      "icon_component--clickable": clickable,
+      [styles.noFocusStyle]: ignoreFocusStyle,
+      "icon_component--no-focus-style": ignoreFocusStyle
     });
   }, [clickable, className, ignoreFocusStyle]);
 

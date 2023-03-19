@@ -122,10 +122,10 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
           getStyle(styles, camelCase(size)),
           BEMHelper(size.toString()),
           {
-            [BEMHelper("selected")]: selected && !disabled,
             [styles.selected]: selected && !disabled,
-            [BEMHelper("disabled")]: disabled,
-            [styles.disabled]: disabled
+            [BEMHelper("selected")]: selected && !disabled,
+            [styles.disabled]: disabled,
+            [BEMHelper("disabled")]: disabled
           }
         )}
         id={id}
