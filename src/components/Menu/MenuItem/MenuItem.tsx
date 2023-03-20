@@ -54,6 +54,10 @@ export interface MenuItemProps extends VibeComponentProps {
   onMouseEnter?: (event: React.MouseEvent) => void;
   /** Backward compatibility for props naming **/
   classname?: string;
+  /**
+   * Class name which is added to div which wraps an Icon
+   */
+  iconWrapperClassName?: string;
   menuId?: string;
   isInitialSelectedState?: boolean;
   shouldScrollMenu?: boolean;
@@ -73,6 +77,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       className,
       // Backward compatibility for props naming
       classname,
+      iconWrapperClassName,
       title = "",
       label = "",
       icon = "",
@@ -241,7 +246,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       }
 
       return (
-        <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
+        <div className={cx("monday-style-menu-item__icon-wrapper", iconWrapperClassName)} style={iconWrapperStyle}>
           <Icon
             iconType={finalIconType}
             clickable={false}
