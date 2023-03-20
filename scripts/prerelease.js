@@ -5,8 +5,6 @@ const execa = require("execa");
 function getVersionPreid() {
   const branchName = process.env.BRANCH_NAME;
   const commitSHA = process.env.COMMIT_SHA;
-  // To get unique package version even if it was run on the same commit
-  const timestamp = Date.now().toString().slice(-5);
 
   // Find the last occurrence of the '/' character
   const index = branchName.lastIndexOf("/");
@@ -16,7 +14,7 @@ function getVersionPreid() {
     finalPrName = branchName.substring(index + 1);
   }
 
-  return `${finalPrName}-${commitSHA}-${timestamp}`;
+  return `${finalPrName}-${commitSHA}`;
 }
 
 function pushBumpedVersion() {
