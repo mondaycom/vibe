@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.107.1 (2023-03-21)
+
+#### Bug Fixes
+* [#1175](https://github.com/mondaycom/monday-ui-react-core/pull/1175) Feature/sergeyro/modal close button aria label default value ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1174](https://github.com/mondaycom/monday-ui-react-core/pull/1174) Support on attention box renderer and link ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.107.0 (2023-03-20)
 
 #### New Features
