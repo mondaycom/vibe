@@ -82,7 +82,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   triggerElement,
   width = ModalWidth.DEFAULT,
   hideCloseButton = false,
-  closeButtonAriaLabel = "close",
+  closeButtonAriaLabel = "Close",
   zIndex = 10000
 }) => {
   const childrenArray: ReactElement[] = useMemo(
