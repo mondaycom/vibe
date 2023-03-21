@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { camelCase, isFunction } from "lodash-es";
-import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
+import classnames from "classnames";
 import { Modifier } from "react-popper";
+import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
 import { DialogPosition } from "../../constants/positions";
@@ -10,8 +10,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
-import styles from "./Tooltip.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import "./Tooltip.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
@@ -168,13 +167,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     return (
       <div
         style={style}
-        className={cx(
-          styles.tooltip,
-          "monday-style-tooltip",
-          getStyle(styles, camelCase(theme)),
-          `monday-style-tooltip-${theme}`,
-          getStyle(styles, camelCase("padding-size-" + paddingSize)),
-          `padding-size-${paddingSize}`,
+        className={classnames(
+          `monday-style-tooltip monday-style-tooltip-${theme} padding-size-${paddingSize}`,
           className
         )}
       >
@@ -258,14 +252,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
-      tooltipClassName: cx(
-        styles.arrow,
-        "monday-style-arrow",
-        getStyle(styles, theme),
-        `monday-style-arrow-${theme}`,
-        getStyle(styles, camelCase("padding-size-" + paddingSize)),
-        `padding-size-${paddingSize}`
-      ),
+      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`,
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
