@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.107.2 (2023-03-21)
+
+#### Bug Fixes
+* [#1176](https://github.com/mondaycom/monday-ui-react-core/pull/1176) Add classname prop to Expandable ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.107.1 (2023-03-21)
 
 #### Bug Fixes
