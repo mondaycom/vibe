@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.108.0 (2023-03-21)
+
+#### New Features
+* [#1177](https://github.com/mondaycom/monday-ui-react-core/pull/1177) add editable heading class name for inner heading ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.107.2 (2023-03-21)
 
 #### Bug Fixes
