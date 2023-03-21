@@ -2,6 +2,10 @@
 @import "../../../styles/typography";
 
 .monday-storybook-attention-box {
+  &--fixed-width {
+    width: 430px;
+  }
+
   &_column-wrapper {
     display: flex;
     flex-direction: column;
