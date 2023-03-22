@@ -59,7 +59,15 @@ export default {
         return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}, { insertAt: 'top' });`;
       },
       plugins: [autoprefixer(), postCssImport()],
-      autoModules: true
+      // autoModules: true
+      modules: {
+        generateScopedName: name => {
+          const uid = function () {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+          };
+          return `${name}___postfix___${uid()}`;
+        }
+      }
     })
   ]
 };

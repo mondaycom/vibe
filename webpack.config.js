@@ -40,7 +40,7 @@ module.exports = options => {
         modules: {
           mode: "local",
           auto: true,
-          localIdentName: "[path][name]__[local]--[hash:base64:5]",
+          localIdentName: "[local]___postfix___[hash:base64:5]",
           localIdentContext: path.resolve(__dirname, "src"),
           exportGlobals: false
         }
@@ -60,10 +60,7 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
 
   const entry = {
-    main: [
-      path.join(__dirname, "/src/style-imports"),
-      path.join(__dirname, "/src/index.js")
-    ],
+    main: [path.join(__dirname, "/src/style-imports"), path.join(__dirname, "/src/index.js")],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
     testIds: path.join(__dirname, "/src/tests/test-ids-utils"),
     ...publishedComponents
