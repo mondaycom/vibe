@@ -22,6 +22,7 @@ const Combobox = forwardRef(
     {
       className,
       optionClassName,
+      searchWrapperClassName,
       id,
       placeholder,
       size,
@@ -192,7 +193,7 @@ const Combobox = forwardRef(
           <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName="combobox--wrapper-search-wrapper"
+            wrapperClassName={cx("combobox--wrapper-search-wrapper", searchWrapperClassName)}
             className="combobox--wrapper-search"
             inputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
