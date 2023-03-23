@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.109.0 (2023-03-23)
+
+#### New Features
+* [#1180](https://github.com/mondaycom/monday-ui-react-core/pull/1180) ModalHeader: JsxElement in description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.108.0 (2023-03-21)
 
 #### New Features
