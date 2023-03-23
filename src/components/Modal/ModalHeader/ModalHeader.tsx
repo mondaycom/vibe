@@ -5,6 +5,7 @@ import CloseSmall from "../../Icon/Icons/components/CloseSmall";
 import Icon, { IconSubComponentProps } from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
+import { ElementContent } from "src/types/ElementContent";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
@@ -13,9 +14,9 @@ export interface ModalHeaderProps extends VibeComponentProps {
    */
   title: string;
   /**
-   * Description of the modal
+   * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
-  description?: string;
+  description?: ElementContent;
   /**
    * Icon to be rendered before the title
    */
