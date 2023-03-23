@@ -6,8 +6,8 @@ import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
-
 import autoprefixer from "autoprefixer";
+import { sha256 } from "js-sha256";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
@@ -59,7 +59,14 @@ export default {
         return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}, { insertAt: 'top' });`;
       },
       plugins: [autoprefixer(), postCssImport()],
-      autoModules: true
+      modules: {
+        generateScopedName: function (name, filename, css) {
+          const start = css.indexOf(`${name} {`);
+          const end = css.indexOf("}", start);
+          const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
+          return `${name}_${sha256(content).slice(0, 10)}`;
+        }
+      }
     })
   ]
 };
