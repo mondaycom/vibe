@@ -13,7 +13,10 @@
   margin: 0 var(--spacing-xs);
   user-select: none;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
-
+  &.border {
+    height: 22px;
+    border: 1px solid var(--text-color-on-primary);
+  }
   &.withUserSelect {
     user-select: text;
     cursor: text;

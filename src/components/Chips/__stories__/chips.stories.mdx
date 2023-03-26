@@ -132,7 +132,11 @@ Chips are compact elements that represent an input, attribute, or action. They m
 ### Color coded chips
 
 Use chips with colors to indicate different categories.
-e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
+e.g.
+
+```jsx
+<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />
+```
 
 <Canvas>
   <Story name="Chips palette">
@@ -146,6 +150,69 @@ e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
           </Flex>
         );
       })}
+    </Flex>
+  </Story>
+</Canvas>
+
+### Chips on colored backgrounds
+
+The chips have a prop which adds a border to them, this should be used when the chip is being displayed on a colored background
+
+<Canvas>
+  <Story name="On color">
+    <Flex style={{ width: "100%", height: 300 }} align={Flex.align.STRETCH} justify={Flex.justify.CENTER}>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--primary-selected-color)",
+          width: "24%",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On selected" showBorder />
+      </Flex>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--positive-color-selected)",
+          width: "24%",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On positive" showBorder color={Chips.colors.POSITIVE} />
+      </Flex>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--negative-color-selected)",
+          width: "24%",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On negative" showBorder color={Chips.colors.NEGATIVE} />
+      </Flex>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--color-blackish)",
+          width: "24%",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On black" showBorder />
+      </Flex>
     </Flex>
   </Story>
 </Canvas>
