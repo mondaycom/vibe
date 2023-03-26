@@ -14,9 +14,22 @@ const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
 
+const shouldMockModularClassnames = process.env.mock_classnames === "on";
+
+function generateCssModulesScopedName(name, filename, css) {
+  const start = css.indexOf(`${name} {`);
+  const end = css.indexOf("}", start);
+  const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
+  return `${name}_${sha256(content).slice(0, 10)}`;
+}
+
+function generateCssModulesMockName(name) {
+  return name;
+}
+
 export default {
   output: {
-    dir: path.join(DIST_PATH, "esm"),
+    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
     indent: false,
     strict: false,
     exports: "named",
@@ -28,7 +41,6 @@ export default {
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts")
   },
-  // external: [/node_modules/],
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
     commonjs(),
@@ -60,12 +72,10 @@ export default {
       },
       plugins: [autoprefixer(), postCssImport()],
       modules: {
-        generateScopedName: function (name, filename, css) {
-          const start = css.indexOf(`${name} {`);
-          const end = css.indexOf("}", start);
-          const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
-          return `${name}_${sha256(content).slice(0, 10)}`;
-        }
+        generateScopedName: (name, filename, css) =>
+          shouldMockModularClassnames
+            ? generateCssModulesMockName(name)
+            : generateCssModulesScopedName(name, filename, css)
       }
     })
   ]
