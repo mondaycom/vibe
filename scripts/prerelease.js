@@ -11,7 +11,7 @@ function getVersionPreid() {
   let finalPrName = branchName;
   // If the character was found, return the substring after it
   if (index !== -1) {
-    finalPrName = branchName.substring(index + 1);
+    finalPrName = branchName.substring(index + 1).replaceAll("_", "-");
   }
 
   return `${finalPrName}-${commitSHA}`;
