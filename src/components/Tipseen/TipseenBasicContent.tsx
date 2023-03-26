@@ -9,13 +9,14 @@ const BASE_CSS_CLASS = "monday-style-tipseen-basic-content";
 
 interface TipseenBasicContentProps extends VibeComponentProps {
   title?: string;
+  titleClassName?: string;
   children?: ElementContent | ElementContent[];
 }
 
-const TipseenBasicContent: FC<TipseenBasicContentProps> = ({ title, children = null, className }) => {
+const TipseenBasicContent: FC<TipseenBasicContentProps> = ({ title, children = null, titleClassName, className }) => {
   return (
     <div className={cx(styles.tipseenBasicContent, BASE_CSS_CLASS, className)}>
-      <TipseenTitle text={title} />
+      <TipseenTitle text={title} className={titleClassName} />
       {children}
     </div>
   );
