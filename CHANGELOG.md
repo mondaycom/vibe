@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.110.0 (2023-03-26)
+
+#### Bug Fixes
+* [#1186](https://github.com/mondaycom/monday-ui-react-core/pull/1186) fix interactions test location ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1183](https://github.com/mondaycom/monday-ui-react-core/pull/1183) change the build of css modules to calculate the hash according to co… ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1179](https://github.com/mondaycom/monday-ui-react-core/pull/1179) Support class name for search wrapper in combobox ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1184](https://github.com/mondaycom/monday-ui-react-core/pull/1184) Yael photo update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.109.0 (2023-03-23)
 
 #### New Features
