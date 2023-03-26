@@ -72,6 +72,16 @@ npm link
 npm start
 ```
 
+If you created a new React project using `npm create vite` and you want to use the components from the library, you should modify the `vite.config.ts` file to include the following:
+```typescript
+export default defineConfig({
+  plugins: [react()],
+  define: {
+    global: {},
+  },
+})
+```
+
 ## Contributing
 We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR 
 
