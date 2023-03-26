@@ -65,6 +65,7 @@
     "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
+    "lodash-es": "^4.17.21",
     "monday-ui-style": "0.1.149",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
@@ -75,8 +76,7 @@
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
-    "style-inject": "^0.3.0",
-    "lodash-es": "^4.17.21"
+    "style-inject": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -161,6 +161,7 @@
     "execa": "^5.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "js-sha256": "^0.9.0",
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
     "lerna-changelog": "^2.2.0",

@@ -1,5 +1,6 @@
 @use "sass:math";
-@import "../../components/Avatar/Avatar";
+@import "../../styles/states";
+@import "../../components/Avatar/AvatarConstants";
 
 .counterContainer {
   background: var(--primary-background-hover-color);
@@ -8,8 +9,7 @@
   align-items: center;
   margin-left: calc(-1 * var(--spacing-small));
   z-index: 1;
-  border: 1px solid;
-  @include theme-prop(border-color, primary-background-color);
+  border: 1px solid var(--primary-background-color);
 
   &:focus-visible,
   &.focus-visible {
