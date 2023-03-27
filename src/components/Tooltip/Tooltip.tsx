@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
@@ -255,7 +256,12 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
-      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize} ${arrowClassName}`,
+      tooltipClassName: cx(
+        "monday-style-arrow",
+        `monday-style-arrow-${theme}`,
+        `padding-size-${paddingSize}`,
+        arrowClassName
+      ),
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
