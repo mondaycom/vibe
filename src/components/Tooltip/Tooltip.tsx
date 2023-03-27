@@ -18,6 +18,8 @@ export interface TooltipProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;
+  /** Class name for a tooltip's arrow */
+  arrowClassName?: string;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
    * How much to move the dialog in relative to children
@@ -233,7 +235,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       hideTrigger,
       showOnDialogEnter,
       addKeyboardHideShowTriggersByDefault,
-      open
+      open,
+      arrowClassName
     } = this.props;
 
     if (!children) {
@@ -252,7 +255,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
-      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`,
+      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize} ${arrowClassName}`,
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
