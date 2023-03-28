@@ -352,6 +352,7 @@ Dropdown.defaultProps = {
   className: "",
   optionWrapperClassName: undefined,
   dropdownMenuWrapperClassName: undefined,
+  singleValueWrapperClassName: undefined,
   placeholder: "",
   onMenuOpen: NOOP,
   onMenuClose: NOOP,
