@@ -48,6 +48,8 @@ interface TipseenProps extends VibeComponentProps {
    * when false, the arrow of the tooltip is hidden
    */
   tip?: boolean;
+  /** Class name for a tooltip's arrow */
+  tooltipArrowClassName?: string;
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
@@ -97,6 +99,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       moveBy,
       hideWhenReferenceHidden = false,
       tip = true,
+      tooltipArrowClassName,
       modifiers = EMPTY_ARR
     },
     ref
@@ -171,6 +174,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
           })}
+          arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
           shouldShowOnMount={!defaultDelayOpen}
           position={position}
