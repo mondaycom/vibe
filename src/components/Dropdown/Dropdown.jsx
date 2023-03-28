@@ -21,6 +21,7 @@ import "./Dropdown.scss";
 
 const Dropdown = ({
   className,
+  optionWrapperClassName,
   placeholder,
   disabled,
   readOnly,
@@ -159,8 +160,10 @@ const Dropdown = ({
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
   const Option = useCallback(
-    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
-    [finalOptionRenderer]
+    props => (
+      <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
+    ),
+    [finalOptionRenderer, optionWrapperClassName]
   );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
@@ -339,6 +342,7 @@ Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 
 Dropdown.defaultProps = {
   className: "",
+  optionWrapperClassName: undefined,
   placeholder: "",
   onMenuOpen: NOOP,
   onMenuClose: NOOP,
@@ -376,6 +380,8 @@ Dropdown.propTypes = {
    * Custom style
    */
   className: PropTypes.string,
+  /** ClassName to be added to dropdown option wrapper (dropdown-wrapper__option--reset) */
+  optionWrapperClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */
