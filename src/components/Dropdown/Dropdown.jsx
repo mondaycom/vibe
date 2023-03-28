@@ -23,6 +23,7 @@ const Dropdown = ({
   className,
   optionWrapperClassName,
   singleValueWrapperClassName,
+  dropdownMenuWrapperClassName,
   placeholder,
   disabled,
   readOnly,
@@ -156,7 +157,12 @@ const Dropdown = ({
     return mergedStyles;
   }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
-  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
+  const Menu = useCallback(
+    props => (
+      <MenuComponent {...props} Renderer={menuRenderer} dropdownMenuWrapperClassName={dropdownMenuWrapperClassName} />
+    ),
+    [dropdownMenuWrapperClassName, menuRenderer]
+  );
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
@@ -345,6 +351,7 @@ Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 Dropdown.defaultProps = {
   className: "",
   optionWrapperClassName: undefined,
+  dropdownMenuWrapperClassName: undefined,
   placeholder: "",
   onMenuOpen: NOOP,
   onMenuClose: NOOP,
@@ -386,6 +393,8 @@ Dropdown.propTypes = {
   optionWrapperClassName: PropTypes.string,
   /** ClassName to be added to dropdown single value wrapper (dropdown-wrapper__single-value--reset) */
   singleValueWrapperClassName: PropTypes.string,
+  /** ClassName to be added to dropdown menu wrapper (dropdown-menu-wrapper) */
+  dropdownMenuWrapperClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */
