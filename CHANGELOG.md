@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.112.0 (2023-03-28)
+
+#### New Features
+* [#1194](https://github.com/mondaycom/monday-ui-react-core/pull/1194) Dropdown add className props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1193](https://github.com/mondaycom/monday-ui-react-core/pull/1193) Chips border ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.111.0 (2023-03-28)
 
 #### New Features
