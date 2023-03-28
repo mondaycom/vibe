@@ -22,6 +22,7 @@ import "./Dropdown.scss";
 const Dropdown = ({
   className,
   optionWrapperClassName,
+  singleValueWrapperClassName,
   placeholder,
   disabled,
   readOnly,
@@ -175,9 +176,10 @@ const Dropdown = ({
         readOnly={readOnly}
         Renderer={finalValueRenderer}
         selectedOption={selectedOptions[0]}
+        singleValueWrapperClassName={singleValueWrapperClassName}
       />
     ),
-    [finalValueRenderer, readOnly, selectedOptions]
+    [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -382,6 +384,8 @@ Dropdown.propTypes = {
   className: PropTypes.string,
   /** ClassName to be added to dropdown option wrapper (dropdown-wrapper__option--reset) */
   optionWrapperClassName: PropTypes.string,
+  /** ClassName to be added to dropdown single value wrapper (dropdown-wrapper__single-value--reset) */
+  singleValueWrapperClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */
