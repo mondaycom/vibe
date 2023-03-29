@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.113.1 (2023-03-29)
+
+#### Bug Fixes
+* [#1188](https://github.com/mondaycom/monday-ui-react-core/pull/1188) Fix/sergeyro/heading overflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.113.0 (2023-03-29)
 
 #### New Features
