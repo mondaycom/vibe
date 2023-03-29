@@ -84,20 +84,20 @@ const IconButton: VibeComponent<IconButtonProps> & {
       className,
       wrapperClassName,
       id,
-      icon,
-      size,
-      tooltipProps,
+      icon = AddSmall,
+      size = IconButton.sizes.MEDIUM,
+      tooltipProps = {} as TooltipProps,
       tooltipContent,
       ariaLabel,
-      hideTooltip,
-      kind,
+      hideTooltip = false,
+      kind = IconButton.kinds.TERTIARY,
       active,
-      disabled,
+      disabled = false,
       disabledReason,
-      onClick,
+      onClick = NOOP,
       color,
       dataTestId,
-      insetFocus
+      insetFocus = false
     },
     ref
   ) => {
@@ -116,12 +116,12 @@ const IconButton: VibeComponent<IconButtonProps> & {
 
     const iconSize = useMemo(() => {
       switch (size) {
-        case Button.sizes.XXS:
-        case Button.sizes.XS:
+        case IconButton.sizes.XXS:
+        case IconButton.sizes.XS:
           return 16;
-        case Button.sizes.SMALL:
-        case Button.sizes.MEDIUM:
-        case Button.sizes.LARGE:
+        case IconButton.sizes.SMALL:
+        case IconButton.sizes.MEDIUM:
+        case IconButton.sizes.LARGE:
           return BUTTON_ICON_SIZE;
         default:
           return 24;
@@ -196,24 +196,5 @@ Object.assign(IconButton, {
   colors: Button.colors,
   defaultTestId: ComponentDefaultTestId.ICON_BUTTON
 });
-
-IconButton.defaultProps = {
-  className: undefined,
-  wrapperClassName: undefined,
-  onClick: NOOP,
-  id: undefined,
-  icon: AddSmall,
-  ariaLabel: undefined,
-  size: IconButton?.sizes.MEDIUM,
-  hideTooltip: false,
-  tooltipContent: undefined,
-  tooltipProps: {} as TooltipProps,
-  kind: IconButton.kinds.TERTIARY,
-  disabled: false,
-  disabledReason: undefined,
-  color: undefined,
-  dataTestId: undefined,
-  insetFocus: false
-};
 
 export default IconButton;
