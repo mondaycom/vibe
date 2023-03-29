@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.113.0 (2023-03-29)
+
+#### New Features
+* [#1196](https://github.com/mondaycom/monday-ui-react-core/pull/1196) Feature/sergeyro/buttons tab index props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.112.0 (2023-03-28)
 
 #### New Features
