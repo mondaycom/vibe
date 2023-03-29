@@ -72,6 +72,8 @@ export interface IconButtonProps extends VibeComponentProps {
   dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
+  /** Specifies the tab order of an element */
+  tabIndex?: number;
 }
 
 const IconButton: VibeComponent<IconButtonProps> & {
@@ -97,7 +99,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
       onClick = NOOP,
       color,
       dataTestId,
-      insetFocus = false
+      insetFocus = false,
+      tabIndex
     },
     ref
   ) => {
@@ -174,6 +177,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             className={className}
             style={overrideStyle}
             insetFocus={insetFocus}
+            tabIndex={tabIndex}
           >
             <Icon
               icon={icon}
