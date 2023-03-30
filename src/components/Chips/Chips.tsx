@@ -80,7 +80,15 @@ interface ChipsProps extends VibeComponentProps {
    * @deprecated
    */
   isClickable?: boolean;
+  /**
+   * Disable click behaviors
+   */
   disableClickableBehavior?: boolean;
+  /**
+   * Show border, the border color is `--text-color-on-primary`, should be when the chip is a colored background like
+   * selected-color
+   */
+  showBorder?: boolean;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -112,7 +120,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       dataTestId,
       disableClickableBehavior = false,
       leftAvatarType = AvatarType.IMG,
-      rightAvatarType = AvatarType.IMG
+      rightAvatarType = AvatarType.IMG,
+      showBorder = false
     },
     ref
   ) => {
@@ -135,7 +144,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.disabled]: disabled,
       [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,
-      [styles.withUserSelect]: allowTextSelection
+      [styles.withUserSelect]: allowTextSelection,
+      [styles.border]: showBorder
     });
     const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
       disabled,

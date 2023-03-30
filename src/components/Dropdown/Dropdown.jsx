@@ -21,6 +21,9 @@ import "./Dropdown.scss";
 
 const Dropdown = ({
   className,
+  optionWrapperClassName,
+  singleValueWrapperClassName,
+  dropdownMenuWrapperClassName,
   placeholder,
   disabled,
   readOnly,
@@ -154,13 +157,20 @@ const Dropdown = ({
     return mergedStyles;
   }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
-  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
+  const Menu = useCallback(
+    props => (
+      <MenuComponent {...props} Renderer={menuRenderer} dropdownMenuWrapperClassName={dropdownMenuWrapperClassName} />
+    ),
+    [dropdownMenuWrapperClassName, menuRenderer]
+  );
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
   const Option = useCallback(
-    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
-    [finalOptionRenderer]
+    props => (
+      <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
+    ),
+    [finalOptionRenderer, optionWrapperClassName]
   );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
@@ -172,9 +182,10 @@ const Dropdown = ({
         readOnly={readOnly}
         Renderer={finalValueRenderer}
         selectedOption={selectedOptions[0]}
+        singleValueWrapperClassName={singleValueWrapperClassName}
       />
     ),
-    [finalValueRenderer, readOnly, selectedOptions]
+    [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName]
   );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -339,6 +350,9 @@ Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 
 Dropdown.defaultProps = {
   className: "",
+  optionWrapperClassName: undefined,
+  dropdownMenuWrapperClassName: undefined,
+  singleValueWrapperClassName: undefined,
   placeholder: "",
   onMenuOpen: NOOP,
   onMenuClose: NOOP,
@@ -376,6 +390,12 @@ Dropdown.propTypes = {
    * Custom style
    */
   className: PropTypes.string,
+  /** ClassName to be added to dropdown option wrapper (dropdown-wrapper__option--reset) */
+  optionWrapperClassName: PropTypes.string,
+  /** ClassName to be added to dropdown single value wrapper (dropdown-wrapper__single-value--reset) */
+  singleValueWrapperClassName: PropTypes.string,
+  /** ClassName to be added to dropdown menu wrapper (dropdown-menu-wrapper) */
+  dropdownMenuWrapperClassName: PropTypes.string,
   /**
    * Placeholder to show when no value was selected
    */

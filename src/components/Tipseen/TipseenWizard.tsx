@@ -11,9 +11,13 @@ const bemHelper = BEMClass(BASE_CSS_CLASS);
 
 interface TipseenWizardProps extends StepsProps {
   title?: string;
+  /**
+   * Classname for overriding TipseenTitle styles
+   */
+  titleClassName?: string;
 }
 
-const TipseenWizard: FC<TipseenWizardProps> = ({ title, className, ...stepsProps }) => {
+const TipseenWizard: FC<TipseenWizardProps> = ({ title, titleClassName, className, ...stepsProps }) => {
   const overrideStepsProps = stepsProps as StepsProps;
   const nextButtonProps = useMemo(
     () => ({
@@ -29,7 +33,11 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ title, className, ...stepsProps
     []
   );
   return (
-    <TipseenBasicContent title={title} className={cx(styles.tipseenWizard, BASE_CSS_CLASS, className)}>
+    <TipseenBasicContent
+      title={title}
+      className={cx(styles.tipseenWizard, BASE_CSS_CLASS, className)}
+      titleClassName={titleClassName}
+    >
       <Steps
         className={cx(styles.tipseenWizardWizard, bemHelper({ element: "wizard" }))}
         isOnPrimary

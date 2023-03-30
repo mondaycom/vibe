@@ -12,6 +12,7 @@ export interface MockToggleProps extends VibeComponentProps {
   checked?: boolean;
   offOverrideText?: string;
   onOverrideText?: string;
+  selectedClassName?: string;
 }
 
 export const MockToggle: FC<MockToggleProps> = ({
@@ -19,13 +20,14 @@ export const MockToggle: FC<MockToggleProps> = ({
   checked,
   offOverrideText,
   onOverrideText,
-  className
+  className,
+  selectedClassName
 }) => (
   <>
     {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
     <div
       className={cx(bemHelper({ element: "toggle" }), className, {
-        [bemHelper({ element: "toggle", state: "selected" })]: checked,
+        [cx(bemHelper({ element: "toggle", state: "selected" }), selectedClassName)]: checked,
         [bemHelper({ element: "toggle", state: "not-selected" })]: !checked
       })}
       aria-hidden="true"

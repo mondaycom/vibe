@@ -84,6 +84,8 @@ export interface ButtonProps {
   dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
+  /** Specifies the tab order of an element */
+  tabIndex?: number;
 }
 
 const Button: VibeComponent<ButtonProps, unknown> & {
@@ -130,7 +132,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaControls,
       blurOnMouseUp,
       dataTestId,
-      insetFocus
+      insetFocus,
+      tabIndex
     },
     ref
   ) => {
@@ -256,6 +259,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
+        tabIndex,
         "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
@@ -279,6 +283,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       id,
       onFocus,
       onBlur,
+      tabIndex,
       dataTestId,
       onMouseDownClicked,
       disabled,
@@ -310,8 +315,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return (
         <button {...buttonProps}>
           <span className="monday-style-button__loader">
-            {/** Because typescript can't handle with this not converted component API*/}
-            {/** @ts-ignore */}
             <Loader svgClassName="monday-style-button-loader-svg" />
           </span>
         </button>

@@ -18,7 +18,6 @@ export const TextStyles = () => {
       >
         <Heading
           type={Heading.types.h1}
-          brandFont
           value="H1"
           ellipsis={false}
           className={cx(

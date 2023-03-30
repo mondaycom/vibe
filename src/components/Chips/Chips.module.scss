@@ -8,19 +8,26 @@
   overflow: hidden;
   height: 24px;
   border-radius: 4px;
-  padding: 1px 8px;
+  padding: 0 8px;
   align-items: center;
+  justify-content: center;
   margin: 0 var(--spacing-xs);
   user-select: none;
+  line-height: 22px;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
-
+  @include font-general-text();
+  &.border {
+    height: 22px;
+    border: 1px solid var(--text-color-on-primary);
+    line-height: 21px;
+  }
   &.withUserSelect {
     user-select: text;
     cursor: text;
   }
 
   .label {
-    @include font-general-text();
+
     @include ellipsis();
   }
 
