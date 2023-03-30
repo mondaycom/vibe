@@ -24,7 +24,7 @@ function generateCssModulesScopedName(name, filename, css) {
 }
 
 function generateCssModulesMockName(name) {
-  return name;
+  return `${name}__mock_rollup`;
 }
 
 export default {
