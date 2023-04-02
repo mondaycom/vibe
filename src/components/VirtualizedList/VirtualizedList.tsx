@@ -256,7 +256,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
         const finalOffsetValue = Math.min(maxListOffset, scrollOffset);
         scrollTopRef.current = finalOffsetValue;
-        listRef.current.scrollTo(finalOffsetValue);
+        listRef.current?.scrollTo(finalOffsetValue);
 
         if (ellapsed < scrollDuration) {
           animateScroll();
