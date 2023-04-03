@@ -20,10 +20,6 @@ interface ComboboxOptionProps extends IComboboxOptionEvents {
   optionLineHeight?: number;
   shouldScrollWhenActive?: boolean;
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
-  /**
-   * temporary flag for investigate a bug - will remove very soon
-   */
-  forceUndoScrollNullCheck?: boolean;
 }
 
 const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconType } = ({
@@ -39,11 +35,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   onOptionHover,
   optionLineHeight,
   shouldScrollWhenActive = true,
-  optionRenderer = null,
-  /**
-   * temporary flag for investigate a bug - will remove very soon
-   */
-  forceUndoScrollNullCheck = false
+  optionRenderer = null
 }) => {
   const {
     id,
@@ -72,14 +64,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
         // not supported with virtualized atm, need their scrollRef (element with overflow-y auto that has the scroll)
         scrollRef.current.scrollTop = element.offsetTop - scrollOffset;
       } else {
-        if (forceUndoScrollNullCheck) {
-          element?.scrollIntoView?.({ behaviour: "smooth" });
-        } else {
-          element.scrollIntoView?.({ behaviour: "smooth" });
-        }
+        element?.scrollIntoView?.({ behaviour: "smooth" });
       }
     }
-  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, belongToCategory]);
+  }, [ref, visualFocus, shouldScrollWhenActive, scrollRef, scrollOffset, belongToCategory]);
 
   const renderIcon = (
     icon: SubIcon | ((className: string) => JSX.Element),

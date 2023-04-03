@@ -83,8 +83,4 @@ export interface IOptionItemRendererArgs extends IComboboxOptionEvents {
   visualFocusItemIndex?: number;
   activeItemIndex?: number;
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
-  /**
-   * temporary flag for investigate a bug - will remove very soon
-   */
-  forceUndoScrollNullCheck?: boolean;
 }

@@ -273,7 +273,6 @@ export function optionItemRenderer({
   scrollRef,
   shouldScrollToSelectedItem,
   activeItemIndex,
-  forceUndoScrollNullCheck,
   visualFocusItemIndex
 }: IOptionItemRendererArgs) {
   return (
@@ -292,7 +291,6 @@ export function optionItemRenderer({
       onOptionEnter={onOptionEnter}
       optionLineHeight={optionLineHeight}
       shouldScrollWhenActive={shouldScrollToSelectedItem}
-      forceUndoScrollNullCheck={forceUndoScrollNullCheck}
     />
   );
 }

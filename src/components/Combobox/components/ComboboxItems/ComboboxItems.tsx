@@ -25,7 +25,6 @@ interface ComboboxItemsProps extends IComboboxOptionEvents {
   renderOnlyVisibleOptions?: boolean;
   onActiveCategoryChanged?: (category: IComboboxItem) => void;
   maxOptionsWithoutScroll?: number;
-  forceUndoScrollNullCheck?: boolean;
   itemsMap?: Map<string, IComboboxItem>;
 }
 
@@ -47,7 +46,6 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
-      forceUndoScrollNullCheck,
       itemsMap
     },
     ref: RefObject<HTMLDivElement>
@@ -79,8 +77,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
             visualFocusItemIndex,
             scrollRef: renderOnlyVisibleOptions ? null : ref,
             activeItemIndex,
-            shouldScrollToSelectedItem,
-            forceUndoScrollNullCheck
+            shouldScrollToSelectedItem
           },
           isVirtualized: renderOnlyVisibleOptions
         }),
@@ -95,8 +92,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
         renderOnlyVisibleOptions,
         ref,
         activeItemIndex,
-        shouldScrollToSelectedItem,
-        forceUndoScrollNullCheck
+        shouldScrollToSelectedItem
       ]
     );
 

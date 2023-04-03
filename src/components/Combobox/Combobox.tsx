@@ -94,7 +94,6 @@ export interface ComboboxProps extends VibeComponentProps {
    * On option click callback
    */
   onClick?: (optionData: IComboboxOption) => void;
-  forceUndoScrollNullCheck?: boolean;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -133,12 +132,7 @@ const Combobox: React.FC<ComboboxProps> & {
       optionRenderer = null,
       renderOnlyVisibleOptions = false,
       clearFilterOnSelection = false,
-      maxOptionsWithoutScroll,
-      /**
-       * temporary flag for investigate a bug - will remove very soon
-       * // TODO remove?
-       */
-      forceUndoScrollNullCheck = false
+      maxOptionsWithoutScroll
     },
     ref
   ) => {
@@ -288,7 +282,6 @@ const Combobox: React.FC<ComboboxProps> & {
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
-            forceUndoScrollNullCheck={forceUndoScrollNullCheck}
             categories={categories}
             options={items}
             itemsMap={itemsMap}
