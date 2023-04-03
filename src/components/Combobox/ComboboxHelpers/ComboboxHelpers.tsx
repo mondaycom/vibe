@@ -11,12 +11,12 @@ import {
   ComboboxOptionType,
   ComboboxCategoryMap,
   ComboboxItem,
-  ComboboxOptionEvents
+  IOptionItemRendererArgs,
+  IComboboxOptionEvents
 } from "../components/ComboboxConstants";
 import useActiveDescendantListFocus from "../../../hooks/useActiveDescendantListFocus";
 import { getOptionsByCategories } from "../ComboboxService";
 import comboboxItemsStyles from "../components/ComboboxItems/ComboboxItems.module.scss";
-import { MutableRef } from "preact/hooks";
 import styles from "./ComboboxHelpers.module.scss";
 
 const DIVIDER_HEIGHT = 17;
@@ -105,7 +105,7 @@ export function useKeyboardNavigation({
 }: {
   defaultVisualFocusFirstIndex?: boolean;
   inputRef: MutableRefObject<HTMLElement>;
-  onClick: (event: KeyboardEvent | MouseEvent, index: number) => void;
+  onClick: (event: React.KeyboardEvent | React.MouseEvent, index: number) => void;
   isChildSelectable: (index: number) => boolean;
   options: ComboboxOptionType[];
   getOptionId: (optionId: string, index: number) => string;
@@ -199,7 +199,7 @@ export function comboboxItemRenderer({
 }: {
   item: ComboboxItem;
   style: CSSProperties;
-  optionEvents: ComboboxOptionEvents;
+  optionEvents: IComboboxOptionEvents;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   optionRenderData: any;
   isVirtualized: boolean;
@@ -275,36 +275,7 @@ export function optionItemRenderer({
   activeItemIndex,
   forceUndoScrollNullCheck,
   visualFocusItemIndex
-}: {
-  id?: string;
-  index?: number;
-  option?: ComboboxOptionType;
-  className?: string;
-  isActive?: boolean;
-  visualFocus?: boolean;
-  scrollRef?: MutableRef<HTMLElement>;
-  scrollOffset?: number;
-  onOptionClick?: (
-    event: React.MouseEvent | React.KeyboardEvent,
-    index: number,
-    option: ComboboxOptionType,
-    mouseTriggered: boolean
-  ) => void;
-  onOptionLeave?: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionEnter?: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionHover?: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  optionLineHeight?: number;
-  shouldScrollToSelectedItem?: boolean;
-  shouldScrollWhenActive?: boolean;
-  belongToCategory?: boolean;
-  visualFocusItemIndex?: number;
-  activeItemIndex?: number;
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
-  /**
-   * temporary flag for investigate a bug - will remove very soon
-   */
-  forceUndoScrollNullCheck?: boolean;
-}) {
+}: IOptionItemRendererArgs) {
   return (
     <ComboboxOption
       className={className}
@@ -318,6 +289,7 @@ export function optionItemRenderer({
       onOptionClick={onOptionClick}
       onOptionHover={onOptionEnter}
       onOptionLeave={onOptionLeave}
+      onOptionEnter={onOptionEnter}
       optionLineHeight={optionLineHeight}
       shouldScrollWhenActive={shouldScrollToSelectedItem}
       forceUndoScrollNullCheck={forceUndoScrollNullCheck}

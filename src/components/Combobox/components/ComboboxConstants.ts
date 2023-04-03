@@ -1,13 +1,10 @@
 import { SubIcon } from "../../../types";
+import React from "react";
+import { MutableRef } from "preact/hooks";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
 export const COMBOBOX_OPTION_ITEM = "combobox-option";
-
-export enum ComboboxOptionIconType {
-  DEFAULT = "default",
-  RENDERER = "renderer"
-}
 
 export type ComboboxCategoryMap = {
   [key: string]: ComboboxCategoryType;
@@ -19,6 +16,11 @@ export type ComboboxCategoryType = {
   ariaLabel?: string;
   onlyShowOnSearch?: boolean;
 };
+
+export enum ComboboxOptionIconType {
+  DEFAULT = "default",
+  RENDERER = "renderer"
+}
 
 export type ComboboxOptionType = {
   id: string;
@@ -53,14 +55,36 @@ export type ComboboxItem = {
   shouldScrollToSelectedItem?: boolean;
 };
 
-export type ComboboxOptionEvents = {
+export interface IComboboxOptionEvents {
   onOptionClick: (
-    event: MouseEvent | KeyboardEvent,
+    event: React.MouseEvent | React.KeyboardEvent,
     index: number,
     option: ComboboxOptionType,
     mouseTriggered: boolean
   ) => void;
-  onOptionLeave: (event: MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionEnter: (event: MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionHover?: (event: MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-};
+  onOptionLeave: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+  onOptionEnter: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+  onOptionHover?: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+}
+
+export interface IOptionItemRendererArgs extends IComboboxOptionEvents {
+  id?: string;
+  index?: number;
+  option?: ComboboxOptionType;
+  className?: string;
+  isActive?: boolean;
+  visualFocus?: boolean;
+  scrollRef?: MutableRef<HTMLElement>;
+  scrollOffset?: number;
+  optionLineHeight?: number;
+  shouldScrollToSelectedItem?: boolean;
+  shouldScrollWhenActive?: boolean;
+  belongToCategory?: boolean;
+  visualFocusItemIndex?: number;
+  activeItemIndex?: number;
+  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  /**
+   * temporary flag for investigate a bug - will remove very soon
+   */
+  forceUndoScrollNullCheck?: boolean;
+}

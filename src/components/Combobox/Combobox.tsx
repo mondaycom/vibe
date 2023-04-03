@@ -157,7 +157,7 @@ const Combobox: React.FC<ComboboxProps> & {
     );
 
     const onOptionHoverCB = useCallback(
-      (event: MouseEvent, index: number, option: ComboboxOptionType) => {
+      (event: React.MouseEvent, index: number, option: ComboboxOptionType) => {
         onOptionHover(event, index, option);
       },
       [onOptionHover]
@@ -234,7 +234,7 @@ const Combobox: React.FC<ComboboxProps> & {
     });
 
     const overrideOnClick = useCallback(
-      (_event: MouseEvent | KeyboardEvent, itemIndex: number) => {
+      (_event: React.MouseEvent | React.KeyboardEvent, itemIndex: number) => {
         onClick(selectableItems[itemIndex]);
         if (isChildSelectable(itemIndex)) {
           setActiveOptionIndex(itemIndex);

@@ -5,11 +5,11 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
-import { ComboboxOptionIconType, ComboboxOptionType } from "../ComboboxConstants";
+import { ComboboxOptionIconType, ComboboxOptionType, IComboboxOptionEvents } from "../ComboboxConstants";
 import "./ComboboxOption.scss";
 import { SubIcon } from "../../../../types";
 
-interface ComboboxOptionProps {
+interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;
   option?: ComboboxOptionType;
   className?: string;
@@ -17,14 +17,6 @@ interface ComboboxOptionProps {
   visualFocus?: boolean;
   scrollRef?: RefObject<HTMLElement>;
   scrollOffset?: number;
-  onOptionClick: (
-    event: React.MouseEvent | React.KeyboardEvent,
-    index: number,
-    option: ComboboxOptionType,
-    mouseTriggered: boolean
-  ) => void;
-  onOptionLeave: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionHover: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
   optionLineHeight?: number;
   shouldScrollWhenActive?: boolean;
   optionRenderer?: (option: ComboboxOptionType) => JSX.Element;

@@ -7,11 +7,12 @@ import {
   COMBOBOX_OPTION_ITEM,
   ComboboxCategoryMap,
   ComboboxItem,
-  ComboboxOptionType
+  ComboboxOptionType,
+  IComboboxOptionEvents
 } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
-interface ComboboxItemsProps {
+interface ComboboxItemsProps extends IComboboxOptionEvents {
   className?: string;
   optionClassName?: string;
   categories?: ComboboxCategoryMap;
@@ -19,14 +20,6 @@ interface ComboboxItemsProps {
   optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
   activeItemIndex?: number;
   visualFocusItemIndex?: number;
-  onOptionClick?: (
-    event: MouseEvent | KeyboardEvent,
-    index: number,
-    option: ComboboxOptionType,
-    mouseTriggered: boolean
-  ) => void;
-  onOptionEnter?: (event: MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionLeave?: (event: MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
   optionLineHeight?: number;
   shouldScrollToSelectedItem?: boolean;
   renderOnlyVisibleOptions?: boolean;
