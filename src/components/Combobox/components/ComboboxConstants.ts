@@ -6,7 +6,7 @@ export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
 export const COMBOBOX_OPTION_ITEM = "combobox-option";
 
-export enum ComboboxOptionIcon {
+export enum ComboboxOptionIconType {
   DEFAULT = "default",
   RENDERER = "renderer"
 }
@@ -27,8 +27,8 @@ export interface IComboboxOption {
   categoryId: string;
   leftIcon: SubIcon | ((className: string) => JSX.Element);
   rightIcon: SubIcon | ((className: string) => JSX.Element);
-  leftIconType: ComboboxOptionIcon;
-  rightIconType: ComboboxOptionIcon;
+  leftIconType: ComboboxOptionIconType;
+  rightIconType: ComboboxOptionIconType;
   label: string;
   iconSize: number;
   disabled: boolean;

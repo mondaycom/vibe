@@ -5,9 +5,9 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
-import { ComboboxOptionIcon, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
-import "./ComboboxOption.scss";
 import { SubIcon } from "../../../../types";
+import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
+import "./ComboboxOption.scss";
 
 interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;
@@ -26,7 +26,7 @@ interface ComboboxOptionProps extends IComboboxOptionEvents {
   forceUndoScrollNullCheck?: boolean;
 }
 
-const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIcon } = ({
+const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconType } = ({
   index,
   option,
   className,
@@ -48,8 +48,8 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   const {
     id,
     leftIcon,
-    rightIcon,
     leftIconType,
+    rightIcon,
     rightIconType,
     label,
     iconSize = 16,
@@ -83,10 +83,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const renderIcon = (
     icon: SubIcon | ((className: string) => JSX.Element),
-    iconType: ComboboxOptionIcon,
+    iconType: ComboboxOptionIconType,
     className: string
   ) => {
-    if (iconType === ComboboxOptionIcon.RENDERER) {
+    if (iconType === ComboboxOptionIconType.RENDERER) {
       return (icon as (className: string) => JSX.Element)(`option-icon ${className}`);
     }
 
@@ -177,6 +177,6 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIcon });
+Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIconType });
 
 export default ComboboxOption;
