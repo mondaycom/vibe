@@ -1,12 +1,12 @@
-import { ComboboxCategoryMap, ComboboxOptionType } from "./components/ComboboxConstants";
+import { IComboboxCategoryMap, IComboboxOption } from "./components/ComboboxConstants";
 
 type OptionsByCategories = {
-  [key: string]: Array<ComboboxOptionType>;
+  [key: string]: Array<IComboboxOption>;
 };
 
 export const getOptionsByCategories = (
-  options: ComboboxOptionType[],
-  categories: ComboboxCategoryMap,
+  options: IComboboxOption[],
+  categories: IComboboxCategoryMap,
   filterValue: string
 ): OptionsByCategories => {
   const optionsByCategories = options.reduce((result: OptionsByCategories, option) => {
@@ -34,7 +34,7 @@ export const getOptionsByCategories = (
   }, {});
 };
 
-export const defaultFilter = (filterValue: string, options: ComboboxOptionType[]) =>
+export const defaultFilter = (filterValue: string, options: IComboboxOption[]) =>
   options.filter(
     ({ label }: { label: string }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase())
   );

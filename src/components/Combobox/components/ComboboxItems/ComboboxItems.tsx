@@ -5,9 +5,9 @@ import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedL
 import {
   COMBOBOX_CATEGORY_ITEM,
   COMBOBOX_OPTION_ITEM,
-  ComboboxCategoryMap,
-  ComboboxItem,
-  ComboboxOptionType,
+  IComboboxCategoryMap,
+  IComboboxItem,
+  IComboboxOption,
   IComboboxOptionEvents
 } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
@@ -15,18 +15,18 @@ import styles from "./ComboboxItems.module.scss";
 interface ComboboxItemsProps extends IComboboxOptionEvents {
   className?: string;
   optionClassName?: string;
-  categories?: ComboboxCategoryMap;
-  options?: ComboboxItem[];
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  categories?: IComboboxCategoryMap;
+  options?: IComboboxItem[];
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   activeItemIndex?: number;
   visualFocusItemIndex?: number;
   optionLineHeight?: number;
   shouldScrollToSelectedItem?: boolean;
   renderOnlyVisibleOptions?: boolean;
-  onActiveCategoryChanged?: (category: ComboboxItem) => void;
+  onActiveCategoryChanged?: (category: IComboboxItem) => void;
   maxOptionsWithoutScroll?: number;
   forceUndoScrollNullCheck?: boolean;
-  itemsMap?: Map<string, ComboboxItem>;
+  itemsMap?: Map<string, IComboboxItem>;
 }
 
 export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
@@ -63,7 +63,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
     }, [maxOptionsWithoutScroll, optionLineHeight, options, categories]);
 
     const createItemElementRenderer = useCallback(
-      (item: ComboboxItem, index: number, style: CSSProperties) =>
+      (item: IComboboxItem, index: number, style: CSSProperties) =>
         comboboxItemRenderer({
           item,
           style,

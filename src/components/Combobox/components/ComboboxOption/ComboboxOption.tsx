@@ -5,13 +5,13 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
-import { ComboboxOptionIconType, ComboboxOptionType, IComboboxOptionEvents } from "../ComboboxConstants";
+import { ComboboxOptionIcon, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
 import "./ComboboxOption.scss";
 import { SubIcon } from "../../../../types";
 
 interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;
-  option?: ComboboxOptionType;
+  option?: IComboboxOption;
   className?: string;
   isActive?: boolean;
   visualFocus?: boolean;
@@ -19,14 +19,14 @@ interface ComboboxOptionProps extends IComboboxOptionEvents {
   scrollOffset?: number;
   optionLineHeight?: number;
   shouldScrollWhenActive?: boolean;
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   /**
    * temporary flag for investigate a bug - will remove very soon
    */
   forceUndoScrollNullCheck?: boolean;
 }
 
-const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconType } = ({
+const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIcon } = ({
   index,
   option,
   className,
@@ -83,10 +83,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const renderIcon = (
     icon: SubIcon | ((className: string) => JSX.Element),
-    iconType: ComboboxOptionIconType,
+    iconType: ComboboxOptionIcon,
     className: string
   ) => {
-    if (iconType === ComboboxOptionIconType.RENDERER) {
+    if (iconType === ComboboxOptionIcon.RENDERER) {
       return (icon as (className: string) => JSX.Element)(`option-icon ${className}`);
     }
 
@@ -177,6 +177,6 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIconType });
+Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIcon });
 
 export default ComboboxOption;

@@ -6,29 +6,29 @@ export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
 export const COMBOBOX_OPTION_ITEM = "combobox-option";
 
-export type ComboboxCategoryMap = {
-  [key: string]: ComboboxCategoryType;
-};
-
-export type ComboboxCategoryType = {
-  label: string;
-  id: string;
-  ariaLabel?: string;
-  onlyShowOnSearch?: boolean;
-};
-
-export enum ComboboxOptionIconType {
+export enum ComboboxOptionIcon {
   DEFAULT = "default",
   RENDERER = "renderer"
 }
 
-export type ComboboxOptionType = {
+export interface IComboboxCategoryMap {
+  [key: string]: IComboboxCategory;
+}
+
+export interface IComboboxCategory {
+  label: string;
+  id: string;
+  ariaLabel?: string;
+  onlyShowOnSearch?: boolean;
+}
+
+export interface IComboboxOption {
   id: string;
   categoryId: string;
   leftIcon: SubIcon | ((className: string) => JSX.Element);
   rightIcon: SubIcon | ((className: string) => JSX.Element);
-  leftIconType: ComboboxOptionIconType;
-  rightIconType: ComboboxOptionIconType;
+  leftIconType: ComboboxOptionIcon;
+  rightIconType: ComboboxOptionIcon;
   label: string;
   iconSize: number;
   disabled: boolean;
@@ -36,41 +36,41 @@ export type ComboboxOptionType = {
   ariaLabel: string;
   belongToCategory: boolean;
   tooltipContent: string;
-};
+}
 
-export type ComboboxItem = {
+export interface IComboboxItem {
   height?: number;
   type?: string;
-  category?: ComboboxCategoryType;
+  category?: IComboboxCategory;
   categoryId?: string;
   id?: string;
   index?: number;
   withDivider?: boolean;
   className?: string;
   belongToCategory?: boolean;
-  option?: ComboboxOptionType;
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  option?: IComboboxOption;
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   isActive?: boolean;
   optionLineHeight?: number;
   shouldScrollToSelectedItem?: boolean;
-};
+}
 
 export interface IComboboxOptionEvents {
   onOptionClick: (
     event: React.MouseEvent | React.KeyboardEvent,
     index: number,
-    option: ComboboxOptionType,
+    option: IComboboxOption,
     mouseTriggered: boolean
   ) => void;
-  onOptionLeave: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionEnter: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
-  onOptionHover?: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+  onOptionLeave: (event: React.MouseEvent, index: number, option: IComboboxOption, mouseTriggered: boolean) => void;
+  onOptionEnter: (event: React.MouseEvent, index: number, option: IComboboxOption, mouseTriggered: boolean) => void;
+  onOptionHover?: (event: React.MouseEvent, index: number, option: IComboboxOption, mouseTriggered: boolean) => void;
 }
 
 export interface IOptionItemRendererArgs extends IComboboxOptionEvents {
   id?: string;
   index?: number;
-  option?: ComboboxOptionType;
+  option?: IComboboxOption;
   className?: string;
   isActive?: boolean;
   visualFocus?: boolean;
@@ -82,7 +82,7 @@ export interface IOptionItemRendererArgs extends IComboboxOptionEvents {
   belongToCategory?: boolean;
   visualFocusItemIndex?: number;
   activeItemIndex?: number;
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   /**
    * temporary flag for investigate a bug - will remove very soon
    */

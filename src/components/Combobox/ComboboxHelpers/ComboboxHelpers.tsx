@@ -7,10 +7,10 @@ import {
   COMBOBOX_DIVIDER_ITEM,
   COMBOBOX_CATEGORY_ITEM,
   COMBOBOX_OPTION_ITEM,
-  ComboboxCategoryType,
-  ComboboxOptionType,
-  ComboboxCategoryMap,
-  ComboboxItem,
+  IComboboxCategory,
+  IComboboxOption,
+  IComboboxCategoryMap,
+  IComboboxItem,
   IOptionItemRendererArgs,
   IComboboxOptionEvents
 } from "../components/ComboboxConstants";
@@ -29,15 +29,15 @@ export function useItemsData({
   withCategoriesDivider,
   optionLineHeight
 }: {
-  categories: ComboboxCategoryMap;
-  options: ComboboxOptionType[];
+  categories: IComboboxCategoryMap;
+  options: IComboboxOption[];
   filterValue: string;
   withCategoriesDivider: boolean;
   optionLineHeight: number;
 }) {
   return useMemo(() => {
-    let items: ComboboxItem[] = [];
-    let selectableItems: ComboboxOptionType[] = [];
+    let items: IComboboxItem[] = [];
+    let selectableItems: IComboboxOption[] = [];
     const itemsMap = new Map();
 
     if (categories) {
@@ -67,7 +67,7 @@ export function useItemsData({
         items.push(categoryObject);
         itemsMap.set(categoryId, categoryObject);
 
-        optionsByCategories[categoryId].forEach((option: ComboboxOptionType) => {
+        optionsByCategories[categoryId].forEach((option: IComboboxOption) => {
           const itemObject = createOptionItemObject({
             height: optionLineHeight,
             option,
@@ -107,11 +107,11 @@ export function useKeyboardNavigation({
   inputRef: MutableRefObject<HTMLElement>;
   onClick: (event: React.KeyboardEvent | React.MouseEvent, index: number) => void;
   isChildSelectable: (index: number) => boolean;
-  options: ComboboxOptionType[];
+  options: IComboboxOption[];
   getOptionId: (optionId: string, index: number) => string;
 }) {
   const filteredOptionsIds = useMemo(
-    () => options.map((option: ComboboxOptionType, index: number) => getOptionId(option?.id, index)),
+    () => options.map((option: IComboboxOption, index: number) => getOptionId(option?.id, index)),
     [getOptionId, options]
   );
 
@@ -131,7 +131,7 @@ export function useKeyboardNavigation({
 
   return { visualFocusItemIndex, visualFocusItemId, onOptionClick };
 }
-export function createDividerItemObject({ categoryId }: { categoryId: string }): ComboboxItem {
+export function createDividerItemObject({ categoryId }: { categoryId: string }): IComboboxItem {
   return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };
 }
 
@@ -143,9 +143,9 @@ export function createCategoryItemObject({
 }: {
   withDivider: boolean;
   categoryId: string;
-  categoryData: ComboboxCategoryType;
+  categoryData: IComboboxCategory;
   className: string;
-}): ComboboxItem {
+}): IComboboxItem {
   return {
     height: CATEGORY_HEIGHT,
     type: COMBOBOX_CATEGORY_ITEM,
@@ -166,15 +166,15 @@ export function createOptionItemObject({
   shouldScrollToSelectedItem,
   categoryId
 }: {
-  option?: ComboboxOptionType;
+  option?: IComboboxOption;
   height?: number;
   index?: number;
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   isActive?: boolean;
   optionLineHeight?: number;
   shouldScrollToSelectedItem?: boolean;
   categoryId?: string;
-}): ComboboxItem {
+}): IComboboxItem {
   return {
     type: COMBOBOX_OPTION_ITEM,
     height,
@@ -197,7 +197,7 @@ export function comboboxItemRenderer({
   optionRenderData,
   isVirtualized
 }: {
-  item: ComboboxItem;
+  item: IComboboxItem;
   style: CSSProperties;
   optionEvents: IComboboxOptionEvents;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -254,7 +254,7 @@ export function categoryItemRenderer({
   className
 }: {
   id: string;
-  category: ComboboxCategoryType;
+  category: IComboboxCategory;
   className: string;
 }) {
   return <ComboboxCategory key={id} category={category} className={className} />;

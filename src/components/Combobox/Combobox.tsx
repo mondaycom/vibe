@@ -16,7 +16,7 @@ import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxH
 import { getOptionId } from "./helpers";
 import { ElementContent } from "../../types/ElementContent";
 import { VibeComponentProps } from "../../types";
-import { ComboboxCategoryMap, ComboboxItem, ComboboxOptionType } from "./components/ComboboxConstants";
+import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
 import "./Combobox.scss";
 
 export interface ComboboxProps extends VibeComponentProps {
@@ -36,8 +36,8 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   noResultsMessage?: string;
   disabled?: boolean;
-  options?: ComboboxOptionType[];
-  categories?: ComboboxCategoryMap;
+  options?: IComboboxOption[];
+  categories?: IComboboxCategoryMap;
   /**
    * Divider between categories sections
    */
@@ -55,7 +55,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * The label of the button that appears at the end of the combo box when the search does not return appropriate options
    */
   addNewLabel?: ((label: string) => ElementContent) | string;
-  filter?: (filterValue: string, options: ComboboxOptionType[]) => ComboboxOptionType[];
+  filter?: (filterValue: string, options: IComboboxOption[]) => IComboboxOption[];
   disableFilter?: boolean;
   onFilterChanged?: (value: string) => void;
   /**
@@ -83,7 +83,7 @@ export interface ComboboxProps extends VibeComponentProps {
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection?: boolean;
   /** Replace the regular appearance of combo box option with custom renderer. */
-  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
   /** Maximum options count without scroll */
   maxOptionsWithoutScroll?: number;
   /**
@@ -93,7 +93,7 @@ export interface ComboboxProps extends VibeComponentProps {
   /**
    * On option click callback
    */
-  onClick?: (optionData: ComboboxOptionType) => void;
+  onClick?: (optionData: IComboboxOption) => void;
   forceUndoScrollNullCheck?: boolean;
 }
 
@@ -120,7 +120,7 @@ const Combobox: React.FC<ComboboxProps> & {
       noResultsMessage = "No results found",
       onAddNew,
       addNewLabel = "Add new",
-      onClick = (_optionData: ComboboxOptionType) => {},
+      onClick = (_optionData: IComboboxOption) => {},
       filter = defaultFilter,
       disableFilter = false,
       onFilterChanged,
@@ -157,13 +157,13 @@ const Combobox: React.FC<ComboboxProps> & {
     );
 
     const onOptionHoverCB = useCallback(
-      (event: React.MouseEvent, index: number, option: ComboboxOptionType) => {
+      (event: React.MouseEvent, index: number, option: IComboboxOption) => {
         onOptionHover(event, index, option);
       },
       [onOptionHover]
     );
 
-    const filteredOptions: ComboboxOptionType[] = useMemo(() => {
+    const filteredOptions: IComboboxOption[] = useMemo(() => {
       if (disableFilter) {
         return options;
       }
@@ -217,7 +217,7 @@ const Combobox: React.FC<ComboboxProps> & {
     const [activeCategoryLabel, setActiveCategoryLabel] = useState<string>();
 
     const onActiveCategoryChanged = useCallback(
-      (categoryData: ComboboxItem) => {
+      (categoryData: IComboboxItem) => {
         if (categoryData?.category?.label !== activeCategoryLabel) {
           setActiveCategoryLabel(categoryData?.category?.label);
         }
