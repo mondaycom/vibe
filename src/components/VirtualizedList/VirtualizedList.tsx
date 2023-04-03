@@ -76,7 +76,7 @@ interface VirtualizedListProps extends VibeComponentProps {
    * returns Id of an items
    * returns `string`
    */
-  getItemId: (item: VirtualizedListItem, index: number) => string;
+  getItemId?: (item: VirtualizedListItem, index: number) => string;
   /**
    * callback to be called when the scroll is finished
    */

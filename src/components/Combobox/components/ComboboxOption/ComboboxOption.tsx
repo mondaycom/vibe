@@ -1,26 +1,53 @@
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
+import { ComboboxOptionIconType, ComboboxOptionType } from "../ComboboxConstants";
 import "./ComboboxOption.scss";
+import { SubIcon } from "../../../../types";
 
-const ComboboxOption = ({
+interface ComboboxOptionProps {
+  index?: number;
+  option?: ComboboxOptionType;
+  className?: string;
+  isActive?: boolean;
+  visualFocus?: boolean;
+  scrollRef?: RefObject<HTMLElement>;
+  scrollOffset?: number;
+  onOptionClick: (
+    event: React.MouseEvent | React.KeyboardEvent,
+    index: number,
+    option: ComboboxOptionType,
+    mouseTriggered: boolean
+  ) => void;
+  onOptionLeave: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+  onOptionHover: (event: React.MouseEvent, index: number, option: ComboboxOptionType, mouseTriggered: boolean) => void;
+  optionLineHeight?: number;
+  shouldScrollWhenActive?: boolean;
+  optionRenderer?: (option: ComboboxOptionType) => JSX.Element;
+  /**
+   * temporary flag for investigate a bug - will remove very soon
+   */
+  forceUndoScrollNullCheck?: boolean;
+}
+
+const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconType } = ({
   index,
   option,
   className,
   isActive,
   visualFocus,
   scrollRef,
-  scrollOffset,
+  scrollOffset = 100,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
   optionLineHeight,
-  shouldScrollWhenActive,
-  optionRenderer,
+  shouldScrollWhenActive = true,
+  optionRenderer = null,
   /**
    * temporary flag for investigate a bug - will remove very soon
    */
@@ -62,9 +89,13 @@ const ComboboxOption = ({
     }
   }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, belongToCategory]);
 
-  const renderIcon = (icon, iconType, className) => {
-    if (iconType === ComboboxOption.iconTypes.RENDERER) {
-      return icon(`option-icon ${className}`);
+  const renderIcon = (
+    icon: SubIcon | ((className: string) => JSX.Element),
+    iconType: ComboboxOptionIconType,
+    className: string
+  ) => {
+    if (iconType === ComboboxOptionIconType.RENDERER) {
+      return (icon as (className: string) => JSX.Element)(`option-icon ${className}`);
     }
 
     return (
@@ -72,7 +103,7 @@ const ComboboxOption = ({
         className={cx("option-icon", className)}
         iconType={Icon.type.ICON_FONT}
         clickable={false}
-        icon={icon}
+        icon={icon as SubIcon}
         iconSize={iconSize}
         ignoreFocusStyle
       />
@@ -80,14 +111,14 @@ const ComboboxOption = ({
   };
 
   const onClick = useCallback(
-    event => {
+    (event: React.MouseEvent) => {
       onOptionClick(event, index, option, true);
     },
     [index, option, onOptionClick]
   );
 
-  const onMouseLEave = useCallback(
-    event => {
+  const onMouseLeave = useCallback(
+    (event: React.MouseEvent) => {
       if (disabled) return;
       onOptionLeave(event, index, option, true);
     },
@@ -95,7 +126,7 @@ const ComboboxOption = ({
   );
 
   const onMouseEnter = useCallback(
-    event => {
+    (event: React.MouseEvent) => {
       if (disabled) return;
       onOptionHover(event, index, option, true);
     },
@@ -103,7 +134,7 @@ const ComboboxOption = ({
   );
 
   const onKeyDown = useCallback(
-    event => {
+    (event: React.KeyboardEvent) => {
       if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
         onOptionClick(event, index, option, false);
       }
@@ -127,7 +158,6 @@ const ComboboxOption = ({
   );
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={tooltipContent}>
       <div
         ref={ref}
@@ -139,7 +169,7 @@ const ComboboxOption = ({
         onMouseEnter={onMouseEnter}
         onClick={onClick}
         onKeyDown={onKeyDown}
-        onMouseLeave={onMouseLEave}
+        onMouseLeave={onMouseLeave}
         className={cx("combobox-option", className, {
           disabled,
           selected,
@@ -155,15 +185,6 @@ const ComboboxOption = ({
   );
 };
 
-ComboboxOption.iconTypes = {
-  DEFAULT: "default",
-  RENDERER: "renderer"
-};
-
-ComboboxOption.defaultProps = {
-  shouldScrollWhenActive: true,
-  optionRenderer: null,
-  scrollOffset: 100
-};
+Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIconType });
 
 export default ComboboxOption;
