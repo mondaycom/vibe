@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.114.0 (2023-04-03)
+
+#### Bug Fixes
+* [#1197](https://github.com/mondaycom/monday-ui-react-core/pull/1197) Fix/sergeyro/sentry errors (EditableInput, VirtualizedList) ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1187](https://github.com/mondaycom/monday-ui-react-core/pull/1187) Vibe: mock modular classnames - rollup, special entrypoint ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.113.1 (2023-03-29)
 
 #### Bug Fixes
