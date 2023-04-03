@@ -14,7 +14,10 @@
     "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
-    "./testIds": "./dist/esm/src/tests/test-ids-utils.js"
+    "./testIds": "./dist/esm/src/tests/test-ids-utils.js",
+    "./mockedClassNames": {
+      "import": "./dist/mocked_classnames_esm/src/index.js"
+    }
   },
   "scripts": {
     "test": "jest",
@@ -22,12 +25,13 @@
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
-    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:types",
+    "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:esm:mock-classnames && npm run build:types",
     "build:exports": "./scripts/build-exports.js",
     "build:types": "./scripts/build-types.js",
     "build:storybook-exports": "./scripts/build-storybook-exports.js",
     "build:commonjs": "webpack --mode production --config webpack/default.config.js",
     "build:esm": "rollup -c",
+    "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "storybook": "storybook=true start-storybook -p 7007",
     "build-storybook": "storybook=true build-storybook",
