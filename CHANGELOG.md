@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.115.0 (2023-04-03)
+
+#### New Features
+* [#1199](https://github.com/mondaycom/monday-ui-react-core/pull/1199) TS-migration: Combobox ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.114.0 (2023-04-03)
 
 #### Bug Fixes
