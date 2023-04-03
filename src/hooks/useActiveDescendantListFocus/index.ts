@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback, MutableRefObject } from "react";
+import React, { useMemo, useState, useCallback, MutableRefObject } from "react";
 import {
   useSupportArrowsKeyboardNavigation,
   useSupportPressItemKeyboardNavigation,
@@ -30,7 +30,7 @@ function useActiveDescendantListFocus({
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
-  onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => void;
+  onItemClick: (event: React.KeyboardEvent | React.MouseEvent, index: number) => void;
   defaultVisualFocusFirstIndex?: boolean;
   focusedElementRole?: Role;
   isHorizontalList?: boolean;
@@ -106,7 +106,7 @@ function useActiveDescendantListFocus({
   // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
   // we keep it for backward compatibility
   const backwardCompatibilityCreateOnClickCallback = useCallback(
-    (itemIndex: number) => (event: KeyboardEvent | MouseEvent) => onItemClick(event, itemIndex),
+    (itemIndex: number) => (event: React.KeyboardEvent | React.MouseEvent) => onItemClick(event, itemIndex),
     [onItemClick]
   );
   return {

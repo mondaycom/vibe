@@ -8,6 +8,7 @@ const publishedTSComponents = {
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
   Link: "components/Link/Link",
+  Combobox: "components/Combobox/Combobox",
   ColorUtils: "utils/colors-utils.ts",
   Counter: "components/Counter/Counter",
   Divider: "components/Divider/Divider",

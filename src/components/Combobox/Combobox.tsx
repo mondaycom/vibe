@@ -1,70 +1,147 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
-import PropTypes from "prop-types";
 import { isFunction, noop as NOOP } from "lodash-es";
 import cx from "classnames";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
-import { SIZES } from "../../constants/sizes";
+import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
-import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
-import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
+import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
+import { ElementContent } from "../../types/ElementContent";
+import { VibeComponentProps } from "../../types";
+import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
 import "./Combobox.scss";
 
-const Combobox = forwardRef(
+export interface ComboboxProps extends VibeComponentProps {
+  className?: string;
+  optionClassName?: string;
+  searchWrapperClassName?: string;
+  /**
+   * Placeholder to show when no value was selected
+   */
+  placeholder?: string;
+  /**
+   * Unique element id
+   */
+  id?: string;
+  /**
+   * A message that will be displayed inside the combo box when no results are found
+   */
+  noResultsMessage?: string;
+  disabled?: boolean;
+  options?: IComboboxOption[];
+  categories?: IComboboxCategoryMap;
+  /**
+   * Divider between categories sections
+   */
+  withCategoriesDivider?: boolean;
+  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  optionLineHeight?: number;
+  optionsListHeight?: number;
+  autoFocus?: boolean;
+  /**
+   * Callback that called after clicking on the add new combo box button.
+   * @param {string} _filterValue
+   */
+  onAddNew?: (value: string) => void;
+  /**
+   * The label of the button that appears at the end of the combo box when the search does not return appropriate options
+   */
+  addNewLabel?: ((label: string) => ElementContent) | string;
+  filter?: (filterValue: string, options: IComboboxOption[]) => IComboboxOption[];
+  disableFilter?: boolean;
+  onFilterChanged?: (value: string) => void;
+  /**
+   * Display the combo box with loading state
+   */
+  loading?: boolean;
+  /**
+   * on mouse hover callback for option
+   */
+  // onOptionHover?: PropTypes.func,
+  onOptionHover?: () => void;
+  /**
+   * on mouse leave callback for option
+   */
+  // onOptionLeave?: PropTypes.func,
+  onOptionLeave?: () => void;
+  /**
+   * Allowed to the following behavior: scrolling automatically to the combo box's selected option
+   */
+  shouldScrollToSelectedItem?: boolean;
+  noResultsRenderer?: () => JSX.Element;
+  stickyCategories?: boolean;
+  /** By default, the first option will be selected, when focusing selecting the first option, or when changing items */
+  defaultVisualFocusFirstIndex?: boolean;
+  /** Clear the filter/search on selection (click or enter) */
+  clearFilterOnSelection?: boolean;
+  /** Replace the regular appearance of combo box option with custom renderer. */
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
+  /** Maximum options count without scroll */
+  maxOptionsWithoutScroll?: number;
+  /**
+   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   */
+  renderOnlyVisibleOptions?: boolean;
+  /**
+   * On option click callback
+   */
+  onClick?: (optionData: IComboboxOption) => void;
+}
+
+const Combobox: React.FC<ComboboxProps> & {
+  sizes?: typeof BASE_SIZES;
+  iconTypes?: typeof ComboboxOption.iconTypes;
+} = forwardRef(
   (
     {
-      className,
-      optionClassName,
+      className = "",
+      optionClassName = "",
       searchWrapperClassName,
-      id,
-      placeholder,
-      size,
+      id = "",
+      placeholder = "",
+      size = Combobox.sizes.MEDIUM,
       defaultVisualFocusFirstIndex,
-      optionLineHeight,
+      optionLineHeight = 32,
       optionsListHeight,
-      autoFocus,
-      disabled,
-      options,
+      autoFocus = false,
+      disabled = false,
+      options = [],
       categories,
-      withCategoriesDivider,
-      noResultsMessage,
+      withCategoriesDivider = false,
+      noResultsMessage = "No results found",
       onAddNew,
-      addNewLabel,
-      onClick,
-      filter,
-      disableFilter,
+      addNewLabel = "Add new",
+      onClick = (_optionData: IComboboxOption) => {},
+      filter = defaultFilter,
+      disableFilter = false,
       onFilterChanged,
-      loading,
-      onOptionHover,
-      onOptionLeave,
-      shouldScrollToSelectedItem,
+      loading = false,
+      onOptionHover = NOOP,
+      onOptionLeave = NOOP,
+      shouldScrollToSelectedItem = true,
       noResultsRenderer,
-      stickyCategories,
-      optionRenderer,
-      renderOnlyVisibleOptions,
-      clearFilterOnSelection,
-      maxOptionsWithoutScroll,
-      /**
-       * temporary flag for investigate a bug - will remove very soon
-       */
-      forceUndoScrollNullCheck = false
+      stickyCategories = false,
+      optionRenderer = null,
+      renderOnlyVisibleOptions = false,
+      clearFilterOnSelection = false,
+      maxOptionsWithoutScroll
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
-    const resultsContainerRef = useRef(null);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const onChangeCallback = useCallback(
-      value => {
+      (value: string) => {
         if (onFilterChanged) {
           onFilterChanged(value);
         }
@@ -74,13 +151,13 @@ const Combobox = forwardRef(
     );
 
     const onOptionHoverCB = useCallback(
-      (event, index, option) => {
+      (event: React.MouseEvent, index: number, option: IComboboxOption) => {
         onOptionHover(event, index, option);
       },
       [onOptionHover]
     );
 
-    const filteredOptions = useMemo(() => {
+    const filteredOptions: IComboboxOption[] = useMemo(() => {
       if (disableFilter) {
         return options;
       }
@@ -90,7 +167,7 @@ const Combobox = forwardRef(
     const [activeOptionIndex, setActiveOptionIndex] = useState(-1);
 
     const isChildSelectable = useCallback(
-      index => {
+      (index: number) => {
         return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
       },
       [filteredOptions]
@@ -131,10 +208,10 @@ const Combobox = forwardRef(
       );
     }
 
-    const [activeCategoryLabel, setActiveCategoryLabel] = useState();
+    const [activeCategoryLabel, setActiveCategoryLabel] = useState<string>();
 
     const onActiveCategoryChanged = useCallback(
-      categoryData => {
+      (categoryData: IComboboxItem) => {
         if (categoryData?.category?.label !== activeCategoryLabel) {
           setActiveCategoryLabel(categoryData?.category?.label);
         }
@@ -151,7 +228,7 @@ const Combobox = forwardRef(
     });
 
     const overrideOnClick = useCallback(
-      (event, itemIndex) => {
+      (_event: React.MouseEvent | React.KeyboardEvent, itemIndex: number) => {
         onClick(selectableItems[itemIndex]);
         if (isChildSelectable(itemIndex)) {
           setActiveOptionIndex(itemIndex);
@@ -171,7 +248,6 @@ const Combobox = forwardRef(
     } = useKeyboardNavigation({
       getOptionId,
       defaultVisualFocusFirstIndex,
-      resultsContainerRef,
       onClick: overrideOnClick,
       isChildSelectable,
       options: selectableItems,
@@ -179,7 +255,6 @@ const Combobox = forwardRef(
     });
 
     return (
-      // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
         ref={mergedRef}
         className={cx("combobox--wrapper", className, `size-${size}`, {
@@ -207,13 +282,9 @@ const Combobox = forwardRef(
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
-            forceUndoScrollNullCheck={forceUndoScrollNullCheck}
-            ref={resultsContainerRef}
             categories={categories}
             options={items}
             itemsMap={itemsMap}
-            filterValue={filterValue}
-            withCategoriesDivider={withCategoriesDivider}
             optionClassName={optionClassName}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
@@ -238,117 +309,10 @@ const Combobox = forwardRef(
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-Combobox.sizes = SIZES;
-Combobox.iconTypes = ComboboxOption.iconTypes;
-Combobox.defaultTestId = ComponentDefaultTestId.COMBOBOX;
-
-Combobox.propTypes = {
-  className: PropTypes.string,
-  optionClassName: PropTypes.string,
-  /**
-   * Placeholder to show when no value was selected
-   */
-  placeholder: PropTypes.string,
-  /**
-   * Unique element id
-   */
-  id: PropTypes.string,
-  /**
-   * A message that will be displayed inside the combo box when no results are found
-   */
-  noResultsMessage: PropTypes.string,
-  disabled: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.object),
-  categories: PropTypes.object,
-  /**
-   * Divider between categories sections
-   */
-  withCategoriesDivider: PropTypes.bool,
-  size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
-  optionLineHeight: PropTypes.number,
-  optionsListHeight: PropTypes.number,
-  autoFocus: PropTypes.bool,
-  /**
-   * Callback that called after clicking on the add new combo box button.
-   * @param {string} _filterValue
-   */
-  onAddNew: PropTypes.func,
-  /**
-   * The label of the button that appears at the end of the combo box when the search does not return appropriate options
-   */
-  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  filter: PropTypes.func,
-  disableFilter: PropTypes.bool,
-  onFilterChanged: PropTypes.func,
-  /**
-   * Display the combo box with loading state
-   */
-  loading: PropTypes.bool,
-  /**
-   * on mouse hover callback for option
-   */
-  onOptionHover: PropTypes.func,
-  /**
-   * on mouse leave callback for option
-   */
-  onOptionLeave: PropTypes.func,
-  /**
-   * Allowed to the following behavior: scrolling automatically to the combo box's selected option
-   */
-  shouldScrollToSelectedItem: PropTypes.bool,
-  noResultsRenderer: PropTypes.func,
-  stickyCategories: PropTypes.bool,
-  /** By default the first option will be selected, when focusing selecting the first option, or when changing items */
-  defaultVisualFocusFirstIndex: PropTypes.bool,
-  /** Clear the filter/search on selection (click or enter) */
-  clearFilterOnSelection: PropTypes.bool,
-  /**
-   * Replace the regular appearance of combo box option with custom renderer.
-   */
-  optionRenderer: PropTypes.func,
-  /** Maximum options count without scroll */
-  maxOptionsWithoutScroll: PropTypes.number,
-  /**
-   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
-   */
-  renderOnlyVisibleOptions: PropTypes.bool,
-  /**
-   * On option click callback
-   */
-  onClick: PropTypes.func
-};
-
-Combobox.defaultProps = {
-  className: "",
-  optionClassName: "",
-  placeholder: "",
-  id: "",
-  noResultsMessage: "No results found",
-  disabled: false,
-  options: [],
-  categories: undefined,
-  withCategoriesDivider: false,
-  size: Combobox.sizes.MEDIUM,
-  optionLineHeight: 32,
-  optionsListHeight: undefined,
-  autoFocus: false,
-  maxOptionsWithoutScroll: undefined,
-  onAddNew: undefined,
-  addNewLabel: "Add new",
-  filter: defaultFilter,
-  disableFilter: false,
-  onFilterChanged: undefined,
-  loading: false,
-  onOptionHover: NOOP,
-  onOptionLeave: NOOP,
-  shouldScrollToSelectedItem: true,
-  noResultsRenderer: undefined,
-  stickyCategories: false,
-  optionRenderer: null,
-  clearFilterOnSelection: false,
-  defaultVisualFocusFirstIndex: undefined,
-  renderOnlyVisibleOptions: false,
-  onClick: _optionData => {}
-};
+Object.assign(Combobox, {
+  sizes: BASE_SIZES,
+  iconTypes: ComboboxOption.iconTypes,
+  defaultTestId: ComponentDefaultTestId.COMBOBOX
+});
 
 export default Combobox;
