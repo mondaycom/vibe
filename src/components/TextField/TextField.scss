@@ -37,12 +37,16 @@
         border: none;
         pointer-events: none;
         @include theme-prop(background-color, disabled-background-color);
-        cursor: not-allowed;
 
         &::placeholder {
           @include theme-prop(color, disabled-text-color);
         }
       }
+      .input-component__icon--container.input-component__icon--container-active.input-component__icon--container-has-icon {
+          cursor: not-allowed;
+          pointer-events: none;
+      }
+
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {
           background-color: transparent;
