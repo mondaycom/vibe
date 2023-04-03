@@ -13,7 +13,6 @@ export const getOptionsByCategories = (
     const categoryId = option.categoryId;
     // skipping if the option doesn't have a category
     if (!categoryId) return result;
-    // @ts-ignore TODO remove onlyShowOnSearch? referenced only in tests
     if (categories[categoryId]?.onlyShowOnSearch && !filterValue) return result;
 
     if (result[categoryId]) {

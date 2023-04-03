@@ -17,6 +17,7 @@ export type ComboboxCategoryType = {
   label: string;
   id: string;
   ariaLabel?: string;
+  onlyShowOnSearch?: boolean;
 };
 
 export type ComboboxOptionType = {
