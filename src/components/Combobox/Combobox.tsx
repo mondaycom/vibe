@@ -6,7 +6,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
-import { BASE_SIZES, SIZES } from "../../constants";
+import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
@@ -97,7 +97,7 @@ export interface ComboboxProps extends VibeComponentProps {
 }
 
 const Combobox: React.FC<ComboboxProps> & {
-  sizes?: typeof SIZES;
+  sizes?: typeof BASE_SIZES;
   iconTypes?: typeof ComboboxOption.iconTypes;
 } = forwardRef(
   (
@@ -310,7 +310,7 @@ const Combobox: React.FC<ComboboxProps> & {
 // size it like the icon - we think it's 16px - make sure it's not fat
 
 Object.assign(Combobox, {
-  sizes: SIZES,
+  sizes: BASE_SIZES,
   iconTypes: ComboboxOption.iconTypes,
   defaultTestId: ComponentDefaultTestId.COMBOBOX
 });
