@@ -6,7 +6,7 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
   id=""
 >
   <div
-    className="expand-collapse"
+    className="expand-collapse showBorder"
   >
     <button
       aria-controls="-controls"
