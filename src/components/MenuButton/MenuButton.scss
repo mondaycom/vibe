@@ -20,7 +20,7 @@
     @include theme-prop(background-color, primary-background-hover-color);
   }
 
-  &--open {
+  &--active {
     transform: scale(0.95);
     @include theme-prop(background-color, primary-selected-color);
     @include theme-prop(color, primary-color);

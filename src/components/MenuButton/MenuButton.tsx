@@ -31,8 +31,12 @@ interface MenuButtonProps extends VibeComponentProps {
    * Backward compatibility for props naming
    */
   componentClassName?: string;
-  /*
-    Class name to add to the button when the dialog is open
+  /**
+   * Control the button's selected state
+   */
+  active?: boolean;
+  /**
+   *Class name to add to the button when the dialog is open
    */
   openDialogComponentClassName?: string;
   /**
@@ -155,13 +159,15 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       removeTabCloseTrigger = false,
       tooltipReferenceClassName,
       hideWhenReferenceHidden = false,
-      dialogContainerSelector
+      dialogContainerSelector,
+      active
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const [isOpen, setIsOpen] = useState(open);
+    const isActive = active ?? isOpen;
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         if (event && event.key === "Escape") {
@@ -313,7 +319,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref={mergedRef}
             type="button"
             className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-              [BEMClass("open")]: isOpen,
+              [BEMClass("active")]: isActive,
               [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
               [BEMClass("disabled")]: disabled,
               [BEMClass("text")]: text
