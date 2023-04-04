@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.115.1 (2023-04-04)
+
+#### Bug Fixes
+* [#1200](https://github.com/mondaycom/monday-ui-react-core/pull/1200) Fix text field and search disabled appearance  ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.115.0 (2023-04-03)
 
 #### New Features
