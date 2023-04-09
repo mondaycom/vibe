@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.116.0 (2023-04-09)
+
+#### Bug Fixes
+* [#1201](https://github.com/mondaycom/monday-ui-react-core/pull/1201) Fix hide border bug in expand collapse  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1202](https://github.com/mondaycom/monday-ui-react-core/pull/1202) Support menu button controlled active state ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.115.1 (2023-04-04)
 
 #### Bug Fixes
