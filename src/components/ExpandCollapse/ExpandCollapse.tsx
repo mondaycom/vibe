@@ -81,7 +81,12 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
-        <div className={cx("expand-collapse", componentClassName, { [extraStyles.hideBorder]: hideBorder })}>
+        <div
+          className={cx("expand-collapse", componentClassName, {
+            [extraStyles.hideBorder]: hideBorder,
+            [extraStyles.showBorder]: !hideBorder
+          })}
+        >
           <button
             type="button"
             className={cx("expand-collapse__header", "expand-collapse__section", headerClassName, {

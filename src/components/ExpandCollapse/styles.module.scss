@@ -1,6 +1,9 @@
 .hideBorder {
   border: none;
 }
+.showBorder {
+  border: 1px solid var(--ui-border-color);
+}
 
 .hideBorderBottom {
   border-bottom: none;
