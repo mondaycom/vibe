@@ -319,7 +319,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref={mergedRef}
             type="button"
             className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-              [BEMClass("active")]: isActive,
+              [BEMClass("open")]: isActive,
               [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
               [BEMClass("disabled")]: disabled,
               [BEMClass("text")]: text
