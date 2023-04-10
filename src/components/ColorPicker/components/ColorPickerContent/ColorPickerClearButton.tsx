@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
@@ -15,12 +15,14 @@ interface ColorPickerClearButtonProps extends VibeComponentProps {
 
 export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> = React.forwardRef(
   ({ onClick, text, Icon, isActive }, ref) => {
+    const onItemClicked = useCallback(() => onClick(null), [onClick]);
+
     const { onSelectionAction } = useGridKeyboardNavigation({
-      ref: ref as React.MutableRefObject<HTMLElement>, //TODO - maybe hook signature should change
+      ref: ref as React.MutableRefObject<HTMLElement>,
       itemsCount: 1,
       numberOfItemsInLine: 1,
-      onItemClicked: (_e, _i) => onClick(null), // hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
-      getItemByIndex: _i => null //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
+      onItemClicked, // hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
+      getItemByIndex: NOOP //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
     });
 
     return (
@@ -40,8 +42,6 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
 );
 
 ColorPickerClearButton.defaultProps = {
-  onClick: NOOP,
   text: "Clear",
-  Icon: NoColor,
-  isActive: false
+  Icon: NoColor
 };

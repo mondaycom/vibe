@@ -154,15 +154,19 @@ export const contentColors = [
   "steel",
   "lilac",
   "pecan"
-];
+] as const;
+
+export type CONTENT_COLORS_VALUES = typeof contentColors[number];
 
 //TODO - if changed to enum, it kills the color-utils.ts
-export const COLOR_STYLES: { REGULAR: "regular"; HOVER: "hover"; SELECTED: "selected" } = {
+export const COLOR_STYLES = {
   //TODO - don't repeat the type definition.
   REGULAR: "regular",
   HOVER: "hover",
   SELECTED: "selected"
-};
+} as const;
+
+export type COLOR_STYLES_VALUES = typeof COLOR_STYLES[keyof typeof COLOR_STYLES];
 
 export const contentColorsByName: Record<string, string> = {
   GRASS_GREEN: "grass_green",

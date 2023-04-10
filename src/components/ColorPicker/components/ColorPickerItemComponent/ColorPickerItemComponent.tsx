@@ -1,35 +1,41 @@
 import React, { useRef, useCallback, useMemo } from "react";
 import cx from "classnames";
-import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
+import {
+  COLOR_STYLES,
+  COLOR_STYLES_VALUES,
+  CONTENT_COLORS_VALUES,
+  contentColors
+} from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { COLOR_SHAPES } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon } from "../../../../types";
 import { ElementContent } from "../../../../types/ElementContent";
+import { SIZES_VALUES } from "../../../../constants";
 
 export type ColorPickerItemComponentProps = {
-  color: string; // TODO - better ts from contentColors
-  onValueChange: (color: string /** TODO - currentColors */) => void;
-  colorStyle: "regular" | "hover" | "selected"; //TODO - Better ts from COLOR_STYLES
+  color: CONTENT_COLORS_VALUES;
+  onColorClicked: (color: string /** TODO - currentColors */) => void;
+  colorStyle: COLOR_STYLES_VALUES;
   shouldRenderIndicatorWithoutBackground: boolean;
   ColorIndicatorIcon: SubIcon;
   SelectedIndicatorIcon: SubIcon;
   isSelected: boolean;
-  colorSize: "small" | "medium" | "large";
+  colorSize: SIZES_VALUES;
   tooltipContent: ElementContent;
   isActive: boolean;
-  colorShape: "square" | "circle"; // TODO - better ts from COLOR_SHAPES;
+  colorShape: COLOR_SHAPES_VALUES;
   ["data-testid"]?: string;
 };
 
 const ColorPickerItemComponent = ({
   color,
-  onValueChange,
+  onColorClicked,
   colorStyle = COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground,
   ColorIndicatorIcon,
@@ -45,7 +51,7 @@ const ColorPickerItemComponent = ({
   const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
   const itemRef = useRef<HTMLDivElement>(null);
 
-  const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
+  const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
 
   const setHoverColor = (e: React.MouseEvent<HTMLDivElement>) => {
     if (colorStyle === COLOR_STYLES.SELECTED) {

@@ -44,7 +44,7 @@ export default function useGridKeyboardNavigation({
   itemsCount: number;
   numberOfItemsInLine: number;
   onItemClicked: (element: HTMLElement | ReactElement | void, index: number) => void;
-  getItemByIndex: (index: number | void) => HTMLElement | ReactElement | void;
+  getItemByIndex: (index: number | void) => HTMLElement | ReactElement | void | string;
   focusOnMount?: boolean;
   focusItemIndexOnMount?: number;
   disabledIndexes?: number[];
