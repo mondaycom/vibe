@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.116.1 (2023-04-10)
+
+#### Bug Fixes
+* [#1205](https://github.com/mondaycom/monday-ui-react-core/pull/1205) fix expand collapse border bug ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.116.0 (2023-04-09)
 
 #### Bug Fixes
