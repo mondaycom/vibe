@@ -24,6 +24,8 @@ export interface ClickableProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   enableTextSelection?: boolean;
   onMouseDown?: (event: React.MouseEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
   /**
    * Is the element and its content should be hidden from screen readers and other assistive technologies
@@ -50,6 +52,8 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       onClick = NOOP,
       enableTextSelection = false,
       onMouseDown = NOOP,
+      onMouseEnter = NOOP,
+      onMouseLeave = NOOP,
       ariaLabel,
       ariaHidden,
       ariaHasPopup,
@@ -65,6 +69,8 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       {
         onClick,
         onMouseDown,
+        onMouseEnter,
+        onMouseLeave,
         disabled,
         id,
         dataTestId,

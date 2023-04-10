@@ -40,6 +40,8 @@ exports[`Search renders correctly when disabled 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -68,6 +70,8 @@ exports[`Search renders correctly when disabled 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -135,6 +139,8 @@ exports[`Search renders correctly when underline 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -163,6 +169,8 @@ exports[`Search renders correctly when underline 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -230,6 +238,8 @@ exports[`Search renders correctly with className 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -258,6 +268,8 @@ exports[`Search renders correctly with className 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -325,6 +337,8 @@ exports[`Search renders correctly with icon 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -343,6 +357,8 @@ exports[`Search renders correctly with icon 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -410,6 +426,8 @@ exports[`Search renders correctly with id 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -438,6 +456,8 @@ exports[`Search renders correctly with id 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -534,6 +554,8 @@ exports[`Search renders correctly with loading 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -562,6 +584,8 @@ exports[`Search renders correctly with loading 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -629,6 +653,8 @@ exports[`Search renders correctly with placeholder 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -657,6 +683,8 @@ exports[`Search renders correctly with placeholder 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -724,6 +752,8 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -752,6 +782,8 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -809,6 +841,8 @@ exports[`Search renders correctly with underline type 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -837,6 +871,8 @@ exports[`Search renders correctly with underline type 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -904,6 +940,8 @@ exports[`Search renders correctly with validation 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -932,6 +970,8 @@ exports[`Search renders correctly with validation 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -999,6 +1039,8 @@ exports[`Search renders correctly with value 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -1027,6 +1069,8 @@ exports[`Search renders correctly with value 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={0}
       >
@@ -1094,6 +1138,8 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -1122,6 +1168,8 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -1189,6 +1237,8 @@ exports[`Search renders correctly without props 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >
@@ -1217,6 +1267,8 @@ exports[`Search renders correctly without props 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="button"
         tabIndex={-1}
       >

@@ -156,7 +156,9 @@ export const contentColors = [
   "pecan"
 ];
 
-export const COLOR_STYLES = {
+//TODO - if changed to enum, it kills the color-utils.ts
+export const COLOR_STYLES: { REGULAR: "regular"; HOVER: "hover"; SELECTED: "selected" } = {
+  //TODO - don't repeat the type definition.
   REGULAR: "regular",
   HOVER: "hover",
   SELECTED: "selected"
