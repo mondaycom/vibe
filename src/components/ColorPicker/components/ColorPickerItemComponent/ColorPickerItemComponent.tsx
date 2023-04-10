@@ -20,7 +20,7 @@ import { SIZES_VALUES } from "../../../../constants";
 
 export type ColorPickerItemComponentProps = {
   color: CONTENT_COLORS_VALUES;
-  onColorClicked: (color: string /** TODO - currentColors */) => void;
+  onColorClicked: (color: CONTENT_COLORS_VALUES) => void;
   colorStyle: COLOR_STYLES_VALUES;
   shouldRenderIndicatorWithoutBackground: boolean;
   ColorIndicatorIcon: SubIcon;

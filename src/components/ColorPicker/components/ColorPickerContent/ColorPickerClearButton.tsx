@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
-import NoColor from "../../../Icon/Icons/components/NoColor";
 import { VibeComponentProps } from "../../../../types";
 import VibeComponent from "../../../../types/VibeComponent";
 import { NOOP } from "../../../../utils/function-utils";
@@ -42,6 +41,5 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
 );
 
 ColorPickerClearButton.defaultProps = {
-  text: "Clear",
-  Icon: NoColor
+  text: "Clear"
 };
