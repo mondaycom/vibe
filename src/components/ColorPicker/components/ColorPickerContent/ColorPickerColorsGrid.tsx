@@ -90,7 +90,7 @@ interface ColorPickerColorsGridProps extends VibeComponentProps {
   shouldRenderIndicatorWithoutBackground: boolean;
   colorSize: SIZES_VALUES;
   numberOfColorsInLine: number;
-  tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>; //TODO - very loose
+  tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   focusOnMount: boolean;
   colorShape: COLOR_SHAPES_VALUES;
   showColorNameTooltip: boolean;
