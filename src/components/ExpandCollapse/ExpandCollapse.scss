@@ -32,12 +32,6 @@
     color: var(--icon-color);
   }
 }
-
-.expand-collapse__header--open {
-  border-bottom: 1px solid;
-  border-color: var(--ui-border-color);
-}
-
 .expand-collapse__content {
   padding: var(--spacing-medium);
 }
