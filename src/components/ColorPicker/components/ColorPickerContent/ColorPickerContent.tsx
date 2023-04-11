@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { SIZES, SIZES_VALUES } from "../../../../constants/sizes";
+import { BASE_SIZES, BASE_SIZES_VALUES } from "../../../../constants";
 import { COLOR_STYLES, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
@@ -13,9 +13,8 @@ import {
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
+import { VibeComponentProps, VibeComponent } from "../../../../types";
 
-import { VibeComponentProps } from "../../../../types";
-import VibeComponent from "../../../../types/VibeComponent";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
@@ -26,7 +25,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   colorStyle?: "regular" | "selected";
-  colorSize?: SIZES_VALUES;
+  colorSize?: BASE_SIZES_VALUES;
   colorShape?: COLOR_SHAPES_VALUES;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   noColorText?: string;
@@ -135,7 +134,7 @@ ColorPickerContent.defaultProps = {
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorSize: SIZES.MEDIUM,
+  colorSize: BASE_SIZES.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
-import { SIZES_VALUES } from "../../../../constants/sizes";
+import { BASE_SIZES_VALUES } from "../../../../constants";
 import { COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
 import { VibeComponentProps } from "../../../../types";
 import VibeComponent from "../../../../types/VibeComponent";
@@ -32,7 +32,7 @@ interface ColorPickerColorsGridProps extends VibeComponentProps {
   colorStyle: "regular" | "selected";
   value: string | string[];
   shouldRenderIndicatorWithoutBackground: boolean;
-  colorSize: SIZES_VALUES;
+  colorSize: BASE_SIZES_VALUES;
   numberOfColorsInLine: number;
   tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   focusOnMount: boolean;

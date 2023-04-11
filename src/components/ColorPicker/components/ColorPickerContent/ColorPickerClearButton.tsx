@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
-import { VibeComponentProps } from "../../../../types";
-import VibeComponent from "../../../../types/VibeComponent";
+import { VibeComponentProps, VibeComponent } from "../../../../types";
 import { NOOP } from "../../../../utils/function-utils";
 
 interface ColorPickerClearButtonProps extends VibeComponentProps {

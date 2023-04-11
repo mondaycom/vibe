@@ -14,11 +14,9 @@ import Clickable from "../../../Clickable/Clickable";
 import { COLOR_SHAPES, COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { SubIcon } from "../../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 import { ElementContent } from "../../../../types/ElementContent";
-import { SIZES_VALUES } from "../../../../constants";
-import { VibeComponentProps } from "../../../../types";
-import VibeComponent from "../../../../types/VibeComponent";
+import { BASE_SIZES_VALUES } from "../../../../constants";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: CONTENT_COLORS_VALUES;
@@ -28,7 +26,7 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
   ColorIndicatorIcon: SubIcon;
   SelectedIndicatorIcon: SubIcon;
   isSelected: boolean;
-  colorSize: SIZES_VALUES;
+  colorSize: BASE_SIZES_VALUES;
   tooltipContent: ElementContent;
   isActive: boolean;
   colorShape: COLOR_SHAPES_VALUES;

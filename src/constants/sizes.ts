@@ -4,6 +4,8 @@ export const BASE_SIZES = {
   LARGE: "large"
 } as const;
 
+export type BASE_SIZES_VALUES = typeof BASE_SIZES[keyof typeof BASE_SIZES];
+
 export const BASE_SIZES_WITH_NONE = { NONE: "none", ...BASE_SIZES };
 
 export const SIZES = { XXS: "xxs", XS: "xs", ...BASE_SIZES } as const;
