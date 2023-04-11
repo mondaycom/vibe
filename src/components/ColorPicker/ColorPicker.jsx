@@ -6,7 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { COLOR_STYLES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
-import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
+import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
@@ -50,7 +50,7 @@ const ColorPicker = forwardRef(
         ariaDescribedby="Pick color"
         style={{ width }}
       >
-        <ColorPickerContentComponent
+        <ColorPickerContent
           onValueChange={onChange}
           value={value}
           noColorText={noColorText}

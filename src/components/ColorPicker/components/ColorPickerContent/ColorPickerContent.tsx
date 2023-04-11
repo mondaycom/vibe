@@ -6,7 +6,7 @@ import { COLOR_STYLES, CONTENT_COLORS_VALUES, contentColors } from "../../../../
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContentComponent.scss";
+import "./ColorPickerContent.scss";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
@@ -17,7 +17,7 @@ import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps } from "../../../../types";
 import VibeComponent from "../../../../types/VibeComponent";
 
-export interface ColorPickerContentComponentProps extends VibeComponentProps {
+export interface ColorPickerContentProps extends VibeComponentProps {
   value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
   onValueChange: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
   colorsList: CONTENT_COLORS_VALUES[];
@@ -39,7 +39,7 @@ export interface ColorPickerContentComponentProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPickerContentComponent: VibeComponent<ColorPickerContentComponentProps, HTMLDivElement> = forwardRef(
+const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> = forwardRef(
   (
     {
       className,
@@ -130,7 +130,7 @@ const ColorPickerContentComponent: VibeComponent<ColorPickerContentComponentProp
   }
 );
 
-ColorPickerContentComponent.defaultProps = {
+ColorPickerContent.defaultProps = {
   colorStyle: COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
@@ -153,4 +153,4 @@ ColorPickerContentComponent.defaultProps = {
   showColorNameTooltip: false
 };
 
-export default ColorPickerContentComponent;
+export default ColorPickerContent;
