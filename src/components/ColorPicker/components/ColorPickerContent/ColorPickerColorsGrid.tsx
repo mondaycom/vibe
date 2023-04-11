@@ -4,8 +4,7 @@ import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerIte
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { BASE_SIZES_VALUES } from "../../../../constants";
 import { COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
-import { VibeComponentProps } from "../../../../types";
-import VibeComponent from "../../../../types/VibeComponent";
+import { VibeComponent, VibeComponentProps } from "../../../../types";
 
 const formatColorNameForTooltip = (color: CONTENT_COLORS_VALUES) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {

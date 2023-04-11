@@ -31,12 +31,8 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
         className="clear-color-button"
       >
         <Icon size="16" className="clear-color-icon" />
-        {text}
+        {text || "Clear"}
       </Button>
     );
   }
 );
-
-ColorPickerClearButton.defaultProps = {
-  text: "Clear"
-};
