@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useMemo } from "react";
+import React, { useRef, useCallback, useMemo, forwardRef } from "react";
 import cx from "classnames";
 import {
   COLOR_STYLES,
@@ -17,8 +17,10 @@ import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon } from "../../../../types";
 import { ElementContent } from "../../../../types/ElementContent";
 import { SIZES_VALUES } from "../../../../constants";
+import { VibeComponentProps } from "../../../../types";
+import VibeComponent from "../../../../types/VibeComponent";
 
-export type ColorPickerItemComponentProps = {
+export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: CONTENT_COLORS_VALUES;
   onColorClicked: (color: CONTENT_COLORS_VALUES) => void;
   colorStyle: COLOR_STYLES_VALUES;
@@ -31,78 +33,83 @@ export type ColorPickerItemComponentProps = {
   isActive: boolean;
   colorShape: COLOR_SHAPES_VALUES;
   ["data-testid"]?: string;
-};
+}
 
-const ColorPickerItemComponent = ({
-  color,
-  onColorClicked,
-  colorStyle = COLOR_STYLES.REGULAR,
-  shouldRenderIndicatorWithoutBackground,
-  ColorIndicatorIcon,
-  SelectedIndicatorIcon,
-  isSelected,
-  colorSize,
-  tooltipContent,
-  isActive,
-  colorShape,
-  "data-testid": dataTestId
-}: ColorPickerItemComponentProps) => {
-  const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
-  const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
-  const itemRef = useRef<HTMLDivElement>(null);
+const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = forwardRef(
+  (
+    {
+      color,
+      onColorClicked,
+      colorStyle = COLOR_STYLES.REGULAR,
+      shouldRenderIndicatorWithoutBackground,
+      ColorIndicatorIcon,
+      SelectedIndicatorIcon,
+      isSelected,
+      colorSize,
+      tooltipContent,
+      isActive,
+      colorShape,
+      "data-testid": dataTestId
+    },
+    _ref
+  ) => {
+    const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
+    const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
+    const itemRef = useRef<HTMLDivElement>(null);
 
-  const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
+    const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
 
-  const setHoverColor = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (colorStyle === COLOR_STYLES.SELECTED) {
-      (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
-    } else {
-      (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.HOVER);
-    }
-  };
-  const restoreToOriginalColor = (e: React.MouseEvent<HTMLDivElement>) => {
-    (e.target as HTMLDivElement).style.background = colorAsStyle;
-  };
+    const setHoverColor = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (colorStyle === COLOR_STYLES.SELECTED) {
+        (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
+      } else {
+        (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.HOVER);
+      }
+    };
+    const restoreToOriginalColor = (e: React.MouseEvent<HTMLDivElement>) => {
+      (e.target as HTMLDivElement).style.background = colorAsStyle;
+    };
 
-  const shouldRenderIcon = isSelected || ColorIndicatorIcon;
-  const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
-  return (
-    <Tooltip content={tooltipContent}>
-      <li
-        className={cx("monday-style-color-item-wrapper", {
-          "selected-color": isSelected,
-          active: isActive,
-          circle: colorShape === COLOR_SHAPES.CIRCLE
-        })}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
-      >
-        <div className="feedback-indicator" />
-        <Clickable
-          ref={itemRef}
-          ariaLabel={color}
-          className={cx("color-item", `color-item-size-${colorSize}`, {
-            "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+    const shouldRenderIcon = isSelected || ColorIndicatorIcon;
+    const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
+    return (
+      <Tooltip content={tooltipContent}>
+        <li
+          className={cx("monday-style-color-item-wrapper", {
+            "selected-color": isSelected,
+            active: isActive,
+            circle: colorShape === COLOR_SHAPES.CIRCLE
           })}
-          style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
-          onClick={onClick}
-          tabIndex="-1"
-          onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
-          onMouseEnter={setHoverColor}
-          onMouseLeave={restoreToOriginalColor}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
         >
-          <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
-            {shouldRenderIcon && (
-              <Icon
-                icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
-                className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
-                ignoreFocusStyle
-              />
-            )}
-          </div>
-        </Clickable>
-      </li>
-    </Tooltip>
-  );
-};
+          <div className="feedback-indicator" />
+          <Clickable
+            ref={itemRef}
+            ariaLabel={color}
+            className={cx("color-item", `color-item-size-${colorSize}`, {
+              "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+            })}
+            style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
+            onClick={onClick}
+            tabIndex="-1"
+            onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
+            onMouseEnter={setHoverColor}
+            onMouseLeave={restoreToOriginalColor}
+          >
+            <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
+              {shouldRenderIcon && (
+                <Icon
+                  icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
+                  className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
+                  ignoreFocusStyle
+                />
+              )}
+            </div>
+          </Clickable>
+        </li>
+      </Tooltip>
+    );
+  }
+);
 
 export default ColorPickerItemComponent;
