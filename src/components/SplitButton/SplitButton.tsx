@@ -218,6 +218,7 @@ const SplitButton: FC<SplitButtonProps> & {
         onFocus={setHovered}
         onBlur={setNotHovered}
         disabled={disabled}
+        loading={loading}
       >
         {children}
       </Button>
