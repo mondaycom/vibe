@@ -1,10 +1,9 @@
 import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { COLOR_STYLES, CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
-import { SIZES, SIZES_VALUES } from "../../../../constants/sizes";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
-import { NOOP } from "../../../../utils/function-utils";
+import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
+import { SIZES_VALUES } from "../../../../constants/sizes";
+import { COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
 import { VibeComponentProps } from "../../../../types";
 import VibeComponent from "../../../../types/VibeComponent";
 
@@ -24,6 +23,22 @@ const calculateColorTooltip = (
     return formatColorNameForTooltip(color);
   }
 };
+
+interface ColorPickerColorsGridProps extends VibeComponentProps {
+  onColorClicked: (color: CONTENT_COLORS_VALUES) => any;
+  colorsToRender: CONTENT_COLORS_VALUES[];
+  ColorIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  SelectedIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  colorStyle: "regular" | "selected";
+  value: string | string[];
+  shouldRenderIndicatorWithoutBackground: boolean;
+  colorSize: SIZES_VALUES;
+  numberOfColorsInLine: number;
+  tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>;
+  focusOnMount: boolean;
+  colorShape: COLOR_SHAPES_VALUES;
+  showColorNameTooltip: boolean;
+}
 
 export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HTMLUListElement> = React.forwardRef(
   (
@@ -49,7 +64,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
       focusOnMount,
       ref: ref as React.MutableRefObject<HTMLUListElement>,
-      onItemClicked: onColorClicked,
+      onItemClicked: onColorClicked as any, //TODO - not sure how to utilize this hook correctly
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
       getItemByIndex
@@ -79,32 +94,3 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     );
   }
 );
-
-interface ColorPickerColorsGridProps extends VibeComponentProps {
-  onColorClicked: () => any; //TODO needs a better specifity
-  colorsToRender: CONTENT_COLORS_VALUES[];
-  ColorIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  colorStyle: "regular" | "selected";
-  value: string | string[];
-  shouldRenderIndicatorWithoutBackground: boolean;
-  colorSize: SIZES_VALUES;
-  numberOfColorsInLine: number;
-  tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>;
-  focusOnMount: boolean;
-  colorShape: COLOR_SHAPES_VALUES;
-  showColorNameTooltip: boolean;
-}
-ColorPickerColorsGrid.defaultProps = {
-  onColorClicked: NOOP,
-  colorsToRender: [],
-  colorStyle: COLOR_STYLES.REGULAR,
-  value: "",
-  shouldRenderIndicatorWithoutBackground: false,
-  colorSize: SIZES.MEDIUM,
-  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  tooltipContentByColor: {},
-  focusOnMount: false,
-  colorShape: COLOR_SHAPES.SQUARE,
-  showColorNameTooltip: false
-};

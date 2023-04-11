@@ -9,11 +9,10 @@ interface ColorPickerClearButtonProps extends VibeComponentProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => any;
   text?: string;
   Icon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  isActive: boolean;
 }
 
 export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> = React.forwardRef(
-  ({ onClick, text, Icon, isActive }, ref) => {
+  ({ onClick, text, Icon }, ref) => {
     const onItemClicked = useCallback(() => onClick(null), [onClick]);
 
     const { onSelectionAction } = useGridKeyboardNavigation({
@@ -30,7 +29,6 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
         size={Button.sizes.SMALL}
         kind={Button.kinds.TERTIARY}
         onClick={() => onSelectionAction(-1)} //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
-        active={isActive}
         className="clear-color-button"
       >
         <Icon size="16" className="clear-color-icon" />

@@ -1,11 +1,10 @@
 import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
-import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { SIZES } from "../../../../constants/sizes";
-import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
+import { SIZES, SIZES_VALUES } from "../../../../constants/sizes";
+import { COLOR_STYLES, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
 import {
@@ -15,7 +14,32 @@ import {
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 
-const ColorPickerContentComponent = forwardRef(
+import { VibeComponentProps } from "../../../../types";
+import VibeComponent from "../../../../types/VibeComponent";
+
+export interface ColorPickerContentComponentProps extends VibeComponentProps {
+  value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
+  onValueChange: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
+  colorsList: CONTENT_COLORS_VALUES[];
+  className?: string;
+  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  colorStyle?: "regular" | "selected";
+  colorSize?: SIZES_VALUES;
+  colorShape?: COLOR_SHAPES_VALUES;
+  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
+  noColorText?: string;
+  shouldRenderIndicatorWithoutBackground?: boolean;
+  isBlackListMode?: boolean;
+  numberOfColorsInLine?: number;
+  focusOnMount?: boolean;
+  isMultiselect?: boolean;
+  forceUseRawColorList?: boolean;
+  showColorNameTooltip?: boolean;
+}
+
+const ColorPickerContentComponent: VibeComponent<ColorPickerContentComponentProps, HTMLDivElement> = forwardRef(
   (
     {
       className,
@@ -55,7 +79,7 @@ const ColorPickerContentComponent = forwardRef(
     }, [forceUseRawColorList, isBlackListMode, colorsList]);
 
     const onColorClicked = useCallback(
-      color => {
+      (color: CONTENT_COLORS_VALUES) => {
         if (!isMultiselect) {
           onValueChange([color]);
           return;
@@ -106,56 +130,16 @@ const ColorPickerContentComponent = forwardRef(
   }
 );
 
-ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
-ColorPickerContentComponent.sizes = SIZES;
-ColorPickerContentComponent.colorShapes = COLOR_SHAPES;
-
-ColorPickerContentComponent.propTypes = {
-  className: PropTypes.string,
-  onValueChange: PropTypes.func,
-  ColorIndicatorIcon: PropTypes.func,
-  SelectedIndicatorIcon: PropTypes.func,
-  colorStyle: PropTypes.oneOf([
-    ColorPickerContentComponent.COLOR_STYLES.REGULAR,
-    ColorPickerContentComponent.COLOR_STYLES.SELECTED
-  ]),
-  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
-  noColorText: PropTypes.string,
-  shouldRenderIndicatorWithoutBackground: PropTypes.bool,
-  NoColorIcon: PropTypes.func,
-  isBlackListMode: PropTypes.bool,
-  colorsList: PropTypes.array,
-  colorSize: PropTypes.oneOf([
-    ColorPickerContentComponent.sizes.SMALL,
-    ColorPickerContentComponent.sizes.MEDIUM,
-    ColorPickerContentComponent.sizes.LARGE
-  ]),
-  numberOfColorsInLine: PropTypes.number,
-  tooltipContentByColor: PropTypes.object,
-  focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool,
-  forceUseRawColorList: PropTypes.bool,
-  showColorNameTooltip: PropTypes.bool
-};
-
 ColorPickerContentComponent.defaultProps = {
-  className: "",
-  onValueChange: () => {},
-  ColorIndicatorIcon: undefined,
-  SelectedIndicatorIcon: undefined,
-  colorStyle: ColorPickerContentComponent.COLOR_STYLES.REGULAR,
-  value: "",
-  noColorText: undefined,
+  colorStyle: COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorsList: [],
-  colorSize: ColorPickerContentComponent.sizes.MEDIUM,
+  colorSize: SIZES.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,
-  colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
+  colorShape: COLOR_SHAPES.SQUARE,
   isMultiselect: false,
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
@@ -165,7 +149,6 @@ ColorPickerContentComponent.defaultProps = {
   /**
    * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
    * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
-   *
    */
   showColorNameTooltip: false
 };
