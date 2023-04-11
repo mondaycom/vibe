@@ -158,9 +158,7 @@ export const contentColors = [
 
 export type CONTENT_COLORS_VALUES = typeof contentColors[number];
 
-//TODO - if changed to enum, it kills the color-utils.ts
 export const COLOR_STYLES = {
-  //TODO - don't repeat the type definition.
   REGULAR: "regular",
   HOVER: "hover",
   SELECTED: "selected"
