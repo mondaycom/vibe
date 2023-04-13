@@ -29,6 +29,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 // SCSS import
 import "./SplitButton.scss";
 
+//check !
 export interface SplitButtonProps extends ButtonProps {
   /*
    * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
