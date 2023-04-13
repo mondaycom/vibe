@@ -7,21 +7,41 @@ While starting migrating components on your own, please pay attention to the fol
 2. Please convert the component tests. There is no need to convert the component stories in the stage (MDX file and js files which are related).
 
 ### Types and interfaces
-1. If you want to add any general types or interfaces relevant to more than one component during the conversion, please add them to src/types.
-2. Please ensure your component props interface extends VibeComponentProps or another type that extends `VibeComponentProps`. If your component does not support one of the props written in the VibeComponentProps interface, please add it (`id`, `className`, `data-testid`…)
+1. If you want to add any general types or interfaces relevant to more than one component during the conversion, please add them to `src/types`.
+2. Please ensure your component props interface extends `VibeComponentProps` or another type that extends `VibeComponentProps`. If your component does not support one of the props written in the VibeComponentProps interface, please add it (`id`, `className`, `data-testid`…)
+For example,
+
+```tsx
+import React, { forwardRef } from "react";
+import { VibeComponentProps, VibeComponent } from "../../types";
+export interface SomeComponentProps extends VibeComponentProps {
+  someCustomProp: string;
+}
+
+const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forwardRef((props, ref) => {
+  return <div {...props} ref={ref}/>
+});
+```
+
 3. If your component is clickable, please also consider using `VibeBaseButtonComponentProps`. If some of the aria props are not relevant to the element that you are migrating, it's also OK not to use them (for example, in the menu button, some of the props are not relevant because the menu will always open a pop-up).
-4If your component is an extension of another component (like IconButton is an extension of the button), you can extend its props interface directly.
+4. If your component is an extension of another component (like `IconButton` is an extension of the button), you can extend its props interface directly.
 
 ### Props
-1. If your component's props contain a prop with the same meaning as in VibeComponentProps  but with different naming, please do the following:
+1. If your component has a prop that is already exist in  `VibeComponentProps` but but with different naming, please do the following:
    1. Keep the old naming but mark the prop as deprecated.
-   2. Add support for the prop with the new naming. You can see an example in the icon component.
-2. Please set the default props of the component to be part of the component signature and delete the component propsTypes and defaultProps. 
+  ```tsx
+    /**
+    * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
+    * @deprecated
+    */
+  ```
+   2. Add support in the component to use for the prop with the new naming. You can see an example in the `<Chip/>` component.
+2. Please set the default props of the component to be part of the component signature and delete the component `propsTypes` and `defaultProps`. 
 
 ### Component's stories
-1. After finish to migrate your component and related file, please also edit the component mdx story file the following way:
-2. Remove the prop "of" from the story ArgsTable and replace it with the "story" prop with the value "Overview" (To update the props table to be displaying the current values for enums. 
-3. Check the call to the function createStoryMetaSettings at the start of the mdx file. If there are props enums that are missing from there, please add them.
+1. After migrating the component and all related files, please also edit the component `*.stories.mdx` story file the following way:
+2. Remove the prop `of` from the story `ArgsTable` and replace it with the `story` prop with the value `"Overview"` (To update the props table to be displaying the current values for enums. 
+3. Check the call to the function `createStoryMetaSettings()` at the start of the mdx file. If there are props enums that are missing from there, please add them.
 
 ### Publish files
 1. Please go over the [published-js-components.js](./webpack/published-js-components.js) file and move all the paths of the converted components to the [published-ts-components.js](./webpack/published-ts-components.js) file.
