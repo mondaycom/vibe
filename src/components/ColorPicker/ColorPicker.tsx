@@ -12,32 +12,32 @@ import "./ColorPicker.scss";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 export interface ColorPickerProps extends VibeComponentProps {
-  value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
-  onSave: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
-  ColorIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  NoColorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  value?: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
+  onSave?: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
+  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   colorStyle?: "regular" | "selected";
   noColorText?: string;
-  shouldRenderIndicatorWithoutBackground: boolean;
-  isBlackListMode: boolean;
-  colorsList: CONTENT_COLORS_VALUES[];
-  isMultiselect: boolean;
-  colorSize: BASE_SIZES_VALUES;
-  numberOfColorsInLine: number;
-  focusOnMount: boolean;
-  colorShape: COLOR_SHAPES_VALUES;
+  shouldRenderIndicatorWithoutBackground?: boolean;
+  isBlackListMode?: boolean;
+  colorsList?: CONTENT_COLORS_VALUES[] | string[];
+  isMultiselect?: boolean;
+  colorSize?: BASE_SIZES_VALUES;
+  numberOfColorsInLine?: number;
+  focusOnMount?: boolean;
+  colorShape?: COLOR_SHAPES_VALUES;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
    */
-  forceUseRawColorList: boolean;
+  forceUseRawColorList?: boolean;
   /**
    * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
    * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
    *
    */
-  showColorNameTooltip: boolean;
+  showColorNameTooltip?: boolean;
 }
 
 const ColorPicker: VibeComponent<ColorPickerProps> & {

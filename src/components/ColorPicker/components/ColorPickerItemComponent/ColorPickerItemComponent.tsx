@@ -18,8 +18,8 @@ import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../.
 import { BASE_SIZES_VALUES } from "../../../../constants";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
-  color: CONTENT_COLORS_VALUES;
-  onColorClicked: (color: CONTENT_COLORS_VALUES) => void;
+  color: CONTENT_COLORS_VALUES | string;
+  onColorClicked: (color: CONTENT_COLORS_VALUES | string) => void;
   colorStyle: COLOR_STYLES_VALUES;
   shouldRenderIndicatorWithoutBackground: boolean;
   ColorIndicatorIcon: SubIcon;
@@ -50,7 +50,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     },
     _ref
   ) => {
-    const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
+    const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); //TODO - casting hack
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
     const itemRef = useRef<HTMLDivElement>(null);
 

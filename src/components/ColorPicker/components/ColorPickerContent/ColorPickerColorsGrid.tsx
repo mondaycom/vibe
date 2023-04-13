@@ -6,15 +6,15 @@ import { BASE_SIZES_VALUES } from "../../../../constants";
 import { COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
 import { VibeComponent, VibeComponentProps } from "../../../../types";
 
-const formatColorNameForTooltip = (color: CONTENT_COLORS_VALUES) => {
+const formatColorNameForTooltip = (color: CONTENT_COLORS_VALUES | string) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
     return a.toUpperCase();
   });
 };
 
 const calculateColorTooltip = (
-  color: CONTENT_COLORS_VALUES,
-  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>
+  color: CONTENT_COLORS_VALUES | string,
+  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>
 ) => {
   if (tooltipContentByColor && tooltipContentByColor[color]) {
     return tooltipContentByColor[color];
@@ -24,19 +24,19 @@ const calculateColorTooltip = (
 };
 
 interface ColorPickerColorsGridProps extends VibeComponentProps {
-  onColorClicked: (color: CONTENT_COLORS_VALUES) => any;
-  colorsToRender: CONTENT_COLORS_VALUES[];
-  ColorIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  colorStyle: "regular" | "selected";
-  value: string | string[];
-  shouldRenderIndicatorWithoutBackground: boolean;
-  colorSize: BASE_SIZES_VALUES;
-  numberOfColorsInLine: number;
-  tooltipContentByColor: Partial<Record<CONTENT_COLORS_VALUES, string>>;
-  focusOnMount: boolean;
-  colorShape: COLOR_SHAPES_VALUES;
-  showColorNameTooltip: boolean;
+  onColorClicked?: (color: CONTENT_COLORS_VALUES | string) => any;
+  colorsToRender?: CONTENT_COLORS_VALUES[] | string[];
+  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  colorStyle?: "regular" | "selected";
+  value?: string | string[];
+  shouldRenderIndicatorWithoutBackground?: boolean;
+  colorSize?: BASE_SIZES_VALUES;
+  numberOfColorsInLine?: number;
+  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>;
+  focusOnMount?: boolean;
+  colorShape?: COLOR_SHAPES_VALUES;
+  showColorNameTooltip?: boolean;
 }
 
 export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HTMLUListElement> = React.forwardRef(

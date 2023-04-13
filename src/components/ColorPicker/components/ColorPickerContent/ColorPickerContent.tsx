@@ -18,7 +18,7 @@ import { VibeComponentProps, VibeComponent } from "../../../../types";
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
   onValueChange: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
-  colorsList: CONTENT_COLORS_VALUES[];
+  colorsList: CONTENT_COLORS_VALUES[] | string[];
   ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
