@@ -41,8 +41,8 @@ const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forward
 
 ### Component's stories
 1. After migrating the component and all related files, please also edit the component `*.stories.mdx` story file the following way:
-2. Remove the prop `of` from the story `ArgsTable` and replace it with the `story` prop with the value `"Overview"` (To update the props table to be displaying the current values for enums. 
-3. Check the call to the function `createStoryMetaSettings()` at the start of the mdx file. If there are props enums that are missing from there, please add them.
+   1. Replace the `of` prop from the story `ArgsTable` with the `story` prop with the value `"Overview"` (To update the props table to be displaying the current values for enums. 
+   2. Check the call to the function `createStoryMetaSettings()` at the start of the mdx file. If there are props enums that are missing from there, please add them.
 
 ### Publish files
 1. Please go over the [published-js-components.js](./webpack/published-js-components.js) file and move all the paths of the converted components to the [published-ts-components.js](./webpack/published-ts-components.js) file.

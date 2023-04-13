@@ -14,7 +14,7 @@ import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__te
 
 export const metaSettings = createStoryMetaSettings({
   component: ColorPicker,
-  enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
+  // enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"], //TODO - this should be returned
   iconPropNamesArray: ["ColorIndicatorIcon", "SelectedIndicatorIcon", "NoColorIcon"],
   actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }]
 });
@@ -45,7 +45,7 @@ ColorPicker is our component for selecting our content colors
 
 ## Props
 
-<ArgsTable of={ColorPicker} />
+<ArgsTable story="Overview"/>
 
 ## Variants
 

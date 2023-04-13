@@ -1,38 +1,17 @@
 import cx from "classnames";
+import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { BASE_SIZES, BASE_SIZES_VALUES } from "../../constants";
+import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES, CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
+import { COLOR_STYLES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
-import { VibeComponentProps, VibeComponent } from "../../types";
-import { NOOP } from "../../utils/function-utils";
 
-export interface ColorPickerProps extends VibeComponentProps {
-  value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
-  onSave: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
-  ColorIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  NoColorIcon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  colorStyle?: "regular" | "selected";
-  noColorText?: string;
-  shouldRenderIndicatorWithoutBackground: boolean;
-  isBlackListMode: boolean;
-  colorsList: CONTENT_COLORS_VALUES[];
-  isMultiselect: boolean;
-  colorSize: BASE_SIZES_VALUES;
-  numberOfColorsInLine: number;
-  focusOnMount: boolean;
-  colorShape: COLOR_SHAPES_VALUES;
-  forceUseRawColorList: boolean;
-  showColorNameTooltip: boolean;
-}
-
-const ColorPicker: VibeComponent<ColorPickerProps> = forwardRef(
+const ColorPicker = forwardRef(
   (
     {
       className,
@@ -95,29 +74,52 @@ const ColorPicker: VibeComponent<ColorPickerProps> = forwardRef(
   }
 );
 
-//TODO - adjust the component type so it will be expect those constants
-Object.assign(ColorPicker, {
-  // Backward compatibility for enum naming
-  COLOR_STYLES: COLOR_STYLES,
-  sizes: BASE_SIZES,
-  colorStyles: COLOR_STYLES,
-  colorSizes: BASE_SIZES,
-  colorShapes: COLOR_SHAPES
-});
+// Backward compatibility for enum naming
+ColorPicker.COLOR_STYLES = COLOR_STYLES;
+ColorPicker.sizes = SIZES;
+
+ColorPicker.colorStyles = COLOR_STYLES;
+ColorPicker.colorSizes = SIZES;
+ColorPicker.colorShapes = COLOR_SHAPES;
+
+ColorPicker.propTypes = {
+  className: PropTypes.string,
+  onSave: PropTypes.func,
+  ColorIndicatorIcon: PropTypes.func,
+  SelectedIndicatorIcon: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+  colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
+  noColorText: PropTypes.string,
+  shouldRenderIndicatorWithoutBackground: PropTypes.bool,
+  NoColorIcon: PropTypes.func,
+  isBlackListMode: PropTypes.bool,
+  colorsList: PropTypes.array,
+  isMultiselect: PropTypes.bool,
+  colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
+  numberOfColorsInLine: PropTypes.number,
+  focusOnMount: PropTypes.bool,
+  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes)),
+  forceUseRawColorList: PropTypes.bool,
+  showColorNameTooltip: PropTypes.bool
+};
 
 ColorPicker.defaultProps = {
-  onSave: NOOP,
+  className: "",
+  onSave: () => {},
+  ColorIndicatorIcon: undefined,
+  SelectedIndicatorIcon: undefined,
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
+  noColorText: undefined,
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
   colorsList: [],
   isMultiselect: false,
-  colorSize: BASE_SIZES.MEDIUM,
+  colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   focusOnMount: false,
-  colorShape: COLOR_SHAPES.SQUARE,
+  colorShape: ColorPicker.colorShapes.SQUARE,
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
