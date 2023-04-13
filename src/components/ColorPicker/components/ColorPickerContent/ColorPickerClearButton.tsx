@@ -5,20 +5,18 @@ import { VibeComponentProps, VibeComponent } from "../../../../types";
 import { NOOP } from "../../../../utils/function-utils";
 
 interface ColorPickerClearButtonProps extends VibeComponentProps {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => any;
+  onClick: () => any;
   text?: string;
   Icon: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
 }
 
 export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> = React.forwardRef(
   ({ onClick, text, Icon }, ref) => {
-    const onItemClicked = useCallback(() => onClick(null), [onClick]);
-
     const { onSelectionAction } = useGridKeyboardNavigation({
       ref: ref as React.MutableRefObject<HTMLElement>,
       itemsCount: 1,
       numberOfItemsInLine: 1,
-      onItemClicked, // hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
+      onItemClicked: onClick,
       getItemByIndex: NOOP //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
     });
 
