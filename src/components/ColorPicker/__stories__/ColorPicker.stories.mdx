@@ -14,7 +14,7 @@ import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__te
 
 export const metaSettings = createStoryMetaSettings({
   component: ColorPicker,
-  // enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"], //TODO - this should be returned
+  enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
   iconPropNamesArray: ["ColorIndicatorIcon", "SelectedIndicatorIcon", "NoColorIcon"],
   actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }]
 });

@@ -25,6 +25,17 @@ const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forward
 
 3. If your component is clickable, please also consider using `VibeBaseButtonComponentProps`. If some of the aria props are not relevant to the element that you are migrating, it's also OK not to use them (for example, in the menu button, some of the props are not relevant because the menu will always open a pop-up).
 4. If your component is an extension of another component (like `IconButton` is an extension of the button), you can extend its props interface directly.
+5. If your component exposes static enums on the component, those should be added to the interface and be assigned to the component itself.
+
+```tsx
+const ColorPicker: VibeComponent<ColorPickerProps> & { colorShapes?: COLOR_SHAPES_VALUES;} = forwardRef(...);
+```
+```diff
+- ColorPicker.colorShapes = COLOR_SHAPES;
++ Object.assign(ColorPicker, {
++    colorShapes: COLOR_SHAPES
++ });
+```
 
 ### Props
 1. If your component has a prop that is already exist in  `VibeComponentProps` but but with different naming, please do the following:
@@ -46,8 +57,8 @@ const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forward
 
 
 ```diff
-+ <ArgsTable story="Overview"/>
 - <ArgsTable of={ColorPicker} />
++ <ArgsTable story="Overview"/>
 ```
 
 ### Publish files

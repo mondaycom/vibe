@@ -3,7 +3,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { BASE_SIZES, BASE_SIZES_VALUES } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES, CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
+import { COLOR_STYLES, COLOR_STYLES_VALUES, CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
@@ -11,7 +11,6 @@ import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleServ
 import "./ColorPicker.scss";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
-
 export interface ColorPickerProps extends VibeComponentProps {
   value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
   onSave: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
@@ -28,29 +27,45 @@ export interface ColorPickerProps extends VibeComponentProps {
   numberOfColorsInLine: number;
   focusOnMount: boolean;
   colorShape: COLOR_SHAPES_VALUES;
+  /**
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   */
   forceUseRawColorList: boolean;
+  /**
+   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
+   *
+   */
   showColorNameTooltip: boolean;
 }
 
-const ColorPicker: VibeComponent<ColorPickerProps> = forwardRef(
+const ColorPicker: VibeComponent<ColorPickerProps> & {
+  // Backward compatibility for enum naming
+  COLOR_STYLES?: COLOR_STYLES_VALUES;
+  sizes?: BASE_SIZES_VALUES;
+  colorStyles?: COLOR_STYLES_VALUES;
+  colorSizes?: BASE_SIZES_VALUES;
+  colorShapes?: COLOR_SHAPES_VALUES;
+} = forwardRef(
   (
     {
       className,
-      onSave,
-      value,
+      onSave = NOOP,
+      value = "",
       noColorText,
-      colorStyle,
+      colorStyle = COLOR_STYLES.REGULAR,
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      NoColorIcon,
-      isBlackListMode,
-      colorsList,
+      NoColorIcon = NoColor,
+      isBlackListMode = true,
+      colorsList = [],
       isMultiselect,
-      colorSize,
-      numberOfColorsInLine,
+      colorSize = BASE_SIZES.MEDIUM,
+      numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       focusOnMount,
-      colorShape,
+      colorShape = COLOR_SHAPES.SQUARE,
       forceUseRawColorList,
       showColorNameTooltip
     },
@@ -95,7 +110,6 @@ const ColorPicker: VibeComponent<ColorPickerProps> = forwardRef(
   }
 );
 
-//TODO - adjust the component type so it will be expect those constants
 Object.assign(ColorPicker, {
   // Backward compatibility for enum naming
   COLOR_STYLES: COLOR_STYLES,
@@ -104,31 +118,5 @@ Object.assign(ColorPicker, {
   colorSizes: BASE_SIZES,
   colorShapes: COLOR_SHAPES
 });
-
-ColorPicker.defaultProps = {
-  onSave: NOOP,
-  value: "",
-  colorStyle: COLOR_STYLES.REGULAR,
-  shouldRenderIndicatorWithoutBackground: false,
-  NoColorIcon: NoColor,
-  isBlackListMode: true,
-  colorsList: [],
-  isMultiselect: false,
-  colorSize: BASE_SIZES.MEDIUM,
-  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  focusOnMount: false,
-  colorShape: COLOR_SHAPES.SQUARE,
-  /**
-   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
-   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
-   */
-  forceUseRawColorList: false,
-  /**
-   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
-   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
-   *
-   */
-  showColorNameTooltip: false
-};
 
 export default ColorPicker;
