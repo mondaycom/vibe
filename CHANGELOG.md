@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.116.2 (2023-04-13)
+
+#### Bug Fixes
+* [#1206](https://github.com/mondaycom/monday-ui-react-core/pull/1206) Fix bug on split button loading state ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1207](https://github.com/mondaycom/monday-ui-react-core/pull/1207) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.116.1 (2023-04-10)
 
 #### Bug Fixes
