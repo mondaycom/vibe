@@ -41,7 +41,7 @@ When adding a new icon please make sure that there isn't a similar icon - if so,
 
 ### Metadata file
 
-We maintain a metadata file for each icon, it helps our icon library be more readable and searchable when searching for a relevant icons
+We maintain a metadata file for each icon, it helps our icon library be more readable and searchable when searching for relevant icons
 
 How to add a new icon?
 Add the icon in SVG format under the src/Icons folder (size 20x20)
@@ -49,7 +49,7 @@ then run `npm run generate-meta` and fill in the relevant information (you can a
 
 ### Icon colors
 
-We want to support the ability for the svg icon to adapt the css `color` attribute, therefore we when adding an icon
+We want to support the ability for the svg icon to adapt the css `color` attribute, therefore when adding an icon
 all of the colors in the SVG should be `currentColor`.
 
 In some rare occasions when you want to preserve a color within the icon please consider the following:
