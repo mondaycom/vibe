@@ -28,14 +28,15 @@ const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forward
 
 ### Props
 1. If your component has a prop that is already exist in  `VibeComponentProps` but but with different naming, please do the following:
-   1. Keep the old naming but mark the prop as deprecated.
-  ```tsx
-    /**
-    * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
-    * @deprecated
-    */
-  ```
-   2. Add support in the component to use for the prop with the new naming. You can see an example in the `<Chip/>` component.
+   1. Add support in the component to use for the prop with the new naming. You can see an example in the `<Chips/>` component.
+   2. Keep the old naming but mark the prop as deprecated.
+```tsx
+  /**
+  * Deprecated, there is no need to use this prop for implementing clickable chips. Please use onClick for this purpose.
+  * @deprecated
+  */
+  clickable?: boolean;
+```
 2. Please set the default props of the component to be part of the component signature and delete the component `propsTypes` and `defaultProps`. 
 
 ### Component's stories
