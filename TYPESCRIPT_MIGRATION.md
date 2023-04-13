@@ -44,6 +44,12 @@ const SomeComponent: VibeComponent<SomeComponentProps, HTMLDivElement> = forward
    1. Replace the `of` prop from the story `ArgsTable` with the `story` prop with the value `"Overview"` (To update the props table to be displaying the current values for enums. 
    2. Check the call to the function `createStoryMetaSettings()` at the start of the mdx file. If there are props enums that are missing from there, please add them.
 
+
+```diff
++ <ArgsTable story="Overview"/>
+- <ArgsTable of={ColorPicker} />
+```
+
 ### Publish files
 1. Please go over the [published-js-components.js](./webpack/published-js-components.js) file and move all the paths of the converted components to the [published-ts-components.js](./webpack/published-ts-components.js) file.
    For example, when converting the `Avatar` component from JS to TS, then [published-ts-components.js](./webpack/published-ts-components.js) should contain the following line: `Avatar: "components/Avatar/Avatar"`.
