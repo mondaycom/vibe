@@ -8,8 +8,8 @@ import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import "./Heading.scss";
 import { Sizes } from "../../constants";
+import "./Heading.scss";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -72,7 +72,7 @@ const Heading: React.FC<HeadingProps> & {
     )
   );
 
-  const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null });
+  const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null, ignoreHeightOverflow: true });
 
   useLayoutEffect(() => {
     if (componentRef.current) {
