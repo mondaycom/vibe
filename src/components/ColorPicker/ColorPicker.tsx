@@ -11,7 +11,8 @@ import {
   COLOR_SHAPES_VALUES,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   COLOR_PICKER_VALUE,
-  COLOR_PICKER_ARRAY_VALUE_ONLY
+  COLOR_PICKER_ARRAY_VALUE_ONLY,
+  COLOR_STYLE
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
@@ -24,7 +25,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;
-  colorStyle?: "regular" | "selected";
+  colorStyle?: COLOR_STYLE;
   noColorText?: string;
   shouldRenderIndicatorWithoutBackground?: boolean;
   isBlackListMode?: boolean;

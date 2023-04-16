@@ -6,7 +6,8 @@ import { BASE_SIZES_VALUES } from "../../../../constants";
 import {
   COLOR_SHAPES_VALUES,
   COLOR_PICKER_ARRAY_VALUE_ONLY,
-  COLOR_PICKER_VALUE_ONLY
+  COLOR_PICKER_VALUE_ONLY,
+  COLOR_STYLE
 } from "../../ColorPickerConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 
@@ -32,7 +33,7 @@ interface ColorPickerColorsGridProps extends VibeComponentProps {
   colorsToRender?: COLOR_PICKER_ARRAY_VALUE_ONLY;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
-  colorStyle?: "regular" | "selected";
+  colorStyle?: COLOR_STYLE;
   value?: string | string[];
   shouldRenderIndicatorWithoutBackground?: boolean;
   colorSize?: BASE_SIZES_VALUES;

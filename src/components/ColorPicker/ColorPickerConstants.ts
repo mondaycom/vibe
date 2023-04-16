@@ -19,6 +19,8 @@ export const COLOR_SHAPES = {
 
 export type COLOR_SHAPES_VALUES = typeof COLOR_SHAPES[keyof typeof COLOR_SHAPES];
 
+export type COLOR_STYLE = "regular" | "selected";
+
 export type COLOR_PICKER_VALUE_ONLY = CONTENT_COLORS_VALUES | string;
 export type COLOR_PICKER_ARRAY_VALUE_ONLY = CONTENT_COLORS_VALUES[] | string[];
 export type COLOR_PICKER_VALUE = COLOR_PICKER_VALUE_ONLY | COLOR_PICKER_ARRAY_VALUE_ONLY;

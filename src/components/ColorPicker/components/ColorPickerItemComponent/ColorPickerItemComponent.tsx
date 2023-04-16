@@ -1,12 +1,12 @@
 import React, { useRef, useCallback, useMemo, forwardRef } from "react";
 import cx from "classnames";
-import { COLOR_STYLES, COLOR_STYLES_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, COLOR_PICKER_VALUE_ONLY } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, COLOR_SHAPES_VALUES, COLOR_PICKER_VALUE_ONLY, COLOR_STYLE } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
@@ -15,7 +15,7 @@ import { BASE_SIZES_VALUES } from "../../../../constants";
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: COLOR_PICKER_VALUE_ONLY;
   onColorClicked: (color: COLOR_PICKER_VALUE_ONLY) => void;
-  colorStyle: COLOR_STYLES_VALUES;
+  colorStyle: COLOR_STYLE;
   shouldRenderIndicatorWithoutBackground: boolean;
   ColorIndicatorIcon: SubIcon;
   SelectedIndicatorIcon: SubIcon;
