@@ -45,7 +45,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     },
     _ref
   ) => {
-    const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); //TODO - casting hack
+    const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
     const itemRef = useRef<HTMLDivElement>(null);
 
