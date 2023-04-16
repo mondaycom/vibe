@@ -3,17 +3,21 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { BASE_SIZES_VALUES } from "../../../../constants";
-import { COLOR_SHAPES_VALUES } from "../../ColorPickerConstants";
+import {
+  COLOR_SHAPES_VALUES,
+  COLOR_PICKER_ARRAY_VALUE_ONLY,
+  COLOR_PICKER_VALUE_ONLY
+} from "../../ColorPickerConstants";
 import { VibeComponent, VibeComponentProps } from "../../../../types";
 
-const formatColorNameForTooltip = (color: CONTENT_COLORS_VALUES | string) => {
+const formatColorNameForTooltip = (color: COLOR_PICKER_VALUE_ONLY) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
     return a.toUpperCase();
   });
 };
 
 const calculateColorTooltip = (
-  color: CONTENT_COLORS_VALUES | string,
+  color: COLOR_PICKER_VALUE_ONLY,
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>
 ) => {
   if (tooltipContentByColor && tooltipContentByColor[color]) {
@@ -24,8 +28,8 @@ const calculateColorTooltip = (
 };
 
 interface ColorPickerColorsGridProps extends VibeComponentProps {
-  onColorClicked?: (color: CONTENT_COLORS_VALUES | string) => any;
-  colorsToRender?: CONTENT_COLORS_VALUES[] | string[];
+  onColorClicked?: (color: COLOR_PICKER_VALUE_ONLY) => any;
+  colorsToRender?: COLOR_PICKER_ARRAY_VALUE_ONLY;
   ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   colorStyle?: "regular" | "selected";

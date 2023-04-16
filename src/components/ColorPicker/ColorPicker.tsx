@@ -3,17 +3,24 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { BASE_SIZES, BASE_SIZES_VALUES } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES, COLOR_STYLES_VALUES, CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
+import { COLOR_STYLES, COLOR_STYLES_VALUES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import {
+  COLOR_SHAPES,
+  COLOR_SHAPES_VALUES,
+  DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  COLOR_PICKER_VALUE,
+  COLOR_PICKER_ARRAY_VALUE_ONLY
+} from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
 import { VibeComponentProps, VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
+
 export interface ColorPickerProps extends VibeComponentProps {
-  value?: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
-  onSave?: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
+  value?: COLOR_PICKER_VALUE;
+  onSave?: (value: COLOR_PICKER_ARRAY_VALUE_ONLY) => any;
   ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
@@ -21,7 +28,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   noColorText?: string;
   shouldRenderIndicatorWithoutBackground?: boolean;
   isBlackListMode?: boolean;
-  colorsList?: CONTENT_COLORS_VALUES[] | string[];
+  colorsList?: COLOR_PICKER_ARRAY_VALUE_ONLY;
   isMultiselect?: boolean;
   colorSize?: BASE_SIZES_VALUES;
   numberOfColorsInLine?: number;

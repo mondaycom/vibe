@@ -4,7 +4,13 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BASE_SIZES, BASE_SIZES_VALUES } from "../../../../constants";
 import { COLOR_STYLES, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import {
+  COLOR_SHAPES,
+  COLOR_SHAPES_VALUES,
+  DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  COLOR_PICKER_VALUE,
+  COLOR_PICKER_ARRAY_VALUE_ONLY
+} from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContent.scss";
 import {
@@ -16,9 +22,9 @@ import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
-  value: string | string[] | CONTENT_COLORS_VALUES | CONTENT_COLORS_VALUES[]; //TODO - make sure this is correct
-  onValueChange: (value: CONTENT_COLORS_VALUES[] | string[]) => any; //TODO - make sure this is correct
-  colorsList: CONTENT_COLORS_VALUES[] | string[];
+  value: COLOR_PICKER_VALUE;
+  onValueChange: (value: COLOR_PICKER_ARRAY_VALUE_ONLY) => any;
+  colorsList: COLOR_PICKER_ARRAY_VALUE_ONLY;
   ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
   NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;

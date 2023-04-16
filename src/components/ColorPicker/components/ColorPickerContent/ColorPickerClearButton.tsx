@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
 import { VibeComponentProps, VibeComponent } from "../../../../types";
