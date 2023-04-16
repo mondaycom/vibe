@@ -15,15 +15,15 @@ import {
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
-import { VibeComponentProps, VibeComponent } from "../../types";
+import { VibeComponentProps, VibeComponent, SubIcon } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: COLOR_PICKER_VALUE;
   onSave?: (value: COLOR_PICKER_ARRAY_VALUE_ONLY) => any;
-  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  ColorIndicatorIcon?: SubIcon;
+  SelectedIndicatorIcon?: SubIcon;
+  NoColorIcon?: SubIcon;
   colorStyle?: "regular" | "selected";
   noColorText?: string;
   shouldRenderIndicatorWithoutBackground?: boolean;

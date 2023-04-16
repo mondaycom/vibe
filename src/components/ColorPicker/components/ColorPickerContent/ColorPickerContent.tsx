@@ -19,15 +19,15 @@ import {
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
-import { VibeComponentProps, VibeComponent } from "../../../../types";
+import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: COLOR_PICKER_VALUE;
   onValueChange: (value: COLOR_PICKER_ARRAY_VALUE_ONLY) => any;
   colorsList: COLOR_PICKER_ARRAY_VALUE_ONLY;
-  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  NoColorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  ColorIndicatorIcon?: SubIcon;
+  SelectedIndicatorIcon?: SubIcon;
+  NoColorIcon?: SubIcon;
   colorStyle?: "regular" | "selected";
   colorSize?: BASE_SIZES_VALUES;
   colorShape?: COLOR_SHAPES_VALUES;

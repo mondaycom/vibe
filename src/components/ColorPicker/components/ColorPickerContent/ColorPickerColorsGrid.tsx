@@ -8,7 +8,7 @@ import {
   COLOR_PICKER_ARRAY_VALUE_ONLY,
   COLOR_PICKER_VALUE_ONLY
 } from "../../ColorPickerConstants";
-import { VibeComponent, VibeComponentProps } from "../../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 
 const formatColorNameForTooltip = (color: COLOR_PICKER_VALUE_ONLY) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -30,8 +30,8 @@ const calculateColorTooltip = (
 interface ColorPickerColorsGridProps extends VibeComponentProps {
   onColorClicked?: (color: COLOR_PICKER_VALUE_ONLY) => any;
   colorsToRender?: COLOR_PICKER_ARRAY_VALUE_ONLY;
-  ColorIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
-  SelectedIndicatorIcon?: ({ size, className }: { size?: string; className?: string }) => JSX.Element;
+  ColorIndicatorIcon?: SubIcon;
+  SelectedIndicatorIcon?: SubIcon;
   colorStyle?: "regular" | "selected";
   value?: string | string[];
   shouldRenderIndicatorWithoutBackground?: boolean;
