@@ -68,7 +68,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
       focusOnMount,
       ref: ref as React.MutableRefObject<HTMLUListElement>,
-      onItemClicked: onColorClicked as any, //TODO - not sure how to utilize this hook correctly
+      onItemClicked: onColorClicked,
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
       getItemByIndex
