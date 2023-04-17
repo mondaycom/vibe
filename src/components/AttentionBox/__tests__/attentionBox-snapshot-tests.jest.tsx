@@ -51,4 +51,17 @@ describe("AttentionBox renders correctly", () => {
     const tree = renderer.create(<AttentionBox title="Title" text="Text" onClose={() => {}} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("renders correctly with renderer", () => {
+    const tree = renderer
+      .create(
+        <AttentionBox>
+          <span>
+            renderer with components <div>and sub components</div>
+          </span>
+        </AttentionBox>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

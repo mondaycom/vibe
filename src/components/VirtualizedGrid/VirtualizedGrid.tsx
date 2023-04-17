@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, {
   ComponentType,
   CSSProperties,
@@ -9,6 +8,7 @@ import React, {
   useRef,
   useState
 } from "react";
+import cx from "classnames";
 import { GridChildComponentProps, GridOnScrollProps, ScrollDirection, VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
@@ -22,8 +22,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import styles from "./VirtualizedGrid.module.scss";
+import "./VirtualizedGrid.scss";
 
 type ItemType = {
   value: string;
@@ -117,8 +116,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       onItemsRendered = null,
       onItemsRenderedThrottleMs = 200,
       onSizeUpdate = NOOP,
-      onVerticalScrollbarVisiblityChange = null,
-      "data-testid": dataTestId
+      onVerticalScrollbarVisiblityChange = null
     },
     ref
   ) => {
@@ -272,12 +270,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, gridHeight, idGetter]);
 
     return (
-      <div
-        ref={mergedRef}
-        className={cx(styles.virtualizedGridWrapper, "virtualized-grid--wrapper", className)}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_GRID, id)}
-      >
+      <div ref={mergedRef} className={cx("virtualized-grid--wrapper", className)} id={id}>
         <AutoSizer>
           {({ height, width }) => {
             updateGridSize(width, height);
@@ -292,7 +285,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-grid-scrollable-container")}
+                className="virtualized-grid-scrollable-container"
               >
                 {/*@ts-ignore*/}
                 {cellRenderer}

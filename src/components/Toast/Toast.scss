@@ -1,0 +1,92 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/keyframes";
+
+.monday-style-toast {
+  @include font-paragraph();
+  @include box-shadow-medium();
+  @include theme-prop(color, text-color-on-primary);
+  margin: $spacing-medium;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: $spacing-small;
+  align-items: center;
+  display: flex;
+  min-width: 200px;
+  border-radius: $border-radius-small;
+
+  &-icon {
+    display: flex;
+    padding-left: $spacing-small;
+    padding-right: $spacing-small;
+  }
+
+  &-content {
+    display: inline-flex;
+    line-height: 22px;
+    font-size: 14px;
+    flex-grow: 1;
+    &-no-icon {
+      padding-left: $spacing-small;
+    }
+  }
+
+  &-action {
+    margin-left: $spacing-medium;
+    display: flex;
+    &_button,
+    &_link {
+      margin-left: $spacing-small;
+    }
+  }
+
+  &--type {
+    &-normal {
+      @include theme-prop(background-color, primary-color);
+    }
+    &-positive {
+      @include theme-prop(background-color, positive-color);
+    }
+    &-negative {
+      @include theme-prop(background-color, negative-color);
+    }
+  }
+
+  &-animation {
+    &-enter-active,
+    &-exit-active {
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    &-enter-active {
+      animation-duration: var(--motion-expressive-long);
+      animation-name: toast-slide-in-elastic;
+    }
+
+    &-exit-active {
+      animation-duration: var(--motion-productive-long);
+      animation-name: toast-slide-out;
+    }
+  }
+
+  &_close-button {
+    margin-left: $spacing-small;
+  }
+}
+
+@include keyframe(toast-slide-in-elastic) {
+  @include slide-in-elastic();
+}
+
+@include keyframe(toast-slide-out) {
+  @include slide-out();
+}
+
+.monday-style-toast-content{
+  font-family: var(--font-family);
+}

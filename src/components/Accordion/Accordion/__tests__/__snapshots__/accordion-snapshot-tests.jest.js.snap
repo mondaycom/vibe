@@ -14,7 +14,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -58,7 +58,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
       id="expand-collapse--monday-accordion--item-1"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
@@ -97,7 +97,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
       id="expand-collapse--monday-accordion--item-2"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
@@ -149,7 +149,7 @@ exports[`Accordion renders correctly with children 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -188,7 +188,7 @@ exports[`Accordion renders correctly with children 1`] = `
       id="expand-collapse--monday-accordion--item-1"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
@@ -227,7 +227,7 @@ exports[`Accordion renders correctly with children 1`] = `
       id="expand-collapse--monday-accordion--item-2"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
@@ -281,7 +281,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -325,7 +325,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
       id="expand-collapse--monday-accordion--item-1"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-1-controls"
@@ -364,7 +364,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
       id="expand-collapse--monday-accordion--item-2"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-2-controls"
