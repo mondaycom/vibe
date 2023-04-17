@@ -7,8 +7,8 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
-import styles from "./List.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
