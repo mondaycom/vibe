@@ -1,10 +1,11 @@
+import cx from "classnames";
 import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import MenuButton from "../MenuButton/MenuButton";
-import "./ResponsiveList.scss";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./ResponsiveList.module.scss";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
 const EMPTY_ARRAY = [];
@@ -23,7 +24,8 @@ const ResponsiveList = forwardRef(
       menuButtonClassName,
       resizeDebounceTime,
       menuButtonAriaLabel,
-      menuButtonProps
+      menuButtonProps,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -61,35 +63,56 @@ const ResponsiveList = forwardRef(
     }, [children]);
 
     return (
-      <div className={cx("responsive-list--root", rootClassName)} id={id}>
+      <div
+        className={cx(styles.responsiveListRoot, "responsive-list--root", rootClassName)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.RESPONSIVE_LIST, id)}
+      >
         {index !== null && (
-          <div className={cx("responsive-list--wrapper", className)}>
+          <div className={cx(styles.responsiveList, "responsive-list--wrapper", className)}>
             {directChildren}
             {!!menuChildren.length && (
               <MenuButton
-                componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
+                componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
                 size={menuButtonSize}
-                openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
+                openDialogComponentClassName={cx(
+                  styles.menuButtonDialog,
+                  "responsive-list--menu-button-dialog",
+                  dialogClassName
+                )}
                 zIndex={dialogZIndex}
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
               >
-                <div className="responsive-list-menu-wrapper-flex">{menuChildren}</div>
+                <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")}>{menuChildren}</div>
               </MenuButton>
             )}
           </div>
         )}
-        <div ref={mergedRef} className={cx("responsive-list--wrapper responsive-list--dummy", className)}>
+        <div
+          ref={mergedRef}
+          className={cx(
+            styles.responsiveList,
+            "responsive-list--wrapper",
+            styles.dummy,
+            "responsive-list--dummy",
+            className
+          )}
+        >
           {hiddenChildren}
           <MenuButton
-            componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
+            componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
             size={menuButtonSize}
-            openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
+            openDialogComponentClassName={cx(
+              styles.menuButtonDialog,
+              "responsive-list--menu-button-dialog",
+              dialogClassName
+            )}
             zIndex={dialogZIndex}
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className="responsive-list-menu-wrapper-flex" />
+            <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")} />
           </MenuButton>
         </div>
       </div>
@@ -98,7 +121,6 @@ const ResponsiveList = forwardRef(
 );
 
 ResponsiveList.menuButtonSizes = MenuButton.sizes;
-
 ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
@@ -134,5 +156,7 @@ ResponsiveList.defaultProps = {
   dialogZIndex: 9999,
   resizeDebounceTime: 0
 };
+
+ResponsiveList.defaultTestId = ComponentDefaultTestId.RESPONSIVE_LIST;
 
 export default ResponsiveList;

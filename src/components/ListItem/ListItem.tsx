@@ -1,12 +1,15 @@
+import cx from "classnames";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
-import "./ListItem.scss";
+import styles from "./ListItem.module.scss";
+import { camelCase } from "lodash-es";
 
 const BEM_BASE_CLASS = "list-item";
 
@@ -59,6 +62,7 @@ export interface ListItemProps extends VibeComponentProps {
    Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
    */
   tabIndex?: number;
+  "data-testid"?: string;
 }
 
 const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
@@ -72,7 +76,8 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       disabled = false,
       size = SIZES.SMALL,
       tabIndex = 0,
-      children
+      children,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -108,11 +113,21 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     return (
       <div
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
-        className={cx("list-item", className, BEMHelper(size.toString()), {
-          [BEMHelper("selected")]: selected && !disabled,
-          [BEMHelper("disabled")]: disabled
-        })}
+        className={cx(
+          styles.listItem,
+          "list-item",
+          className,
+          getStyle(styles, camelCase(size)),
+          BEMHelper(size.toString()),
+          {
+            [styles.selected]: selected && !disabled,
+            [BEMHelper("selected")]: selected && !disabled,
+            [styles.disabled]: disabled,
+            [BEMHelper("disabled")]: disabled
+          }
+        )}
         id={id}
         aria-disabled={disabled}
         onClick={componentOnClick}
@@ -131,7 +146,8 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 Object.assign(ListItem, {
   sizes: SIZES,
   // Used by VirtualizedListItems
-  displayName: "ListItem"
+  displayName: "ListItem",
+  defaultTestId: ComponentDefaultTestId.LIST_ITEM
 });
 
 export default ListItem;

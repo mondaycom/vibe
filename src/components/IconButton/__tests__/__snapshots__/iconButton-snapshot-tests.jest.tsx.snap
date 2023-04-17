@@ -25,7 +25,8 @@ exports[`IconButton renders correctly with 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -67,7 +68,8 @@ exports[`IconButton renders correctly with active 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -120,7 +122,8 @@ exports[`IconButton renders correctly with aria label 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
@@ -163,7 +166,8 @@ exports[`IconButton renders correctly with disabled 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -205,7 +209,8 @@ exports[`IconButton renders correctly with empty props 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -248,7 +253,8 @@ exports[`IconButton renders correctly with id 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -290,7 +296,8 @@ exports[`IconButton renders correctly with size - large 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -332,7 +339,8 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -374,7 +382,8 @@ exports[`IconButton renders correctly with size - small 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -416,7 +425,8 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -458,7 +468,8 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}

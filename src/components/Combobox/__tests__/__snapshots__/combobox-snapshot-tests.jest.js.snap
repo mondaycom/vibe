@@ -17,14 +17,14 @@ exports[`Combobox renders correctly when disabled 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper input-component--disabled"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper disabled input-component--disabled"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -32,7 +32,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={true}
             id="combobox-search"
@@ -49,7 +49,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -60,7 +60,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -77,7 +78,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -88,7 +89,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -132,14 +134,14 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -147,7 +149,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -164,7 +166,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -175,7 +177,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -192,7 +195,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -203,7 +206,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -247,14 +251,14 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -262,7 +266,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -279,7 +283,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -290,7 +294,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -307,7 +312,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -318,7 +323,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -362,14 +368,14 @@ exports[`Combobox renders correctly with className 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -377,7 +383,7 @@ exports[`Combobox renders correctly with className 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -394,7 +400,7 @@ exports[`Combobox renders correctly with className 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -405,7 +411,8 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -422,7 +429,7 @@ exports[`Combobox renders correctly with className 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -433,7 +440,8 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -477,14 +485,14 @@ exports[`Combobox renders correctly with divider 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -492,7 +500,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -509,7 +517,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -520,7 +528,8 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -537,7 +546,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -548,7 +557,8 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -687,14 +697,14 @@ exports[`Combobox renders correctly with empty props 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -702,7 +712,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -719,7 +729,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -730,7 +740,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -747,7 +758,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -758,7 +769,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -802,14 +814,14 @@ exports[`Combobox renders correctly with id 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -817,7 +829,7 @@ exports[`Combobox renders correctly with id 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -834,7 +846,7 @@ exports[`Combobox renders correctly with id 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -845,7 +857,8 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -862,7 +875,7 @@ exports[`Combobox renders correctly with id 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -873,7 +886,8 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -917,14 +931,14 @@ exports[`Combobox renders correctly with loading 1`] = `
   >
     <div
       aria-busy={true}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -932,7 +946,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -949,10 +963,10 @@ exports[`Combobox renders correctly with loading 1`] = `
             value=""
           />
           <div
-            className="input-component__loader--container input-component__loader--container-has-icon"
+            className="loaderContainer input-component__loader--container loaderContainerHasIcon input-component__loader--container-has-icon"
           >
             <div
-              className="input-component__loader"
+              className="loader input-component__loader"
             >
               <div
                 className="monday-loader-component loaderContainer"
@@ -962,7 +976,7 @@ exports[`Combobox renders correctly with loading 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner loaderSvg input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
@@ -978,7 +992,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             </div>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -989,7 +1003,8 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1006,7 +1021,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1017,7 +1032,8 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1061,14 +1077,14 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1076,7 +1092,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1093,7 +1109,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1104,7 +1120,8 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1121,7 +1138,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1132,7 +1149,8 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1176,14 +1194,14 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1191,7 +1209,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1208,7 +1226,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1219,7 +1237,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1236,7 +1255,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1247,7 +1266,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1291,14 +1311,14 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1306,7 +1326,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1323,7 +1343,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1334,7 +1354,8 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1351,7 +1372,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1362,7 +1383,8 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1457,14 +1479,14 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1472,7 +1494,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1489,7 +1511,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1500,7 +1522,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1517,7 +1540,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1528,7 +1551,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1572,14 +1596,14 @@ exports[`Combobox renders correctly with placeholder 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+          className="inputWrapper input-component__input-wrapper wrapperSizeMedium"
         >
           <input
             aria-activedescendant=""
@@ -1587,7 +1611,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1604,7 +1628,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1615,7 +1639,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1632,7 +1657,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1643,7 +1668,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1687,14 +1713,14 @@ exports[`Combobox renders correctly with size 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      className="textField input-component combobox--wrapper-search-wrapper searchWrapper search_component_wrapper"
       role="search"
     >
       <div
-        className="input-component__label--wrapper"
+        className="labelWrapper input-component__label--wrapper"
       >
         <div
-          className="input-component__input-wrapper input-component__input-wrapper--size-large"
+          className="inputWrapper input-component__input-wrapper wrapperSizeLarge"
         >
           <input
             aria-activedescendant=""
@@ -1702,7 +1728,7 @@ exports[`Combobox renders correctly with size 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="combobox--wrapper-search search search_component input input-component__input inputHasIcon input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1719,7 +1745,7 @@ exports[`Combobox renders correctly with size 1`] = `
             value=""
           />
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon iconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1730,7 +1756,8 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1747,7 +1774,7 @@ exports[`Combobox renders correctly with size 1`] = `
             </svg>
           </div>
           <div
-            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            className="monday-style-clickable iconContainer input-component__icon--container iconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1758,7 +1785,8 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style"
+              className="icon icon_component inputIcon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"

@@ -1,5 +1,5 @@
-import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
+import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/keyCodes";
@@ -7,14 +7,14 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
-import "./List.scss";
+import styles from "./List.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
   component?: ListWrapperComponentType;
-  // component?: string;
   /**
    * remove the side padding
    */
@@ -35,7 +35,7 @@ export interface ListProps extends VibeComponentProps {
   style?: CSSProperties;
 }
 
-const List: FC<ListProps> = forwardRef(
+const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
   (
     {
       className,
@@ -46,7 +46,8 @@ const List: FC<ListProps> = forwardRef(
       ariaLabel,
       ariaDescribedBy,
       renderOnlyVisibleItems = false,
-      style
+      style,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -101,10 +102,11 @@ const List: FC<ListProps> = forwardRef(
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
       <Component
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx("monday-style-list", className, {
+        className={cx(styles.list, "monday-style-list", className, {
           "monday-style-list--dense": dense,
           "monday-style-list-container": renderOnlyVisibleItems
         })}
@@ -119,4 +121,5 @@ const List: FC<ListProps> = forwardRef(
   }
 );
 
+Object.assign(List, { defaultTestId: ComponentDefaultTestId.LIST });
 export default List;

@@ -1,7 +1,7 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 
-.list-title {
+.listTitle {
   @include font-paragraph-bold();
   padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-small);
   border-radius: var(--border-radius-small);

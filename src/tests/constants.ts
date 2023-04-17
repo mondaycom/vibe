@@ -14,6 +14,7 @@ export enum ComponentDefaultTestId {
   COLOR_PICKER_ITEM = "color-picker-item",
   ICON_BUTTON = "icon-button",
   CHIP = "chip",
+  RADIO_BUTTON = "radio-button",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
   TAB_PANELS = "tab-panels",
@@ -55,7 +56,11 @@ export enum ComponentDefaultTestId {
   DATEPICKER_HEADER = "date-picker-header",
   DATEPICKER_YEAR_SELECTION = "date-picker-year-selection",
   LOADER = "loader",
-  MODAL_BUTTONS = "modal-buttons"
+  ICON = "icon",
+  RESPONSIVE_LIST = "responsive-list",
+  LIST = "list",
+  LIST_ITEM = "list-item",
+  LIST_TITLE = "list-title"
 }
 
 export enum NavigationCommand {

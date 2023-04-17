@@ -1,24 +1,29 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 
-.responsive-list--root {
+.responsiveListRoot {
   position: relative;
 }
-.responsive-list--wrapper {
+
+.responsiveList {
   display: flex;
   justify-content: flex-end;
-  .responsive-list-menu-button {
-    flex-shrink: 0;
-  }
 }
-.responsive-list--dummy {
+
+.responsiveList .listMenuButton {
+  flex-shrink: 0;
+}
+
+.dummy {
   width: 100%;
   position: absolute;
   visibility: hidden;
 }
-.responsive-list--menu-button-dialog {
+
+.menuButtonDialog {
   display: flex;
 }
-.responsive-list-menu-wrapper-flex {
+
+.menuWrapperFlex {
   display: flex;
 }
