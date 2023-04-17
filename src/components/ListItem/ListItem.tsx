@@ -1,21 +1,14 @@
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-/* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
-import styles from "./ListItem.module.scss";
 import { camelCase } from "lodash-es";
-
-const BEM_BASE_CLASS = "list-item";
-
-function BEMHelper(state: string) {
-  return `${BEM_BASE_CLASS}--${state}`;
-}
+import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
   /**

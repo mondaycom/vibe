@@ -16,10 +16,6 @@ export interface ListProps extends VibeComponentProps {
    */
   component?: ListWrapperComponentType;
   /**
-   * remove the side padding
-   */
-  dense?: boolean;
-  /**
    * ARIA label string to describe to list
    */
   ariaLabel?: string;
@@ -42,7 +38,6 @@ const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
       id,
       component = "ul",
       children,
-      dense = false,
       ariaLabel,
       ariaDescribedBy,
       renderOnlyVisibleItems = false,
