@@ -48,6 +48,14 @@
   border-bottom: none;
 }
 
+.showBorder {
+  border: 1px solid var(--ui-border-color);
+  .headerOpen {
+    border-bottom: 1px solid;
+    border-color: var(--ui-border-color);
+  }
+}
+
 .animateIconOpen {
   transform: rotate(-180deg);
   transition: transform var(--motion-expressive-short) var(--motion-timing-transition);

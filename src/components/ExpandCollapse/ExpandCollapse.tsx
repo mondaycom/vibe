@@ -93,7 +93,17 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
       >
-        <div className={cx(styles.expandCollapse, "expand-collapse", { [styles.hideBorder]: hideBorder })}>
+        <div
+          className={cx(
+            styles.expandCollapse,
+            "expand-collapse",
+            {
+              [styles.hideBorder]: hideBorder,
+              [styles.showBorder]: !hideBorder
+            },
+            componentClassName
+          )}
+        >
           <button
             type="button"
             className={cx(
@@ -105,8 +115,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
               {
                 [styles.headerOpen]: isExpanded,
                 ["expand-collapse__header--open"]: isExpanded,
-                [styles.hideBorder]: hideBorder,
-                [styles.showBorder]: !hideBorder
+                [styles.hideBorderBottom]: hideBorder
               }
             )}
             onClickCapture={onClick || toggleExpand}
