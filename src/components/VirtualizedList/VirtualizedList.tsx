@@ -76,7 +76,7 @@ interface VirtualizedListProps extends VibeComponentProps {
    * returns Id of an items
    * returns `string`
    */
-  getItemId: (item: VirtualizedListItem, index: number) => string;
+  getItemId?: (item: VirtualizedListItem, index: number) => string;
   /**
    * callback to be called when the scroll is finished
    */
@@ -258,7 +258,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
         const finalOffsetValue = Math.min(maxListOffset, scrollOffset);
         scrollTopRef.current = finalOffsetValue;
-        listRef.current.scrollTo(finalOffsetValue);
+        listRef.current?.scrollTo(finalOffsetValue);
 
         if (ellapsed < scrollDuration) {
           animateScroll();

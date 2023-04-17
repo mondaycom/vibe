@@ -2,11 +2,13 @@
 
 name: Prerelease
 
-on: push
+on:
+  - push
+  - workflow_dispatch
 
 jobs:
   prerelease:
-    if: "contains(github.event.head_commit.message, '[prerelease]')"
+    if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -51,14 +53,14 @@ jobs:
         if: success()
         run: npm run build && npm publish --tag prerelease
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: success()
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           automatic_release_tag: prerelease
-      - name: Get current PR id 
+      - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
         if: success()
@@ -69,7 +71,7 @@ jobs:
           issue-number: ${{ steps.PR.outputs.number }}
           body: |
             A new prerelease version of this PR has been published: `${{ steps.create-update-version.outputs.package_version }}`
-            
+
             ```
             // To install this prerelease version using npm, please run the following command in your terminal:
             npm i monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}

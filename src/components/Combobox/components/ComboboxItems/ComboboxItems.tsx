@@ -1,25 +1,40 @@
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, { CSSProperties, forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
-import { getOptionsByCategories } from "../../ComboboxService";
-import {
-  comboboxItemRenderer,
-  createCategoryItemObject,
-  createDividerItemObject,
-  createOptionItemObject
-} from "../../ComboboxHelpers/ComboboxHelpers";
+import { comboboxItemRenderer } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
+import {
+  COMBOBOX_CATEGORY_ITEM,
+  COMBOBOX_OPTION_ITEM,
+  IComboboxCategoryMap,
+  IComboboxItem,
+  IComboboxOption,
+  IComboboxOptionEvents
+} from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
-export const ComboboxItems = forwardRef(
+interface ComboboxItemsProps extends IComboboxOptionEvents {
+  className?: string;
+  optionClassName?: string;
+  categories?: IComboboxCategoryMap;
+  options?: IComboboxItem[];
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
+  activeItemIndex?: number;
+  visualFocusItemIndex?: number;
+  optionLineHeight?: number;
+  shouldScrollToSelectedItem?: boolean;
+  renderOnlyVisibleOptions?: boolean;
+  onActiveCategoryChanged?: (category: IComboboxItem) => void;
+  maxOptionsWithoutScroll?: number;
+  itemsMap?: Map<string, IComboboxItem>;
+}
+
+export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
   (
     {
       className,
       optionClassName,
       categories,
       options,
-      filterValue,
-      withCategoriesDivider,
       optionRenderer,
       activeItemIndex,
       visualFocusItemIndex,
@@ -31,11 +46,11 @@ export const ComboboxItems = forwardRef(
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
-      forceUndoScrollNullCheck
+      itemsMap
     },
-    ref
+    ref: RefObject<HTMLDivElement>
   ) => {
-    const activeCategoryId = useRef();
+    const activeCategoryId = useRef<string>();
     const style = useMemo(() => {
       if (maxOptionsWithoutScroll) {
         // Adding 0.5 to show next option to indicate scroll is available
@@ -46,10 +61,9 @@ export const ComboboxItems = forwardRef(
     }, [maxOptionsWithoutScroll, optionLineHeight, options, categories]);
 
     const createItemElementRenderer = useCallback(
-      (item, index, style) =>
+      (item: IComboboxItem, index: number, style: CSSProperties) =>
         comboboxItemRenderer({
           item,
-          index,
           style,
           optionEvents: {
             onOptionClick,
@@ -63,8 +77,7 @@ export const ComboboxItems = forwardRef(
             visualFocusItemIndex,
             scrollRef: renderOnlyVisibleOptions ? null : ref,
             activeItemIndex,
-            shouldScrollToSelectedItem,
-            forceUndoScrollNullCheck
+            shouldScrollToSelectedItem
           },
           isVirtualized: renderOnlyVisibleOptions
         }),
@@ -72,75 +85,19 @@ export const ComboboxItems = forwardRef(
         onOptionClick,
         onOptionEnter,
         onOptionLeave,
+        optionClassName,
         optionLineHeight,
         optionRenderer,
-        ref,
         visualFocusItemIndex,
+        renderOnlyVisibleOptions,
+        ref,
         activeItemIndex,
-        shouldScrollToSelectedItem,
-        forceUndoScrollNullCheck,
-        renderOnlyVisibleOptions
+        shouldScrollToSelectedItem
       ]
     );
 
-    let { items, itemsMap } = useMemo(() => {
-      let items = [];
-      const itemsMap = new Map();
-
-      if (categories) {
-        const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
-        let optionIndex = 0;
-        Object.keys(optionsByCategories).forEach((categoryId, categoryIndex) => {
-          const withDivider = withCategoriesDivider && categoryIndex !== 0;
-          if (withDivider) {
-            items.push(createDividerItemObject({ categoryId }));
-          }
-
-          const isCategoryWithOptions = optionsByCategories[categoryId].length > 0;
-          const isFirstCategory = categoryIndex === 0;
-
-          const categoryObject = createCategoryItemObject({
-            categoryId,
-            categoryData: categories[categoryId],
-            withDivider,
-            className: cx({
-              [styles.categoryWithOptions]: isCategoryWithOptions,
-              [styles.categoryWithoutOptions]: !isCategoryWithOptions,
-              [styles.firstCategory]: isFirstCategory
-            })
-          });
-
-          // save category object in both items array and categories map
-          items.push(categoryObject);
-          itemsMap.set(categoryId, categoryObject);
-
-          optionsByCategories[categoryId].forEach(option => {
-            const itemObject = createOptionItemObject({
-              height: optionLineHeight,
-              option,
-              index: optionIndex,
-              categoryId: categoryObject.id
-            });
-
-            itemsMap.set(itemObject.id, itemObject);
-            items.push(itemObject);
-            optionIndex++;
-          });
-        });
-      } else {
-        items = options.map((option, index) => {
-          return createOptionItemObject({
-            height: optionLineHeight,
-            option,
-            index
-          });
-        });
-      }
-      return { items, itemsMap };
-    }, [categories, options, filterValue, withCategoriesDivider, optionLineHeight]);
-
     const onItemsRender = useCallback(
-      ({ firstItemId }) => {
+      ({ firstItemId }: { firstItemId?: string }) => {
         window.requestAnimationFrame(() => {
           const itemData = itemsMap.get(firstItemId);
           if (itemData && (itemData.type === COMBOBOX_CATEGORY_ITEM || itemData.type === COMBOBOX_OPTION_ITEM)) {
@@ -153,7 +110,7 @@ export const ComboboxItems = forwardRef(
               onActiveCategoryChanged(categoryObject);
             }
           }
-        }, [itemsMap, onActiveCategoryChanged]);
+        });
       },
       [itemsMap, onActiveCategoryChanged]
     );
@@ -166,7 +123,7 @@ export const ComboboxItems = forwardRef(
         <VirtualizedList
           ref={ref}
           className={cx(styles.optionsContainer, className)}
-          items={items}
+          items={options}
           itemRenderer={createItemElementRenderer}
           role="treegrid"
           scrollableClassName={styles.scrollableContainer}
@@ -182,7 +139,7 @@ export const ComboboxItems = forwardRef(
           style={style}
           ref={ref}
         >
-          {items.map(itemData => createItemElementRenderer(itemData))}
+          {options.map((itemData, index) => createItemElementRenderer(itemData, index, undefined))}
         </div>
       );
     }

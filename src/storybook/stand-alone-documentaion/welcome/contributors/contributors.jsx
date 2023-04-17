@@ -1,5 +1,5 @@
 import { Contributor } from "../contributor/contributor";
-import { Orr, Hadas, Meirav, Sergey } from "../assets";
+import { Orr, Hadas, Meirav, Sergey, Yael } from "../assets";
 import "./contributors.scss";
 
 const CONTRIBUTERS = [
@@ -30,6 +30,13 @@ const CONTRIBUTERS = [
     email: "sergeyro@monday.com",
     title: "Developer",
     className: "monday-storybook-welcome-contributors_contributor--bg-pattern-4"
+  },
+  {
+    imgSrc: Yael,
+    fullName: "Yael Rosen-Karen",
+    email: "yaelro@monday.com",
+    title: "Product Designer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2"
   }
 ];
 

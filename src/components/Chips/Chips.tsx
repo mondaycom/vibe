@@ -35,8 +35,12 @@ interface ChipsProps extends VibeComponentProps {
   leftIcon?: SubIcon;
   /** Img to place as avatar on the right */
   rightAvatar?: string;
+  /** the type of right avatar */
+  rightAvatarType?: AvatarType;
   /** Img to place as avatar on the left */
   leftAvatar?: string;
+  /** the type of left avatar */
+  leftAvatarType?: AvatarType;
   /** ClassName for left or right icon */
   iconClassName?: string;
   /** ClassName for left or right avatar */
@@ -76,12 +80,21 @@ interface ChipsProps extends VibeComponentProps {
    * @deprecated
    */
   isClickable?: boolean;
+  /**
+   * Disable click behaviors
+   */
   disableClickableBehavior?: boolean;
+  /**
+   * Show border, the border color is `--text-color-on-primary`, should be when the chip is a colored background like
+   * selected-color
+   */
+  showBorder?: boolean;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
   colors?: typeof elementColorsNames;
+  avatarTypes?: typeof AvatarType;
 } = forwardRef<HTMLElement, ChipsProps>(
   (
     {
@@ -105,7 +118,10 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       noAnimation = true,
       ariaLabel,
       dataTestId,
-      disableClickableBehavior = false
+      disableClickableBehavior = false,
+      leftAvatarType = AvatarType.IMG,
+      rightAvatarType = AvatarType.IMG,
+      showBorder = false
     },
     ref
   ) => {
@@ -128,7 +144,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.disabled]: disabled,
       [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,
-      [styles.withUserSelect]: allowTextSelection
+      [styles.withUserSelect]: allowTextSelection,
+      [styles.border]: showBorder
     });
     const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
       disabled,
@@ -206,6 +223,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           "data-testid": overrideDataTestId
         };
 
+    const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
+    const rightAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: rightAvatar } : { src: rightAvatar };
+
     return (
       <Tooltip {...overflowProps.tooltipProps}>
         <div {...wrapperProps}>
@@ -214,9 +234,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
               withoutBorder
               className={cx(styles.avatar, styles.left, avatarClassName)}
               customSize={18}
-              src={leftAvatar}
-              type={AvatarType.IMG}
+              type={leftAvatarType}
               key={id}
+              {...leftAvatarProps}
             />
           ) : null}
           {leftIcon ? (
@@ -247,9 +267,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
               withoutBorder
               className={cx(styles.avatar, styles.right, avatarClassName)}
               customSize={16}
-              src={rightAvatar}
-              type={AvatarType.IMG}
+              type={rightAvatarType}
               key={id}
+              {...rightAvatarProps}
             />
           ) : null}
           {hasCloseButton && (
@@ -274,7 +294,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 Object.assign(Chips, {
   sizes: ChipsSize,
   defaultTestId: ComponentDefaultTestId.CHIP,
-  colors: elementColorsNames
+  colors: elementColorsNames,
+  avatarTypes: AvatarType
 });
 
 export default Chips;

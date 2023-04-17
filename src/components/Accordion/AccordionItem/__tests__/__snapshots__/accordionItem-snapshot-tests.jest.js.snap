@@ -14,7 +14,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -67,7 +67,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -118,7 +118,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
@@ -169,7 +169,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
       id="expand-collapse--test"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--test-controls"
@@ -220,7 +220,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
       id="expand-collapse--monday-accordion--item-0"
     >
       <div
-        className="expand-collapse"
+        className="expand-collapse showBorder"
       >
         <button
           aria-controls="expand-collapse--monday-accordion--item-0-controls"
