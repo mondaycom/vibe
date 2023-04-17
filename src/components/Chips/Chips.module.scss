@@ -40,7 +40,8 @@
   }
 
   .icon,
-  .avatar {
+  .avatar,
+  .customRenderer {
     min-width: 18px;
     &.left {
       margin-right: var(--spacing-xs);
