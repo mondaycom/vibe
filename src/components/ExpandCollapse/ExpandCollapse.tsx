@@ -14,8 +14,18 @@ interface ExpandCollapseProps extends VibeComponentProps {
    * Component as parameter to be rendered as header
    */
   headerComponentRenderer?: () => ReactElement;
+  /**
+   * Class name to add to the header of the expandable
+   */
   headerClassName?: string;
+  /**
+   * Class name to add to the content of the expandable
+   */
   contentClassName?: string;
+  /**
+   * Class name to add to the component
+   */
+  componentClassName?: string;
   /**
    * Header title
    */
@@ -52,6 +62,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       hideBorder = false,
       headerClassName,
       contentClassName,
+      componentClassName,
       "data-testid": dataTestId
     },
     ref
@@ -94,7 +105,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
               {
                 [styles.headerOpen]: isExpanded,
                 ["expand-collapse__header--open"]: isExpanded,
-                [styles.hideBorderBottom]: hideBorder
+                [styles.hideBorder]: hideBorder,
+                [styles.showBorder]: !hideBorder
               }
             )}
             onClickCapture={onClick || toggleExpand}

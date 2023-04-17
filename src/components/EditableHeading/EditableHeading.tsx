@@ -17,6 +17,7 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
   inputAriaLabel?: string;
   errorClass?: string;
+  headingClassName?: string;
   inputClassName?: string;
   dataTestId?: string;
   "data-testid"?: string;
@@ -156,7 +157,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       nonEllipsisTooltip: props.tooltip,
       size: size as Sizes,
       highlightTerm,
-      className: styles.headingComponent
+      className: cx(styles.headingComponent, props.headingClassName)
     };
 
     if (contentRenderer) {

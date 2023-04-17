@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, {
   CSSProperties,
   ForwardedRef,
@@ -11,6 +10,7 @@ import React, {
   useState
 } from "react";
 import { noop as NOOP } from "lodash-es";
+import cx from "classnames";
 import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
@@ -27,7 +27,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import styles from "./VirtualizedList.module.scss";
+import "./VirtualizedList.scss";
 
 export type VirtualizedListItem = {
   value?: string | Record<string, unknown>;
@@ -76,7 +76,7 @@ interface VirtualizedListProps extends VibeComponentProps {
    * returns Id of an items
    * returns `string`
    */
-  getItemId: (item: VirtualizedListItem, index: number) => string;
+  getItemId?: (item: VirtualizedListItem, index: number) => string;
   /**
    * callback to be called when the scroll is finished
    */
@@ -139,8 +139,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       items = [],
       itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item,
       getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
-      // must be null for backward compatibility
-      getItemSize = null,
+      getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
       onScroll,
       overscanCount = 0,
@@ -156,8 +155,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
-      style,
-      "data-testid": dataTestId
+      style
     },
     ref
   ) => {
@@ -258,7 +256,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
         const finalOffsetValue = Math.min(maxListOffset, scrollOffset);
         scrollTopRef.current = finalOffsetValue;
-        listRef.current.scrollTo(finalOffsetValue);
+        listRef.current?.scrollTo(finalOffsetValue);
 
         if (ellapsed < scrollDuration) {
           animateScroll();
@@ -376,10 +374,10 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.virtualizedListWrapper, "virtualized-list--wrapper", className)}
+        className={cx("virtualized-list--wrapper", className)}
         id={id}
         role={role}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
+        data-testid={getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
         style={style}
       >
         <AutoSizer>

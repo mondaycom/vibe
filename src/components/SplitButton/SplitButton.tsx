@@ -73,6 +73,8 @@ const SplitButton: FC<SplitButtonProps> & {
   dialogContainerSelector,
   dialogPaddingSize = DialogContentContainer.sizes.MEDIUM,
   disabled,
+  // success mode not working right now, need to fix it in different pr
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   success,
   loading,
   kind,
@@ -148,9 +150,6 @@ const SplitButton: FC<SplitButtonProps> & {
   // Key events
   useKeyEvent({ keys: ENTER_KEYS, ref, callback: setActiveOnEnter });
 
-  // We won't show the secondary button in case of success or loading
-  const shouldRenderSplitContent = !(success || loading);
-
   const classNames = useMemo(
     () =>
       cx(
@@ -218,49 +217,48 @@ const SplitButton: FC<SplitButtonProps> & {
         onFocus={setHovered}
         onBlur={setNotHovered}
         disabled={disabled}
+        loading={loading}
       >
         {children}
       </Button>
-      {shouldRenderSplitContent && (
-        <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
-          <Dialog
-            wrapperClassName={secondaryDialogClassName}
-            zIndex={zIndex}
-            content={actionsContent}
-            position={secondaryDialogPosition as DialogPosition}
-            containerSelector={dialogContainerSelector}
-            startingEdge={animationEdgePosition}
-            animationType={AnimationType.EXPAND}
-            moveBy={DIALOG_MOVE_BY}
-            onDialogDidShow={showDialog}
-            onDialogDidHide={hideDialog}
-            showTrigger={dialogShowTrigger}
-            hideTrigger={dialogHideTrigger}
+      <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
+        <Dialog
+          wrapperClassName={secondaryDialogClassName}
+          zIndex={zIndex}
+          content={actionsContent}
+          position={secondaryDialogPosition as DialogPosition}
+          containerSelector={dialogContainerSelector}
+          startingEdge={animationEdgePosition}
+          animationType={AnimationType.EXPAND}
+          moveBy={DIALOG_MOVE_BY}
+          onDialogDidShow={showDialog}
+          onDialogDidHide={hideDialog}
+          showTrigger={dialogShowTrigger}
+          hideTrigger={dialogHideTrigger}
+        >
+          <Button
+            {...buttonProps}
+            preventClickAnimation
+            leftFlat
+            noSidePadding
+            color={color}
+            kind={kind}
+            className="monday-style-split-button__secondary-button"
+            active={isDialogOpen}
+            marginRight={marginRight}
+            onFocus={setHovered}
+            onBlur={setNotHovered}
+            disabled={disabled}
+            ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
+            ariaHasPopup
+            ariaExpanded={isDialogOpen}
           >
-            <Button
-              {...buttonProps}
-              preventClickAnimation
-              leftFlat
-              noSidePadding
-              color={color}
-              kind={kind}
-              className="monday-style-split-button__secondary-button"
-              active={isDialogOpen}
-              marginRight={marginRight}
-              onFocus={setHovered}
-              onBlur={setNotHovered}
-              disabled={disabled}
-              ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
-              ariaHasPopup
-              ariaExpanded={isDialogOpen}
-            >
-              <div className="monday-style-split-button__secondary-button-icon-wrapper">
-                <DropdownChevronDown aria-hidden="true" />
-              </div>
-            </Button>
-          </Dialog>
-        </div>
-      )}
+            <div className="monday-style-split-button__secondary-button-icon-wrapper">
+              <DropdownChevronDown aria-hidden="true" />
+            </div>
+          </Button>
+        </Dialog>
+      </div>
     </div>
   );
 };

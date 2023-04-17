@@ -59,20 +59,20 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="contentWrapper monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
++           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -93,20 +93,20 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="contentWrapper monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
++           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
 +           >
 +             65%
 +           </div>
 +           <div
-+             class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -127,20 +127,20 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="contentWrapper monday-style-dialog-content-wrapper"
+-         class="monday-style-dialog-content-wrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
+-           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 -         >
 -           <div
--             class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
+-             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
 -           >
 -             25%
 -           </div>
 -           <div
--             class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
+-             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -168,20 +168,20 @@ Snapshot Diff:
           tabindex="0"
 +       />
 +       <span
-+         class="contentWrapper monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
++           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
++             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -223,13 +223,13 @@ Snapshot Diff:
         <span
 @@ --- --- @@
             <div
-              class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
+              class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
             >
 -             25%
 +             65%
             </div>
             <div
-              class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
+              class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 @@ --- --- @@
             />
           </div>
@@ -268,20 +268,20 @@ Snapshot Diff:
           tabindex="0"
 -       />
 -       <span
--         class="contentWrapper monday-style-dialog-content-wrapper"
+-         class="monday-style-dialog-content-wrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip expandAppear expandAppearActive"
+-           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
 -         >
 -           <div
--             class="tooltip monday-style-tooltip dark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
+-             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
 -           >
 -             65%
 -           </div>
 -           <div
--             class="arrow monday-style-tooltip-arrow arrow monday-style-arrow dark monday-style-arrow-dark paddingSizeUndefined padding-size-undefined"
+-             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />
