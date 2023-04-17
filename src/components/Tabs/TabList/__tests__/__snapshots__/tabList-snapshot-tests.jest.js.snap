@@ -2,23 +2,23 @@
 
 exports[`TabList renders correctly stretched tab list 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper stretched stretched"
+  className="tabsWrapper stretched"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -27,12 +27,12 @@ exports[`TabList renders correctly stretched tab list 1`] = `
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tab--wrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         Second
@@ -41,12 +41,12 @@ exports[`TabList renders correctly stretched tab list 1`] = `
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tab--wrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         Third
@@ -58,23 +58,23 @@ exports[`TabList renders correctly stretched tab list 1`] = `
 
 exports[`TabList renders correctly with activeTabId 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper compact Compact"
+  className="tabsWrapper compact"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tab--wrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -83,12 +83,12 @@ exports[`TabList renders correctly with activeTabId 1`] = `
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         Second
@@ -100,23 +100,23 @@ exports[`TabList renders correctly with activeTabId 1`] = `
 
 exports[`TabList renders correctly with children 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper compact Compact"
+  className="tabsWrapper compact"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -128,23 +128,23 @@ exports[`TabList renders correctly with children 1`] = `
 
 exports[`TabList renders correctly with className 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper test compact Compact"
+  className="tabsWrapper test compact"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -156,24 +156,24 @@ exports[`TabList renders correctly with className 1`] = `
 
 exports[`TabList renders correctly with id 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper compact Compact"
+  className="tabsWrapper compact"
   data-testid="tab-list_test"
   id="test"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -185,23 +185,23 @@ exports[`TabList renders correctly with id 1`] = `
 
 exports[`TabList renders correctly with size 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper compact Compact"
+  className="tabsWrapper compact"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list lg lg"
+    className="tabsList lg"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -210,12 +210,12 @@ exports[`TabList renders correctly with size 1`] = `
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tab--wrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         Second
@@ -227,23 +227,23 @@ exports[`TabList renders correctly with size 1`] = `
 
 exports[`TabList renders correctly with tabType 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper stretched stretched"
+  className="tabsWrapper stretched"
   data-testid="tab-list"
 >
   <ul
-    className="tabsList tabs-list"
+    className="tabsList"
     role="tablist"
     tabIndex={0}
   >
     <li
       aria-disabled={false}
       aria-selected={true}
-      className="tabWrapper tab--wrapper tabListTabWrapper active"
+      className="tabWrapper tabListTabWrapper active"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         First
@@ -252,12 +252,12 @@ exports[`TabList renders correctly with tabType 1`] = `
     <li
       aria-disabled={false}
       aria-selected={false}
-      className="tabWrapper tab--wrapper tabListTabWrapper"
+      className="tabWrapper tabListTabWrapper"
       data-testid="tab"
       role="tab"
     >
       <a
-        className="tabInner tab-inner tabListTabInner"
+        className="tabInner tabListTabInner"
         onClick={[Function]}
       >
         Second

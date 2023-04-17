@@ -18,7 +18,7 @@ const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index
     <div
       key={`${id}_${index}`}
       ref={mergedRef}
-      className={cx(styles.tabPanelWrapper, "tab-panel--wrapper", className)}
+      className={cx(styles.tabPanelWrapper, className)}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANEL, id)}
       role="tabpanel"

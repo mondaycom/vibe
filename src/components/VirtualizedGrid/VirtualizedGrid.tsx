@@ -274,7 +274,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.virtualizedGridWrapper, "virtualized-grid--wrapper", className)}
+        className={cx(styles.virtualizedGridWrapper, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_GRID, id)}
       >
@@ -292,7 +292,6 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-grid-scrollable-container")}
               >
                 {/*@ts-ignore*/}
                 {cellRenderer}

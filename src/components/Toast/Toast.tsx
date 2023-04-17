@@ -74,14 +74,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   }, [actions]);
 
   const classNames = useMemo(
-    () =>
-      cx(
-        styles.toast,
-        "monday-style-toast",
-        getStyle(styles, camelCase("type-" + type)),
-        `monday-style-toast--type-${type}`,
-        className
-      ),
+    () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),
     [type, className]
   );
 
@@ -133,22 +126,21 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
       >
-        {iconElement && <div className={cx(styles.icon, "monday-style-toast-icon")}>{iconElement}</div>}
+        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <div
-          className={cx(styles.content, "monday-style-toast-content", {
-            [styles.contentNoIcon]: !iconElement,
-            ["monday-style-toast-content-no-icon"]: !iconElement
+          className={cx(styles.content, {
+            [styles.contentNoIcon]: !iconElement
           })}
         >
           {children}
           {toastLinks}
         </div>
         {(toastButtons || deprecatedAction) && (
-          <div className={cx(styles.action, "monday-style-toast-action")}>{toastButtons || deprecatedAction}</div>
+          <div className={cx(styles.action)}>{toastButtons || deprecatedAction}</div>
         )}
         {closeable && (
           <Button
-            className={cx(styles.closeButton, "monday-style-toast_close-button")}
+            className={cx(styles.closeButton)}
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}

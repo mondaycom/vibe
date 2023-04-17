@@ -105,16 +105,11 @@ const TabList: FC<TabListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, "tabs--wrapper", className, [getStyle(styles, camelCase(tabType))], tabType)}
+        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
-        <ul
-          ref={ulRef}
-          tabIndex={0}
-          className={cx(styles.tabsList, "tabs-list", [getStyle(styles, size)], size)}
-          role="tablist"
-        >
+        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
       </div>

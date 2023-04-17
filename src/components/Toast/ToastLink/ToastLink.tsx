@@ -8,7 +8,7 @@ import styles from "./ToastLink.module.scss";
 export type ToastLinkProps = LinkProps;
 
 const ToastLink: FC<ToastLinkProps> = ({ className, id, "data-testid": dataTestId, ...linkProps }) => {
-  const classNames = cx(styles.actionLink, "monday-style-toast-action_link", className);
+  const classNames = cx(styles.actionLink, className);
   return (
     <Link
       {...linkProps}

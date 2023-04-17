@@ -38,7 +38,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("tabs-context--wrapper", className)}
+        className={cx(className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABS_CONTEXT, id)}
       >

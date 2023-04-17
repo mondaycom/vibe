@@ -86,7 +86,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
   data-testid="heading"
 >
   <div
-    className="textWithHighlightWrapper text-with-highlight--wrapper"
+    className="textWithHighlightWrapper"
     data-testid="text-with-highlight"
     onBlur={[Function]}
     onClick={[Function]}
@@ -97,7 +97,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
     onMouseLeave={[Function]}
   >
     <em
-      className="highlightText highlight-text"
+      className="highlightText"
     >
       Heading
     </em>
@@ -105,7 +105,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        with 
     </span>
     <em
-      className="highlightText highlight-text"
+      className="highlightText"
     >
       highlight
     </em>
@@ -113,7 +113,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        text 
     </span>
     <em
-      className="highlightText highlight-text"
+      className="highlightText"
     >
       heading
     </em>
@@ -121,7 +121,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        with 
     </span>
     <em
-      className="highlightText highlight-text"
+      className="highlightText"
     >
       highlight
     </em>

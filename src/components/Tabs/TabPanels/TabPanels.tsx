@@ -45,11 +45,8 @@ const TabPanels: FC<TabPanelsProps> & {
           ...child.props,
           className: cx(
             styles.tabPanel,
-            "tab-panel",
             [getStyle(styles, activeClass)],
-            activeClass,
             [getStyle(styles, camelCase(animationClass))],
-            animationClass,
             child.props.className
           )
         });
@@ -59,7 +56,7 @@ const TabPanels: FC<TabPanelsProps> & {
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabPanelsWrapper, "tab-panels--wrapper", className)}
+        className={cx(styles.tabPanelsWrapper, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANELS, id)}
       >

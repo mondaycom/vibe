@@ -18,7 +18,7 @@ const getTextPart = (
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      <WrappingElement className={cx(styles.highlightText, "highlight-text", wrappingElementClassName)} key={key}>
+      <WrappingElement className={cx(styles.highlightText, wrappingElementClassName)} key={key}>
         {text}
       </WrappingElement>
     );
@@ -105,9 +105,8 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
     const Element = (
       <div
         ref={mergedRef}
-        className={cx(styles.textWithHighlightWrapper, "text-with-highlight--wrapper", className, {
-          [styles.withEllipsis]: useEllipsis,
-          ["with-ellipsis"]: useEllipsis
+        className={cx(styles.textWithHighlightWrapper, className, {
+          [styles.withEllipsis]: useEllipsis
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_WITH_HIGHLIGHT, id)}

@@ -172,11 +172,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
         style={style}
         className={cx(
           styles.tooltip,
-          "monday-style-tooltip",
           getStyle(styles, camelCase(theme)),
-          `monday-style-tooltip-${theme}`,
           getStyle(styles, camelCase("padding-size-" + paddingSize)),
-          `padding-size-${paddingSize}`,
           className
         )}
       >
@@ -263,11 +260,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       moveBy,
       tooltipClassName: cx(
         styles.arrow,
-        "monday-style-arrow",
         getStyle(styles, theme),
-        `monday-style-arrow-${theme}`,
         getStyle(styles, camelCase("padding-size-" + paddingSize)),
-        `padding-size-${paddingSize}`,
         arrowClassName
       ),
       animationType: AnimationType.EXPAND,

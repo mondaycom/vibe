@@ -62,8 +62,7 @@ const Tab: FC<TabProps> = forwardRef(
           ariaHidden={true}
           iconType={iconType}
           icon={icon}
-          // css-modules-migration: iconSide - used only for overrides
-          className={cx(styles.tabIcon, "tab-icon", iconSide)}
+          className={cx(styles.tabIcon, iconSide)}
           iconSize={18}
           ignoreFocusStyle
         />
@@ -79,13 +78,10 @@ const Tab: FC<TabProps> = forwardRef(
       <li
         ref={mergedRef}
         key={id}
-        className={cx(styles.tabWrapper, "tab--wrapper", className, {
+        className={cx(styles.tabWrapper, className, {
           [styles.active]: active,
-          ["active"]: active,
           [styles.disabled]: disabled,
-          ["disabled"]: disabled,
-          [styles.tabFocusVisibleInset]: focus,
-          ["tab-focus-visible-inset"]: focus
+          [styles.tabFocusVisibleInset]: focus
         })}
         id={id}
         role="tab"
@@ -93,7 +89,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-disabled={disabled}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
       >
-        <a className={cx(styles.tabInner, "tab-inner", tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
+        <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>
       </li>
