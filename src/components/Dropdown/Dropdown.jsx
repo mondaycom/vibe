@@ -274,6 +274,7 @@ const Dropdown = ({
   const closeMenuOnScroll = useCallback(
     event => {
       const scrolledElement = event.target;
+      // TODO css-modules-migration: replace this logic while removing old class names
       if (scrolledElement?.parentElement?.classList.contains(MENU_WRAPPER_CLASS_NAME)) {
         return false;
       }

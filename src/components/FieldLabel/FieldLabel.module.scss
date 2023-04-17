@@ -8,18 +8,15 @@
   align-items: center;
 }
 
-.labelComponentWrapper .labelComponentIcon {
+.labelComponentIcon {
   margin: 0 var(--spacing-small) 0 var(--spacing-xs);
   line-height: 24px;
   font-size: var(--font-size-general-label);
   @include theme-prop(color, icon-color);
+  font-family: var(--font-family);
 }
 
-.labelComponentWrapper .labelComponentText {
+.labelComponentText {
   @include font-paragraph-bold();
   @include theme-prop(color, primary-text-color);
-}
-
-.labelComponentWrapper .labelComponentIcon {
-  font-family: var(--font-family);
 }

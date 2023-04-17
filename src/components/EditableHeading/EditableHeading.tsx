@@ -1,13 +1,17 @@
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Heading, { HeadingProps } from "../Heading/Heading";
 import Clickable from "../Clickable/Clickable";
 import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
-import "./EditableHeading.scss";
 import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 import { Sizes } from "../../constants";
+import headingStyles from "../Heading/Heading.module.scss";
+import styles from "./EditableHeading.module.scss";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
@@ -152,8 +156,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
       size: size as Sizes,
-      className: props.headingClassName,
-      highlightTerm
+      highlightTerm,
+      className: cx(styles.headingComponent, props.headingClassName)
     };
 
     if (contentRenderer) {
@@ -168,7 +172,14 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: cx(`editable-heading-input`, `element-type-${type}`, `size-${size}`, inputClassName),
+      className: cx(
+        "editable-heading-input",
+        getStyle(headingStyles, camelCase("element-type-" + type)),
+        `element-type-${type}`,
+        getStyle(headingStyles, camelCase("size-" + size)),
+        `size-${size}`,
+        inputClassName
+      ),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -206,12 +217,13 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     <div
       ref={ref}
       style={style}
-      className={cx("editable-heading--wrapper", className, {
-        "inset-focus": insetFocus
+      className={cx(styles.editableHeadingWrapper, "editable-heading--wrapper", className, {
+        [styles.insetFocus]: insetFocus,
+        ["inset-focus"]: insetFocus
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestId || dataTestIdOverride}
+      data-testid={dataTestId || dataTestIdOverride || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
@@ -222,7 +234,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
 
 Object.assign(EditableHeading, {
   types: HeadingTypes,
-  sizes: HeadingSizes
+  sizes: HeadingSizes,
+  defaultTestId: ComponentDefaultTestId.EDITABLE_HEADING
 });
 
 export default EditableHeading;

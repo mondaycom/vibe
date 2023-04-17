@@ -1,6 +1,9 @@
+import { camelCase } from "lodash-es";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import cx from "classnames";
 import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
-import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
@@ -9,7 +12,7 @@ import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { Sizes } from "../../constants";
-import "./Heading.scss";
+import styles from "./Heading.module.scss";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -31,33 +34,53 @@ const Heading: React.FC<HeadingProps> & {
   sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = ({
-  className,
-  value = "",
-  type = HeadingTypes.h1,
-  size = HeadingSizes.LARGE,
-  ariaLabel = "",
-  id,
-  customColor,
-  ellipsis = true,
-  ellipsisMaxLines = 1,
-  style,
-  tooltipPosition,
-  highlightTerm = null,
-  suggestEditOnHover = false,
-  nonEllipsisTooltip = null
-}) => {
+       className,
+       value = "",
+       type = HeadingTypes.h1,
+       size = HeadingSizes.LARGE,
+       ariaLabel = "",
+       id,
+       customColor,
+       ellipsis = true,
+       ellipsisMaxLines = 1,
+       style,
+       tooltipPosition,
+       highlightTerm = null,
+       suggestEditOnHover = false,
+       nonEllipsisTooltip = null,
+       "data-testid": dataTestId
+     }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
   const finalStyle = useStyle(style, { color: customColor });
-  const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
-    "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
-    "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-    "suggest-edit-on-hover": suggestEditOnHover
-  });
+  const classNames = cx(
+    styles.headingComponent,
+    "heading-component",
+    className,
+    getStyle(styles, camelCase("element-type-" + type)),
+    `element-type-${type}`,
+    getStyle(styles, camelCase("size-" + size)),
+    `size-${size}`,
+    {
+      [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
+      ["multi-line-ellipsis"]: ellipsis && ellipsisMaxLines > 1,
+      [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
+      ["single-line-ellipsis"]: ellipsis && ellipsisMaxLines <= 1,
+      [styles.suggestEditOnHover]: suggestEditOnHover,
+      ["suggest-edit-on-hover"]: suggestEditOnHover
+    }
+  );
   const Element = React.createElement(
     type,
-    { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style: finalStyle },
+    {
+      className: classNames,
+      "aria-label": ariaLabel,
+      id,
+      "data-testid": dataTestId || getTestId(ComponentDefaultTestId.HEADING, id),
+      ref: setRef,
+      style: finalStyle
+    },
     highlightTerm ? (
       <TextWithHighlight
         highlightTerm={highlightTerm}
@@ -96,7 +119,8 @@ const Heading: React.FC<HeadingProps> & {
 
 Object.assign(Heading, {
   types: HeadingTypes,
-  sizes: Sizes
+  sizes: Sizes,
+  defaultTestId: ComponentDefaultTestId.HEADING
 });
 
 export default Heading;

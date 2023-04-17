@@ -35,6 +35,8 @@ export enum ComponentDefaultTestId {
   COUNTER = "counter",
   MENU = "menu",
   OPTION = "option",
+  EXPAND_COLLAPSE = "expand-collapse",
+  EDITABLE_INPUT = "editable-input",
   EDITABLE_HEADING = "editable-heading",
   HEADING = "heading",
   LABEL = "label",
@@ -60,7 +62,10 @@ export enum ComponentDefaultTestId {
   RESPONSIVE_LIST = "responsive-list",
   LIST = "list",
   LIST_ITEM = "list-item",
-  LIST_TITLE = "list-title"
+  LIST_TITLE = "list-title",
+  MODAL_BUTTONS = "modal-buttons",
+  FORMATTED_NUMBER = "formatted-number",
+  HIDDEN_TEXT = "hidden-text"
 }
 
 export enum NavigationCommand {

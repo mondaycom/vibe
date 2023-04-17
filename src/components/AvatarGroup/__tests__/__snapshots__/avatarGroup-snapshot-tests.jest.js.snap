@@ -60,13 +60,15 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      className=""
       onMouseDown={[Function]}
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
       >
         <span
+          data-testid="counter"
           id="counter-"
         >
           +1
@@ -148,13 +150,15 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      className=""
       onMouseDown={[Function]}
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
       >
         <span
+          data-testid="counter"
           id="counter-"
         >
           +1
@@ -235,13 +239,15 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      className=""
       onMouseDown={[Function]}
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
       >
         <span
+          data-testid="counter"
           id="counter-"
         >
           +1
@@ -315,13 +321,15 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      className=""
       onMouseDown={[Function]}
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
       >
         <span
+          data-testid="counter"
           id="counter-"
         >
           +1
@@ -502,13 +510,15 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
+      className=""
       onMouseDown={[Function]}
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
       >
         <span
+          data-testid="counter"
           id="counter-"
         >
           +1

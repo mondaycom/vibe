@@ -1,6 +1,6 @@
 @import "../../styles/states";
 
-.expand-collapse {
+.expandCollapse {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,46 +11,62 @@
   border-radius: var(--border-radius-small);
 }
 
-.expand-collapse__header {
+.header {
   @include reset-button();
-
   padding: var(--spacing-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-
-  &:hover {
-    background-color: var(--primary-background-hover-color);
-  }
-
-  .expand-collapse__header-content {
-    margin: 0;
-  }
-
-  .icon_component {
-    color: var(--icon-color);
-  }
 }
-.expand-collapse__content {
+
+.header:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.header .headerContent {
+  margin: 0;
+}
+
+.header .iconComponent {
+  color: var(--icon-color);
+}
+
+.content {
   padding: var(--spacing-medium);
 }
 
-.expand-collapse__section {
+.section {
   width: 100%;
 }
 
-.animate-icon-open {
+.hideBorder {
+  border: none;
+}
+
+.hideBorderBottom {
+  border-bottom: none;
+}
+
+.showBorder {
+  border: 1px solid var(--ui-border-color);
+  .headerOpen {
+    border-bottom: 1px solid;
+    border-color: var(--ui-border-color);
+  }
+}
+
+.animateIconOpen {
   transform: rotate(-180deg);
   transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
 }
 
-.animate-icon-close {
+.animateIconClose {
   transform: rotate(-360deg);
   transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
 }
 
-.animate-expand-collapse__content {
+.animateExpandCollapseContent {
   animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
 }
 

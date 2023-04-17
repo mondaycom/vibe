@@ -1,16 +1,26 @@
 @import "../../../styles/themes";
 @import "../../../styles/global-css-settings";
 
-.monday-style-dialog-content-wrapper {
+.contentWrapper {
   outline: 0;
-
-  &[data-popper-reference-hidden="true"] {
-    visibility: hidden;
-    pointer-events: none;
-  }
 }
 
-.monday-style-animation-opacity-slide-appear {
+.contentWrapper[data-popper-reference-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.contentComponent:focus {
+  outline: none;
+}
+
+.contentComponent.hasTooltip {
+  padding: 6px;
+}
+
+// Animations
+
+.opacitySlideAppear {
   opacity: 0;
 
   &.top {
@@ -30,7 +40,7 @@
   }
 }
 
-.monday-style-animation-opacity-slide-appear-active {
+.opacitySlideAppearActive {
   transition: opacity 0.2s ease, transform 0.2s ease-out;
   opacity: 1;
   pointer-events: none;
@@ -46,92 +56,82 @@
   }
 }
 
-.monday-style-animation-expand-appear,
-.monday-style-animation-expand-exit {
+.expandAppear,
+.expandExit {
   transition: transform 0.1s $expand-animation-timing;
   &.top,
-  &.top-start,
-  &.top-end {
+  &.topStart,
+  &.topEnd {
     transform-origin: bottom center;
     transform: scale(0.8);
-    &.edge-bottom {
+    &.edgeBottom {
       transform-origin: bottom left;
     }
-    &.edge-top {
+    &.edgeTop {
       transform-origin: bottom right;
     }
   }
 
   &.right,
-  &.right-start,
-  &.right-end {
+  &.rightStart,
+  &.rightEnd {
     transform-origin: left;
     transform: scale(0.8);
-    &.edge-bottom {
+    &.edgeBottom {
       transform-origin: top left;
     }
-    &.edge-top {
+    &.edgeTop {
       transform-origin: bottom left;
     }
   }
 
   &.bottom,
-  &.bottom-start,
-  &.bottom-end {
+  &.bottomStart,
+  &.bottomEnd {
     transform-origin: top;
     transform: scale(0.8);
-    &.edge-bottom {
+    &.edgeBottom {
       transform-origin: top left;
     }
-    &.edge-top {
+    &.edgeTop {
       transform-origin: top right;
     }
   }
 
   &.left,
-  &.left-start,
-  &.left-end {
+  &.leftStart,
+  &.leftEnd {
     transform-origin: right;
     transform: scale(0.8);
-    &.edge-bottom {
+    &.edgeBottom {
       transform-origin: top right;
     }
-    &.edge-top {
+    &.edgeTop {
       transform-origin: bottom right;
     }
   }
 }
 
-.monday-style-animation-expand-exit {
+.expandExit {
   transition: transform 0.1s $expand-animation-timing;
 }
 
-.monday-style-animation-expand-appear-active {
+.expandAppearActive {
   transition: transform 0.1s $expand-animation-timing;
   pointer-events: none;
 
   &.top,
-  &.top-start,
-  &.top-end,
+  &.topStart,
+  &.topEnd,
   &.bottom,
-  &.bottom-start,
-  &.bottom-end,
+  &.bottomStart,
+  &.bottomEnd,
   &.right,
-  &.right-start,
-  &.right-end,
+  &.rightStart,
+  &.rightEnd,
   &.left,
-  &.left-start,
-  &.left-end {
+  &.leftStart,
+  &.leftEnd {
     transform: scale(1);
-  }
-}
-
-.monday-style-dialog-content-component {
-  &:focus {
-    outline: none;
-  }
-
-  &.has-tooltip {
-    padding: 6px;
   }
 }

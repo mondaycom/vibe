@@ -1,23 +1,21 @@
-import React, { useRef, forwardRef } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import React, { useRef, forwardRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { BEMClass } from "../../helpers/bem-helper";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "src/types/VibeComponent";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
-import "./DialogContentContainer.scss";
+import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
-  className?: string;
   ariaLabelledby?: string;
   ariaDescribedby?: string;
   type?: DialogType;
   size?: DialogSize;
   style?: React.CSSProperties;
 }
-
-const bemHelper = BEMClass("dialog-content-container");
 
 const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
   types?: typeof DialogType;
@@ -45,7 +43,15 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
         aria-describedby={ariaDescribedby}
         ref={mergedRef}
         style={style}
-        className={cx("dialog-content-container", className, bemHelper({ state: type }), bemHelper({ state: size }))}
+        className={cx(
+          styles.dialogContentContainer,
+          "dialog-content-container",
+          className,
+          getStyle(styles, camelCase("type--" + type)),
+          `dialog-content-container--${type}`,
+          getStyle(styles, camelCase("size--" + size)),
+          `dialog-content-container--${size}`
+        )}
       >
         {children}
       </div>
