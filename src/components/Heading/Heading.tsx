@@ -34,22 +34,22 @@ const Heading: React.FC<HeadingProps> & {
   sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = ({
-       className,
-       value = "",
-       type = HeadingTypes.h1,
-       size = HeadingSizes.LARGE,
-       ariaLabel = "",
-       id,
-       customColor,
-       ellipsis = true,
-       ellipsisMaxLines = 1,
-       style,
-       tooltipPosition,
-       highlightTerm = null,
-       suggestEditOnHover = false,
-       nonEllipsisTooltip = null,
-       "data-testid": dataTestId
-     }) => {
+  className,
+  value = "",
+  type = HeadingTypes.h1,
+  size = HeadingSizes.LARGE,
+  ariaLabel = "",
+  id,
+  customColor,
+  ellipsis = true,
+  ellipsisMaxLines = 1,
+  style,
+  tooltipPosition,
+  highlightTerm = null,
+  suggestEditOnHover = false,
+  nonEllipsisTooltip = null,
+  "data-testid": dataTestId
+}) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
