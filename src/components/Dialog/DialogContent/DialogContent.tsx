@@ -71,6 +71,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     }
     return (
       <span
+        // don't remove old classname - override from Monolith
         className={classNames("monday-style-dialog-content-wrapper", wrapperClassName)}
         ref={forwardRef}
         style={styleObject}
