@@ -2,9 +2,7 @@
 import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
-import classnames from "classnames";
 import { Modifier } from "react-popper";
-import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
 import { DialogPosition } from "../../constants/positions";
@@ -12,8 +10,8 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
-import styles from "./Tooltip.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
@@ -257,6 +255,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      open,
       startingEdge: justify,
       tooltip: tip,
       content,
