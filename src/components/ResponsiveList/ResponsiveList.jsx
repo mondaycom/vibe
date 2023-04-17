@@ -69,50 +69,33 @@ const ResponsiveList = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.RESPONSIVE_LIST, id)}
       >
         {index !== null && (
-          <div className={cx(styles.responsiveList, "responsive-list--wrapper", className)}>
+          <div className={cx(styles.responsiveList, className)}>
             {directChildren}
             {!!menuChildren.length && (
               <MenuButton
-                componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
+                componentClassName={cx(styles.listMenuButton, menuButtonClassName)}
                 size={menuButtonSize}
-                openDialogComponentClassName={cx(
-                  styles.menuButtonDialog,
-                  "responsive-list--menu-button-dialog",
-                  dialogClassName
-                )}
+                openDialogComponentClassName={cx(styles.menuButtonDialog, dialogClassName)}
                 zIndex={dialogZIndex}
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
               >
-                <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")}>{menuChildren}</div>
+                <div className={cx(styles.menuWrapperFlex)}>{menuChildren}</div>
               </MenuButton>
             )}
           </div>
         )}
-        <div
-          ref={mergedRef}
-          className={cx(
-            styles.responsiveList,
-            "responsive-list--wrapper",
-            styles.dummy,
-            "responsive-list--dummy",
-            className
-          )}
-        >
+        <div ref={mergedRef} className={cx(styles.responsiveList, styles.dummy, className)}>
           {hiddenChildren}
           <MenuButton
-            componentClassName={cx(styles.listMenuButton, "responsive-list-menu-button", menuButtonClassName)}
+            componentClassName={cx(styles.listMenuButton, menuButtonClassName)}
             size={menuButtonSize}
-            openDialogComponentClassName={cx(
-              styles.menuButtonDialog,
-              "responsive-list--menu-button-dialog",
-              dialogClassName
-            )}
+            openDialogComponentClassName={cx(styles.menuButtonDialog, dialogClassName)}
             zIndex={dialogZIndex}
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")} />
+            <div className={cx(styles.menuWrapperFlex)} />
           </MenuButton>
         </div>
       </div>

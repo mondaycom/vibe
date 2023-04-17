@@ -106,7 +106,7 @@ exports[`Tab renders correctly with icon on left 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon icon_component tabIcon left noFocusStyle icon_component--no-focus-style"
+      className="icon tabIcon left noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="18"
@@ -145,7 +145,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
     b
     <svg
       aria-hidden={true}
-      className="icon icon_component tabIcon right noFocusStyle icon_component--no-focus-style"
+      className="icon tabIcon right noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="18"

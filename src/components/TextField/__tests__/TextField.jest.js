@@ -70,7 +70,7 @@ describe("TextField Tests", () => {
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
       );
     });
-    expect(ref.current.classList.contains("input-component__input")).toBeTruthy();
+    expect(ref.current.classList.contains("input")).toBeTruthy();
   });
 
   it("should call the debounced function after time passed (fake timers)", () => {

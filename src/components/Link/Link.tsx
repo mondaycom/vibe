@@ -91,18 +91,16 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx(styles.link, "monday-style-link", overrideClassName, {
+        className={cx(styles.link, overrideClassName, {
           [styles.inheritFontSize]: inheritFontSize,
-          ["inherit-font-size"]: inheritFontSize,
-          [styles.inlineText]: inlineText,
-          ["inline-text"]: inlineText
+          [styles.inlineText]: inlineText
         })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
       >
-        {getIcon(isStart, icon, cx(styles.iconStart, "monday-style-link--icon-start"))}
-        <span className={cx(styles.text, "monday-style-link--text", textClassName)}>{text}</span>
-        {getIcon(!isStart, icon, cx(styles.iconEnd, "monday-style-link--icon-end"))}
+        {getIcon(isStart, icon, cx(styles.iconStart))}
+        <span className={cx(styles.text, textClassName)}>{text}</span>
+        {getIcon(!isStart, icon, cx(styles.iconEnd))}
       </a>
     );
   }

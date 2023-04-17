@@ -94,10 +94,10 @@ const Search: VibeComponent<SearchProps, unknown> & {
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
-        className={cx(className, styles.search, "search_component", { [styles.round]: type === SearchType.ROUND })}
+        className={cx(className, styles.search, { [styles.round]: type === SearchType.ROUND })}
         secondaryIconName={secondaryIconName}
         secondaryDataTestId={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}
-        wrapperClassName={cx(wrapperClassName, styles.searchWrapper, "search_component_wrapper")}
+        wrapperClassName={cx(wrapperClassName, styles.searchWrapper)}
         onBlur={onBlur}
         onFocus={onFocus}
         ref={mergedRef}

@@ -183,30 +183,21 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
     return (
       <div
-        className={cx(styles.textField, "input-component", wrapperClassName, {
+        className={cx(styles.textField, wrapperClassName, {
           [styles.disabled]: disabled,
-          ["input-component--disabled"]: disabled,
           [styles.onlyUnderline]: underline
         })}
         role={role}
         aria-busy={loading}
       >
-        <div className={cx(styles.labelWrapper, "input-component__label--wrapper")}>
+        <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
-          <div
-            className={cx(
-              styles.inputWrapper,
-              "input-component__input-wrapper",
-              SIZE_MAPPER[getActualSize(size)],
-              validationClass
-            )}
-          >
+          <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
-              className={cx(className, styles.input, "input-component__input", {
-                [styles.inputHasIcon]: !!hasIcon,
-                ["input-component__input--has-icon"]: !!hasIcon
+              className={cx(className, styles.input, {
+                [styles.inputHasIcon]: !!hasIcon
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
@@ -233,29 +224,26 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             />
             {loading && (
               <div
-                className={cx(styles.loaderContainer, "input-component__loader--container", {
-                  [styles.loaderContainerHasIcon]: hasIcon,
-                  ["input-component__loader--container-has-icon"]: hasIcon
+                className={cx(styles.loaderContainer, {
+                  [styles.loaderContainerHasIcon]: hasIcon
                 })}
               >
-                <div className={cx(styles.loader, "input-component__loader")}>
-                  <Loader svgClassName={cx(styles.loaderSvg, "input-component__loader-svg")} />
+                <div className={cx(styles.loader)}>
+                  <Loader svgClassName={cx(styles.loaderSvg)} />
                 </div>
               </div>
             )}
             <Clickable
-              className={cx(styles.iconContainer, "input-component__icon--container", {
+              className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
-                ["input-component__icon--container-has-icon"]: hasIcon,
-                [styles.iconContainerActive]: isPrimary,
-                ["input-component__icon--container-active"]: isPrimary
+                [styles.iconContainerActive]: isPrimary
               })}
               onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
             >
               <Icon
                 icon={iconName}
-                className={cx(styles.inputIcon, "input-component__icon")}
+                className={cx(styles.inputIcon)}
                 clickable={false}
                 id={id}
                 iconLabel={iconsNames.primary}
@@ -265,11 +253,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               />
             </Clickable>
             <Clickable
-              className={cx(styles.iconContainer, "input-component__icon--container", {
+              className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
-                ["input-component__icon--container-has-icon"]: hasIcon,
-                [styles.iconContainerActive]: isSecondary,
-                ["input-component__icon--container-active"]: isSecondary
+                [styles.iconContainerActive]: isSecondary
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
@@ -277,7 +263,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             >
               <Icon
                 icon={secondaryIconName}
-                className={cx(styles.inputIcon, "input-component__icon")}
+                className={cx(styles.inputIcon)}
                 clickable={false}
                 id={id}
                 iconLabel={iconsNames.secondary}
@@ -288,20 +274,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             </Clickable>
           </div>
           {shouldShowExtraText && (
-            <div className={cx(styles.subTextContainer, "input-component__sub-text-container")}>
+            <div className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
-                <span
-                  className={cx(styles.subTextContainerStatus, "input-component__sub-text-container-status")}
-                  aria-label={TextFieldAriaLabel.VALIDATION_TEXT}
-                >
+                <span className={cx(styles.subTextContainerStatus)} aria-label={TextFieldAriaLabel.VALIDATION_TEXT}>
                   {validation.text}
                 </span>
               )}
               {showCharCount && (
-                <span
-                  className={cx(styles.counter, "input-component__sub-text-container-counter")}
-                  aria-label={TextFieldAriaLabel.CHAR}
-                >
+                <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
                   {(inputValue && inputValue.length) || 0}
                 </span>
               )}

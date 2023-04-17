@@ -115,19 +115,10 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       <div
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
-        className={cx(
-          styles.listItem,
-          "list-item",
-          className,
-          getStyle(styles, camelCase(size)),
-          BEMHelper(size.toString()),
-          {
-            [styles.selected]: selected && !disabled,
-            [BEMHelper("selected")]: selected && !disabled,
-            [styles.disabled]: disabled,
-            [BEMHelper("disabled")]: disabled
-          }
-        )}
+        className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
+          [styles.selected]: selected && !disabled,
+          [styles.disabled]: disabled
+        })}
         id={id}
         aria-disabled={disabled}
         onClick={componentOnClick}

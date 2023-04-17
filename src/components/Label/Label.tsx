@@ -46,16 +46,11 @@ const Label: FC<LabelProps> & {
     () =>
       cx(
         styles.label,
-        "monday-style-label",
         getStyle(styles, camelCase("kind" + "-" + kind)),
-        `monday-style-label--kind-${kind}`,
         getStyle(styles, camelCase("color" + "-" + color)),
-        `monday-style-label--color-${color}`,
         {
           [styles.withAnimation]: !isAnimationDisabled,
-          ["monday-style-label--with-animation"]: !isAnimationDisabled,
-          [styles.withLeg]: isLegIncluded,
-          ["monday-style-label--with-leg"]: isLegIncluded
+          [styles.withLeg]: isLegIncluded
         },
         labelClassName
       ),
@@ -65,9 +60,7 @@ const Label: FC<LabelProps> & {
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
       <div className={classNames}>
         <span>{text}</span>
-        <span className={cx(styles.legWrapper, "monday-style-label__leg-wrapper")}>
-          {isLegIncluded ? <Leg /> : null}
-        </span>
+        <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </div>
     </span>
   );

@@ -3,18 +3,18 @@
 exports[`renders correctly with empty props 1`] = `
 <div
   aria-hidden="true"
-  className="listItemIcon list-item-icon start list-item-icon--start"
+  className="listItemIcon start"
 />
 `;
 
 exports[`renders correctly with icon 1`] = `
 <div
   aria-hidden="true"
-  className="listItemIcon list-item-icon start list-item-icon--start"
+  className="listItemIcon start"
 >
   <svg
     aria-hidden={true}
-    className="icon icon_component noFocusStyle icon_component--no-focus-style"
+    className="icon noFocusStyle"
     data-testid="icon"
     fill="currentColor"
     height="20"

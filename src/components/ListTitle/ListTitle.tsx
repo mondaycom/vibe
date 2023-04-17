@@ -23,7 +23,7 @@ const ListTitle: React.FC<ListTitleProps> & { defaultTestId?: string } = forward
         tabIndex={tabIndex}
         role="heading"
         ref={mergedRef}
-        className={cx(styles.listTitle, "list-title", className)}
+        className={cx(styles.listTitle, className)}
         id={id}
       >
         {children}

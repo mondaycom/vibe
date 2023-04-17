@@ -10,10 +10,8 @@ import {
   TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import styles from "./Skeleton.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-
-const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
+import styles from "./Skeleton.module.scss";
 
 interface SkeletonProps extends VibeComponentProps {
   type?: SkeletonType;
@@ -48,20 +46,13 @@ const Skeleton: FC<SkeletonProps> & {
   return (
     <div
       id={id}
-      className={cx(styles.skeleton, SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}
+      className={cx(styles.skeleton, wrapperClassName, { [styles.fullWidth]: fullWidth })}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SKELETON, id)}
     >
       <div
-        className={cx(
-          styles[skeletonType],
-          `monday-style-skeleton_${skeletonType}`,
-          getStyle(styles, camelCase(skeletonType + "-" + skeletonSize)),
-          `monday-style-skeleton_${skeletonType}--${skeletonSize}`,
-          className,
-          {
-            [styles.fullWidth]: fullWidth
-          }
-        )}
+        className={cx(styles[skeletonType], getStyle(styles, camelCase(skeletonType + "-" + skeletonSize)), className, {
+          [styles.fullWidth]: fullWidth
+        })}
         style={{ width, height }}
       />
     </div>

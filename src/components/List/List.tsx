@@ -106,10 +106,7 @@ const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx(styles.list, "monday-style-list", className, {
-          "monday-style-list--dense": dense,
-          "monday-style-list-container": renderOnlyVisibleItems
-        })}
+        className={cx(styles.list, className)}
         id={id}
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}

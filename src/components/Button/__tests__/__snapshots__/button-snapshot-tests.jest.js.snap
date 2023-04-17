@@ -333,7 +333,7 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon icon_component monday-style-button--left-icon noFocusStyle icon_component--no-focus-style"
+    className="icon monday-style-button--left-icon noFocusStyle"
     data-testid="icon"
     fill="currentColor"
     height="20"
@@ -387,7 +387,7 @@ exports[`Button renders correctly renders correctly with rightIcon 1`] = `
   Button
   <svg
     aria-hidden={true}
-    className="icon icon_component monday-style-button--right-icon noFocusStyle icon_component--no-focus-style"
+    className="icon monday-style-button--right-icon noFocusStyle"
     data-testid="icon"
     fill="currentColor"
     height="20"
