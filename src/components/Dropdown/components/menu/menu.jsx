@@ -1,7 +1,6 @@
 import cx from "classnames";
 import React from "react";
 import { components } from "react-select";
-import { MENU_WRAPPER_CLASS_NAME } from "../../dropdown-constants";
 import styles from "./menu.module.scss";
 
 const Menu = props => {
@@ -12,11 +11,8 @@ const Menu = props => {
     <components.Menu
       {...props}
       className={cx(
-        "menu",
-        MENU_WRAPPER_CLASS_NAME,
         {
-          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition,
-          ["dropdown-menu-wrapper--fixed-position"]: withFixedPosition
+          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition
         },
         dropdownMenuWrapperClassName
       )}

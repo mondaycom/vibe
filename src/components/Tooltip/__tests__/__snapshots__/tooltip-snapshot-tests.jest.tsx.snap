@@ -25,7 +25,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent top top edgeCenter hasTooltip"
     >
       <div
         className="tooltip dark paddingSizeUndefined"
@@ -35,7 +35,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -75,7 +75,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent top top edgeCenter hasTooltip"
     >
       <div
         className="tooltip dark paddingSizeUndefined"
@@ -85,7 +85,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -125,7 +125,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeEnd edge-end hasTooltip has-tooltip"
+      className="contentComponent top top edgeEnd hasTooltip"
     >
       <div
         className="tooltip dark paddingSizeUndefined"
@@ -135,7 +135,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -175,7 +175,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component left left edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent left left edgeCenter hasTooltip"
     >
       <div
         className="tooltip dark paddingSizeUndefined"
@@ -185,7 +185,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark paddingSizeUndefined"
         data-placement="left"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -225,7 +225,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent top top edgeCenter hasTooltip"
     >
       <div
         className="tooltip dark paddingSizeUndefined"
@@ -240,7 +240,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+        className="arrow arrow dark paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -280,7 +280,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent top top edgeCenter hasTooltip"
     >
       <div
         className="tooltip error paddingSizeUndefined"
@@ -290,7 +290,7 @@ Array [
         test
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow error paddingSizeUndefined"
+        className="arrow arrow error paddingSizeUndefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -338,7 +338,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component top top edgeCenter edge-center"
+      className="contentComponent top top edgeCenter"
     >
       <div
         className="tooltip dark paddingSizeUndefined"

@@ -1,7 +1,6 @@
 import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
-import { baseClassName } from "./FormattedNumberConsts";
 import { validateValue } from "./FormattedNumberHelpers";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
@@ -68,13 +67,13 @@ const FormattedNumber: FormattedNumberType = forwardRef(
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
 
-      return <span className={cx(styles.suffix, `${baseClassName}__suffix`)}>{suffix}</span>;
+      return <span className={cx(styles.suffix)}>{suffix}</span>;
     }, [suffix]);
 
     const renderPrefix = useMemo(() => {
       if (!prefix) return null;
 
-      return <span className={cx(styles.prefix, `${baseClassName}__prefix`)}>{prefix}</span>;
+      return <span className={cx(styles.prefix)}>{prefix}</span>;
     }, [prefix]);
 
     const calculatedValue = useMemo(() => {
@@ -86,18 +85,18 @@ const FormattedNumber: FormattedNumberType = forwardRef(
     }, [value, decimalPrecision, local, compact]);
 
     if (validateValue(value)) {
-      return <span className={cx(`${baseClassName}__place-holder`)}>{emptyPlaceHolder}</span>;
+      return <span>{emptyPlaceHolder}</span>;
     }
 
     return (
       <div
         ref={ref}
-        className={cx(className, baseClassName)}
+        className={cx(className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.FORMATTED_NUMBER, id)}
       >
         {rtl ? renderSuffix : renderPrefix}
-        <span className={cx(`${baseClassName}__number`)}>{calculatedValue}</span>
+        <span>{calculatedValue}</span>
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );

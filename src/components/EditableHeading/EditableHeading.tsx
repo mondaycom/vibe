@@ -173,11 +173,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     return {
       value: valueState,
       className: cx(
-        "editable-heading-input",
         getStyle(headingStyles, camelCase("element-type-" + type)),
-        `element-type-${type}`,
         getStyle(headingStyles, camelCase("size-" + size)),
-        `size-${size}`,
         inputClassName
       ),
       isValidValue: props.isValidValue,
@@ -217,9 +214,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     <div
       ref={ref}
       style={style}
-      className={cx(styles.editableHeadingWrapper, "editable-heading--wrapper", className, {
-        [styles.insetFocus]: insetFocus,
-        ["inset-focus"]: insetFocus
+      className={cx(styles.editableHeadingWrapper, className, {
+        [styles.insetFocus]: insetFocus
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}

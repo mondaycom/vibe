@@ -56,19 +56,13 @@ const Heading: React.FC<HeadingProps> & {
   const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx(
     styles.headingComponent,
-    "heading-component",
     className,
     getStyle(styles, camelCase("element-type-" + type)),
-    `element-type-${type}`,
     getStyle(styles, camelCase("size-" + size)),
-    `size-${size}`,
     {
       [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
-      ["multi-line-ellipsis"]: ellipsis && ellipsisMaxLines > 1,
       [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
-      ["single-line-ellipsis"]: ellipsis && ellipsisMaxLines <= 1,
-      [styles.suggestEditOnHover]: suggestEditOnHover,
-      ["suggest-edit-on-hover"]: suggestEditOnHover
+      [styles.suggestEditOnHover]: suggestEditOnHover
     }
   );
   const Element = React.createElement(

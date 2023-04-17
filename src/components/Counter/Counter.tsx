@@ -111,16 +111,11 @@ const Counter: React.FC<CounterProps> & {
   const classNames = useMemo(() => {
     return cx(
       styles.counter,
-      "monday-style-counter",
       getStyle(styles, camelCase("size-" + getActualSize(size))),
-      `monday-style-counter--size-${getActualSize(size)}`,
       getStyle(styles, camelCase("kind-" + kind)),
-      `monday-style-counter--kind-${kind}`,
       getStyle(styles, camelCase("color-" + color)),
-      `monday-style-counter--color-${color}`,
       {
-        [styles.withAnimation]: countChangeAnimationState,
-        ["monday-style-counter--with-animation"]: countChangeAnimationState
+        [styles.withAnimation]: countChangeAnimationState
       },
       counterClassName
     );

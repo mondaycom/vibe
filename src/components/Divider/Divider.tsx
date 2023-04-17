@@ -29,17 +29,9 @@ const Divider: React.FC<DividerProps> & {
     <div
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
-      className={cx(
-        styles.divider,
-        "monday-style-divider",
-        overrideClassName,
-        getStyle(styles, direction),
-        `monday-style-divider--${direction}`,
-        {
-          [`monday-style-divider--without-margin`]: withoutMargin,
-          [styles.withoutMargin]: withoutMargin
-        }
-      )}
+      className={cx(styles.divider, overrideClassName, getStyle(styles, direction), {
+        [styles.withoutMargin]: withoutMargin
+      })}
     />
   );
 };

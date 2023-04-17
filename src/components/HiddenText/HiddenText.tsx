@@ -19,7 +19,7 @@ const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(
         ref={mergedRef}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.HIDDEN_TEXT, id)}
-        className={cx(styles.hiddenTextWrapper, "hidden-text--wrapper", className)}
+        className={cx(styles.hiddenTextWrapper, className)}
       >
         {text}
       </span>

@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <span
-  className="hiddenTextWrapper hidden-text--wrapper"
+  className="hiddenTextWrapper"
   data-testid="hidden-text_hiddenText"
   id="hiddenText"
 >

@@ -574,7 +574,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     <div
                       style={arrowProps.style}
                       ref={arrowProps.ref}
-                      className={cx(styles.arrow, "monday-style-tooltip-arrow", tooltipClassName)}
+                      className={cx(styles.arrow, tooltipClassName)}
                       data-placement={placement}
                     />
                   )}

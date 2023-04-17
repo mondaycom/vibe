@@ -23,20 +23,16 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
     }
 
     return (
-      <section className={cx(styles.labelComponentWrapper, "label-component--wrapper")}>
+      <section className={cx(styles.labelComponentWrapper)}>
         <Icon
           icon={icon}
-          className={cx(styles.labelComponentIcon, "label-component--icon", iconClassName)}
+          className={cx(styles.labelComponentIcon, iconClassName)}
           id={labelFor}
           clickable={false}
           iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
-        <label
-          htmlFor={labelFor}
-          ref={ref}
-          className={cx(styles.labelComponentText, "label-component--text", labelClassName)}
-        >
+        <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>
           {labelText}
         </label>
       </section>

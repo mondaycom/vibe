@@ -65,7 +65,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
           data-testid="counter"
@@ -155,7 +155,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
           data-testid="counter"
@@ -244,7 +244,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
           data-testid="counter"
@@ -326,7 +326,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
           data-testid="counter"
@@ -515,7 +515,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     >
       <div
         aria-label="1"
-        className="counter monday-style-counter sizeLarge monday-style-counter--size-large kindFill monday-style-counter--kind-fill colorLight monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
           data-testid="counter"

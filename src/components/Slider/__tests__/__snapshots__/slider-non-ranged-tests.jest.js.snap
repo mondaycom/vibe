@@ -53,7 +53,7 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
++           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
@@ -61,7 +61,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark paddingSizeUndefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -87,7 +87,7 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
+-           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
@@ -95,7 +95,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark paddingSizeUndefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -128,7 +128,7 @@ Snapshot Diff:
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
++           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
@@ -136,7 +136,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
++             class="arrow arrow dark paddingSizeUndefined"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -169,7 +169,7 @@ Snapshot Diff:
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip expandAppear expandAppearActive"
+-           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
@@ -177,7 +177,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="arrow monday-style-tooltip-arrow arrow dark paddingSizeUndefined"
+-             class="arrow arrow dark paddingSizeUndefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />

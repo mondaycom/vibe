@@ -153,7 +153,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent bottom bottom edgeCenter hasTooltip"
     >
       <div
         className="tooltip primary paddingSizeUndefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -172,7 +172,7 @@ Array [
         </div>
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -212,7 +212,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent bottom bottom edgeCenter hasTooltip"
     >
       <div
         className="tooltip primary paddingSizeUndefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -231,7 +231,7 @@ Array [
         </div>
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -271,7 +271,7 @@ Array [
     }
   >
     <div
-      className="contentComponent monday-style-dialog-content-component bottom bottom edgeCenter edge-center hasTooltip has-tooltip"
+      className="contentComponent bottom bottom edgeCenter hasTooltip"
     >
       <div
         className="tooltip primary paddingSizeUndefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
@@ -323,7 +323,7 @@ Array [
         </div>
       </div>
       <div
-        className="arrow monday-style-tooltip-arrow arrow primary paddingSizeUndefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

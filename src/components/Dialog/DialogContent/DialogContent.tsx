@@ -100,18 +100,10 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       >
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
-            className={cx(
-              styles.contentComponent,
-              "monday-style-dialog-content-component",
-              getStyle(styles, camelCase(position)),
-              position,
-              {
-                [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
-                [`edge-${startingEdge}`]: startingEdge,
-                [styles.hasTooltip]: hasTooltip,
-                ["has-tooltip"]: hasTooltip
-              }
-            )}
+            className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), position, {
+              [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
+              [styles.hasTooltip]: hasTooltip
+            })}
             ref={ref}
           >
             {React.Children.toArray(children).map((child: ReactElement) => {

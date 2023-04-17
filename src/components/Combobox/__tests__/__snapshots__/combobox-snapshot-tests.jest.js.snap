@@ -632,7 +632,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           }
         >
           <div
-            className="divider monday-style-divider divider horizontal monday-style-divider--horizontal"
+            className="divider divider horizontal"
             data-testid="divider"
           />
         </div>

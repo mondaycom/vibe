@@ -92,13 +92,13 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class=" css-1ysewv0-menu"
     >
       <div
         class=" css-bknh9q-Component"
       >
         <div
-          class="optionReset dropdown-wrapper__option--reset css-1iwu591-option"
+          class="optionReset css-1iwu591-option"
           id="react-select-32-option-0"
           tabindex="-1"
         >
@@ -109,7 +109,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="optionReset dropdown-wrapper__option--reset css-qj04r2-option"
+          class="optionReset css-qj04r2-option"
           id="react-select-32-option-1"
           tabindex="-1"
         >
@@ -120,7 +120,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-2"
           tabindex="-1"
         >
@@ -131,7 +131,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-3"
           tabindex="-1"
         >
@@ -142,7 +142,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-4"
           tabindex="-1"
         >
@@ -153,7 +153,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-5"
           tabindex="-1"
         >
@@ -945,7 +945,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class=" css-1ysewv0-menu"
     >
       <div
         class=""
@@ -959,7 +959,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-1iwu591-option"
+                class="optionReset css-1iwu591-option"
                 id="react-select-29-option-0"
                 tabindex="-1"
               >
@@ -976,7 +976,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-1"
                 tabindex="-1"
               >
@@ -993,7 +993,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-2"
                 tabindex="-1"
               >
@@ -1010,7 +1010,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-3"
                 tabindex="-1"
               >
@@ -1027,7 +1027,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-4"
                 tabindex="-1"
               >
@@ -1044,7 +1044,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-5"
                 tabindex="-1"
               >
@@ -1061,7 +1061,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-6"
                 tabindex="-1"
               >
@@ -1078,7 +1078,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-7"
                 tabindex="-1"
               >
@@ -1095,7 +1095,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-8"
                 tabindex="-1"
               >
@@ -1112,7 +1112,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-9"
                 tabindex="-1"
               >
@@ -1129,7 +1129,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="optionReset dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-10"
                 tabindex="-1"
               >

@@ -45,12 +45,9 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
         style={style}
         className={cx(
           styles.dialogContentContainer,
-          "dialog-content-container",
           className,
           getStyle(styles, camelCase("type--" + type)),
-          `dialog-content-container--${type}`,
-          getStyle(styles, camelCase("size--" + size)),
-          `dialog-content-container--${size}`
+          getStyle(styles, camelCase("size--" + size))
         )}
       >
         {children}
