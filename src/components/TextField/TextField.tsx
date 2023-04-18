@@ -33,7 +33,7 @@ interface TextFieldProps extends VibeComponentProps {
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
-  onWheel?: (event: React.MouseEvent) => void;
+  onWheel?: (event: React.WheelEvent) => void;
   debounceRate?: number;
   autoFocus?: boolean;
   disabled?: boolean;
