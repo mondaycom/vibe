@@ -1,0 +1,93 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.boxComponent {
+  position: relative;
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-general-label);
+  width: fit-content;
+  height: fit-content;
+  @include theme-prop(color, dark-color);
+  font-family: var(--font-family);
+}
+
+.title {
+  margin: 0;
+}
+
+.textCompact {
+  display: flex;
+  align-items: center;
+  padding-right: var(--spacing-medium);
+}
+
+.text,
+.titleContainer {
+  @include theme-prop(color, primary-text-color);
+}
+
+.typePrimary {
+  @include theme-prop(color, primary-text-color);
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.typePrimaryTitleContainerIcon {
+  @include theme-prop(color, primary-color);
+}
+
+.typeDanger {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.typeDangerTitleContainerIcon {
+  @include theme-prop(color, negative-color);
+}
+
+.typeSuccess {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.typeSuccessTitleContainerIcon {
+  @include theme-prop(color, positive-color);
+}
+
+.typeDark {
+  @include theme-prop(background-color, primary-background-hover-color);
+  @include theme-prop(color, primary-text-color);
+}
+
+.typeDarkTitleContainerIcon {
+  @include theme-prop(color, primary-text-color);
+}
+
+.titleContainer {
+  margin-bottom: var(--spacing-small);
+}
+
+.titleContainer:empty {
+  margin-bottom: 0;
+}
+
+.titleContainerIcon {
+  margin-right: var(--spacing-xs);
+}
+
+.closeIcon.closeIcon {
+  color: var(--primary-text-color);
+}
+
+.closeIconWrapper {
+  position: absolute;
+  top: $spacing-small-medium;
+  right: $spacing-small-medium;
+}
+
+.closeIconCompact {
+  top: calc(50% - 16px);
+}
+
+.titleContainerTitle {
+  font-family: var(--title-font-family);
+}
