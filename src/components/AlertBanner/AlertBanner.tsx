@@ -97,6 +97,7 @@ const AlertBanner: React.FC<AlertBannerProps> & {
         <div className={cx(styles.closeButtonWrapper)}>
           {isCloseHidden ? null : (
             <Button
+              dataTestId="alert-banner-close-button"
               className={cx(styles.closeBtn)}
               onClick={onClose}
               size={Button.sizes.SMALL}

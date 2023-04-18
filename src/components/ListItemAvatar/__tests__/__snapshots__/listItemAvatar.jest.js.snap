@@ -6,12 +6,13 @@ exports[`renders correctly with empty props 1`] = `
   className="listItemAvatar"
 >
   <div
-    className="monday-style-avatar avatar monday-style-avatar--small"
+    className="avatar small avatar"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img"
+      className="circle circleImg"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue)",
@@ -20,7 +21,8 @@ exports[`renders correctly with empty props 1`] = `
       tabIndex={0}
     >
       <img
-        className="monday-style-avatar-content_img monday-style-avatar-content_img--small"
+        className="contentImg contentImgSmall"
+        data-testid="avatar-content"
       />
     </div>
   </div>
@@ -33,17 +35,19 @@ exports[`renders correctly with picture 1`] = `
   className="listItemAvatar"
 >
   <div
-    className="monday-style-avatar avatar monday-style-avatar--small"
+    className="avatar small avatar"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img"
+      className="circle circleImg"
       style={Object {}}
       tabIndex={0}
     >
       <img
-        className="monday-style-avatar-content_img monday-style-avatar-content_img--small"
+        className="contentImg contentImgSmall"
+        data-testid="avatar-content"
         src="person1.png"
       />
     </div>

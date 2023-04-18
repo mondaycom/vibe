@@ -2,11 +2,12 @@
 
 exports[`AttentionBox renders correctly renders correctly 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name"
+  className="boxComponent typePrimary dummy-class-name"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -15,7 +16,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon typePrimaryTitleContainerIcon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -31,13 +32,13 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>
@@ -46,11 +47,12 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly className 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary test-classNmae"
+  className="boxComponent typePrimary test-classNmae"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -59,7 +61,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon typePrimaryTitleContainerIcon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -75,13 +77,13 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>
@@ -90,11 +92,12 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-dark"
+  className="boxComponent typeDark"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-dark__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typeDarkTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -103,7 +106,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-dark__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon typeDarkTitleContainerIcon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -119,13 +122,13 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-dark__text"
+    className="text typeDarkText"
   >
     Text
   </div>
@@ -134,11 +137,12 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary compact"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -147,7 +151,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon typePrimaryTitleContainerIcon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -163,13 +167,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
+    className="text typePrimaryText textCompact"
   >
     Text
   </div>
@@ -178,11 +182,12 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with empty props 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -190,18 +195,19 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
     }
   />
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   />
 </aside>
 `;
 
 exports[`AttentionBox renders correctly renders correctly with empty title prop 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -212,7 +218,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>
@@ -221,11 +227,12 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
 
 exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -234,13 +241,13 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
   >
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>
@@ -249,11 +256,12 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary with-close"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -262,7 +270,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon typePrimaryTitleContainerIcon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -278,18 +286,18 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     </svg>
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>
   <div
-    className="monday-style-attention-box-component__close-icon--wrapper wrapper"
+    className="closeIconWrapper wrapper"
   >
     <span
       className="referenceWrapper"
@@ -306,7 +314,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         aria-disabled={false}
         aria-label="Close"
         aria-pressed={false}
-        className="monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+        className="closeIcon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
         data-testid="icon-button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -348,11 +356,12 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -360,7 +369,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
     }
   />
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     <span>
       renderer with components 
@@ -374,11 +383,12 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 
 exports[`AttentionBox renders correctly renders with icon font type 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="boxComponent typePrimary"
+  data-testid="attention-box"
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
     style={
       Object {
         "gap": "0px",
@@ -387,19 +397,19 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   >
     <span
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style fa fa fa-star"
+      className="icon_component titleContainerIcon typePrimaryTitleContainerIcon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
       role="img"
     />
     <h4
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component title element-type-h4 size-large single-line-ellipsis"
     >
       Title
     </h4>
   </div>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text typePrimaryText"
   >
     Text
   </div>

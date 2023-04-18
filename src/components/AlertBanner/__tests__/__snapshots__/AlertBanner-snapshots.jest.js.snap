@@ -3,14 +3,15 @@
 exports[`AlertBanner should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
-  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  className="alertBanner primary"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   />
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   />
 </div>
 `;
@@ -18,20 +19,22 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
 exports[`AlertBanner should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
-  className="my-lorem-ipsum-banner monday-alert-banner monday-alert-banner--background-color-negative"
+  className="my-lorem-ipsum-banner alertBanner negative"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   >
     <div
-      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+      className="innerItem innerItemText"
     >
       <div
-        className="monday-alert-banner__ellipsis"
+        className="ellipsis"
       >
         <div
-          className="monday-style-alert-banner-text"
+          className="bannerText"
+          data-testid="alert-banner-text"
         >
           <span>
             Lorem ipsum dolor sit amet
@@ -41,15 +44,15 @@ exports[`AlertBanner should render correctly with props 1`] = `
     </div>
   </div>
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       aria-pressed={false}
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="closeBtn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="alert-banner-close-button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -81,22 +84,23 @@ exports[`AlertBanner should render correctly with props 1`] = `
 exports[`AlertBanner should render correctly without props 1`] = `
 <div
   aria-label="banner"
-  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  className="alertBanner primary"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   />
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       aria-pressed={false}
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="closeBtn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="alert-banner-close-button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -128,20 +132,22 @@ exports[`AlertBanner should render correctly without props 1`] = `
 exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
-  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  className="alertBanner primary"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   >
     <div
-      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+      className="innerItem innerItemText"
     >
       <div
-        className="monday-alert-banner__ellipsis"
+        className="ellipsis"
       >
         <div
-          className="monday-style-alert-banner-text"
+          className="bannerText"
+          data-testid="alert-banner-text"
         >
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -150,10 +156,11 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="monday-alert-banner__inner-item"
+      className="innerItem"
     >
       <div
-        className="monday-style-alert-banner-link-margin-left"
+        className="marginLeft"
+        data-testid="alert-banner-link"
       >
         <a
           aria-label=""
@@ -166,7 +173,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text monday-style-alert-banner-link"
+            className="monday-style-link--text bannerLink"
           >
             Lorem ipsum
           </span>
@@ -174,13 +181,14 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+      className="innerItem innerItemText"
     >
       <div
-        className="monday-alert-banner__ellipsis"
+        className="ellipsis"
       >
         <div
-          className="monday-style-alert-banner-text monday-style-alert-banner-text-margin-left"
+          className="bannerText marginLeft"
+          data-testid="alert-banner-text"
         >
           <span>
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -189,16 +197,17 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="monday-alert-banner__inner-item"
+      className="innerItem"
     >
       <div
-        className="monday-style-alert-banner-button-margin-left"
+        className="marginLeft"
+        data-testid="alert-banner-button"
       >
         <button
           aria-busy={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+          className="bannerButton monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
           onBlur={[Function]}
           onClick={[Function]}
@@ -213,15 +222,15 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
     </div>
   </div>
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       aria-pressed={false}
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="closeBtn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="alert-banner-close-button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -253,20 +262,22 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 exports[`AlertBanner should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
-  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  className="alertBanner primary"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   >
     <div
-      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+      className="innerItem innerItemText"
     >
       <div
-        className="monday-alert-banner__ellipsis"
+        className="ellipsis"
       >
         <div
-          className="monday-style-alert-banner-text"
+          className="bannerText"
+          data-testid="alert-banner-text"
         >
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -275,10 +286,11 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       </div>
     </div>
     <div
-      className="monday-alert-banner__inner-item"
+      className="innerItem"
     >
       <div
-        className="monday-style-alert-banner-link-margin-left"
+        className="marginLeft"
+        data-testid="alert-banner-link"
       >
         <a
           aria-label=""
@@ -291,7 +303,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text monday-style-alert-banner-link"
+            className="monday-style-link--text bannerLink"
           >
             Lorem ipsum
           </span>
@@ -300,15 +312,15 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
     </div>
   </div>
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       aria-pressed={false}
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="closeBtn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="alert-banner-close-button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -340,20 +352,22 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
 exports[`AlertBanner should render with correctly with text and link 2`] = `
 <div
   aria-label="banner"
-  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  className="alertBanner primary"
+  data-testid="alert-banner"
   role="banner"
 >
   <div
-    className="monday-alert-banner__inner"
+    className="inner"
   >
     <div
-      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+      className="innerItem innerItemText"
     >
       <div
-        className="monday-alert-banner__ellipsis"
+        className="ellipsis"
       >
         <div
-          className="monday-style-alert-banner-text"
+          className="bannerText"
+          data-testid="alert-banner-text"
         >
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -362,16 +376,17 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
       </div>
     </div>
     <div
-      className="monday-alert-banner__inner-item"
+      className="innerItem"
     >
       <div
-        className="monday-style-alert-banner-button-margin-left"
+        className="marginLeft"
+        data-testid="alert-banner-button"
       >
         <button
           aria-busy={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+          className="bannerButton monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
           onBlur={[Function]}
           onClick={[Function]}
@@ -386,15 +401,15 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
     </div>
   </div>
   <div
-    className="monday-alert-banner__close-button-wrapper"
+    className="closeButtonWrapper"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       aria-pressed={false}
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="closeBtn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="alert-banner-close-button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
