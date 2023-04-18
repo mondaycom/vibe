@@ -26,7 +26,8 @@ export enum TextFieldTextType {
   PASSWORD = "password",
   SEARCH = "search",
   DATE = "date",
-  DATE_TIME = "datetime-local"
+  DATE_TIME = "datetime-local",
+  NUMBER = "number"
 }
 
 export enum TextFieldFeedbackState {
