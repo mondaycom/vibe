@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { BASE_SIZES, BASE_SIZES_VALUES } from "../../../../constants";
+import { BaseSizes } from "../../../../constants";
 import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import {
@@ -28,7 +28,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;
   colorStyle?: ColorStyle;
-  colorSize?: BASE_SIZES_VALUES;
+  colorSize?: BaseSizes;
   colorShape?: ColorShapes;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   noColorText?: string;
@@ -52,9 +52,9 @@ export interface ColorPickerContentProps extends VibeComponentProps {
 const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
   // Backward compatibility for enum naming
   COLOR_STYLES?: typeof ColorStyle;
-  sizes?: BASE_SIZES_VALUES;
+  sizes?: BaseSizes;
   colorStyles?: typeof ColorStyle;
-  colorSizes?: BASE_SIZES_VALUES;
+  colorSizes?: BaseSizes;
   colorShapes?: typeof ColorShapes;
 } = forwardRef(
   (
@@ -71,7 +71,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       isBlackListMode = true,
       colorsList,
       isMultiselect,
-      colorSize = BASE_SIZES.MEDIUM,
+      colorSize = BaseSizes.MEDIUM,
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       tooltipContentByColor = {},
       focusOnMount,
@@ -150,9 +150,9 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 Object.assign(ColorPickerContent, {
   // Backward compatibility for enum naming
   COLOR_STYLES: ColorStyle,
-  sizes: BASE_SIZES,
+  sizes: typeof BaseSizes,
   colorStyles: ColorStyle,
-  colorSizes: BASE_SIZES,
+  colorSizes: typeof BaseSizes,
   colorShapes: ColorShapes
 });
 

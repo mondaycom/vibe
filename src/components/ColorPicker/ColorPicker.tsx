@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { BASE_SIZES, BASE_SIZES_VALUES } from "../../constants";
+import { BaseSizes } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { ColorStyle } from "../../utils/colors-vars-map";
@@ -29,7 +29,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   isBlackListMode?: boolean;
   colorsList?: ColorPickerArrayValueOnly;
   isMultiselect?: boolean;
-  colorSize?: BASE_SIZES_VALUES;
+  colorSize?: BaseSizes;
   numberOfColorsInLine?: number;
   focusOnMount?: boolean;
   colorShape?: ColorShapes;
@@ -49,9 +49,9 @@ export interface ColorPickerProps extends VibeComponentProps {
 const ColorPicker: VibeComponent<ColorPickerProps> & {
   // Backward compatibility for enum naming
   COLOR_STYLES?: typeof ColorStyle;
-  sizes?: BASE_SIZES_VALUES;
+  sizes?: typeof BaseSizes;
   colorStyles?: typeof ColorStyle;
-  colorSizes?: BASE_SIZES_VALUES;
+  colorSizes?: typeof BaseSizes;
   colorShapes?: typeof ColorShapes;
 } = forwardRef(
   (
@@ -68,7 +68,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       isBlackListMode = true,
       colorsList = [],
       isMultiselect,
-      colorSize = BASE_SIZES.MEDIUM,
+      colorSize = BaseSizes.MEDIUM,
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       focusOnMount,
       colorShape = ColorShapes.SQUARE,
@@ -119,9 +119,9 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
 Object.assign(ColorPicker, {
   // Backward compatibility for enum naming
   COLOR_STYLES: ColorStyle,
-  sizes: BASE_SIZES,
+  sizes: BaseSizes,
   colorStyles: ColorStyle,
-  colorSizes: BASE_SIZES,
+  colorSizes: BaseSizes,
   colorShapes: ColorShapes
 });
 

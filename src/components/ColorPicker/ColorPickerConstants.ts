@@ -1,9 +1,9 @@
-import { BASE_SIZES_VALUES, SIZES } from "../../constants/sizes";
+import { BaseSizes, SIZES } from "../../constants/sizes";
 import { CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
 
 export const DEFAULT_NUMBER_OF_COLORS_IN_LINE = 5;
 
-export const COLOR_SIZES: Record<BASE_SIZES_VALUES, number> = {
+export const COLOR_SIZES: Record<BaseSizes, number> = {
   [SIZES.SMALL]: 24,
   [SIZES.MEDIUM]: 32,
   [SIZES.LARGE]: 40

@@ -10,7 +10,7 @@ import { ColorShapes, ColorPickerValueOnly } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
-import { BASE_SIZES_VALUES } from "../../../../constants";
+import { BaseSizes } from "../../../../constants";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: ColorPickerValueOnly;
@@ -20,7 +20,7 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
   ColorIndicatorIcon: SubIcon;
   SelectedIndicatorIcon: SubIcon;
   isSelected: boolean;
-  colorSize: BASE_SIZES_VALUES;
+  colorSize: BaseSizes;
   tooltipContent: ElementContent;
   isActive: boolean;
   colorShape: ColorShapes;
