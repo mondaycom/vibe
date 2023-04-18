@@ -101,7 +101,7 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
     const focus = useCallback(() => {
       if (componentRef.current) {
         requestAnimationFrame(() => {
-          componentRef.current.focus();
+          componentRef.current?.focus();
         });
       }
     }, [componentRef]);

@@ -13,6 +13,9 @@ const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export interface ClickableProps extends VibeComponentProps {
+  /**
+   * The type of the clickable element wrapper (for example div or span)
+   */
   elementType?: keyof JSX.IntrinsicElements | string;
   className?: string;
   id?: string;
@@ -22,6 +25,9 @@ export interface ClickableProps extends VibeComponentProps {
   enableTextSelection?: boolean;
   onMouseDown?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
+  /**
+   * Is the element and its content should be hidden from screen readers and other assistive technologies
+   */
   ariaHidden?: boolean;
   // TODO remove string in Vibe 2.0
   ariaHasPopup?: boolean | string;

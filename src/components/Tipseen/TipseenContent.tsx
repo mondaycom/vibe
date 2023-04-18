@@ -17,6 +17,10 @@ const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 interface TipseenContentProps extends VibeComponentProps {
   title?: string;
   /**
+   * Classname for overriding TipseenTitle styles
+   */
+  titleClassName?: string;
+  /**
    * Backward compatability for hideDismiss prop
    */
   isDismissHidden?: boolean;
@@ -39,6 +43,7 @@ interface TipseenContentProps extends VibeComponentProps {
 
 const TipseenContent: FC<TipseenContentProps> = ({
   title,
+  titleClassName,
   children = null,
   // Backward compatability
   isDismissHidden,
@@ -78,7 +83,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
 
   return (
-    <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
+    <TipseenBasicContent title={title} className={BASE_CSS_CLASS} titleClassName={titleClassName}>
       {children ? <span className={cx(bemHelper({ element: "content" }))}>{children}</span> : null}
       <div className={cx(styles.buttons, bemHelper({ element: "buttons" }))}>
         {overrideHideDismiss ? null : (

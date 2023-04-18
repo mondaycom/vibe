@@ -2,8 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="virtualizedGridWrapper virtualized-grid--wrapper"
-  data-testid="virtualized-grid"
+  className="virtualized-grid--wrapper"
 >
   <div
     style={

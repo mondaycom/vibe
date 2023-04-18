@@ -1,8 +1,9 @@
 import React from "react";
 import cx from "classnames";
+import { IComboboxCategory } from "../ComboboxConstants";
 import "./ComboboxCategory.scss";
 
-const ComboboxCategory = ({ category, className }) => {
+const ComboboxCategory = ({ category, className }: { category: IComboboxCategory; className: string }) => {
   const { label, id, ariaLabel } = category;
 
   if (!label) return null;

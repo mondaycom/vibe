@@ -1,11 +1,34 @@
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, { CSSProperties, forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import { comboboxItemRenderer } from "../../ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
+import {
+  COMBOBOX_CATEGORY_ITEM,
+  COMBOBOX_OPTION_ITEM,
+  IComboboxCategoryMap,
+  IComboboxItem,
+  IComboboxOption,
+  IComboboxOptionEvents
+} from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
-export const ComboboxItems = forwardRef(
+interface ComboboxItemsProps extends IComboboxOptionEvents {
+  className?: string;
+  optionClassName?: string;
+  categories?: IComboboxCategoryMap;
+  options?: IComboboxItem[];
+  optionRenderer?: (option: IComboboxOption) => JSX.Element;
+  activeItemIndex?: number;
+  visualFocusItemIndex?: number;
+  optionLineHeight?: number;
+  shouldScrollToSelectedItem?: boolean;
+  renderOnlyVisibleOptions?: boolean;
+  onActiveCategoryChanged?: (category: IComboboxItem) => void;
+  maxOptionsWithoutScroll?: number;
+  itemsMap?: Map<string, IComboboxItem>;
+}
+
+export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
   (
     {
       className,
@@ -23,12 +46,11 @@ export const ComboboxItems = forwardRef(
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
-      forceUndoScrollNullCheck,
       itemsMap
     },
-    ref
+    ref: RefObject<HTMLDivElement>
   ) => {
-    const activeCategoryId = useRef();
+    const activeCategoryId = useRef<string>();
     const style = useMemo(() => {
       if (maxOptionsWithoutScroll) {
         // Adding 0.5 to show next option to indicate scroll is available
@@ -39,10 +61,9 @@ export const ComboboxItems = forwardRef(
     }, [maxOptionsWithoutScroll, optionLineHeight, options, categories]);
 
     const createItemElementRenderer = useCallback(
-      (item, index, style) =>
+      (item: IComboboxItem, index: number, style: CSSProperties) =>
         comboboxItemRenderer({
           item,
-          index,
           style,
           optionEvents: {
             onOptionClick,
@@ -56,8 +77,7 @@ export const ComboboxItems = forwardRef(
             visualFocusItemIndex,
             scrollRef: renderOnlyVisibleOptions ? null : ref,
             activeItemIndex,
-            shouldScrollToSelectedItem,
-            forceUndoScrollNullCheck
+            shouldScrollToSelectedItem
           },
           isVirtualized: renderOnlyVisibleOptions
         }),
@@ -72,13 +92,12 @@ export const ComboboxItems = forwardRef(
         renderOnlyVisibleOptions,
         ref,
         activeItemIndex,
-        shouldScrollToSelectedItem,
-        forceUndoScrollNullCheck
+        shouldScrollToSelectedItem
       ]
     );
 
     const onItemsRender = useCallback(
-      ({ firstItemId }) => {
+      ({ firstItemId }: { firstItemId?: string }) => {
         window.requestAnimationFrame(() => {
           const itemData = itemsMap.get(firstItemId);
           if (itemData && (itemData.type === COMBOBOX_CATEGORY_ITEM || itemData.type === COMBOBOX_OPTION_ITEM)) {
@@ -91,7 +110,7 @@ export const ComboboxItems = forwardRef(
               onActiveCategoryChanged(categoryObject);
             }
           }
-        }, [itemsMap, onActiveCategoryChanged]);
+        });
       },
       [itemsMap, onActiveCategoryChanged]
     );
@@ -120,7 +139,7 @@ export const ComboboxItems = forwardRef(
           style={style}
           ref={ref}
         >
-          {options.map(itemData => createItemElementRenderer(itemData))}
+          {options.map((itemData, index) => createItemElementRenderer(itemData, index, undefined))}
         </div>
       );
     }

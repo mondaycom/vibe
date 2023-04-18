@@ -1,13 +1,10 @@
-import cx from "classnames";
-import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
+import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
 import { TabPanelProps } from "../TabPanel/TabPanel";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import styles from "./TabPanels.module.scss";
+import "./TabPanels.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
   renderOnlyActiveTab?: boolean;
@@ -16,9 +13,7 @@ export interface TabPanelsProps extends VibeComponentProps {
   children?: ReactElement<TabPanelProps> | ReactElement<TabPanelProps>[];
 }
 
-const TabPanels: FC<TabPanelsProps> & {
-  animationDirections?: typeof TabPanelsAnimationDirection;
-} = forwardRef(
+const TabPanels: FC<TabPanelsProps> = forwardRef(
   (
     {
       className,
@@ -26,9 +21,7 @@ const TabPanels: FC<TabPanelsProps> & {
       activeTabId = 0,
       animationDirection = TabPanelsAnimationDirection.RTL,
       children,
-      // TODO Vibe 2.0 BREAKING change to true - breaking change
-      renderOnlyActiveTab = false,
-      "data-testid": dataTestId
+      renderOnlyActiveTab = false // TODO BREAKING change to true - breaking change
     },
     ref
   ) => {
@@ -43,26 +36,13 @@ const TabPanels: FC<TabPanelsProps> & {
         return React.cloneElement(child, {
           index,
           ...child.props,
-          className: cx(
-            styles.tabPanel,
-            "tab-panel",
-            [getStyle(styles, activeClass)],
-            activeClass,
-            [getStyle(styles, camelCase(animationClass))],
-            animationClass,
-            child.props.className
-          )
+          className: cx("tab-panel", activeClass, animationClass, child.props.className)
         });
       }).filter(Boolean);
     }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
 
     return (
-      <div
-        ref={mergedRef}
-        className={cx(styles.tabPanelsWrapper, "tab-panels--wrapper", className)}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_PANELS, id)}
-      >
+      <div ref={mergedRef} className={cx("tab-panels--wrapper", className)} id={id}>
         {renderedTabs}
       </div>
     );
