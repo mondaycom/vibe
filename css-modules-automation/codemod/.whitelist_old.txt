@@ -58,6 +58,54 @@
 // monday-ui-react-core/src/components/Button/Button.tsx
 // monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.tsx
 
+// To be migrated
+// 9
+monday-ui-react-core/src/components/AlertBanner/AlertBanner.tsx
+monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.tsx
+monday-ui-react-core/src/components/AlertBanner/AlertBannerLink/AlertBannerLink.tsx
+monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.tsx
+// 10
+monday-ui-react-core/src/components/Accordion/Accordion/Accordion.tsx
+monday-ui-react-core/src/components/AttentionBox/AttentionBox.tsx
+monday-ui-react-core/src/components/Avatar/Avatar.tsx
+monday-ui-react-core/src/components/Avatar/AvatarBadge.tsx
+monday-ui-react-core/src/components/Avatar/AvatarContent.tsx
+// 11
+monday-ui-react-core/src/components/Menu/Menu.tsx
+monday-ui-react-core/src/components/Menu/MenuDivider/MenuDivider.tsx
+monday-ui-react-core/src/components/Menu/MenuGridItem/MenuGridItem.tsx
+monday-ui-react-core/src/components/Menu/MenuItem/MenuItem.tsx
+monday-ui-react-core/src/components/Menu/MenuItemButton/MenuItemButton.tsx
+monday-ui-react-core/src/components/Menu/MenuTitle/MenuTitle.tsx
+monday-ui-react-core/src/components/MenuButton/MenuButton.tsx
+// 12
+monday-ui-react-core/src/components/Toggle/Toggle.tsx
+monday-ui-react-core/src/components/Toggle/ToggleText.tsx
+monday-ui-react-core/src/components/Toggle/MockToggle.tsx
+monday-ui-react-core/src/components/MultiStepIndicator/MultiStepIndicator.tsx
+monday-ui-react-core/src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.jsx
+// 13
+monday-ui-react-core/src/components/Dropdown/Dropdown.jsx
+monday-ui-react-core/src/components/SplitButton/SplitButton.tsx
+monday-ui-react-core/src/components/Steps/Steps.tsx
+monday-ui-react-core/src/components/Steps/StepsCommand.tsx
+monday-ui-react-core/src/components/Steps/StepsDot.tsx
+monday-ui-react-core/src/components/Steps/StepsGalleryHeader.tsx
+monday-ui-react-core/src/components/Steps/StepsHeader.tsx
+monday-ui-react-core/src/components/Steps/StepNumbersHeader.tsx
+// 14
+monday-ui-react-core/src/components/Slider/Slider.tsx
+monday-ui-react-core/src/components/SliderBase/SliderBase.tsx
+monday-ui-react-core/src/components/SliderBase/SliderTrack.tsx
+monday-ui-react-core/src/components/SliderBase/SliderFilledTrack.tsx
+monday-ui-react-core/src/components/SliderBase/SliderThumb.tsx
+monday-ui-react-core/src/components/SliderBase/SliderRail.tsx
+monday-ui-react-core/src/components/Slider/SliderInfix.tsx
+// 15
+monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.tsx
+monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/Bar/Bar.tsx
+monday-ui-react-core/src/components/Dialog/DialogContent.tsx
+
 // Troubles
 // monday-ui-react-core/src/components/Slider/Slider.tsx // custom bem function is used - need to change that before migration
 // monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.tsx
