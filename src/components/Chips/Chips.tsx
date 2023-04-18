@@ -18,6 +18,7 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
 import { BEMClass } from "../../helpers/bem-helper";
+import { ElementContent } from "../../types/ElementContent";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
 
@@ -29,6 +30,14 @@ interface ChipsProps extends VibeComponentProps {
   disabled?: boolean;
   readOnly?: boolean;
   dataTestId?: string;
+  /**
+   * A React element that is positioned to the right of the text
+   */
+  rightRenderer?: ElementContent;
+  /**
+   * A React element that is positioned to the left of the text
+   */
+  leftRenderer?: ElementContent;
   /** Icon to place on the right */
   rightIcon?: SubIcon;
   /** Icon to place on the left */
@@ -121,7 +130,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       disableClickableBehavior = false,
       leftAvatarType = AvatarType.IMG,
       rightAvatarType = AvatarType.IMG,
-      showBorder = false
+      showBorder = false,
+      leftRenderer,
+      rightRenderer
     },
     ref
   ) => {
@@ -249,6 +260,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
               ignoreFocusStyle
             />
           ) : null}
+          {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
           <div className={styles.label} ref={labelRef}>
             {label}
           </div>
@@ -272,6 +284,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
               {...rightAvatarProps}
             />
           ) : null}
+          {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
           {hasCloseButton && (
             <IconButton
               size={ChipsSize.XXS}

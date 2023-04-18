@@ -49,4 +49,14 @@ describe("Chips renders correctly", () => {
     const tree = renderer.create(<Chips leftAvatar={person1} readOnly />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("renders correctly with left custom renderer", () => {
+    const tree = renderer.create(<Chips leftRenderer={<div>custom renderer</div>} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with right custom renderer", () => {
+    const tree = renderer.create(<Chips rightRenderer={<div>custom renderer</div>} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
