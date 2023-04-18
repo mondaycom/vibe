@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.118.0 (2023-04-18)
+
+#### New Features
+* [#1216](https://github.com/mondaycom/monday-ui-react-core/pull/1216) Support custom renderer in Chip component ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.117.0 (2023-04-18)
 
 #### New Features
