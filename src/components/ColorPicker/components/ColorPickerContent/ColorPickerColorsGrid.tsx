@@ -1,13 +1,12 @@
 import React, { useCallback } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
+import { CONTENT_COLORS_VALUES, ColorStyle } from "../../../../utils/colors-vars-map";
 import { BASE_SIZES_VALUES } from "../../../../constants";
 import {
   COLOR_SHAPES_VALUES,
   COLOR_PICKER_ARRAY_VALUE_ONLY,
   COLOR_PICKER_VALUE_ONLY,
-  COLOR_STYLE
 } from "../../ColorPickerConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 
@@ -33,7 +32,7 @@ interface ColorPickerColorsGridProps extends VibeComponentProps {
   colorsToRender?: COLOR_PICKER_ARRAY_VALUE_ONLY;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
-  colorStyle?: COLOR_STYLE;
+  colorStyle?: ColorStyle;
   value?: string | string[];
   shouldRenderIndicatorWithoutBackground?: boolean;
   colorSize?: BASE_SIZES_VALUES;

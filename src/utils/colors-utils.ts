@@ -1,10 +1,10 @@
-import { COLOR_STYLES, COLOR_STYLES_VALUES, contentColors } from "./colors-vars-map";
+import { ColorStyle, contentColors } from "./colors-vars-map";
 
 const ColorUtils = {
-  modes: COLOR_STYLES,
+  modes: ColorStyle,
   contentColors,
-  getMondayColorAsStyle: (color: string, mode: COLOR_STYLES_VALUES = COLOR_STYLES.REGULAR, withVar = true) => {
-    return `${withVar ? "var(" : ""}--color-${color}${mode !== COLOR_STYLES.REGULAR ? `-${mode}` : ""}${
+  getMondayColorAsStyle: (color: string, mode: ColorStyle = ColorStyle.REGULAR, withVar = true) => {
+    return `${withVar ? "var(" : ""}--color-${color}${mode !== ColorStyle.REGULAR ? `-${mode}` : ""}${
       withVar ? ")" : ""
     }`;
   }

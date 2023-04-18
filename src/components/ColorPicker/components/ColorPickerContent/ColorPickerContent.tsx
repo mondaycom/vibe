@@ -2,7 +2,7 @@ import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BASE_SIZES, BASE_SIZES_VALUES } from "../../../../constants";
-import { COLOR_STYLES, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import {
   COLOR_SHAPES,
@@ -10,7 +10,6 @@ import {
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   COLOR_PICKER_VALUE,
   COLOR_PICKER_ARRAY_VALUE_ONLY,
-  COLOR_STYLE
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContent.scss";
@@ -29,7 +28,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;
-  colorStyle?: COLOR_STYLE;
+  colorStyle?: ColorStyle;
   colorSize?: BASE_SIZES_VALUES;
   colorShape?: COLOR_SHAPES_VALUES;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
@@ -58,7 +57,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       onValueChange,
       value,
       noColorText,
-      colorStyle = COLOR_STYLES.REGULAR,
+      colorStyle = ColorStyle.REGULAR,
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,

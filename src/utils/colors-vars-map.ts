@@ -158,13 +158,11 @@ export const contentColors = [
 
 export type CONTENT_COLORS_VALUES = typeof contentColors[number];
 
-export const COLOR_STYLES = {
-  REGULAR: "regular",
-  HOVER: "hover",
-  SELECTED: "selected"
-} as const;
-
-export type COLOR_STYLES_VALUES = typeof COLOR_STYLES[keyof typeof COLOR_STYLES];
+export enum ColorStyle {
+  REGULAR = "regular",
+  HOVER = "hover",
+  SELECTED = "selected"
+}
 
 export const contentColorsByName: Record<string, string> = {
   GRASS_GREEN: "grass_green",

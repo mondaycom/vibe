@@ -3,7 +3,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { BASE_SIZES, BASE_SIZES_VALUES } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES, COLOR_STYLES_VALUES } from "../../utils/colors-vars-map";
+import { ColorStyle } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import {
@@ -11,8 +11,7 @@ import {
   COLOR_SHAPES_VALUES,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   COLOR_PICKER_VALUE,
-  COLOR_PICKER_ARRAY_VALUE_ONLY,
-  COLOR_STYLE
+  COLOR_PICKER_ARRAY_VALUE_ONLY
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
@@ -25,7 +24,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;
-  colorStyle?: COLOR_STYLE;
+  colorStyle?: ColorStyle;
   noColorText?: string;
   shouldRenderIndicatorWithoutBackground?: boolean;
   isBlackListMode?: boolean;
@@ -50,9 +49,9 @@ export interface ColorPickerProps extends VibeComponentProps {
 
 const ColorPicker: VibeComponent<ColorPickerProps> & {
   // Backward compatibility for enum naming
-  COLOR_STYLES?: COLOR_STYLES_VALUES;
+  COLOR_STYLES?: typeof ColorStyle;
   sizes?: BASE_SIZES_VALUES;
-  colorStyles?: COLOR_STYLES_VALUES;
+  colorStyles?: typeof ColorStyle;
   colorSizes?: BASE_SIZES_VALUES;
   colorShapes?: COLOR_SHAPES_VALUES;
 } = forwardRef(
@@ -62,7 +61,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       onSave = NOOP,
       value = "",
       noColorText,
-      colorStyle = COLOR_STYLES.REGULAR,
+      colorStyle = ColorStyle.REGULAR,
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
@@ -120,9 +119,9 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
 
 Object.assign(ColorPicker, {
   // Backward compatibility for enum naming
-  COLOR_STYLES: COLOR_STYLES,
+  COLOR_STYLES: ColorStyle,
   sizes: BASE_SIZES,
-  colorStyles: COLOR_STYLES,
+  colorStyles: ColorStyle,
   colorSizes: BASE_SIZES,
   colorShapes: COLOR_SHAPES
 });
