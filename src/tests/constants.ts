@@ -16,6 +16,7 @@ export enum ComponentDefaultTestId {
   CHIP = "chip",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
+  ALERT_BANNER = "alert-banner",
   ALERT_BANNER_BUTTON = "alert-banner-button",
   ALERT_BANNER_LINK = "alert-banner-link",
   ALERT_BANNER_TEXT = "alert-banner-text",
