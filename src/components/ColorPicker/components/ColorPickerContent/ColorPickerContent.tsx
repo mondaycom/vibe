@@ -49,7 +49,14 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> = forwardRef(
+const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
+  // Backward compatibility for enum naming
+  COLOR_STYLES?: typeof ColorStyle;
+  sizes?: BASE_SIZES_VALUES;
+  colorStyles?: typeof ColorStyle;
+  colorSizes?: BASE_SIZES_VALUES;
+  colorShapes?: typeof ColorShapes;
+} = forwardRef(
   (
     {
       className,
@@ -139,5 +146,14 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     );
   }
 );
+
+Object.assign(ColorPickerContent, {
+  // Backward compatibility for enum naming
+  COLOR_STYLES: ColorStyle,
+  sizes: BASE_SIZES,
+  colorStyles: ColorStyle,
+  colorSizes: BASE_SIZES,
+  colorShapes: ColorShapes
+});
 
 export default ColorPickerContent;
