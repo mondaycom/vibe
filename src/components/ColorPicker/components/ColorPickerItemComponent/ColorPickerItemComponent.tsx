@@ -6,15 +6,15 @@ import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { ColorShapes, COLOR_PICKER_VALUE_ONLY } from "../../ColorPickerConstants";
+import { ColorShapes, ColorPickerValueOnly } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
 import { BASE_SIZES_VALUES } from "../../../../constants";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
-  color: COLOR_PICKER_VALUE_ONLY;
-  onColorClicked: (color: COLOR_PICKER_VALUE_ONLY) => void;
+  color: ColorPickerValueOnly;
+  onColorClicked: (color: ColorPickerValueOnly) => void;
   colorStyle: ColorStyle;
   shouldRenderIndicatorWithoutBackground: boolean;
   ColorIndicatorIcon: SubIcon;

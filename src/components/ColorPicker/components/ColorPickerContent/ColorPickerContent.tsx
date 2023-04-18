@@ -7,8 +7,8 @@ import NoColor from "../../../Icon/Icons/components/NoColor";
 import {
   ColorShapes,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  COLOR_PICKER_VALUE,
-  COLOR_PICKER_ARRAY_VALUE_ONLY
+  ColorPickerValue,
+  ColorPickerArrayValueOnly
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContent.scss";
@@ -21,9 +21,9 @@ import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
-  value: COLOR_PICKER_VALUE;
-  onValueChange: (value: COLOR_PICKER_ARRAY_VALUE_ONLY) => any;
-  colorsList: COLOR_PICKER_ARRAY_VALUE_ONLY;
+  value: ColorPickerValue;
+  onValueChange: (value: ColorPickerArrayValueOnly) => any;
+  colorsList: ColorPickerArrayValueOnly;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
   NoColorIcon?: SubIcon;

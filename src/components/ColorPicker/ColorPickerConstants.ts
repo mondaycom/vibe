@@ -17,8 +17,6 @@ export enum ColorShapes {
   CIRCLE = "circle"
 }
 
-export type COLOR_STYLE = "regular" | "selected";
-
-export type COLOR_PICKER_VALUE_ONLY = CONTENT_COLORS_VALUES | string;
-export type COLOR_PICKER_ARRAY_VALUE_ONLY = CONTENT_COLORS_VALUES[] | string[];
-export type COLOR_PICKER_VALUE = COLOR_PICKER_VALUE_ONLY | COLOR_PICKER_ARRAY_VALUE_ONLY;
+export type ColorPickerValueOnly = CONTENT_COLORS_VALUES | string;
+export type ColorPickerArrayValueOnly = CONTENT_COLORS_VALUES[] | string[];
+export type ColorPickerValue = ColorPickerValueOnly | ColorPickerArrayValueOnly;
