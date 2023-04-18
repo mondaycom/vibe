@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.117.0 (2023-04-18)
+
+#### New Features
+* [#1217](https://github.com/mondaycom/monday-ui-react-core/pull/1217) Add number type and onWheel prop to text field ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### Internal Changes
+* [#1214](https://github.com/mondaycom/monday-ui-react-core/pull/1214) Css modules comment ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.116.3 (2023-04-16)
 
 #### Bug Fixes
