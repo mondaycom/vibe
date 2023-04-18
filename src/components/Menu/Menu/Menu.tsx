@@ -50,7 +50,7 @@ const Menu: VibeComponent<MenuProps> & {
 } = forwardRef(
   (
     {
-      id,
+      id = "menu",
       className,
       // Backward compatibility for props naming
       classname,
@@ -71,25 +71,11 @@ const Menu: VibeComponent<MenuProps> & {
     forwardedRef
   ) => {
     const ref = useRef<HTMLElement>(null);
+    const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
+
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-    const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
+    const [activeItemIndex, setActiveItemIndexState] = useState(focusItemIndex);
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
-
-    const onSetActiveItemIndexCallback = useCallback(
-      (index: number) => {
-        setActiveItemIndex(index);
-        setIsInitialSelectedState(false);
-      },
-      [setActiveItemIndex, setIsInitialSelectedState]
-    );
-
-    useEffect(() => {
-      if (focusItemIndexOnMount === -1) {
-        return;
-      }
-      setActiveItemIndex(focusItemIndexOnMount);
-      setIsInitialSelectedState(true);
-    }, [focusItemIndexOnMount, setIsInitialSelectedState]);
 
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
@@ -103,6 +89,39 @@ const Menu: VibeComponent<MenuProps> & {
         return false;
       });
     }, [originalChildren]);
+
+    const setActiveItemIndex = useCallback(
+      (index: number) => {
+        setActiveItemIndexState(index);
+
+        const activeChild = children[index];
+        const ariaActiveDescendant = React.isValidElement(activeChild)
+          ? activeChild?.props?.id || `${id}-${index}`
+          : undefined;
+        if (ariaActiveDescendant) {
+          ref?.current?.setAttribute("aria-activedescendant", ariaActiveDescendant);
+        } else {
+          ref?.current?.removeAttribute("aria-activedescendant");
+        }
+      },
+      [children, id]
+    );
+
+    const onSetActiveItemIndexCallback = useCallback(
+      (index: number) => {
+        setActiveItemIndex(index);
+        setIsInitialSelectedState(false);
+      },
+      [setActiveItemIndex]
+    );
+
+    useEffect(() => {
+      if (focusItemIndexOnMount === -1) {
+        return;
+      }
+      setActiveItemIndex(focusItemIndexOnMount);
+      setIsInitialSelectedState(true);
+    }, [focusItemIndexOnMount, setActiveItemIndex, setIsInitialSelectedState]);
 
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
       useSubMenuIndex();
@@ -151,8 +170,6 @@ const Menu: VibeComponent<MenuProps> & {
       });
     }, [ref, focusOnMount, useDocumentEventListeners]);
 
-    const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
-
     const { focusWithinProps } = useFocusWithin({
       onBlurWithin: () => {
         onCloseMenu && onCloseMenu();
@@ -170,7 +187,6 @@ const Menu: VibeComponent<MenuProps> & {
         tabIndex={tabIndex}
         aria-label={ariaLabel}
         role="menu"
-        aria-activedescendant={`${id}-${activeItemIndex}`}
         aria-describedby={ariaDescribedBy}
         onMouseOver={onMouseMove}
       >
