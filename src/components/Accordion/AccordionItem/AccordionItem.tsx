@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
