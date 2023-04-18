@@ -7,8 +7,7 @@ import { ColorStyle } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import {
-  COLOR_SHAPES,
-  COLOR_SHAPES_VALUES,
+  ColorShapes,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   COLOR_PICKER_VALUE,
   COLOR_PICKER_ARRAY_VALUE_ONLY
@@ -33,7 +32,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   colorSize?: BASE_SIZES_VALUES;
   numberOfColorsInLine?: number;
   focusOnMount?: boolean;
-  colorShape?: COLOR_SHAPES_VALUES;
+  colorShape?: ColorShapes;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
@@ -53,7 +52,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
   sizes?: BASE_SIZES_VALUES;
   colorStyles?: typeof ColorStyle;
   colorSizes?: BASE_SIZES_VALUES;
-  colorShapes?: COLOR_SHAPES_VALUES;
+  colorShapes?: typeof ColorShapes;
 } = forwardRef(
   (
     {
@@ -72,7 +71,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       colorSize = BASE_SIZES.MEDIUM,
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       focusOnMount,
-      colorShape = COLOR_SHAPES.SQUARE,
+      colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
       showColorNameTooltip
     },
@@ -123,7 +122,7 @@ Object.assign(ColorPicker, {
   sizes: BASE_SIZES,
   colorStyles: ColorStyle,
   colorSizes: BASE_SIZES,
-  colorShapes: COLOR_SHAPES
+  colorShapes: ColorShapes
 });
 
 export default ColorPicker;

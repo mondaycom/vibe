@@ -3,11 +3,7 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { CONTENT_COLORS_VALUES, ColorStyle } from "../../../../utils/colors-vars-map";
 import { BASE_SIZES_VALUES } from "../../../../constants";
-import {
-  COLOR_SHAPES_VALUES,
-  COLOR_PICKER_ARRAY_VALUE_ONLY,
-  COLOR_PICKER_VALUE_ONLY,
-} from "../../ColorPickerConstants";
+import { COLOR_PICKER_ARRAY_VALUE_ONLY, COLOR_PICKER_VALUE_ONLY, ColorShapes } from "../../ColorPickerConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
 
 const formatColorNameForTooltip = (color: COLOR_PICKER_VALUE_ONLY) => {
@@ -39,7 +35,7 @@ interface ColorPickerColorsGridProps extends VibeComponentProps {
   numberOfColorsInLine?: number;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>;
   focusOnMount?: boolean;
-  colorShape?: COLOR_SHAPES_VALUES;
+  colorShape?: ColorShapes;
   showColorNameTooltip?: boolean;
 }
 

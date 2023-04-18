@@ -12,12 +12,10 @@ export const COLOR_SIZES: Record<BASE_SIZES_VALUES, number> = {
 export const COLOR_PADDING = 8;
 export const DIALOG_WIDTH_PADDING = 24;
 
-export const COLOR_SHAPES = {
-  SQUARE: "square",
-  CIRCLE: "circle"
-} as const;
-
-export type COLOR_SHAPES_VALUES = typeof COLOR_SHAPES[keyof typeof COLOR_SHAPES];
+export enum ColorShapes {
+  SQUARE = "square",
+  CIRCLE = "circle"
+}
 
 export type COLOR_STYLE = "regular" | "selected";
 

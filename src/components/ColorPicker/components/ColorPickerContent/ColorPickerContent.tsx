@@ -5,11 +5,10 @@ import { BASE_SIZES, BASE_SIZES_VALUES } from "../../../../constants";
 import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import {
-  COLOR_SHAPES,
-  COLOR_SHAPES_VALUES,
+  ColorShapes,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   COLOR_PICKER_VALUE,
-  COLOR_PICKER_ARRAY_VALUE_ONLY,
+  COLOR_PICKER_ARRAY_VALUE_ONLY
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContent.scss";
@@ -30,7 +29,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   NoColorIcon?: SubIcon;
   colorStyle?: ColorStyle;
   colorSize?: BASE_SIZES_VALUES;
-  colorShape?: COLOR_SHAPES_VALUES;
+  colorShape?: ColorShapes;
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
   noColorText?: string;
   shouldRenderIndicatorWithoutBackground?: boolean;
@@ -69,7 +68,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
       tooltipContentByColor = {},
       focusOnMount,
-      colorShape = COLOR_SHAPES.SQUARE,
+      colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
       showColorNameTooltip
     },

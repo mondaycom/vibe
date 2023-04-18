@@ -6,7 +6,7 @@ import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
-import { COLOR_SHAPES, COLOR_SHAPES_VALUES, COLOR_PICKER_VALUE_ONLY } from "../../ColorPickerConstants";
+import { ColorShapes, COLOR_PICKER_VALUE_ONLY } from "../../ColorPickerConstants";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
@@ -23,7 +23,7 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
   colorSize: BASE_SIZES_VALUES;
   tooltipContent: ElementContent;
   isActive: boolean;
-  colorShape: COLOR_SHAPES_VALUES;
+  colorShape: ColorShapes;
   ["data-testid"]?: string;
 }
 
@@ -70,7 +70,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
           className={cx("monday-style-color-item-wrapper", {
             "selected-color": isSelected,
             active: isActive,
-            circle: colorShape === COLOR_SHAPES.CIRCLE
+            circle: colorShape === ColorShapes.CIRCLE
           })}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
         >
