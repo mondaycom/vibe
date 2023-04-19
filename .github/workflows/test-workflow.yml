@@ -6,9 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-            run: |
-              npm run check
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
@@ -20,9 +17,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
       - name: Test
-        if: success()
         run: |
-          npm run test
+          npm run check
 
   lint:
     runs-on: ubuntu-latest
