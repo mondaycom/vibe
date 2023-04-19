@@ -17,6 +17,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
       - name: Test
+        env:
+          GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run check
 
