@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.119.0 (2023-04-19)
+
+#### New Features
+* [#1219](https://github.com/mondaycom/monday-ui-react-core/pull/1219) Support scrollable class name for virtualized grid ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1208](https://github.com/mondaycom/monday-ui-react-core/pull/1208) refactor: ColorPicker TS Migration ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.118.0 (2023-04-18)
 
 #### New Features
