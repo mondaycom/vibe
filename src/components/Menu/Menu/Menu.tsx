@@ -76,7 +76,7 @@ const Menu: VibeComponent<MenuProps> & {
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-    const [activeItemIndex, setActiveItemIndexState] = useState(focusItemIndex);
+    const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
 
     const children = useMemo(() => {
@@ -92,9 +92,9 @@ const Menu: VibeComponent<MenuProps> & {
       });
     }, [originalChildren]);
 
-    const setActiveItemIndex = useCallback(
+    const updateActiveItemIndex = useCallback(
       (index: number) => {
-        setActiveItemIndexState(index);
+        setActiveItemIndex(index);
 
         const activeChild = children[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
@@ -111,19 +111,19 @@ const Menu: VibeComponent<MenuProps> & {
 
     const onSetActiveItemIndexCallback = useCallback(
       (index: number) => {
-        setActiveItemIndex(index);
+        updateActiveItemIndex(index);
         setIsInitialSelectedState(false);
       },
-      [setActiveItemIndex]
+      [updateActiveItemIndex]
     );
 
     useEffect(() => {
       if (focusItemIndexOnMount === -1) {
         return;
       }
-      setActiveItemIndex(focusItemIndexOnMount);
+      updateActiveItemIndex(focusItemIndexOnMount);
       setIsInitialSelectedState(true);
-    }, [focusItemIndexOnMount, setActiveItemIndex, setIsInitialSelectedState]);
+    }, [focusItemIndexOnMount, updateActiveItemIndex, setIsInitialSelectedState]);
 
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
       useSubMenuIndex();
@@ -199,7 +199,7 @@ const Menu: VibeComponent<MenuProps> & {
                   ...child?.props,
                   activeItemIndex,
                   index,
-                  setActiveItemIndex,
+                  setActiveItemIndex: updateActiveItemIndex,
                   menuRef: ref,
                   resetOpenSubMenuIndex,
                   isParentMenuVisible: isVisible,
