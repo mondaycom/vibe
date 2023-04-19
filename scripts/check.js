@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
 const execa = require("execa");
-const { stdout } = execa.sync("npx", ["lerna-changelog", "--from", `v${require("../package.json").version}`]);
+const { stdout } = execa.sync("npx", [
+  "lerna-changelog",
+  "--from",
+  `v${require("../package.json").version}`,
+  "--branches master"
+]);
 console.log(stdout);
