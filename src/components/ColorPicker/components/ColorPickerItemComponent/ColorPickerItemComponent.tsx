@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useMemo, forwardRef } from "react";
+import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
 import cx from "classnames";
 import { ColorStyle, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
@@ -48,19 +48,31 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
     const itemRef = useRef<HTMLDivElement>(null);
+    // const [backgroundColor, setBackgroundColor] =
 
     const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
 
-    const setHoverColor = (e: React.MouseEvent<HTMLDivElement>) => {
-      if (colorStyle === ColorStyle.SELECTED) {
-        (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.REGULAR);
-      } else {
-        (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.HOVER);
-      }
-    };
-    const restoreToOriginalColor = (e: React.MouseEvent<HTMLDivElement>) => {
-      (e.target as HTMLDivElement).style.background = colorAsStyle;
-    };
+    useEffect(() => {
+      if (!itemRef?.current || shouldRenderIndicatorWithoutBackground || !isMondayColor) return;
+      const item = itemRef.current;
+      const setHoverColor = (e: MouseEvent) => {
+        if (colorStyle === ColorStyle.SELECTED) {
+          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.REGULAR);
+        } else {
+          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, ColorStyle.HOVER);
+        }
+      };
+      const restoreToOriginalColor = (e: MouseEvent) => {
+        (e.target as HTMLDivElement).style.background = colorAsStyle;
+      };
+      item.addEventListener("mouseenter", setHoverColor, false);
+      item.addEventListener("mouseleave", restoreToOriginalColor, false);
+
+      return () => {
+        item.removeEventListener("mouseenter", setHoverColor, false);
+        item.removeEventListener("mouseleave", restoreToOriginalColor, false);
+      };
+    }, [color, colorAsStyle, colorStyle, isMondayColor, itemRef, shouldRenderIndicatorWithoutBackground]);
 
     const shouldRenderIcon = isSelected || ColorIndicatorIcon;
     const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
@@ -85,8 +97,6 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
             onClick={onClick}
             tabIndex="-1"
             onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
-            onMouseEnter={setHoverColor}
-            onMouseLeave={restoreToOriginalColor}
           >
             <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
               {shouldRenderIcon && (
