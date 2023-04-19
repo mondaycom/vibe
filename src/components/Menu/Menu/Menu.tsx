@@ -22,8 +22,8 @@ import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMen
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import "./Menu.scss";
 import { CloseMenuOption } from "./MenuConstants";
+import "./Menu.scss";
 
 interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -50,7 +50,7 @@ const Menu: VibeComponent<MenuProps> & {
 } = forwardRef(
   (
     {
-      id = "menu",
+      id,
       className,
       // Backward compatibility for props naming
       classname,
@@ -70,6 +70,8 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
+    const overrideId = useMemo(() => id || `menu-${crypto.randomUUID()}`, [id]);
+
     const ref = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -96,7 +98,7 @@ const Menu: VibeComponent<MenuProps> & {
 
         const activeChild = children[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
-          ? activeChild?.props?.id || `${id}-${index}`
+          ? activeChild?.props?.id || `${overrideId}-${index}`
           : undefined;
         if (ariaActiveDescendant) {
           ref?.current?.setAttribute("aria-activedescendant", ariaActiveDescendant);
@@ -104,7 +106,7 @@ const Menu: VibeComponent<MenuProps> & {
           ref?.current?.removeAttribute("aria-activedescendant");
         }
       },
-      [children, id]
+      [children, overrideId]
     );
 
     const onSetActiveItemIndexCallback = useCallback(
@@ -181,7 +183,7 @@ const Menu: VibeComponent<MenuProps> & {
       <ul
         onFocus={focusWithinProps?.onFocus}
         onBlur={focusWithinProps?.onBlur}
-        id={id}
+        id={overrideId}
         className={cx("monday-style-menu", overrideClassName, `monday-style-menu--${size}`)}
         ref={mergedRef}
         tabIndex={tabIndex}
@@ -204,7 +206,7 @@ const Menu: VibeComponent<MenuProps> & {
                   setSubMenuIsOpenByIndex,
                   hasOpenSubMenu: index === openSubMenuIndex,
                   closeMenu: onCloseMenu,
-                  menuId: id,
+                  menuId: overrideId,
                   useDocumentEventListeners,
                   isInitialSelectedState,
                   shouldScrollMenu,
