@@ -1,16 +1,20 @@
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName, ButtonValue } from "./ButtonGroupConstants";
+import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
-import "./ButtonGroup.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import styles from "./ButtonGroup.module.scss";
 
 type ButtonGroupOption = {
   icon?: SubIcon;
@@ -24,7 +28,6 @@ type ButtonGroupOption = {
 };
 
 interface ButtonGroupProps extends VibeComponentProps {
-  className?: string;
   /**
    * Backward compatibility for props naming - please use className instead
    */
@@ -68,7 +71,9 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
       tooltipHideDelay,
       tooltipShowDelay,
       tooltipContainerSelector,
-      tooltipMoveBy
+      tooltipMoveBy,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -117,11 +122,12 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
-            className={cx(`${baseClassName}__option-text`, {
-              selected: isSelected,
-              disabled,
-              "button-disabled": option.disabled
+            className={cx(styles.button, styles.optionText, {
+              [styles.selected]: isSelected,
+              [styles.disabled]: disabled,
+              [styles.buttonDisabled]: option.disabled
             })}
+            activeButtonClassName={styles.activeButton}
           >
             {option.text}
           </ButtonWrapper>
@@ -150,26 +156,24 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
 
     return (
       <div
-        className={cx(baseClassName, overrideClassName, `${baseClassName}--kind-${kind}`, { disabled })}
+        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase("kind-" + kind)), {
+          [styles.disabled]: disabled
+        })}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
         ref={mergedRef}
       >
-        <div
-          role="group"
-          aria-label={groupAriaLabel}
-          className={cx(`${baseClassName}__buttons-container`)}
-          aria-disabled={disabled}
-        >
+        <div role="group" aria-label={groupAriaLabel} className={cx(styles.buttonsContainer)} aria-disabled={disabled}>
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (
-          <div className={`${baseClassName}__sub-text-container`}>{selectedOption.subText}</div>
+          <div className={cx(styles.subTextContainer)}>{selectedOption.subText}</div>
         )}
       </div>
     );
   }
 );
 
-ButtonGroup.sizes = Button.sizes;
-ButtonGroup.kinds = Button.kinds;
+Object.assign(ButtonGroup, { sizes: Button.sizes, kinds: Button.kinds });
 
 export default ButtonGroup;

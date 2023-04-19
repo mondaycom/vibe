@@ -3,6 +3,7 @@ export enum ComponentDefaultTestId {
   // plop_marker:default-data-testid-declarations
   COMBOBOX = "combobox",
   DROPDOWN = "dropdown",
+  BUTTON_GROUP = "button-group",
   BUTTON = "button",
   CLICKABLE = "clickable",
   VIRTUALIZED_LIST = "virtualized-list",
@@ -16,6 +17,8 @@ export enum ComponentDefaultTestId {
   CHIP = "chip",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
+  BANNER = "banner",
+  ALERT_BANNER = "alert-banner",
   ALERT_BANNER_BUTTON = "alert-banner-button",
   ALERT_BANNER_LINK = "alert-banner-link",
   ALERT_BANNER_TEXT = "alert-banner-text",

@@ -1,0 +1,346 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/states";
+$disabled-on-primary-color-opacity: 0.5;
+
+.button {
+  --loader-padding: 8px;
+  outline: none;
+  border: none;
+  height: auto;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--motion-productive-short) transform,
+    var(--motion-productive-medium) var(--motion-timing-transition) min-width;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include focus-style();
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Will be updated dynamically after render by js */
+  --element-width: 32;
+  --element-height: 32;
+}
+
+.marginRight {
+  margin-right: $spacing-small;
+}
+
+.marginLeft {
+  margin-left: $spacing-small;
+}
+
+.rightFlat {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.leftFlat {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.button {
+  min-width: var(--element-width);
+}
+
+.button.loading {
+  min-width: 0;
+}
+
+.button.loading.hasStyleSize {
+  width: var(--element-height);
+  max-width: var(--element-height);
+  height: var(--element-height);
+  max-height: var(--element-height);
+}
+
+.button.loading {
+  position: relative;
+}
+
+.button .loader {
+  width: calc(var(--element-height) - var(--loader-padding) * 2);
+  height: calc(var(--element-height) - var(--loader-padding) * 2);
+  position: absolute;
+  top: var(--loader-padding);
+  left: auto;
+}
+
+.button .loader .loaderSvg {
+  width: calc(var(--element-height) - var(--loader-padding) * 2);
+  height: calc(var(--element-height) - var(--loader-padding) * 2);
+}
+
+.button:active:not(.preventClickAnimation) {
+  transform: scale(0.95) translate3d(0, 0, 0);
+}
+
+.button .leftIcon {
+  margin-right: var(--spacing-small);
+}
+
+.button .rightIcon {
+  margin-left: var(--spacing-small);
+}
+
+.sizeXxs {
+  @include font-input();
+  padding: $spacing-xxs $spacing-xs;
+  height: 16px;
+  line-height: 16px;
+}
+
+.sizeXs {
+  @include font-input();
+  padding: $spacing-xs $spacing-small;
+  height: 24px;
+  line-height: 21px;
+}
+
+.sizeSmall {
+  @include font-input();
+  padding: $spacing-xs $spacing-small;
+  height: 32px;
+  line-height: 24px;
+}
+
+.sizeSmall .loader {
+  top: 7px;
+}
+
+.sizeMedium {
+  @include font-paragraph();
+  padding: $spacing-small $spacing-medium;
+  height: 40px;
+}
+
+.sizeLarge {
+  @include font-paragraph();
+  padding: $spacing-small-medium $spacing-large;
+  height: 48px;
+}
+
+.kindPrimary {
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.kindPrimary.colorPrimary {
+  @include theme-prop(background-color, primary-color);
+}
+
+.kindPrimary.colorPrimaryActive,
+.kindPrimary.colorPrimary:hover,
+.kindPrimary.colorPrimary:focus {
+  @include theme-prop(background-color, primary-hover-color);
+}
+
+.kindPrimary.colorPositive {
+  @include theme-prop(background-color, positive-color);
+}
+
+.kindPrimary.colorPositiveActive,
+.kindPrimary.colorPositive:hover,
+.kindPrimary.colorPositive:focus {
+  @include theme-prop(background-color, positive-color-hover);
+}
+
+.kindPrimary.colorNegative {
+  @include theme-prop(background-color, negative-color);
+}
+
+.kindPrimary.colorNegativeActive,
+.kindPrimary.colorNegative:hover,
+.kindPrimary.colorNegative:focus {
+  @include theme-prop(background-color, negative-color-hover);
+}
+
+.kindPrimary.colorOnPrimaryColor {
+  @include theme-prop(background-color, text-color-on-primary);
+}
+
+.kindPrimary.colorOnPrimaryColorActive,
+.kindPrimary.colorOnPrimaryColor:hover,
+.kindPrimary.colorOnPrimaryColor:focus {
+  background-color: #e6e9ef;
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorOnPrimaryColor.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-on-primary);
+}
+
+.kindPrimary.button.disabled {
+  @include theme-prop(background-color, disabled-background-color);
+  @include theme-prop(color, disabled-text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.kindSecondary {
+  border: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+  @include theme-prop(color, primary-text-color);
+  background-color: transparent;
+}
+
+.kindSecondary.sizeSmall {
+  line-height: 22px;
+}
+
+.kindSecondary.sizeMedium {
+  line-height: 22px;
+}
+
+.kindSecondary.sizeLarge {
+  line-height: 22px;
+}
+
+.kindSecondary.colorPrimaryActive,
+.kindSecondary.colorPrimaryActive:hover {
+  background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
+}
+
+.kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
+.kindSecondary.colorPrimary:focus:not(.colorPrimaryActive) {
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.kindSecondary.colorPositive {
+  @include theme-prop(color, positive-color);
+  @include theme-prop(border-color, positive-color);
+}
+
+.kindSecondary.colorPositiveActive,
+.kindSecondary.colorPositive:hover,
+.kindSecondary.colorPositive:focus {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.kindSecondary.colorNegative {
+  @include theme-prop(color, negative-color);
+  @include theme-prop(border-color, negative-color);
+}
+
+.kindSecondary.colorNegativeActive,
+.kindSecondary.colorNegative:hover,
+.kindSecondary.colorNegative:focus {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.kindSecondary.colorOnPrimaryColor {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(border-color, text-color-on-primary);
+}
+
+.kindSecondary.colorOnPrimaryColorActive,
+.kindSecondary.colorOnPrimaryColor:hover,
+.kindSecondary.colorOnPrimaryColor:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindSecondary.colorOnPrimaryColor.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-on-primary);
+}
+
+.kindSecondary.disabled {
+  @include theme-prop(border-color, disabled-background-color);
+  @include theme-prop(color, disabled-text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.kindSecondary.disabled:hover {
+  background-color: transparent;
+}
+
+.kindTertiary {
+  @include theme-prop(color, primary-text-color);
+  background-color: transparent;
+}
+
+.kindTertiary.colorPrimaryActive,
+.kindTertiary.colorPrimaryActive:hover {
+  background-color: var(--primary-selected-color);
+}
+
+.kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
+.kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.kindTertiary.colorPositive {
+  @include theme-prop(color, positive-color);
+}
+
+.kindTertiary.colorPositiveActive,
+.kindTertiary.colorPositive:hover,
+.kindTertiary.colorPositive:focus {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.kindTertiary.colorNegative {
+  @include theme-prop(color, negative-color);
+}
+
+.kindTertiary.colorNegativeActive,
+.kindTertiary.colorNegative:hover,
+.kindTertiary.colorNegative:focus {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.kindTertiary.colorOnPrimaryColor {
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.kindTertiary.colorOnPrimaryColorActive,
+.kindTertiary.colorOnPrimaryColor:hover,
+.kindTertiary.colorOnPrimaryColor:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindTertiary.colorOnPrimaryColor.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-on-primary);
+}
+
+.kindTertiary.colorOnInvertedBackground {
+  @include theme-prop(color, text-color-on-inverted);
+}
+
+.kindTertiary.colorOnInvertedBackgroundActive,
+.kindTertiary.colorOnInvertedBackground:hover,
+.kindTertiary.colorOnInvertedBackground:focus {
+  backdrop-filter: brightness(85%);
+}
+
+.kindTertiary.disabled {
+  @include theme-prop(color, disabled-text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.kindTertiary.disabled:hover {
+  background-color: transparent;
+}
+
+.noSidePadding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.button.insetFocusStyle {
+  @include focus-style-inset();
+}

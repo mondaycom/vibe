@@ -1,29 +1,29 @@
-import React, { useRef, forwardRef, useMemo } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import React, { useRef, forwardRef, useMemo } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
-import "./Banner.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./Banner.module.scss";
 
 export interface BannerProps extends VibeComponentProps {
   /**
    * custom style
    */
   className?: string;
-
   /**
    * image alt attribute
    */
   imageAlt?: string;
-
   /**
    * image source
    */
   imageSrc?: string;
-
   /**
    * determines the image position
    */
@@ -32,37 +32,30 @@ export interface BannerProps extends VibeComponentProps {
    * image custom style
    */
   imageClassName?: string;
-
   /**
    * title custom render
    */
   renderTitle?: (value: string) => string | React.ReactNode;
-
   /**
    * subtitle custom render
    */
   renderSubtitle?: (value: string) => string | React.ReactNode;
-
   /**
    * title value
    */
   title?: string;
-
   /**
    * sub title value
    */
   subtitle?: string;
-
   /**
    * Add X button to the component when initialized and called when the button is clicked
    */
   onClose?: (event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
-
   /**
    * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
    */
   rtl?: boolean;
-
   /**
    * Set the banner's aria label
    */
@@ -90,7 +83,9 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
       subtitle = "",
       onClose = null,
       rtl = false,
-      ariaLabel = "Banner"
+      ariaLabel = "Banner",
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -100,18 +95,18 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
     const renderedTitle = useMemo(() => {
       const computedTitle = renderTitle(title);
       if (!computedTitle) return null;
-      return <h2 className="banner--title">{computedTitle}</h2>;
+      return <h2 className={styles.bannerTitle}>{computedTitle}</h2>;
     }, [title, renderTitle]);
 
     const renderedSubtitle = useMemo(() => {
       const computedSubtitle = renderSubtitle(subtitle);
       if (!computedSubtitle) return null;
-      return <h3 className="banner--subtitle">{computedSubtitle}</h3>;
+      return <h3 className={styles.bannerSubtitle}>{computedSubtitle}</h3>;
     }, [subtitle, renderSubtitle]);
 
     const renderImage = useMemo(() => {
       if (!imageSrc) return null;
-      return <img src={imageSrc} alt={imageAlt} className={cx("banner--image", imageClassName)} />;
+      return <img src={imageSrc} alt={imageAlt} className={cx(styles.bannerImage, imageClassName)} />;
     }, [imageAlt, imageSrc, imageClassName]);
 
     const renderCloseButton = useMemo(() => {
@@ -120,7 +115,7 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
       return (
         <Button
           onClick={onClose}
-          className="banner--close"
+          className={styles.bannerClose}
           size={Button.sizes.SMALL}
           kind={Button.kinds.TERTIARY}
           color={Button.colors.PRIMARY}
@@ -132,10 +127,18 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
     }, [onClose]);
 
     return (
-      <aside ref={mergedRef} className={cx(className, "banner", { rtl })} aria-label={ariaLabel}>
+      <aside
+        ref={mergedRef}
+        className={cx(className, styles.banner, {
+          [styles.rtl]: rtl
+        })}
+        aria-label={ariaLabel}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BANNER, id)}
+      >
         <div
-          className={cx("banner--content", `image-position__${imagePosition}`, {
-            "close-button-spacing": !!renderCloseButton
+          className={cx(styles.bannerContent, getStyle(styles, camelCase("image-position__" + imagePosition)), {
+            [styles.closeButtonSpacing]: !!renderCloseButton
           })}
         >
           {renderCloseButton}
@@ -148,6 +151,6 @@ const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<
   }
 );
 
-Banner.imagePosition = IMAGE_POSITIONS;
+Object.assign(Banner, { imagePosition: IMAGE_POSITIONS, defaultTestId: ComponentDefaultTestId.BANNER });
 
 export default Banner;
