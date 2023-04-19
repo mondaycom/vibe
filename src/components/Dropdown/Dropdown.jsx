@@ -16,7 +16,8 @@ import MultiValueContainer from "./components/MultiValueContainer/MultiValueCont
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { DROPDOWN_CHIP_COLORS, MENU_WRAPPER_CLASS_NAME } from "./dropdown-constants";
+import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import menuStyles from "./components/menu/menu.module.scss";
 import "./Dropdown.scss";
 
 const Dropdown = ({
@@ -274,8 +275,7 @@ const Dropdown = ({
   const closeMenuOnScroll = useCallback(
     event => {
       const scrolledElement = event.target;
-      // TODO css-modules-migration: replace this logic while removing old class names
-      if (scrolledElement?.parentElement?.classList.contains(MENU_WRAPPER_CLASS_NAME)) {
+      if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapperFixedPosition)) {
         return false;
       }
       return insideOverflowContainer || insideOverflowWithTransformContainer;
