@@ -22,9 +22,6 @@ export interface ColorPickerProps extends VibeComponentProps {
   onSave?: (value: ColorPickerArrayValueOnly) => any;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
-  /**
-   * Hide color icon
-   */
   NoColorIcon?: SubIcon;
   colorStyle?: ColorStyle;
   noColorText?: string;
