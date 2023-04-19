@@ -3,19 +3,21 @@
 exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper disabled"
+      className="breadcrumbItemWrapper disabled"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content disabled"
+        className="breadcrumbContent disabled"
         tabIndex={-1}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           
         </span>
@@ -28,19 +30,21 @@ exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
 exports[`BreadcrumbsItem renders correctly  with className 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper test"
+      className="breadcrumbItemWrapper test"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           
         </span>
@@ -53,20 +57,22 @@ exports[`BreadcrumbsItem renders correctly  with className 1`] = `
 exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper current"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-current="page"
         aria-disabled="true"
-        className="breadcrumb-content current"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           
         </span>
@@ -79,19 +85,21 @@ exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
 exports[`BreadcrumbsItem renders correctly  with empty props 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           
         </span>
@@ -104,19 +112,21 @@ exports[`BreadcrumbsItem renders correctly  with empty props 1`] = `
 exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <svg
-          className="breadcrumb-icon"
+          className="breadcrumbIcon"
           clickable={false}
           fill="currentColor"
           height={14}
@@ -131,7 +141,7 @@ exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
           />
         </svg>
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           
         </span>
@@ -144,19 +154,21 @@ exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
 exports[`BreadcrumbsItem renders correctly  with text 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBarWrapper"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           item
         </span>
