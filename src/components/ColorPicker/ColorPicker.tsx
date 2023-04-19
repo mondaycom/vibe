@@ -13,7 +13,7 @@ import {
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import "./ColorPicker.scss";
+import styles from "./ColorPicker.module.scss";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 
@@ -90,7 +90,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
     return (
       <DialogContentContainer
         ref={mergedRef}
-        className={cx("color-picker--wrapper", "color-picker-dialog-content", className)}
+        className={cx(styles.colorPickerWrapper, styles.colorPickerDialogContent, className)}
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}

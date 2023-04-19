@@ -17,13 +17,9 @@ import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
-import { BEMClass } from "../../helpers/bem-helper";
 import { ElementContent } from "../../types/ElementContent";
-import "../Clickable/Clickable.scss";
+import clickableStyles from "../Clickable/Clickable.module.scss";
 import styles from "./Chips.module.scss";
-
-const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
-const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -158,9 +154,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder
     });
-    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
-      disabled,
-      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    const clickableClassName = cx(clickableStyles.clickable, overrideClassName, {
+      [clickableStyles.disabled]: disabled,
+      [clickableStyles.disableTextSelection]: !allowTextSelection
     });
 
     const overflowProps = useChipOverflowTooltip({

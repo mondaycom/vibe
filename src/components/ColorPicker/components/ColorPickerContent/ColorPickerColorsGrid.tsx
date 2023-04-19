@@ -5,6 +5,7 @@ import { CONTENT_COLORS_VALUES, ColorStyle } from "../../../../utils/colors-vars
 import { BaseSizes } from "../../../../constants";
 import { ColorPickerArrayValueOnly, ColorPickerValueOnly, ColorShapes } from "../../ColorPickerConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../../types";
+import styles from "./ColorPickerColorsGrid.module.scss";
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -70,7 +71,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     });
 
     return (
-      <ul className="color-picker" ref={ref} tabIndex={-1}>
+      <ul className={styles.colorsGrid} ref={ref} tabIndex={-1}>
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent

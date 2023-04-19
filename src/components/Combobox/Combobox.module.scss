@@ -1,0 +1,89 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+
+.comboboxWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include font-general-text();
+  position: relative;
+  margin-bottom: var(--spacing-small);
+}
+
+.comboboxWrapper .comboboxCategoryWithDivider {
+  margin-top: var(--spacing-medium);
+}
+
+.comboboxWrapper.stickyCategory .comboboxCategory {
+  z-index: 10;
+  background-color: var(--secondary-background-color);
+}
+
+/* Relative to Search height */
+
+.comboboxWrapper.stickyCategory.sizeSmall .comboboxCategory {
+  top: 32px;
+}
+
+.comboboxWrapper.stickyCategory.sizeMedium .comboboxCategory {
+  top: 40px;
+}
+
+.comboboxWrapper.stickyCategory.sizeLarge .comboboxCategory {
+  top: 48px;
+}
+
+.comboboxWrapper.empty {
+  max-height: 200px;
+}
+
+.comboboxWrapperSearchWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+}
+
+.comboboxWrapperSearch {
+  flex: 0 0 auto;
+}
+
+.comboboxWrapperNoResults {
+  margin-top: var(--spacing-small);
+  flex: 1 1 auto;
+  height: calc(100% - 20px);
+  overflow: hidden;
+  position: relative;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comboboxWrapperNoResults .comboboxMessageWrapper {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comboboxWrapperNoResults .comboboxMessageWrapper .comboboxMessage {
+  @include ellipsis();
+}
+
+.comboboxWrapperNoResults .addNewButton {
+  flex: 0 0 auto;
+  width: 100% !important;
+  margin-bottom: 8px;
+}
+
+.comboboxWrapperNoResults .addNewButton .buttonLabel {
+  @include ellipsis();
+}
+
+.comboboxWrapperList {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0 4px;
+  overflow: hidden;
+}

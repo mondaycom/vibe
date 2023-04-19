@@ -11,7 +11,6 @@ import {
   ColorPickerArrayValueOnly
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContent.scss";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
@@ -120,7 +119,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
     return (
-      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
+      <div className={className} style={{ width }} ref={ref} tabIndex={-1}>
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid
             ref={colorsRef}
