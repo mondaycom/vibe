@@ -21,6 +21,7 @@
   },
   "scripts": {
     "test": "jest",
+    "check": "./scripts/check.js",
     "test:stories": "testing=storybook TEST_END_FILES=jest-story jest",
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",

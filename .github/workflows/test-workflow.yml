@@ -6,6 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - - name: Test
+            run: |
+              npm run check
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
@@ -37,7 +40,7 @@ jobs:
       - name: Test
         if: success()
         run: |
-          npm run eslint
+          npm run check
 
   stylelint:
     runs-on: ubuntu-latest
