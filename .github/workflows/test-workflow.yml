@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - - name: Test
+      - name: Test
             run: |
               npm run check
       - uses: actions/checkout@v2
