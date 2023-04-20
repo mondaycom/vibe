@@ -132,37 +132,37 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorPrimary {
-  @include theme-prop(background-color, primary-color);
+  @include theme-prop(background, primary-color);
 }
 
 .kindPrimary.colorPrimaryActive,
 .kindPrimary.colorPrimary:hover,
 .kindPrimary.colorPrimary:focus {
-  @include theme-prop(background-color, primary-hover-color);
+  @include theme-prop(background, primary-hover-color);
 }
 
 .kindPrimary.colorPositive {
-  @include theme-prop(background-color, positive-color);
+  @include theme-prop(background, positive-color);
 }
 
 .kindPrimary.colorPositiveActive,
 .kindPrimary.colorPositive:hover,
 .kindPrimary.colorPositive:focus {
-  @include theme-prop(background-color, positive-color-hover);
+  @include theme-prop(background, positive-color-hover);
 }
 
 .kindPrimary.colorNegative {
-  @include theme-prop(background-color, negative-color);
+  @include theme-prop(background, negative-color);
 }
 
 .kindPrimary.colorNegativeActive,
 .kindPrimary.colorNegative:hover,
 .kindPrimary.colorNegative:focus {
-  @include theme-prop(background-color, negative-color-hover);
+  @include theme-prop(background, negative-color-hover);
 }
 
 .kindPrimary.colorOnPrimaryColor {
-  @include theme-prop(background-color, text-color-on-primary);
+  @include theme-prop(background, text-color-on-primary);
 }
 
 .kindPrimary.colorOnPrimaryColorActive,
@@ -179,7 +179,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.button.disabled {
-  @include theme-prop(background-color, disabled-background-color);
+  @include theme-prop(background, disabled-background-color);
   @include theme-prop(color, disabled-text-color);
   cursor: not-allowed;
   pointer-events: none;
@@ -212,7 +212,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindSecondary.colorPrimary:focus:not(.colorPrimaryActive) {
-  @include theme-prop(background-color, primary-background-hover-color);
+  @include theme-prop(background, primary-background-hover-color);
 }
 
 .kindSecondary.colorPositive {
@@ -223,7 +223,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorPositiveActive,
 .kindSecondary.colorPositive:hover,
 .kindSecondary.colorPositive:focus {
-  @include theme-prop(background-color, positive-color-selected);
+  @include theme-prop(background, positive-color-selected);
 }
 
 .kindSecondary.colorNegative {
@@ -234,7 +234,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorNegativeActive,
 .kindSecondary.colorNegative:hover,
 .kindSecondary.colorNegative:focus {
-  @include theme-prop(background-color, negative-color-selected);
+  @include theme-prop(background, negative-color-selected);
 }
 
 .kindSecondary.colorOnPrimaryColor {
@@ -277,7 +277,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
-  @include theme-prop(background-color, primary-background-hover-color);
+  @include theme-prop(background, primary-background-hover-color);
 }
 
 .kindTertiary.colorPositive {
@@ -287,7 +287,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorPositiveActive,
 .kindTertiary.colorPositive:hover,
 .kindTertiary.colorPositive:focus {
-  @include theme-prop(background-color, positive-color-selected);
+  @include theme-prop(background, positive-color-selected);
 }
 
 .kindTertiary.colorNegative {
@@ -297,7 +297,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorNegativeActive,
 .kindTertiary.colorNegative:hover,
 .kindTertiary.colorNegative:focus {
-  @include theme-prop(background-color, negative-color-selected);
+  @include theme-prop(background, negative-color-selected);
 }
 
 .kindTertiary.colorOnPrimaryColor {
