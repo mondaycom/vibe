@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.120.0 (2023-04-20)
+
+#### New Features
+* [#1227](https://github.com/mondaycom/monday-ui-react-core/pull/1227) change background-color to background in order to allow gradient vari… ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.119.0 (2023-04-19)
 
 #### New Features
