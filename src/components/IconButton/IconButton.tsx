@@ -23,13 +23,13 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   onClick?: (event: React.MouseEvent) => void;
   /**
-   * class to be added to the button
-   */
-  className?: string;
-  /**
-   * class to be added to the button wrapper
+   * he class name of the button wrapper
    */
   wrapperClassName?: string;
+  /**
+   * the class name of the button icon
+   */
+  iconClassName?: string;
   /**
    * Icon to be rendered
    */
@@ -85,6 +85,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
     {
       className,
       wrapperClassName,
+      iconClassName,
       id,
       icon = AddSmall,
       size = IconButton.sizes.MEDIUM,
@@ -184,7 +185,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle
-              className="icon-button-padding"
+              className={cx("icon-button-padding", iconClassName)}
               clickable={false}
             />
           </Button>
