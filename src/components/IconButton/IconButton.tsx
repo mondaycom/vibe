@@ -23,7 +23,7 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   onClick?: (event: React.MouseEvent) => void;
   /**
-   * he class name of the button wrapper
+   * the class name of the button wrapper
    */
   wrapperClassName?: string;
   /**
