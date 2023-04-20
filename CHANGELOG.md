@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.121.1 (2023-04-20)
+
+#### Bug Fixes
+* [#1229](https://github.com/mondaycom/monday-ui-react-core/pull/1229) Fix margin between link and is related icon ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.121.0 (2023-04-20)
 
 #### New Features
