@@ -22,6 +22,7 @@ exports[`renders correctly with empty props 1`] = `
   >
     <ul
       className="colorsGrid"
+      data-testid="color-picker"
       tabIndex={-1}
     >
       <li
