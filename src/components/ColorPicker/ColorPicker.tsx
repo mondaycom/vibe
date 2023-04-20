@@ -13,9 +13,10 @@ import {
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import styles from "./ColorPicker.module.scss";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../types";
 import { NOOP } from "../../utils/function-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./ColorPicker.module.scss";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;
@@ -76,7 +77,9 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       focusOnMount,
       colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -113,6 +116,8 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
           colorShape={colorShape}
           forceUseRawColorList={forceUseRawColorList}
           showColorNameTooltip={showColorNameTooltip}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
         />
       </DialogContentContainer>
     );
@@ -125,7 +130,8 @@ Object.assign(ColorPicker, {
   sizes: BaseSizes,
   colorStyles: ColorStyle,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes
+  colorShapes: ColorShapes,
+  defaultTestId: ComponentDefaultTestId.COLOR_PICKER
 });
 
 export default ColorPicker;

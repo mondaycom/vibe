@@ -55,7 +55,9 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       colorSize,
       tooltipContentByColor,
       colorShape,
-      showColorNameTooltip: showColorNameTooltip
+      showColorNameTooltip: showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -71,7 +73,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
     });
 
     return (
-      <ul className={styles.colorsGrid} ref={ref} tabIndex={-1}>
+      <ul className={styles.colorsGrid} ref={ref} tabIndex={-1} id={id} data-testid={dataTestId}>
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent

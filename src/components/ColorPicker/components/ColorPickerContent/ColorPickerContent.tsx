@@ -75,7 +75,9 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       focusOnMount,
       colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -135,6 +137,8 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
             showColorNameTooltip={showColorNameTooltip && !forceUseRawColorList}
+            id={id}
+            data-testid={dataTestId}
           />
           {noColorText && (
             <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />
