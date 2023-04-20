@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.121.0 (2023-04-20)
+
+#### New Features
+* [#1228](https://github.com/mondaycom/monday-ui-react-core/pull/1228) Add icon class name to icon button ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.120.0 (2023-04-20)
 
 #### New Features
