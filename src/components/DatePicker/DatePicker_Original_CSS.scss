@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
@@ -149,7 +151,7 @@
 }
 .SingleDatePicker_closeButton:focus,
 .SingleDatePicker_closeButton:hover {
-  color: darken(#cacccd, 10%);
+  color: color.adjust(#cacccd, -10%);
   text-decoration: none;
 }
 .SingleDatePicker_closeButton_svg {
@@ -876,7 +878,7 @@
 }
 .DateRangePicker_closeButton:focus,
 .DateRangePicker_closeButton:hover {
-  color: darken(#cacccd, 10%);
+  color: color.adjust(#cacccd, -10%);
   text-decoration: none;
 }
 .DateRangePicker_closeButton_svg {
