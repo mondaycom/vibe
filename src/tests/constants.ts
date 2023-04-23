@@ -17,7 +17,6 @@ export enum ComponentDefaultTestId {
   RADIO_BUTTON = "radio-button",
   RADIO_BUTTON_LABEL = "radio-button-label",
   RADIO_BUTTON_CONTROL = "radio-button-control",
-  RADIO_BUTTON_INPUT = "radio-button-input",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
   TAB_PANELS = "tab-panels",
