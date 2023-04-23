@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="responsiveListRoot responsive-list--root"
+  className="responsiveListRoot"
   data-testid="responsive-list"
   id=""
 >
