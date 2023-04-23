@@ -117,12 +117,20 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               ref={mergedRef}
             />
             <span
+              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_CONTROL, id)}
               className={cx(styles.control, radioButtonClassName, {
                 [styles.labelAnimation]: !noLabelAnimation
               })}
             />
           </span>
-          {text && <span className={cx(styles.label, labelClassName)}>{text}</span>}
+          {text && (
+            <span
+              className={cx(styles.label, labelClassName)}
+              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
+            >
+              {text}
+            </span>
+          )}
           {children && (
             <Clickable onClick={onChildClick} tabIndex={childrenTabIndex}>
               {children}

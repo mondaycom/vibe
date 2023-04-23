@@ -128,6 +128,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <div
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
           className={cx(styles.content, {
             [styles.contentNoIcon]: !iconElement
           })}
