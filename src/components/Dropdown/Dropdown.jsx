@@ -4,7 +4,6 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
-import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import MenuComponent from "./components/menu/menu";
@@ -298,7 +297,6 @@ const Dropdown = ({
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
           ValueContainer: MultiValueContainer
         }),
-        ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
       closeMenuOnScroll={closeMenuOnScroll}
