@@ -23,6 +23,7 @@ import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "./MenuConstants";
+import { generateUuid } from "../../../utils/function-utils";
 import "./Menu.scss";
 
 interface MenuProps extends VibeComponentProps {
@@ -70,7 +71,7 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
-    const overrideId = useMemo(() => id || `menu-${crypto.randomUUID()}`, [id]);
+    const overrideId = useMemo(() => id || `menu-${generateUuid()}`, [id]);
 
     const ref = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });

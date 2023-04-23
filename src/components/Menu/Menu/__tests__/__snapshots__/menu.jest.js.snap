@@ -4,7 +4,7 @@ exports[`Snapshots renders correctly with children 1`] = `
 <ul
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
-  id="menu"
+  id="menu-lgt9666osanxf"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseOver={[Function]}
@@ -23,7 +23,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   <li
     aria-current={false}
     className="monday-style-menu-item"
-    id="menu-1"
+    id="menu-lgt9666osanxf-1"
     onClick={[Function]}
     role="menuitem"
     tabIndex={-1}
@@ -49,7 +49,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   <li
     aria-current={false}
     className="monday-style-menu-item"
-    id="menu-2"
+    id="menu-lgt9666osanxf-2"
     onClick={[Function]}
     role="menuitem"
     tabIndex={-1}
@@ -79,7 +79,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 <ul
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
-  id="menu"
+  id="menu-lgt9666bvghy5"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseOver={[Function]}
@@ -92,7 +92,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 <ul
   aria-label="Menu"
   className="monday-style-menu monday-style-menu--medium"
-  id="menu"
+  id="menu-lgt9665l106pl"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseOver={[Function]}
