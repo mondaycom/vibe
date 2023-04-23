@@ -1,0 +1,46 @@
+@import "../../../../styles/global-css-settings";
+@import "../../../../styles/themes";
+@import "../../../../styles/typography";
+
+.bar {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--border-radius-small);
+}
+
+.typePrimaryPrimary {
+  @include theme-prop(background-color, primary-color);
+}
+
+.typePrimarySecondary {
+  @include theme-prop(background-color, dark-color);
+}
+
+.typePrimaryPositive {
+  @include theme-prop(background-color, positive-color);
+}
+
+.typePrimaryNegative {
+  @include theme-prop(background-color, negative-color);
+}
+
+.typeSecondaryPrimary {
+  background-color: var(--primary-selected-color);
+}
+
+.typeSecondarySecondary {
+  background-color: var(--ui-border-color);
+}
+
+.typeSecondaryPositive {
+  background-color: var(--positive-color-selected);
+}
+
+.typeSecondaryNegative {
+  background-color: var(--negative-color-selected);
+}
+
+.animate {
+  transition: width var(--motion-productive-medium) var(--motion-timing-transition);
+}

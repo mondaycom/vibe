@@ -1,12 +1,15 @@
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
 import React, { forwardRef, useMemo } from "react";
-import cx from "classnames";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
-import { baseClassName, ProgressBarStyle } from "./LinearProgressBarConstants";
+import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import "./LinearProgressBar.scss";
+import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId } from "../../../tests/test-ids-utils";
+import styles from "./LinearProgressBar.module.scss";
 
 interface LinearProgressBarProps extends VibeComponentProps {
   /**
@@ -88,13 +91,20 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       indicateProgress = false,
       multi = false,
       multiValues = [],
-      ariaLabel = ""
+      ariaLabel = "",
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
     const wrapperClassName = useMemo(() => {
-      const base = `${baseClassName}--wrapper`;
-      return cx(base, { [`${base}__${size}`]: size }, className);
+      return cx(
+        styles.wrapper,
+        {
+          [getStyle(styles, size.toString())]: size
+        },
+        className
+      );
     }, [size, className]);
 
     const valuePercentage = useMemo(() => {
@@ -116,12 +126,13 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
               barStyle={ProgressBarStyle.NONE}
               value={baseValue}
               animated={animated}
-              baseClass={baseClassName}
+              type={ProgressBarType.PRIMARY}
               color={color}
               min={min}
               max={max}
               /* eslint-disable-next-line react/no-array-index-key */
-              key={`${baseClassName}_${color}_${i}`}
+              id={`bar_${color}_${i}`}
+              key={`bar_${color}_${i}`}
             />
           ))}
         </>
@@ -129,7 +140,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
     }, [min, max, animated, multiValues, multi]);
 
     const renderPercentage = indicateProgress ? (
-      <PercentageLabel forElement="linear-progress-bar" className={`${baseClassName}__label`} value={valuePercentage} />
+      <PercentageLabel forElement="linear-progress-bar" value={valuePercentage} />
     ) : null;
 
     const renderBaseBars = !multi ? (
@@ -137,20 +148,33 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         <Bar
           barLabelName={ariaLabel}
           barStyle={barStyle}
-          id="linear-progress-bar"
+          id="bar-secondary"
           value={valueSecondary}
           animated={animated}
-          baseClass={`${baseClassName}__secondary`}
+          type={ProgressBarType.SECONDARY}
           min={min}
           max={max}
         />
-        <Bar barStyle={barStyle} value={value} animated={animated} baseClass={baseClassName} min={min} max={max} />
+        <Bar
+          barStyle={barStyle}
+          value={value}
+          animated={animated}
+          type={ProgressBarType.PRIMARY}
+          min={min}
+          max={max}
+          id="bar-primary"
+        />
       </>
     ) : null;
 
     return (
-      <div className={wrapperClassName} ref={ref}>
-        <div className={`${baseClassName}__container`}>
+      <div
+        className={wrapperClassName}
+        ref={ref}
+        id={id}
+        data-testsid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
+      >
+        <div className={styles.container}>
           {renderBaseBars}
           {renderMultiBars}
         </div>
@@ -163,7 +187,10 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
 Object.assign(LinearProgressBar, {
   styles: ProgressBarStyle,
   barStyles: ProgressBarStyle,
-  sizes: SIZES
+  types: ProgressBarType,
+  barTypes: ProgressBarType,
+  sizes: SIZES,
+  defaultTestId: ComponentDefaultTestId.LINEAR_PROGRESS_BAR
 });
 
 export default LinearProgressBar;
