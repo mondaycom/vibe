@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { SIZES } from "../../constants/sizes";
 import { getCSSVar } from "../../services/themes";
 
