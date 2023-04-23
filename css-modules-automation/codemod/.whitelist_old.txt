@@ -44,9 +44,9 @@
 // monday-ui-react-core/src/components/Dropdown/components/option/option.jsx
 // 7
 // monday-ui-react-core/src/components/Clickable/Clickable.tsx
-// monday-ui-react-core/src/components/ColorPicker/ColorPicker.jsx
-// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx
-// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.jsx
+// monday-ui-react-core/src/components/ColorPicker/ColorPicker.tsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContent.tsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.tsx
 // monday-ui-react-core/src/components/Combobox/Combobox.jsx
 // monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.jsx
 // monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx
