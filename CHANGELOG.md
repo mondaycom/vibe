@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.121.1 (2023-04-20)
+
+#### Bug Fixes
+* [#1229](https://github.com/mondaycom/monday-ui-react-core/pull/1229) Fix margin between link and is related icon ([@hadasfa](https://github.com/hadasfa))
+
+## 1.121.0 (2023-04-20)
+
+#### New Features
+* [#1228](https://github.com/mondaycom/monday-ui-react-core/pull/1228) Add icon class name to icon button ([@hadasfa](https://github.com/hadasfa))
+
+## 1.120.0 (2023-04-20)
+
+#### New Features
+* [#1227](https://github.com/mondaycom/monday-ui-react-core/pull/1227) change background-color to background in order to allow gradient vari… ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.119.0 (2023-04-19)
+
+#### New Features
+* [#1219](https://github.com/mondaycom/monday-ui-react-core/pull/1219) Support scrollable class name for virtualized grid ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1208](https://github.com/mondaycom/monday-ui-react-core/pull/1208) refactor: ColorPicker TS Migration ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.118.0 (2023-04-18)
 
 #### New Features

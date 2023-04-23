@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.118.0",
+  "version": "1.121.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -205,7 +205,7 @@
     "ts-jest": "^26.0.0",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.3",
-    "typescript-plugin-css-modules": "^3.4.0",
+    "typescript-plugin-css-modules": "^4.2.1",
     "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.9.1",

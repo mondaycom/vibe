@@ -35,6 +35,8 @@ const publishedTSComponents = {
   Slider: "components/Slider/Slider",
   BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar",
   BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem",
+  ColorPicker: "components/ColorPicker/ColorPicker",
+  ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContent",
   Heading: "components/Heading/Heading",
   TextWithHighlight: "components/TextWithHighlight/TextWithHighlight",
   List: "components/List/List",
