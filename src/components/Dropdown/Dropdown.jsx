@@ -296,7 +296,7 @@ const Dropdown = ({
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
           ValueContainer: MultiValueContainer
-        }),
+        })
       }}
       // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
       closeMenuOnScroll={closeMenuOnScroll}
