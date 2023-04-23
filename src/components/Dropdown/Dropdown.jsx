@@ -50,7 +50,6 @@ const Dropdown = ({
   asyncOptions,
   cacheOptions,
   defaultOptions,
-  isVirtualized,
   menuPortalTarget,
   extraStyles,
   maxMenuHeight,
