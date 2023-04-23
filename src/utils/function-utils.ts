@@ -49,10 +49,3 @@ export function convertToArray<T>(input: T | Array<T>): Array<T> {
 }
 
 export function NOOP() {}
-
-/**
- * Ids generator function (12 symbols). If IDs are generated more than 1 millisecond apart, they are 100% unique.
- */
-export function generateUuid() {
-  return Date.now().toString(36) + Math.random().toString(36).substring(8);
-}

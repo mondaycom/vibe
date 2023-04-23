@@ -23,7 +23,6 @@ import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "./MenuConstants";
-import { generateUuid } from "../../../utils/function-utils";
 import "./Menu.scss";
 
 interface MenuProps extends VibeComponentProps {
@@ -71,8 +70,6 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
-    const overrideId = useMemo(() => id || `menu-${generateUuid()}`, [id]);
-
     const ref = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -99,7 +96,7 @@ const Menu: VibeComponent<MenuProps> & {
 
         const activeChild = children[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
-          ? activeChild?.props?.id || `${overrideId}-${index}`
+          ? activeChild?.props?.id || `${id}-${index}`
           : undefined;
         if (ariaActiveDescendant) {
           ref?.current?.setAttribute("aria-activedescendant", ariaActiveDescendant);
@@ -107,7 +104,7 @@ const Menu: VibeComponent<MenuProps> & {
           ref?.current?.removeAttribute("aria-activedescendant");
         }
       },
-      [children, overrideId]
+      [children, id]
     );
 
     const onSetActiveItemIndexCallback = useCallback(
@@ -184,7 +181,7 @@ const Menu: VibeComponent<MenuProps> & {
       <ul
         onFocus={focusWithinProps?.onFocus}
         onBlur={focusWithinProps?.onBlur}
-        id={overrideId}
+        id={id}
         className={cx("monday-style-menu", overrideClassName, `monday-style-menu--${size}`)}
         ref={mergedRef}
         tabIndex={tabIndex}
@@ -207,7 +204,7 @@ const Menu: VibeComponent<MenuProps> & {
                   setSubMenuIsOpenByIndex,
                   hasOpenSubMenu: index === openSubMenuIndex,
                   closeMenu: onCloseMenu,
-                  menuId: overrideId,
+                  menuId: id,
                   useDocumentEventListeners,
                   isInitialSelectedState,
                   shouldScrollMenu,
