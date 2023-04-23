@@ -16,7 +16,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import "./Button.scss";
 
 // min button width
-const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
+
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
@@ -141,6 +141,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const [hasSizeStyle, setHasSizeStyle] = useState(false);
 
     const updateCssVariables = useMemo(() => {
+      const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
         const { blockSize, inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
