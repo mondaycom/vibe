@@ -18,6 +18,7 @@ exports[`RadioButton renders correctly when checked 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -42,6 +43,7 @@ exports[`RadioButton renders correctly when default checked 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -66,6 +68,7 @@ exports[`RadioButton renders correctly when disabled 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -90,6 +93,7 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -114,6 +118,7 @@ exports[`RadioButton renders correctly with componentClassName 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -138,6 +143,7 @@ exports[`RadioButton renders correctly with empty props 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -162,6 +168,7 @@ exports[`RadioButton renders correctly with name 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   
@@ -186,10 +193,12 @@ exports[`RadioButton renders correctly with text 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   <span
     className="label"
+    data-testid="radio-button-label"
   >
     test text
   </span>
@@ -214,6 +223,7 @@ exports[`RadioButton renders correctly with value 1`] = `
     />
     <span
       className="control labelAnimation"
+      data-testid="radio-button-control"
     />
   </span>
   

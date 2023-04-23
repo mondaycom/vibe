@@ -32,6 +32,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
   </div>
@@ -72,6 +73,7 @@ exports[`Toast renders correctly when open is true 1`] = `
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
   </div>
@@ -140,6 +142,7 @@ exports[`Toast renders correctly with button 1`] = `
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
   </div>
@@ -227,6 +230,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
     <a
@@ -331,6 +335,7 @@ exports[`Toast renders correctly with link 1`] = `
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
     <a
@@ -419,6 +424,7 @@ exports[`Toast renders correctly with negative type 1`] = `
   </div>
   <div
     className="content"
+    data-testid="toast-content"
   >
     Something Happened
   </div>
