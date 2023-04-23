@@ -4,6 +4,7 @@ exports[`TextField renders correctly when disabled 1`] = `
 <div
   aria-busy={false}
   className="textField disabled"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -19,7 +20,6 @@ exports[`TextField renders correctly when disabled 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={true}
         id="input"
         maxLength={null}
@@ -61,6 +61,7 @@ exports[`TextField renders correctly when loading 1`] = `
 <div
   aria-busy={true}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -76,7 +77,6 @@ exports[`TextField renders correctly when loading 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -147,6 +147,7 @@ exports[`TextField renders correctly when readonly 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -162,7 +163,6 @@ exports[`TextField renders correctly when readonly 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -204,6 +204,7 @@ exports[`TextField renders correctly when required 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -219,7 +220,6 @@ exports[`TextField renders correctly when required 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -261,6 +261,7 @@ exports[`TextField renders correctly with another type 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -276,7 +277,6 @@ exports[`TextField renders correctly with another type 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -318,6 +318,7 @@ exports[`TextField renders correctly with className 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -333,7 +334,6 @@ exports[`TextField renders correctly with className 1`] = `
         aria-owns=""
         autoComplete="off"
         className="testClassName input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -375,6 +375,7 @@ exports[`TextField renders correctly with className 2`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -390,7 +391,6 @@ exports[`TextField renders correctly with className 2`] = `
         aria-owns=""
         autoComplete="off"
         className="testClassName input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -432,6 +432,7 @@ exports[`TextField renders correctly with date type 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -447,7 +448,6 @@ exports[`TextField renders correctly with date type 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -489,6 +489,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -504,7 +505,6 @@ exports[`TextField renders correctly with date-time type 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -546,6 +546,7 @@ exports[`TextField renders correctly with icon 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -561,7 +562,6 @@ exports[`TextField renders correctly with icon 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input inputHasIcon"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -589,8 +589,7 @@ exports[`TextField renders correctly with icon 1`] = `
           aria-hidden={true}
           aria-label=""
           className="icon inputIcon noFocusStyle fa fa-star"
-          data-testid="icon_input"
-          id="input"
+          data-testid="icon"
           onClick={[Function]}
           role="img"
         />
@@ -613,6 +612,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -628,7 +628,6 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -670,6 +669,7 @@ exports[`TextField renders correctly with id 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_testId"
   role=""
 >
   <div
@@ -685,7 +685,6 @@ exports[`TextField renders correctly with id 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_testId"
         disabled={false}
         id="testId"
         maxLength={null}
@@ -727,6 +726,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -742,7 +742,6 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -784,6 +783,7 @@ exports[`TextField renders correctly with large size 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -799,7 +799,6 @@ exports[`TextField renders correctly with large size 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -841,6 +840,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -856,7 +856,6 @@ exports[`TextField renders correctly with placeholder 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -898,6 +897,7 @@ exports[`TextField renders correctly with role 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role="button"
 >
   <div
@@ -913,7 +913,6 @@ exports[`TextField renders correctly with role 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -955,6 +954,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -970,7 +970,6 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input inputHasIcon"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -1007,8 +1006,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
           aria-hidden={true}
           aria-label=""
           className="icon inputIcon noFocusStyle fa fa-star"
-          data-testid="icon_input"
-          id="input"
+          data-testid="icon"
           onClick={[Function]}
           role="img"
         />
@@ -1022,6 +1020,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -1037,7 +1036,6 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -1089,6 +1087,7 @@ exports[`TextField renders correctly with validation 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -1104,7 +1103,6 @@ exports[`TextField renders correctly with validation 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -1156,6 +1154,7 @@ exports[`TextField renders correctly with value 1`] = `
 <div
   aria-busy={false}
   className="textField"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -1171,7 +1170,6 @@ exports[`TextField renders correctly with value 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}
@@ -1213,6 +1211,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
 <div
   aria-busy={false}
   className="textField testClassName"
+  data-testid="text-field_input"
   role=""
 >
   <div
@@ -1228,7 +1227,6 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         aria-owns=""
         autoComplete="off"
         className="input"
-        data-testid="text-field_input"
         disabled={false}
         id="input"
         maxLength={null}

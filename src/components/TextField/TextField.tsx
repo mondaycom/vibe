@@ -189,6 +189,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         })}
         role={role}
         aria-busy={loading}
+        data-testid={overrideDataTestId}
       >
         <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
@@ -219,7 +220,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
-              data-testid={overrideDataTestId}
               tabIndex={tabIndex}
             />
             {loading && (
@@ -245,7 +245,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 icon={iconName}
                 className={cx(styles.inputIcon)}
                 clickable={false}
-                id={id}
                 iconLabel={iconsNames.primary}
                 iconType={Icon.type.ICON_FONT}
                 ignoreFocusStyle
@@ -265,7 +264,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                 icon={secondaryIconName}
                 className={cx(styles.inputIcon)}
                 clickable={false}
-                id={id}
                 iconLabel={iconsNames.secondary}
                 iconType={Icon.type.ICON_FONT}
                 ignoreFocusStyle

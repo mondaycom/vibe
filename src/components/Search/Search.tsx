@@ -86,7 +86,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
     return (
       <TextField
         id={id}
-        dataTestId={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
