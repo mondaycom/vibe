@@ -64,7 +64,7 @@ const ResponsiveList = forwardRef(
 
     return (
       <div
-        className={cx(styles.responsiveListRoot, "responsive-list--root", rootClassName)}
+        className={cx(styles.responsiveListRoot, rootClassName)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.RESPONSIVE_LIST, id)}
       >
