@@ -52,6 +52,7 @@ export interface ButtonProps {
   successText?: string;
   /** loading boolean which switches the text to a loader */
   loading?: boolean;
+  /** add a `React.CSSProperties` object to be passed to the Button */
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
