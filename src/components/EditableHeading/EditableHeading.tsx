@@ -8,6 +8,7 @@ import { InputType } from "../EditableInput/EditableInputConstants";
 import "./EditableHeading.scss";
 import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 import { Sizes } from "../../constants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
@@ -211,7 +212,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestId || dataTestIdOverride}
+      data-testid={dataTestId || dataTestIdOverride || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
