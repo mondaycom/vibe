@@ -104,6 +104,7 @@ monday-ui-react-core/src/components/Slider/SliderInfix.tsx
 // 15
 monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.tsx
 monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/Bar/Bar.tsx
+monday-ui-react-core/src/components/ProgressBars/PercentageLabel/PercentageLabel.tsx
 monday-ui-react-core/src/components/Dialog/DialogContent.tsx
 
 // Troubles
