@@ -1,15 +1,12 @@
 import React, { FC } from "react";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
 import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
-import { STEPS_CSS_BASE_CLASS, StepsType } from "./StepsConstants";
+import { StepsType } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
-
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header`;
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
   type: StepsType;
@@ -32,13 +29,14 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   backButtonProps,
   nextButtonProps,
   areButtonsIconsHidden,
-  isOnPrimary
+  isOnPrimary,
+  className
 }) => {
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;
 
   return (
-    <div className={cx(CSS_BASE_CLASS, bemHelper({ state: type }))}>
+    <div className={cx(styles.header, className)}>
       {areNavigationButtonsHidden ? null : (
         <StepsCommand
           isNext={false}
@@ -54,6 +52,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
         activeStepIndex={activeStepIndex}
         stepsCount={stepsCount}
         onChangeActiveStep={onChangeActiveStep}
+        isOnPrimary={isOnPrimary}
       />
       {areNavigationButtonsHidden ? null : (
         <StepsCommand

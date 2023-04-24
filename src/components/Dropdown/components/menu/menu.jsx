@@ -1,22 +1,32 @@
-import React from "react";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
+import React from "react";
 import { components } from "react-select";
-import { MENU_WRAPPER_CLASS_NAME } from "../../dropdown-constants";
-import "./menu.scss";
+import styles from "./menu.module.scss";
 
-const Menu = props => {
-  const { children, Renderer, selectProps, dropdownMenuWrapperClassName } = props;
+const Menu = ({
+  children,
+  Renderer,
+  selectProps,
+  dropdownMenuWrapperClassName,
+  id,
+  "data-testid": dataTestId,
+  ...props
+}) => {
   const withFixedPosition =
     selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
   return (
     <components.Menu
       {...props}
       className={cx(
-        "menu",
-        MENU_WRAPPER_CLASS_NAME,
-        { ["dropdown-menu-wrapper--fixed-position"]: withFixedPosition },
+        styles.dropdownMenuWrapper,
+        {
+          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition
+        },
         dropdownMenuWrapperClassName
       )}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN_MENU, id)}
     >
       {Renderer && Renderer(props)}
       {!Renderer && children}

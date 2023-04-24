@@ -11,7 +11,7 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import "./Button.scss";
 
@@ -19,7 +19,7 @@ import "./Button.scss";
 const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-export interface ButtonProps {
+export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;

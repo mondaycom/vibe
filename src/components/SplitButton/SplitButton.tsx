@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import cx from "classnames";
 // Libraries import
 import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
-import cx from "classnames";
 // Constants import
 import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
@@ -26,8 +29,7 @@ import Button, { ButtonProps } from "../Button/Button";
 import Dialog from "../Dialog/Dialog";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-// SCSS import
-import "./SplitButton.scss";
+import styles from "./SplitButton.module.scss";
 
 export interface SplitButtonProps extends ButtonProps {
   /*
@@ -87,6 +89,8 @@ const SplitButton: FC<SplitButtonProps> & {
   marginLeft,
   marginRight,
   active,
+  id,
+  "data-testid": dataTestId,
   ...buttonProps
 }) => {
   // State //
@@ -153,15 +157,15 @@ const SplitButton: FC<SplitButtonProps> & {
   const classNames = useMemo(
     () =>
       cx(
-        "monday-style-split-button",
-        `monday-style-split-button--kind-${kind}`,
-        `monday-style-split-button--color-${color}`,
+        styles.button,
+        getStyle(styles, camelCase("kind-" + kind)),
+        getStyle(styles, camelCase("color-" + color)),
         {
-          "monday-style-split-button--main-active": active,
-          "monday-style-split-button--active": isActive,
-          "monday-style-split-button--split-content-open": isDialogOpen,
-          "monday-style-split-button--hovered": isHovered,
-          "monday-style-split-button--disabled": disabled
+          [styles.mainActive]: active,
+          [styles.active]: isActive,
+          [styles.splitContentOpen]: isDialogOpen,
+          [styles.hovered]: isHovered,
+          [styles.disabled]: disabled
         },
         className
       ),
@@ -199,7 +203,13 @@ const SplitButton: FC<SplitButtonProps> & {
   }, [secondaryDialogPosition]);
 
   return (
-    <div className={classNames} ref={ref} role="button">
+    <div
+      className={classNames}
+      ref={ref}
+      role="button"
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+    >
       <Button
         {
           ...buttonProps /* We are enriching button with other props so we must use spreading */
@@ -212,7 +222,7 @@ const SplitButton: FC<SplitButtonProps> & {
         kind={kind}
         active={active}
         onClick={onClick}
-        className="monday-style-split-button__main-button"
+        className={styles.mainButton}
         marginLeft={marginLeft}
         onFocus={setHovered}
         onBlur={setNotHovered}
@@ -221,7 +231,7 @@ const SplitButton: FC<SplitButtonProps> & {
       >
         {children}
       </Button>
-      <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
+      <div className={styles.secondaryButtonWrapper}>
         <Dialog
           wrapperClassName={secondaryDialogClassName}
           zIndex={zIndex}
@@ -243,7 +253,7 @@ const SplitButton: FC<SplitButtonProps> & {
             noSidePadding
             color={color}
             kind={kind}
-            className="monday-style-split-button__secondary-button"
+            className={styles.secondaryButton}
             active={isDialogOpen}
             marginRight={marginRight}
             onFocus={setHovered}
@@ -253,7 +263,7 @@ const SplitButton: FC<SplitButtonProps> & {
             ariaHasPopup
             ariaExpanded={isDialogOpen}
           >
-            <div className="monday-style-split-button__secondary-button-icon-wrapper">
+            <div className={styles.secondaryButtonIconWrapper}>
               <DropdownChevronDown aria-hidden="true" />
             </div>
           </Button>

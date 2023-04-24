@@ -39,7 +39,7 @@ export default class DropdownDriver {
   }
 
   get dropdownMenu() {
-    return this.renderResult.container.querySelector(".menu");
+    return this.renderResult.container.querySelector("[class*='-menu']");
   }
 
   get noOptionsMessage() {
