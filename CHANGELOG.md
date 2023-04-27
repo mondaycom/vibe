@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.122.0 (2023-04-24)
+
+#### New Features
+* [#1235](https://github.com/mondaycom/monday-ui-react-core/pull/1235) EditableHeading - add data-testid ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1162](https://github.com/mondaycom/monday-ui-react-core/pull/1162) Bump webpack from 5.73.0 to 5.76.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1120](https://github.com/mondaycom/monday-ui-react-core/pull/1120) Bump loader-utils and typescript-plugin-css-modules ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## 1.121.1 (2023-04-20)
 
 #### Bug Fixes
