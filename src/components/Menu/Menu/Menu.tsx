@@ -90,6 +90,12 @@ const Menu: VibeComponent<MenuProps> & {
       });
     }, [originalChildren]);
 
+    useEffect(() => {
+      if (!id) {
+        console.warn("Menu should have a valid id prop");
+      }
+    }, [id]);
+
     const updateActiveItemIndex = useCallback(
       (index: number) => {
         setActiveItemIndex(index);
