@@ -79,13 +79,13 @@ interface VirtualizedGridProps extends VibeComponentProps {
    * a callback that is being called when the items are rendered
    */
   onItemsRendered?: ({
-                       firstItemId,
-                       secondItemId,
-                       lastItemId,
-                       centerItemId,
-                       firstItemOffsetEnd,
-                       currentOffsetTop
-                     }: {
+    firstItemId,
+    secondItemId,
+    lastItemId,
+    centerItemId,
+    firstItemOffsetEnd,
+    currentOffsetTop
+  }: {
     firstItemId: string;
     secondItemId: string;
     lastItemId: string;
