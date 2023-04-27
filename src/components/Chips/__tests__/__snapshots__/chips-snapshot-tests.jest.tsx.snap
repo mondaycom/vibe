@@ -232,7 +232,8 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon icon-button-padding noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -377,7 +378,8 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon icon-button-padding noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
