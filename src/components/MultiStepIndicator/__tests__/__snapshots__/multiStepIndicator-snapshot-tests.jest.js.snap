@@ -10,6 +10,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -81,6 +83,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -136,6 +140,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -194,6 +200,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -265,6 +273,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -320,6 +330,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -384,6 +396,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -455,6 +469,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -510,6 +526,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -568,6 +586,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -623,6 +643,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -678,6 +700,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -736,6 +760,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -807,6 +833,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -862,6 +890,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -920,6 +950,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -991,6 +1023,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -1046,6 +1080,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -1104,6 +1140,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -1175,6 +1213,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >
@@ -1230,6 +1270,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     role="button"
     tabIndex={-1}
   >

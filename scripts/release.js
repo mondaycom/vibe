@@ -34,7 +34,7 @@ function release() {
 
   // There's nothing to release for, print a friendly message and exit
   if (!newVersionStrategy) {
-    logNothingToDo();
+    logNothingToDo(rawChangesText);
   }
 
   bumpVersion(newVersionStrategy);
@@ -69,7 +69,6 @@ function formatChanges(changelogText) {
 
 function buildChangelogSinceLastVersion() {
   const { stdout } = execa.sync("npx", ["lerna-changelog", "--from", `v${require("../package.json").version}`]);
-
   return stdout;
 }
 
@@ -95,8 +94,9 @@ function bumpVersion(strategy) {
   execa.sync("npm", ["version", strategy]);
 }
 
-function logNothingToDo() {
+function logNothingToDo(changeLogText) {
   console.log("It seems like there's no need to release a new version, exiting");
+  console.log(`Change log data for debug: ${changeLogText}`);
   process.exit(1);
 }
 

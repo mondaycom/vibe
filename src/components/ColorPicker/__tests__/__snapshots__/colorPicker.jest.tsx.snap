@@ -39,6 +39,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -67,6 +69,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -95,6 +99,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -123,6 +129,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -151,6 +159,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -179,6 +189,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -207,6 +219,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -235,6 +249,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -263,6 +279,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -291,6 +309,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -319,6 +339,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -347,6 +369,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -375,6 +399,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -403,6 +429,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -431,6 +459,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -459,6 +489,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -487,6 +519,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -515,6 +549,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -543,6 +579,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -571,6 +609,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -599,6 +639,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -627,6 +669,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -655,6 +699,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -683,6 +729,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -711,6 +759,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -739,6 +789,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -767,6 +819,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -795,6 +849,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -823,6 +879,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -851,6 +909,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -879,6 +939,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -907,6 +969,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -935,6 +999,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -963,6 +1029,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -991,6 +1059,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -1019,6 +1089,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -1047,6 +1119,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -1075,6 +1149,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -1103,6 +1179,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {
@@ -1131,6 +1209,8 @@ exports[`renders correctly with empty props 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role="button"
           style={
             Object {

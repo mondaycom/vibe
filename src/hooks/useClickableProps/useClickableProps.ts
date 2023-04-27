@@ -13,6 +13,8 @@ export default function useClickableProps(
   {
     onClick = NOOP,
     onMouseDown = NOOP,
+    onMouseEnter = NOOP,
+    onMouseLeave = NOOP,
     disabled = false,
     id,
     dataTestId,
@@ -38,6 +40,8 @@ export default function useClickableProps(
     onClick: disabled ? undefined : onClick,
     onKeyDown: disabled ? undefined : onKeyDown,
     onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
     tabIndex: disabled ? -1 : Number(tabIndex),
     role,
     "aria-label": ariaLabel,

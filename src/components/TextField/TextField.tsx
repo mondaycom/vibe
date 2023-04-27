@@ -34,6 +34,7 @@ interface TextFieldProps extends VibeComponentProps {
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
+  onWheel?: (event: React.WheelEvent) => void;
   debounceRate?: number;
   autoFocus?: boolean;
   disabled?: boolean;
@@ -92,6 +93,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       onBlur = NOOP,
       onFocus = NOOP,
       onKeyDown = NOOP,
+      onWheel = NOOP,
       debounceRate = 0,
       autoFocus = false,
       disabled = false,
@@ -213,6 +215,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               onBlur={onBlur}
               onFocus={onFocus}
               onKeyDown={onKeyDown}
+              onWheel={onWheel}
               maxLength={maxLength}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}

@@ -79,13 +79,13 @@ interface VirtualizedGridProps extends VibeComponentProps {
    * a callback that is being called when the items are rendered
    */
   onItemsRendered?: ({
-    firstItemId,
-    secondItemId,
-    lastItemId,
-    centerItemId,
-    firstItemOffsetEnd,
-    currentOffsetTop
-  }: {
+                       firstItemId,
+                       secondItemId,
+                       lastItemId,
+                       centerItemId,
+                       firstItemOffsetEnd,
+                       currentOffsetTop
+                     }: {
     firstItemId: string;
     secondItemId: string;
     lastItemId: string;
@@ -99,6 +99,10 @@ interface VirtualizedGridProps extends VibeComponentProps {
    */
   onSizeUpdate?: (width: number, height: number) => void;
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
+  /**
+   * class name to add to the component scrollable container
+   */
+  scrollableClassName: string;
 }
 
 const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
@@ -118,6 +122,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       onItemsRenderedThrottleMs = 200,
       onSizeUpdate = NOOP,
       onVerticalScrollbarVisiblityChange = null,
+      scrollableClassName,
       "data-testid": dataTestId
     },
     ref
@@ -292,6 +297,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {cellRenderer}
