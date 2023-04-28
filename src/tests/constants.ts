@@ -47,6 +47,8 @@ export enum ComponentDefaultTestId {
   STEPS_BACKWARD_COMMAND = "steps-backward-command",
   SKELETON = "skeleton",
   SPLIT_BUTTON = "split-button",
+  SPLIT_BUTTON_PRIMARY_BUTTON = "split-button-primary-button",
+  SPLIT_BUTTON_SECONDARY_BUTTON = "split-button-secondary-button",
   TEXT_WITH_HIGHLIGHT = "text-with-highlight",
   TOAST = "toast",
   TOAST_LINK = "toast-link",

@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 jest.useFakeTimers();
 
@@ -14,15 +15,11 @@ const secondaryContent = <div>{secondaryContentText}</div>;
 const ENTER_KEY = "{Enter}";
 
 const getSecondaryButton = splitButtonComponent => {
-  return splitButtonComponent
-    .getAllByRole("button")
-    .find(e => e.className.includes("monday-style-split-button__secondary-button"));
+  return splitButtonComponent.getByTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON);
 };
 
 const getPrimaryButton = splitButtonComponent => {
-  return splitButtonComponent
-    .getAllByRole("button")
-    .find(e => e.className.includes("monday-style-split-button__main-button"));
+  return splitButtonComponent.getByTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON);
 };
 
 const renderComponent = ({ ...props } = {}) => {
