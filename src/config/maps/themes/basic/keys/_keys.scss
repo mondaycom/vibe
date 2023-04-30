@@ -36,6 +36,10 @@ $theme-basic-keys: (
         shareable-color: $shareable-color,
         ui-border-color: $ui-border-color,
         layout-border-color: $layout-border-color,
+        warning-color: $warning-color,
+        warning-color-hover: $warning-color-hover,
+        warning-color-select: $warning-color-select,
+        warning-color-select-hover: $warning-color-select-hover
 );
 
 // ## BASIC THEME SHADOW MAP: basic theme's shadow color map.
