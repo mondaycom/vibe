@@ -39,6 +39,8 @@ export enum ComponentDefaultTestId {
   MENU_ITEM = "menu-item",
   MENU_ITEM_BUTTON = "menu-item-button",
   MENU_TITLE = "menu-title",
+  MENU_TITLE_CAPTION = "menu-title-caption",
+  MENU_GRID_ITEM = "menu-grid-item",
   MENU_BUTTON = "menu-button",
   STEP_INDICATOR = "step-indicator",
   SKELETON = "skeleton",

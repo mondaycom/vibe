@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { FC, useRef } from "react";
 import cx from "classnames";
+import React, { FC, useRef } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -10,7 +11,7 @@ import { DialogPosition } from "../../../constants/positions";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import { ElementContent } from "../../../types/ElementContent";
-import "./MenuItemButton.scss";
+import styles from "./MenuItemButton.module.scss";
 
 interface MenuItemButtonProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -61,7 +62,9 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   setActiveItemIndex,
   menuRef,
   closeMenu,
-  useDocumentEventListeners
+  useDocumentEventListeners,
+  id,
+  "data-testid": dataTestId
 }) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
@@ -105,8 +108,9 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
       showDelay={tooltipShowDelay}
     >
       <li
-        id={`${menuId}-${index}`}
-        className={cx("monday-style-menu-item-button", overrideClassName)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
+        id={id || `${menuId}-${index}`}
+        className={cx(styles.itemButton, overrideClassName)}
         ref={mergedRef}
         role="menuitem"
         aria-current={isActive}
@@ -120,8 +124,9 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
           kind={kind}
           size={Button.sizes.SMALL}
           blurOnMouseUp={false}
+          className={styles.buttonComponent}
         >
-          <div className="menu-item-button-content">{children}</div>
+          <div className={styles.content}>{children}</div>
         </Button>
       </li>
     </Tooltip>

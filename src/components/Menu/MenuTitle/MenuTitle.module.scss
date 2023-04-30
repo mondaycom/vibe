@@ -1,0 +1,39 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+@import "../../../styles/global-css-settings";
+
+.title {
+  @include font-default;
+}
+
+.titleCaption {
+  @include theme-prop(color, icon-color);
+  margin: var(--spacing-small) 0;
+}
+
+.titleCaptionCenter {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.titleCaptionBottom,
+.titleCaptionTop {
+  padding-left: var(--spacing-small);
+}
+
+.titleCaptionBottom {
+  padding-bottom: var(--spacing-small);
+}
+
+.titleCaptionCenter::before,
+.titleCaptionCenter::after {
+  content: "";
+  flex-grow: 1;
+  @include theme-prop(background-color, ui-border-color);
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+  margin: 0 var(--spacing-small);
+  font-family: var(--font-family);
+}

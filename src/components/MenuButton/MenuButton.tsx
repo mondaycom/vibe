@@ -14,11 +14,10 @@ import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import { Menu } from "../Icon/Icons";
-import "./MenuButton.scss";
-
-function BEMClass(className: string) {
-  return `menu-button--wrapper--${className}`;
-}
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./MenuButton.module.scss";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 
@@ -160,7 +159,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       tooltipReferenceClassName,
       hideWhenReferenceHidden = false,
       dialogContainerSelector,
-      active
+      active,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -309,20 +309,21 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           useDerivedStateFromProps={true}
           onDialogDidShow={onDialogDidShow}
           onDialogDidHide={onDialogDidHide}
-          referenceWrapperClassName={BEMClass("reference-icon")}
+          referenceWrapperClassName={styles.referenceIcon}
           zIndex={zIndex}
           isOpen={isOpen}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
         >
           <button
             id={id}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
             ref={mergedRef}
             type="button"
-            className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-              [BEMClass("open")]: isActive,
-              [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-              [BEMClass("disabled")]: disabled,
-              [BEMClass("text")]: text
+            className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
+              [styles.open]: isActive,
+              [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
+              [styles.disabled]: disabled,
+              [styles.text]: text
             })}
             aria-haspopup="true"
             aria-expanded={isOpen}
@@ -331,7 +332,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             aria-disabled={disabled}
           >
             {componentPosition === MenuButton.componentPositions.START && icon}
-            {text && <span className={BEMClass("inner-text")}>{text}</span>}
+            {text && <span className={styles.innerText}>{text}</span>}
             {componentPosition === MenuButton.componentPositions.END && icon}
           </button>
         </Dialog>
