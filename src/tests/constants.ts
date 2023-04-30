@@ -43,6 +43,7 @@ export enum ComponentDefaultTestId {
   MENU_GRID_ITEM = "menu-grid-item",
   MENU_BUTTON = "menu-button",
   STEP_INDICATOR = "step-indicator",
+  MULTI_STEP_INDICATOR = "multi-step-indicator",
   SKELETON = "skeleton",
   SPLIT_BUTTON = "split-button",
   TEXT_WITH_HIGHLIGHT = "text-with-highlight",
