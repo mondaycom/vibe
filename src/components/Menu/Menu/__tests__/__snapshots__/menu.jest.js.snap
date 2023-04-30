@@ -2,7 +2,6 @@
 
 exports[`Snapshots renders correctly with children 1`] = `
 <ul
-  aria-activedescendant="undefined--1"
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
   onBlur={[Function]}
@@ -77,7 +76,6 @@ exports[`Snapshots renders correctly with children 1`] = `
 
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <ul
-  aria-activedescendant="undefined--1"
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
   onBlur={[Function]}
@@ -90,7 +88,6 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 
 exports[`Snapshots renders correctly with empty props 1`] = `
 <ul
-  aria-activedescendant="undefined--1"
   aria-label="Menu"
   className="monday-style-menu monday-style-menu--medium"
   onBlur={[Function]}
