@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.122.1 (2023-04-30)
+
+#### Bug Fixes
+* [#1220](https://github.com/mondaycom/monday-ui-react-core/pull/1220) MenuItem id ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.122.0 (2023-04-24)
 
 #### New Features
