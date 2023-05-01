@@ -2,28 +2,28 @@
 
 exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 <label
-  className="monday-style-toggle_wrapper monday-style-toggle_wrapper--disabled"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={true}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text disabled"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected disabled"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text disabled"
   >
     On
   </span>
@@ -32,12 +32,12 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 
 exports[`Toggle renders correctly renders correctly when labels are hidden 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -45,35 +45,35 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
   />
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected"
   />
 </label>
 `;
 
 exports[`Toggle renders correctly renders correctly when selection defined by default selected (off)  1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={false}
     checked={false}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
+    className="toggle dummy-class-name notSelected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -82,28 +82,28 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 
 exports[`Toggle renders correctly renders correctly when selection defined by default selected (on)  1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
+    className="toggle dummy-class-name selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -112,28 +112,28 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 
 exports[`Toggle renders correctly renders correctly when selection defined by isSelected (off) 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={false}
     checked={false}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
+    className="toggle dummy-class-name notSelected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -142,28 +142,28 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 
 exports[`Toggle renders correctly renders correctly when selection defined by isSelected (on) 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
+    className="toggle dummy-class-name selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -172,29 +172,29 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 
 exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     aria-controls="aria controls"
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -203,28 +203,28 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
 
 exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -233,28 +233,28 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 
 exports[`Toggle renders correctly renders correctly with not default offOverrideText 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     TestOff
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     On
   </span>
@@ -263,28 +263,28 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
 
 exports[`Toggle renders correctly renders correctly with not default onOverrideText 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper"
 >
   <input
     aria-checked={true}
     checked={true}
-    className="hidden-switch monday-style-toggle_input"
+    className="hidden-switch toggleInput"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle selected"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text"
   >
     TestOn
   </span>

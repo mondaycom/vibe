@@ -3,7 +3,8 @@
 exports[`Snapshots renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
+  className="itemButton"
+  data-testid="menu-item-button"
   id="undefined-undefined"
   role="menuitem"
 >
@@ -11,7 +12,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
     aria-busy={false}
     aria-disabled={true}
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--disabled"
+    className="buttonComponent monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--disabled"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -21,7 +22,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content"
     >
       my item
     </div>
@@ -32,7 +33,8 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 exports[`Snapshots renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
+  className="itemButton"
+  data-testid="menu-item-button"
   id="undefined-undefined"
   role="menuitem"
 >
@@ -40,7 +42,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="buttonComponent monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -50,7 +52,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content"
     >
       my item
     </div>
@@ -61,7 +63,8 @@ exports[`Snapshots renders correctly when selected 1`] = `
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button dummy-class-name"
+  className="itemButton dummy-class-name"
+  data-testid="menu-item-button"
   id="undefined-undefined"
   role="menuitem"
 >
@@ -69,7 +72,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="buttonComponent monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -79,7 +82,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content"
     />
   </button>
 </li>
@@ -88,7 +91,8 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 exports[`Snapshots renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
+  className="itemButton"
+  data-testid="menu-item-button"
   id="undefined-undefined"
   role="menuitem"
 >
@@ -96,7 +100,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="buttonComponent monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -106,7 +110,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content"
     />
   </button>
 </li>
@@ -115,7 +119,8 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 exports[`Snapshots renders correctly with title and icon 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
+  className="itemButton"
+  data-testid="menu-item-button"
   id="undefined-undefined"
   role="menuitem"
 >
@@ -123,7 +128,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="buttonComponent monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -133,7 +138,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content"
     >
       my item
     </div>

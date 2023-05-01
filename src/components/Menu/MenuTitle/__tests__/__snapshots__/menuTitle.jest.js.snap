@@ -2,10 +2,12 @@
 
 exports[`renders correctly with caption 1`] = `
 <div
-  className="monday-style-menu-title"
+  className="title"
+  data-testid="menu-title"
 >
   <label
-    className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
+    className="titleCaption titleCaptionBottom"
+    data-testid="menu-title-caption"
   >
     my title
   </label>
@@ -14,12 +16,14 @@ exports[`renders correctly with caption 1`] = `
 
 exports[`renders correctly with custom class name 1`] = `
 <div
-  className="monday-style-menu-title dummy-class-name"
+  className="title dummy-class-name"
+  data-testid="menu-title"
 />
 `;
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="monday-style-menu-title"
+  className="title"
+  data-testid="menu-title"
 />
 `;

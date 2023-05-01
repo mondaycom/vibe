@@ -6,7 +6,8 @@ exports[`renders correctly with .dummy-class-name 1`] = `
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
-  className="menu-button--wrapper dummy-class-name menu-button--wrapper--size-32"
+  className="wrapper dummy-class-name size32"
+  data-testid="menu-button"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -39,7 +40,8 @@ exports[`renders correctly with Bolt Icon 1`] = `
   aria-expanded={false}
   aria-haspopup="true"
   aria-label={false}
-  className="menu-button--wrapper menu-button--wrapper--size-32 menu-button--wrapper--text"
+  className="wrapper size32 text"
+  data-testid="menu-button"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -66,7 +68,7 @@ exports[`renders correctly with Bolt Icon 1`] = `
     />
   </svg>
   <span
-    className="menu-button--wrapper--inner-text"
+    className="innerText"
   >
     Hello
   </span>
@@ -79,7 +81,8 @@ exports[`renders correctly with a default Menu icon at the end 1`] = `
   aria-expanded={false}
   aria-haspopup="true"
   aria-label={false}
-  className="menu-button--wrapper menu-button--wrapper--size-32 menu-button--wrapper--text"
+  className="wrapper size32 text"
+  data-testid="menu-button"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -104,7 +107,7 @@ exports[`renders correctly with a default Menu icon at the end 1`] = `
     />
   </svg>
   <span
-    className="menu-button--wrapper--inner-text"
+    className="innerText"
   >
     Hello
   </span>
@@ -117,7 +120,8 @@ exports[`renders correctly with empty props 1`] = `
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
-  className="menu-button--wrapper menu-button--wrapper--size-32"
+  className="wrapper size32"
+  data-testid="menu-button"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -180,7 +184,8 @@ exports[`renders correctly with size Large 1`] = `
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
-  className="menu-button--wrapper menu-button--wrapper--size-48"
+  className="wrapper size48"
+  data-testid="menu-button"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -223,7 +228,8 @@ exports[`renders correctly with tooltip content 1`] = `
     aria-expanded={false}
     aria-haspopup="true"
     aria-label="Menu"
-    className="menu-button--wrapper menu-button--wrapper--size-32"
+    className="wrapper size32"
+    data-testid="menu-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
