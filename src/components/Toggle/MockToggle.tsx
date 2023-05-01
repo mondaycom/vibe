@@ -3,6 +3,8 @@ import cx from "classnames";
 import React, { FC } from "react";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./MockToggle.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface MockToggleProps extends VibeComponentProps {
   areLabelsHidden?: boolean;
@@ -31,6 +33,7 @@ export const MockToggle: FC<MockToggleProps> = ({
         [styles.disabled]: disabled
       })}
       aria-hidden="true"
+      data-testid={getTestId(ComponentDefaultTestId.TOGGLE)}
     />
     {areLabelsHidden ? null : <ToggleText disabled={disabled}>{onOverrideText}</ToggleText>}
   </>

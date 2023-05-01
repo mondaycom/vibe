@@ -21,6 +21,7 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
   <div
     aria-hidden="true"
     className="toggle selected disabled"
+    data-testid="toggle"
   />
   <span
     className="text disabled"
@@ -46,6 +47,7 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
   <div
     aria-hidden="true"
     className="toggle selected"
+    data-testid="toggle"
   />
 </label>
 `;
@@ -71,6 +73,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   <div
     aria-hidden="true"
     className="toggle dummy-class-name notSelected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -101,6 +104,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   <div
     aria-hidden="true"
     className="toggle dummy-class-name selected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -131,6 +135,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   <div
     aria-hidden="true"
     className="toggle dummy-class-name notSelected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -161,6 +166,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   <div
     aria-hidden="true"
     className="toggle dummy-class-name selected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -192,6 +198,7 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
   <div
     aria-hidden="true"
     className="toggle selected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -222,6 +229,7 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
   <div
     aria-hidden="true"
     className="toggle selected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -252,6 +260,7 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
   <div
     aria-hidden="true"
     className="toggle selected"
+    data-testid="toggle"
   />
   <span
     className="text"
@@ -282,6 +291,7 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
   <div
     aria-hidden="true"
     className="toggle selected"
+    data-testid="toggle"
   />
   <span
     className="text"
