@@ -62,7 +62,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -122,7 +122,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -230,7 +230,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -374,7 +374,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -470,7 +470,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}

@@ -185,7 +185,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle
-              className={cx("icon-button-padding", iconClassName)}
+              className={iconClassName}
               clickable={false}
             />
           </Button>

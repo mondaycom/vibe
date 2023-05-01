@@ -1631,7 +1631,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon_component icon_component--no-focus-style"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1690,7 +1690,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon_component icon_component--no-focus-style"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1752,7 +1752,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon_component icon_component--no-focus-style"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}
@@ -2486,7 +2486,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon_component icon_component--no-focus-style"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}
@@ -2713,7 +2713,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon_component icon_component--no-focus-style"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}

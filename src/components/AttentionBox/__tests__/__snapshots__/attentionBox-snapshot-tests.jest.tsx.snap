@@ -326,7 +326,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       >
         <svg
           aria-hidden={true}
-          className="icon_component icon-button-padding icon_component--no-focus-style"
+          className="icon_component icon_component--no-focus-style"
           fill="currentColor"
           height="20"
           onClick={[Function]}
