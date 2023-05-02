@@ -11,14 +11,12 @@ import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
-import { ElementContent } from "../../types/ElementContent";
-import clickableStyles from "../Clickable/Clickable.module.scss";
 import styles from "./Chips.module.scss";
 
 interface ChipsProps extends VibeComponentProps {
@@ -154,9 +152,9 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder
     });
-    const clickableClassName = cx(clickableStyles.clickable, overrideClassName, {
-      [clickableStyles.disabled]: disabled,
-      [clickableStyles.disableTextSelection]: !allowTextSelection
+    const clickableClassName = cx(styles.clickable, overrideClassName, {
+      [styles.disabled]: disabled,
+      [styles.disableTextSelection]: !allowTextSelection
     });
 
     const overflowProps = useChipOverflowTooltip({

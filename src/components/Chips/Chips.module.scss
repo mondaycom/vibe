@@ -2,6 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
+@import "../Clickable/Clickable.module";
 
 .chips {
   display: inline-flex;
@@ -27,7 +28,6 @@
   }
 
   .label {
-
     @include ellipsis();
   }
 
@@ -66,6 +66,16 @@
 
   &.defaultCursor {
     cursor: default;
+  }
+
+  &.clickable {
+    @include clickable;
+    &.disabled {
+      @include clickable-disabled;
+    }
+    &.disableTextSelection {
+      @include clickable-disable-text-selection;
+    }
   }
 }
 
