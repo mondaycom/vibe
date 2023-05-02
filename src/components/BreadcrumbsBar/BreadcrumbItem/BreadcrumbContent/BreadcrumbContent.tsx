@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import cx from "classnames";
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../../types";
