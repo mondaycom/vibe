@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
-@import "../Clickable/Clickable.module";
+@use "../Clickable/Clickable.module" as clickable;
 
 .chips {
   display: inline-flex;
@@ -69,12 +69,12 @@
   }
 
   &.clickable {
-    @include clickable;
+    @include clickable.clickable;
     &.disabled {
-      @include clickable-disabled;
+      @include clickable.clickable-disabled;
     }
     &.disableTextSelection {
-      @include clickable-disable-text-selection;
+      @include clickable.clickable-disable-text-selection;
     }
   }
 }
