@@ -69,22 +69,20 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
-    if (animationType) {
-      switch (animationType) {
-        case AnimationType.OPACITY_AND_SLIDE:
-          transitionOptions.classNames = {
-            appear: styles.opacitySlideAppear,
-            appearActive: styles.opacitySlideAppearActive
-          };
-          break;
-        case AnimationType.EXPAND:
-          transitionOptions.classNames = {
-            appear: styles.expandAppear,
-            appearActive: styles.expandAppearActive,
-            exit: styles.expandExit
-          };
-          break;
-      }
+    switch (animationType) {
+      case AnimationType.OPACITY_AND_SLIDE:
+        transitionOptions.classNames = {
+          appear: styles.opacitySlideAppear,
+          appearActive: styles.opacitySlideAppearActive
+        };
+        break;
+      case AnimationType.EXPAND:
+        transitionOptions.classNames = {
+          appear: styles.expandAppear,
+          appearActive: styles.expandAppearActive,
+          exit: styles.expandExit
+        };
+        break;
     }
 
     return (
