@@ -13,8 +13,7 @@ exports[`LinearProgressBar renders correctly with barStyle 1`] = `
       aria-valuemin={0}
       aria-valuenow={20}
       className="bar typePrimaryPositive animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -50,8 +49,7 @@ exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
       aria-valuemin={0}
       aria-valuenow={20}
       className="bar typePrimaryPrimary animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -82,8 +80,7 @@ exports[`LinearProgressBar renders correctly with min 1`] = `
       aria-valuemin={0}
       aria-valuenow={11.11111111111111}
       className="bar typePrimaryPrimary animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -165,8 +162,7 @@ exports[`LinearProgressBar renders correctly with size 1`] = `
       aria-valuemin={0}
       aria-valuenow={20}
       className="bar typePrimaryPrimary animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -191,8 +187,7 @@ exports[`LinearProgressBar renders correctly with value 1`] = `
       aria-valuemin={0}
       aria-valuenow={20}
       className="bar typePrimaryPrimary animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -218,8 +213,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       aria-valuemin={0}
       aria-valuenow={40}
       className="bar typeSecondaryPrimary animate"
-      data-testid="bar_bar-secondary"
-      id="bar-secondary"
+      data-testid="bar-secondary"
       role="progressbar"
       style={
         Object {
@@ -232,8 +226,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       aria-valuemin={0}
       aria-valuenow={20}
       className="bar typePrimaryPrimary animate"
-      data-testid="bar_bar-primary"
-      id="bar-primary"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {

@@ -148,12 +148,12 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         <Bar
           barLabelName={ariaLabel}
           barStyle={barStyle}
-          id="bar-secondary"
           value={valueSecondary}
           animated={animated}
           type={ProgressBarType.SECONDARY}
           min={min}
           max={max}
+          data-testid={ComponentDefaultTestId.BAR_SECONDARY}
         />
         <Bar
           barStyle={barStyle}
@@ -162,7 +162,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           type={ProgressBarType.PRIMARY}
           min={min}
           max={max}
-          id="bar-primary"
+          data-testid={ComponentDefaultTestId.BAR_PRIMARY}
         />
       </>
     ) : null;

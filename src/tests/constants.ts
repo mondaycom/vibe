@@ -27,6 +27,8 @@ export enum ComponentDefaultTestId {
   BREADCRUMBS_BAR = "breadcrumbs-bar",
   LINEAR_PROGRESS_BAR = "linear-progress-bar",
   BAR = "bar",
+  BAR_PRIMARY = "bar-primary",
+  BAR_SECONDARY = "bar-secondary",
   COLOR_PICKER_ITEM_COMPONENT = "color-picker-item-component",
   COMBOBOX_CATEGORY = "combobox-category",
   COMBOBOX_OPTION = "combobox-option",
