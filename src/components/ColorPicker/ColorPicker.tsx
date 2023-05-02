@@ -93,7 +93,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
     return (
       <DialogContentContainer
         ref={mergedRef}
-        className={cx(styles.colorPickerWrapper, styles.colorPickerDialogContent, className)}
+        className={cx(styles.colorPicker, styles.colorPickerDialogContent, className)}
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}

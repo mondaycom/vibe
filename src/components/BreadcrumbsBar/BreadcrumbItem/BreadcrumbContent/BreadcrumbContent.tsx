@@ -49,7 +49,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
         }
         return (
           <span
-            className={cx(className)}
+            className={className}
             onClick={onClick}
             onKeyDown={onKeyDown}
             tabIndex={tabIndex}
@@ -65,7 +65,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
       }
       return (
         <span
-          className={cx(className)}
+          className={className}
           aria-disabled="true"
           tabIndex={tabIndex}
           aria-current={isCurrent ? "page" : undefined}

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { camelCase } from "lodash-es";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import { isFunction, noop as NOOP } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
@@ -197,7 +197,7 @@ const Combobox: React.FC<ComboboxProps> & {
       }
 
       return (
-        <div className={styles.comboboxWrapperNoResults}>
+        <div className={styles.comboboxNoResults}>
           <div className={styles.comboboxMessageWrapper}>
             <span className={styles.comboboxMessage}>{noResultsMessage}</span>
           </div>
@@ -259,19 +259,19 @@ const Combobox: React.FC<ComboboxProps> & {
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.comboboxWrapper, className, getStyle(styles, camelCase("size-" + size)), {
+        className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,
           [styles.stickyCategory]: stickyCategories
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
       >
-        <div className={styles.comboboxWrapperList} style={{ maxHeight: optionsListHeight }} role="listbox">
+        <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName={cx(styles.comboboxWrapperSearchWrapper, searchWrapperClassName)}
-            className={styles.comboboxWrapperSearch}
+            wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
+            className={styles.comboboxSearch}
             inputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
             id="combobox-search"

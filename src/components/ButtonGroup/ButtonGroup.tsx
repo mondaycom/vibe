@@ -156,7 +156,7 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
 
     return (
       <div
-        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase("kind-" + kind)), {
+        className={cx(styles.buttonGroup, overrideClassName, getStyle(styles, camelCase("kind-" + kind)), {
           [styles.disabled]: disabled
         })}
         id={id}

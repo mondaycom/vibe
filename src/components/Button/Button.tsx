@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 import { camelCase } from "lodash-es";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { SIZES } from "../../constants";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";

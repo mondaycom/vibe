@@ -22,7 +22,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
 }) => (
   <nav
     aria-label="Breadcrumb"
-    className={cx(styles.breadcrumbsBarWrapper, className)}
+    className={cx(styles.breadcrumbsBar, className)}
     id={id}
     data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMBS_BAR, id)}
   >
