@@ -3,7 +3,7 @@
 exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>
@@ -30,7 +30,7 @@ exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
 exports[`BreadcrumbsItem renders correctly  with className 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>
@@ -57,7 +57,7 @@ exports[`BreadcrumbsItem renders correctly  with className 1`] = `
 exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>
@@ -85,7 +85,7 @@ exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
 exports[`BreadcrumbsItem renders correctly  with empty props 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>
@@ -112,7 +112,7 @@ exports[`BreadcrumbsItem renders correctly  with empty props 1`] = `
 exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>
@@ -154,7 +154,7 @@ exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
 exports[`BreadcrumbsItem renders correctly  with text 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbsBarWrapper"
+  className="breadcrumbsBar"
   data-testid="breadcrumbs-bar"
 >
   <ol>

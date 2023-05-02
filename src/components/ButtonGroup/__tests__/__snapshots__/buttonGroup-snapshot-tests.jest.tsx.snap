@@ -2,7 +2,7 @@
 
 exports[`ButtonGroup renders correctly when disabled 1`] = `
 <div
-  className="wrapper kindSecondary disabled"
+  className="buttonGroup kindSecondary disabled"
   data-testid="button-group"
 >
   <div
@@ -77,7 +77,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
 
 exports[`ButtonGroup renders correctly when disabled 2`] = `
 <div
-  className="wrapper kindSecondary"
+  className="buttonGroup kindSecondary"
   data-testid="button-group"
 >
   <div
@@ -152,7 +152,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
 
 exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
 <div
-  className="wrapper kindTertiary"
+  className="buttonGroup kindTertiary"
   data-testid="button-group"
 >
   <div
@@ -227,7 +227,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
 
 exports[`ButtonGroup renders correctly with componentClassName 1`] = `
 <div
-  className="wrapper testClassName kindSecondary"
+  className="buttonGroup testClassName kindSecondary"
   data-testid="button-group"
 >
   <div
@@ -302,7 +302,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
 
 exports[`ButtonGroup renders correctly with large size 1`] = `
 <div
-  className="wrapper kindSecondary"
+  className="buttonGroup kindSecondary"
   data-testid="button-group"
 >
   <div
@@ -377,7 +377,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
 
 exports[`ButtonGroup renders correctly with name 1`] = `
 <div
-  className="wrapper kindSecondary"
+  className="buttonGroup kindSecondary"
   data-testid="button-group"
 >
   <div
@@ -452,7 +452,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
 
 exports[`ButtonGroup renders correctly with value 1`] = `
 <div
-  className="wrapper kindSecondary"
+  className="buttonGroup kindSecondary"
   data-testid="button-group"
 >
   <div
