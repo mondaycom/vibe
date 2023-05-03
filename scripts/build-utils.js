@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const { publishedTSComponents, publishedStorybookComponents } = require("../webpack/published-components");
+const {
+  publishedTSComponents,
+  publishedJSComponents,
+  publishedStorybookComponents
+} = require("../webpack/published-components");
 
 function createFoldersIfNotExist() {
   // if dist is not exist let's create it
@@ -28,16 +32,22 @@ function buildComponentExport(name, path) {
   return `export { default as ${name} } from "${path}";`;
 }
 
+function buildExportToComponentWithoutType(name) {
+  return `export const ${name}: any;`;
+}
+
 function convertExportsToFile(exportsArray, fileName) {
-  const content = exportsArray.join("\n");
+  const content = `${exportsArray.join("\n")}\n`;
   fs.writeFileSync(path.join(__dirname, `../dist/${fileName}`), content, "utf8");
 }
 
 function buildComponentsTypesIndexFile() {
-  const exports = Object.entries(publishedTSComponents).map(([name, path]) =>
+  const exportsWithTypescript = Object.entries(publishedTSComponents).map(([name, path]) =>
     buildComponentExport(name, `./types/${path}`)
   );
-  convertExportsToFile(exports, "types.d.ts");
+
+  const exportsWithJavasript = Object.keys(publishedJSComponents).map(name => buildExportToComponentWithoutType(name));
+  convertExportsToFile(exportsWithTypescript.concat(exportsWithJavasript), "types.d.ts");
 }
 
 function buildStorybookComponentsIndexFile() {
