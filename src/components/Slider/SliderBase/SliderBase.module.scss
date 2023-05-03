@@ -1,3 +1,5 @@
+@import "../../../styles/global-css-settings";
+
 .base {
   display: flex;
   touch-action: none;
@@ -14,13 +16,13 @@
 }
 
 .small {
-  padding: 0 8px;
+  padding: 0 $spacing-small;
 }
 
 .medium {
-  padding: 0 12px;
+  padding: 0 $spacing-small-medium;
 }
 
 .large {
-  padding: 0 12px;
+  padding: 0 $spacing-small-medium;
 }
