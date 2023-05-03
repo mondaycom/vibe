@@ -10,10 +10,10 @@ In case a `data-testid` was not provided, the library will provide a default one
 
 ```tsx
 const SomeComponent = () => {
-	return ( 
-	  <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`}/>
+  return ( 
+    <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`}/>
       ...
-	  </div>
+    </div>
   );
 }
 ```
@@ -21,10 +21,10 @@ const SomeComponent = () => {
 Inner parts of the component would also get a data-testid, which its parent component would usually prefix with its own name. for example:
 ```tsx
 const SomeComponent = () => {
-	return ( 
-	  <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`}/>
+  return ( 
+    <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`}/>
       <InnerComponent data-testid={`${props['data-testid']-inner-component`}>
-	  </div>
+    </div>
   );
 }
 ```
