@@ -103,6 +103,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Ocean
           </div>
@@ -114,6 +115,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Blue
           </div>
@@ -125,6 +127,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Purple
           </div>
@@ -136,6 +139,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Red
           </div>
@@ -147,6 +151,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Orange
           </div>
@@ -158,6 +163,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Yellow
           </div>
@@ -955,6 +961,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   1
                 </div>
@@ -972,6 +979,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   2
                 </div>
@@ -989,6 +997,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   3
                 </div>
@@ -1006,6 +1015,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   4
                 </div>
@@ -1023,6 +1033,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   5
                 </div>
@@ -1040,6 +1051,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   6
                 </div>
@@ -1057,6 +1069,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   7
                 </div>
@@ -1074,6 +1087,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   8
                 </div>
@@ -1091,6 +1105,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   9
                 </div>
@@ -1108,6 +1123,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   10
                 </div>
@@ -1125,6 +1141,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   11
                 </div>
@@ -2033,6 +2050,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean
@@ -3893,6 +3911,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean

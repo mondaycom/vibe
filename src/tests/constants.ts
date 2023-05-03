@@ -3,8 +3,7 @@ export enum ComponentDefaultTestId {
   // plop_marker:default-data-testid-declarations
   COMBOBOX = "combobox",
   DROPDOWN = "dropdown",
-  DROPDOWN_OPTION = "dropdown-option",
-  DROPDOWN_MENU = "dropdown-menu",
+  DROPDOWN_OPTION_CONTENT = "dropdown-option-content",
   BUTTON = "button",
   CLICKABLE = "clickable",
   VIRTUALIZED_LIST = "virtualized-list",
