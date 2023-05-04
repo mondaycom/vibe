@@ -30,13 +30,13 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -76,13 +76,13 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -122,13 +122,13 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-dark__text"
@@ -168,13 +168,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
@@ -240,13 +240,13 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
       }
     }
   >
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -286,13 +286,13 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -404,13 +404,13 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       onClick={[Function]}
       role="img"
     />
-    <h4
+    <h5
       aria-label=""
-      className="headingComponent monday-style-attention-box-component__title elementTypeH4 sizeLarge singleLineEllipsis"
+      className="headingComponent monday-style-attention-box-component__title elementTypeH5 sizeLarge singleLineEllipsis"
       data-testid="heading"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
