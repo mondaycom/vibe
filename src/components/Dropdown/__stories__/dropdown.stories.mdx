@@ -795,14 +795,16 @@ If you need to programmatically control Dropdown state, use `ref` prop. Pay atte
         ref.current.select.focus();
       }, []);
       return (
-        <Flex direction={Flex.directions.COLUMN}>
+        <Flex direction={Flex.directions.ROW}>
           <Dropdown
             placeholder="Dropdown with ref"
             options={options}
             ref={ref}
             className="dropdown-stories-styles_spacing"
           />
-          <Button onClick={focusDropdownInput}>Click to focus dropdown input!</Button>
+          <Button onClick={focusDropdownInput} className="dropdown-stories-styles_button">
+            Focus dropdown input
+          </Button>
         </Flex>
       );
     }}
