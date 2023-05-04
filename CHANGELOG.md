@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.122.2 (2023-05-02)
+
+#### Bug Fixes
+* [#1244](https://github.com/mondaycom/monday-ui-react-core/pull/1244) Dropdown: customOnOptionRemove as a callback, not as a replacement for inner logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.122.1 (2023-04-30)
 
 #### Bug Fixes
