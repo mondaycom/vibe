@@ -584,7 +584,7 @@ Dropdown.propTypes = {
    */
   onOptionRemove: PropTypes.func,
   /**
-   Pass Ref for reference of the actual dropdown component
+   Pass Ref for reference of the actual dropdown component - returns StateManager from react-select
    */
   ref: PropTypes.func,
   /**

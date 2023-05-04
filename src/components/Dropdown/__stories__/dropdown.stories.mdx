@@ -497,7 +497,7 @@ The Dropdown component supports multiple options selection in two different stat
 
 ## Use cases and examples
 
-### multiple drop down with renderers as options
+### Multiple dropdown with renderers as options
 
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
 
@@ -754,15 +754,12 @@ If importing the drop down options may take time, you can reflect this to the us
         ],
         []
       );
-      const loadingOnInputChange = useCallback(
-        () => {
-          setIsLoading(true);
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 1000);
-        },
-        []
-      );
+      const loadingOnInputChange = useCallback(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      }, []);
       return (
         <Dropdown
           placeholder={"Type to start loading"}
@@ -772,6 +769,41 @@ If importing the drop down options may take time, you can reflect this to the us
           className="dropdown-stories-styles_big-spacing"
           onInputChange={loadingOnInputChange}
         />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with ref
+
+If you need to programmatically control Dropdown state, use `ref` prop. Pay attention that type of returned ref will be `StateManager` from <Link withoutSpacing href="https://react-select.com/home">`react-select`</Link> library.
+
+<Canvas>
+  <Story name="Dropdown with ref">
+    {() => {
+      const ref = useRef();
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      const focusDropdownInput = useCallback(() => {
+        console.log("Dropdown ref.current = ", ref.current);
+        ref.current.select.focus();
+      }, []);
+      return (
+        <Flex direction={Flex.directions.COLUMN}>
+          <Dropdown
+            placeholder="Dropdown with ref"
+            options={options}
+            ref={ref}
+            className="dropdown-stories-styles_spacing"
+          />
+          <Button onClick={focusDropdownInput}>Click to focus dropdown input!</Button>
+        </Flex>
       );
     }}
   </Story>
