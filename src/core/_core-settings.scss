@@ -3,17 +3,16 @@
 // - Map collect function is used in order to merge multiple maps from Core config .
 
 $core-settings-map: map-collect(
-                $core-motion-map,
-                $core-spacing-map,
-                $core-border-map,
-                $core-border-radius-map,
-                $core-common-map,
-                $core-fonts-map,
-                $core-font-weight-map,
-                $core-font-size-scale-map,
-                $core-font-line-height-scale-map,
-                $core-typography-font-sizes-map,
-                $core-typography-line-height-sizes-map,
-                $core-typography-fonts-map,
-
+  $core-motion-map,
+  $core-spacing-map,
+  $core-border-map,
+  $core-border-radius-map,
+  $core-common-map,
+  $core-fonts-map,
+  $core-font-weight-map,
+  $core-font-size-scale-map,
+  $core-font-line-height-scale-map,
+  $core-typography-font-sizes-map,
+  $core-typography-line-height-sizes-map,
+  $core-typography-fonts-map
 );

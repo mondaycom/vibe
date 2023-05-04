@@ -18,8 +18,7 @@
 // - Utility scopes are nested within a utility map
 // - Map keys are fixed and defined within the mixin:
 // --  property, class,values,
-@mixin generate-utility-class($utility,$infix, $export) {
-
+@mixin generate-utility-class($utility, $infix, $export) {
   $values: map.get($utility, values);
   @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
     $values: list.zip($values, $values);
@@ -51,7 +50,7 @@
           }
         }
       } @else {
-        $class-name:$property-class + $infix + -#{$property-class-modifier};
+        $class-name: $property-class + $infix + -#{$property-class-modifier};
         .#{$class-name} {
           @each $property in $properties {
             #{$property}: $value !important;
@@ -62,10 +61,9 @@
   }
 }
 
-
 // Generate utilities
 // This mixin invoke the utility mixin by setting its map and export type, and initializing the $infix.
-@mixin utility-class-factory($map,$infix:"",$export:"") {
+@mixin utility-class-factory($map, $infix: "", $export: "") {
   @each $key, $utility in $map {
     // The utility can be disabled with `false`, thus check if the utility is a map first
     // Only proceed if responsive media queries are enabled or if it's the base media query

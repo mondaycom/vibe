@@ -90,7 +90,7 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
   border-radius: var(--border-radius-big) 14px;
 }`.trim();
 
-    const contentAfterFix = fs.readFileSync(file).toString();
+    const contentAfterFix = fs.readFileSync(file).toString().trim();
 
     expect(contentAfterFix).toEqual(expectedOutputAfterFix);
   });

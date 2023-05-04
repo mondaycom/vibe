@@ -17,7 +17,8 @@
     "build": "npm run compile-styles && npm run css-minify && npm run copy-files",
     "plop": "plop",
     "stylelint": "stylelint \"**/*.scss\"",
-    "stylelint:fix": "stylelint \"**/*.scss\" --fix"
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
   },
   "peerDependencies": {
     "react": ">=16.9.0",

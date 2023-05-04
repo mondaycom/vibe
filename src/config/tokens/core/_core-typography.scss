@@ -45,6 +45,8 @@ $font-h2: var(--font-weight-bold) var(--font-size-h2) / var(--font-line-height-h
 $font-h3: var(--font-weight-light) var(--font-size-h3) / var(--font-line-height-h3) var(--title-font-family);
 $font-h4: var(--font-weight-bold) var(--font-size-h4) / var(--font-line-height-h4) var(--title-font-family);
 $font-h5: var(--font-weight-bold) var(--font-size-h5) / var(--font-line-height-h5) var(--font-family);
-$font-general-label: var(--font-weight-normal) var(--font-size-general-label) / var(--font-line-height-general-label) var(--font-family);
-$font-paragraph: var(--font-weight-normal) var(--font-size-paragraph) / var(--font-line-height-paragraph) var(--font-family);
+$font-general-label: var(--font-weight-normal) var(--font-size-general-label) / var(--font-line-height-general-label)
+  var(--font-family);
+$font-paragraph: var(--font-weight-normal) var(--font-size-paragraph) / var(--font-line-height-paragraph)
+  var(--font-family);
 $font-subtext: var(--font-weight-normal) var(--font-size-subtext) / var(--font-line-height-subtext) var(--font-family);

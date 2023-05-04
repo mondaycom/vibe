@@ -12,9 +12,7 @@ const BumpTypes = {
 
 function bumpVersion(bumpType) {
   console.log("reading package.json from", process.cwd());
-  const packageJson = JSON.parse(
-    fs.readFileSync(`${process.cwd()}/package.json`, "utf-8")
-  );
+  const packageJson = JSON.parse(fs.readFileSync(`${process.cwd()}/package.json`, "utf-8"));
 
   exec(
     `npm info ${packageJson.name} --json`,

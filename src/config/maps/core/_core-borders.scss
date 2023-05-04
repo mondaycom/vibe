@@ -4,6 +4,6 @@
 // - Maps are collected into the $core-settings-map and are interpolated into custom properties.
 
 $core-border-map: (
-        border-width: $border-width,
-        border-style: $border-style,
+  border-width: $border-width,
+  border-style: $border-style
 );

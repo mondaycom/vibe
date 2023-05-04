@@ -13,7 +13,7 @@ const messages = ruleMessages(RULE_NAME, {
     const multipleValues = asArray.length > 1;
     const expectedMsg = multipleValues ? `one of vars: \n${asArray.join("\n")}\n` : `"var(${asArray[0]})"`;
     return `Expected "${original}" to be ${expectedMsg}`;
-  },
+  }
 });
 
 module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOptionObject, context) => {
@@ -26,12 +26,12 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
       {
         actual: primaryOption,
         possible: [...CONFIGS_THAT_MEAN_IGNORE_FILE, true, "true"],
-        optional: true,
+        optional: true
       },
       {
         actual: secondaryOptionObject && secondaryOptionObject.useRecommendedFixes,
         possible: [true, "true", false, "false"],
-        optional: true,
+        optional: true
       }
     );
 
@@ -43,7 +43,7 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
     }
 
     const isAutoFixing = Boolean(context.fix);
-    postcssRoot.walkDecls((decl) => {
+    postcssRoot.walkDecls(decl => {
       // Iterate CSS declarations
 
       const valuesToVars = propsToAllowedCssVars[decl.prop];
@@ -52,7 +52,7 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
       }
 
       const parsedValue = valueParser(decl.value);
-      parsedValue.walk((node) => {
+      parsedValue.walk(node => {
         // iterate nodes inside values, e.g. "padding: 16px 20px" will have two value nodes: "16px" and "20px"
         if (node.type !== "word") {
           return;
@@ -93,7 +93,7 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
             result: postcssResult,
             message: messages.expected(node.value, varReplacementsForValue), // Build the reported message
             node: decl, // Specify the reported node
-            word: node.value, // Which exact word caused the error? This positions the error properly
+            word: node.value // Which exact word caused the error? This positions the error properly
           });
         }
       });
