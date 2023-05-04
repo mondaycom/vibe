@@ -16,7 +16,11 @@ const colorKeys = [
   "private-color",
   "shareable-color",
   "inverted-color-background",
-  "icon-color"
+  "icon-color",
+  "warning-color",
+  "warning-color-hover",
+  "warning-color-selected",
+  "warning-color-selected-hover"
 ];
 
 export const SemanticColors = () => <ColorsDescription colorNames={colorKeys} />;
