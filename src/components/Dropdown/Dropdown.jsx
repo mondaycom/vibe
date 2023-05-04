@@ -192,10 +192,10 @@ const Dropdown = ({
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
   const onOptionRemove = useMemo(() => {
-    if (customOnOptionRemove) {
-      return (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e);
-    }
     return function (optionValue, e) {
+      if (customOnOptionRemove) {
+        customOnOptionRemove(selectedOptionsMap[optionValue], e);
+      }
       setSelected(selected.filter(option => option.value !== optionValue));
       e.stopPropagation();
     };

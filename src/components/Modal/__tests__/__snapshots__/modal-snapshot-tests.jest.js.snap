@@ -283,6 +283,24 @@ Snapshot Diff:
               data-testid="icon-button"
 `;
 
+exports[`Modal with custom width 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"720px"}
+
+@@ --- --- @@
+      data-testid="monday-modal-overlay"
+    />
+    <div
+-     class="dialog default"
++     class="dialog"
+      role="document"
++     style="width: 720px;"
+    >
+      <div
+        class="container"
+`;
+
 exports[`Modal with description 1`] = `
 Snapshot Diff:
 - Default Render

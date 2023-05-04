@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.123.0 (2023-05-04)
+
+#### Bug Fixes
+* [#1248](https://github.com/mondaycom/monday-ui-react-core/pull/1248) chore: expose entry in types for non-ts components ([@shlomitc](https://github.com/shlomitc))
+
+#### New Features
+* [#1240](https://github.com/mondaycom/monday-ui-react-core/pull/1240) Css modules/sergeyro/attention box warning color + icons color + heading style fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1250](https://github.com/mondaycom/monday-ui-react-core/pull/1250) feat: <Modal/> - allow to pass custom width ([@shlomitc](https://github.com/shlomitc))
+
+#### Documentation
+* [#1247](https://github.com/mondaycom/monday-ui-react-core/pull/1247)  Create API_GUIDELINES.MD ([@shlomitc](https://github.com/shlomitc))
+
+#### Internal Changes
+* [#1249](https://github.com/mondaycom/monday-ui-react-core/pull/1249) change install to npm ci ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.122.2 (2023-05-02)
+
+#### Bug Fixes
+* [#1244](https://github.com/mondaycom/monday-ui-react-core/pull/1244) Dropdown: customOnOptionRemove as a callback, not as a replacement for inner logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.122.1 (2023-04-30)
+
+#### Bug Fixes
+* [#1220](https://github.com/mondaycom/monday-ui-react-core/pull/1220) MenuItem id ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.122.0 (2023-04-24)
 
 #### New Features
