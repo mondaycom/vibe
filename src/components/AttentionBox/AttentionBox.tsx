@@ -73,7 +73,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   return (
     <aside
-      className={cx(styles.boxComponent, getStyle(styles, classNameWithType), overrideClassName)}
+      className={cx(styles.attentionBox, getStyle(styles, classNameWithType), overrideClassName)}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >

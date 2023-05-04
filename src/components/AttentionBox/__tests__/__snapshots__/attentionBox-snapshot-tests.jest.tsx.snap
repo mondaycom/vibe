@@ -2,7 +2,7 @@
 
 exports[`AttentionBox renders correctly renders correctly 1`] = `
 <aside
-  className="boxComponent typePrimary dummy-class-name"
+  className="attentionBox typePrimary dummy-class-name"
   data-testid="attention-box"
   role="alert"
 >
@@ -47,7 +47,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly className 1`] = `
 <aside
-  className="boxComponent typePrimary test-classNmae"
+  className="attentionBox typePrimary test-classNmae"
   data-testid="attention-box"
   role="alert"
 >
@@ -92,7 +92,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 <aside
-  className="boxComponent typeDark"
+  className="attentionBox typeDark"
   data-testid="attention-box"
   role="alert"
 >
@@ -137,7 +137,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -182,7 +182,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with empty props 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -202,7 +202,7 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
 
 exports[`AttentionBox renders correctly renders correctly with empty title prop 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -227,7 +227,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
 
 exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -256,7 +256,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -356,7 +356,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >
@@ -383,7 +383,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 
 exports[`AttentionBox renders correctly renders with icon font type 1`] = `
 <aside
-  className="boxComponent typePrimary"
+  className="attentionBox typePrimary"
   data-testid="attention-box"
   role="alert"
 >

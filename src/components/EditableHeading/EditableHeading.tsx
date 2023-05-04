@@ -212,7 +212,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestId || dataTestIdOverride || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+      data-testid={dataTestIdOverride || dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
