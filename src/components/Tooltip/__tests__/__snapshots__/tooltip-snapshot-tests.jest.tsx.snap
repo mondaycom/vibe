@@ -13,7 +13,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -63,7 +63,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={null}
     onClickCapture={[Function]}
     style={
@@ -113,7 +113,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -163,7 +163,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -213,7 +213,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -268,7 +268,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -326,7 +326,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="contentWrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={

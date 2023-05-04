@@ -48,7 +48,7 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="contentWrapper"
++         class="monday-style-dialog-content-wrapper contentWrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
@@ -82,7 +82,7 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="contentWrapper"
+-         class="monday-style-dialog-content-wrapper contentWrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
@@ -123,7 +123,7 @@ Snapshot Diff:
           tabindex="0"
 +       />
 +       <span
-+         class="contentWrapper"
++         class="monday-style-dialog-content-wrapper contentWrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
@@ -164,7 +164,7 @@ Snapshot Diff:
           tabindex="0"
 -       />
 -       <span
--         class="contentWrapper"
+-         class="monday-style-dialog-content-wrapper contentWrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
