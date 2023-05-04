@@ -38,10 +38,6 @@ export default class DropdownDriver {
     return this.renderResult.asFragment();
   }
 
-  get dropdownWrapper() {
-    return this.renderResult.container.querySelector("#dropdown-menu-id");
-  }
-
   get dropdownMenu() {
     return this.renderResult.container.querySelector(".menu");
   }
