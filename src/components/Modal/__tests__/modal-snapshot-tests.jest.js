@@ -100,6 +100,12 @@ describe("Modal", () => {
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
+  it("with custom width", async () => {
+    const props = withContent({ width: "720px" });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
   it("with class names", async () => {
     const props = withContent({ classNames: { container: "container", overlay: "overlay", modal: "modal" } });
     const currentRender = await renderModal(props);
