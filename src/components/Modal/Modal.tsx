@@ -41,9 +41,9 @@ interface ModalProps {
    */
   triggerElement?: Element;
   /**
-   *  Define modal width
+   *  Set the modal's width. Can be one of the presets or any custom size
    */
-  width?: typeof ModalWidth;
+  width?: typeof ModalWidth | string;
   /**
    *  Hide the modal close button
    */
@@ -145,6 +145,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     return childrenArray.find(isModalFooter) || null;
   }, [childrenArray]);
 
+  const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
+
   const dialog = ReactDOM.createPortal(
     <div
       {...attr.container}
@@ -164,6 +166,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
           [styles.default]: width === ModalWidth.DEFAULT,
           [styles.full]: width === ModalWidth.FULL_WIDTH
         })}
+        style={{ width: customWidth ? width : null }}
       >
         {header}
         {content}
