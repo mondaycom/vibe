@@ -90,6 +90,12 @@ export default class DropdownDriver {
     });
   }
 
+  focusSelect(ref) {
+    act(() => {
+      ref.current.select.focus();
+    });
+  }
+
   getCloseButton(index) {
     this.ensureRendered();
 
@@ -137,6 +143,18 @@ export default class DropdownDriver {
     this.options = options;
 
     return this.setProp("options", options);
+  }
+
+  withRef(ref) {
+    this.ref = ref;
+
+    return this.setProp("ref", ref);
+  }
+
+  withOnFocus(onFocus) {
+    this.onFocus = onFocus;
+
+    return this.setProp("onFocus", onFocus);
   }
 
   withVirtualizedOptions() {
