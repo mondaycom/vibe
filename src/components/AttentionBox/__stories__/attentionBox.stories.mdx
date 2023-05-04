@@ -29,7 +29,7 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Feedback/AttentionBox"
   component={AttentionBox}
-  subcomponents={{AttentionBoxLink}}
+  subcomponents={{ AttentionBoxLink }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -95,7 +95,7 @@ Attention box lets users know important information within content areas, as clo
 
 ### States
 
-There are four types of attention boxes: Primary, success, danger, and dark (natural).
+There are five types of attention boxes: Primary, success, danger, warning and dark (natural).
 
 <Canvas>
   <Story name="States">
@@ -120,8 +120,16 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
       <StoryDescription description="Danger">
         <AttentionBox
           title="Account low on free space"
-          text="Your account if out of free space, free some space to prevent data loss."
+          text="Your account is out of free space, free some space to prevent data loss."
           type={AttentionBox.types.DANGER}
+          className="monday-storybook-attention-box_box"
+        />
+      </StoryDescription>
+      <StoryDescription description="Warning">
+        <AttentionBox
+          title="Account low on free space"
+          text="Your account is out of free space, free some space to prevent data loss."
+          type={AttentionBox.types.WARNING}
           className="monday-storybook-attention-box_box"
         />
       </StoryDescription>
@@ -139,26 +147,25 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
 </Canvas>
 
 ### Attention box with link
+
 <Canvas>
-    <Story name="Attention box with link">
-        {() => {
-            return (
-                <AttentionBox
-                    compact
-                    icon={Info}
-                    /**Class name for setting a constant width to the attention box*/
-                    className="monday-storybook-attention-box--fixed-width"
+  <Story name="Attention box with link">
+    {() => {
+      return (
+        <AttentionBox
+          compact
+          icon={Info}
+          /**Class name for setting a constant width to the attention box*/
+          className="monday-storybook-attention-box--fixed-width"
         >
-                    <Flex
-                        style={{width: "100%"}}
-                        justify={Flex.justify.SPACE_BETWEEN}
-                        gap={Flex.gaps.XS}>
-                        Get your monday.com notifications
-                        <AttentionBoxLink href="" text="Learn more"/>
-                    </Flex>
-                </AttentionBox>);
-        }}
-    </Story>
+          <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.XS}>
+            Get your monday.com notifications
+            <AttentionBoxLink href="" text="Learn more" />
+          </Flex>
+        </AttentionBox>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ### Dismissable
@@ -214,13 +221,11 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           <div>
             <span className="monday-storybook-attention-box_title">Inbox</span>
             <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
-                <AttentionBox
-                    className="monday-storybook-attention-box_att-box"
-                    compact
-                    icon={Info}
-                >
-                    <Flex style={{width: "100%"}} justify={Flex.justify.SPACE_BETWEEN}>Get your monday.com notifications <AttentionBoxLink href="" text="Learn more"/></Flex>
-                </AttentionBox>
+            <AttentionBox className="monday-storybook-attention-box_att-box" compact icon={Info}>
+              <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_BETWEEN}>
+                Get your monday.com notifications <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
           </div>
         ),
         description:
@@ -231,13 +236,11 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
           <div>
             <span className="monday-storybook-attention-box_title">Inbox</span>
             <span className="monday-storybook-attention-box_text">Catch up on updates from all your boards.</span>
-              <AttentionBox
-                  compact
-                  className="monday-storybook-attention-box_att-box"
-                  icon={Info}
-              >
-                  <Flex style={{width: "100%"}} justify={Flex.justify.SPACE_BETWEEN}>7 days left on your free trial <AttentionBoxLink href="" text="Learn more"/></Flex>
-              </AttentionBox>
+            <AttentionBox compact className="monday-storybook-attention-box_att-box" icon={Info}>
+              <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_BETWEEN}>
+                7 days left on your free trial <AttentionBoxLink href="" text="Learn more" />
+              </Flex>
+            </AttentionBox>
           </div>
         ),
         description: (
