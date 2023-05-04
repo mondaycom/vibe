@@ -1,8 +1,8 @@
+@use "../Clickable/Clickable.module" as clickable;
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
-@use "../Clickable/Clickable.module" as clickable;
 
 .chips {
   display: inline-flex;
