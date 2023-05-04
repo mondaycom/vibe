@@ -92,6 +92,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       setActiveItemIndex,
       index,
       key,
+      id,
       menuId,
       children,
       isParentMenuVisible = false,
@@ -280,7 +281,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={`${menuId}-${index}`}
+        id={id || `${menuId}-${index}`}
         key={key}
         {...a11yProps}
         className={cx("monday-style-menu-item", overrideClassName, {
