@@ -15,6 +15,7 @@
 
 .title {
   margin: 0;
+  font-weight: 700;
 }
 
 .textCompact {
@@ -33,24 +34,12 @@
   @include theme-prop(background-color, primary-selected-color);
 }
 
-.typePrimaryTitleContainerIcon {
-  @include theme-prop(color, primary-color);
-}
-
 .typeDanger {
   @include theme-prop(background-color, negative-color-selected);
 }
 
-.typeDangerTitleContainerIcon {
-  @include theme-prop(color, negative-color);
-}
-
 .typeSuccess {
   @include theme-prop(background-color, positive-color-selected);
-}
-
-.typeSuccessTitleContainerIcon {
-  @include theme-prop(color, positive-color);
 }
 
 .typeDark {
@@ -58,7 +47,8 @@
   @include theme-prop(color, primary-text-color);
 }
 
-.typeDarkTitleContainerIcon {
+.typeWarning {
+  @include theme-prop(background-color, warning-color-selected);
   @include theme-prop(color, primary-text-color);
 }
 

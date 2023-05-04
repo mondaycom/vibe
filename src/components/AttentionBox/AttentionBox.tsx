@@ -22,7 +22,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
-  /** we support 4 types of attention boxes */
+  /** we support 5 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: SubIcon;
@@ -97,7 +97,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {title && <Heading value={title} type={Heading.types.h4} className={styles.title} />}
+        {title && <Heading value={title} type={Heading.types.h5} className={styles.title} />}
       </Flex>
       <div
         className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
