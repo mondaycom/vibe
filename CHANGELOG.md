@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.124.0 (2023-05-04)
+
+#### New Features
+* [#1251](https://github.com/mondaycom/monday-ui-react-core/pull/1251) Publish-storybook on release completed ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.123.0 (2023-05-04)
 
 #### Bug Fixes
