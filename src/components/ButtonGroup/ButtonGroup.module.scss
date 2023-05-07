@@ -54,13 +54,13 @@
   cursor: not-allowed;
 }
 
-.disabled {
+.button.disabled {
   cursor: not-allowed;
   background-color: var(--disabled-background-color);
   opacity: 0.5;
 }
 
-.buttonDisabled {
+.button.buttonDisabled {
   background-color: var(--disabled-background-color);
   opacity: 0.5;
   cursor: not-allowed;
