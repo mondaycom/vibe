@@ -62,7 +62,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
-      className=""
       onMouseDown={[Function]}
     >
       <div
@@ -71,7 +70,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       >
         <span
           data-testid="counter"
-          id="counter-"
+          id="counter"
         >
           +1
         </span>
@@ -154,7 +153,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
-      className=""
       onMouseDown={[Function]}
     >
       <div
@@ -163,7 +161,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       >
         <span
           data-testid="counter"
-          id="counter-"
+          id="counter"
         >
           +1
         </span>
@@ -245,7 +243,6 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
-      className=""
       onMouseDown={[Function]}
     >
       <div
@@ -254,7 +251,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       >
         <span
           data-testid="counter"
-          id="counter-"
+          id="counter"
         >
           +1
         </span>
@@ -329,7 +326,6 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
-      className=""
       onMouseDown={[Function]}
     >
       <div
@@ -338,7 +334,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       >
         <span
           data-testid="counter"
-          id="counter-"
+          id="counter"
         >
           +1
         </span>
@@ -526,7 +522,6 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     <span
       aria-label="Tab for more items 1"
       aria-labelledby=""
-      className=""
       onMouseDown={[Function]}
     >
       <div
@@ -535,7 +530,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       >
         <span
           data-testid="counter"
-          id="counter-"
+          id="counter"
         >
           +1
         </span>

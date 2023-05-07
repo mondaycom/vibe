@@ -121,21 +121,22 @@ const Counter: React.FC<CounterProps> & {
     );
   }, [size, kind, color, countChangeAnimationState, counterClassName]);
 
+  const counterId = "counter" + (id ? `-${id}` : "");
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
   const counter = (
-    <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+    <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
       {prefix + countText}
     </span>
   );
 
   return (
     <span
-      className={cx(overrideClassName)}
+      className={overrideClassName}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
     >
-      <div className={cx(classNames)} aria-label={countText} ref={ref}>
+      <div className={classNames} aria-label={countText} ref={ref}>
         {noAnimation ? (
           counter
         ) : (
@@ -154,7 +155,7 @@ const Counter: React.FC<CounterProps> & {
                 node.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+              <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
                 {prefix + countText}
               </span>
             </CSSTransition>

@@ -10,7 +10,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -55,7 +54,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
     id="monday-accordion--item-1"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
       id="expand-collapse--monday-accordion--item-1"
     >
@@ -95,7 +93,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
     id="monday-accordion--item-2"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
       id="expand-collapse--monday-accordion--item-2"
     >
@@ -148,7 +145,6 @@ exports[`Accordion renders correctly with children 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -188,7 +184,6 @@ exports[`Accordion renders correctly with children 1`] = `
     id="monday-accordion--item-1"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
       id="expand-collapse--monday-accordion--item-1"
     >
@@ -228,7 +223,6 @@ exports[`Accordion renders correctly with children 1`] = `
     id="monday-accordion--item-2"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
       id="expand-collapse--monday-accordion--item-2"
     >
@@ -283,7 +277,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -328,7 +321,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
     id="monday-accordion--item-1"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
       id="expand-collapse--monday-accordion--item-1"
     >
@@ -368,7 +360,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
     id="monday-accordion--item-2"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
       id="expand-collapse--monday-accordion--item-2"
     >

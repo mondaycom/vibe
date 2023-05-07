@@ -10,7 +10,6 @@ exports[`AccordionItem renders correctly with children 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -65,7 +64,6 @@ exports[`AccordionItem renders correctly with className 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -118,7 +116,6 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >
@@ -171,7 +168,6 @@ exports[`AccordionItem renders correctly with id 1`] = `
     id="test"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--test"
       id="expand-collapse--test"
     >
@@ -224,7 +220,6 @@ exports[`AccordionItem renders correctly with title 1`] = `
     id="monday-accordion--item-0"
   >
     <div
-      className=""
       data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
       id="expand-collapse--monday-accordion--item-0"
     >

@@ -91,7 +91,7 @@ const FormattedNumber: FormattedNumberType = forwardRef(
     return (
       <div
         ref={ref}
-        className={cx(className)}
+        className={className}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.FORMATTED_NUMBER, id)}
       >

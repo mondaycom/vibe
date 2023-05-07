@@ -83,7 +83,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(className)}
+        className={className}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
       >

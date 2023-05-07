@@ -120,7 +120,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       unmountOnExit
     >
       <div
-        className={cx(classNames)}
+        className={classNames}
         role="alert"
         aria-live="polite"
         id={id}
