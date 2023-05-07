@@ -1,14 +1,16 @@
+import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { isNil, noop as NOOP } from "lodash-es";
-import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./Checkbox.scss";
 import { VibeComponentProps } from "../../types";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {
   /** A classname to be added to the wrapping element */
@@ -44,8 +46,6 @@ export interface CheckBoxProps extends VibeComponentProps {
   id?: string;
 }
 
-const BASE_CLASS_NAME = "monday-style-checkbox";
-
 const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   (
     {
@@ -64,7 +64,8 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
       defaultChecked,
       value = "",
       name = "",
-      id
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -82,12 +83,6 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
         });
       });
     }, [inputRef]);
-
-    const checkboxClassNames = [
-      `${BASE_CLASS_NAME}__checkbox`,
-      `${BASE_CLASS_NAME}__prevent-animation`,
-      checkboxClassName
-    ];
     let overrideDefaultChecked = defaultChecked;
 
     // If component did not receive default checked and checked props, choose default checked as
@@ -113,7 +108,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
-        className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
+        className={cx(styles.wrapper, overrideClassName)}
         onMouseUp={onMouseUpCallback}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
@@ -121,7 +116,8 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
         <input
           ref={mergedInputRef}
           id={id}
-          className={`${BASE_CLASS_NAME}__input`}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
+          className={styles.input}
           value={value}
           name={name}
           type="checkbox"
@@ -132,9 +128,9 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           aria-labelledby={ariaLabelledBy}
           checked={checked}
         />
-        <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
+        <div className={cx(styles.checkbox, styles.preventAnimation, checkboxClassName)} ref={iconContainerRef}>
           <Icon
-            className={`${BASE_CLASS_NAME}__icon`}
+            className={styles.icon}
             iconType={Icon.type.SVG}
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
@@ -143,10 +139,14 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
             iconSize="16"
           />
         </div>
-        {label === false ? null : <span className={cx(`${BASE_CLASS_NAME}__label`, labelClassName)}>{label}</span>}
+        {label === false ? null : <span className={cx(styles.label, labelClassName)}>{label}</span>}
       </label>
     );
   }
 );
+
+Object.assign(Checkbox, {
+  defaultTestId: ComponentDefaultTestId.CHECKBOX
+});
 
 export default Checkbox;

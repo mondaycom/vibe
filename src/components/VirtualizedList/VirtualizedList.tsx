@@ -10,7 +10,6 @@ import React, {
   useState
 } from "react";
 import { noop as NOOP } from "lodash-es";
-import cx from "classnames";
 import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";

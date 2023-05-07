@@ -8,7 +8,6 @@ import React, {
   useRef,
   useState
 } from "react";
-import cx from "classnames";
 import { GridChildComponentProps, GridOnScrollProps, ScrollDirection, VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
@@ -275,7 +274,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, gridHeight, idGetter]);
 
     return (
-      <div ref={mergedRef} className={cx("virtualized-grid--wrapper", className)} id={id}>
+      <div ref={mergedRef} className={className} id={id}>
         <AutoSizer>
           {({ height, width }) => {
             updateGridSize(width, height);
@@ -290,7 +289,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-grid-scrollable-container", scrollableClassName)}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {cellRenderer}

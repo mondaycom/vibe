@@ -2,6 +2,7 @@ export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
   COMBOBOX = "combobox",
+  CHECKBOX = "checkbox",
   DROPDOWN = "dropdown",
   BUTTON = "button",
   CLICKABLE = "clickable",
@@ -13,6 +14,7 @@ export enum ComponentDefaultTestId {
   CLEAN_SEARCH_BUTTON = "clean-search-button",
   COLOR_PICKER_ITEM = "color-picker-item",
   ICON_BUTTON = "icon-button",
+  SVG_ICON = "svg-icon",
   CHIP = "chip",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
@@ -46,6 +48,7 @@ export enum ComponentDefaultTestId {
   TEXT_WITH_HIGHLIGHT = "text-with-highlight",
   TOAST = "toast",
   TOAST_LINK = "toast-link",
+  TOAST_BUTTON = "toast-button",
   TOGGLE = "toggle",
   DIVIDER = "divider",
   DATEPICKER = "date-picker",
