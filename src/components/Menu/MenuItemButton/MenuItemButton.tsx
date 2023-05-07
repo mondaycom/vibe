@@ -116,7 +116,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
         aria-current={isActive}
       >
         <Button
-          className="menu-item-button"
+          className={styles.buttonComponent}
           active={isActive}
           disabled={disabled}
           leftIcon={leftIcon}
@@ -125,7 +125,6 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
           kind={kind}
           size={Button.sizes.SMALL}
           blurOnMouseUp={false}
-          className={styles.buttonComponent}
         >
           <div className={styles.content}>{children}</div>
         </Button>
