@@ -374,7 +374,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("virtualized-list--wrapper", className)}
+        className={className}
         id={id}
         role={role}
         data-testid={getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
@@ -394,7 +394,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
                 layout={layout}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-list-scrollable-container", scrollableClassName)}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {rowRenderer}

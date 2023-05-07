@@ -64,11 +64,7 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
         }
       }
 
-      return (
-        <div className="monday-style-list_virtualized-list-element" style={style}>
-          {element}
-        </div>
-      );
+      return <div style={style}>{element}</div>;
     },
     []
   );
