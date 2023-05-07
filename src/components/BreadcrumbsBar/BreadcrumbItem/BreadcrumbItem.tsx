@@ -7,7 +7,6 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
-import breadcrumbContentStyles from "./BreadcrumbContent/BreadcrumbContent.module.scss";
 import styles from "./BreadcrumbItem.module.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
