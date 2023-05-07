@@ -1,0 +1,31 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.dialogContentContainer:focus {
+  outline: none;
+}
+
+.sizeSmall {
+  padding: $spacing-small;
+}
+
+.sizeMedium {
+  padding: $spacing-small;
+}
+
+.sizeLarge {
+  padding: $spacing-large;
+}
+
+.typePopover {
+  @include theme-prop(box-shadow, box-shadow-medium);
+  border-radius: var(--border-radius-medium);
+  @include theme-prop(background-color, secondary-background-color);
+}
+
+.typeModal {
+  @include theme-prop(box-shadow, box-shadow-large);
+  border-radius: var(--border-radius-big);
+  @include theme-prop(background-color, primary-background-color);
+}

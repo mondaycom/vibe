@@ -17,8 +17,14 @@ export enum ComponentDefaultTestId {
   COLOR_PICKER_ITEM = "color-picker-item",
   ICON_BUTTON = "icon-button",
   CHIP = "chip",
+  RADIO_BUTTON = "radio-button",
+  RADIO_BUTTON_LABEL = "radio-button-label",
+  RADIO_BUTTON_CONTROL = "radio-button-control",
   TAB = "tab",
   TAB_PANEL = "tab-panel",
+  TAB_PANELS = "tab-panels",
+  TAB_LIST = "tab-list",
+  TABS_CONTEXT = "tabs-context",
   ALERT_BANNER = "alert-banner",
   ALERT_BANNER_BUTTON = "alert-banner-button",
   ALERT_BANNER_LINK = "alert-banner-link",
@@ -38,6 +44,9 @@ export enum ComponentDefaultTestId {
   COMBOBOX_OPTION = "combobox-option",
   COUNTER = "counter",
   MENU = "menu",
+  OPTION = "option",
+  EXPAND_COLLAPSE = "expand-collapse",
+  EDITABLE_INPUT = "editable-input",
   EDITABLE_HEADING = "editable-heading",
   HEADING = "heading",
   LABEL = "label",
@@ -60,6 +69,7 @@ export enum ComponentDefaultTestId {
   SPLIT_BUTTON_SECONDARY_BUTTON = "split-button-secondary-button",
   TEXT_WITH_HIGHLIGHT = "text-with-highlight",
   TOAST = "toast",
+  TOAST_CONTENT = "toast-content",
   TOAST_LINK = "toast-link",
   TOGGLE = "toggle",
   TIPSEEN = "tipseen",
@@ -72,7 +82,14 @@ export enum ComponentDefaultTestId {
   DATEPICKER_HEADER = "date-picker-header",
   DATEPICKER_YEAR_SELECTION = "date-picker-year-selection",
   LOADER = "loader",
-  MODAL_BUTTONS = "modal-buttons"
+  ICON = "icon",
+  RESPONSIVE_LIST = "responsive-list",
+  LIST = "list",
+  LIST_ITEM = "list-item",
+  LIST_TITLE = "list-title",
+  MODAL_BUTTONS = "modal-buttons",
+  FORMATTED_NUMBER = "formatted-number",
+  HIDDEN_TEXT = "hidden-text"
 }
 
 export enum NavigationCommand {

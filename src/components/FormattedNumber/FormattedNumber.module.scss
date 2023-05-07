@@ -1,0 +1,17 @@
+@import "../../styles/typography";
+
+.formattedNumberComponent {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  width: 100%;
+}
+
+.prefix {
+  white-space: pre;
+}
+
+.suffix {
+  white-space: pre;
+}

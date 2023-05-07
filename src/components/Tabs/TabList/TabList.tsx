@@ -1,12 +1,15 @@
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
+import { camelCase } from "lodash-es";
+import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
 import { TabProps } from "../Tab/Tab";
-import "./TabList.scss";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {
   onTabChange?: (tabId: number) => void;
@@ -17,7 +20,19 @@ export interface TabListProps extends VibeComponentProps {
 }
 
 const TabList: FC<TabListProps> = forwardRef(
-  ({ className, id, onTabChange = NOOP, activeTabId = 0, tabType = "Compact", size, children }, ref) => {
+  (
+    {
+      className,
+      id,
+      onTabChange = NOOP,
+      activeTabId = 0,
+      tabType = "Compact",
+      size,
+      children,
+      "data-testid": dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -80,16 +95,21 @@ const TabList: FC<TabListProps> = forwardRef(
           active: activeTabState === index,
           focus: focusIndex === index,
           onClick: onSelectionAction,
-          className: cx("tabs-list_tab--wrapper", child.props.className),
-          tabInnerClassName: cx("tabs-list_tab-inner", child.props.tabInnerClassName)
+          className: cx(styles.tabListTabWrapper, child.props.className),
+          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
         });
       });
       return childrenToRender;
     }, [children, activeTabState, focusIndex, onSelectionAction]);
 
     return (
-      <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-        <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist">
+      <div
+        ref={mergedRef}
+        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
+      >
+        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
       </div>

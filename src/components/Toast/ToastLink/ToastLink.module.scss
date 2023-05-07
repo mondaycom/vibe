@@ -1,0 +1,9 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
+
+.actionLink {
+  @include theme-prop(color, text-color-on-primary);
+  text-decoration: underline;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}

@@ -1,0 +1,82 @@
+@import "../../styles/states";
+
+.expandCollapse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-text-color);
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-small);
+}
+
+.header {
+  @include reset-button();
+  padding: var(--spacing-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.header .headerContent {
+  margin: 0;
+}
+
+.header .iconComponent {
+  color: var(--icon-color);
+}
+
+.content {
+  padding: var(--spacing-medium);
+}
+
+.section {
+  width: 100%;
+}
+
+.hideBorder {
+  border: none;
+}
+
+.hideBorderBottom {
+  border-bottom: none;
+}
+
+.showBorder {
+  border: 1px solid var(--ui-border-color);
+  .headerOpen {
+    border-bottom: 1px solid;
+    border-color: var(--ui-border-color);
+  }
+}
+
+.animateIconOpen {
+  transform: rotate(-180deg);
+  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+}
+
+.animateIconClose {
+  transform: rotate(-360deg);
+  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+}
+
+.animateExpandCollapseContent {
+  animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
+}
+
+@keyframes expandContentAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--dropdown-menu-fadinY, -75px));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

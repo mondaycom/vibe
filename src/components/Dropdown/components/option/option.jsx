@@ -11,11 +11,11 @@ const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) 
   return (
     <Tooltip {...tooltipProps} position={Tooltip.positions.RIGHT}>
       {Renderer ? (
-        <components.Option {...props} className={cx(styles.dropdownWrapperOptionReset, optionWrapperClassName)}>
+        <components.Option {...props} className={cx(styles.optionReset, optionWrapperClassName)}>
           <Renderer {...data} />
         </components.Option>
       ) : (
-        <components.Option {...props} className={cx(styles.dropdownWrapperOptionReset, optionWrapperClassName)}>
+        <components.Option {...props} className={cx(styles.optionReset, optionWrapperClassName)}>
           <ChildrenContent data={data}>{children}</ChildrenContent>
         </components.Option>
       )}

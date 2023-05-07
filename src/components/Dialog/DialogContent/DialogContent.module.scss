@@ -10,157 +10,106 @@
   pointer-events: none;
 }
 
+.contentComponent:focus {
+  outline: none;
+}
+
+.contentComponent.hasTooltip {
+  padding: 6px;
+}
+
+// Animations
+
 .opacitySlideAppear {
   opacity: 0;
-}
 
-.opacitySlideAppear.top {
-  transform: translateY($spacing-medium);
-}
+  &.top {
+    transform: translateY($spacing-medium);
+  }
 
-.opacitySlideAppear.right {
-  transform: translateX(-$spacing-medium);
-}
+  &.right {
+    transform: translateX(-$spacing-medium);
+  }
 
-.opacitySlideAppear.bottom {
-  transform: translateY(-$spacing-medium);
-}
+  &.bottom {
+    transform: translateY(-$spacing-medium);
+  }
 
-.opacitySlideAppear.left {
-  transform: translateX($spacing-medium);
+  &.left {
+    transform: translateX($spacing-medium);
+  }
 }
 
 .opacitySlideAppearActive {
   transition: opacity 0.2s ease, transform 0.2s ease-out;
   opacity: 1;
   pointer-events: none;
-}
 
-.opacitySlideAppearActive.top,
-.opacitySlideAppearActive.bottom {
-  transform: translateY(0);
-}
+  &.top,
+  &.bottom {
+    transform: translateY(0);
+  }
 
-.opacitySlideAppearActive.right,
-.opacitySlideAppearActive.left {
-  transform: translateX(0);
+  &.right,
+  &.left {
+    transform: translateX(0);
+  }
 }
 
 .expandAppear,
 .expandExit {
   transition: transform 0.1s $expand-animation-timing;
-}
+  &.top,
+  &.topStart,
+  &.topEnd {
+    transform-origin: bottom center;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: bottom left;
+    }
+    &.edgeTop {
+      transform-origin: bottom right;
+    }
+  }
 
-.expandAppear.top,
-.expandAppear.topStart,
-.expandAppear.topEnd,
-.expandExit.top,
-.expandExit.topStart,
-.expandExit.topEnd {
-  transform-origin: bottom center;
-  transform: scale(0.8);
-}
+  &.right,
+  &.rightStart,
+  &.rightEnd {
+    transform-origin: left;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top left;
+    }
+    &.edgeTop {
+      transform-origin: bottom left;
+    }
+  }
 
-.expandAppear.top.edgeBottom,
-.expandAppear.topStart.edgeBottom,
-.expandAppear.topEnd.edgeBottom,
-.expandExit.top.edgeBottom,
-.expandExit.topStart.edgeBottom,
-.expandExit.topEnd.edgeBottom {
-  transform-origin: bottom left;
-}
+  &.bottom,
+  &.bottomStart,
+  &.bottomEnd {
+    transform-origin: top;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top left;
+    }
+    &.edgeTop {
+      transform-origin: top right;
+    }
+  }
 
-.expandAppear.top.edgeTop,
-.expandAppear.topStart.edgeTop,
-.expandAppear.topEnd.edgeTop,
-.expandExit.top.edgeTop,
-.expandExit.topStart.edgeTop,
-.expandExit.topEnd.edgeTop {
-  transform-origin: bottom right;
-}
-
-.expandAppear.right,
-.expandAppear.rightStart,
-.expandAppear.rightEnd,
-.expandExit.right,
-.expandExit.rightStart,
-.expandExit.rightEnd {
-  transform-origin: left;
-  transform: scale(0.8);
-}
-
-.expandAppear.right.edgeBottom,
-.expandAppear.rightStart.edgeBottom,
-.expandAppear.rightEnd.edgeBottom,
-.expandExit.right.edgeBottom,
-.expandExit.rightStart.edgeBottom,
-.expandExit.rightEnd.edgeBottom {
-  transform-origin: top left;
-}
-
-.expandAppear.right.edgeTop,
-.expandAppear.rightStart.edgeTop,
-.expandAppear.rightEnd.edgeTop,
-.expandExit.right.edgeTop,
-.expandExit.rightStart.edgeTop,
-.expandExit.rightEnd.edgeTop {
-  transform-origin: bottom left;
-}
-
-.expandAppear.bottom,
-.expandAppear.bottomStart,
-.expandAppear.bottomEnd,
-.expandExit.bottom,
-.expandExit.bottomStart,
-.expandExit.bottomEnd {
-  transform-origin: top;
-  transform: scale(0.8);
-}
-
-.expandAppear.bottom.edgeBottom,
-.expandAppear.bottomStart.edgeBottom,
-.expandAppear.bottomEnd.edgeBottom,
-.expandExit.bottom.edgeBottom,
-.expandExit.bottomStart.edgeBottom,
-.expandExit.bottomEnd.edgeBottom {
-  transform-origin: top left;
-}
-
-.expandAppear.bottom.edgeTop,
-.expandAppear.bottomStart.edgeTop,
-.expandAppear.bottomEnd.edgeTop,
-.expandExit.bottom.edgeTop,
-.expandExit.bottomStart.edgeTop,
-.expandExit.bottomEnd.edgeTop {
-  transform-origin: top right;
-}
-
-.expandAppear.left,
-.expandAppear.leftStart,
-.expandAppear.leftEnd,
-.expandExit.left,
-.expandExit.leftStart,
-.expandExit.leftEnd {
-  transform-origin: right;
-  transform: scale(0.8);
-}
-
-.expandAppear.left.edgeBottom,
-.expandAppear.leftStart.edgeBottom,
-.expandAppear.leftEnd.edgeBottom,
-.expandExit.left.edgeBottom,
-.expandExit.leftStart.edgeBottom,
-.expandExit.leftEnd.edgeBottom {
-  transform-origin: top right;
-}
-
-.expandAppear.left.edgeTop,
-.expandAppear.leftStart.edgeTop,
-.expandAppear.leftEnd.edgeTop,
-.expandExit.left.edgeTop,
-.expandExit.leftStart.edgeTop,
-.expandExit.leftEnd.edgeTop {
-  transform-origin: bottom right;
+  &.left,
+  &.leftStart,
+  &.leftEnd {
+    transform-origin: right;
+    transform: scale(0.8);
+    &.edgeBottom {
+      transform-origin: top right;
+    }
+    &.edgeTop {
+      transform-origin: bottom right;
+    }
+  }
 }
 
 .expandExit {
@@ -170,27 +119,19 @@
 .expandAppearActive {
   transition: transform 0.1s $expand-animation-timing;
   pointer-events: none;
-}
 
-.expandAppearActive.top,
-.expandAppearActive.topStart,
-.expandAppearActive.topEnd,
-.expandAppearActive.bottom,
-.expandAppearActive.bottomStart,
-.expandAppearActive.bottomEnd,
-.expandAppearActive.right,
-.expandAppearActive.rightStart,
-.expandAppearActive.rightEnd,
-.expandAppearActive.left,
-.expandAppearActive.leftStart,
-.expandAppearActive.leftEnd {
-  transform: scale(1);
-}
-
-.contentComponent:focus {
-  outline: none;
-}
-
-.contentComponent.hasTooltip {
-  padding: 6px;
+  &.top,
+  &.topStart,
+  &.topEnd,
+  &.bottom,
+  &.bottomStart,
+  &.bottomEnd,
+  &.right,
+  &.rightStart,
+  &.rightEnd,
+  &.left,
+  &.leftStart,
+  &.leftEnd {
+    transform: scale(1);
+  }
 }

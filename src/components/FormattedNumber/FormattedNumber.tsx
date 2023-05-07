@@ -1,11 +1,11 @@
+import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
-import classNames from "classnames";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
-import { baseClassName } from "./FormattedNumberConsts";
 import { validateValue } from "./FormattedNumberHelpers";
-import "./FormattedNumber.scss";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./FormattedNumber.module.scss";
 
 interface FormattedNumberProps extends VibeComponentProps {
   /**
@@ -58,20 +58,22 @@ const FormattedNumber: FormattedNumberType = forwardRef(
       emptyPlaceHolder = "N/A",
       decimalPrecision = 2,
       compact = true,
-      rtl
+      rtl,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
 
-      return <span className={`${baseClassName}__suffix`}>{suffix}</span>;
+      return <span className={cx(styles.suffix)}>{suffix}</span>;
     }, [suffix]);
 
     const renderPrefix = useMemo(() => {
       if (!prefix) return null;
 
-      return <span className={`${baseClassName}__prefix`}>{prefix}</span>;
+      return <span className={cx(styles.prefix)}>{prefix}</span>;
     }, [prefix]);
 
     const calculatedValue = useMemo(() => {
@@ -83,13 +85,18 @@ const FormattedNumber: FormattedNumberType = forwardRef(
     }, [value, decimalPrecision, local, compact]);
 
     if (validateValue(value)) {
-      return <span className={`${baseClassName}__place-holder`}>{emptyPlaceHolder}</span>;
+      return <span>{emptyPlaceHolder}</span>;
     }
 
     return (
-      <div ref={ref} className={classNames(className, baseClassName)}>
+      <div
+        ref={ref}
+        className={className}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.FORMATTED_NUMBER, id)}
+      >
         {rtl ? renderSuffix : renderPrefix}
-        <span className={`${baseClassName}__number`}>{calculatedValue}</span>
+        <span>{calculatedValue}</span>
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );
@@ -98,5 +105,9 @@ const FormattedNumber: FormattedNumberType = forwardRef(
 
 FormattedNumber.formatNumber = formatNumber;
 FormattedNumber.localFallBack = formatNumberConsts.DEFAULT_LOCAL;
+
+Object.assign(FormattedNumber, {
+  defaultTestId: ComponentDefaultTestId.FORMATTED_NUMBER
+});
 
 export default FormattedNumber;

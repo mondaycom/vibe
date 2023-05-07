@@ -1,0 +1,74 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+$tooltip-z-index: 9999999999999999;
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-radius: $border-radius-small;
+  padding: $spacing-small $spacing-medium;
+  @include theme-prop(box-shadow, box-shadow-medium);
+  @include font-input();
+  max-width: 50vw;
+  word-break: break-word;
+}
+
+.tooltip.paddingSizeMd {
+  border-radius: $border-radius-medium;
+  padding: $spacing-medium;
+  @include font-input();
+}
+
+.tooltip a.tooltipWhiteLink {
+  color: #fff;
+}
+
+.dark,
+.arrow.dark {
+  @include theme-prop(background-color, inverted-color-background);
+  @include theme-prop(color, text-color-on-inverted);
+}
+
+.white,
+.arrow.white {
+  background-color: $white-theme-bg-color;
+  color: $white-theme-font-color;
+  @include theme-prop(box-shadow, box-shadow-medium);
+}
+
+.primary,
+.arrow.primary {
+  @include theme-prop(background-color, primary-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.success,
+.arrow.success {
+  @include theme-prop(background-color, positive-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.surface,
+.arrow.surface {
+  background-color: $surface-theme-bg-color;
+  color: $surface-theme-font-color;
+}
+
+.private,
+.arrow.private {
+  @include theme-prop(background-color, private-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.share,
+.arrow.share {
+  @include theme-prop(background-color, shareable-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.error,
+.arrow.error {
+  @include theme-prop(background-color, negative-color);
+  @include theme-prop(color, text-color-on-primary);
+}

@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { camelCase } from "lodash-es";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import cx from "classnames";
 import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
+import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useOnClickOutside from "../../../hooks/useClickOutside";
@@ -14,6 +12,7 @@ import { AnimationType, ESCAPE_KEYS } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
 import styles from "./DialogContent.module.scss";
 
+const transitionOptions: { classNames?: string } = {};
 const EMPTY_OBJECT = {};
 
 export interface DialogContentProps extends VibeComponentProps {
@@ -21,7 +20,9 @@ export interface DialogContentProps extends VibeComponentProps {
   position?: PopperJS.Placement;
   wrapperClassName?: string;
   isOpen?: boolean;
+  // TODO breaking change convert to enum
   startingEdge?: any;
+  // TODO breaking change convert to enum - AnimationType
   animationType?: string;
   onEsc?: (event: React.KeyboardEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
@@ -69,13 +70,8 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
+
     switch (animationType) {
-      case AnimationType.OPACITY_AND_SLIDE:
-        transitionOptions.classNames = {
-          appear: styles.opacitySlideAppear,
-          appearActive: styles.opacitySlideAppearActive
-        };
-        break;
       case AnimationType.EXPAND:
         transitionOptions.classNames = {
           appear: styles.expandAppear,
@@ -83,8 +79,13 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           exit: styles.expandExit
         };
         break;
+      case AnimationType.OPACITY_AND_SLIDE:
+        transitionOptions.classNames = {
+          appear: styles.opacitySlideAppear,
+          appearActive: styles.opacitySlideAppearActive
+        };
+        break;
     }
-
     return (
       <span
         // don't remove old classname - override from Monolith
@@ -96,7 +97,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       >
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
-            className={cx(styles.contentComponent, position, {
+            className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
               [styles.hasTooltip]: hasTooltip
             })}

@@ -1,3 +1,4 @@
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -5,7 +6,7 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import "./Link.scss";
+import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */
@@ -63,7 +64,8 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       ariaLabeledBy,
       disableNavigation,
       inheritFontSize,
-      inlineText
+      inlineText,
+      "data-testid": dataTestId
     },
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
@@ -82,22 +84,23 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
 
     return (
       <a
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINK, id)}
         id={id}
         href={href}
         rel={rel}
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx("monday-style-link", overrideClassName, {
-          "inherit-font-size": inheritFontSize,
-          "inline-text": inlineText
+        className={cx(styles.link, overrideClassName, {
+          [styles.inheritFontSize]: inheritFontSize,
+          [styles.inlineText]: inlineText
         })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
       >
-        {getIcon(isStart, icon, "monday-style-link--icon-start")}
-        <span className={cx("monday-style-link--text", textClassName)}>{text}</span>
-        {getIcon(!isStart, icon, "monday-style-link--icon-end")}
+        {getIcon(isStart, icon, cx(styles.iconStart))}
+        <span className={cx(styles.text, textClassName)}>{text}</span>
+        {getIcon(!isStart, icon, cx(styles.iconEnd))}
       </a>
     );
   }
@@ -112,7 +115,8 @@ Object.assign(Link, {
   position: IconPosition,
   target: LinkTarget,
   iconPositions: IconPosition,
-  targets: LinkTarget
+  targets: LinkTarget,
+  defaultTestId: ComponentDefaultTestId.LINK
 });
 
 Link.defaultProps = {

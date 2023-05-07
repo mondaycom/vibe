@@ -68,10 +68,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
-          id="counter-"
+          data-testid="counter"
+          id="counter"
         >
           +1
         </span>
@@ -160,10 +161,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
-          id="counter-"
+          data-testid="counter"
+          id="counter"
         >
           +1
         </span>
@@ -251,10 +253,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
-          id="counter-"
+          data-testid="counter"
+          id="counter"
         >
           +1
         </span>
@@ -335,10 +338,11 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
-          id="counter-"
+          data-testid="counter"
+          id="counter"
         >
           +1
         </span>
@@ -538,10 +542,11 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     >
       <div
         aria-label="1"
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+        className="counter sizeLarge kindFill colorLight"
       >
         <span
-          id="counter-"
+          data-testid="counter"
+          id="counter"
         >
           +1
         </span>
