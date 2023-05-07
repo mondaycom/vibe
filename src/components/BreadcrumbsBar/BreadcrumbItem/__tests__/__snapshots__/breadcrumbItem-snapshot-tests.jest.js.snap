@@ -68,7 +68,7 @@ exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
       <span
         aria-current="page"
         aria-disabled="true"
-        className="breadcrumbContent"
+        className="breadcrumbContent current"
         tabIndex={0}
       >
         <span

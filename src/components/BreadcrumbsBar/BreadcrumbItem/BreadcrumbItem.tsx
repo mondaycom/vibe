@@ -62,15 +62,10 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
         className={cx(styles.breadcrumbItemWrapper, className, {
-          [styles.clickable]: isClickable,
           [styles.disabled]: overrideDisabled
         })}
       >
         <BreadcrumbContent
-          className={cx(breadcrumbContentStyles.breadcrumbContent, {
-            [styles.clickable]: isClickable,
-            [styles.disabled]: overrideDisabled
-          })}
           ref={componentRef}
           isClickable={isClickable}
           link={link}

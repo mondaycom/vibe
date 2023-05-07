@@ -2,6 +2,7 @@
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../../types";
+import cx from "classnames";
 import styles from "./BreadcrumbContent.module.scss";
 
 interface BreadcrumbContentProps extends VibeComponentProps {
@@ -38,7 +39,16 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
       if (isClickable && (link || onClick)) {
         if (link) {
           return (
-            <a className={className} href={link} onKeyDown={onKeyDown} aria-current={isCurrent ? "page" : undefined}>
+            <a
+              className={cx(styles.breadcrumbContent, className, {
+                [styles.disabled]: disabled,
+                [styles.clickable]: isClickable,
+                [styles.current]: isCurrent
+              })}
+              href={link}
+              onKeyDown={onKeyDown}
+              aria-current={isCurrent ? "page" : undefined}
+            >
               {Icon && <Icon {...iconProps} />}
               <span ref={ref} className={styles.breadcrumbText}>
                 {text}
@@ -48,7 +58,11 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
         }
         return (
           <span
-            className={className}
+            className={cx(styles.breadcrumbContent, className, {
+              [styles.disabled]: disabled,
+              [styles.clickable]: isClickable,
+              [styles.current]: isCurrent
+            })}
             onClick={onClick}
             onKeyDown={onKeyDown}
             tabIndex={tabIndex}
@@ -64,7 +78,11 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
       }
       return (
         <span
-          className={className}
+          className={cx(styles.breadcrumbContent, className, {
+            [styles.disabled]: disabled,
+            [styles.clickable]: isClickable,
+            [styles.current]: isCurrent
+          })}
           aria-disabled="true"
           tabIndex={tabIndex}
           aria-current={isCurrent ? "page" : undefined}

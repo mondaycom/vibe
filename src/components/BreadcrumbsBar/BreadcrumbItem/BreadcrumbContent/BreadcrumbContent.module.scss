@@ -33,6 +33,10 @@
   outline: none;
 }
 
+.breadcrumbContent.clickable {
+  cursor: pointer;
+}
+
 .breadcrumbContent.clickable:hover,
 .breadcrumbContent:focus-within {
   @include theme-prop(background-color, primary-background-hover-color);
