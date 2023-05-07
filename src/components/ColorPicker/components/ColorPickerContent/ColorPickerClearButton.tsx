@@ -3,6 +3,7 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import Button from "../../../Button/Button";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
 import { NOOP } from "../../../../utils/function-utils";
+import styles from "./ColorPickerClearButton.module.scss";
 
 interface ColorPickerClearButtonProps extends VibeComponentProps {
   onClick: () => any;
@@ -26,9 +27,9 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
         size={Button.sizes.SMALL}
         kind={Button.kinds.TERTIARY}
         onClick={() => onSelectionAction(-1)} //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
-        className="clear-color-button"
+        className={styles.clearColorButton}
       >
-        <Icon size="16" className="clear-color-icon" />
+        <Icon size="16" className={styles.clearColorIcon} />
         {text || "Clear"}
       </Button>
     );

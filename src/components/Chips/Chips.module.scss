@@ -1,3 +1,4 @@
+@use "../Clickable/Clickable.module" as clickable;
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
@@ -27,7 +28,6 @@
   }
 
   .label {
-
     @include ellipsis();
   }
 
@@ -66,6 +66,16 @@
 
   &.defaultCursor {
     cursor: default;
+  }
+
+  &.clickable {
+    @include clickable.clickable;
+    &.disabled {
+      @include clickable.clickable-disabled;
+    }
+    &.disableTextSelection {
+      @include clickable.clickable-disable-text-selection;
+    }
   }
 }
 

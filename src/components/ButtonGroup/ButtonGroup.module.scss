@@ -1,0 +1,67 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/themes";
+@import "../../styles/typography";
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.subTextContainer {
+  @include font-caption();
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsContainer .button {
+  border: 1px solid;
+  @include theme-prop(background-color, primary-background-color);
+  @include theme-prop(border-color, ui-border-color);
+}
+
+.buttonsContainer .button.activeButton {
+  z-index: 20;
+  @include theme-prop(background-color, primary-selected-color);
+  @include theme-prop(border-color, primary-color);
+}
+
+.buttonsContainer .button.activeButton:hover {
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.optionText:not(.disabled) {
+  @include theme-prop(color, primary-text-color);
+}
+
+.optionText:not(.disabled).selected {
+  z-index: 10;
+  @include theme-prop(color, primary-text-color);
+}
+
+.kindTertiary .button {
+  border-color: transparent;
+}
+
+.kindTertiary .button:first-child {
+  border-color: transparent;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+}
+
+.buttonDisabled {
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+  cursor: not-allowed;
+}

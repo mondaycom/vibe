@@ -112,6 +112,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
         aria-current={isActive}
       >
         <Button
+          className="menu-item-button"
           active={isActive}
           disabled={disabled}
           leftIcon={leftIcon}

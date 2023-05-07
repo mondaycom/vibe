@@ -1,4 +1,3 @@
-import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
@@ -11,7 +10,6 @@ import {
   ColorPickerArrayValueOnly
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContent.scss";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
@@ -77,7 +75,9 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       focusOnMount,
       colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -120,7 +120,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
     return (
-      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
+      <div className={className} style={{ width }} ref={ref} tabIndex={-1}>
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid
             ref={colorsRef}
@@ -137,6 +137,8 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
             showColorNameTooltip={showColorNameTooltip && !forceUseRawColorList}
+            id={id}
+            data-testid={dataTestId}
           />
           {noColorText && (
             <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />

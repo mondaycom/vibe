@@ -1,5 +1,5 @@
-import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
+import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
@@ -7,7 +7,7 @@ import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import { SubIcon } from "../../../../types";
 import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
-import "./ComboboxOption.scss";
+import styles from "./ComboboxOption.module.scss";
 
 interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;
@@ -75,12 +75,12 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     className: string
   ) => {
     if (iconType === ComboboxOptionIconType.RENDERER) {
-      return (icon as (className: string) => JSX.Element)(`option-icon ${className}`);
+      return (icon as (className: string) => JSX.Element)(cx(styles.optionIcon, className));
     }
 
     return (
       <Icon
-        className={cx("option-icon", className)}
+        className={cx(styles.optionIcon, className)}
         iconType={Icon.type.ICON_FONT}
         clickable={false}
         icon={icon as SubIcon}
@@ -129,11 +129,11 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
 
   const optionValue = (
     <>
-      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-      <div ref={labelRef} className="option-label">
+      {leftIcon && renderIcon(leftIcon, leftIconType, styles.left)}
+      <div ref={labelRef} className={cx(styles.optionLabel)}>
         {label}
       </div>
-      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+      {rightIcon && renderIcon(rightIcon, rightIconType, "")}
     </>
   );
 
@@ -150,12 +150,11 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
         onClick={onClick}
         onKeyDown={onKeyDown}
         onMouseLeave={onMouseLeave}
-        className={cx("combobox-option", className, {
-          disabled,
-          selected,
-          active: isActive,
-          "active-outline": visualFocus,
-          first: index === 0
+        className={cx(styles.comboboxOption, className, {
+          [styles.disabled]: disabled,
+          [styles.selected]: selected,
+          [styles.active]: isActive,
+          [styles.activeOutline]: visualFocus
         })}
         style={{ height: optionLineHeight }}
       >

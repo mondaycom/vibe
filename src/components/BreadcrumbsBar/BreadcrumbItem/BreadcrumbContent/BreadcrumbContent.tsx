@@ -2,7 +2,7 @@
 import React, { ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../../types";
-import "./BreadcrumbContent.scss";
+import styles from "./BreadcrumbContent.module.scss";
 
 interface BreadcrumbContentProps extends VibeComponentProps {
   isClickable?: boolean;
@@ -14,7 +14,7 @@ interface BreadcrumbContentProps extends VibeComponentProps {
   disabled?: boolean;
 }
 
-const iconProps = { className: "breadcrumb-icon", size: 14, clickable: false };
+const iconProps = { className: styles.breadcrumbIcon, size: 14, clickable: false };
 
 export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbContentProps & React.RefAttributes<unknown>> =
   forwardRef<unknown, BreadcrumbContentProps>(
@@ -40,7 +40,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
           return (
             <a className={className} href={link} onKeyDown={onKeyDown} aria-current={isCurrent ? "page" : undefined}>
               {Icon && <Icon {...iconProps} />}
-              <span ref={ref} className="breadcrumb-text">
+              <span ref={ref} className={styles.breadcrumbText}>
                 {text}
               </span>
             </a>
@@ -56,7 +56,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             role="button"
           >
             {Icon && <Icon {...iconProps} />}
-            <span ref={ref} className="breadcrumb-text">
+            <span ref={ref} className={styles.breadcrumbText}>
               {text}
             </span>
           </span>
@@ -70,7 +70,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
           aria-current={isCurrent ? "page" : undefined}
         >
           {Icon && <Icon {...iconProps} />}
-          <span ref={ref} className="breadcrumb-text">
+          <span ref={ref} className={styles.breadcrumbText}>
             {text}
           </span>
         </span>

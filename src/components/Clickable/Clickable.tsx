@@ -1,16 +1,12 @@
+import cx from "classnames";
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { AriaRole, forwardRef } from "react";
-import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import { BEMClass } from "../../helpers/bem-helper";
-import "./Clickable.scss";
-
-const CSS_BASE_CLASS = "monday-style-clickable";
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+import styles from "./Clickable.module.scss";
 
 export interface ClickableProps extends VibeComponentProps {
   /**
@@ -83,9 +79,9 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       },
       ref
     );
-    const overrideClassName = cx(CSS_BASE_CLASS, className, {
-      disabled,
-      [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
+    const overrideClassName = cx(styles.clickable, className, {
+      [styles.disabled]: disabled,
+      [styles.disableTextSelection]: !enableTextSelection
     });
 
     return React.createElement(

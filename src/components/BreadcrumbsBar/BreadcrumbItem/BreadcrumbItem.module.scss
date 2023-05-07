@@ -1,0 +1,14 @@
+.breadcrumbItemWrapper {
+  display: inline-flex;
+  overflow: hidden;
+  list-style-type: none;
+  cursor: default;
+}
+
+.breadcrumbItemWrapper.clickable {
+  cursor: pointer;
+}
+
+.breadcrumbItemWrapper.disabled {
+  cursor: not-allowed;
+}

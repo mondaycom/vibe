@@ -11,10 +11,9 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import "./Button.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import styles from "./Button.module.scss";
 
 // min button width
 const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
@@ -24,6 +23,7 @@ export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
+  activeButtonClassName?: string;
   /** The button's kind */
   kind?: ButtonType;
   /** Callback function to run when the button is clicked */
@@ -115,6 +115,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       style,
       loading,
       active,
+      activeButtonClassName,
       id,
       marginRight,
       marginLeft,
@@ -212,22 +213,23 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       const calculatedColor = success ? ButtonColor.POSITIVE : color;
       return cx(
         className,
-        "monday-style-button",
-        `monday-style-button--size-${getActualSize(size)}`,
-        `monday-style-button--kind-${kind}`,
-        `monday-style-button--color-${calculatedColor}`,
+        styles.button,
+        getStyle(styles, camelCase("size-" + getActualSize(size))),
+        getStyle(styles, camelCase("kind-" + kind)),
+        getStyle(styles, camelCase("color-" + calculatedColor)),
         {
-          "has-style-size": hasSizeStyle,
-          "monday-style-button--loading": loading,
-          [`monday-style-button--color-${calculatedColor}-active`]: active,
-          "monday-style-button--margin-right": marginRight,
-          "monday-style-button--margin-left": marginLeft,
-          "monday-style-button--right-flat": rightFlat,
-          "monday-style-button--left-flat": leftFlat,
-          "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding,
-          "monday-style-button--disabled": disabled,
-          "inset-focus-style": insetFocus
+          [styles.hasStyleSize]: hasSizeStyle,
+          [styles.loading]: loading,
+          [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
+          [activeButtonClassName]: active,
+          [styles.marginRight]: marginRight,
+          [styles.marginLeft]: marginLeft,
+          [styles.rightFlat]: rightFlat,
+          [styles.leftFlat]: leftFlat,
+          [styles.preventClickAnimation]: preventClickAnimation,
+          [styles.noSidePadding]: noSidePadding,
+          [styles.disabled]: disabled,
+          [styles.insetFocusStyle]: insetFocus
         }
       );
     }, [
@@ -318,8 +320,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     if (loading) {
       return (
         <button {...buttonProps}>
-          <span className="monday-style-button__loader">
-            <Loader svgClassName="monday-style-button-loader-svg" />
+          <span className={styles.loader}>
+            <Loader svgClassName={styles.loaderSvg} />
           </span>
         </button>
       );
@@ -335,7 +337,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               icon={successIcon}
               iconSize={successIconSize}
               className={cx({
-                "monday-style-button--left-icon": !!successText
+                [styles.leftIcon]: !!successText
               })}
               ignoreFocusStyle
             />
@@ -353,7 +355,9 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             clickable={false}
             icon={leftIcon}
             iconSize={leftIconSize}
-            className={cx({ "monday-style-button--left-icon": !!children })}
+            className={cx({
+              [styles.leftIcon]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}
@@ -364,7 +368,9 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             clickable={false}
             icon={rightIcon}
             iconSize={rightIconSize}
-            className={cx({ "monday-style-button--right-icon": !!children })}
+            className={cx({
+              [styles.rightIcon]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}

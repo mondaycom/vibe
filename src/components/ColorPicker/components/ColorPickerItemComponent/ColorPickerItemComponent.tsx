@@ -1,8 +1,9 @@
-import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
 import { ColorStyle, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
-import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
@@ -11,6 +12,7 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../../../types";
 import { BaseSizes } from "../../../../constants";
+import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
   color: ColorPickerValueOnly;
@@ -48,7 +50,6 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
     const itemRef = useRef<HTMLDivElement>(null);
-    // const [backgroundColor, setBackgroundColor] =
 
     const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
 
@@ -79,30 +80,32 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
     return (
       <Tooltip content={tooltipContent}>
         <li
-          className={cx("monday-style-color-item-wrapper", {
-            "selected-color": isSelected,
-            active: isActive,
-            circle: colorShape === ColorShapes.CIRCLE
+          className={cx(styles.itemWrapper, {
+            [styles.selectedColor]: isSelected,
+            [styles.active]: isActive,
+            [styles.circle]: colorShape === ColorShapes.CIRCLE
           })}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
         >
-          <div className="feedback-indicator" />
+          <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
             ariaLabel={color}
-            className={cx("color-item", `color-item-size-${colorSize}`, {
-              "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+            className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
+              [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
             onClick={onClick}
             tabIndex="-1"
             onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
           >
-            <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
+            <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>
               {shouldRenderIcon && (
                 <Icon
                   icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
-                  className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
+                  className={cx({
+                    [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground
+                  })}
                   ignoreFocusStyle
                 />
               )}
