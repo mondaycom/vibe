@@ -2,10 +2,12 @@ import React, { FC, useEffect, useRef } from "react";
 import { DialogPosition } from "../../../constants/positions";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
-import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
-import { bem } from "../SliderHelpers";
+import { SliderColor, SliderSize, TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import cx from "classnames";
+import styles from "./SliderThumb.module.scss";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
 const tooltipPosition = DialogPosition.TOP;
 
@@ -26,9 +28,11 @@ export interface SliderThumbProps extends VibeComponentProps {
    * Position (i.e. offset) from start of track/rail, according to value
    */
   position?: number;
+  size: SliderSize;
+  color: SliderColor;
 }
 
-const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP, position = 0 }) => {
+const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP, position = 0, size, color }) => {
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? (valueOrValues as unknown as number[])[index] : (valueOrValues as number);
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
@@ -85,9 +89,15 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
         aria-valuenow={value}
         aria-valuetext={valueText}
         aria-disabled={disabled}
-        className={bem(
-          "thumb",
-          { dragging: dragging === index, focused: focused === index, disabled, [`index-${index}`]: true },
+        className={cx(
+          styles.thumb,
+          getStyle(styles, color),
+          getStyle(styles, size),
+          {
+            [styles.dragging]: dragging === index,
+            [styles.focused]: focused,
+            [styles.notDisabledThumb]: !disabled
+          },
           className
         )}
         data-testid={shapeTestId(`thumb-${index}`)}
@@ -100,7 +110,7 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
         style={{ left: `${position}%` }}
         tabIndex={disabled ? -1 : 0}
       >
-        {showValue && <label className={bem("thumb-label")}>{valueText}</label>}
+        {showValue && <label className={styles.label}>{valueText}</label>}
       </div>
     </Tooltip>
   );

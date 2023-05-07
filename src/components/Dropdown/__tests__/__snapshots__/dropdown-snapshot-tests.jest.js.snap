@@ -3,7 +3,7 @@
 exports[`Dropdown renders correctly snapshot driver should open menu on click if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -91,73 +91,79 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class="dropdownMenuWrapper css-1ysewv0-menu"
     >
       <div
         class=" css-bknh9q-Component"
       >
         <div
-          class="dropdown-wrapper__option--reset css-1iwu591-option"
+          class="dropdownWrapperOptionReset css-1iwu591-option"
           id="react-select-32-option-0"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Ocean
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-qj04r2-option"
+          class="dropdownWrapperOptionReset css-qj04r2-option"
           id="react-select-32-option-1"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Blue
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="dropdownWrapperOptionReset css-6ztf41-option"
           id="react-select-32-option-2"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Purple
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="dropdownWrapperOptionReset css-6ztf41-option"
           id="react-select-32-option-3"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Red
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="dropdownWrapperOptionReset css-6ztf41-option"
           id="react-select-32-option-4"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Orange
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="dropdownWrapperOptionReset css-6ztf41-option"
           id="react-select-32-option-5"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Yellow
           </div>
@@ -171,7 +177,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
 exports[`Dropdown renders correctly snapshot driver should open menu on focus if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -265,7 +271,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
     <div
@@ -344,7 +350,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
     <div
@@ -423,7 +429,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
     <div
@@ -502,7 +508,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <div
@@ -581,7 +587,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-cmnsoe-container"
+    class="dropdown dropdown-story css-cmnsoe-container"
     id="dropdown-menu-id"
   >
     <div
@@ -660,7 +666,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly with empty props 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <div
@@ -739,7 +745,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
 exports[`Dropdown renders correctly snapshot driver should use async if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -847,7 +853,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
 exports[`Dropdown renders correctly snapshot driver should use virtualization if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -935,7 +941,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class="dropdownMenuWrapper css-1ysewv0-menu"
     >
       <div
         class=""
@@ -949,12 +955,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-1iwu591-option"
+                class="dropdownWrapperOptionReset css-1iwu591-option"
                 id="react-select-29-option-0"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   1
                 </div>
@@ -966,12 +973,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-1"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   2
                 </div>
@@ -983,12 +991,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-2"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   3
                 </div>
@@ -1000,12 +1009,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-3"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   4
                 </div>
@@ -1017,12 +1027,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-4"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   5
                 </div>
@@ -1034,12 +1045,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-5"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   6
                 </div>
@@ -1051,12 +1063,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-6"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   7
                 </div>
@@ -1068,12 +1081,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-7"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   8
                 </div>
@@ -1085,12 +1099,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-8"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   9
                 </div>
@@ -1102,12 +1117,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-9"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   10
                 </div>
@@ -1119,12 +1135,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="dropdownWrapperOptionReset css-6ztf41-option"
                 id="react-select-29-option-10"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   11
                 </div>
@@ -1140,7 +1157,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
 
 exports[`Dropdown renders correctly when disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1gsgnpy-container"
+  className="dropdown css-1gsgnpy-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1257,7 +1274,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when readOnly 1`] = `
 <div
-  className="dropdown-wrapper css-eh7fjc-container"
+  className="dropdown css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1330,7 +1347,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
 
 exports[`Dropdown renders correctly when rtl 1`] = `
 <div
-  className="dropdown-wrapper css-b0xr5u-container"
+  className="dropdown css-b0xr5u-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1448,7 +1465,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
 
 exports[`Dropdown renders correctly with autoFocus 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1566,7 +1583,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
 
 exports[`Dropdown renders correctly with chip colors 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -1895,7 +1912,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
 
 exports[`Dropdown renders correctly with className 1`] = `
 <div
-  className="dropdown-wrapper test css-bbwnb8-container"
+  className="dropdown test css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2013,7 +2030,7 @@ exports[`Dropdown renders correctly with className 1`] = `
 
 exports[`Dropdown renders correctly with defaultValue 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2033,6 +2050,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean
@@ -2161,7 +2179,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
 
 exports[`Dropdown renders correctly with empty props 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2279,7 +2297,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
 
 exports[`Dropdown renders correctly with id 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2397,7 +2415,7 @@ exports[`Dropdown renders correctly with id 1`] = `
 
 exports[`Dropdown renders correctly with leftAvatar 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2629,7 +2647,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
 
 exports[`Dropdown renders correctly with leftIcon 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2856,7 +2874,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
 
 exports[`Dropdown renders correctly with multi 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -2992,7 +3010,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
 
 exports[`Dropdown renders correctly with multi and disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1gsgnpy-container"
+  className="dropdown css-1gsgnpy-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3156,7 +3174,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 
 exports[`Dropdown renders correctly with multi and readonly 1`] = `
 <div
-  className="dropdown-wrapper css-eh7fjc-container"
+  className="dropdown css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3276,7 +3294,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
 
 exports[`Dropdown renders correctly with multiline 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3394,7 +3412,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
 
 exports[`Dropdown renders correctly with options 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3512,7 +3530,7 @@ exports[`Dropdown renders correctly with options 1`] = `
 
 exports[`Dropdown renders correctly with placeholder 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3630,7 +3648,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
 
 exports[`Dropdown renders correctly with tabIndex 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3748,7 +3766,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 
 exports[`Dropdown renders correctly with tooltipContent 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3873,7 +3891,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
 
 exports[`Dropdown renders correctly with value 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
@@ -3893,6 +3911,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean
@@ -4021,7 +4040,7 @@ exports[`Dropdown renders correctly with value 1`] = `
 
 exports[`Dropdown renders correctly without clear button 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >

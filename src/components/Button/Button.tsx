@@ -11,15 +11,16 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import "./Button.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 // min button width
 const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-export interface ButtonProps {
+export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
@@ -82,6 +83,7 @@ export interface ButtonProps {
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
   dataTestId?: string;
+  "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
@@ -131,12 +133,14 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId,
+      dataTestId: backwardCompatabilityDataTestId,
+      "data-testid": dataTestId,
       insetFocus,
       tabIndex
     },
     ref
   ) => {
+    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const [hasSizeStyle, setHasSizeStyle] = useState(false);
 
@@ -260,7 +264,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onFocus,
         onBlur,
         tabIndex,
-        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,

@@ -12,11 +12,11 @@ const defaultIconProps = {
 };
 
 export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], ReactElement, CSSProperties] {
+  const isPostfix = kind === InfixKind.POSTFIX;
   const { prefix, postfix, indicateSelection, selectionIndicatorWidth } = useSliderInfix();
   const { ranged, value, valueText } = useSliderSelection();
-  const infix = kind === InfixKind.POSTFIX ? postfix : prefix;
+  const infix = isPostfix ? postfix : prefix;
 
-  const isPostfix = kind === InfixKind.POSTFIX;
   if (indicateSelection && (isPostfix || ranged)) {
     return [true, [], <SelectionIndicator key={kind} kind={kind} />, { width: selectionIndicatorWidth }];
   }

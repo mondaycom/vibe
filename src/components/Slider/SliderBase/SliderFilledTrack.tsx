@@ -1,6 +1,9 @@
 import React, { FC } from "react";
-import { bem } from "../SliderHelpers";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import cx from "classnames";
+import { SliderColor } from "../SliderConstants";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import styles from "./SliderFilledTrack.module.scss";
 
 function defineFilledTrackProps(dimension: number, offset: number, reverse: boolean) {
   if (reverse) {
@@ -33,11 +36,18 @@ interface SliderFilledTrackProps extends VibeComponentProps {
    * (`right` for LTR and `left` for RTL, `bottom` for vertical)
    */
   reverse?: boolean;
+  color: SliderColor;
 }
 
-const SliderFilledTrack: FC<SliderFilledTrackProps> = ({ className, dimension = 0, offset = 0, reverse = false }) => {
+const SliderFilledTrack: FC<SliderFilledTrackProps> = ({
+  className,
+  dimension = 0,
+  offset = 0,
+  reverse = false,
+  color
+}) => {
   const filledTrackStyle = defineFilledTrackProps(dimension, offset, reverse);
-  return <div className={bem("filled-track", "", className)} style={filledTrackStyle} />;
+  return <div className={cx(styles.filledTrack, getStyle(styles, color), className)} style={filledTrackStyle} />;
 };
 
 export default SliderFilledTrack;
