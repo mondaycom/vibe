@@ -3,20 +3,20 @@
 exports[`Snapshots renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item monday-style-menu-item--disabled"
+  className="item disabled"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     my item
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",
@@ -32,20 +32,20 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 exports[`Snapshots renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item monday-style-menu-item--selected"
+  className="item selected"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     my item
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",
@@ -61,20 +61,20 @@ exports[`Snapshots renders correctly when selected 1`] = `
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item dummy-class-name"
+  className="item dummy-class-name"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",
@@ -90,20 +90,20 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 exports[`Snapshots renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item"
+  className="item"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",
@@ -119,19 +119,20 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 exports[`Snapshots renders correctly with title and SVG icon 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item"
+  className="item"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__icon-wrapper"
+    className="iconWrapper"
   >
     <svg
       aria-hidden={true}
       aria-label="my item"
-      className="icon_component monday-style-menu-item__icon icon_component--no-focus-style"
+      className="icon_component icon icon_component--no-focus-style"
       fill="currentColor"
       height="20"
       onClick={[Function]}
@@ -147,13 +148,12 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
     </svg>
   </div>
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     my item
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",
@@ -169,31 +169,31 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
 exports[`Snapshots renders correctly with title and font icon 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item"
+  className="item"
+  data-testid="menu-item"
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__icon-wrapper"
+    className="iconWrapper"
   >
     <span
       aria-hidden={true}
       aria-label="my item"
-      className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
+      className="icon_component icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
       role="img"
     />
   </div>
   <div
-    className="monday-style-menu-item__title"
+    className="title"
   >
     my item
   </div>
   
   <div
-    className="monday-style-menu-item__popover"
     style={
       Object {
         "left": "0",

@@ -1,5 +1,4 @@
 import React, { forwardRef, ReactElement, useCallback, useRef } from "react";
-import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
@@ -7,7 +6,7 @@ import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "../Menu/MenuConstants";
-import "./MenuGridItem.scss";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 interface MenuGridItemProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
@@ -46,7 +45,8 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       setSubMenuIsOpenByIndex,
       isUnderSubMenu = false,
       disabled = false,
-      useDocumentEventListeners = false
+      useDocumentEventListeners = false,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -94,8 +94,9 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
     return (
       <section
         ref={mergedRef}
-        className={cx("menu-grid-item--wrapper", className)}
+        className={className}
         id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_GRID_ITEM, id)}
         tabIndex={-1}
         role="grid"
         {...focusWithinProps}

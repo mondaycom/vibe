@@ -2,21 +2,21 @@
 @import "../../../styles/typography";
 @import "../../../styles/global-css-settings";
 
-.monday-style-menu-item-button {
+.itemButton {
   margin: unset;
   @include font-default;
   display: flex;
   flex-direction: row;
-  padding: $spacing-xs 0;
+  padding: var(--spacing-xs) 0;
   align-items: center;
+}
 
-  .menu-item-button {
-    width: 100%;
+.itemButton .buttonComponent {
+  width: 100%;
+}
 
-    .menu-item-button-content {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
+.itemButton .buttonComponent .content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

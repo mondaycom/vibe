@@ -16,11 +16,15 @@ const Divider = ({
   classname,
   className = undefined,
   withoutMargin = false,
-  direction = DirectionType.HORIZONTAL
+  direction = DirectionType.HORIZONTAL,
+  id,
+  "data-testid": dataTestId
 }: DividerProps) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
     <div
+      id={id}
+      data-testid={dataTestId}
       className={cx("monday-style-divider", overrideClassName, `monday-style-divider--${direction}`, {
         [`monday-style-divider--without-margin`]: withoutMargin
       })}
