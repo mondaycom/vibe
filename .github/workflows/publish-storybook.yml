@@ -1,11 +1,10 @@
 name: Publish Storybook
 
 on:
-  release:
-    types: [created]
-  push:
-    branches:
-      - master
+  workflow_run:
+    workflows: ["Release new version"]
+    types:
+      - completed
 
 jobs:
   build-and-deploy:
