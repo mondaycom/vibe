@@ -10,7 +10,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -94,7 +94,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -186,7 +186,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -277,7 +277,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -361,7 +361,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -396,7 +396,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -438,7 +438,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -480,7 +480,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -564,7 +564,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -599,7 +599,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     style={Object {}}
   >
     <div
-      className="monday-style-clickable clickableWrapper monday-style-clickable--disable-text-selection"
+      className="clickable clickableWrapper disableTextSelection"
       data-testid="clickable"
       onClick={[Function]}
       onKeyDown={[Function]}

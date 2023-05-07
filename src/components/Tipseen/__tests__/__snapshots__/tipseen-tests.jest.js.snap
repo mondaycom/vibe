@@ -12,8 +12,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
+      data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -27,8 +27,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -54,8 +54,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
+      data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -69,8 +69,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -96,8 +96,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -288,7 +288,7 @@ Array [
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              className="tipseenCloseButton button sizeSmall kindTertiary colorOnPrimaryColor"
               data-testid="button"
               onBlur={[Function]}
               onClick={[Function]}
