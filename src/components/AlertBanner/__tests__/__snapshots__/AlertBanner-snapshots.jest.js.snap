@@ -8,7 +8,7 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   />
   <div
     className="closeButtonWrapper"
@@ -24,10 +24,10 @@ exports[`AlertBanner should render correctly with props 1`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   >
     <div
-      className="innerItem innerItemText"
+      className="contentItem contentItemText"
     >
       <div
         className="ellipsis"
@@ -89,7 +89,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   />
   <div
     className="closeButtonWrapper"
@@ -137,10 +137,10 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   >
     <div
-      className="innerItem innerItemText"
+      className="contentItem contentItemText"
     >
       <div
         className="ellipsis"
@@ -156,7 +156,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="innerItem"
+      className="contentItem"
     >
       <div
         className="marginLeft"
@@ -181,7 +181,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="innerItem innerItemText"
+      className="contentItem contentItemText"
     >
       <div
         className="ellipsis"
@@ -197,7 +197,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       </div>
     </div>
     <div
-      className="innerItem"
+      className="contentItem"
     >
       <div
         className="marginLeft"
@@ -267,10 +267,10 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   >
     <div
-      className="innerItem innerItemText"
+      className="contentItem contentItemText"
     >
       <div
         className="ellipsis"
@@ -286,7 +286,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       </div>
     </div>
     <div
-      className="innerItem"
+      className="contentItem"
     >
       <div
         className="marginLeft"
@@ -357,10 +357,10 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
   role="banner"
 >
   <div
-    className="inner"
+    className="content"
   >
     <div
-      className="innerItem innerItemText"
+      className="contentItem contentItemText"
     >
       <div
         className="ellipsis"
@@ -376,7 +376,7 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
       </div>
     </div>
     <div
-      className="innerItem"
+      className="contentItem"
     >
       <div
         className="marginLeft"

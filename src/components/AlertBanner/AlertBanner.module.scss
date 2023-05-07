@@ -33,7 +33,7 @@
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.inner {
+.content {
   flex: 1 1 auto;
   display: flex;
   height: 100%;
@@ -60,12 +60,12 @@
   flex: 0 1 auto;
 }
 
-.innerItem {
+.contentItem {
   flex: 0 0 auto;
   min-width: 0;
 }
 
-.innerItemText {
+.contentItemText {
   flex: 0 1 auto;
   min-width: 0;
 }

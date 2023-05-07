@@ -78,15 +78,15 @@ const AlertBanner: React.FC<AlertBannerProps> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
       >
-        <div className={cx(styles.inner)}>
+        <div className={cx(styles.content)}>
           {children.map((child, index) => {
             // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
             const childTypeIsAlertBannerText = child.type.isAlertBannerText;
             return (
               <div
                 key={index}
-                className={cx(styles.innerItem, {
-                  [styles.innerItemText]: childTypeIsAlertBannerText
+                className={cx(styles.contentItem, {
+                  [styles.contentItemText]: childTypeIsAlertBannerText
                 })}
               >
                 {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
