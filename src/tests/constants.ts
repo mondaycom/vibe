@@ -2,9 +2,11 @@ export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
   COMBOBOX = "combobox",
+  COLOR_PICKER = "color-picker",
   DROPDOWN = "dropdown",
   DROPDOWN_OPTION_CONTENT = "dropdown-option-content",
   BUTTON = "button",
+  BUTTON_GROUP = "button-group",
   CLICKABLE = "clickable",
   VIRTUALIZED_LIST = "virtualized-list",
   VIRTUALIZED_GRID = "virtualized-grid",
