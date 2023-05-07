@@ -1,4 +1,5 @@
 import Avatar from "../Avatar";
+import AvatarGroup from "../../AvatarGroup/AvatarGroup";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
@@ -256,20 +257,6 @@ Use for non-person avatars, such as a workspace or team.
 
 ## Use cases and examples
 
-### Multiple avatars
-
-When there is more than one avatar, use an -8 margin between avatars.
-
-<Canvas>
-  <Story name="Multiple avatars">
-    <MultipleStoryElementsWrapper className="monday-storybook-avatar_multiple">
-      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar className="multiple-avatar" size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-    </MultipleStoryElementsWrapper>
-  </Story>
-</Canvas>
-
 ### Avatar with right badge
 
 Use to indicate the user’s permissions such as: Guest, owner.
@@ -374,6 +361,21 @@ Use to fire actions on avatar click event.
     }}
   </Story>
 </Canvas>
+
+### Multiple avatars
+
+To group multiple Avatars together, use the <Link href="/?path=/docs/media-avatar-avatargroup--overview">`<AvatarGroup/>`</Link> component
+
+<Canvas>
+  <Story name="Multiple avatars">
+    <AvatarGroup max={2} size={Avatar.sizes.LARGE}>
+      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+    </AvatarGroup>
+  </Story>
+</Canvas>
+
 
 ## Related components
 
