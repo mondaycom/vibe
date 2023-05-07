@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
 import useResizeObserver from "../../hooks/useResizeObserver";
@@ -11,8 +12,10 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
 
 // min button width
@@ -241,6 +244,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       hasSizeStyle,
       loading,
       active,
+      activeButtonClassName,
       marginRight,
       marginLeft,
       rightFlat,
