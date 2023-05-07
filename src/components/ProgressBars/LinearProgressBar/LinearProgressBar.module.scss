@@ -1,0 +1,39 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-general-label);
+  @include theme-prop(color, secondary-text-color);
+}
+
+.label {
+  padding-left: var(--spacing-xs);
+}
+
+.large {
+  height: 8px;
+  line-height: 8px;
+}
+
+.medium {
+  height: 6px;
+  line-height: 6px;
+}
+
+.small {
+  height: 4px;
+  line-height: 4px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  @include theme-prop(background-color, primary-background-hover-color);
+  border-radius: var(--border-radius-small);
+}

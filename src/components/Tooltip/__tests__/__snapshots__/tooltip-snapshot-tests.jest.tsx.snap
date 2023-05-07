@@ -13,7 +13,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -25,7 +25,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent top edgeCenter hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
@@ -63,7 +63,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={null}
     onClickCapture={[Function]}
     style={
@@ -75,7 +75,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent top edgeCenter hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
@@ -113,7 +113,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -125,7 +125,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-end has-tooltip"
+      className="contentComponent top edgeEnd hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
@@ -163,7 +163,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -175,7 +175,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component left edge-center has-tooltip"
+      className="contentComponent left edgeCenter hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
@@ -213,7 +213,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -225,7 +225,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent top edgeCenter hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
@@ -268,7 +268,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -280,7 +280,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent top edgeCenter hasTooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-error padding-size-undefined"
@@ -326,7 +326,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -338,7 +338,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center"
+      className="contentComponent top edgeCenter"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"

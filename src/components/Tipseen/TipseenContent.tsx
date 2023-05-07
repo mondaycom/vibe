@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
 import Button from "../../components/Button/Button";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -9,9 +8,9 @@ import TipseenBasicContent from "./TipseenBasicContent";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
-const BASE_CSS_CLASS = "monday-style-tipseen-content";
-const bemHelper = BEMClass(BASE_CSS_CLASS);
 const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
 interface TipseenContentProps extends VibeComponentProps {
@@ -42,6 +41,7 @@ interface TipseenContentProps extends VibeComponentProps {
 }
 
 const TipseenContent: FC<TipseenContentProps> = ({
+  id,
   title,
   titleClassName,
   children = null,
@@ -83,16 +83,17 @@ const TipseenContent: FC<TipseenContentProps> = ({
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
 
   return (
-    <TipseenBasicContent title={title} className={BASE_CSS_CLASS} titleClassName={titleClassName}>
-      {children ? <span className={cx(bemHelper({ element: "content" }))}>{children}</span> : null}
-      <div className={cx(styles.buttons, bemHelper({ element: "buttons" }))}>
+    <TipseenBasicContent title={title} titleClassName={titleClassName} id={id}>
+      {children ? <span>{children}</span> : null}
+      <div className={cx(styles.buttons)}>
         {overrideHideDismiss ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
-            className={cx(styles.dismiss, bemHelper({ element: "dismiss" }), dismissClassName)}
+            className={cx(styles.dismiss, dismissClassName)}
             size={Button.sizes.SMALL}
             onClick={overrideDismissOnClick}
+            data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_DISMISS)}
             {...otherDismissButtonProps}
           >
             {overrideDismissContent}
@@ -103,8 +104,9 @@ const TipseenContent: FC<TipseenContentProps> = ({
             kind={Button.kinds.PRIMARY}
             color={Button.colors.ON_PRIMARY_COLOR}
             size={Button.sizes.SMALL}
-            className={cx(bemHelper({ element: "submit" }), submitClassName)}
+            className={submitClassName}
             onClick={overrideSubmitOnClick}
+            data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
             {...otherSubmitButtonProps}
           >
             {overrideSubmitContent}
