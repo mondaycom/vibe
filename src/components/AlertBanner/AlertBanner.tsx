@@ -1,5 +1,6 @@
-import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
@@ -9,7 +10,9 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
-import "./AlertBanner.scss";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
+import styles from "./AlertBanner.module.scss";
 
 interface AlertBannerProps extends VibeComponentProps {
   /**
@@ -34,12 +37,14 @@ const AlertBanner: React.FC<AlertBannerProps> & {
       backgroundColor = AlertBanner.backgroundColors.PRIMARY,
       onClose = NOOP,
       ariaLabel = "",
-      isCloseHidden = false
+      isCloseHidden = false,
+      id,
+      "data-testid": dataTestId
     },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const classNames = useMemo(() => {
-      return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
+      return cx(className, styles.alertBanner, getStyle(styles, backgroundColor));
     }, [className, backgroundColor]);
 
     const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
@@ -65,27 +70,35 @@ const AlertBanner: React.FC<AlertBannerProps> & {
     }, [originalChildren, isDarkBackground]);
 
     return (
-      <div ref={ref} className={classNames} role="banner" aria-label={ariaLabel || "banner"}>
-        <div className="monday-alert-banner__inner">
+      <div
+        ref={ref}
+        className={classNames}
+        role="banner"
+        aria-label={ariaLabel || "banner"}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
+      >
+        <div className={cx(styles.content)}>
           {children.map((child, index) => {
             // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
             const childTypeIsAlertBannerText = child.type.isAlertBannerText;
             return (
               <div
                 key={index}
-                className={cx("monday-alert-banner__inner-item", {
-                  "monday-alert-banner__inner-item-text": childTypeIsAlertBannerText
+                className={cx(styles.contentItem, {
+                  [styles.contentItemText]: childTypeIsAlertBannerText
                 })}
               >
-                {childTypeIsAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
+                {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
               </div>
             );
           })}
         </div>
-        <div className="monday-alert-banner__close-button-wrapper">
+        <div className={cx(styles.closeButtonWrapper)}>
           {isCloseHidden ? null : (
             <Button
-              className="monday-alert-banner__alert-banner-close-btn"
+              dataTestId="alert-banner-close-button"
+              className={cx(styles.closeBtn)}
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
@@ -102,7 +115,8 @@ const AlertBanner: React.FC<AlertBannerProps> & {
 );
 
 Object.assign(AlertBanner, {
-  backgroundColors: AlertBannerBackgroundColor
+  backgroundColors: AlertBannerBackgroundColor,
+  defaultTestId: ComponentDefaultTestId.ALERT_BANNER
 });
 
 export default AlertBanner;

@@ -27,7 +27,7 @@ describe("<AlertBanner />", () => {
 
     it("should be able to close alert banner when clicking on close button", () => {
       const { container } = alertBannerComponent;
-      fireEvent.click(container.querySelector(".monday-alert-banner__alert-banner-close-btn"));
+      fireEvent.click(container.querySelector("[data-testid='alert-banner-close-button']"));
       expect(onCloseStub.mock.calls.length).toBe(1);
     });
 

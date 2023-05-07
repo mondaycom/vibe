@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import "./Accordion.scss";
+import styles from "./Accordion.module.scss";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -96,13 +96,16 @@ const Accordion: React.FC<AccordionProps> = forwardRef(
           onClickAccordionCallback: () => {
             onChildClick(itemIndex);
           },
-          open: isChildExpanded(itemIndex)
+          open: isChildExpanded(itemIndex),
+          expandCollapseComponentClassName: cx(styles.accordionItemExpandCollapse, {
+            [styles.accordionItemExpandCollapseLast]: itemIndex === children.length - 1
+          })
         });
       });
     }, [children, id, isChildExpanded, onChildClick]);
 
     return (
-      <div ref={mergedRef} className={cx("accordion", className)} data-testid={dataTestId} id={id}>
+      <div ref={mergedRef} className={cx(styles.accordion, className)} data-testid={dataTestId} id={id}>
         {children && renderChildElements}
       </div>
     );

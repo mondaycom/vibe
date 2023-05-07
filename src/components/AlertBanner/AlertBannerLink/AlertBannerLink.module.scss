@@ -2,19 +2,17 @@
 @import "../../../styles/typography";
 @import "../../../styles/themes";
 
-.monday-style-alert-banner-link {
+.bannerLink {
   @include theme-prop(color, text-color-on-primary);
   text-decoration: underline;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 
-.monday-style-alert-banner-link-dark-background {
-  .monday-style-alert-banner-link {
-    @include theme-prop(color, text-color-on-inverted);
-  }
+.darkBackground .bannerLink {
+  @include theme-prop(color, text-color-on-inverted);
 }
 
-.monday-style-alert-banner-link-margin-left {
+.marginLeft {
   margin-left: $spacing-small;
 }

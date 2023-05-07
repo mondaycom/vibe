@@ -1,11 +1,12 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/themes";
 
-.monday-style-alert-banner-text {
+.bannerText {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.monday-style-alert-banner-text-margin-left {
+
+.marginLeft {
   margin-left: $spacing-small;
 }
