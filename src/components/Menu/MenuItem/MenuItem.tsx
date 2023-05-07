@@ -287,7 +287,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         {...a11yProps}
         key={key}
         id={overrideId}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, overrideId)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
         className={cx(styles.item, overrideClassName, {
           [styles.disabled]: disabled,
           [styles.focused]: isActive,

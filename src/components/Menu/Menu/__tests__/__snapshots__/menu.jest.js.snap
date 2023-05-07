@@ -25,7 +25,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   <li
     aria-current={false}
     className="item"
-    data-testid="menu-item_undefined-1"
+    data-testid="menu-item_1"
     id="undefined-1"
     onClick={[Function]}
     role="menuitem"
@@ -51,7 +51,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   <li
     aria-current={false}
     className="item"
-    data-testid="menu-item_undefined-2"
+    data-testid="menu-item_2"
     id="undefined-2"
     onClick={[Function]}
     role="menuitem"
