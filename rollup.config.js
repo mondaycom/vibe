@@ -70,26 +70,22 @@ export default {
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
       inject: function (cssVariableName) {
-        const hashValue = `s_id-${version}-${performance.now()}`.replaceAll(".", "_");
-        return `function styleInject(css, { insertAt } = {}) {
+        const hashValue = `s_id-${version}-${performance.now().toFixed(2)}`.replaceAll(".", "_");
+        return `function styleInject(css) {
     const head = document.head || document.getElementsByTagName('head')[0]
     const id = "${hashValue}";
     const styleExists = head.querySelector("#${hashValue}");
     if(styleExists) return;
-    
+ 
     const style = document.createElement('style');
     style.id = id;
-  
-    if (insertAt === 'top') {
-      if (head.firstChild) {
-        head.insertBefore(style, head.firstChild)
-      } else {
-        head.appendChild(style)
-      }
+
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild)
     } else {
       head.appendChild(style)
     }
-  
+
     if (style.styleSheet) {
       style.styleSheet.cssText = css
     } else {
@@ -97,7 +93,7 @@ export default {
     }
   }
   
-  styleInject(${cssVariableName}, { insertAt: 'top' });
+  styleInject(${cssVariableName});
   
   `;
       },
