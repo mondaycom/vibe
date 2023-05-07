@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
-import classNames from "classnames";
+import cx from "classnames";
+import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useOnClickOutside from "../../../hooks/useClickOutside";
@@ -10,9 +11,9 @@ import { HideShowEvent } from "../consts/dialog-show-hide-event";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { AnimationType, ESCAPE_KEYS } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
 
-const transitionOptions: { classNames?: string } = {};
 const EMPTY_OBJECT = {};
 
 export interface DialogContentProps extends VibeComponentProps {

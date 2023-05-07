@@ -125,7 +125,8 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon backward"
+        className="icon icon backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -175,7 +176,8 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled forward"
+        className="icon icon disabled forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -218,7 +220,8 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled backward"
+        className="icon icon disabled backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -268,7 +271,8 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon forward"
+        className="icon icon forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -314,7 +318,8 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon backward"
+        className="icon icon backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -364,7 +369,8 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled forward"
+        className="icon icon disabled forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -410,7 +416,8 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled backward"
+        className="icon icon disabled backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -460,7 +467,8 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon forward"
+        className="icon icon forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -559,7 +567,8 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon backward"
+        className="icon icon backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -595,7 +604,8 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled forward"
+        className="icon icon disabled forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -638,7 +648,8 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled backward"
+        className="icon icon disabled backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -674,7 +685,8 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon forward"
+        className="icon icon forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -720,7 +732,8 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon backward"
+        className="icon icon backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -756,7 +769,8 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled forward"
+        className="icon icon disabled forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -802,7 +816,8 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon_component icon disabled backward"
+        className="icon icon disabled backward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}
@@ -838,7 +853,8 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon_component icon forward"
+        className="icon icon forward"
+        data-testid="icon"
         fill="currentColor"
         height="16"
         onClick={[Function]}

@@ -16,14 +16,14 @@ interface DividerProps extends VibeComponentProps {
 const Divider: React.FC<DividerProps> & {
   directions?: typeof DirectionType;
 } = ({
-       // Backward compatibility for props naming
-       classname,
-       className = undefined,
-       withoutMargin = false,
-       direction = DirectionType.HORIZONTAL,
-       id,
-       "data-testid": dataTestId
-     }) => {
+  // Backward compatibility for props naming
+  classname,
+  className = undefined,
+  withoutMargin = false,
+  direction = DirectionType.HORIZONTAL,
+  id,
+  "data-testid": dataTestId
+}) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
     <div

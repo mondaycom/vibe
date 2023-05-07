@@ -3,14 +3,15 @@
 exports[`Search renders correctly when disabled 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper input-component--disabled"
+  className="textField searchWrapper disabled"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -18,8 +19,7 @@ exports[`Search renders correctly when disabled 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={true}
         id="search"
         maxLength={null}
@@ -36,7 +36,7 @@ exports[`Search renders correctly when disabled 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -49,10 +49,10 @@ exports[`Search renders correctly when disabled 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -66,7 +66,7 @@ exports[`Search renders correctly when disabled 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -79,10 +79,10 @@ exports[`Search renders correctly when disabled 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -103,14 +103,15 @@ exports[`Search renders correctly when disabled 1`] = `
 exports[`Search renders correctly when underline 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -118,8 +119,7 @@ exports[`Search renders correctly when underline 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -136,7 +136,7 @@ exports[`Search renders correctly when underline 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -149,10 +149,10 @@ exports[`Search renders correctly when underline 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -166,7 +166,7 @@ exports[`Search renders correctly when underline 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -179,10 +179,10 @@ exports[`Search renders correctly when underline 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -203,14 +203,15 @@ exports[`Search renders correctly when underline 1`] = `
 exports[`Search renders correctly with className 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -218,8 +219,7 @@ exports[`Search renders correctly with className 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="testClassName search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="testClassName search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -236,7 +236,7 @@ exports[`Search renders correctly with className 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -249,10 +249,10 @@ exports[`Search renders correctly with className 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -266,7 +266,7 @@ exports[`Search renders correctly with className 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -279,10 +279,10 @@ exports[`Search renders correctly with className 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -303,14 +303,15 @@ exports[`Search renders correctly with className 1`] = `
 exports[`Search renders correctly with icon 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -318,8 +319,7 @@ exports[`Search renders correctly with icon 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -336,7 +336,7 @@ exports[`Search renders correctly with icon 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -349,14 +349,14 @@ exports[`Search renders correctly with icon 1`] = `
         <span
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
-          id="search"
+          className="icon inputIcon noFocusStyle fa fa-star"
+          data-testid="icon"
           onClick={[Function]}
           role="img"
         />
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -369,10 +369,10 @@ exports[`Search renders correctly with icon 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -393,14 +393,15 @@ exports[`Search renders correctly with icon 1`] = `
 exports[`Search renders correctly with id 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_testId"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -408,8 +409,7 @@ exports[`Search renders correctly with id 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_testId"
+        className="search input inputHasIcon"
         disabled={false}
         id="testId"
         maxLength={null}
@@ -426,7 +426,7 @@ exports[`Search renders correctly with id 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -439,10 +439,10 @@ exports[`Search renders correctly with id 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="testId"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -456,7 +456,7 @@ exports[`Search renders correctly with id 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_testId"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -469,10 +469,10 @@ exports[`Search renders correctly with id 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="testId"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -493,14 +493,15 @@ exports[`Search renders correctly with id 1`] = `
 exports[`Search renders correctly with loading 1`] = `
 <div
   aria-busy={true}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -508,8 +509,7 @@ exports[`Search renders correctly with loading 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -526,10 +526,10 @@ exports[`Search renders correctly with loading 1`] = `
         value=""
       />
       <div
-        className="input-component__loader--container input-component__loader--container-has-icon"
+        className="loaderContainer loaderContainerHasIcon"
       >
         <div
-          className="input-component__loader"
+          className="loader"
         >
           <div
             className="monday-loader-component loaderContainer"
@@ -539,7 +539,7 @@ exports[`Search renders correctly with loading 1`] = `
           >
             <svg
               aria-hidden={true}
-              className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+              className="circle-loader-spinner circleLoaderSpinner loaderSvg"
               viewBox="0 0 50 50"
             >
               <circle
@@ -555,7 +555,7 @@ exports[`Search renders correctly with loading 1`] = `
         </div>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -568,10 +568,10 @@ exports[`Search renders correctly with loading 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -585,7 +585,7 @@ exports[`Search renders correctly with loading 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -598,10 +598,10 @@ exports[`Search renders correctly with loading 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -622,14 +622,15 @@ exports[`Search renders correctly with loading 1`] = `
 exports[`Search renders correctly with placeholder 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -637,8 +638,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         aria-label="placeholder"
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -655,7 +655,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -668,10 +668,10 @@ exports[`Search renders correctly with placeholder 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -685,7 +685,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -698,10 +698,10 @@ exports[`Search renders correctly with placeholder 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -722,14 +722,15 @@ exports[`Search renders correctly with placeholder 1`] = `
 exports[`Search renders correctly with secondaryIconName 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -737,8 +738,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -755,7 +755,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -768,10 +768,10 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -785,7 +785,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -798,8 +798,8 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         <span
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
-          id="search"
+          className="icon inputIcon noFocusStyle fa fa-star"
+          data-testid="icon"
           onClick={[Function]}
           role="img"
         />
@@ -812,14 +812,15 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
 exports[`Search renders correctly with underline type 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper onlyUnderline"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -827,8 +828,7 @@ exports[`Search renders correctly with underline type 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input--only-underline input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -845,7 +845,7 @@ exports[`Search renders correctly with underline type 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -858,10 +858,10 @@ exports[`Search renders correctly with underline type 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -875,7 +875,7 @@ exports[`Search renders correctly with underline type 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -888,10 +888,10 @@ exports[`Search renders correctly with underline type 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -912,14 +912,15 @@ exports[`Search renders correctly with underline type 1`] = `
 exports[`Search renders correctly with validation 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium input-component__input--error-validation"
+      className="inputWrapper wrapperSizeMedium inputErrorValidation"
     >
       <input
         aria-activedescendant=""
@@ -927,8 +928,7 @@ exports[`Search renders correctly with validation 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -945,7 +945,7 @@ exports[`Search renders correctly with validation 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -958,10 +958,10 @@ exports[`Search renders correctly with validation 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -975,7 +975,7 @@ exports[`Search renders correctly with validation 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -988,10 +988,10 @@ exports[`Search renders correctly with validation 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1012,14 +1012,15 @@ exports[`Search renders correctly with validation 1`] = `
 exports[`Search renders correctly with value 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -1027,8 +1028,7 @@ exports[`Search renders correctly with value 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1045,7 +1045,7 @@ exports[`Search renders correctly with value 1`] = `
         value="value"
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1058,10 +1058,10 @@ exports[`Search renders correctly with value 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1075,7 +1075,7 @@ exports[`Search renders correctly with value 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1088,10 +1088,10 @@ exports[`Search renders correctly with value 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1112,14 +1112,15 @@ exports[`Search renders correctly with value 1`] = `
 exports[`Search renders correctly with wrapperClassName 1`] = `
 <div
   aria-busy={false}
-  className="input-component testClassName search_component_wrapper"
+  className="textField testClassName searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -1127,8 +1128,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1145,7 +1145,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1158,10 +1158,10 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1175,7 +1175,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1188,10 +1188,10 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1212,14 +1212,15 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
 exports[`Search renders correctly without props 1`] = `
 <div
   aria-busy={false}
-  className="input-component search_component_wrapper"
+  className="textField searchWrapper"
+  data-testid="search_search"
   role="search"
 >
   <div
-    className="input-component__label--wrapper"
+    className="labelWrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+      className="inputWrapper wrapperSizeMedium"
     >
       <input
         aria-activedescendant=""
@@ -1227,8 +1228,7 @@ exports[`Search renders correctly without props 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="search_component input-component__input input-component__input--has-icon"
-        data-testid="search_search"
+        className="search input inputHasIcon"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1245,7 +1245,7 @@ exports[`Search renders correctly without props 1`] = `
         value=""
       />
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1258,10 +1258,10 @@ exports[`Search renders correctly without props 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"
@@ -1275,7 +1275,7 @@ exports[`Search renders correctly without props 1`] = `
         </svg>
       </div>
       <div
-        className="clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection"
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1288,10 +1288,10 @@ exports[`Search renders correctly without props 1`] = `
         <svg
           aria-hidden={true}
           aria-label="Clear Search"
-          className="icon_component input-component__icon icon_component--no-focus-style"
+          className="icon inputIcon noFocusStyle"
+          data-testid="icon"
           fill="currentColor"
           height="18px"
-          id="search"
           onClick={[Function]}
           viewBox="0 0 20 20"
           width="18px"

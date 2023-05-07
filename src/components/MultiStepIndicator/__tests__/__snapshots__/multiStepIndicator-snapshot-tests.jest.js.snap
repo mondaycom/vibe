@@ -29,7 +29,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -53,7 +54,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -73,7 +75,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive clickable disableTextSelection"
@@ -108,7 +111,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -128,7 +132,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending clickable disableTextSelection"
@@ -163,7 +168,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -214,7 +220,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -238,7 +245,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -258,7 +266,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     </div>
   </li>
   <div
-    className="monday-style-divider divider test monday-style-divider--horizontal"
+    className="divider divider test horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive clickable disableTextSelection"
@@ -293,7 +302,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -313,7 +323,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     </div>
   </li>
   <div
-    className="monday-style-divider divider test monday-style-divider--horizontal"
+    className="divider divider test horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending clickable disableTextSelection"
@@ -348,7 +359,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -406,7 +418,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -430,7 +443,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -450,7 +464,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive clickable disableTextSelection"
@@ -485,7 +500,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -505,7 +521,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending clickable disableTextSelection"
@@ -540,7 +557,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -600,7 +618,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -620,7 +639,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive clickable disableTextSelection"
@@ -655,7 +675,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -675,7 +696,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending clickable disableTextSelection"
@@ -710,7 +732,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -761,7 +784,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -785,7 +809,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -805,7 +830,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive test clickable disableTextSelection"
@@ -840,7 +866,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -860,7 +887,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending test clickable disableTextSelection"
@@ -895,7 +923,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -946,7 +975,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -970,7 +1000,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -990,7 +1021,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusActive clickable disableTextSelection"
@@ -1025,7 +1057,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -1045,7 +1078,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider divider monday-style-divider--horizontal"
+    className="divider divider horizontal"
+    data-testid="divider"
   />
   <li
     className="clickable indicator typePrimary statusPending clickable disableTextSelection"
@@ -1080,7 +1114,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -1131,7 +1166,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         >
           <svg
             aria-hidden={true}
-            className="icon_component numberContainerTextCheckIcon icon_component--no-focus-style"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -1148,7 +1184,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
       </div>
       <div
-        className="monday-style-divider divider divider monday-style-divider--horizontal"
+        className="divider divider divider horizontal"
+        data-testid="divider"
       />
     </div>
     <div
@@ -1158,7 +1195,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -1203,7 +1241,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
       </div>
       <div
-        className="monday-style-divider divider divider monday-style-divider--horizontal"
+        className="divider divider divider horizontal"
+        data-testid="divider"
       />
     </div>
     <div
@@ -1213,7 +1252,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -1265,7 +1305,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
       >
         <span
-          className="hidden-text--wrapper"
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending

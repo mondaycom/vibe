@@ -161,7 +161,7 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -175,7 +175,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -218,7 +218,7 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -232,7 +232,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -275,7 +275,7 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -299,7 +299,8 @@ Array [
             >
               <svg
                 aria-hidden={true}
-                className="icon_component icon_component--no-focus-style"
+                className="icon noFocusStyle"
+                data-testid="icon"
                 fill="currentColor"
                 height="20"
                 onClick={[Function]}
@@ -321,7 +322,7 @@ Array [
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

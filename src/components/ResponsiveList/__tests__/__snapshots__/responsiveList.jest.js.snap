@@ -2,18 +2,19 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="responsive-list--root"
+  className="responsiveListRoot"
+  data-testid="responsive-list"
   id=""
 >
   <div
-    className="responsive-list--wrapper responsive-list--dummy"
+    className="responsiveList dummy"
   >
     <button
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup="true"
       aria-label="More Actions"
-      className="wrapper responsive-list-menu-button size32"
+      className="wrapper listMenuButton size32"
       data-testid="menu-button"
       onBlur={[Function]}
       onClick={[Function]}
