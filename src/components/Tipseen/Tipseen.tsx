@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactElement, useMemo, useRef } from "react";
+import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { DialogPosition } from "../../constants/positions";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -21,6 +21,10 @@ const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
 
 interface TipseenProps extends VibeComponentProps {
+  /**
+   * Classname for overriding TipseenTitle styles
+   */
+  titleClassName?: string;
   position?: DialogPosition;
   animationType?: AnimationType;
   hideDelay?: number;
@@ -44,6 +48,8 @@ interface TipseenProps extends VibeComponentProps {
    * when false, the arrow of the tooltip is hidden
    */
   tip?: boolean;
+  /** Class name for a tooltip's arrow */
+  tooltipArrowClassName?: string;
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
@@ -74,6 +80,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideDelay = 0,
       showDelay = 0,
       title,
+      titleClassName,
       hideCloseButton,
       // Backward compatability for hideCloseButton
       isCloseButtonHidden,
@@ -92,15 +99,32 @@ const Tipseen: VibeComponent<TipseenProps> & {
       moveBy,
       hideWhenReferenceHidden = false,
       tip = true,
+      tooltipArrowClassName,
       modifiers = EMPTY_ARR
     },
     ref
   ) => {
+    const defaultDelayOpen =
+      Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
     const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
     const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
+
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+      if (showDelay) {
+        timeout = setTimeout(() => {
+          setDelayOpen(true);
+        }, showDelay);
+      }
+      return () => {
+        clearTimeout(timeout);
+      };
+    }, [showDelay, setDelayOpen]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
@@ -124,12 +148,23 @@ const Tipseen: VibeComponent<TipseenProps> & {
                 <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
               </Button>
             )}
-            <TipseenTitle text={title} className={cx(styles.tipseenTitle, bemHelper({ element: "title" }))} />
+            <TipseenTitle
+              text={title}
+              className={cx(styles.tipseenTitle, bemHelper({ element: "title" }), titleClassName)}
+            />
           </div>
           <div className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{content}</div>
         </div>
       ),
-      [content, onClose, overrideCloseAriaLabel, overrideCloseButtonOnImage, overrideHideCloseButton, title]
+      [
+        content,
+        onClose,
+        overrideCloseAriaLabel,
+        overrideCloseButtonOnImage,
+        overrideHideCloseButton,
+        title,
+        titleClassName
+      ]
     );
 
     return (
@@ -139,8 +174,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
           })}
+          arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
-          shouldShowOnMount
+          shouldShowOnMount={!defaultDelayOpen}
           position={position}
           animationType={animationType}
           hideDelay={hideDelay}
@@ -156,6 +192,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           hideWhenReferenceHidden={hideWhenReferenceHidden}
           tip={tip}
           modifiers={modifiers}
+          open={defaultDelayOpen ? delayedOpen : undefined}
         >
           {children}
         </Tooltip>

@@ -3,6 +3,8 @@
 @import "../../styles/themes";
 @import "../../styles/states";
 
+$disabled-on-primary-color-opacity: 0.5;
+
 .monday-style-button {
   --loader-padding: 8px;
   outline: none;
@@ -126,31 +128,31 @@
       &.monday-style-button {
         &--color {
           &-primary {
-            @include theme-prop(background-color, primary-color);
+            @include theme-prop(background, primary-color);
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, primary-hover-color);
+              @include theme-prop(background, primary-hover-color);
             }
           }
           &-positive {
-            @include theme-prop(background-color, positive-color);
+            @include theme-prop(background, positive-color);
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, positive-color-hover);
+              @include theme-prop(background, positive-color-hover);
             }
           }
           &-negative {
-            @include theme-prop(background-color, negative-color);
+            @include theme-prop(background, negative-color);
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, negative-color-hover);
+              @include theme-prop(background, negative-color-hover);
             }
           }
           &-on-primary-color {
-            @include theme-prop(background-color, text-color-on-primary);
+            @include theme-prop(background, text-color-on-primary);
             &-active,
             &:hover,
             &:focus {
@@ -159,12 +161,13 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }
         }
         &.monday-style-button--disabled {
-          @include theme-prop(background-color, disabled-background-color);
+          @include theme-prop(background, disabled-background-color);
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
           pointer-events: none;
@@ -199,7 +202,7 @@
             }
             &:hover:not(.monday-style-button--color-primary-active),
             &:focus:not(.monday-style-button--color-primary-active) {
-              @include theme-prop(background-color, primary-background-hover-color);
+              @include theme-prop(background, primary-background-hover-color);
             }
           }
           &-positive {
@@ -208,7 +211,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, positive-color-selected);
+              @include theme-prop(background, positive-color-selected);
             }
           }
           &-negative {
@@ -217,7 +220,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, negative-color-selected);
+              @include theme-prop(background, negative-color-selected);
             }
           }
           &-on-primary-color {
@@ -230,6 +233,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }
@@ -257,7 +261,7 @@
             }
             &:hover:not(.monday-style-button--color-primary-active),
             &:focus:not(.monday-style-button--color-primary-active){
-              @include theme-prop(background-color, primary-background-hover-color);
+              @include theme-prop(background, primary-background-hover-color);
             }
           }
           &-positive {
@@ -265,7 +269,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, positive-color-selected);
+              @include theme-prop(background, positive-color-selected);
             }
           }
           &-negative {
@@ -273,7 +277,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, negative-color-selected);
+              @include theme-prop(background, negative-color-selected);
             }
           }
           &-on-primary-color {
@@ -285,6 +289,7 @@
               @include focus-style-on-primary();
             }
             &.monday-style-button--disabled {
+              opacity: $disabled-on-primary-color-opacity;
               color: var(--text-color-on-primary);
             }
           }

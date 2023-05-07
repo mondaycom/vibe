@@ -4,5 +4,12 @@ import Label from "../../../../components/Label/Label";
 
 export const LabelDescription = () => {
   const component = useMemo(() => <Label text="New" />, []);
-  return <RelatedComponent component={component} title="Label" description="Offers content classification." />;
+  return (
+    <RelatedComponent
+      component={component}
+      href="/?path=/docs/data-display-label--overview"
+      title="Label"
+      description="Offers content classification."
+    />
+  );
 };

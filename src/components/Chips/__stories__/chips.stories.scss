@@ -45,4 +45,17 @@
       @include theme-prop(color, secondary-text-color);
     }
   }
+
+  &_overflowing_chip {
+    width: 150px;
+  }
+
+  &_overflowing_chip_container {
+    width: 150px;
+    display: inline-flex;
+
+    &--chip {
+      margin: 0;
+    }
+  }
 }

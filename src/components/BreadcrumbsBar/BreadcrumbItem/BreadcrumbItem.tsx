@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import classNames from "classnames";
-import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";

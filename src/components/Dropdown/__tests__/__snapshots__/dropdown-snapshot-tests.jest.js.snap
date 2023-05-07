@@ -46,7 +46,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-29-input"
+                id="react-select-32-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -97,8 +97,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         class=" css-bknh9q-Component"
       >
         <div
-          class="dropdown-wrapper__option--reset css-14cnnyc-option"
-          id="react-select-29-option-0"
+          class="dropdown-wrapper__option--reset css-1iwu591-option"
+          id="react-select-32-option-0"
           tabindex="-1"
         >
           <div
@@ -108,8 +108,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-15bbhzv-option"
-          id="react-select-29-option-1"
+          class="dropdown-wrapper__option--reset css-qj04r2-option"
+          id="react-select-32-option-1"
           tabindex="-1"
         >
           <div
@@ -119,8 +119,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
-          id="react-select-29-option-2"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          id="react-select-32-option-2"
           tabindex="-1"
         >
           <div
@@ -130,8 +130,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
-          id="react-select-29-option-3"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          id="react-select-32-option-3"
           tabindex="-1"
         >
           <div
@@ -141,8 +141,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
-          id="react-select-29-option-4"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          id="react-select-32-option-4"
           tabindex="-1"
         >
           <div
@@ -152,8 +152,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-4bbyqz-option"
-          id="react-select-29-option-5"
+          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          id="react-select-32-option-5"
           tabindex="-1"
         >
           <div
@@ -186,7 +186,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -214,7 +214,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-28-input"
+                id="react-select-31-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -293,7 +293,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-21-input"
+                id="react-select-24-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -372,7 +372,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-22-input"
+                id="react-select-25-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -451,7 +451,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-23-input"
+                id="react-select-26-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -530,7 +530,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-24-input"
+                id="react-select-27-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -609,7 +609,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-25-input"
+                id="react-select-28-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -688,7 +688,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-20-input"
+                id="react-select-23-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -754,7 +754,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
       <span
         id="aria-context"
       >
-           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
+           0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
     <div
@@ -782,7 +782,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-27-input"
+                id="react-select-30-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -890,7 +890,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 autocapitalize="none"
                 autocomplete="off"
                 autocorrect="off"
-                id="react-select-26-input"
+                id="react-select-29-input"
                 spellcheck="false"
                 style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
                 tabindex="0"
@@ -949,8 +949,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-14cnnyc-option"
-                id="react-select-26-option-0"
+                class="dropdown-wrapper__option--reset css-1iwu591-option"
+                id="react-select-29-option-0"
                 tabindex="-1"
               >
                 <div
@@ -966,8 +966,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-1"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-1"
                 tabindex="-1"
               >
                 <div
@@ -983,8 +983,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-2"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-2"
                 tabindex="-1"
               >
                 <div
@@ -1000,8 +1000,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-3"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-3"
                 tabindex="-1"
               >
                 <div
@@ -1017,8 +1017,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-4"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-4"
                 tabindex="-1"
               >
                 <div
@@ -1034,8 +1034,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-5"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-5"
                 tabindex="-1"
               >
                 <div
@@ -1051,8 +1051,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-6"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-6"
                 tabindex="-1"
               >
                 <div
@@ -1068,8 +1068,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-7"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-7"
                 tabindex="-1"
               >
                 <div
@@ -1085,8 +1085,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-8"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-8"
                 tabindex="-1"
               >
                 <div
@@ -1102,8 +1102,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-9"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-9"
                 tabindex="-1"
               >
                 <div
@@ -1119,8 +1119,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-4bbyqz-option"
-                id="react-select-26-option-10"
+                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                id="react-select-29-option-10"
                 tabindex="-1"
               >
                 <div
@@ -1255,6 +1255,79 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 </div>
 `;
 
+exports[`Dropdown renders correctly when readOnly 1`] = `
+<div
+  className="dropdown-wrapper css-eh7fjc-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-uninrv-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-1ht1nal-Component"
+      >
+        <div
+          className=" css-1usuuna-placeholder"
+        >
+          
+        </div>
+        <input
+          aria-autocomplete="list"
+          aria-label="Readonly   Selected: "
+          className="css-62g3xt-dummyInput"
+          disabled={false}
+          id="react-select-6-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          readOnly={true}
+          tabIndex="0"
+          value=""
+        />
+      </div>
+      <div
+        className=" css-1aqjfd-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1omzgld-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={false}
+            className="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            role="button"
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Dropdown renders correctly when rtl 1`] = `
 <div
   className="dropdown-wrapper css-b0xr5u-container"
@@ -1295,7 +1368,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-7-input"
+              id="react-select-8-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -1413,7 +1486,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-10-input"
+              id="react-select-11-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -1516,6 +1589,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-label="Primary"
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
@@ -1536,6 +1610,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
+                aria-pressed={false}
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
@@ -1573,6 +1648,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               </button>
             </div>
             <div
+              aria-label="Positive"
               className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
@@ -1593,6 +1669,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
+                aria-pressed={false}
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
@@ -1633,6 +1710,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Negative"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
@@ -1653,6 +1731,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
@@ -1707,7 +1786,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     autoComplete="off"
                     autoCorrect="off"
                     disabled={false}
-                    id="react-select-14-input"
+                    id="react-select-17-input"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
@@ -1954,6 +2033,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <div
             className="valueContainer"
+            onMouseDown={[Function]}
           >
             Ocean
           </div>
@@ -1976,7 +2056,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-18-input"
+              id="react-select-21-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -2237,7 +2317,7 @@ exports[`Dropdown renders correctly with id 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-9-input"
+              id="react-select-10-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -2343,6 +2423,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Ocean"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
@@ -2384,6 +2465,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
@@ -2438,7 +2520,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     autoComplete="off"
                     autoCorrect="off"
                     disabled={false}
-                    id="react-select-13-input"
+                    id="react-select-16-input"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
@@ -2573,6 +2655,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-label="Ocean"
                 className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
@@ -2609,6 +2692,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
+                  aria-pressed={false}
                   className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
@@ -2663,7 +2747,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     autoComplete="off"
                     autoCorrect="off"
                     disabled={false}
-                    id="react-select-15-input"
+                    id="react-select-18-input"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
@@ -2824,7 +2908,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
                     autoComplete="off"
                     autoCorrect="off"
                     disabled={false}
-                    id="react-select-11-input"
+                    id="react-select-12-input"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
@@ -2906,6 +2990,290 @@ exports[`Dropdown renders correctly with multi 1`] = `
 </div>
 `;
 
+exports[`Dropdown renders correctly with multi and disabled 1`] = `
+<div
+  className="dropdown-wrapper css-1gsgnpy-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-ai89z2-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-126qe5a-Component"
+      >
+        <div
+          className="value-container"
+        >
+          <div
+            className="value-container-chips without-placeholder"
+            data-testid="value-container-chips"
+          >
+            <div
+              aria-label="Ocean"
+              className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              data-testid="value-container-chip"
+              id="ocean"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                }
+              }
+            >
+              <div
+                className="label"
+              >
+                Ocean
+              </div>
+            </div>
+            <div
+              className="chip-with-input-wrapper"
+            >
+              <div
+                aria-label="Blue"
+                className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                data-testid="value-container-chip"
+                id="blue"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                  }
+                }
+              >
+                <div
+                  className="label"
+                >
+                  Blue
+                </div>
+              </div>
+              <div
+                className="css-lkl2xd-Component"
+              >
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "display": "inline-block",
+                    }
+                  }
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-label="Dropdown input"
+                    autoCapitalize="none"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    disabled={true}
+                    id="react-select-13-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    spellCheck="false"
+                    style={
+                      Object {
+                        "background": 0,
+                        "border": 0,
+                        "boxSizing": "content-box",
+                        "color": "inherit",
+                        "fontSize": "inherit",
+                        "label": "input",
+                        "opacity": 1,
+                        "outline": 0,
+                        "padding": 0,
+                        "width": "1px",
+                      }
+                    }
+                    tabIndex="0"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    style={
+                      Object {
+                        "height": 0,
+                        "left": 0,
+                        "overflow": "scroll",
+                        "position": "absolute",
+                        "top": 0,
+                        "visibility": "hidden",
+                        "whiteSpace": "pre",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+      <div
+        className=" css-slt7ro-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1ycu3uq-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="icon_component"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown renders correctly with multi and readonly 1`] = `
+<div
+  className="dropdown-wrapper css-eh7fjc-container"
+  id="dropdown-menu-id"
+  onKeyDown={[Function]}
+>
+  <div
+    className="monday-dropdown_scrollable-wrapper"
+  >
+    <div
+      className=" css-uninrv-control"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className=" css-yilbcx-Component"
+      >
+        <div
+          className="value-container"
+        >
+          <div
+            className="value-container-chips without-placeholder"
+            data-testid="value-container-chips"
+          >
+            <div
+              aria-label="Ocean"
+              className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
+              data-testid="value-container-chip"
+              id="ocean"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "var(--primary-selected-color)",
+                }
+              }
+            >
+              <div
+                className="label"
+              >
+                Ocean
+              </div>
+            </div>
+            <div
+              className="chip-with-input-wrapper"
+            >
+              <div
+                aria-label="Blue"
+                className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
+                data-testid="value-container-chip"
+                id="blue"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "var(--primary-selected-color)",
+                  }
+                }
+              >
+                <div
+                  className="label"
+                >
+                  Blue
+                </div>
+              </div>
+              <input
+                aria-autocomplete="list"
+                aria-label="Readonly   Selected: Ocean, Blue"
+                className="css-62g3xt-dummyInput"
+                disabled={false}
+                id="react-select-14-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                readOnly={true}
+                tabIndex="0"
+                value=""
+              />
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+      <div
+        className=" css-1aqjfd-Component"
+      >
+        <span
+          className=" css-ds71as-Component"
+        />
+        <div
+          aria-hidden="true"
+          className="dropdown-indicator css-1omzgld-indicatorContainer"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={false}
+            className="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            onClick={[Function]}
+            role="button"
+            tabIndex={-1}
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Dropdown renders correctly with multiline 1`] = `
 <div
   className="dropdown-wrapper css-bbwnb8-container"
@@ -2946,7 +3314,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-12-input"
+              id="react-select-15-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -3064,7 +3432,7 @@ exports[`Dropdown renders correctly with options 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-8-input"
+              id="react-select-9-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -3300,7 +3668,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-16-input"
+              id="react-select-19-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -3425,7 +3793,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-19-input"
+              id="react-select-22-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -3525,6 +3893,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <div
             className="valueContainer"
+            onMouseDown={[Function]}
           >
             Ocean
           </div>
@@ -3547,7 +3916,7 @@ exports[`Dropdown renders correctly with value 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-17-input"
+              id="react-select-20-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -3690,7 +4059,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
               autoComplete="off"
               autoCorrect="off"
               disabled={false}
-              id="react-select-6-input"
+              id="react-select-7-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}

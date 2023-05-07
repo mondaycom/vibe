@@ -2,12 +2,13 @@ import { DialogPosition } from "../../constants/positions";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
-import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { Sizes } from "../../constants";
 import "./Heading.scss";
 
 export interface HeadingProps extends VibeComponentProps {
@@ -19,7 +20,7 @@ export interface HeadingProps extends VibeComponentProps {
   suggestEditOnHover?: boolean;
   /** Tooltip to show when no overflow */
   nonEllipsisTooltip?: string;
-  size?: typeof HeadingSizes;
+  size?: Sizes;
   highlightTerm?: string;
   customColor?: string;
   style?: CSSProperties;
@@ -27,7 +28,7 @@ export interface HeadingProps extends VibeComponentProps {
 }
 
 const Heading: React.FC<HeadingProps> & {
-  sizes?: typeof HeadingSizes;
+  sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = ({
   className,
@@ -71,7 +72,7 @@ const Heading: React.FC<HeadingProps> & {
     )
   );
 
-  const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null });
+  const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null, ignoreHeightOverflow: true });
 
   useLayoutEffect(() => {
     if (componentRef.current) {
@@ -95,7 +96,7 @@ const Heading: React.FC<HeadingProps> & {
 
 Object.assign(Heading, {
   types: HeadingTypes,
-  sizes: HeadingSizes
+  sizes: Sizes
 });
 
 export default Heading;

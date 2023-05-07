@@ -1,25 +1,22 @@
-
 name: Publish Storybook
 
 on:
-  release:
-    types: [created]
-  push:
-    branches:
-      - master
-
+  workflow_run:
+    workflows: ["Release new version"]
+    types:
+      - completed
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: ".nvmrc"
       - name: Build & deploy Storybook to GitHub Pages
         run: |
-          npm install
+          npm ci
           npm run build-storybook -- -o static_storybook
           cd static_storybook
           echo "style.monday.com" > ./CNAME

@@ -16,6 +16,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -77,6 +78,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -140,7 +142,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="monday-style-link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -148,7 +150,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="monday-style-link--text monday-style-alert-banner-link"
           >
             Lorem ipsum
           </span>
@@ -179,6 +181,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         <button
           aria-busy={false}
           aria-disabled={false}
+          aria-pressed={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
           onBlur={[Function]}
@@ -200,6 +203,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -263,6 +267,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
         <button
           aria-busy={false}
           aria-disabled={false}
+          aria-pressed={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
           onBlur={[Function]}
@@ -284,6 +289,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -347,7 +353,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="monday-style-link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -355,7 +361,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="monday-style-link--text monday-style-alert-banner-link"
           >
             Lorem ipsum
           </span>
@@ -370,6 +376,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}
@@ -432,6 +439,7 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
+      aria-pressed={false}
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
       onBlur={[Function]}

@@ -17,7 +17,7 @@ import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
@@ -54,6 +54,10 @@ export interface MenuItemProps extends VibeComponentProps {
   onMouseEnter?: (event: React.MouseEvent) => void;
   /** Backward compatibility for props naming **/
   classname?: string;
+  /**
+   * Class name which is added to div which wraps an Icon
+   */
+  iconWrapperClassName?: string;
   menuId?: string;
   isInitialSelectedState?: boolean;
   shouldScrollMenu?: boolean;
@@ -73,6 +77,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       className,
       // Backward compatibility for props naming
       classname,
+      iconWrapperClassName,
       title = "",
       label = "",
       icon = "",
@@ -87,6 +92,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       setActiveItemIndex,
       index,
       key,
+      id,
       menuId,
       children,
       isParentMenuVisible = false,
@@ -241,7 +247,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       }
 
       return (
-        <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
+        <div className={cx("monday-style-menu-item__icon-wrapper", iconWrapperClassName)} style={iconWrapperStyle}>
           <Icon
             iconType={finalIconType}
             clickable={false}
@@ -275,7 +281,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={`${menuId}-${index}`}
+        id={id || `${menuId}-${index}`}
         key={key}
         {...a11yProps}
         className={cx("monday-style-menu-item", overrideClassName, {

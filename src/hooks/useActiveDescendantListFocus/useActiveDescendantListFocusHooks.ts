@@ -1,9 +1,9 @@
-import { MutableRefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { MutableRefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import useKeyEvent, { UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
-import { useListenFocusTriggers } from "../useListenFocusTriggers";
+import useListenFocusTriggers from "../useListenFocusTriggers";
 
 enum ArrowDirection {
   UP = "ArrowUp",
@@ -114,7 +114,7 @@ export function useSupportPressItemKeyboardNavigation({
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsCount: number;
   setVisualFocusItemIndex: (index: number) => void;
-  onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => void;
+  onItemClick: (event: React.MouseEvent | React.KeyboardEvent, index: number) => void;
   isItemSelectable: (index: number) => boolean;
   listenerOptions: Omit<UseKeyEventArgs, "keys" | "callback">;
   isIgnoreSpaceAsItemSelection: boolean;
@@ -125,7 +125,7 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const baseOnClickCallback = useCallback(
-    (event: KeyboardEvent, itemIndex: number) => {
+    (event: React.KeyboardEvent, itemIndex: number) => {
       const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
       if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
       if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
@@ -135,7 +135,7 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const keyboardOnSelectCallback = useCallback(
-    (event: KeyboardEvent) => {
+    (event: React.KeyboardEvent) => {
       // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (focusedElementRef.current.contains(document.activeElement)) {

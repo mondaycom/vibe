@@ -51,16 +51,10 @@ async function openAndCheckMultiAccordionItem(canvas: Screen, title: string, exp
   await expect(after.elHeadings[0].getAttribute("aria-controls")).toBe(after.elPanels[0].id);
 }
 
-const openAlreadyActiveSingleActiveTests = async (canvas: Screen) => {
+const closeAlreadyOpenSingleActiveTests = async (canvas: Screen) => {
   await delay(CHANGES_DELAY);
-  // try to click on already selected Accordion Item heading
-  const before = getOpenedAccordionItem(canvas);
-  userEvent.click(before.elHeading);
-  const after = getOpenedAccordionItem(canvas);
-  // what was opened should be still opened
-  await expect(before.elPanel.id).toBe(after.elPanel.id);
-  // panel and heading aria controls are the same
-  await expect(after.elHeading.getAttribute("aria-controls")).toBe(after.elPanel.id);
+  // Open panel gets closed after click
+  await closeAndCheckMultiAccordionItem(canvas, 0);
 };
 
 const openCloseAccordionSingleActiveTests = async (canvas: Screen) => {
@@ -91,7 +85,7 @@ const openAccordionItemsMultiActiveTests = async (canvas: Screen) => {
 };
 
 export const accordionSingleActivePlaySuite = interactionSuite({
-  tests: [openAlreadyActiveSingleActiveTests, openCloseAccordionSingleActiveTests],
+  tests: [openCloseAccordionSingleActiveTests, closeAlreadyOpenSingleActiveTests],
   afterEach: async () => {
     await resetFocus();
   }

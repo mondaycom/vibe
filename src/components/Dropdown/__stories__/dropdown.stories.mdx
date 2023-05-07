@@ -155,6 +155,40 @@ There are three sizes available: Small, Medium, and Large
   </Story>
 </Canvas>
 
+### Readonly
+
+<Canvas>
+  <Story name="Readonly">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      return (
+        <Flex direction={Flex.directions.ROW}>
+          <Dropdown
+            defaultValue={[options[0]]}
+            options={options}
+            readOnly
+            className="dropdown-stories-styles_spacing"
+          />
+          <Dropdown
+            multi
+            defaultValue={[options[0], options[1]]}
+            options={options}
+            readOnly
+            className="dropdown-stories-styles_spacing"
+          />
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### RTL
 
 <Canvas>
@@ -463,7 +497,7 @@ The Dropdown component supports multiple options selection in two different stat
 
 ## Use cases and examples
 
-### multiple drop down with renderers as options
+### Multiple dropdown with renderers as options
 
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
 
@@ -698,6 +732,79 @@ with overflow hidden content which use CSS transform function.
           >
             <Button>Press me for dropdown inside dialog!</Button>
           </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with loading
+
+If importing the drop down options may take time, you can reflect this to the user using Dropdown isLoading flag with optional custom message.
+
+<Canvas>
+  <Story name="Dropdown with loading">
+    {() => {
+      const [isLoading, setIsLoading] = useState(false);
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      const loadingOnInputChange = useCallback(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      }, []);
+      return (
+        <Dropdown
+          placeholder={"Type to start loading"}
+          options={options}
+          isLoading={isLoading}
+          loadingMessage={() => "Loading options..."}
+          className="dropdown-stories-styles_big-spacing"
+          onInputChange={loadingOnInputChange}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with ref
+
+If you need to programmatically control Dropdown state, use `ref` prop. Pay attention that type of returned ref will be `StateManager` from <Link withoutSpacing href="https://react-select.com/home">`react-select`</Link> library.
+
+<Canvas>
+  <Story name="Dropdown with ref">
+    {() => {
+      const ref = useRef();
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      const focusDropdownInput = useCallback(() => {
+        console.log("Dropdown ref.current = ", ref.current);
+        ref.current.select.focus();
+      }, []);
+      return (
+        <Flex direction={Flex.directions.ROW}>
+          <Dropdown
+            placeholder="Dropdown with ref"
+            options={options}
+            ref={ref}
+            className="dropdown-stories-styles_spacing"
+          />
+          <Button onClick={focusDropdownInput} className="dropdown-stories-styles_button">
+            Focus dropdown input
+          </Button>
         </Flex>
       );
     }}

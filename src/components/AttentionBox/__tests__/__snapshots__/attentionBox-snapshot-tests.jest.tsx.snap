@@ -29,12 +29,12 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -73,12 +73,12 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -117,12 +117,12 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-dark__text"
@@ -161,12 +161,12 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
@@ -232,12 +232,12 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
       }
     }
   >
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -276,12 +276,12 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
@@ -305,6 +305,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         aria-busy={false}
         aria-disabled={false}
         aria-label="Close"
+        aria-pressed={false}
         className="monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
         data-testid="icon-button"
         onBlur={[Function]}
@@ -345,6 +346,32 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 </aside>
 `;
 
+exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
+<aside
+  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  role="alert"
+>
+  <div
+    className="container directionRow justifyStart alignCenter monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
+  />
+  <div
+    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+  >
+    <span>
+      renderer with components 
+      <div>
+        and sub components
+      </div>
+    </span>
+  </div>
+</aside>
+`;
+
 exports[`AttentionBox renders correctly renders with icon font type 1`] = `
 <aside
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
@@ -364,12 +391,12 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       onClick={[Function]}
       role="img"
     />
-    <h4
+    <h5
       aria-label=""
-      className="heading-component monday-style-attention-box-component__title element-type-h4 size-large single-line-ellipsis"
+      className="heading-component monday-style-attention-box-component__title element-type-h5 size-large single-line-ellipsis"
     >
       Title
-    </h4>
+    </h5>
   </div>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"

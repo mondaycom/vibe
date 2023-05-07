@@ -29,6 +29,7 @@ export const ComboboxDescription = () => {
     <RelatedComponent
       component={component}
       title="Combobox"
+      href="/?path=/docs/inputs-combobox--overview"
       description="Compact elements that represent an input, attribute, or action."
     />
   );

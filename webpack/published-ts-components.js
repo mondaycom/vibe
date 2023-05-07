@@ -2,10 +2,13 @@ const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
   Button: "components/Button/Button",
+  Checkbox: "components/Checkbox/Checkbox",
+  EditableHeading: "components/EditableHeading/EditableHeading",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
   Link: "components/Link/Link",
+  Combobox: "components/Combobox/Combobox",
   ColorUtils: "utils/colors-utils.ts",
   Counter: "components/Counter/Counter",
   Divider: "components/Divider/Divider",
@@ -32,12 +35,15 @@ const publishedTSComponents = {
   Slider: "components/Slider/Slider",
   BreadcrumbsBar: "components/BreadcrumbsBar/BreadcrumbsBar",
   BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem",
+  ColorPicker: "components/ColorPicker/ColorPicker",
+  ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContent",
   Heading: "components/Heading/Heading",
   TextWithHighlight: "components/TextWithHighlight/TextWithHighlight",
   List: "components/List/List",
   ListItem: "components/ListItem/ListItem",
   ListTitle: "components/ListTitle/ListTitle",
   ListItemIcon: "components/ListItemIcon/ListItemIcon",
+  ListItemAvatar: "components/ListItemAvatar/ListItemAvatar",
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",
@@ -77,6 +83,8 @@ const publishedTSComponents = {
   MenuDivider: "components/Menu/MenuDivider/MenuDivider",
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
   useDebounceEvent: "hooks/useDebounceEvent/index.ts",
@@ -89,12 +97,16 @@ const publishedTSComponents = {
   useMergeRefs: "hooks/useMergeRefs.ts",
   useIsMouseOver: "hooks/useIsMouseOver.ts",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.ts",
-  useIsOverflowing: "hooks/useIsOverflowing.ts",
+  useIsOverflowing: "hooks/useIsOverflowing/useIsOverflowing",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
+  useListenFocusTriggers: "hooks/useListenFocusTriggers",
+  useSwitch: "hooks/useSwitch",
   // Don't remove next line
   // plop_marker:published-hooks
+  useClickableProps: "hooks/useClickableProps/useClickableProps",
+  useHover: "hooks/useHover/useHover"
 };
 
 // eslint-disable-next-line no-undef

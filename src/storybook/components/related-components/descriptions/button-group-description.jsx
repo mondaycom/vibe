@@ -17,5 +17,12 @@ export const ButtonGroupDescription = () => {
     ),
     []
   );
-  return <RelatedComponent component={component} title="Button group" description="Used to group related options." />;
+  return (
+    <RelatedComponent
+      component={component}
+      title="Button group"
+      href="/?path=/docs/buttons-button-group--overview"
+      description="Used to group related options."
+    />
+  );
 };

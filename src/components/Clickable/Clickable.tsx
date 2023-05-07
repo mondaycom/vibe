@@ -5,7 +5,7 @@ import { noop as NOOP } from "lodash-es";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./Clickable.scss";
 
@@ -13,6 +13,9 @@ const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export interface ClickableProps extends VibeComponentProps {
+  /**
+   * The type of the clickable element wrapper (for example div or span)
+   */
   elementType?: keyof JSX.IntrinsicElements | string;
   className?: string;
   id?: string;
@@ -21,7 +24,12 @@ export interface ClickableProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   enableTextSelection?: boolean;
   onMouseDown?: (event: React.MouseEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
+  /**
+   * Is the element and its content should be hidden from screen readers and other assistive technologies
+   */
   ariaHidden?: boolean;
   // TODO remove string in Vibe 2.0
   ariaHasPopup?: boolean | string;
@@ -44,6 +52,8 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       onClick = NOOP,
       enableTextSelection = false,
       onMouseDown = NOOP,
+      onMouseEnter = NOOP,
+      onMouseLeave = NOOP,
       ariaLabel,
       ariaHidden,
       ariaHasPopup,
@@ -59,6 +69,8 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       {
         onClick,
         onMouseDown,
+        onMouseEnter,
+        onMouseLeave,
         disabled,
         id,
         dataTestId,

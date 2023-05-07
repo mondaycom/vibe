@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { withPerformance } from "storybook-addon-performance";
 import AccordionItem from "../AccordionItem";
 
+// TODO not being used - should be removed or converted to mdx and displayed?
 export const Sandbox = () => {
   const [isOpen, setIsOpen] = useState(false);
 

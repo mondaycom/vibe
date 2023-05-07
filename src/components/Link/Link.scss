@@ -39,12 +39,12 @@
     &--icon-start {
       line-height: 24px;
       margin-right: 0;
-      margin-inline-end: $spacing-small;
+      margin-inline-end: var(--spacing-xs);
     }
     &--icon-end {
       line-height: 24px;
       margin-left: 0;
-      margin-inline-start: $spacing-small;
+      margin-inline-start: var(--spacing-xs);
     }
   }
 }

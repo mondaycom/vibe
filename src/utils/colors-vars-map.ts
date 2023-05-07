@@ -55,7 +55,7 @@ export const colorsMap = [
   { color: "--negative-color-selected", description: "Use as selected indication for negative colors" },
   {
     color: "--negative-color-selected-hover",
-    description: "Use this to indicate hover state on a negative-color-selected items"
+    description: "Use this to indicate hover state on a negative-selected items"
   },
   {
     color: "--private-color",
@@ -64,6 +64,16 @@ export const colorsMap = [
   {
     color: "--shareable-color",
     description: "Use when you want to indicate that something is shareable (board, dashboard...)"
+  },
+  {
+    color: "--warning-color",
+    description: "Use when you want to indicate a warning action/state (severity, alert, caution...)"
+  },
+  { color: "--warning-color-hover", description: "Use only as hover color on warning color" },
+  { color: "--warning-color-selected", description: "Use as selected indication for warning colors" },
+  {
+    color: "--warning-color-selected-hover",
+    description: "Use this to indicate hover state on a warning-selected items"
   },
   // borders
   { color: "--ui-border-color", description: "Border color for ui elements and components (Button, Input...)" },
@@ -154,13 +164,15 @@ export const contentColors = [
   "steel",
   "lilac",
   "pecan"
-];
+] as const;
 
-export const COLOR_STYLES = {
-  REGULAR: "regular",
-  HOVER: "hover",
-  SELECTED: "selected"
-};
+export type CONTENT_COLORS_VALUES = typeof contentColors[number];
+
+export enum ColorStyle {
+  REGULAR = "regular",
+  HOVER = "hover",
+  SELECTED = "selected"
+}
 
 export const contentColorsByName: Record<string, string> = {
   GRASS_GREEN: "grass_green",

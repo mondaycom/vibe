@@ -26,15 +26,33 @@ import "./accordion.stories.scss";
 export const accordionTemplate = args => {
   return (
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]} {...args}>
-      <AccordionItem title="Notifications" />
-      <AccordionItem title="Setting" />
-      <AccordionItem title="Info" />
-      <AccordionItem title="Profile" />
-      <AccordionItem title="Permisions" />
-      <AccordionItem title="Seurity" />
-      <AccordionItem title="Connectivity" />
-      <AccordionItem title="Integration" />
-      <AccordionItem title="Assets" />
+      <AccordionItem title="Notifications">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Setting">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Info">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Profile">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Permisions">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Seurity">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Connectivity">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Integration">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
+      <AccordionItem title="Assets">
+        <div className="monday-storybook-accordion_small-box" />
+      </AccordionItem>
     </Accordion>
   );
 };
@@ -73,7 +91,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
     "Use accordion reduce clutter and chunk the information one by one",
     "Accordion Label must be short, clear, and understandable to indicate what's inside",
     "Default state of accordion is closed unless used for navigation",
-    "Accordion content can include icons, radio buttons, and checkboxes."
+    "Accordion content can include icons, radio buttons, and checkboxes"
   ]}
 />
 

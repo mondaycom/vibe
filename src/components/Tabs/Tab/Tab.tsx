@@ -9,6 +9,13 @@ import { IconType } from "../../Icon/IconConstants";
 import "./Tab.scss";
 
 export interface TabProps extends VibeComponentProps {
+  /**
+   * Class name for tab link-name
+   */
+  tabInnerClassName?: string;
+  /**
+   * Tab index
+   */
   value?: number;
   disabled?: boolean;
   active?: boolean;
@@ -17,6 +24,9 @@ export interface TabProps extends VibeComponentProps {
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
+  /**
+   * Tab link-name
+   */
   children?: string | ReactElement[];
 }
 
@@ -24,6 +34,7 @@ const Tab: FC<TabProps> = forwardRef(
   (
     {
       className,
+      tabInnerClassName,
       id,
       value = 0,
       disabled = false,
@@ -75,7 +86,7 @@ const Tab: FC<TabProps> = forwardRef(
         aria-selected={active}
         aria-disabled={disabled}
       >
-        <a className="tab-inner" onClick={() => !disabled && onClick(value)}>
+        <a className={cx("tab-inner", tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>
       </li>

@@ -5,13 +5,18 @@ import { MENU_WRAPPER_CLASS_NAME } from "../../dropdown-constants";
 import "./menu.scss";
 
 const Menu = props => {
-  const { children, Renderer, selectProps } = props;
+  const { children, Renderer, selectProps, dropdownMenuWrapperClassName } = props;
   const withFixedPosition =
     selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
   return (
     <components.Menu
       {...props}
-      className={cx("menu", MENU_WRAPPER_CLASS_NAME, { ["dropdown-menu-wrapper--fixed-position"]: withFixedPosition })}
+      className={cx(
+        "menu",
+        MENU_WRAPPER_CLASS_NAME,
+        { ["dropdown-menu-wrapper--fixed-position"]: withFixedPosition },
+        dropdownMenuWrapperClassName
+      )}
     >
       {Renderer && Renderer(props)}
       {!Renderer && children}

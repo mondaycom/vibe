@@ -50,6 +50,7 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
++               aria-pressed="false"
 +               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -113,6 +114,7 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
++               aria-pressed="false"
 +               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -195,7 +197,8 @@ exports[`Modal with base props 1`] = `
           <button
             aria-busy="false"
             aria-disabled="false"
-            aria-label="close"
+            aria-label="Close"
+            aria-pressed="false"
             class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
             data-testid="icon-button"
             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -270,11 +273,29 @@ Snapshot Diff:
             <button
               aria-busy="false"
               aria-disabled="false"
--             aria-label="close"
+-             aria-label="Close"
 +             aria-label="closeButtonAriaLabel"
+              aria-pressed="false"
               class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
               data-testid="icon-button"
-              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
+`;
+
+exports[`Modal with custom width 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"width":"720px"}
+
+@@ --- --- @@
+      data-testid="monday-modal-overlay"
+    />
+    <div
+-     class="dialog default"
++     class="dialog"
+      role="document"
++     style="width: 720px;"
+    >
+      <div
+        class="container"
 `;
 
 exports[`Modal with description 1`] = `
@@ -330,7 +351,8 @@ Snapshot Diff:
 -           <button
 -             aria-busy="false"
 -             aria-disabled="false"
--             aria-label="close"
+-             aria-label="Close"
+-             aria-pressed="false"
 -             class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
 -             data-testid="icon-button"
 -             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"

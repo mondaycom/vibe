@@ -7,15 +7,18 @@ import { getCSSVar } from "../../services/themes";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
-import { getTestId } from "../../tests/test-ids-utils";
+import Tooltip from "../Tooltip/Tooltip";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
-import useHover from "../../hooks/useHover";
+import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import useClickableProps from "../../hooks/useClickableProps";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
 import { BEMClass } from "../../helpers/bem-helper";
+import { ElementContent } from "../../types/ElementContent";
 import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
 
@@ -27,14 +30,26 @@ interface ChipsProps extends VibeComponentProps {
   disabled?: boolean;
   readOnly?: boolean;
   dataTestId?: string;
+  /**
+   * A React element that is positioned to the right of the text
+   */
+  rightRenderer?: ElementContent;
+  /**
+   * A React element that is positioned to the left of the text
+   */
+  leftRenderer?: ElementContent;
   /** Icon to place on the right */
   rightIcon?: SubIcon;
   /** Icon to place on the left */
   leftIcon?: SubIcon;
   /** Img to place as avatar on the right */
   rightAvatar?: string;
+  /** the type of right avatar */
+  rightAvatarType?: AvatarType;
   /** Img to place as avatar on the left */
   leftAvatar?: string;
+  /** the type of left avatar */
+  leftAvatarType?: AvatarType;
   /** ClassName for left or right icon */
   iconClassName?: string;
   /** ClassName for left or right avatar */
@@ -74,12 +89,21 @@ interface ChipsProps extends VibeComponentProps {
    * @deprecated
    */
   isClickable?: boolean;
+  /**
+   * Disable click behaviors
+   */
   disableClickableBehavior?: boolean;
+  /**
+   * Show border, the border color is `--text-color-on-primary`, should be when the chip is a colored background like
+   * selected-color
+   */
+  showBorder?: boolean;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
   colors?: typeof elementColorsNames;
+  avatarTypes?: typeof AvatarType;
 } = forwardRef<HTMLElement, ChipsProps>(
   (
     {
@@ -100,24 +124,51 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
-      noAnimation = false,
+      noAnimation = true,
       ariaLabel,
       dataTestId,
-      disableClickableBehavior = false
+      disableClickableBehavior = false,
+      leftAvatarType = AvatarType.IMG,
+      rightAvatarType = AvatarType.IMG,
+      showBorder = false,
+      leftRenderer,
+      rightRenderer
     },
     ref
   ) => {
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
-
-    const focusRef = useRef(null);
-    const [hoverRef, isHovered] = useHover();
-    const { isFocused } = useSetFocus({ ref: focusRef });
+    const overrideAriaLabel = ariaLabel || label;
 
     const iconButtonRef = useRef(null);
+    const labelRef = useRef(null);
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef, focusRef] });
+
+    const [hoverRef, isHovered] = useHover();
+    const { isFocused } = useSetFocus({ ref: componentRef });
+    const isOverflowing = useIsOverflowing({ ref: labelRef });
+
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
+
+    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
+      [styles.disabled]: disabled,
+      [styles.withClose]: hasCloseButton,
+      [styles.noAnimation]: noAnimation,
+      [styles.withUserSelect]: allowTextSelection,
+      [styles.border]: showBorder
+    });
+    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
+      disabled,
+      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    });
+
+    const overflowProps = useChipOverflowTooltip({
+      isOverflowing,
+      wrapperClassName: overrideClassName,
+      clickableClassName,
+      label
+    });
 
     const backgroundColorStyle = useMemo(() => {
       let cssVar;
@@ -151,17 +202,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       [onClick]
     );
 
-    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
-      [styles.disabled]: disabled,
-      [styles.withClose]: hasCloseButton,
-      [styles.noAnimation]: noAnimation,
-      [styles.withUserSelect]: allowTextSelection
-    });
-    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
-      disabled,
-      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
-    });
-
     const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
@@ -169,7 +209,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         disabled,
         id,
         dataTestId: overrideDataTestId,
-        ariaLabel: ariaLabel || label,
+        ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
         ariaExpanded: false
@@ -183,72 +223,83 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           style: backgroundColorStyle
         }
       : {
+          className: overrideClassName,
+          ...overflowProps.wrapperProps,
+          "aria-label": overrideAriaLabel,
+          style: backgroundColorStyle,
           ref: mergedRef,
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": overrideDataTestId,
-          className: overrideClassName,
-          style: backgroundColorStyle
+          "data-testid": overrideDataTestId
         };
 
+    const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
+    const rightAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: rightAvatar } : { src: rightAvatar };
+
     return (
-      <div {...wrapperProps}>
-        {leftAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={18}
-            src={leftAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {leftIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.left, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={leftIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        <div className={styles.label}>{label}</div>
-        {rightIcon ? (
-          <Icon
-            className={cx(styles.icon, styles.right, iconClassName)}
-            iconType={Icon.type.ICON_FONT}
-            clickable={false}
-            icon={rightIcon}
-            iconSize={iconSize}
-            ignoreFocusStyle
-          />
-        ) : null}
-        {rightAvatar ? (
-          <Avatar
-            withoutBorder
-            className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={16}
-            src={rightAvatar}
-            type={AvatarType.IMG}
-            key={id}
-          />
-        ) : null}
-        {hasCloseButton && (
-          <IconButton
-            size={ChipsSize.XXS}
-            color={IconButton.colors.ON_PRIMARY_COLOR}
-            className={cx(styles.icon, styles.close)}
-            ariaLabel="Remove"
-            hideTooltip
-            icon={CloseSmall}
-            onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
-            ref={iconButtonRef}
-          />
-        )}
-      </div>
+      <Tooltip {...overflowProps.tooltipProps}>
+        <div {...wrapperProps}>
+          {leftAvatar ? (
+            <Avatar
+              withoutBorder
+              className={cx(styles.avatar, styles.left, avatarClassName)}
+              customSize={18}
+              type={leftAvatarType}
+              key={id}
+              {...leftAvatarProps}
+            />
+          ) : null}
+          {leftIcon ? (
+            <Icon
+              className={cx(styles.icon, styles.left, iconClassName)}
+              iconType={Icon.type.ICON_FONT}
+              clickable={false}
+              icon={leftIcon}
+              iconSize={iconSize}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
+          <div className={styles.label} ref={labelRef}>
+            {label}
+          </div>
+          {rightIcon ? (
+            <Icon
+              className={cx(styles.icon, styles.right, iconClassName)}
+              iconType={Icon.type.ICON_FONT}
+              clickable={false}
+              icon={rightIcon}
+              iconSize={iconSize}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {rightAvatar ? (
+            <Avatar
+              withoutBorder
+              className={cx(styles.avatar, styles.right, avatarClassName)}
+              customSize={16}
+              type={rightAvatarType}
+              key={id}
+              {...rightAvatarProps}
+            />
+          ) : null}
+          {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
+          {hasCloseButton && (
+            <IconButton
+              size={ChipsSize.XXS}
+              color={IconButton.colors.ON_PRIMARY_COLOR}
+              className={cx(styles.icon, styles.close)}
+              ariaLabel="Remove"
+              hideTooltip
+              icon={CloseSmall}
+              onClick={onDeleteCallback}
+              dataTestId={`${overrideDataTestId}-close`}
+              ref={iconButtonRef}
+            />
+          )}
+        </div>
+      </Tooltip>
     );
   }
 );
@@ -256,7 +307,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 Object.assign(Chips, {
   sizes: ChipsSize,
   defaultTestId: ComponentDefaultTestId.CHIP,
-  colors: elementColorsNames
+  colors: elementColorsNames,
+  avatarTypes: AvatarType
 });
 
 export default Chips;

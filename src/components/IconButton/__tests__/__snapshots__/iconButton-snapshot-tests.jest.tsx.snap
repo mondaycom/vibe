@@ -4,6 +4,7 @@ exports[`IconButton renders correctly with 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="class-name monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -45,6 +46,7 @@ exports[`IconButton renders correctly with active 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={true}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -97,6 +99,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="My aria label"
+    aria-pressed={false}
     className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
     data-testid="icon-button"
     onBlur={[Function]}
@@ -139,6 +142,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
 <button
   aria-busy={false}
   aria-disabled={true}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding monday-style-button--disabled"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -180,6 +184,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -221,6 +226,7 @@ exports[`IconButton renders correctly with id 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button_icon-button"
   id="icon-button"
@@ -263,6 +269,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -304,6 +311,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -345,6 +353,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -386,6 +395,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
@@ -427,6 +437,7 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-pressed={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}

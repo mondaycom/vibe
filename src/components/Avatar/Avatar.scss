@@ -1,10 +1,9 @@
 @import "../../styles/themes";
 @import "../../styles/states";
 @import "../../styles/global-css-settings";
+@import "./AvatarConstants";
 
-$avatar-size-large: 50px;
-$avatar-size-medium: 36px;
-$avatar-size-small: 28px;
+
 
 .monday-style-avatar {
   position: relative;
