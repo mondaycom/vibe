@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="virtualizedListWrapper virtualized-list--wrapper"
+  className="virtualizedListWrapper"
   data-testid="virtualized-list"
 >
   <div

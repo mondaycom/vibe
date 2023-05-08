@@ -532,18 +532,18 @@ exports[`Search renders correctly with loading 1`] = `
           className="loader"
         >
           <div
-            className="monday-loader-component loaderContainer"
+            className="loaderContainer"
             data-testid="loader"
             role="alert"
             title="loading"
           >
             <svg
               aria-hidden={true}
-              className="circle-loader-spinner circleLoaderSpinner loaderSvg"
+              className="circleLoaderSpinner loaderSvg"
               viewBox="0 0 50 50"
             >
               <circle
-                className="circle-loader-spinner-path circleLoaderSpinnerPath"
+                className="circleLoaderSpinnerPath"
                 cx="25"
                 cy="25"
                 fill="none"

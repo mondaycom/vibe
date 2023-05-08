@@ -58,7 +58,7 @@ Snapshot Diff:
 +             >
 +               <svg
 +                 aria-hidden="true"
-+                 class="icon icon-button-padding noFocusStyle"
++                 class="icon noFocusStyle"
 +                 data-testid="icon"
 +                 fill="currentColor"
 +                 height="20"
@@ -123,7 +123,7 @@ Snapshot Diff:
 +             >
 +               <svg
 +                 aria-hidden="true"
-+                 class="icon icon-button-padding noFocusStyle"
++                 class="icon noFocusStyle"
 +                 data-testid="icon"
 +                 fill="currentColor"
 +                 height="20"
@@ -208,7 +208,7 @@ exports[`Modal with base props 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="icon icon-button-padding noFocusStyle"
+              class="icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="20"
@@ -363,7 +363,7 @@ Snapshot Diff:
 -           >
 -             <svg
 -               aria-hidden="true"
--               class="icon icon-button-padding noFocusStyle"
+-               class="icon noFocusStyle"
 -               data-testid="icon"
 -               fill="currentColor"
 -               height="20"
