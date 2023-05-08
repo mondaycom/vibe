@@ -31,7 +31,7 @@ export const TextStyles = () => {
         className={CSS_BASE_CLASS}
         ariaLabel="H3"
         code="font: var(--font-h3)"
-        title="Tertiary Heading"
+        title="H3 Tertiary heading"
         description="Use after heading, profile page headings"
       >
         <h3 style={{ font: "var(--font-h3)" }}>{`H3`}</h3>
@@ -40,7 +40,7 @@ export const TextStyles = () => {
         className={CSS_BASE_CLASS}
         ariaLabel="H4"
         code="font: var(--font-h4)"
-        title="Fourth heading"
+        title="H4 Fourth heading"
         description="Use for subtitles, group name, subheading in admin"
       >
         <h4 style={{ font: "var(--font-h4)" }}>{`H4`}</h4>
@@ -48,7 +48,7 @@ export const TextStyles = () => {
       <VisualDescription
         ariaLabel="H5"
         code="font: var(--font-h5)"
-        title="Paragraph"
+        title="H5 Paragraph"
         className={CSS_BASE_CLASS}
         description="Use as subtitles for paragraphs"
       >
@@ -57,7 +57,7 @@ export const TextStyles = () => {
       <VisualDescription
         ariaLabel="text"
         code="font: var(--font-general-label)"
-        title="UI labels / General text"
+        title="H6 UI text"
         description="Use for general text or labels"
         className={CSS_BASE_CLASS}
       >
@@ -67,7 +67,7 @@ export const TextStyles = () => {
         ariaLabel="paragraph"
         className={CSS_BASE_CLASS}
         code="font: var(--font-paragraph)"
-        title="Paragraph text"
+        title="P Paragraph text"
         description="Use for item name, text in update"
       >
         <span style={{ font: "var(--font-paragraph)" }}>{"<p>"}</span>
@@ -82,7 +82,7 @@ export const TextStyles = () => {
       </VisualDescription>
       <VisualDescription
         code="font: var(--font-general-label); color: var(--link-color)"
-        title="Link text"
+        title="Medium text link"
         className="monday-storybook-text-description"
         description="Use for links"
       >
