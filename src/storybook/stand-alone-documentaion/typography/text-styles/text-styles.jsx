@@ -1,10 +1,7 @@
-import cx from "classnames";
 import { VisualDescription, Frame } from "../../../components";
-import { BEMClass } from "../../../../helpers/bem-helper";
 import "./text-styles.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-text-description";
-const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const TextStyles = () => {
   return (
