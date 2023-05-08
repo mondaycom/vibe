@@ -28,7 +28,7 @@
   margin-left: auto;
 }
 
-.textField.disabled .inputIcon {
+.textField.disabled .icon {
   cursor: not-allowed;
 }
 
@@ -48,9 +48,7 @@
   @include theme-prop(color, disabled-text-color);
 }
 
-.textField.disabled
-.inputWrapper
-.iconContainer.iconContainerHasIcon:hover {
+.textField.disabled .inputWrapper .iconContainer.iconContainerHasIcon:hover {
   background-color: transparent;
 }
 
@@ -79,9 +77,9 @@
   @include theme-prop(border-color, primary-text-color);
 }
 
-.textField .inputWrapper .inputComponentInput:focus,
-.textField .inputWrapper .inputComponentInput:active,
-.textField .inputWrapper .inputComponentInput.inputActive {
+.textField .inputWrapper .input:focus,
+.textField .inputWrapper .input:active,
+.textField .inputWrapper .input.inputActive {
   @include theme-prop(border-color, primary-color);
 }
 
@@ -136,40 +134,33 @@
   -webkit-appearance: none;
 }
 
-.textField
-.inputWrapper
-.iconContainer.iconContainerActive.iconContainerHasIcon {
+.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon {
   pointer-events: all;
   cursor: pointer;
 }
 
-.inputComponent .inputWrapper .iconContainer.iconContainerActive {
+.textField .inputWrapper .iconContainer.iconContainerActive {
   opacity: 1;
 }
 
-.textField
-.inputWrapper
-.iconContainer.iconContainerActive
-.icon {
+.textField .inputWrapper .iconContainer.iconContainerActive .icon {
   opacity: 1;
   pointer-events: all;
   transform: rotate(0) scale(1);
 }
 
 .textField .inputWrapper .iconContainer.iconContainerHasIcon:hover,
-.textField
-.inputWrapper
-.iconContainer.iconContainerHasIcon:focus-within {
+.textField .inputWrapper .iconContainer.iconContainerHasIcon:focus-within {
   @include theme-prop(background-color, primary-background-hover-color);
 }
 
-.textField .inputWrapper .iconContainer .inputIcon {
+.textField .inputWrapper .iconContainer .icon {
   transform: rotate(90deg) scale(0.8);
   @include theme-prop(color, icon-color);
   will-change: transform;
   pointer-events: none;
   transition: color var(--motion-productive-short) var(--motion-timing-enter),
-  transform var(--motion-productive-short) var(--motion-timing-enter);
+    transform var(--motion-productive-short) var(--motion-timing-enter);
   font-size: 14px;
 }
 
@@ -186,24 +177,15 @@
   @include theme-prop(border-color, negative-color);
 }
 
-.textField
-.inputWrapper.inputErrorValidation
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.inputErrorValidation .iconContainer .icon {
   @include theme-prop(color, negative-color);
 }
 
-.textField
-.inputWrapper.inputErrorValidation
-.iconContainer
-.inputIcon:hover {
+.textField .inputWrapper.inputErrorValidation .iconContainer .icon:hover {
   @include theme-prop(color, negative-color);
 }
 
-.textField
-.inputWrapper.inputErrorValidation
-+ .subTextContainer
-.subTextContainerStatus {
+.textField .inputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus {
   @include theme-prop(color, negative-color);
 }
 
@@ -220,24 +202,15 @@
   @include theme-prop(border-color, positive-color);
 }
 
-.textField
-.inputWrapper.inputSuccessValidation
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.inputSuccessValidation .iconContainer .icon {
   @include theme-prop(color, positive-color);
 }
 
-.textField
-.inputWrapper.inputSuccessValidation
-.iconContainer
-.inputIcon:hover {
+.textField .inputWrapper.inputSuccessValidation .iconContainer .icon:hover {
   @include theme-prop(color, positive-color);
 }
 
-.textField
-.inputWrapper.inputSuccessValidation
-+ .subTextContainer
-.subTextContainerStatus {
+.textField .inputWrapper.inputSuccessValidation + .subTextContainer .subTextContainerStatus {
   @include theme-prop(color, positive-color);
 }
 
@@ -249,9 +222,7 @@
   @include font-input();
 }
 
-.textField
-.inputWrapper.inputWrapperSizeSmall
-.input.inputHasIcon.onlyUnderline {
+.textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
   padding-left: $spacing-xs;
 }
 
@@ -263,15 +234,11 @@
   @include font-paragraph();
 }
 
-.textField
-.inputWrapper.wrapperSizeMedium
-.input.inputHasIcon {
+.textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon {
   padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
 }
 
-.textField
-.inputWrapper.wrapperSizeMedium
-.input.inputHasIcon.onlyUnderline {
+.textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon.onlyUnderline {
   padding-left: 4px;
 }
 
@@ -282,18 +249,11 @@
   outline: none;
 }
 
-.textField
-.inputWrapper.wrapperSizeMedium
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
   font-size: var(--font-size-paragraph);
 }
 
-.textField
-.inputWrapper.wrapperSizeMedium
-.iconContainer:hover
-+ .iconContainer
-+ .input {
+.textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
   @include theme-prop(border-color, primary-text-color);
 }
 
@@ -305,15 +265,11 @@
   @include font-paragraph();
 }
 
-.textField
-.inputWrapper.wrapperSizeLarge
-.input.inputHasIcon {
+.textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon {
   padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
 }
 
-.textField
-.inputWrapper.wrapperSizeLarge
-.input.inputHasIcon.onlyUnderline {
+.textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon.onlyUnderline {
   padding-left: $spacing-xs;
 }
 
@@ -322,10 +278,7 @@
   width: 40px;
 }
 
-.textField
-.inputWrapper.wrapperSizeLarge
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
   font-size: var(--font-size-paragraph);
 }
 
@@ -354,28 +307,18 @@
   height: 16px;
 }
 
-.textField
-.inputWrapper
-.loaderContainer
-.loader
-.loaderSvg {
+.textField .inputWrapper .loaderContainer .loader .loaderSvg {
   @include theme-prop(color, secondary-text-color);
 }
 
-.textField .inputWrapper .iconContainer .inputIcon {
+.textField .inputWrapper .iconContainer .icon {
   font-family: var(--font-family);
 }
 
-.textField
-.inputWrapper.wrapperSizeMedium
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
   font-family: var(--font-family);
 }
 
-.textField
-.inputWrapper.wrapperSizeLarge
-.iconContainer
-.inputIcon {
+.textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
   font-family: var(--font-family);
 }

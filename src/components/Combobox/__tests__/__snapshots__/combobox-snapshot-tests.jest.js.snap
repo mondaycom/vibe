@@ -63,7 +63,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -93,7 +93,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -183,7 +183,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -213,7 +213,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -303,7 +303,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -333,7 +333,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -423,7 +423,7 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -453,7 +453,7 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -543,7 +543,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -573,7 +573,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -759,7 +759,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -789,7 +789,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -879,7 +879,7 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -909,7 +909,7 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1028,7 +1028,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1058,7 +1058,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1148,7 +1148,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1178,7 +1178,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1268,7 +1268,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1298,7 +1298,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1388,7 +1388,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1418,7 +1418,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1559,7 +1559,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1589,7 +1589,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1679,7 +1679,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1709,7 +1709,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1799,7 +1799,7 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
@@ -1829,7 +1829,7 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon inputIcon noFocusStyle"
+              className="icon icon noFocusStyle"
               data-testid="icon"
               fill="currentColor"
               height="18px"
