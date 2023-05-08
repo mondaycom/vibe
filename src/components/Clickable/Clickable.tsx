@@ -1,8 +1,7 @@
-import cx from "classnames";
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+import cx from "classnames";
 import React, { AriaRole, forwardRef } from "react";
 import { noop as NOOP } from "lodash-es";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
