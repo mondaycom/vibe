@@ -61,9 +61,7 @@ export const TextStyles = () => {
         description="Use for general text or labels"
         className={CSS_BASE_CLASS}
       >
-        <span style={{ font: "var(--font-general-label)" }} className={cx(bemHelper({ element: "visual-element" }))}>
-          text
-        </span>
+        <span style={{ font: "var(--font-general-label)" }}>text</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="paragraph"
