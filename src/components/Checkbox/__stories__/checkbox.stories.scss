@@ -1,5 +1,4 @@
 @import "../../../storybook/styles/typography";
-@import "../Checkbox";
 
 .monday-storybook-checkbox {
   &_border {
@@ -10,7 +9,7 @@
     padding: 0 8px;
     height: 38px;
     margin-right: 3px;
-    &:nth-child(2){
+    &:nth-child(2) {
       margin-left: 11px;
       font-size: 14px;
       line-height: 22px;
@@ -24,7 +23,7 @@
     flex-direction: column;
     row-gap: 16px;
   }
-  
+
   &_inline-wrapper {
     display: flex;
     justify-content: space-between;
@@ -34,12 +33,12 @@
   &_minus-margin {
     margin-right: -8px;
   }
-  
+
   &_list {
     display: flex;
     flex-direction: column;
   }
-  
+
   &_list-item {
     display: inline-block;
     width: 100%;
