@@ -18,7 +18,6 @@ exports[`Combobox renders correctly when disabled 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper disabled"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -34,6 +33,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={true}
             id="combobox-search"
             maxLength={null}
@@ -138,7 +138,6 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -154,6 +153,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -258,7 +258,6 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -274,6 +273,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -378,7 +378,6 @@ exports[`Combobox renders correctly with className 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -394,6 +393,7 @@ exports[`Combobox renders correctly with className 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -498,7 +498,6 @@ exports[`Combobox renders correctly with divider 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -514,6 +513,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -714,7 +714,6 @@ exports[`Combobox renders correctly with empty props 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -730,6 +729,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -834,7 +834,6 @@ exports[`Combobox renders correctly with id 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -850,6 +849,7 @@ exports[`Combobox renders correctly with id 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -954,7 +954,6 @@ exports[`Combobox renders correctly with loading 1`] = `
     <div
       aria-busy={true}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -970,6 +969,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1103,7 +1103,6 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1119,6 +1118,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1223,7 +1223,6 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1239,6 +1238,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1343,7 +1343,6 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1359,6 +1358,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1514,7 +1514,6 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1530,6 +1529,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1634,7 +1634,6 @@ exports[`Combobox renders correctly with placeholder 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1650,6 +1649,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1754,7 +1754,6 @@ exports[`Combobox renders correctly with size 1`] = `
     <div
       aria-busy={false}
       className="textField comboboxSearchWrapper searchWrapper"
-      data-testid="search_combobox-search"
       role="search"
     >
       <div
@@ -1770,6 +1769,7 @@ exports[`Combobox renders correctly with size 1`] = `
             aria-owns=""
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}

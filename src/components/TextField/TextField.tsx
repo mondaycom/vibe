@@ -191,7 +191,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         })}
         role={role}
         aria-busy={loading}
-        data-testid={overrideDataTestId}
       >
         <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
@@ -211,6 +210,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               ref={mergedRef}
               type={type}
               id={id}
+              data-testid={overrideDataTestId}
               name={name}
               onBlur={onBlur}
               onFocus={onFocus}

@@ -4,7 +4,6 @@ exports[`Search renders correctly when disabled 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper disabled"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -20,6 +19,7 @@ exports[`Search renders correctly when disabled 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={true}
         id="search"
         maxLength={null}
@@ -104,7 +104,6 @@ exports[`Search renders correctly when underline 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -120,6 +119,7 @@ exports[`Search renders correctly when underline 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -204,7 +204,6 @@ exports[`Search renders correctly with className 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -220,6 +219,7 @@ exports[`Search renders correctly with className 1`] = `
         aria-owns=""
         autoComplete="off"
         className="testClassName search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -304,7 +304,6 @@ exports[`Search renders correctly with icon 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -320,6 +319,7 @@ exports[`Search renders correctly with icon 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -394,7 +394,6 @@ exports[`Search renders correctly with id 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_testId"
   role="search"
 >
   <div
@@ -410,6 +409,7 @@ exports[`Search renders correctly with id 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_testId"
         disabled={false}
         id="testId"
         maxLength={null}
@@ -494,7 +494,6 @@ exports[`Search renders correctly with loading 1`] = `
 <div
   aria-busy={true}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -510,6 +509,7 @@ exports[`Search renders correctly with loading 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -623,7 +623,6 @@ exports[`Search renders correctly with placeholder 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -639,6 +638,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -723,7 +723,6 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -739,6 +738,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -813,7 +813,6 @@ exports[`Search renders correctly with underline type 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper onlyUnderline"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -829,6 +828,7 @@ exports[`Search renders correctly with underline type 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -913,7 +913,6 @@ exports[`Search renders correctly with validation 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -929,6 +928,7 @@ exports[`Search renders correctly with validation 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1013,7 +1013,6 @@ exports[`Search renders correctly with value 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -1029,6 +1028,7 @@ exports[`Search renders correctly with value 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1113,7 +1113,6 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
 <div
   aria-busy={false}
   className="textField testClassName searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -1129,6 +1128,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
@@ -1213,7 +1213,6 @@ exports[`Search renders correctly without props 1`] = `
 <div
   aria-busy={false}
   className="textField searchWrapper"
-  data-testid="search_search"
   role="search"
 >
   <div
@@ -1229,6 +1228,7 @@ exports[`Search renders correctly without props 1`] = `
         aria-owns=""
         autoComplete="off"
         className="search input inputHasIcon"
+        data-testid="search_search"
         disabled={false}
         id="search"
         maxLength={null}
