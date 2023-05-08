@@ -3,6 +3,7 @@ export enum ComponentDefaultTestId {
   // plop_marker:default-data-testid-declarations
   COMBOBOX = "combobox",
   COLOR_PICKER = "color-picker",
+  CHECKBOX = "checkbox",
   DROPDOWN = "dropdown",
   DROPDOWN_OPTION_CONTENT = "dropdown-option-content",
   BUTTON = "button",
@@ -16,6 +17,7 @@ export enum ComponentDefaultTestId {
   CLEAN_SEARCH_BUTTON = "clean-search-button",
   COLOR_PICKER_ITEM = "color-picker-item",
   ICON_BUTTON = "icon-button",
+  SVG_ICON = "svg-icon",
   CHIP = "chip",
   RADIO_BUTTON = "radio-button",
   RADIO_BUTTON_LABEL = "radio-button-label",
@@ -71,6 +73,7 @@ export enum ComponentDefaultTestId {
   TOAST = "toast",
   TOAST_CONTENT = "toast-content",
   TOAST_LINK = "toast-link",
+  TOAST_BUTTON = "toast-button",
   TOGGLE = "toggle",
   TIPSEEN = "tipseen",
   TIPSEEN_CONTENT = "tipseen-content",

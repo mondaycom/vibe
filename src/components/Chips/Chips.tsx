@@ -145,7 +145,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
-    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
+    const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
       [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,

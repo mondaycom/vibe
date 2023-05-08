@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, {
   CSSProperties,
   ForwardedRef,
@@ -139,8 +138,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       items = [],
       itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item,
       getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
-      // must be null for backward compatibility
-      getItemSize = null,
+      getItemSize = null, // must be null for backward compatibility
       layout = "vertical",
       onScroll,
       overscanCount = 0,
@@ -376,7 +374,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.virtualizedListWrapper, "virtualized-list--wrapper", className)}
+        className={cx(styles.virtualizedListWrapper, className)}
         id={id}
         role={role}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
@@ -396,7 +394,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
                 layout={layout}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-list-scrollable-container", scrollableClassName)}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {rowRenderer}
