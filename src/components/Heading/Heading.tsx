@@ -113,8 +113,7 @@ const Heading: React.FC<HeadingProps> & {
 
 Object.assign(Heading, {
   types: HeadingTypes,
-  sizes: Sizes,
-  defaultTestId: ComponentDefaultTestId.HEADING
+  sizes: Sizes
 });
 
 export default Heading;

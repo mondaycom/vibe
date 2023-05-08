@@ -145,8 +145,4 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   }
 );
 
-Object.assign(Checkbox, {
-  defaultTestId: ComponentDefaultTestId.CHECKBOX
-});
-
 export default Checkbox;

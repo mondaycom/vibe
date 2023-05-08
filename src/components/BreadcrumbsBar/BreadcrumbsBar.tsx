@@ -44,8 +44,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
 );
 
 Object.assign(BreadcrumbsBar, {
-  types: BreadcrumbsBarType,
-  defaultTestId: ComponentDefaultTestId.BREADCRUMBS_BAR
+  types: BreadcrumbsBarType
 });
 
 export default BreadcrumbsBar;

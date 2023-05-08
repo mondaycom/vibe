@@ -313,8 +313,7 @@ const Combobox: React.FC<ComboboxProps> & {
 
 Object.assign(Combobox, {
   sizes: BASE_SIZES,
-  iconTypes: ComboboxOption.iconTypes,
-  defaultTestId: ComponentDefaultTestId.COMBOBOX
+  iconTypes: ComboboxOption.iconTypes
 });
 
 export default Combobox;

@@ -142,8 +142,4 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
   }
 );
 
-Object.assign(RadioButton, {
-  defaultTestId: ComponentDefaultTestId.RADIO_BUTTON
-});
-
 export default RadioButton;

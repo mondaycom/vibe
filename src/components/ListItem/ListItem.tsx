@@ -131,8 +131,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 Object.assign(ListItem, {
   sizes: SIZES,
   // Used by VirtualizedListItems
-  displayName: "ListItem",
-  defaultTestId: ComponentDefaultTestId.LIST_ITEM
+  displayName: "ListItem"
 });
 
 export default ListItem;

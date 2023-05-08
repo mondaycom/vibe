@@ -39,8 +39,7 @@ const AlertBannerButton: FC<AlertBannerButtonProps> = ({
 };
 
 Object.assign(AlertBannerButton, {
-  isAlertBannerItem: true,
-  defaultTestId: ComponentDefaultTestId.ALERT_BANNER_BUTTON
+  isAlertBannerItem: true
 });
 
 export default AlertBannerButton;

@@ -157,8 +157,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
 );
 
 Object.assign(Icon, {
-  type: IconType,
-  defaultTestId: ComponentDefaultTestId.ICON
+  type: IconType
 });
 
 export default Icon;

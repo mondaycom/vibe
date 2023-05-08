@@ -130,8 +130,7 @@ Object.assign(ColorPicker, {
   sizes: BaseSizes,
   colorStyles: ColorStyle,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes,
-  defaultTestId: ComponentDefaultTestId.COLOR_PICKER
+  colorShapes: ColorShapes
 });
 
 export default ColorPicker;

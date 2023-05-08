@@ -115,8 +115,7 @@ const AlertBanner: React.FC<AlertBannerProps> & {
 );
 
 Object.assign(AlertBanner, {
-  backgroundColors: AlertBannerBackgroundColor,
-  defaultTestId: ComponentDefaultTestId.ALERT_BANNER
+  backgroundColors: AlertBannerBackgroundColor
 });
 
 export default AlertBanner;

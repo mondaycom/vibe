@@ -41,6 +41,5 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
 };
 
 Object.assign(AvatarBadge, {
-  sizes: AvatarSize,
-  defaultTestId: ComponentDefaultTestId.AVATAR_BADGE
+  sizes: AvatarSize
 });

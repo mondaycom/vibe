@@ -61,8 +61,7 @@ const Skeleton: FC<SkeletonProps> & {
 
 Object.assign(Skeleton, {
   types: SkeletonType,
-  sizes: SKELETON_SIZES,
-  defaultTestId: ComponentDefaultTestId.SKELETON
+  sizes: SKELETON_SIZES
 });
 
 export default Skeleton;

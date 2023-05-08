@@ -297,8 +297,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 Object.assign(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackState,
-  types: TextFieldTextType,
-  defaultTestId: ComponentDefaultTestId.TEXT_FIELD
+  types: TextFieldTextType
 });
 
 export default TextField;

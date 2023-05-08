@@ -255,8 +255,4 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
   }
 );
 
-Object.assign(EditableInput, {
-  defaultTestId: ComponentDefaultTestId.EDITABLE_INPUT
-});
-
 export default EditableInput;

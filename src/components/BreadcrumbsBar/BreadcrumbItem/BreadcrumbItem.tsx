@@ -79,8 +79,4 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   );
 };
 
-Object.assign(BreadcrumbItem, {
-  defaultTestId: ComponentDefaultTestId.BREADCRUMB_ITEM
-});
-
 export default BreadcrumbItem;

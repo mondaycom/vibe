@@ -408,6 +408,4 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
   }
 );
 
-Object.assign(VirtualizedList, { defaultTestId: ComponentDefaultTestId.VIRTUALIZED_LIST });
-
 export default VirtualizedList;

@@ -206,8 +206,7 @@ Object.assign(Avatar, {
   types: AvatarType,
   sizes: AvatarSize,
   colors: elementColorsNames,
-  backgroundColors: elementColorsNames,
-  defaultTestId: ComponentDefaultTestId.AVATAR
+  backgroundColors: elementColorsNames
 });
 
 export default Avatar;

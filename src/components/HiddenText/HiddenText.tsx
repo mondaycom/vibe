@@ -27,8 +27,4 @@ const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(
   }
 );
 
-Object.assign(HiddenText, {
-  defaultTestId: ComponentDefaultTestId.HIDDEN_TEXT
-});
-
 export default HiddenText;

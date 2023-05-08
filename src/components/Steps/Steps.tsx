@@ -80,8 +80,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
 );
 
 Object.assign(Steps, {
-  types: StepsType,
-  defaultTestId: ComponentDefaultTestId.STEPS
+  types: StepsType
 });
 
 export default Steps;

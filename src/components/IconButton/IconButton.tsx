@@ -198,8 +198,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors,
-  defaultTestId: ComponentDefaultTestId.ICON_BUTTON
+  colors: Button.colors
 });
 
 export default IconButton;

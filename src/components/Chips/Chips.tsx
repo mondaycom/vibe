@@ -300,7 +300,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 Object.assign(Chips, {
   sizes: ChipsSize,
-  defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames,
   avatarTypes: AvatarType
 });

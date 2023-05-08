@@ -25,8 +25,4 @@ const ToastButton: FC<ToastButtonProps> = ({ className, id, "data-testid": dataT
   );
 };
 
-Object.assign(ToastButton, {
-  defaultTestId: ComponentDefaultTestId.TOAST_BUTTON
-});
-
 export default ToastButton;

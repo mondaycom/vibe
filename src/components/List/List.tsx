@@ -31,7 +31,7 @@ export interface ListProps extends VibeComponentProps {
   style?: CSSProperties;
 }
 
-const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
+const List: FC<ListProps> = forwardRef(
   (
     {
       className,
@@ -113,5 +113,4 @@ const List: FC<ListProps> & { defaultTestId?: string } = forwardRef(
   }
 );
 
-Object.assign(List, { defaultTestId: ComponentDefaultTestId.LIST });
 export default List;

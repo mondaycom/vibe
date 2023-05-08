@@ -83,6 +83,5 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
 
 Object.assign(AvatarContent, {
   types: AvatarType,
-  sizes: AvatarSize,
-  defaultTestId: ComponentDefaultTestId.AVATAR_CONTENT
+  sizes: AvatarSize
 });

@@ -34,8 +34,7 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
 };
 
 Object.assign(AlertBannerLink, {
-  isAlertBannerItem: true,
-  defaultTestId: ComponentDefaultTestId.ALERT_BANNER_LINK
+  isAlertBannerItem: true
 });
 
 export default AlertBannerLink;

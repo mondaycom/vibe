@@ -120,8 +120,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
 
 Object.assign(Search, {
   sizes: BASE_SIZES,
-  types: SearchType,
-  defaultTestId: ComponentDefaultTestId.SEARCH
+  types: SearchType
 });
 
 export default Search;

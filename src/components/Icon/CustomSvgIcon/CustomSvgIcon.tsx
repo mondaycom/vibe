@@ -66,8 +66,4 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   );
 };
 
-Object.assign(CustomSvgIcon, {
-  defaultTestId: ComponentDefaultTestId.SVG_ICON
-});
-
 export default CustomSvgIcon;

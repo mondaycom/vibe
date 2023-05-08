@@ -198,8 +198,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
 Object.assign(Tipseen, {
   positions: DialogPosition,
   animationTypes: AnimationType,
-  justifyTypes: JustifyType,
-  defaultTestId: ComponentDefaultTestId.TIPSEEN
+  justifyTypes: JustifyType
 });
 
 export default Tipseen;

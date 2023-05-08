@@ -136,8 +136,4 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
   }
 );
 
-Object.assign(ExpandCollapse, {
-  defaultTestId: ComponentDefaultTestId.EXPAND_COLLAPSE
-});
-
 export default ExpandCollapse;

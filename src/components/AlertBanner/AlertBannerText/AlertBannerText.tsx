@@ -43,8 +43,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
 
 Object.assign(AlertBannerText, {
   isAlertBannerItem: true,
-  isAlertBannerText: true,
-  defaultTestId: ComponentDefaultTestId.ALERT_BANNER_TEXT
+  isAlertBannerText: true
 });
 
 export default AlertBannerText;

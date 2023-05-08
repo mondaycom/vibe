@@ -189,8 +189,7 @@ Object.assign(LinearProgressBar, {
   barStyles: ProgressBarStyle,
   types: ProgressBarType,
   barTypes: ProgressBarType,
-  sizes: SIZES,
-  defaultTestId: ComponentDefaultTestId.LINEAR_PROGRESS_BAR
+  sizes: SIZES
 });
 
 export default LinearProgressBar;

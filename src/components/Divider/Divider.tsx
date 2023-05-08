@@ -37,8 +37,7 @@ const Divider: React.FC<DividerProps> & {
 };
 
 Object.assign(Divider, {
-  directions: DirectionType,
-  defaultTestId: ComponentDefaultTestId.DIVIDER
+  directions: DirectionType
 });
 
 export default Divider;

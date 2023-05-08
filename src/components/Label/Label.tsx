@@ -28,7 +28,6 @@ interface LabelProps extends VibeComponentProps {
 const Label: FC<LabelProps> & {
   colors?: typeof LabelColor;
   kinds?: typeof LabelKind;
-  defaultTestId?: typeof ComponentDefaultTestId;
 } = ({
   className,
   wrapperClassName,
@@ -68,8 +67,7 @@ const Label: FC<LabelProps> & {
 
 Object.assign(Label, {
   colors: LabelColor,
-  kinds: LabelKind,
-  defaultTestId: ComponentDefaultTestId.LABEL
+  kinds: LabelKind
 });
 
 export default Label;

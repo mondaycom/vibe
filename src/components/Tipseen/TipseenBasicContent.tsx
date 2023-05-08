@@ -33,8 +33,4 @@ const TipseenBasicContent: FC<TipseenBasicContentProps> = ({
   );
 };
 
-Object.assign(TipseenBasicContent, {
-  defaultTestId: ComponentDefaultTestId.TIPSEEN_CONTENT
-});
-
 export default TipseenBasicContent;

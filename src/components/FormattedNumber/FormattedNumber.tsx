@@ -103,11 +103,9 @@ const FormattedNumber: FormattedNumberType = forwardRef(
   }
 );
 
-FormattedNumber.formatNumber = formatNumber;
-FormattedNumber.localFallBack = formatNumberConsts.DEFAULT_LOCAL;
-
 Object.assign(FormattedNumber, {
-  defaultTestId: ComponentDefaultTestId.FORMATTED_NUMBER
+  formatNumber: formatNumber,
+  localFallBack: formatNumberConsts.DEFAULT_LOCAL
 });
 
 export default FormattedNumber;

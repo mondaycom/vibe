@@ -388,8 +388,7 @@ Object.assign(Button, {
   colors: ButtonColor,
   kinds: ButtonType,
   types: ButtonInputType,
-  inputTags: ButtonInputType,
-  defaultTestId: ComponentDefaultTestId.BUTTON
+  inputTags: ButtonInputType
 });
 
 Button.defaultProps = {

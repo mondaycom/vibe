@@ -115,8 +115,7 @@ Object.assign(Link, {
   position: IconPosition,
   target: LinkTarget,
   iconPositions: IconPosition,
-  targets: LinkTarget,
-  defaultTestId: ComponentDefaultTestId.LINK
+  targets: LinkTarget
 });
 
 Link.defaultProps = {

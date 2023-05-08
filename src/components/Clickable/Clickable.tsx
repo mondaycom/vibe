@@ -96,8 +96,4 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
   }
 );
 
-Object.assign(Clickable, {
-  defaultTestId: ComponentDefaultTestId.CLICKABLE
-});
-
 export default Clickable;

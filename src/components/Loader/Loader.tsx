@@ -69,8 +69,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 
 Object.assign(Loader, {
   sizes: LoaderSizes,
-  colors: LoaderColors,
-  defaultTestId: ComponentDefaultTestId.LOADER
+  colors: LoaderColors
 });
 
 export default Loader;

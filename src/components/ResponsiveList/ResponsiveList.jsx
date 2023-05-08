@@ -140,6 +140,4 @@ ResponsiveList.defaultProps = {
   resizeDebounceTime: 0
 };
 
-ResponsiveList.defaultTestId = ComponentDefaultTestId.RESPONSIVE_LIST;
-
 export default ResponsiveList;

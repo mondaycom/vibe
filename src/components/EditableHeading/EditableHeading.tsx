@@ -230,8 +230,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
 
 Object.assign(EditableHeading, {
   types: HeadingTypes,
-  sizes: HeadingSizes,
-  defaultTestId: ComponentDefaultTestId.EDITABLE_HEADING
+  sizes: HeadingSizes
 });
 
 export default EditableHeading;

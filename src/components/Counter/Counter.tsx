@@ -187,8 +187,4 @@ Counter.defaultProps = {
   size: CounterSize.LARGE
 };
 
-Object.assign(Counter, {
-  defaultTestId: ComponentDefaultTestId.COUNTER
-});
-
 export default Counter;
