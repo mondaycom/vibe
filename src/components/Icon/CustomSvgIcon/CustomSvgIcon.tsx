@@ -2,8 +2,8 @@ import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import { getTestId } from "../../../utils/test-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);

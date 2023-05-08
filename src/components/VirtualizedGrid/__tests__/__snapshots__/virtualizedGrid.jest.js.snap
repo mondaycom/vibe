@@ -2,7 +2,7 @@
 
 exports[`renders correctly with class name 1`] = `
 <div
-  className="virtualized-grid--wrapper class-name"
+  className="class-name"
 >
   <div
     style={
@@ -17,9 +17,7 @@ exports[`renders correctly with class name 1`] = `
 `;
 
 exports[`renders correctly with empty props 1`] = `
-<div
-  className="virtualized-grid--wrapper"
->
+<div>
   <div
     style={
       Object {
@@ -33,9 +31,7 @@ exports[`renders correctly with empty props 1`] = `
 `;
 
 exports[`renders correctly with scrollable class name 1`] = `
-<div
-  className="virtualized-grid--wrapper"
->
+<div>
   <div
     style={
       Object {
