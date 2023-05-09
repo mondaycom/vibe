@@ -4,6 +4,8 @@ export enum ComponentDefaultTestId {
   COMBOBOX = "combobox",
   COLOR_PICKER = "color-picker",
   CHECKBOX = "checkbox",
+  CHECKBOX_LABEL = "checkbox-label",
+  CHECKBOX_CHECKBOX = "checkbox-checkbox",
   DROPDOWN = "dropdown",
   DROPDOWN_OPTION_CONTENT = "dropdown-option-content",
   BUTTON = "button",

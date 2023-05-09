@@ -110,13 +110,13 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
       <label
         className={cx(styles.wrapper, overrideClassName)}
         onMouseUp={onMouseUpCallback}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
       >
         <input
           ref={mergedInputRef}
           id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
           className={styles.input}
           value={value}
           name={name}
@@ -128,7 +128,11 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           aria-labelledby={ariaLabelledBy}
           checked={checked}
         />
-        <div className={cx(styles.checkbox, styles.preventAnimation, checkboxClassName)} ref={iconContainerRef}>
+        <div
+          className={cx(styles.checkbox, styles.preventAnimation, checkboxClassName)}
+          ref={iconContainerRef}
+          data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+        >
           <Icon
             className={styles.icon}
             iconType={Icon.type.SVG}
@@ -139,7 +143,14 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
             iconSize="16"
           />
         </div>
-        {label === false ? null : <span className={cx(styles.label, labelClassName)}>{label}</span>}
+        {label === false ? null : (
+          <span
+            className={cx(styles.label, labelClassName)}
+            data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+          >
+            {label}
+          </span>
+        )}
       </label>
     );
   }

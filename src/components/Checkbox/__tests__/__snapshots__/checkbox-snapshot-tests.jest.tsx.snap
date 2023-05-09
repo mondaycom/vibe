@@ -3,6 +3,7 @@
 exports[`Checkbox renders correctly when checked 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -10,7 +11,6 @@ exports[`Checkbox renders correctly when checked 1`] = `
     aria-label=""
     checked={true}
     className="input"
-    data-testid="checkbox"
     disabled={false}
     name=""
     onChange={[Function]}
@@ -19,6 +19,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -40,6 +41,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -47,13 +49,13 @@ exports[`Checkbox renders correctly when checked 1`] = `
 exports[`Checkbox renders correctly when default checked 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={true}
     disabled={false}
     name=""
@@ -63,6 +65,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -84,6 +87,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -91,13 +95,13 @@ exports[`Checkbox renders correctly when default checked 1`] = `
 exports[`Checkbox renders correctly when disabled 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={true}
     name=""
@@ -107,6 +111,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -128,6 +133,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -135,13 +141,13 @@ exports[`Checkbox renders correctly when disabled 1`] = `
 exports[`Checkbox renders correctly when interminate 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -151,6 +157,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -172,6 +179,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -179,6 +187,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
 exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -186,7 +195,6 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     aria-label=""
     aria-labelledby="aria"
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -196,6 +204,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -217,6 +226,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -224,13 +234,13 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 exports[`Checkbox renders correctly with empty props 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -240,6 +250,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -261,6 +272,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -268,13 +280,13 @@ exports[`Checkbox renders correctly with empty props 1`] = `
 exports[`Checkbox renders correctly with name 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name="checkbox"
@@ -284,6 +296,7 @@ exports[`Checkbox renders correctly with name 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -305,6 +318,7 @@ exports[`Checkbox renders correctly with name 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -312,13 +326,13 @@ exports[`Checkbox renders correctly with name 1`] = `
 exports[`Checkbox renders correctly with props 1`] = `
 <label
   className="wrapper dummy-class-name"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label="Option 1"
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name="checkbox"
@@ -328,6 +342,7 @@ exports[`Checkbox renders correctly with props 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -349,6 +364,7 @@ exports[`Checkbox renders correctly with props 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   >
     Option 1
   </span>
@@ -358,13 +374,13 @@ exports[`Checkbox renders correctly with props 1`] = `
 exports[`Checkbox renders correctly with value 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -374,6 +390,7 @@ exports[`Checkbox renders correctly with value 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
@@ -395,6 +412,7 @@ exports[`Checkbox renders correctly with value 1`] = `
   </div>
   <span
     className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
@@ -402,13 +420,13 @@ exports[`Checkbox renders correctly with value 1`] = `
 exports[`Checkbox renders correctly without label 1`] = `
 <label
   className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="input"
-    data-testid="checkbox"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -418,6 +436,7 @@ exports[`Checkbox renders correctly without label 1`] = `
   />
   <div
     className="checkbox preventAnimation"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
