@@ -43,7 +43,7 @@ interface RadioButtonProps extends VibeComponentProps {
   noLabelAnimation?: boolean;
 }
 
-const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
+const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwardRef(
   (
     {
       className,
