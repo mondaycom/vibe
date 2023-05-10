@@ -14,8 +14,18 @@ interface ExpandCollapseProps extends VibeComponentProps {
    * Component as parameter to be rendered as header
    */
   headerComponentRenderer?: () => ReactElement;
+  /**
+   * Class name to add to the header of the expandable
+   */
   headerClassName?: string;
+  /**
+   * Class name to add to the content of the expandable
+   */
   contentClassName?: string;
+  /**
+   * Class name to add to the component
+   */
+  componentClassName?: string;
   /**
    * Header title
    */
@@ -51,7 +61,8 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       onClick = null,
       hideBorder = false,
       headerClassName,
-      contentClassName
+      contentClassName,
+      componentClassName
     },
     ref
   ) => {
@@ -70,7 +81,12 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
-        <div className={cx("expand-collapse", { [extraStyles.hideBorder]: hideBorder })}>
+        <div
+          className={cx("expand-collapse", componentClassName, {
+            [extraStyles.hideBorder]: hideBorder,
+            [extraStyles.showBorder]: !hideBorder
+          })}
+        >
           <button
             type="button"
             className={cx("expand-collapse__header", "expand-collapse__section", headerClassName, {

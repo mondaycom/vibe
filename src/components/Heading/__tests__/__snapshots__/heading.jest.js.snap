@@ -1,10 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with empty props 1`] = `
+exports[`Renders correctly renders correctly with custom color 1`] = `
+<h1
+  aria-label=""
+  className="heading-component element-type-h1 size-large single-line-ellipsis"
+  style={
+    Object {
+      "color": "blue",
+    }
+  }
+>
+  Hello
+</h1>
+`;
+
+exports[`Renders correctly renders correctly with different sizes 1`] = `
+<div>
+  <h1
+    aria-label=""
+    className="heading-component element-type-h1 size-large single-line-ellipsis"
+  >
+    Hello H1
+  </h1>
+  <h1
+    aria-label=""
+    className="heading-component element-type-h1 size-medium single-line-ellipsis"
+  >
+    Hello H1 medium
+  </h1>
+  <h2
+    aria-label=""
+    className="heading-component element-type-h2 size-large single-line-ellipsis"
+  >
+    Hello H2
+  </h2>
+  <h2
+    aria-label=""
+    className="heading-component element-type-h2 size-small single-line-ellipsis"
+  >
+    Hello H2 small
+  </h2>
+  <h3
+    aria-label=""
+    className="heading-component element-type-h3 size-large single-line-ellipsis"
+  >
+    Hello H3
+  </h3>
+  <h4
+    aria-label=""
+    className="heading-component element-type-h4 size-large single-line-ellipsis"
+  >
+    Hello H4
+  </h4>
+  <h5
+    aria-label=""
+    className="heading-component element-type-h5 size-large single-line-ellipsis"
+  >
+    Hello H5
+  </h5>
+</div>
+`;
+
+exports[`Renders correctly renders correctly with empty props 1`] = `
 <h1
   aria-label=""
   className="heading-component element-type-h1 size-large single-line-ellipsis"
 >
   
 </h1>
+`;
+
+exports[`Renders correctly renders correctly with text highlight 1`] = `
+<h2
+  aria-label=""
+  className="heading-component element-type-h2 size-large"
+>
+  <div
+    className="text-with-highlight--wrapper"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <em
+      className="highlight-text"
+    >
+      Heading
+    </em>
+    <span>
+       with 
+    </span>
+    <em
+      className="highlight-text"
+    >
+      highlight
+    </em>
+    <span>
+       text 
+    </span>
+    <em
+      className="highlight-text"
+    >
+      heading
+    </em>
+    <span>
+       with 
+    </span>
+    <em
+      className="highlight-text"
+    >
+      highlight
+    </em>
+    <span>
+       text without overflow
+    </span>
+  </div>
+</h2>
 `;

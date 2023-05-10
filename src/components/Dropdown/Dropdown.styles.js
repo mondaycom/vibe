@@ -57,6 +57,13 @@ const disabledContainerStyle = isDisabled => {
   };
 };
 
+const readOnlyContainerStyle = readOnly => {
+  if (!readOnly) return {};
+  return {
+    border: "hidden"
+  };
+};
+
 const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   delete provided[":active"];
   delete provided.width;
@@ -64,10 +71,10 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
     display: "flex",
     alignContent: "center",
     borderRadius: getCSSVar("border-radius-small"),
-    marginRight: "8px",
-    marginLeft: "8px",
-    paddingLeft: "8px",
-    paddingRight: "8px",
+    marginRight: getCSSVar("spacing-small"),
+    marginLeft: getCSSVar("spacing-small"),
+    paddingLeft: getCSSVar("spacing-small"),
+    paddingRight: getCSSVar("spacing-small"),
     transition: `all 0.1s ${getCSSVar("expand-animation-timing")}`
   };
   if (isDisabled) {
@@ -104,7 +111,8 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
 
 const container =
   ({ size }) =>
-  (provided, { isDisabled }) => {
+  (provided, { isDisabled, selectProps }) => {
+    const { readOnly } = selectProps;
     delete provided.pointerEvents;
     return {
       ...provided,
@@ -122,28 +130,33 @@ const container =
       ":active, :focus-within": {
         borderColor: getCSSVar("color-basic_blue")
       },
-      ...disabledContainerStyle(isDisabled)
+      ...disabledContainerStyle(isDisabled),
+      ...readOnlyContainerStyle(readOnly)
     };
   };
 
 const control =
   ({ size }) =>
-  (provided, { isDisabled }) => ({
-    ...provided,
-    ...getInnerSize(size),
-    ...getColor(),
-    minHeight: "30px",
-    border: "0 solid transparent",
-    borderRadius: getCSSVar("border-radius-small"),
-    ...(!isDisabled && {
-      ":hover": {
-        borderColor: "transparent",
-        borderRadius: getCSSVar("border-radius-small")
-      }
-    }),
-    cursor: "pointer",
-    ...disabledContainerStyle(isDisabled)
-  });
+  (provided, { isDisabled, selectProps }) => {
+    const { readOnly } = selectProps;
+    return {
+      ...provided,
+      ...getInnerSize(size),
+      ...getColor(),
+      minHeight: "30px",
+      border: "0 solid transparent",
+      borderRadius: getCSSVar("border-radius-small"),
+      ...(!isDisabled && {
+        ":hover": {
+          borderColor: "transparent",
+          borderRadius: getCSSVar("border-radius-small")
+        }
+      }),
+      cursor: readOnly ? "default" : "pointer",
+      ...disabledContainerStyle(isDisabled),
+      ...readOnlyContainerStyle(readOnly)
+    };
+  };
 
 const placeholder =
   () =>
@@ -168,9 +181,10 @@ const indicatorsContainer =
 const dropdownIndicator =
   ({ size }) =>
   (provided, { selectProps, isDisabled }) => {
+    const { menuIsOpen, readOnly } = selectProps;
     return {
       ...provided,
-      display: "flex",
+      display: readOnly ? "none" : "flex",
       alignItems: "center",
       justifyContent: "center",
       padding: "0px",
@@ -180,7 +194,7 @@ const dropdownIndicator =
       borderRadius: getCSSVar("border-radius-small"),
       svg: {
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
-        transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
+        transform: menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
       },
       color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {
@@ -215,16 +229,27 @@ const menuOpenOpacity = ({ menuIsOpen }) => {
 
 const singleValue =
   () =>
-  (provided, { isDisabled, selectProps }) => ({
-    ...provided,
-    ...getFont(),
-    ...getColor(),
-    ...disabledContainerStyle(isDisabled),
-    ...menuOpenOpacity(selectProps),
-    display: "flex",
-    alignItems: "center",
-    height: "100%"
-  });
+  (provided, { isDisabled, selectProps }) => {
+    const { readOnly } = selectProps;
+    const readOnlyProps = readOnly
+      ? {
+          ...readOnlyContainerStyle(readOnly),
+          cursor: "text"
+        }
+      : {};
+
+    return {
+      ...provided,
+      ...getFont(),
+      ...getColor(),
+      ...disabledContainerStyle(isDisabled),
+      ...menuOpenOpacity(selectProps),
+      ...readOnlyProps,
+      display: "flex",
+      alignItems: "center",
+      height: "100%"
+    };
+  };
 
 function getSingleValueTextSize(size) {
   switch (size) {

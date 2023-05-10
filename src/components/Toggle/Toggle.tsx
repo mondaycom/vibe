@@ -14,6 +14,10 @@ const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 interface ToggleProps extends VibeComponentProps {
   // Backward compatibility for props naming
   componentClassName?: string;
+  /**
+   * ClassName to override styles of selected toggle
+   */
+  toggleSelectedClassName?: string;
   isDefaultSelected?: boolean;
   isSelected?: boolean;
   onChange?: (value: boolean) => void;
@@ -34,6 +38,7 @@ const Toggle: FC<ToggleProps> = ({
   // Backward compatibility for props naming
   componentClassName,
   className,
+  toggleSelectedClassName,
   isDefaultSelected = true,
   isSelected,
   onChange = NOOP,
@@ -72,6 +77,7 @@ const Toggle: FC<ToggleProps> = ({
         areLabelsHidden={areLabelsHidden}
         offOverrideText={offOverrideText}
         className={overrideClassName}
+        selectedClassName={toggleSelectedClassName}
         onOverrideText={onOverrideText}
       />
     </Switch>

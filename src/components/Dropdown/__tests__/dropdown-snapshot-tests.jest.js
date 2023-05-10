@@ -35,6 +35,11 @@ describe("Dropdown renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("when readOnly", () => {
+    const tree = renderer.create(<Dropdown readOnly />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("without clear button", () => {
     const tree = renderer.create(<Dropdown clearable={false} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -62,6 +67,20 @@ describe("Dropdown renders correctly", () => {
 
   it("with multi", () => {
     const tree = renderer.create(<Dropdown multi />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with multi and disabled", () => {
+    const tree = renderer
+      .create(<Dropdown multi disabled options={mockOptions} defaultValue={[mockOptions[0], mockOptions[1]]} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with multi and readonly", () => {
+    const tree = renderer
+      .create(<Dropdown multi readOnly options={mockOptions} defaultValue={[mockOptions[0], mockOptions[1]]} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 

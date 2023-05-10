@@ -1,11 +1,11 @@
-import React, { FC, forwardRef, useRef } from "react";
+import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import "./TabPanel.scss";
 
 export interface TabPanelProps extends VibeComponentProps {
-  children?: string;
+  children?: ReactElement | ReactElement[];
   index?: number;
 }
 

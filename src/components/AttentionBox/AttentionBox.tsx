@@ -10,6 +10,7 @@ import { AttentionBoxType } from "./AttentionBoxConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
 import Heading from "../Heading/Heading";
 import Flex from "../Flex/Flex";
+import { ElementContent } from "../../types/ElementContent";
 import "./AttentionBox.scss";
 
 const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
@@ -20,13 +21,14 @@ interface AttentionBoxProps extends VibeComponentProps {
   componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
-  /** we support 4 types of attention boxes */
+  /** we support 5 types of attention boxes */
   type?: AttentionBoxType;
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon?: SubIcon;
   iconType?: IconType.SVG | IconType.ICON_FONT;
   title?: string;
   text?: string;
+  children?: ElementContent;
   withoutIcon?: boolean;
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
@@ -46,6 +48,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   iconType = Icon.type.SVG,
   title,
   text,
+  children,
   withoutIcon = false,
   onClose,
   compact = false
@@ -96,7 +99,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         {title && (
-          <Heading value={title} type={Heading.types.h4} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`} />
+          <Heading value={title} type={Heading.types.h5} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`} />
         )}
       </Flex>
       <div
@@ -119,7 +122,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {text}
+        {text || children}
       </div>
       {onClose && (
         <IconButton

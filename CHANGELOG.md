@@ -1,5 +1,260 @@
 # Changelog
 
+## 1.124.2 (2023-05-08)
+
+#### Bug Fixes
+* [#1257](https://github.com/mondaycom/monday-ui-react-core/pull/1257) Fix testIds export path ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.124.1 (2023-05-04)
+
+#### Bug Fixes
+* [#1252](https://github.com/mondaycom/monday-ui-react-core/pull/1252) feat: <Dropdown> - ref forwarding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.124.0 (2023-05-04)
+
+#### New Features
+* [#1251](https://github.com/mondaycom/monday-ui-react-core/pull/1251) Publish-storybook on release completed ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.123.0 (2023-05-04)
+
+#### Bug Fixes
+* [#1248](https://github.com/mondaycom/monday-ui-react-core/pull/1248) chore: expose entry in types for non-ts components ([@shlomitc](https://github.com/shlomitc))
+
+#### New Features
+* [#1240](https://github.com/mondaycom/monday-ui-react-core/pull/1240) Css modules/sergeyro/attention box warning color + icons color + heading style fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1250](https://github.com/mondaycom/monday-ui-react-core/pull/1250) feat: <Modal/> - allow to pass custom width ([@shlomitc](https://github.com/shlomitc))
+
+#### Documentation
+* [#1247](https://github.com/mondaycom/monday-ui-react-core/pull/1247)  Create API_GUIDELINES.MD ([@shlomitc](https://github.com/shlomitc))
+
+#### Internal Changes
+* [#1249](https://github.com/mondaycom/monday-ui-react-core/pull/1249) change install to npm ci ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.122.2 (2023-05-02)
+
+#### Bug Fixes
+* [#1244](https://github.com/mondaycom/monday-ui-react-core/pull/1244) Dropdown: customOnOptionRemove as a callback, not as a replacement for inner logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.122.1 (2023-04-30)
+
+#### Bug Fixes
+* [#1220](https://github.com/mondaycom/monday-ui-react-core/pull/1220) MenuItem id ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.122.0 (2023-04-24)
+
+#### New Features
+* [#1235](https://github.com/mondaycom/monday-ui-react-core/pull/1235) EditableHeading - add data-testid ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1162](https://github.com/mondaycom/monday-ui-react-core/pull/1162) Bump webpack from 5.73.0 to 5.76.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* [#1120](https://github.com/mondaycom/monday-ui-react-core/pull/1120) Bump loader-utils and typescript-plugin-css-modules ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## 1.121.1 (2023-04-20)
+
+#### Bug Fixes
+* [#1229](https://github.com/mondaycom/monday-ui-react-core/pull/1229) Fix margin between link and is related icon ([@hadasfa](https://github.com/hadasfa))
+
+## 1.121.0 (2023-04-20)
+
+#### New Features
+* [#1228](https://github.com/mondaycom/monday-ui-react-core/pull/1228) Add icon class name to icon button ([@hadasfa](https://github.com/hadasfa))
+
+## 1.120.0 (2023-04-20)
+
+#### New Features
+* [#1227](https://github.com/mondaycom/monday-ui-react-core/pull/1227) change background-color to background in order to allow gradient vari… ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.119.0 (2023-04-19)
+
+#### New Features
+* [#1219](https://github.com/mondaycom/monday-ui-react-core/pull/1219) Support scrollable class name for virtualized grid ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1208](https://github.com/mondaycom/monday-ui-react-core/pull/1208) refactor: ColorPicker TS Migration ([@shlomitc](https://github.com/shlomitc))
+
+## 1.118.0 (2023-04-18)
+
+#### New Features
+* [#1216](https://github.com/mondaycom/monday-ui-react-core/pull/1216) Support custom renderer in Chip component ([@hadasfa](https://github.com/hadasfa))
+
+## 1.117.0 (2023-04-18)
+
+#### New Features
+* [#1217](https://github.com/mondaycom/monday-ui-react-core/pull/1217) Add number type and onWheel prop to text field ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### Internal Changes
+* [#1214](https://github.com/mondaycom/monday-ui-react-core/pull/1214) Css modules comment ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.116.3 (2023-04-16)
+
+#### Bug Fixes
+* [#1212](https://github.com/mondaycom/monday-ui-react-core/pull/1212) Heading: replace padding changes with useIsOverflowing ignoreHeightOverflow prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.116.2 (2023-04-13)
+
+#### Bug Fixes
+* [#1206](https://github.com/mondaycom/monday-ui-react-core/pull/1206) Fix bug on split button loading state ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1207](https://github.com/mondaycom/monday-ui-react-core/pull/1207) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.116.1 (2023-04-10)
+
+#### Bug Fixes
+* [#1205](https://github.com/mondaycom/monday-ui-react-core/pull/1205) fix expand collapse border bug ([@hadasfa](https://github.com/hadasfa))
+
+## 1.116.0 (2023-04-09)
+
+#### Bug Fixes
+* [#1201](https://github.com/mondaycom/monday-ui-react-core/pull/1201) Fix hide border bug in expand collapse  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1202](https://github.com/mondaycom/monday-ui-react-core/pull/1202) Support menu button controlled active state ([@hadasfa](https://github.com/hadasfa))
+
+## 1.115.1 (2023-04-04)
+
+#### Bug Fixes
+* [#1200](https://github.com/mondaycom/monday-ui-react-core/pull/1200) Fix text field and search disabled appearance  ([@hadasfa](https://github.com/hadasfa))
+
+## 1.115.0 (2023-04-03)
+
+#### New Features
+* [#1199](https://github.com/mondaycom/monday-ui-react-core/pull/1199) TS-migration: Combobox ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.114.0 (2023-04-03)
+
+#### Bug Fixes
+* [#1197](https://github.com/mondaycom/monday-ui-react-core/pull/1197) Fix/sergeyro/sentry errors (EditableInput, VirtualizedList) ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1187](https://github.com/mondaycom/monday-ui-react-core/pull/1187) Vibe: mock modular classnames - rollup, special entrypoint ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.113.1 (2023-03-29)
+
+#### Bug Fixes
+* [#1188](https://github.com/mondaycom/monday-ui-react-core/pull/1188) Fix/sergeyro/heading overflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.113.0 (2023-03-29)
+
+#### New Features
+* [#1196](https://github.com/mondaycom/monday-ui-react-core/pull/1196) Feature/sergeyro/buttons tab index props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.112.0 (2023-03-28)
+
+#### New Features
+* [#1194](https://github.com/mondaycom/monday-ui-react-core/pull/1194) Dropdown add className props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1193](https://github.com/mondaycom/monday-ui-react-core/pull/1193) Chips border ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.111.0 (2023-03-28)
+
+#### New Features
+* [#1192](https://github.com/mondaycom/monday-ui-react-core/pull/1192) Tooltip & Tipseen: arrowClassName ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1191](https://github.com/mondaycom/monday-ui-react-core/pull/1191) Toggle add toggleSelectedClassName ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1190](https://github.com/mondaycom/monday-ui-react-core/pull/1190) Add titleClassName props to customize TipseenTitle ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.110.0 (2023-03-26)
+
+#### Bug Fixes
+* [#1186](https://github.com/mondaycom/monday-ui-react-core/pull/1186) fix interactions test location ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#1183](https://github.com/mondaycom/monday-ui-react-core/pull/1183) change the build of css modules to calculate the hash according to co… ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1179](https://github.com/mondaycom/monday-ui-react-core/pull/1179) Support class name for search wrapper in combobox ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1184](https://github.com/mondaycom/monday-ui-react-core/pull/1184) Yael photo update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.109.0 (2023-03-23)
+
+#### New Features
+* [#1180](https://github.com/mondaycom/monday-ui-react-core/pull/1180) ModalHeader: JsxElement in description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.108.0 (2023-03-21)
+
+#### New Features
+* [#1177](https://github.com/mondaycom/monday-ui-react-core/pull/1177) add editable heading class name for inner heading ([@hadasfa](https://github.com/hadasfa))
+
+## 1.107.2 (2023-03-21)
+
+#### Bug Fixes
+* [#1176](https://github.com/mondaycom/monday-ui-react-core/pull/1176) Add classname prop to Expandable ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.107.1 (2023-03-21)
+
+#### Bug Fixes
+* [#1175](https://github.com/mondaycom/monday-ui-react-core/pull/1175) Feature/sergeyro/modal close button aria label default value ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1174](https://github.com/mondaycom/monday-ui-react-core/pull/1174) Support on attention box renderer and link ([@hadasfa](https://github.com/hadasfa))
+
+## 1.107.0 (2023-03-20)
+
+#### New Features
+* [#1172](https://github.com/mondaycom/monday-ui-react-core/pull/1172) MenuItem: add iconWrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.106.1 (2023-03-19)
+
+#### Bug Fixes
+* [#1168](https://github.com/mondaycom/monday-ui-react-core/pull/1168) Revert css modules part 1 migration ([@hadasfa](https://github.com/hadasfa))
+
+## 1.106.0 (2023-03-16)
+
+#### New Features
+* [#1165](https://github.com/mondaycom/monday-ui-react-core/pull/1165) Dummy change for checking release process ([@hadasfa](https://github.com/hadasfa))
+
+## 1.105.0 (2023-03-14)
+
+#### New Features
+* [#1160](https://github.com/mondaycom/monday-ui-react-core/pull/1160) Feature/sergeyro/link add text classname prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.104.1 (2023-03-13)
+
+#### Bug Fixes
+* [#1159](https://github.com/mondaycom/monday-ui-react-core/pull/1159) Fix dropdown bug when passing a damaged value ([@hadasfa](https://github.com/hadasfa))
+
+## 1.104.0 (2023-03-13)
+
+#### New Features
+* [#1158](https://github.com/mondaycom/monday-ui-react-core/pull/1158) TextField story & fix story in Chips ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.103.2 (2023-03-12)
+
+#### Bug Fixes
+* [#1134](https://github.com/mondaycom/monday-ui-react-core/pull/1134) Feature/sergeyro/css modules prerelease 1 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.103.1 (2023-03-12)
+
+#### Bug Fixes
+* [#1157](https://github.com/mondaycom/monday-ui-react-core/pull/1157) export list item avatar ([@hadasfa](https://github.com/hadasfa))
+
+## 1.103.0 (2023-03-12)
+
+#### Bug Fixes
+* [#1155](https://github.com/mondaycom/monday-ui-react-core/pull/1155) Fix combobox bug: trigger onclick event with the wrong option when categories and options not sorted ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1130](https://github.com/mondaycom/monday-ui-react-core/pull/1130) Feature/sergeyro/dropdown readonly ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1154](https://github.com/mondaycom/monday-ui-react-core/pull/1154) Fix back prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.102.1 (2023-03-08)
+
+#### Bug Fixes
+* [#1153](https://github.com/mondaycom/monday-ui-react-core/pull/1153) Fix Heading sizes type issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.102.0 (2023-03-08)
+
+#### Bug Fixes
+* [#1129](https://github.com/mondaycom/monday-ui-react-core/pull/1129) set no animation on chip as default ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1151](https://github.com/mondaycom/monday-ui-react-core/pull/1151) Feature/sergeyro/tab remove inner css overrides - new prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1128](https://github.com/mondaycom/monday-ui-react-core/pull/1128) Skeleton types + aria pressed + switch ([@hadasfa](https://github.com/hadasfa))
+* [#1127](https://github.com/mondaycom/monday-ui-react-core/pull/1127) Feature/sergeyro/chips elipsis tooltip ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1152](https://github.com/mondaycom/monday-ui-react-core/pull/1152) Rename prerelease flow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1133](https://github.com/mondaycom/monday-ui-react-core/pull/1133) Fix getStyle if no such style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.101.1 (2023-03-02)
 
 #### Bug Fixes

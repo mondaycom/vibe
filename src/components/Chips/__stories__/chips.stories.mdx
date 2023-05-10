@@ -9,6 +9,7 @@ import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
+import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
 import "./chips.stories.scss";
 
@@ -131,7 +132,11 @@ Chips are compact elements that represent an input, attribute, or action. They m
 ### Color coded chips
 
 Use chips with colors to indicate different categories.
-e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
+e.g.
+
+```jsx
+<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />
+```
 
 <Canvas>
   <Story name="Chips palette">
@@ -145,6 +150,55 @@ e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
           </Flex>
         );
       })}
+    </Flex>
+  </Story>
+</Canvas>
+
+### Chips on colored backgrounds
+
+When a chip appears on a background color identical to its color, use `showBorder` prop in order to add a distinctive white border.
+<Canvas>
+  <Story name="On color">
+    <Flex style={{ width: "100%" }} align={Flex.align.STRETCH} justify={Flex.justify.CENTER}>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--primary-selected-color)",
+          width: "124px",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On selected" showBorder readOnly/>
+      </Flex>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--positive-color-selected)",
+          width: "124px",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On positive" showBorder color={Chips.colors.POSITIVE} readOnly />
+      </Flex>
+      <Flex
+        align={Flex.align.CENTER}
+        justify={Flex.justify.CENTER}
+        style={{
+          background: "var(--negative-color-selected)",
+          width: "124px",
+          height: "64px",
+          margin: "var(--spacing-small)",
+          borderRadius: "var(--border-radius-small)"
+        }}
+      >
+        <Chips label="On negative" showBorder color={Chips.colors.NEGATIVE} readOnly />
+      </Flex>
     </Flex>
   </Story>
 </Canvas>
@@ -192,17 +246,17 @@ Sometimes when needed, chips can change fill color.
   </Story>
 </Canvas>
 
-### Chips in person column
+### Chips in a person picker combo box
 
-Chips can be removable.
+Chips can be removable, and can be used in a multiple options selection use cases.
 
 <Canvas>
-  <Story name="Chips in Person Column">
+  <Story name="Chips in a person picker combo box">
     <DialogContentContainer className="monday-storybook-chips_search-bar">
       <Search placeholder="Search names, positions, or a team" />
       <div className="monday-storybook-chips_inline-container">
-        <Chips label="Esther Schanler" />
-        <Chips label="Itai Shabtai" />
+        <Chips label="Esther Schanler" leftAvatar={person1} />
+        <Chips label="Rotem Dekel" leftAvatar={rotem} />
       </div>
       <div className="monday-storybook-chips_lable">Suggested people</div>
       <div className="monday-storybook-chips_search">

@@ -95,7 +95,11 @@ $theme-var: (
   "box-shadow-xs": var(--box-shadow-xs),
   "box-shadow-small": var(--box-shadow-small),
   "box-shadow-medium": var(--box-shadow-medium),
-  "box-shadow-large": var(--box-shadow-large)
+  "box-shadow-large": var(--box-shadow-large),
+  "warning-color": var(--warning-color),
+  "warning-color-hover": var(--warning-color-hover),
+  "warning-color-selected": var(--warning-color-selected),
+  "warning-color-selected-hover": var(--warning-color-selected-hover)
 );
 
 @mixin theme-prop($property: color, $color-variable: primary-text-color, $important: false) {

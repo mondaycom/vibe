@@ -1,40 +1,81 @@
 import cx from "classnames";
 import { difference as _difference, intersection as _intersection } from "lodash-es";
-import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { SIZES } from "../../../../constants/sizes";
-import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
+import { BaseSizes } from "../../../../constants";
+import { ColorStyle, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import {
+  ColorShapes,
+  DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  ColorPickerValue,
+  ColorPickerArrayValueOnly
+} from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContentComponent.scss";
+import "./ColorPickerContent.scss";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
+import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
 
-const ColorPickerContentComponent = forwardRef(
+export interface ColorPickerContentProps extends VibeComponentProps {
+  value: ColorPickerValue;
+  onValueChange: (value: ColorPickerArrayValueOnly) => any;
+  colorsList: ColorPickerArrayValueOnly;
+  ColorIndicatorIcon?: SubIcon;
+  SelectedIndicatorIcon?: SubIcon;
+  NoColorIcon?: SubIcon;
+  colorStyle?: ColorStyle;
+  colorSize?: BaseSizes;
+  colorShape?: ColorShapes;
+  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
+  noColorText?: string;
+  shouldRenderIndicatorWithoutBackground?: boolean;
+  isBlackListMode?: boolean;
+  numberOfColorsInLine?: number;
+  focusOnMount?: boolean;
+  isMultiselect?: boolean;
+  /**
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   */
+  forceUseRawColorList?: boolean;
+  /**
+   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
+   */
+  showColorNameTooltip?: boolean;
+}
+
+const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
+  // Backward compatibility for enum naming
+  COLOR_STYLES?: typeof ColorStyle;
+  sizes?: typeof BaseSizes;
+  colorStyles?: typeof ColorStyle;
+  colorSizes?: typeof BaseSizes;
+  colorShapes?: typeof ColorShapes;
+} = forwardRef(
   (
     {
       className,
       onValueChange,
       value,
       noColorText,
-      colorStyle,
+      colorStyle = ColorStyle.REGULAR,
       ColorIndicatorIcon,
       SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      NoColorIcon,
-      isBlackListMode,
+      NoColorIcon = NoColor,
+      isBlackListMode = true,
       colorsList,
       isMultiselect,
-      colorSize,
-      numberOfColorsInLine,
-      tooltipContentByColor,
+      colorSize = BaseSizes.MEDIUM,
+      numberOfColorsInLine = DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+      tooltipContentByColor = {},
       focusOnMount,
-      colorShape,
+      colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
       showColorNameTooltip
     },
@@ -55,7 +96,7 @@ const ColorPickerContentComponent = forwardRef(
     }, [forceUseRawColorList, isBlackListMode, colorsList]);
 
     const onColorClicked = useCallback(
-      color => {
+      (color: CONTENT_COLORS_VALUES) => {
         if (!isMultiselect) {
           onValueChange([color]);
           return;
@@ -106,68 +147,13 @@ const ColorPickerContentComponent = forwardRef(
   }
 );
 
-ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
-ColorPickerContentComponent.sizes = SIZES;
-ColorPickerContentComponent.colorShapes = COLOR_SHAPES;
+Object.assign(ColorPickerContent, {
+  // Backward compatibility for enum naming
+  COLOR_STYLES: ColorStyle,
+  sizes: typeof BaseSizes,
+  colorStyles: ColorStyle,
+  colorSizes: typeof BaseSizes,
+  colorShapes: ColorShapes
+});
 
-ColorPickerContentComponent.propTypes = {
-  className: PropTypes.string,
-  onValueChange: PropTypes.func,
-  ColorIndicatorIcon: PropTypes.func,
-  SelectedIndicatorIcon: PropTypes.func,
-  colorStyle: PropTypes.oneOf([
-    ColorPickerContentComponent.COLOR_STYLES.REGULAR,
-    ColorPickerContentComponent.COLOR_STYLES.SELECTED
-  ]),
-  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
-  noColorText: PropTypes.string,
-  shouldRenderIndicatorWithoutBackground: PropTypes.bool,
-  NoColorIcon: PropTypes.func,
-  isBlackListMode: PropTypes.bool,
-  colorsList: PropTypes.array,
-  colorSize: PropTypes.oneOf([
-    ColorPickerContentComponent.sizes.SMALL,
-    ColorPickerContentComponent.sizes.MEDIUM,
-    ColorPickerContentComponent.sizes.LARGE
-  ]),
-  numberOfColorsInLine: PropTypes.number,
-  tooltipContentByColor: PropTypes.object,
-  focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool,
-  forceUseRawColorList: PropTypes.bool,
-  showColorNameTooltip: PropTypes.bool
-};
-
-ColorPickerContentComponent.defaultProps = {
-  className: "",
-  onValueChange: () => {},
-  ColorIndicatorIcon: undefined,
-  SelectedIndicatorIcon: undefined,
-  colorStyle: ColorPickerContentComponent.COLOR_STYLES.REGULAR,
-  value: "",
-  noColorText: undefined,
-  shouldRenderIndicatorWithoutBackground: false,
-  NoColorIcon: NoColor,
-  isBlackListMode: true,
-  colorsList: [],
-  colorSize: ColorPickerContentComponent.sizes.MEDIUM,
-  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  tooltipContentByColor: {},
-  focusOnMount: false,
-  colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
-  isMultiselect: false,
-  /**
-   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
-   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
-   */
-  forceUseRawColorList: false,
-  /**
-   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
-   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
-   *
-   */
-  showColorNameTooltip: false
-};
-
-export default ColorPickerContentComponent;
+export default ColorPickerContent;

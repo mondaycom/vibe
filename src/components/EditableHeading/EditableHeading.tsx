@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import cx from "classnames";
 import Heading, { HeadingProps } from "../Heading/Heading";
@@ -8,11 +7,14 @@ import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
 import "./EditableHeading.scss";
 import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
+import { Sizes } from "../../constants";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
   inputAriaLabel?: string;
   errorClass?: string;
+  headingClassName?: string;
   inputClassName?: string;
   dataTestId?: string;
   "data-testid"?: string;
@@ -27,7 +29,7 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
 }
 
 const EditableHeading: React.FC<EditableHeadingProps> & {
-  sizes?: typeof HeadingSizes;
+  sizes?: Sizes;
   types?: typeof HeadingTypes;
 } = props => {
   const {
@@ -150,7 +152,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
-      size: size as typeof HeadingSizes,
+      size: size as Sizes,
+      className: props.headingClassName,
       highlightTerm
     };
 
@@ -209,7 +212,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestId || dataTestIdOverride}
+      data-testid={dataTestId || dataTestIdOverride || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}

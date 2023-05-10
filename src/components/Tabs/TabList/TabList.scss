@@ -12,6 +12,7 @@
     position: relative;
     height: 40px;
     outline: none;
+    font-family: var(--font-family);
 
     &.sm {
       height: 32px;
@@ -26,10 +27,10 @@
     .tabs-list {
       width: 100%;
 
-      .tab--wrapper {
+      &_tab--wrapper {
         width: 100%;
 
-        .tab-inner {
+        &_tab-inner {
           width: 100%;
         }
       }
@@ -49,8 +50,4 @@
       }
     }
   }
-}
-
-.tabs--wrapper .tabs-list{
-  font-family: var(--font-family);
 }

@@ -14,6 +14,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -94,6 +96,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -182,6 +186,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -269,6 +275,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -349,6 +357,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -380,6 +390,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -418,6 +430,8 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -456,6 +470,8 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -536,6 +552,8 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >
@@ -567,6 +585,8 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="button"
       tabIndex={-1}
     >

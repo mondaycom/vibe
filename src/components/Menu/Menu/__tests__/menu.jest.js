@@ -36,17 +36,19 @@ describe("Snapshots", () => {
 jest.useFakeTimers();
 const menuTitleCaption = "Title";
 const menuItem1Name = "My item 1";
+const menuItem1Id = "menu-item-1";
 const menuItem1OnClickMock = jest.fn();
 const menuItem2OnClickMock = jest.fn();
 const menuItem2Name = "My item 2";
+const menuItem2Id = "menu-item-2";
 
 const renderComponent = ({ ...props } = {}) => {
   return render(
     <Menu {...props} ariaLabel="menu">
       <MenuTitle caption={menuTitleCaption} />
-      <MenuItem title={menuItem1Name} onClick={menuItem1OnClickMock} />
+      <MenuItem title={menuItem1Name} onClick={menuItem1OnClickMock} id={menuItem1Id} />
       <Divider />
-      <MenuItem title={menuItem2Name} onClick={menuItem2OnClickMock} />
+      <MenuItem title={menuItem2Name} onClick={menuItem2OnClickMock} id={menuItem2Id} />
     </Menu>
   );
 };
@@ -100,5 +102,21 @@ describe.skip("<Menu />", () => {
     jest.advanceTimersByTime(1000);
     expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
     expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
+  });
+
+  it("menu has correct active-descendant when item is active", () => {
+    const menuComponent = renderComponent();
+    expect(menuComponent).not.toHaveAttribute("aria-activedescendant");
+
+    const menuItem = menuComponent.getByText(menuItem1Name);
+
+    act(() => {
+      fireEvent.mouseOver(menuItem);
+      jest.advanceTimersByTime(1000);
+      fireEvent.click(menuItem);
+    });
+
+    jest.advanceTimersByTime(1000);
+    expect(menuComponent).toHaveAttribute("aria-activedescendant", menuItem1Id);
   });
 });

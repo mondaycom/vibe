@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
 import classnames from "classnames";
 import { Modifier } from "react-popper";
@@ -18,6 +19,8 @@ export interface TooltipProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;
+  /** Class name for a tooltip's arrow */
+  arrowClassName?: string;
   paddingSize?: keyof typeof BASE_SIZES_WITH_NONE;
   /**
    * How much to move the dialog in relative to children
@@ -88,6 +91,10 @@ export interface TooltipProps extends VibeComponentProps {
    * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
    */
   addKeyboardHideShowTriggersByDefault?: boolean;
+  /**
+   * set the state of the tooltip - open/close - controlled component
+   */
+  open?: boolean;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -125,7 +132,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: false,
     referenceWrapperClassName: "",
-    addKeyboardHideShowTriggersByDefault: false
+    addKeyboardHideShowTriggersByDefault: false,
+    open: false
   };
   constructor(props: TooltipProps) {
     super(props);
@@ -227,7 +235,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       showTrigger,
       hideTrigger,
       showOnDialogEnter,
-      addKeyboardHideShowTriggersByDefault
+      addKeyboardHideShowTriggersByDefault,
+      open,
+      arrowClassName
     } = this.props;
 
     if (!children) {
@@ -240,12 +250,18 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      open,
       startingEdge: justify,
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
-      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`,
+      tooltipClassName: cx(
+        "monday-style-arrow",
+        `monday-style-arrow-${theme}`,
+        `padding-size-${paddingSize}`,
+        arrowClassName
+      ),
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,

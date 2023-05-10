@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
-import { useSwitch } from "./hooks/useSwitch";
+import useSwitch from "../../hooks/useSwitch";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { MockToggleProps } from "../Toggle/MockToggle";
 import classes from "./Switch.module.scss";

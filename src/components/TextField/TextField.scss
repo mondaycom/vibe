@@ -43,6 +43,10 @@
           @include theme-prop(color, disabled-text-color);
         }
       }
+      .input-component__icon--container.input-component__icon--container-active.input-component__icon--container-has-icon {
+          pointer-events: none;
+      }
+
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {
           background-color: transparent;

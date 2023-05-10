@@ -1,4 +1,5 @@
 import DropdownDriver from "./driver";
+import React from "react";
 
 describe("Dropdown", () => {
   beforeEach(() => {
@@ -75,6 +76,25 @@ describe("Dropdown", () => {
       component.render();
 
       expect(component.singleValueText).toContain("Purple");
+    });
+  });
+
+  describe("ref forwarding", () => {
+    let component;
+    const ref = React.createRef();
+    const onFocus = jest.fn();
+
+    beforeEach(() => {
+      component = new DropdownDriver().withOptions().withValue(mockOptions[0]).withRef(ref).withOnFocus(onFocus);
+    });
+
+    it("Should be able to focus input via ref", () => {
+      component.render();
+
+      expect(ref.current).not.toBeUndefined();
+      component.focusSelect(ref);
+
+      expect(onFocus).toBeCalled();
     });
   });
 
