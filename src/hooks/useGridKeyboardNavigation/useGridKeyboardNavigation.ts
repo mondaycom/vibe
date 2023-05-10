@@ -1,5 +1,5 @@
 import { MutableRefObject, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import GridKeyboardNavigationContext from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import useFullKeyboardListeners, { NavDirections } from "../../hooks/useFullKeyboardListeners";
 import useEventListener from "../../hooks/useEventListener";
 import {

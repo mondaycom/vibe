@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
-import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { CloseMenuOption } from "../Menu/MenuConstants";
+import useGridKeyboardNavigationContext from "../../../hooks/useGridKeyboardNavigationContext/useGridKeyboardNavigationContext";
 
 export const useMenuGridItemNavContext = ({
   wrapperRef,

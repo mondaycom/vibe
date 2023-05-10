@@ -1,9 +1,9 @@
 import React, { forwardRef, ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
+import GridKeyboardNavigationContext from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "../Menu/MenuConstants";

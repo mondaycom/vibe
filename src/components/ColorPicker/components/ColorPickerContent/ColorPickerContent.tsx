@@ -11,14 +11,12 @@ import {
   ColorPickerArrayValueOnly
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContent.scss";
-import {
-  GridKeyboardNavigationContext,
-  useGridKeyboardNavigationContext
-} from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
+import useGridKeyboardNavigationContext from "../../../../hooks/useGridKeyboardNavigationContext/useGridKeyboardNavigationContext";
+import GridKeyboardNavigationContext from "../../../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import "./ColorPickerContent.scss";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
