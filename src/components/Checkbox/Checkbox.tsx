@@ -129,7 +129,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           checked={checked}
         />
         <div
-          className={cx(styles.checkbox, styles.preventAnimation, checkboxClassName)}
+          className={cx(styles.checkbox, checkboxClassName)}
           ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
         >

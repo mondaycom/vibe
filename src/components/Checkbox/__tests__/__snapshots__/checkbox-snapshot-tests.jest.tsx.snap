@@ -18,7 +18,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -64,7 +64,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -110,7 +110,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -156,7 +156,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -203,7 +203,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -249,7 +249,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -295,7 +295,7 @@ exports[`Checkbox renders correctly with name 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -341,7 +341,7 @@ exports[`Checkbox renders correctly with props 1`] = `
     value="option1"
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -389,7 +389,7 @@ exports[`Checkbox renders correctly with value 1`] = `
     value="checkboxValue"
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg
@@ -435,7 +435,7 @@ exports[`Checkbox renders correctly without label 1`] = `
     value=""
   />
   <div
-    className="checkbox preventAnimation"
+    className="checkbox"
     data-testid="checkbox-checkbox"
   >
     <svg

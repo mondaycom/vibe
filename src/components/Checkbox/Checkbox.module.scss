@@ -101,11 +101,6 @@ $checkbox-size: 16px;
   animation: checkboxGrowAnimation var(--motion-productive-short);
 }
 
-.input:checked + .preventAnimation,
-.input:indeterminate + .preventAnimation {
-  animation-duration: 0ms;
-}
-
 .input:checked + .checkbox,
 .input:indeterminate + .checkbox {
   @include theme-prop(background-color, primary-color);
