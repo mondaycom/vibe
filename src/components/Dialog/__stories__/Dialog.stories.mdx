@@ -130,17 +130,9 @@ Please be aware that the dialog component is not responsible for the appearance 
     {() => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedTopStart, onChange: onChangeTopStart } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedTopEnd, onChange: onChangeTopEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedBottom, onChange: onChangeBottom } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedBottomStart, onChange: onChangeBottomStart } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedBottomEnd, onChange: onChangeBottomEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedRight, onChange: onChangeRight } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedRightStart, onChange: onChangeRightStart } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedRightEnd, onChange: onChangeRightEnd } = useSwitch({ defaultChecked: false });
       const { isChecked: checkedLeft, onChange: onChangeLeft } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedLeftStart, onChange: onChangeLeftStart } = useSwitch({ defaultChecked: false });
-      const { isChecked: checkedLeftEnd, onChange: onChangeLeftEnd } = useSwitch({ defaultChecked: false });
       const modifiers =
         // for prevent dialog to move while scrolling
         [
@@ -183,38 +175,6 @@ Please be aware that the dialog component is not responsible for the appearance 
           >
             <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottom} active={checkedBottom}>
               Bottom
-            </Button>
-          </Dialog>
-          <Dialog
-            modifiers={modifiers}
-            position={Dialog.positions.BOTTOM_START} // set dialog position
-            showTrigger={[]}
-            hideTrigger={[]}
-            open={checkedBottomStart}
-            content={
-              <DialogContentContainer>
-                <ExampleContent />
-              </DialogContentContainer>
-            }
-          >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottomStart} active={checkedBottomStart}>
-              Bottom start
-            </Button>
-          </Dialog>
-          <Dialog
-            modifiers={modifiers}
-            position={Dialog.positions.BOTTOM_END} // set dialog position
-            showTrigger={[]}
-            hideTrigger={[]}
-            open={checkedBottomEnd}
-            content={
-              <DialogContentContainer>
-                <ExampleContent />
-              </DialogContentContainer>
-            }
-          >
-            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottomEnd} active={checkedBottomEnd}>
-              Bottom end
             </Button>
           </Dialog>
           <Dialog
