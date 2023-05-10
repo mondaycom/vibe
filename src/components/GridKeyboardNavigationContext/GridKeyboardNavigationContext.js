@@ -40,7 +40,7 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabl
         maybeNextElement.current?.focus();
         return;
       }
-      // nothing on that direction - try updating the upper context
+      // nothing on that direction -  try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
     [directionMaps, upperContext, wrapperRef, disabled]
