@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.124.3 (2023-05-11)
+
+#### Bug Fixes
+* [#1263](https://github.com/mondaycom/monday-ui-react-core/pull/1263) Passed onKeyPress, onBlur, onFocus props in EditableHeader to EditableInput ([@udidoron](https://github.com/udidoron))
+* [#1122](https://github.com/mondaycom/monday-ui-react-core/pull/1122) Basic dialog docs (only basic variants and examples) ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1258](https://github.com/mondaycom/monday-ui-react-core/pull/1258) fix: <RadioButton/> - fix name not displayed in the docs ([@shlomitc](https://github.com/shlomitc))
+* [#1256](https://github.com/mondaycom/monday-ui-react-core/pull/1256) chore: fix typography docs to map to the exact typography css vars ([@shlomitc](https://github.com/shlomitc))
+* [#1255](https://github.com/mondaycom/monday-ui-react-core/pull/1255) chore: <Avatar/>, <AvatarGroup/> - update stories to show absolute urls to files and fix Avatar story to use AvatarGroup ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.124.2 (2023-05-08)
 
 #### Bug Fixes
