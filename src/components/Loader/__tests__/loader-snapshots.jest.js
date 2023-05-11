@@ -8,6 +8,11 @@ describe("Loader renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with custom class name wrapper", () => {
+    const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} classNameWrapper="dummy-class-name" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   describe("with size variants", () => {
     it("with XS size", () => {
       const tree = renderer.create(<Loader size={Loader.sizes.XS} />).toJSON();

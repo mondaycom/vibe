@@ -154,6 +154,36 @@ exports[`Loader renders correctly with custom class name 1`] = `
 </div>
 `;
 
+exports[`Loader renders correctly with custom class name wrapper 1`] = `
+<div
+  className="monday-loader-component loaderContainer"
+  data-testid="loader"
+  role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+  title="loading"
+>
+  <svg
+    aria-hidden={true}
+    className="circle-loader-spinner circleLoaderSpinner"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      cx="25"
+      cy="25"
+      fill="none"
+      r="20"
+      strokeWidth="5"
+    />
+  </svg>
+</div>
+`;
+
 exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 <div
   className="monday-loader-component loaderContainer"
