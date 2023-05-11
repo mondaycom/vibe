@@ -3,6 +3,28 @@
 
 .contentWrapper {
   outline: 0;
+
+  &.top, &.right, &.left, &.bottom {
+    padding: var(--spacing-xs);
+  }
+  &.bottomStart, &.topStart, &.bottomEnd, &.topEnd {
+    padding-block: var(--spacing-xs);
+  }
+  &.bottomStart, &.topStart {
+    padding-inline-end: var(--spacing-xs);
+  }
+  &.bottomEnd, &.topEnd {
+    padding-inline-start: var(--spacing-xs);
+  }
+  &.leftStart, &.rightStart, &.leftEnd, &.rightEnd {
+    padding-inline: var(--spacing-xs);
+  }
+  &.leftStart, &.rightStart {
+    padding-block-end: var(--spacing-xs);
+  }
+  &.leftEnd, &.rightEnd {
+    padding-block-start: var(--spacing-xs);
+  }
 }
 
 .contentWrapper[data-popper-reference-hidden="true"] {
