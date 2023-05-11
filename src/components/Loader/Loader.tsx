@@ -15,7 +15,7 @@ export interface LoaderProps extends VibeComponentProps {
   size?: LoaderSize;
   color?: LoaderColors;
   hasBackground?: boolean;
-  wrapperClassName: string;
+  wrapperClassName?: string;
 }
 
 const Loader: VibeComponent<LoaderProps, HTMLElement> & {
