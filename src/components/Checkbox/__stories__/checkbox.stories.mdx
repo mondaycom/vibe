@@ -93,35 +93,6 @@ Has 4 states: regular, hover, selected, and disabled.
   </Story>
 </Canvas>
 
-### Variants of Checkboxes' Labels
-
-Component have ability to render with:
-
-<UnstyledList>
-  <UnstyledListItem>with text label</UnstyledListItem>
-  <UnstyledListItem>with component label</UnstyledListItem>
-  <UnstyledListItem>with empty label (empty DOM element will be rendered)</UnstyledListItem>
-  <UnstyledListItem>without label (DOM element for label will not be rendered).</UnstyledListItem>
-</UnstyledList>
-Check React source and rendered HTML.
-
-<Canvas>
-  <Story name="Labels">
-    <Checkbox ariaLabel="With Label" label="With label" />
-    <Checkbox
-      ariaLabel="With Component Label"
-      label={
-        <span class="custom-component-label">
-          <Calendar size="12" />
-          Component Label
-        </span>
-      }
-    />
-    <Checkbox ariaLabel="With Empty Label" label="" />
-    <Checkbox ariaLabel="Without Label" label={false} />
-  </Story>
-</Canvas>
-
 ## Do’s and Don’ts
 
 <ComponentRules
