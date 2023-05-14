@@ -96,7 +96,7 @@ const publishedTSComponents = {
   useSetFocus: "hooks/useSetFocus/index.ts",
   useMergeRefs: "hooks/useMergeRefs.ts",
   useIsMouseOver: "hooks/useIsMouseOver.ts",
-  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.ts",
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation",
   useIsOverflowing: "hooks/useIsOverflowing/useIsOverflowing",
   useMediaQuery: "hooks/useMediaQuery",
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
