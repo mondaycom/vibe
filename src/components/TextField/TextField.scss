@@ -18,6 +18,7 @@
   }
 
   .input-component__sub-text-container {
+    margin-top: var(--spacing-xs);
     display: flex;
     @include font-input();
     @include theme-prop(color, secondary-text-color);
