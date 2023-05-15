@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.124.4 (2023-05-15)
+
+#### Bug Fixes
+* [#1265](https://github.com/mondaycom/monday-ui-react-core/pull/1265) Docs and craft updates in components ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.124.3 (2023-05-11)
 
 #### Bug Fixes

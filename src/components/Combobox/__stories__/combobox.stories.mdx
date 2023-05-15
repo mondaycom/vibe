@@ -205,22 +205,22 @@ When having a lot of options, you may use headings to categorize them.
       );
       return (
         <Flex
-          gap={Flex.gaps.SMALL}
+          gap={50}
           style={{ width: "100%" }}
-          justify={Flex.justify.SPACE_AROUND}
+          justify={Flex.justify.START}
           align={Flex.align.START}
         >
-          <StoryDescription description="Regular categories" vertical>
+          <StoryDescription description="Regular" vertical align={Flex.align.START}>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here"/>
+            </DialogContentContainer>
+          </StoryDescription>
+          <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
             <DialogContentContainer style={{ height: "200px" }}>
               <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
-          <StoryDescription description="Categories with sticky mode" vertical>
-            <DialogContentContainer style={{ height: "200px" }}>
-              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
-            </DialogContentContainer>
-          </StoryDescription>
-          <StoryDescription description="Categories with divider" vertical>
+          <StoryDescription description="With divider" vertical align={Flex.align.START}>
             <DialogContentContainer style={{ height: "200px" }}>
               <Combobox
                 options={options}

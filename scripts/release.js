@@ -15,6 +15,7 @@ const VERSION_STRATEGIES = {
 const CHANGELOG_HEADERS = {
   TITLE: "# Changelog",
   UNRELEASED_VERSION: "## Unreleased",
+  BREAKING_CHANGES: "### Breaking Changes 🔴",
   BUGS: "#### Bug Fixes",
   NEW_FEATURES: "#### New Features",
   ICONS: "#### New Icons",
@@ -24,6 +25,7 @@ const CHANGELOG_HEADERS = {
 
 const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
 
+const CHANGES_THAT_BUMP_MAJOR = [CHANGELOG_HEADERS.BREAKING_CHANGES];
 const CHANGES_THAT_BUMP_MINOR = [CHANGELOG_HEADERS.NEW_FEATURES];
 const CHANGES_THAT_BUMP_PATCH = [CHANGELOG_HEADERS.BUGS, CHANGELOG_HEADERS.ICONS, CHANGELOG_HEADERS.DEPENDENCIES];
 
@@ -73,6 +75,10 @@ function buildChangelogSinceLastVersion() {
 }
 
 function getNewVersionStrategy(changelogText) {
+  if (CHANGES_THAT_BUMP_MAJOR.some(header => changelogText.includes(header))) {
+    return VERSION_STRATEGIES.MAJOR;
+  }
+
   if (CHANGES_THAT_BUMP_MINOR.some(header => changelogText.includes(header))) {
     return VERSION_STRATEGIES.MINOR;
   }
