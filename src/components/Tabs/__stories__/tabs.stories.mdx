@@ -68,7 +68,7 @@ Tabs allow users to navigate between related views of content while remaining in
 
 <Canvas>
   <Story name="Default">
-    <TabsContext className="monday-storybook-tabs_bg-color">
+    <TabsContext>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -76,10 +76,10 @@ Tabs allow users to navigate between related views of content while remaining in
         <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel>First slide</TabPanel>
-        <TabPanel>Second slide</TabPanel>
-        <TabPanel>Third slide</TabPanel>
-        <TabPanel>Fourth slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
       </TabPanels>
     </TabsContext>
   </Story>
@@ -109,7 +109,7 @@ Tabs animation direction
 <Canvas>
   <Story name="Motion">
     <div className="monday-storybook-tabs_column-wrapper">
-      <TabsContext className="monday-storybook-tabs_bg-color">
+      <TabsContext>
         <TabList>
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -117,13 +117,13 @@ Tabs animation direction
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection={TabPanels.animationDirections.LTR}>
-          <TabPanel>First slide</TabPanel>
-          <TabPanel>Second slide</TabPanel>
-          <TabPanel>Third slide</TabPanel>
-          <TabPanel>Fourth slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
         </TabPanels>
       </TabsContext>
-      <TabsContext className="monday-storybook-tabs_bg-color">
+      <TabsContext>
         <TabList>
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -131,10 +131,10 @@ Tabs animation direction
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection={TabPanels.animationDirections.RTL}>
-          <TabPanel>First slide</TabPanel>
-          <TabPanel>Second slide</TabPanel>
-          <TabPanel>Third slide</TabPanel>
-          <TabPanel>Fourth slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
         </TabPanels>
       </TabsContext>
     </div>
