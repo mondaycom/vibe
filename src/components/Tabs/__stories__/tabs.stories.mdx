@@ -34,7 +34,7 @@ import "./tabs.stories.scss";
 Tabs allow users to navigate between related views of content while remaining in the context of the page.
 
 <Canvas>
-  <Story name="Overview" args={{ className: "monday-storybook-tabs_bg-color" }}>
+  <Story name="Overview" args={{ tabPanelClassName: "monday-storybook-tabs_bg-color" }}>
     {tabsTemplate.bind({})}
   </Story>
 </Canvas>
@@ -104,7 +104,6 @@ The width of the list is responsive to the screen's width.
 
 ### Motion
 
-// TODO this example demonstrates nothing - TabPanels animationDirection is getting overriden by TabsContext here, so no sense in passing animationDirection to TabPanels
 Tabs animation direction
 
 <Canvas>
@@ -225,17 +224,17 @@ In the admin section tabs used to navigate between the different preferences
 
 <Canvas>
   <Story name="Admin section tabs">
-    <TabsContext className="monday-storybook-tabs_wrapper">
+    <TabsContext>
       <TabList>
         <Tab>Profile</Tab>
         <Tab>Account</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel>
+        <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Login Details</h2>
           <TextField title="Profile Name" size={TextField.sizes.MEDIUM} placeholder="Profile Name" />
         </TabPanel>
-        <TabPanel>
+        <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Account Details</h2>
           <TextField title="Account Name" size={TextField.sizes.MEDIUM} placeholder="Account Name" />
         </TabPanel>
