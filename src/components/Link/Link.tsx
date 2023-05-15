@@ -51,19 +51,19 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       className,
       componentClassName,
       textClassName,
-      href,
-      text,
-      rel,
-      onClick,
-      target,
-      ariaLabelDescription,
-      icon,
-      iconPosition,
-      id,
-      ariaLabeledBy,
-      disableNavigation,
-      inheritFontSize,
-      inlineText
+      href = "",
+      text = "",
+      rel = "noreferrer",
+      onClick = NOOP,
+      target = Link.targets.NEW_WINDOW,
+      ariaLabelDescription = "",
+      icon = "",
+      iconPosition = Link.position.START,
+      id = "",
+      ariaLabeledBy = "",
+      disableNavigation = false,
+      inheritFontSize = false,
+      inlineText = false
     },
     ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
@@ -114,22 +114,5 @@ Object.assign(Link, {
   iconPositions: IconPosition,
   targets: LinkTarget
 });
-
-Link.defaultProps = {
-  id: "",
-  className: undefined,
-  href: "",
-  text: "",
-  rel: "noreferrer",
-  onClick: NOOP,
-  target: Link.targets?.NEW_WINDOW,
-  ariaLabelDescription: "",
-  icon: "",
-  iconPosition: Link.position?.START,
-  ariaLabeledBy: "",
-  disableNavigation: false,
-  inheritFontSize: false,
-  inlineText: false
-};
 
 export default Link;
