@@ -4,7 +4,7 @@
 
 .label-component--wrapper {
   display: flex;
-  padding-bottom: $spacing-small;
+  padding-bottom: var(--spacing-xs);
   align-items: center;
   .label-component--icon {
     margin: 0 var(--spacing-small) 0 var(--spacing-xs);
@@ -13,7 +13,7 @@
     @include theme-prop(color, icon-color);
   }
   .label-component--text {
-    @include font-paragraph-bold();
+    font: var(--font-general-label);
     @include theme-prop(color, primary-text-color);
   }
 }
