@@ -4,7 +4,7 @@
 
 .labelComponentWrapper {
   display: flex;
-  padding-bottom: $spacing-small;
+  padding-bottom: var(--spacing-xs);
   align-items: center;
 }
 
@@ -17,6 +17,6 @@
 }
 
 .labelComponentText {
-  @include font-paragraph-bold();
+  font: var(--font-general-label);
   @include theme-prop(color, primary-text-color);
 }
