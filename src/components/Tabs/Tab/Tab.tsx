@@ -3,6 +3,7 @@ import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon, { IconSubComponentProps } from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { IconType } from "../../Icon/IconConstants";
@@ -62,7 +63,7 @@ const Tab: FC<TabProps> = forwardRef(
           ariaHidden={true}
           iconType={iconType}
           icon={icon}
-          className={cx(styles.tabIcon, iconSide)}
+          className={cx(styles.tabIcon, getStyle(styles, iconSide))}
           iconSize={18}
           ignoreFocusStyle
         />

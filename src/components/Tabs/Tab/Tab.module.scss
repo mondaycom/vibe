@@ -50,12 +50,12 @@
 
 .tabWrapper .tabInner .tabIcon {
   @include theme-prop(color, icon-color);
-  margin-right: 8px;
+  margin-right: var(--spacing-small);
 }
 
 .tabWrapper .tabInner .tabIcon.right {
   margin-right: 0;
-  margin-left: 8px;
+  margin-left: var(--spacing-small);
 }
 
 .tabWrapper.tabFocusVisibleInset {
