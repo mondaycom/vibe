@@ -25,7 +25,7 @@ const ListItemIcon: FC<ListItemIconProps> & {
   return (
     <div
       ref={mergedRef}
-      className={cx(styles.listItemIcon, getStyle(styles, camelCase(margin)), className)}
+      className={cx(styles.listItemIcon, getStyle(styles, margin), className)}
       id={id}
       aria-hidden="true"
     >
