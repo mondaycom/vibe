@@ -15,7 +15,7 @@ const VERSION_STRATEGIES = {
 const CHANGELOG_HEADERS = {
   TITLE: "# Changelog",
   UNRELEASED_VERSION: "## Unreleased",
-  BREAKING_CHANGES: "### Breaking Changes 🔴",
+  BREAKING_CHANGES: "#### Breaking Changes",
   BUGS: "#### Bug Fixes",
   NEW_FEATURES: "#### New Features",
   ICONS: "#### New Icons",
