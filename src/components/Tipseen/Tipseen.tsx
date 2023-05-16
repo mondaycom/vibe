@@ -4,7 +4,6 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
-import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
@@ -15,10 +14,9 @@ import { MoveBy } from "../../types/MoveBy";
 import { ElementContent } from "../../types/ElementContent";
 import { Modifier } from "react-popper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./Tipseen.module.scss";
-
-const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
-const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
 
 interface TipseenProps extends VibeComponentProps {
   /**
@@ -100,7 +98,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideWhenReferenceHidden = false,
       tip = true,
       tooltipArrowClassName,
-      modifiers = EMPTY_ARR
+      modifiers = EMPTY_ARR,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -129,13 +128,12 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
       () => (
-        <div className={cx(TIPSEEN_BASE_CSS_CLASS)}>
-          <div className={cx(styles.tipseenHeader, bemHelper({ element: "header" }))}>
+        <div>
+          <div className={cx(styles.tipseenHeader)}>
             {overrideHideCloseButton ? null : (
               <Button
-                className={cx(styles.tipseenCloseButton, bemHelper({ element: "close-button" }), {
-                  [styles.tipseenCloseButtonOnImage]: overrideCloseButtonOnImage,
-                  [bemHelper({ element: "close-button", state: "on-image" })]: overrideCloseButtonOnImage
+                className={cx(styles.tipseenCloseButton, {
+                  [styles.tipseenCloseButtonOnImage]: overrideCloseButtonOnImage
                 })}
                 onClick={onClose}
                 size={Button.sizes.SMALL}
@@ -148,12 +146,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
                 <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
               </Button>
             )}
-            <TipseenTitle
-              text={title}
-              className={cx(styles.tipseenTitle, bemHelper({ element: "title" }), titleClassName)}
-            />
+            <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
           </div>
-          <div className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{content}</div>
+          <div className={cx(styles.tipseenContent)}>{content}</div>
         </div>
       ),
       [
@@ -168,11 +163,10 @@ const Tipseen: VibeComponent<TipseenProps> & {
     );
 
     return (
-      <TipseenWrapper ref={mergedRef} id={id}>
+      <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
         <Tooltip
-          className={cx(styles.tipseenWrapper, `${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className, {
-            [styles.tipseenWrapperWithoutCustomWidth]: !width,
-            [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
+          className={cx(styles.tipseenWrapper, className, {
+            [styles.tipseenWrapperWithoutCustomWidth]: !width
           })}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}

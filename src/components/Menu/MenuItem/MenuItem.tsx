@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import cx from "classnames";
 import React, {
   ForwardedRef,
   forwardRef,
@@ -9,9 +10,9 @@ import React, {
   useMemo,
   useRef
 } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
-import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
@@ -26,7 +27,7 @@ import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
-import "./MenuItem.scss";
+import styles from "./MenuItem.module.scss";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -107,10 +108,12 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       isInitialSelectedState,
       onMouseEnter,
       onMouseLeave,
-      shouldScrollMenu
+      shouldScrollMenu,
+      "data-testid": dataTestId
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
+    const overrideId = id || `${menuId}-${index}`;
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -138,7 +141,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
-    const { styles, attributes } = usePopover(referenceElement, popperElement, {
+    const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
       isOpen: isSubMenuOpen
     });
 
@@ -210,12 +213,12 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       if (!hasChildren) return null;
 
       return (
-        <div className="monday-style-menu-item__sub_menu_icon-wrapper">
+        <div className={styles.subMenuIconWrapper}>
           <Icon
             clickable={false}
             icon={DropdownChevronRight}
             iconLabel={title}
-            className="monday-style-menu-item__sub_menu_icon"
+            className={styles.subMenuIcon}
             ignoreFocusStyle
             iconSize={20}
           />
@@ -247,13 +250,13 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       }
 
       return (
-        <div className={cx("monday-style-menu-item__icon-wrapper", iconWrapperClassName)} style={iconWrapperStyle}>
+        <div className={cx(styles.iconWrapper, iconWrapperClassName)} style={iconWrapperStyle}>
           <Icon
             iconType={finalIconType}
             clickable={false}
             icon={icon}
             iconLabel={title}
-            className="monday-style-menu-item__icon"
+            className={styles.icon}
             ignoreFocusStyle
             style={iconStyle}
             iconSize={20}
@@ -281,14 +284,15 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={id || `${menuId}-${index}`}
-        key={key}
         {...a11yProps}
-        className={cx("monday-style-menu-item", overrideClassName, {
-          "monday-style-menu-item--disabled": disabled,
-          "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected,
-          "monday-style-menu-item-initial-selected": isInitialSelectedState
+        key={key}
+        id={overrideId}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
+        className={cx(styles.item, overrideClassName, {
+          [styles.disabled]: disabled,
+          [styles.focused]: isActive,
+          [styles.selected]: selected,
+          [styles.initialSelected]: isInitialSelectedState
         })}
         ref={mergedRef}
         onClick={onClickCallback}
@@ -299,27 +303,25 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
         {renderMenuItemIconIfNeeded()}
-
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
-          <div ref={titleRef} className="monday-style-menu-item__title">
+          <div ref={titleRef} className={styles.title}>
             {title}
           </div>
         </Tooltip>
         {label && (
-          <div ref={titleRef} className="monday-style-menu-item__label">
+          <div ref={titleRef} className={styles.label}>
             {label}
           </div>
         )}
         {renderSubMenuIconIfNeeded()}
         <div
-          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+          style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
           // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          className="monday-style-menu-item__popover"
+          {...popoverAttributes.popper}
           ref={popperElementRef}
         >
           {menuChild && shouldShowSubMenu && (

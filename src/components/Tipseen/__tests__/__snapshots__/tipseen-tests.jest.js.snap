@@ -2,17 +2,18 @@
 
 exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - deprecated version 1`] = `
 <div
-  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
 >
   <div
-    className="buttons monday-style-tipseen-content_buttons"
+    className="buttons"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
+      data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -26,8 +27,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -43,17 +44,18 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
 
 exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`] = `
 <div
-  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
 >
   <div
-    className="buttons monday-style-tipseen-content_buttons"
+    className="buttons"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="dismiss monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
+      data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -67,8 +69,8 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -84,17 +86,18 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
 
 exports[`Snapshot tests Tipseen content tests renders correctly without props 1`] = `
 <div
-  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
 >
   <div
-    className="buttons monday-style-tipseen-content_buttons"
+    className="buttons"
   >
     <button
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
-      data-testid="button"
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -110,20 +113,22 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
 
 exports[`Snapshot tests Tipseen content tests renders correctly without submit - deprecated version 1`] = `
 <div
-  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
 >
   <div
-    className="buttons monday-style-tipseen-content_buttons"
+    className="buttons"
   />
 </div>
 `;
 
 exports[`Snapshot tests Tipseen content tests renders correctly without submit 1`] = `
 <div
-  className="tipseenBasicContent monday-style-tipseen-basic-content monday-style-tipseen-content"
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
 >
   <div
-    className="buttons monday-style-tipseen-content_buttons"
+    className="buttons"
   />
 </div>
 `;
@@ -141,7 +146,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -153,26 +158,24 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="monday-style-tipseen"
-        >
+        <div>
           <div
-            className="tipseenHeader monday-style-tipseen_header"
+            className="tipseenHeader"
           />
           <div
-            className="tipseenContent monday-style-tipseen_content"
+            className="tipseenContent"
           />
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -200,7 +203,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -212,26 +215,24 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="monday-style-tipseen"
-        >
+        <div>
           <div
-            className="tipseenHeader monday-style-tipseen_header"
+            className="tipseenHeader"
           />
           <div
-            className="tipseenContent monday-style-tipseen_content"
+            className="tipseenContent"
           />
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -259,7 +260,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -271,25 +272,23 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
+      className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined tipseenWrapper monday-style-tipseen-wrapper tipseenWrapperWithoutCustomWidth monday-style-tipseen-wrapper--without-custom-width"
+        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="monday-style-tipseen"
-        >
+        <div>
           <div
-            className="tipseenHeader monday-style-tipseen_header"
+            className="tipseenHeader"
           >
             <button
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              className="tipseenCloseButton button sizeSmall kindTertiary colorOnPrimaryColor"
               data-testid="button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -300,7 +299,8 @@ Array [
             >
               <svg
                 aria-hidden={true}
-                className="icon_component icon_component--no-focus-style"
+                className="icon noFocusStyle"
+                data-testid="icon"
                 fill="currentColor"
                 height="20"
                 onClick={[Function]}
@@ -317,12 +317,12 @@ Array [
             </button>
           </div>
           <div
-            className="tipseenContent monday-style-tipseen_content"
+            className="tipseenContent"
           />
         </div>
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        className="arrow arrow primary paddingSizeUndefined"
         data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

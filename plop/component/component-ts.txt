@@ -32,8 +32,4 @@ const {{properCase componentName}}: VibeComponent<{{properCase componentName}}Pr
   }
 );
 
-Object.assign({{properCase componentName}}, {
-   defaultTestId: ComponentDefaultTestId.{{constantCase componentName}}
-});
-
 export default {{properCase componentName}};

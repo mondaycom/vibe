@@ -2,14 +2,15 @@
 
 exports[`Checkbox renders correctly when checked 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     checked={true}
-    className="monday-style-checkbox__input"
+    className="input"
     disabled={false}
     name=""
     onChange={[Function]}
@@ -17,11 +18,13 @@ exports[`Checkbox renders correctly when checked 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -37,20 +40,22 @@ exports[`Checkbox renders correctly when checked 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly when default checked 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={true}
     disabled={false}
     name=""
@@ -59,11 +64,13 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -79,20 +86,22 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly when disabled 1`] = `
 <label
-  className="monday-style-checkbox monday-style-checkbox__disabled"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={true}
     name=""
@@ -101,11 +110,13 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -121,20 +132,22 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly when interminate 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -143,11 +156,13 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -163,21 +178,23 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
     aria-labelledby="aria"
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -186,11 +203,13 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -206,20 +225,22 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly with empty props 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -228,11 +249,13 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -248,20 +271,22 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly with name 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name="checkbox"
@@ -270,11 +295,13 @@ exports[`Checkbox renders correctly with name 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -290,20 +317,22 @@ exports[`Checkbox renders correctly with name 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly with props 1`] = `
 <label
-  className="monday-style-checkbox dummy-class-name"
+  className="wrapper dummy-class-name"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label="Option 1"
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name="checkbox"
@@ -312,11 +341,13 @@ exports[`Checkbox renders correctly with props 1`] = `
     value="option1"
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -332,7 +363,8 @@ exports[`Checkbox renders correctly with props 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   >
     Option 1
   </span>
@@ -341,13 +373,14 @@ exports[`Checkbox renders correctly with props 1`] = `
 
 exports[`Checkbox renders correctly with value 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -356,11 +389,13 @@ exports[`Checkbox renders correctly with value 1`] = `
     value="checkboxValue"
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -376,20 +411,22 @@ exports[`Checkbox renders correctly with value 1`] = `
     </svg>
   </div>
   <span
-    className="monday-style-checkbox__label"
+    className="label"
+    data-testid="checkbox-label"
   />
 </label>
 `;
 
 exports[`Checkbox renders correctly without label 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="wrapper"
+  data-testid="checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
     aria-label=""
-    className="monday-style-checkbox__input"
+    className="input"
     defaultChecked={false}
     disabled={false}
     name=""
@@ -398,11 +435,13 @@ exports[`Checkbox renders correctly without label 1`] = `
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
+    className="checkbox"
+    data-testid="checkbox-checkbox"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-checkbox__icon icon_component--no-focus-style"
+      className="icon icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}

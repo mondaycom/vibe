@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
+import cx from "classnames";
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../../components/Icon/Icon";
 import Check from "../../components/Icon/Icons/components/Check";
@@ -9,7 +9,9 @@ import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
-import "./MultiStepIndicator.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
+import styles from "./MultiStepIndicator.module.scss";
 
 const MultiStepIndicator = forwardRef(
   (
@@ -23,14 +25,14 @@ const MultiStepIndicator = forwardRef(
       fulfilledStepIconType,
       isFulfilledStepDisplayNumber,
       onClick,
-      textPlacement
+      textPlacement,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const baseClassName = "multi-step-indicator--wrapper";
-    const defaultDividerClassName = `${baseClassName}__divider`;
 
     const renderHorizontalStepIndicator = useCallback(
       (step, index) => {
@@ -46,9 +48,7 @@ const MultiStepIndicator = forwardRef(
               onClick={onClick}
               isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
             />
-            {index !== steps.length - 1 && (
-              <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />
-            )}
+            {index !== steps.length - 1 && <Divider classname={cx(styles.divider, dividerComponentClassName)} />}
           </>
         );
       },
@@ -60,7 +60,6 @@ const MultiStepIndicator = forwardRef(
         fulfilledStepIcon,
         fulfilledStepIconType,
         dividerComponentClassName,
-        defaultDividerClassName,
         steps.length
       ]
     );
@@ -77,7 +76,7 @@ const MultiStepIndicator = forwardRef(
             fulfilledStepIconType={fulfilledStepIconType}
             onClick={onClick}
             isFollowedByDivider={index !== steps.length - 1}
-            stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
+            stepDividerClassName={cx(styles.divider, dividerComponentClassName)}
             isVertical={true}
             isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
           />
@@ -91,7 +90,6 @@ const MultiStepIndicator = forwardRef(
         fulfilledStepIcon,
         fulfilledStepIconType,
         dividerComponentClassName,
-        defaultDividerClassName,
         steps.length
       ]
     );
@@ -102,7 +100,12 @@ const MultiStepIndicator = forwardRef(
     );
 
     return (
-      <ol ref={mergedRef} className={cx(baseClassName, className)}>
+      <ol
+        ref={mergedRef}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MULTI_STEP_INDICATOR, id)}
+        className={cx(styles.wrapper, className)}
+      >
         {steps.map(stepRenderer)}
       </ol>
     );

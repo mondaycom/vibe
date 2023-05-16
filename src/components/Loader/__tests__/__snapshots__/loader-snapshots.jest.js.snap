@@ -2,7 +2,7 @@
 
 exports[`Loader renders correctly with color variants with DARK color 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -15,12 +15,12 @@ exports[`Loader renders correctly with color variants with DARK color 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     color="var(--primary-text-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -33,7 +33,7 @@ exports[`Loader renders correctly with color variants with DARK color 1`] = `
 
 exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -46,12 +46,12 @@ exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] 
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     color="var(--text-color-on-inverted)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -64,7 +64,7 @@ exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] 
 
 exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -77,12 +77,12 @@ exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     color="var(--primary-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -95,7 +95,7 @@ exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
 
 exports[`Loader renders correctly with color variants with SECONDARY color 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -108,12 +108,12 @@ exports[`Loader renders correctly with color variants with SECONDARY color 1`] =
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     color="var(--secondary-text-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -126,7 +126,7 @@ exports[`Loader renders correctly with color variants with SECONDARY color 1`] =
 
 exports[`Loader renders correctly with custom class name 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -139,11 +139,11 @@ exports[`Loader renders correctly with custom class name 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner dummy-class-name"
+    className="circleLoaderSpinner dummy-class-name"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -156,7 +156,7 @@ exports[`Loader renders correctly with custom class name 1`] = `
 
 exports[`Loader renders correctly with custom class name wrapper 1`] = `
 <div
-  className="monday-loader-component loaderContainer dummy-class-name"
+  className="loaderContainer dummy-class-name"
   data-testid="loader"
   role="alert"
   style={
@@ -169,11 +169,11 @@ exports[`Loader renders correctly with custom class name wrapper 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -186,7 +186,7 @@ exports[`Loader renders correctly with custom class name wrapper 1`] = `
 
 exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -199,11 +199,11 @@ exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -216,7 +216,7 @@ exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 
 exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -229,11 +229,11 @@ exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -246,7 +246,7 @@ exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
 
 exports[`Loader renders correctly with size variants with SMALL size 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -259,11 +259,11 @@ exports[`Loader renders correctly with size variants with SMALL size 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -276,7 +276,7 @@ exports[`Loader renders correctly with size variants with SMALL size 1`] = `
 
 exports[`Loader renders correctly with size variants with XS size 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -289,11 +289,11 @@ exports[`Loader renders correctly with size variants with XS size 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -306,7 +306,7 @@ exports[`Loader renders correctly with size variants with XS size 1`] = `
 
 exports[`Loader renders correctly with size variants with custom size as number 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -319,11 +319,11 @@ exports[`Loader renders correctly with size variants with custom size as number 
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"
@@ -336,7 +336,7 @@ exports[`Loader renders correctly with size variants with custom size as number 
 
 exports[`Loader renders correctly with visual variants with background 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="loaderContainer"
   data-testid="loader"
   role="alert"
   style={
@@ -349,7 +349,7 @@ exports[`Loader renders correctly with visual variants with background 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="circle-loader-spinner circleLoaderSpinner"
+    className="circleLoaderSpinner"
     viewBox="0 0 50 50"
   >
     <circle
@@ -361,7 +361,7 @@ exports[`Loader renders correctly with visual variants with background 1`] = `
       strokeWidth="5"
     />
     <circle
-      className="circle-loader-spinner-path circleLoaderSpinnerPath"
+      className="circleLoaderSpinnerPath"
       cx="25"
       cy="25"
       fill="none"

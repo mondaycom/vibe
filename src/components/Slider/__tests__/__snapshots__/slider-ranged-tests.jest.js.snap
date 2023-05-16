@@ -2,22 +2,22 @@
 
 exports[`a. Ranges Slider: basic renderer 1`] = `
 <div
-  class="monday-slider"
+  class="slider"
   data-testid="monday-slider"
 >
   <div
-    class="monday-slider__base monday-slider__base--small"
+    class="base small"
     data-testid="monday-slider__base"
   >
     <div
-      class="monday-slider__rail"
+      class="rail small"
       data-testid="monday-slider__rail"
     >
       <div
-        class="monday-slider__track"
+        class="track"
       />
       <div
-        class="monday-slider__filled-track"
+        class="filledTrack"
         style="left: 25%; width: 40%;"
       />
       <div
@@ -26,7 +26,7 @@ exports[`a. Ranges Slider: basic renderer 1`] = `
         aria-valuemin="0"
         aria-valuenow="25"
         aria-valuetext="25%"
-        class="monday-slider__thumb monday-slider__thumb--index-0"
+        class="thumb small notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
         style="left: 25%;"
@@ -38,7 +38,7 @@ exports[`a. Ranges Slider: basic renderer 1`] = `
         aria-valuemin="0"
         aria-valuenow="65"
         aria-valuetext="65%"
-        class="monday-slider__thumb monday-slider__thumb--index-1"
+        class="thumb small notDisabledThumb"
         data-testid="monday-slider__thumb-1"
         role="slider"
         style="left: 65%;"
@@ -59,20 +59,20 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper contentWrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++             class="tooltip dark paddingSizeUndefined"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="arrow arrow dark paddingSizeUndefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -93,20 +93,20 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper contentWrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++             class="tooltip dark paddingSizeUndefined"
 +           >
 +             65%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="arrow arrow dark paddingSizeUndefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -127,20 +127,20 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="monday-style-dialog-content-wrapper"
+-         class="monday-style-dialog-content-wrapper contentWrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
+-           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
--             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-             class="tooltip dark paddingSizeUndefined"
 -           >
 -             25%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="arrow arrow dark paddingSizeUndefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -157,34 +157,27 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-          aria-valuemin="0"
-          aria-valuenow="25"
-          aria-valuetext="25%"
--         class="monday-slider__thumb monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
-          data-testid="monday-slider__thumb-0"
-          role="slider"
           style="left: 25%;"
           tabindex="0"
-+       />
+        />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="monday-style-dialog-content-wrapper contentWrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++             class="tooltip dark paddingSizeUndefined"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="arrow arrow dark paddingSizeUndefined"
 +             data-placement="top"
 +             style="position: absolute;"
-            />
++           />
 +         </div>
 +       </span>
         <div
@@ -201,8 +194,8 @@ Snapshot Diff:
           aria-valuemin="0"
           aria-valuenow="25"
           aria-valuetext="25%"
--         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--index-0"
+-         class="thumb small notDisabledThumb"
++         class="thumb small focused notDisabledThumb"
           data-testid="monday-slider__thumb-0"
           role="slider"
           style="left: 25%;"
@@ -214,7 +207,7 @@ Snapshot Diff:
 +         aria-valuemin="0"
 +         aria-valuenow="65"
 +         aria-valuetext="65%"
-+         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
++         class="thumb small focused notDisabledThumb"
 +         data-testid="monday-slider__thumb-1"
 +         role="slider"
 +         style="left: 65%;"
@@ -223,13 +216,13 @@ Snapshot Diff:
         <span
 @@ --- --- @@
             <div
-              class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+              class="tooltip dark paddingSizeUndefined"
             >
 -             25%
 +             65%
             </div>
             <div
-              class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+              class="arrow arrow dark paddingSizeUndefined"
 @@ --- --- @@
             />
           </div>
@@ -240,7 +233,7 @@ Snapshot Diff:
 -         aria-valuemin="0"
 -         aria-valuenow="65"
 -         aria-valuetext="65%"
--         class="monday-slider__thumb monday-slider__thumb--index-1"
+-         class="thumb small notDisabledThumb"
 -         data-testid="monday-slider__thumb-1"
 -         role="slider"
 -         style="left: 65%;"
@@ -258,30 +251,39 @@ Snapshot Diff:
 
 @@ --- --- @@
           aria-valuemin="0"
+          aria-valuenow="25"
+          aria-valuetext="25%"
+-         class="thumb small focused notDisabledThumb"
++         class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+          style="left: 25%;"
+@@ --- --- @@
+          aria-valuemin="0"
           aria-valuenow="65"
           aria-valuetext="65%"
--         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
-+         class="monday-slider__thumb monday-slider__thumb--index-1"
+-         class="thumb small focused notDisabledThumb"
++         class="thumb small notDisabledThumb"
           data-testid="monday-slider__thumb-1"
           role="slider"
           style="left: 65%;"
           tabindex="0"
 -       />
 -       <span
--         class="monday-style-dialog-content-wrapper"
+-         class="monday-style-dialog-content-wrapper contentWrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
+-           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
--             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-             class="tooltip dark paddingSizeUndefined"
 -           >
 -             65%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="arrow arrow dark paddingSizeUndefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />
@@ -300,7 +302,7 @@ Snapshot Diff:
 @@ --- --- @@
         />
         <div
-          class="monday-slider__filled-track"
+          class="filledTrack"
 -         style="left: 25%; width: 40%;"
 +         style="left: 23%; width: 42%;"
         />
@@ -312,7 +314,7 @@ Snapshot Diff:
 -         aria-valuetext="25%"
 +         aria-valuenow="23"
 +         aria-valuetext="23%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="thumb small notDisabledThumb"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 25%;"
@@ -320,7 +322,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label"
           >
 -           25%
 +           23%
@@ -337,7 +339,7 @@ Snapshot Diff:
 @@ --- --- @@
         />
         <div
-          class="monday-slider__filled-track"
+          class="filledTrack"
 -         style="left: 25%; width: 40%;"
 +         style="left: 25%; width: 42%;"
         />
@@ -351,7 +353,7 @@ Snapshot Diff:
 -         aria-valuetext="65%"
 +         aria-valuenow="67"
 +         aria-valuetext="67%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
+          class="thumb small focused notDisabledThumb"
           data-testid="monday-slider__thumb-1"
           role="slider"
 -         style="left: 65%;"
@@ -359,7 +361,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label"
           >
 -           65%
 +           67%
@@ -376,7 +378,7 @@ Snapshot Diff:
 @@ --- --- @@
         />
         <div
-          class="monday-slider__filled-track"
+          class="filledTrack"
 -         style="left: 25%; width: 40%;"
 +         style="left: 25%; width: 30%;"
         />
@@ -390,7 +392,7 @@ Snapshot Diff:
 -         aria-valuetext="65%"
 +         aria-valuenow="55"
 +         aria-valuetext="55%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
+          class="thumb small focused notDisabledThumb"
           data-testid="monday-slider__thumb-1"
           role="slider"
 -         style="left: 65%;"
@@ -398,7 +400,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label"
           >
 -           65%
 +           55%
@@ -415,7 +417,7 @@ Snapshot Diff:
 @@ --- --- @@
         />
         <div
-          class="monday-slider__filled-track"
+          class="filledTrack"
 -         style="left: 25%; width: 40%;"
 +         style="left: 45%; width: 20%;"
         />
@@ -427,7 +429,7 @@ Snapshot Diff:
 -         aria-valuetext="25%"
 +         aria-valuenow="45"
 +         aria-valuetext="45%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="thumb small notDisabledThumb"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 25%;"
@@ -435,7 +437,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label"
           >
 -           25%
 +           45%
@@ -453,15 +455,15 @@ Snapshot Diff:
       <div
         data-testid="mock-text-field-comp"
       >
--       {"value":"25%"}
-+       {"value":"45%"}
+-       {"value":"25%","className":"selectionIndicator"}
++       {"value":"45%","className":"selectionIndicator"}
       </div>
     </div>
     <div
 @@ --- --- @@
         />
         <div
-          class="monday-slider__filled-track"
+          class="filledTrack"
 -         style="left: 25%; width: 40%;"
 +         style="left: 45%; width: 20%;"
         />
@@ -473,7 +475,7 @@ Snapshot Diff:
 -         aria-valuetext="25%"
 +         aria-valuenow="45"
 +         aria-valuetext="45%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="thumb small notDisabledThumb"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 25%;"
@@ -481,7 +483,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label"
           >
 -           25%
 +           45%

@@ -1,14 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { FC } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { FC } from "react";
 import Link, { LinkProps } from "../../Link/Link";
-import "./ToastLink.scss";
+import styles from "./ToastLink.module.scss";
 
 export type ToastLinkProps = LinkProps;
 
-const ToastLink: FC<ToastLinkProps> = ({ className, ...linkProps }) => {
-  const classNames = cx("monday-style-toast-action_link", className);
-  return <Link {...linkProps} componentClassName={classNames} />;
+const ToastLink: FC<ToastLinkProps> = ({ className, id, "data-testid": dataTestId, ...linkProps }) => {
+  const classNames = cx(styles.actionLink, className);
+  return (
+    <Link
+      {...linkProps}
+      componentClassName={classNames}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_LINK, id)}
+    />
+  );
 };
 
 export default ToastLink;

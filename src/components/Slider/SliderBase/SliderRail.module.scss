@@ -1,0 +1,26 @@
+.rail {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.small {
+  border-radius: 2px;
+  height: 2px;
+  padding: 8px 0;
+}
+
+.medium {
+  border-radius: 2px;
+  height: 4px;
+  padding: 12px 0;
+}
+
+.large {
+  border-radius: 8px;
+  height: 8px;
+  padding: 10px 0;
+}

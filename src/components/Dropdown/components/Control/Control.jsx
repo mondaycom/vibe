@@ -13,9 +13,7 @@ const Control = props => {
         hideTrigger={[Tooltip.hideShowTriggers.MOUSE_LEAVE, Tooltip.hideShowTriggers.CLICK]}
         showTrigger={[Tooltip.hideShowTriggers.MOUSE_ENTER]}
       >
-        <div className="monday-dropdown_scrollable-wrapper" ref={controlRef}>
-          {control}
-        </div>
+        <div ref={controlRef}>{control}</div>
       </Tooltip>
     );
   return control;

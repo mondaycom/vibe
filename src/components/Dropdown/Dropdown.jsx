@@ -1,4 +1,6 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
@@ -6,7 +8,6 @@ import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
@@ -16,8 +17,9 @@ import MultiValueContainer from "./components/MultiValueContainer/MultiValueCont
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { DROPDOWN_CHIP_COLORS, MENU_WRAPPER_CLASS_NAME } from "./dropdown-constants";
-import "./Dropdown.scss";
+import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import menuStyles from "./components/menu/menu.module.scss";
+import styles from "./Dropdown.module.scss";
 
 const Dropdown = forwardRef(
   (
@@ -76,7 +78,8 @@ const Dropdown = forwardRef(
       onKeyDown,
       isLoading,
       loadingMessage,
-      ariaLabel
+      ariaLabel,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -114,7 +117,7 @@ const Dropdown = forwardRef(
     }, [ariaLabel, readOnly, selectedOptions, tooltipContent]);
     const value = multi ? selectedOptions : customValue;
 
-    const styles = useMemo(() => {
+    const inlineStyles = useMemo(() => {
       // We first want to get the default stylized groups (e.g. "container", "menu").
       const baseStyles = generateBaseStyles({
         size,
@@ -277,7 +280,7 @@ const Dropdown = forwardRef(
     const closeMenuOnScroll = useCallback(
       event => {
         const scrolledElement = event.target;
-        if (scrolledElement?.parentElement?.classList.contains(MENU_WRAPPER_CLASS_NAME)) {
+        if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapperFixedPosition)) {
           return false;
         }
         return insideOverflowContainer || insideOverflowWithTransformContainer;
@@ -287,7 +290,7 @@ const Dropdown = forwardRef(
 
     return (
       <DropDownComponent
-        className={cx("dropdown-wrapper", className)}
+        className={cx(styles.dropdown, className)}
         selectProps={customProps}
         components={{
           DropdownIndicator,
@@ -327,7 +330,7 @@ const Dropdown = forwardRef(
         openMenuOnFocus={openMenuOnFocus}
         openMenuOnClick={openMenuOnClick}
         isRtl={rtl}
-        styles={styles}
+        styles={inlineStyles}
         theme={customTheme}
         maxMenuHeight={maxMenuHeight}
         menuPortalTarget={menuPortalTarget}
@@ -335,6 +338,7 @@ const Dropdown = forwardRef(
         menuIsOpen={!readOnly && menuIsOpen}
         tabIndex={tabIndex}
         id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref}
@@ -576,15 +580,15 @@ Dropdown.propTypes = {
    */
   multiline: PropTypes.bool,
   /**
-  Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
-  */
+   Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
+   */
   closeMenuOnSelect: PropTypes.bool,
   /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
   onOptionRemove: PropTypes.func,
   /**
-   Pass Ref for reference of the actual dropdown component - returns StateManager from react-select
+   Pass Ref for reference of the actual dropdown component
    */
   ref: PropTypes.func,
   /**

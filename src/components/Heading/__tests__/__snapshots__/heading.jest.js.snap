@@ -3,7 +3,8 @@
 exports[`Renders correctly renders correctly with custom color 1`] = `
 <h1
   aria-label=""
-  className="heading-component element-type-h1 size-large single-line-ellipsis"
+  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  data-testid="heading"
   style={
     Object {
       "color": "blue",
@@ -18,43 +19,50 @@ exports[`Renders correctly renders correctly with different sizes 1`] = `
 <div>
   <h1
     aria-label=""
-    className="heading-component element-type-h1 size-large single-line-ellipsis"
+    className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H1
   </h1>
   <h1
     aria-label=""
-    className="heading-component element-type-h1 size-medium single-line-ellipsis"
+    className="headingComponent elementTypeH1 sizeMedium singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H1 medium
   </h1>
   <h2
     aria-label=""
-    className="heading-component element-type-h2 size-large single-line-ellipsis"
+    className="headingComponent elementTypeH2 sizeLarge singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H2
   </h2>
   <h2
     aria-label=""
-    className="heading-component element-type-h2 size-small single-line-ellipsis"
+    className="headingComponent elementTypeH2 sizeSmall singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H2 small
   </h2>
   <h3
     aria-label=""
-    className="heading-component element-type-h3 size-large single-line-ellipsis"
+    className="headingComponent elementTypeH3 sizeLarge singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H3
   </h3>
   <h4
     aria-label=""
-    className="heading-component element-type-h4 size-large single-line-ellipsis"
+    className="headingComponent elementTypeH4 sizeLarge singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H4
   </h4>
   <h5
     aria-label=""
-    className="heading-component element-type-h5 size-large single-line-ellipsis"
+    className="headingComponent elementTypeH5 sizeLarge singleLineEllipsis"
+    data-testid="heading"
   >
     Hello H5
   </h5>
@@ -64,7 +72,8 @@ exports[`Renders correctly renders correctly with different sizes 1`] = `
 exports[`Renders correctly renders correctly with empty props 1`] = `
 <h1
   aria-label=""
-  className="heading-component element-type-h1 size-large single-line-ellipsis"
+  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  data-testid="heading"
 >
   
 </h1>
@@ -73,10 +82,12 @@ exports[`Renders correctly renders correctly with empty props 1`] = `
 exports[`Renders correctly renders correctly with text highlight 1`] = `
 <h2
   aria-label=""
-  className="heading-component element-type-h2 size-large"
+  className="headingComponent elementTypeH2 sizeLarge"
+  data-testid="heading"
 >
   <div
-    className="text-with-highlight--wrapper"
+    className="textWithHighlightWrapper"
+    data-testid="text-with-highlight"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -86,7 +97,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
     onMouseLeave={[Function]}
   >
     <em
-      className="highlight-text"
+      className="highlightText"
     >
       Heading
     </em>
@@ -94,7 +105,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        with 
     </span>
     <em
-      className="highlight-text"
+      className="highlightText"
     >
       highlight
     </em>
@@ -102,7 +113,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        text 
     </span>
     <em
-      className="highlight-text"
+      className="highlightText"
     >
       heading
     </em>
@@ -110,7 +121,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
        with 
     </span>
     <em
-      className="highlight-text"
+      className="highlightText"
     >
       highlight
     </em>

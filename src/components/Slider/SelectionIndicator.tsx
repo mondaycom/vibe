@@ -4,6 +4,7 @@ import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { InfixKind } from "./SliderConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import styles from "./SelectionIndicator.module.scss";
 
 const VALUE_UPDATE_DELAY = 300;
 
@@ -40,7 +41,7 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKin
       }, VALUE_UPDATE_DELAY),
     [changeThumbValue, isPostfix]
   );
-  return <TextField onChange={handleChange} value={String(currentTextValue)} />;
+  return <TextField onChange={handleChange} value={String(currentTextValue)} className={styles.selectionIndicator} />;
 };
 
 export default SelectionIndicator;

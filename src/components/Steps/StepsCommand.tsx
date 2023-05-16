@@ -2,21 +2,13 @@ import React, { FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
 import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
-import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import {
-  BACK_COMMAND_TEST_ID,
-  BACK_DESCRIPTION,
-  NEXT_COMMAND_TEST_ID,
-  NEXT_DESCRIPTION,
-  STEPS_CSS_BASE_CLASS
-} from "./StepsConstants";
+import { BACK_DESCRIPTION, NEXT_DESCRIPTION } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+import { ComponentDefaultTestId } from "../../tests/constants";
+import styles from "./StepsCommand.module.scss";
 
 export interface StepsCommandProps extends VibeComponentProps {
   isNext?: boolean;
@@ -53,8 +45,8 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
     <Button
-      className={cx(CSS_BASE_CLASS, bemHelper({ state: isNext ? "forward" : "backward" }))}
-      dataTestId={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
+      className={cx(styles.command, { [styles.forward]: isNext, [styles.backward]: !isNext })}
+      dataTestId={isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisabled}
@@ -63,7 +55,16 @@ export const StepsCommand: FC<StepsCommandProps> = ({
     >
       {description}
       {isIconHidden ? null : (
-        <Icon icon={icon} clickable={false} className={cx(bemHelper({ element: "icon" }), { disabled: isDisabled })} />
+        <Icon
+          icon={icon}
+          clickable={false}
+          className={cx(styles.icon, {
+            [styles.disabled]: isDisabled,
+            [styles.onPrimary]: isOnPrimary,
+            [styles.forward]: isNext,
+            [styles.backward]: !isNext
+          })}
+        />
       )}
     </Button>
   );

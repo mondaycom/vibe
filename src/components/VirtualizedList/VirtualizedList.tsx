@@ -1,3 +1,4 @@
+import cx from "classnames";
 import React, {
   CSSProperties,
   ForwardedRef,
@@ -10,7 +11,6 @@ import React, {
   useState
 } from "react";
 import { noop as NOOP } from "lodash-es";
-import cx from "classnames";
 import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
@@ -27,7 +27,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
-import "./VirtualizedList.scss";
+import styles from "./VirtualizedList.module.scss";
 
 export type VirtualizedListItem = {
   value?: string | Record<string, unknown>;
@@ -155,7 +155,8 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
-      style
+      style,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -374,10 +375,10 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("virtualized-list--wrapper", className)}
+        className={cx(styles.virtualizedListWrapper, className)}
         id={id}
         role={role}
-        data-testid={getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_LIST, id)}
         style={style}
       >
         <AutoSizer>
@@ -394,7 +395,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
                 layout={layout}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-list-scrollable-container", scrollableClassName)}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {rowRenderer}
@@ -406,7 +407,5 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     );
   }
 );
-
-Object.assign(VirtualizedList, { defaultTestId: ComponentDefaultTestId.VIRTUALIZED_LIST });
 
 export default VirtualizedList;

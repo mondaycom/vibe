@@ -2,16 +2,18 @@
 
 exports[`LinearProgressBar renders correctly with barStyle 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="linear-progress-bar linear-progress-bar--positive linear-progress-bar--animate"
+      className="bar typePrimaryPositive animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -25,26 +27,29 @@ exports[`LinearProgressBar renders correctly with barStyle 1`] = `
 
 exports[`LinearProgressBar renders correctly with empty props 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   />
 </div>
 `;
 
 exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      className="bar typePrimaryPrimary animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -54,7 +59,7 @@ exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
     />
   </div>
   <label
-    className="linear-progress-bar__label"
+    className="label"
     htmlFor="linear-progress-bar"
   >
     20%
@@ -64,16 +69,18 @@ exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
 
 exports[`LinearProgressBar renders correctly with min 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={11.11111111111111}
-      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      className="bar typePrimaryPrimary animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -87,16 +94,19 @@ exports[`LinearProgressBar renders correctly with min 1`] = `
 
 exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={100}
-      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      className="bar typePrimaryNone animate"
+      data-testid="bar_bar_green_0"
+      id="bar_green_0"
       role="progressbar"
       style={
         Object {
@@ -109,7 +119,9 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={75}
-      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      className="bar typePrimaryNone animate"
+      data-testid="bar_bar_yellow_1"
+      id="bar_yellow_1"
       role="progressbar"
       style={
         Object {
@@ -122,7 +134,9 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={25}
-      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      className="bar typePrimaryNone animate"
+      data-testid="bar_bar_red_2"
+      id="bar_red_2"
       role="progressbar"
       style={
         Object {
@@ -137,16 +151,18 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
 
 exports[`LinearProgressBar renders correctly with size 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__large"
+  className="wrapper large"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      className="bar typePrimaryPrimary animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -160,16 +176,18 @@ exports[`LinearProgressBar renders correctly with size 1`] = `
 
 exports[`LinearProgressBar renders correctly with value 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      className="bar typePrimaryPrimary animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {
@@ -183,17 +201,19 @@ exports[`LinearProgressBar renders correctly with value 1`] = `
 
 exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
 <div
-  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+  className="wrapper small"
+  data-testsid="linear-progress-bar"
 >
   <div
-    className="linear-progress-bar__container"
+    className="container"
   >
     <div
       aria-label=""
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={40}
-      className="linear-progress-bar__secondary linear-progress-bar__secondary--primary linear-progress-bar__secondary--animate"
+      className="bar typeSecondaryPrimary animate"
+      data-testid="bar-secondary"
       role="progressbar"
       style={
         Object {
@@ -205,7 +225,8 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      className="bar typePrimaryPrimary animate"
+      data-testid="bar-primary"
       role="progressbar"
       style={
         Object {

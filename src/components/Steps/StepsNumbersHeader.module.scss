@@ -1,0 +1,13 @@
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.numbers {
+  margin: 0 var(--spacing-small);
+  @include font-default;
+}
+
+.onPrimary {
+  @include theme-prop(color, text-color-on-primary);
+}

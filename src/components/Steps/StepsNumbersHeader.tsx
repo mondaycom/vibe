@@ -1,14 +1,18 @@
+import cx from "classnames";
 import React, { FC } from "react";
-import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header_numbers`;
+import styles from "./StepsNumbersHeader.module.scss";
 
 export interface StepsNumbersHeaderProps extends VibeComponentProps {
   activeStepIndex: number;
   stepsCount: number;
+  isOnPrimary?: boolean;
 }
 
-export const StepsNumbersHeader: FC<StepsNumbersHeaderProps> = ({ activeStepIndex, stepsCount }) => {
-  return <div className={CSS_BASE_CLASS}>{`${activeStepIndex + 1} \\ ${stepsCount}`}</div>;
+export const StepsNumbersHeader: FC<StepsNumbersHeaderProps> = ({ activeStepIndex, stepsCount, isOnPrimary }) => {
+  return (
+    <div className={cx(styles.numbers, { [styles.onPrimary]: isOnPrimary })}>{`${
+      activeStepIndex + 1
+    } \\ ${stepsCount}`}</div>
+  );
 };

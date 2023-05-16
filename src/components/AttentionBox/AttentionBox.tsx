@@ -1,5 +1,8 @@
-import React, { useMemo } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { useMemo } from "react";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
@@ -11,9 +14,7 @@ import { SubIcon, VibeComponentProps } from "../../types";
 import Heading from "../Heading/Heading";
 import Flex from "../Flex/Flex";
 import { ElementContent } from "../../types/ElementContent";
-import "./AttentionBox.scss";
-
-const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
+import styles from "./AttentionBox.module.scss";
 
 interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
@@ -41,7 +42,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   className,
   // Backward compatibility for props naming
   componentClassName,
-  // Will remove when releasing version 2 as BREAKING CHANGES
+  // TODO Vibe 2.0 Remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
   icon = AlertIcon,
@@ -51,7 +52,9 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   children,
   withoutIcon = false,
   onClose,
-  compact = false
+  compact = false,
+  id,
+  "data-testid": dataTestId
 }) => {
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
@@ -66,22 +69,18 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   }, [type]);
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const classNameWithType = `${ATTENTION_BOX_CSS_BASE_CLASS}--type-${type}`;
+  const classNameWithType = camelCase(`type-${type}`);
 
   return (
     <aside
-      className={cx(
-        ATTENTION_BOX_CSS_BASE_CLASS,
-        classNameWithType,
-        { compact: compact, "with-close": onClose },
-        overrideClassName
-      )}
+      className={cx(styles.attentionBox, getStyle(styles, classNameWithType), overrideClassName)}
       role="alert"
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       <Flex
         justify={Flex.justify.START}
         align={Flex.align.CENTER}
-        className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}
+        className={cx(styles.titleContainer, getStyle(styles, camelCase(`${classNameWithType}__title-container`)))}
       >
         {title && !withoutIcon && (
           <Icon
@@ -90,21 +89,19 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             clickable={false}
             icon={icon}
             className={cx(
-              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-              `${classNameWithType}__title-container__icon`
+              styles.titleContainerIcon,
+              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
             )}
             ignoreFocusStyle
             iconSize="24"
             iconLabel={iconLabel}
           />
         )}
-        {title && (
-          <Heading value={title} type={Heading.types.h5} className={`${ATTENTION_BOX_CSS_BASE_CLASS}__title`} />
-        )}
+        {title && <Heading value={title} type={Heading.types.h5} className={styles.title} />}
       </Flex>
       <div
-        className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__text`, `${classNameWithType}__text`, {
-          [`${ATTENTION_BOX_CSS_BASE_CLASS}_text--compact`]: compact
+        className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+          [styles.textCompact]: compact
         })}
       >
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
@@ -115,8 +112,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             clickable={false}
             icon={icon}
             className={cx(
-              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
-              `${classNameWithType}__title-container__icon`
+              styles.titleContainerIcon,
+              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
             )}
             ignoreFocusStyle
             iconLabel={iconLabel}
@@ -128,9 +125,9 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         <IconButton
           size={IconButton?.sizes?.SMALL}
           color={IconButton.colors.ON_PRIMARY_COLOR}
-          className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`)}
-          wrapperClassName={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--wrapper`, {
-            [`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--compact`]: compact
+          className={styles.closeIcon}
+          wrapperClassName={cx(styles.closeIconWrapper, {
+            [styles.closeIconCompact]: compact
           })}
           ariaLabel="Close"
           icon={CloseSmall}

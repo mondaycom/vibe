@@ -189,7 +189,4 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
   }
 );
 
-Object.assign(DatePicker, {
-  defaultTestId: ComponentDefaultTestId.DATEPICKER
-});
 export default DatePicker;

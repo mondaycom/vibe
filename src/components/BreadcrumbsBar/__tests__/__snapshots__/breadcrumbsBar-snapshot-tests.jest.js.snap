@@ -3,7 +3,8 @@
 exports[`BreadcrumbsBar renders correctly with bar type 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
 >
   <ol />
 </nav>
@@ -12,7 +13,8 @@ exports[`BreadcrumbsBar renders correctly with bar type 1`] = `
 exports[`BreadcrumbsBar renders correctly with bar type 2`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
 >
   <ol />
 </nav>
@@ -21,19 +23,21 @@ exports[`BreadcrumbsBar renders correctly with bar type 2`] = `
 exports[`BreadcrumbsBar renders correctly with children 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
 >
   <ol>
     <li
-      className="breadcrumbItem--wrapper"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           Workspace
         </span>
@@ -41,7 +45,7 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
     </li>
     <svg
       aria-hidden="true"
-      className="sparatorIcon"
+      className="separatorIcon"
       fill="currentColor"
       height="14"
       viewBox="0 0 20 20"
@@ -55,15 +59,16 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
       />
     </svg>
     <li
-      className="breadcrumbItem--wrapper"
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
     >
       <span
         aria-disabled="true"
-        className="breadcrumb-content"
+        className="breadcrumbContent"
         tabIndex={0}
       >
         <span
-          className="breadcrumb-text"
+          className="breadcrumbText"
         >
           Board
         </span>
@@ -76,7 +81,8 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
 exports[`BreadcrumbsBar renders correctly with empty props 1`] = `
 <nav
   aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
 >
   <ol />
 </nav>

@@ -1,0 +1,83 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.attentionBox {
+  position: relative;
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-general-label);
+  width: fit-content;
+  height: fit-content;
+  @include theme-prop(color, dark-color);
+  font-family: var(--font-family);
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.textCompact {
+  display: flex;
+  align-items: center;
+  padding-right: var(--spacing-medium);
+}
+
+.text,
+.titleContainer {
+  @include theme-prop(color, primary-text-color);
+}
+
+.typePrimary {
+  @include theme-prop(color, primary-text-color);
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.typeDanger {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.typeSuccess {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.typeDark {
+  @include theme-prop(background-color, primary-background-hover-color);
+  @include theme-prop(color, primary-text-color);
+}
+
+.typeWarning {
+  @include theme-prop(background-color, warning-color-selected);
+  @include theme-prop(color, primary-text-color);
+}
+
+.titleContainer {
+  margin-bottom: var(--spacing-small);
+}
+
+.titleContainer:empty {
+  margin-bottom: 0;
+}
+
+.titleContainerIcon {
+  margin-right: var(--spacing-xs);
+}
+
+.closeIcon.closeIcon {
+  color: var(--primary-text-color);
+}
+
+.closeIconWrapper {
+  position: absolute;
+  top: $spacing-small-medium;
+  right: $spacing-small-medium;
+}
+
+.closeIconCompact {
+  top: calc(50% - 16px);
+}
+
+.titleContainerTitle {
+  font-family: var(--title-font-family);
+}

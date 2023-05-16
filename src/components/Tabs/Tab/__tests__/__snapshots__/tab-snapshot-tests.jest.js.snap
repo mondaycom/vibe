@@ -4,11 +4,12 @@ exports[`Tab renders correctly when active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tab--wrapper active"
+  className="tabWrapper active"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   />
 </li>
@@ -18,11 +19,12 @@ exports[`Tab renders correctly when disabled 1`] = `
 <li
   aria-disabled={true}
   aria-selected={false}
-  className="tab--wrapper disabled"
+  className="tabWrapper disabled"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   />
 </li>
@@ -32,11 +34,12 @@ exports[`Tab renders correctly when focus 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper tab-focus-visible-inset"
+  className="tabWrapper tabFocusVisibleInset"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   />
 </li>
@@ -46,11 +49,12 @@ exports[`Tab renders correctly when focus and active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tab--wrapper active tab-focus-visible-inset"
+  className="tabWrapper active tabFocusVisibleInset"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   />
 </li>
@@ -60,11 +64,12 @@ exports[`Tab renders correctly with className 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper test"
+  className="tabWrapper test"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   >
     Tab
@@ -76,11 +81,12 @@ exports[`Tab renders correctly with empty props 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper"
+  className="tabWrapper"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   />
 </li>
@@ -90,16 +96,18 @@ exports[`Tab renders correctly with icon on left 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper"
+  className="tabWrapper"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   >
     <svg
       aria-hidden={true}
-      className="icon_component tab-icon left icon_component--no-focus-style"
+      className="icon tabIcon left noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="18"
       onClick={[Function]}
@@ -124,11 +132,12 @@ exports[`Tab renders correctly with icon on right 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper"
+  className="tabWrapper"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   >
     T
@@ -136,7 +145,8 @@ exports[`Tab renders correctly with icon on right 1`] = `
     b
     <svg
       aria-hidden={true}
-      className="icon_component tab-icon right icon_component--no-focus-style"
+      className="icon tabIcon right noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="18"
       onClick={[Function]}
@@ -158,12 +168,13 @@ exports[`Tab renders correctly with id 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper"
+  className="tabWrapper"
+  data-testid="tab_test"
   id="test"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   >
     Tab
@@ -175,11 +186,12 @@ exports[`Tab renders correctly with value 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper"
+  className="tabWrapper"
+  data-testid="tab"
   role="tab"
 >
   <a
-    className="tab-inner"
+    className="tabInner"
     onClick={[Function]}
   >
     Tab

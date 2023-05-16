@@ -11,19 +11,13 @@ import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useChipOverflowTooltip from "./hooks/useChipOverflowTooltip";
-import { BEMClass } from "../../helpers/bem-helper";
-import { ElementContent } from "../../types/ElementContent";
-import "../Clickable/Clickable.scss";
 import styles from "./Chips.module.scss";
-
-const CLICKABLE_CSS_BASE_CLASS = "monday-style-clickable";
-const clickableBemHelper = BEMClass(CLICKABLE_CSS_BASE_CLASS);
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
@@ -151,16 +145,16 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
 
-    const overrideClassName = cx(styles.chips, "chips--wrapper", className, {
+    const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
       [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder
     });
-    const clickableClassName = cx(CLICKABLE_CSS_BASE_CLASS, overrideClassName, {
-      disabled,
-      [clickableBemHelper({ state: "disable-text-selection" })]: !allowTextSelection
+    const clickableClassName = cx(styles.clickable, overrideClassName, {
+      [styles.disabled]: disabled,
+      [styles.disableTextSelection]: !allowTextSelection
     });
 
     const overflowProps = useChipOverflowTooltip({
@@ -306,7 +300,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 Object.assign(Chips, {
   sizes: ChipsSize,
-  defaultTestId: ComponentDefaultTestId.CHIP,
   colors: elementColorsNames,
   avatarTypes: AvatarType
 });

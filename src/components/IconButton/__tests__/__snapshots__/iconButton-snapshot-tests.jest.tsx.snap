@@ -5,7 +5,7 @@ exports[`IconButton renders correctly with 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="class-name monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="class-name button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -25,7 +25,8 @@ exports[`IconButton renders correctly with 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -47,7 +48,7 @@ exports[`IconButton renders correctly with active 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={true}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary colorPrimaryActive undefined noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -67,7 +68,8 @@ exports[`IconButton renders correctly with active 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -100,7 +102,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
     aria-disabled={false}
     aria-label="My aria label"
     aria-pressed={false}
-    className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+    className="button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="icon-button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -120,7 +122,8 @@ exports[`IconButton renders correctly with aria label 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="20"
       onClick={[Function]}
@@ -143,7 +146,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
   aria-busy={false}
   aria-disabled={true}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding monday-style-button--disabled"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding disabled"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -163,7 +166,8 @@ exports[`IconButton renders correctly with disabled 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -185,7 +189,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -205,7 +209,8 @@ exports[`IconButton renders correctly with empty props 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -227,7 +232,7 @@ exports[`IconButton renders correctly with id 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button_icon-button"
   id="icon-button"
   onBlur={[Function]}
@@ -248,7 +253,8 @@ exports[`IconButton renders correctly with id 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -270,7 +276,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -290,7 +296,8 @@ exports[`IconButton renders correctly with size - large 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -312,7 +319,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -332,7 +339,8 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -354,7 +362,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -374,7 +382,8 @@ exports[`IconButton renders correctly with size - small 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="20"
     onClick={[Function]}
@@ -396,7 +405,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -416,7 +425,8 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -438,7 +448,7 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
   aria-busy={false}
   aria-disabled={false}
   aria-pressed={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -458,7 +468,8 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon-button-padding icon_component--no-focus-style"
+    className="icon noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}

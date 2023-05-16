@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import { camelCase } from "lodash-es";
+import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import { isFunction, noop as NOOP } from "lodash-es";
-import cx from "classnames";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { getTestId } from "../../tests/test-ids-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
@@ -17,7 +18,7 @@ import { getOptionId } from "./helpers";
 import { ElementContent } from "../../types/ElementContent";
 import { VibeComponentProps } from "../../types";
 import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
-import "./Combobox.scss";
+import styles from "./Combobox.module.scss";
 
 export interface ComboboxProps extends VibeComponentProps {
   className?: string;
@@ -132,7 +133,8 @@ const Combobox: React.FC<ComboboxProps> & {
       optionRenderer = null,
       renderOnlyVisibleOptions = false,
       clearFilterOnSelection = false,
-      maxOptionsWithoutScroll
+      maxOptionsWithoutScroll,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -195,13 +197,13 @@ const Combobox: React.FC<ComboboxProps> & {
       }
 
       return (
-        <div className="combobox--wrapper-no-results">
-          <div className="combobox-message-wrapper">
-            <span className="combobox-message">{noResultsMessage}</span>
+        <div className={styles.comboboxNoResults}>
+          <div className={styles.comboboxMessageWrapper}>
+            <span className={styles.comboboxMessage}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
-            <Button className="add-new-button" size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
-              <span className="button-label">{getAddNewLabel()}</span>
+            <Button className={styles.addNewButton} size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
+              <span className={styles.buttonLabel}>{getAddNewLabel()}</span>
             </Button>
           )}
         </div>
@@ -257,19 +259,19 @@ const Combobox: React.FC<ComboboxProps> & {
     return (
       <div
         ref={mergedRef}
-        className={cx("combobox--wrapper", className, `size-${size}`, {
-          empty: !hasResults,
-          "sticky-category": stickyCategories
+        className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
+          [styles.empty]: !hasResults,
+          [styles.stickyCategory]: stickyCategories
         })}
         id={id}
-        data-testid={getTestId(ComponentDefaultTestId.COMBOBOX, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
       >
-        <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
+        <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName={cx("combobox--wrapper-search-wrapper", searchWrapperClassName)}
-            className="combobox--wrapper-search"
+            wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
+            className={styles.comboboxSearch}
             inputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
             id="combobox-search"
@@ -311,8 +313,7 @@ const Combobox: React.FC<ComboboxProps> & {
 
 Object.assign(Combobox, {
   sizes: BASE_SIZES,
-  iconTypes: ComboboxOption.iconTypes,
-  defaultTestId: ComponentDefaultTestId.COMBOBOX
+  iconTypes: ComboboxOption.iconTypes
 });
 
 export default Combobox;

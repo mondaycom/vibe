@@ -1,0 +1,50 @@
+@import "../../styles/themes";
+@import "../../styles/states";
+@import "../../styles/typography";
+
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: var(--primary-text-color);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  @include focus-style-inset();
+  font-family: var(--font-family);
+}
+
+.listItem:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--disabled-text-color);
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+.selected {
+  background-color: var(--primary-selected-color);
+}
+
+.selected:hover {
+  background-color: var(--primary-selected-color);
+}
+
+.small {
+  height: 32px;
+}
+
+.medium {
+  height: 40px;
+}
+
+.large {
+  height: 48px;
+}

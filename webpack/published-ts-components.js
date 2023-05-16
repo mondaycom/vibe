@@ -17,7 +17,6 @@ const publishedTSComponents = {
   Label: "components/Label/Label",
   RadioButton: "components/RadioButton/RadioButton",
   DialogContentContainer: "components/DialogContentContainer/DialogContentContainer",
-  Banner: "components/Banner/Banner",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem",
   Accordion: "components/Accordion/Accordion/Accordion",
   ButtonGroup: "components/ButtonGroup/ButtonGroup",

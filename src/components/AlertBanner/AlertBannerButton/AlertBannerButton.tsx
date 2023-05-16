@@ -1,30 +1,37 @@
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import Button, { ButtonProps } from "../../Button/Button";
-import React from "react";
-import "./AlertBannerButton.scss";
+import React, { FC } from "react";
+import styles from "./AlertBannerButton.module.scss";
 
 export interface AlertBannerButtonProps extends ButtonProps {
   isDarkBackground?: boolean;
 }
 
-const AlertBannerButton = ({
+const AlertBannerButton: FC<AlertBannerButtonProps> = ({
   marginLeft = false,
   isDarkBackground = false,
+  id,
+  "data-testid": dataTestId,
   ...buttonProps
-}: AlertBannerButtonProps) => {
+}) => {
   const overrideButtonProps = { ...Button.defaultProps, ...buttonProps };
 
   const classNames = cx({
-    "monday-style-alert-banner-button-margin-left": marginLeft,
-    "monday-style-alert-banner-button-dark-background": isDarkBackground
+    [styles.marginLeft]: marginLeft,
+    [styles.darkBackground]: isDarkBackground
   });
 
   return (
-    <div className={classNames}>
+    <div
+      className={classNames}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_BUTTON, id)}
+      id={id}
+    >
       <Button
         {...overrideButtonProps}
         size={Button.sizes.SMALL}
-        className="monday-style-alert-banner-button"
+        className={cx(styles.bannerButton)}
         color={Button.colors.ON_PRIMARY_COLOR}
       />
     </div>

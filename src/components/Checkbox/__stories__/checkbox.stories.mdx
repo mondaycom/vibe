@@ -1,13 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import {
-    createComponentTemplate,
-    createStoryMetaSettings,
-    Link, RelatedComponents,
-    UnstyledList,
-    UnstyledListItem
-} from "../../../storybook";
-import { Calendar } from "../../Icon/Icons";
+import LinkComponent from "../../Link/Link";
+import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
 import {
   DROPDOWN,
   RADIO_BUTTON,
@@ -48,6 +42,7 @@ Checkboxes allow users to select one or more items from a set of options.
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
@@ -206,9 +201,15 @@ Allows the user to choose a single option. For example: accept terms of use.
 
 <Canvas>
   <Story name="Single checkbox">
-    <Checkbox checked label={
-      <>I agree to the <span className="element-type-link">Terms of Service</span> and <span className="element-type-link">Privacy Policy.</span></>
-    } />
+    <Checkbox
+      checked
+      label={
+        <>
+          I agree to the <LinkComponent text="Terms of Service" className="monday-storybook-checkbox_link" /> and{" "}
+          <LinkComponent text="Privacy Policy." className="monday-storybook-checkbox_link" />
+        </>
+      }
+    />
   </Story>
 </Canvas>
 

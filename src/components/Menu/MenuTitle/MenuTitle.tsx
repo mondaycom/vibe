@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { FC } from "react";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps } from "../../../types";
-import "./MenuTitle.scss";
+import styles from "./MenuTitle.module.scss";
 
 interface MenuTitleProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -22,22 +25,31 @@ const MenuTitle: FC<MenuTitleProps> & {
   classname,
   caption = "",
   captionPosition = MenuTitle.positions.BOTTOM,
-  id
+  id,
+  "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const renderCaptionIfNeeded = () => {
     if (caption) {
       return (
         <label
-          className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}
+          className={cx(styles.titleCaption, getStyle(styles, camelCase("title__caption--" + captionPosition)))}
           id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE_CAPTION, id)}
         >
           {caption}
         </label>
       );
     }
   };
-  return <div className={cx("monday-style-menu-title", overrideClassName)}>{renderCaptionIfNeeded()}</div>;
+  return (
+    <div
+      className={cx(styles.title, overrideClassName)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
+    >
+      {renderCaptionIfNeeded()}
+    </div>
+  );
 };
 
 Object.assign(MenuTitle, {

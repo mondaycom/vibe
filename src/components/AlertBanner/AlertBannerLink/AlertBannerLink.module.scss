@@ -1,0 +1,18 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/typography";
+@import "../../../styles/themes";
+
+.bannerLink {
+  @include theme-prop(color, text-color-on-primary);
+  text-decoration: underline;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.darkBackground .bannerLink {
+  @include theme-prop(color, text-color-on-inverted);
+}
+
+.marginLeft {
+  margin-left: $spacing-small;
+}

@@ -1,12 +1,12 @@
-import React, { CSSProperties, forwardRef, Ref } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { CSSProperties, forwardRef, Ref } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import { VibeComponentProps, VibeComponent, MouseEventCallBack, SubIcon } from "../../types";
-import "./Icon.scss";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (_event: React.MouseEvent) => {};
@@ -22,7 +22,8 @@ export interface IconSubComponentProps {
 }
 
 function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
-  return <Icon {...props} />;
+  const dataTestId = props["data-testid"];
+  return <Icon {...props} data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)} />;
 }
 
 interface IconProps extends VibeComponentProps {
@@ -111,6 +112,9 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
 
     // Replace in major version change with more accurate check
     const isFunctionType = typeof icon === "function";
+
+    const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
+
     // Replace in major version change with more accurate check
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
       return renderIcon(icon, {
@@ -121,7 +125,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         onClick,
         className: computedClassName,
         style,
-        "data-testid": dataTestId
+        "data-testid": overrideDataTestId
       });
     }
     if (iconType === IconType.SRC) {
@@ -134,7 +138,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
-          data-testid={dataTestId}
+          data-testid={overrideDataTestId}
         />
       );
     }
@@ -146,12 +150,14 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
-        data-testid={dataTestId}
+        data-testid={overrideDataTestId}
       />
     );
   }
 );
 
-Icon.type = IconType;
+Object.assign(Icon, {
+  type: IconType
+});
 
 export default Icon;

@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
-import cx from "classnames";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
 import VibeComponentProps from "../../../types/VibeComponentProps";
+import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -31,6 +32,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   ariaHidden,
   replaceToCurrentColor = false,
   customColor,
+  id,
   "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
@@ -56,9 +58,10 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       {...screenReaderAccessProps}
       onClick={onClick}
       src={src}
-      className={cx("monday-style-custom-svg-icon--wrapper", className)}
+      className={className}
       preProcessor={svgProcessor}
-      data-testid={dataTestId}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
     />
   );
 };

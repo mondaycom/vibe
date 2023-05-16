@@ -1,8 +1,10 @@
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import cx from "classnames";
 import Divider from "../../Divider/Divider";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { VibeComponentProps } from "../../../types";
 import { FC } from "react";
-import "./MenuDivider.scss";
+import styles from "./MenuDivider.module.scss";
 
 interface MenuDividerProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -12,10 +14,17 @@ interface MenuDividerProps extends VibeComponentProps {
 const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
   // Backward compatibility for props naming
   classname,
-  className
+  className,
+  id,
+  "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-  return <Divider classname={`menu-child-divider ${overrideClassName}`} />;
+  return (
+    <Divider
+      className={cx(styles.menuChildDivider, overrideClassName)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_DIVIDER, id)}
+    />
+  );
 };
 
 Object.assign(MenuDivider, {

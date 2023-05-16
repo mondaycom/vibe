@@ -37,7 +37,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 
     return (
       <div
-        className={cx("monday-loader-component", styles.loaderContainer, wrapperClassName)}
+        className={cx(styles.loaderContainer, wrapperClassName)}
         ref={ref}
         role="alert"
         title="loading"
@@ -46,7 +46,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LOADER, id)}
       >
         <svg
-          className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
+          className={cx(styles.circleLoaderSpinner, overrideClassName)}
           viewBox="0 0 50 50"
           color={color}
           aria-hidden
@@ -61,14 +61,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
               strokeWidth="5"
             />
           )}
-          <circle
-            className={cx("circle-loader-spinner-path", styles.circleLoaderSpinnerPath)}
-            cx="25"
-            cy="25"
-            r="20"
-            fill="none"
-            strokeWidth="5"
-          />
+          <circle className={styles.circleLoaderSpinnerPath} cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
         </svg>
       </div>
     );
@@ -77,8 +70,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 
 Object.assign(Loader, {
   sizes: LoaderSizes,
-  colors: LoaderColors,
-  defaultTestId: ComponentDefaultTestId.LOADER
+  colors: LoaderColors
 });
 
 export default Loader;

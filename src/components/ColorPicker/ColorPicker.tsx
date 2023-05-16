@@ -13,9 +13,10 @@ import {
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import "./ColorPicker.scss";
 import { VibeComponentProps, VibeComponent, SubIcon } from "../../types";
 import { NOOP } from "../../utils/function-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./ColorPicker.module.scss";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;
@@ -76,7 +77,9 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       focusOnMount,
       colorShape = ColorShapes.SQUARE,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -90,7 +93,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
     return (
       <DialogContentContainer
         ref={mergedRef}
-        className={cx("color-picker--wrapper", "color-picker-dialog-content", className)}
+        className={cx(styles.colorPicker, styles.colorPickerDialogContent, className)}
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}
@@ -113,6 +116,8 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
           colorShape={colorShape}
           forceUseRawColorList={forceUseRawColorList}
           showColorNameTooltip={showColorNameTooltip}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER, id)}
         />
       </DialogContentContainer>
     );

@@ -3,13 +3,9 @@ import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { Switch } from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import "./Toggle.scss";
-
-const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
+import styles from "./Toggle.module.scss";
 
 interface ToggleProps extends VibeComponentProps {
   // Backward compatibility for props naming
@@ -55,10 +51,9 @@ const Toggle: FC<ToggleProps> = ({
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
-  const wrapperClassName = cx(bemHelper({ element: "wrapper" }), {
-    [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
-  });
-  const inputClassName = bemHelper({ element: "input" });
+  const wrapperClassName = cx(styles.wrapper);
+  const inputClassName = cx(styles.toggleInput);
+
   return (
     <Switch
       defaultChecked={isDefaultSelected}
@@ -76,9 +71,10 @@ const Toggle: FC<ToggleProps> = ({
       <MockToggle
         areLabelsHidden={areLabelsHidden}
         offOverrideText={offOverrideText}
+        onOverrideText={onOverrideText}
+        disabled={overrideDisabled}
         className={overrideClassName}
         selectedClassName={toggleSelectedClassName}
-        onOverrideText={onOverrideText}
       />
     </Switch>
   );

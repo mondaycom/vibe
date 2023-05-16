@@ -1,9 +1,15 @@
-import React from "react";
 import cx from "classnames";
+import React, { FC } from "react";
 import { IComboboxCategory } from "../ComboboxConstants";
-import "./ComboboxCategory.scss";
+import styles from "./ComboboxCategory.module.scss";
+import comboboxStyles from "../../Combobox.module.scss";
 
-const ComboboxCategory = ({ category, className }: { category: IComboboxCategory; className: string }) => {
+interface ComboboxCategoryProps {
+  category: IComboboxCategory;
+  className: string;
+}
+
+const ComboboxCategory: FC<ComboboxCategoryProps> = ({ category, className }) => {
   const { label, id, ariaLabel } = category;
 
   if (!label) return null;
@@ -15,7 +21,7 @@ const ComboboxCategory = ({ category, className }: { category: IComboboxCategory
       aria-level={1}
       aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
-      className={cx("combobox-category", className)}
+      className={cx(styles.comboboxCategory, comboboxStyles.comboboxCategory, className)}
     >
       {label}
     </div>

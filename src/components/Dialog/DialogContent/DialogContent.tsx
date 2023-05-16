@@ -1,17 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
-import classNames from "classnames";
+import cx from "classnames";
+import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
+import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useOnClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HideShowEvent } from "../consts/dialog-show-hide-event";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import { ESCAPE_KEYS } from "../../../constants";
+import { AnimationType, ESCAPE_KEYS } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
-import "./DialogContent.scss";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import styles from "./DialogContent.module.scss";
 
-const transitionOptions: { classNames?: string } = {};
 const EMPTY_OBJECT = {};
 
 export interface DialogContentProps extends VibeComponentProps {
@@ -19,7 +21,9 @@ export interface DialogContentProps extends VibeComponentProps {
   position?: PopperJS.Placement;
   wrapperClassName?: string;
   isOpen?: boolean;
+  // TODO breaking change convert to enum
   startingEdge?: any;
+  // TODO breaking change convert to enum - AnimationType
   animationType?: string;
   onEsc?: (event: React.KeyboardEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
@@ -66,13 +70,27 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
 
-    if (animationType) {
-      transitionOptions.classNames = `monday-style-animation-${animationType}`;
+    const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
+
+    switch (animationType) {
+      case AnimationType.EXPAND:
+        transitionOptions.classNames = {
+          appear: styles.expandAppear,
+          appearActive: styles.expandAppearActive,
+          exit: styles.expandExit
+        };
+        break;
+      case AnimationType.OPACITY_AND_SLIDE:
+        transitionOptions.classNames = {
+          appear: styles.opacitySlideAppear,
+          appearActive: styles.opacitySlideAppearActive
+        };
+        break;
     }
     return (
       <span
         // don't remove old classname - override from Monolith
-        className={classNames("monday-style-dialog-content-wrapper", wrapperClassName)}
+        className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
         ref={forwardRef}
         style={styleObject}
         onClickCapture={onClick}
@@ -80,9 +98,9 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       >
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
-            className={classNames("monday-style-dialog-content-component", position, {
-              [`edge-${startingEdge}`]: startingEdge,
-              "has-tooltip": hasTooltip
+            className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
+              [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
+              [styles.hasTooltip]: hasTooltip
             })}
             ref={ref}
           >
