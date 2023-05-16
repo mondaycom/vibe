@@ -156,7 +156,7 @@ exports[`Loader renders correctly with custom class name 1`] = `
 
 exports[`Loader renders correctly with custom class name wrapper 1`] = `
 <div
-  className="monday-loader-component loaderContainer"
+  className="monday-loader-component loaderContainer dummy-class-name"
   data-testid="loader"
   role="alert"
   style={

@@ -9,7 +9,7 @@ describe("Loader renders correctly", () => {
   });
 
   it("with custom class name wrapper", () => {
-    const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} classNameWrapper="dummy-class-name" />).toJSON();
+    const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} wrapperClassName="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
