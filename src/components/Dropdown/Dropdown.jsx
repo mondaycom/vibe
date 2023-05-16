@@ -115,7 +115,7 @@ const Dropdown = forwardRef(
     const value = multi ? selectedOptions : customValue;
 
     const styles = useMemo(() => {
-      // We first want to get the default stylized groups   (e.g. "container", "menu").
+      // We first want to get the default stylized groups (e.g. "container", "menu").
       const baseStyles = generateBaseStyles({
         size,
         rtl,
