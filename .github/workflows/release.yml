@@ -26,15 +26,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
-          git push --follow-tags
-      - name: Publish the new version to npm
-        run: | # Compare the latest version and the current version and publish only if the version changed
-          if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish; else echo ''; fi;
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          automatic_release_tag: latest
+          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> "$GITHUB_ENV"
+          echo "Release version ${{ env.package_version }}"
