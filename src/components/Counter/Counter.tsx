@@ -49,23 +49,23 @@ const Counter: React.FC<CounterProps> & {
   colors?: typeof CounterColor;
   kinds?: typeof CounterType;
 } = ({
-       className,
-       // Backward compatibility for props naming
-       wrapperClassName,
-       counterClassName,
-                      count = 0,
-                      size = Counter.sizes.LARGE,
-                      kind = Counter.kinds.FILL,
-                      color = Counter.colors.PRIMARY,
+  className,
+  // Backward compatibility for props naming
+  wrapperClassName,
+  counterClassName,
+  count = 0,
+  size = Counter.sizes.LARGE,
+  kind = Counter.kinds.FILL,
+  color = Counter.colors.PRIMARY,
   maxDigits = 3,
-                      ariaLabeledBy = "",
-                      ariaLabel = "",
-                      id = "",
-                      prefix = "",
-                      onMouseDown = NOOP,
-                      noAnimation = false,
-       "data-testid": dataTestId
-     }) => {
+  ariaLabeledBy = "",
+  ariaLabel = "",
+  id = "",
+  prefix = "",
+  onMouseDown = NOOP,
+  noAnimation = false,
+  "data-testid": dataTestId
+}) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
 
