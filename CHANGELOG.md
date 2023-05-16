@@ -2,8 +2,12 @@
 
 ## 2.0.0 (2023-05-16)
 
-#### Breaking Changes
-* [#1254](https://github.com/mondaycom/monday-ui-react-core/pull/1254) Final Vibe 2.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+## Breaking Changes 🔴
+* [#1254](https://github.com/mondaycom/monday-ui-react-core/pull/1254) CSS Modules migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+  * All components are migrated to CSS Modules
+  * Old global classnames were removed
+  * `data-testid` attributes added everywhere
+  * For style overrides variety of `*className` props were added
 
 ## 1.125.2 (2023-05-16)
 
