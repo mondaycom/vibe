@@ -50,17 +50,17 @@ const Counter: React.FC<CounterProps> & {
   // Backward compatibility for props naming
   wrapperClassName,
   counterClassName,
-  count,
-  size,
-  kind,
-  color,
-  maxDigits,
-  ariaLabeledBy,
-  ariaLabel,
-  id,
-  prefix,
-  onMouseDown,
-  noAnimation
+  count = 0,
+  size = Counter.sizes.LARGE,
+  kind = Counter.kinds.FILL,
+  color = Counter.colors.PRIMARY,
+  maxDigits = 3,
+  ariaLabeledBy = "",
+  ariaLabel = "",
+  id = "",
+  prefix = "",
+  onMouseDown = NOOP,
+  noAnimation = false
 }) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
@@ -155,20 +155,5 @@ Object.assign(Counter, {
   colors: CounterColor,
   kinds: CounterType
 });
-
-Counter.defaultProps = {
-  ariaLabel: "",
-  ariaLabeledBy: "",
-  className: undefined,
-  color: CounterColor.PRIMARY,
-  count: 0,
-  id: "",
-  kind: CounterType.FILL,
-  maxDigits: 3,
-  noAnimation: false,
-  onMouseDown: NOOP,
-  prefix: "",
-  size: CounterSize.LARGE
-};
 
 export default Counter;
