@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.125.0 (2023-05-16)
+
+#### New Features
+* [#1262](https://github.com/mondaycom/monday-ui-react-core/pull/1262) add wrapper class name to loader ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1271](https://github.com/mondaycom/monday-ui-react-core/pull/1271) Release: breaking changes support ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1270](https://github.com/mondaycom/monday-ui-react-core/pull/1270) Release v1 workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1269](https://github.com/mondaycom/monday-ui-react-core/pull/1269) npm publish with deprecated tag ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1267](https://github.com/mondaycom/monday-ui-react-core/pull/1267) Release deprecated workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.124.4 (2023-05-15)
 
 #### Bug Fixes
