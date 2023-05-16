@@ -32,7 +32,7 @@ jobs:
           git push --follow-tags
       - name: Publish the new version to npm
         run: | # Compare the latest version and the current version and publish only if the version changed
-          if [ $(npm view monday-ui-react-core version) != ${{ env.package_version }} ]; then npm run build && npm publish --tag v1; else echo ''; fi;
+          if [ $(npm view monday-ui-react-core version) != ${{ env.package_version }} ]; then npm run build && npm publish --tag v-1; else echo ''; fi;
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - uses: "marvinpinto/action-automatic-releases@latest"
