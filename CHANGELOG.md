@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.125.1 (2023-05-16)
+
+#### Bug Fixes
+* [#1264](https://github.com/mondaycom/monday-ui-react-core/pull/1264) Fix hooks exports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1273](https://github.com/mondaycom/monday-ui-react-core/pull/1273) docs: Colors foundation - warning colors after negative colors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1274](https://github.com/mondaycom/monday-ui-react-core/pull/1274) Internal: Publish storybook on workflow_dispatch ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.125.0 (2023-05-16)
 
 #### New Features
