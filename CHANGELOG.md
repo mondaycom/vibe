@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.126.2 (2023-05-16)
+
+#### Bug Fixes
+* [#1281](https://github.com/mondaycom/monday-ui-react-core/pull/1281) Dummy change 5 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.126.1 (2023-05-16)
 
 #### Bug Fixes
