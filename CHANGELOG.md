@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.125.1 (2023-05-16)
+
+#### Bug Fixes
+* [#1264](https://github.com/mondaycom/monday-ui-react-core/pull/1264) Fix hooks exports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1273](https://github.com/mondaycom/monday-ui-react-core/pull/1273) docs: Colors foundation - warning colors after negative colors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1274](https://github.com/mondaycom/monday-ui-react-core/pull/1274) Internal: Publish storybook on workflow_dispatch ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.125.0 (2023-05-16)
+
+#### New Features
+* [#1262](https://github.com/mondaycom/monday-ui-react-core/pull/1262) add wrapper class name to loader ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1271](https://github.com/mondaycom/monday-ui-react-core/pull/1271) Release: breaking changes support ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1270](https://github.com/mondaycom/monday-ui-react-core/pull/1270) Release v1 workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1269](https://github.com/mondaycom/monday-ui-react-core/pull/1269) npm publish with deprecated tag ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1267](https://github.com/mondaycom/monday-ui-react-core/pull/1267) Release deprecated workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.124.4 (2023-05-15)
 
 #### Bug Fixes

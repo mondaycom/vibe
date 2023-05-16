@@ -15,6 +15,7 @@ export interface LoaderProps extends VibeComponentProps {
   size?: LoaderSize;
   color?: LoaderColors;
   hasBackground?: boolean;
+  wrapperClassName?: string;
 }
 
 const Loader: VibeComponent<LoaderProps, HTMLElement> & {
@@ -22,7 +23,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   colors?: typeof LoaderColors;
 } = forwardRef(
   (
-    { svgClassName, className, size, color, hasBackground = false, id, "data-testid": dataTestId },
+    { svgClassName, className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
@@ -36,7 +37,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 
     return (
       <div
-        className={styles.loaderContainer}
+        className={cx(styles.loaderContainer, wrapperClassName)}
         ref={ref}
         role="alert"
         title="loading"
