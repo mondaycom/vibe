@@ -21,7 +21,7 @@ const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
   children?: React.ReactNode;
-  /** Custom class names to pass to the component */
+  /** Custom class  names to pass to the component */
   className?: string;
   /** The button's kind */
   kind?: ButtonType;
