@@ -13,7 +13,8 @@ $disabled-on-primary-color-opacity: 0.5;
   border-radius: $border-radius-small;
   cursor: pointer;
   white-space: nowrap;
-  transition: var(--motion-productive-short) transform, var(--motion-productive-medium) var(--motion-timing-transition) min-width;
+  transition: var(--motion-productive-short) transform,
+    var(--motion-productive-medium) var(--motion-timing-transition) min-width;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -135,6 +136,14 @@ $disabled-on-primary-color-opacity: 0.5;
               @include theme-prop(background, primary-hover-color);
             }
           }
+          &-brand {
+            background: var(--brand-color);
+            &-active,
+            &:hover,
+            &:focus {
+              background: var(--brand-hover-color);
+            }
+          }
           &-positive {
             @include theme-prop(background, positive-color);
             &-active,
@@ -196,12 +205,24 @@ $disabled-on-primary-color-opacity: 0.5;
         }
         &--color {
           &-primary {
-            &-active, &-active:hover {
+            &-active,
+            &-active:hover {
               background-color: var(--primary-selected-color);
               border-color: var(--primary-color);
             }
             &:hover:not(.monday-style-button--color-primary-active),
             &:focus:not(.monday-style-button--color-primary-active) {
+              @include theme-prop(background, primary-background-hover-color);
+            }
+          }
+          &-brand {
+            &-active,
+            &-active:hover {
+              background-color: var(--brand-selected-color);
+              border-color: var(--brand-color);
+            }
+            &:hover:not(.monday-style-button--color-brand-active),
+            &:focus:not(.monday-style-button--color-brand-active) {
               @include theme-prop(background, primary-background-hover-color);
             }
           }
@@ -256,11 +277,22 @@ $disabled-on-primary-color-opacity: 0.5;
       &.monday-style-button {
         &--color {
           &-primary {
-            &-active, &-active:hover {
+            &-active,
+            &-active:hover {
               background-color: var(--primary-selected-color);
             }
             &:hover:not(.monday-style-button--color-primary-active),
-            &:focus:not(.monday-style-button--color-primary-active){
+            &:focus:not(.monday-style-button--color-primary-active) {
+              @include theme-prop(background, primary-background-hover-color);
+            }
+          }
+          &-brand {
+            &-active,
+            &-active:hover {
+              background-color: var(--brand-selected-color);
+            }
+            &:hover:not(.monday-style-button--color-brand-active),
+            &:focus:not(.monday-style-button--color-brand-active) {
               @include theme-prop(background, primary-background-hover-color);
             }
           }
