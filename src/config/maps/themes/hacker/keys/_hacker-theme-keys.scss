@@ -38,7 +38,11 @@ $theme-hacker-keys: (
   warning-color: $theme-hacker-warning-color,
   warning-color-hover: $theme-hacker-warning-color-hover,
   warning-color-selected: $theme-hacker-warning-color-selected,
-  warning-color-selected-hover: $theme-hacker-warning-color-selected-hover
+  warning-color-selected-hover: $theme-hacker-warning-color-selected-hover,
+  brand-color: $theme-hacker-primary-color,
+  brand-hover-color: $theme-hacker-primary-hover-color,
+  brand-selected-color: $theme-hacker-primary-selected-color,
+  brand-selected-hover-color: $theme-hacker-primary-selected-hover-color
 );
 
 // DARK THEME SHADOW MAP: dark theme's shadow color map.

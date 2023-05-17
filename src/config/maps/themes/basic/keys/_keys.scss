@@ -39,7 +39,11 @@ $theme-basic-keys: (
   warning-color: $warning-color,
   warning-color-hover: $warning-color-hover,
   warning-color-selected: $warning-color-selected,
-  warning-color-selected-hover: $warning-color-selected-hover
+  warning-color-selected-hover: $warning-color-selected-hover,
+  brand-color: $primary-color,
+  brand-hover-color: $primary-hover-color,
+  brand-selected-color: $primary-selected-color,
+  brand-selected-hover-color: $primary-selected-hover-color
 );
 
 // ## BASIC THEME SHADOW MAP: basic theme's shadow color map.

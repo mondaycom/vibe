@@ -38,7 +38,11 @@ $theme-black-keys: (
   warning-color: $theme-black-warning-color,
   warning-color-hover: $theme-black-warning-color-hover,
   warning-color-selected: $theme-black-warning-color-selected,
-  warning-color-selected-hover: $theme-black-warning-color-selected-hover
+  warning-color-selected-hover: $theme-black-warning-color-selected-hover,
+  brand-color: $theme-black-primary-color,
+  brand-hover-color: $theme-black-primary-hover-color,
+  brand-selected-color: $theme-black-primary-selected-color,
+  brand-selected-hover-color: $theme-black-primary-selected-hover-color
 );
 
 // DARK THEME SHADOW MAP: dark theme's shadow color map.
