@@ -28,15 +28,15 @@ type RenderHelper = {
   checkbox1Name: string;
   option1Value: string;
   option1Text: string;
-  onChangeMock1: jest.MockedFunction<any>;
+  onChangeMock1: jest.MockedFunction<(event: React.ChangeEvent<HTMLInputElement>) => void>;
   checkbox2Name: string;
   option2Text: string;
   option2Value: string;
-  onChangeMock2: jest.MockedFunction<any>;
+  onChangeMock2: jest.MockedFunction<(event: React.ChangeEvent<HTMLInputElement>) => void>;
   checkbox3Name: string;
   option3Text: string;
   option3Value: string;
-  onChangeMock3: jest.MockedFunction<any>;
+  onChangeMock3: jest.MockedFunction<(event: React.ChangeEvent<HTMLInputElement>) => void>;
 };
 
 function renderCheckboxes({
