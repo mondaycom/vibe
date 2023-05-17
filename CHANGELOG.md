@@ -4,10 +4,8 @@
 
 ## Breaking Changes 🔴
 * [#1254](https://github.com/mondaycom/monday-ui-react-core/pull/1254) CSS Modules migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
-  * All components are migrated to CSS Modules
-  * Old global classnames were removed
-  * `data-testid` attributes added everywhere
-  * For style overrides variety of `*className` props were added
+  * All components were migrated to CSS Modules, replacing the global CSS.
+  * Each component now expected a `data-testid` attribute set on the root element, allowing easier selection for testing (refer to [this guide](https://github.com/mondaycom/monday-ui-react-core/blob/master/API_GUIDELINES.MD#data-testids))
 
 ## 1.125.2 (2023-05-16)
 
