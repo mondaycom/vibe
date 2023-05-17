@@ -231,6 +231,11 @@ $disabled-on-primary-color-opacity: 0.5;
   @include theme-prop(background, primary-background-hover-color);
 }
 
+.kindSecondary.colorBrand:hover:not(.colorBrandActive),
+.kindSecondary.colorBrand:focus:not(.colorBrandActive) {
+  @include theme-prop(background, primary-background-hover-color);
+}
+
 .kindSecondary.colorPositive {
   @include theme-prop(color, positive-color);
   @include theme-prop(border-color, positive-color);
@@ -298,6 +303,11 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
+  @include theme-prop(background, primary-background-hover-color);
+}
+
+.kindTertiary.colorBrand:hover:not(.colorBrandActive),
+.kindTertiary.colorBrand:focus:not(.colorBrandActive) {
   @include theme-prop(background, primary-background-hover-color);
 }
 
