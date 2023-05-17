@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: v1
+          ref: version1
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
