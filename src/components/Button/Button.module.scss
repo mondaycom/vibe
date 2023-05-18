@@ -137,6 +137,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindPrimary.colorBrand {
   background: var(--brand-color);
+  color: var(--text-color-on-brand);
 }
 
 .kindPrimary.colorPrimaryActive,
@@ -220,6 +221,10 @@ $disabled-on-primary-color-opacity: 0.5;
   border-color: var(--primary-color);
 }
 
+.kindSecondary.colorBrandActive {
+  color: var(--text-color-on-brand);
+}
+
 .kindSecondary.colorBrandActive,
 .kindSecondary.colorBrandActive:hover {
   background-color: var(--brand-selected-color);
@@ -294,6 +299,10 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorPrimaryActive,
 .kindTertiary.colorPrimaryActive:hover {
   background-color: var(--primary-selected-color);
+}
+
+.kindTertiary.colorBrandActive {
+  color: var(--text-color-on-brand);
 }
 
 .kindTertiary.colorBrandActive,
