@@ -138,6 +138,7 @@ $disabled-on-primary-color-opacity: 0.5;
           }
           &-brand {
             background: var(--brand-color);
+            color: var(--text-color-on-inverted);
             &-active,
             &:hover,
             &:focus {
