@@ -231,6 +231,7 @@ export {default as Wand} from './components/Wand';
 export {default as WhatsNew} from './components/WhatsNew';
 export {default as Widgets} from './components/Widgets';
 export {default as Work} from './components/Work';
+export {default as Workflow} from './components/Workflow';
 export {default as Workspace} from './components/Workspace';
 /* tslint:enable */
 /* eslint-enable */
