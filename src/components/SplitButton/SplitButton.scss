@@ -57,6 +57,27 @@
               }
             }
           }
+          &-brand {
+            &.monday-style-split-button--main-active {
+              .monday-style-split-button__main-button {
+                background-color: var(--brand-selected-color);
+              }
+
+              .monday-style-split-button__secondary-button {
+                background-color: var(--brand-selected-color);
+              }
+
+              &.monday-style-split-button--split-content-open,
+              &.monday-style-split-button--hovered {
+                &.monday-style-split-button--split-content-open {
+                  .monday-style-split-button__secondary-button,
+                  .monday-style-split-button__secondary-button:hover {
+                    color: var(--brand-color);
+                  }
+                }
+              }
+            }
+          }
           &-positive {
             &.monday-style-split-button--split-content-open,
             &:hover,
@@ -121,6 +142,18 @@
               @include theme-prop(border-color, primary-hover-color);
             }
           }
+          &-brand {
+            &.monday-style-split-button--main-active {
+              .monday-style-split-button__secondary-button {
+                background-color: var(--brand-hover-color);
+                border-color: var(--text-color-on-primary);
+              }
+            }
+            .monday-style-split-button__secondary-button {
+              border-left: 1px solid;
+              border-color: var(--brand-hover-color);
+            }
+          }
 
           &-positive {
             .monday-style-split-button__secondary-button {
@@ -172,6 +205,26 @@
                 @include theme-prop(color, primary-color);
                 @include theme-prop(border-color, primary-color);
                 @include theme-prop(background-color, primary-selected-color);
+              }
+            }
+          }
+          &-brand {
+            &.monday-style-split-button--main-active {
+              .monday-style-split-button__main-button {
+                background-color: var(--brand-selected-color);
+              }
+              .monday-style-split-button__secondary-button {
+                background-color: var(--brand-selected-color);
+                border-color: var(--brand-color);
+              }
+            }
+
+            &.monday-style-split-button--split-content-open {
+              .monday-style-split-button__secondary-button,
+              .monday-style-split-button__secondary-button:hover {
+                color: var(--brand-color);
+                border-color: var(--brand-color);
+                background-color: var(--brand-selected-color);
               }
             }
           }
