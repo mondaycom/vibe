@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import MenuButton from "../MenuButton/MenuButton";
-import "./ResponsiveList.scss";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
+import "./ResponsiveList.scss";
 
 const DEFAULT_MINIMAL_MARGIN = 32;
 const EMPTY_ARRAY = [];
@@ -21,6 +21,7 @@ const ResponsiveList = forwardRef(
       dialogZIndex,
       dialogClassName,
       menuButtonClassName,
+      menuWrapperClassName,
       resizeDebounceTime,
       menuButtonAriaLabel,
       menuButtonProps
@@ -74,7 +75,7 @@ const ResponsiveList = forwardRef(
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
               >
-                <div className="responsive-list-menu-wrapper-flex">{menuChildren}</div>
+                <div className={cx("responsive-list-menu-wrapper-flex", menuWrapperClassName)}>{menuChildren}</div>
               </MenuButton>
             )}
           </div>
@@ -89,7 +90,7 @@ const ResponsiveList = forwardRef(
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className="responsive-list-menu-wrapper-flex" />
+            <div className={cx("responsive-list-menu-wrapper-flex", menuWrapperClassName)} />
           </MenuButton>
         </div>
       </div>
@@ -103,6 +104,7 @@ ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   menuButtonClassName: PropTypes.string,
+  menuWrapperClassName: PropTypes.string,
   /**
    These attributes will be passed to the MenuButton
    */
@@ -126,6 +128,7 @@ ResponsiveList.defaultProps = {
   className: "",
   dialogClassName: "",
   menuButtonClassName: "",
+  menuWrapperClassName: "",
   rootClassName: "",
   menuButtonAriaLabel: "More Actions",
   menuButtonProps: {},
