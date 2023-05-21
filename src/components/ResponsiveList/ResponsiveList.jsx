@@ -22,6 +22,7 @@ const ResponsiveList = forwardRef(
       dialogZIndex,
       dialogClassName,
       menuButtonClassName,
+      menuWrapperClassName,
       resizeDebounceTime,
       menuButtonAriaLabel,
       menuButtonProps,
@@ -80,7 +81,7 @@ const ResponsiveList = forwardRef(
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
               >
-                <div className={cx(styles.menuWrapperFlex)}>{menuChildren}</div>
+                <div className={cx(styles.menuWrapperFlex, menuWrapperClassName)}>{menuChildren}</div>
               </MenuButton>
             )}
           </div>
@@ -95,7 +96,7 @@ const ResponsiveList = forwardRef(
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className={cx(styles.menuWrapperFlex)} />
+            <div className={cx(styles.menuWrapperFlex, menuWrapperClassName)} />
           </MenuButton>
         </div>
       </div>
@@ -108,6 +109,7 @@ ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   menuButtonClassName: PropTypes.string,
+  menuWrapperClassName: PropTypes.string,
   /**
    These attributes will be passed to the MenuButton
    */
@@ -131,6 +133,7 @@ ResponsiveList.defaultProps = {
   className: "",
   dialogClassName: "",
   menuButtonClassName: "",
+  menuWrapperClassName: "",
   rootClassName: "",
   menuButtonAriaLabel: "More Actions",
   menuButtonProps: {},
