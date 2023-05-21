@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.126.4 (2023-05-21)
+
+#### New Icons
+* [#1299](https://github.com/mondaycom/monday-ui-react-core/pull/1299) Icon: Erase ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.126.3 (2023-05-21)
 
 #### New Icons
