@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.126.3 (2023-05-21)
+
+#### New Icons
+* [#1291](https://github.com/mondaycom/monday-ui-react-core/pull/1291) chore: update monday-ui-style 0.1.157 with Workflow icon ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.126.2 (2023-05-16)
 
 #### Bug Fixes
