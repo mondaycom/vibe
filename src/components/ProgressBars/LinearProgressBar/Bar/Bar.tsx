@@ -33,6 +33,7 @@ interface BarProps extends VibeComponentProps {
   barLabelName?: string;
   color?: string;
   type?: ProgressBarType;
+  className?: string;
 }
 
 const Bar: FC<BarProps> = ({
@@ -45,10 +46,11 @@ const Bar: FC<BarProps> = ({
   color,
   barLabelName,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  className
 }) => {
   const classNames = useMemo(() => {
-    return cx(styles.bar, getStyle(styles, camelCase("type__" + type + "--" + barStyle)), {
+    return cx(styles.bar, getStyle(styles, camelCase("type__" + type + "--" + barStyle)), className, {
       [styles.animate]: animated
     });
   }, [type, barStyle, animated]);

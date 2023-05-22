@@ -4,7 +4,7 @@ import { SIZES } from "../../../constants/sizes";
 import React, { forwardRef, useMemo } from "react";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
-import { calculatePercentage } from "./LinearProgressBarHelpers";
+import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -71,6 +71,8 @@ interface LinearProgressBarProps extends VibeComponentProps {
   }[];
   /** ARIA description for the progress bar */
   ariaLabel?: string;
+  /** Is the progress bar spread across the entire container width (width: 100%) */
+  fullWidth?: boolean;
 }
 
 const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
@@ -93,6 +95,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       multiValues = [],
       ariaLabel = "",
       id,
+      fullWidth = false,
       "data-testid": dataTestId
     },
     ref
@@ -101,11 +104,12 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       return cx(
         styles.wrapper,
         {
-          [getStyle(styles, size.toString())]: size
+          [getStyle(styles, size.toString())]: size,
+          [styles.fullWidth]: fullWidth
         },
         className
       );
-    }, [size, className]);
+    }, [size, fullWidth, className]);
 
     const valuePercentage = useMemo(() => {
       if (multi) {
@@ -123,6 +127,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         <>
           {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
             <Bar
+              className={getProgressBarClassNames(baseValue)}
               barStyle={ProgressBarStyle.NONE}
               value={baseValue}
               animated={animated}
@@ -146,6 +151,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
     const renderBaseBars = !multi ? (
       <>
         <Bar
+          className={getProgressBarClassNames(value)}
           barLabelName={ariaLabel}
           barStyle={barStyle}
           value={valueSecondary}
@@ -156,6 +162,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           data-testid={ComponentDefaultTestId.BAR_SECONDARY}
         />
         <Bar
+          className={getProgressBarClassNames(value)}
           barStyle={barStyle}
           value={value}
           animated={animated}
