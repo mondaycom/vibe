@@ -63,9 +63,5 @@ jobs:
             New icons version
           labels: |
             PR: Icon 💎
-          assignees: sergeyroyt
-          reviewers: sergeyroyt
-          team-reviewers: |
-            owners
-            maintainers
+          team-reviewers: vibe
           draft: false
