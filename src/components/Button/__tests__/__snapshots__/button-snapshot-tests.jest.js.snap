@@ -46,6 +46,24 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
 </button>
 `;
 
+exports[`Button renders correctly renders Button color- brand 1`] = `
+<button
+  aria-busy={false}
+  aria-disabled={false}
+  aria-pressed={false}
+  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-brand"
+  data-testid="button"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseDown={[Function]}
+  onMouseUp={[Function]}
+  type="button"
+>
+  Button
+</button>
+`;
+
 exports[`Button renders correctly renders Button color- negative 1`] = `
 <button
   aria-busy={false}
