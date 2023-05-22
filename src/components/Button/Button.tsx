@@ -24,7 +24,7 @@ const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
-  /** Custom class names to pass to the component */
+  /** Custom class  names to pass to the component */
   className?: string;
   activeButtonClassName?: string;
   /** The button's kind */
