@@ -1,6 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import LinkComponent from "../../Link/Link";
+import { Link } from "../../../storybook";
 import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
 import {
   DROPDOWN,
@@ -205,8 +205,8 @@ Allows the user to choose a single option. For example: accept terms of use.
       checked
       label={
         <>
-          I agree to the <LinkComponent text="Terms of Service" className="monday-storybook-checkbox_link" /> and{" "}
-          <LinkComponent text="Privacy Policy." className="monday-storybook-checkbox_link" />
+          I agree to the <Link size={Link.sizes.SMALL} withoutSpacing>Terms of Service</Link> and{" "}
+          <Link size={Link.sizes.SMALL} withoutSpacing>Privacy Policy.</Link>
         </>
       }
     />
