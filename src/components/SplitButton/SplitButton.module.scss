@@ -47,6 +47,21 @@
   color: var(--primary-color);
 }
 
+.kindTertiary.colorBrand.mainActive .mainButton {
+  background-color: var(--brand-selected-color);
+}
+
+.kindTertiary.colorBrand.mainActive .secondaryButton {
+  background-color: var(--brand-selected-color);
+}
+
+.kindTertiary.colorBrand.mainActive.splitContentOpen.splitContentOpen .secondaryButton,
+.kindTertiary.colorBrand.mainActive.splitContentOpen.splitContentOpen .secondaryButton:hover,
+.kindTertiary.colorBrand.mainActive.hovered.splitContentOpen .secondaryButton,
+.kindTertiary.colorBrand.mainActive.hovered.splitContentOpen .secondaryButton:hover {
+  color: var(--brand-color);
+}
+
 .kindTertiary.colorPositive.splitContentOpen .secondaryButton,
 .kindTertiary.colorPositive:hover .secondaryButton,
 .kindTertiary.colorPositive:focus .secondaryButton {
@@ -93,6 +108,16 @@
   @include theme-prop(border-color, primary-hover-color);
 }
 
+.kindPrimary:not(.disabled).colorBrand.mainActive .secondaryButton {
+  background-color: var(--brand-hover-color);
+  border-color: var(--text-color-on-primary);
+}
+
+.kindPrimary:not(.disabled).colorBrand .secondaryButton {
+  border-left: 1px solid;
+  border-color: var(--brand-hover-color);
+}
+
 .kindPrimary:not(.disabled).colorPositive .secondaryButton {
   border-left: 1px solid;
   @include theme-prop(border-color, positive-color-hover);
@@ -126,4 +151,20 @@
   @include theme-prop(color, primary-color);
   @include theme-prop(border-color, primary-color);
   @include theme-prop(background-color, primary-selected-color);
+}
+
+.kindSecondary.colorBrand.mainActive .mainButton {
+  background-color: var(--brand-selected-color);
+}
+
+.kindSecondary.colorBrand.mainActive .secondaryButton {
+  background-color: var(--brand-selected-color);
+  border-color: var(--brand-color);
+}
+
+.kindSecondary.colorBrand.splitContentOpen .secondaryButton,
+.kindSecondary.colorBrand.splitContentOpen .secondaryButton:hover {
+  color: var(--brand-color);
+  border-color: var(--brand-color);
+  background-color: var(--brand-selected-color);
 }

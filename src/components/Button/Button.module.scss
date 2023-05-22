@@ -135,10 +135,21 @@ $disabled-on-primary-color-opacity: 0.5;
   @include theme-prop(background, primary-color);
 }
 
+.kindPrimary.colorBrand {
+  background: var(--brand-color);
+  color: var(--text-color-on-brand);
+}
+
 .kindPrimary.colorPrimaryActive,
 .kindPrimary.colorPrimary:hover,
 .kindPrimary.colorPrimary:focus {
   @include theme-prop(background, primary-hover-color);
+}
+
+.kindPrimary.colorBrandActive,
+.kindPrimary.colorBrand:hover,
+.kindPrimary.colorBrand:focus {
+  background: var(--brand-hover-color);
 }
 
 .kindPrimary.colorPositive {
@@ -210,8 +221,23 @@ $disabled-on-primary-color-opacity: 0.5;
   border-color: var(--primary-color);
 }
 
+.kindSecondary.colorBrandActive {
+  color: var(--text-color-on-brand);
+}
+
+.kindSecondary.colorBrandActive,
+.kindSecondary.colorBrandActive:hover {
+  background-color: var(--brand-selected-color);
+  border-color: var(--brand-color);
+}
+
 .kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindSecondary.colorPrimary:focus:not(.colorPrimaryActive) {
+  @include theme-prop(background, primary-background-hover-color);
+}
+
+.kindSecondary.colorBrand:hover:not(.colorBrandActive),
+.kindSecondary.colorBrand:focus:not(.colorBrandActive) {
   @include theme-prop(background, primary-background-hover-color);
 }
 
@@ -275,8 +301,22 @@ $disabled-on-primary-color-opacity: 0.5;
   background-color: var(--primary-selected-color);
 }
 
+.kindTertiary.colorBrandActive {
+  color: var(--text-color-on-brand);
+}
+
+.kindTertiary.colorBrandActive,
+.kindTertiary.colorBrandActive:hover {
+  background-color: var(--brand-selected-color);
+}
+
 .kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
+  @include theme-prop(background, primary-background-hover-color);
+}
+
+.kindTertiary.colorBrand:hover:not(.colorBrandActive),
+.kindTertiary.colorBrand:focus:not(.colorBrandActive) {
   @include theme-prop(background, primary-background-hover-color);
 }
 
