@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.127.0 (2023-05-22)
+
+#### New Features
+* [#1296](https://github.com/mondaycom/monday-ui-react-core/pull/1296) V1 - feat: <ResponsiveList> add menuWrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.126.4 (2023-05-21)
+
+#### New Icons
+* [#1299](https://github.com/mondaycom/monday-ui-react-core/pull/1299) Icon: Erase ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.126.3 (2023-05-21)
+
+#### New Icons
+* [#1291](https://github.com/mondaycom/monday-ui-react-core/pull/1291) chore: update monday-ui-style 0.1.157 with Workflow icon ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.126.2 (2023-05-16)
 
 #### Bug Fixes
