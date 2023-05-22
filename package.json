@@ -11,6 +11,7 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
+    "./tokens": "./dist/esm/src/tokens.scss.js",
     "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
