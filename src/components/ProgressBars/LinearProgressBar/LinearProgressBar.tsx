@@ -71,6 +71,8 @@ interface LinearProgressBarProps extends VibeComponentProps {
   }[];
   /** ARIA description for the progress bar */
   ariaLabel?: string;
+  /** Is the progress bar spread across the entire container width (width: 100%) */
+  fullWidth?: boolean;
 }
 
 const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
@@ -93,6 +95,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       multiValues = [],
       ariaLabel = "",
       id,
+      fullWidth = false,
       "data-testid": dataTestId
     },
     ref
@@ -101,11 +104,12 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       return cx(
         styles.wrapper,
         {
-          [getStyle(styles, size.toString())]: size
+          [getStyle(styles, size.toString())]: size,
+          [styles.fullWidth]: fullWidth
         },
         className
       );
-    }, [size, className]);
+    }, [size, fullWidth, className]);
 
     const valuePercentage = useMemo(() => {
       if (multi) {
@@ -146,6 +150,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
     const renderBaseBars = !multi ? (
       <>
         <Bar
+          className={styles.progressBar}
           barLabelName={ariaLabel}
           barStyle={barStyle}
           value={valueSecondary}
@@ -156,6 +161,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           data-testid={ComponentDefaultTestId.BAR_SECONDARY}
         />
         <Bar
+          className={styles.progressBar}
           barStyle={barStyle}
           value={value}
           animated={animated}
