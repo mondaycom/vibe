@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.127.0 (2023-05-22)
+
+#### New Features
+* [#1296](https://github.com/mondaycom/monday-ui-react-core/pull/1296) V1 - feat: <ResponsiveList> add menuWrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.126.4 (2023-05-21)
 
 #### New Icons
