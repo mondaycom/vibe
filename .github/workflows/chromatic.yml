@@ -7,7 +7,7 @@ name: 'Chromatic'
 on:
   push:
   pull_request:
-      types: [ opened, labeled, unlabeled, synchronize ]
+      types: [ opened, synchronize ]
 
 # List of jobs
 jobs:
