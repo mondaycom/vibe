@@ -68,7 +68,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       [isOpen, onClickOutside]
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
-    useOnClickOutside({ callback: onOutSideClick, ref });
+    useOnClickOutside({ callback: onOutSideClick, ref, eventName: "mousedown" });
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
 
