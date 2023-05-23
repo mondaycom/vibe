@@ -34,12 +34,12 @@ interface BarProps extends VibeComponentProps {
   color?: string;
 }
 
-const Bar: FC<BarProps> = ({ value, baseClass, barStyle, animated, min, max, color, barLabelName }) => {
+const Bar: FC<BarProps> = ({ value, baseClass, barStyle, animated, min, max, color, barLabelName, className }) => {
   const classNames = useMemo(() => {
-    return cx(baseClass, `${baseClass}--${barStyle}`, {
+    return cx(baseClass, `${baseClass}--${barStyle}`, className, {
       [`${baseClass}--animate`]: animated
     });
-  }, [barStyle, animated, baseClass]);
+  }, [barStyle, animated, baseClass, className]);
 
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;

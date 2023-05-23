@@ -11,6 +11,20 @@
   font-size: var(--font-size-general-label);
   @include theme-prop(color, secondary-text-color);
 
+  &.linear-progress-bar--wrapper--full-width {
+    width: 100%;
+    .linear-progress-bar__container {
+      border-radius: 0;
+      .linear-progress-bar__content {
+        border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+
+        &.linear-progress-bar__content--completed {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
   .linear-progress-bar__label {
     padding-left: var(--spacing-xs)
   }
