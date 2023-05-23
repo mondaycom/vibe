@@ -15,7 +15,7 @@
 }
 
 @mixin skeleton($radius: $border-radius-small) {
-  animation-duration: 0.8s;
+  animation-duration: 0.7s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-name: shine;
