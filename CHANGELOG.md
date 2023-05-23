@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.129.0 (2023-05-23)
+
+#### New Features
+* [#1310](https://github.com/mondaycom/monday-ui-react-core/pull/1310) [Version 1 support] - Progress bar full width variant ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.128.0 (2023-05-22)
 
 #### New Features
