@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.0 (2023-05-24)
+
+#### Bug Fixes
+* [#1313](https://github.com/mondaycom/monday-ui-react-core/pull/1313) Fix  Menu Button TS issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1302](https://github.com/mondaycom/monday-ui-react-core/pull/1302) Internal: run test-workflow on pull_request - for public forks ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.1.0 (2023-05-22)
 
 #### New Features
