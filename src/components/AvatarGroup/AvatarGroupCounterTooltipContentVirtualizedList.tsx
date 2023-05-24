@@ -4,6 +4,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { AvatarProps } from "../Avatar/Avatar";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
+import { ElementContent } from "../../types";
 
 const LIST_OPTIONS = Object.freeze({
   maxItemsWithoutScroll: 10,
@@ -12,8 +13,9 @@ const LIST_OPTIONS = Object.freeze({
 });
 
 export type AvatarItem = {
-  value: AvatarProps & { tooltipContent: string | ReactElement | ReactElement[] };
+  value: AvatarProps & { tooltipContent: ElementContent | ElementContent[] };
 };
+jj;
 
 interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
