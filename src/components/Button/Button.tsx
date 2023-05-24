@@ -23,6 +23,8 @@ export interface ButtonProps {
   children?: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
+  /** Custom class name to override Loader wrapper, when loading prop equals to true */
+  loaderWrapperClassName?: string;
   /** The button's kind */
   kind?: ButtonType;
   /** Callback function to run when the button is clicked */
@@ -133,7 +135,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       blurOnMouseUp,
       dataTestId,
       insetFocus,
-      tabIndex
+      tabIndex,
+      loaderWrapperClassName
     },
     ref
   ) => {
@@ -314,7 +317,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     if (loading) {
       return (
         <button {...buttonProps}>
-          <span className="monday-style-button__loader">
+          <span className={cx("monday-style-button__loader", loaderWrapperClassName)}>
             <Loader svgClassName="monday-style-button-loader-svg" />
           </span>
         </button>
