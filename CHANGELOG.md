@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.129.1 (2023-05-24)
+
+#### Bug Fixes
+* [#1312](https://github.com/mondaycom/monday-ui-react-core/pull/1312) Version 1: Fix menu button TS bugs ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.129.0 (2023-05-23)
 
 #### New Features
