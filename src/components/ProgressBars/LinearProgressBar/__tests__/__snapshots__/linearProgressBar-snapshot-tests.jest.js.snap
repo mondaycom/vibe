@@ -12,7 +12,7 @@ exports[`LinearProgressBar renders correctly with barStyle 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="bar typePrimaryPositive animate"
+      className="bar typePrimaryPositive progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
@@ -36,6 +36,31 @@ exports[`LinearProgressBar renders correctly with empty props 1`] = `
 </div>
 `;
 
+exports[`LinearProgressBar renders correctly with full width progress bar 1`] = `
+<div
+  className="wrapper small fullWidth"
+  data-testsid="linear-progress-bar"
+>
+  <div
+    className="container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="bar typePrimaryPrimary progressBar animate"
+      data-testid="bar-primary"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
 exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
 <div
   className="wrapper small"
@@ -48,7 +73,7 @@ exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="bar typePrimaryPrimary animate"
+      className="bar typePrimaryPrimary progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
@@ -79,7 +104,7 @@ exports[`LinearProgressBar renders correctly with min 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={11.11111111111111}
-      className="bar typePrimaryPrimary animate"
+      className="bar typePrimaryPrimary progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
@@ -104,7 +129,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={100}
-      className="bar typePrimaryNone animate"
+      className="bar typePrimaryNone progressBar completed animate"
       data-testid="bar_bar_green_0"
       id="bar_green_0"
       role="progressbar"
@@ -119,7 +144,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={75}
-      className="bar typePrimaryNone animate"
+      className="bar typePrimaryNone progressBar animate"
       data-testid="bar_bar_yellow_1"
       id="bar_yellow_1"
       role="progressbar"
@@ -134,7 +159,7 @@ exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={25}
-      className="bar typePrimaryNone animate"
+      className="bar typePrimaryNone progressBar animate"
       data-testid="bar_bar_red_2"
       id="bar_red_2"
       role="progressbar"
@@ -161,7 +186,7 @@ exports[`LinearProgressBar renders correctly with size 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="bar typePrimaryPrimary animate"
+      className="bar typePrimaryPrimary progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
@@ -186,7 +211,7 @@ exports[`LinearProgressBar renders correctly with value 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="bar typePrimaryPrimary animate"
+      className="bar typePrimaryPrimary progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
@@ -212,7 +237,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={40}
-      className="bar typeSecondaryPrimary animate"
+      className="bar typeSecondaryPrimary progressBar animate"
       data-testid="bar-secondary"
       role="progressbar"
       style={
@@ -225,7 +250,7 @@ exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={20}
-      className="bar typePrimaryPrimary animate"
+      className="bar typePrimaryPrimary progressBar animate"
       data-testid="bar-primary"
       role="progressbar"
       style={
