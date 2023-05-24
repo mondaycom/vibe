@@ -4,7 +4,7 @@
 
 @mixin shine-animation() {
   overflow: hidden;
-  animation-duration: 0.7s;
+  animation-duration: 0.8s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-name: shine;
@@ -12,7 +12,7 @@
 
   @keyframes shine {
     0% {
-      opacity: 0.5;
+      opacity: 0.3;
     }
     100% {
       opacity: 1;
@@ -21,7 +21,7 @@
 }
 
 @mixin skeleton($radius: $border-radius-small) {
-  @include theme-prop(background, primary-background-hover-color); /* should be replaced with all grey color */
+  @include theme-prop(background, primary-background-hover-color);
   border-radius: $radius;
   @include shine-animation;
 }
