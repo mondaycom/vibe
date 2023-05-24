@@ -27,6 +27,8 @@ export interface ButtonProps extends VibeComponentProps {
   /** Custom class names to pass to the component */
   className?: string;
   activeButtonClassName?: string;
+  /** Custom class name to override Loader wrapper, when loading prop equals to true */
+  loaderWrapperClassName?: string;
   /** The button's kind */
   kind?: ButtonType;
   /** Callback function to run when the button is clicked */
@@ -119,6 +121,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       loading,
       active,
       activeButtonClassName,
+      loaderWrapperClassName,
       id,
       marginRight,
       marginLeft,
@@ -324,7 +327,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     if (loading) {
       return (
         <button {...buttonProps}>
-          <span className={styles.loader}>
+          <span className={cx(styles.loader, loaderWrapperClassName)}>
             <Loader svgClassName={styles.loaderSvg} />
           </span>
         </button>
