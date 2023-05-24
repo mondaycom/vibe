@@ -15,7 +15,6 @@ const LIST_OPTIONS = Object.freeze({
 export type AvatarItem = {
   value: AvatarProps & { tooltipContent: ElementContent | ElementContent[] };
 };
-jj;
 
 interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
