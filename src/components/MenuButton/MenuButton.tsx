@@ -7,7 +7,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { ElementContent, VibeComponent, VibeComponentProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
@@ -109,7 +109,7 @@ interface MenuButtonProps extends VibeComponentProps {
    * Backward compatibility for props naming
    */
   disabledReason?: boolean;
-  children?: string | ReactElement | ReactElement[];
+  children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
    */
@@ -117,7 +117,7 @@ interface MenuButtonProps extends VibeComponentProps {
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
-  sizes?: MenuButtonSize;
+  sizes?: typeof MenuButtonSize;
   paddingSizes?: typeof DialogContentContainer.sizes;
   dialogPositions?: typeof DialogPosition;
   hideTriggers?: typeof Dialog.hideShowTriggers;
