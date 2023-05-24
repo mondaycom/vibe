@@ -66,7 +66,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader
-          wrapperClassName={headerWrapperClassName}
+          className={headerWrapperClassName}
           onChangeActiveStep={onChangeActiveStep}
           type={type}
           activeStepIndex={activeStepIndex}
