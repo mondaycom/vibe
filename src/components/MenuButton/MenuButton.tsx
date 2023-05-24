@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { forwardRef, ReactElement, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
