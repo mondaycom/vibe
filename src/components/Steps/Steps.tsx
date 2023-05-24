@@ -27,6 +27,8 @@ export interface StepsProps extends VibeComponentProps {
   areButtonsIconsHidden?: boolean;
   backButtonProps?: ButtonProps;
   nextButtonProps?: ButtonProps;
+  /** Custom class name for Header wrapper */
+  headerWrapperClassName?: string;
 }
 
 const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
@@ -44,7 +46,8 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
       isContentOnTop = false,
       backButtonProps = {},
       nextButtonProps = {},
-      areButtonsIconsHidden = false
+      areButtonsIconsHidden = false,
+      headerWrapperClassName
     },
     ref
   ) => {
@@ -68,10 +71,13 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           backButtonProps={backButtonProps}
           nextButtonProps={nextButtonProps}
           areButtonsIconsHidden={areButtonsIconsHidden}
-          className={cx({
-            [styles.contentOnTop]: isContentOnTop,
-            [styles.contentOnBottom]: !isContentOnTop
-          })}
+          className={cx(
+            {
+              [styles.contentOnTop]: isContentOnTop,
+              [styles.contentOnBottom]: !isContentOnTop
+            },
+            headerWrapperClassName
+          )}
         />
         {!isContentOnTop && steps[activeStepIndex]}
       </div>

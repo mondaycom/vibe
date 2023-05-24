@@ -18,6 +18,7 @@ export interface StepsHeaderProps extends VibeComponentProps {
   nextButtonProps: ButtonProps;
   areButtonsIconsHidden: boolean;
   isOnPrimary: boolean;
+  wrapperClassName?: string;
 }
 
 export const StepsHeader: FC<StepsHeaderProps> = ({
@@ -30,13 +31,13 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   nextButtonProps,
   areButtonsIconsHidden,
   isOnPrimary,
-  className
+  wrapperClassName
 }) => {
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;
 
   return (
-    <div className={cx(styles.header, className)}>
+    <div className={cx(styles.header, wrapperClassName)}>
       {areNavigationButtonsHidden ? null : (
         <StepsCommand
           isNext={false}
