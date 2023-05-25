@@ -60,10 +60,7 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
 
   const entry = {
-    main: [
-      path.join(__dirname, "/src/style-imports"),
-      path.join(__dirname, "/src/index.js")
-    ],
+    main: [path.join(__dirname, "/src/style-imports"), path.join(__dirname, "/src/index.js")],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
     testIds: path.join(__dirname, "/src/tests/test-ids-utils"),
     ...publishedComponents
@@ -156,6 +153,10 @@ module.exports = options => {
           {
             from: "src/constants/colors.json",
             to: "assets/"
+          },
+          {
+            from: "node_modules/monday-ui-style/dist/index.min.css",
+            to: "tokens.css"
           }
         ]
       }),
