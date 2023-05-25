@@ -2,8 +2,8 @@ import { renderHook } from "@testing-library/react-hooks";
 import useDisableScroll from "..";
 
 describe("useDisableScroll", () => {
-  let addEventListenerSpy;
-  let removeEventListenerSpy;
+  let addEventListenerSpy: jest.SpyInstance;
+  let removeEventListenerSpy: jest.SpyInstance;
 
   beforeEach(() => {
     addEventListenerSpy = jest.spyOn(document, "addEventListener");
