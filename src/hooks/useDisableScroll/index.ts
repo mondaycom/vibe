@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 
 const useDisableScroll = (scrollableQuerySelector: string) => {
-    const preventScroll = useCallback((e: Event) => {
+    const _disableScroll = useCallback((e: Event) => {
         e.preventDefault();
         e.stopPropagation();
 
@@ -10,15 +10,15 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
 
     const enableScroll = useCallback(() => {
         document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
-            item.addEventListener("wheel", preventScroll);
+            item.addEventListener("wheel", _disableScroll);
         });
-    }, [preventScroll, scrollableQuerySelector]);
+    }, [_disableScroll, scrollableQuerySelector]);
 
     const disableScroll = useCallback(() => {
         document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
-            item.removeEventListener("wheel", preventScroll);
+            item.removeEventListener("wheel", _disableScroll);
         });
-    }, [preventScroll, scrollableQuerySelector]);
+    }, [_disableScroll, scrollableQuerySelector]);
 
     useEffect(() => {
         return disableScroll;
