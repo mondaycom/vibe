@@ -9,7 +9,7 @@ import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
-import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
+import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme } from "./TipseenConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { ElementContent } from "../../types/ElementContent";
@@ -56,17 +56,17 @@ interface TipseenProps extends VibeComponentProps {
    */
   modifiers?: Array<Modifier<any>>;
   closeAriaLabel?: string;
-  /**
-   * Backward compatability for isCloseButtonOnImage prop
-   */
-  isCloseButtonOnImage?: boolean;
-  closeButtonOnImage?: boolean;
   onClose?: () => void;
   // Better be required, but it might be a breaking change
   content?: ElementContent;
+  /**
+   * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
+   */
+  closeButtonTheme?: TipseenCloseButtonTheme;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
+  closeButtonThemes?: typeof TipseenCloseButtonTheme;
   positions?: typeof DialogPosition;
   animationTypes?: AnimationType;
   justifyTypes?: JustifyType;
@@ -84,6 +84,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       hideCloseButton,
       // Backward compatability for hideCloseButton
       isCloseButtonHidden,
+      closeButtonTheme = TipseenCloseButtonTheme.LIGHT,
       onClose,
       closeAriaLabel,
       children = null,
@@ -91,9 +92,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
       justify = JustifyType.CENTER,
       containerSelector,
       hideTrigger = EMPTY_ARR,
-      closeButtonOnImage,
-      // Backward compatability for closeButtonOnImage
-      isCloseButtonOnImage,
       showTrigger = EMPTY_ARR,
       width,
       moveBy,
@@ -111,7 +109,6 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const [delayedOpen, setDelayOpen] = useState(!defaultDelayOpen);
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
-    const overrideCloseButtonOnImage = backwardCompatibilityForProperties([closeButtonOnImage, isCloseButtonOnImage]);
     const overrideHideCloseButton = backwardCompatibilityForProperties([hideCloseButton, isCloseButtonHidden], false);
 
     useEffect(() => {
@@ -134,15 +131,12 @@ const Tipseen: VibeComponent<TipseenProps> & {
             {overrideHideCloseButton ? null : (
               <Button
                 className={cx(styles.tipseenCloseButton, bemHelper({ element: "close-button" }), {
-                  [styles.tipseenCloseButtonOnImage]: overrideCloseButtonOnImage,
-                  [bemHelper({ element: "close-button", state: "on-image" })]: overrideCloseButtonOnImage
+                  [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
                 })}
                 onClick={onClose}
                 size={Button.sizes.SMALL}
                 kind={Button.kinds.TERTIARY}
-                color={
-                  overrideCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR
-                }
+                color={Button.colors.ON_INVERTED_BACKGROUND}
                 ariaLabel={overrideCloseAriaLabel}
               >
                 <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
@@ -156,15 +150,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           <div className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{content}</div>
         </div>
       ),
-      [
-        content,
-        onClose,
-        overrideCloseAriaLabel,
-        overrideCloseButtonOnImage,
-        overrideHideCloseButton,
-        title,
-        titleClassName
-      ]
+      [content, onClose, overrideCloseAriaLabel, overrideHideCloseButton, title, titleClassName]
     );
 
     return (
@@ -202,6 +188,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
 );
 
 Object.assign(Tipseen, {
+  closeButtonThemes: TipseenCloseButtonTheme,
   positions: DialogPosition,
   animationTypes: AnimationType,
   justifyTypes: JustifyType
