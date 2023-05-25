@@ -14,14 +14,6 @@ const allowedIcons = iconsMetaData.reduce(
   { options: [], mapping: {} }
 );
 
-function cleanTSEnums(enumObj) {
-  // TS enum objects contains both labels and values as object keys
-  return Object.keys(enumObj).reduce((obj, key) => {
-    if (isNaN(Number(key))) obj[key] = enumObj[key];
-    return obj;
-  }, {});
-}
-
 function parseStringForEnums(componentName, enumName, enumObj) {
   let returnValue;
 
@@ -84,14 +76,13 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
       // docgen is the parser we using for parsing all our component prop types, default props and
       // other component data (it's configure under storybook main.js file)
       const componentName = component.__docgenInfo.displayName;
-      const cleanEnum = cleanTSEnums(enums);
       argTypes[prop] = {
-        options: cleanEnum,
-        labels: cleanEnum,
+        options: enums,
+        labels: enums,
         table: {
           type: {
             summary: parseStringForEnums(componentName, enumName, enums),
-            // For not displaying box for enums in controls of js not converted components
+            // For not displaying box for enumns in controls of js not converted components
             detail: null
           }
         }
