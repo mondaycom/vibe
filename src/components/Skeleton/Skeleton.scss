@@ -26,65 +26,41 @@
   @include shine-animation;
 }
 
-.skeleton {
+.monday-style-skeleton {
   display: flex;
-}
 
-.rectangle {
-  height: $rectangle-default-size;
-  @include skeleton;
-}
-
-.circle {
-  height: $circle-default-size;
-  @include skeleton($circle-radius);
-}
-
-.text {
-  @include skeleton;
-}
-
-.textH1 {
-  height: $h1-empty-state-height;
-}
-
-.textH2 {
-  height: $h2-empty-state-height;
-}
-
-.textH3 {
-  height: $h3-empty-state-height;
-}
-
-.textH4 {
-  height: $h4-empty-state-height;
-}
-
-.textH5 {
-  height: $h5-empty-state-height;
-}
-
-.textH6 {
-  height: $h6-empty-state-height;
-}
-
-.textSmall,
-.textCustom {
-  height: $small-empty-state-height;
-}
-
-.fullWidth {
-  width: 100%;
-}
-
-.skeleton:not(.fullWidth) {
-  .text {
-    width: 162px;
+  &_rectangle {
+    height: $rectangle-default-size;
+    @include skeleton;
   }
-  .circle {
-    width: $circle-default-size;
+
+  &_circle {
+    height: $circle-default-size;
+    @include skeleton($circle-radius);
   }
-  .rectangle {
-    width: $rectangle-default-size;
+
+  &_text {
+    @include skeleton;
+    &--h1 {
+      height: $h1-empty-state-height
+    }
+    &--h2 {
+      height: $h2-empty-state-height;
+    }
+    &--h3 {
+      height: $h3-empty-state-height;
+    }
+    &--h4 {
+      height: $h4-empty-state-height;
+    }
+    &--h5 {
+      height: $h5-empty-state-height;
+    }
+    &--h6 {
+      height: $h6-empty-state-height;
+    }
+    &--small, &--custom {
+      height: $small-empty-state-height;
+    }
   }
 }
