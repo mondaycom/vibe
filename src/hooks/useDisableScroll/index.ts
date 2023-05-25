@@ -8,13 +8,13 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
         return false;
     }, []);
 
-    const enableScroll = useCallback(() => {
+    const disableScroll = useCallback(() => {
         document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
             item.addEventListener("wheel", _disableScroll);
         });
     }, [_disableScroll, scrollableQuerySelector]);
 
-    const disableScroll = useCallback(() => {
+    const enableScroll = useCallback(() => {
         document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
             item.removeEventListener("wheel", _disableScroll);
         });
@@ -25,8 +25,8 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
     }, [disableScroll]);
 
     return {
-        enableScroll,
-        disableScroll
+        disableScroll,
+        enableScroll
     };
 };
 
