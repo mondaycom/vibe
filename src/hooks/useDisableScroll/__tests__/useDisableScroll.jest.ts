@@ -6,8 +6,8 @@ describe("useDisableScroll", () => {
   let removeEventListenerSpy: jest.SpyInstance;
 
   beforeEach(() => {
-    addEventListenerSpy = jest.spyOn(document, "addEventListener");
-    removeEventListenerSpy = jest.spyOn(document, "removeEventListener");
+    addEventListenerSpy = jest.spyOn(document.body, "addEventListener");
+    removeEventListenerSpy = jest.spyOn(document.body, "removeEventListener");
   });
 
   afterEach(() => {
@@ -16,7 +16,7 @@ describe("useDisableScroll", () => {
   });
 
   test("should add event listeners when disableScroll is called", () => {
-    const { result } = renderHook(() => useDisableScroll(".scrollable"));
+    const { result } = renderHook(() => useDisableScroll("body"));
 
     result.current.disableScroll();
 
@@ -25,16 +25,16 @@ describe("useDisableScroll", () => {
   });
 
   test("should remove event listeners when disableScroll is called", () => {
-    const { result } = renderHook(() => useDisableScroll(".scrollable"));
+    const { result } = renderHook(() => useDisableScroll("body"));
 
-    result.current.disableScroll();
+    result.current.enableScroll();
 
     expect(removeEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith("wheel", expect.any(Function));
   });
 
   test("should not throw an error when disableScroll is called after unmounting", () => {
-    const { result, unmount } = renderHook(() => useDisableScroll(".scrollable"));
+    const { result, unmount } = renderHook(() => useDisableScroll("body"));
 
     unmount();
 
