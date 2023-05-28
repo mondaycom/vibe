@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.130.0 (2023-05-28)
+
+#### Bug Fixes
+* [#1320](https://github.com/mondaycom/monday-ui-react-core/pull/1320) V1: Fix/hadas/skeleton animation fix ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1322](https://github.com/mondaycom/monday-ui-react-core/pull/1322) v1: Feature/hadas/dark theme tipseen  ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.129.2 (2023-05-24)
 
 #### Bug Fixes
