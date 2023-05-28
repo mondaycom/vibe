@@ -140,9 +140,10 @@ export interface DialogProps extends VibeComponentProps {
    */
   addKeyboardHideShowTriggersByDefault?: boolean;
   /**
-   * Disable the scroll for the containerSelector element
+   * If true disable the scroll for the containerSelector element.
+   * If string use it as selector to prevent scroll.
    */
-  disableContainerScroll?: boolean;
+  disableContainerScroll?: boolean | string;
 }
 
 interface DialogState {
