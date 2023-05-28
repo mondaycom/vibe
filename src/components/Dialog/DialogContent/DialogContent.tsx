@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, {cloneElement, CSSProperties, ReactElement, useCallback, useEffect, useRef} from "react";
+import React, { cloneElement, CSSProperties, ReactElement, useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
@@ -72,18 +72,17 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
-    const { disableScroll, enableScroll } = useDisableScroll(containerSelector)
+    const { disableScroll, enableScroll } = useDisableScroll(containerSelector);
 
     useEffect(() => {
-        if(disableContainerScroll) {
-            if(isOpen) {
-                disableScroll()
-            }
-            else {
-                enableScroll();
-            }
+      if (disableContainerScroll) {
+        if (isOpen) {
+          disableScroll();
+        } else {
+          enableScroll();
         }
-    }, [isOpen])
+      }
+    }, [isOpen]);
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
 
