@@ -36,6 +36,8 @@ export interface DialogContentProps extends VibeComponentProps {
   isReferenceHidden?: boolean;
   hasTooltip?: boolean;
   disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
+  containerSelector?: string;
+  disableContainerScroll?: boolean | string;
 }
 
 export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
@@ -72,7 +74,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
-    const selectorToDisable = disableContainerScroll === true ? containerSelector : disableContainerScroll
+    const selectorToDisable = disableContainerScroll === true ? containerSelector : disableContainerScroll.toString()
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 
     useEffect(() => {
