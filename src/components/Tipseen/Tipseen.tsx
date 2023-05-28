@@ -1,18 +1,18 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
-import { DialogPosition } from "../../constants/positions";
+import { DialogPosition } from "../../constants";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
-import Icon from "../../components/Icon/Icon";
+import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme } from "./TipseenConstants";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
-import { ElementContent } from "../../types/ElementContent";
+import { ElementContent } from "../../types";
 import { Modifier } from "react-popper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./Tipseen.module.scss";
@@ -129,18 +129,18 @@ const Tipseen: VibeComponent<TipseenProps> & {
         <div className={cx(TIPSEEN_BASE_CSS_CLASS)}>
           <div className={cx(styles.tipseenHeader, bemHelper({ element: "header" }))}>
             {overrideHideCloseButton ? null : (
-              <Button
+              <IconButton
+                hideTooltip
                 className={cx(styles.tipseenCloseButton, bemHelper({ element: "close-button" }), {
                   [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
                 })}
                 onClick={onClose}
-                size={Button.sizes.SMALL}
+                size={Button.sizes.XS}
                 kind={Button.kinds.TERTIARY}
                 color={Button.colors.ON_INVERTED_BACKGROUND}
                 ariaLabel={overrideCloseAriaLabel}
-              >
-                <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
-              </Button>
+                icon={CloseSmall}
+              />
             )}
             <TipseenTitle
               text={title}
