@@ -1,10 +1,10 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useScrollLock from "..";
+import useDisableScroll from "..";
 import { FunctionArgument, FunctionArguments, UsageGuidelines } from "../../../storybook";
 
 <Meta title="Hooks/useDisableScroll" />
 
-# useScrollLock
+# useDisableScroll
 
 - [Overview](#overview)
 - [Returns](#returns)
@@ -17,7 +17,7 @@ Use this hook to disable scroll for element.
 <Canvas>
   <Story name="Overview">
     {() => {
-        const { disableScroll, enableScroll } = useScrollLock(".scrollable");
+        const { disableScroll, enableScroll } = useDisableScroll(".scrollable");
         return (
             <div>
                 <button onClick={disableScroll}>Disable Scroll</button>
