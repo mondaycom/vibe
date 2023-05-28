@@ -2,11 +2,11 @@
   margin: 0 var(--spacing-small);
   display: flex;
   align-items: center;
-}
 
-.galleryHeaderDot {
-  margin-right: var(--spacing-small);
-  &:last-child {
-    margin-right: 0;
+  .galleryHeaderDot {
+    margin-right: var(--spacing-small);
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
