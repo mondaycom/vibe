@@ -21,8 +21,8 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
   }, [_disableScroll, scrollableQuerySelector]);
 
   useEffect(() => {
-    return disableScroll;
-  }, [disableScroll]);
+    return enableScroll;
+  }, [enableScroll]);
 
   return {
     disableScroll,
