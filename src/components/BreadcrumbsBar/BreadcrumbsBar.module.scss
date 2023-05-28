@@ -1,0 +1,13 @@
+@import "../../styles/themes";
+
+.breadcrumbsBar ol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.breadcrumbsBar ol .separatorIcon {
+  @include theme-prop(color, secondary-text-color);
+  flex-shrink: 0;
+}

@@ -1,7 +1,10 @@
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
+import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import cx from "classnames";
 import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useKeyEvent";
@@ -13,8 +16,7 @@ import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
-import { baseClassName } from "./StepIndicatorConstants";
-import "./StepIndicator.scss";
+import styles from "./StepIndicator.module.scss";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -28,7 +30,7 @@ const StepCircleDisplay = ({
   return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
-      className={`${baseClassName}__number-container__text__check-icon`}
+      className={styles.numberContainerTextCheckIcon}
       iconLabel={STEP_STATUSES.FULFILLED}
       iconType={fulfilledStepIconType}
       ignoreFocusStyle
@@ -53,7 +55,9 @@ const StepIndicator = ({
   onClick,
   isFollowedByDivider,
   stepDividerClassName,
-  isVertical
+  isVertical,
+  id,
+  "data-testid": dataTestId
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -106,12 +110,12 @@ const StepIndicator = ({
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status, titleText, stepNumber, subtitleText]);
 
-  const baseClassNameWithType = `${baseClassName}--type-${type}`;
-  const baseClassNameWithStatus = `${baseClassName}--status-${status}`;
-  const baseClassNameWithAnimation = `${baseClassName}--with-animation`;
-
   const getClassNamesWithSuffix = suffix => {
-    return [`${baseClassName}${suffix}`, `${baseClassNameWithType}${suffix}`, `${baseClassNameWithStatus}${suffix}`];
+    return [
+      getStyle(styles, camelCase(suffix || "indicator")),
+      getStyle(styles, camelCase(`type-${type}${suffix}`)),
+      getStyle(styles, camelCase(`status-${status}${suffix}`))
+    ];
   };
 
   return (
@@ -119,12 +123,13 @@ const StepIndicator = ({
       tabIndex="-1"
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
-        [baseClassNameWithAnimation]: statusChangeAnimationState,
-        clickable: onClick,
-        [`${baseClassName}--text-placement-vertical`]: isVertical
+        [styles.withAnimation]: statusChangeAnimationState,
+        [styles.clickable]: onClick,
+        [styles.textPlacementVertical]: isVertical
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
+      dataTestId={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
         <div
@@ -135,7 +140,12 @@ const StepIndicator = ({
         >
           <SwitchTransition mode="out-in">
             <CSSTransition
-              classNames={`${baseClassName}--swap`}
+              classNames={{
+                enter: styles.swapEnter,
+                enterActive: styles.swapEnterActive,
+                exit: styles.swapExit,
+                exitActive: styles.swapExitActive
+              }}
               addEndListener={(node, done) => {
                 node.addEventListener("transitionend", done, false);
               }}
@@ -153,7 +163,7 @@ const StepIndicator = ({
             </CSSTransition>
           </SwitchTransition>
         </div>
-        {isFollowedByDivider && isVertical && <Divider classname={stepDividerClassName} />}
+        {isFollowedByDivider && isVertical && <Divider className={cx(styles.divider, stepDividerClassName)} />}
       </div>
       <div className={cx(...getClassNamesWithSuffix("__text-container"))}>
         <div className={cx(...getClassNamesWithSuffix("__text-container__title"))}>

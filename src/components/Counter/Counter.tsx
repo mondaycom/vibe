@@ -1,5 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
@@ -7,7 +10,7 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
-import "./Counter.scss";
+import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
   /** id to pass to the element */
@@ -50,17 +53,18 @@ const Counter: React.FC<CounterProps> & {
   // Backward compatibility for props naming
   wrapperClassName,
   counterClassName,
-  count,
-  size,
-  kind,
-  color,
-  maxDigits,
-  ariaLabeledBy,
-  ariaLabel,
-  id,
-  prefix,
-  onMouseDown,
-  noAnimation
+  count = 0,
+  size = Counter.sizes.LARGE,
+  kind = Counter.kinds.FILL,
+  color = Counter.colors.PRIMARY,
+  maxDigits = 3,
+  ariaLabeledBy = "",
+  ariaLabel = "",
+  id = "",
+  prefix = "",
+  onMouseDown = NOOP,
+  noAnimation = false,
+  "data-testid": dataTestId
 }) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
@@ -106,19 +110,24 @@ const Counter: React.FC<CounterProps> & {
   // Memos
   const classNames = useMemo(() => {
     return cx(
-      "monday-style-counter",
-      `monday-style-counter--size-${getActualSize(size)}`,
-      `monday-style-counter--kind-${kind}`,
-      `monday-style-counter--color-${color}`,
+      styles.counter,
+      getStyle(styles, camelCase("size-" + getActualSize(size))),
+      getStyle(styles, camelCase("kind-" + kind)),
+      getStyle(styles, camelCase("color-" + color)),
       {
-        "monday-style-counter--with-animation": countChangeAnimationState
+        [styles.withAnimation]: countChangeAnimationState
       },
       counterClassName
     );
   }, [size, kind, color, countChangeAnimationState, counterClassName]);
 
+  const counterId = "counter" + (id ? `-${id}` : "");
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
-  const counter = <span id={`counter-${id}`}>{prefix + countText}</span>;
+  const counter = (
+    <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+      {prefix + countText}
+    </span>
+  );
 
   return (
     <span
@@ -134,14 +143,21 @@ const Counter: React.FC<CounterProps> & {
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={countText}
-              classNames="monday-style-counter--fade"
+              classNames={{
+                enter: styles.fadeEnter,
+                enterActive: styles.fadeEnterActive,
+                exit: styles.fadeExit,
+                exitActive: styles.fadeExitActive
+              }}
               // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
               // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
               addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={`counter-${id}`}>{prefix + countText}</span>
+              <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+                {prefix + countText}
+              </span>
             </CSSTransition>
           </SwitchTransition>
         )}
@@ -155,20 +171,5 @@ Object.assign(Counter, {
   colors: CounterColor,
   kinds: CounterType
 });
-
-Counter.defaultProps = {
-  ariaLabel: "",
-  ariaLabeledBy: "",
-  className: undefined,
-  color: CounterColor.PRIMARY,
-  count: 0,
-  id: "",
-  kind: CounterType.FILL,
-  maxDigits: 3,
-  noAnimation: false,
-  onMouseDown: NOOP,
-  prefix: "",
-  size: CounterSize.LARGE
-};
 
 export default Counter;

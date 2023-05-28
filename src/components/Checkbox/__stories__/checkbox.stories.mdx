@@ -1,13 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import {
-    createComponentTemplate,
-    createStoryMetaSettings,
-    Link, RelatedComponents,
-    UnstyledList,
-    UnstyledListItem
-} from "../../../storybook";
-import { Calendar } from "../../Icon/Icons";
+import { Link } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
 import {
   DROPDOWN,
   RADIO_BUTTON,
@@ -48,6 +42,7 @@ Checkboxes allow users to select one or more items from a set of options.
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
@@ -90,35 +85,6 @@ Has 4 states: regular, hover, selected, and disabled.
     <Checkbox label="Disabled" disabled />
     <Checkbox label="Disabled checked" disabled checked />
     <Checkbox label="Disabled indeterminate" disabled indeterminate />
-  </Story>
-</Canvas>
-
-### Variants of Checkboxes' Labels
-
-Component have ability to render with:
-
-<UnstyledList>
-  <UnstyledListItem>with text label</UnstyledListItem>
-  <UnstyledListItem>with component label</UnstyledListItem>
-  <UnstyledListItem>with empty label (empty DOM element will be rendered)</UnstyledListItem>
-  <UnstyledListItem>without label (DOM element for label will not be rendered).</UnstyledListItem>
-</UnstyledList>
-Check React source and rendered HTML.
-
-<Canvas>
-  <Story name="Labels">
-    <Checkbox ariaLabel="With Label" label="With label" />
-    <Checkbox
-      ariaLabel="With Component Label"
-      label={
-        <span class="custom-component-label">
-          <Calendar size="12" />
-          Component Label
-        </span>
-      }
-    />
-    <Checkbox ariaLabel="With Empty Label" label="" />
-    <Checkbox ariaLabel="Without Label" label={false} />
   </Story>
 </Canvas>
 
@@ -235,9 +201,15 @@ Allows the user to choose a single option. For example: accept terms of use.
 
 <Canvas>
   <Story name="Single checkbox">
-    <Checkbox checked label={
-      <>I agree to the <span className="element-type-link">Terms of Service</span> and <span className="element-type-link">Privacy Policy.</span></>
-    } />
+    <Checkbox
+      checked
+      label={
+        <>
+          I agree to the <Link size={Link.sizes.SMALL} withoutSpacing>Terms of Service</Link> and{" "}
+          <Link size={Link.sizes.SMALL} withoutSpacing>Privacy Policy.</Link>
+        </>
+      }
+    />
   </Story>
 </Canvas>
 

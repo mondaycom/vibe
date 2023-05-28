@@ -1,14 +1,16 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
-import Clickable from "../Clickable";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import Clickable, { ClickableProps } from "../Clickable";
 import userEvent from "@testing-library/user-event";
-import { ClickableProps } from "../Clickable";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const renderComponent = (props: ClickableProps) => {
   return render(<Clickable {...props} />);
 };
 
 describe("Clickable tests", () => {
+  const defaultTestId = getTestId(ComponentDefaultTestId.CLICKABLE);
   afterEach(() => {
     cleanup();
   });
@@ -16,7 +18,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when clicked", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(Clickable.defaultTestId);
+    const component = getByTestId(defaultTestId);
     fireEvent.click(component);
     expect(onClick.mock.calls.length).toBe(1);
   });
@@ -24,7 +26,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when focused and enter pressed", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(Clickable.defaultTestId);
+    const component = getByTestId(defaultTestId);
     component.focus();
     userEvent.keyboard("{enter}");
     expect(onClick.mock.calls.length).toBe(1);
@@ -33,7 +35,7 @@ describe("Clickable tests", () => {
   it("should call the onClick callback when focused and space pressed", () => {
     const onClick = jest.fn();
     const { getByTestId } = renderComponent({ onClick });
-    const component = getByTestId(Clickable.defaultTestId);
+    const component = getByTestId(defaultTestId);
     component.focus();
     userEvent.keyboard("{space}");
     expect(onClick.mock.calls.length).toBe(1);

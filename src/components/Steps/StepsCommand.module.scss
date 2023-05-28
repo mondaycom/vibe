@@ -1,0 +1,40 @@
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.command {
+  display: flex;
+  align-items: center;
+}
+
+.backward {
+  &.command {
+    margin-right: var(--spacing-small);
+    flex-direction: row-reverse;
+  }
+  &.icon {
+    margin-right: $spacing-small-medium;
+  }
+}
+
+.forward {
+  &.command {
+    margin-left: var(--spacing-small);
+  }
+  &.icon {
+    margin-left: $spacing-small-medium;
+  }
+}
+
+.icon {
+  @include theme-prop(color, icon-color);
+  width: 15.5px;
+  height: 15.5px;
+  &.disabled {
+    @include theme-prop(color, disabled-text-color);
+  }
+  &.onPrimary {
+    @include theme-prop(color, text-color-on-primary);
+  }
+}

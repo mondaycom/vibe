@@ -185,7 +185,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle
-              className={cx("icon-button-padding", iconClassName)}
+              className={iconClassName}
               clickable={false}
             />
           </Button>
@@ -198,8 +198,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
 Object.assign(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors,
-  defaultTestId: ComponentDefaultTestId.ICON_BUTTON
+  colors: Button.colors
 });
 
 export default IconButton;

@@ -53,7 +53,7 @@ describe("TextField tests", () => {
     inputComponent = rerender(
       <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
     );
-    expect(ref.current.className).toMatch("input-component__input");
+    expect(ref.current.className).toMatch("input");
   });
 
   it("should call the debounced function after time passed (fake timers)", async () => {

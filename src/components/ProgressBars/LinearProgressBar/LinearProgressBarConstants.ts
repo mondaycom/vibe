@@ -1,4 +1,7 @@
-export const baseClassName = "linear-progress-bar";
+export enum ProgressBarType {
+  PRIMARY = "primary",
+  SECONDARY = "secondary"
+}
 
 export enum ProgressBarStyle {
   PRIMARY = "primary",

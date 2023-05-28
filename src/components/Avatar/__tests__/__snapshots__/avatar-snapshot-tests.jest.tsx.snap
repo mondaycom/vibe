@@ -2,12 +2,13 @@
 
 exports[`Avatar renders correctly renders correctly accessibility props 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={true}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -16,7 +17,8 @@ exports[`Avatar renders correctly renders correctly accessibility props 1`] = `
     tabIndex={-1}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -24,12 +26,13 @@ exports[`Avatar renders correctly renders correctly accessibility props 1`] = `
 
 exports[`Avatar renders correctly renders correctly an icon 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -38,7 +41,8 @@ exports[`Avatar renders correctly renders correctly an icon 1`] = `
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -46,12 +50,13 @@ exports[`Avatar renders correctly renders correctly an icon 1`] = `
 
 exports[`Avatar renders correctly renders correctly square avatar 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--is-square"
+    className="circle circleText square"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -60,7 +65,8 @@ exports[`Avatar renders correctly renders correctly square avatar 1`] = `
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -68,12 +74,13 @@ exports[`Avatar renders correctly renders correctly square avatar 1`] = `
 
 exports[`Avatar renders correctly renders correctly with badges 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -82,35 +89,36 @@ exports[`Avatar renders correctly renders correctly with badges 1`] = `
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
   <div
-    className="monday-style-avatar_badges"
+    className="badges"
   >
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--top-left"
+      className="badge badgeTopLeft"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--top-right"
+      className="badge badgeTopRight"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--bottom-left"
+      className="badge badgeBottomLeft"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--bottom-right"
+      className="badge badgeBottomRight"
     >
       <div
         data-testid="custom-icon-mock"
@@ -122,12 +130,13 @@ exports[`Avatar renders correctly renders correctly with badges 1`] = `
 
 exports[`Avatar renders correctly renders correctly with damaged src badges 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -136,35 +145,36 @@ exports[`Avatar renders correctly renders correctly with damaged src badges 1`] 
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
   <div
-    className="monday-style-avatar_badges"
+    className="badges"
   >
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--top-left"
+      className="badge badgeTopLeft"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--top-right"
+      className="badge badgeTopRight"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--bottom-left"
+      className="badge badgeBottomLeft"
     >
       <div
         data-testid="custom-icon-mock"
       />
     </div>
     <div
-      className="monday-style-avatar_badge monday-style-avatar_badge--bottom-right"
+      className="badge badgeBottomRight"
     >
       <div
         data-testid="custom-icon-mock"
@@ -176,12 +186,13 @@ exports[`Avatar renders correctly renders correctly with damaged src badges 1`] 
 
 exports[`Avatar renders correctly renders correctly with empty props 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -190,7 +201,8 @@ exports[`Avatar renders correctly renders correctly with empty props 1`] = `
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -198,17 +210,19 @@ exports[`Avatar renders correctly renders correctly with empty props 1`] = `
 
 exports[`Avatar renders correctly renders correctly with image 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={Object {}}
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -216,17 +230,19 @@ exports[`Avatar renders correctly renders correctly with image 1`] = `
 
 exports[`Avatar renders correctly renders correctly with image and text 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={Object {}}
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     >
       Name
     </span>
@@ -236,17 +252,19 @@ exports[`Avatar renders correctly renders correctly with image and text 1`] = `
 
 exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={Object {}}
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>
@@ -254,12 +272,13 @@ exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
 
 exports[`Avatar renders correctly renders correctly with text 1`] = `
 <div
-  className="monday-style-avatar monday-style-avatar--large"
+  className="avatar large"
+  data-testid="avatar"
   style={Object {}}
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--text"
+    className="circle circleText"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue)",
@@ -268,7 +287,8 @@ exports[`Avatar renders correctly renders correctly with text 1`] = `
     tabIndex={0}
   >
     <span
-      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      className="contentText contentTextLarge"
+      data-testid="avatar-content"
     />
   </div>
 </div>

@@ -16,7 +16,7 @@ import {
 import { tabsTemplate } from "./tabs.overview.jsx";
 import "./tabs.stories.scss";
 
-<Meta title="Navigation/Tabs/Tabs" component={Tab} subcomponents={{ TabsContext, TabList, TabPanels, TabPanel }} />
+<Meta title="Navigation/Tabs/Tabs" component={Tab} subcomponents={{ TabPanel, TabPanels, TabList, TabsContext }} />
 
 # Tabs
 
@@ -34,7 +34,7 @@ import "./tabs.stories.scss";
 Tabs allow users to navigate between related views of content while remaining in the context of the page.
 
 <Canvas>
-  <Story name="Overview" args={{ className: "monday-storybook-tabs_bg-color" }}>
+  <Story name="Overview" args={{ tabPanelClassName: "monday-storybook-tabs_bg-color" }}>
     {tabsTemplate.bind({})}
   </Story>
 </Canvas>
@@ -68,7 +68,7 @@ Tabs allow users to navigate between related views of content while remaining in
 
 <Canvas>
   <Story name="Default">
-    <TabsContext className="monday-storybook-tabs_bg-color">
+    <TabsContext>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -76,10 +76,10 @@ Tabs allow users to navigate between related views of content while remaining in
         <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel>First slide</TabPanel>
-        <TabPanel>Second slide</TabPanel>
-        <TabPanel>Third slide</TabPanel>
-        <TabPanel>Fourth slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+        <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
       </TabPanels>
     </TabsContext>
   </Story>
@@ -109,7 +109,7 @@ Tabs animation direction
 <Canvas>
   <Story name="Motion">
     <div className="monday-storybook-tabs_column-wrapper">
-      <TabsContext className="monday-storybook-tabs_bg-color">
+      <TabsContext>
         <TabList>
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -117,13 +117,13 @@ Tabs animation direction
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection={TabPanels.animationDirections.LTR}>
-          <TabPanel>First slide</TabPanel>
-          <TabPanel>Second slide</TabPanel>
-          <TabPanel>Third slide</TabPanel>
-          <TabPanel>Fourth slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
         </TabPanels>
       </TabsContext>
-      <TabsContext className="monday-storybook-tabs_bg-color">
+      <TabsContext>
         <TabList>
           <Tab>First</Tab>
           <Tab>Second</Tab>
@@ -131,10 +131,10 @@ Tabs animation direction
           <Tab disabled>Disabled</Tab>
         </TabList>
         <TabPanels animationDirection={TabPanels.animationDirections.RTL}>
-          <TabPanel>First slide</TabPanel>
-          <TabPanel>Second slide</TabPanel>
-          <TabPanel>Third slide</TabPanel>
-          <TabPanel>Fourth slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">First slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Second slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Third slide</TabPanel>
+          <TabPanel className="monday-storybook-tabs_bg-color">Fourth slide</TabPanel>
         </TabPanels>
       </TabsContext>
     </div>
@@ -224,17 +224,17 @@ In the admin section tabs used to navigate between the different preferences
 
 <Canvas>
   <Story name="Admin section tabs">
-    <TabsContext className="monday-storybook-tabs_wrapper">
+    <TabsContext>
       <TabList>
         <Tab>Profile</Tab>
         <Tab>Account</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel>
+        <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Login Details</h2>
           <TextField title="Profile Name" size={TextField.sizes.MEDIUM} placeholder="Profile Name" />
         </TabPanel>
-        <TabPanel>
+        <TabPanel className="monday-storybook-tabs_wrapper">
           <h2>Account Details</h2>
           <TextField title="Account Name" size={TextField.sizes.MEDIUM} placeholder="Account Name" />
         </TabPanel>

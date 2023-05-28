@@ -10,14 +10,16 @@ import {
   isPageUpEvent
 } from "../../../utils/dom-event-utils";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import { bem, calcDimensions, calculatePageStep, getNearest, moveToPx } from "../SliderHelpers";
+import { calcDimensions, calculatePageStep, getNearest, moveToPx } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
 import VibeComponentProps from "../../../types/VibeComponentProps";
-import "./SliderBase.scss";
+import cx from "classnames";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import styles from "./SliderBase.module.scss";
 
 export type SliderBaseProps = VibeComponentProps;
 
@@ -74,18 +76,29 @@ const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
 
   return (
     <div
-      className={bem("base", { [size]: size, [color]: color, disabled }, className)}
+      className={cx(
+        styles.base,
+        { [getStyle(styles, size)]: size, [getStyle(styles, color)]: color, [styles.disabled]: disabled },
+        className
+      )}
       data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}
     >
-      <SliderRail onClick={handleRailClick} ref={railRef}>
-        <SliderTrack />
+      <SliderRail onClick={handleRailClick} size={size} ref={railRef}>
+        <SliderTrack color={color} />
         {railRef.current && (
           <>
-            <SliderFilledTrack dimension={dimension} offset={offset} />
+            <SliderFilledTrack dimension={dimension} offset={offset} color={color} />
             {positions.map((position, index) => {
               return (
-                <SliderThumb key={thumbKeys[index]} index={index} onMove={handlePointerMove} position={position} />
+                <SliderThumb
+                  key={thumbKeys[index]}
+                  index={index}
+                  onMove={handlePointerMove}
+                  position={position}
+                  color={color}
+                  size={size}
+                />
               );
             })}
           </>

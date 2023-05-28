@@ -82,6 +82,7 @@ export {default as Email} from './components/Email';
 export {default as Embed} from './components/Embed';
 export {default as Emoji} from './components/Emoji';
 export {default as Enter} from './components/Enter';
+export {default as Erase} from './components/Erase';
 export {default as Event} from './components/Event';
 export {default as Expand} from './components/Expand';
 export {default as ExternalPage} from './components/ExternalPage';
@@ -231,6 +232,7 @@ export {default as Wand} from './components/Wand';
 export {default as WhatsNew} from './components/WhatsNew';
 export {default as Widgets} from './components/Widgets';
 export {default as Work} from './components/Work';
+export {default as Workflow} from './components/Workflow';
 export {default as Workspace} from './components/Workspace';
 /* tslint:enable */
 /* eslint-enable */

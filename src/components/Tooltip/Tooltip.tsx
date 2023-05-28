@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { camelCase, isFunction } from "lodash-es";
 import cx from "classnames";
 import React, { CSSProperties, isValidElement, PureComponent, ReactElement } from "react";
-import classnames from "classnames";
 import { Modifier } from "react-popper";
-import { isFunction } from "lodash-es";
 import Dialog from "../Dialog/Dialog";
 import { AnimationType, BASE_SIZES_WITH_NONE, HideShowEvent, JustifyType } from "../../constants";
 import { DialogPosition } from "../../constants/positions";
@@ -11,7 +10,8 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipArrowPosition, TooltipTheme } from "./TooltipConstants";
 import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
-import "./Tooltip.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./Tooltip.module.scss";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
@@ -170,8 +170,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     return (
       <div
         style={style}
-        className={classnames(
-          `monday-style-tooltip monday-style-tooltip-${theme} padding-size-${paddingSize}`,
+        className={cx(
+          styles.tooltip,
+          getStyle(styles, camelCase(theme)),
+          getStyle(styles, camelCase("padding-size-" + paddingSize)),
           className
         )}
       >
@@ -257,9 +259,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       getContainer: getContainer || this.getContainer,
       moveBy,
       tooltipClassName: cx(
-        "monday-style-arrow",
-        `monday-style-arrow-${theme}`,
-        `padding-size-${paddingSize}`,
+        styles.arrow,
+        getStyle(styles, theme),
+        getStyle(styles, camelCase("padding-size-" + paddingSize)),
         arrowClassName
       ),
       animationType: AnimationType.EXPAND,

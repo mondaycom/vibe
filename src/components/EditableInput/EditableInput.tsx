@@ -1,5 +1,5 @@
-import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import autosize from "autosize";
 import useStyle from "../../hooks/useStyle";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -15,7 +15,8 @@ import {
 import VibeComponent from "../../types/VibeComponent";
 import { VibeComponentProps } from "../../types";
 import { InputType } from "./EditableInputConstants";
-import "./EditableInput.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./EditableInput.module.scss";
 
 export interface EditableInputProps extends VibeComponentProps {
   value?: string;
@@ -80,7 +81,8 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       onCancelEditing,
       textareaSubmitOnEnter = false,
       onArrowKeyDown,
-      ariaLabel
+      ariaLabel,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -228,9 +230,10 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
       <InputTypeComponent
         ref={mergedRef}
         id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_INPUT, id)}
         style={style}
-        className={cx("editable-input--wrapper", className, {
-          "no-resize": autoSize
+        className={cx(styles.editableInputWrapper, className, {
+          [styles.noResize]: autoSize
         })}
         onChange={onChangeCallback}
         onKeyDown={onKeyDownCallback}

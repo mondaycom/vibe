@@ -1,10 +1,11 @@
-import React, { FC, forwardRef, useRef } from "react";
 import cx from "classnames";
+import React, { FC, forwardRef, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
 import { SubIcon, VibeComponentProps } from "../../types";
-import "./ListItemIcon.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
   icon?: SubIcon;
@@ -23,7 +24,7 @@ const ListItemIcon: FC<ListItemIconProps> & {
   return (
     <div
       ref={mergedRef}
-      className={cx("list-item-icon", className, `list-item-icon--${margin}`)}
+      className={cx(styles.listItemIcon, getStyle(styles, margin), className)}
       id={id}
       aria-hidden="true"
     >

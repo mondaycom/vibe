@@ -3,7 +3,7 @@
 exports[`Dropdown renders correctly snapshot driver should open menu on click if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -21,9 +21,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-quv8ei-control"
       >
@@ -71,7 +69,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -91,73 +90,79 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class="dropdownMenuWrapper css-1ysewv0-menu"
     >
       <div
         class=" css-bknh9q-Component"
       >
         <div
-          class="dropdown-wrapper__option--reset css-1iwu591-option"
+          class="optionReset css-1iwu591-option"
           id="react-select-32-option-0"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Ocean
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-qj04r2-option"
+          class="optionReset css-qj04r2-option"
           id="react-select-32-option-1"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Blue
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-2"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Purple
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-3"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Red
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-4"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Orange
           </div>
         </div>
         <div
-          class="dropdown-wrapper__option--reset css-6ztf41-option"
+          class="optionReset css-6ztf41-option"
           id="react-select-32-option-5"
           tabindex="-1"
         >
           <div
             class="valueContainer"
+            data-testid="dropdown-option-content"
           >
             Yellow
           </div>
@@ -171,7 +176,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
 exports[`Dropdown renders correctly snapshot driver should open menu on focus if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -189,9 +194,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
            0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-quv8ei-control"
       >
@@ -239,7 +242,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -265,12 +269,10 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-veeint-control"
       >
@@ -318,7 +320,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -344,12 +347,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-veeint-control"
       >
@@ -397,7 +398,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -423,12 +425,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-story css-1pu8kyc-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-veeint-control"
       >
@@ -476,7 +476,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -502,12 +503,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-132xx32-control"
       >
@@ -555,7 +554,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -581,12 +581,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-cmnsoe-container"
+    class="dropdown dropdown-story css-cmnsoe-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-ng27sg-control"
       >
@@ -634,7 +632,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -660,12 +659,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly with empty props 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-132xx32-control"
       >
@@ -713,7 +710,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -739,7 +737,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
 exports[`Dropdown renders correctly snapshot driver should use async if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -757,9 +755,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
            0 results available.   Selected:  is focused ,type to refine list, press Down to open the menu, 
       </span>
     </span>
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-quv8ei-control"
       >
@@ -821,7 +817,8 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -847,7 +844,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
 exports[`Dropdown renders correctly snapshot driver should use virtualization if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-story css-bbwnb8-container"
     id="dropdown-menu-id"
   >
     <span
@@ -865,9 +862,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           option 1 focused, 1 of 10000. 10000 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
       </span>
     </span>
-    <div
-      class="monday-dropdown_scrollable-wrapper"
-    >
+    <div>
       <div
         class=" css-quv8ei-control"
       >
@@ -915,7 +910,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -935,7 +931,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
       </div>
     </div>
     <div
-      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
+      class="dropdownMenuWrapper css-1ysewv0-menu"
     >
       <div
         class=""
@@ -949,12 +945,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-1iwu591-option"
+                class="optionReset css-1iwu591-option"
                 id="react-select-29-option-0"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   1
                 </div>
@@ -966,12 +963,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-1"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   2
                 </div>
@@ -983,12 +981,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-2"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   3
                 </div>
@@ -1000,12 +999,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-3"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   4
                 </div>
@@ -1017,12 +1017,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-4"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   5
                 </div>
@@ -1034,12 +1035,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-5"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   6
                 </div>
@@ -1051,12 +1053,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-6"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   7
                 </div>
@@ -1068,12 +1071,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-7"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   8
                 </div>
@@ -1085,12 +1089,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-8"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   9
                 </div>
@@ -1102,12 +1107,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-9"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   10
                 </div>
@@ -1119,12 +1125,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class="dropdown-wrapper__option--reset css-6ztf41-option"
+                class="optionReset css-6ztf41-option"
                 id="react-select-29-option-10"
                 tabindex="-1"
               >
                 <div
                   class="valueContainer"
+                  data-testid="dropdown-option-content"
                 >
                   11
                 </div>
@@ -1140,13 +1147,11 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
 
 exports[`Dropdown renders correctly when disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1gsgnpy-container"
+  className="dropdown css-1gsgnpy-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-ai89z2-control"
       onMouseDown={[Function]}
@@ -1233,7 +1238,8 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component"
+            className="icon"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1257,13 +1263,11 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when readOnly 1`] = `
 <div
-  className="dropdown-wrapper css-eh7fjc-container"
+  className="dropdown css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-uninrv-control"
       onMouseDown={[Function]}
@@ -1305,7 +1309,8 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1330,13 +1335,11 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
 
 exports[`Dropdown renders correctly when rtl 1`] = `
 <div
-  className="dropdown-wrapper css-b0xr5u-container"
+  className="dropdown css-b0xr5u-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -1423,7 +1426,8 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1448,13 +1452,11 @@ exports[`Dropdown renders correctly when rtl 1`] = `
 
 exports[`Dropdown renders correctly with autoFocus 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -1541,7 +1543,8 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1566,13 +1569,11 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
 
 exports[`Dropdown renders correctly with chip colors 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-uqdx2p-control"
       onMouseDown={[Function]}
@@ -1590,7 +1591,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
           >
             <div
               aria-label="Primary"
-              className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
+              className="chips multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="primary"
               onClick={[Function]}
@@ -1611,7 +1612,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-disabled={false}
                 aria-label="Remove"
                 aria-pressed={false}
-                className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -1631,7 +1632,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon noFocusStyle"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1649,7 +1651,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             </div>
             <div
               aria-label="Positive"
-              className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
+              className="chips multiselect-chip-multi-line withClose noAnimation"
               data-testid="value-container-chip"
               id="positive"
               onClick={[Function]}
@@ -1670,7 +1672,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-disabled={false}
                 aria-label="Remove"
                 aria-pressed={false}
-                className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                 data-testid="value-container-chip-close"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -1690,7 +1692,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon noFocusStyle"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1711,7 +1714,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             >
               <div
                 aria-label="Negative"
-                className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
+                className="chips multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="negative"
                 onClick={[Function]}
@@ -1732,7 +1735,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                   aria-disabled={false}
                   aria-label="Remove"
                   aria-pressed={false}
-                  className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -1752,7 +1755,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon noFocusStyle"
+                    data-testid="icon"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}
@@ -1842,7 +1846,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1870,7 +1875,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1895,13 +1901,11 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
 
 exports[`Dropdown renders correctly with className 1`] = `
 <div
-  className="dropdown-wrapper test css-bbwnb8-container"
+  className="dropdown test css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -1988,7 +1992,8 @@ exports[`Dropdown renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2013,13 +2018,11 @@ exports[`Dropdown renders correctly with className 1`] = `
 
 exports[`Dropdown renders correctly with defaultValue 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -2033,6 +2036,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean
@@ -2108,7 +2112,8 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2136,7 +2141,8 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2161,13 +2167,11 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
 
 exports[`Dropdown renders correctly with empty props 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -2254,7 +2258,8 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2279,13 +2284,11 @@ exports[`Dropdown renders correctly with empty props 1`] = `
 
 exports[`Dropdown renders correctly with id 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -2372,7 +2375,8 @@ exports[`Dropdown renders correctly with id 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2397,13 +2401,11 @@ exports[`Dropdown renders correctly with id 1`] = `
 
 exports[`Dropdown renders correctly with leftAvatar 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-uqdx2p-control"
       onMouseDown={[Function]}
@@ -2424,7 +2426,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
+                className="chips multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
                 onClick={[Function]}
@@ -2436,7 +2438,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 }
               >
                 <div
-                  className="monday-style-avatar avatar left monday-style-avatar--large"
+                  className="avatar large avatar left"
+                  data-testid="avatar"
                   style={
                     Object {
                       "height": 18,
@@ -2446,12 +2449,13 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 >
                   <div
                     aria-hidden={false}
-                    className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+                    className="circle circleImg withoutBorder"
                     style={Object {}}
                     tabIndex={0}
                   >
                     <img
-                      className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+                      className="contentImg contentImgLarge"
+                      data-testid="avatar-content"
                       src="person1.png"
                     />
                   </div>
@@ -2466,7 +2470,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   aria-disabled={false}
                   aria-label="Remove"
                   aria-pressed={false}
-                  className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -2486,7 +2490,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon noFocusStyle"
+                    data-testid="icon"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}
@@ -2576,7 +2581,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2604,7 +2610,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2629,13 +2636,11 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
 
 exports[`Dropdown renders correctly with leftIcon 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown css-3iiiai-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-uqdx2p-control"
       onMouseDown={[Function]}
@@ -2656,7 +2661,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
+                className="chips multiselect-chip-multi-line withClose noAnimation"
                 data-testid="value-container-chip"
                 id="ocean"
                 onClick={[Function]}
@@ -2669,7 +2674,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon left icon_component--no-focus-style"
+                  className="icon icon left noFocusStyle"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -2693,7 +2699,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   aria-disabled={false}
                   aria-label="Remove"
                   aria-pressed={false}
-                  className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
                   data-testid="value-container-chip-close"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -2713,7 +2719,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    className="icon_component icon-button-padding icon_component--no-focus-style"
+                    className="icon noFocusStyle"
+                    data-testid="icon"
                     fill="currentColor"
                     height="16"
                     onClick={[Function]}
@@ -2803,7 +2810,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2831,7 +2839,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2856,13 +2865,11 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
 
 exports[`Dropdown renders correctly with multi 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -2967,7 +2974,8 @@ exports[`Dropdown renders correctly with multi 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2992,13 +3000,11 @@ exports[`Dropdown renders correctly with multi 1`] = `
 
 exports[`Dropdown renders correctly with multi and disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1gsgnpy-container"
+  className="dropdown css-1gsgnpy-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-ai89z2-control"
       onMouseDown={[Function]}
@@ -3016,7 +3022,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+              className="chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3038,7 +3044,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips--wrapper multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
+                className="chips multiselect-chip-single-line multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3132,7 +3138,8 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component"
+            className="icon"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3156,13 +3163,11 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 
 exports[`Dropdown renders correctly with multi and readonly 1`] = `
 <div
-  className="dropdown-wrapper css-eh7fjc-container"
+  className="dropdown css-eh7fjc-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-uninrv-control"
       onMouseDown={[Function]}
@@ -3180,7 +3185,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
+              className="chips multiselect-chip-single-line noAnimation withUserSelect"
               data-testid="value-container-chip"
               id="ocean"
               onClick={[Function]}
@@ -3202,7 +3207,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips--wrapper multiselect-chip-single-line noAnimation withUserSelect"
+                className="chips multiselect-chip-single-line noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 id="blue"
                 onClick={[Function]}
@@ -3251,7 +3256,8 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3276,13 +3282,11 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
 
 exports[`Dropdown renders correctly with multiline 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -3369,7 +3373,8 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3394,13 +3399,11 @@ exports[`Dropdown renders correctly with multiline 1`] = `
 
 exports[`Dropdown renders correctly with options 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -3487,7 +3490,8 @@ exports[`Dropdown renders correctly with options 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3512,13 +3516,11 @@ exports[`Dropdown renders correctly with options 1`] = `
 
 exports[`Dropdown renders correctly with placeholder 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -3605,7 +3607,8 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3630,13 +3633,11 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
 
 exports[`Dropdown renders correctly with tabIndex 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -3723,7 +3724,8 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3748,12 +3750,12 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 
 exports[`Dropdown renders correctly with tooltipContent 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
   <div
-    className="monday-dropdown_scrollable-wrapper"
+    className=""
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -3848,7 +3850,8 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3873,13 +3876,11 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
 
 exports[`Dropdown renders correctly with value 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -3893,6 +3894,7 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <div
             className="valueContainer"
+            data-testid="dropdown-option-content"
             onMouseDown={[Function]}
           >
             Ocean
@@ -3968,7 +3970,8 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3996,7 +3999,8 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -4021,13 +4025,11 @@ exports[`Dropdown renders correctly with value 1`] = `
 
 exports[`Dropdown renders correctly without clear button 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown css-bbwnb8-container"
   id="dropdown-menu-id"
   onKeyDown={[Function]}
 >
-  <div
-    className="monday-dropdown_scrollable-wrapper"
-  >
+  <div>
     <div
       className=" css-132xx32-control"
       onMouseDown={[Function]}
@@ -4114,7 +4116,8 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}

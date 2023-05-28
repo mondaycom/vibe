@@ -22,7 +22,8 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
-import "./VirtualizedGrid.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./VirtualizedGrid.module.scss";
 
 type ItemType = {
   value: string;
@@ -121,7 +122,8 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       onItemsRenderedThrottleMs = 200,
       onSizeUpdate = NOOP,
       onVerticalScrollbarVisiblityChange = null,
-      scrollableClassName
+      scrollableClassName,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -275,7 +277,12 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, gridHeight, idGetter]);
 
     return (
-      <div ref={mergedRef} className={cx("virtualized-grid--wrapper", className)} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx(styles.virtualizedGridWrapper, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_GRID, id)}
+      >
         <AutoSizer>
           {({ height, width }) => {
             updateGridSize(width, height);
@@ -290,7 +297,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
-                className={cx("virtualized-grid-scrollable-container", scrollableClassName)}
+                className={scrollableClassName}
               >
                 {/*@ts-ignore*/}
                 {cellRenderer}

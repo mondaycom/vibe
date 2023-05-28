@@ -3,7 +3,7 @@
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper disabled noAnimation"
+  className="chips disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -23,7 +23,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper withClose noAnimation"
+  className="chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -42,7 +42,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     aria-disabled={false}
     aria-label="Remove"
     aria-pressed={false}
-    className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
     onBlur={[Function]}
     onClick={[Function]}
@@ -62,7 +62,8 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -83,7 +84,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper withClose noAnimation"
+  className="chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -102,7 +103,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     aria-disabled={false}
     aria-label="Remove"
     aria-pressed={false}
-    className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
     onBlur={[Function]}
     onClick={[Function]}
@@ -122,7 +123,8 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -143,7 +145,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -153,7 +155,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   }
 >
   <div
-    className="monday-style-avatar avatar left monday-style-avatar--large"
+    className="avatar large avatar left"
+    data-testid="avatar"
     style={
       Object {
         "height": 18,
@@ -163,12 +166,13 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+      className="circle circleImg withoutBorder"
       style={Object {}}
       tabIndex={0}
     >
       <img
-        className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+        className="contentImg contentImgLarge"
+        data-testid="avatar-content"
         src="person1.png"
       />
     </div>
@@ -184,7 +188,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 exports[`Chips renders correctly renders correctly with left custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper withClose noAnimation"
+  className="chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -210,7 +214,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
     aria-disabled={false}
     aria-label="Remove"
     aria-pressed={false}
-    className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
     onBlur={[Function]}
     onClick={[Function]}
@@ -230,7 +234,8 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -251,7 +256,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -262,7 +267,8 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon left icon_component--no-focus-style"
+    className="icon icon left noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -287,7 +293,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -302,7 +308,8 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
     
   </div>
   <div
-    className="monday-style-avatar avatar right monday-style-avatar--large"
+    className="avatar large avatar right"
+    data-testid="avatar"
     style={
       Object {
         "height": 16,
@@ -312,12 +319,13 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+      className="circle circleImg withoutBorder"
       style={Object {}}
       tabIndex={0}
     >
       <img
-        className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+        className="contentImg contentImgLarge"
+        data-testid="avatar-content"
         src="person1.png"
       />
     </div>
@@ -328,7 +336,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 exports[`Chips renders correctly renders correctly with right custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper withClose noAnimation"
+  className="chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -354,7 +362,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
     aria-disabled={false}
     aria-label="Remove"
     aria-pressed={false}
-    className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
     onBlur={[Function]}
     onClick={[Function]}
@@ -374,7 +382,8 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -395,7 +404,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -411,7 +420,8 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
   </div>
   <svg
     aria-hidden={true}
-    className="icon_component icon right icon_component--no-focus-style"
+    className="icon icon right noFocusStyle"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -431,7 +441,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   aria-label="text"
-  className="chips chips--wrapper withClose noAnimation"
+  className="chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -450,7 +460,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     aria-disabled={false}
     aria-label="Remove"
     aria-pressed={false}
-    className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
     data-testid="chip-close"
     onBlur={[Function]}
     onClick={[Function]}
@@ -470,7 +480,8 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="icon noFocusStyle"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -491,7 +502,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
   aria-label=""
-  className="chips chips--wrapper noAnimation"
+  className="chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={

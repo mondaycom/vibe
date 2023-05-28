@@ -1,0 +1,34 @@
+.searchWrapper input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+.searchWrapper input[type="search"]::-webkit-search-decoration,
+.searchWrapper input[type="search"]::-webkit-search-cancel-button,
+.searchWrapper input[type="search"]::-webkit-search-results-button,
+.searchWrapper input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.searchWrapper:focus-within .searchFocusElementFirst {
+  animation: dashForward 5s linear forwards;
+}
+
+.searchWrapper:focus-within .searchFocusElementSecond {
+  animation: dashBackwards 5s linear forwards;
+}
+
+.search.round {
+  border-radius: 50px !important;
+}
+
+@keyframes dashForward {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dashBackwards {
+  to {
+    stroke-dashoffset: 2000;
+  }
+}

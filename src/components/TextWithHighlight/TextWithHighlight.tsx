@@ -1,11 +1,12 @@
-import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { DialogPosition } from "../../constants";
-import "./TextWithHighlight.scss";
+import styles from "./TextWithHighlight.module.scss";
 
 const getTextPart = (
   text: string,
@@ -17,7 +18,7 @@ const getTextPart = (
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      <WrappingElement className={cx("highlight-text", wrappingElementClassName)} key={key}>
+      <WrappingElement className={cx(styles.highlightText, wrappingElementClassName)} key={key}>
         {text}
       </WrappingElement>
     );
@@ -60,7 +61,8 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       nonEllipsisTooltip,
       tooltipPosition,
       wrappingTextTag = "em",
-      wrappingElementClassName
+      wrappingElementClassName,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -96,17 +98,18 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
 
     useLayoutEffect(() => {
       if (componentRef.current) {
-        componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp);
+        componentRef.current.style.setProperty("--heading-clamp-lines", linesToClamp.toString());
       }
     }, [componentRef, linesToClamp]);
 
     const Element = (
       <div
         ref={mergedRef}
-        className={cx("text-with-highlight--wrapper", className, {
-          "with-ellipsis": useEllipsis
+        className={cx(styles.textWithHighlightWrapper, className, {
+          [styles.withEllipsis]: useEllipsis
         })}
         id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_WITH_HIGHLIGHT, id)}
       >
         {textWithHighlights}
       </div>

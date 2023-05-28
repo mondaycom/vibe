@@ -1,0 +1,14 @@
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
+
+.text {
+  @include theme-prop(color, primary-text-color);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.disabled {
+  color: var(--disabled-text-color);
+}

@@ -1,16 +1,14 @@
 import React, { forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
-import { STEPS_CSS_BASE_CLASS, StepsType } from "./StepsConstants";
+import { StepsType } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
 import VibeComponent from "../../types/VibeComponent";
-import "./Steps.scss";
-
-const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./Steps.module.scss";
 
 export interface StepsProps extends VibeComponentProps {
   /**
@@ -36,6 +34,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
     {
       className,
       id,
+      "data-testid": dataTestId,
       steps = [],
       activeStepIndex = 0,
       type = StepsType.GALLERY,
@@ -54,12 +53,9 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
     return (
       <div
         ref={mergedRef}
-        className={cx(STEPS_CSS_BASE_CLASS, className, {
-          [bemHelper({ state: "on-primary" })]: isOnPrimary,
-          [bemHelper({ state: "content-on-top" })]: isContentOnTop,
-          [bemHelper({ state: "content-on-bottom" })]: !isContentOnTop
-        })}
+        className={cx(styles.steps, className)}
         id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS, id)}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader
@@ -72,6 +68,10 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           backButtonProps={backButtonProps}
           nextButtonProps={nextButtonProps}
           areButtonsIconsHidden={areButtonsIconsHidden}
+          className={cx({
+            [styles.contentOnTop]: isContentOnTop,
+            [styles.contentOnBottom]: !isContentOnTop
+          })}
         />
         {!isContentOnTop && steps[activeStepIndex]}
       </div>

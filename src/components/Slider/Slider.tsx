@@ -2,13 +2,14 @@ import React, { forwardRef, ReactElement, useMemo, useRef } from "react";
 import { BASE_SIZES } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
-import { bem, ensureDefaultValue } from "./SliderHelpers";
+import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
 import { IconType } from "../Icon/IconConstants";
 import { SliderColor, SliderSize } from "./SliderConstants";
-import "./Slider.scss";
+import cx from "classnames";
+import styles from "./Slider.module.scss";
 
 export type SliderProps = {
   // ------ SliderBase props
@@ -177,7 +178,8 @@ const Slider: React.FC<SliderProps> & {
         valueText={valueText}
       >
         <div
-          className={bem("", { disabled, "value-shown": showValue }, className)}
+          // className={bem("", { disabled, "value-shown": showValue }, className)}
+          className={cx(styles.slider, { [styles.valueShown]: showValue }, className)}
           data-testid={dataTestId}
           id={id}
           ref={mergedRef}

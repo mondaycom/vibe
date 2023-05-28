@@ -1,0 +1,466 @@
+import Dialog from "../Dialog";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createStoryMetaSettings, Link } from "../../../storybook";
+import { Button, DialogContentContainer, IconButton, AttentionBox } from "../../../components";
+import { ExampleContent } from "./helpers";
+import { Info } from "../../Icon/Icons";
+import {
+  MENU,
+  DIALOG_CONTENT_CONTAINER,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import Flex from "../../Flex/Flex";
+import useSwitch from "../../../hooks/useSwitch";
+import "./Dialog.stories.scss";
+
+export const metaSettings = createStoryMetaSettings({
+  component: Dialog,
+  enumPropNamesArray: [], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta
+  title="Components/Dialog/Dialog"
+  component={Dialog}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+<!--- Component template -->
+
+export const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
+  const modifiers =
+    // for prevent dialog to move while scrolling
+    [
+      {
+        name: "preventOverflow",
+        options: {
+          mainAxis: false
+        }
+      }
+    ];
+  return (
+    <div className="monday-storybook-dialog--story-padding">
+      <Dialog
+        modifiers={modifiers}
+        shouldShowOnMount={shouldShowOnMount || true}
+        {...dialogProps}
+        showTrigger={[Dialog.hideShowTriggers.CLICK]}
+        hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+        position={position || Dialog.positions.RIGHT}
+        content={
+          <DialogContentContainer>
+            <ExampleContent />
+          </DialogContentContainer>
+        }
+      >
+        <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+      </Dialog>
+    </div>
+  );
+};
+
+<!--- Component documentation -->
+
+# Dialog
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The dialog component's purpose is to position a popup component nearby another element, such as any kind of a button.
+Please be aware that the dialog component is not responsible for the appearance features of the popup, such as its background color or size.
+
+<Canvas>
+  <Story name="Overview">{dialogTemplate.bind({})}</Story>
+</Canvas>
+
+<Tip>
+  For setting the dialog UI appearance, use
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-dialogcontentcontainer--overview">
+    DialogContentContainer
+  </Link>
+  component.
+</Tip>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Dialog can appear from top, bottom, left and right to an element",
+    "Usually, the dialog will be positioned next to the triggered element.",
+    <span>
+      The Dialog component is mainly used to create customized menus that cannot be developed using our
+      <Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link> and <Link href="?path=/docs/buttons-menubutton--overview">
+        MenuButton
+      </Link> components.
+    </span>
+  ]}
+/>
+
+<AttentionBox
+  title="Trying to implement your own customize menu?"
+  text="Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such as our menu component, because creating an over-complicated UI can hurt user experience."
+/>
+
+<Tip title="Wishing to position your pop over in the center of the page?">
+  Exactly for this purpose, we created the
+  <Link href="/?path=/docs/feedback-modal--overview" size={Link.sizes.SMALL}>
+    Modal
+  </Link>
+  component! Check it out.
+</Tip>
+
+## Variants
+
+### Positions
+
+<Canvas>
+  <Story name="Positions">
+    {() => {
+      // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
+      const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedBottom, onChange: onChangeBottom } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedRight, onChange: onChangeRight } = useSwitch({ defaultChecked: false });
+      const { isChecked: checkedLeft, onChange: onChangeLeft } = useSwitch({ defaultChecked: false });
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+          <Dialog
+            modifiers={modifiers}
+            open={checkedTop}
+            position={Dialog.positions.TOP} // set dialog position
+            showTrigger={[]}
+            hideTrigger={[]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+              Top
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            position={Dialog.positions.BOTTOM} // set dialog position
+            showTrigger={[]}
+            hideTrigger={[]}
+            open={checkedBottom}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeBottom} active={checkedBottom}>
+              Bottom
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[]}
+            hideTrigger={[]}
+            position={Dialog.positions.RIGHT} // set dialog position
+            open={checkedRight}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeRight} active={checkedRight}>
+              Right
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            position={Dialog.positions.LEFT} // set dialog position
+            showTrigger={[]}
+            hideTrigger={[]}
+            open={checkedLeft}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={onChangeLeft} active={checkedLeft}>
+              Left
+            </Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dialog show triggers
+
+We can choose what will be the related element's trigger which will be responsible for the dialog appearance
+
+<Canvas>
+  <Story name="Show triggers">
+    {() => {
+      // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
+      const { isChecked: clickButtonActive, onChange: onClickClickButton } = useSwitch({ defaultChecked: false });
+      const { isChecked: hoverButtonActive, onChange: onHoverButton } = useSwitch({ defaultChecked: false });
+      const { isChecked: focusButtonActive, onChange: onFocusButton } = useSwitch({ defaultChecked: false });
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} active={clickButtonActive} onClick={onClickClickButton}>
+              On click
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[Dialog.hideShowTriggers.MOUSE_ENTER]}
+            hideTrigger={[Dialog.hideShowTriggers.MOUSE_LEAVE]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <div onMouseEnter={onHoverButton} onMouseLeave={onHoverButton}>
+              <Button kind={Button.kinds.SECONDARY} active={hoverButtonActive}>
+                On mouse enter
+              </Button>
+            </div>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[Dialog.hideShowTriggers.FOCUS]}
+            hideTrigger={[Dialog.hideShowTriggers.BLUR]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              onFocus={onFocusButton}
+              onBlur={onFocusButton}
+              kind={Button.kinds.SECONDARY}
+              active={focusButtonActive}
+            >
+              On focus
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            showTrigger={[]}
+            hideTrigger={[]}
+            position={Dialog.positions.RIGHT}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} active>
+              On mount
+            </Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dialog hide triggers
+
+We can set the triggers which will be responsible for hide the dialog
+
+<Canvas>
+  <Story name="Hide triggers">
+    {() => {
+      // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
+      const { isChecked: clickButtonActive, onChange: switchClickButtonActive } = useSwitch({ defaultChecked: true });
+      const { isChecked: clickOutsideButtonActive, onChange: switchClickOutsideActive } = useSwitch({
+        defaultChecked: true
+      });
+      const { isChecked: mouseLeaveButtonActive, onChange: switchMouseLeaveActive } = useSwitch({
+        defaultChecked: true
+      });
+      const { isChecked: blurButtonActive, onChange: switchBlurButtonActive } = useSwitch({ defaultChecked: true });
+      const { isChecked: contentClickButtonActive, onChange: switchContentClickActive } = useSwitch({
+        defaultChecked: true
+      });
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <Flex
+          className="monday-storybook-dialog_hide-triggers-story"
+          wrap
+          direction={Flex.directions.COLUMN}
+          justify={Flex.justify.START}
+          align={Flex.align.START}
+        >
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            onClickOutside={switchClickOutsideActive}
+            position={Dialog.positions.RIGHT}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK_OUTSIDE]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent rowsCount={1} />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              kind={Button.kinds.SECONDARY}
+              active={clickOutsideButtonActive}
+              onClick={switchClickOutsideActive}
+              style={{ marginBlock: "54px" }}
+            >
+              On click outside
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            position={Dialog.positions.RIGHT}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent rowsCount={1} />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              kind={Button.kinds.SECONDARY}
+              active={clickButtonActive}
+              onClick={switchClickButtonActive}
+              style={{ marginBlock: "54px" }}
+            >
+              On click
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            position={Dialog.positions.RIGHT}
+            showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.BLUR]}
+            content={
+              <DialogContentContainer>
+                <ExampleContent rowsCount={1} />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              kind={Button.kinds.SECONDARY}
+              active={blurButtonActive}
+              onClick={switchBlurButtonActive}
+              style={{ marginBlock: "54px" }}
+            >
+              On blur
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            position={Dialog.positions.RIGHT}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CONTENT_CLICK]}
+            onContentClick={switchContentClickActive}
+            content={
+              <DialogContentContainer>
+                <ExampleContent rowsCount={1} />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              kind={Button.kinds.SECONDARY}
+              active={contentClickButtonActive}
+              onClick={switchContentClickActive}
+              style={{ marginBlock: "54px" }}
+            >
+              On content click
+            </Button>
+          </Dialog>
+          <Dialog
+            modifiers={modifiers}
+            shouldShowOnMount
+            showTrigger={[Dialog.hideShowTriggers.MOUSE_ENTER]}
+            hideTrigger={[Dialog.hideShowTriggers.MOUSE_LEAVE]}
+            position={Dialog.positions.RIGHT}
+            onDialogDidHide={switchMouseLeaveActive}
+            onDialogDidShow={switchMouseLeaveActive}
+            content={
+              <DialogContentContainer>
+                <ExampleContent rowsCount={1} />
+              </DialogContentContainer>
+            }
+          >
+            <Button
+              kind={Button.kinds.SECONDARY}
+              active={mouseLeaveButtonActive}
+              onClick={switchMouseLeaveActive}
+              style={{ marginBlock: "54px" }}
+            >
+              On mouse leave
+            </Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[MENU, TOOLTIP, DIALOG_CONTENT_CONTAINER]} />

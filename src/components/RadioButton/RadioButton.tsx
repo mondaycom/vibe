@@ -1,13 +1,13 @@
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./RadioButtonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import Tooltip from "../Tooltip/Tooltip";
-import "./RadioButton.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./RadioButton.module.scss";
 
 interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
@@ -33,7 +33,7 @@ interface RadioButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
   /** callback function when value changed */
   onSelect?: (event: React.ChangeEvent<HTMLInputElement | null>) => void;
-  /** controlled parameter */
+  /** controlled the radio button state */
   checked?: boolean;
   /** react to click on children */
   retainChildClick?: boolean;
@@ -43,7 +43,7 @@ interface RadioButtonProps extends VibeComponentProps {
   noLabelAnimation?: boolean;
 }
 
-const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
+const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwardRef(
   (
     {
       className,
@@ -68,7 +68,9 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
       checked,
       retainChildClick = true,
       childrenTabIndex = "0",
-      noLabelAnimation = false
+      noLabelAnimation = false,
+      id,
+      "data-testid": dataTestId
     },
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
@@ -96,10 +98,16 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
 
     return (
       <Tooltip content={tooltipContent}>
-        <label className={cx(baseClassName, overrideClassName, { disabled })}>
-          <span className={`${baseClassName}__radio-input-container`}>
+        <label
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
+          className={cx(styles.radioButton, overrideClassName, {
+            [styles.disabled]: disabled,
+            disabled: disabled
+          })}
+        >
+          <span className={cx(styles.inputContainer)}>
             <input
-              className={`${baseClassName}__radio-input-container__radio-input`}
+              className={cx(styles.input)}
               type="radio"
               value={value}
               name={name}
@@ -109,14 +117,22 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
               ref={mergedRef}
             />
             <span
-              className={cx(`${baseClassName}__radio-input-container__radio-control`, radioButtonClassName, {
-                [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
+              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_CONTROL, id)}
+              className={cx(styles.control, radioButtonClassName, {
+                [styles.labelAnimation]: !noLabelAnimation
               })}
             />
           </span>
-          {text && <span className={cx(`${baseClassName}__radio-label`, labelClassName)}>{text}</span>}
+          {text && (
+            <span
+              className={cx(styles.label, labelClassName)}
+              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
+            >
+              {text}
+            </span>
+          )}
           {children && (
-            <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
+            <Clickable onClick={onChildClick} tabIndex={childrenTabIndex}>
               {children}
             </Clickable>
           )}

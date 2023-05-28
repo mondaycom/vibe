@@ -1,13 +1,12 @@
-import React from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import React from "react";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import Icon from "../Icon/Icon";
 import { SubIcon, VibeComponentProps } from "../../types";
-import "./AvatarContent.scss";
-
-const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
-const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
+import styles from "./AvatarContent.module.scss";
 
 interface AvatarContentProps extends VibeComponentProps {
   src?: string;
@@ -24,11 +23,34 @@ interface AvatarContentProps extends VibeComponentProps {
 export const AvatarContent: React.FC<AvatarContentProps> & {
   sizes?: typeof AvatarSize;
   types?: typeof AvatarType;
-} = ({ type = AvatarType.TEXT, src, icon, text, ariaLabel, role, size = AvatarSize.LARGE, textClassName = "" }) => {
-  const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
+} = ({
+  type = AvatarType.TEXT,
+  src,
+  icon,
+  text,
+  ariaLabel,
+  role,
+  size = AvatarSize.LARGE,
+  textClassName = "",
+  id,
+  "data-testid": dataTestId
+}) => {
+  const className = cx(
+    getStyle(styles, camelCase("content_" + type)),
+    getStyle(styles, camelCase("content_" + type + "--" + size))
+  );
   switch (type) {
     case AvatarType.IMG:
-      return <img role={role} alt={ariaLabel} src={src} className={className} />;
+      return (
+        <img
+          role={role}
+          alt={ariaLabel}
+          src={src}
+          className={className}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
+        />
+      );
     case AvatarType.ICON:
       return (
         <Icon
@@ -38,11 +60,19 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
           clickable={false}
           className={className}
           ariaHidden={false}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />
       );
     case AvatarType.TEXT:
       return (
-        <span aria-label={ariaLabel} role={role} className={cx(className, textClassName)}>
+        <span
+          aria-label={ariaLabel}
+          role={role}
+          className={cx(className, textClassName)}
+          id={id}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
+        >
           {text}
         </span>
       );

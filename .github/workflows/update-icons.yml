@@ -54,18 +54,14 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update version
+          commit-message: "Update icons - monday-ui-style ${{ env.LATEST_VERSION }}"
           committer: Monday Style <mondaystyle@monday.com>
           author: Monday Style <mondaystyle@monday.com>
           branch: update-version/style-version-${{env.LATEST_VERSION}}
-          title: "Upgrade icons"
+          title: "Update icons - monday-ui-style ${{ env.LATEST_VERSION }}"
           body: |
             New icons version
           labels: |
             PR: Icon 💎
-          assignees: orrgottlieb
-          reviewers: orrgottlieb
-          team-reviewers: |
-            owners
-            maintainers
+          team-reviewers: vibe
           draft: false

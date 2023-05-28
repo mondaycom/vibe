@@ -1,5 +1,81 @@
 # Changelog
 
+## 2.2.0 (2023-05-24)
+
+#### Bug Fixes
+* [#1313](https://github.com/mondaycom/monday-ui-react-core/pull/1313) Fix  Menu Button TS issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1302](https://github.com/mondaycom/monday-ui-react-core/pull/1302) Internal: run test-workflow on pull_request - for public forks ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.1.0 (2023-05-22)
+
+#### New Features
+* [#1283](https://github.com/mondaycom/monday-ui-react-core/pull/1283) Feature/sergeyro/button brand color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.0.1 (2023-05-22)
+
+#### New Icons
+* [#1298](https://github.com/mondaycom/monday-ui-react-core/pull/1298) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.0.0 (2023-05-16)
+
+## Breaking Changes 🔴
+* [#1254](https://github.com/mondaycom/monday-ui-react-core/pull/1254) CSS Modules migration ([@SergeyRoyt](https://github.com/SergeyRoyt))
+  * All components were migrated to CSS Modules, replacing the global CSS.
+  * Each component now expected a `data-testid` attribute set on the root element, allowing easier selection for testing (refer to [this guide](https://github.com/mondaycom/monday-ui-react-core/blob/master/API_GUIDELINES.MD#data-testids))
+
+## 1.125.2 (2023-05-16)
+
+#### Bug Fixes
+* [#1276](https://github.com/mondaycom/monday-ui-react-core/pull/1276) internal: <Counter>, <Link> - remove default props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1275](https://github.com/mondaycom/monday-ui-react-core/pull/1275) Internal: release process - using package_version variables - test ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.125.1 (2023-05-16)
+
+#### Bug Fixes
+* [#1264](https://github.com/mondaycom/monday-ui-react-core/pull/1264) Fix hooks exports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1273](https://github.com/mondaycom/monday-ui-react-core/pull/1273) docs: Colors foundation - warning colors after negative colors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1274](https://github.com/mondaycom/monday-ui-react-core/pull/1274) Internal: Publish storybook on workflow_dispatch ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.125.0 (2023-05-16)
+
+#### New Features
+* [#1262](https://github.com/mondaycom/monday-ui-react-core/pull/1262) add wrapper class name to loader ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1271](https://github.com/mondaycom/monday-ui-react-core/pull/1271) Release: breaking changes support ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1270](https://github.com/mondaycom/monday-ui-react-core/pull/1270) Release v1 workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1269](https://github.com/mondaycom/monday-ui-react-core/pull/1269) npm publish with deprecated tag ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1267](https://github.com/mondaycom/monday-ui-react-core/pull/1267) Release deprecated workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.124.4 (2023-05-15)
+
+#### Bug Fixes
+* [#1265](https://github.com/mondaycom/monday-ui-react-core/pull/1265) Docs and craft updates in components ([@hadasfa](https://github.com/hadasfa))
+
+## 1.124.3 (2023-05-11)
+
+#### Bug Fixes
+* [#1263](https://github.com/mondaycom/monday-ui-react-core/pull/1263) Passed onKeyPress, onBlur, onFocus props in EditableHeader to EditableInput ([@udidoron](https://github.com/udidoron))
+* [#1122](https://github.com/mondaycom/monday-ui-react-core/pull/1122) Basic dialog docs (only basic variants and examples) ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1258](https://github.com/mondaycom/monday-ui-react-core/pull/1258) fix: <RadioButton/> - fix name not displayed in the docs ([@shlomitc](https://github.com/shlomitc))
+* [#1256](https://github.com/mondaycom/monday-ui-react-core/pull/1256) chore: fix typography docs to map to the exact typography css vars ([@shlomitc](https://github.com/shlomitc))
+* [#1255](https://github.com/mondaycom/monday-ui-react-core/pull/1255) chore: <Avatar/>, <AvatarGroup/> - update stories to show absolute urls to files and fix Avatar story to use AvatarGroup ([@shlomitc](https://github.com/shlomitc))
+
+## 1.124.2 (2023-05-08)
+
+#### Bug Fixes
+* [#1257](https://github.com/mondaycom/monday-ui-react-core/pull/1257) Fix testIds export path ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.124.1 (2023-05-04)
 
 #### Bug Fixes

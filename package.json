@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.124.1",
+  "version": "2.2.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -14,7 +14,7 @@
     "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
-    "./testIds": "./dist/esm/src/tests/test-ids-utils.js",
+    "./testIds": "./dist/esm/src/tests/testIds.js",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames_esm/src/index.js"
     }
@@ -70,7 +70,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.1.153",
+    "monday-ui-style": "0.1.159",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^3.0.1",

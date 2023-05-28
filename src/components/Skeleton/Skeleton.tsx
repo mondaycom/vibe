@@ -1,6 +1,7 @@
-import React, { FC } from "react";
+import { camelCase } from "lodash-es";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import React, { FC } from "react";
 import {
   SKELETON_SIZES,
   SkeletonSizeType,
@@ -9,11 +10,8 @@ import {
   TextSkeletonSize
 } from "./SkeletonConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Skeleton.module.scss";
-import "./Skeleton.scss";
-
-const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
-const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);
 
 interface SkeletonProps extends VibeComponentProps {
   type?: SkeletonType;
@@ -37,23 +35,24 @@ const Skeleton: FC<SkeletonProps> & {
   wrapperClassName,
   width,
   height,
-  fullWidth = false
+  fullWidth = false,
+  id,
+  "data-testid": dataTestId
 }) => {
   const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
 
   // Skeleton has sizes only for text type, other types support only custom size
   const skeletonSize = (Object.values(TextSkeletonSize) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
   return (
-    <div className={cx(SKELETON_CSS_BASE_CLASS, wrapperClassName, { [styles.fullWidth]: fullWidth })}>
+    <div
+      id={id}
+      className={cx(styles.skeleton, wrapperClassName, { [styles.fullWidth]: fullWidth })}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SKELETON, id)}
+    >
       <div
-        className={cx(
-          bemHelper({ element: skeletonType }),
-          bemHelper({ element: skeletonType, state: skeletonSize }),
-          className,
-          {
-            [styles.fullWidth]: fullWidth
-          }
-        )}
+        className={cx(styles[skeletonType], getStyle(styles, camelCase(skeletonType + "-" + skeletonSize)), className, {
+          [styles.fullWidth]: fullWidth
+        })}
         style={{ width, height }}
       />
     </div>

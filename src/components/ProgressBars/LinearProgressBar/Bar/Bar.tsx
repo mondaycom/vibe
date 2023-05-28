@@ -1,8 +1,12 @@
-import React, { FC, useMemo } from "react";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
+import React, { FC, useMemo } from "react";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
 import VibeComponentProps from "src/types/VibeComponentProps";
-import { ProgressBarStyle } from "../LinearProgressBarConstants";
+import { ProgressBarStyle, ProgressBarType } from "../LinearProgressBarConstants";
+import styles from "./Bar.module.scss";
 
 interface BarProps extends VibeComponentProps {
   /**
@@ -25,21 +29,31 @@ interface BarProps extends VibeComponentProps {
    * If set to *true*, animations are used.
    */
   animated?: boolean;
-  /**
-   * Set external styling to the progress bar.
-   */
-  className?: string;
   baseClass?: string;
   barLabelName?: string;
   color?: string;
+  type?: ProgressBarType;
+  className?: string;
 }
 
-const Bar: FC<BarProps> = ({ value, baseClass, barStyle, animated, min, max, color, barLabelName }) => {
+const Bar: FC<BarProps> = ({
+  value,
+  type,
+  barStyle,
+  animated,
+  min,
+  max,
+  color,
+  barLabelName,
+  id,
+  "data-testid": dataTestId,
+  className
+}) => {
   const classNames = useMemo(() => {
-    return cx(baseClass, `${baseClass}--${barStyle}`, {
-      [`${baseClass}--animate`]: animated
+    return cx(styles.bar, getStyle(styles, camelCase("type__" + type + "--" + barStyle)), className, {
+      [styles.animate]: animated
     });
-  }, [barStyle, animated, baseClass]);
+  }, [type, barStyle, animated]);
 
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;
@@ -60,6 +74,8 @@ const Bar: FC<BarProps> = ({ value, baseClass, barStyle, animated, min, max, col
         width: `${valuePercentage}%`,
         ...(color && { backgroundColor: color })
       }}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BAR, id)}
     />
   );
 };

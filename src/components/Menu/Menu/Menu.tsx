@@ -1,3 +1,4 @@
+import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
 import React, {
   forwardRef,
@@ -9,7 +10,6 @@ import React, {
   useRef,
   useState
 } from "react";
-import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -23,7 +23,10 @@ import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "./MenuConstants";
-import "./Menu.scss";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
+import styles from "./Menu.module.scss";
 
 interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -66,7 +69,8 @@ const Menu: VibeComponent<MenuProps> & {
       focusItemIndexOnMount = -1,
       isSubMenu = false,
       useDocumentEventListeners = false,
-      shouldScrollMenu = false
+      shouldScrollMenu = false,
+      "data-testid": dataTestId
     },
     forwardedRef
   ) => {
@@ -188,7 +192,8 @@ const Menu: VibeComponent<MenuProps> & {
         onFocus={focusWithinProps?.onFocus}
         onBlur={focusWithinProps?.onBlur}
         id={id}
-        className={cx("monday-style-menu", overrideClassName, `monday-style-menu--${size}`)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU, id)}
+        className={cx(styles.menu, getStyle(styles, size), overrideClassName)}
         ref={mergedRef}
         tabIndex={tabIndex}
         aria-label={ariaLabel}

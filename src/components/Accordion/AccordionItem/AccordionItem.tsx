@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -27,6 +26,7 @@ interface AccordionItemProps extends VibeComponentProps {
   hideBorder?: boolean;
   headerClassName?: string;
   contentClassName?: string;
+  expandCollapseComponentClassName?: string;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
@@ -42,7 +42,8 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       onClickAccordionCallback,
       hideBorder = false,
       headerClassName,
-      contentClassName
+      contentClassName,
+      expandCollapseComponentClassName
     },
     ref
   ) => {
@@ -56,7 +57,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
     }, [onClickAccordionCallback, onClick]);
 
     return (
-      <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
+      <div ref={mergedRef} className={className} id={id}>
         <ExpandCollapse
           iconSize={iconSize}
           id={`expand-collapse--${id}`}
@@ -64,6 +65,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
           open={open}
           title={title}
           hideBorder={hideBorder}
+          componentClassName={expandCollapseComponentClassName}
           headerClassName={headerClassName}
           contentClassName={contentClassName}
         >

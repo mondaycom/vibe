@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 import { InfixKind } from "./SliderConstants";
-import { bem } from "./SliderHelpers";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./SliderInfix.module.scss";
 
 interface SliderInfixProps extends VibeComponentProps {
   /**
@@ -16,7 +18,14 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind
   const [isShow, modificators, InfixComponent, inlineStyle] = useSliderInfixComponent(kind);
   return (
     isShow && (
-      <div className={bem("infix", [...modificators, kind])} style={inlineStyle}>
+      <div
+        className={cx(
+          styles.infix,
+          getStyle(styles, kind),
+          modificators.map(m => getStyle(styles, m))
+        )}
+        style={inlineStyle}
+      >
         {InfixComponent}
       </div>
     )

@@ -1,12 +1,13 @@
+import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import cx from "classnames";
 import React, { useRef } from "react";
-import classNames from "classnames";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import { HideShowEvent } from "../../../constants";
 import { SubIcon, VibeComponentProps } from "../../../types";
-import "./BreadcrumbItem.scss";
+import styles from "./BreadcrumbItem.module.scss";
 
 const MOUSEENTER = [HideShowEvent.MOUSE_ENTER];
 const MOUSELEAVE = [HideShowEvent.MOUSE_LEAVE];
@@ -40,7 +41,9 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   link,
   onClick,
   isCurrent = false,
-  icon
+  icon,
+  id,
+  "data-testid": dataTestId
 }) => {
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
   const componentRef = useRef<HTMLSpanElement>(null);
@@ -55,21 +58,13 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
       hideTrigger={MOUSELEAVE}
     >
       <li
-        className={classNames(
-          "breadcrumbItem--wrapper",
-          className,
-          { clickable: isClickable },
-          { current: isCurrent },
-          { disabled: overrideDisabled }
-        )}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
+        className={cx(styles.breadcrumbItemWrapper, className, {
+          [styles.disabled]: overrideDisabled
+        })}
       >
         <BreadcrumbContent
-          className={classNames(
-            "breadcrumb-content",
-            { clickable: isClickable },
-            { current: isCurrent },
-            { disabled: overrideDisabled }
-          )}
           ref={componentRef}
           isClickable={isClickable}
           link={link}

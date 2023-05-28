@@ -50,4 +50,9 @@ describe("LinearProgressBar renders correctly", () => {
     const tree = renderer.create(<LinearProgressBar value={20} multi multiValues={multiValues} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with full width progress bar", () => {
+    const tree = renderer.create(<LinearProgressBar value={20} fullWidth />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

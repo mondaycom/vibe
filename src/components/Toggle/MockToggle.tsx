@@ -1,11 +1,10 @@
 import ToggleText from "./ToggleText";
 import cx from "classnames";
 import React, { FC } from "react";
-import { BEMClass } from "../../helpers/bem-helper";
-import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-
-const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
+import styles from "./MockToggle.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface MockToggleProps extends VibeComponentProps {
   areLabelsHidden?: boolean;
@@ -13,6 +12,7 @@ export interface MockToggleProps extends VibeComponentProps {
   offOverrideText?: string;
   onOverrideText?: string;
   selectedClassName?: string;
+  disabled: boolean;
 }
 
 export const MockToggle: FC<MockToggleProps> = ({
@@ -21,17 +21,20 @@ export const MockToggle: FC<MockToggleProps> = ({
   offOverrideText,
   onOverrideText,
   className,
-  selectedClassName
+  selectedClassName,
+  disabled
 }) => (
   <>
-    {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
+    {areLabelsHidden ? null : <ToggleText disabled={disabled}>{offOverrideText}</ToggleText>}
     <div
-      className={cx(bemHelper({ element: "toggle" }), className, {
-        [cx(bemHelper({ element: "toggle", state: "selected" }), selectedClassName)]: checked,
-        [bemHelper({ element: "toggle", state: "not-selected" })]: !checked
+      className={cx(styles.toggle, className, {
+        [cx(styles.selected, selectedClassName)]: checked,
+        [styles.notSelected]: !checked,
+        [styles.disabled]: disabled
       })}
       aria-hidden="true"
+      data-testid={getTestId(ComponentDefaultTestId.TOGGLE)}
     />
-    {areLabelsHidden ? null : <ToggleText>{onOverrideText}</ToggleText>}
+    {areLabelsHidden ? null : <ToggleText disabled={disabled}>{onOverrideText}</ToggleText>}
   </>
 );

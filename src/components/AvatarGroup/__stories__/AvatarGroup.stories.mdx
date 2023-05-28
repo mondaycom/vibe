@@ -18,6 +18,26 @@ export const metaSettings = createStoryMetaSettings({
   enumPropNamesArray: ["type", "size"] // List enum props here
 });
 
+export const avatarGroupTemplate = ({persons, ...args}) => {
+return (
+  <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
+    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+    <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
+  </AvatarGroup>
+);}
+;
+
 <Meta
   title="Media/Avatar/AvatarGroup"
   component={AvatarGroup}
@@ -41,22 +61,17 @@ export const metaSettings = createStoryMetaSettings({
 Use this component if you need to stack avatars as a group.
 
 <Canvas>
-  <Story name="Overview">
-    <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
-    </AvatarGroup>
+  <Story
+    name="Overview"
+    args={{
+      persons: {
+        person1: window.location.origin + "/" + person1,
+        person2: window.location.origin + "/" + person2,
+        person3: window.location.origin + "/" + person3
+      }
+    }}
+  >
+    {avatarGroupTemplate.bind()}
   </Story>
 </Canvas>
 

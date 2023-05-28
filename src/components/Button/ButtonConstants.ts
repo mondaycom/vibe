@@ -11,7 +11,8 @@ export enum ButtonColor {
   POSITIVE = "positive",
   NEGATIVE = "negative",
   ON_PRIMARY_COLOR = "on-primary-color",
-  ON_INVERTED_BACKGROUND = "on-inverted-background"
+  ON_INVERTED_BACKGROUND = "on-inverted-background",
+  BRAND = "brand"
 }
 
 export const OLD_BUTTON_SIZES = {

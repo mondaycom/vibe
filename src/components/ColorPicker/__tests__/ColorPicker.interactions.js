@@ -73,22 +73,22 @@ async function clickOnColor(canvas, color) {
 
 async function expectColorToBeSelected(canvas, color) {
   const element = await findColorItem(canvas, color);
-  expect(element).toHaveClass("selected-color");
+  expect(element.getAttribute("class")).toContain("selectedColor");
 }
 
 async function expectColorToBeNotSelected(canvas, color) {
   const element = await findColorItem(canvas, color);
-  expect(element).not.toHaveClass("selected-color");
+  expect(element.getAttribute("class")).not.toContain("selectedColor");
 }
 
 async function expectColorToBeActive(canvas, color) {
   const element = await findColorItem(canvas, color);
-  expect(element).toHaveClass("active");
+  expect(element.getAttribute("class")).toContain("active");
 }
 
 async function expectColorToBeNotActive(canvas, color) {
   const element = await findColorItem(canvas, color);
-  expect(element).not.toHaveClass("active");
+  expect(element.getAttribute("class")).not.toContain("active");
 }
 
 async function findColorItem(canvas, color) {
