@@ -5,7 +5,7 @@ import Dialog from "../Dialog";
 
 describe("Dialog tests", () => {
   describe("Click outside", () => {
-    it("should call item on click callback func when onClick", async () => {
+    it("should call onClickOutside and close dialog", async () => {
       const onClickOutsideMock = jest.fn();
       const element = document.createElement("div");
       document.body.appendChild(element);
