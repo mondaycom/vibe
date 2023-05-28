@@ -58,6 +58,12 @@ describe("Snapshot tests", () => {
       const tree = renderer.create(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>).toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("renders correctly with dark close button theme", () => {
+      const tree = renderer
+        .create(<Tipseen closeButtonTheme={Tipseen.closeButtonThemes.DARK}>{tipseenMockChildren}</Tipseen>)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
 
