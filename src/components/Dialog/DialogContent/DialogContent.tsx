@@ -72,7 +72,8 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
-    const { disableScroll, enableScroll } = useDisableScroll(disableContainerScroll === true ? containerSelector : disableContainerScroll);
+    const selectorToDisable = disableContainerScroll === true ? containerSelector : disableContainerScroll
+    const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 
     useEffect(() => {
       if (disableContainerScroll) {
