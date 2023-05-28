@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
+import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef, useEffect } from "react";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import useOnClickOutside from "../../../hooks/useClickOutside";
@@ -10,6 +10,7 @@ import { VibeComponent, VibeComponentProps } from "../../../types";
 import { ESCAPE_KEYS } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
 import "./DialogContent.scss";
+import useDisableScroll from "../../../hooks/useDisableScroll";
 
 const transitionOptions: { classNames?: string } = {};
 const EMPTY_OBJECT = {};
@@ -31,6 +32,8 @@ export interface DialogContentProps extends VibeComponentProps {
   isReferenceHidden?: boolean;
   hasTooltip?: boolean;
   disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
+  containerSelector?: string;
+  disableContainerScroll?: boolean | string;
 }
 
 export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
@@ -50,7 +53,9 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       showDelay,
       styleObject = EMPTY_OBJECT,
       isReferenceHidden,
-      hasTooltip = false
+      hasTooltip = false,
+      containerSelector,
+      disableContainerScroll
     },
     forwardRef
   ) => {
@@ -65,6 +70,18 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
+    const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
+    const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
+
+    useEffect(() => {
+      if (disableContainerScroll) {
+        if (isOpen) {
+          disableScroll();
+        } else {
+          enableScroll();
+        }
+      }
+    }, [isOpen]);
 
     if (animationType) {
       transitionOptions.classNames = `monday-style-animation-${animationType}`;
