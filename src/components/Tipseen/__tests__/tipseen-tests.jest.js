@@ -46,7 +46,7 @@ describe("Snapshot tests", () => {
   });
 
   describe("Tipseen tests", () => {
-    it("renders correctly without props", () => {
+    it("renders correctly without p" + "rops", () => {
       const tree = renderer.create(<Tipseen>{tipseenMockChildren}</Tipseen>).toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -56,6 +56,12 @@ describe("Snapshot tests", () => {
     });
     it("renders correctly without close - deprecated version", () => {
       const tree = renderer.create(<Tipseen isCloseButtonHidden>{tipseenMockChildren}</Tipseen>).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly with dark close button theme", () => {
+      const tree = renderer
+        .create(<Tipseen closeButtonTheme={Tipseen.closeButtonThemes.DARK}>{tipseenMockChildren}</Tipseen>)
+        .toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

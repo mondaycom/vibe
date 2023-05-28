@@ -6,7 +6,7 @@
   min-width: 100px;
   min-height: 40px;
   padding: 0;
-  border-radius: $border-radius-medium;
+  border-radius: var(--border-radius-medium);
 
   &WithoutCustomWidth {
     max-width: 320px;
@@ -19,7 +19,7 @@
     }
 
     &Title {
-      padding: $spacing-medium $spacing-medium 0 $spacing-medium;
+      padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
     }
 
     &Content {
@@ -29,11 +29,14 @@
 
     &CloseButton {
       position: absolute;
-      top: $spacing-xs;
-      right: $spacing-xs;
+      top: var(--spacing-xs);
+      right: var(--spacing-xs);
+      z-index: 2;
 
-      &OnImage {
-        z-index: 2;
+
+
+      &.dark {
+        color: var(--color-asphalt);
       }
     }
   }
