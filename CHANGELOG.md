@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.1 (2023-05-28)
+
+#### Bug Fixes
+* [#1324](https://github.com/mondaycom/monday-ui-react-core/pull/1324) fix: <StepsGalleryHeader> - galleryHeaderDot increase specificity ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.3.0 (2023-05-28)
 
 #### New Features
