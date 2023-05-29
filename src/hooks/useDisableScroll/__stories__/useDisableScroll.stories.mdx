@@ -1,0 +1,60 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import useDisableScroll from "..";
+import { FunctionArgument, FunctionArguments, UsageGuidelines } from "../../../storybook";
+
+<Meta title="Hooks/useDisableScroll" />
+
+# useDisableScroll
+
+- [Overview](#overview)
+- [Returns](#returns)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+Use this hook to disable scroll for element.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+        const { disableScroll, enableScroll } = useDisableScroll(".scrollable");
+        return (
+            <div>
+                <button onClick={disableScroll}>Disable Scroll</button>
+                <button onClick={enableScroll}>Enable Scroll</button>
+                <div className="scrollable" style={{ height: "200px", width: "500px", overflow: "auto" }}>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                    <p>Scrollable Content</p>
+                </div>
+            </div>
+        );
+    }}
+  </Story>
+</Canvas>
+
+## Returns
+
+<FunctionArguments>
+    <FunctionArgument name="disableScroll" type="function" description="Call this function to disable scroll." />
+    <FunctionArgument  name="enableScroll" type="function" description="Call this function to enable scroll." />
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["Use this hook when you want block users scroll."]}
+/>
