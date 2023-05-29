@@ -3,7 +3,7 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings, Link } from "../../../storybook";
 import { Button, DialogContentContainer, IconButton, AttentionBox } from "../../../components";
 import { ExampleContent } from "./helpers";
-import { Info } from "../../Icon/Icons";
+import { CloseSmall, Info } from "../../Icon/Icons";
 import {
   MENU,
   DIALOG_CONTENT_CONTAINER,
@@ -12,6 +12,7 @@ import {
 import Flex from "../../Flex/Flex";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
+import { useState } from "react";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dialog,
@@ -207,6 +208,50 @@ Please be aware that the dialog component is not responsible for the appearance 
           >
             <Button kind={Button.kinds.SECONDARY} onClick={onChangeLeft} active={checkedLeft}>
               Left
+            </Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Close button inside Dialog
+
+<Canvas>
+  <Story name="Close button inside Dialog">
+    {() => {
+      const [isOpen, setIsOpen] = useState(false);
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+          <Dialog
+            modifiers={modifiers}
+            open={isOpen}
+            showTrigger={[]}
+            hideTrigger={[]}
+            // Using callback instead of hideTrigger here cause Controlled and Uncontrolled Dialog states shouldn't be mixed -
+            // - putting Dialog.hideShowTriggers.CLICK_OUTSIDE in hideTrigger array won't work
+            onClickOutside={() => setIsOpen(false)}
+            content={
+              <DialogContentContainer>
+                <div style={{ width: 300, height: 300 }}>
+                  <IconButton icon={CloseSmall} onClick={() => setIsOpen(false)} />
+                </div>
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.SECONDARY} onClick={() => setIsOpen(prevState => !prevState)} active={isOpen}>
+              Top
             </Button>
           </Dialog>
         </Flex>
