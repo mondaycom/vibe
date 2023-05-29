@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.131.1 (2023-05-29)
+
+#### Bug Fixes
+* [#1327](https://github.com/mondaycom/monday-ui-react-core/pull/1327) V1: Reverting skeleton animation changes due css classes conflicts and opacity issue ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.131.0 (2023-05-29)
 
 #### New Features
