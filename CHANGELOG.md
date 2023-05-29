@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.131.0 (2023-05-29)
+
+#### New Features
+* [#1325](https://github.com/mondaycom/monday-ui-react-core/pull/1325) Support disable scroll in dialog ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.130.0 (2023-05-28)
 
 #### Bug Fixes
