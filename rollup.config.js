@@ -9,11 +9,13 @@ import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
 import { sha256 } from "js-sha256";
 import * as fs from "fs";
+import ejs from "ejs";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
+const injectStyle = fs.readFileSync("./rollup/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
@@ -73,39 +75,18 @@ export default {
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
       inject: function (cssVariableName, filename) {
+        if (!injectStyle) return null;
         let shaKey = filename;
         try {
           const data = fs.readFileSync(filename, "utf8");
+
           shaKey = getShortSha(data, 12);
         } catch (err) {
           console.error(err);
         }
+
         const hashValue = `s_id-${shaKey}`;
-        return `function styleInject(css) {
-    const head = document.head || document.getElementsByTagName('head')[0]
-    const id = "${hashValue}";
-    const styleExists = head.querySelector("#${hashValue}");
-    if(styleExists) return;
- 
-    const style = document.createElement('style');
-    style.id = id;
-
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild)
-    } else {
-      head.appendChild(style)
-    }
-
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css
-    } else {
-      style.appendChild(document.createTextNode(css))
-    }
-  }
-  
-  styleInject(${cssVariableName});
-  
-  `;
+        return ejs.render(injectStyle, { cssVariableName, hashValue });
       },
       plugins: [autoprefixer(), postCssImport()],
       modules: {

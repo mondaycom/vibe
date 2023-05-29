@@ -1,0 +1,20 @@
+function styleInject(css) {
+    const head = document.head || document.getElementsByTagName('head')[0];
+    const id = "<%= hashValue %>";
+    const styleExists = head.querySelector("#<%= hashValue %>");
+
+    if(styleExists) return;
+
+    const style = document.createElement('style');
+    style.id = id;
+
+    if (head.firstChild) {
+        head.insertBefore(style, head.firstChild);
+    } else {
+        head.appendChild(style);
+    }
+
+    style.appendChild(document.createTextNode(css));
+}
+
+styleInject(<%= cssVariableName %>);
