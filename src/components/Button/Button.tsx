@@ -294,7 +294,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       onFocus,
       onBlur,
       tabIndex,
-      dataTestId,
+      overrideDataTestId,
       onMouseDownClicked,
       disabled,
       loading,

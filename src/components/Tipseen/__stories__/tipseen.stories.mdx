@@ -19,7 +19,7 @@ import "./tipseen.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Tipseen,
-  enumPropNamesArray: ["position", "animationType", "justify"]
+  enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
 });
 
 <Meta
@@ -37,7 +37,7 @@ export const metaSettings = createStoryMetaSettings({
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
-- [Do’s and don’ts](#do%E2%80%99s-and-don%E2%80%99ts)
+- [Do’s and don’ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
@@ -154,7 +154,7 @@ Use when the tip is too long or when you want to teach something in steps.
           // Therefore, there is no need to move this prop in your implementations.
           position={Tipseen.positions.RIGHT}
           modifiers={modifiers}
-          isCloseButtonOnImage
+          closeButtonTheme={Tipseen.closeButtonThemes.DARK}
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />

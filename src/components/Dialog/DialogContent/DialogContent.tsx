@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { cloneElement, CSSProperties, ReactElement, useCallback, useRef } from "react";
+import React, { cloneElement, CSSProperties, ReactElement, useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
@@ -13,6 +13,7 @@ import { AnimationType, ESCAPE_KEYS } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
+import useDisableScroll from "../../../hooks/useDisableScroll";
 
 const EMPTY_OBJECT = {};
 
@@ -35,6 +36,8 @@ export interface DialogContentProps extends VibeComponentProps {
   isReferenceHidden?: boolean;
   hasTooltip?: boolean;
   disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
+  containerSelector?: string;
+  disableContainerScroll?: boolean | string;
 }
 
 export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
@@ -54,7 +57,9 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       showDelay,
       styleObject = EMPTY_OBJECT,
       isReferenceHidden,
-      hasTooltip = false
+      hasTooltip = false,
+      containerSelector,
+      disableContainerScroll
     },
     forwardRef
   ) => {
@@ -69,6 +74,18 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref, eventName: "mousedown" });
+    const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
+    const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
+
+    useEffect(() => {
+      if (disableContainerScroll) {
+        if (isOpen) {
+          disableScroll();
+        } else {
+          enableScroll();
+        }
+      }
+    }, [isOpen]);
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
 

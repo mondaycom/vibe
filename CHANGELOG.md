@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.3.1 (2023-05-28)
+
+#### Bug Fixes
+* [#1324](https://github.com/mondaycom/monday-ui-react-core/pull/1324) fix: <StepsGalleryHeader> - galleryHeaderDot increase specificity ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.3.0 (2023-05-28)
+
+#### New Features
+* [#1303](https://github.com/mondaycom/monday-ui-react-core/pull/1303) Add support on close button theme for tipseen (V2) ([@hadasfa](https://github.com/hadasfa))
+
+## 2.2.0 (2023-05-24)
+
+#### Bug Fixes
+* [#1313](https://github.com/mondaycom/monday-ui-react-core/pull/1313) Fix  Menu Button TS issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1302](https://github.com/mondaycom/monday-ui-react-core/pull/1302) Internal: run test-workflow on pull_request - for public forks ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.1.0 (2023-05-22)
+
+#### New Features
+* [#1283](https://github.com/mondaycom/monday-ui-react-core/pull/1283) Feature/sergeyro/button brand color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.0.1 (2023-05-22)
+
+#### New Icons
+* [#1298](https://github.com/mondaycom/monday-ui-react-core/pull/1298) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.0.0 (2023-05-16)
 
 ## Breaking Changes 🔴
