@@ -8,8 +8,7 @@ import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
 import { sha256 } from "js-sha256";
-
-const version = require("./package.json").version;
+import * as fs from "fs";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
@@ -18,11 +17,15 @@ const DIST_PATH = path.join(ROOT_PATH, "dist");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
+function getShortSha(content, length = 10) {
+  return sha256(content).slice(0, length);
+}
+
 function generateCssModulesScopedName(name, filename, css) {
   const start = css.indexOf(`${name} {`);
   const end = css.indexOf("}", start);
   const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
-  return `${name}_${sha256(content).slice(0, 10)}`;
+  return `${name}_${getShortSha(content)}`;
 }
 
 function generateCssModulesMockName(name) {
@@ -69,8 +72,15 @@ export default {
        * we're externalizing all "node_modules", it doesn't exist.
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
-      inject: function (cssVariableName) {
-        const hashValue = `s_id-${version}-${performance.now().toFixed(2)}`.replaceAll(".", "_");
+      inject: function (cssVariableName, filename) {
+        let shaKey = filename;
+        try {
+          const data = fs.readFileSync(filename, "utf8");
+          shaKey = getShortSha(data, 12);
+        } catch (err) {
+          console.error(err);
+        }
+        const hashValue = `s_id-${shaKey}`;
         return `function styleInject(css) {
     const head = document.head || document.getElementsByTagName('head')[0]
     const id = "${hashValue}";
