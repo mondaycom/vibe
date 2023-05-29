@@ -4,26 +4,39 @@
 
 @mixin shine-animation() {
   overflow: hidden;
-  animation-duration: 0.8s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-name: shine;
-  animation-timing-function: steps(10,end);
+  &::before {
+    display: inline-block;
+    content:"";
+    opacity: 0.1;
+    background-image: linear-gradient(90deg, transparent 0%, var(--placeholder-color) 30%, var(--placeholder-color) 70%, transparent 100%);
+    width: 300%;
+    height: 300%;
+    margin-bottom: 20px;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shine;
+    animation-timing-function: var(--motion-timing-enter);
+  }
 
   @keyframes shine {
     0% {
-      opacity: 0.3;
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
     }
     100% {
-      opacity: 1;
+      transform: translateX(100%);
     }
   }
 }
 
 @mixin skeleton($radius: $border-radius-small) {
-  @include theme-prop(background, primary-background-hover-color);
+  @include theme-prop(background, disabled-background-color); // should be replaced with all grey color
   border-radius: $radius;
   @include shine-animation;
+
 }
 
 .monday-style-skeleton {
