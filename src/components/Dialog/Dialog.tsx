@@ -139,6 +139,11 @@ export interface DialogProps extends VibeComponentProps {
    * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
    */
   addKeyboardHideShowTriggersByDefault?: boolean;
+  /**
+   * If true disable the scroll for the containerSelector element.
+   * If string use it as selector to prevent scroll.
+   */
+  disableContainerScroll?: boolean | string;
 }
 
 interface DialogState {
@@ -462,7 +467,9 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       tooltipClassName,
       referenceWrapperClassName,
       zIndex,
-      hideWhenReferenceHidden
+      hideWhenReferenceHidden,
+      disableContainerScroll,
+      containerSelector
     } = this.props;
     const { preventAnimation } = this.state;
 
@@ -568,6 +575,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   ref={ref}
                   onClick={this.onContentClick}
                   hasTooltip={!!tooltip}
+                  containerSelector={containerSelector}
+                  disableContainerScroll={disableContainerScroll}
                 >
                   {contentRendered}
                   {tooltip && (
