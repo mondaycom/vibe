@@ -156,7 +156,7 @@ module.exports = options => {
           },
           {
             from: "node_modules/monday-ui-style/dist/index.min.css",
-            to: "tokens.css"
+            to: "tokens/tokens.css"
           }
         ]
       }),
