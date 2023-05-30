@@ -55,7 +55,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       isReferenceHidden,
       hasTooltip = false,
       containerSelector,
-      disableContainerScroll
+      disableContainerScroll = false
     },
     forwardRef
   ) => {
@@ -81,7 +81,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           enableScroll();
         }
       }
-    }, [isOpen]);
+    }, [disableContainerScroll, disableScroll, enableScroll, isOpen]);
 
     if (animationType) {
       transitionOptions.classNames = `monday-style-animation-${animationType}`;

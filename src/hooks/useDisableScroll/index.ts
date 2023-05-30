@@ -9,15 +9,19 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
   }, []);
 
   const disableScroll = useCallback(() => {
-    document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
-      item.addEventListener("wheel", _disableScroll);
-    });
+    if (scrollableQuerySelector?.length > 0) {
+      document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
+        item.addEventListener("wheel", _disableScroll);
+      });
+    }
   }, [_disableScroll, scrollableQuerySelector]);
 
   const enableScroll = useCallback(() => {
-    document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
-      item.removeEventListener("wheel", _disableScroll);
-    });
+    if (scrollableQuerySelector?.length > 0) {
+      document.querySelectorAll(scrollableQuerySelector).forEach((item: Element) => {
+        item.removeEventListener("wheel", _disableScroll);
+      });
+    }
   }, [_disableScroll, scrollableQuerySelector]);
 
   useEffect(() => {
