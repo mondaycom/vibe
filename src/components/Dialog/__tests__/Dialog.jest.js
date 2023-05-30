@@ -10,7 +10,9 @@ describe("Dialog tests", () => {
       const element = document.createElement("div");
       document.body.appendChild(element);
 
-      render(<Dialog onClickOutside={onClickOutsideMock} content={<div>Dialog</div>} open />, { baseElement: element });
+      render(<Dialog onClickOutside={onClickOutsideMock} content={<div>Dialog</div>} shouldShowOnMount />, {
+        baseElement: element
+      });
 
       await screen.findByText("Dialog");
 
