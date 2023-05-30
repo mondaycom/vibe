@@ -146,7 +146,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           <div className={cx(styles.tipseenContent)}>{content}</div>
         </div>
       ),
-      [content, onClose, overrideCloseAriaLabel, overrideHideCloseButton, title, titleClassName]
+      [closeButtonTheme, content, onClose, overrideCloseAriaLabel, overrideHideCloseButton, title, titleClassName]
     );
 
     return (
