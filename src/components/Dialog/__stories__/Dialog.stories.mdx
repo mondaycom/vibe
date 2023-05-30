@@ -12,7 +12,7 @@ import {
 import Flex from "../../Flex/Flex";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dialog,
@@ -221,6 +221,7 @@ Please be aware that the dialog component is not responsible for the appearance 
 <Canvas>
   <Story name="Close button inside Dialog">
     {() => {
+      const buttonRef = useRef(null);
       const [isOpen, setIsOpen] = useState(false);
       const modifiers =
         // for prevent dialog to move while scrolling
@@ -241,7 +242,12 @@ Please be aware that the dialog component is not responsible for the appearance 
             hideTrigger={[]}
             // Using callback instead of hideTrigger here cause Controlled and Uncontrolled Dialog states shouldn't be mixed -
             // - putting Dialog.hideShowTriggers.CLICK_OUTSIDE in hideTrigger array won't work
-            onClickOutside={() => setIsOpen(false)}
+            onClickOutside={e => {
+              // Fix to avoid double Dialog reopening when dialog button is clicked (and it's an outside click same time)
+              if (e.target !== buttonRef.current) {
+                setIsOpen(false);
+              }
+            }}
             content={
               <DialogContentContainer>
                 <div style={{ width: 300, height: 300 }}>
@@ -250,7 +256,12 @@ Please be aware that the dialog component is not responsible for the appearance 
               </DialogContentContainer>
             }
           >
-            <Button kind={Button.kinds.SECONDARY} onClick={() => setIsOpen(prevState => !prevState)} active={isOpen}>
+            <Button
+              ref={buttonRef}
+              kind={Button.kinds.SECONDARY}
+              onClick={() => setIsOpen(prevState => !prevState)}
+              active={isOpen}
+            >
               Top
             </Button>
           </Dialog>
