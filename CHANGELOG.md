@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.4.0 (2023-05-30)
+
+#### Bug Fixes
+* [#1331](https://github.com/mondaycom/monday-ui-react-core/pull/1331) Hotfix for not throw an error on dialog when disable scroll is false ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1125](https://github.com/mondaycom/monday-ui-react-core/pull/1125) Optimize style injection ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#1328](https://github.com/mondaycom/monday-ui-react-core/pull/1328) Fix chips with background with the same color story ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.3.1 (2023-05-28)
 
 #### Bug Fixes
