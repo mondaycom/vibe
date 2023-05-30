@@ -12,7 +12,7 @@ export interface ModalHeaderProps extends VibeComponentProps {
   /**
    * Title of the modal
    */
-  title: string;
+  title: ElementContent;
   /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
