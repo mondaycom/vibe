@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.4.1 (2023-05-31)
+
+#### Bug Fixes
+* [#1336](https://github.com/mondaycom/monday-ui-react-core/pull/1336) fix: <Tipseen/> - override the <Tooltip/> styles by using dedicates CSS variables to prevent CSS order issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.4.0 (2023-05-30)
 
 #### Bug Fixes
