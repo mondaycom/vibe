@@ -129,11 +129,17 @@ export interface DialogProps extends VibeComponentProps {
    */
   zIndex?: number;
   useDerivedStateFromProps?: boolean;
+  /**
+   * Make the dialogue disappear when the element it is attached to becomes hidden
+   */
   hideWhenReferenceHidden?: boolean;
   shoudlCallbackOnMount?: boolean;
   instantShowAndHide?: boolean;
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
   content?: (() => JSX.Element) | JSX.Element;
+  /**
+   * The element where we will position the dialog beside.
+   */
   children?: ReactElement | ReactElement[] | string;
   /**
    * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
