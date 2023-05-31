@@ -10,9 +10,9 @@ import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
   /**
-   * Title of the modal
+   * Title of the modal - using string is a recommended standard
    */
-  title: string;
+  title: ElementContent;
   /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
