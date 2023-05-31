@@ -161,20 +161,20 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseen tipseenWrapper withoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         <div>
           <div
-            className="tipseenHeader"
+            className="header"
           >
             <button
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="closeButton dark button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -212,7 +212,7 @@ Array [
             </button>
           </div>
           <div
-            className="tipseenContent"
+            className="content"
           />
         </div>
       </div>
@@ -260,16 +260,16 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseen tipseenWrapper withoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         <div>
           <div
-            className="tipseenHeader"
+            className="header"
           />
           <div
-            className="tipseenContent"
+            className="content"
           />
         </div>
       </div>
@@ -317,16 +317,16 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseen tipseenWrapper withoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         <div>
           <div
-            className="tipseenHeader"
+            className="header"
           />
           <div
-            className="tipseenContent"
+            className="content"
           />
         </div>
       </div>
@@ -374,20 +374,20 @@ Array [
       className="contentComponent bottom edgeCenter hasTooltip"
     >
       <div
-        className="tooltip primary paddingSizeUndefined tipseenWrapper tipseenWrapperWithoutCustomWidth"
+        className="tooltip primary paddingSizeUndefined tipseen tipseenWrapper withoutCustomWidth"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
         <div>
           <div
-            className="tipseenHeader"
+            className="header"
           >
             <button
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="closeButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -425,7 +425,7 @@ Array [
             </button>
           </div>
           <div
-            className="tipseenContent"
+            className="content"
           />
         </div>
       </div>
