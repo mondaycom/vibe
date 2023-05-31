@@ -2,42 +2,40 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-.tipseenWrapper {
-  min-width: 100px;
-  min-height: 40px;
-  padding: 0;
-  border-radius: var(--border-radius-medium);
+.tipseen {
+  &.tipseenWrapper {
+    min-width: 100px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: var(--border-radius-medium);
 
-  &WithoutCustomWidth {
-    max-width: 320px;
-  }
+    &.withoutCustomWidth {
+      max-width: 320px;
+    }
 
-  .tipseen {
-    &Header {
+    .header {
       display: flex;
       justify-content: flex-start;
+
+      .title {
+        padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
+      }
+
+      .closeButton {
+        position: absolute;
+        top: var(--spacing-xs);
+        right: var(--spacing-xs);
+        z-index: 2;
+
+        &.dark {
+          color: var(--color-asphalt);
+        }
+      }
     }
 
-    &Title {
-      padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
-    }
-
-    &Content {
+    .content {
       @include font-default;
       @include theme-prop(color, text-color-on-primary);
-    }
-
-    &CloseButton {
-      position: absolute;
-      top: var(--spacing-xs);
-      right: var(--spacing-xs);
-      z-index: 2;
-
-
-
-      &.dark {
-        color: var(--color-asphalt);
-      }
     }
   }
 }

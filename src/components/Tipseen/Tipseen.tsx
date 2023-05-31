@@ -126,11 +126,11 @@ const Tipseen: VibeComponent<TipseenProps> & {
     const tooltipContent = useMemo(
       () => (
         <div>
-          <div className={cx(styles.tipseenHeader)}>
+          <div className={cx(styles.header)}>
             {overrideHideCloseButton ? null : (
               <IconButton
                 hideTooltip
-                className={cx(styles.tipseenCloseButton, {
+                className={cx(styles.closeButton, {
                   [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
                 })}
                 onClick={onClose}
@@ -141,9 +141,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
                 icon={CloseSmall}
               />
             )}
-            <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
+            <TipseenTitle text={title} className={cx(styles.title, titleClassName)} />
           </div>
-          <div className={cx(styles.tipseenContent)}>{content}</div>
+          <div className={cx(styles.content)}>{content}</div>
         </div>
       ),
       [closeButtonTheme, content, onClose, overrideCloseAriaLabel, overrideHideCloseButton, title, titleClassName]
@@ -152,8 +152,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
     return (
       <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
         <Tooltip
-          className={cx(styles.tipseenWrapper, className, {
-            [styles.tipseenWrapperWithoutCustomWidth]: !width
+          className={cx(styles.tipseen, styles.tipseenWrapper, className, {
+            [styles.withoutCustomWidth]: !width
           })}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
