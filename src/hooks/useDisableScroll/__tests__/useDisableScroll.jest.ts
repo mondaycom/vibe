@@ -42,4 +42,25 @@ describe("useDisableScroll", () => {
       result.current.disableScroll();
     }).not.toThrow();
   });
+
+  test("should not throw an error when disableScroll is called after unmounting when selector empty", () => {
+    const { result, unmount } = renderHook(() => useDisableScroll(""));
+
+    unmount();
+
+    expect(() => {
+      result.current.disableScroll();
+    }).not.toThrow();
+  });
+
+  test("should not throw an error when disableScroll is called after unmounting when selector undefined", () => {
+    // @ts-ignore
+    const { result, unmount } = renderHook(() => useDisableScroll());
+
+    unmount();
+
+    expect(() => {
+      result.current.disableScroll();
+    }).not.toThrow();
+  });
 });
