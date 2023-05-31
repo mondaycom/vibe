@@ -12,7 +12,7 @@ import {
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
-import { Button, Flex } from "../../../components";
+import { Button, Flex, EditableHeading } from "../../../components";
 import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -377,6 +377,65 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     }
   ]}
 />
+
+## Use cases and examples
+
+### Modal with editable title
+
+<Canvas>
+  <Story name="Modal with editable title">
+    {() => {
+      // Boilerplate for creating a modal, not relevant for add icon to the header
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({
+          title: "Modal with editable title",
+          setShow,
+          openModalButtonRef
+        });
+      return (
+        // Modal header with an icon example
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            triggerElement={openModalButtonRef.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+            width={Modal.width.DEFAULT}
+          >
+            {/** Please follow the design guidelines when implementing custom title */}
+            <ModalHeader
+              title={
+                <EditableHeading
+                  size={EditableHeading.sizes.SMALL}
+                  placeholder={"Modal title"}
+                  className="monday-storybook-modal-editable-heading-example"
+                />
+              }
+            />
+            <ModalContent>
+              <p className="modal-content">Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Related components
 

@@ -32,7 +32,7 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
 }
 
 const EditableHeading: React.FC<EditableHeadingProps> & {
-  sizes?: Sizes;
+  sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = props => {
   const {
