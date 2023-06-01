@@ -19,20 +19,25 @@
 
     &__title {
       width: 100%;
+      margin-bottom: var(--spacing-xs);
 
       .visually-hidden {
         display: none;
       }
 
       &__text {
-        @include font-paragraph();
+        font: var(--font-h5);
+        font-weight: 700;
+        line-height: 20px;
         @include theme-prop(color, primary-text-color);
+        margin-bottom: 2px;
       }
     }
 
     &__subtitle__text {
       width: 100%;
       font-size: var(--font-size-general-label);
+      font-weight: var(--font-weight-normal);
       @include theme-prop(color, secondary-text-color);
     }
   }
@@ -44,8 +49,8 @@
 
     .monday-style-step-indicator-component {
       &__text-container {
-        margin-left: 0px;
-        margin-top: 8px;
+        margin-left: 0;
+        margin-top: var(--spacing-medium);
       }
 
       &__number-divider-container {
