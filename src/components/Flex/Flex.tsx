@@ -8,6 +8,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ElementContent } from "../../types/ElementContent";
 import styles from "./Flex.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 interface FlexProps extends VibeComponentProps {
   style?: object;
@@ -47,7 +48,8 @@ const Flex: VibeComponent<FlexProps> & {
       style,
       ariaLabelledby,
       ariaLabel,
-      tabIndex
+      tabIndex,
+      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.FLEX, id)
     },
     ref
   ) => {
@@ -63,6 +65,7 @@ const Flex: VibeComponent<FlexProps> & {
     return (
       <Element
         id={id}
+        data-testid={dataTestId}
         {...onClickProps}
         ref={mergedRef}
         className={cx(

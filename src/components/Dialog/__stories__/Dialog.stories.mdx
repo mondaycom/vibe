@@ -4,6 +4,8 @@ import { createStoryMetaSettings, Link } from "../../../storybook";
 import { Button, DialogContentContainer, IconButton, AttentionBox } from "../../../components";
 import { ExampleContent } from "./helpers";
 import { Info } from "../../Icon/Icons";
+import {closeTriggersInteractionSuite} from "../__tests__/Dialog.interactions.ts";
+import {CONTEXT_MENU_DIALOG, HIDE_TRIGGERS_CONTAINER} from "../__tests__/DialogDataTestIds";
 import {
   MENU,
   DIALOG_CONTENT_CONTAINER,
@@ -314,7 +316,7 @@ We can choose what will be the related element's trigger which will be responsib
 We can set the triggers which will be responsible for hide the dialog
 
 <Canvas>
-  <Story name="Hide triggers">
+  <Story name="Hide triggers" play={closeTriggersInteractionSuite}>
     {() => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: clickButtonActive, onChange: switchClickButtonActive } = useSwitch({ defaultChecked: true });
@@ -328,6 +330,9 @@ We can set the triggers which will be responsible for hide the dialog
       const { isChecked: contentClickButtonActive, onChange: switchContentClickActive } = useSwitch({
         defaultChecked: true
       });
+        const { isChecked: contextMenuButtonActive, onChange: switchContextMenuActive } = useSwitch({
+            defaultChecked: true
+        });
       const modifiers =
         // for prevent dialog to move while scrolling
         [
@@ -340,6 +345,8 @@ We can set the triggers which will be responsible for hide the dialog
         ];
       return (
         <Flex
+            data-testid={HIDE_TRIGGERS_CONTAINER}
+            id={HIDE_TRIGGERS_CONTAINER}
           className="monday-storybook-dialog_hide-triggers-story"
           wrap
           direction={Flex.directions.COLUMN}
@@ -354,7 +361,7 @@ We can set the triggers which will be responsible for hide the dialog
             showTrigger={[Dialog.hideShowTriggers.CLICK]}
             hideTrigger={[Dialog.hideShowTriggers.CLICK_OUTSIDE]}
             content={
-              <DialogContentContainer>
+              <DialogContentContainer data-testid={CLICK_OUTSIDE_DIALOG}>
                 <ExampleContent rowsCount={1} />
               </DialogContentContainer>
             }
@@ -455,6 +462,29 @@ We can set the triggers which will be responsible for hide the dialog
               On mouse leave
             </Button>
           </Dialog>
+            <Dialog
+                modifiers={modifiers}
+                shouldShowOnMount
+                showTrigger={[Dialog.hideShowTriggers.CLICK]}
+                hideTrigger={[Dialog.hideShowTriggers.CONTEXT_MENU]}
+                position={Dialog.positions.RIGHT}
+                containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`} // for testing purpose
+                onDialogDidHide={switchContextMenuActive}
+                onDialogDidShow={switchContextMenuActive}
+                content={
+                    <DialogContentContainer data-testid={CONTEXT_MENU_DIALOG}>
+                        <ExampleContent rowsCount={1} />
+                    </DialogContentContainer>
+                }
+            >
+                <Button
+                    kind={Button.kinds.SECONDARY}
+                    active={contextMenuButtonActive}
+                    style={{ marginBlock: "54px" }}
+                >
+                    On right click
+                </Button>
+            </Dialog>
         </Flex>
       );
     }}
