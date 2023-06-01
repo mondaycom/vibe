@@ -12,7 +12,7 @@
   padding: 0 8px;
   align-items: center;
   justify-content: center;
-  margin: 0 var(--spacing-xs);
+  margin: var(--chips-margin, #{0 var(--spacing-xs)});
   user-select: none;
   line-height: 22px;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);

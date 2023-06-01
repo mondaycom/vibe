@@ -9,11 +9,11 @@
 }
 
 .multiselect-chip-multi-line {
-  margin: 2px;
+  --chips-margin: 2px;
 }
 
 .multiselect-chip-single-line {
-  margin: 5px 2px;
+  --chips-margin: 5px 2px;
 }
 
 .multiselect-chip-disabled {
