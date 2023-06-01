@@ -410,15 +410,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             width={Modal.width.DEFAULT}
           >
             {/** Please follow the design guidelines when implementing custom title **/}
-            <ModalHeader
-              title={
-                <EditableHeading
-                  size={EditableHeading.sizes.SMALL}
-                  placeholder={"Modal title"}
-                  className="monday-storybook-modal-editable-heading-example"
-                />
-              }
-            />
+            <ModalHeader title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />} />
             <ModalContent>
               <p className="modal-content">Modal content goes here</p>
             </ModalContent>
