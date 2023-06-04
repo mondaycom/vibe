@@ -9,10 +9,10 @@ We are using two approaches when regarding testing the first is the standard jes
 
 #### Component tests file structure
 Each component in the library will contain a __tests__ folder that should have three files:
-- **Snapshot tests file: *component-name*-snapshot-tests.jest.tsx**, which will include all the component snapshot tests.
+- **Snapshot tests file**: *component-name*-snapshot-tests.jest.tsx, which will include all the component snapshot tests.
   This file will contain a snapshot test for the component with empty props and a snapshot test for each prop.
-- **Behivor tests file: *component-name*-tests.jest.tsx** Tests file for all the tests which are not snapshot tests. This file should contain a test for each possible user interaction with the component. Any other tests for the component which are not snapshot tests also should be here.
-- **Storybook interaction tests: *component-name*-interactions.tsx ** For more complex tests that are difficult to implement in the other way described before, we can also implement tests using Storybook interaction tests abilities. Every storybook interaction test suite is linked to a specific component story. These tests can use us when we need to render our components in an actual DOM for checking particular scenarios.
+- **Behivor tests file**: *component-name*-tests.jest.tsx Tests file for all the tests which are not snapshot tests. This file should contain a test for each possible user interaction with the component. Any other tests for the component which are not snapshot tests also should be here.
+- **Storybook interaction tests**: *component-name*-interactions.tsx For more complex tests that are difficult to implement in the other way described before, we can also implement tests using Storybook interaction tests abilities. Every storybook interaction test suite is linked to a specific component story. These tests can use us when we need to render our components in an actual DOM for checking particular scenarios.
 
 ### Always test the expected behavior and not implementation details
 Our first and most important guideline regarding tests implementation is
