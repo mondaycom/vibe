@@ -1,16 +1,17 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
+
 $tooltip-z-index: 9999999999999999;
 
 .tooltip {
   position: relative;
   display: inline-block;
-  border-radius: $border-radius-small;
-  padding: $spacing-small $spacing-medium;
+  border-radius: var(--tooltip-border-radius, $border-radius-small);
+  padding: var(--tooltip-padding, #{$spacing-small $spacing-medium});
   @include theme-prop(box-shadow, box-shadow-medium);
   @include font-input();
-  max-width: 50vw;
+  max-width: var(--tooltip-max-width, 50vw);
   word-break: break-word;
 }
 

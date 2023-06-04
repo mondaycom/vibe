@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.4.2 (2023-06-02)
+
+#### Bug Fixes
+* [#1340](https://github.com/mondaycom/monday-ui-react-core/pull/1340) fix: <Dropdown> multi fix <Chips> override with css variables ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.4.1 (2023-05-31)
+
+#### Bug Fixes
+* [#1336](https://github.com/mondaycom/monday-ui-react-core/pull/1336) fix: <Tipseen/> - override the <Tooltip/> styles by using dedicates CSS variables to prevent CSS order issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.4.0 (2023-05-30)
 
 #### Bug Fixes
