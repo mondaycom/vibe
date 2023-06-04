@@ -22,10 +22,13 @@ export const closeTriggersInteractionSuite = interactionSuite({
   beforeAll: async canvas => {
     // From some reason we have an issue with rendering the dialogs according to the container selector in the initial mount, after clicking
     // all dialog render in the right placements
-    const container = getDialogContainer();
-    fireEvent.click(container);
     const clickOutsideButton = await getByTestId(canvas, CLICK_OUTSIDE_DIALOG_BUTTON);
-    waitFor(() => fireEvent.click(clickOutsideButton), { timeout: 1000 });
+    await userEvent.click(clickOutsideButton);
+    // wait for hide default delay
+    await new Promise(resolve => setTimeout(resolve, 100));
+    await userEvent.click(clickOutsideButton);
+    // wait for show default dealy
+    await new Promise(resolve => setTimeout(resolve, 100));
   },
   afterEach: async () => {
     await resetFocus();

@@ -362,6 +362,7 @@ We can set the triggers which will be responsible for hide the dialog
           <Dialog
             modifiers={modifiers}
             shouldShowOnMount
+            containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`} // for testing purpose
             onClickOutside={switchClickOutsideActive}
             position={Dialog.positions.RIGHT}
             showTrigger={[Dialog.hideShowTriggers.CLICK]}

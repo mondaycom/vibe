@@ -15,7 +15,8 @@ export enum HideShowEvent {
   MOUSE_DOWN = "mousedown",
   FOCUS = "focus",
   BLUR = "blur",
-  CONTENT_CLICK = "onContentClick"
+  CONTENT_CLICK = "onContentClick",
+  CONTEXT_MENU = "contextmenu"
 }
 
 export enum AnimationType {
