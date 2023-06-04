@@ -206,7 +206,6 @@ const Dropdown = forwardRef(
           customOnChange(newSelectedOptions, e);
         }
         setSelected(newSelectedOptions);
-        e.stopPropagation();
       };
     }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
 

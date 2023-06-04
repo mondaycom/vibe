@@ -40,7 +40,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
 
   const onDelete = useCallback(
     option => {
-      onSelectedDelete(option, { action: "remove-value", removedValue: option });
+      onSelectedDelete(option.value, { action: "remove-value", removedValue: option });
     },
     [onSelectedDelete]
   );
