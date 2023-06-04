@@ -38,7 +38,7 @@
       width: 100%;
       font-size: var(--font-size-general-label);
       font-weight: var(--font-weight-normal);
-      @include theme-prop(color, secondary-text-color);
+      color: var(--primary-text-color);
     }
   }
 
@@ -87,7 +87,8 @@
     &-enter-active {
       position: relative;
       opacity: 1;
-      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+        opacity var(--motion-productive-short);
       transform: translateY(0);
     }
 
@@ -102,7 +103,8 @@
       position: relative;
       opacity: 0;
       transform: translateY(-15px);
-      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+        opacity var(--motion-productive-short);
     }
   }
 
@@ -247,10 +249,10 @@
   @include pop-elastic();
 }
 
-.monday-style-step-indicator-component{
+.monday-style-step-indicator-component {
   font-family: var(--font-family);
 }
 
-.monday-style-step-indicator-component__text-container__subtitle__text{
+.monday-style-step-indicator-component__text-container__subtitle__text {
   font-family: var(--font-family);
 }
