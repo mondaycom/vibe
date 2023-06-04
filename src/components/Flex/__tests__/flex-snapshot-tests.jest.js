@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Flex from "../Flex";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 describe("Flex renders correctly", () => {
   it("with empty props", () => {

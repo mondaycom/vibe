@@ -5,7 +5,6 @@ import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
 import useOnClickOutside from "../../../hooks/useClickOutside";
-import useEventListener from "../../../hooks/useEventListener";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HideShowEvent } from "../consts/dialog-show-hide-event";
