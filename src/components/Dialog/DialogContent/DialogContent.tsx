@@ -62,7 +62,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       isReferenceHidden,
       hasTooltip = false,
       containerSelector,
-      disableContainerScroll
+      disableContainerScroll = false
     },
     forwardRef
   ) => {
@@ -75,17 +75,17 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       },
       [isOpen, onClickOutside]
     );
-      const overrideOnContextMenu = useCallback(
-          (event: React.MouseEvent) => {
-              if (isOpen) {
-                  onContextMenu(event);
-              }
-          },
-          [isOpen, onClickOutside]
-      );
+    const overrideOnContextMenu = useCallback(
+      (event: React.MouseEvent) => {
+        if (isOpen) {
+          onContextMenu(event);
+        }
+      },
+      [isOpen, onClickOutside]
+    );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
-    useOnClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref })
+    useOnClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref });
     const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 

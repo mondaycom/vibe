@@ -1,10 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Flex from "../Flex";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 describe("Flex renders correctly", () => {
   it("with empty props", () => {
     const tree = renderer.create(<Flex />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("with data-testid", () => {
+    const tree = renderer.create(<Flex data-testid="test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   describe("Horizontal display", () => {
