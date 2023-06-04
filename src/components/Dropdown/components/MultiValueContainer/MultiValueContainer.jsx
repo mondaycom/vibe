@@ -37,6 +37,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
     selectedOptionsCount: selectedOptions.length
   });
   const isCounterShown = hiddenOptionsCount > 0;
+
+  const onDelete = useCallback(
+    option => {
+      onSelectedDelete(option, { action: "remove-value", removedValue: option });
+    },
+    [onSelectedDelete]
+  );
+
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) => {
@@ -52,7 +60,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             disabled={isDisabled}
             id={option.value}
             label={option.label}
-            onDelete={onSelectedDelete}
+            onDelete={() => onDelete(option)}
             disableClickableBehavior
             onMouseDown={e => {
               e.stopPropagation();

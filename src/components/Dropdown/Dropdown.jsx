@@ -201,10 +201,14 @@ const Dropdown = forwardRef(
         if (customOnOptionRemove) {
           customOnOptionRemove(selectedOptionsMap[optionValue], e);
         }
-        setSelected(selected.filter(option => option.value !== optionValue));
+        const newSelectedOptions = selected.filter(option => option.value !== optionValue);
+        if (customOnChange) {
+          customOnChange(newSelectedOptions, e);
+        }
+        setSelected(newSelectedOptions);
         e.stopPropagation();
       };
-    }, [customOnOptionRemove, selected, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
 
     const customProps = useMemo(
       () => ({
