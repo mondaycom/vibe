@@ -20,17 +20,22 @@ This library is open-sourced, and we encourage everyone to use and contribute in
 ## Information about the project
 
 ### Plop
+Our code generator, Plop, is designed to simplify the creation of frequently used boilerplate code. To utilize it, execute the command `npm run plop .`If you want to learn more about Plop, you can find additional information [here](https://plopjs.com/).
+Currently, our Plop code generator supports the creation of the following:
+Tests
+Component story documentation pages
+Hook story documentation pages
+Entirely new components, which include tests and story pages
+We strongly recommend utilizing our Plop code generator within this repository for generating any of the mentioned items. Doing so ensures that your code will be created with the latest recommended structure, providing a solid foundation for your development tasks.
 
-Every new component in this repository should be created using [plops](https://plopjs.com/) with `npm run plop` command.
-Plop will automatically generate all required files for your new component. Plop template will always be up to date and by using it, you can be sure that your component will be created with the latest recommended structure.
+### API
+If you add new features or abilities to an existing component, please ensure your props' naming follows our conventions and best practices. Read more about it here.
 
 ### Storybook
-
-As the main development environment and documentation playground we are using [Storybook](https://storybook.js.org/).
+As the main development environment and documentation playground, we are using [Storybook](https://storybook.js.org/).
 Each component should be developed in isolation in the Storybook environment.
 
 ### Theming
-
 Every component should support theming, you can find more information about it [here](THEME_README.md)
 
 ### Tests and coverage
@@ -39,7 +44,7 @@ All the guidelines about testing your new component or changes to the existing o
 
 ### Linting
 
-We are using [Prettier](https://prettier.io/) with the default community guidelines. Please, make sure that you are formatting your code with prettier.
+We use [Prettier](https://prettier.io/) with the default community guidelines. Please, make sure that you are formatting your code with prettier.
 
 ### Commits
 
