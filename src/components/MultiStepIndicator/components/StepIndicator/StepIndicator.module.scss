@@ -42,7 +42,7 @@
   font-size: var(--font-size-general-label);
   font-family: var(--font-family);
   font-weight: var(--font-weight-normal);
-  @include theme-prop(color, secondary-text-color);
+  color: var(--primary-text-color);
 }
 
 .textPlacementVertical {
