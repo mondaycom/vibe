@@ -7,7 +7,7 @@ import VibeComponentProps from "src/types/VibeComponentProps";
 import VibeComponent from "src/types/VibeComponent";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
 import styles from "./DialogContentContainer.module.scss";
-import {ComponentDefaultTestId, getTestId} from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -24,7 +24,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
 } = forwardRef(
   (
     {
-        id,
+      id,
       className = "",
       ariaLabelledby = "",
       ariaDescribedby = "",
@@ -32,7 +32,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       size = DialogSize.MEDIUM,
       children,
       style,
-        "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
+      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
     },
     ref
   ) => {
