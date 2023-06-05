@@ -199,7 +199,7 @@ const Dropdown = forwardRef(
     const onOptionRemove = useMemo(() => {
       return function (optionValue, e) {
         if (customOnOptionRemove) {
-          customOnOptionRemove(selectedOptionsMap[optionValue], e);
+          customOnOptionRemove(selectedOptionsMap[optionValue]);
         }
         const newSelectedOptions = selected.filter(option => option.value !== optionValue);
         if (customOnChange) {
