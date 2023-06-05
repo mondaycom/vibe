@@ -12,7 +12,7 @@ import {
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
-import { Button, Flex } from "../../../components";
+import { Button, Flex, EditableHeading } from "../../../components";
 import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -44,7 +44,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
         {...modalProps}
       >
         <ModalContent>
-          <p className="modal-content">Modal content goes here</p>
+          <p>Modal content goes here</p>
         </ModalContent>
         <ModalFooter>
           <Flex justify={Flex.justify.END} gap={12}>
@@ -142,7 +142,7 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             width={Modal.width.DEFAULT}
           >
             <ModalContent>
-              <p className="modal-content">Modal content goes here</p>
+              <p>Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -181,7 +181,7 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             width={Modal.width.FULL_WIDTH}
           >
             <ModalContent>
-              <p className="modal-content">Modal content goes here</p>
+              <p>Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -220,7 +220,7 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             width={"720px"}
           >
             <ModalContent>
-              <p className="modal-content">Modal content goes here</p>
+              <p>Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -269,10 +269,10 @@ Use the ModalHeader component to display a Header with an icon
             closeButtonAriaLabel={"close"}
             width={Modal.width.DEFAULT}
           >
-            {/** Please implement your an custom Modal header and set it as child for adding an Icon to your modal*/}
+            {/** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/}
             <ModalHeader title={"Modal Title"} icon={Settings} />
             <ModalContent>
-              <p className="modal-content">Modal content goes here</p>
+              <p>Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -322,7 +322,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             onClose={closeModal}
           >
             <ModalContent>
-              <p className="modal-content">Modal content goes here</p>
+              <p>Modal content goes here</p>
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -377,6 +377,57 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     }
   ]}
 />
+
+## Use cases and examples
+
+### Modal with editable title
+
+<Canvas>
+  <Story name="Modal with editable title">
+    {() => {
+      // Boilerplate for creating a modal, not relevant for add icon to the header
+      const [show, setShow] = useState(false);
+      const openModalButtonRef = useRef(null);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, []);
+      const openModalButton = // Internal helper, not part of the API
+        useHelperOpenModalButton({
+          title: "Modal with editable title",
+          setShow,
+          openModalButtonRef
+        });
+      return (
+        // Modal header with an icon example
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            triggerElement={openModalButtonRef.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+            width={Modal.width.DEFAULT}
+          >
+            {/** Please follow the design guidelines when implementing custom title **/}
+            <ModalHeader description={"Description text goes here"} title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />} />
+            <ModalContent>
+              <p>Modal content goes here</p>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify={Flex.justify.END} gap={12}>
+                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
+                  Cancel
+                </Button>
+                <Button onClick={closeModal}>Confirm</Button>
+              </Flex>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Related components
 
