@@ -1,5 +1,6 @@
-import Tipseen from "../Tipseen";
+import { useCallback, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
@@ -115,19 +116,23 @@ Use when the tip is too long or when you want to teach something in steps.
   <Story name="Tipseen with a wizard">
     {() => {
       const content = [
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>
+        <div>Popover message №1 will appear here</div>,
+        <div>Popover message №2 will appear here</div>,
+        <div>Popover message №3 will appear here</div>,
+        <div>Popover message №4 will appear here</div>,
+        <div>Popover message №5 will appear here</div>
       ];
+      const [activeStepIndex, setActiveStepIndex] = useState(2);
+      const onChangeActiveStep = useCallback((_e, stepIndex) => {
+        setActiveStepIndex(stepIndex);
+      }, []);
       return (
         <Tipseen
           // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
-          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />}
+          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={activeStepIndex} onChangeActiveStep={onChangeActiveStep} />}
         >
           <div className="monday-storybook-tipseen_container" />
         </Tipseen>
