@@ -38,6 +38,10 @@ export interface DialogContentProps extends VibeComponentProps {
   disableOnClickOutside?: boolean; // TODO prop is passsed, but not used. How it should behave?
   containerSelector?: string;
   disableContainerScroll?: boolean | string;
+  /**
+   * On context menu event (right click) outside of the dialog
+   * @param e
+   */
   onContextMenu?: (e: React.MouseEvent) => void;
 }
 
@@ -96,7 +100,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           enableScroll();
         }
       }
-    }, [isOpen]);
+    }, [disableContainerScroll, disableScroll, enableScroll, isOpen]);
 
     const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
 

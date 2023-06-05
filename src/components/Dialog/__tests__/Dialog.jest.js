@@ -13,7 +13,7 @@ function renderDialogOnMount(dialogProps) {
 
 describe("Dialog tests", () => {
   describe("Callbacks", () => {
-    it("should call onClickOutside callback when trigger", async () => {
+    it("should call onClickOutside callback when click outside", async () => {
       const onClickOutsideMock = jest.fn();
       renderVisibleDialogOnMount({ onClickOutside: onClickOutsideMock, content: <div>Dialog</div> });
       userEvent.click(document.body);

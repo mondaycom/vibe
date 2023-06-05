@@ -24,11 +24,15 @@ export const closeTriggersInteractionSuite = interactionSuite({
     // all dialog render in the right placements
     const clickOutsideButton = await getByTestId(canvas, CLICK_OUTSIDE_DIALOG_BUTTON);
     await userEvent.click(clickOutsideButton);
-    // wait for hide default delay
-    await new Promise(resolve => setTimeout(resolve, 100));
     await userEvent.click(clickOutsideButton);
-    // wait for show default dealy
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // wait for show default delay
+    await waitFor(
+      async () => {
+        const dialog = await getDialogElement(canvas, CLICK_OUTSIDE_DIALOG);
+        expect(dialog).toBeInTheDocument();
+      },
+      { timeout: 100 }
+    );
   },
   afterEach: async () => {
     await resetFocus();
