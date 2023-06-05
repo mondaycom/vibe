@@ -9,9 +9,8 @@
   .title {
     @include font-title();
     color: var(--primary-text-color);
-    flex-grow: 1;
-    margin-block-start: var(--spacing-large);
     margin-block-end: 0;
+    width: calc(100% - 32px);
   }
 
   .icon {
