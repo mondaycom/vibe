@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.5.0 (2023-06-05)
+
+#### Bug Fixes
+* [#1337](https://github.com/mondaycom/monday-ui-react-core/pull/1337) fix: <Tipseen> dependencies array ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1334](https://github.com/mondaycom/monday-ui-react-core/pull/1334) feat: <Modal> custom header title ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.4.2 (2023-06-02)
 
 #### Bug Fixes
