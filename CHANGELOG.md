@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.132.0 (2023-06-05)
+
+#### New Features
+* [#1335](https://github.com/mondaycom/monday-ui-react-core/pull/1335) V1 - feat: <Modal> custom header title ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.131.2 (2023-05-30)
 
 #### Bug Fixes
