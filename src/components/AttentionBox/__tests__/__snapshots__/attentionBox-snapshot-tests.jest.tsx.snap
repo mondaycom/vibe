@@ -8,7 +8,6 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -56,7 +55,6 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -104,7 +102,6 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typeDarkTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -152,7 +149,6 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -200,7 +196,6 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -221,7 +216,6 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -247,7 +241,6 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -278,7 +271,6 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -382,7 +374,6 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",
@@ -410,7 +401,6 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
 >
   <div
     className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
-    data-testid="flex"
     style={
       Object {
         "gap": "0px",

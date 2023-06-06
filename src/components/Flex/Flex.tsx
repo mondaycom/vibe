@@ -49,7 +49,7 @@ const Flex: VibeComponent<FlexProps> & {
       ariaLabelledby,
       ariaLabel,
       tabIndex,
-      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.FLEX, id)
+      "data-testid": dataTestId
     },
     ref
   ) => {
