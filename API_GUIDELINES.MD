@@ -23,7 +23,7 @@ Every component supports a `className` prop, allowing developers to add a custom
 ### id
 Each component supports an `id` prop, providing the ability to set a unique identifier for the component.
 
-### data-testid`s
+### data-testid
 When testing the application code that uses vibe components, it is necessary to retrieve elements. for that, `data-testid`s are used (TODO - add a link to a guide about how to test).
 
 Each component in the library should exposes a `data-testid` which is set on the root element of the component.
