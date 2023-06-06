@@ -1,4 +1,4 @@
-#Contribution guidelines
+# Contribution guidelines
 This is an **official library** of shared UI components for Monday builders. It is used both for internal and external Monday apps development.
 
 This library is open-sourced, and we encourage everyone to use and contribute into it.
@@ -19,7 +19,7 @@ This library is open-sourced, and we encourage everyone to use and contribute in
 
 ## Information about the project
 
-### Plop
+### Creating new files in the library
 Our code generator, Plop, is designed to simplify the creation of frequently used boilerplate code. To utilize it, execute the command `npm run plop .`If you want to learn more about Plop, you can find additional information [here](https://plopjs.com/).
 Currently, our Plop code generator supports the creation of the following:
 1. Tests

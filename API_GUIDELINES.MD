@@ -2,7 +2,20 @@
 This doc is still work in progress and will constantly be updated.
 
 ## Component's Mandatory Props
-Every Vibe component must extend the `VibeProps` interface and include the following props: `className`, `id`, and `data-testid`.
+All Vibe components must include the following mandatory props: `className`, `id`, and `data-testid`. These props are essential for proper component functionality and testing.
+To ensure consistency and ease of use, there's no need to manually add these props to the component props interface. Instead, you can simply extend the `VibeComponentProps` interface, as demonstrated in the following example:
+
+```tsx
+import { VibeComponentProps } from "../../types";
+
+interface MyComponentProps extends VibeComponentProps {
+    // additional props specific to MyComponent
+    ...
+}
+```
+
+By extending VibeComponentProps, you automatically inherit the required props, className, id, and data-testid, without the need to explicitly define them in your component's props interface.
+
 
 ### className
 Every component supports a `className` prop, allowing developers to add a custom class name to the outermost wrapper element. This feature is useful for layout and positioning purposes without overriding the component's inner styles.
@@ -30,7 +43,7 @@ Inner parts of the component would also get a data-testid, which its parent comp
 ```tsx
 const SomeComponent = () => {
   return ( 
-    <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`}/>
+    <div data-testid={`${props['data-testid']} || getTestId(ComponentDefaultTestId.SomeComponent, id)`} />
       <InnerComponent data-testid={`${props['data-testid']-inner-component`}>
     </div>
   );
@@ -40,9 +53,16 @@ const SomeComponent = () => {
 ## Props Conventions
 Our props conventions are as follows:
 
-1. **Boolean Props**: We do not prefix boolean props with "is" to ensure more readable shorthand boolean prop usage. For example, instead of `isEnabled={true}`, you can simply use `enabled`.
+1. **Boolean Props**: We do not prefix boolean props with "is" to ensure more readable shorthand boolean prop usage. For example, instead of `<Button isDisabled={true} />`, you can simply use `<Button disabled />`.
 
-2. **Enum Props**: If a component has multiple visual states, we use an enum prop named `type`. Similarly, if a component has multiple sizes, we use an enum prop named `size`.
+2. **Enum Props**: Use TypeScript enum types for props with fixed value lists. It is important to note that each enum key should have a string value written in kebab case format, as in the following example:
+```typescript
+export enum ButtonType {
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+    TERTIARY = "tertiary"
+}
+```
 
 3. **Child Component Prop**: If a component only accepts a string as a child component, we avoid using the `children` prop. Instead, use a separate prop called `text`.
 
@@ -57,3 +77,12 @@ export interface AvatarProps extends VibeComponentProps {
     icon?: SubIcon;
 }
 ```
+
+## Common Props 
+| Prop name  | Prop meaning                                                                                                                                                   | Prop type                              | Examples                      |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|-------------------------------|
+| ariaLabel  | The textual representation of a graphic asset                                                                                                                  | string                                 | Icon, IconButton              |
+| disabled   | Clickable component which is not currently interactive or clickable                                                                                            | boolean                                | Button, IconButton, Clickable |
+| icon       | SVG component which should displayed inside vibe's Icon component                                                                                              | SubIcon                                | Icon, IconButton              |
+| size       | When a component supports multiple suitable sizes, it should include a "size" prop that allows developers to define which size variant of the component to use | Sizes / BaseSizes Enums from `sizes.ts` | Button, Combobox, Menu        |
+| type       | A component with several suitable visually different variants should include a "type" prop for distinguish between them                                        | TS Enum                                | AttentionBox                  |
