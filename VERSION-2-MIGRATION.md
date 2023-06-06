@@ -2,7 +2,8 @@
 
 ## What's changed?
 
-- CSS modules migration - we are now using css modules instead of global css classes, this allows us to have better encapsulation and fewer conflicts with other css classes.
+- CSS modules migration - all components are now using CSS modules instead of global CSS classes, this allows us to have better encapsulation and fewer conflicts with other CSS classes.
+- Global CSS classnames are no longer exposed, so you can't override or apply them anymore.
 - `data-testid` attributes were added, so you can target components by them instead of global class names.
 
 ## Why migrate?
@@ -11,7 +12,7 @@ Version 1 won't receive new features, only critical bug fixes - so if you want t
 
 ## How to migrate?
 
-- Remove overrides of Vibe's global css classes (mostly prefixed with `monday-style-`). Some of them could be replaced with corresponding className props.  
+- Remove overrides of Vibe's global CSS classes (mostly prefixed with `monday-style-`). Some of them could be replaced with corresponding className props.  
   Before:
   ```diff
   - .monday-style-button {
@@ -26,7 +27,7 @@ Version 1 won't receive new features, only critical bug fixes - so if you want t
     + }
   + <Button className="click-me-button">Click me</Button>
   ```
-- Remove direct usages of Vibe's global css classes.  
+- Remove direct usages of Vibe's global CSS classes.  
   Before:
   ```diff
   - <button className="monday-style-button ...">Click me</button>
@@ -35,7 +36,7 @@ Version 1 won't receive new features, only critical bug fixes - so if you want t
   ```diff
   + <Button>Click me</Button>
   ```
-- Fix tests selectors to use `data-testid` instead of global css classes.  
+- Fix tests selectors to use `data-testid` instead of global CSS classes.  
    Before:
   ```diff
   - document.querySelector('monday-style-button').click();
@@ -44,4 +45,10 @@ Version 1 won't receive new features, only critical bug fixes - so if you want t
   ```diff
   <Button data-testid="my-button"/>
   + document.querySelector(['data-testid="my-button"']).click();
+  ```
+- If you use jest snapshot testing, fix `jest.config.js` to use `moduleNameMapper` for package entry with mocked classnames - so they won't change names during snapshot testing.
+  ```diff
+  + moduleNameMapper: {
+  +     "monday-ui-react-core": "monday-ui-react-core/dist/mocked_classnames_esm/src/index.js"
+  + }
   ```
