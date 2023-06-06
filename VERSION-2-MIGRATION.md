@@ -73,7 +73,7 @@ If you use jest snapshot testing, fix `jest.config.js` to use `moduleNameMapper`
 + }
 ```
 
-### Component imports
+### Component's imports
 
 CommonJS imports for components and hooks from the `dist` are going to be deprecated soon, so, please, consider using ESM type of imports.  
 Before:
