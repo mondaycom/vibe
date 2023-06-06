@@ -11,5 +11,37 @@ Version 1 won't receive new features, only critical bug fixes - so if you want t
 
 ## How to migrate?
 
-- Remove overrides of Vibe's global css classes (mostly prefixed with `monday-style-`). Some of them could be replaced with corresponding className props.
-- Fix tests selectors to use `data-testid` instead of global css classes.
+- Remove overrides of Vibe's global css classes (mostly prefixed with `monday-style-`). Some of them could be replaced with corresponding className props.  
+  Before:
+  ```diff
+  - .monday-style-button {
+  -   margin-left: var(--spacing-small);
+  - }
+  - <Button>Click me</button>
+  ```
+  After:
+  ```diff
+  + .click-me-button {
+    +   margin-left: var(--spacing-small);
+    + }
+  + <Button className="click-me-button">Click me</Button>
+  ```
+- Remove direct usages of Vibe's global css classes.  
+  Before:
+  ```diff
+  - <button className="monday-style-button ...">Click me</button>
+  ```
+  After:
+  ```diff
+  + <Button>Click me</Button>
+  ```
+- Fix tests selectors to use `data-testid` instead of global css classes.  
+   Before:
+  ```diff
+  - document.querySelector('monday-style-button').click();
+  ```
+  After:
+  ```diff
+  <Button data-testid="my-button"/>
+  + document.querySelector(['data-testid="my-button"']).click();
+  ```
