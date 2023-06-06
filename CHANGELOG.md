@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.5.1 (2023-06-06)
+
+#### Bug Fixes
+* [#1343](https://github.com/mondaycom/monday-ui-react-core/pull/1343) fix: <Dropdown> multi on option delete callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1347](https://github.com/mondaycom/monday-ui-react-core/pull/1347) fix: AutoSizer TS issues ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.5.0 (2023-06-05)
 
 #### Bug Fixes
