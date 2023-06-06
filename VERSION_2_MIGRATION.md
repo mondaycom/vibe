@@ -28,8 +28,8 @@ After:
 
 ```diff
 + .click-me-button {
-  +   margin-left: var(--spacing-small);
-  + }
++     margin-left: var(--spacing-small);
++ }
 + <Button className="click-me-button">Click me</Button>
 ```
 
@@ -59,7 +59,7 @@ Before:
 After:
 
 ```diff
-<Button data-testid="my-button"/>
++ <Button data-testid="my-button"/>
 + document.querySelector(['data-testid="my-button"']).click();
 ```
 
