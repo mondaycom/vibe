@@ -37,6 +37,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
     selectedOptionsCount: selectedOptions.length
   });
   const isCounterShown = hiddenOptionsCount > 0;
+
+  const onDelete = useCallback(
+    option => {
+      onSelectedDelete(option.value, { action: "remove-value", removedValue: option });
+    },
+    [onSelectedDelete]
+  );
+
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) => {
@@ -52,7 +60,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             disabled={isDisabled}
             id={option.value}
             label={option.label}
-            onDelete={onSelectedDelete}
+            onDelete={() => onDelete(option)}
             disableClickableBehavior
             onMouseDown={e => {
               e.stopPropagation();
@@ -65,7 +73,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           />
         ) : null;
       }),
-    [selectedOptions, chipClassName, isDisabled, onSelectedDelete, readOnly, withMandatoryDefaultOptions]
+    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete]
   );
 
   return (

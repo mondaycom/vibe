@@ -196,12 +196,15 @@ const Dropdown = forwardRef(
     const onOptionRemove = useMemo(() => {
       return function (optionValue, e) {
         if (customOnOptionRemove) {
-          customOnOptionRemove(selectedOptionsMap[optionValue], e);
+          customOnOptionRemove(selectedOptionsMap[optionValue]);
         }
-        setSelected(selected.filter(option => option.value !== optionValue));
-        e.stopPropagation();
+        const newSelectedOptions = selected.filter(option => option.value !== optionValue);
+        if (customOnChange) {
+          customOnChange(newSelectedOptions, e);
+        }
+        setSelected(newSelectedOptions);
       };
-    }, [customOnOptionRemove, selected, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
 
     const customProps = useMemo(
       () => ({
