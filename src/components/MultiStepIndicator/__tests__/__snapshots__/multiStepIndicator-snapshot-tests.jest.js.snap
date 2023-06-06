@@ -6,7 +6,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -17,15 +17,15 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -48,10 +48,10 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -62,13 +62,13 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -79,7 +79,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -90,25 +90,25 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -119,13 +119,13 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -136,7 +136,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -147,25 +147,25 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -176,13 +176,13 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -197,7 +197,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -208,15 +208,15 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -239,10 +239,10 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -253,13 +253,13 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -270,7 +270,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -281,25 +281,25 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -310,13 +310,13 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -327,7 +327,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -338,25 +338,25 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -367,13 +367,13 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -395,7 +395,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -406,15 +406,15 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -437,10 +437,10 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -451,13 +451,13 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -468,7 +468,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -479,25 +479,25 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -508,13 +508,13 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -525,7 +525,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -536,25 +536,25 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -565,13 +565,13 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -586,7 +586,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -597,25 +597,25 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           1
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -626,13 +626,13 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -643,7 +643,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -654,25 +654,25 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -683,13 +683,13 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -700,7 +700,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -711,25 +711,25 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -740,13 +740,380 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
+      >
+        Pending Subtitle
+      </span>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
+<ol
+  className="wrapper"
+  data-testid="multi-step-indicator"
+>
+  <li
+    className="clickable indicator typePrimary statusFulfilled modeCompact clickable disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeCompactNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeCompactNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeCompactNumberContainerText"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon numberContainerTextCheckIcon compact noFocusStyle"
+            data-testid="icon"
+            fill="currentColor"
+            height="16"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="16"
+          >
+            <path
+              clipRule="evenodd"
+              d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeCompactTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeCompactTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          fulfilled
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeCompactTextContainerTitleText"
+        >
+          Title
+        </span>
+      </div>
+    </div>
+  </li>
+  <div
+    className="divider divider compact horizontal"
+    data-testid="divider"
+  />
+  <li
+    className="clickable indicator typePrimary statusActive modeCompact clickable disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeCompactNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeCompactNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeCompactNumberContainerText"
+        >
+          2
+        </span>
+      </div>
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeCompactTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeCompactTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          active
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeCompactTextContainerTitleText"
+        >
+          Active
+        </span>
+      </div>
+    </div>
+  </li>
+  <div
+    className="divider divider compact horizontal"
+    data-testid="divider"
+  />
+  <li
+    className="clickable indicator typePrimary statusPending modeCompact clickable disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeCompactNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeCompactNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeCompactNumberContainerText"
+        >
+          3
+        </span>
+      </div>
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeCompactTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeCompactTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          pending
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeCompactTextContainerTitleText"
+        >
+          Pending
+        </span>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`MultiStepIndicator renders correctly with mode compact textPlacement vertical 1`] = `
+<ol
+  className="wrapper"
+  data-testid="multi-step-indicator"
+>
+  <li
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable textPlacementVertical disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon numberContainerTextCheckIcon noFocusStyle"
+            data-testid="icon"
+            fill="currentColor"
+            height="16"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="16"
+          >
+            <path
+              clipRule="evenodd"
+              d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="divider divider divider horizontal"
+        data-testid="divider"
+      />
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          fulfilled
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
+        >
+          Title
+        </span>
+      </div>
+      <span
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
+      >
+        Subtitle
+      </span>
+    </div>
+  </li>
+  <li
+    className="clickable indicator typePrimary statusActive modeRegular clickable textPlacementVertical disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
+        >
+          2
+        </span>
+      </div>
+      <div
+        className="divider divider divider horizontal"
+        data-testid="divider"
+      />
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          active
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
+        >
+          Active
+        </span>
+      </div>
+      <span
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
+      >
+        Active Subtitle
+      </span>
+    </div>
+  </li>
+  <li
+    className="clickable indicator typePrimary statusPending modeRegular clickable textPlacementVertical disableTextSelection"
+    data-testid="step-indicator"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex={-1}
+  >
+    <div
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
+    >
+      <div
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
+        >
+          3
+        </span>
+      </div>
+    </div>
+    <div
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
+    >
+      <div
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
+      >
+        <span
+          className="hiddenTextWrapper"
+          data-testid="hidden-text_hiddenText"
+          id="hiddenText"
+        >
+          pending
+        </span>
+         
+        <span
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
+        >
+          Pending
+        </span>
+      </div>
+      <span
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -761,7 +1128,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled test clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -772,15 +1139,15 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -803,10 +1170,10 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -817,13 +1184,13 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -834,7 +1201,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive test clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -845,25 +1212,25 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -874,13 +1241,13 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -891,7 +1258,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending test clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -902,25 +1269,25 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -931,13 +1298,13 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -952,7 +1319,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -963,15 +1330,15 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -994,10 +1361,10 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1008,13 +1375,13 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
@@ -1025,7 +1392,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusActive clickable disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1036,25 +1403,25 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1065,13 +1432,13 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
@@ -1082,7 +1449,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     data-testid="divider"
   />
   <li
-    className="clickable indicator typePrimary statusPending clickable disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1093,25 +1460,25 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1122,13 +1489,13 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>
@@ -1143,7 +1510,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
   data-testid="multi-step-indicator"
 >
   <li
-    className="clickable indicator typePrimary statusFulfilled clickable textPlacementVertical disableTextSelection"
+    className="clickable indicator typePrimary statusFulfilled modeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1154,15 +1521,15 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusFulfilledNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText modeRegularNumberContainerText"
         >
           <svg
             aria-hidden={true}
@@ -1189,10 +1556,10 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
       />
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer"
+      className="textContainer typePrimaryTextContainer statusFulfilledTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusFulfilledTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1203,20 +1570,20 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusFulfilledTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Title
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusFulfilledTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Subtitle
       </span>
     </div>
   </li>
   <li
-    className="clickable indicator typePrimary statusActive clickable textPlacementVertical disableTextSelection"
+    className="clickable indicator typePrimary statusActive modeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1227,15 +1594,15 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusActiveNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText modeRegularNumberContainerText"
         >
           2
         </span>
@@ -1246,10 +1613,10 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
       />
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusActiveTextContainer"
+      className="textContainer typePrimaryTextContainer statusActiveTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusActiveTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1260,20 +1627,20 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusActiveTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Active
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusActiveTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <li
-    className="clickable indicator typePrimary statusPending clickable textPlacementVertical disableTextSelection"
+    className="clickable indicator typePrimary statusPending modeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1284,25 +1651,25 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex={-1}
   >
     <div
-      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer"
+      className="numberDividerContainer typePrimaryNumberDividerContainer statusPendingNumberDividerContainer modeRegularNumberDividerContainer"
     >
       <div
-        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer"
+        className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer modeRegularNumberContainer"
         role="button"
         tabIndex="0"
       >
         <span
-          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText"
+          className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText modeRegularNumberContainerText"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="textContainer typePrimaryTextContainer statusPendingTextContainer"
+      className="textContainer typePrimaryTextContainer statusPendingTextContainer modeRegularTextContainer"
     >
       <div
-        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle"
+        className="textContainerTitle typePrimaryTextContainerTitle statusPendingTextContainerTitle modeRegularTextContainerTitle"
       >
         <span
           className="hiddenTextWrapper"
@@ -1313,13 +1680,13 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText"
+          className="textContainerTitleText typePrimaryTextContainerTitleText statusPendingTextContainerTitleText modeRegularTextContainerTitleText"
         >
           Pending
         </span>
       </div>
       <span
-        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText"
+        className="textContainerSubtitleText typePrimaryTextContainerSubtitleText statusPendingTextContainerSubtitleText modeRegularTextContainerSubtitleText"
       >
         Pending Subtitle
       </span>

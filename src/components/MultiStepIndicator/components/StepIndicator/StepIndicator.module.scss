@@ -20,6 +20,11 @@
   margin-left: 16px;
 }
 
+.modeCompactTextContainer {
+  margin-left: var(--spacing-small);
+  justify-content: center;
+}
+
 .textContainerTitle {
   width: 100%;
 }
@@ -31,6 +36,7 @@
 .textContainerTitleText {
   @include font-paragraph();
   @include theme-prop(color, primary-text-color);
+  line-height: var(--line-height);
 }
 
 .textContainerSubtitleText {
@@ -58,11 +64,26 @@
   width: 100%;
 }
 
+.modeCompactTextContainerTitleText {
+  display: block;
+  font-size: var(--font-size-20);
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .textPlacementVertical .numberDividerContainer .divider {
   @include theme-prop(background-color, ui-border-color);
   margin: 16px 0 16px 16px;
   height: 1px;
   flex-grow: 1;
+}
+
+.modeCompactNumberDividerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .indicator.clickable {
@@ -168,6 +189,16 @@
 
 .statusActiveNumberContainer.typeDarkNumberContainer {
   box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-text-color);
+}
+
+.modeCompactNumberContainer {
+  width: 28px;
+  height: 28px;
+
+  &.statusActiveNumberContainer {
+    margin-left: var(--spacing-small);
+    margin-right: var(--spacing-xs);
+  }
 }
 
 .statusPendingNumberContainer {

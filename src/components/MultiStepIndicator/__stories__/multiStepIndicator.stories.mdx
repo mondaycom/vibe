@@ -194,6 +194,52 @@ There are 4 types: Primary, success, danger, dark.
   </Story>
 </Canvas>
 
+### Modes
+
+There are 2 modes: Regular, Compact
+
+<Canvas>
+  <Story name="Modes">
+    {() => {
+      const steps = useMemo(
+        () => [
+          {
+            key: "FULFILLED",
+            status: MultiStepIndicator.stepStatuses.FULFILLED,
+            titleText: "Fulfilled title",
+            subtitleText: "Fulfilled subtitle"
+          },
+          {
+            key: "ACTIVE",
+            status: MultiStepIndicator.stepStatuses.ACTIVE,
+            titleText: "Active title with long title",
+            subtitleText: "Active subtitle"
+          },
+          {
+            key: "PENDING",
+            status: MultiStepIndicator.stepStatuses.PENDING,
+            titleText: "Pending",
+            subtitleText: "Pending subtitle"
+          }
+        ],
+        []
+      );
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Regular</span>
+            <MultiStepIndicator steps={steps} mode={MultiStepIndicator.modes.REGULAR} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Compact</span>
+            <MultiStepIndicator steps={steps} mode={MultiStepIndicator.modes.COMPACT} />
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Fulfilled Icons
 
 <Canvas>
