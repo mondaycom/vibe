@@ -2,9 +2,7 @@
 
 As this library is the base of all monday's ui and an open source library, its components should be very well tested. In order to do so we've chosen the following test stack.
 
-##  Component tests types
-
-We are using two approaches when regarding testing the first is the standard jest stack:
+##  Stack
 1. Jest as of our test runner and framework
 2. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing library
 3. Storybook interaction tests for scenarios which require real browser instead of JSDom simulation. More information about this [here](./src/tests/readme.md).
@@ -32,7 +30,7 @@ describe("Chips renders correctly", () => {
 - Every interactive component will contain a behaviour tests file according to the following name convention: *component-name*-tests.jest.tsx.
 - The behaviour tests file will be located under the component's __tests__ folder.
 - This tests file will contain all the non-snapshot unit tests. This file should contain a test for each possible user interaction with the component.
-- Snapshot files will be implemented with Jest and React Testing library when needed, as shown in the following example:
+- Behaviour files will be implemented with Jest and [React Testing Library]((https://testing-library.com/docs/react-testing-library/intro)) when needed, as shown in the following example:
 
 ```tsx
 import { fireEvent, render } from "@testing-library/react";
@@ -68,7 +66,7 @@ describe("Tipseen tests", () => {
 ### Creating test files from scratch
 Use our plop, which automatically generates the proper folder structure. Snapshot tests and jest behavior testes files should end with .test.tsx, and storybook interaction tests files with .interactions.tsx
 
-### Running Vibe Tests
+### Running Vibe tests
 **Snapshot and Behavior Tests:**
 To run all snapshot and behavior tests locally, use the command: `npm run test`.
 
