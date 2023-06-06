@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.2 (2023-06-06)
+
+#### Bug Fixes
+* [#1350](https://github.com/mondaycom/monday-ui-react-core/pull/1350) fix: <ModalHeader> revert changes to margin-block-start ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.5.1 (2023-06-06)
 
 #### Bug Fixes
