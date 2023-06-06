@@ -73,7 +73,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           />
         ) : null;
       }),
-    [selectedOptions, chipClassName, isDisabled, onSelectedDelete, readOnly, withMandatoryDefaultOptions]
+    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete]
   );
 
   return (
