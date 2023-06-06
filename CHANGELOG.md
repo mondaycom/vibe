@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.132.1 (2023-06-06)
+
+#### Bug Fixes
+* [#1346](https://github.com/mondaycom/monday-ui-react-core/pull/1346) V1 - fix: <Dropdown> multi on option delete callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.132.0 (2023-06-05)
 
 #### New Features
