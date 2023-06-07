@@ -22,6 +22,7 @@
 
 .textContainerTitle {
   width: 100%;
+  margin-bottom: var(--spacing-xs);
 }
 
 .textContainerTitle .visuallyHidden {
@@ -29,15 +30,20 @@
 }
 
 .textContainerTitleText {
-  @include font-paragraph();
+  font: var(--font-h5);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
   @include theme-prop(color, primary-text-color);
+  margin-bottom: 2px;
 }
 
 .textContainerSubtitleText {
   width: 100%;
   font-size: var(--font-size-general-label);
   font-family: var(--font-family);
-  @include theme-prop(color, secondary-text-color);
+  font-weight: var(--font-weight-normal);
+  color: var(--primary-text-color);
 }
 
 .textPlacementVertical {
@@ -47,8 +53,8 @@
 }
 
 .textPlacementVertical .textContainer {
-  margin-left: 0px;
-  margin-top: 8px;
+  margin-left: 0;
+  margin-top: var(--spacing-medium);
 }
 
 .textPlacementVertical .numberDividerContainer {
