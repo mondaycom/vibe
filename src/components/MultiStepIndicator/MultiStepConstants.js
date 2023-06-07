@@ -15,3 +15,8 @@ export const TEXT_PLACEMENTS = {
   HORIZONTAL: "horizontal",
   VERTICAL: "vertical"
 };
+
+export const SIZES = {
+  REGULAR: "regular",
+  COMPACT: "compact"
+};
