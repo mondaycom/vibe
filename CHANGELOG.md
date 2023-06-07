@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.133.0 (2023-06-07)
+
+#### New Features
+* [#1339](https://github.com/mondaycom/monday-ui-react-core/pull/1339) V1 - feat: <StepIndicator> font-weight redesign + small padding fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.132.2 (2023-06-06)
 
 #### Bug Fixes
