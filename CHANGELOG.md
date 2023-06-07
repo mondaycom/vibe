@@ -1,5 +1,10 @@
 # Changelog
 
+## prerelease (2023-06-07)
+
+#### New Features
+* [#1352](https://github.com/mondaycom/monday-ui-react-core/pull/1352) added compact mode to MultiStepIndicator component ([@rami-monday](https://github.com/rami-monday))
+
 ## 2.7.0 (2023-06-07)
 
 #### New Features
