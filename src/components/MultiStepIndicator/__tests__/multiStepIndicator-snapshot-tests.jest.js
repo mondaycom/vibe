@@ -65,7 +65,7 @@ describe("MultiStepIndicator renders correctly", () => {
   });
 
   it("with mode compact", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} mode={MultiStepIndicator.modes.COMPACT} />);
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} size={MultiStepIndicator.sizes.COMPACT} />);
     expect(tree).toMatchSnapshot();
   });
 
@@ -73,7 +73,7 @@ describe("MultiStepIndicator renders correctly", () => {
     const tree = renderer.create(
       <MultiStepIndicator
         steps={exampleSteps}
-        mode={MultiStepIndicator.modes.COMPACT}
+        size={MultiStepIndicator.sizes.COMPACT}
         textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
       />
     );
