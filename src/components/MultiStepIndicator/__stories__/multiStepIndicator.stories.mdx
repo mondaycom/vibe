@@ -214,7 +214,7 @@ Compact is a smaller version of the Regular Wizard Stepper, and is suitable for 
           {
             key: "ACTIVE",
             status: MultiStepIndicator.stepStatuses.ACTIVE,
-            titleText: "Active title with long title",
+            titleText: "Active title",
             subtitleText: "Active subtitle"
           },
           {
@@ -227,16 +227,16 @@ Compact is a smaller version of the Regular Wizard Stepper, and is suitable for 
         []
       );
       return (
-        <Flex
-          direction={Flex.directions.COLUMN}
-          align={Flex.align.START}
-          gap={Flex.gaps.SMALL}
-        >
+        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
           <StoryDescription description="Regular">
             <MultiStepIndicator steps={steps} size={MultiStepIndicator.sizes.REGULAR} />
           </StoryDescription>
           <StoryDescription description="Compact">
-            <MultiStepIndicator steps={steps} size={MultiStepIndicator.sizes.COMPACT} />
+            <MultiStepIndicator
+              className="multi_step_indicator_compact"
+              steps={steps}
+              size={MultiStepIndicator.sizes.COMPACT}
+            />
           </StoryDescription>
         </Flex>
       );

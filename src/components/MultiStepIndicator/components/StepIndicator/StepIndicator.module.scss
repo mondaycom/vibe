@@ -23,6 +23,7 @@
 .sizeCompactTextContainer {
   margin-left: var(--spacing-small);
   justify-content: center;
+  align-content: center;
 }
 
 .textContainerTitle {
@@ -50,6 +51,9 @@
   font-weight: var(--font-weight-normal);
   color: var(--primary-text-color);
 }
+.sizeCompactTextContainerTitle{
+  margin-bottom: 0px;
+}
 
 .textPlacementVertical {
   margin: 8px;
@@ -72,10 +76,12 @@
 .sizeCompactTextContainerTitleText {
   display: block;
   font-size: var(--font-size-20);
+  font-weight: var(--font-weight-normal);
   max-width: 150px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-bottom: 0px
 }
 
 .textPlacementVertical .numberDividerContainer .divider {
