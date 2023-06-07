@@ -19,21 +19,27 @@
 
     &__title {
       width: 100%;
+      margin-bottom: var(--spacing-xs);
 
       .visually-hidden {
         display: none;
       }
 
       &__text {
-        @include font-paragraph();
+        font: var(--font-h5);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
         @include theme-prop(color, primary-text-color);
+        margin-bottom: 2px;
       }
     }
 
     &__subtitle__text {
       width: 100%;
       font-size: var(--font-size-general-label);
-      @include theme-prop(color, secondary-text-color);
+      font-weight: var(--font-weight-normal);
+      color: var(--primary-text-color);
     }
   }
 
@@ -44,8 +50,8 @@
 
     .monday-style-step-indicator-component {
       &__text-container {
-        margin-left: 0px;
-        margin-top: 8px;
+        margin-left: 0;
+        margin-top: var(--spacing-medium);
       }
 
       &__number-divider-container {
@@ -82,7 +88,8 @@
     &-enter-active {
       position: relative;
       opacity: 1;
-      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+        opacity var(--motion-productive-short);
       transform: translateY(0);
     }
 
@@ -97,7 +104,8 @@
       position: relative;
       opacity: 0;
       transform: translateY(-15px);
-      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+        opacity var(--motion-productive-short);
     }
   }
 
@@ -242,10 +250,10 @@
   @include pop-elastic();
 }
 
-.monday-style-step-indicator-component{
+.monday-style-step-indicator-component {
   font-family: var(--font-family);
 }
 
-.monday-style-step-indicator-component__text-container__subtitle__text{
+.monday-style-step-indicator-component__text-container__subtitle__text {
   font-family: var(--font-family);
 }
