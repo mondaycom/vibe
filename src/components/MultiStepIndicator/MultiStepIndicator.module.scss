@@ -12,9 +12,7 @@
 
   &.compact {
     width: 16px;
-    margin-left: var(--spacing-xs);
-    margin-right: var(--spacing-xs);
-    padding-left: var(--spacing-xs);
-    padding-right: var(--spacing-xs);
+    margin-left: var(--spacing-small);
+    margin-right: var(--spacing-small);
   }
 }
