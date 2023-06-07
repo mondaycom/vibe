@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.6.0 (2023-06-07)
+
+#### New Features
+* [#1338](https://github.com/mondaycom/monday-ui-react-core/pull/1338) feat: <StepIndicator> font-weight redesign + small padding fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1344](https://github.com/mondaycom/monday-ui-react-core/pull/1344) Readme updates for easier contribution ([@hadasfa](https://github.com/hadasfa))
+* [#1348](https://github.com/mondaycom/monday-ui-react-core/pull/1348) chore: < Dialog > add an example for basic controlled component ([@shlomitc](https://github.com/shlomitc))
+* [#1351](https://github.com/mondaycom/monday-ui-react-core/pull/1351) docs: Rename version 2 migration file ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1345](https://github.com/mondaycom/monday-ui-react-core/pull/1345) docs: Vibe 2 migration guide ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.5.2 (2023-06-06)
 
 #### Bug Fixes
