@@ -6,9 +6,8 @@ import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from "./FlexConstants"
 import { VibeComponentProps } from "../../types";
 import VibeComponent from "../../types/VibeComponent";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ElementContent } from "../../types/ElementContent";
+import { ElementContent } from "../../types";
 import styles from "./Flex.module.scss";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 interface FlexProps extends VibeComponentProps {
   style?: object;
