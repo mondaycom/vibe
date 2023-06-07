@@ -3,10 +3,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { STEP_STATUSES } from "../MultiStepConstants";
 import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
 import { Link } from "../../../storybook/components";
 import { Featured } from "../../Icon/Icons";
+import Flex from "../../Flex/Flex";
 import "./multiStepIndicator.stories.scss";
 
 <Meta title="Navigation/Wizard" component={MultiStepIndicator} />
@@ -194,12 +196,12 @@ There are 4 types: Primary, success, danger, dark.
   </Story>
 </Canvas>
 
-### Modes
+### Sizes
 
-There are 2 modes: Regular, Compact
+Compact is a smaller version of the Regular Wizard Stepper, and is suitable for smaller containers. In case you need to display more content, use the Regular size. As of now, vertical placement is not supported.
 
 <Canvas>
-  <Story name="Modes">
+  <Story name="Sizes">
     {() => {
       const steps = useMemo(
         () => [
@@ -225,16 +227,18 @@ There are 2 modes: Regular, Compact
         []
       );
       return (
-        <div className="monday-storybook-multiStepIndicator_column-wrapper">
-          <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="monday-storybook-multiStepIndicator_title">Regular</span>
-            <MultiStepIndicator steps={steps} mode={MultiStepIndicator.modes.REGULAR} />
-          </div>
-          <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="monday-storybook-multiStepIndicator_title">Compact</span>
-            <MultiStepIndicator steps={steps} mode={MultiStepIndicator.modes.COMPACT} />
-          </div>
-        </div>
+        <Flex
+          direction={Flex.directions.COLUMN}
+          align={Flex.align.START}
+          gap={Flex.gaps.SMALL}
+        >
+          <StoryDescription description="Regular">
+            <MultiStepIndicator steps={steps} size={MultiStepIndicator.sizes.REGULAR} />
+          </StoryDescription>
+          <StoryDescription description="Compact">
+            <MultiStepIndicator steps={steps} size={MultiStepIndicator.sizes.COMPACT} />
+          </StoryDescription>
+        </Flex>
       );
     }}
   </Story>

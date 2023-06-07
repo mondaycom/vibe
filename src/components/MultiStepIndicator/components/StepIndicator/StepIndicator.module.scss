@@ -20,7 +20,7 @@
   margin-left: 16px;
 }
 
-.modeCompactTextContainer {
+.sizeCompactTextContainer {
   margin-left: var(--spacing-small);
   justify-content: center;
 }
@@ -64,7 +64,7 @@
   width: 100%;
 }
 
-.modeCompactTextContainerTitleText {
+.sizeCompactTextContainerTitleText {
   display: block;
   font-size: var(--font-size-20);
   max-width: 150px;
@@ -80,7 +80,7 @@
   flex-grow: 1;
 }
 
-.modeCompactNumberDividerContainer {
+.sizeCompactNumberDividerContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@
   box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-text-color);
 }
 
-.modeCompactNumberContainer {
+.sizeCompactNumberContainer {
   width: 28px;
   height: 28px;
 }

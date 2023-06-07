@@ -8,7 +8,7 @@ import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import { MODES, MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
+import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./MultiStepIndicator.module.scss";
@@ -27,22 +27,19 @@ const MultiStepIndicator = forwardRef(
       onClick,
       textPlacement,
       id,
-      mode,
+      size,
       "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const finalMode = useMemo(
-      () => (textPlacement === TEXT_PLACEMENTS.VERTICAL ? MODES.REGULAR : mode),
-      [mode, textPlacement]
-    );
+    const finalSize = textPlacement === TEXT_PLACEMENTS.VERTICAL ? SIZES.REGULAR : size;
 
     const renderHorizontalStepIndicator = useCallback(
       (step, index) => {
         return (
-          <React.Fragment key={index}>
+          <React.Fragment key={`${step.titleText}_${index}`}>
             <StepIndicator
               {...step}
               stepNumber={index + 1}
@@ -52,12 +49,12 @@ const MultiStepIndicator = forwardRef(
               fulfilledStepIconType={fulfilledStepIconType}
               onClick={onClick}
               isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
-              mode={finalMode}
+              size={finalSize}
             />
             {index !== steps.length - 1 && (
               <Divider
                 classname={cx(styles.divider, dividerComponentClassName, {
-                  [styles.compact]: finalMode === MODES.COMPACT
+                  [styles.compact]: finalSize === SIZES.COMPACT
                 })}
               />
             )}
@@ -73,7 +70,7 @@ const MultiStepIndicator = forwardRef(
         fulfilledStepIconType,
         dividerComponentClassName,
         steps.length,
-        finalMode
+        finalSize
       ]
     );
 
@@ -82,7 +79,7 @@ const MultiStepIndicator = forwardRef(
         return (
           <StepIndicator
             {...step}
-            key={index}
+            key={`${step.titleText}_${index}`}
             stepNumber={index + 1}
             type={type}
             stepComponentClassName={stepComponentClassName}
@@ -129,7 +126,7 @@ const MultiStepIndicator = forwardRef(
 MultiStepIndicator.types = MULTI_STEP_TYPES;
 MultiStepIndicator.stepStatuses = STEP_STATUSES;
 MultiStepIndicator.textPlacements = TEXT_PLACEMENTS;
-MultiStepIndicator.modes = MODES;
+MultiStepIndicator.sizes = SIZES;
 
 MultiStepIndicator.propTypes = {
   /** For overriding the container class styles. */
@@ -169,7 +166,7 @@ MultiStepIndicator.propTypes = {
     MultiStepIndicator.textPlacements.HORIZONTAL,
     MultiStepIndicator.textPlacements.VERTICAL
   ]),
-  mode: PropTypes.oneOf([MultiStepIndicator.modes.REGULAR, MultiStepIndicator.modes.COMPACT])
+  mode: PropTypes.oneOf([MultiStepIndicator.sizes.REGULAR, MultiStepIndicator.sizes.COMPACT])
 };
 
 MultiStepIndicator.defaultProps = {
@@ -184,7 +181,7 @@ MultiStepIndicator.defaultProps = {
   isFulfilledStepDisplayNumber: false,
   onClick: NOOP,
   textPlacement: MultiStepIndicator.textPlacements.HORIZONTAL,
-  mode: MultiStepIndicator.modes.REGULAR
+  mode: MultiStepIndicator.sizes.REGULAR
 };
 
 export default MultiStepIndicator;

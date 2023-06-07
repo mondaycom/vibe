@@ -16,7 +16,7 @@ export const TEXT_PLACEMENTS = {
   VERTICAL: "vertical"
 };
 
-export const MODES = {
+export const SIZES = {
   REGULAR: "regular",
   COMPACT: "compact"
 };
