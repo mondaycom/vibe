@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.7.0 (2023-06-07)
+
+#### New Features
+* [#1342](https://github.com/mondaycom/monday-ui-react-core/pull/1342) Support dialog context menu hide trigger ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.6.0 (2023-06-07)
 
 #### New Features
