@@ -94,7 +94,9 @@ export enum ComponentDefaultTestId {
   LIST_TITLE = "list-title",
   MODAL_BUTTONS = "modal-buttons",
   FORMATTED_NUMBER = "formatted-number",
-  HIDDEN_TEXT = "hidden-text"
+  HIDDEN_TEXT = "hidden-text",
+  DIALOG_CONTENT_CONTAINER = "dialog-content-container",
+  FLEX = "flex"
 }
 
 export enum NavigationCommand {

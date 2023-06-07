@@ -1,6 +1,6 @@
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import useOnClickOutside from "../useClickOutside";
+import useOnClickOutside from "../index";
 
 describe("useClickOutside", () => {
   let element: HTMLElement;
@@ -46,6 +46,34 @@ describe("useClickOutside", () => {
         fireEvent.touchEnd(element);
       });
       return expect(callbackStub.mock.calls.length).toEqual(0);
+    });
+  });
+
+  describe("contextMenu with overriding event name", () => {
+    it("should not call the callback when click when overriding to differnet name", () => {
+      element = document.createElement("div");
+      document.body.appendChild(element);
+      renderHook(() =>
+        useOnClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+      );
+      act(() => {
+        fireEvent.mouseDown(document.body);
+      });
+      return expect(callbackStub.mock.calls.length).toEqual(0);
+    });
+
+    it("should call the callback for override when passing eventName parameter", () => {
+      callbackStub = jest.fn();
+      element = document.createElement("div");
+      document.body.appendChild(element);
+      renderHook(() =>
+        useOnClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+      );
+
+      act(() => {
+        fireEvent.contextMenu(document.body);
+      });
+      return expect(callbackStub.mock.calls.length).toEqual(1);
     });
   });
 });
