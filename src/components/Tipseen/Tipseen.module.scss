@@ -5,11 +5,11 @@
 .tipseenWrapper {
   min-width: 100px;
   min-height: 40px;
-  padding: 0;
-  border-radius: var(--border-radius-medium);
+  --tooltip-padding: 0;
+  --tooltip-border-radius: var(--border-radius-medium);
 
   &WithoutCustomWidth {
-    max-width: 320px;
+    --tooltip-max-width: 320px;
   }
 
   .tipseen {
@@ -32,8 +32,6 @@
       top: var(--spacing-xs);
       right: var(--spacing-xs);
       z-index: 2;
-
-
 
       &.dark {
         color: var(--color-asphalt);

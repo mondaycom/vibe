@@ -284,7 +284,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.VIRTUALIZED_GRID, id)}
       >
         <AutoSizer>
-          {({ height, width }) => {
+          {({ height, width }: { height: number; width: number }) => {
             updateGridSize(width, height);
             return (
               <Grid

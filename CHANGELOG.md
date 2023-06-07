@@ -1,5 +1,36 @@
 # Changelog
 
+## 2.5.2 (2023-06-06)
+
+#### Bug Fixes
+* [#1350](https://github.com/mondaycom/monday-ui-react-core/pull/1350) fix: <ModalHeader> revert changes to margin-block-start ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.5.1 (2023-06-06)
+
+#### Bug Fixes
+* [#1343](https://github.com/mondaycom/monday-ui-react-core/pull/1343) fix: <Dropdown> multi on option delete callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1347](https://github.com/mondaycom/monday-ui-react-core/pull/1347) fix: AutoSizer TS issues ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.5.0 (2023-06-05)
+
+#### Bug Fixes
+* [#1337](https://github.com/mondaycom/monday-ui-react-core/pull/1337) fix: <Tipseen> dependencies array ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1334](https://github.com/mondaycom/monday-ui-react-core/pull/1334) feat: <Modal> custom header title ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.4.2 (2023-06-02)
+
+#### Bug Fixes
+* [#1340](https://github.com/mondaycom/monday-ui-react-core/pull/1340) fix: <Dropdown> multi fix <Chips> override with css variables ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.4.1 (2023-05-31)
+
+#### Bug Fixes
+* [#1336](https://github.com/mondaycom/monday-ui-react-core/pull/1336) fix: <Tipseen/> - override the <Tooltip/> styles by using dedicates CSS variables to prevent CSS order issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.4.0 (2023-05-30)
 
 #### Bug Fixes
