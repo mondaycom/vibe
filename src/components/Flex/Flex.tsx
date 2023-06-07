@@ -6,7 +6,7 @@ import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from "./FlexConstants"
 import { VibeComponentProps } from "../../types";
 import VibeComponent from "../../types/VibeComponent";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ElementContent } from "../../types/ElementContent";
+import { ElementContent } from "../../types";
 import styles from "./Flex.module.scss";
 
 interface FlexProps extends VibeComponentProps {
@@ -47,7 +47,8 @@ const Flex: VibeComponent<FlexProps> & {
       style,
       ariaLabelledby,
       ariaLabel,
-      tabIndex
+      tabIndex,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -63,6 +64,7 @@ const Flex: VibeComponent<FlexProps> & {
     return (
       <Element
         id={id}
+        data-testid={dataTestId}
         {...onClickProps}
         ref={mergedRef}
         className={cx(

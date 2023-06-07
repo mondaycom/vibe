@@ -5,6 +5,7 @@ exports[`renders correctly with empty props 1`] = `
   aria-describedby="Pick color"
   aria-labelledby="Color Picker Dialog"
   className="dialogContentContainer colorPicker colorPickerDialogContent typePopover sizeMedium"
+  data-testid="dialog-content-container"
   role="dialog"
   style={
     Object {

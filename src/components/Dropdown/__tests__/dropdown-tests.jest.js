@@ -100,9 +100,17 @@ describe("Dropdown", () => {
 
   describe("multi", () => {
     let component;
+    const onChange = jest.fn();
+    const onClear = jest.fn();
+    const onOptionRemove = jest.fn();
 
     beforeEach(() => {
-      component = new DropdownDriver().withOptions().withMulti();
+      component = new DropdownDriver()
+        .withOptions()
+        .withMulti()
+        .withOnChange(onChange)
+        .withOnOptionRemove(onOptionRemove)
+        .withOnClear(onClear);
     });
 
     it("Should support selecting multiple options", () => {
@@ -110,6 +118,11 @@ describe("Dropdown", () => {
       component.selectOption(2);
       component.selectOption(3);
 
+      expect(onChange).toBeCalledTimes(3);
+      expect(onChange).toHaveBeenLastCalledWith([mockOptions[0], mockOptions[2], mockOptions[3]], {
+        action: "select-option",
+        option: mockOptions[3]
+      });
       expect(component.chips.values).toEqual(["ocean", "purple", "red"]);
     });
 
@@ -120,6 +133,12 @@ describe("Dropdown", () => {
 
       component.removeOption(0);
 
+      expect(onChange).toBeCalledTimes(4);
+      expect(onChange).toHaveBeenLastCalledWith([mockOptions[2], mockOptions[3]], {
+        action: "remove-value",
+        removedValue: mockOptions[0]
+      });
+      expect(onOptionRemove).toBeCalledWith(mockOptions[0]);
       expect(component.chips.values).toEqual(["purple", "red"]);
     });
 
@@ -129,6 +148,11 @@ describe("Dropdown", () => {
       component.clearOptions();
       component.render();
 
+      expect(onChange).toBeCalledTimes(2);
+      expect(onChange).toHaveBeenLastCalledWith(null, {
+        action: "clear"
+      });
+      expect(onClear).toBeCalled();
       expect(component.chips.values).toEqual([]);
     });
 

@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactElement, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, Fragment, ReactElement, useEffect, useRef, useState } from "react";
 import { DialogPosition } from "../../constants";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -123,30 +123,27 @@ const Tipseen: VibeComponent<TipseenProps> & {
     }, [showDelay, setDelayOpen]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
-    const tooltipContent = useMemo(
-      () => (
-        <div>
-          <div className={cx(styles.tipseenHeader)}>
-            {overrideHideCloseButton ? null : (
-              <IconButton
-                hideTooltip
-                className={cx(styles.tipseenCloseButton, {
-                  [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
-                })}
-                onClick={onClose}
-                size={Button.sizes.XS}
-                kind={Button.kinds.TERTIARY}
-                color={Button.colors.ON_INVERTED_BACKGROUND}
-                ariaLabel={overrideCloseAriaLabel}
-                icon={CloseSmall}
-              />
-            )}
-            <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
-          </div>
-          <div className={cx(styles.tipseenContent)}>{content}</div>
+    const tooltipContent = (
+      <div>
+        <div className={cx(styles.tipseenHeader)}>
+          {overrideHideCloseButton ? null : (
+            <IconButton
+              hideTooltip
+              className={cx(styles.tipseenCloseButton, {
+                [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
+              })}
+              onClick={onClose}
+              size={Button.sizes.XS}
+              kind={Button.kinds.TERTIARY}
+              color={Button.colors.ON_INVERTED_BACKGROUND}
+              ariaLabel={overrideCloseAriaLabel}
+              icon={CloseSmall}
+            />
+          )}
+          <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-      ),
-      [content, onClose, overrideCloseAriaLabel, overrideHideCloseButton, title, titleClassName]
+        <div className={cx(styles.tipseenContent)}>{content}</div>
+      </div>
     );
 
     return (

@@ -116,19 +116,19 @@ export const interactionSuite =
     }
   };
 
-export const getByTestId = (rootElement: HTMLElement, dataTestId: string) => {
+export const getByTestId = (rootElement: HTMLElement | BoundFunctions<typeof queries>, dataTestId: string) => {
   return getWithin(rootElement).getByTestId(dataTestId);
 };
 
-export const getAllByTestId = (rootElement: HTMLElement, dataTestId: string) => {
+export const getAllByTestId = (rootElement: HTMLElement | BoundFunctions<typeof queries>, dataTestId: string) => {
   return getWithin(rootElement).getAllByTestId(dataTestId);
 };
 
-export const getByPlaceholderText = (rootElement: HTMLElement, text: string) => {
+export const getByPlaceholderText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
   return getWithin(rootElement).getByPlaceholderText(text);
 };
 
-export const getAllByPlaceholderText = (rootElement: HTMLElement, text: string) => {
+export const getAllByPlaceholderText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
   return getWithin(rootElement).getAllByPlaceholderText(text);
 };
 
@@ -140,15 +140,15 @@ export const getFirstByClassName = (className: string) => {
   return document.getElementsByClassName(className)[0];
 };
 
-export const getByRole = (rootElement: HTMLElement, role: string) => {
+export const getByRole = (rootElement: HTMLElement | BoundFunctions<typeof queries>, role: string) => {
   return getWithin(rootElement).getByRole(role);
 };
 
-export const getAllByRole = (rootElement: HTMLElement, role: string) => {
+export const getAllByRole = (rootElement: HTMLElement | BoundFunctions<typeof queries>, role: string) => {
   return getWithin(rootElement).getAllByRole(role);
 };
 
-export const getByLabelText = (rootElement: HTMLElement, text: string) => {
+export const getByLabelText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
   return getWithin(rootElement).getByLabelText(text);
 };
 
@@ -156,11 +156,11 @@ export const getAllByLabelText = (rootElement: HTMLElement, text: string) => {
   return getWithin(rootElement).getAllByLabelText(text);
 };
 
-export const getByText = (rootElement: HTMLElement, text: string) => {
+export const getByText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
   return getWithin(rootElement).getByText(text);
 };
 
-export const getAllByText = (rootElement: HTMLElement, text: string) => {
+export const getAllByText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
   return getWithin(rootElement).getAllByText(text);
 };
 

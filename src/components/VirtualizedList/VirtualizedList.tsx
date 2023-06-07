@@ -382,7 +382,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
         style={style}
       >
         <AutoSizer>
-          {({ height, width }) => {
+          {({ height, width }: { height: number; width: number }) => {
             updateListSize(width, height);
             return (
               <List

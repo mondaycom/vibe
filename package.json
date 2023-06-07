@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "2.3.1",
+  "version": "2.8.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -149,6 +149,7 @@
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^6.5.1",
     "csstype": "^3.1.0",
+    "ejs": "^3.1.9",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",

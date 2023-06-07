@@ -8,19 +8,26 @@ import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
 import { sha256 } from "js-sha256";
+import * as fs from "fs";
+import ejs from "ejs";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
 const DIST_PATH = path.join(ROOT_PATH, "dist");
+const injectStyle = fs.readFileSync("./rollup/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
+
+function getShortSha(content, length = 10) {
+  return sha256(content).slice(0, length);
+}
 
 function generateCssModulesScopedName(name, filename, css) {
   const start = css.indexOf(`${name} {`);
   const end = css.indexOf("}", start);
   const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
-  return `${name}_${sha256(content).slice(0, 10)}`;
+  return `${name}_${getShortSha(content)}`;
 }
 
 function generateCssModulesMockName(name) {
@@ -67,8 +74,19 @@ export default {
        * we're externalizing all "node_modules", it doesn't exist.
        * This little hack makes sure we're using "node_modules" instead of what the plugin expects.
        */
-      inject(cssVariableName) {
-        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}, { insertAt: 'top' });`;
+      inject: function (cssVariableName, filename) {
+        if (!injectStyle) return null;
+        let shaKey = filename;
+        try {
+          const data = fs.readFileSync(filename, "utf8");
+
+          shaKey = getShortSha(data, 12);
+        } catch (err) {
+          console.error(err);
+        }
+
+        const hashValue = `s_id-${shaKey}`;
+        return ejs.render(injectStyle, { cssVariableName, hashValue });
       },
       plugins: [autoprefixer(), postCssImport()],
       modules: {
