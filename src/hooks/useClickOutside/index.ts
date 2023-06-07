@@ -4,10 +4,12 @@ import { GenericEventCallback } from "../../types/events";
 
 export default function useOnClickOutside({
   ref,
-  callback
+  callback,
+  eventName = "click"
 }: {
   ref: RefObject<HTMLElement>;
   callback: GenericEventCallback;
+  eventName?: keyof HTMLElementEventMap | string;
 }) {
   const onClickOutsideListener = useCallback(
     (event: MouseEvent) => {
@@ -24,7 +26,7 @@ export default function useOnClickOutside({
   const documentRef = useRef(document.body);
 
   useEventListener({
-    eventName: "click",
+    eventName,
     ref: documentRef,
     callback: onClickOutsideListener,
     capture: true
