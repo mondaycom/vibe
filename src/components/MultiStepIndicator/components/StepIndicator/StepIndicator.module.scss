@@ -31,6 +31,7 @@
 
 .textContainerTitleText {
   font: var(--font-h5);
+  font-size: 14px;
   font-weight: 600;
   line-height: 20px;
   @include theme-prop(color, primary-text-color);
