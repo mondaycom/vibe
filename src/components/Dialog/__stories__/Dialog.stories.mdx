@@ -78,7 +78,16 @@ The dialog component's purpose is to position a popup component nearby another e
 Please be aware that the dialog component is not responsible for the appearance features of the popup, such as its background color or size.
 
 <Canvas>
-  <Story docs={{source:{code: "dd", type: "code"}}} name="Overview">{dialogTemplate.bind({})}</Story>
+  <Story
+    parameters={{
+      docs: {
+        source: { type: "code" }
+      }
+    }}
+    name="Overview"
+  >
+    {dialogTemplate.bind({})}
+  </Story>
 </Canvas>
 
 <Tip>
@@ -461,43 +470,42 @@ We can set the triggers which will be responsible for hide the dialog
   </Story>
 </Canvas>
 
-
 ### Dialog prevent container scroll
 
 Prevent containerSelector scroll when dialog open
 
 <Canvas>
-    <Story name="Disable scroll when dialog open">
-        {() => {
-            // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
-            const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({ defaultChecked: false });
-            return (
-                <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
-                    <div className={'scrollable'} style={{ height: '300px', width: '400px', overflow: "auto"}} >
-                        <div style={{height: '800px'}}>
-                        <Dialog
-                            open={checkedTop}
-                            position={Dialog.positions.LEFT}
-                            showTrigger={[]}
-                            hideTrigger={[]}
-                            containerSelector={'.scrollable'}
-                            disableContainerScroll
-                            content={
-                                <DialogContentContainer>
-                                    <ExampleContent />
-                                </DialogContentContainer>
-                            }
-                        >
-                            <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
-                                Click
-                            </Button>
-                        </Dialog>
-                        </div>
-                    </div>
-                </Flex>
-            );
-        }}
-    </Story>
+  <Story name="Disable scroll when dialog open">
+    {() => {
+      // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
+      const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({ defaultChecked: false });
+      return (
+        <Flex className="monday-storybook-dialog--story-padding" gap={Flex.gaps.MEDIUM}>
+          <div className={"scrollable"} style={{ height: "300px", width: "400px", overflow: "auto" }}>
+            <div style={{ height: "800px" }}>
+              <Dialog
+                open={checkedTop}
+                position={Dialog.positions.LEFT}
+                showTrigger={[]}
+                hideTrigger={[]}
+                containerSelector={".scrollable"}
+                disableContainerScroll
+                content={
+                  <DialogContentContainer>
+                    <ExampleContent />
+                  </DialogContentContainer>
+                }
+              >
+                <Button kind={Button.kinds.SECONDARY} onClick={onChangeTop} active={checkedTop}>
+                  Click
+                </Button>
+              </Dialog>
+            </div>
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Related components

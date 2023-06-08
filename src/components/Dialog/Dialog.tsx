@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import { DialogPosition } from "../../constants/positions";
 import { isFunction } from "lodash-es";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -133,7 +134,12 @@ export interface DialogProps extends VibeComponentProps {
    * Make the dialogue disappear when the element it is attached to becomes hidden
    */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Backward compatibility for props naming
+   * @deprecated
+   */
   shoudlCallbackOnMount?: boolean;
+  shouldCallbackOnMount?: boolean;
   instantShowAndHide?: boolean;
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
   content?: (() => JSX.Element) | JSX.Element;
@@ -187,6 +193,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     useDerivedStateFromProps: false,
     hideWhenReferenceHidden: false,
     shoudlCallbackOnMount: false,
+    shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false
   };
@@ -243,10 +250,14 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   componentDidMount() {
-    const { shoudlCallbackOnMount, onDialogDidShow } = this.props;
+    const { shoudlCallbackOnMount, shouldCallbackOnMount, onDialogDidShow } = this.props;
+    const overrideShouldCallbackOnMount = backwardCompatibilityForProperties(
+      [shoudlCallbackOnMount, shouldCallbackOnMount],
+      false
+    );
     const { isOpen } = this.state;
     document.addEventListener("keyup", this.closeDialogOnEscape);
-    if (shoudlCallbackOnMount && isOpen) {
+    if (overrideShouldCallbackOnMount && isOpen) {
       onDialogDidShow && onDialogDidShow();
     }
   }
