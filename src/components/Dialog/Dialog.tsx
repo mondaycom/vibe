@@ -131,7 +131,7 @@ export interface DialogProps extends VibeComponentProps {
   zIndex?: number;
   useDerivedStateFromProps?: boolean;
   /**
-   * Make the dialogue disappear when the element it is attached to becomes hidden
+   * Make the dialog disappear when the element it is attached to becomes hidden
    */
   hideWhenReferenceHidden?: boolean;
   /**
