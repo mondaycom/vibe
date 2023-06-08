@@ -1,7 +1,7 @@
 @import "../../../styles/themes";
 
 .monday-storybook-modal {
-  &-dialog {
+  &-dialog-bad-example {
     &-wrapper {
       position: sticky !important;
       transform: none !important;
@@ -15,34 +15,4 @@
       padding: 0;
     }
   }
-
-  &-new {
-    &-content-wrapper {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding-block-end: 24px;
-    }
-
-
-    &-buttons {
-      display: flex;
-      justify-content: end;
-      margin-top: 24px;
-
-      button + button {
-        margin-inline-start: 12px;
-      }
-
-    }
-
-    &-display-none {
-      display: none;
-    }
-  }
-}
-
-.modal-content {
-  color: var(--primary-text-color);
 }

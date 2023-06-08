@@ -223,6 +223,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     this.onContentClick = this.onContentClick.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.closeDialogOnEscape = this.closeDialogOnEscape.bind(this);
+    this.onContextMenu = this.onContextMenu.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
@@ -446,6 +447,10 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     this.handleEvent(HideShowEvent.ESCAPE_KEY, e.target, e);
   }
 
+  onContextMenu(e: React.MouseEvent) {
+    this.handleEvent(HideShowEvent.CONTEXT_MENU, e.target, e);
+  }
+
   onClickOutside(event: React.MouseEvent) {
     const { onClickOutside } = this.props;
     this.handleEvent(HideShowEvent.CLICK_OUTSIDE, event.target, event);
@@ -581,6 +586,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   onMouseLeave={this.onDialogLeave}
                   disableOnClickOutside={disableOnClickOutside}
                   onClickOutside={this.onClickOutside}
+                  onContextMenu={this.onContextMenu}
                   onEsc={this.onEsc}
                   animationType={animationTypeCalculated}
                   position={placement}
