@@ -253,7 +253,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   componentDidMount() {
     const { shoudlCallbackOnMount, shouldCallbackOnMount, onDialogDidShow } = this.props;
     const overrideShouldCallbackOnMount = backwardCompatibilityForProperties(
-      [shoudlCallbackOnMount, shouldCallbackOnMount],
+      [shouldCallbackOnMount, shoudlCallbackOnMount],
       false
     );
     const { isOpen } = this.state;
