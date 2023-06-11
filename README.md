@@ -18,22 +18,32 @@ $ npm install monday-ui-react-core
 
 ## Usage
 
+### ESM imports (recommended)
+
 You can import from the main bundle:
 
 ```javascript
 import { Button } from "monday-ui-react-core";
 ```
 
-or you might want to import directly the component from the dist folder
+You also need to import CSS tokens file to your project
+
+```javascript
+import "monday-ui-react-core/tokens";
+```
+
+### CommonJS imports (will be deprecated soon)
+
+You might want to import directly the component from the dist folder
 
 ```javascript
 import Button from "monday-ui-react-core/dist/Button";
 ```
 
-You also need to import tokens file to your project
+Then you also need to import Main CSS file to your project
 
-```javascript
-import "monday-ui-react-core/tokens";
+```javascript 
+import "monday-ui-react-core/dist/main.css"
 ```
 
 ### Font installation
