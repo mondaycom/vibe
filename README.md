@@ -5,8 +5,8 @@
 [monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 18+ | last 4 versions| last 4 versions| 12.1+| last 2 versions| last 2 versions| last 2 versions |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 18+                                                                                                                                                                                                        | last 4 versions                                                                                                                                                                                                   | last 4 versions                                                                                                                                                                                               | 12.1+                                                                                                                                                                                                         | last 2 versions                                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                                                     | last 2 versions                                                                                                                                                                                           |
 
 ## Installation
 
@@ -18,33 +18,19 @@ $ npm install monday-ui-react-core
 
 ## Usage
 
-### ESM imports (recommended)
-
-You can import from the main bundle:
+Components are imported from the library's root entry:
 
 ```javascript
 import { Button } from "monday-ui-react-core";
 ```
 
-You also need to import CSS tokens file to your project
+In order to load all the relevant CSS tokens, you should import the `tokens` file at the root of your application file
 
 ```javascript
 import "monday-ui-react-core/tokens";
 ```
 
-### CommonJS imports (will be deprecated soon)
-
-You might want to import directly the component from the dist folder
-
-```javascript
-import Button from "monday-ui-react-core/dist/Button";
-```
-
-Then you also need to import Main CSS file to your project
-
-```javascript 
-import "monday-ui-react-core/dist/main.css"
-```
+_If your project is importing files differently - read more [here](COMMON_JS_IMPORTS.md)._
 
 ### Font installation
 
