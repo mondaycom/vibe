@@ -1,4 +1,6 @@
 import React from "react";
-type VibeComponent<T, P = HTMLElement> = React.ForwardRefExoticComponent<T & React.RefAttributes<P>>;
 
-export default VibeComponent;
+export type VibeComponent<T, P = HTMLElement> = React.ForwardRefExoticComponent<T & React.RefAttributes<P>>;
+
+export const withStaticProps = <T, P, S>(forwarded: VibeComponent<T, P>, staticProps: S) =>
+  Object.assign(forwarded, staticProps);
