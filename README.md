@@ -30,7 +30,7 @@ In order to load all the relevant CSS tokens, you should import the `tokens` fil
 import "monday-ui-react-core/tokens";
 ```
 
-_If your project is importing files differently - read more [here](COMMON_JS_IMPORTS.md)._
+_If your project is importing files differently - read more [here](DEPRECATED_IMPORTS.md)._
 
 ### Font installation
 
