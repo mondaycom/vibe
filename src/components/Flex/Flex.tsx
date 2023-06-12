@@ -45,7 +45,8 @@ const Flex: VibeComponent<FlexProps> & {
       style,
       ariaLabelledby,
       ariaLabel,
-      tabIndex
+      tabIndex,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -61,6 +62,7 @@ const Flex: VibeComponent<FlexProps> & {
     return (
       <Element
         id={id}
+        data-testid={dataTestId}
         {...onClickProps}
         ref={mergedRef}
         className={cx(

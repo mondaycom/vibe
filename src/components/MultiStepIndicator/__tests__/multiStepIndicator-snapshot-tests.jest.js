@@ -63,4 +63,20 @@ describe("MultiStepIndicator renders correctly", () => {
     const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Featured} />);
     expect(tree).toMatchSnapshot();
   });
+
+  it("with mode compact", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} size={MultiStepIndicator.sizes.COMPACT} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with mode compact textPlacement vertical", () => {
+    const tree = renderer.create(
+      <MultiStepIndicator
+        steps={exampleSteps}
+        size={MultiStepIndicator.sizes.COMPACT}
+        textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+      />
+    );
+    expect(tree).toMatchSnapshot();
+  });
 });

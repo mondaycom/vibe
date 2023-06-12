@@ -7,6 +7,10 @@ describe("Flex renders correctly", () => {
     const tree = renderer.create(<Flex />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+  it("with data-testid", () => {
+    const tree = renderer.create(<Flex data-testid="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
   describe("Horizontal display", () => {
     it("with children", () => {
       const tree = renderer

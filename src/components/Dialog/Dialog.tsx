@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { Manager, Modifier, Popper, Reference } from "react-popper";
 import { DialogPosition } from "../../constants/positions";
 import { isFunction } from "lodash-es";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -129,11 +130,22 @@ export interface DialogProps extends VibeComponentProps {
    */
   zIndex?: number;
   useDerivedStateFromProps?: boolean;
+  /**
+   * Make the dialog disappear when the element it is attached to becomes hidden
+   */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Backward compatibility for props naming
+   * @deprecated
+   */
   shoudlCallbackOnMount?: boolean;
+  shouldCallbackOnMount?: boolean;
   instantShowAndHide?: boolean;
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
   content?: (() => JSX.Element) | JSX.Element;
+  /**
+   * The element where we will position the dialog beside.
+   */
   children?: ReactElement | ReactElement[] | string;
   /**
    * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
@@ -181,6 +193,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     useDerivedStateFromProps: false,
     hideWhenReferenceHidden: false,
     shoudlCallbackOnMount: false,
+    shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false
   };
@@ -210,6 +223,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     this.onContentClick = this.onContentClick.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.closeDialogOnEscape = this.closeDialogOnEscape.bind(this);
+    this.onContextMenu = this.onContextMenu.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
@@ -237,10 +251,14 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   }
 
   componentDidMount() {
-    const { shoudlCallbackOnMount, onDialogDidShow } = this.props;
+    const { shoudlCallbackOnMount, shouldCallbackOnMount, onDialogDidShow } = this.props;
+    const overrideShouldCallbackOnMount = backwardCompatibilityForProperties(
+      [shouldCallbackOnMount, shoudlCallbackOnMount],
+      false
+    );
     const { isOpen } = this.state;
     document.addEventListener("keyup", this.closeDialogOnEscape);
-    if (shoudlCallbackOnMount && isOpen) {
+    if (overrideShouldCallbackOnMount && isOpen) {
       onDialogDidShow && onDialogDidShow();
     }
   }
@@ -429,6 +447,10 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     this.handleEvent(HideShowEvent.ESCAPE_KEY, e.target, e);
   }
 
+  onContextMenu(e: React.MouseEvent) {
+    this.handleEvent(HideShowEvent.CONTEXT_MENU, e.target, e);
+  }
+
   onClickOutside(event: React.MouseEvent) {
     const { onClickOutside } = this.props;
     this.handleEvent(HideShowEvent.CLICK_OUTSIDE, event.target, event);
@@ -564,6 +586,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   onMouseLeave={this.onDialogLeave}
                   disableOnClickOutside={disableOnClickOutside}
                   onClickOutside={this.onClickOutside}
+                  onContextMenu={this.onContextMenu}
                   onEsc={this.onEsc}
                   animationType={animationTypeCalculated}
                   position={placement}

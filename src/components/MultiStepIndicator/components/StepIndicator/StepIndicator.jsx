@@ -15,8 +15,9 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
+import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import styles from "./StepIndicator.module.scss";
+import classNames from "classnames";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -25,12 +26,13 @@ const StepCircleDisplay = ({
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  stepNumber
+  stepNumber,
+  size
 }) => {
   return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
-      className={styles.numberContainerTextCheckIcon}
+      className={classNames(styles.numberContainerTextCheckIcon, { [styles.compact]: size === SIZES.COMPACT })}
       iconLabel={STEP_STATUSES.FULFILLED}
       iconType={fulfilledStepIconType}
       ignoreFocusStyle
@@ -57,6 +59,7 @@ const StepIndicator = ({
   stepDividerClassName,
   isVertical,
   id,
+  size,
   "data-testid": dataTestId
 }) => {
   // Animations state
@@ -114,7 +117,8 @@ const StepIndicator = ({
     return [
       getStyle(styles, camelCase(suffix || "indicator")),
       getStyle(styles, camelCase(`type-${type}${suffix}`)),
-      getStyle(styles, camelCase(`status-${status}${suffix}`))
+      getStyle(styles, camelCase(`status-${status}${suffix}`)),
+      getStyle(styles, camelCase(`size-${size}${suffix}`))
     ];
   };
 
@@ -158,6 +162,7 @@ const StepIndicator = ({
                   isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
                   stepNumber={stepNumber}
                   status={status}
+                  size={size}
                 />
               </span>
             </CSSTransition>
@@ -170,7 +175,9 @@ const StepIndicator = ({
           <HiddenText text={status} /> {/* for accessibility */}
           <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
-        <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
+        {size !== SIZES.COMPACT ? (
+          <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
+        ) : null}
       </div>
     </Clickable>
   );
@@ -192,7 +199,8 @@ StepIndicator.propTypes = {
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   isFulfilledStepDisplayNumber: PropTypes.bool,
   onClick: PropTypes.func,
-  isVertical: PropTypes.bool
+  isVertical: PropTypes.bool,
+  size: PropTypes.oneOf([SIZES.REGULAR, SIZES.COMPACT])
 };
 
 StepIndicator.defaultProps = {
@@ -206,7 +214,8 @@ StepIndicator.defaultProps = {
   fulfilledStepIconType: Icon.type.SVG,
   isFulfilledStepDisplayNumber: false,
   onClick: NOOP,
-  isVertical: false
+  isVertical: false,
+  size: SIZES.REGULAR
 };
 
 export default StepIndicator;

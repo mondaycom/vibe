@@ -6,6 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
 import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
 import styles from "./DialogContentContainer.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -22,13 +23,15 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
 } = forwardRef(
   (
     {
+      id,
       className = "",
       ariaLabelledby = "",
       ariaDescribedby = "",
       type = DialogType.POPOVER,
       size = DialogSize.MEDIUM,
       children,
-      style
+      style,
+      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
     },
     ref
   ) => {
@@ -38,6 +41,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
     return (
       <div
         role="dialog"
+        data-testid={dataTestId}
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}
         ref={mergedRef}

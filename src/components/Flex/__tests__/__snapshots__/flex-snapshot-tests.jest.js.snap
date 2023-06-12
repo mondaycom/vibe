@@ -210,6 +210,18 @@ exports[`Flex renders correctly Vertical display with wrap 1`] = `
 </div>
 `;
 
+exports[`Flex renders correctly with data-testid 1`] = `
+<div
+  className="container directionRow justifyStart alignCenter"
+  data-testid="test"
+  style={
+    Object {
+      "gap": "0px",
+    }
+  }
+/>
+`;
+
 exports[`Flex renders correctly with empty props 1`] = `
 <div
   className="container directionRow justifyStart alignCenter"
