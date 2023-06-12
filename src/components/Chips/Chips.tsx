@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColors, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Tooltip from "../Tooltip/Tooltip";
@@ -95,7 +95,7 @@ interface ChipsProps extends VibeComponentProps {
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
-  colors?: typeof ElementAllowedColors;
+  colors?: typeof ElementAllowedColor;
   avatarTypes?: typeof AvatarType;
 } = forwardRef<HTMLElement, ChipsProps>(
   (
@@ -299,6 +299,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
 export default withStaticProps(Chips, {
   sizes: ChipsSize,
-  colors: ElementAllowedColors,
+  colors: ElementAllowedColor,
   avatarTypes: AvatarType
 });

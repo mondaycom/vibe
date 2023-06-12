@@ -48,9 +48,16 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) => {
+        // TODO
+        // console.log("### option.chipColor", option.chipColor);
+        // console.log(
+        //   "### Object.keys(DROPDOWN_CHIP_COLORS).includes(option.chipColor)",
+        //   Object.keys(DROPDOWN_CHIP_COLORS).includes(option.chipColor)
+        // );
+        // console.log("### DROPDOWN_CHIP_COLORS[option.chipColor]", DROPDOWN_CHIP_COLORS[option.chipColor]);
         const overrideChipColor = Object.keys(DROPDOWN_CHIP_COLORS).includes(option.chipColor)
-          ? option.chipColor
-          : DROPDOWN_CHIP_COLORS.PRIMARY;
+          ? Chips.colors[option.chipColor]
+          : Chips.colors.PRIMARY;
         return index >= from && index < to ? (
           <Chips
             dataTestId="value-container-chip"

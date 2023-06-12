@@ -174,7 +174,7 @@ export enum ColorStyle {
   SELECTED = "selected"
 }
 
-export enum contentColorsByName {
+export enum ContentColorByName {
   GRASS_GREEN = "grass_green",
   DONE_GREEN = "done-green",
   BRIGHT_GREEN = "bright-green",
@@ -217,50 +217,50 @@ export enum contentColorsByName {
   PECAN = "pecan"
 }
 
-export enum stateSelectedColors {
+export enum StateSelectedColor {
   POSITIVE = "--positive-color-selected",
   NEGATIVE = "--negative-color-selected",
   PRIMARY = "--primary-selected-color"
 }
-export enum stateSelectedHoverColors {
+export enum StateSelectedHoverColor {
   POSITIVE = "--positive-color-selected-hover",
   NEGATIVE = "--negative-color-selected-hover",
   PRIMARY = "--primary-selected-hover-color"
 }
 
-export const ElementAllowedColors = {
-  ...contentColorsByName,
-  ...stateSelectedColors,
-  ...stateSelectedHoverColors
+export const ElementAllowedColor = {
+  ...ContentColorByName,
+  ...StateSelectedColor,
+  ...StateSelectedHoverColor
 };
 
-export type ElementColor = typeof ElementAllowedColors[keyof typeof ElementAllowedColors] | string;
+export type ElementColor = typeof ElementAllowedColor[keyof typeof ElementAllowedColor] | string;
 
-// const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) => {
-//   return Object.keys(colors)[Object.values(colors).indexOf(colorValue as any)];
-// };
+const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) => {
+  return Object.keys(colors)[Object.values(colors).indexOf(colorValue)];
+};
 
 export function getElementColor(
-  colorName: keyof typeof ElementAllowedColors | string,
+  colorValue: keyof typeof ElementAllowedColor | string,
   isSelectedPalette = false,
   isSelectedHoverPalette = false
 ): string {
-  const colorKey = Object.keys(ElementAllowedColors)[Object.values(ElementAllowedColors).indexOf(colorName as any)];
+  const colorKey = getColorKeyByValue(colorValue, ElementAllowedColor);
+  if (!colorKey) {
+    return colorValue;
+  }
 
-  console.log("### getElementColor colorName", colorName);
-  console.log("### getElementColor colorKey", colorKey);
-  if (contentColorsByName[colorKey as keyof typeof contentColorsByName]) {
-    return `var(--color-${contentColorsByName[colorKey as keyof typeof contentColorsByName]}${
+  if (ContentColorByName[colorKey as keyof typeof ContentColorByName]) {
+    return `var(--color-${ContentColorByName[colorKey as keyof typeof ContentColorByName]}${
       isSelectedPalette ? "-selected" : ""
     })`;
   }
-  if (stateSelectedHoverColors[colorKey as keyof typeof stateSelectedHoverColors] && isSelectedHoverPalette) {
-    return `var(${stateSelectedHoverColors[colorKey as keyof typeof stateSelectedHoverColors]})`;
+  if (StateSelectedHoverColor[colorKey as keyof typeof StateSelectedHoverColor] && isSelectedHoverPalette) {
+    return `var(${StateSelectedHoverColor[colorKey as keyof typeof StateSelectedHoverColor]})`;
   }
-  if (stateSelectedColors[colorKey as keyof typeof stateSelectedColors] && isSelectedPalette) {
-    return `var(${stateSelectedColors[colorKey as keyof typeof stateSelectedColors]})`;
+  if (StateSelectedColor[colorKey as keyof typeof StateSelectedColor] && isSelectedPalette) {
+    return `var(${StateSelectedColor[colorKey as keyof typeof StateSelectedColor]})`;
   }
-  return colorKey;
 }
 
 // export const allMondayColors = [

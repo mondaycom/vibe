@@ -5,7 +5,7 @@ import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ElementAllowedColors, ElementColor, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
@@ -48,8 +48,8 @@ export interface AvatarProps extends VibeComponentProps {
 const Avatar: React.FC<AvatarProps> & {
   types?: typeof AvatarType;
   sizes?: typeof AvatarSize;
-  colors?: typeof ElementAllowedColors;
-  backgroundColors?: typeof ElementAllowedColors;
+  colors?: typeof ElementAllowedColor;
+  backgroundColors?: typeof ElementAllowedColor;
 } = ({
   id,
   type = AvatarType.TEXT,
@@ -203,6 +203,6 @@ const Avatar: React.FC<AvatarProps> & {
 export default withStaticProps(Avatar, {
   types: AvatarType,
   sizes: AvatarSize,
-  colors: ElementAllowedColors,
-  backgroundColors: ElementAllowedColors
+  colors: ElementAllowedColor,
+  backgroundColors: ElementAllowedColor
 });
