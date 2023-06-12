@@ -12,6 +12,7 @@
     },
     "./dist/": "./dist/",
     "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
+    "./tokens": "./dist/tokens/tokens.css",
     "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
