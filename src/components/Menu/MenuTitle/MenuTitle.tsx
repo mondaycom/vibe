@@ -5,7 +5,7 @@ import cx from "classnames";
 import React, { FC } from "react";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
-import { VibeComponentProps } from "../../../types";
+import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 interface MenuTitleProps extends VibeComponentProps {
@@ -53,9 +53,10 @@ const MenuTitle: FC<MenuTitleProps> & {
 };
 
 Object.assign(MenuTitle, {
-  positions: MenuTitleCaptionPosition,
-  captionPositions: MenuTitleCaptionPosition,
   isMenuChild: true
 });
 
-export default MenuTitle;
+export default withStaticProps(MenuTitle, {
+  positions: MenuTitleCaptionPosition,
+  captionPositions: MenuTitleCaptionPosition
+});

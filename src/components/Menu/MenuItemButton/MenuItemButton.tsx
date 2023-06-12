@@ -9,8 +9,7 @@ import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 import { DialogPosition } from "../../../constants/positions";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
-import { SubIcon, VibeComponentProps } from "../../../types";
-import { ElementContent } from "../../../types/ElementContent";
+import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
 import styles from "./MenuItemButton.module.scss";
 
 interface MenuItemButtonProps extends VibeComponentProps {
@@ -134,10 +133,11 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
 };
 
 Object.assign(MenuItemButton, {
-  kinds: Button.kinds,
-  tooltipPositions: DialogPosition,
   isSelectable: true,
   isMenuChild: true
 });
 
-export default MenuItemButton;
+export default withStaticProps(MenuItemButton, {
+  kinds: Button.kinds,
+  tooltipPositions: DialogPosition
+});

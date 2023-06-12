@@ -3,9 +3,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import VibeComponent from "src/types/VibeComponent";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
+import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
 import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
@@ -56,9 +55,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
   }
 );
 
-Object.assign(DialogContentContainer, {
+export default withStaticProps(DialogContentContainer, {
   types: DialogType,
   sizes: DialogSize
 });
-
-export default DialogContentContainer;

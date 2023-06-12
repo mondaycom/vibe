@@ -11,7 +11,7 @@ import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Avatar.module.scss";
 
 type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
@@ -202,11 +202,9 @@ const Avatar: React.FC<AvatarProps> & {
   );
 };
 
-Object.assign(Avatar, {
+export default withStaticProps(Avatar, {
   types: AvatarType,
   sizes: AvatarSize,
   colors: elementColorsNames,
   backgroundColors: elementColorsNames
 });
-
-export default Avatar;

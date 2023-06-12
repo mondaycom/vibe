@@ -3,7 +3,7 @@ import React, { FC, forwardRef, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 
@@ -33,8 +33,6 @@ const ListItemIcon: FC<ListItemIconProps> & {
   );
 });
 
-Object.assign(ListItemIcon, {
+export default withStaticProps(ListItemIcon, {
   margin: ListItemIconMargin
 });
-
-export default ListItemIcon;

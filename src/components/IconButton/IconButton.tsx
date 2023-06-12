@@ -6,7 +6,7 @@ import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight, Size } from "./services/IconButton-helpers";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Button from "../Button/Button";
@@ -195,10 +195,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
   }
 );
 
-Object.assign(IconButton, {
+export default withStaticProps(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
   colors: Button.colors
 });
-
-export default IconButton;

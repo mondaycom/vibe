@@ -6,7 +6,7 @@ import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
@@ -191,12 +191,10 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
   }
 );
 
-Object.assign(LinearProgressBar, {
+export default withStaticProps(LinearProgressBar, {
   styles: ProgressBarStyle,
   barStyles: ProgressBarStyle,
   types: ProgressBarType,
   barTypes: ProgressBarType,
   sizes: SIZES
 });
-
-export default LinearProgressBar;

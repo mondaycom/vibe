@@ -11,7 +11,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
@@ -298,10 +298,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   }
 );
 
-Object.assign(Chips, {
+export default withStaticProps(Chips, {
   sizes: ChipsSize,
   colors: elementColorsNames,
   avatarTypes: AvatarType
 });
-
-export default Chips;

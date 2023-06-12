@@ -7,6 +7,7 @@ import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
 import { TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
@@ -67,8 +68,10 @@ const TabPanels: FC<TabPanelsProps> & {
 );
 
 Object.assign(TabPanels, {
+  isTabPanels: true
+});
+
+export default withStaticProps(TabPanels, {
   isTabPanels: true,
   animationDirections: TabPanelsAnimationDirection
 });
-
-export default TabPanels;

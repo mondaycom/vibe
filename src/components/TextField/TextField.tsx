@@ -20,7 +20,7 @@ import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { VibeComponentProps, VibeComponent } from "../../types";
+import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
@@ -294,10 +294,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
   }
 );
 
-Object.assign(TextField, {
+export default withStaticProps(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackState,
   types: TextFieldTextType
 });
-
-export default TextField;

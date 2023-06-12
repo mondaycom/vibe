@@ -5,7 +5,7 @@ import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
-import { SubIcon } from "../../../../types";
+import { SubIcon, withStaticProps } from "../../../../types";
 import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
 import styles from "./ComboboxOption.module.scss";
 
@@ -164,6 +164,4 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-Object.assign(ComboboxOption, { iconTypes: ComboboxOptionIconType });
-
-export default ComboboxOption;
+export default withStaticProps(ComboboxOption, { iconTypes: ComboboxOptionIconType });
