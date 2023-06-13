@@ -102,8 +102,6 @@ const publishedTSComponents = {
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus",
   useListenFocusTriggers: "hooks/useListenFocusTriggers",
   useSwitch: "hooks/useSwitch",
-  // Don't remove next line
-  // plop_marker:published-hooks
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover"
 };
