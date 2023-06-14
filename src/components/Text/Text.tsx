@@ -57,7 +57,13 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
 
     const textGlobalClass = useGlobalTextClass(size, weight);
     const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
-    const tooltipProps = useTooltipProps(withoutTooltip, ellipsis, tooltipPosition, children) as TooltipProps;
+    const tooltipProps = useTooltipProps(
+      componentRef,
+      withoutTooltip,
+      ellipsis,
+      tooltipPosition,
+      children
+    ) as TooltipProps;
 
     return (
       <Tooltip {...tooltipProps}>

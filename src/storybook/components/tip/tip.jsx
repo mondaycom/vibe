@@ -3,16 +3,16 @@ import cx from "classnames";
 import CoreAttentionBox from "../../../components/AttentionBox/AttentionBox";
 import "./tip.scss";
 
-export const Tip = ({ className, title, children }) => {
+export const Tip = ({ className, title, children, emoji, type = CoreAttentionBox.types.DARK }) => {
   const titleComposition = (
     <span>
-      <span style={{ marginRight: 4 }}>🤓</span> {title}
+      <span style={{ marginRight: 4 }}>{emoji ? emoji : "🤓"}</span> {title}
     </span>
   );
   return (
     <CoreAttentionBox
       icon={null}
-      type={CoreAttentionBox.types.DARK}
+      type={type}
       componentClassName={cx("monday-storybook-tip", className)}
       title={titleComposition}
       text={children}
