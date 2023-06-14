@@ -1,7 +1,14 @@
 const { parseMondayUiCss, getPropsToAllowedCssVars } = require("../parse-monday-css");
 const { PROPS_TO_ALLOWED_VARS } = require("../props-to-allowed-vars");
 
-const ALLOWED_CSS_VARS_WITHOUT_MAPPINGS = ["--font-line-height-30", "--font-line-height-20", "--font-size-10"];
+const ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING = [
+  "--font-h",
+  "--font-text",
+  "--font-weight",
+  "--font-size",
+  "--font-line-height",
+  "--letter-spacing"
+];
 
 describe("props-to-allowed-vars", () => {
   const { allVarsToCanonicalValue } = parseMondayUiCss();
@@ -28,7 +35,7 @@ describe("props-to-allowed-vars", () => {
       it(`should map the css var ${varFromGeneratedCss} to valid css props that can use it`, () => {
         const isCssVarMapped = allMappedCssVars.includes(varFromGeneratedCss);
 
-        if (!ALLOWED_CSS_VARS_WITHOUT_MAPPINGS.includes(varFromGeneratedCss)) {
+        if (!ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING.some(prefix => varFromGeneratedCss.startsWith(prefix))) {
           // If this fails, a CSS var was added without mapping it to recommended CSS props.
           // Without this mapping, we won't be able to recommend the proper usage of the CSS var.
           // Please add your var to PROPS_TO_ALLOWED_VARS

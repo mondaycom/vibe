@@ -146,20 +146,6 @@ const PROPS_TO_ALLOWED_VARS = {
   ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES),
   ...mapPropsToAllowedVars(BORDER_WIDTHS_PROPS, BORDER_WIDTHS),
   ...mapPropsToAllowedVars(BORDER_STYLES_PROPS, BORDER_STYLES),
-  ...mapPropsToAllowedVars("line-height", FONT_LINE_HEIGHTS, [
-    "--font-line-height-subtext",
-    "--font-line-height-h1",
-    "--font-line-height-h2",
-    "--font-line-height-h4"
-  ]),
-  ...mapPropsToAllowedVars("font-weight", FONT_WEIGHTS),
-  ...mapPropsToAllowedVars("font-size", FONT_SIZES, [
-    "--font-size-h1",
-    "--font-size-h2",
-    "--font-size-h4",
-    "--font-size-h5",
-    "--font-size-general-label"
-  ]),
   ...mapPropsToAllowedVars(FONT_FAMILIES_PROPS, FONT_FAMILIES, ["--title-font-family"]),
   ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, ANIMATION_TIMING, ["--expand-animation-timing"]),
   ...mapPropsToAllowedVars(DURATION_FUNCTION_PROPS, ANIMATION_DURATION, ["--animation-expressive-short"]),

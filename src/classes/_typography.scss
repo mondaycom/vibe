@@ -1,0 +1,25 @@
+$typographyClasses: (
+    "h1": ("bold", "normal", "light"),
+    "h2": ("bold", "normal", "light"),
+    "h3": ("bold", "normal", "light"),
+    "text1": ("bold", "normal"),
+    "text2": ("bold", "normal")
+);
+
+@mixin vibe-typography-styles($class-prefix, $weight-type) {
+  .vibe-#{$class-prefix}-#{$weight-type} {
+    font: var(--font-#{$class-prefix}-#{$weight-type});
+
+    // if class is a heading class
+    @if str-slice($class-prefix, 1, 1) == "h" {
+      margin: 0;
+      letter-spacing: var(--letter-spacing-#{$class-prefix}-#{$weight-type});
+    }
+  }
+}
+
+@each $class-prefix, $weight-types in $typographyClasses {
+  @each $weight-type in $weight-types {
+    @include vibe-typography-styles($class-prefix, $weight-type);
+  }
+}

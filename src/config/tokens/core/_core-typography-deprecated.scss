@@ -1,0 +1,52 @@
+// CORE TOKENS: TYPOGRAPHY
+// This partial Defines Global Typography tokens
+
+// FONTS SCALES
+// - Font Size scale
+$font-size-10: $font-reg-size-14;
+$font-size-20: $font-reg-size-14;
+$font-size-30: $font-size-base;
+$font-size-40: $font-reg-size-18;
+$font-size-50: $font-reg-size-24;
+$font-size-60: $font-reg-size-30;
+
+// - LINE HEIGHT SCALE
+$font-line-height-10: $font-reg-line-height-18;
+$font-line-height-20: $font-reg-line-height-24;
+$font-line-height-30: $font-reg-line-height-24;
+$font-line-height-40: $font-reg-line-height-24;
+$font-line-height-50: $font-reg-line-height-32;
+$font-line-height-60: $font-reg-line-height-42;
+
+// TYPOGRAPHY TOKENS
+// - Font sizes (meaningful units)
+$font-size-h1: var(--font-size-60);
+$font-size-h2: var(--font-size-50);
+$font-size-h3: var(--font-size-50);
+$font-size-h4: var(--font-size-40);
+$font-size-h5: var(--font-size-30);
+$font-size-general-label: var(--font-size-20);
+$font-size-paragraph: var(--font-size-30);
+$font-size-subtext: var(--font-size-10);
+
+// - Line heights (meaningful units)
+$font-line-height-h1: var(--font-line-height-60);
+$font-line-height-h2: var(--font-line-height-50);
+$font-line-height-h3: var(--font-line-height-50);
+$font-line-height-h4: var(--font-line-height-40);
+$font-line-height-h5: var(--font-line-height-30);
+$font-line-height-general-label: var(--font-line-height-20);
+$font-line-height-paragraph: var(--font-line-height-30);
+$font-line-height-subtext: var(--font-line-height-10);
+
+// - Font definition shorthands per semantics atom definitions
+$font-h1: var(--font-weight-bold) var(--font-size-h1) / var(--font-line-height-h1) var(--title-font-family);
+$font-h2: var(--font-weight-bold) var(--font-size-h2) / var(--font-line-height-h2) var(--title-font-family);
+$font-h3: var(--font-weight-light) var(--font-size-h3) / var(--font-line-height-h3) var(--title-font-family);
+$font-h4: var(--font-weight-bold) var(--font-size-h4) / var(--font-line-height-h4) var(--title-font-family);
+$font-h5: var(--font-weight-bold) var(--font-size-h5) / var(--font-line-height-h5) var(--font-family);
+$font-general-label: var(--font-weight-normal) var(--font-size-general-label) / var(--font-line-height-general-label)
+  var(--font-family);
+$font-paragraph: var(--font-weight-normal) var(--font-size-paragraph) / var(--font-line-height-paragraph)
+  var(--font-family);
+$font-subtext: var(--font-weight-normal) var(--font-size-subtext) / var(--font-line-height-subtext) var(--font-family);
