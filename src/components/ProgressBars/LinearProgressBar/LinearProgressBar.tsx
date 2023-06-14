@@ -76,8 +76,10 @@ interface LinearProgressBarProps extends VibeComponentProps {
 }
 
 const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> & {
-  styles?: ProgressBarStyle;
-  barStyles?: ProgressBarStyle;
+  styles?: typeof ProgressBarStyle;
+  barStyles?: typeof ProgressBarStyle;
+  types?: typeof ProgressBarType;
+  barTypes?: typeof ProgressBarType;
   sizes?: typeof SIZES;
 } = forwardRef(
   (
