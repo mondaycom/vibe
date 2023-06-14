@@ -65,8 +65,8 @@ interface TipseenProps extends VibeComponentProps {
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
   positions?: typeof DialogPosition;
-  animationTypes?: AnimationType;
-  justifyTypes?: JustifyType;
+  animationTypes?: typeof AnimationType;
+  justifyTypes?: typeof JustifyType;
 } = forwardRef(
   (
     {

@@ -72,6 +72,5 @@ Object.assign(TabPanels, {
 });
 
 export default withStaticProps(TabPanels, {
-  isTabPanels: true,
   animationDirections: TabPanelsAnimationDirection
 });
