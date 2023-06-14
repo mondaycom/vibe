@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -7,8 +7,9 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor } from "./TextConstants";
-import { useGlobalTextClass } from "./TextHooks";
+import { useEllipsisClass, useGlobalTextClass } from "./TextHooks";
 import styles from "./Text.module.scss";
+import useRefWithCallback from "../../hooks/useRefWithCallback";
 
 export interface TextProps extends VibeComponentProps {
   /**
@@ -19,9 +20,11 @@ export interface TextProps extends VibeComponentProps {
    * The textual content
    */
   children: ElementContent;
-  size: TextSize;
-  weight: TextWeight;
-  color: TextColor;
+  size?: TextSize;
+  weight?: TextWeight;
+  color?: TextColor;
+  ellipsis?: boolean;
+  maxLines?: number;
 }
 
 const Text: VibeComponent<TextProps, HTMLElement> & {
@@ -38,20 +41,28 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       children,
       size = TextSize.MEDIUM,
       weight = TextWeight.NORMAL,
-      color = TextColor.PRIMARY
+      color = TextColor.PRIMARY,
+      ellipsis = true,
+      maxLines = 1
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    useEffect(() => {
+      componentRef.current.style.setProperty("--text-clamp-lines", maxLines.toString());
+    });
+
     const textGlobalClass = useGlobalTextClass(size, weight);
+    const ellipsisClass = useEllipsisClass(componentRef, ellipsis, maxLines);
 
     return React.createElement(
       element,
       {
         id,
         "data-testid": dataTestId,
-        className: cx(textGlobalClass, styles[color], className),
+        className: cx(textGlobalClass, styles[color], ellipsisClass, className),
         ref: mergedRef
       },
       children

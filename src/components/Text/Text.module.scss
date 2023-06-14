@@ -1,4 +1,5 @@
 @import "../../styles/themes.scss";
+@import "../../styles/typography";
 
 .primary {
   color: var(--primary-text-color);
@@ -6,4 +7,12 @@
 
 .secondary {
   color: var(--secondary-text-color);
+}
+
+.singleLineEllipsis {
+  @include ellipsis();
+}
+
+.multiLineEllipsis {
+  @include line-clamp(var(--text-clamp-lines));
 }
