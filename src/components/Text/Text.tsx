@@ -7,7 +7,9 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor } from "./TextConstants";
-import { useEllipsisClass, useGlobalTextClass } from "./TextHooks";
+import { useEllipsisClass, useGlobalTextClass, useTooltipProps } from "./TextHooks";
+import { DialogPosition } from "../../constants";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends VibeComponentProps {
@@ -24,6 +26,8 @@ export interface TextProps extends VibeComponentProps {
   color?: TextColor;
   ellipsis?: boolean;
   maxLines?: number;
+  tooltipPosition?: DialogPosition;
+  withoutTooltip?: boolean;
 }
 
 const Text: VibeComponent<TextProps, HTMLElement> & {
@@ -35,14 +39,16 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
     {
       className,
       id,
+      children,
+      tooltipPosition,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
       element = "span",
-      children,
       size = TextSize.MEDIUM,
       weight = TextWeight.NORMAL,
       color = TextColor.PRIMARY,
       ellipsis = true,
-      maxLines = 1
+      maxLines = 1,
+      withoutTooltip = false
     },
     ref
   ) => {
@@ -51,16 +57,21 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
 
     const textGlobalClass = useGlobalTextClass(size, weight);
     const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
+    const tooltipProps = useTooltipProps(withoutTooltip, ellipsis, tooltipPosition, children) as TooltipProps;
 
-    return React.createElement(
-      element,
-      {
-        id,
-        "data-testid": dataTestId,
-        className: cx(textGlobalClass, styles[color], ellipsisClass, className),
-        ref: overrideRef
-      },
-      children
+    return (
+      <Tooltip {...tooltipProps}>
+        {React.createElement(
+          element,
+          {
+            id,
+            "data-testid": dataTestId,
+            className: cx(textGlobalClass, styles[color], ellipsisClass, className),
+            ref: overrideRef
+          },
+          children
+        )}
+      </Tooltip>
     );
   }
 );
