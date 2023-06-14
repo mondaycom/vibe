@@ -5,17 +5,12 @@ import styles from "./Text.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Text,
-  enumPropNamesArray: [], // List enum props here
+  enumPropNamesArray: ["sizes", "weights", "colors"], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [], // List the component's actions here
+  actionPropsArray: [] // List the component's actions here
 });
 
-<Meta
-  title="Components/Text/Text"
-  component={ Text }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
-/>
+<Meta title="Text/Text" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -24,6 +19,7 @@ export const textTemplate = createComponentTemplate(Text);
 <!--- Component documentation -->
 
 # Text
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -34,97 +30,108 @@ export const textTemplate = createComponentTemplate(Text);
 - [Feedback](#feedback)
 
 ## Overview
-Please write here the component description
+
+The text component serves as a wrapper for applying typography styles to the text it contains.
 
 <Canvas>
-  <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
-    { textTemplate.bind({}) }
+  <Story name="Overview" args={{ children: "Text" }}>
+    {textTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
+
 <ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Usage guideline 1",
-  "Usage guideline 2",
-  "Usage guideline 3",
-]}/>
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
 
 <Tip title="Not what you were looking for?">Tip content</Tip>
 
 ## Variants
-### Story title 1
-Description of story 1
+
+### Sizes and weights
+
 <Canvas>
-  <Story name="Story title 1">
-    <Text />
-    <Text />
+  <Story name="Sizes and weights">
+    <Text size={Text.sizes.MEDIUM} weight={Text.weights.BOLD}>
+      Bold medium size
+    </Text>
+    <Text size={Text.sizes.MEDIUM} weight={Text.weights.NORMAL}>
+      Normal medium size
+    </Text>
+    <Text size={Text.sizes.SMALL} weight={Text.weights.BOLD}>
+      Bold small size
+    </Text>
+    <Text size={Text.sizes.MEDIUM} weight={Text.weights.NORMAL}>
+      Normal small size
+    </Text>
   </Story>
 </Canvas>
 
-### Story title 2
-Description of story 2
+### Colors
+
 <Canvas>
-  <Story name="Story title 2">
-    <Text />
-    <Text />
+  <Story name="Colors">
+    <Text color={Text.colors.PRIMARY}>Primary text</Text>
+    <Text color={Text.colors.SECONDARY}>Secondary text</Text>
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:<Text />,
-        description:"Best practice description."
+        component: <Text />,
+        description: "Best practice description."
       },
       negative: {
-        component:<Text />,
-        description:"Bad practice description."
+        component: <Text />,
+        description: "Bad practice description."
       }
     },
     {
       positive: {
-        component:<Text />,
-        description:"Best practice description."
+        component: <Text />,
+        description: "Best practice description."
       },
       negative: {
-        component:<Text />,
-        description:"Bad practice description."
+        component: <Text />,
+        description: "Bad practice description."
       }
     },
     {
       positive: {
-        component:<Text />,
-        description:"Best practice description."
+        component: <Text />,
+        description: "Best practice description."
       },
       negative: {
-        component:<Text />,
-        description:"Bad practice description."
+        component: <Text />,
+        description: "Bad practice description."
       }
     },
     {
       positive: {
-        component:<Text />,
-        description:"Best practice description."
+        component: <Text />,
+        description: "Best practice description."
       },
       negative: {
-        component:<Text />,
-        description:"Bad practice description."
+        component: <Text />,
+        description: "Bad practice description."
       }
     }
   ]}
 />
 
-
 ## Use cases and examples
 
 ### Story title 3
+
 Description of story 3
+
 <Canvas>
   <Story name="Story title 3">
     <Text />
@@ -133,7 +140,9 @@ Description of story 3
 </Canvas>
 
 ### Story title 4
+
 Description of story 4
+
 <Canvas>
   <Story name="Story title 4">
     <Text />
@@ -142,4 +151,5 @@ Description of story 4
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[]} />

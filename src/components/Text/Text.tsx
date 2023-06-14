@@ -24,7 +24,11 @@ export interface TextProps extends VibeComponentProps {
   color: TextColor;
 }
 
-const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
+const Text: VibeComponent<TextProps, HTMLElement> & {
+  sizes?: typeof TextSize;
+  weights?: typeof TextWeight;
+  colors?: typeof TextColor;
+} = forwardRef(
   (
     {
       className,
@@ -55,4 +59,9 @@ const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
   }
 );
 
+Object.assign(Text, {
+  sizes: TextSize,
+  weights: TextWeight,
+  colors: TextColor
+});
 export default Text;

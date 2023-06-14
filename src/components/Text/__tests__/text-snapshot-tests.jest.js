@@ -38,13 +38,28 @@ describe("Text renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with x", () => {
-    const tree = renderer.create(<Text />).toJSON();
+  it("with size", () => {
+    const tree = renderer.create(<Text size={Text.sizes.SMALL}>text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("with y", () => {
-    const tree = renderer.create(<Text />).toJSON();
+  it("with weight", () => {
+    const tree = renderer.create(<Text weight={Text.weights.BOLD}>text</Text>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with color", () => {
+    const tree = renderer.create(<Text color={Text.colors.SECONDARY}>text</Text>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("with element as children", () => {
+    const tree = renderer
+      .create(
+        <Text>
+          <div>text</div>
+        </Text>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
