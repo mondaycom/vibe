@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders correctly with empty props 1`] = `
+<span
+  className="vibe-text1-normal primary singleLineEllipsis"
+  data-testid="text"
+/>
+`;

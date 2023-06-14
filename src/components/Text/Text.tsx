@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -9,13 +9,12 @@ import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor } from "./TextConstants";
 import { useEllipsisClass, useGlobalTextClass } from "./TextHooks";
 import styles from "./Text.module.scss";
-import useRefWithCallback from "../../hooks/useRefWithCallback";
 
 export interface TextProps extends VibeComponentProps {
   /**
    * The element tag of the text component
    */
-  element?: keyof JSX.IntrinsicElements | string;
+  element?: string;
   /**
    * The textual content
    */
@@ -50,12 +49,8 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    useEffect(() => {
-      componentRef.current.style.setProperty("--text-clamp-lines", maxLines.toString());
-    });
-
     const textGlobalClass = useGlobalTextClass(size, weight);
-    const ellipsisClass = useEllipsisClass(componentRef, ellipsis, maxLines);
+    const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
 
     return React.createElement(
       element,
@@ -63,7 +58,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
         id,
         "data-testid": dataTestId,
         className: cx(textGlobalClass, styles[color], ellipsisClass, className),
-        ref: mergedRef
+        ref: overrideRef
       },
       children
     );
