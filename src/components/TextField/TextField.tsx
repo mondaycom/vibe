@@ -80,8 +80,8 @@ interface TextFieldProps extends VibeComponentProps {
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
   sizes?: typeof BASE_SIZES;
-  types?: TextFieldTextType;
-  feedbacks?: TextFieldFeedbackState;
+  types?: typeof TextFieldTextType;
+  feedbacks?: typeof TextFieldFeedbackState;
 } = forwardRef(
   (
     {
