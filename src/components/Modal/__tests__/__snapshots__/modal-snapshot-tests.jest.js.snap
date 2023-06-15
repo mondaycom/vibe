@@ -36,7 +36,7 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
-+           data-testid="monday-header"
++           data-testid="modal-header"
 +           role="heading"
 +         >
 +           ModalHeader Title
@@ -102,7 +102,7 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
-+           data-testid="monday-header"
++           data-testid="modal-header"
 +           role="heading"
 +         >
 +           ModalHeader Title
@@ -188,7 +188,7 @@ exports[`Modal with base props 1`] = `
       <p
         aria-level="1"
         class="title"
-        data-testid="monday-header_modal-id-title"
+        data-testid="modal-header_modal-id-title"
         id="modal-id-title"
         role="heading"
       >

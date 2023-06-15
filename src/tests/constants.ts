@@ -95,7 +95,7 @@ export enum ComponentDefaultTestId {
   MODAL = "monday-dialog-container",
   MODAL_OVERLAY = "monday-modal-overlay",
   MODAL_CONTENT = "modal-content",
-  MODAL_HEADER = "monday-header",
+  MODAL_HEADER = "modal-header",
   FORMATTED_NUMBER = "formatted-number",
   HIDDEN_TEXT = "hidden-text",
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
