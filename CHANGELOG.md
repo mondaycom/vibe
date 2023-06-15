@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.10.0 (2023-06-15)
+
+#### New Features
+* [#1354](https://github.com/mondaycom/monday-ui-react-core/pull/1354) TS export components with static props - fix TS2532 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1356](https://github.com/mondaycom/monday-ui-react-core/pull/1356) feat: <Modal> components - data-testid attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1355](https://github.com/mondaycom/monday-ui-react-core/pull/1355) Update monday-ui-style to 0.1.160 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## prerelease (2023-06-12)
 
 #### New Features
