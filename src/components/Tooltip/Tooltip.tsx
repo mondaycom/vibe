@@ -56,7 +56,7 @@ export interface TooltipProps extends VibeComponentProps {
    */
   tip?: boolean;
   /**
-   * Show the Dialog when the children is mounting
+   * Use this prop in combination with the boolean ellipsis prop to truncate and add an ellipsis after a certain number of lines.
    */
   shouldShowOnMount?: boolean;
   hideWhenReferenceHidden?: boolean;

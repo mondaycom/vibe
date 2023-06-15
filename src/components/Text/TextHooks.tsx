@@ -1,13 +1,12 @@
 import { TextSize, TextWeight } from "./TextConstants";
 import styles from "./Text.module.scss";
-import Tooltip from "../Tooltip/Tooltip";
-import { Fragment, MutableRefObject } from "react";
+import { MutableRefObject } from "react";
 import { DialogPosition } from "../../constants";
 import { ElementContent } from "../../types";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 
 export function useGlobalTextClass(size: TextSize, weight: TextWeight) {
-  return `vibe-text${size == TextSize.MEDIUM ? 1 : 2}-${weight}`;
+  return `vibe-text${size === TextSize.MEDIUM ? 1 : 2}-${weight}`;
 }
 
 export function useEllipsisClass(ref: (node: HTMLElement) => void, ellipsis: boolean, maxLines: number) {

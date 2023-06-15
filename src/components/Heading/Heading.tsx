@@ -18,7 +18,13 @@ export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
   ariaLabel?: string;
   value?: string;
+  /**
+   * When the text exceeds the available space and the flag is true, we truncate the end of the text and use ellipsis (...) to indicate the shortened content
+   */
   ellipsis?: boolean;
+  /**
+   *
+   */
   ellipsisMaxLines?: number;
   suggestEditOnHover?: boolean;
   /** Tooltip to show when no overflow */

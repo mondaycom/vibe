@@ -22,6 +22,17 @@ describe("Text renders correctly", () => {
     const tree = renderer.create(<Text color={Text.colors.SECONDARY}>text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with element", () => {
+    const tree = renderer.create(<Text element="p">text</Text>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with align", () => {
+    const tree = renderer.create(<Text align={Text.align.CENTER}>text</Text>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with element as children", () => {
     const tree = renderer
       .create(

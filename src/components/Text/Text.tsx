@@ -6,7 +6,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
-import { TextSize, TextWeight, TextColor } from "./TextConstants";
+import { TextSize, TextWeight, TextColor, TextAlign } from "./TextConstants";
 import { useEllipsisClass, useGlobalTextClass, useTooltipProps } from "./TextHooks";
 import { DialogPosition } from "../../constants";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
@@ -24,6 +24,10 @@ export interface TextProps extends VibeComponentProps {
   size?: TextSize;
   weight?: TextWeight;
   color?: TextColor;
+  align?: TextAlign;
+  /**
+   * When the text is too long, cut the end of the text and display instead of it three dots (...)
+   */
   ellipsis?: boolean;
   maxLines?: number;
   tooltipPosition?: DialogPosition;
@@ -34,6 +38,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   sizes?: typeof TextSize;
   weights?: typeof TextWeight;
   colors?: typeof TextColor;
+  align?: typeof TextAlign;
 } = forwardRef(
   (
     {
@@ -46,6 +51,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       size = TextSize.MEDIUM,
       weight = TextWeight.NORMAL,
       color = TextColor.PRIMARY,
+      align = TextAlign.START,
       ellipsis = true,
       maxLines = 1,
       withoutTooltip = false
@@ -72,7 +78,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
           {
             id,
             "data-testid": dataTestId,
-            className: cx(textGlobalClass, styles[color], ellipsisClass, className),
+            className: cx(textGlobalClass, styles.text, styles[color], styles[align], ellipsisClass, className),
             ref: overrideRef
           },
           children
@@ -85,6 +91,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
 Object.assign(Text, {
   sizes: TextSize,
   weights: TextWeight,
-  colors: TextColor
+  colors: TextColor,
+  align: TextAlign
 });
 export default Text;

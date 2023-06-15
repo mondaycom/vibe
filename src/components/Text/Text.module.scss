@@ -1,18 +1,51 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography";
+@import "../../styles/states";
 
-.primary {
-  color: var(--primary-text-color);
-}
+.text {
+  a {
+    text-decoration: none;
+    color: var(--link-color);
+    @include focus-style();
 
-.secondary {
-  color: var(--secondary-text-color);
-}
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-.singleLineEllipsis {
-  @include ellipsis();
-}
+  &.primary {
+    color: var(--primary-text-color);
+  }
 
-.multiLineEllipsis {
-  @include line-clamp(var(--text-clamp-lines));
+  &.secondary {
+    color: var(--secondary-text-color);
+  }
+
+  &.onPrimary {
+    color: var(--text-color-on-primary);
+  }
+
+  &.onInverted {
+    color: var(--text-color-on-inverted);
+  }
+
+  &.start {
+    text-align: start;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.end {
+    text-align: end;
+  }
+
+  &.singleLineEllipsis {
+    @include ellipsis();
+  }
+
+  &.multiLineEllipsis {
+    @include line-clamp(var(--text-clamp-lines));
+  }
 }
