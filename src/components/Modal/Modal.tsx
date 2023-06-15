@@ -8,6 +8,8 @@ import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
 import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 
 interface ModalProps {
@@ -15,6 +17,7 @@ interface ModalProps {
    * Id of the modal, used internally and for accessibility
    */
   id?: string;
+  "data-testid": string;
   /**
    * Show/hide the Dialog
    */
@@ -83,7 +86,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   width = ModalWidth.DEFAULT,
   hideCloseButton = false,
   closeButtonAriaLabel = "Close",
-  zIndex = 10000
+  zIndex = 10000,
+  "data-testid": dataTestId
 }) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
@@ -151,14 +155,14 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     <div
       {...attr.container}
       className={cx(styles.container, classNames.container)}
-      data-testid="monday-dialog-container"
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
       style={{ "--monday-modal-z-index": zIndex }}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
         onClick={closeIfNotAlertType}
         className={cx(styles.overlay, classNames.overlay)}
-        data-testid="monday-modal-overlay"
+        data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
       />
       <div
         {...attr.dialog}

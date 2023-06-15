@@ -3,9 +3,11 @@ import { render, cleanup, fireEvent } from "@testing-library/react";
 import { ModalHeader } from "../../../components";
 import "@testing-library/jest-dom";
 import { ModalExampleWrapper } from "../__stories__/helpers";
+import { ComponentDefaultTestId } from "../../../tests/test-ids-utils";
 
 const MODAL_TITLE_TEXT = "Modal title";
 const MODAL_ID = "story-book-modal";
+const MODAL_TEST_ID = "modal-test-id";
 const CLOSE_BUTTON_LABEL = "close";
 const OPEN_BUTTON_TEXT = "Open";
 
@@ -16,9 +18,9 @@ const ModalManager = props => {
       buttonTitle="Open"
       show={openOnStart}
       id={MODAL_ID}
+      data-testid={MODAL_TEST_ID}
       title={title || MODAL_TITLE_TEXT}
       alertDialog={isAlertDialog}
-      s
       openModalTestId={OPEN_BUTTON_TEXT}
     >
       {children}
@@ -29,11 +31,11 @@ const ModalManager = props => {
 const getOpenButton = component => component.getByText(OPEN_BUTTON_TEXT);
 const findModal = component => component.findByRole("dialog");
 const queryModal = component => component.queryByRole("dialog");
-const queryClosedModal = component => component.queryByTestId("monday-dialog-container");
+const queryClosedModal = component => component.queryByTestId(MODAL_TEST_ID);
 const queryAlertModal = component => component.queryByRole("alertdialog");
 const findCloseButton = component => component.findByLabelText(CLOSE_BUTTON_LABEL);
 const queryCloseButton = component => component.queryByLabelText(CLOSE_BUTTON_LABEL);
-const findOverlay = component => component.findByTestId("monday-modal-overlay");
+const findOverlay = component => component.findByTestId(ComponentDefaultTestId.MODAL_OVERLAY);
 
 const renderComponent = (props = {}) => {
   const { content } = props;
