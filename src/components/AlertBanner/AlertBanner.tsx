@@ -12,6 +12,7 @@ import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
+import { VibeComponent, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 
 interface AlertBannerProps extends VibeComponentProps {
@@ -27,7 +28,7 @@ interface AlertBannerProps extends VibeComponentProps {
   children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 }
 
-const AlertBanner: React.FC<AlertBannerProps> & {
+const AlertBanner: VibeComponent<AlertBannerProps> & {
   backgroundColors?: typeof AlertBannerBackgroundColor;
 } = forwardRef(
   (
@@ -114,8 +115,4 @@ const AlertBanner: React.FC<AlertBannerProps> & {
   }
 );
 
-Object.assign(AlertBanner, {
-  backgroundColors: AlertBannerBackgroundColor
-});
-
-export default AlertBanner;
+export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColor });

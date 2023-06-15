@@ -13,7 +13,7 @@ import {
   ColorPickerArrayValueOnly
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { VibeComponentProps, VibeComponent, SubIcon } from "../../types";
+import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
@@ -124,7 +124,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
   }
 );
 
-Object.assign(ColorPicker, {
+export default withStaticProps(ColorPicker, {
   // Backward compatibility for enum naming
   COLOR_STYLES: ColorStyle,
   sizes: BaseSizes,
@@ -132,5 +132,3 @@ Object.assign(ColorPicker, {
   colorSizes: BaseSizes,
   colorShapes: ColorShapes
 });
-
-export default ColorPicker;

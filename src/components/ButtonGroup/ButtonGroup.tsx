@@ -10,7 +10,7 @@ import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -174,6 +174,4 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
   }
 );
 
-Object.assign(ButtonGroup, { sizes: Button.sizes, kinds: Button.kinds });
-
-export default ButtonGroup;
+export default withStaticProps(ButtonGroup, { sizes: Button.sizes, kinds: Button.kinds });

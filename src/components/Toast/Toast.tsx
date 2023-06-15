@@ -10,9 +10,9 @@ import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { ToastAction, ToastActionType, ToastType } from "./ToastConstants";
 import { getIcon } from "./ToastHelpers";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 
 interface ToastProps extends VibeComponentProps {
@@ -156,9 +156,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   );
 };
 
-Object.assign(Toast, {
+export default withStaticProps(Toast, {
   types: ToastType,
   actionTypes: ToastActionType
 });
-
-export default Toast;

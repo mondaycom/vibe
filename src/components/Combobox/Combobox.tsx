@@ -15,8 +15,7 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { ElementContent } from "../../types/ElementContent";
-import { VibeComponentProps } from "../../types";
+import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
 import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 
@@ -311,9 +310,7 @@ const Combobox: React.FC<ComboboxProps> & {
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-Object.assign(Combobox, {
+export default withStaticProps(Combobox, {
   sizes: BASE_SIZES,
   iconTypes: ComboboxOption.iconTypes
 });
-
-export default Combobox;

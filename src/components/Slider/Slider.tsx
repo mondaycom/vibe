@@ -9,6 +9,7 @@ import SliderInfix from "./SliderInfix";
 import { IconType } from "../Icon/IconConstants";
 import { SliderColor, SliderSize } from "./SliderConstants";
 import cx from "classnames";
+import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
 
 export type SliderProps = {
@@ -193,9 +194,7 @@ const Slider: React.FC<SliderProps> & {
   }
 );
 
-Object.assign(Slider, {
+export default withStaticProps(Slider, {
   sizes: BASE_SIZES,
   colors: SliderColor
 });
-
-export default Slider;

@@ -9,9 +9,8 @@ import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme } from "./TipseenConstants";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
-import { ElementContent } from "../../types";
 import { Modifier } from "react-popper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -66,8 +65,8 @@ interface TipseenProps extends VibeComponentProps {
 const Tipseen: VibeComponent<TipseenProps> & {
   closeButtonThemes?: typeof TipseenCloseButtonTheme;
   positions?: typeof DialogPosition;
-  animationTypes?: AnimationType;
-  justifyTypes?: JustifyType;
+  animationTypes?: typeof AnimationType;
+  justifyTypes?: typeof JustifyType;
 } = forwardRef(
   (
     {
@@ -179,11 +178,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
   }
 );
 
-Object.assign(Tipseen, {
+export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonTheme,
   positions: DialogPosition,
   animationTypes: AnimationType,
   justifyTypes: JustifyType
 });
-
-export default Tipseen;

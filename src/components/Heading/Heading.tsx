@@ -10,8 +10,8 @@ import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { Sizes } from "../../constants";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Heading.module.scss";
 
 export interface HeadingProps extends VibeComponentProps {
@@ -111,9 +111,7 @@ const Heading: React.FC<HeadingProps> & {
   return Element;
 };
 
-Object.assign(Heading, {
+export default withStaticProps(Heading, {
   types: HeadingTypes,
   sizes: Sizes
 });
-
-export default Heading;

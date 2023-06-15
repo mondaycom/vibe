@@ -3,10 +3,8 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../../components/Clickable/Clickable";
 import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from "./FlexConstants";
-import { VibeComponentProps } from "../../types";
-import VibeComponent from "../../types/VibeComponent";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ElementContent } from "../../types";
 import styles from "./Flex.module.scss";
 
 interface FlexProps extends VibeComponentProps {
@@ -88,11 +86,9 @@ const Flex: VibeComponent<FlexProps> & {
   }
 );
 
-Object.assign(Flex, {
+export default withStaticProps(Flex, {
   justify: FlexJustify,
   align: FlexAlign,
   gaps: FlexGap,
   directions: FlexDirection
 });
-
-export default Flex;

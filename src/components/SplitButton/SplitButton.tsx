@@ -16,6 +16,7 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition
 } from "./SplitButtonConstants";
+import { withStaticProps } from "../../types";
 import { AnimationType, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
 // Utils import
@@ -275,17 +276,6 @@ const SplitButton: FC<SplitButtonProps> & {
   );
 };
 
-Object.assign(SplitButton, {
-  // Backward compatibility for enum naming
-  secondaryPositions: SplitButtonSecondaryContentPosition,
-  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
-  sizes: Button.sizes,
-  colors: Button.colors,
-  kinds: Button.kinds,
-  inputTags: Button.inputTags,
-  dialogPaddingSizes: DialogContentContainer.sizes
-});
-
 SplitButton.defaultProps = {
   ...Button.defaultProps,
   onSecondaryDialogDidShow: NOOP,
@@ -296,4 +286,13 @@ SplitButton.defaultProps = {
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
-export default SplitButton;
+export default withStaticProps(SplitButton, {
+  // Backward compatibility for enum naming
+  secondaryPositions: SplitButtonSecondaryContentPosition,
+  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
+  sizes: Button.sizes,
+  colors: Button.colors,
+  kinds: Button.kinds,
+  inputTags: Button.inputTags,
+  dialogPaddingSizes: DialogContentContainer.sizes
+});

@@ -10,6 +10,7 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { CounterColor, CounterSize, CounterType, getActualSize } from "./CounterConstants";
+import { withStaticProps } from "../../types";
 import styles from "./Counter.module.scss";
 
 export interface CounterProps extends VibeComponentProps {
@@ -166,10 +167,8 @@ const Counter: React.FC<CounterProps> & {
   );
 };
 
-Object.assign(Counter, {
+export default withStaticProps(Counter, {
   sizes: CounterSize,
   colors: CounterColor,
   kinds: CounterType
 });
-
-export default Counter;

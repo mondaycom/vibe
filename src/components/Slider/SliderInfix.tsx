@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { InfixKind } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./SliderInfix.module.scss";
 
 interface SliderInfixProps extends VibeComponentProps {
@@ -32,10 +32,6 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind
   );
 };
 
-SliderInfix.kinds = InfixKind;
-
-Object.assign(SliderInfix, {
+export default withStaticProps(SliderInfix, {
   kinds: InfixKind
 });
-
-export default SliderInfix;
