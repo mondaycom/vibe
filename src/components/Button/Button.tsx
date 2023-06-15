@@ -383,25 +383,16 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   }
 );
 
-// Can be removed when defaultProps are removed
-Object.assign(Button, {
-  sizes: SIZES,
-  colors: ButtonColor,
-  kinds: ButtonType,
-  types: ButtonInputType,
-  inputTags: ButtonInputType
-});
-
 Button.defaultProps = {
   className: undefined,
   name: undefined,
   style: undefined,
   id: undefined,
   dataTestId: undefined,
-  kind: Button.kinds?.PRIMARY,
+  kind: ButtonType.PRIMARY,
   onClick: NOOP,
-  size: Button.sizes?.MEDIUM,
-  color: Button.colors?.PRIMARY,
+  size: SIZES.MEDIUM,
+  color: ButtonColor.PRIMARY,
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -412,7 +403,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: Button.types?.BUTTON,
+  type: ButtonInputType.BUTTON,
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
