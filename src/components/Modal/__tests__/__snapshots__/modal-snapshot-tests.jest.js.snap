@@ -27,8 +27,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-      <div
         class="container"
+        data-testid="modal-content"
       >
 +       <div
 +         class="container"
@@ -36,6 +36,7 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
++           data-testid="modal-header"
 +           role="heading"
 +         >
 +           ModalHeader Title
@@ -92,8 +93,8 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-      <div
         class="container"
+        data-testid="modal-content"
       >
 +       <div
 +         class="container"
@@ -101,6 +102,7 @@ Snapshot Diff:
 +         <p
 +           aria-level="1"
 +           class="title"
++           data-testid="modal-header"
 +           role="heading"
 +         >
 +           ModalHeader Title
@@ -143,17 +145,18 @@ Snapshot Diff:
 +       </div>
 +       <div
 +         class="container"
++         data-testid="modal-content"
 +       >
           <p>
             content
-          </p>
++         </p>
 +       </div>
 +       <div
 +         class="container"
 +       >
 +         <p>
 +           footer
-+         </p>
+          </p>
 +       </div>
       </div>
     </div>
@@ -165,7 +168,7 @@ exports[`Modal with base props 1`] = `
   aria-labelledby="modal-id-title"
   aria-modal="true"
   class="container"
-  data-testid="monday-dialog-container"
+  data-testid="monday-dialog-container_modal-id"
   id="modal-id"
   role="dialog"
   style="--monday-modal-z-index: 10000;"
@@ -185,6 +188,7 @@ exports[`Modal with base props 1`] = `
       <p
         aria-level="1"
         class="title"
+        data-testid="modal-header_modal-id-title"
         id="modal-id-title"
         role="heading"
       >
@@ -228,6 +232,7 @@ exports[`Modal with base props 1`] = `
     </div>
     <div
       class="container"
+      data-testid="modal-content"
     >
       <p>
         content
@@ -248,7 +253,7 @@ Snapshot Diff:
     aria-modal="true"
 -   class="container"
 +   class="container container"
-    data-testid="monday-dialog-container"
+    data-testid="monday-dialog-container_modal-id"
     id="modal-id"
     role="dialog"
 @@ --- --- @@
