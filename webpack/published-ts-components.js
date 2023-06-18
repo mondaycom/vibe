@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Title: "/src/components/Title/Title",
   Text: "/src/components/Text/Text",
   Button: "components/Button/Button",
   Checkbox: "components/Checkbox/Checkbox",
