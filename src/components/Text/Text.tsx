@@ -9,6 +9,7 @@ import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor, TextAlign } from "./TextConstants";
 import { useEllipsisClass, useGlobalTextClass, useTooltipProps } from "./TextHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends VibeComponentProps {
@@ -96,10 +97,9 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   }
 );
 
-Object.assign(Text, {
+export default withStaticProps(Text, {
   sizes: TextSize,
   weights: TextWeight,
   colors: TextColor,
   align: TextAlign
 });
-export default Text;
