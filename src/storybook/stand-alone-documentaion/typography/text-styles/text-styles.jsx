@@ -87,35 +87,39 @@ export const TextStyles = () => {
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text1-bold'"
-        title="Plain text"
+        code="classname='vibe-text-medium-bold'"
+        title="Medium bold text"
         description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text1-bold">{`Text1`}</span>
+        <span className="vibe-text-medium-bold">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text1-normal'"
-        title="Plain text"
+        code="classname='vibe-text-medium-normal'"
+        title="Medium normal text"
         description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text1-normal">{`Text1`}</span>
+        <span className="vibe-text-medium-normal">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text2-bold'"
-        title="Plain text"
+        code="classname='vibe-text-small-bold'"
+        title="Small bold text"
         description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text2-bold">{`Text2`}</span>
+        <span className="vibe-text-small-bold">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text2-normal'"
+        code="classname='vibe-text-small-normal'"
         title="Plain text"
         description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text2-normal">{`Text2`}</span>
+        <span className="vibe-text-small-normal">{`Text`}</span>
       </VisualDescription>
     </Frame>
   );

@@ -1,6 +1,6 @@
 @import "../../../../styles/global-css-settings";
 
 .visualExample {
-  margin: 16px 16px 16px 0;
+  margin: var(--spacing-large) var(--spacing-large) var(--spacing-large) 0;
   text-align: center;
 }
