@@ -9,8 +9,8 @@ import {
   SKELETON_CUSTOM_SIZE,
   TextSkeletonSize
 } from "./SkeletonConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 interface SkeletonProps extends VibeComponentProps {
@@ -59,9 +59,7 @@ const Skeleton: FC<SkeletonProps> & {
   );
 };
 
-Object.assign(Skeleton, {
+export default withStaticProps(Skeleton, {
   types: SkeletonType,
   sizes: SKELETON_SIZES
 });
-
-export default Skeleton;

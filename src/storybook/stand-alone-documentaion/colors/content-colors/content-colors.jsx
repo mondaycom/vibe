@@ -1,14 +1,13 @@
 import { useMemo } from "react";
 import { ContentColorRow } from "../content-color-row/content-color-row";
-import { contentColorsByName } from "../../../../utils/colors-vars-map";
+import { ContentColorByName } from "../../../../utils/colors-vars-map";
 import { Frame } from "../../../components";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import classes from "./content-colors.module.scss";
 
 export const ContentColors = () => {
   const colorsCells = useMemo(
-    () =>
-      Object.values(contentColorsByName).map(colorName => <ContentColorRow key={colorName} colorName={colorName} />),
+    () => Object.values(ContentColorByName).map(colorName => <ContentColorRow key={colorName} colorName={colorName} />),
     []
   );
 

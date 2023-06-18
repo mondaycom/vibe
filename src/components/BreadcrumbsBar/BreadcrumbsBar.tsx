@@ -5,6 +5,7 @@ import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRi
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { BreadcrumbsBarType } from "./BreadcrumbsConstants";
 import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
+import { withStaticProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
@@ -43,8 +44,6 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   </nav>
 );
 
-Object.assign(BreadcrumbsBar, {
+export default withStaticProps(BreadcrumbsBar, {
   types: BreadcrumbsBarType
 });
-
-export default BreadcrumbsBar;

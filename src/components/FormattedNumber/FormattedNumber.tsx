@@ -42,12 +42,10 @@ interface FormattedNumberProps extends VibeComponentProps {
   rtl?: boolean;
 }
 
-type FormattedNumberType = VibeComponent<FormattedNumberProps, HTMLDivElement> & {
+const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
   formatNumber?: typeof formatNumber;
   localFallBack?: string;
-};
-
-const FormattedNumber: FormattedNumberType = forwardRef(
+} = forwardRef(
   (
     {
       value,

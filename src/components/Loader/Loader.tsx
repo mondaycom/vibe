@@ -3,7 +3,7 @@ import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 
@@ -68,9 +68,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   }
 );
 
-Object.assign(Loader, {
+export default withStaticProps(Loader, {
   sizes: LoaderSizes,
   colors: LoaderColors
 });
-
-export default Loader;

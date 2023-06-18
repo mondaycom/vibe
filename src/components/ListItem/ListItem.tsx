@@ -6,9 +6,9 @@ import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react"
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/keyCodes";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { NOOP } from "../../utils/function-utils";
 import { camelCase } from "lodash-es";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
@@ -129,9 +129,10 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 );
 
 Object.assign(ListItem, {
-  sizes: SIZES,
   // Used by VirtualizedListItems
   displayName: "ListItem"
 });
 
-export default ListItem;
+export default withStaticProps(ListItem, {
+  sizes: SIZES
+});

@@ -10,6 +10,7 @@ import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
 import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 import { Sizes } from "../../constants";
+import { withStaticProps } from "../../types";
 import headingStyles from "../Heading/Heading.module.scss";
 import styles from "./EditableHeading.module.scss";
 
@@ -231,9 +232,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
   );
 };
 
-Object.assign(EditableHeading, {
+export default withStaticProps(EditableHeading, {
   types: HeadingTypes,
   sizes: HeadingSizes
 });
-
-export default EditableHeading;

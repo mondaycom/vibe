@@ -12,7 +12,7 @@ import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSi
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
 import { isIE11 } from "../../utils/user-agent-utils";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -383,24 +383,16 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   }
 );
 
-Object.assign(Button, {
-  sizes: SIZES,
-  colors: ButtonColor,
-  kinds: ButtonType,
-  types: ButtonInputType,
-  inputTags: ButtonInputType
-});
-
 Button.defaultProps = {
   className: undefined,
   name: undefined,
   style: undefined,
   id: undefined,
   dataTestId: undefined,
-  kind: Button.kinds?.PRIMARY,
+  kind: ButtonType.PRIMARY,
   onClick: NOOP,
-  size: Button.sizes?.MEDIUM,
-  color: Button.colors?.PRIMARY,
+  size: SIZES.MEDIUM,
+  color: ButtonColor.PRIMARY,
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -411,7 +403,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: Button.types?.BUTTON,
+  type: ButtonInputType.BUTTON,
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
@@ -429,4 +421,10 @@ Button.defaultProps = {
   insetFocus: false
 };
 
-export default Button;
+export default withStaticProps(Button, {
+  sizes: SIZES,
+  colors: ButtonColor,
+  kinds: ButtonType,
+  types: ButtonInputType,
+  inputTags: ButtonInputType
+});

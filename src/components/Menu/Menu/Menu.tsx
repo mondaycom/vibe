@@ -21,7 +21,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { CloseMenuOption } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -232,8 +232,9 @@ const Menu: VibeComponent<MenuProps> & {
 
 Object.assign(Menu, {
   isMenu: true,
-  supportFocusOnMount: true,
-  sizes: SIZES
+  supportFocusOnMount: true
 });
 
-export default Menu;
+export default withStaticProps(Menu, {
+  sizes: SIZES
+});
