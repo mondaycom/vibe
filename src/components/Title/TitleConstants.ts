@@ -4,7 +4,7 @@ export enum TitleType {
   H3 = "h3"
 }
 
-export enum TextWeight {
+export enum TitleWeight {
   BOLD = "bold",
   NORMAL = "normal",
   light = "light"

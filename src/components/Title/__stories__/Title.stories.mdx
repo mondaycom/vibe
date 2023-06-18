@@ -1,27 +1,24 @@
-import Text from "../Text";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings, Tip } from "../../../storybook";
-import { Link as StorybookLink } from "../../../storybook";
 import Flex from "../../Flex/Flex";
-
-import styles from "./Text.stories.module.scss";
 import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
 import Title from "../Title";
+import styles from "./Title.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
-  component: Text,
+  component: Title,
   enumPropNamesArray: ["types", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta title="Text/Title" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+<Meta title="Text/Title" component={Title} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
-export const textTemplate = createComponentTemplate(Text);
+export const textTemplate = createComponentTemplate(Title);
 
-# Text
+# Title
 
 <AlphaWarning />
 
@@ -104,19 +101,24 @@ Title components are used to title any page sections or sub-sections in top-leve
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text color={Text.colors.PRIMARY}>Primary title</Text>
-      <Text color={Text.colors.SECONDARY}>Secondary title</Text>
-      <Text element="div" className={styles.primaryBackground} align={Text.align.CENTER} color={Text.colors.ON_PRIMARY}>
+      <Title color={Title.colors.PRIMARY}>Primary title</Title>
+      <Title color={Title.colors.SECONDARY}>Secondary title</Title>
+      <Title
+        element="div"
+        className={styles.primaryBackground}
+        align={Title.align.CENTER}
+        color={Title.colors.ON_PRIMARY}
+      >
         On primary title
-      </Text>
-      <Text
+      </Title>
+      <Title
         element="div"
         className={styles.invertedBackground}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
+        align={Title.align.CENTER}
+        color={Title.colors.ON_INVERTED}
       >
         On inverted title
-      </Text>
+      </Title>
     </Flex>
   </Story>
 </Canvas>
@@ -129,20 +131,20 @@ When the text is too long and the component includes an ellipsis flag, we will c
 <Canvas>
   <Story name="Overflow">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.STRETCH} style={{ width: "70%" }}>
-      <Text size={Text.sizes.SMALL} ellipsis={false}>
+      <Title ellipsis={false}>
         Title without overflow title without overflow title without overflow title without overflow title without
         overflow title without overflow title without overflow
-      </Text>
-      <Text size={Text.sizes.SMALL} ellipsis>
+      </Title>
+      <Title ellipsis>
         Title with overflow title with overflow title with overflow title with overflow title with overflow title with
         overflow title with overflow title with overflow title with overflow title with overflow
-      </Text>
+      </Title>
       <div>
-        <Text size={Text.sizes.SMALL} ellipsis withoutTooltip maxLines={2}>
+        <Title ellipsis withoutTooltip maxLines={2}>
           Title with overflow title with overflow title with overflow title with overflow title with overflow title with
           overflow title with overflow title with overflow title with overflow title with overflow title with overflow
           title with overflow title with overflow title with overflow title with overflow title with overflow
-        </Text>
+        </Title>
       </div>
     </Flex>
   </Story>

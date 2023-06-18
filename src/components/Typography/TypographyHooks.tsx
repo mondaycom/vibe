@@ -2,7 +2,7 @@ import { MutableRefObject } from "react";
 import { ElementContent } from "../../types";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import { TooltipProps } from "../Tooltip/Tooltip";
-import styles from "./Text.module.scss";
+import styles from "./Typography.module.scss";
 
 export function useEllipsisClass(ref: (node: HTMLElement) => void, ellipsis: boolean, maxLines: number) {
   let ellipsisClass;

@@ -10,7 +10,7 @@ import { TypographyColor, TypographyAlign } from "./TypographyConstants";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import { withStaticProps } from "../../types";
-import styles from "./Text.module.scss";
+import styles from "./Typography.module.scss";
 
 export interface TypographyProps extends VibeComponentProps {
   /**
