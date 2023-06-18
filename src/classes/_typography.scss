@@ -2,8 +2,8 @@ $typographyClasses: (
     "h1": ("bold", "normal", "light"),
     "h2": ("bold", "normal", "light"),
     "h3": ("bold", "normal", "light"),
-    "text1": ("bold", "normal"),
-    "text2": ("bold", "normal")
+    "text-medium": ("bold", "normal"),
+    "text-small": ("bold", "normal")
 );
 
 @mixin vibe-typography-styles($class-prefix, $weight-type) {
