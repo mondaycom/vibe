@@ -32,7 +32,6 @@ export interface TextProps extends VibeComponentProps {
    * Use this prop combined with the boolean ellipsis prop for truncate the text and add an ellipsis after a certain number of lines
    */
   maxLines?: number;
-  רקה;
   /**
    * All props are passed to the tooltip displayed when hovering over the text. By default, the tooltip will display when text contains an ellipsis and will show the full text
    */
