@@ -28,6 +28,9 @@ export interface TextProps extends VibeComponentProps {
    * When the text is too long, cut the end of the text and display instead of it three dots (...)
    */
   ellipsis?: boolean;
+  /**
+   * Use this prop combined with the boolean ellipsis prop for truncate the text and add an ellipsis after a certain number of lines
+   */
   maxLines?: number;
   tooltipProps?: TooltipProps;
   withoutTooltip?: boolean;
