@@ -1,12 +1,12 @@
-import { TextSize, TextWeight } from "./TextConstants";
-import styles from "./Text.module.scss";
 import { MutableRefObject } from "react";
-import { DialogPosition } from "../../constants";
+import { TextSize, TextWeight } from "./TextConstants";
 import { ElementContent } from "../../types";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import { TooltipProps } from "../Tooltip/Tooltip";
+import styles from "./Text.module.scss";
 
 export function useGlobalTextClass(size: TextSize, weight: TextWeight) {
-  return `vibe-text${size === TextSize.MEDIUM ? 1 : 2}-${weight}`;
+  return `vibe-text-${size}-${weight}`;
 }
 
 export function useEllipsisClass(ref: (node: HTMLElement) => void, ellipsis: boolean, maxLines: number) {
@@ -28,10 +28,10 @@ export function useTooltipProps(
   ref: MutableRefObject<any>,
   withoutTooltip: boolean,
   ellipsis: boolean,
-  tooltipPosition: DialogPosition,
+  tooltipProps: TooltipProps,
   children: ElementContent
 ) {
   const isOverflowing = useIsOverflowing({ ref: ellipsis ? ref : null, ignoreHeightOverflow: true });
   const isTooltipRendered = !withoutTooltip && ellipsis && isOverflowing && typeof children === "string";
-  return isTooltipRendered ? { position: tooltipPosition, content: children } : {};
+  return isTooltipRendered ? { ...tooltipProps, content: children } : {};
 }

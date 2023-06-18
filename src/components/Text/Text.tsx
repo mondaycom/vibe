@@ -8,7 +8,6 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor, TextAlign } from "./TextConstants";
 import { useEllipsisClass, useGlobalTextClass, useTooltipProps } from "./TextHooks";
-import { DialogPosition } from "../../constants";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Text.module.scss";
 
@@ -30,7 +29,7 @@ export interface TextProps extends VibeComponentProps {
    */
   ellipsis?: boolean;
   maxLines?: number;
-  tooltipPosition?: DialogPosition;
+  tooltipProps?: TooltipProps;
   withoutTooltip?: boolean;
 }
 
@@ -45,7 +44,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       className,
       id,
       children,
-      tooltipPosition,
+      tooltipProps,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
       element = "span",
       size = TextSize.MEDIUM,
@@ -63,16 +62,16 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
 
     const textGlobalClass = useGlobalTextClass(size, weight);
     const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
-    const tooltipProps = useTooltipProps(
+    const overrideTooltipProps = useTooltipProps(
       componentRef,
       withoutTooltip,
       ellipsis,
-      tooltipPosition,
+      tooltipProps,
       children
     ) as TooltipProps;
 
     return (
-      <Tooltip {...tooltipProps}>
+      <Tooltip {...overrideTooltipProps}>
         {React.createElement(
           element,
           {

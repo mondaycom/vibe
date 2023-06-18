@@ -5,6 +5,7 @@ import { Link as StorybookLink } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 
 import styles from "./Text.stories.module.scss";
+import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
 
 export const metaSettings = createStoryMetaSettings({
   component: Text,
@@ -20,6 +21,8 @@ export const metaSettings = createStoryMetaSettings({
 export const textTemplate = createComponentTemplate(Text);
 
 # Text
+
+<AlphaWarning />
 
 <!--- Component documentation -->
 
@@ -115,7 +118,8 @@ When the text is too long and the component includes an ellipsis flag, we will c
         text without overflow text without overflow
       </Text>
       <Text size={Text.sizes.SMALL} ellipsis>
-        Text with overflow text with overflow text with overflow text with overflow text with overflow
+        Text with overflow text with overflow text with overflow text with overflow text with overflow text with
+        overflow text with overflow text with overflow text with overflow text with overflow
       </Text>
       <div>
         <Text size={Text.sizes.SMALL} ellipsis withoutTooltip maxLines={2}>
