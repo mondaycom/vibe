@@ -115,7 +115,7 @@ export const TextStyles = () => {
       <VisualDescription
         ariaLabel="Text"
         code="classname='vibe-text-small-normal'"
-        title="Plain text"
+        title="Small normal text"
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
