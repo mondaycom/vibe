@@ -12,6 +12,7 @@ import { ElementContent } from "../../types/ElementContent";
 import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
 export interface TooltipProps extends VibeComponentProps {
@@ -239,7 +240,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       showOnDialogEnter,
       addKeyboardHideShowTriggersByDefault,
       open,
-      arrowClassName
+      arrowClassName,
+      id,
+      "data-testid": dataTestId
     } = this.props;
 
     if (!children) {
@@ -252,6 +255,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
+      "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
       open,
       startingEdge: justify,
       tooltip: tip,

@@ -14,6 +14,7 @@ import { AnimationType, HideShowEvent } from "../../constants/dialog";
 import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -491,9 +492,12 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       zIndex,
       hideWhenReferenceHidden,
       disableContainerScroll,
-      containerSelector
+      containerSelector,
+      id,
+      "data-testid": dataTestId
     } = this.props;
     const { preventAnimation } = this.state;
+    const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.DIALOG, id);
 
     const disableOnClickOutside = !this.isHideTrigger(HideShowEvent.CLICK_OUTSIDE);
     const animationTypeCalculated = preventAnimationOnMount || preventAnimation ? undefined : animationType;
@@ -581,6 +585,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
 
               return (
                 <DialogContent
+                  data-testid={overrideDataTestId}
                   isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
                   onMouseEnter={this.onDialogEnter}
                   onMouseLeave={this.onDialogLeave}

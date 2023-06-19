@@ -3,7 +3,9 @@ import { createComponentTemplate, createStoryMetaSettings, Tip } from "../../../
 import Flex from "../../Flex/Flex";
 import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
 import Title from "../Title";
+import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/title-tests-constants";
 import styles from "./Title.stories.module.scss";
+import { titleOverflowSuite } from "../__tests__/title.interactions";
 
 export const metaSettings = createStoryMetaSettings({
   component: Title,
@@ -129,13 +131,26 @@ Our Text component support overflow state.
 When the text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
 
 <Canvas>
-  <Story name="Overflow">
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.STRETCH} style={{ width: "70%" }}>
+  <Story name="Overflow" play={titleOverflowSuite}>
+    <Flex
+      id={OVERFLOW_TITLE_CONTAINER_ID}
+      direction={Flex.directions.COLUMN}
+      gap={Flex.gaps.MEDIUM}
+      align={Flex.align.STRETCH}
+      style={{ width: "70%" }}
+    >
       <Title ellipsis={false}>
         Title without overflow title without overflow title without overflow title without overflow title without
         overflow title without overflow title without overflow
       </Title>
-      <Title ellipsis>
+      <Title
+        ellipsis
+        /**for testing purposes**/
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
+        }}
+      >
         Title with overflow title with overflow title with overflow title with overflow title with overflow title with
         overflow title with overflow title with overflow title with overflow title with overflow
       </Title>

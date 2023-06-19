@@ -43,6 +43,7 @@ export interface DialogContentProps extends VibeComponentProps {
    * @param e
    */
   onContextMenu?: (e: React.MouseEvent) => void;
+  "data-testid"?: string;
 }
 
 export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef(
@@ -65,7 +66,8 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       isReferenceHidden,
       hasTooltip = false,
       containerSelector,
-      disableContainerScroll = false
+      disableContainerScroll = false,
+      "data-testid": dataTestId
     },
     forwardRef
   ) => {
@@ -124,6 +126,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
         // don't remove old classname - override from Monolith
         className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
         ref={forwardRef}
+        data-testid={dataTestId}
         style={styleObject}
         onClickCapture={onClick}
         data-popper-reference-hidden={isReferenceHidden}
