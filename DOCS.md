@@ -58,3 +58,4 @@ This doc is still work in progress and will constantly be updated.
   </Story>
 </Canvas>
 ```
+7. To keep our storybook code examples clear and simple, avoid using internal components in stories. Code duplication is acceptable if it means excluding internal components. This prevents confusion among developers using our components API. Frequent reliance on internal components for documentation suggests that the API lacks easy solutions for common use cases.
