@@ -37,6 +37,7 @@ If you add new features or abilities to an existing component, please ensure you
 ### Storybook
 As the main development environment and documentation playground, we are using [Storybook](https://storybook.js.org/).
 Each component should be developed in isolation in the Storybook environment.
+You can read more about our docs implementation best practices [here](DOCS.md).
 
 ### Theming
 Every component should support theming, you can find more information about it [here](THEME_README.md).
