@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Tooltip renders correctly with data-testid 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper contentWrapper"
+    data-popper-reference-hidden={false}
+    data-testid="test"
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="contentComponent top edgeCenter hasTooltip"
+    >
+      <div
+        className="tooltip dark paddingSizeUndefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="arrow arrow dark paddingSizeUndefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
 exports[`Tooltip renders correctly with end arrowPosition 1`] = `
 Array [
   <div
@@ -15,6 +66,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -65,6 +117,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={null}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -115,6 +168,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -165,6 +219,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -215,6 +270,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -270,6 +326,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -328,6 +385,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {

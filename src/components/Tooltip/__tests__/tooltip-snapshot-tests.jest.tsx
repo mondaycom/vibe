@@ -103,4 +103,15 @@ describe("Tooltip renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with data-testid", () => {
+    const tree = renderer
+      .create(
+        <Tooltip data-testid="test" content="test" shouldShowOnMount>
+          <div />
+        </Tooltip>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

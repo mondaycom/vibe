@@ -1,34 +1,34 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Text from "../Text";
+import Typography from "../Typography";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Text />).toJSON();
+    const tree = renderer.create(<Typography />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with color", () => {
-    const tree = renderer.create(<Text color={Text.colors.SECONDARY}>text</Text>).toJSON();
+    const tree = renderer.create(<Typography color={Typography.colors.SECONDARY}>text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with element", () => {
-    const tree = renderer.create(<Text element="p">text</Text>).toJSON();
+    const tree = renderer.create(<Typography element="p">text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with align", () => {
-    const tree = renderer.create(<Text align={Text.align.CENTER}>text</Text>).toJSON();
+    const tree = renderer.create(<Typography align={Typography.align.CENTER}>text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with element as children", () => {
     const tree = renderer
       .create(
-        <Text>
+        <Typography>
           <div>text</div>
-        </Text>
+        </Typography>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
