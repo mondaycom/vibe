@@ -3,7 +3,6 @@ import cx from "classnames";
 import VibeComponent from "../../types/VibeComponent";
 import { TextSize, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
-import { useGlobalTextClass } from "./TextHooks";
 import { withStaticProps } from "../../types";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
 
@@ -18,7 +17,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   colors?: typeof TypographyColor;
   align?: typeof TypographyAlign;
 } = forwardRef(({ className, size = TextSize.MEDIUM, weight = TextWeight.NORMAL, ...typographyProps }, ref) => {
-  const textGlobalClass = useGlobalTextClass(size, weight);
+  const textGlobalClass = `vibe-text-${size}-${weight}`;
   return <Typography ref={ref} className={cx(textGlobalClass, className)} {...typographyProps} />;
 });
 
