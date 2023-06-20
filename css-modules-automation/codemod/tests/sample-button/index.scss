@@ -1,0 +1,238 @@
+.button {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.button {
+  //@include flexBox;
+
+  background-image: linear-gradient(-225deg, #ffe000 0%, #ffd800 50%, #ffe000 100%);
+  box-shadow: 0 1px 0 0 #f8c700;
+  border-radius: 4px;
+  color: #474d5e;
+  // border: 1px solid #f8c700;
+  border: 1px solid #ffe000;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  font-weight: 400;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.button > span {
+    padding: 0 20px;
+  }
+
+.button.button--medium {
+    padding: 9px 0;
+    font-size: 1.5rem;
+  }
+
+.button.button--small {
+    padding: 5px 0;
+    font-size: 1.3rem;
+  }
+
+.button.button--tiny {
+    padding: 0;
+    font-size: 1rem;
+  }
+
+.button.button--tiny > span {
+      padding: 0 5px;
+    }
+
+.button.button--tiny {
+    padding: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+.button.button--tiny > span {
+      padding: 0 5px;
+    }
+
+.button.button--block {
+    display: block;
+    width: 100%;
+  }
+
+.button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button--primary {
+  background: $hive-yellow-color;
+  color: $hive-grey-color;
+  border: 1px solid darken($hive-yellow-color, 4%);
+  box-shadow: 0 4px 0 0 darken($hive-yellow-color, 8%);
+}
+
+.button--primary:hover,
+  .button--primary:focus {
+    background: lighten($hive-yellow-color, 5%);
+    border: 1px solid lighten($hive-yellow-color, 1%);
+    box-shadow: 0 4px 0 0 darken($hive-yellow-color, 3%);
+  }
+
+.button--primary:active {
+    background: $hive-yellow-color;
+    border: 1px solid darken($hive-yellow-color, 4%);
+    box-shadow: 0 4px 0 0 darken($hive-yellow-color, 8%);
+  }
+
+.button--secondary {
+  background: $light-color;
+  border: 1px solid #eaebed;
+  box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+  color: #858994;
+}
+
+.button--success {
+  background: $success-color;
+  color: $hive-white-color;
+  border: 1px solid darken($success-color, 6%);
+  box-shadow: 0 4px 0 0 darken($success-color, 10%);
+}
+
+.button--success:focus {
+    border: 1px solid darken($success-color, 16%);
+    box-shadow: 0 4px 0 0 darken($success-color, 20%);
+  }
+
+.button--success:hover {
+    background: lighten($success-color, 5%);
+    border: 1px solid lighten($success-color, 1%);
+    box-shadow: 0 4px 0 0 darken($success-color, 5%);
+  }
+
+.button--success:active {
+    background: $success-color;
+    border: 1px solid darken($success-color, 6%);
+    box-shadow: 0 4px 0 0 darken($success-color, 10%);
+  }
+
+.button--success span {
+    position: relative;
+    top: 1px;
+  }
+
+.button--subtle-success {
+  background: lighten($success-color, 44%);
+  color: $success-color;
+  border: 1px solid darken($success-color, 6%);
+  box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+}
+
+.button--subtle-success:focus {
+    background: lighten($success-color, 42%);
+    color: darken($success-color, 6%);
+    border: 1px solid darken($success-color, 12%);
+  }
+
+.button--subtle-success:hover {
+    background: darken($success-color, 6%);
+    color: $hive-white-color;
+  }
+
+.button--subtle-success:active {
+    border: 1px solid darken($success-color, 6%);
+  }
+
+.button--danger {
+  background: $danger-color;
+  color: $hive-white-color;
+  border: 1px solid darken($danger-color, 6%);
+  box-shadow: 0 4px 0 0 darken($danger-color, 10%);
+}
+
+.button--danger:focus {
+    border: 1px solid darken($danger-color, 16%);
+    box-shadow: 0 4px 0 0 darken($danger-color, 20%);
+  }
+
+.button--danger:hover {
+    background: lighten($danger-color, 5%);
+    border: 1px solid lighten($danger-color, 1%);
+    box-shadow: 0 4px 0 0 darken($danger-color, 5%);
+  }
+
+.button--danger:active {
+    background: $danger-color;
+    border: 1px solid darken($danger-color, 6%);
+    box-shadow: 0 4px 0 0 darken($danger-color, 10%);
+  }
+
+.button--danger span {
+    position: relative;
+    top: 1px;
+  }
+
+.button--subtle-danger {
+  background: lighten($danger-color, 44%);
+  color: $danger-color;
+  border: 1px solid darken($danger-color, 6%);
+  box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+}
+
+.button--subtle-danger:focus {
+    background: lighten($danger-color, 42%);
+    color: darken($danger-color, 6%);
+    border: 1px solid darken($danger-color, 12%);
+  }
+
+.button--subtle-danger:hover {
+    background: darken($danger-color, 6%);
+    color: $hive-white-color;
+  }
+
+.button--subtle-danger:active {
+    border: 1px solid darken($danger-color, 6%);
+  }
+
+.button--large {
+  font-size: 2.16rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  padding: 15px 10px;
+}
+
+.button.button--no-border {
+  border: none;
+}
+
+.button.button--no-background {
+  background: transparent;
+}
+
+.button--icon {
+  background: #fff;
+  border: 1px solid #eaebed;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1;
+  box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+  padding: 5px;
+}
+
+.button--icon svg {
+    margin: auto;
+    // fill: #3f536e;
+    height: 18px;
+    width: 18px;
+  }
+
+.button--icon.button--small {
+    font-size: 1rem;
+    padding: 2px;
+  }
+
+.button--icon.button--small svg {
+      margin: auto;
+      fill: #3f536e;
+      height: 14px;
+      width: 14px;
+    }

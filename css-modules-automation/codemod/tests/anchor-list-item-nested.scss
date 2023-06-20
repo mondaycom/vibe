@@ -1,0 +1,27 @@
+.a {
+  font-size: 5px;
+
+  &.b {
+    font-size: 10px;
+
+    &.c {
+      font-size: 20px;
+    }
+
+    .d {
+      font-size: 30px;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  .f, .g {
+    font-size: 60px;
+  }
+
+  h2, .h2 {
+    font-size: 70px;
+  }
+}

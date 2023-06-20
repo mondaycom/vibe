@@ -1,0 +1,6 @@
+{
+  "extends": "@akameco/tsconfig",
+  "compilerOptions": {
+    "outDir": "dest"
+  }
+}

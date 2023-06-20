@@ -1,0 +1,19 @@
+{
+  "name": "vibe-refactor-runner",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "modify": "node dist/modify.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "postcss": "^8.4.24"
+  }
+}
