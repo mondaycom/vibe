@@ -1,4 +1,5 @@
-# Documentation best practices
+# Components documentation best practices
+This guide provides essential best practices for documenting components using Storybook. 
 This doc is still work in progress and will constantly be updated.
 
 1. Always use live component instances instead of displaying Vibe's components as pictures. Pictures will not be updated according to design changes, theme changes, and bug fixes.
@@ -52,28 +53,14 @@ Do this:
 
 4. If you need to add titles to the component states displayed in a story, please use the VisualDescription component, as shown in the code example below:
 ```js
-<Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-      <StoryDescription description="Xs" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size={Loader.sizes.XS} />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Small" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size={Loader.sizes.SMALL} />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Medium" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size={Loader.sizes.MEDIUM} />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Large" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size={Loader.sizes.LARGE} />
-        </div>
-      </StoryDescription>
-    </Flex>
+<Flex direction={Flex.directions.ROW}>
+    <StoryDescription description="Xs">
+      <Loader size={Loader.sizes.XS} />
+    </StoryDescription>
+    <StoryDescription description="Small">
+      <Loader size={Loader.sizes.SMALL} />
+    </StoryDescription>
+</Flex>
 ```
 6. For better story readability, it's best to use inline styles instead of class names when applying styles that are specific to the story itself. This avoids confusion for readers who might question the purpose of the class names in achieving the displayed result. Inline styles make the styles visible within the story, without the need for external CSS files or class definitions.
 ```js
@@ -119,3 +106,5 @@ Do this:
   </Story>
 </Canvas>
 ```
+
+8. The storybook generated code should be easily "copy-paste"-able for seamless integration. Avoid adding internal additions that require additional modifications for successful copy-pasting.
