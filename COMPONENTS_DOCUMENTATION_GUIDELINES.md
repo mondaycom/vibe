@@ -101,7 +101,7 @@ Do this:
         </TipseenContent>
       }
     >
-      <div className="monday-storybook-tipseen_container" />
+      <div/>
     </Tipseen>
   </Story>
 </Canvas>
