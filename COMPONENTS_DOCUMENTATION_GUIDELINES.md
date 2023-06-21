@@ -108,3 +108,4 @@ Do this:
 ```
 
 8. The storybook generated code should be easily "copy-paste"-able for seamless integration. Avoid adding internal additions that require additional modifications for successful copy-pasting.
+9. As a general rule of thumb - Never apply custom styles in a story example to make a component look good. If you need to do it, it probably means there's an issue with the component itself.
