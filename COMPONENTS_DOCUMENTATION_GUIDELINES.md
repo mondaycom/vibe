@@ -75,7 +75,9 @@ Do this:
   </Story>
 </Canvas>
 ```
-7. To keep our storybook code examples clear and simple, avoid using internal components (components which not exported to external users) in stories. Code duplication is acceptable if it means excluding internal components. This prevents confusion among developers using our components API. Frequent reliance on internal components for documentation suggests that the API lacks easy solutions for common use cases.  For example, instead of writing this:
+7. Avoid documenting wrapped components that are not exported to external users, as they are not available, and create an un-copyable example. If such cases, code duplication **is acceptable**. 
+
+Instead of writing this:
 ```js
 <Canvas>
   <Story name="Default">
