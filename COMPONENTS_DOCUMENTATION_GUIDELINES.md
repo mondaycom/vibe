@@ -15,23 +15,22 @@ This doc is still work in progress and will constantly be updated.
 ```
 
 3. Use the `<Story/>` layout component to layout the example and its title and avoid adding titles in the story itself in order to maintain a clear and simple story code. For example, instead of writing this:
-```js
-<Canvas>
-  <Story name="Sizes">
-      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-          <StoryDescription description="Large" vertical align={Flex.align.START}>
-              <Button size={Button.sizes.LARGE}>Large</Button>
-          </StoryDescription>
-          <StoryDescription description="Medium" vertical align={Flex.align.START}>
-              <Button size={Button.sizes.MEDIUM}>Medium</Button>
-          </StoryDescription>
-          <StoryDescription description="Small" vertical align={Flex.align.START}>
-              <Button size={Button.sizes.SMALL}>Small</Button>
-          </StoryDescription>
-      </Flex>
-  </Story>
-</Canvas>
-```
+```diff
+- <Canvas>
+-   <Story name="Sizes">
+-       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+-           <StoryDescription description="Large" vertical align={Flex.align.START}>
+-               <Button size={Button.sizes.LARGE}>Large</Button>
+-           </StoryDescription>
+-           <StoryDescription description="Medium" vertical align={Flex.align.START}>
+-               <Button size={Button.sizes.MEDIUM}>Medium</Button>
+-           </StoryDescription>
+-           <StoryDescription description="Small" vertical align={Flex.align.START}>
+-               <Button size={Button.sizes.SMALL}>Small</Button>
+-           </StoryDescription>
+-       </Flex>
+-   </Story>
+- </Canvas>
 Do this:
 ```js
 <Canvas>
