@@ -1,22 +1,7 @@
-export enum TextSize {
-  MEDIUM = "medium",
-  SMALL = "small"
-}
+export type TextSize = "medium" | "small";
 
-export enum TextWeight {
-  BOLD = "bold",
-  NORMAL = "normal"
-}
+export type TextWeight = "bold" | "normal";
 
-export enum TextColor {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-  ON_PRIMARY = "onPrimary",
-  ON_INVERTED = "onInverted"
-}
+export type TextColor = "primary" | "secondary" | "onPrimary" | "onInverted";
 
-export enum TextAlign {
-  START = "start",
-  CENTER = "center",
-  END = "end"
-}
+export type TextAlign = "start" | "center" | "end";

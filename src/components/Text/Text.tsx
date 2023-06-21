@@ -9,7 +9,6 @@ import { ElementContent } from "../../types";
 import { TextSize, TextWeight, TextColor, TextAlign } from "./TextConstants";
 import { useEllipsisClass, useGlobalTextClass, useTooltipProps } from "./TextHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
-import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends VibeComponentProps {
@@ -43,12 +42,7 @@ export interface TextProps extends VibeComponentProps {
   withoutTooltip?: boolean;
 }
 
-const Text: VibeComponent<TextProps, HTMLElement> & {
-  sizes?: typeof TextSize;
-  weights?: typeof TextWeight;
-  colors?: typeof TextColor;
-  align?: typeof TextAlign;
-} = forwardRef(
+const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
   (
     {
       className,
@@ -57,10 +51,10 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       tooltipProps,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
       element = "span",
-      size = TextSize.MEDIUM,
-      weight = TextWeight.NORMAL,
-      color = TextColor.PRIMARY,
-      align = TextAlign.START,
+      size = "medium",
+      weight = "normal",
+      color = "primary",
+      align = "start",
       ellipsis = true,
       maxLines = 1,
       withoutTooltip = false
@@ -97,9 +91,4 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Text, {
-  sizes: TextSize,
-  weights: TextWeight,
-  colors: TextColor,
-  align: TextAlign
-});
+export default Text;
