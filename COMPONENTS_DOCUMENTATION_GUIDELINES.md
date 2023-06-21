@@ -32,15 +32,14 @@ This doc is still work in progress and will constantly be updated.
 -   </Story>
 - </Canvas>
 Do this:
-```js
-<Canvas>
-    <Story name="Sizes">
-        <Button size={Button.sizes.LARGE}>Large</Button>
-        <Button size={Button.sizes.MEDIUM}>Medium</Button>
-        <Button size={Button.sizes.SMALL}>Small</Button>
-    </Story>
-</Canvas>
-```
+```diff
++ <Canvas>
++     <Story name="Sizes">
++         <Button size={Button.sizes.LARGE}>Large</Button>
++         <Button size={Button.sizes.MEDIUM}>Medium</Button>
++         <Button size={Button.sizes.SMALL}>Small</Button>
++     </Story>
++ </Canvas>
 
 4. The default `<Story/>` layout provides a solution for both a single component example and multiple components example. In case of multiple components example where the `<Story/>` layout is insufficient, you may use **only** Vibe's `<Flex/>` layout component. Any other custom layout solution is forbidden. 
 ```js
