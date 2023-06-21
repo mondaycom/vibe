@@ -7,7 +7,6 @@ import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
 import { textOverflowSuite } from "../__tests__/text.interactions";
 import styles from "./Text.stories.module.scss";
-import { Dialog } from "../../index";
 
 export const metaSettings = createStoryMetaSettings({
   component: Text,
@@ -69,16 +68,16 @@ The text component serves as a wrapper for applying typography styles to the tex
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Text size={Text.sizes.MEDIUM} weight={Text.weights.BOLD}>
+      <Text size="medium" weight="bold">
         Bold medium size
       </Text>
-      <Text size={Text.sizes.MEDIUM} weight={Text.weights.NORMAL}>
+      <Text size="medium" weight="normal">
         Normal medium size
       </Text>
-      <Text size={Text.sizes.SMALL} weight={Text.weights.BOLD}>
+      <Text size="small" weight="bold">
         Bold small size
       </Text>
-      <Text size={Text.sizes.SMALL} weight={Text.weights.NORMAL}>
+      <Text size="small" weight="normal">
         Normal small size
       </Text>
     </Flex>
@@ -90,17 +89,12 @@ The text component serves as a wrapper for applying typography styles to the tex
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text color={Text.colors.PRIMARY}>Primary text</Text>
-      <Text color={Text.colors.SECONDARY}>Secondary text</Text>
-      <Text element="div" className={styles.primaryBackground} align={Text.align.CENTER} color={Text.colors.ON_PRIMARY}>
+      <Text color="primary">Primary text</Text>
+      <Text color="secondary">Secondary text</Text>
+      <Text element="div" className={styles.primaryBackground} align="center" color="onPrimary">
         On primary text
       </Text>
-      <Text
-        element="div"
-        className={styles.invertedBackground}
-        align={Text.align.CENTER}
-        color={Text.colors.ON_INVERTED}
-      >
+      <Text element="div" className={styles.invertedBackground} align="center" color="onInverted">
         On inverted text
       </Text>
     </Flex>
@@ -113,32 +107,36 @@ Our Text component support overflow state.
 When the text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
 
 <Canvas>
-  <Story name="Overflow" play={textOverflowSuite}>
+  <Story name="Overflow">
     <Flex
-      id={OVERFLOW_TEXT_CONTAINER_ID}
-      direction={Flex.directions.COLUMN}
-      gap={Flex.gaps.MEDIUM}
-      align={Flex.align.STRETCH}
-      style={{ width: "70%" }}
-    >
-      <Text size={Text.sizes.SMALL} ellipsis={false}>
+        id={OVERFLOW_TEXT_CONTAINER_ID}
+        direction={Flex.directions.COLUMN}
+        gap={Flex.gaps.MEDIUM}
+        align={Flex.align.STRETCH}
+        style={{ width: "70%" }}>
+      <Text size="small" ellipsis={false}>
         Text without overflow text without overflow text without overflow text without overflow text without overflow
         text without overflow text without overflow
       </Text>
       <Text
-        size={Text.sizes.SMALL}
-        ellipsis
-        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
-        /**for testing purposes**/
-        tooltipProps={{
-          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
-        }}
+          size="small"
+          ellipsis
+          data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+          /**for testing purposes**/
+          tooltipProps={{
+              containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
+          }}
       >
         Text with overflow text with overflow text with overflow text with overflow text with overflow text with
         overflow text with overflow text with overflow text with overflow text with overflow
       </Text>
       <div>
-        <Text size={Text.sizes.SMALL} ellipsis withoutTooltip maxLines={2}>
+        <Text
+            size="small"
+            ellipsis
+            withoutTooltip
+            maxLines={2}
+        >
           Text with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text
           with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
           overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with

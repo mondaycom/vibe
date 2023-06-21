@@ -1,9 +1,3 @@
-export enum TextSize {
-  MEDIUM = "medium",
-  SMALL = "small"
-}
+export type TextSize = "medium" | "small";
 
-export enum TextWeight {
-  BOLD = "bold",
-  NORMAL = "normal"
-}
+export type TextWeight = "bold" | "normal";
