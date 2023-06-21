@@ -174,7 +174,7 @@ Array [
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -387,7 +387,7 @@ Array [
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="tipseenCloseButton button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}

@@ -134,7 +134,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
               onClick={onClose}
               size={Button.sizes.XS}
               kind={Button.kinds.TERTIARY}
-              color={Button.colors.ON_INVERTED_BACKGROUND}
+              color={Button.colors.ON_PRIMARY_COLOR}
               ariaLabel={overrideCloseAriaLabel}
               icon={CloseSmall}
             />
