@@ -3,7 +3,7 @@ This guide provides essential best practices for documenting components using St
 This doc is still work in progress and will constantly be updated.
 
 1. Always use live component instances instead of displaying Vibe's components as pictures. Pictures will not be updated according to design changes, theme changes, and bug fixes.
-2. Keep the examples in the stories minimal, without using unnecessary props that don't serve the purpose of demonstrating the story unless the Vibe's designers specifically request it.  For example, this minimal story does not contain not necessary props:
+2. Examples should be minimal and simple to use, without unnecessary props that don't serve the purpose of demonstrating the use case. For example, demonstrating a single variation prop for the button component size:
 ```js
 <Canvas>
     <Story name="Sizes">
