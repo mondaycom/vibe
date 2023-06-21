@@ -43,7 +43,7 @@ Do this:
 </Canvas>
 ```
 
-4. When laying out components, utilize Vibe's Flex component instead of implementing your own flex layout using CSS. Refer to the code example below for clarification. **Please use Flex only when displaying multiple examples** in a story and only if the default story layout and gaps do not match the documentation design without using Flex as a wrapper.
+4. The default `<Story/>` layout provides a solution for both a single component example and multiple components example. In case of multiple components example where the `<Story/>` layout is insufficient, you may use **only** Vibe's `<Flex/>` layout component. Any other custom layout solution is forbidden. 
 ```js
 <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
   <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={2} />
@@ -75,7 +75,9 @@ Do this:
   </Story>
 </Canvas>
 ```
-7. To keep our storybook code examples clear and simple, avoid using internal components (components which not exported to external users) in stories. Code duplication is acceptable if it means excluding internal components. This prevents confusion among developers using our components API. Frequent reliance on internal components for documentation suggests that the API lacks easy solutions for common use cases.  For example, instead of writing this:
+7. Avoid documenting wrapped components that are not exported to external users, as they are not available, and create an un-copyable example. If such cases, code duplication **is acceptable**. 
+
+Instead of writing this:
 ```js
 <Canvas>
   <Story name="Default">
@@ -96,12 +98,12 @@ Do this:
   <Story name="Default">
     <Tipseen
       content={
-        <TipseenContent title="This is a title" isDismissHidden>
+        <TipseenContent title="This is a title">
           Popover message will appear here loremipsum dolor samet…
         </TipseenContent>
       }
     >
-      <div className="monday-storybook-tipseen_container" />
+      <div/>
     </Tipseen>
   </Story>
 </Canvas>
