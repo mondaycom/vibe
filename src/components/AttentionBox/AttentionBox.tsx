@@ -10,10 +10,9 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import Heading from "../Heading/Heading";
 import Flex from "../Flex/Flex";
-import { ElementContent } from "../../types/ElementContent";
 import styles from "./AttentionBox.module.scss";
 
 interface AttentionBoxProps extends VibeComponentProps {
@@ -138,9 +137,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   );
 };
 
-Object.assign(AttentionBox, {
+export default withStaticProps(AttentionBox, {
   types: AttentionBoxType,
   iconTypes: IconType
 });
-
-export default AttentionBox;

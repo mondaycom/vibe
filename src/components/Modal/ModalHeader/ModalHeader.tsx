@@ -6,6 +6,8 @@ import Icon, { IconSubComponentProps } from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
 import { ElementContent } from "src/types/ElementContent";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
@@ -71,11 +73,18 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   iconClassName,
   hideCloseButton,
   closeButtonAriaLabel = "close",
-  id
+  id,
+  "data-testid": dataTestId
 }) => {
   return (
     <div className={cx(styles.container, className)}>
-      <p role="heading" aria-level={1} id={id} className={cx(titleClassName, styles.title)}>
+      <p
+        role="heading"
+        aria-level={1}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
+        className={cx(titleClassName, styles.title)}
+      >
         {icon && (
           <span className={cx(styles.icon, iconClassName)}>
             <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />

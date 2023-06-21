@@ -14,9 +14,9 @@ Snapshot Diff:
       aria-level="1"
 -     class="title"
 +     class="titleClassName title"
+      data-testid="modal-header_modal-title-id"
       id="modal-title-id"
       role="heading"
-    >
 `;
 
 exports[`ModalHeader with close button hidden 1`] = `
@@ -126,6 +126,7 @@ exports[`ModalHeader with required props 1`] = `
   <p
     aria-level="1"
     class="title"
+    data-testid="modal-header_modal-title-id"
     id="modal-title-id"
     role="heading"
   >

@@ -4,10 +4,9 @@ import { NOOP } from "../../utils/function-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
 import { StepsType } from "./StepsConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { ButtonProps } from "../Button/Button";
-import VibeComponent from "../../types/VibeComponent";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
 
 export interface StepsProps extends VibeComponentProps {
@@ -79,8 +78,6 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
   }
 );
 
-Object.assign(Steps, {
+export default withStaticProps(Steps, {
   types: StepsType
 });
-
-export default Steps;

@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.10.0 (2023-06-15)
+
+#### New Features
+* [#1354](https://github.com/mondaycom/monday-ui-react-core/pull/1354) TS export components with static props - fix TS2532 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1356](https://github.com/mondaycom/monday-ui-react-core/pull/1356) feat: <Modal> components - data-testid attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1355](https://github.com/mondaycom/monday-ui-react-core/pull/1355) Update monday-ui-style to 0.1.160 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## prerelease (2023-06-12)
+
+#### New Features
+* [#1323](https://github.com/mondaycom/monday-ui-react-core/pull/1323) Add tokens.css in Vibe 2.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1353](https://github.com/mondaycom/monday-ui-react-core/pull/1353) Fix dialog overview story + add come prop comments ([@hadasfa](https://github.com/hadasfa))
+
+## prerelease (2023-06-07)
+
+#### New Features
+* [#1352](https://github.com/mondaycom/monday-ui-react-core/pull/1352) added compact mode to MultiStepIndicator component ([@rami-monday](https://github.com/rami-monday))
+
 ## 2.7.0 (2023-06-07)
 
 #### New Features

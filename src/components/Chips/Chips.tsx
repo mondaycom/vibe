@@ -4,14 +4,14 @@ import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
-import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
@@ -48,8 +48,7 @@ interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
-  // color?: Object.keys(Chips.colors),
-  color?: keyof Record<string, string>;
+  color?: ElementColor;
   /** size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -96,7 +95,7 @@ interface ChipsProps extends VibeComponentProps {
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   sizes?: typeof ChipsSize;
-  colors?: typeof elementColorsNames;
+  colors?: typeof ElementAllowedColor;
   avatarTypes?: typeof AvatarType;
 } = forwardRef<HTMLElement, ChipsProps>(
   (
@@ -113,7 +112,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       disabled = false,
       readOnly = false,
       allowTextSelection = false,
-      color = elementColorsNames.PRIMARY,
+      color = Chips.colors.PRIMARY,
       iconSize = 16,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
@@ -298,10 +297,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
   }
 );
 
-Object.assign(Chips, {
+export default withStaticProps(Chips, {
   sizes: ChipsSize,
-  colors: elementColorsNames,
+  colors: ElementAllowedColor,
   avatarTypes: AvatarType
 });
-
-export default Chips;

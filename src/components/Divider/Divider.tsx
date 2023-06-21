@@ -3,8 +3,8 @@ import cx from "classnames";
 import React from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DirectionType } from "./DividerConstants";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
 
 interface DividerProps extends VibeComponentProps {
@@ -36,8 +36,6 @@ const Divider: React.FC<DividerProps> & {
   );
 };
 
-Object.assign(Divider, {
+export default withStaticProps(Divider, {
   directions: DirectionType
 });
-
-export default Divider;

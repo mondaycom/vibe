@@ -5,7 +5,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import { IconPosition, LinkTarget } from "./LinkConsts";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
@@ -111,11 +111,9 @@ function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | n
   return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
 }
 
-Object.assign(Link, {
+export default withStaticProps(Link, {
   position: IconPosition,
   target: LinkTarget,
   iconPositions: IconPosition,
   targets: LinkTarget
 });
-
-export default Link;
