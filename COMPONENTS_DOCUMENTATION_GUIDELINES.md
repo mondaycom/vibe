@@ -50,7 +50,7 @@ Do this:
 </Flex>
 ```
 
-4. If you need to add titles to the component states displayed in a story, please use the VisualDescription component, as shown in the code example below:
+4. If you need to add titles to the component states displayed in a story, please use the `<StoryDescription/>` component, as shown in the code example below:
 ```js
 <Flex direction={Flex.directions.ROW}>
     <StoryDescription description="Xs">
