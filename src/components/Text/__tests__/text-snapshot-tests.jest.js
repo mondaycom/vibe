@@ -9,17 +9,17 @@ describe("Text renders correctly", () => {
   });
 
   it("with size", () => {
-    const tree = renderer.create(<Text size={Text.sizes.SMALL}>text</Text>).toJSON();
+    const tree = renderer.create(<Text size="small">text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with weight", () => {
-    const tree = renderer.create(<Text weight={Text.weights.BOLD}>text</Text>).toJSON();
+    const tree = renderer.create(<Text weight="bold">text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with color", () => {
-    const tree = renderer.create(<Text color={Text.colors.SECONDARY}>text</Text>).toJSON();
+    const tree = renderer.create(<Text color="secondary">text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -29,7 +29,7 @@ describe("Text renders correctly", () => {
   });
 
   it("with align", () => {
-    const tree = renderer.create(<Text align={Text.align.CENTER}>text</Text>).toJSON();
+    const tree = renderer.create(<Text align="center">text</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
