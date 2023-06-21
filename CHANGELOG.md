@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.10.1 (2023-06-21)
+
+#### Bug Fixes
+* [#1362](https://github.com/mondaycom/monday-ui-react-core/pull/1362) Fix bug on Tipseen in dark mode ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.10.0 (2023-06-15)
 
 #### New Features
