@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.10.2 (2023-06-21)
+
+#### Documentation
+* [#1360](https://github.com/mondaycom/monday-ui-react-core/pull/1360) Add docs best practices to contribution md ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1361](https://github.com/mondaycom/monday-ui-react-core/pull/1361) Update icons - monday-ui-style 0.1.162 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.10.1 (2023-06-21)
 
 #### Bug Fixes
