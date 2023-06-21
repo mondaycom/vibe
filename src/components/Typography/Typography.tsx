@@ -9,7 +9,6 @@ import { ElementContent } from "../../types";
 import { TypographyColor, TypographyAlign } from "./TypographyConstants";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
-import { withStaticProps } from "../../types";
 import styles from "./Typography.module.scss";
 
 export interface TypographyProps extends VibeComponentProps {
@@ -41,10 +40,7 @@ export interface TypographyProps extends VibeComponentProps {
   withoutTooltip?: boolean;
 }
 
-const Text: VibeComponent<TypographyProps, HTMLElement> & {
-  colors?: typeof TypographyColor;
-  align?: typeof TypographyAlign;
-} = forwardRef(
+const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
   (
     {
       className,
@@ -53,8 +49,8 @@ const Text: VibeComponent<TypographyProps, HTMLElement> & {
       tooltipProps,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
       element = "span",
-      color = TypographyColor.PRIMARY,
-      align = TypographyAlign.START,
+      color = "primary",
+      align = "start",
       ellipsis = true,
       maxLines = 1,
       withoutTooltip = false
@@ -89,7 +85,4 @@ const Text: VibeComponent<TypographyProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Text, {
-  colors: TypographyColor,
-  align: TypographyAlign
-});
+export default Typography;

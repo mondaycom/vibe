@@ -67,31 +67,31 @@ Title components are used to title any page sections or sub-sections in top-leve
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Title type={Title.types.H1} weight={Title.weights.BOLD}>
+      <Title type="h1" weight="bold">
         Bold H1 title
       </Title>
-      <Title type={Title.types.H1} weight={Title.weights.NORMAL}>
+      <Title type="h1" weight="normal">
         Normal H1 title
       </Title>
-      <Title type={Title.types.H1} weight={Title.weights.light}>
+      <Title type="h1" weight="light">
         Light H1 title
       </Title>
-      <Title type={Title.types.H2} weight={Title.weights.BOLD}>
+      <Title type="h2" weight="bold">
         Bold H2 title
       </Title>
-      <Title type={Title.types.H2} weight={Title.weights.NORMAL}>
+      <Title type="h2" weight="normal">
         Normal H2 title
       </Title>
-      <Title type={Title.types.H2} weight={Title.weights.light}>
+      <Title type="h2" weight="light">
         Light H2 title
       </Title>
-      <Title type={Title.types.H3} weight={Title.weights.BOLD}>
+      <Title type="h3" weight="bold">
         Bold H3 title
       </Title>
-      <Title type={Title.types.H3} weight={Title.weights.NORMAL}>
+      <Title type="h3" weight="normal">
         Normal H3 title
       </Title>
-      <Title type={Title.types.H3} weight={Title.weights.light}>
+      <Title type="h3" weight="light">
         Light H3 title
       </Title>
     </Flex>
@@ -103,22 +103,12 @@ Title components are used to title any page sections or sub-sections in top-leve
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Title color={Title.colors.PRIMARY}>Primary title</Title>
-      <Title color={Title.colors.SECONDARY}>Secondary title</Title>
-      <Title
-        element="div"
-        className={styles.primaryBackground}
-        align={Title.align.CENTER}
-        color={Title.colors.ON_PRIMARY}
-      >
+      <Title color="primary">Primary title</Title>
+      <Title color="secondary">Secondary title</Title>
+      <Title element="div" className={styles.primaryBackground} align="center" color="onPrimary">
         On primary title
       </Title>
-      <Title
-        element="div"
-        className={styles.invertedBackground}
-        align={Title.align.CENTER}
-        color={Title.colors.ON_INVERTED}
-      >
+      <Title element="div" className={styles.invertedBackground} align="center" color="onInverted">
         On inverted title
       </Title>
     </Flex>

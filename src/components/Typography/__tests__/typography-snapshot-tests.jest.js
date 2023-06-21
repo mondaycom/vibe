@@ -9,7 +9,7 @@ describe("Text renders correctly", () => {
   });
 
   it("with color", () => {
-    const tree = renderer.create(<Typography color={Typography.colors.SECONDARY}>text</Typography>).toJSON();
+    const tree = renderer.create(<Typography color="secondary">text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -19,7 +19,7 @@ describe("Text renders correctly", () => {
   });
 
   it("with align", () => {
-    const tree = renderer.create(<Typography align={Typography.align.CENTER}>text</Typography>).toJSON();
+    const tree = renderer.create(<Typography align="center">text</Typography>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

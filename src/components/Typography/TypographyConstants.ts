@@ -1,12 +1,3 @@
-export enum TypographyColor {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-  ON_PRIMARY = "onPrimary",
-  ON_INVERTED = "onInverted"
-}
+export type TypographyColor = "primary" | "secondary" | "onPrimary" | "onInverted";
 
-export enum TypographyAlign {
-  START = "start",
-  CENTER = "center",
-  END = "end"
-}
+export type TypographyAlign = "start" | "center" | "end";
