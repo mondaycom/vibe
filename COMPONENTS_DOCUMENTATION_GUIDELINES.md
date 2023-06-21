@@ -61,7 +61,7 @@ Do this:
     </StoryDescription>
 </Flex>
 ```
-6. For better story readability, it's best to use inline styles instead of class names when applying styles that are specific to the story itself. This avoids confusion for readers who might question the purpose of the class names in achieving the displayed result. Inline styles make the styles visible within the story, without the need for external CSS files or class definitions.
+6. If custom styles are needed for some demonstration, use **inline styles only**. Inline styles make the styles visible within the story, without the need for external CSS files or class definitions.
 ```js
 <Canvas>
   <Story name="Stretched">
