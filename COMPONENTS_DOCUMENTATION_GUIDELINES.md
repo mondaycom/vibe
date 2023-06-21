@@ -43,7 +43,7 @@ Do this:
 </Canvas>
 ```
 
-4. When laying out components, utilize Vibe's Flex component instead of implementing your own flex layout using CSS. Refer to the code example below for clarification. **Please use Flex only when displaying multiple examples** in a story and only if the default story layout and gaps do not match the documentation design without using Flex as a wrapper.
+4. The default `<Story/>` layout provides a solution for both a single component example and multiple components example. In case of multiple components example where the `<Story/>` layout is insufficient, you may use **only** Vibe's `<Flex/>` layout component. Any other custom layout solution is forbidden. 
 ```js
 <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
   <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={2} />
