@@ -96,7 +96,7 @@ Do this:
   <Story name="Default">
     <Tipseen
       content={
-        <TipseenContent title="This is a title" isDismissHidden>
+        <TipseenContent title="This is a title">
           Popover message will appear here loremipsum dolor samet…
         </TipseenContent>
       }
