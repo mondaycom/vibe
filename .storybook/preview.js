@@ -56,15 +56,6 @@ addParameters({
     },
     canvas: { title: "Sandbox" }
   },
-  themes: {
-    default: "Light",
-    list: [
-      { name: "Light", class: "light-app-them", color: "#ffffff" },
-      { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
-      { name: "Black", class: "black-app-theme", color: "#111111" },
-      { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
-    ]
-  },
   options: {
     storySort: {
       order: [
@@ -84,6 +75,13 @@ addParameters({
   }
 });
 
+const themes = {
+  light: 'light-app-theme',
+  dark: 'dark-app-theme',
+  black: 'black-app-theme',
+  hacker: 'hacker_theme-app-theme',
+};
+
 export const globalTypes = {
   memoryStats: {
     name: "Memory Stats",
@@ -96,10 +94,33 @@ export const globalTypes = {
         { value: "yes", right: "✅", title: "Show Memory Stat" }
       ]
     }
+  },
+  theme: {
+    name: "Theme",
+    description: "Global theme for components",
+    defaultValue: "light",
+    toolbar: {
+      // The icon for the toolbar item
+      icon: "circlehollow",
+      // Array of options
+      items: Object.keys(themes).map(themeName => ({value: themeName, icon: "circle", title: themeName})),
+      // Property that specifies if the name of the item will be displayed
+      showName: true
+    }
   }
 };
 
+const withTheme = (StoryFn, context) => {
+  // Get the active theme value from the story parameter
+  return (
+    <div className={themes[context.globals.theme]} style={{display: 'inherit', width: '100%'}}>
+      <StoryFn />
+    </div>
+  );
+};
+
 export const decorators = [
+  withTheme,
   withPerformance,
   (Story, { className }) => {
     return (
