@@ -46,8 +46,8 @@ function buildComponentsTypesIndexFile() {
     buildComponentExport(name, `./types/${path}`)
   );
 
-  const exportsWithJavasript = Object.keys(publishedJSComponents).map(name => buildExportToComponentWithoutType(name));
-  convertExportsToFile(exportsWithTypescript.concat(exportsWithJavasript), "types.d.ts");
+  const exportsWithJavascript = Object.keys(publishedJSComponents).map(name => buildExportToComponentWithoutType(name));
+  convertExportsToFile(exportsWithTypescript.concat(exportsWithJavascript), "types.d.ts");
 }
 
 function buildStorybookComponentsIndexFile() {
