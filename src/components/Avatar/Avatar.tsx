@@ -5,16 +5,14 @@ import cx from "classnames";
 import React, { AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "lodash-es";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
+import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
 import { AvatarSize, AvatarType } from "./AvatarConstants";
 import { AvatarBadge, AvatarBadgeProps } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { SubIcon, VibeComponentProps } from "../../types";
+import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Avatar.module.scss";
-
-type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
 
 export interface AvatarProps extends VibeComponentProps {
   src?: string;
@@ -28,7 +26,7 @@ export interface AvatarProps extends VibeComponentProps {
   textClassName?: string;
   /** Class name for a div-wrapper of avatar content */
   avatarContentWrapperClassName?: string;
-  backgroundColor?: BackgroundColors;
+  backgroundColor?: ElementColor;
   customBackgroundColor?: string;
   role?: AriaRole;
   size?: AvatarSize;
@@ -50,8 +48,8 @@ export interface AvatarProps extends VibeComponentProps {
 const Avatar: React.FC<AvatarProps> & {
   types?: typeof AvatarType;
   sizes?: typeof AvatarSize;
-  colors?: BackgroundColors;
-  backgroundColors?: BackgroundColors;
+  colors?: typeof ElementAllowedColor;
+  backgroundColors?: typeof ElementAllowedColor;
 } = ({
   id,
   type = AvatarType.TEXT,
@@ -66,7 +64,7 @@ const Avatar: React.FC<AvatarProps> & {
   ariaLabel,
   withoutTooltip = false,
   role,
-  backgroundColor = elementColorsNames.CHILI_BLUE,
+  backgroundColor = Avatar.colors.CHILI_BLUE,
   square,
   disabled,
   // Backward compatibility for props naming
@@ -202,11 +200,9 @@ const Avatar: React.FC<AvatarProps> & {
   );
 };
 
-Object.assign(Avatar, {
+export default withStaticProps(Avatar, {
   types: AvatarType,
   sizes: AvatarSize,
-  colors: elementColorsNames,
-  backgroundColors: elementColorsNames
+  colors: ElementAllowedColor,
+  backgroundColors: ElementAllowedColor
 });
-
-export default Avatar;

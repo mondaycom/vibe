@@ -5,8 +5,8 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { FC, useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Leg from "./Leg";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import { LabelColor, LabelKind } from "./LabelConstants";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Label.module.scss";
 
 interface LabelProps extends VibeComponentProps {
@@ -65,9 +65,7 @@ const Label: FC<LabelProps> & {
   );
 };
 
-Object.assign(Label, {
+export default withStaticProps(Label, {
   colors: LabelColor,
   kinds: LabelKind
 });
-
-export default Label;

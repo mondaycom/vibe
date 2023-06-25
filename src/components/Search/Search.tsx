@@ -6,7 +6,7 @@ import { SearchDefaultIconNames, SearchType } from "./SearchConstants";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
 import { NOOP } from "../../utils/function-utils";
-import { SubIcon, VibeComponentProps, VibeComponent } from "../../types";
+import { SubIcon, VibeComponentProps, VibeComponent, withStaticProps } from "../../types";
 import { TextFieldTextType } from "../TextField/TextFieldConstants";
 import { BASE_SIZES } from "../../constants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -118,9 +118,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
   }
 );
 
-Object.assign(Search, {
+export default withStaticProps(Search, {
   sizes: BASE_SIZES,
   types: SearchType
 });
-
-export default Search;

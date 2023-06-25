@@ -32,7 +32,8 @@ const ColorPicker: VibeComponent<ColorPickerProps> & { colorShapes?: COLOR_SHAPE
 ```
 ```diff
 - ColorPicker.colorShapes = COLOR_SHAPES;
-+ Object.assign(ColorPicker, {
+- export default ColorPicker;
++ export default withStaticProps(ColorPicker, {
 +    colorShapes: COLOR_SHAPES
 + });
 ```

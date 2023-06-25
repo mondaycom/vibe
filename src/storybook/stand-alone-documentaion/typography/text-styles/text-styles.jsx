@@ -1,89 +1,125 @@
 import { VisualDescription, Frame } from "../../../components";
-import "./text-styles.scss";
-
-const CSS_BASE_CLASS = "monday-storybook-text-description";
+import styles from "./text-styles.module.scss";
 
 export const TextStyles = () => {
   return (
     <Frame>
       <VisualDescription
-        className={CSS_BASE_CLASS}
         ariaLabel="H1"
-        code="font: var(--font-h1)"
-        title="H1 Main heading"
+        code="classname='vibe-h1-bold'"
+        title="H1 bold main heading"
         description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <h1 style={{ font: "var(--font-h1)" }}>{`H1`}</h1>
+        <h1 className="vibe-h1-bold">{`H1`}</h1>
       </VisualDescription>
       <VisualDescription
-        className="monday-storybook-text-description"
+        ariaLabel="H1"
+        code="classname='vibe-h1-normal'"
+        title="H1 normal main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
+      >
+        <h1 className="vibe-h1-normal">{`H1`}</h1>
+      </VisualDescription>
+      <VisualDescription
+        ariaLabel="H1"
+        code="classname='vibe-h1-light'"
+        title="H1 light main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
+      >
+        <h1 className="vibe-h1-light">{`H1`}</h1>
+      </VisualDescription>
+      <VisualDescription
         ariaLabel="H2"
-        code="font: var(--font-h2)"
-        title="H2 Secondary heading"
-        description="Use as secondary header on a page"
+        code="classname='vibe-h2-bold'"
+        title="H2 bold main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <h2 style={{ font: "var(--font-h2)" }}>{`H2`}</h2>
+        <h2 className="vibe-h2-bold">{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
-        className={CSS_BASE_CLASS}
+        ariaLabel="H2"
+        code="classname='vibe-h2-normal'"
+        title="H2 normal main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
+      >
+        <h2 className="vibe-h2-normal">{`H2`}</h2>
+      </VisualDescription>
+      <VisualDescription
+        ariaLabel="H2"
+        code="classname='vibe-h2-light'"
+        title="H2 light main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
+      >
+        <h1 className="vibe-h2-light">{`H2`}</h1>
+      </VisualDescription>
+      <VisualDescription
         ariaLabel="H3"
-        code="font: var(--font-h3)"
-        title="H3 Tertiary heading"
-        description="Use after heading, profile page headings"
+        code="classname='vibe-h3-bold'"
+        title="H3 bold main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <h3 style={{ font: "var(--font-h3)" }}>{`H3`}</h3>
+        <h3 className="vibe-h3-bold">{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
-        className={CSS_BASE_CLASS}
-        ariaLabel="H4"
-        code="font: var(--font-h4)"
-        title="H4 Fourth heading"
-        description="Use for subtitles, group name, subheading in admin"
+        ariaLabel="H3"
+        code="classname='vibe-h3-normal'"
+        title="H3 normal main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <h4 style={{ font: "var(--font-h4)" }}>{`H4`}</h4>
+        <h3 className="vibe-h3-normal">{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="H5"
-        code="font: var(--font-h5)"
-        title="H5 Paragraph"
-        className={CSS_BASE_CLASS}
-        description="Use as subtitles for paragraphs"
+        ariaLabel="H3"
+        code="classname='vibe-h3-light'"
+        title="H3 light main heading"
+        description="Use as main header on a page"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <h5 style={{ font: "var(--font-h5)" }}>{`H5`}</h5>
+        <h3 className="vibe-h3-light">{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="text"
-        code="font: var(--font-general-label)"
-        title="H6 UI text"
-        description="Use for general text or labels"
-        className={CSS_BASE_CLASS}
+        ariaLabel="Text"
+        code="classname='vibe-text-medium-bold'"
+        title="Medium bold text"
+        description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span style={{ font: "var(--font-general-label)" }}>text</span>
+        <span className="vibe-text-medium-bold">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="paragraph"
-        className={CSS_BASE_CLASS}
-        code="font: var(--font-paragraph)"
-        title="P Paragraph text"
-        description="Use for item name, text in update"
+        ariaLabel="Text"
+        code="classname='vibe-text-medium-normal'"
+        title="Medium normal text"
+        description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span style={{ font: "var(--font-paragraph)" }}>{"<p>"}</span>
+        <span className="vibe-text-medium-normal">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
-        code="font: var(--font-subtext)"
-        title="Medium Text"
-        className={CSS_BASE_CLASS}
-        description="Use for subtexts"
+        ariaLabel="Text"
+        code="classname='vibe-text-small-bold'"
+        title="Small bold text"
+        description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span style={{ font: "var(--font-subtext)" }}>subtext</span>
+        <span className="vibe-text-small-bold">{`Text`}</span>
       </VisualDescription>
       <VisualDescription
-        code="font: var(--font-general-label); color: var(--link-color)"
-        title="Medium text link"
-        className="monday-storybook-text-description"
-        description="Use for links"
+        ariaLabel="Text"
+        code="classname='vibe-text-small-normal'"
+        title="Plain text"
+        description="Use as plain text"
+        visualDescriptionClassName={styles.visualExample}
       >
-        <span style={{ font: "var(--font-general-label)", color: "var(--link-color)" }}>Link</span>
+        <span className="vibe-text-small-normal">{`Text`}</span>
       </VisualDescription>
     </Frame>
   );

@@ -7,7 +7,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { ElementContent, VibeComponent, VibeComponentProps } from "../../types";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
@@ -341,12 +341,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
   }
 );
 
-Object.assign(MenuButton, {
+export default withStaticProps(MenuButton, {
   sizes: MenuButtonSize,
   paddingSizes: DialogContentContainer.sizes,
   dialogPositions: Dialog.positions,
   hideTriggers: Dialog.hideShowTriggers,
   componentPositions: MenuButtonComponentPosition
 });
-
-export default MenuButton;

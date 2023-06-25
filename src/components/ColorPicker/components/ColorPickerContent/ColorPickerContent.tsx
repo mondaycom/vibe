@@ -16,7 +16,7 @@ import {
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
-import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
+import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
@@ -149,13 +149,11 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
   }
 );
 
-Object.assign(ColorPickerContent, {
+export default withStaticProps(ColorPickerContent, {
   // Backward compatibility for enum naming
   COLOR_STYLES: ColorStyle,
-  sizes: typeof BaseSizes,
+  sizes: BaseSizes,
   colorStyles: ColorStyle,
-  colorSizes: typeof BaseSizes,
+  colorSizes: BaseSizes,
   colorShapes: ColorShapes
 });
-
-export default ColorPickerContent;

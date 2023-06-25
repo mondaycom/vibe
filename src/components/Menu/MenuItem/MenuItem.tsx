@@ -23,7 +23,7 @@ import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
@@ -343,10 +343,11 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 );
 
 Object.assign(MenuItem, {
-  iconType: Icon.type,
-  tooltipPositions: DialogPosition,
   isSelectable: true,
   isMenuChild: true
 });
 
-export default MenuItem;
+export default withStaticProps(MenuItem, {
+  iconType: Icon.type,
+  tooltipPositions: DialogPosition
+});

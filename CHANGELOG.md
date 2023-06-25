@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.10.2 (2023-06-21)
+
+#### Documentation
+* [#1360](https://github.com/mondaycom/monday-ui-react-core/pull/1360) Add docs best practices to contribution md ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1361](https://github.com/mondaycom/monday-ui-react-core/pull/1361) Update icons - monday-ui-style 0.1.162 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.10.1 (2023-06-21)
+
+#### Bug Fixes
+* [#1362](https://github.com/mondaycom/monday-ui-react-core/pull/1362) Fix bug on Tipseen in dark mode ([@hadasfa](https://github.com/hadasfa))
+
+## 2.10.0 (2023-06-15)
+
+#### New Features
+* [#1354](https://github.com/mondaycom/monday-ui-react-core/pull/1354) TS export components with static props - fix TS2532 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1356](https://github.com/mondaycom/monday-ui-react-core/pull/1356) feat: <Modal> components - data-testid attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1355](https://github.com/mondaycom/monday-ui-react-core/pull/1355) Update monday-ui-style to 0.1.160 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## prerelease (2023-06-12)
 
 #### New Features

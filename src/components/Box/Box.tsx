@@ -24,7 +24,7 @@ import {
   ROUNDED,
   SHADOW
 } from "./BoxConstants";
-import { VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import VibeComponent from "../../types/VibeComponent";
 import styles from "./Box.module.scss";
 
@@ -144,7 +144,7 @@ const Box: VibeComponent<BoxProps> & {
   }
 );
 
-Object.assign(Box, {
+export default withStaticProps(Box, {
   borders: BORDER,
   borderColors: BORDER_COLOR,
   roundeds: ROUNDED,
@@ -166,5 +166,3 @@ Object.assign(Box, {
   backgroundColors: BACKGROUND_COLORS,
   textColors: COLORS
 });
-
-export default Box;

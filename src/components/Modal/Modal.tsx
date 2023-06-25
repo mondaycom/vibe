@@ -8,6 +8,7 @@ import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
 import { isModalContent, isModalFooter, isModalHeader, ModalWidth, validateTitleProp } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
+import { withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -183,8 +184,6 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   return ReactDOM.createPortal(dialog, document.body);
 };
 
-Object.assign(Modal, {
+export default withStaticProps(Modal, {
   width: ModalWidth
 });
-
-export default Modal;
