@@ -3,6 +3,7 @@ import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState
 import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
+import { VibeComponent } from "../../../types";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -35,7 +36,7 @@ interface AccordionProps extends VibeComponentProps {
   defaultIndex?: Array<number>;
 }
 
-const Accordion: React.FC<AccordionProps> = forwardRef(
+const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
   (
     {
       children: originalChildren = null,
