@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.133.2 (2023-06-25)
+
+#### Bug Fixes
+* [#1371](https://github.com/mondaycom/monday-ui-react-core/pull/1371) V1 - fix: <TokenTable> tags styles overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.133.1 (2023-06-25)
 
 #### Bug Fixes
