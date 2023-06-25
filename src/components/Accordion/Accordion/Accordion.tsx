@@ -36,7 +36,7 @@ interface AccordionProps extends VibeComponentProps {
   defaultIndex?: Array<number>;
 }
 
-const Accordion: VibeComponent<AccordionProps, unknown> = forwardRef(
+const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
   (
     {
       children: originalChildren = null,
