@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.133.1 (2023-06-25)
+
+#### Bug Fixes
+* [#1365](https://github.com/mondaycom/monday-ui-react-core/pull/1365) fix: < Accordion >: change declared type to VibeComponent ([@shlomitc](https://github.com/shlomitc))
+
 ## 1.133.0 (2023-06-07)
 
 #### New Features
