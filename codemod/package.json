@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "modify": "node dist/modify.js"
+    "modify": "node dist/scripts/modify.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.3.1",
     "typescript": "^5.1.3"
   },
   "dependencies": {
+    "glob": "^10.3.0",
     "postcss": "^8.4.24"
   }
 }

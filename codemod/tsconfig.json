@@ -2,7 +2,12 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "dist"
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules", "../node_modules"
+  ]
 }

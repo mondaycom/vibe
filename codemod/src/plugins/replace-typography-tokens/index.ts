@@ -1,4 +1,4 @@
-import * as postcss from "postcss";
+import { Plugin } from "postcss";
 import { replaceTokensPlugin } from "../replace-tokens";
 
 const TYPOGRAPHY_TOKENS_INFO = [
@@ -12,4 +12,9 @@ const TYPOGRAPHY_TOKENS_INFO = [
   { from: "font-subtext", to: "font-text-small-normal" }
 ];
 
-export const replaceTypographyTokensPlugin = (root: postcss.Root) => replaceTokensPlugin(root, TYPOGRAPHY_TOKENS_INFO);
+export const replaceTypographyTokensPlugin: Plugin = {
+  postcssPlugin: "replace-typography-tokens",
+  Once(root) {
+    replaceTokensPlugin(root, TYPOGRAPHY_TOKENS_INFO);
+  }
+};
