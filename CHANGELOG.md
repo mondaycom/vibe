@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.134.0 (2023-06-26)
+
+#### New Features
+* [#1373](https://github.com/mondaycom/monday-ui-react-core/pull/1373) V1 - feat: Publish <GridKeyboardNavigationContext> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.133.2 (2023-06-25)
 
 #### Bug Fixes
