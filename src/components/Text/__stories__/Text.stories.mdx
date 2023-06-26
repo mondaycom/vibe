@@ -107,36 +107,32 @@ Our Text component support overflow state.
 When the text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
 
 <Canvas>
-  <Story name="Overflow">
+  <Story name="Overflow" play={textOverflowSuite}>
     <Flex
-        id={OVERFLOW_TEXT_CONTAINER_ID}
-        direction={Flex.directions.COLUMN}
-        gap={Flex.gaps.MEDIUM}
-        align={Flex.align.STRETCH}
-        style={{ width: "70%" }}>
+      id={OVERFLOW_TEXT_CONTAINER_ID}
+      direction={Flex.directions.COLUMN}
+      gap={Flex.gaps.MEDIUM}
+      align={Flex.align.STRETCH}
+      style={{ width: "70%" }}
+    >
       <Text size="small" ellipsis={false}>
         Text without overflow text without overflow text without overflow text without overflow text without overflow
         text without overflow text without overflow
       </Text>
       <Text
-          size="small"
-          ellipsis
-          data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
-          /**for testing purposes**/
-          tooltipProps={{
-              containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
-          }}
+        size="small"
+        ellipsis
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        /**for testing purposes**/
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
+        }}
       >
         Text with overflow text with overflow text with overflow text with overflow text with overflow text with
         overflow text with overflow text with overflow text with overflow text with overflow
       </Text>
       <div>
-        <Text
-            size="small"
-            ellipsis
-            withoutTooltip
-            maxLines={2}
-        >
+        <Text size="small" ellipsis withoutTooltip maxLines={2}>
           Text with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text
           with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
           overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
