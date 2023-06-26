@@ -9,7 +9,7 @@ export const convertCSSFiles = async (paths: string[], plugins: postcss.Plugin[]
     if (pathStats.isDirectory()) {
       const pattern = `${path}/**/*.scss`;
       const files = await glob(pattern);
-      console.log(files)
+      files.forEach(filePath => convertCSSFile(filePath, plugins));
     }
     else if (pathStats.isFile())  {
       convertCSSFile(path, plugins)
@@ -19,8 +19,12 @@ export const convertCSSFiles = async (paths: string[], plugins: postcss.Plugin[]
 
 export async function convertCSSFile(filePath, plugins) {
   const css = fs.readFileSync(filePath, "utf8");
-  const output = await postcss(plugins).process(css, { from: undefined });
+   postcss(plugins).process(css, { from: undefined }).then((output => {
+    // Overwrite the original file with the transformed CSS
+    fs.writeFileSync(filePath, output.css);
+  })).catch(error => {
+    console.error(`The file ${filePath} is not converted because of the following error: ${error}`);
+   });
 
-   // Overwrite the original file with the transformed CSS
-   fs.writeFileSync(filePath, output.css);
+
 }
