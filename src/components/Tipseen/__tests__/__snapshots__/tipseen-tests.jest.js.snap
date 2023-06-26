@@ -148,6 +148,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -247,6 +248,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -304,6 +306,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -361,6 +364,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {

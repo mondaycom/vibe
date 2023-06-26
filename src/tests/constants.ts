@@ -1,6 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  TITLE = "title",
   TEXT = "text",
   COMBOBOX = "combobox",
   COLOR_PICKER = "color-picker",
@@ -100,7 +101,9 @@ export enum ComponentDefaultTestId {
   FORMATTED_NUMBER = "formatted-number",
   HIDDEN_TEXT = "hidden-text",
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
-  FLEX = "flex"
+  FLEX = "flex",
+  TOOLTIP = "tooltip",
+  DIALOG = "dialog"
 }
 
 export enum NavigationCommand {
