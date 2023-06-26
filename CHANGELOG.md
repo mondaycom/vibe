@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.11.1 (2023-06-25)
+
+#### Bug Fixes
+* [#1370](https://github.com/mondaycom/monday-ui-react-core/pull/1370) fix: <TokenTable> tags styles overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.11.0 (2023-06-25)
+
+#### Bug Fixes
+* [#1368](https://github.com/mondaycom/monday-ui-react-core/pull/1368) fix: <Text> in published-ts-components.js ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1367](https://github.com/mondaycom/monday-ui-react-core/pull/1367) Remove redundant tipseen max-width property ([@ofirmonday](https://github.com/ofirmonday))
+
 ## 2.10.2 (2023-06-21)
 
 #### Documentation
