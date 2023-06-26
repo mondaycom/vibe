@@ -2,9 +2,8 @@ import { expect } from "@storybook/jest";
 import { Screen } from "@testing-library/react";
 import { userEvent, waitFor } from "@storybook/testing-library";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { ONE_LINE_ELLIPSIS_TEST_ID } from "../../Text/__tests__/text-tests-constants";
 
-export async function isTestTooltipShowOnHover(
+export async function testHoverTooltipTrigger(
   canvas: Screen,
   getHoverableElement: () => Promise<HTMLElement>,
   tooltipData: { id?: string; content?: string } = {}
