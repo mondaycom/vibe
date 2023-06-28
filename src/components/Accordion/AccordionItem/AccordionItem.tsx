@@ -8,7 +8,7 @@ interface AccordionItemProps extends VibeComponentProps {
   /**
    * Header title
    */
-  title?: string;
+  title?: string | React.ReactNode;
   /**
    * The value of the expandable section
    */
