@@ -44,3 +44,13 @@ exports[`Text renders correctly with empty props 1`] = `
   data-testid="text"
 />
 `;
+
+exports[`Text renders correctly with html attribute 1`] = `
+<span
+  className="typography primary start singleLineEllipsis"
+  data-testid="text"
+  role="banner"
+>
+  text
+</span>
+`;

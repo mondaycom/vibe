@@ -48,7 +48,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       children,
       tooltipProps,
       "data-testid": dataTestId = getTestId(ComponentDefaultTestId.TEXT, id),
-      element,
+      element = "span",
       color = "primary",
       align = "start",
       ellipsis = true,
