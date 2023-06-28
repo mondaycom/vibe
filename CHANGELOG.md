@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.1 (2023-06-28)
+
+#### Bug Fixes
+* [#1369](https://github.com/mondaycom/monday-ui-react-core/pull/1369) fix: icons, interactionsTests, testIds types exports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.12.0 (2023-06-26)
 
 #### New Features
