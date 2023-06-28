@@ -14,6 +14,8 @@ $typographyClasses: (
     @if str-slice($class-prefix, 1, 1) == "h" {
       margin: 0;
       letter-spacing: var(--letter-spacing-#{$class-prefix}-#{$weight-type});
+      -webkit-font-smoothing: var(--font-smoothing-webkit);
+      -moz-osx-font-smoothing: var(--font-smoothing-moz);
     }
   }
 }
