@@ -5,46 +5,46 @@
 
 .toast {
   @include box-shadow-medium();
-  margin: $spacing-medium;
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+  margin: var(--spacing-medium);
   position: fixed;
   right: 0;
   left: 0;
   top: 0;
   margin-right: auto;
   margin-left: auto;
-  padding: $spacing-small;
+  padding: var(--spacing-small);
   align-items: center;
   display: flex;
   min-width: 200px;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
 }
 
 .icon {
   display: flex;
-  padding-left: $spacing-small;
-  padding-right: $spacing-small;
+  padding-left: var(--spacing-small);
+  padding-right: var(--spacing-small);
 }
 
 .content {
   display: inline-flex;
-  line-height: 22px;
-  font-size: 14px;
   flex-grow: 1;
 }
 
 .contentNoIcon {
-  padding-left: $spacing-small;
+  padding-left: var(--spacing-small);
 }
 
 .action {
-  margin-left: $spacing-medium;
+  margin-left: var(--spacing-medium);
   display: flex;
 }
 
 // Could have been put to ToastButton and ToastLink, but would be a breaking change
 .actionButton,
 .actionLink {
-  margin-left: $spacing-small;
+  margin-left: var(--spacing-small);
 }
 
 .typeNormal {
@@ -74,7 +74,7 @@
 }
 
 .closeButton {
-  margin-left: $spacing-small;
+  margin-left: var(--spacing-small);
 }
 
 @include keyframe(toast-slide-in-elastic) {
@@ -83,8 +83,4 @@
 
 @include keyframe(toast-slide-out) {
   @include slide-out();
-}
-
-.content {
-  font-family: var(--font-family);
 }
