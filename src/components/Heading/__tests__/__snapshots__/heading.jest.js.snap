@@ -3,7 +3,7 @@
 exports[`Renders correctly renders correctly with custom color 1`] = `
 <h1
   aria-label=""
-  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  className="headingComponent vibe-h1-normal singleLineEllipsis"
   data-testid="heading"
   style={
     Object {
@@ -19,49 +19,49 @@ exports[`Renders correctly renders correctly with different sizes 1`] = `
 <div>
   <h1
     aria-label=""
-    className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+    className="headingComponent vibe-h1-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H1
   </h1>
   <h1
     aria-label=""
-    className="headingComponent elementTypeH1 sizeMedium singleLineEllipsis"
+    className="headingComponent vibe-h2-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H1 medium
   </h1>
   <h2
     aria-label=""
-    className="headingComponent elementTypeH2 sizeLarge singleLineEllipsis"
+    className="headingComponent vibe-h2-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H2
   </h2>
   <h2
     aria-label=""
-    className="headingComponent elementTypeH2 sizeSmall singleLineEllipsis"
+    className="headingComponent vibe-h3-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H2 small
   </h2>
   <h3
     aria-label=""
-    className="headingComponent elementTypeH3 sizeLarge singleLineEllipsis"
+    className="headingComponent vibe-h2-light singleLineEllipsis"
     data-testid="heading"
   >
     Hello H3
   </h3>
   <h4
     aria-label=""
-    className="headingComponent elementTypeH4 sizeLarge singleLineEllipsis"
+    className="headingComponent vibe-h3-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H4
   </h4>
   <h5
     aria-label=""
-    className="headingComponent elementTypeH5 sizeLarge singleLineEllipsis"
+    className="headingComponent vibe-text-medium-normal singleLineEllipsis"
     data-testid="heading"
   >
     Hello H5
@@ -72,7 +72,7 @@ exports[`Renders correctly renders correctly with different sizes 1`] = `
 exports[`Renders correctly renders correctly with empty props 1`] = `
 <h1
   aria-label=""
-  className="headingComponent elementTypeH1 sizeLarge singleLineEllipsis"
+  className="headingComponent vibe-h1-normal singleLineEllipsis"
   data-testid="heading"
 >
   
@@ -82,7 +82,7 @@ exports[`Renders correctly renders correctly with empty props 1`] = `
 exports[`Renders correctly renders correctly with text highlight 1`] = `
 <h2
   aria-label=""
-  className="headingComponent elementTypeH2 sizeLarge"
+  className="headingComponent vibe-h2-normal"
   data-testid="heading"
 >
   <div
