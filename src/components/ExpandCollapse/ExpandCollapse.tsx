@@ -29,7 +29,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * Header title
    */
-  title?: string | React.ReactNode;
+  title?: ElementContent;
   /**
    * The value of the expandable section
    */
@@ -77,10 +77,11 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       setIsOpen(!isOpen);
     };
     const renderHeader = useCallback(() => {
-      if (typeof title === "string") {
-        return <Heading type={Heading.types.h5} value={title} className={cx(styles.headerContent)} />;
-      }
-      return title;
+      return typeof title === "string" ? (
+        <Heading type={Heading.types.h5} value={title} className={cx(styles.headerContent)} />
+      ) : (
+        title
+      );
     }, [title]);
 
     return (
