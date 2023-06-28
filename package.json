@@ -12,12 +12,25 @@
     },
     "./dist/": "./dist/",
     "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
-    "./tokens": "./dist/tokens/tokens.css",
-    "./storybookComponents": "./dist/storybook/index.js",
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
+    "./storybookComponents": "./dist/storybook/index.js",
+    "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames_esm/src/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "icons": [
+        "./dist/esm/components/Icon/Icons/index.d.ts"
+      ],
+      "interactionsTests": [
+        "./dist/esm/tests/interactions-utils.d.ts"
+      ],
+      "testIds": [
+        "./dist/esm/tests/test-ids-utils.d.ts"
+      ]
     }
   },
   "scripts": {
