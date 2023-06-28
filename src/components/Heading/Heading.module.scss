@@ -29,5 +29,6 @@
 /* Override tags styles */
 
 .elementTypeLink {
-  @include font-link();
+  text-decoration: none;
+  color: var(--link-color);
 }

@@ -71,12 +71,6 @@ $small-empty-state-height: 12px;
   @include font-default;
 }
 
-@mixin font-link {
-  @include font-default;
-  text-decoration: none;
-  @include theme-prop(color, link-color);
-}
-
 @mixin line-clamp($lines: 1le) {
   overflow: hidden;
   display: -webkit-box;

@@ -8,7 +8,7 @@ import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
-import { useLegacyHeadingClassNameByType } from "./HeadingHooks";
+import { getHeadingClassNameByType } from "./HeadingHelpers";
 import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Heading.module.scss";
 
@@ -52,7 +52,7 @@ const Heading: React.FC<HeadingProps> & {
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
   const finalStyle = useStyle(style, { color: customColor });
-  const typographyClassName = useLegacyHeadingClassNameByType(type, size);
+  const typographyClassName = getHeadingClassNameByType(type, size);
   const classNames = cx(styles.headingComponent, typographyClassName, className, {
     [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
     [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,

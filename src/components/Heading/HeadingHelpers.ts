@@ -1,9 +1,6 @@
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 
-export function useLegacyHeadingClassNameByType(
-  type: HeadingTypes,
-  size: typeof HeadingSizes[keyof typeof HeadingSizes]
-) {
+export function getHeadingClassNameByType(type: HeadingTypes, size: typeof HeadingSizes[keyof typeof HeadingSizes]) {
   if (type === HeadingTypes.h1 && size !== HeadingSizes.MEDIUM && size !== HeadingSizes.SMALL) return "vibe-h1-normal";
   if (
     (type === HeadingTypes.h2 && size !== HeadingSizes.MEDIUM && size !== HeadingSizes.SMALL) ||
