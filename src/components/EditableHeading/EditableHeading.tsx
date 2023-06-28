@@ -13,6 +13,7 @@ import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
 import headingStyles from "../Heading/Heading.module.scss";
 import styles from "./EditableHeading.module.scss";
+import { useLegacyHeadingClassNameByType } from "../Heading/HeadingHooks";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
@@ -168,16 +169,15 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     return <Heading {...contentProps} />;
   };
 
+  const typographyClassName = useLegacyHeadingClassNameByType(type, size);
+
   const getInputProps = () => {
     const textAreaType = props.ellipsisMaxLines > 1 ? InputType.TEXT_AREA : undefined;
     const inputType = props.inputType || textAreaType;
+
     return {
       value: valueState,
-      className: cx(
-        getStyle(headingStyles, camelCase("element-type-" + type)),
-        getStyle(headingStyles, camelCase("size-" + size)),
-        inputClassName
-      ),
+      className: cx(typographyClassName, inputClassName),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,

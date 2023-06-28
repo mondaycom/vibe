@@ -23,6 +23,9 @@
 
   &.onPrimary {
     color: var(--text-color-on-primary);
+    a {
+      color: var(--text-color-on-primary);
+    }
   }
 
   &.onInverted {

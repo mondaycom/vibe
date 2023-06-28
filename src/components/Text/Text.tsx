@@ -7,12 +7,23 @@ import Typography, { TypographyProps } from "../Typography/Typography";
 export interface TextProps extends TypographyProps {
   size?: TextSize;
   weight?: TextWeight;
+  paragraph?: boolean;
 }
 
 const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
-  ({ className, size = "medium", weight = "normal", ...typographyProps }, ref) => {
+  ({ className, size = "medium", weight = "normal", ellipsis, paragraph, ...typographyProps }, ref) => {
+    const overrideEllipsis = ellipsis || !paragraph;
+    const overrideElement = paragraph ? "p" : "span";
     const textGlobalClass = `vibe-text-${size}-${weight}`;
-    return <Typography ref={ref} className={cx(textGlobalClass, className)} {...typographyProps} />;
+    return (
+      <Typography
+        ref={ref}
+        className={cx(textGlobalClass, className)}
+        ellipsis={overrideEllipsis}
+        element={overrideElement}
+        {...typographyProps}
+      />
+    );
   }
 );
 

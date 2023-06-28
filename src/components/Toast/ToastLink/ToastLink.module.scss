@@ -3,7 +3,7 @@
 
 .actionLink {
   @include theme-prop(color, text-color-on-primary);
-  text-decoration: underline;
+  text-decoration: underline !important;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }

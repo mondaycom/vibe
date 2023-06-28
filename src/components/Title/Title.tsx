@@ -12,7 +12,7 @@ export interface TitleProps extends TypographyProps {
 const Title: VibeComponent<TitleProps, HTMLElement> = forwardRef(
   ({ className, type = "h1", weight = "normal", ...typographyProps }, ref) => {
     const textGlobalClass = `vibe-${type}-${weight}`;
-    return <Typography ref={ref} className={cx(textGlobalClass, className)} {...typographyProps} />;
+    return <Typography element={type} ref={ref} className={cx(textGlobalClass, className)} {...typographyProps} />;
   }
 );
 

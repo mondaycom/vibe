@@ -14,6 +14,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { VibeComponent, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
+import Text from "../Text/Text";
 
 interface AlertBannerProps extends VibeComponentProps {
   /**
@@ -71,7 +72,10 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
     }, [originalChildren, isDarkBackground]);
 
     return (
-      <div
+      <Text
+        element="div"
+        size="small"
+        color="onPrimary"
         ref={ref}
         className={classNames}
         role="banner"
@@ -110,7 +114,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
             </Button>
           )}
         </div>
-      </div>
+      </Text>
     );
   }
 );

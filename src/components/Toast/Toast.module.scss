@@ -4,9 +4,7 @@
 @import "../../styles/keyframes";
 
 .toast {
-  @include font-paragraph();
   @include box-shadow-medium();
-  @include theme-prop(color, text-color-on-primary);
   margin: $spacing-medium;
   position: fixed;
   right: 0;

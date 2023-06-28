@@ -7,6 +7,7 @@
   border-radius: $border-radius-small;
   min-width: 0;
   @include heading-padding();
+  margin: revert;
 }
 
 .headingComponent.multiLineEllipsis {
@@ -26,63 +27,6 @@
 }
 
 /* Override tags styles */
-
-.elementTypeH1 {
-  letter-spacing: -0.2px;
-  font-size: $h1-legacy-font-size;
-  line-height: $h1-legacy-line-height;
-  font-weight: var(--font-weight-bold);
-  font-family: var(--title-font-family);
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
-}
-
-.elementTypeH1.sizeSmall,
-.elementTypeH1.sizeMedium {
-  font-size: var(--font-size-h2);
-  line-height: var(--font-line-height-h2);
-}
-
-.elementTypeH2 {
-  letter-spacing: -0.2px;
-  @include font-title();
-}
-
-.elementTypeH2.sizeSmall,
-.elementTypeH2.sizeMedium {
-  @include font-subtitle();
-}
-
-.elementTypeH3 {
-  letter-spacing: -0.2px;
-  @include font-title-secondary();
-}
-
-.elementTypeH3.sizeSmall,
-.elementTypeH3.sizeMedium {
-  @include font-subtitle();
-}
-
-.elementTypeH4 {
-  letter-spacing: -0.2px;
-  @include font-subtitle();
-}
-
-.elementTypeH5 {
-  @include font-paragraph-bold();
-}
-
-.elementTypeH6 {
-  @include font-general-text();
-}
-
-.elementTypeP {
-  @include font-paragraph();
-}
-
-.elementTypeSmall {
-  @include font-caption();
-}
 
 .elementTypeLink {
   @include font-link();
