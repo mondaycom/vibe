@@ -29,7 +29,7 @@ export const iconsMetaData = [
     name: "Form",
     file: "Form.svg",
     description: "Form icon",
-    tags: "form,note,page"
+    tags: "form,note,page,views"
   },
 
   {
@@ -58,7 +58,7 @@ export const iconsMetaData = [
     name: "Idea",
     file: "Idea.svg",
     description: "Lightbulb that is on",
-    tags: "light,bulb,on,flash,idea,electricty"
+    tags: "light,bulb,on,flash,idea,electricty,platform"
   },
 
   {
@@ -163,7 +163,7 @@ export const iconsMetaData = [
     name: "Switcher",
     file: "Switcher.svg",
     description: "Switching between products",
-    tags: ""
+    tags: "Switcher,SidePanel,Product,Platform"
   },
 
   {
@@ -205,7 +205,7 @@ export const iconsMetaData = [
     name: "Night",
     file: "Night.svg",
     description: "Night",
-    tags: "night, stars, dark"
+    tags: "night, stars, Night mode"
   },
 
   {
@@ -284,7 +284,7 @@ export const iconsMetaData = [
     name: "Bug",
     file: "Bug.svg",
     description: "Bug",
-    tags: "bug"
+    tags: "Bug,Platform"
   },
 
   {
@@ -312,7 +312,7 @@ export const iconsMetaData = [
     name: "Gantt",
     file: "Gantt.svg",
     description: "Gantt icon",
-    tags: "gantt, timeline"
+    tags: "Single Marketing Project,Gantt,Timeline,Views"
   },
 
   {
@@ -464,7 +464,7 @@ export const iconsMetaData = [
     name: "Activity",
     file: "Activity.svg",
     description: "Activity",
-    tags: "Activity",
+    tags: "Activity,Active,Platform,Up,Chart,Graph",
     category: [PLATFORM]
   },
   {
@@ -591,7 +591,7 @@ export const iconsMetaData = [
     name: "Bullets",
     file: "Bullets.svg",
     description: "Bullets",
-    tags: "Bullets, List, Text, Design",
+    tags: "Bullets,List,Text,Design,Redactor",
     category: [PLATFORM]
   },
 
@@ -615,7 +615,7 @@ export const iconsMetaData = [
     name: "Calendar",
     file: "Calendar.svg",
     description: "Calendar",
-    tags: "Calendar, Date, Week, Day",
+    tags: "Date,Content,Calendar,Event,Schedule,Week,Day,Campaign,Planning,Views,Columns",
     category: [VIEW]
   },
   {
@@ -980,7 +980,7 @@ export const iconsMetaData = [
     name: "Guest",
     file: "Guest.svg",
     description: "Guest",
-    tags: "Guest",
+    tags: "Guest,Activity,CampaignPerformance,Graph,Line,Change,XY,Platform",
     category: [PLATFORM]
   },
 
@@ -1325,7 +1325,7 @@ export const iconsMetaData = [
     name: "Page",
     file: "Page.svg",
     description: "Page",
-    tags: "Page",
+    tags: "Page,Single Page,Blank,Platform",
     category: [PLATFORM]
   },
 
