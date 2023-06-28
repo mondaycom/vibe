@@ -1,6 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { DialogPosition } from "../../constants/positions";
+import { DialogPosition, Sizes } from "../../constants";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
@@ -8,7 +8,6 @@ import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
-import { Sizes } from "../../constants";
 import { useLegacyHeadingClassNameByType } from "./HeadingHooks";
 import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Heading.module.scss";
