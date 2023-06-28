@@ -56,4 +56,8 @@
   &.multiLineEllipsis {
     @include line-clamp(var(--text-clamp-lines));
   }
+
+  &:disabled, &[aria-disabled="true"]  {
+    color: var(--disabled-text-color);
+  }
 }

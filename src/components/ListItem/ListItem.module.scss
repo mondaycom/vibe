@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  color: var(--primary-text-color);
   border-radius: 4px;
   cursor: pointer;
   @include focus-style-inset();
@@ -18,7 +17,6 @@
 
 .disabled {
   cursor: not-allowed;
-  color: var(--disabled-text-color);
 }
 
 .disabled:hover {

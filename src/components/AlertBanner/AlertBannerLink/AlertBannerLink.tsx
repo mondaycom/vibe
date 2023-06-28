@@ -12,14 +12,12 @@ export interface AlertBannerLinkProps extends LinkProps {
 
 const AlertBannerLink: FC<AlertBannerLinkProps> = ({
   marginLeft = false,
-  isDarkBackground = false,
   id,
   "data-testid": dataTestId,
   ...linkProps
 }) => {
   const classNames = cx({
-    [styles.marginLeft]: marginLeft,
-    [styles.darkBackground]: isDarkBackground
+    [styles.marginLeft]: marginLeft
   });
 
   return (

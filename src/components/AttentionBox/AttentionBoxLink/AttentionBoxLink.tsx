@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Link from "../../Link/Link";
 import styles from "./AttentionBoxLink.module.scss";
 
 interface AttentionBoxLinkProps {
@@ -7,5 +6,9 @@ interface AttentionBoxLinkProps {
   text: string;
 }
 export const AttentionBoxLink: FC<AttentionBoxLinkProps> = ({ href, text }) => {
-  return <Link className={styles.attentionBoxLink} href={href} text={text} />;
+  return (
+    <a className={styles.attentionBoxLink} href={href}>
+      {text}
+    </a>
+  );
 };
