@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.13.0 (2023-06-29)
+
+#### New Features
+* [#1375](https://github.com/mondaycom/monday-ui-react-core/pull/1375) AccordionItem: add support for custom header. ([@m-binygal](https://github.com/m-binygal))
+
 ## 2.12.1 (2023-06-28)
 
 #### Bug Fixes
