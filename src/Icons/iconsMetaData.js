@@ -340,7 +340,7 @@ export const iconsMetaData = [
     name: "Featured",
     file: "Featured.svg",
     description: "Featured category icon",
-    tags: "featured, category, highlights, automation"
+    tags: "featured, category, highlights, automation, diamond"
   },
 
   {
