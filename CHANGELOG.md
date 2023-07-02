@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.13.1 (2023-07-02)
+
+#### Bug Fixes
+* [#1382](https://github.com/mondaycom/monday-ui-react-core/pull/1382) fix: MultiStepIndicator - fix divider to not squeeze bullets ([@shlomitc](https://github.com/shlomitc))
+
+#### Documentation
+* [#1380](https://github.com/mondaycom/monday-ui-react-core/pull/1380) docs: Combobox - add example for the creation button ([@shlomitc](https://github.com/shlomitc))
+
 ## 2.13.0 (2023-06-29)
 
 #### New Features
