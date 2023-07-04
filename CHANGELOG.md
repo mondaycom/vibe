@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.14.0 (2023-07-04)
+
+#### New Features
+* [#1384](https://github.com/mondaycom/monday-ui-react-core/pull/1384) feat: support ariaExpanded in <IconButton> ([@YGlaubach](https://github.com/YGlaubach))
+
 ## 2.13.1 (2023-07-02)
 
 #### Bug Fixes
