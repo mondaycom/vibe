@@ -9,7 +9,6 @@ import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { ChipsSize } from "./ChipsConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
@@ -94,7 +93,6 @@ interface ChipsProps extends VibeComponentProps {
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
-  sizes?: typeof ChipsSize;
   colors?: typeof ElementAllowedColor;
   avatarTypes?: typeof AvatarType;
 } = forwardRef<HTMLElement, ChipsProps>(
@@ -280,7 +278,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           {rightRenderer && <div className={cx(styles.customRenderer, styles.right)}>{rightRenderer}</div>}
           {hasCloseButton && (
             <IconButton
-              size={ChipsSize.XXS}
+              size={IconButton.sizes.XXS}
               color={IconButton.colors.ON_PRIMARY_COLOR}
               className={cx(styles.icon, styles.close)}
               ariaLabel="Remove"
@@ -298,7 +296,6 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 );
 
 export default withStaticProps(Chips, {
-  sizes: ChipsSize,
   colors: ElementAllowedColor,
   avatarTypes: AvatarType
 });
