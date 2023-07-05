@@ -11,7 +11,7 @@ Snapshot Diff:
 +   class="container className"
   >
     <p
-      aria-level="1"
+      aria-level="2"
 -     class="title"
 +     class="titleClassName title"
       data-testid="modal-header_modal-title-id"
@@ -124,7 +124,7 @@ exports[`ModalHeader with required props 1`] = `
   class="container"
 >
   <p
-    aria-level="1"
+    aria-level="2"
     class="title"
     data-testid="modal-header_modal-title-id"
     id="modal-title-id"

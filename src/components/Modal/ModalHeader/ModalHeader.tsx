@@ -80,7 +80,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
     <div className={cx(styles.container, className)}>
       <p
         role="heading"
-        aria-level={1}
+        aria-level={2}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
         className={cx(titleClassName, styles.title)}
