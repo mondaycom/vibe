@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.14.1 (2023-07-05)
+
+#### Bug Fixes
+* [#1388](https://github.com/mondaycom/monday-ui-react-core/pull/1388) Refactor modal heading ([@YGlaubach](https://github.com/YGlaubach))
+* [#1385](https://github.com/mondaycom/monday-ui-react-core/pull/1385) fix: remove Chips.sizes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1387](https://github.com/mondaycom/monday-ui-react-core/pull/1387) Update browserslist in docs ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.14.0 (2023-07-04)
 
 #### New Features
