@@ -88,7 +88,7 @@
   @include theme-prop(background-color, ui-border-color);
   margin: 16px 0 16px 16px;
   height: 1px;
-  flex-grow: 1;
+  flex: 1 1 0;
 }
 
 .sizeCompactNumberDividerContainer {

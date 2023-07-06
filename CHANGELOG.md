@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.14.1 (2023-07-05)
+
+#### Bug Fixes
+* [#1388](https://github.com/mondaycom/monday-ui-react-core/pull/1388) Refactor modal heading ([@YGlaubach](https://github.com/YGlaubach))
+* [#1385](https://github.com/mondaycom/monday-ui-react-core/pull/1385) fix: remove Chips.sizes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1387](https://github.com/mondaycom/monday-ui-react-core/pull/1387) Update browserslist in docs ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.14.0 (2023-07-04)
+
+#### New Features
+* [#1384](https://github.com/mondaycom/monday-ui-react-core/pull/1384) feat: support ariaExpanded in <IconButton> ([@YGlaubach](https://github.com/YGlaubach))
+
+## 2.13.1 (2023-07-02)
+
+#### Bug Fixes
+* [#1382](https://github.com/mondaycom/monday-ui-react-core/pull/1382) fix: MultiStepIndicator - fix divider to not squeeze bullets ([@shlomitc](https://github.com/shlomitc))
+
+#### Documentation
+* [#1380](https://github.com/mondaycom/monday-ui-react-core/pull/1380) docs: Combobox - add example for the creation button ([@shlomitc](https://github.com/shlomitc))
+
+## 2.13.0 (2023-06-29)
+
+#### New Features
+* [#1375](https://github.com/mondaycom/monday-ui-react-core/pull/1375) AccordionItem: add support for custom header. ([@m-binygal](https://github.com/m-binygal))
+
 ## 2.12.1 (2023-06-28)
 
 #### Bug Fixes
