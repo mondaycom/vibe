@@ -17,6 +17,5 @@
 }
 
 .labelComponentText {
-  font: var(--font-text-small-normal);
   @include theme-prop(color, primary-text-color);
 }

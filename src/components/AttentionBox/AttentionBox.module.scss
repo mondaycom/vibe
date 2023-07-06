@@ -9,13 +9,12 @@
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
-
 }
 
 .title {
   margin: 0;
   font-weight: 700;
-  padding: 0 4px;
+  padding: 0 var(--spacing-xs);
 }
 
 .textCompact {
