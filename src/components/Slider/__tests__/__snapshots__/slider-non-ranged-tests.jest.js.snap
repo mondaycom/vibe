@@ -58,6 +58,7 @@ Snapshot Diff:
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
++             role="tooltip"
 +           >
 +             20%
 +           </div>
@@ -93,6 +94,7 @@ Snapshot Diff:
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
+-             role="tooltip"
 -           >
 -             20%
 -           </div>
@@ -128,6 +130,7 @@ Snapshot Diff:
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
++             role="tooltip"
 +           >
 +             20%
 +           </div>
@@ -163,6 +166,7 @@ Snapshot Diff:
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
+-             role="tooltip"
 -           >
 -             20%
 -           </div>

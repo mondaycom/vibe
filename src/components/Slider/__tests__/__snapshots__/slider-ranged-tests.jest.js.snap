@@ -69,6 +69,7 @@ Snapshot Diff:
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
++             role="tooltip"
 +           >
 +             25%
 +           </div>
@@ -104,6 +105,7 @@ Snapshot Diff:
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
++             role="tooltip"
 +           >
 +             65%
 +           </div>
@@ -139,6 +141,7 @@ Snapshot Diff:
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
+-             role="tooltip"
 -           >
 -             25%
 -           </div>
@@ -174,6 +177,7 @@ Snapshot Diff:
 +         >
 +           <div
 +             class="tooltip dark paddingSizeUndefined"
++             role="tooltip"
 +           >
 +             25%
 +           </div>
@@ -219,8 +223,8 @@ Snapshot Diff:
         />
         <span
 @@ --- --- @@
-            <div
               class="tooltip dark paddingSizeUndefined"
+              role="tooltip"
             >
 -             25%
 +             65%
@@ -272,7 +276,7 @@ Snapshot Diff:
           role="slider"
           style="left: 65%;"
           tabindex="0"
-        />
+-       />
 -       <span
 -         class="monday-style-dialog-content-wrapper contentWrapper"
 -         data-popper-reference-hidden="false"
@@ -284,6 +288,7 @@ Snapshot Diff:
 -         >
 -           <div
 -             class="tooltip dark paddingSizeUndefined"
+-             role="tooltip"
 -           >
 -             65%
 -           </div>
@@ -291,7 +296,7 @@ Snapshot Diff:
 -             class="arrow arrow dark paddingSizeUndefined"
 -             data-placement="top"
 -             style="position: absolute;"
--           />
+        />
 -         </div>
 -       </span>
       </div>
