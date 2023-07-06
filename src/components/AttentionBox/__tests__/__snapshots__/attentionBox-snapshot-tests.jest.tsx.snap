@@ -38,16 +38,12 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;
 
@@ -89,16 +85,12 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;
 
@@ -140,16 +132,12 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typeDarkText"
+  <p
+    className="typography primary start vibe-text-small-normal text typeDarkText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;
 
@@ -192,14 +180,10 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     </h5>
   </div>
   <div
-    className="text typePrimaryText textCompact"
+    className="typography primary start singleLineEllipsis vibe-text-small-normal text typePrimaryText textCompact"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
+    Text
   </div>
 </aside>
 `;
@@ -218,14 +202,10 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
       }
     }
   />
-  <div
-    className="text typePrimaryText"
-  >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    />
-  </div>
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
+  />
 </aside>
 `;
 
@@ -246,16 +226,12 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     
     
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;
 
@@ -280,16 +256,12 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;
 
@@ -331,16 +303,12 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
   <div
     className="closeIconWrapper wrapper"
   >
@@ -414,21 +382,17 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
       }
     }
   />
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      <span>
-        renderer with components 
-        <div>
-          and sub components
-        </div>
-      </span>
-    </p>
-  </div>
+    <span>
+      renderer with components 
+      <div>
+        and sub components
+      </div>
+    </span>
+  </p>
 </aside>
 `;
 
@@ -460,15 +424,11 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start vibe-text-small-normal text typePrimaryText paragraph"
+    data-testid="text"
   >
-    <p
-      className="typography primary start vibe-text-small-normal"
-      data-testid="text"
-    >
-      Text
-    </p>
-  </div>
+    Text
+  </p>
 </aside>
 `;

@@ -103,10 +103,10 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         )}
       </Flex>
       <Text
-          element={compact ? "div" : "p"}
-          size="small"
-          paragraph={!compact}
-          className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+        element={compact ? "div" : "p"}
+        size="small"
+        paragraph={!compact}
+        className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
           [styles.textCompact]: compact,
           [styles.paragraph]: !compact
         })}
@@ -127,7 +127,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         {text || children}
-      </div>
+      </Text>
       {onClose && (
         <IconButton
           size={IconButton?.sizes?.SMALL}
