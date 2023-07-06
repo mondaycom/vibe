@@ -27,20 +27,19 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-        class="container"
         data-testid="modal-content"
+        style="--text-clamp-lines: 1;"
       >
 +       <div
 +         class="container"
 +       >
-+         <p
-+           aria-level="2"
-+           class="title"
++         <h2
++           class="typography primary start singleLineEllipsis vibe-h2-normal title"
 +           data-testid="modal-header"
-+           role="heading"
++           style="--text-clamp-lines: 1;"
 +         >
 +           ModalHeader Title
-+         </p>
++         </h2>
 +         <div
 +           class="closeButton"
 +         >
@@ -93,20 +92,19 @@ Snapshot Diff:
 + Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
-        class="container"
         data-testid="modal-content"
+        style="--text-clamp-lines: 1;"
       >
 +       <div
 +         class="container"
 +       >
-+         <p
-+           aria-level="2"
-+           class="title"
++         <h2
++           class="typography primary start singleLineEllipsis vibe-h2-normal title"
 +           data-testid="modal-header"
-+           role="heading"
++           style="--text-clamp-lines: 1;"
 +         >
 +           ModalHeader Title
-+         </p>
++         </h2>
 +         <div
 +           class="closeButton"
 +         >
@@ -144,8 +142,9 @@ Snapshot Diff:
 +         </div>
 +       </div>
 +       <div
-+         class="container"
++         class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
 +         data-testid="modal-content"
++         style="--text-clamp-lines: 1;"
 +       >
           <p>
             content
@@ -185,15 +184,14 @@ exports[`Modal with base props 1`] = `
     <div
       class="container"
     >
-      <p
-        aria-level="2"
-        class="title"
+      <h2
+        class="typography primary start singleLineEllipsis vibe-h2-normal title"
         data-testid="modal-header_modal-id-title"
         id="modal-id-title"
-        role="heading"
+        style="--text-clamp-lines: 1;"
       >
         Modal Title
-      </p>
+      </h2>
       <div
         class="closeButton"
       >
@@ -231,8 +229,9 @@ exports[`Modal with base props 1`] = `
       </div>
     </div>
     <div
-      class="container"
+      class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
       data-testid="modal-content"
+      style="--text-clamp-lines: 1;"
     >
       <p>
         content
@@ -312,17 +311,19 @@ Snapshot Diff:
 + Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
 
 @@ --- --- @@
+        >
           Modal Title
-        </p>
-        <div
-+         class="description"
+        </h2>
++       <span
++         class="typography primary start singleLineEllipsis vibe-text-small-normal description"
++         data-testid="text"
++         style="--text-clamp-lines: 1;"
 +       >
 +         description
-+       </div>
-+       <div
++       </span>
+        <div
           class="closeButton"
         >
-          <span
 `;
 
 exports[`Modal with full width 1`] = `
@@ -349,7 +350,7 @@ Snapshot Diff:
 @@ --- --- @@
         >
           Modal Title
-        </p>
+        </h2>
 -       <div
 -         class="closeButton"
 -       >
@@ -387,5 +388,5 @@ Snapshot Diff:
 -       </div>
       </div>
       <div
-        class="container"
+        class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
 `;
