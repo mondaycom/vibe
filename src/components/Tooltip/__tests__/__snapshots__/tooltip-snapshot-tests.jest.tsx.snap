@@ -32,6 +32,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -83,6 +84,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -134,6 +136,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -185,6 +188,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -236,6 +240,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -287,6 +292,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
         style={
           Object {
             "width": "200px",
@@ -343,6 +349,7 @@ Array [
         className="tooltip error paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>
@@ -365,6 +372,7 @@ Array [
 exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
   className="tooltip dark paddingSizeUndefined"
+  role="tooltip"
 >
   test
 </div>
@@ -402,6 +410,7 @@ Array [
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        role="tooltip"
       >
         test
       </div>

@@ -151,7 +151,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style } = this.props;
+    const { id, theme, content, paddingSize, className, style } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -170,7 +170,9 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     }
     return (
       <div
+        id={id}
         style={style}
+        role="tooltip"
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
