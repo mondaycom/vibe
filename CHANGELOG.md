@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.15.0 (2023-07-09)
+
+#### Bug Fixes
+* [#1395](https://github.com/mondaycom/monday-ui-react-core/pull/1395) Accordion: fix vibe props are not recognized. ([@m-binygal](https://github.com/m-binygal))
+
+#### New Features
+* [#1391](https://github.com/mondaycom/monday-ui-react-core/pull/1391) refactor: support aria a11y in Tooltip component ([@YGlaubach](https://github.com/YGlaubach))
+
+#### Internal Changes
+* [#1390](https://github.com/mondaycom/monday-ui-react-core/pull/1390) chore: enable source maps in tsconfig ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.14.1 (2023-07-05)
 
 #### Bug Fixes
