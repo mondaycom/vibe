@@ -1,0 +1,78 @@
+name: Prerelease
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  prerelease:
+    if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: npm ci
+      - name: Set up git credentials
+        run: |
+          git config --global user.name 'ci'
+          git config --global user.email 'deploy@monday.com'
+      - name: "Wait for tests to succeed"
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        if: success()
+        id: wait-for-tests
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: "meta test"
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          timeoutSeconds: 1200
+          intervalSeconds: 20
+      - name: "Tests failed - exit"
+        if: steps.wait-for-tests.outputs.conclusion != 'success'
+        run: |
+          echo "::error::test check failed - prerelease cancelled"
+          exit 1
+      - name: Create Updated version
+        id: create-update-version
+        if: success()
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          npm run pre-release
+          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
+      - name: Publish the new version to npm
+        if: success()
+        run: npm run build && npm publish --tag prerelease
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        if: success()
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          automatic_release_tag: prerelease
+      - name: Get current PR id
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        id: PR
+        if: success()
+      - name: Create comment with prerelease version details
+        if: success()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ steps.PR.outputs.number }}
+          body: |
+            A new prerelease version of this PR has been published: `${{ steps.create-update-version.outputs.package_version }}`
+
+            ```
+            // To install this prerelease version using npm, please run the following command in your terminal:
+            npm i monday-ui-style@${{ steps.create-update-version.outputs.package_version }}
+            // If you prefer using Yarn, you can use the following command instead:
+            yarn add monday-ui-style@${{ steps.create-update-version.outputs.package_version }}
+            ```

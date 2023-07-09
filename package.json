@@ -18,7 +18,8 @@
     "plop": "plop",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\"",
+    "pre-release": "./scripts/prerelease.js"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
@@ -56,7 +57,8 @@
     "stylelint-config-recommended": "^7.0.0",
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-config-standard": "^24.0.0",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint-config-standard-scss": "^3.0.0",
+    "execa": "^5.1.1"
   },
   "dependencies": {
     "postcss": "8.4.4",
