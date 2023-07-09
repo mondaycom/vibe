@@ -29,10 +29,10 @@ jobs:
         id: wait-for-tests
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "meta test"
+          checkName: "meta-test"
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          timeoutSeconds: 1200
-          intervalSeconds: 20
+          timeoutSeconds: 600
+          intervalSeconds: 10
       - name: "Tests failed - exit"
         if: steps.wait-for-tests.outputs.conclusion != 'success'
         run: |
