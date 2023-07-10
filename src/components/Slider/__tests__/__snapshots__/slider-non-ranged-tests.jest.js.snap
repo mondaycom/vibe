@@ -57,8 +57,8 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
++             aria-label="20%"
 +             class="tooltip dark paddingSizeUndefined"
-+             role="tooltip"
 +           >
 +             20%
 +           </div>
@@ -93,8 +93,8 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
+-             aria-label="20%"
 -             class="tooltip dark paddingSizeUndefined"
--             role="tooltip"
 -           >
 -             20%
 -           </div>
@@ -129,8 +129,8 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
++             aria-label="20%"
 +             class="tooltip dark paddingSizeUndefined"
-+             role="tooltip"
 +           >
 +             20%
 +           </div>
@@ -165,8 +165,8 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
+-             aria-label="20%"
 -             class="tooltip dark paddingSizeUndefined"
--             role="tooltip"
 -           >
 -             20%
 -           </div>

@@ -29,10 +29,10 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -81,10 +81,10 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -133,10 +133,10 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -185,10 +185,10 @@ Array [
       className="contentComponent top edgeEnd hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -237,10 +237,10 @@ Array [
       className="contentComponent left edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -289,10 +289,10 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
         style={
           Object {
             "width": "200px",
@@ -346,10 +346,10 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
+        aria-label="test"
         className="tooltip error paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>
@@ -371,8 +371,8 @@ Array [
 
 exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
+  aria-label="test"
   className="tooltip dark paddingSizeUndefined"
-  role="tooltip"
 >
   test
 </div>
@@ -407,10 +407,10 @@ Array [
       className="contentComponent top edgeCenter"
     >
       <div
+        aria-label="test"
         className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        role="tooltip"
       >
         test
       </div>

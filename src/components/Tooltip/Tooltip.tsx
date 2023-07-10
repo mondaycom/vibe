@@ -152,6 +152,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
 
   renderTooltipContent() {
     const { theme, content, paddingSize, className, style } = this.props;
+    let ariaLabel;
+
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -163,6 +165,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       contentValue = content;
     } else if (typeof content === "string" && content) {
       contentValue = content;
+      ariaLabel = contentValue;
     }
 
     if (!contentValue) {
@@ -171,7 +174,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     return (
       <div
         style={style}
-        aria-label={contentValue}
+        aria-label={ariaLabel}
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),

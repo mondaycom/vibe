@@ -68,8 +68,8 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
++             aria-label="25%"
 +             class="tooltip dark paddingSizeUndefined"
-+             role="tooltip"
 +           >
 +             25%
 +           </div>
@@ -104,8 +104,8 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
++             aria-label="65%"
 +             class="tooltip dark paddingSizeUndefined"
-+             role="tooltip"
 +           >
 +             65%
 +           </div>
@@ -140,8 +140,8 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
+-             aria-label="25%"
 -             class="tooltip dark paddingSizeUndefined"
--             role="tooltip"
 -           >
 -             25%
 -           </div>
@@ -176,8 +176,8 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
++             aria-label="25%"
 +             class="tooltip dark paddingSizeUndefined"
-+             role="tooltip"
 +           >
 +             25%
 +           </div>
@@ -207,8 +207,8 @@ Snapshot Diff:
           data-testid="monday-slider__thumb-0"
           role="slider"
           style="left: 25%;"
-+         tabindex="0"
-+       />
+          tabindex="0"
+        />
 +       <div
 +         aria-disabled="false"
 +         aria-valuemax="100"
@@ -219,12 +219,18 @@ Snapshot Diff:
 +         data-testid="monday-slider__thumb-1"
 +         role="slider"
 +         style="left: 65%;"
-          tabindex="0"
-        />
++         tabindex="0"
++       />
         <span
+          class="monday-style-dialog-content-wrapper contentWrapper"
+          data-popper-reference-hidden="false"
 @@ --- --- @@
+            class="contentComponent top edgeCenter hasTooltip"
+          >
+            <div
+-             aria-label="25%"
++             aria-label="65%"
               class="tooltip dark paddingSizeUndefined"
-              role="tooltip"
             >
 -             25%
 +             65%
@@ -287,8 +293,8 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
+-             aria-label="65%"
 -             class="tooltip dark paddingSizeUndefined"
--             role="tooltip"
 -           >
 -             65%
 -           </div>
