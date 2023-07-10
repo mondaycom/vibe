@@ -171,7 +171,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     return (
       <div
         style={style}
-        role="tooltip"
+        aria-label={contentValue}
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
