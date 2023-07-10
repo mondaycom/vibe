@@ -1,9 +1,6 @@
-/* eslint-disable react/require-default-props */
 import cx from "classnames";
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
-import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Icon from "../../components/Icon/Icon";
 import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
@@ -12,32 +9,58 @@ import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./Multi
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./MultiStepIndicator.module.scss";
+import { withStaticProps, VibeComponentProps, VibeComponent, SubIcon } from "../../types";
+import { IconType } from "../Icon/IconConstants";
 
-const MultiStepIndicator = forwardRef(
+type Step = {
+  titleText: string;
+  subtitleText: string;
+  status: STEP_STATUSES;
+};
+
+interface MultiStepIndicatorProps extends VibeComponentProps {
+  type?: MULTI_STEP_TYPES;
+  steps: Step[];
+  stepComponentClassName?: string;
+  dividerComponentClassName?: string;
+  fulfilledStepIcon?: SubIcon;
+  fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
+  isFulfilledStepDisplayNumber?: boolean;
+  onClick?: (stepNumber: number) => void;
+  textPlacement?: TEXT_PLACEMENTS;
+  size?: SIZES;
+}
+
+const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
+  types?: typeof MULTI_STEP_TYPES;
+  stepStatuses?: typeof STEP_STATUSES;
+  textPlacements?: typeof TEXT_PLACEMENTS;
+  sizes?: typeof SIZES;
+} = forwardRef(
   (
     {
       className,
-      type,
-      steps,
+      type = MULTI_STEP_TYPES.PRIMARY,
+      steps = [],
       stepComponentClassName,
       dividerComponentClassName,
-      fulfilledStepIcon,
-      fulfilledStepIconType,
-      isFulfilledStepDisplayNumber,
-      onClick,
-      textPlacement,
+      fulfilledStepIcon = Check,
+      fulfilledStepIconType = IconType.SVG,
+      isFulfilledStepDisplayNumber = false,
+      onClick = NOOP,
+      textPlacement = TEXT_PLACEMENTS.HORIZONTAL,
       id,
       size,
       "data-testid": dataTestId
     },
     ref
   ) => {
-    const componentRef = useRef(null);
+    const componentRef = useRef<HTMLInputElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const finalSize = textPlacement === TEXT_PLACEMENTS.VERTICAL ? SIZES.REGULAR : size;
 
     const renderHorizontalStepIndicator = useCallback(
-      (step, index) => {
+      (step: Step, index: number) => {
         return (
           <React.Fragment key={`${step.titleText}_${index}`}>
             <StepIndicator
@@ -75,7 +98,7 @@ const MultiStepIndicator = forwardRef(
     );
 
     const renderVerticalStepIndicator = useCallback(
-      (step, index) => {
+      (step: Step, index: number) => {
         return (
           <StepIndicator
             {...step}
@@ -88,7 +111,7 @@ const MultiStepIndicator = forwardRef(
             onClick={onClick}
             isFollowedByDivider={index !== steps.length - 1}
             stepDividerClassName={cx(styles.divider, dividerComponentClassName)}
-            isVertical={true}
+            isVertical
             isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
           />
         );
@@ -123,65 +146,9 @@ const MultiStepIndicator = forwardRef(
   }
 );
 
-MultiStepIndicator.types = MULTI_STEP_TYPES;
-MultiStepIndicator.stepStatuses = STEP_STATUSES;
-MultiStepIndicator.textPlacements = TEXT_PLACEMENTS;
-MultiStepIndicator.sizes = SIZES;
-
-MultiStepIndicator.propTypes = {
-  /** For overriding the container class styles. */
-  className: PropTypes.string,
-  type: PropTypes.oneOf([
-    MultiStepIndicator.types.PRIMARY,
-    MultiStepIndicator.types.SUCCESS,
-    MultiStepIndicator.types.DANGER,
-    MultiStepIndicator.types.DARK
-  ]),
-  /** Array of objects of the specified format. */
-  steps: PropTypes.arrayOf(
-    PropTypes.shape({
-      titleText: PropTypes.string,
-      subtitleText: PropTypes.string,
-      status: PropTypes.oneOf([
-        MultiStepIndicator.stepStatuses.PENDING,
-        MultiStepIndicator.stepStatuses.ACTIVE,
-        MultiStepIndicator.stepStatuses.FULFILLED
-      ])
-    })
-  ).isRequired,
-  /** For overriding the styles of the step component - container of number/check and texts. */
-  stepComponentClassName: PropTypes.string,
-  /** For overriding the step-dividers styles. */
-  dividerComponentClassName: PropTypes.string,
-  /** For overriding the 'fulfilled' step's icon. Is passed directly to an Icon component. */
-  fulfilledStepIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  /** For showing the number instead of the fulfilled step icon */
-  isFulfilledStepDisplayNumber: PropTypes.bool,
-  /** Callback for clicking each step. The callback is sent one parameter - the step's number. */
-  onClick: PropTypes.func,
-  /** Determines the step's text placement. Either to the left of the indicator(horizontal) or under it(vertical). */
-  textPlacement: PropTypes.oneOf([
-    MultiStepIndicator.textPlacements.HORIZONTAL,
-    MultiStepIndicator.textPlacements.VERTICAL
-  ]),
-  mode: PropTypes.oneOf([MultiStepIndicator.sizes.REGULAR, MultiStepIndicator.sizes.COMPACT])
-};
-
-MultiStepIndicator.defaultProps = {
-  className: "",
-  stepComponentClassName: "",
-  dividerComponentClassName: "",
-  type: MultiStepIndicator.types.PRIMARY,
-  // eslint-disable-next-line react/default-props-match-prop-types
-  steps: [],
-  fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG,
-  isFulfilledStepDisplayNumber: false,
-  onClick: NOOP,
-  textPlacement: MultiStepIndicator.textPlacements.HORIZONTAL,
-  mode: MultiStepIndicator.sizes.REGULAR
-};
-
-export default MultiStepIndicator;
+export default withStaticProps(MultiStepIndicator, {
+  types: MULTI_STEP_TYPES,
+  stepStatuses: STEP_STATUSES,
+  textPlacements: TEXT_PLACEMENTS,
+  sizes: SIZES
+});
