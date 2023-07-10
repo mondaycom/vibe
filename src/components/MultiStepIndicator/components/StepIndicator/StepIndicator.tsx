@@ -36,15 +36,14 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  stepNumber,
-  size
+  stepNumber
 }) => {
   return (
     <>
       {status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
         <Icon
           icon={fulfilledStepIcon}
-          className={classNames(styles.numberContainerTextCheckIcon, { [styles.compact]: size === SIZES.COMPACT })}
+          className={classNames(styles.numberContainerTextCheckIcon)}
           iconLabel={STEP_STATUSES.FULFILLED}
           iconType={fulfilledStepIconType}
           ignoreFocusStyle

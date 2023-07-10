@@ -784,7 +784,7 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon numberContainerTextCheckIcon compact noFocusStyle"
+            className="icon numberContainerTextCheckIcon noFocusStyle"
             data-testid="icon"
             fill="currentColor"
             height="16"
