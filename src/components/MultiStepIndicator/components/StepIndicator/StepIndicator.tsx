@@ -171,7 +171,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
         <div
           className={cx(...getClassNamesWithSuffix("__number-container"))}
           ref={componentRef}
-          tabIndex="0"
+          tabIndex={0}
           role="button"
         >
           <SwitchTransition mode="out-in">

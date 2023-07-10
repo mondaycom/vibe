@@ -22,7 +22,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -95,7 +95,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -152,7 +152,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -213,7 +213,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -286,7 +286,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -343,7 +343,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -411,7 +411,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -484,7 +484,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -541,7 +541,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -602,7 +602,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -659,7 +659,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -716,7 +716,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -777,7 +777,7 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeCompactNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeCompactNumberContainerText"
@@ -845,7 +845,7 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeCompactNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeCompactNumberContainerText"
@@ -897,7 +897,7 @@ exports[`MultiStepIndicator renders correctly with mode compact 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeCompactNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeCompactNumberContainerText"
@@ -953,7 +953,7 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -1026,7 +1026,7 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -1083,7 +1083,7 @@ exports[`MultiStepIndicator renders correctly with mode compact textPlacement ve
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -1144,7 +1144,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -1217,7 +1217,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -1274,7 +1274,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -1335,7 +1335,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -1408,7 +1408,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -1465,7 +1465,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
@@ -1526,7 +1526,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusFulfilledNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusFulfilledNumberContainerText sizeRegularNumberContainerText"
@@ -1599,7 +1599,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusActiveNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusActiveNumberContainerText sizeRegularNumberContainerText"
@@ -1656,7 +1656,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
       <div
         className="numberContainer typePrimaryNumberContainer statusPendingNumberContainer sizeRegularNumberContainer"
         role="button"
-        tabIndex="0"
+        tabIndex={0}
       >
         <span
           className="numberContainerText typePrimaryNumberContainerText statusPendingNumberContainerText sizeRegularNumberContainerText"
