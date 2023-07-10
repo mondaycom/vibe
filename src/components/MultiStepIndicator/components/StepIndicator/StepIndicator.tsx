@@ -5,7 +5,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useKeyEvent";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
@@ -18,10 +17,21 @@ import Clickable from "../../../../components/Clickable/Clickable";
 import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
+import { SubIcon, VibeComponentProps } from "../../../../types";
+import { IconType } from "../../../Icon/IconConstants";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-const StepCircleDisplay = ({
+interface StepCircleDisplayProps {
+  status: STEP_STATUSES;
+  isFulfilledStepDisplayNumber: boolean;
+  fulfilledStepIcon: SubIcon;
+  fulfilledStepIconType: IconType.SVG | IconType.ICON_FONT;
+  stepNumber: number;
+  size: SIZES;
+}
+
+const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   status,
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
@@ -29,37 +39,58 @@ const StepCircleDisplay = ({
   stepNumber,
   size
 }) => {
-  return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
-    <Icon
-      icon={fulfilledStepIcon}
-      className={classNames(styles.numberContainerTextCheckIcon, { [styles.compact]: size === SIZES.COMPACT })}
-      iconLabel={STEP_STATUSES.FULFILLED}
-      iconType={fulfilledStepIconType}
-      ignoreFocusStyle
-      clickable={false}
-      ariaHidden={true}
-    />
-  ) : (
-    stepNumber
+  return (
+    <>
+      {status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
+        <Icon
+          icon={fulfilledStepIcon}
+          className={classNames(styles.numberContainerTextCheckIcon, { [styles.compact]: size === SIZES.COMPACT })}
+          iconLabel={STEP_STATUSES.FULFILLED}
+          iconType={fulfilledStepIconType}
+          ignoreFocusStyle
+          clickable={false}
+          ariaHidden={true}
+        />
+      ) : (
+        stepNumber
+      )}
+    </>
   );
 };
 
-const StepIndicator = ({
+export interface StepIndicatorProps extends VibeComponentProps {
+  status: STEP_STATUSES;
+  titleText: string;
+  subtitleText?: string;
+  stepNumber: number;
+  stepComponentClassName?: string;
+  type?: MULTI_STEP_TYPES;
+  fulfilledStepIcon?: SubIcon;
+  fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
+  isFulfilledStepDisplayNumber?: boolean;
+  onClick?: (stepNumber: number) => void;
+  isFollowedByDivider?: boolean;
+  stepDividerClassName?: string;
+  isVertical?: boolean;
+  size?: SIZES;
+}
+
+const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepComponentClassName,
-  stepNumber,
-  status,
-  titleText,
-  subtitleText,
-  type,
-  fulfilledStepIcon,
-  fulfilledStepIconType,
-  isFulfilledStepDisplayNumber,
-  onClick,
-  isFollowedByDivider,
+  stepNumber = 1,
+  status = STEP_STATUSES.PENDING,
+  titleText = "Title text",
+  subtitleText = "Subtitle text",
+  type = MULTI_STEP_TYPES.PRIMARY,
+  fulfilledStepIcon = Check,
+  fulfilledStepIconType = IconType.SVG,
+  isFulfilledStepDisplayNumber = false,
+  onClick = NOOP,
+  isFollowedByDivider = false,
   stepDividerClassName,
-  isVertical,
+  isVertical = false,
   id,
-  size,
+  size = SIZES.REGULAR,
   "data-testid": dataTestId
 }) => {
   // Animations state
@@ -86,6 +117,7 @@ const StepIndicator = ({
 
   // Event listeners for removing animation.
   useEventListener({
+    // @ts-ignore TODO either fix the import to 'useEventListener' OR fix to fit 'useKeyEvent' OR remove entirely
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
     ref: componentRef
@@ -113,7 +145,7 @@ const StepIndicator = ({
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status, titleText, stepNumber, subtitleText]);
 
-  const getClassNamesWithSuffix = suffix => {
+  const getClassNamesWithSuffix = (suffix: string) => {
     return [
       getStyle(styles, camelCase(suffix || "indicator")),
       getStyle(styles, camelCase(`type-${type}${suffix}`)),
@@ -150,7 +182,7 @@ const StepIndicator = ({
                 exit: styles.swapExit,
                 exitActive: styles.swapExitActive
               }}
-              addEndListener={(node, done) => {
+              addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);
               }}
               key={status}
@@ -181,41 +213,6 @@ const StepIndicator = ({
       </div>
     </Clickable>
   );
-};
-
-StepIndicator.propTypes = {
-  status: PropTypes.oneOf([STEP_STATUSES.PENDING, STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED]).isRequired,
-  titleText: PropTypes.string.isRequired,
-  subtitleText: PropTypes.string,
-  stepNumber: PropTypes.number.isRequired,
-  stepComponentClassName: PropTypes.string,
-  type: PropTypes.oneOf([
-    MULTI_STEP_TYPES.PRIMARY,
-    MULTI_STEP_TYPES.SUCCESS,
-    MULTI_STEP_TYPES.DANGER,
-    MULTI_STEP_TYPES.DARK
-  ]),
-  fulfilledStepIcon: PropTypes.func,
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  isFulfilledStepDisplayNumber: PropTypes.bool,
-  onClick: PropTypes.func,
-  isVertical: PropTypes.bool,
-  size: PropTypes.oneOf([SIZES.REGULAR, SIZES.COMPACT])
-};
-
-StepIndicator.defaultProps = {
-  stepComponentClassName: "",
-  stepNumber: 1,
-  status: STEP_STATUSES.PENDING,
-  titleText: "Title text",
-  subtitleText: "Subtitle text",
-  type: MULTI_STEP_TYPES.PRIMARY,
-  fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG,
-  isFulfilledStepDisplayNumber: false,
-  onClick: NOOP,
-  isVertical: false,
-  size: SIZES.REGULAR
 };
 
 export default StepIndicator;
