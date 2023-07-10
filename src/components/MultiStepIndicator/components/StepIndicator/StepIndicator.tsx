@@ -174,7 +174,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           role="button"
         >
           <SwitchTransition mode="out-in">
-            <CSSTransition
+            <CSSTransition<undefined> /* https://stackoverflow.com/questions/64019519/typing-out-react-transition-group-handlers-in-typescript */
               classNames={{
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
