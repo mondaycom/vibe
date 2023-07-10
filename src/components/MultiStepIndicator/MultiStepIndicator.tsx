@@ -12,15 +12,15 @@ import styles from "./MultiStepIndicator.module.scss";
 import { withStaticProps, VibeComponentProps, VibeComponent, SubIcon } from "../../types";
 import { IconType } from "../Icon/IconConstants";
 
-type Step = {
+export type Step = {
   titleText: string;
   subtitleText: string;
   status: STEP_STATUSES;
 };
 
 interface MultiStepIndicatorProps extends VibeComponentProps {
-  type?: MULTI_STEP_TYPES;
   steps: Step[];
+  type?: MULTI_STEP_TYPES;
   stepComponentClassName?: string;
   dividerComponentClassName?: string;
   fulfilledStepIcon?: SubIcon;
@@ -40,8 +40,8 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
   (
     {
       className,
+      steps,
       type = MULTI_STEP_TYPES.PRIMARY,
-      steps = [],
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon = Check,

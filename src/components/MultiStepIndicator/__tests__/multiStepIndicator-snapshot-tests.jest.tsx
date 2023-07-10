@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { Featured } from "../../Icon/Icons";
-import MultiStepIndicator from "../MultiStepIndicator";
+import MultiStepIndicator, { type Step } from "../MultiStepIndicator";
 
-const exampleSteps = [
+const exampleSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Title",
@@ -23,7 +23,7 @@ const exampleSteps = [
 
 describe("MultiStepIndicator renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<MultiStepIndicator />).toJSON();
+    const tree = renderer.create(<MultiStepIndicator steps={[]} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
