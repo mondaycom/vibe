@@ -1,3 +1,4 @@
+import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { DialogPosition, Sizes } from "../../constants";
@@ -8,9 +9,9 @@ import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
-import { getHeadingClassNameByType } from "./HeadingHelpers";
-import { VibeComponentProps, withStaticProps } from "../../types";
+import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Heading.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -52,12 +53,17 @@ const Heading: React.FC<HeadingProps> & {
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
   );
   const finalStyle = useStyle(style, { color: customColor });
-  const typographyClassName = getHeadingClassNameByType(type, size);
-  const classNames = cx(styles.headingComponent, typographyClassName, className, {
-    [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
-    [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
-    [styles.suggestEditOnHover]: suggestEditOnHover
-  });
+  const classNames = cx(
+    styles.headingComponent,
+    className,
+    getStyle(styles, camelCase("element-type-" + type)),
+    getStyle(styles, camelCase("size-" + size)),
+    {
+      [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
+      [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
+      [styles.suggestEditOnHover]: suggestEditOnHover
+    }
+  );
   const Element = React.createElement(
     type,
     {

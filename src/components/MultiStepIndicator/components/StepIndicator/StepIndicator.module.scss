@@ -36,7 +36,7 @@
 }
 
 .textContainerTitleText {
-  font: var(--font-text-bold);
+  @include vibe-text("medium", "bold");
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;

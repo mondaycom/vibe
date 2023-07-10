@@ -14,24 +14,29 @@ $small-empty-state-height: 12px;
 
 
 @mixin create-text-classes() {
-  @include create-typography-classes($textClasses);
+  @include create-typography-classes($textClasses, text);
 }
 
 @mixin create-title-classes() {
-  @include create-typography-classes($titleClasses);
+  @include create-typography-classes($titleClasses, null);
 }
 
-@mixin create-typography-classes($classes) {
+@mixin create-typography-classes($classes, $token-prefix) {
   @each $class-prefix, $weight-types in $classes {
     @each $weight-type in $weight-types {
-      .#{$class-prefix}#{map-get($weightNames, $weight-type)} {
+      $overrideType: $class-prefix;
+      @if $token-prefix {
+        $overrideType: #{$token-prefix}-#{$class-prefix};
+      }
+
+      .#{$class-prefix}.#{$weight-type} {
 
         // if class is a heading class
         @if str-slice($class-prefix, 1, 1) == "h" {
-          @include vibe-title($class-prefix, $weight-type);
+          @include vibe-title($overrideType, $weight-type);
         }
         @else {
-          @include vibe-text($class-prefix, $weight-type);
+          @include vibe-text($overrideType, $weight-type);
         }
       }
     }
@@ -45,16 +50,9 @@ $titleClasses: (
 );
 
 $textClasses: (
-    "textMedium": ("bold", "normal"),
-    "textSmall": ("bold", "normal")
+    "medium": ("bold", "normal"),
+    "small": ("bold", "normal")
 );
-
-$weightNames: (
-  "bold": "Bold",
-  "normal": "Normal",
-  "light": "Light"
-);
-
 
 @mixin base-font($font-variable) {
   @include theme-prop(color, primary-text-color);

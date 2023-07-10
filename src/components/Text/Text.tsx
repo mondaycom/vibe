@@ -3,9 +3,7 @@ import cx from "classnames";
 import VibeComponent from "../../types/VibeComponent";
 import { TextSize, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
-import styles from "../Title/Title.module.scss";
+import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
   size?: TextSize;
@@ -15,13 +13,12 @@ export interface TextProps extends TypographyProps {
 
 const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
   ({ className, size = "medium", weight = "normal", ellipsis, paragraph, ...typographyProps }, ref) => {
-    const overrideEllipsis = ellipsis || !paragraph;
-    const overrideElement = paragraph ? "p" : "span";
-    const textGlobalClass = getStyle(styles, camelCase(`${size}-${weight}`));
+    const overrideEllipsis = ellipsis && !paragraph;
+    const overrideElement = paragraph ? "p" : "div";
     return (
       <Typography
         ref={ref}
-        className={cx(textGlobalClass, className)}
+        className={cx(styles[size], styles[weight], className)}
         ellipsis={overrideEllipsis}
         element={overrideElement}
         {...typographyProps}

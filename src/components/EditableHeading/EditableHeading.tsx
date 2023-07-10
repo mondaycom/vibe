@@ -1,3 +1,5 @@
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -9,8 +11,8 @@ import { InputType } from "../EditableInput/EditableInputConstants";
 import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
 import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
+import headingStyles from "../Heading/Heading.module.scss";
 import styles from "./EditableHeading.module.scss";
-import { getHeadingClassNameByType } from "../Heading/HeadingHelpers";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
@@ -166,15 +168,16 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     return <Heading {...contentProps} />;
   };
 
-  const typographyClassName = getHeadingClassNameByType(type, size);
-
   const getInputProps = () => {
     const textAreaType = props.ellipsisMaxLines > 1 ? InputType.TEXT_AREA : undefined;
     const inputType = props.inputType || textAreaType;
-
     return {
       value: valueState,
-      className: cx(typographyClassName, inputClassName),
+      className: cx(
+        getStyle(headingStyles, camelCase("element-type-" + type)),
+        getStyle(headingStyles, camelCase("size-" + size)),
+        inputClassName
+      ),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,

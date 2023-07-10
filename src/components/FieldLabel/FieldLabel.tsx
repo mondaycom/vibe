@@ -32,11 +32,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
           iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
-        <label
-          htmlFor={labelFor}
-          ref={ref}
-          className={cx(styles.labelComponentText, "vibe-text-small-normal", labelClassName)}
-        >
+        <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>
           {labelText}
         </label>
       </section>

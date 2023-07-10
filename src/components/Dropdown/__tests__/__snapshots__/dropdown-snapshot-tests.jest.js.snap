@@ -26,13 +26,13 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         class=" css-quv8ei-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -58,10 +58,10 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
       class="dropdownMenuWrapper css-1ysewv0-menu"
     >
       <div
-        class=" css-bknh9q-Component"
+        class=" css-4ljt47-MenuList"
       >
         <div
           class="optionReset css-1iwu591-option"
@@ -199,13 +199,13 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
         class=" css-quv8ei-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -231,10 +231,10 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -277,13 +277,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
         class=" css-veeint-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-qwj9xx-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -309,10 +309,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-col3eb-Component"
+          class=" css-12cxbpe-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -355,13 +355,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
         class=" css-veeint-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-qwj9xx-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -387,10 +387,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-col3eb-Component"
+          class=" css-12cxbpe-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -433,13 +433,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
         class=" css-veeint-control"
       >
         <div
-          class=" css-18qqyiw-Component"
+          class=" css-qwj9xx-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -465,10 +465,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-col3eb-Component"
+          class=" css-12cxbpe-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -511,13 +511,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
         class=" css-132xx32-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -543,10 +543,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -589,13 +589,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
         class=" css-ng27sg-control"
       >
         <div
-          class=" css-rxqqti-Component"
+          class=" css-c7u1lp-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -621,10 +621,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           </div>
         </div>
         <div
-          class=" css-hsetqv-Component"
+          class=" css-1b5f2fp-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -667,13 +667,13 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
         class=" css-132xx32-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -699,10 +699,10 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -760,13 +760,13 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
         class=" css-quv8ei-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -792,24 +792,24 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <div
             aria-hidden="true"
             class=" css-1xh8qep-loadingIndicator"
           >
             <span
-              class="css-imwzes-Component"
+              class="css-1yvy2vo-LoadingDot"
             />
             <span
-              class="css-1ue98e-Component"
+              class="css-zoievk-LoadingDot"
             />
             <span
-              class="css-fwsb3e-Component"
+              class="css-x748d8-LoadingDot"
             />
           </div>
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"
@@ -867,13 +867,13 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
         class=" css-quv8ei-control"
       >
         <div
-          class=" css-1ht1nal-Component"
+          class=" css-j6eacz-ValueContainer"
         >
           <div
             class=" css-1usuuna-placeholder"
           />
           <div
-            class="css-lkl2xd-Component"
+            class="css-1m8eskj-Input"
           >
             <div
               class=""
@@ -899,10 +899,10 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           </div>
         </div>
         <div
-          class=" css-1aqjfd-Component"
+          class=" css-hcxwnl-IndicatorsContainer"
         >
           <span
-            class=" css-ds71as-Component"
+            class=" css-1xjgjl1-IndicatorSeparator"
           />
           <div
             aria-hidden="true"

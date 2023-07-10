@@ -34,7 +34,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h2
-+           class="typography primary start singleLineEllipsis vibe-h2-normal title"
++           class="typography primary start singleLineEllipsis h2 normal title"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 1;"
 +         >
@@ -99,7 +99,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h2
-+           class="typography primary start singleLineEllipsis vibe-h2-normal title"
++           class="typography primary start singleLineEllipsis h2 normal title"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 1;"
 +         >
@@ -142,7 +142,7 @@ Snapshot Diff:
 +         </div>
 +       </div>
 +       <div
-+         class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
++         class="typography primary start singleLineEllipsis medium normal container"
 +         data-testid="modal-content"
 +         style="--text-clamp-lines: 1;"
 +       >
@@ -185,7 +185,7 @@ exports[`Modal with base props 1`] = `
       class="container"
     >
       <h2
-        class="typography primary start singleLineEllipsis vibe-h2-normal title"
+        class="typography primary start singleLineEllipsis h2 normal title"
         data-testid="modal-header_modal-id-title"
         id="modal-id-title"
         style="--text-clamp-lines: 1;"
@@ -229,7 +229,7 @@ exports[`Modal with base props 1`] = `
       </div>
     </div>
     <div
-      class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
+      class="typography primary start singleLineEllipsis medium normal container"
       data-testid="modal-content"
       style="--text-clamp-lines: 1;"
     >
@@ -311,19 +311,19 @@ Snapshot Diff:
 + Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
 
 @@ --- --- @@
-        >
           Modal Title
         </h2>
-+       <span
-+         class="typography primary start singleLineEllipsis vibe-text-small-normal description"
+        <div
++         class="typography primary start singleLineEllipsis small normal description"
 +         data-testid="text"
 +         style="--text-clamp-lines: 1;"
 +       >
 +         description
-+       </span>
-        <div
++       </div>
++       <div
           class="closeButton"
         >
+          <span
 `;
 
 exports[`Modal with full width 1`] = `
@@ -388,5 +388,5 @@ Snapshot Diff:
 -       </div>
       </div>
       <div
-        class="typography primary start singleLineEllipsis vibe-text-medium-normal container"
+        class="typography primary start singleLineEllipsis medium normal container"
 `;
