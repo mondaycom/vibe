@@ -61,7 +61,7 @@ the storybook will be served on `http://localhost:7007`
 
 ## Developing locally with your consumer application
 
-When developing locally, we are using a npm functionality called npm link, this allows us to
+When developing locally, we are using an npm functionality called npm link, this allows us to
 work locally on our package and use it in a different project without publishing.
 This functionality basically overrides the npm mapping between package name to its repo, and points it to where the package is located locally.
 
