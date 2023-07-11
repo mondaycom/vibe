@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.15.1 (2023-07-11)
+
+#### Bug Fixes
+* [#1404](https://github.com/mondaycom/monday-ui-react-core/pull/1404) Combobox: expose actual type instead a no argument on hover callback. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#1402](https://github.com/mondaycom/monday-ui-react-core/pull/1402) docs: fix storybook light theme name ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1396](https://github.com/mondaycom/monday-ui-react-core/pull/1396) Revert "refactor: support aria a11y in Tooltip component" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.15.0 (2023-07-09)
 
 #### Bug Fixes
