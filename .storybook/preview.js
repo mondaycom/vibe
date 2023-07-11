@@ -19,6 +19,24 @@ import {
   UsageGuidelines,
   withMemoryStats
 } from "../src/storybook";
+// TODO not working - React is not defined
+// import {
+// AnchorListItem
+// ComponentName
+// ComponentRules,
+//   DocFooter,
+//   FunctionArgument,
+//   FunctionArguments,
+//   LinkComponent,
+//   MultipleStoryElementsWrapper,
+//   Paragraph,
+//   RelatedComponents,
+//   SectionName,
+//   Tip,
+// Title
+//   UsageGuidelines,
+//   withMemoryStats
+// } from "monday-ui-storybook-blocks";
 
 addParameters({
   controls: {
@@ -30,7 +48,7 @@ addParameters({
     container: ({ children, context }) => (
       <DocsContainer context={context}>
         {children}
-        {<DocFooter />}
+        {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
       </DocsContainer>
     ),
     page: DocsPage,
