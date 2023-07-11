@@ -47,7 +47,7 @@ exports[`Text renders correctly with empty props 1`] = `
 
 exports[`Text renders correctly with paragraph 1`] = `
 <p
-  className="typography primary start singleLineEllipsis medium normal"
+  className="typography primary start medium normal"
   data-testid="text"
 >
   text

@@ -39,7 +39,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
@@ -86,7 +86,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
@@ -133,7 +133,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typeDarkText paragraph"
+    className="typography primary start small normal text typeDarkText paragraph"
     data-testid="text"
   >
     Text
@@ -203,7 +203,7 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
     }
   />
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   />
 </aside>
@@ -227,7 +227,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
@@ -257,7 +257,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
@@ -304,7 +304,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
@@ -383,7 +383,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
     }
   />
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     <span>
@@ -425,7 +425,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
     </h5>
   </div>
   <p
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText paragraph"
+    className="typography primary start small normal text typePrimaryText paragraph"
     data-testid="text"
   >
     Text
