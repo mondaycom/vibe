@@ -17,7 +17,6 @@ import { UnstyledList } from "./unstyled-list/unstyled-list";
 import { UnstyledListItem } from "./unstyled-list-item/unstyled-list-item";
 import { FunctionArgument } from "./function-arguments/function-argument";
 import { FunctionArguments } from "./function-arguments/function-arguments";
-import { SideBarLabel } from "./side-bar-label/side-bar-label";
 
 export { default as LinkComponent } from "./link-component/link-component";
 export {
@@ -39,6 +38,5 @@ export {
   UnstyledList,
   UnstyledListItem,
   FunctionArgument,
-  FunctionArguments,
-  SideBarLabel
+  FunctionArguments
 };
