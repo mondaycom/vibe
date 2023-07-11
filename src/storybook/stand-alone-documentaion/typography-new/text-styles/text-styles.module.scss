@@ -1,12 +1,10 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../../styles/typography";
 
-.text {
-  @include create-text-classes;
-}
-.title {
-  @include create-title-classes;
-}
+@include create-text-classes;
+
+@include create-title-classes;
+
 
 .visualExample {
   margin: var(--spacing-large) var(--spacing-large) var(--spacing-large) 0;

@@ -7,111 +7,111 @@ export const TextStyles = () => {
     <Frame>
       <VisualDescription
         ariaLabel="H1"
-        code="classname='vibe-h1-bold'"
+        code="@include vibe-title('h1', 'bold');"
         title="H1 bold main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h1 className="vibe-h1-bold">{`H1`}</h1>
+        <h2 className={cx(styles.h1, styles.bold)}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
-        code="classname='vibe-h1-normal'"
+        code="@include vibe-title('h1', 'normal');"
         title="H1 normal main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h1 className="vibe-h1-normal">{`H1`}</h1>
+        <h2 className={cx(styles.h1, styles.normal)}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
-        code="classname='vibe-h1-light'"
+        code="@include vibe-title('h1', 'light');"
         title="H1 light main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h1 className="vibe-h1-light">{`H1`}</h1>
+        <h2 className={cx(styles.h1, styles.light)}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
-        code="classname='vibe-h2-bold'"
+        code="@include vibe-title('h2', 'bold');"
         title="H2 bold main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className="vibe-h2-bold">{`H2`}</h2>
+        <h2 className={cx(styles.h2, styles.bold)}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
-        code="classname='vibe-h2-normal'"
+        code="@include vibe-title('h2', 'normal');"
         title="H2 normal main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className="vibe-h2-normal">{`H2`}</h2>
+        <h2 className={cx(styles.h2, styles.normal)}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
-        code="classname='vibe-h2-light'"
+        code="@include vibe-title('h2', 'light');"
         title="H2 light main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h1 className="vibe-h2-light">{`H2`}</h1>
+        <h2 className={cx(styles.h2, styles.light)}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
-        code="classname='vibe-h3-bold'"
+        code="@include vibe-title('h3', 'bold');"
         title="H3 bold main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className="vibe-h3-bold">{`H3`}</h3>
+        <h3 className={cx(styles.h3, styles.bold)}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
-        code="classname='vibe-h3-normal'"
+        code="@include vibe-title('h3', 'normal');"
         title="H3 normal main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className="vibe-h3-normal">{`H3`}</h3>
+        <h3 className={cx(styles.h3, styles.normal)}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
-        code="classname='vibe-h3-light'"
+        code="@include vibe-title('h3', 'light');"
         title="H3 light main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className="vibe-h3-light">{`H3`}</h3>
+        <h3 className={cx(styles.h3, styles.light)}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text-medium-bold'"
+        code="@include vibe-text('medium', 'normal');"
         title="Medium bold text"
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text-medium-bold">{`Text`}</span>
+        <span className={cx(styles.medium, styles.bold)}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text-medium-normal'"
+        code="@include vibe-text('medium', 'normal');"
         title="Medium normal text"
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text-medium-normal">{`Text`}</span>
+        <span className={cx(styles.medium, styles.normal)}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
-        code="classname='vibe-text-small-bold'"
+        code="@include vibe-text('small', 'bold');"
         title="Small bold text"
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className="vibe-text-small-bold">{`Text`}</span>
+        <span className={cx(styles.small, styles.bold)}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -120,7 +120,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={cx(styles.text, styles.small, styles.normal)}>{`Text`}</span>
+        <span className={cx(styles.small, styles.normal)}>{`Text`}</span>
       </VisualDescription>
     </Frame>
   );

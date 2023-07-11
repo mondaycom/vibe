@@ -24,19 +24,15 @@ $small-empty-state-height: 12px;
 @mixin create-typography-classes($classes, $token-prefix) {
   @each $class-prefix, $weight-types in $classes {
     @each $weight-type in $weight-types {
-      $overrideType: $class-prefix;
-      @if $token-prefix {
-        $overrideType: #{$token-prefix}-#{$class-prefix};
-      }
 
       .#{$class-prefix}.#{$weight-type} {
 
         // if class is a heading class
         @if str-slice($class-prefix, 1, 1) == "h" {
-          @include vibe-title($overrideType, $weight-type);
+          @include vibe-title($class-prefix, $weight-type);
         }
         @else {
-          @include vibe-text($overrideType, $weight-type);
+          @include vibe-text($class-prefix, $weight-type);
         }
       }
     }
