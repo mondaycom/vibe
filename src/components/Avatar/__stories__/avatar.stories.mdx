@@ -1,31 +1,34 @@
 import Avatar from "../Avatar";
 import AvatarGroup from "../../AvatarGroup/AvatarGroup";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   AVATAR_GROUP,
+  descriptionTypesMap,
   LABEL,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
 import {
   ComponentRules,
-  Link,
-  MultipleStoryElementsWrapper,
   RelatedComponents,
-  Tip
-} from "../../../storybook/components";
+  createStoryMetaSettings,
+  createComponentTemplate
+} from "monday-ui-storybook-blocks";
+import { Tip, StoryDescription, Link } from "../../../storybook";
+import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+import * as AllIcons from "../../../components/Icon/Icons";
 import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
 import { useCallback, useState } from "react";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import "./avatar.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Avatar,
   enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
+  iconsMetaData: iconsMetaData,
+  allIconsComponents: AllIcons
 });
 
 <Meta
@@ -61,7 +64,7 @@ Avatar is a graphical representation of a person through a profile picture, imag
     name="Overview"
     args={{
       size: Avatar.sizes.LARGE,
-      src: window.location.origin + '/' + person1,
+      src: window.location.origin + "/" + person1,
       type: Avatar.types.IMG,
       ariaLabel: "Hadas Fahri"
     }}
@@ -88,9 +91,9 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 <Tip>
   If you want to stack multiple avatars together, check out
-  <Link href="/?path=/docs/media-avatar-avatargroup--overview" size={Link.sizes.SMALL}>
+  <a href="/?path=/docs/media-avatar-avatargroup--overview" size={Link.sizes.SMALL}>
     AvatarGroup
-  </Link>
+  </a>
   component
 </Tip>
 
@@ -234,9 +237,24 @@ Use for non-person avatars, such as a workspace or team.
       negative: {
         component: (
           <div className="monday-storybook-avatar_multiple-reverse">
-            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.MEDIUM} src={person2} type={Avatar.types.IMG} />
-            <Avatar className="multiple-reverse-avatar" size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
+            <Avatar
+              className="multiple-reverse-avatar"
+              size={Avatar.sizes.SMALL}
+              src={person1}
+              type={Avatar.types.IMG}
+            />
+            <Avatar
+              className="multiple-reverse-avatar"
+              size={Avatar.sizes.MEDIUM}
+              src={person2}
+              type={Avatar.types.IMG}
+            />
+            <Avatar
+              className="multiple-reverse-avatar"
+              size={Avatar.sizes.LARGE}
+              src={person3}
+              type={Avatar.types.IMG}
+            />
           </div>
         ),
         description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
@@ -376,7 +394,6 @@ To group multiple Avatars together, use the <Link href="/?path=/docs/media-avata
   </Story>
 </Canvas>
 
-
 ## Related components
 
-<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} />
+<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} descriptionTypesMap={descriptionTypesMap} />
