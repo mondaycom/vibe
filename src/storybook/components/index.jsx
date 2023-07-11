@@ -6,6 +6,7 @@ import { ComponentRules } from "./component-rules/component-rules";
 import { UsageGuidelines } from "./usage-guidelines/usage-guidelines";
 import { RelatedComponents } from "./related-components/related-components";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
+import { StoryDescription } from "./story-description/story-description";
 import { DocFooter } from "./doc-footer/doc-footer";
 import { MultipleStoryElementsWrapper } from "./multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 import { Link } from "./link/link";
@@ -38,5 +39,6 @@ export {
   UnstyledList,
   UnstyledListItem,
   FunctionArgument,
-  FunctionArguments
+  FunctionArguments,
+  StoryDescription
 };
