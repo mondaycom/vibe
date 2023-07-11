@@ -1,14 +1,14 @@
 import { resetFocus } from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
-import { BoundFunctions, Screen } from "@testing-library/react";
+import { Screen } from "@testing-library/react";
 import {
   CONTEXT_MENU_DIALOG,
   CLICK_OUTSIDE_DIALOG,
   HIDE_TRIGGERS_CONTAINER,
   CLICK_OUTSIDE_DIALOG_BUTTON
 } from "./DialogDataTestIds";
-import { getByTestId, interactionSuite } from "../../../tests/interactions-utils";
-import { queries, userEvent, fireEvent, waitFor } from "@storybook/testing-library";
+import { Canvas, getByTestId, interactionSuite } from "../../../tests/interactions-utils";
+import { userEvent, fireEvent, waitFor } from "@storybook/testing-library";
 
 const isDialogHiddenAfterClickOutside = createTestIfDialogHiddenAfterTrigger(CLICK_OUTSIDE_DIALOG, () =>
   userEvent.click(getDialogContainer())
@@ -43,7 +43,7 @@ function getDialogContainer() {
   return document.querySelector(`[data-testid=${HIDE_TRIGGERS_CONTAINER}]`);
 }
 
-async function getDialogElement(canvas: BoundFunctions<typeof queries>, dataTestId: string) {
+async function getDialogElement(canvas: Canvas, dataTestId: string) {
   return await getByTestId(canvas, dataTestId);
 }
 
