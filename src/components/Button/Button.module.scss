@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
 @import "../../styles/themes";
@@ -91,21 +92,21 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeXxs {
-  @include font-input();
+  @include vibe-text(small, normal);
   padding: $spacing-xxs $spacing-xs;
   height: 16px;
   line-height: 16px;
 }
 
 .sizeXs {
-  @include font-input();
+  @include vibe-text(small, normal);
   padding: $spacing-xs $spacing-small;
   height: 24px;
   line-height: 21px;
 }
 
 .sizeSmall {
-  @include font-input();
+  @include vibe-text(small, normal);
   padding: $spacing-xs $spacing-small;
   height: 32px;
   line-height: 24px;
@@ -116,13 +117,13 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeMedium {
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
   padding: $spacing-small $spacing-medium;
   height: 40px;
 }
 
 .sizeLarge {
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
   padding: $spacing-small-medium $spacing-large;
   height: 48px;
 }

@@ -22,11 +22,6 @@
       padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
     }
 
-    &Content {
-      @include font-default;
-      @include theme-prop(color, text-color-on-primary);
-    }
-
     &CloseButton {
       position: absolute;
       top: var(--spacing-xs);

@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
@@ -33,7 +34,7 @@
 }
 
 .sizeLarge {
-  @include font-input();
+  @include vibe-text(medium, normal);
   line-height: 24px;
   min-width: 24px;
   padding: 0 $spacing-small;

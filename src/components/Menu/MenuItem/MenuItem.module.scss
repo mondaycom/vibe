@@ -5,11 +5,9 @@
 
 .item {
   margin: unset;
-  @include font-default;
   display: flex;
   flex-direction: row;
   padding: $spacing-xs $spacing-small;
-  @include theme-prop(color, primary-text-color);
   cursor: pointer;
   user-select: none;
   align-items: center;

@@ -57,11 +57,6 @@ $textClasses: (
   font: $font-variable;
 }
 
-// Main Heading (h1)
-@mixin font-main {
-  @include base-font(var(--font-h1));
-  letter-spacing: -1px;
-}
 
 // Secondary Heading (h2)
 @mixin font-title {
@@ -104,17 +99,14 @@ $textClasses: (
 
 // Caption / Subtext (small)
 @mixin font-caption {
-  @include base-font(var(--font-subtext));
+  @include vibe-text(small, normal);
+  color: var(--primary-text-color);
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
 }
 
 @mixin font-input {
   @include font-default;
-}
-
-@mixin font-link {
-  @include font-default;
-  text-decoration: none;
-  @include theme-prop(color, link-color);
 }
 
 @mixin line-clamp($lines: 1le) {

@@ -1,7 +1,8 @@
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
-import React, { forwardRef, useMemo } from "react";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import Text from "../../Text/Text";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
@@ -177,7 +178,10 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
     ) : null;
 
     return (
-      <div
+      <Text
+        element="div"
+        size="small"
+        color="secondary"
         className={wrapperClassName}
         ref={ref}
         id={id}
@@ -188,7 +192,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           {renderMultiBars}
         </div>
         {renderPercentage}
-      </div>
+      </Text>
     );
   }
 );

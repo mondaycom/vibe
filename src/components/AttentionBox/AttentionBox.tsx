@@ -76,11 +76,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
-      <Flex
-        justify={Flex.justify.START}
-        align={Flex.align.CENTER}
-        className={cx(styles.titleContainer, getStyle(styles, camelCase(`${classNameWithType}__title-container`)))}
-      >
+      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
         {title && !withoutIcon && (
           <Icon
             iconType={iconType}

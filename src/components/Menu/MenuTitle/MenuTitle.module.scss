@@ -2,10 +2,6 @@
 @import "../../../styles/typography";
 @import "../../../styles/global-css-settings";
 
-.title {
-  @include font-default;
-}
-
 .titleCaption {
   @include theme-prop(color, icon-color);
   margin: var(--spacing-small) 0;
@@ -35,5 +31,4 @@
   font-size: 0;
   line-height: 0;
   margin: 0 var(--spacing-small);
-  font-family: var(--font-family);
 }

@@ -1,8 +1,9 @@
+import cx from "classnames";
+import React, { FC } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import cx from "classnames";
-import React, { FC } from "react";
+import Text from "../../Text/Text";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps, withStaticProps } from "../../../types";
@@ -43,12 +44,14 @@ const MenuTitle: FC<MenuTitleProps> & {
     }
   };
   return (
-    <div
-      className={cx(styles.title, overrideClassName)}
+    <Text
+      color="secondary"
+      size="small"
+      className={cx(overrideClassName)}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
     >
       {renderCaptionIfNeeded()}
-    </div>
+    </Text>
   );
 };
 

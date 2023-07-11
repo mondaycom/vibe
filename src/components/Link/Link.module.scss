@@ -6,8 +6,8 @@
 .link {
   display: flex;
   align-items: center;
-  @include theme-prop(color, link-color);
-  @include font-link();
+  color: var(--link-color);
+  @include vibe-text(small, normal);
   text-decoration: none;
   writing-mode: horizontal-tb;
   @include focus-style();

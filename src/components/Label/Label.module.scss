@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: center;
   border-radius: $border-radius-small;
-  @include font-input();
   padding: 0 $spacing-small;
   position: relative;
 }

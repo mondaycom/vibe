@@ -4,6 +4,7 @@ import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { FC, useMemo } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
 import { withStaticProps, VibeComponentProps } from "../../types";
@@ -57,10 +58,10 @@ const Label: FC<LabelProps> & {
   );
   return (
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
-      <div className={classNames}>
+      <Text element="div" size="small" className={classNames}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
-      </div>
+      </Text>
     </span>
   );
 };

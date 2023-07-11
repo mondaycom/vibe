@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
@@ -20,8 +21,6 @@
 
 .textField .subTextContainer {
   display: flex;
-  @include font-input();
-  @include theme-prop(color, secondary-text-color);
 }
 
 .textField .subTextContainer .counter {
@@ -219,7 +218,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeSmall .input {
-  @include font-input();
+  @include vibe-text(small, normal);
 }
 
 .textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
