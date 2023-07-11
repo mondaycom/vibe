@@ -47,7 +47,7 @@
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
-    "storybook": "storybook=true start-storybook -p 7007",
+    "storybook": "bash scripts/build-icons.sh && storybook=true start-storybook -p 7007",
     "build-storybook": "storybook=true build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
