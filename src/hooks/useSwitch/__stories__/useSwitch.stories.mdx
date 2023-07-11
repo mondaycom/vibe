@@ -1,9 +1,7 @@
 import { Story, Canvas, Meta } from "@storybook/addon-docs";
 import { FunctionArgument, FunctionArguments } from "../../../storybook";
 import useSwitch from "../index";
-import Toggle from "../../../components/Toggle/Toggle";
-import Typography from "../../../components/Typography/Typography";
-import styles from "./useSwitch.stories.module.scss";
+import { Toggle, Flex } from "../../../components";
 
 <Meta title="Hooks/useSwitch" />
 
@@ -24,12 +22,10 @@ Hook for controlling boolean state on components, e.g. Toggle, by exposing state
     {() => {
       const { isChecked, onChange } = useSwitch();
       return (
-        <div className={styles.switchContainer}>
+        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
           <Toggle onChange={onChange} isSelected={isChecked} />
-          <Typography>
-            <code>isChecked: {isChecked.toString()}</code>
-          </Typography>
-        </div>
+          <code>isChecked: {isChecked.toString()}</code>
+        </Flex>
       );
     }}
   </Story>
@@ -46,12 +42,10 @@ Hook can have argument of `isDisabled` to not allow trigger `onChange` (or the c
     {() => {
       const { isChecked, onChange } = useSwitch({ isDisabled: true });
       return (
-        <div className={styles.switchContainer}>
+        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
           <Toggle onChange={onChange} isSelected={isChecked} />
-          <Typography>
-            <code>isChecked: {isChecked.toString()}</code>
-          </Typography>
-        </div>
+          <code>isChecked: {isChecked.toString()}</code>
+        </Flex>
       );
     }}
   </Story>
@@ -67,13 +61,11 @@ Hook can have argument of `defaultChecked` to control the **_initial_** value re
       const defaultChecked = true;
       const { isChecked, onChange } = useSwitch({ defaultChecked });
       return (
-        <div className={styles.switchContainer}>
+        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
           <Toggle onChange={onChange} isSelected={isChecked} />
-          <Typography element="div">
-            <code>isChecked: {isChecked.toString()}</code>
-            <code>defaultChecked: {defaultChecked.toString()}</code>
-          </Typography>
-        </div>
+          <code>isChecked: {isChecked.toString()}</code>
+          <code>defaultChecked: {defaultChecked.toString()}</code>
+        </Flex>
       );
     }}
   </Story>
