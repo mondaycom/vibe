@@ -24,18 +24,18 @@ export interface IComboboxCategory {
 
 export interface IComboboxOption {
   id: string;
-  categoryId: string;
-  leftIcon: SubIcon | ((className: string) => JSX.Element);
-  rightIcon: SubIcon | ((className: string) => JSX.Element);
-  leftIconType: ComboboxOptionIconType;
-  rightIconType: ComboboxOptionIconType;
+  categoryId?: string;
+  leftIcon?: SubIcon | ((className: string) => JSX.Element);
+  rightIcon?: SubIcon | ((className: string) => JSX.Element);
+  leftIconType?: ComboboxOptionIconType;
+  rightIconType?: ComboboxOptionIconType;
   label: string;
-  iconSize: number;
-  disabled: boolean;
-  selected: boolean;
-  ariaLabel: string;
-  belongToCategory: boolean;
-  tooltipContent: string;
+  iconSize?: number;
+  disabled?: boolean;
+  selected?: boolean;
+  ariaLabel?: string;
+  belongToCategory?: boolean;
+  tooltipContent?: string;
 }
 
 export interface IComboboxItem {
