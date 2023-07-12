@@ -6,6 +6,8 @@ interface AttentionBoxLinkProps {
   href: string;
   text: string;
 }
-export const AttentionBoxLink: FC<AttentionBoxLinkProps> = ({ href, text }) => {
+const AttentionBoxLink: FC<AttentionBoxLinkProps> = ({ href, text }) => {
   return <Link className={styles.attentionBoxLink} href={href} text={text} />;
 };
+
+export default AttentionBoxLink;
