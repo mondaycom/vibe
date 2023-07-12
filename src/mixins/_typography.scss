@@ -1,0 +1,12 @@
+@mixin vibe-text($class-prefix, $weight-type) {
+  font: var(--font-text-#{$class-prefix}-#{$weight-type});
+}
+
+@mixin vibe-title($class-prefix, $weight-type) {
+  font: var(--font-#{$class-prefix}-#{$weight-type});
+
+  margin: 0;
+  letter-spacing: var(--letter-spacing-#{$class-prefix}-#{$weight-type});
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+}
