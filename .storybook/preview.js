@@ -60,11 +60,12 @@ addParameters({
       a: LinkComponent,
       p: Paragraph,
       Tip,
+      ComponentName,
       ComponentRules,
       UsageGuidelines,
       FunctionArguments,
       FunctionArgument,
-      RelatedComponentsDecorator
+      RelatedComponents: RelatedComponentsDecorator
     }
   },
   viewMode: "docs",

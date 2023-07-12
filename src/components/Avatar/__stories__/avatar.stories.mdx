@@ -3,32 +3,22 @@ import AvatarGroup from "../../AvatarGroup/AvatarGroup";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   AVATAR_GROUP,
-  descriptionTypesMap,
   LABEL,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
-import {
-  ComponentRules,
-  RelatedComponents,
-  createStoryMetaSettings,
-  createComponentTemplate
-} from "monday-ui-storybook-blocks";
-import { Tip, StoryDescription, Link } from "../../../storybook";
-import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
-import * as AllIcons from "../../../components/Icon/Icons";
+import { ComponentRules, createComponentTemplate } from "monday-ui-storybook-blocks";
+import { Tip, StoryDescription, Link, createStoryMetaSettingsDecorator } from "../../../storybook";
 import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
 import { useCallback, useState } from "react";
 import "./avatar.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Avatar,
   enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["icon"],
-  iconsMetaData: iconsMetaData,
-  allIconsComponents: AllIcons
+  iconPropNamesArray: ["icon"]
 });
 
 <Meta
@@ -396,4 +386,4 @@ To group multiple Avatars together, use the <Link href="/?path=/docs/media-avata
 
 ## Related components
 
-<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} descriptionTypesMap={descriptionTypesMap} />
+<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} />
