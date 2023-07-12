@@ -1,32 +1,32 @@
 export const colorsMap = [
-  { color: "--primary-color", description: "Use this to emphasise main ui components" },
+  { color: "--primary-color", description: "Use to emphasise main ui components" },
   {
     color: "--primary-on-secondary-color",
-    description: "Use this to emphasise main ui components on secondary background color"
+    description: "Use to emphasise main ui components on secondary background color"
   },
   { color: "--primary-hover-color", description: "Use only as a hover on primary color" },
   {
     color: "--primary-hover-on-secondary-color",
     description: "Use only as a hover on primary color on secondary background color"
   },
-  { color: "--primary-selected-color", description: "Use this to indicate selected state of primary items" },
+  { color: "--primary-selected-color", description: "Use to indicate selected state of primary items" },
   {
     color: "--primary-selected-hover-color",
-    description: "Use this to indicate hover state on a primary-selected-color items"
+    description: "Use to indicate hover state on a primary-selected-color items"
   },
   {
     color: "--primary-selected-on-secondary-color",
-    description: "Use this to indicate selected state of primary items on secondary background color"
+    description: "Use to indicate selected state of primary items on secondary background color"
   },
   { color: "--primary-text-color", description: "Use for default text color" },
   {
     color: "--primary-text-on-secondary-color",
     description: "Use for default text color on secondary background color"
   },
-  { color: "--secondary-text-color", description: "Use when you need text with lesser importance" },
+  { color: "--secondary-text-color", description: "Use for text with lesser importance" },
   {
     color: "--secondary-text-on-secondary-color",
-    description: "Use when you need text with lesser importance (on secondary background color)"
+    description: "Use for text with lesser importance (on secondary background color)"
   },
   { color: "--primary-background-hover-color", description: "Use as hover color" },
   { color: "--primary-background-hover-on-secondary-color", description: "Use as hover color on secondary color" },
@@ -39,41 +39,41 @@ export const colorsMap = [
   // states
   {
     color: "--positive-color",
-    description: "Use to indicate positive item such as success"
+    description: "Use to indicate a positive action/state (success, completion, approval...)"
   },
   { color: "--positive-color-hover", description: "Use only as hover color on positive color" },
   { color: "--positive-color-selected", description: "Use only as selected indication for a positive colors" },
   {
     color: "--positive-color-selected-hover",
-    description: "Use this to indicate hover state on a positive-color-selected items"
+    description: "Use to indicate hover state on a positive-color-selected items"
   },
   {
     color: "--negative-color",
-    description: "Use when you want to indicate a negative action/state (delete, failed action..., error)"
+    description: "Use to indicate a negative action/state (delete, error...)"
   },
   { color: "--negative-color-hover", description: "Use only as hover color on negative color" },
   { color: "--negative-color-selected", description: "Use as selected indication for negative colors" },
   {
     color: "--negative-color-selected-hover",
-    description: "Use this to indicate hover state on a negative-selected items"
+    description: "Use to indicate hover state on a negative-selected items"
   },
   {
     color: "--private-color",
-    description: "Use when you want to indicate that something is private (board, icons...)"
+    description: "Use to indicate that something is private (board, icons...)"
   },
   {
     color: "--shareable-color",
-    description: "Use when you want to indicate that something is shareable (board, dashboard...)"
+    description: "Use to indicate that something is shareable (board, dashboard...)"
   },
   {
     color: "--warning-color",
-    description: "Use when you want to indicate a warning action/state (severity, alert, caution...)"
+    description: "Use to indicate a warning action/state (severity, alert, caution...)"
   },
   { color: "--warning-color-hover", description: "Use only as hover color on warning color" },
   { color: "--warning-color-selected", description: "Use as selected indication for warning colors" },
   {
     color: "--warning-color-selected-hover",
-    description: "Use this to indicate hover state on a warning-selected items"
+    description: "Use to indicate hover state on a warning-selected items"
   },
   // borders
   { color: "--ui-border-color", description: "Border color for ui elements and components (Button, Input...)" },
