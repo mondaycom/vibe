@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs";
-import { ComponentName, Frame, Link, RelatedComponents } from "../../components";
+import { ComponentName, Frame, Link, RelatedComponentsDecorator } from "../../components";
 import { TextColors } from "../../components/text-colors/text-colors";
 import { TextStyles } from "./text-styles/text-styles";
 import { COLORS, SHADOW, SPACING } from "../../components/related-components/component-description-map";
@@ -81,4 +81,4 @@ More ever this is how we are building our css variable for our main font familie
 
 ## Up next
 
-<RelatedComponents componentsNames={[COLORS, SPACING, SHADOW]} />
+<RelatedComponentsDecorator componentsNames={[COLORS, SPACING, SHADOW]} />

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { RelatedComponents, UsageGuidelines } from "monday-ui-storybook-blocks";
-import { Link, StoryDescription, createStoryMetaSettingsDecorator } from "../../../storybook";
+import { UsageGuidelines } from "monday-ui-storybook-blocks";
+import { Link, StoryDescription, createStoryMetaSettingsDecorator, RelatedComponentsDecorator } from "../../../storybook";
 import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { person1, person2, person3 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
@@ -454,4 +454,4 @@ Counter tooltip props can be specified in order to render tooltip with custom co
 
 ## Related components
 
-<RelatedComponents componentsNames={[AVATAR, TOOLTIP, COUNTER]} />
+<RelatedComponentsDecorator componentsNames={[AVATAR, TOOLTIP, COUNTER]} />

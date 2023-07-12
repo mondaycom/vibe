@@ -4,7 +4,7 @@ import { Title } from "./title/title";
 import { Tip } from "./tip/tip";
 import { ComponentRules } from "./component-rules/component-rules";
 import { UsageGuidelines } from "./usage-guidelines/usage-guidelines";
-import { RelatedComponents } from "./related-components/related-components";
+import { RelatedComponentsDecorator } from "./related-components/related-components-decorator";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { StoryDescription } from "./story-description/story-description";
 import { DocFooter } from "./doc-footer/doc-footer";
@@ -27,7 +27,7 @@ export {
   ComponentRules,
   ComponentName,
   UsageGuidelines,
-  RelatedComponents,
+  RelatedComponentsDecorator,
   AnchorListItem,
   DocFooter,
   MultipleStoryElementsWrapper,

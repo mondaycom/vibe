@@ -4,7 +4,7 @@ import Toast from "../Toast";
 import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
-import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
+import { Link, RelatedComponentsDecorator, Tip, UsageGuidelines } from "../../../storybook/components";
 import {
   ALERT_BANNER,
   ATTENTION_BOX,
@@ -262,4 +262,4 @@ After a user has done an action, provide feedback to close the loop. For example
 
 ## Related components
 
-<RelatedComponents componentsNames={[ALERT_BANNER, TOOLTIP, ATTENTION_BOX]} />
+<RelatedComponentsDecorator componentsNames={[ALERT_BANNER, TOOLTIP, ATTENTION_BOX]} />

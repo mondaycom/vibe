@@ -7,7 +7,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "../../Icon/Icons";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import TextField from "../../TextField/TextField";
-import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook/components";
+import { Link, RelatedComponentsDecorator, UsageGuidelines } from "../../../storybook/components";
 import {
   BREADCRUBMS,
   BUTTON_GROUP,
@@ -245,4 +245,4 @@ In the admin section tabs used to navigate between the different preferences
 
 ## Related components
 
-<RelatedComponents componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPPER]} />
+<RelatedComponentsDecorator componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPPER]} />

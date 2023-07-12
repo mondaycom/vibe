@@ -1,7 +1,7 @@
 import { Box } from "../../../components";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import { RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
+import { RelatedComponentsDecorator, Tip, UsageGuidelines } from "../../../storybook";
 import {
   DIALOG_CONTENT_CONTAINER,
   DIVIDER,
@@ -370,4 +370,4 @@ paddingStart
 
 ## Related components
 
-<RelatedComponents componentsNames={[FLEX, DIVIDER, DIALOG_CONTENT_CONTAINER]} />
+<RelatedComponentsDecorator componentsNames={[FLEX, DIVIDER, DIALOG_CONTENT_CONTAINER]} />

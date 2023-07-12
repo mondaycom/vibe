@@ -12,7 +12,7 @@ import {
   LinkComponent,
   MultipleStoryElementsWrapper,
   Paragraph,
-  RelatedComponents,
+  RelatedComponentsDecorator,
   SectionName,
   Tip,
   Title,
@@ -64,7 +64,7 @@ addParameters({
       UsageGuidelines,
       FunctionArguments,
       FunctionArgument,
-      RelatedComponents
+      RelatedComponentsDecorator
     }
   },
   viewMode: "docs",
