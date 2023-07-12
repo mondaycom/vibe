@@ -33,6 +33,7 @@ export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as Toast } from "./Toast/Toast";
 export { default as ToastButton } from "./Toast/ToastButton/ToastButton";
 export { default as ToastLink } from "./Toast/ToastLink/ToastLink";
+export { default as AttentionBoxLink } from "./AttentionBox/AttentionBoxLink/AttentionBoxLink";
 export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
