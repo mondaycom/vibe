@@ -3,7 +3,8 @@ import { BoundFunctions, Screen, waitFor } from "@testing-library/react";
 import { NavigationCommand as NavigationCommandType } from "./constants";
 import { expect } from "@storybook/jest";
 
-export type TestFunction = (canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => unknown;
+export type Canvas = HTMLElement | BoundFunctions<typeof queries>;
+export type TestFunction = (canvas: Canvas, args: Record<string, any>) => unknown;
 export type Coordinates = { x: number; y: number };
 
 // Internal functions
