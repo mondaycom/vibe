@@ -4,7 +4,7 @@ import { TextFieldTextType } from "../TextFieldConstants";
 import {
   ComponentRules,
   createComponentTemplate,
-  createStoryMetaSettings,
+  createStoryMetaSettingsDecorator,
   RelatedComponents,
   UsageGuidelines
 } from "../../../storybook";
@@ -12,7 +12,7 @@ import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: TextField,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]

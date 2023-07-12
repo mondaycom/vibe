@@ -1,7 +1,7 @@
 import Dropdown from "../Dropdown";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings, Link } from "../../../storybook";
+import { createStoryMetaSettingsDecorator, Link } from "../../../storybook";
 import {
   COMBOBOX,
   MENU,
@@ -22,7 +22,7 @@ import Dialog from "../../Dialog/Dialog";
 import Button from "../../Button/Button";
 import "./dropdown.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
   enumPropNamesArray: ["size"],
   actionPropsArray: [

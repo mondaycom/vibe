@@ -1,7 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
 import { Link } from "../../../storybook";
-import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator, RelatedComponents } from "../../../storybook";
 import {
   DROPDOWN,
   RADIO_BUTTON,
@@ -10,7 +10,7 @@ import {
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import "./checkbox.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({ component: Checkbox });
+export const metaSettings = createStoryMetaSettingsDecorator({ component: Checkbox });
 
 <Meta title="Inputs/Checkbox" component={Checkbox} decorators={metaSettings.decorators} />
 

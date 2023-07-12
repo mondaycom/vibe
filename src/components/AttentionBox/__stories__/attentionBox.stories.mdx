@@ -1,7 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
-import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator, Link } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
@@ -19,7 +19,7 @@ import Favorite from "../../Icon/Icons/components/Favorite";
 import { AttentionBoxLink } from "../AttentionBoxLink/AttentionBoxLink";
 import "./attentionBox.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
   enumPropNamesArray: ["type", "iconType"],
   iconPropNamesArray: ["icon"],

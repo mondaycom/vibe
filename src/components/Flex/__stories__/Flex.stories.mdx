@@ -5,10 +5,10 @@ import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { LIST, MENU, TABS } from "../../../storybook/components/related-components/component-description-map";
-import { createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Flex.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Flex,
   enumPropNamesArray: ["justify", "align"],
   actionPropsArray: ["onClick"]

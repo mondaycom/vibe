@@ -3,7 +3,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   ComponentRules,
   createComponentTemplate,
-  createStoryMetaSettings,
+  createStoryMetaSettingsDecorator,
   RelatedComponents,
   Tip,
   UsageGuidelines
@@ -20,7 +20,7 @@ import {
 
 import "./Loader.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader,
   enumPropNamesArray: ["size", "color"]
 });

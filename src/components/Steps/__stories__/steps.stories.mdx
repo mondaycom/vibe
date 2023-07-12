@@ -9,10 +9,10 @@ import { modifiers, NavigableStepsTemplate, StepsGalleryDontTemplate, StepsNumbe
 import { BREADCRUBMS, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import { ComponentRules, RelatedComponents, UsageGuidelines } from "../../../storybook";
 import createComponentTemplate from "../../../storybook/functions/createComponentTemplate";
-import createStoryMetaSettings from "../../../storybook/functions/createStoryMetaSettings";
+import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./steps.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
   enumPropNamesArray: ["type"],
   actionPropsArray: ["onChangeActiveStep"]

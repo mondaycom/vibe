@@ -1,6 +1,6 @@
 import { Box } from "../../../components";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import {
   DIALOG_CONTENT_CONTAINER,
@@ -9,7 +9,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Box.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Box,
   enumPropNamesArray: [
     "className",

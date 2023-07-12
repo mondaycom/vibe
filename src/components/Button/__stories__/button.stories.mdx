@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import Button from "../Button";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { Calendar, Remove, Add, Check } from "../../Icon/Icons";
 import {
@@ -11,7 +11,7 @@ import {
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook";
 import "./button.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Button,
   enumPropNamesArray: ["kind", "size", "color", "type"],
   iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"],

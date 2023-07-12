@@ -1,6 +1,6 @@
 import Heading from "../Heading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Link, RelatedComponents } from "../../../storybook/components";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
@@ -15,7 +15,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Heading.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   enumPropNamesArray: ["type", "size"]
 });

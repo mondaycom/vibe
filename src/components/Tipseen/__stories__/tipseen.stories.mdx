@@ -14,11 +14,11 @@ import {
   CHIP,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
   enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
 });

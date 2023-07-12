@@ -1,7 +1,7 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import {
   createComponentTemplate,
-  createStoryMetaSettings,
+  createStoryMetaSettingsDecorator,
   Link,
   RelatedComponents,
   Tip,
@@ -23,7 +23,7 @@ import {
   rangedSliderMouseEventsPlaySuite
 } from "../__tests__/Slider.interactions";
 
-export const argTypes = createStoryMetaSettings({
+export const argTypes = createStoryMetaSettingsDecorator({
   component: Slider,
   enumPropNamesArray: ["color", "size"]
 });

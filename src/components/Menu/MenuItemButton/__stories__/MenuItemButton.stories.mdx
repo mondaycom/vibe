@@ -1,5 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../../storybook";
 import MenuItemButton from "../MenuItemButton";
 import {
   menuItemButtonDisabledTemplate,
@@ -7,7 +7,7 @@ import {
   menuItemButtonKindsTemplate
 } from "./menuItemButton.stories";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItemButton,
   enumPropNamesArray: ["kind", "tooltipPosition"],
   iconPropNamesArray: ["leftIcon", "rightIcon"]

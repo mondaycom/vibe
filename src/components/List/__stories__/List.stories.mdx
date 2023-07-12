@@ -19,11 +19,11 @@ import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
-import { createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Flex } from "../../";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: List,
   enumPropNamesArray: ["component"]
 });

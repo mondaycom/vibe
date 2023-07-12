@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { ComponentRules, createStoryMetaSettings, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
+import { ComponentRules, createStoryMetaSettingsDecorator, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
@@ -15,7 +15,7 @@ import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton 
 import { Button, Flex, EditableHeading } from "../../../components";
 import "./Modal.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
   enumPropNamesArray: ["width"], // List enum props here
   actionPropsArray: ["onClose"] // List the component's actions here

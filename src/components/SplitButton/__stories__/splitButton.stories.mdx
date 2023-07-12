@@ -3,14 +3,14 @@ import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
 import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Add, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
 import "./splitButton.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
   enumPropNamesArray: [
     "kind",

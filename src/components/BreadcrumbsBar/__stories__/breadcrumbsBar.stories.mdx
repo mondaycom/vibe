@@ -7,10 +7,10 @@ import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
 import person3 from "./assets/person3.png";
 import { Link } from "../../../storybook/components";
 import { BUTTON_GROUP, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./breadcrumbsBar.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar,
   enumPropNamesArray: ["type"]
 });

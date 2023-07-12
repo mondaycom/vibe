@@ -1,8 +1,7 @@
 import { useCallback, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
-import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { RelatedComponents, UsageGuidelines } from "monday-ui-storybook-blocks";
+import { Link, StoryDescription, createStoryMetaSettingsDecorator } from "../../../storybook";
 import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { person1, person2, person3 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
@@ -13,30 +12,30 @@ import Slider from "../../Slider/Slider";
 import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./AvatarGroup.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup,
   enumPropNamesArray: ["type", "size"] // List enum props here
 });
 
-export const avatarGroupTemplate = ({persons, ...args}) => {
-return (
-  <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
-    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
-    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
-    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
-    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
-    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
-    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
-    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
-    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
-    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
-    <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
-    <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
-    <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
-    <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
-  </AvatarGroup>
-);}
-;
+export const avatarGroupTemplate = ({ persons, ...args }) => {
+  return (
+    <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
+      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+      <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.IMG} src={persons.person2} ariaLabel="Sergey Roytman" />
+      <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yonatan Lev Ari" />
+      <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
+    </AvatarGroup>
+  );
+};
 
 <Meta
   title="Media/Avatar/AvatarGroup"

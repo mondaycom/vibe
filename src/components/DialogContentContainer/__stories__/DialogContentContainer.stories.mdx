@@ -1,9 +1,9 @@
 import DialogContentContainer from "../DialogContentContainer";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainerExample from "./DialogContentContainerExample";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: DialogContentContainer,
   enumPropNamesArray: ["type", "size"]
 });

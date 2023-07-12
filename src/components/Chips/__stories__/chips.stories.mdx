@@ -3,7 +3,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
 import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettingsDecorator, Link } from "../../../storybook";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -13,7 +13,7 @@ import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
 import "./chips.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
