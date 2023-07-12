@@ -39,7 +39,7 @@ export const colorsMap = [
   // states
   {
     color: "--positive-color",
-    description: "Use when you want to indicate sometime positive (success, completion of something...)"
+    description: "Use to indicate positive item such as success"
   },
   { color: "--positive-color-hover", description: "Use only as hover color on positive color" },
   { color: "--positive-color-selected", description: "Use only as selected indication for a positive colors" },
