@@ -1,3 +1,3 @@
 import { ReactNode } from "react";
 
-export type ElementContent = string[] | ReactNode | ReactNode[];
+export type ElementContent = ReactNode | ReactNode[];
