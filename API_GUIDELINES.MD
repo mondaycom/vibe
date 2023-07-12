@@ -1,9 +1,9 @@
 # API Guidelines
-This doc is still work in progress and will constantly be updated.
+This document is still a work in progress and will be constantly updated.
 
-## Component's Mandatory Props
+## Mandatory Props for Components
 All Vibe components must include the following mandatory props: `className`, `id`, and `data-testid`. These props are essential for proper component functionality and testing.
-To ensure consistency and ease of use, there's no need to manually add these props to the component props interface. Instead, you can simply extend the `VibeComponentProps` interface, as demonstrated in the following example:
+To ensure consistency and ease of use, there is no need to manually add these props to the component props interface. Instead, you can simply extend the `VibeComponentProps` interface, as demonstrated in the following example:
 
 ```tsx
 import { VibeComponentProps } from "../../types";
@@ -14,14 +14,13 @@ interface MyComponentProps extends VibeComponentProps {
 }
 ```
 
-By extending VibeComponentProps, you automatically inherit the required props, className, id, and data-testid, without the need to explicitly define them in your component's props interface.
-
+By extending `VibeComponentProps`, you automatically inherit the required props (`className`, `id`, and `data-testid`) without the need to explicitly define them in your component's props interface.
 
 ### className
-Every component supports a `className` prop, allowing developers to add a custom class name to the outermost wrapper element. This feature is useful for layout and positioning purposes without overriding the component's inner styles.
+Every component supports the `className` prop, which allows developers to add a custom class name to the outermost wrapper element. This feature is useful for layout and positioning purposes without overriding the component's inner styles.
 
 ### id
-Each component supports an `id` prop, providing the ability to set a unique identifier for the component.
+Each component supports the `id` prop, which provides the ability to set a unique identifier for the component.
 
 ### data-testid
 When testing the application code that uses vibe components, it is necessary to retrieve elements. for that, `data-testid`s are used (TODO - add a link to a guide about how to test).
