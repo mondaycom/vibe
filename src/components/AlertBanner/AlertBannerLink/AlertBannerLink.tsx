@@ -7,7 +7,6 @@ import styles from "./AlertBannerLink.module.scss";
 
 export interface AlertBannerLinkProps extends LinkProps {
   marginLeft?: boolean;
-  isDarkBackground?: boolean;
 }
 
 const AlertBannerLink: FC<AlertBannerLinkProps> = ({
