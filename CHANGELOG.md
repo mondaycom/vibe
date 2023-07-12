@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.15.3 (2023-07-12)
+
+#### Bug Fixes
+* [#1416](https://github.com/mondaycom/monday-ui-react-core/pull/1416) Bug: Combobox component ts issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1414](https://github.com/mondaycom/monday-ui-react-core/pull/1414) docs: change colors descriptions ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.15.2 (2023-07-12)
 
 #### Bug Fixes
