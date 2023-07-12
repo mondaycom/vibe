@@ -105,11 +105,11 @@ FilledForm.play = interactionSuite({
 
 The interactionSuite functions received the following attributes:
 - **skip** (`boolean`): If true, the test suite will not run.
-- **beforeEach** (`(canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run before each test in the suite.
-- **beforeAll**:  (`(canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run once before all the suite's tests.
-- **tests**: `(Array<(canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void>`) The suite's tests.
-- **afterEach**: (`(canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run after each test in the suite.
-- **afterAll**: (`canvas: BoundFunctions<typeof queries>, args: Record<string, any>) => void`) Will run once after all the suite's tests.
+- **beforeEach** (`(canvas: Canvas, args: Record<string, any>) => void`) Will run before each test in the suite.
+- **beforeAll**:  (`(canvas: Canvas, args: Record<string, any>) => void`) Will run once before all the suite's tests.
+- **tests**: `(Array<(canvas: Canvas, args: Record<string, any>) => void>`) The suite's tests.
+- **afterEach**: (`(canvas: Canvas, args: Record<string, any>) => void`) Will run after each test in the suite.
+- **afterAll**: (`canvas: Canvas, args: Record<string, any>) => void`) Will run once after all the suite's tests.
 
 ## Query elements by using vibe helpers
 - **getByTestId**: Parameters: (`rootElement: HTMLElement, dataTestId: string`)

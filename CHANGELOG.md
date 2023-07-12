@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.15.2 (2023-07-12)
+
+#### Bug Fixes
+* [#1409](https://github.com/mondaycom/monday-ui-react-core/pull/1409) fix: InteractionsTest - fix types ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1407](https://github.com/mondaycom/monday-ui-react-core/pull/1407) docs(useSwitch): add story page for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1406](https://github.com/mondaycom/monday-ui-react-core/pull/1406) test(useSwitch): add tests for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Icons
+* [#1413](https://github.com/mondaycom/monday-ui-react-core/pull/1413) Update icons - monday-ui-style 0.1.170 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.15.1 (2023-07-11)
+
+#### Bug Fixes
+* [#1404](https://github.com/mondaycom/monday-ui-react-core/pull/1404) Combobox: expose actual type instead a no argument on hover callback. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#1402](https://github.com/mondaycom/monday-ui-react-core/pull/1402) docs: fix storybook light theme name ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1396](https://github.com/mondaycom/monday-ui-react-core/pull/1396) Revert "refactor: support aria a11y in Tooltip component" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.15.0 (2023-07-09)
 
 #### Bug Fixes
