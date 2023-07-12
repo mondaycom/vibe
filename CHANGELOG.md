@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.15.2 (2023-07-12)
+
+#### Bug Fixes
+* [#1409](https://github.com/mondaycom/monday-ui-react-core/pull/1409) fix: InteractionsTest - fix types ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1407](https://github.com/mondaycom/monday-ui-react-core/pull/1407) docs(useSwitch): add story page for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1406](https://github.com/mondaycom/monday-ui-react-core/pull/1406) test(useSwitch): add tests for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Icons
+* [#1413](https://github.com/mondaycom/monday-ui-react-core/pull/1413) Update icons - monday-ui-style 0.1.170 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.15.1 (2023-07-11)
 
 #### Bug Fixes
