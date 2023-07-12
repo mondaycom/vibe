@@ -18,6 +18,8 @@ jobs:
           npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Build react icons
+        run: npm run build:react-icons
 
       - name: Test
         if: success()
@@ -72,6 +74,8 @@ jobs:
           npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Build react icons
+        run: npm run build:react-icons
 
       - name: Test
         if: success()
@@ -90,6 +94,8 @@ jobs:
           npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Build react icons
+        run: npm run build:react-icons
 
       - name: Test
         if: success()
