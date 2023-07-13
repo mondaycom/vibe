@@ -21,7 +21,7 @@ export default function useIsOverflowing({
   ref: RefObject<HTMLElement>;
   ignoreHeightOverflow?: boolean;
 }) {
-  const [isOverflowing, setIsOverflowing] = useState<boolean>(checkOverflow(ref?.current, ignoreHeightOverflow));
+  const [isOverflowing, setIsOverflowing] = useState<boolean>(() => checkOverflow(ref?.current, ignoreHeightOverflow));
   const callback = useCallback(() => {
     setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow));
   }, [ignoreHeightOverflow, ref]);
