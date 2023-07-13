@@ -1,0 +1,11 @@
+@import "../../styles/typography";
+@import "../../styles/content-spacing";
+@import "../../../styles/global-css-settings";
+
+.vibe-storybook-component-name {
+  background-image: url('./assets/component-background.png');
+
+  &--foundation {
+    background-image: url('./assets/foundation-background.png');
+  }
+}

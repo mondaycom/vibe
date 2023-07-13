@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
-import { ComponentName, Frame, Link, UnstyledList, UnstyledListItem } from "monday-ui-storybook-blocks";
+import { Frame, Link, UnstyledList, UnstyledListItem } from "monday-ui-storybook-blocks";
 import { PrinciplesAccesability } from "./principles/principlesAccesability";
+import { ComponentNameDecorator } from "../../components";
 import { COLORS, HIDDEN_TEXT, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import {
   accessibilityCheckList,
@@ -14,13 +15,9 @@ import {
   navigationTabs
 } from "./assets";
 
-<Meta
-    title="Foundations/Accessibility"
-/>
+<Meta title="Foundations/Accessibility" />
 
-<ComponentName withFoundationBackground>
-    Accessibility
-</ComponentName>
+<ComponentNameDecorator withFoundationBackground>Accessibility</ComponentNameDecorator>
 
 - [Intro](#intro)
 - [Accessibility principles](#accessibility-principles)
@@ -32,123 +29,158 @@ import {
 - [Feedback](#feedback)
 
 ## Intro
+
 Web Accessibility is focused on ensuring people with disabilities can equally perceive, understand, navigate, and interact with digital content. It also means that they can contribute equally like anyone else.
 Web Accessibility is based on guidelines published by The World Wide Web Consortium (W3C) for accessible content called Web Content Accessibility Guidelines or WCAG.
 
 [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
 
-<Tip title="Get our Accessibility checklist"><Link href={accessibilityCheckList} target="_blank">Download</Link> our
-    accessibility checklist file.</Tip>
+<Tip title="Get our Accessibility checklist">
+  <Link href={accessibilityCheckList} target="_blank">
+    Download
+  </Link>{" "}
+  our accessibility checklist file.
+</Tip>
 
 ## Accessibility principles
-<PrinciplesAccesability/>
+
+<PrinciplesAccesability />
 
 ## Color contrast
+
 ### Text Color Contrast
+
 Applies to text in the page, including placeholder text, hover text and text shown on keyboard focus.
 The visual presentation of text and images should have a contrast ratio of at least 4.5:1 with the background
 
 <Frame noBorder noGutter>
-    <img src={colorContrastText} alt="example for text color contrast"/>
+  <img src={colorContrastText} alt="example for text color contrast" />
 </Frame>
 
 Except for:
+
 <UnstyledList>
-    <UnstyledListItem>Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold must have a contrast ratio of at least 3:1</UnstyledListItem>
-    <UnstyledListItem>Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant part of a picture</UnstyledListItem>
-    <UnstyledListItem>Logotypes - Text that is part of a logo or brand name</UnstyledListItem>
+  <UnstyledListItem>
+    Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold must have a contrast ratio of at
+    least 3:1
+  </UnstyledListItem>
+  <UnstyledListItem>
+    Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant
+    part of a picture
+  </UnstyledListItem>
+  <UnstyledListItem>Logotypes - Text that is part of a logo or brand name</UnstyledListItem>
 </UnstyledList>
 
 ### Non-Text Color Contrast
+
 The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color
 
 <Frame noBorder noGutter>
-    <img src={colorContrastImage} alt="example for non text color contrast"/>
+  <img src={colorContrastImage} alt="example for non text color contrast" />
 </Frame>
 
 UI Components - Visual information required to identify active UI components and states (including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br/>
 Graphical Objects - Parts of graphics required to understand the content
 
-<Tip title="Use color contrast tools for code and design">To check color contrast in design use <Link
-    href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">Contrast figma
-    plugin</Link> and inspect elements accessibility tab for live code verification</Tip>
+<Tip title="Use color contrast tools for code and design">
+  To check color contrast in design use{" "}
+  <Link href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">
+    Contrast figma plugin
+  </Link>{" "}
+  and inspect elements accessibility tab for live code verification
+</Tip>
 
 ## Imagery
+
 People with vision impairments or difficulties reading rely on text alternatives for most of the visual content.
 
 <Frame noBorder noGutter>
-    <img src={imageryAlt} alt="example for an accessible image"/>
+  <img src={imageryAlt} alt="example for an accessible image" />
 </Frame>
 
-Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud,  and rendered in a tactile form.
+Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud, and rendered in a tactile form.
 
 ### Information Images
 
 Are all images that convey important information and communicate information visually:
+
 <UnstyledList>
-    <UnstyledListItem>The alt-text needs to convey the same information as the image</UnstyledListItem>
-    <UnstyledListItem>Ensure the alt-text is short and appropriate to the context</UnstyledListItem>
-    <UnstyledListItem>If the same information already is present as text on the screen, the image becomes
-        decorative</UnstyledListItem>
-    <UnstyledListItem>Do not use the words like "graphic", "An image of", "A picture of", "an icon
-        of"</UnstyledListItem>
+  <UnstyledListItem>The alt-text needs to convey the same information as the image</UnstyledListItem>
+  <UnstyledListItem>Ensure the alt-text is short and appropriate to the context</UnstyledListItem>
+  <UnstyledListItem>
+    If the same information already is present as text on the screen, the image becomes decorative
+  </UnstyledListItem>
+  <UnstyledListItem>Do not use the words like "graphic", "An image of", "A picture of", "an icon of"</UnstyledListItem>
 </UnstyledList>
 
 <Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
-    <img src={imageryDescriptive} alt="example for an accessible information within image src"/>
+  <img src={imageryDescriptive} alt="example for an accessible information within image src" />
 </Frame>
 
 ### Decorative Images
+
 Such as borders, empty states, background ambience images:
+
 <UnstyledList>
-    <UnstyledListItem>Do not convey information</UnstyledListItem>
-    <UnstyledListItem>Should be ignored by the screen reader</UnstyledListItem>
-    <UnstyledListItem>Can be defined as background image in the stylesheet</UnstyledListItem>
-    <UnstyledListItem>Should use ``role="presentation"``</UnstyledListItem>
+  <UnstyledListItem>Do not convey information</UnstyledListItem>
+  <UnstyledListItem>Should be ignored by the screen reader</UnstyledListItem>
+  <UnstyledListItem>Can be defined as background image in the stylesheet</UnstyledListItem>
+  <UnstyledListItem>Should use ``role="presentation"``</UnstyledListItem>
 </UnstyledList>
 
 <Frame noBorder noGutter>
-    <img src={imageryDecorative} alt="example decorative image" role="presentation"/>
+  <img src={imageryDecorative} alt="example decorative image" role="presentation" />
 </Frame>
 
 ## Hierarchy and focus
+
 ### Reading Order
+
 The reading and navigation order is determined by code order<br/>
 The reading order must be logical and intuitive.<br/>
 We arrange the order of the elements within the HTML so that the reading order follows the same order as the visual presentation of the screen.
 
 <Frame noBorder noGutter>
-    <img src={hierarchyOrder} alt="example decorative image" role="presentation"/>
+  <img src={hierarchyOrder} alt="example decorative image" role="presentation" />
 </Frame>
 
 ### Semantic Markup
+
 Semantic markup is used to define: Headings, Regions/Landmarks, Lists, Emphasized or special text, Tables and
 Text labels & form group labels
 
 ### Headings
+
 Headings communicate the structure of the content on the page. Assistive technologies users can use them as in-page navigation elements.
+
 <UnstyledList>
-    <UnstyledListItem>Arrange the headings on the page according to their level (``H1...H6``).</UnstyledListItem>
-    <UnstyledListItem>The most important heading on the page is heading level 1 (``H1``).</UnstyledListItem>
-    <UnstyledListItem>Only one heading level 1 ``H1`` is allowed on a page.</UnstyledListItem>
-    <UnstyledListItem>Headings should be placed at the start of new sections of content not for
-        decoration</UnstyledListItem>
-    <UnstyledListItem>void skipping heading levels. Ensure that a heading level 1 ``H1`` is not followed directly by an
-        ``H3``, for example.</UnstyledListItem>
+  <UnstyledListItem>Arrange the headings on the page according to their level (``H1...H6``).</UnstyledListItem>
+  <UnstyledListItem>The most important heading on the page is heading level 1 (``H1``).</UnstyledListItem>
+  <UnstyledListItem>Only one heading level 1 ``H1`` is allowed on a page.</UnstyledListItem>
+  <UnstyledListItem>
+    Headings should be placed at the start of new sections of content not for decoration
+  </UnstyledListItem>
+  <UnstyledListItem>
+    void skipping heading levels. Ensure that a heading level 1 ``H1`` is not followed directly by an ``H3``, for
+    example.
+  </UnstyledListItem>
 </UnstyledList>
 
 ## Navigation
+
 ### Keyboard Access
+
 All active elements that can be activated with a mouse have to be operable by keyboard, or have a keyboard equivalent.<br/>
 Dynamic components such as dialogs, not initially in the tab order must also receive keyboard focus.<br/>
 Elements that show content on mouse hover needs to be added to the tab-order and be operable with the keyboard.<br/>
 In your design, annotate the tab-order and number the tab stops.
 
 <Frame noBorder noGutter>
-    <img src={navigationTabs} alt="example for keyboard navigation" role="presentation"/>
+  <img src={navigationTabs} alt="example for keyboard navigation" role="presentation" />
 </Frame>
 
 ### Focus Management
+
 Keyboard navigation in a rich internet application is different from tabbing in a website.<br/>
 In rich internet applications, users tab to complex components such as comboboxes, grids, menus etc. then use the arrow keys to navigate within the component.<br/>
 Dynamic components such as dialogs, not initially in the tab order have to receive keyboard focus.<br/>
@@ -158,40 +190,49 @@ Receiving focus or interacting with an input element must not result in a substa
 <Tip title="We got you covered with tab navigation">Use this keyboard navigation infra in any UI that requires it.</Tip>
 
 ### Focus Visible
+
 Provide a visible focus indicator to mark currently focused active elements.<br/>
 As keyboard users tab through the page, they can see where they are.
 
 <Frame noBorder noGutter>
-    <img src={navigationFocus} alt="example for an accessible navigational focus" role="presentation"/>
+  <img src={navigationFocus} alt="example for an accessible navigational focus" role="presentation" />
 </Frame>
 
 ## Assistive Technology
+
 Software and hardware that people with disabilities use to interact with digital content.
 A screen reader is a piece of software that makes digital content accessible to blind people. The software converts text to speach and helps blind people navigate and understand the content on the page.
-The screen reader the DOM (Document Object Model)  and transfers it into a Virtual Buffer (acts like a word document).
+The screen reader the DOM (Document Object Model) and transfers it into a Virtual Buffer (acts like a word document).
 
 Screen reader users navigate the virtual buffer in Virtual Mode or Browse Mode:
+
 <UnstyledList>
-    <UnstyledListItem>With shorstcut keys like H for the next heading, E for the next editable field, B for the next
-        button, etc..</UnstyledListItem>
-    <UnstyledListItem>With the keyboard arrow keys. The navigation is object by object.</UnstyledListItem>
+  <UnstyledListItem>
+    With shorstcut keys like H for the next heading, E for the next editable field, B for the next button, etc..
+  </UnstyledListItem>
+  <UnstyledListItem>With the keyboard arrow keys. The navigation is object by object.</UnstyledListItem>
 </UnstyledList>
 
 Screen reader users navigate the virtual buffer in Input Mode or Forms Mode:
+
 <UnstyledList>
-    <UnstyledListItem>The standard mode in which the users will type letters via the keyboard.</UnstyledListItem>
+  <UnstyledListItem>The standard mode in which the users will type letters via the keyboard.</UnstyledListItem>
 </UnstyledList>
 
-
 For example:
+
 <UnstyledList>
-    <UnstyledListItem>Screen readers that read aloud web content for people who cannot read the text, usually blind
-        people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for
-        MacOS.</UnstyledListItem>
-    <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
-    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse.
-        For example: Dragon Naturally Speaking</UnstyledListItem>
+  <UnstyledListItem>
+    Screen readers that read aloud web content for people who cannot read the text, usually blind people and people with
+    cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for MacOS.
+  </UnstyledListItem>
+  <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
+  <UnstyledListItem>
+    Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example:
+    Dragon Naturally Speaking
+  </UnstyledListItem>
 </UnstyledList>
 
 ## Up next
-<RelatedComponents componentsNames={[COLORS, TYPOGRAPHY, HIDDEN_TEXT]}/>
+
+<RelatedComponents componentsNames={[COLORS, TYPOGRAPHY, HIDDEN_TEXT]} />

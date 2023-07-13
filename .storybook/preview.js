@@ -2,10 +2,9 @@ import { addParameters } from "@storybook/react";
 import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withPerformance } from "storybook-addon-performance";
 import "monday-ui-style/dist/index.min.css";
-import { RelatedComponentsDecorator, Tip } from "../src/storybook";
+import { ComponentNameDecorator, RelatedComponentsDecorator, Tip } from "../src/storybook";
 import {
   AnchorListItem,
-  ComponentName,
   ComponentRules,
   DocFooter,
   Frame,
@@ -37,14 +36,14 @@ addParameters({
     ),
     page: DocsPage,
     components: {
-      h1: ComponentName,
+      h1: ComponentNameDecorator,
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
       a: LinkComponent,
       p: Paragraph,
       Tip,
-      ComponentName,
+      ComponentName: ComponentNameDecorator,
       ComponentRules,
       UsageGuidelines,
       FunctionArguments,
