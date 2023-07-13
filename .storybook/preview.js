@@ -8,6 +8,7 @@ import {
   ComponentName,
   ComponentRules,
   DocFooter,
+  Frame,
   FunctionArgument,
   FunctionArguments,
   LinkComponent,
@@ -15,6 +16,8 @@ import {
   Paragraph,
   SectionName,
   Title,
+  UnstyledList,
+  UnstyledListItem,
   UsageGuidelines,
   withMemoryStats
 } from "monday-ui-storybook-blocks";
@@ -46,7 +49,11 @@ addParameters({
       UsageGuidelines,
       FunctionArguments,
       FunctionArgument,
-      RelatedComponents: RelatedComponentsDecorator
+      MultipleStoryElementsWrapper,
+      RelatedComponents: RelatedComponentsDecorator,
+      Frame,
+      UnstyledList,
+      UnstyledListItem
     }
   },
   viewMode: "docs",
