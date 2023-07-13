@@ -36,7 +36,7 @@
 }
 
 .textContainerTitleText {
-  @include vibe-text("medium", "bold");
+  @include vibe-text("small", "bold");
   @include theme-prop(color, primary-text-color);
   margin-bottom: 2px;
 }

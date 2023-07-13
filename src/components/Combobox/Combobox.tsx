@@ -66,7 +66,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * on mouse hover callback for option
    */
   // onOptionHover?: PropTypes.func,
-  onOptionHover?: () => void;
+  onOptionHover?: (event: React.MouseEvent, index: number, option: IComboboxOption) => void;
   /**
    * on mouse leave callback for option
    */
