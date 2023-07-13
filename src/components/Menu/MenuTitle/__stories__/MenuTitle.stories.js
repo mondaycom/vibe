@@ -2,7 +2,7 @@ import React from "react";
 import MenuTitle from "../MenuTitle";
 import Menu from "../../Menu/Menu";
 import MenuItem from "../../MenuItem/MenuItem";
-import { createComponentTemplate } from "../../../../storybook";
+import { createComponentTemplate } from "monday-ui-storybook-blocks";
 
 export const menuTitleTemplate = createComponentTemplate(MenuTitle);
 

@@ -1,6 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toggle from "../Toggle";
-import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   BUTTON_GROUP,
   CHECKBOX,
@@ -10,8 +10,9 @@ import {
   ComponentRules,
   Link,
   MultipleStoryElementsWrapper,
-  UsageGuidelines
-} from "../../../storybook/components";
+  UsageGuidelines,
+  createComponentTemplate
+} from "monday-ui-storybook-blocks";
 import "./toggle.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
