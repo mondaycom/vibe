@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ColorsDescription } from "../colors-description/colors-description";
+import { ColorsDescription } from "../../../components/colors-description/colors-description";
 
 export const TextColors = () => {
   const colorKeys = useMemo(
