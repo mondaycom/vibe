@@ -9,10 +9,10 @@ export const AvatarGroupDescription = () => {
       <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
         <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
         <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
         <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
         <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
       </AvatarGroup>
     ),
     []
