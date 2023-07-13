@@ -2,6 +2,7 @@ import { addParameters } from "@storybook/react";
 import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withPerformance } from "storybook-addon-performance";
 import "monday-ui-style/dist/index.min.css";
+import { RelatedComponentsDecorator, Tip } from "../src/storybook";
 import {
   AnchorListItem,
   ComponentName,
@@ -12,31 +13,11 @@ import {
   LinkComponent,
   MultipleStoryElementsWrapper,
   Paragraph,
-  RelatedComponentsDecorator,
   SectionName,
-  Tip,
   Title,
   UsageGuidelines,
   withMemoryStats
-} from "../src/storybook";
-// TODO not working - React is not defined
-// import {
-// AnchorListItem
-// ComponentName
-// ComponentRules,
-//   DocFooter,
-//   FunctionArgument,
-//   FunctionArguments,
-//   LinkComponent,
-//   MultipleStoryElementsWrapper,
-//   Paragraph,
-//   RelatedComponents,
-//   SectionName,
-//   Tip,
-// Title
-//   UsageGuidelines,
-//   withMemoryStats
-// } from "monday-ui-storybook-blocks";
+} from "monday-ui-storybook-blocks";
 
 addParameters({
   controls: {
