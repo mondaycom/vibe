@@ -4,7 +4,6 @@ import { Tip } from "./tip/tip";
 import { ComponentRules } from "./component-rules/component-rules";
 import { UsageGuidelines } from "./usage-guidelines/usage-guidelines";
 import { RelatedComponentsDecorator } from "./related-components/related-components-decorator";
-import { StoryDescription } from "./story-description/story-description";
 import { MultipleStoryElementsWrapper } from "./multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 import { Link } from "./link/link";
 import { VisualDescription } from "./visual-description/visual-description";
@@ -25,6 +24,5 @@ export {
   VisualDescription,
   ColorsDescription,
   FunctionArgument,
-  FunctionArguments,
-  StoryDescription
+  FunctionArguments
 };
