@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Story, Canvas, Meta } from "@storybook/addon-docs";
 import {{camelCase hookName}} from "../index";
-import { FunctionArgument, FunctionArguments } from "../../../storybook";
+import { FunctionArgument, FunctionArguments } from "monday-ui-storybook-blocks";
 import styles from "./{{camelCase hookName}}.stories.module.scss"
 
 <Meta title="Hooks/{{camelCase hookName}}"/>
