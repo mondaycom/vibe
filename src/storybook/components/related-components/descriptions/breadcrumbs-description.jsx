@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "monday-ui-storybook-blocks";
 import BreadcrumbsBar from "../../../../components/BreadcrumbsBar/BreadcrumbsBar";
 import BreadcrumbItem from "../../../../components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import { Group, Board, Workspace } from "../../../../components/Icon/Icons";

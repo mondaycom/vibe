@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "monday-ui-storybook-blocks";
 import DialogContentContainer from "../../../../components/DialogContentContainer/DialogContentContainer";
 import Combobox from "../../../../components/Combobox/Combobox";
 

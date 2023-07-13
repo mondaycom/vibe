@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "monday-ui-storybook-blocks";
 import Divider from "../../../../components/Divider/Divider";
 import Menu from "../../../../components/Menu/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem/MenuItem";

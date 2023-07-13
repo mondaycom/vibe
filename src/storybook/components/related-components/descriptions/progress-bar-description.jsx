@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "monday-ui-storybook-blocks";
 import LinearProgressBar from "../../../../components/ProgressBars/LinearProgressBar/LinearProgressBar";
 
 export const ProgressBarDescription = () => {

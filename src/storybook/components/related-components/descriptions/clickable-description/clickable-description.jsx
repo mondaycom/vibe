@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { useMemo } from "react";
-import { RelatedComponent } from "../../../related-component/related-component";
+import { RelatedComponent } from "monday-ui-storybook-blocks";
 import Clickable from "../../../../../components/Clickable/Clickable";
 import classes from "./clickable-description.stories.module.scss";
 
