@@ -32,7 +32,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -79,7 +79,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -126,7 +126,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -173,7 +173,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -250,7 +250,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     }
   >
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -297,7 +297,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
@@ -418,7 +418,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      className="typography primary start singleLineEllipsis medium normal title"
+      className="typography primary start singleLineEllipsis medium bold title"
       data-testid="text"
     >
       Title
