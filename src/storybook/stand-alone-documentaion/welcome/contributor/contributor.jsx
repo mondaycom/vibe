@@ -1,6 +1,5 @@
 import cx from "classnames";
-import { InformationBox } from "../../../components/information-box/information-box";
-import { InformationBoxTitle } from "../../../components/information-box-title/information-box-title";
+import { InformationBox, InformationBoxTitle } from "monday-ui-storybook-blocks";
 import { elementColorsNames } from "../../../../utils/colors-vars-map";
 import { Flex, IconButton } from "../../../../components";
 import { Email } from "../../../../components/Icon/Icons";

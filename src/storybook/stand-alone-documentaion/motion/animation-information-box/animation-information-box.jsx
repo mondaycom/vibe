@@ -1,4 +1,4 @@
-import { InformationBox } from "../../../components/information-box/information-box";
+import { InformationBox } from "monday-ui-storybook-blocks";
 import styles from "./animation-information-box.module.scss";
 
 export const AnimationInformationBox = ({ videoSrc, title, description }) => {

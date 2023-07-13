@@ -1,4 +1,4 @@
-import { InformationBox } from "../../../components/information-box/information-box";
+import { InformationBox } from "monday-ui-storybook-blocks";
 import "./principle.scss";
 
 const PRINCIPLE_VISUAL_ELEMENT = `monday-storybook-principle`;

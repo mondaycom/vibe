@@ -1,4 +1,4 @@
-import { InformationBox } from "../../../components/information-box/information-box";
+import { InformationBox } from "monday-ui-storybook-blocks";
 
 export const TokenInformationBox = ({ className, videoSrc, title, description, tokenInfo, tokenDescription }) => {
   const TokenInformationBoxImg = videoSrc ? <video src={videoSrc} controls loop /> : null;
