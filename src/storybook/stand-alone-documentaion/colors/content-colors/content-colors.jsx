@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ContentColorRow } from "../content-color-row/content-color-row";
 import { ContentColorByName } from "../../../../utils/colors-vars-map";
-import { Frame } from "../../../components";
+import { Frame } from "monday-ui-storybook-blocks";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import classes from "./content-colors.module.scss";
 

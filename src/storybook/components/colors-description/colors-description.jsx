@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { ColorDescription } from "../color-description/color-description";
-import { Frame } from "../frame/frame";
+import { Frame } from "monday-ui-storybook-blocks";
 import { colorsHashMap } from "../../../utils/colors-vars-map";
 
 const colorsWithBorder = new Set([

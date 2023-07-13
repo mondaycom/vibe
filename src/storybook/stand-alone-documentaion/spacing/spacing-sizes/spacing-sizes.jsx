@@ -1,4 +1,4 @@
-import { Frame } from "../../../components";
+import { Frame } from "monday-ui-storybook-blocks";
 import SpacingComponent from "./spacing-component/spacing-component";
 import "./spacing-sizes.scss";
 

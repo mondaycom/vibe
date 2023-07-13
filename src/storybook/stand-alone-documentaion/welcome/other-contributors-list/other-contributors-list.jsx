@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Paragraph } from "../../../components";
+import { Paragraph } from "monday-ui-storybook-blocks";
 import { Contributors } from "./contributors";
 import "./other-contributors-list.scss";
 

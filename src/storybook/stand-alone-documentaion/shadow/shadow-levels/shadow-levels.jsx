@@ -1,4 +1,4 @@
-import { Frame } from "../../../components";
+import { Frame } from "monday-ui-storybook-blocks";
 import { ShadowExample } from "./shadow-example/shadow-example";
 import "./shadow-levels.scss";
 
