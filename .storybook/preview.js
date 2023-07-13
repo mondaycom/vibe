@@ -49,7 +49,6 @@ addParameters({
       UsageGuidelines,
       FunctionArguments,
       FunctionArgument,
-      MultipleStoryElementsWrapper,
       RelatedComponents: RelatedComponentsDecorator,
       Frame,
       UnstyledList,
