@@ -7,7 +7,7 @@ import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
 import { modifiers, NavigableStepsTemplate, StepsGalleryDontTemplate, StepsNumbersDoTemplate } from "./helpers.js";
 import { BREADCRUBMS, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
-import { ComponentRules, RelatedComponentsDecorator, UsageGuidelines } from "../../../storybook";
+import { ComponentRules, UsageGuidelines } from "../../../storybook";
 import createComponentTemplate from "../../../storybook/functions/createComponentTemplate";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./steps.stories.scss";
@@ -236,4 +236,4 @@ Our Tipseen component includes support for steps as content.
 
 ## Related components
 
-<RelatedComponentsDecorator componentsNames={[WIZARD, BREADCRUBMS, TABS]} />
+<RelatedComponents componentsNames={[WIZARD, BREADCRUBMS, TABS]} />

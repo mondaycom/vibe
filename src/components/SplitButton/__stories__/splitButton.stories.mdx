@@ -7,7 +7,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/c
 import { Add, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
-import { Link, RelatedComponentsDecorator, Tip, UsageGuidelines } from "../../../storybook/components";
+import { Link, Tip, UsageGuidelines } from "../../../storybook/components";
 import "./splitButton.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -298,4 +298,4 @@ When there’s already a primary button in the view, use a secondary split butto
 
 ## Related components
 
-<RelatedComponentsDecorator componentsNames={[BUTTON, BUTTON_GROUP, MENU]} />
+<RelatedComponents componentsNames={[BUTTON, BUTTON_GROUP, MENU]} />
