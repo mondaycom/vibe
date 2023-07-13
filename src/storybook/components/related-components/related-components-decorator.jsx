@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import { descriptionTypesMap } from "./component-description-map";
+import { descriptionComponentsMap } from "./component-description-map";
 import { RelatedComponents } from "monday-ui-storybook-blocks";
 
 export const RelatedComponentsDecorator = ({ componentsNames }) => {
-  return <RelatedComponents componentsNames={componentsNames} descriptionTypesMap={descriptionTypesMap} />;
+  return <RelatedComponents componentsNames={componentsNames} descriptionComponentsMap={descriptionComponentsMap} />;
 };
 
 RelatedComponentsDecorator.propTypes = {
