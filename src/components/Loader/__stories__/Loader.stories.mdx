@@ -1,15 +1,14 @@
 import Loader from "../Loader";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
 import {
+  StoryDescription,
+  Link,
+  UsageGuidelines,
   ComponentRules,
-  createComponentTemplate,
-  createStoryMetaSettingsDecorator,
-  Tip,
-  UsageGuidelines
-} from "../../../storybook";
-import { StoryDescription } from "monday-ui-storybook-blocks";
+  createComponentTemplate
+} from "monday-ui-storybook-blocks";
 import { Button, DialogContentContainer, Flex, Search } from "../..";
-import { Link } from "../../../storybook/components";
 import { useCallback, useState } from "react";
 import {
   BUTTON,

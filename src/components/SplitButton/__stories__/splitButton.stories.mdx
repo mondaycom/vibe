@@ -2,12 +2,11 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
-import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Add, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
-import { Link, Tip, UsageGuidelines } from "../../../storybook/components";
+import { Tip, createStoryMetaSettingsDecorator } from "../../../storybook";
+import { Link, UsageGuidelines, createComponentTemplate } from "monday-ui-storybook-blocks";
 import "./splitButton.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({

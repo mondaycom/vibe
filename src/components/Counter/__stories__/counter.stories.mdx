@@ -1,12 +1,12 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback, useEffect, useState } from "react";
 import Counter from "../Counter";
-import { createComponentTemplate, createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import Avatar from "../../Avatar/Avatar";
 import { AddUpdate, Notifications, Update } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
-import { Link } from "../../../storybook/components";
+import { Link, createComponentTemplate } from "monday-ui-storybook-blocks";
 import "./counter.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
