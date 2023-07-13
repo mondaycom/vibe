@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { VisualDescription } from "../visual-description/visual-description";
+import { VisualDescription } from "monday-ui-storybook-blocks";
 import "./color-description.scss";
 
 export const ColorDescription = ({ colorName, description, withBorder }) => {

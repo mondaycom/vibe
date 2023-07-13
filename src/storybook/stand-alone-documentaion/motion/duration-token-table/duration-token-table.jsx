@@ -1,4 +1,4 @@
-import { TokenTable } from "../../../components/token-table/token-table";
+import { TokenTable } from "monday-ui-storybook-blocks";
 
 export const DurationTokenTable = () => {
   const theadData = ["Token", "Usage", "Value"];

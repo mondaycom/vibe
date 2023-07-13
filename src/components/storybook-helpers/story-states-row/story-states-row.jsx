@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import FlexLayout from "../flex-layout/flex-layout";
-import ComponentStateDescription from "../component-state-description/ComponentStateDescription";
+import ComponentStateDescription from "monday-ui-storybook-blocks";
 
 export default class StoryStateRow extends PureComponent {
   render() {
