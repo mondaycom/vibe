@@ -16,7 +16,7 @@
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          npm ci
+#          yarn install --immutable --immutable-cache --check-cache
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
@@ -34,7 +34,7 @@
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          npm ci
+#          yarn install --immutable --immutable-cache --check-cache
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
@@ -52,7 +52,7 @@
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          npm ci
+#          yarn install --immutable --immutable-cache --check-cache
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
@@ -70,7 +70,7 @@
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          npm ci
+#          yarn install --immutable --immutable-cache --check-cache
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
@@ -88,7 +88,7 @@
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          npm ci
+#          yarn install --immutable --immutable-cache --check-cache
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
