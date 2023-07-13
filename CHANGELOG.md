@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.15.5 (2023-07-13)
+
+#### Bug Fixes
+* [#1419](https://github.com/mondaycom/monday-ui-react-core/pull/1419) improve useState to only called once in useIsOverflowing ([@doronbrikman](https://github.com/doronbrikman))
+
+#### Documentation
+* [#1420](https://github.com/mondaycom/monday-ui-react-core/pull/1420) docs(DatePicker): set default selected days for stories ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1408](https://github.com/mondaycom/monday-ui-react-core/pull/1408) docs: change usage of Yonatan in stories to Yossi ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.15.4 (2023-07-12)
 
 #### New Icons
