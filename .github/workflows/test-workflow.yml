@@ -15,12 +15,9 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install
         run: |
-          npm ci
+          npm run ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Build react icons
-        run: npm run build:react-icons
-
       - name: Test
         if: success()
         run: |
@@ -71,11 +68,9 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install
         run: |
-          npm ci
+          npm run ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Build react icons
-        run: npm run build:react-icons
 
       - name: Test
         if: success()
@@ -91,11 +86,9 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install
         run: |
-          npm ci
+          npm run ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Build react icons
-        run: npm run build:react-icons
 
       - name: Test
         if: success()

@@ -38,6 +38,7 @@
     "test:stories": "testing=storybook TEST_END_FILES=jest-story jest",
     "test:update": "npm run test -- -u",
     "test:coverage": "npm run test -- --coverage",
+    "ci": "npm ci && npm run build:react-icons",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
     "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:esm:mock-classnames && npm run build:types",
     "build:exports": "./scripts/build-exports.js",
