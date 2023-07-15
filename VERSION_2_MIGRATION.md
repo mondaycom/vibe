@@ -87,3 +87,19 @@ After:
 ```diff
 + import { Button } from "monday-ui-react-core";
 ```
+
+### Replace main.css import with tokens import
+
+Previously `main.css` contained all the style definitions + `monday-ui-style` tokens and was required to import, now instead of this you should just load `monday-ui-style` tokens via separate endpoint.
+
+Before:
+
+```diff
+- import "monday-ui-react-core/dist/main.css";
+```
+
+After:
+
+```diff
++ import "monday-ui-react-core/tokens";
+```

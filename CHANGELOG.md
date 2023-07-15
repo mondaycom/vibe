@@ -1,5 +1,28 @@
 # Changelog
 
+## 2.15.5 (2023-07-13)
+
+#### Bug Fixes
+* [#1419](https://github.com/mondaycom/monday-ui-react-core/pull/1419) improve useState to only called once in useIsOverflowing ([@doronbrikman](https://github.com/doronbrikman))
+
+#### Documentation
+* [#1420](https://github.com/mondaycom/monday-ui-react-core/pull/1420) docs(DatePicker): set default selected days for stories ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1408](https://github.com/mondaycom/monday-ui-react-core/pull/1408) docs: change usage of Yonatan in stories to Yossi ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.15.4 (2023-07-12)
+
+#### New Icons
+* [#1417](https://github.com/mondaycom/monday-ui-react-core/pull/1417) Update icons - monday-ui-style 0.1.172 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1415](https://github.com/mondaycom/monday-ui-react-core/pull/1415) Update icons - monday-ui-style 0.1.171 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.15.3 (2023-07-12)
+
+#### Bug Fixes
+* [#1416](https://github.com/mondaycom/monday-ui-react-core/pull/1416) Bug: Combobox component ts issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1414](https://github.com/mondaycom/monday-ui-react-core/pull/1414) docs: change colors descriptions ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.15.2 (2023-07-12)
 
 #### Bug Fixes
