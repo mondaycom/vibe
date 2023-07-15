@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "monday-ui-storybook-blocks";
+import { RelatedComponent } from "vibe-storybook-components";
 import Divider from "../../../../components/Divider/Divider";
 import Menu from "../../../../components/Menu/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem/MenuItem";

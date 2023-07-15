@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import FlexLayout from "../flex-layout/flex-layout";
-import ComponentStateDescription from "monday-ui-storybook-blocks";
+import ComponentStateDescription from "vibe-storybook-components";
 
 export default class StoryStateRow extends PureComponent {
   render() {

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "monday-ui-storybook-blocks";
+import { RelatedComponent } from "vibe-storybook-components";
 import Skeleton from "../../../../components/Skeleton/Skeleton";
 
 export const SkeletonDescription = () => {

@@ -84,7 +84,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
-    "monday-ui-storybook-blocks": "file:../monday-ui-storybook-blocks/monday-ui-storybook-blocks-1.0.0-6.tgz",
+    "vibe-storybook-components": "file:../vibe-storybook-components/vibe-storybook-components-1.0.0-6.tgz",
     "monday-ui-style": "0.1.162",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",

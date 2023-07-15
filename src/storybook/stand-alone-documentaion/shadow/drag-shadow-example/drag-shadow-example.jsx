@@ -1,4 +1,4 @@
-import { Frame } from "monday-ui-storybook-blocks";
+import { Frame } from "vibe-storybook-components";
 import Icon from "../../../../components/Icon/Icon";
 import Drag from "../../../../components/Icon/Icons/components/Drag";
 import classes from "./drag-shadow-example.module.scss";

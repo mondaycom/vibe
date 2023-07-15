@@ -1,4 +1,4 @@
-import { InformationBox } from "monday-ui-storybook-blocks";
+import { InformationBox } from "vibe-storybook-components";
 import "./principle.scss";
 
 const PRINCIPLE_VISUAL_ELEMENT = `monday-storybook-principle`;

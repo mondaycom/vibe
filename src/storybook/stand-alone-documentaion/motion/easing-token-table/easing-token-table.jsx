@@ -1,4 +1,4 @@
-import { TokenTable } from "monday-ui-storybook-blocks";
+import { TokenTable } from "vibe-storybook-components";
 
 export const EasingTokenTable = () => {
   const theadData = ["Token", "Usage", "Cubic bezier"];

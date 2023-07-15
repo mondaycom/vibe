@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "monday-ui-storybook-blocks";
+import { RelatedComponent } from "vibe-storybook-components";
 import { person1 } from "../../../../components/Avatar/__stories__/assets";
 import Avatar from "../../../../components/Avatar/Avatar";
 

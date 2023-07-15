@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Frame, ColorDescription } from "monday-ui-storybook-blocks";
+import { Frame, ColorDescription } from "vibe-storybook-components";
 import { colorsHashMap } from "../../../../utils/colors-vars-map";
 
 const colorsWithBorder = new Set([

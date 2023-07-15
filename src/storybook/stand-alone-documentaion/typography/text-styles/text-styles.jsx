@@ -1,4 +1,4 @@
-import { VisualDescription, Frame } from "monday-ui-storybook-blocks";
+import { VisualDescription, Frame } from "vibe-storybook-components";
 import styles from "./text-styles.module.scss";
 
 export const TextStyles = () => {

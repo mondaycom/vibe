@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { InformationBox, InformationBoxTitle } from "monday-ui-storybook-blocks";
+import { InformationBox, InformationBoxTitle } from "vibe-storybook-components";
 import { elementColorsNames } from "../../../../utils/colors-vars-map";
 import { Flex, IconButton } from "../../../../components";
 import { Email } from "../../../../components/Icon/Icons";

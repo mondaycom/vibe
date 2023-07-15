@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "monday-ui-storybook-blocks";
+import { RelatedComponent } from "vibe-storybook-components";
 import Label from "../../../../components/Label/Label";
 
 export const LabelDescription = () => {

@@ -19,7 +19,7 @@ import {
   UnstyledListItem,
   UsageGuidelines,
   withMemoryStats
-} from "monday-ui-storybook-blocks";
+} from "vibe-storybook-components";
 
 addParameters({
   controls: {

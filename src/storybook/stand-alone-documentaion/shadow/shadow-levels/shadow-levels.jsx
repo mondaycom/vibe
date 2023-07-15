@@ -1,4 +1,4 @@
-import { Frame } from "monday-ui-storybook-blocks";
+import { Frame } from "vibe-storybook-components";
 import { ShadowExample } from "./shadow-example/shadow-example";
 import "./shadow-levels.scss";
 

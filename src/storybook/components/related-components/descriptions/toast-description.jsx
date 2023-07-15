@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "monday-ui-storybook-blocks";
+import { RelatedComponent } from "vibe-storybook-components";
 import ToastLineWrapper from "../../../../components/Toast/__stories__/ToastLineWrapper";
 import Toast from "../../../../components/Toast/Toast";
 

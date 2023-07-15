@@ -1,6 +1,6 @@
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import * as AllIcons from "../../components/Icon/Icons";
-import { createStoryMetaSettings } from "monday-ui-storybook-blocks";
+import { createStoryMetaSettings } from "vibe-storybook-components";
 
 export function createStoryMetaSettingsDecorator({
   component,

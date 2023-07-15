@@ -1,4 +1,4 @@
-import { InformationBox } from "monday-ui-storybook-blocks";
+import { InformationBox } from "vibe-storybook-components";
 
 export const TokenInformationBox = ({ className, videoSrc, title, description, tokenInfo, tokenDescription }) => {
   const TokenInformationBoxImg = videoSrc ? <video src={videoSrc} controls loop /> : null;
