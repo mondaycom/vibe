@@ -213,7 +213,8 @@ Array [
             </button>
           </div>
           <div
-            className="tipseenContent"
+            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -271,7 +272,8 @@ Array [
             className="tipseenHeader"
           />
           <div
-            className="tipseenContent"
+            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -329,7 +331,8 @@ Array [
             className="tipseenHeader"
           />
           <div
-            className="tipseenContent"
+            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -429,7 +432,8 @@ Array [
             </button>
           </div>
           <div
-            className="tipseenContent"
+            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
