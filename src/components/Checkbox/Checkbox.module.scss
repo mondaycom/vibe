@@ -59,6 +59,7 @@ $checkbox-size: 16px;
 }
 
 .label {
+  @include smoothing-text;
   cursor: pointer;
   user-select: none;
   margin-inline-start: $spacing-small;

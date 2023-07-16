@@ -2,6 +2,11 @@
 @import "../../../styles/typography";
 @import "../../../styles/global-css-settings";
 
+.title {
+  @include smoothing-text;
+  padding-block: 1px;
+}
+
 .titleCaption {
   @include theme-prop(color, icon-color);
   margin: var(--spacing-small) 0;

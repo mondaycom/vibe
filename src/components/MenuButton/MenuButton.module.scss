@@ -40,18 +40,21 @@
   width: 16px;
   height: 16px;
   @include vibe-text(small, normal);
+  @include smoothing-text;
 }
 
 .size24 {
   width: 24px;
   height: 24px;
   @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .size32 {
   width: 32px;
   height: 32px;
   @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .size40 {

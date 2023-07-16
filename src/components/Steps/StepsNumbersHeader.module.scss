@@ -5,4 +5,5 @@
 
 .numbers {
   margin: 0 var(--spacing-small);
+  @include smoothing-text;
 }

@@ -47,7 +47,7 @@ const MenuTitle: FC<MenuTitleProps> & {
     <Text
       color="secondary"
       size="small"
-      className={cx(overrideClassName)}
+      className={cx(styles.title, overrideClassName)}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_TITLE, id)}
     >
       {renderCaptionIfNeeded()}

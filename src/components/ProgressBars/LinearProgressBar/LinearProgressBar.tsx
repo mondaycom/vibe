@@ -178,10 +178,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
     ) : null;
 
     return (
-      <Text
-        element="div"
-        size="small"
-        color="secondary"
+      <div
         className={wrapperClassName}
         ref={ref}
         id={id}
@@ -192,7 +189,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
           {renderMultiBars}
         </div>
         {renderPercentage}
-      </Text>
+      </div>
     );
   }
 );

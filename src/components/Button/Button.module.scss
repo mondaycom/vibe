@@ -92,6 +92,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeXxs {
+  @include smoothing-text;
   @include vibe-text(small, normal);
   padding: $spacing-xxs $spacing-xs;
   height: 16px;
@@ -99,6 +100,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeXs {
+  @include smoothing-text;
   @include vibe-text(small, normal);
   padding: $spacing-xs $spacing-small;
   height: 24px;
@@ -106,6 +108,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeSmall {
+  @include smoothing-text;
   @include vibe-text(small, normal);
   padding: $spacing-xs $spacing-small;
   height: 32px;
@@ -117,12 +120,14 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .sizeMedium {
+  @include smoothing-text;
   @include vibe-text(medium, normal);
   padding: $spacing-small $spacing-medium;
   height: 40px;
 }
 
 .sizeLarge {
+  @include smoothing-text;
   @include vibe-text(medium, normal);
   padding: $spacing-small-medium $spacing-large;
   height: 48px;

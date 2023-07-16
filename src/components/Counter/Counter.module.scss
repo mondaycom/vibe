@@ -23,21 +23,13 @@
   @include font-caption();
   min-width: 18px;
   line-height: 18px;
-  padding: 0 $spacing-xs;
-}
-
-.sizeMedium {
-  @include font-caption();
-  min-width: 18px;
-  line-height: 18px;
-  padding: 0 $spacing-xs;
+  padding: 0 var(--spacing-small);
 }
 
 .sizeLarge {
-  @include vibe-text(medium, normal);
-  line-height: 24px;
+  @include label-text();
   min-width: 24px;
-  padding: 0 $spacing-small;
+  padding: 2px var(--spacing-small);
 }
 
 .kindFill.colorPrimary {

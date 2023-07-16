@@ -57,6 +57,15 @@ $textClasses: (
   font: $font-variable;
 }
 
+@mixin smoothing-text {
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+}
+
+@mixin label-text {
+  @include smoothing-text;
+  @include vibe-text(small, normal);
+}
 
 // Secondary Heading (h2)
 @mixin font-title {
@@ -100,13 +109,12 @@ $textClasses: (
 // Caption / Subtext (small)
 @mixin font-caption {
   @include vibe-text(small, normal);
+  @include smoothing-text;
   color: var(--primary-text-color);
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
 }
 
 @mixin font-input {
-  @include font-default;
+  @include vibe-text(small, normal);
 }
 
 @mixin line-clamp($lines: 1le) {

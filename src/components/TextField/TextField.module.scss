@@ -21,6 +21,8 @@
 
 .textField .subTextContainer {
   display: flex;
+  @include smoothing-text;
+  padding-block: 1px;
 }
 
 .textField .subTextContainer .counter {
@@ -219,6 +221,7 @@
 
 .textField .inputWrapper.wrapperSizeSmall .input {
   @include vibe-text(small, normal);
+  @include smoothing-text;
 }
 
 .textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {

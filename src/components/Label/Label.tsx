@@ -58,7 +58,7 @@ const Label: FC<LabelProps> & {
   );
   return (
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
-      <Text element="div" size="small" className={classNames}>
+      <Text size="small" className={classNames}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </Text>
