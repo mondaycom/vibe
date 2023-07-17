@@ -28,7 +28,6 @@ interface StepCircleDisplayProps {
   fulfilledStepIcon: SubIcon;
   fulfilledStepIconType: IconType.SVG | IconType.ICON_FONT;
   stepNumber: number;
-  size: Size;
 }
 
 const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
@@ -193,7 +192,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
                   isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
                   stepNumber={stepNumber}
                   status={status}
-                  size={size}
                 />
               </span>
             </CSSTransition>
