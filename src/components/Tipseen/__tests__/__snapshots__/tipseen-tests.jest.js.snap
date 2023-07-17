@@ -212,8 +212,8 @@ Array [
               </svg>
             </button>
           </div>
-          <div
-            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -271,8 +271,8 @@ Array [
           <div
             className="tipseenHeader"
           />
-          <div
-            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -330,8 +330,8 @@ Array [
           <div
             className="tipseenHeader"
           />
-          <div
-            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -431,8 +431,8 @@ Array [
               </svg>
             </button>
           </div>
-          <div
-            className="typography onPrimary start singleLineEllipsis small normal tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
             data-testid="text"
           />
         </div>
