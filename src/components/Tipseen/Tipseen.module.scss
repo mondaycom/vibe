@@ -22,6 +22,11 @@
       padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
     }
 
+    &Content {
+      margin: 0;
+      @include smoothing-text;
+    }
+
     &CloseButton {
       position: absolute;
       top: var(--spacing-xs);
