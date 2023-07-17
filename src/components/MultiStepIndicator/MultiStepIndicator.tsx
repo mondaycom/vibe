@@ -19,7 +19,7 @@ export type Step = {
 };
 
 interface MultiStepIndicatorProps extends VibeComponentProps {
-  steps: Step[];
+  steps?: Step[];
   type?: MultiStepType;
   stepComponentClassName?: string;
   dividerComponentClassName?: string;
@@ -40,7 +40,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
   (
     {
       className,
-      steps,
+      steps = [],
       type = MultiStepType.PRIMARY,
       stepComponentClassName,
       dividerComponentClassName,

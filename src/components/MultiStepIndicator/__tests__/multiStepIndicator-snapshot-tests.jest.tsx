@@ -23,7 +23,7 @@ const exampleSteps: Step[] = [
 
 describe("MultiStepIndicator renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={[]} />).toJSON();
+    const tree = renderer.create(<MultiStepIndicator />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
