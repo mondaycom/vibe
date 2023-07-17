@@ -60,7 +60,7 @@ export interface StepIndicatorProps extends VibeComponentProps {
   status: StepStatus;
   titleText: string;
   subtitleText?: string;
-  stepNumber: number;
+  stepNumber?: number;
   stepComponentClassName?: string;
   type?: MultiStepType;
   fulfilledStepIcon?: SubIcon;
