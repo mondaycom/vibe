@@ -55,6 +55,7 @@ export {default as CreditCard} from './components/CreditCard';
 export {default as Custom} from './components/Custom';
 export {default as Cut} from './components/Cut';
 export {default as Dashboard} from './components/Dashboard';
+export {default as DashboardTemplate} from './components/DashboardTemplate';
 export {default as DashboardPrivate} from './components/DashboardPrivate';
 export {default as Deactivate} from './components/Deactivate';
 export {default as Delete} from './components/Delete';
