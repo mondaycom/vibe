@@ -173,7 +173,9 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           role="button"
         >
           <SwitchTransition mode="out-in">
-            <CSSTransition<undefined> /* https://stackoverflow.com/questions/64019519/typing-out-react-transition-group-handlers-in-typescript */
+            <CSSTransition<undefined>
+              // CSSTransition needs to be specified with the generic parameter to decide type for addEndListener's callback
+              // otherwise, addEndListener cb has only `done` param (ts error)
               classNames={{
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
