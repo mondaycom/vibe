@@ -5,7 +5,7 @@ import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
+import { Size, MultiStepType, StepStatus, TextPlacement } from "./MultiStepConstants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./MultiStepIndicator.module.scss";
@@ -15,40 +15,40 @@ import { IconType } from "../Icon/IconConstants";
 export type Step = {
   titleText: string;
   subtitleText: string;
-  status: STEP_STATUSES;
+  status: StepStatus;
 };
 
 interface MultiStepIndicatorProps extends VibeComponentProps {
   steps: Step[];
-  type?: MULTI_STEP_TYPES;
+  type?: MultiStepType;
   stepComponentClassName?: string;
   dividerComponentClassName?: string;
   fulfilledStepIcon?: SubIcon;
   fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
   isFulfilledStepDisplayNumber?: boolean;
   onClick?: (stepNumber: number) => void;
-  textPlacement?: TEXT_PLACEMENTS;
-  size?: SIZES;
+  textPlacement?: TextPlacement;
+  size?: Size;
 }
 
 const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
-  types?: typeof MULTI_STEP_TYPES;
-  stepStatuses?: typeof STEP_STATUSES;
-  textPlacements?: typeof TEXT_PLACEMENTS;
-  sizes?: typeof SIZES;
+  types?: typeof MultiStepType;
+  stepStatuses?: typeof StepStatus;
+  textPlacements?: typeof TextPlacement;
+  sizes?: typeof Size;
 } = forwardRef(
   (
     {
       className,
       steps,
-      type = MULTI_STEP_TYPES.PRIMARY,
+      type = MultiStepType.PRIMARY,
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon = Check,
       fulfilledStepIconType = IconType.SVG,
       isFulfilledStepDisplayNumber = false,
       onClick = NOOP,
-      textPlacement = TEXT_PLACEMENTS.HORIZONTAL,
+      textPlacement = TextPlacement.HORIZONTAL,
       id,
       size,
       "data-testid": dataTestId
@@ -57,7 +57,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
   ) => {
     const componentRef = useRef<HTMLInputElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const finalSize = textPlacement === TEXT_PLACEMENTS.VERTICAL ? SIZES.REGULAR : size;
+    const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;
 
     const renderHorizontalStepIndicator = useCallback(
       (step: Step, index: number) => {
@@ -77,7 +77,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
             {index !== steps.length - 1 && (
               <Divider
                 classname={cx(styles.divider, dividerComponentClassName, {
-                  [styles.compact]: finalSize === SIZES.COMPACT
+                  [styles.compact]: finalSize === Size.COMPACT
                 })}
               />
             )}
@@ -129,7 +129,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
     );
 
     const stepRenderer = useMemo(
-      () => (textPlacement === TEXT_PLACEMENTS.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
+      () => (textPlacement === TextPlacement.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
       [textPlacement, renderVerticalStepIndicator, renderHorizontalStepIndicator]
     );
 
@@ -147,8 +147,8 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
 );
 
 export default withStaticProps(MultiStepIndicator, {
-  types: MULTI_STEP_TYPES,
-  stepStatuses: STEP_STATUSES,
-  textPlacements: TEXT_PLACEMENTS,
-  sizes: SIZES
+  types: MultiStepType,
+  stepStatuses: StepStatus,
+  textPlacements: TextPlacement,
+  sizes: Size
 });

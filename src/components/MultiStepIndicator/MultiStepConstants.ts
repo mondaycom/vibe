@@ -1,22 +1,22 @@
-export enum MULTI_STEP_TYPES {
+export enum MultiStepType {
   PRIMARY = "primary",
   SUCCESS = "success",
   DANGER = "danger",
   DARK = "dark"
 }
 
-export enum STEP_STATUSES {
+export enum StepStatus {
   PENDING = "pending",
   ACTIVE = "active",
   FULFILLED = "fulfilled"
 }
 
-export enum TEXT_PLACEMENTS {
+export enum TextPlacement {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical"
 }
 
-export enum SIZES {
+export enum Size {
   REGULAR = "regular",
   COMPACT = "compact"
 }

@@ -1,7 +1,7 @@
 import MultiStepIndicator from "../MultiStepIndicator";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { STEP_STATUSES } from "../MultiStepConstants";
+import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
@@ -338,9 +338,9 @@ State transition automatic example
       }, [numActions]);
       const STEP_TRANSITIONS = useMemo(
         () => ({
-          [STEP_STATUSES.PENDING]: STEP_STATUSES.ACTIVE,
-          [STEP_STATUSES.ACTIVE]: STEP_STATUSES.FULFILLED,
-          [STEP_STATUSES.FULFILLED]: STEP_STATUSES.PENDING
+          [StepStatus.PENDING]: StepStatus.ACTIVE,
+          [StepStatus.ACTIVE]: StepStatus.FULFILLED,
+          [StepStatus.FULFILLED]: StepStatus.PENDING
         }),
         []
       );

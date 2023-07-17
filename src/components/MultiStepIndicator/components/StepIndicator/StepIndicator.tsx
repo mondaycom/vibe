@@ -14,7 +14,7 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
+import { Size, MultiStepType, StepStatus } from "../../MultiStepConstants";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
 import { SubIcon, VibeComponentProps } from "../../../../types";
@@ -23,12 +23,12 @@ import { IconType } from "../../../Icon/IconConstants";
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 interface StepCircleDisplayProps {
-  status: STEP_STATUSES;
+  status: StepStatus;
   isFulfilledStepDisplayNumber: boolean;
   fulfilledStepIcon: SubIcon;
   fulfilledStepIconType: IconType.SVG | IconType.ICON_FONT;
   stepNumber: number;
-  size: SIZES;
+  size: Size;
 }
 
 const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
@@ -40,11 +40,11 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
 }) => {
   return (
     <>
-      {status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
+      {status === StepStatus.FULFILLED && !isFulfilledStepDisplayNumber ? (
         <Icon
           icon={fulfilledStepIcon}
           className={classNames(styles.numberContainerTextCheckIcon)}
-          iconLabel={STEP_STATUSES.FULFILLED}
+          iconLabel={StepStatus.FULFILLED}
           iconType={fulfilledStepIconType}
           ignoreFocusStyle
           clickable={false}
@@ -58,12 +58,12 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
 };
 
 export interface StepIndicatorProps extends VibeComponentProps {
-  status: STEP_STATUSES;
+  status: StepStatus;
   titleText: string;
   subtitleText?: string;
   stepNumber: number;
   stepComponentClassName?: string;
-  type?: MULTI_STEP_TYPES;
+  type?: MultiStepType;
   fulfilledStepIcon?: SubIcon;
   fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
   isFulfilledStepDisplayNumber?: boolean;
@@ -71,16 +71,16 @@ export interface StepIndicatorProps extends VibeComponentProps {
   isFollowedByDivider?: boolean;
   stepDividerClassName?: string;
   isVertical?: boolean;
-  size?: SIZES;
+  size?: Size;
 }
 
 const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepComponentClassName,
   stepNumber = 1,
-  status = STEP_STATUSES.PENDING,
+  status = StepStatus.PENDING,
   titleText = "Title text",
   subtitleText = "Subtitle text",
-  type = MULTI_STEP_TYPES.PRIMARY,
+  type = MultiStepType.PRIMARY,
   fulfilledStepIcon = Check,
   fulfilledStepIconType = IconType.SVG,
   isFulfilledStepDisplayNumber = false,
@@ -89,7 +89,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepDividerClassName,
   isVertical = false,
   id,
-  size = SIZES.REGULAR,
+  size = Size.REGULAR,
   "data-testid": dataTestId
 }) => {
   // Animations state
@@ -206,7 +206,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           <HiddenText text={status} /> {/* for accessibility */}
           <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
-        {size !== SIZES.COMPACT ? (
+        {size !== Size.COMPACT ? (
           <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
         ) : null}
       </div>
