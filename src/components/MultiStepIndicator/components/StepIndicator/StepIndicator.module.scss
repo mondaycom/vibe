@@ -36,10 +36,7 @@
 }
 
 .textContainerTitleText {
-  font: var(--font-h5);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
+  @include vibe-text("small", "bold");
   @include theme-prop(color, primary-text-color);
   margin-bottom: 2px;
 }

@@ -11,7 +11,7 @@ import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
-import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
 
@@ -96,11 +96,19 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {title && <Heading value={title} type={Heading.types.h5} className={styles.title} />}
+        {title && (
+          <Text element="h5" weight="bold" className={styles.title}>
+            {title}
+          </Text>
+        )}
       </Flex>
-      <div
+      <Text
+        element={compact ? "div" : "p"}
+        size="small"
+        paragraph={!compact}
         className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
-          [styles.textCompact]: compact
+          [styles.textCompact]: compact,
+          [styles.paragraph]: !compact
         })}
       >
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
@@ -119,7 +127,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         {text || children}
-      </div>
+      </Text>
       {onClose && (
         <IconButton
           size={IconButton?.sizes?.SMALL}

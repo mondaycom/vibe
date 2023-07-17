@@ -1,5 +1,6 @@
 @import "./theme-mixin";
-$h1-legacy-font-size: 32px;
+@import "~monday-ui-style/dist/mixins";
+
 $h1-legacy-line-height: 52px;
 $h1-medium-font-size: 22px;
 $h1-empty-state-height: 32px;
@@ -10,6 +11,44 @@ $h5-empty-state-height: 16px;
 $p-empty-state-height: 16px;
 $h6-empty-state-height: 12px;
 $small-empty-state-height: 12px;
+
+
+@mixin create-text-classes() {
+  @include create-typography-classes($textClasses, text);
+}
+
+@mixin create-title-classes() {
+  @include create-typography-classes($titleClasses, null);
+}
+
+@mixin create-typography-classes($classes, $token-prefix) {
+  @each $class-prefix, $weight-types in $classes {
+    @each $weight-type in $weight-types {
+
+      .#{$class-prefix}.#{$weight-type} {
+
+        // if class is a heading class
+        @if str-slice($class-prefix, 1, 1) == "h" {
+          @include vibe-title($class-prefix, $weight-type);
+        }
+        @else {
+          @include vibe-text($class-prefix, $weight-type);
+        }
+      }
+    }
+  }
+}
+
+$titleClasses: (
+    "h1": ("bold", "normal", "light"),
+    "h2": ("bold", "normal", "light"),
+    "h3": ("bold", "normal", "light")
+);
+
+$textClasses: (
+    "medium": ("bold", "normal"),
+    "small": ("bold", "normal")
+);
 
 @mixin base-font($font-variable) {
   @include theme-prop(color, primary-text-color);

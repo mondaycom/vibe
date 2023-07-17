@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, HTMLAttributes } from "react";
 import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -11,7 +11,7 @@ import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
 
-export interface TypographyProps extends VibeComponentProps {
+export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {
   /**
    * The element tag of the text component
    */
@@ -53,7 +53,9 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       align = "start",
       ellipsis = true,
       maxLines = 1,
-      withoutTooltip = false
+      withoutTooltip = false,
+      role,
+      ...htmlAttributes
     },
     ref
   ) => {
@@ -76,7 +78,9 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
             id,
             "data-testid": dataTestId,
             className: cx(styles.typography, styles[color], styles[align], ellipsisClass, className),
-            ref: overrideRef
+            ref: overrideRef,
+            role,
+            ...htmlAttributes
           },
           children
         )}

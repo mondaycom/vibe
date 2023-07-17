@@ -6,16 +6,15 @@
   position: relative;
   padding: var(--spacing-medium);
   border-radius: var(--border-radius-medium);
-  font-size: var(--font-size-general-label);
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
-  font-family: var(--font-family);
 }
 
 .title {
   margin: 0;
-  font-weight: 700;
+  font-weight: 700 !important;
+  padding: 0 var(--spacing-xs);
 }
 
 .textCompact {
@@ -80,4 +79,8 @@
 
 .titleContainerTitle {
   font-family: var(--title-font-family);
+}
+
+.paragraph {
+  margin: 0;
 }
