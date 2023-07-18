@@ -15,6 +15,7 @@ import { Modifier } from "react-popper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
+import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 
 interface TipseenProps extends VibeComponentProps {
@@ -141,7 +142,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <div className={cx(styles.tipseenContent)}>{content}</div>
+        <Text color="onPrimary" size="small" paragraph className={cx(styles.tipseenContent)}>
+          {content}
+        </Text>
       </div>
     );
 

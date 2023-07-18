@@ -10,6 +10,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import Text from "../Text/Text";
 import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {
@@ -144,12 +145,14 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           />
         </div>
         {label === false ? null : (
-          <span
+          <Text
+            element="span"
+            size="small"
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
           >
             {label}
-          </span>
+          </Text>
         )}
       </label>
     );

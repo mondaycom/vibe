@@ -8,6 +8,8 @@ import { NOOP } from "../../../utils/function-utils";
 import { ElementContent } from "src/types/ElementContent";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
+import Text from "../../Text/Text";
+import Title from "../../Title/Title";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
@@ -78,10 +80,9 @@ const ModalHeader: FC<ModalHeaderProps> = ({
 }) => {
   return (
     <div className={cx(styles.container, className)}>
-      <p
-        role="heading"
-        aria-level={2}
+      <Title
         id={id}
+        type="h2"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
         className={cx(titleClassName, styles.title)}
       >
@@ -91,9 +92,13 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           </span>
         )}
         {title}
-      </p>
+      </Title>
 
-      {description && <div className={cx(descriptionClassName, styles.description)}>{description}</div>}
+      {description && (
+        <Text size="small" className={cx(descriptionClassName, styles.description)}>
+          {description}
+        </Text>
+      )}
 
       {!hideCloseButton && (
         <div className={cx(styles.closeButton)}>

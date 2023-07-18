@@ -13,6 +13,7 @@ import React, {
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
+import Text from "../../Text/Text";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
@@ -283,7 +284,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-      <li
+      <Text
+        element="li"
+        size="small"
         {...a11yProps}
         key={key}
         id={overrideId}
@@ -337,7 +340,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             </DialogContentContainer>
           )}
         </div>
-      </li>
+      </Text>
     );
   }
 );
