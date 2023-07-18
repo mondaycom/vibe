@@ -6,14 +6,9 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  color: var(--primary-text-color);
   border-radius: 4px;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
   cursor: pointer;
   @include focus-style-inset();
-  font-family: var(--font-family);
 }
 
 .listItem:hover {
@@ -22,7 +17,6 @@
 
 .disabled {
   cursor: not-allowed;
-  color: var(--disabled-text-color);
 }
 
 .disabled:hover {

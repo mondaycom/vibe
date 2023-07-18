@@ -1,5 +1,5 @@
 import Combobox from "../Combobox";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
@@ -326,6 +326,27 @@ If combo box requires action, use button component at the end of the list.
     }}
   </Story>
 </Canvas>
+
+### With creation when no items are available
+
+<Canvas>
+  <Story name="With Creation">
+      {() => {
+        const [options, setOptions] = useState([]);
+        return (
+          <DialogContentContainer>
+            <Combobox
+              options={options}
+              placeholder="Type to create"
+              addNewLabel="Create new item"
+              onAddNew={() => setOptions([...options, {id: options.length + 1, label: `Option: ${options.length + 1}`}]) }
+            />
+          </DialogContentContainer>
+        );
+      }}
+  </Story>
+</Canvas>
+
 
 ### With virtualization optimization
 

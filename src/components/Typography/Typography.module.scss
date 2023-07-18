@@ -1,0 +1,63 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+
+.typography {
+  a {
+    text-decoration: none;
+    color: var(--link-color);
+    @include focus-style();
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.primary {
+    color: var(--primary-text-color);
+  }
+
+  &.secondary {
+    color: var(--secondary-text-color);
+  }
+
+  &.onPrimary {
+    color: var(--text-color-on-primary);
+    a {
+      color: var(--text-color-on-primary);
+      text-decoration: underline;
+    }
+  }
+
+  &.onInverted {
+    color: var(--text-color-on-inverted);
+    a {
+      color: var(--text-color-on-inverted);
+      text-decoration: underline;
+    }
+  }
+
+  &.start {
+    text-align: start;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.end {
+    text-align: end;
+  }
+
+  &.singleLineEllipsis {
+    @include ellipsis();
+  }
+
+  &.multiLineEllipsis {
+    @include line-clamp(var(--text-clamp-lines));
+  }
+
+  &:disabled, &[aria-disabled="true"]  {
+    color: var(--disabled-text-color);
+  }
+}

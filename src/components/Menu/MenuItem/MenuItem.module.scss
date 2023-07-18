@@ -4,12 +4,11 @@
 @import "../../../styles/global-css-settings";
 
 .item {
+  @include smoothing-text;
   margin: unset;
-  @include font-default;
   display: flex;
   flex-direction: row;
-  padding: $spacing-xs $spacing-small;
-  @include theme-prop(color, primary-text-color);
+  padding: var(--spacing-xs) var(--spacing-small);
   cursor: pointer;
   user-select: none;
   align-items: center;
@@ -76,6 +75,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
+  padding-block: 1px;
 }
 
 .label {

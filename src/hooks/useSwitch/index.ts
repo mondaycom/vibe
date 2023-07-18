@@ -5,17 +5,14 @@ enum SwitchRole {
   BUTTON = "button"
 }
 
-export default function useSwitch({
-  isChecked,
-  defaultChecked,
-  onChange,
-  isDisabled
-}: {
+export interface UseSwitchProps {
   isChecked?: boolean;
   defaultChecked?: boolean;
   onChange?: (value: boolean) => void;
   isDisabled?: boolean;
-}) {
+}
+
+export default function useSwitch({ isChecked, defaultChecked, onChange, isDisabled }: UseSwitchProps = {}) {
   // if isChecked is empty, set defaultChecked value (default false value)
   const overrideCheckedInitial = isChecked ?? !!defaultChecked;
   const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);

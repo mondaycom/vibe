@@ -1,14 +1,14 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import VibeComponentProps from "src/types/VibeComponentProps";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { ElementContent } from "../../../types/ElementContent";
+import { VibeComponentProps } from "../../../types";
 
 interface AccordionItemProps extends VibeComponentProps {
   /**
    * Header title
    */
-  title?: string;
+  title?: ElementContent;
   /**
    * The value of the expandable section
    */

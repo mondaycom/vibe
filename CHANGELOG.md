@@ -1,5 +1,126 @@
 # Changelog
 
+## 2.15.5 (2023-07-13)
+
+#### Bug Fixes
+* [#1419](https://github.com/mondaycom/monday-ui-react-core/pull/1419) improve useState to only called once in useIsOverflowing ([@doronbrikman](https://github.com/doronbrikman))
+
+#### Documentation
+* [#1420](https://github.com/mondaycom/monday-ui-react-core/pull/1420) docs(DatePicker): set default selected days for stories ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1408](https://github.com/mondaycom/monday-ui-react-core/pull/1408) docs: change usage of Yonatan in stories to Yossi ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.15.4 (2023-07-12)
+
+#### New Icons
+* [#1417](https://github.com/mondaycom/monday-ui-react-core/pull/1417) Update icons - monday-ui-style 0.1.172 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1415](https://github.com/mondaycom/monday-ui-react-core/pull/1415) Update icons - monday-ui-style 0.1.171 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.15.3 (2023-07-12)
+
+#### Bug Fixes
+* [#1416](https://github.com/mondaycom/monday-ui-react-core/pull/1416) Bug: Combobox component ts issues ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1414](https://github.com/mondaycom/monday-ui-react-core/pull/1414) docs: change colors descriptions ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.15.2 (2023-07-12)
+
+#### Bug Fixes
+* [#1409](https://github.com/mondaycom/monday-ui-react-core/pull/1409) fix: InteractionsTest - fix types ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1407](https://github.com/mondaycom/monday-ui-react-core/pull/1407) docs(useSwitch): add story page for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1406](https://github.com/mondaycom/monday-ui-react-core/pull/1406) test(useSwitch): add tests for hook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Icons
+* [#1413](https://github.com/mondaycom/monday-ui-react-core/pull/1413) Update icons - monday-ui-style 0.1.170 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.15.1 (2023-07-11)
+
+#### Bug Fixes
+* [#1404](https://github.com/mondaycom/monday-ui-react-core/pull/1404) Combobox: expose actual type instead a no argument on hover callback. ([@m-binygal](https://github.com/m-binygal))
+
+#### Documentation
+* [#1402](https://github.com/mondaycom/monday-ui-react-core/pull/1402) docs: fix storybook light theme name ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1396](https://github.com/mondaycom/monday-ui-react-core/pull/1396) Revert "refactor: support aria a11y in Tooltip component" ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.15.0 (2023-07-09)
+
+#### Bug Fixes
+* [#1395](https://github.com/mondaycom/monday-ui-react-core/pull/1395) Accordion: fix vibe props are not recognized. ([@m-binygal](https://github.com/m-binygal))
+
+#### New Features
+* [#1391](https://github.com/mondaycom/monday-ui-react-core/pull/1391) refactor: support aria a11y in Tooltip component ([@YGlaubach](https://github.com/YGlaubach))
+
+#### Internal Changes
+* [#1390](https://github.com/mondaycom/monday-ui-react-core/pull/1390) chore: enable source maps in tsconfig ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.14.1 (2023-07-05)
+
+#### Bug Fixes
+* [#1388](https://github.com/mondaycom/monday-ui-react-core/pull/1388) Refactor modal heading ([@YGlaubach](https://github.com/YGlaubach))
+* [#1385](https://github.com/mondaycom/monday-ui-react-core/pull/1385) fix: remove Chips.sizes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1387](https://github.com/mondaycom/monday-ui-react-core/pull/1387) Update browserslist in docs ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.14.0 (2023-07-04)
+
+#### New Features
+* [#1384](https://github.com/mondaycom/monday-ui-react-core/pull/1384) feat: support ariaExpanded in <IconButton> ([@YGlaubach](https://github.com/YGlaubach))
+
+## 2.13.1 (2023-07-02)
+
+#### Bug Fixes
+* [#1382](https://github.com/mondaycom/monday-ui-react-core/pull/1382) fix: MultiStepIndicator - fix divider to not squeeze bullets ([@shlomitc](https://github.com/shlomitc))
+
+#### Documentation
+* [#1380](https://github.com/mondaycom/monday-ui-react-core/pull/1380) docs: Combobox - add example for the creation button ([@shlomitc](https://github.com/shlomitc))
+
+## 2.13.0 (2023-06-29)
+
+#### New Features
+* [#1375](https://github.com/mondaycom/monday-ui-react-core/pull/1375) AccordionItem: add support for custom header. ([@m-binygal](https://github.com/m-binygal))
+
+## 2.12.1 (2023-06-28)
+
+#### Bug Fixes
+* [#1369](https://github.com/mondaycom/monday-ui-react-core/pull/1369) fix: icons, interactionsTests, testIds types exports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.12.0 (2023-06-26)
+
+#### New Features
+* [#1372](https://github.com/mondaycom/monday-ui-react-core/pull/1372) feat: Publish <GridKeyboardNavigationContext> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1359](https://github.com/mondaycom/monday-ui-react-core/pull/1359) New title component and some docs fixes and tests ([@hadasfa](https://github.com/hadasfa))
+
+## 2.11.1 (2023-06-25)
+
+#### Bug Fixes
+* [#1370](https://github.com/mondaycom/monday-ui-react-core/pull/1370) fix: <TokenTable> tags styles overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.11.0 (2023-06-25)
+
+#### Bug Fixes
+* [#1368](https://github.com/mondaycom/monday-ui-react-core/pull/1368) fix: <Text> in published-ts-components.js ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1367](https://github.com/mondaycom/monday-ui-react-core/pull/1367) Remove redundant tipseen max-width property ([@ofirmonday](https://github.com/ofirmonday))
+
+## 2.10.2 (2023-06-21)
+
+#### Documentation
+* [#1360](https://github.com/mondaycom/monday-ui-react-core/pull/1360) Add docs best practices to contribution md ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1361](https://github.com/mondaycom/monday-ui-react-core/pull/1361) Update icons - monday-ui-style 0.1.162 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.10.1 (2023-06-21)
+
+#### Bug Fixes
+* [#1362](https://github.com/mondaycom/monday-ui-react-core/pull/1362) Fix bug on Tipseen in dark mode ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.10.0 (2023-06-15)
 
 #### New Features

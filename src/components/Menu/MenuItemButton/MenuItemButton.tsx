@@ -10,6 +10,7 @@ import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEven
 import { DialogPosition } from "../../../constants/positions";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "../../../types";
+import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 
 interface MenuItemButtonProps extends VibeComponentProps {
@@ -106,7 +107,9 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
       position={tooltipPosition}
       showDelay={tooltipShowDelay}
     >
-      <li
+      <Text
+        size="small"
+        element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
         id={id || `${menuId}-${index}`}
         className={cx(styles.itemButton, overrideClassName)}
@@ -127,7 +130,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
         >
           <div className={styles.content}>{children}</div>
         </Button>
-      </li>
+      </Text>
     </Tooltip>
   );
 };

@@ -29,7 +29,7 @@ interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * Header title
    */
-  title?: string;
+  title?: ElementContent;
   /**
    * The value of the expandable section
    */
@@ -77,7 +77,11 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       setIsOpen(!isOpen);
     };
     const renderHeader = useCallback(() => {
-      return <Heading type={Heading.types.h5} value={title} className={cx(styles.headerContent)} />;
+      return typeof title === "string" ? (
+        <Heading type={Heading.types.h5} value={title} className={cx(styles.headerContent)} />
+      ) : (
+        title
+      );
     }, [title]);
 
     return (
@@ -107,7 +111,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
-            {title.length !== 0 ? renderHeader() : headerComponentRenderer && headerComponentRenderer()}
+            {typeof title !== "string" || title.length !== 0
+              ? renderHeader()
+              : headerComponentRenderer && headerComponentRenderer()}
             <Icon
               className={cx(styles.iconComponent, {
                 [styles.animateIconOpen]: isExpanded,

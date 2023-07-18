@@ -148,6 +148,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -174,7 +175,7 @@ Array [
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -211,8 +212,9 @@ Array [
               </svg>
             </button>
           </div>
-          <div
-            className="tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -247,6 +249,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -268,8 +271,9 @@ Array [
           <div
             className="tipseenHeader"
           />
-          <div
-            className="tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -304,6 +308,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -325,8 +330,9 @@ Array [
           <div
             className="tipseenHeader"
           />
-          <div
-            className="tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>
@@ -361,6 +367,7 @@ Array [
   <span
     className="monday-style-dialog-content-wrapper contentWrapper"
     data-popper-reference-hidden={false}
+    data-testid="tooltip"
     onClickCapture={[Function]}
     style={
       Object {
@@ -387,7 +394,7 @@ Array [
               aria-disabled={false}
               aria-label="Close"
               aria-pressed={false}
-              className="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
+              className="tipseenCloseButton button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
               onClick={[Function]}
@@ -424,8 +431,9 @@ Array [
               </svg>
             </button>
           </div>
-          <div
-            className="tipseenContent"
+          <p
+            className="typography onPrimary start small normal tipseenContent"
+            data-testid="text"
           />
         </div>
       </div>

@@ -1,0 +1,189 @@
+import Text from "../Text";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate, createStoryMetaSettings, Tip } from "../../../storybook";
+import { Link as StorybookLink } from "../../../storybook";
+import Flex from "../../Flex/Flex";
+import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
+import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
+import { textOverflowSuite } from "../__tests__/text.interactions";
+import styles from "./Text.stories.module.scss";
+
+export const metaSettings = createStoryMetaSettings({
+  component: Text,
+  enumPropNamesArray: ["sizes", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta title="Text/Text" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+
+<!--- Component template -->
+
+export const textTemplate = createComponentTemplate(Text);
+
+# Text
+
+<AlphaWarning />
+
+<!--- Component documentation -->
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The text component serves as a wrapper for applying typography styles to the text it contains.
+
+<Canvas>
+  <Story name="Overview" args={{ children: "Text" }}>
+    {textTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
+
+<Tip title="Not what you were looking for?">Tip content</Tip>
+
+## Variants
+
+### Sizes and weights
+
+<Canvas>
+  <Story name="Sizes and weights">
+    <Flex
+      gap={Flex.gaps.SMALL}
+      direction={Flex.directions.COLUMN}
+      justify={Flex.justify.START}
+      align={Flex.align.START}
+    >
+      <Text size="medium" weight="bold">
+        Bold medium size
+      </Text>
+      <Text size="medium" weight="normal">
+        Normal medium size
+      </Text>
+      <Text size="small" weight="bold">
+        Bold small size
+      </Text>
+      <Text size="small" weight="normal">
+        Normal small size
+      </Text>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+      <Text color="primary">Primary text</Text>
+      <Text color="secondary">Secondary text</Text>
+      <Text element="div" className={styles.primaryBackground} align="center" color="onPrimary">
+        On primary text
+      </Text>
+      <Text element="div" className={styles.invertedBackground} align="center" color="onInverted">
+        On inverted text
+      </Text>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Overflow
+
+Our Text component support overflow state.
+When the text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
+
+<Canvas>
+  <Story name="Overflow" play={textOverflowSuite}>
+    <Flex
+      id={OVERFLOW_TEXT_CONTAINER_ID}
+      direction={Flex.directions.COLUMN}
+      gap={Flex.gaps.MEDIUM}
+      align={Flex.align.STRETCH}
+      style={{ width: "70%" }}
+    >
+      <Text size="small" ellipsis={false}>
+        Text without overflow text without overflow text without overflow text without overflow text without overflow
+        text without overflow text without overflow
+      </Text>
+      <Text
+        size="small"
+        ellipsis
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        /**for testing purposes**/
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
+        }}
+      >
+        Text with overflow text with overflow text with overflow text with overflow text with overflow text with
+        overflow text with overflow text with overflow text with overflow text with overflow
+      </Text>
+      <div>
+        <Text size="small" ellipsis withoutTooltip maxLines={2}>
+          Text with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text
+          with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
+          overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
+          overflow without tooltip
+        </Text>
+      </div>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Paragraph
+
+To use the Text component for a paragraph, utilize the 'paragraph' prop.
+This changes the text wrapper element to p, enabling the creation of paragraph-style text without ellipsis by default.
+The paragraph will receive default top and bottom margins based on browser settings for p elements.
+Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
+
+<Canvas>
+  <Story name="Paragraph">
+    <Flex direction={Flex.directions.COLUMN}>
+      <Text paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </Text>
+      <Text paragraph ellipsis maxLines={3}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </Text>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Links inside running text
+
+We distinguish between two types of links: links within running text and links that are not part of the textual flow, such as those found in menus or next to buttons.
+
+If you need to place a link outside of the textual flow, please use our <StorybookLink href="/?path=/docs/navigation-link--overview" withoutSpacing>Link</StorybookLink> component.
+Otherwise, use this Text component with a link skin, as demonstrated in the following example.
+
+<Canvas>
+  <Story name="Links inside running text">
+    <Text>
+      This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text.
+    </Text>
+  </Story>
+</Canvas>
+
+## Related components

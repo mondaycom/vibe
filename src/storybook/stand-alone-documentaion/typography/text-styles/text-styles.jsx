@@ -1,7 +1,11 @@
+import cx from "classnames";
 import { VisualDescription, Frame } from "../../../components";
+import Heading from "../../../../components/Heading/Heading";
+import { BEMClass } from "../../../../helpers/bem-helper";
 import "./text-styles.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-text-description";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const TextStyles = () => {
   return (
@@ -9,81 +13,137 @@ export const TextStyles = () => {
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H1"
-        code="font: var(--font-h1)"
-        title="H1 Main heading"
+        title="Main heading (Poppins 30px bold)"
         description="Use as main header on a page"
       >
-        <h1 style={{ font: "var(--font-h1)" }}>{`H1`}</h1>
+        <Heading
+          type={Heading.types.h1}
+          value="H1"
+          ellipsis={false}
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
         className="monday-storybook-text-description"
         ariaLabel="H2"
-        code="font: var(--font-h2)"
-        title="H2 Secondary heading"
+        title="Secondary heading (Poppins 24px bold)"
         description="Use as secondary header on a page"
       >
-        <h2 style={{ font: "var(--font-h2)" }}>{`H2`}</h2>
+        <Heading
+          type={Heading.types.h2}
+          value="H2"
+          ellipsis={false}
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H3"
-        code="font: var(--font-h3)"
-        title="H3 Tertiary heading"
+        title="Tertiary heading (Poppins 24px light)"
         description="Use after heading, profile page headings"
       >
-        <h3 style={{ font: "var(--font-h3)" }}>{`H3`}</h3>
+        <Heading
+          type={Heading.types.h3}
+          value="H3"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H4"
-        code="font: var(--font-h4)"
-        title="H4 Fourth heading"
+        title="Fourth heading (Poppins 18px bold)"
         description="Use for subtitles, group name, subheading in admin"
       >
-        <h4 style={{ font: "var(--font-h4)" }}>{`H4`}</h4>
+        <Heading
+          type={Heading.types.h4}
+          value="H4"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
         ariaLabel="H5"
-        code="font: var(--font-h5)"
-        title="H5 Paragraph"
+        title="Fourth heading (Poppins 16px bold)"
         className={CSS_BASE_CLASS}
         description="Use as subtitles for paragraphs"
       >
-        <h5 style={{ font: "var(--font-h5)" }}>{`H5`}</h5>
+        <Heading
+          type={Heading.types.h5}
+          value="H5"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
         ariaLabel="text"
-        code="font: var(--font-general-label)"
-        title="H6 UI text"
+        title="UI labels / General text (Figtree 14px normal)"
         description="Use for general text or labels"
         className={CSS_BASE_CLASS}
       >
-        <span style={{ font: "var(--font-general-label)" }}>text</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "regular-text" })
+          )}
+        >
+          text
+        </span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="paragraph"
         className={CSS_BASE_CLASS}
-        code="font: var(--font-paragraph)"
-        title="P Paragraph text"
+        title="Paragraph text (Figtree 16px normal)"
         description="Use for item name, text in update"
       >
-        <span style={{ font: "var(--font-paragraph)" }}>{"<p>"}</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "paragraph" })
+          )}
+        >
+          {"<p>"}
+        </span>
       </VisualDescription>
       <VisualDescription
-        code="font: var(--font-subtext)"
-        title="Medium Text"
+        title="Caption/Subtext (Figtree 14px normal)"
         className={CSS_BASE_CLASS}
         description="Use for subtexts"
       >
-        <span style={{ font: "var(--font-subtext)" }}>subtext</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "subtext" })
+          )}
+        >
+          subtext
+        </span>
       </VisualDescription>
       <VisualDescription
-        code="font: var(--font-general-label); color: var(--link-color)"
-        title="Medium text link"
+        title="Link text (Figtree 14px normal)"
         className="monday-storybook-text-description"
         description="Use for links"
       >
-        <span style={{ font: "var(--font-general-label)", color: "var(--link-color)" }}>Link</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "link" })
+          )}
+        >
+          Link
+        </span>
       </VisualDescription>
     </Frame>
   );

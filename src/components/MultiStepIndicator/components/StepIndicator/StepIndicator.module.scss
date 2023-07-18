@@ -1,11 +1,11 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/keyframes";
 
 .indicator {
-  @include theme-prop(color, text-color-on-primary);
-  font-size: var(--font-size-general-label);
-  font-family: var(--font-family);
+  @include vibe-text(small, normal);
+  color: var(--text-color-on-primary);
   display: flex;
   margin: 0;
   padding: 0;
@@ -36,19 +36,14 @@
 }
 
 .textContainerTitleText {
-  font: var(--font-text-bold);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
+  @include vibe-text("small", "bold");
   @include theme-prop(color, primary-text-color);
   margin-bottom: 2px;
 }
 
 .textContainerSubtitleText {
   width: 100%;
-  font-size: var(--font-size-general-label);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-normal);
+  @include vibe-text("small", "normal");
   color: var(--primary-text-color);
 }
 .sizeCompactTextContainerTitle{
@@ -75,8 +70,7 @@
 
 .sizeCompactTextContainerTitleText {
   display: block;
-  font-size: var(--font-size-20);
-  font-weight: var(--font-weight-normal);
+  @include vibe-text(small, normal);
   max-width: 150px;
   overflow: hidden;
   white-space: nowrap;
@@ -88,7 +82,7 @@
   @include theme-prop(background-color, ui-border-color);
   margin: 16px 0 16px 16px;
   height: 1px;
-  flex-grow: 1;
+  flex: 1 1 0;
 }
 
 .sizeCompactNumberDividerContainer {
