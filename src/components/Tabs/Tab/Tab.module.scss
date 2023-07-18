@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../styles/states";
 @import "../../../styles/themes";
 @import "../../../styles/typography";
@@ -35,13 +36,11 @@
   justify-content: center;
   text-decoration: none;
   padding: 4px 16px;
-  font-weight: 400;
-  font-size: 16px;
+  @include vibe-text(medium, normal);
   user-select: none;
   margin-bottom: $margin-bottom;
   cursor: pointer;
   @include theme-prop(color, primary-text-color);
-  font-family: var(--font-family);
 }
 
 .tabWrapper .tabInner:focus {

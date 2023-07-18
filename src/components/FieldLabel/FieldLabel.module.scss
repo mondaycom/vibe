@@ -19,4 +19,5 @@
 .labelComponentText {
   @include vibe-text("small", "normal");
   @include theme-prop(color, primary-text-color);
+  padding-block: 2px;
 }

@@ -1,17 +1,17 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../../styles/themes";
 @import "../../../../styles/states";
 
 .breadcrumbContent {
+  @include vibe-text(small, normal);
+  color: var(--secondary-text-color);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
-  @include theme-prop(color, secondary-text-color);
   padding: 0 2px;
   overflow: hidden;
   text-decoration: none;
-  font-family: var(--font-family);
 }
 
 .breadcrumbContent .breadcrumbText {
