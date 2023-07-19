@@ -2,7 +2,6 @@
 $avatar-icon-large: 28px;
 $avatar-icon-medium: 18px;
 $avatar-icon-small: 12px;
-$font-size-avatar-large: 18px;
 $font-size-avatar-medium: 14px;
 $font-size-avatar-small: 12px;
 
@@ -25,7 +24,7 @@ $font-size-avatar-small: 12px;
 }
 
 .contentTextLarge {
-  font-size: $font-size-avatar-large;
+  @include vibe-title("h3", "normal");
 }
 
 .contentTextMedium {
