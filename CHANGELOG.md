@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.16.1 (2023-07-19)
+
+#### Bug Fixes
+* [#1428](https://github.com/mondaycom/monday-ui-react-core/pull/1428) fix heading margin breaking change ([@hadasfa](https://github.com/hadasfa))
+* [#1422](https://github.com/mondaycom/monday-ui-react-core/pull/1422) fix(Chips): change border color token, do not limit chip-with-border's height ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.16.0 (2023-07-18)
 
 #### Bug Fixes
