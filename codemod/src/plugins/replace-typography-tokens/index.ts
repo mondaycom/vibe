@@ -13,9 +13,14 @@ const TYPOGRAPHY_TOKENS_INFO = [
 ];
 
 const FONT_SIZE_TO_MIXIN = new Map([
-  ["key1", "value1"],
-  ["key2", "value2"],
-  ["key3", "value3"]
+  ["font-size-h1", { weight: "", lineHeight: "" }],
+  ["font-size-h2", "value2"],
+  ["font-size-h3", "value3"],
+  ["font-size-h4", "value1"],
+  ["font-size-h5", "value2"],
+  ["font-size-general-label", "value3"],
+  ["font-size-paragraph", "value1"],
+  ["font-size-subtext", "value2"]
 ]);
 export const replaceTypographyTokensPlugin: Plugin = {
   postcssPlugin: "replace-typography-tokens",
