@@ -51,7 +51,7 @@ Tipseen is an virtual unboxing experience that helps users get started with the 
   <Story
     name="Overview"
     args={{
-      title: "title",
+      title: "Title",
       children: "Popover message will appear here loremipsum dolor samet…",
       position: Tipseen.positions.RIGHT,
       isDismissHidden: false
@@ -132,7 +132,14 @@ Use when the tip is too long or when you want to teach something in steps.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
-          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={activeStepIndex} onChangeActiveStep={onChangeActiveStep} />}
+          content={
+            <TipseenWizard
+              title="This is a title"
+              steps={content}
+              activeStepIndex={activeStepIndex}
+              onChangeActiveStep={onChangeActiveStep}
+            />
+          }
         >
           <div className="monday-storybook-tipseen_container" />
         </Tipseen>
