@@ -16,7 +16,7 @@ const Title: VibeComponent<TitleProps, HTMLElement> = forwardRef(
       <Typography
         element={type}
         ref={ref}
-        className={cx(styles[type], styles[weight], className)}
+        className={cx(styles.heading, styles[type], styles[weight], className)}
         {...typographyProps}
       />
     );

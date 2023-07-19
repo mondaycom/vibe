@@ -11,8 +11,8 @@ Snapshot Diff:
 +   class="container className"
   >
     <h2
--     class="typography primary start singleLineEllipsis h2 normal title"
-+     class="typography primary start singleLineEllipsis h2 normal titleClassName title"
+-     class="typography primary start singleLineEllipsis heading h2 normal title"
++     class="typography primary start singleLineEllipsis heading h2 normal titleClassName title"
       data-testid="modal-header_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 1;"
@@ -125,7 +125,7 @@ exports[`ModalHeader with required props 1`] = `
   class="container"
 >
   <h2
-    class="typography primary start singleLineEllipsis h2 normal title"
+    class="typography primary start singleLineEllipsis heading h2 normal title"
     data-testid="modal-header_modal-title-id"
     id="modal-title-id"
     style="--text-clamp-lines: 1;"

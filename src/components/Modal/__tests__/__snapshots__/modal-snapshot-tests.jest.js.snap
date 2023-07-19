@@ -34,7 +34,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h2
-+           class="typography primary start singleLineEllipsis h2 normal title"
++           class="typography primary start singleLineEllipsis heading h2 normal title"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 1;"
 +         >
@@ -99,7 +99,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h2
-+           class="typography primary start singleLineEllipsis h2 normal title"
++           class="typography primary start singleLineEllipsis heading h2 normal title"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 1;"
 +         >
@@ -185,7 +185,7 @@ exports[`Modal with base props 1`] = `
       class="container"
     >
       <h2
-        class="typography primary start singleLineEllipsis h2 normal title"
+        class="typography primary start singleLineEllipsis heading h2 normal title"
         data-testid="modal-header_modal-id-title"
         id="modal-id-title"
         style="--text-clamp-lines: 1;"
