@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global","local"]
+      }
+    ]
+  }
+}

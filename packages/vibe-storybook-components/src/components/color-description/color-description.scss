@@ -1,0 +1,9 @@
+@import "../../styles/global-css-settings";
+
+.vibe-sb-comps-color-description {
+  border-radius: $border-radius-extra-small;
+  &--with-border {
+    border: 1px solid;
+    border-color: var(--ui-border-color);
+  }
+}
