@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import classNames from "classnames";
 import "./color-item.scss";
 
+// TODO delete not used components from this folder
 export default class ColorItem extends PureComponent {
   render() {
     const { name, value, themeColor, halfSize } = this.props;
