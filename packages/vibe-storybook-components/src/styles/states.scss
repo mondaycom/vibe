@@ -1,0 +1,108 @@
+@mixin disabled {
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
+
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+@mixin reset-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  appearance: none;
+
+  @include focus-style;
+}
+
+@mixin focus-style($focus-radius: 4px) {
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css($focus-radius);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+@mixin focus-style-inset($focus-radius: 4px, $shadow-depth: 3px) {
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css-inset($focus-radius, $shadow-depth);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+@mixin focus-style-on-primary($focus-radius: 4px) {
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css-on-primary($focus-radius);
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+@mixin focus-style-base($focus-radius: 4px) {
+  outline: none;
+  z-index: 11;
+  border-radius: $focus-radius;
+}
+
+@mixin focus-style-css($focus-radius: 4px, $shadow-depth: 3px) {
+  @include focus-style-base($focus-radius);
+
+  box-shadow: 0 0 0 $shadow-depth hsl(209deg 100% 50% / 50%), 0 0 0 1px var(--primary-hover-color) inset;
+}
+
+@mixin focus-style-css-inset($focus-radius: 4px, $shadow-depth: 3px) {
+  @include focus-style-base($focus-radius);
+
+  box-shadow: 0 0 0 $shadow-depth hsl(209deg 100% 50% / 50%) inset, 0 0 0 1px var(--primary-hover-color) inset;
+}
+
+@mixin focus-style-css-on-primary($focus-radius: 4px) {
+  @include focus-style-base($focus-radius);
+
+  box-shadow: 0 0 0 3px var(--text-color-on-primary-with-opacity), 0 0 0 1px var(--text-color-on-primary) inset;
+}
+
+@mixin _scrollerThumb($color) {
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 4px;
+  }
+}
+
+@mixin scroller($width: 4px, $height: 6px, $color: var(--ui-border-color)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  @include _scrollerThumb($color);
+}

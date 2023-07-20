@@ -1,0 +1,7 @@
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/content-spacing";
+
+.vibe-sb-comps-title {
+  @include title-appearance;
+}

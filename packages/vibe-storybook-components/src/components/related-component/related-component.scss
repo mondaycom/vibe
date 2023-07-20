@@ -1,0 +1,13 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+
+.vibe-sb-comps-related-component {
+  &_component {
+    width: 100%;
+    height: 174px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-background-on-secondary-color);
+  }
+}

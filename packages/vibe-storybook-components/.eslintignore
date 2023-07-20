@@ -1,0 +1,8 @@
+.git
+.npmrc
+.yarnrc
+build
+dist
+node_modules
+coverage
+storybook-static

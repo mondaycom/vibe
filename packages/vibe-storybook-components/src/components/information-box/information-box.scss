@@ -1,0 +1,15 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+
+.vibe-sb-comps-information-box {
+  &_component {
+    width: 100%;
+    height: fit-content;
+    margin: 0 0 $spacing-medium;
+  }
+
+  &_description {
+    @include content-text;
+    font-size: $small-text-font-size;
+  }
+}
