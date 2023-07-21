@@ -1,7 +1,7 @@
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import cx from "classnames";
-import { SIZES } from "../../../constants/sizes";
 import React, { forwardRef, useMemo } from "react";
+import cx from "classnames";
+import { SIZES } from "../../../constants";
+import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";

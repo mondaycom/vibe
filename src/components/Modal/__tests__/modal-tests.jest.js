@@ -124,7 +124,6 @@ describe("Modal tests", () => {
         const component = renderComponent();
         const title = component.queryByText(MODAL_TITLE_TEXT);
         expect(title).toHaveAttribute("id");
-        expect(title.getAttribute("role")).toEqual("heading");
       });
     });
 

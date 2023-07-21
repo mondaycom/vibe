@@ -1,4 +1,5 @@
 import { useState } from "react";
+import moment from "moment";
 import DatePicker from "../DatePicker";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -10,6 +11,8 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import styles from "./DatePicker.stories.module.scss";
+
+export const MOCK_INITIAL_DATE = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") }; // for Chromatic check to always have the same date UI
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
@@ -43,7 +46,7 @@ A simple and reusable Datepicker component
 <Canvas>
   <Story name="Overview">
     {() => {
-      const [date, setDate] = useState(null);
+      const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
       return (
         <DialogContentContainer className={styles.datepickerDialogContentContainer}>
           <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
@@ -66,7 +69,7 @@ Allows users to select a single date
 <Canvas>
   <Story name="Single Day">
     {() => {
-      const [date, setDate] = useState(null);
+      const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
       return (
         <DialogContentContainer className={styles.datepickerDialogContentContainer}>
           <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
@@ -83,7 +86,7 @@ Allows users to select a date range
 <Canvas>
   <Story name="Date Range">
     {() => {
-      const [date, setDate] = useState({});
+      const [date, setDate] = useState(MOCK_INITIAL_DATE);
       return (
         <DialogContentContainer className={styles.datepickerDialogContentContainer}>
           <DatePicker
@@ -104,7 +107,7 @@ Allows users to select a date range
 <Canvas>
   <Story name="Number Of Months">
     {() => {
-      const [date, setDate] = useState(null);
+      const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
       return (
         <DialogContentContainer className={styles.datepickerDialogContentContainer}>
           <DatePicker numberOfMonths={2} data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />

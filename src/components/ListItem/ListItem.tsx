@@ -3,6 +3,7 @@ import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react";
+import Text from "../Text/Text";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/keyCodes";
@@ -106,7 +107,8 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     );
 
     return (
-      <div
+      <Text
+        element="div"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
         className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
@@ -114,6 +116,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
           [styles.disabled]: disabled
         })}
         id={id}
+        size="small"
         aria-disabled={disabled}
         onClick={componentOnClick}
         onKeyDown={onKeyDown}
@@ -123,7 +126,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         tabIndex={tabIndex}
       >
         {children}
-      </div>
+      </Text>
     );
   }
 );

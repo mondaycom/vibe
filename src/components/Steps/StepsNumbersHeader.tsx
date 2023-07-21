@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, { FC } from "react";
 import VibeComponentProps from "../../types/VibeComponentProps";
+import Text from "../Text/Text";
 import styles from "./StepsNumbersHeader.module.scss";
 
 export interface StepsNumbersHeaderProps extends VibeComponentProps {
@@ -11,8 +12,8 @@ export interface StepsNumbersHeaderProps extends VibeComponentProps {
 
 export const StepsNumbersHeader: FC<StepsNumbersHeaderProps> = ({ activeStepIndex, stepsCount, isOnPrimary }) => {
   return (
-    <div className={cx(styles.numbers, { [styles.onPrimary]: isOnPrimary })}>{`${
+    <Text size="small" color={isOnPrimary ? "onPrimary" : "primary"} className={cx(styles.numbers)}>{`${
       activeStepIndex + 1
-    } \\ ${stepsCount}`}</div>
+    } \\ ${stepsCount}`}</Text>
   );
 };
