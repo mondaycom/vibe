@@ -17,7 +17,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["type", "size"] // List enum props here
 });
 
-export const avatarGroupTemplate = ({persons, ...args}) => {
+export const avatarGroupTemplate = ({ persons, ...args }) => {
   return (
     <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
       <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
@@ -34,8 +34,8 @@ export const avatarGroupTemplate = ({persons, ...args}) => {
       <Avatar type={Avatar.types.IMG} src={persons.person3} ariaLabel="Yossi Saadi" />
       <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
     </AvatarGroup>
-  );}
-;
+  );
+};
 
 <Meta
   title="Media/Avatar/AvatarGroup"
@@ -403,50 +403,50 @@ Counter tooltip props can be specified in order to render tooltip with custom co
   <Story name="Displaying teams">
     <table>
       <thead>
-      <tr>
-        <th width={200} align="left">
-          Name
-        </th>
-        <th width={200} align="left">
-          Title
-        </th>
-        <th width={200} align="left">
-          Teams
-        </th>
-      </tr>
+        <tr>
+          <th width={200} align="left">
+            Name
+          </th>
+          <th width={200} align="left">
+            Title
+          </th>
+          <th width={200} align="left">
+            Teams
+          </th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td align="left">
-          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-            <Avatar type={Avatar.types.IMG} src={person1} size={Avatar.sizes.MEDIUM} ariaLabel="Hadas Fahri" />
-            Hadas Fahri
-          </Flex>
-        </td>
-        <td align="left">Developer</td>
-        <td align="left">
-          <AvatarGroup size={Avatar.sizes.MEDIUM} max={2} counterProps={{ ariaLabelItemsName: "teams" }}>
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T1"
-              backgroundColor={Avatar.backgroundColors.PEACH}
-              ariaLabel="Team 1"
-            />
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T2"
-              backgroundColor={Avatar.backgroundColors.BUBBLE}
-              ariaLabel="Team 2"
-            />
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T3"
-              backgroundColor={Avatar.backgroundColors.BERRY}
-              ariaLabel="Team 3"
-            />
-          </AvatarGroup>
-        </td>
-      </tr>
+        <tr>
+          <td align="left">
+            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+              <Avatar type={Avatar.types.IMG} src={person1} size={Avatar.sizes.MEDIUM} ariaLabel="Hadas Fahri" />
+              Hadas Fahri
+            </Flex>
+          </td>
+          <td align="left">Developer</td>
+          <td align="left">
+            <AvatarGroup size={Avatar.sizes.MEDIUM} max={2} counterProps={{ ariaLabelItemsName: "teams" }}>
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T1"
+                backgroundColor={Avatar.backgroundColors.PEACH}
+                ariaLabel="Team 1"
+              />
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T2"
+                backgroundColor={Avatar.backgroundColors.BUBBLE}
+                ariaLabel="Team 2"
+              />
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T3"
+                backgroundColor={Avatar.backgroundColors.BERRY}
+                ariaLabel="Team 3"
+              />
+            </AvatarGroup>
+          </td>
+        </tr>
       </tbody>
     </table>
   </Story>
