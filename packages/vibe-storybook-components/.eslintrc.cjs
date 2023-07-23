@@ -1,22 +1,30 @@
 module.exports = {
-  extends: ['react-app', 'react-app/jest', 'plugin:react/recommended', 'plugin:prettier/recommended', 'plugin:storybook/recommended'],
-  plugins: ['react', 'prettier'],
+  extends: [
+    "react-app",
+    "react-app/jest",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
+  ],
+  plugins: ["react", "prettier"],
   env: {
     browser: true,
     node: true,
-    jest: true,
+    jest: true
   },
   root: true,
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 11,
-    sourceType: 'module',
+    ecmaVersion: 13,
+    sourceType: "module",
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   rules: {
-    'newline-before-return': 'error',
-    'import/no-anonymous-default-export': 0,
-  },
+    "newline-before-return": "error",
+    "import/no-anonymous-default-export": 0,
+    "react/prop-types": "warn",
+    "react/display-name": "off"
+  }
 };

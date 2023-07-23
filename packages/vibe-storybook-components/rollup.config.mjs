@@ -5,7 +5,7 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import svgr from "@svgr/rollup";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import typescriptEngine from "typescript";
 import pkg from "./package.json" assert { type: "json" };
 
