@@ -7,21 +7,27 @@
     "type": "git",
     "url": "git@github.com:mondaycom/vibe-storybook-components.git"
   },
+  "author": "monday.com",
   "homepage": "https://github.com/mondaycom/vibe-storybook-components",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": ">=16",
-    "npm": ">=6"
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    },
+    "./dist/": "./dist/"
   },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ],
   "scripts": {
     "start": "NODE_ENV=development yarn storybook",
-    "build": "rimraf dist && NODE_ENV=production rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "test": "jest",
     "test:coverage": "jest --coverage --forceExit --colors",
     "lint": "yarn check-types && yarn eslint && yarn stylelint",
@@ -66,7 +72,6 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-url": "^8.0.1",
     "@storybook/addon-actions": "^7.0.26",
     "@storybook/addon-docs": "^7.0.26",
     "@storybook/addon-essentials": "^7.0.26",
@@ -104,6 +109,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "boxt": "^1.1.1",
+    "camelcase": "^7.0.1",
     "chalk": "^4.1.2",
     "css-loader": "^6.8.1",
     "eslint": "^8.44.0",
@@ -141,7 +147,6 @@
     "regenerator-runtime": "^0.13.11",
     "remark-gfm": "^3.0.1",
     "resolve-url-loader": "^5.0.0",
-    "rimraf": "^5.0.1",
     "rollup": "^3.26.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
