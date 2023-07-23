@@ -171,5 +171,15 @@
     "loader-utils": "^1.4.1",
     "json5": "^1.0.2",
     "semver": "^7.5.2"
+  },
+  "changelog": {
+    "labels": {
+      "PR: Bugfix 🐛": "Bug Fixes",
+      "PR: New Feature 🕹": "New Features",
+      "PR: Dependencies 🛠": "Dependency Upgrades",
+      "PR: Documentation 📖": "Documentation",
+      "PR: Internal 🏠": "Internal Changes",
+      "PR: Breaking Changes 💥": "Breaking Changes"
+    }
   }
 }
