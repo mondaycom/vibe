@@ -65,7 +65,7 @@ const preview: Preview = {
     // },
     options: {
       storySort: {
-        order: ["Welcome", "*"]
+        order: ["Welcome", "Change Log", "*"]
       }
     }
   }
