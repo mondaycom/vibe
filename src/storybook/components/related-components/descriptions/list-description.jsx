@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "vibe-storybook-components";
 import DialogContentContainer from "../../../../components/DialogContentContainer/DialogContentContainer";
 import ListItem from "../../../../components/ListItem/ListItem";
 import List from "../../../../components/List/List";

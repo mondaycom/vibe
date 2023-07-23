@@ -1,4 +1,4 @@
-import { ColorsDescription } from "../../../components";
+import ColorsDescription from "../colors-description/colors-description";
 
 const colorKeys = [
   "primary-background-color",

@@ -1,9 +1,9 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import MenuTitle from "../MenuTitle";
 import { menuTitleCaptionPositionsTemplate, menuTitleTemplate } from "./MenuTitle.stories";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuTitle,
   enumPropNamesArray: ["captionPosition"]
 });

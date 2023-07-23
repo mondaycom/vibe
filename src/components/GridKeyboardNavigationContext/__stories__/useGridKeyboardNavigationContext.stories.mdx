@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { DummyNavigableGrid, LayoutWithInnerKeyboardNavigation } from "./useGridKeyboardNavigationContext.stories";
 import { Flex } from "../..";
 import { useGridContextMultipleDepthsPlaySuite } from "../__tests__/useGridKeyboardNavigationContext.interactions";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: useGridKeyboardNavigationContext
 });
 

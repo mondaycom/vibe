@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { VisualDescription, Frame } from "../../../components";
+import { VisualDescription, Frame } from "vibe-storybook-components";
 import Heading from "../../../../components/Heading/Heading";
 import { BEMClass } from "../../../../helpers/bem-helper";
 import "./text-styles.scss";

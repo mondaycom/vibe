@@ -47,7 +47,7 @@
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "build:react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
-    "storybook": "storybook=true start-storybook -p 7007",
+    "storybook": "storybook=true start-storybook -p 7008",
     "build-storybook": "npm run build:storybook-exports && storybook=true build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
@@ -94,7 +94,8 @@
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
-    "style-inject": "^0.3.0"
+    "style-inject": "^0.3.0",
+    "vibe-storybook-components": "^0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
