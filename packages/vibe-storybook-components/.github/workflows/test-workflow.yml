@@ -1,66 +1,48 @@
-# TODO add test workflow
-#name: Test
-#
-#on:
-#  push:
-#  pull_request:
-#    types: [opened, synchronize]
-#
-#jobs:
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: ".nvmrc"
-#      - name: Install
-#        run: |
-#          yarn run ci
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-#
-#      - name: Test
-#        if: success()
-#        run: |
-#          npm run test
-#
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: ".nvmrc"
-#      - name: Install
-#        run: |
-#          yarn run ci
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-#
-#      - name: Test
-#        if: success()
-#        run: |
-#          npm run eslint
-#
-#  stylelint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: ".nvmrc"
-#      - name: Install
-#        run: |
-#          yarn run ci
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-#
-#      - name: Test
-#        if: success()
-#        run: |
-#          npm run stylelint
-#
+name: Test
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  # TODO add test workflow
+  #  test:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - uses: actions/checkout@v2
+  #      - uses: actions/setup-node@v3
+  #        with:
+  #          node-version-file: ".nvmrc"
+  #      - name: Install
+  #        run: |
+  #          yarn run ci
+  #        env:
+  #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  #
+  #      - name: Test
+  #        if: success()
+  #        run: |
+  #          npm run test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: |
+          yarn run ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run lint
+
 #  build-storybook-test:
 #    runs-on: ubuntu-latest
 #    steps:

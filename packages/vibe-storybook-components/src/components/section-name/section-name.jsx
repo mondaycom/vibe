@@ -9,7 +9,7 @@ export const SectionName = ({ className, children, ...props }) => {
     () => children.toLowerCase().replaceAll("’", "").replaceAll("'", "").split(" ").join("-"),
     [children]
   );
-  // eslint-disable-next-line jsx-a11y/heading-has-content
+
   return (
     <h2 id={id} className={cx("vibe-sb-comps-section-name", className)} {...props}>
       {children}
