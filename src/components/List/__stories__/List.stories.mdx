@@ -8,7 +8,7 @@ import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import ListTitle from "../../ListTitle/ListTitle";
-import { Link, Tip } from "../../../storybook/components";
+import { Tip } from "../../../storybook/components";
 import { MENU, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import Add from "../../Icon/Icons/components/Add";
 import Filter from "../../Icon/Icons/components/Filter";
@@ -18,12 +18,12 @@ import Avatar from "../../Avatar/Avatar";
 import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
-import { createStoryMetaSettings } from "../../../storybook";
+import { StoryDescription, Link } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Flex } from "../../";
 import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: List,
   enumPropNamesArray: ["component"]
 });

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import cx from "classnames";
-import { Link } from "../../../components";
+import { Link } from "vibe-storybook-components";
 
 type Contributor = {
   name: string;

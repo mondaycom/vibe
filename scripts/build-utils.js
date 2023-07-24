@@ -55,6 +55,7 @@ function buildStorybookComponentsIndexFile() {
     const fileName = name.split("/").slice(-1);
     return buildComponentExport(fileName, `./${fileName}`);
   });
+  exports.push("export * from 'vibe-storybook-components'");
   convertExportsToFile(exports, "storybook/index.js");
 }
 

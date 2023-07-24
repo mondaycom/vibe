@@ -17,9 +17,7 @@
   @include smoothing-text;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
   &.border {
-    height: 22px;
-    border: 1px solid var(--text-color-on-primary);
-    line-height: 21px;
+    border: 1px solid var(--primary-background-color);
   }
   &.withUserSelect {
     user-select: text;
