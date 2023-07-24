@@ -1,4 +1,4 @@
-import { Frame } from "../../../components";
+import { Frame } from "vibe-storybook-components";
 import { Button, Heading } from "../../../../components";
 import { peopleColumn } from "../assets";
 import classes from "./card-shadow-example.module.scss";

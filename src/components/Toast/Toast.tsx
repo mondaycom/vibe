@@ -5,6 +5,7 @@ import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from
 import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
 import Icon, { IconSubComponentProps } from "../../components/Icon/Icon";
+import Text from "../Text/Text";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
@@ -119,12 +120,15 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       timeout={400}
       unmountOnExit
     >
-      <div
+      <Text
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+        size="small"
+        element="div"
+        color="onPrimary"
         className={classNames}
         role="alert"
         aria-live="polite"
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <div
@@ -151,7 +155,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
           </Button>
         )}
-      </div>
+      </Text>
     </CSSTransition>
   );
 };

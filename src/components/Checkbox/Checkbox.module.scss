@@ -59,11 +59,10 @@ $checkbox-size: 16px;
 }
 
 .label {
-  @include font-input();
+  @include smoothing-text;
   cursor: pointer;
   user-select: none;
   margin-inline-start: $spacing-small;
-  @include theme-prop(color, primary-text-color);
 }
 
 /* Since it is not possible to change the design of the checkbox according to the requirements using css, */

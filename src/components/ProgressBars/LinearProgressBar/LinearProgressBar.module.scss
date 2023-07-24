@@ -7,9 +7,8 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  font-family: var(--font-family);
-  font-size: var(--font-size-general-label);
-  @include theme-prop(color, secondary-text-color);
+  @include vibe-text(small, normal);
+  line-height: 8px !important;
 
   &.fullWidth {
     width: 100%;

@@ -10,13 +10,12 @@ Snapshot Diff:
 -   class="container"
 +   class="container className"
   >
-    <p
-      aria-level="2"
--     class="title"
-+     class="titleClassName title"
+    <h2
+-     class="typography primary start singleLineEllipsis heading h2 normal title"
++     class="typography primary start singleLineEllipsis heading h2 normal titleClassName title"
       data-testid="modal-header_modal-title-id"
       id="modal-title-id"
-      role="heading"
+      style="--text-clamp-lines: 1;"
 `;
 
 exports[`ModalHeader with close button hidden 1`] = `
@@ -27,7 +26,7 @@ Snapshot Diff:
 @@ --- --- @@
     >
       Default title
-    </p>
+    </h2>
 -   <div
 -     class="closeButton"
 -   >
@@ -73,9 +72,11 @@ Snapshot Diff:
 
 @@ --- --- @@
       Default title
-    </p>
+    </h2>
     <div
-+     class="description"
++     class="typography primary start singleLineEllipsis small normal description"
++     data-testid="text"
++     style="--text-clamp-lines: 1;"
 +   >
 +     description
 +   </div>
@@ -92,7 +93,7 @@ Snapshot Diff:
 
 @@ --- --- @@
       id="modal-title-id"
-      role="heading"
+      style="--text-clamp-lines: 1;"
     >
 +     <span
 +       class="icon"
@@ -115,7 +116,7 @@ Snapshot Diff:
 +       </svg>
 +     </span>
       Default title
-    </p>
+    </h2>
     <div
 `;
 
@@ -123,15 +124,14 @@ exports[`ModalHeader with required props 1`] = `
 <div
   class="container"
 >
-  <p
-    aria-level="2"
-    class="title"
+  <h2
+    class="typography primary start singleLineEllipsis heading h2 normal title"
     data-testid="modal-header_modal-title-id"
     id="modal-title-id"
-    role="heading"
+    style="--text-clamp-lines: 1;"
   >
     Default title
-  </p>
+  </h2>
   <div
     class="closeButton"
   >

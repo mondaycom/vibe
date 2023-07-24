@@ -7,8 +7,6 @@
   margin-block-end: var(--spacing-large);
 
   .title {
-    @include font-title();
-    color: var(--primary-text-color);
     margin-block-start: var(--spacing-large);
     margin-block-end: 0;
     width: calc(100% - 32px);
@@ -20,8 +18,6 @@
   }
 
   .description {
-    font: var(--font-subtext);
-    color: var(--primary-text-color);
     margin-block-start: var(--spacing-small);
   }
 

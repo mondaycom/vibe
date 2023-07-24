@@ -1,11 +1,12 @@
 import Icon from "../Icon";
 import Bolt from "../Icons/components/Bolt";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
 import { IconsList } from "./icon.stories.helperComponents";
 import "./Icon.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,
   enumPropNamesArray: [{ enumName: "type", propName: "iconType" }],
   iconPropNamesArray: ["icon"]

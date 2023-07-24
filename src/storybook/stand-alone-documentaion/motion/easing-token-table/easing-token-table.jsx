@@ -1,4 +1,4 @@
-import { TokenTable } from "../../../components/token-table/token-table";
+import { TokenTable } from "vibe-storybook-components";
 
 export const EasingTokenTable = () => {
   const theadData = ["Token", "Usage", "Cubic bezier"];

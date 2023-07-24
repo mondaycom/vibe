@@ -1,10 +1,10 @@
 import Divider from "../Divider";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, ICONS, LABEL } from "../../../storybook/components/related-components/component-description-map";
 import classes from "./Divider.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Divider,
   enumPropNamesArray: ["direction"]
 });

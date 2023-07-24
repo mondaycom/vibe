@@ -23,8 +23,8 @@
     }
 
     &Content {
-      @include font-default;
-      @include theme-prop(color, text-color-on-primary);
+      margin: 0;
+      @include smoothing-text;
     }
 
     &CloseButton {

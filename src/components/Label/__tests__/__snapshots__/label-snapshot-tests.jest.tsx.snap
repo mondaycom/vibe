@@ -6,7 +6,8 @@ exports[`Label renders correctly fill dark 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorDark withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorDark withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -24,7 +25,8 @@ exports[`Label renders correctly fill negative 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorNegative withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorNegative withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -42,7 +44,8 @@ exports[`Label renders correctly fill positive 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPositive withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPositive withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -60,7 +63,8 @@ exports[`Label renders correctly fill primary 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPrimary withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -78,7 +82,8 @@ exports[`Label renders correctly line dark 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindLine colorDark withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindLine colorDark withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -96,7 +101,8 @@ exports[`Label renders correctly line negative 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindLine colorNegative withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindLine colorNegative withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -114,7 +120,8 @@ exports[`Label renders correctly line positive 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindLine colorPositive withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindLine colorPositive withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -132,7 +139,8 @@ exports[`Label renders correctly line primary 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindLine colorPrimary withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindLine colorPrimary withAnimation"
+    data-testid="text"
   >
     <span>
       Test
@@ -150,7 +158,8 @@ exports[`Label renders correctly line with leg 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPrimary withAnimation withLeg"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPrimary withAnimation withLeg"
+    data-testid="text"
   >
     <span>
       Test
@@ -181,7 +190,8 @@ exports[`Label renders correctly line with wrapperClassName 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPrimary withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
   >
     <span>
       
@@ -199,7 +209,8 @@ exports[`Label renders correctly line without animation 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPrimary"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPrimary"
+    data-testid="text"
   >
     <span>
       Test
@@ -217,7 +228,8 @@ exports[`Label renders correctly with empty props 1`] = `
   data-testid="label"
 >
   <div
-    className="label kindFill colorPrimary withAnimation"
+    className="typography primary start singleLineEllipsis small normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
   >
     <span>
       

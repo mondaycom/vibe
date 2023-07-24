@@ -1,6 +1,6 @@
 import ColorPicker from "../ColorPicker";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   colorPickerCircleShapeTemplate,
   colorPickerNoColorTemplate,
@@ -12,7 +12,7 @@ import {
 } from "./ColorPicker.stories";
 import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions.js";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: ColorPicker,
   enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
   iconPropNamesArray: ["ColorIndicatorIcon", "SelectedIndicatorIcon", "NoColorIcon"],
