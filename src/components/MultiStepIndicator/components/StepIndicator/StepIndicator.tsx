@@ -5,7 +5,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useKeyEvent";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
@@ -15,51 +14,77 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { SIZES, MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
+import { Size, MultiStepType, StepStatus } from "../../MultiStepConstants";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
+import { SubIcon, VibeComponentProps } from "../../../../types";
+import { IconType } from "../../../Icon/IconConstants";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-const StepCircleDisplay = ({
+interface StepCircleDisplayProps {
+  status: StepStatus;
+  isFulfilledStepDisplayNumber: boolean;
+  fulfilledStepIcon: SubIcon;
+  fulfilledStepIconType: IconType.SVG | IconType.ICON_FONT;
+  stepNumber: number;
+}
+
+const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   status,
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  stepNumber,
-  size
+  stepNumber
 }) => {
-  return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
+  return status === StepStatus.FULFILLED && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
-      className={classNames(styles.numberContainerTextCheckIcon, { [styles.compact]: size === SIZES.COMPACT })}
-      iconLabel={STEP_STATUSES.FULFILLED}
+      className={classNames(styles.numberContainerTextCheckIcon)}
+      iconLabel={StepStatus.FULFILLED}
       iconType={fulfilledStepIconType}
       ignoreFocusStyle
       clickable={false}
       ariaHidden={true}
     />
   ) : (
-    stepNumber
+    <>{stepNumber}</>
   );
 };
 
-const StepIndicator = ({
+export interface StepIndicatorProps extends VibeComponentProps {
+  status: StepStatus;
+  titleText: string;
+  subtitleText?: string;
+  stepNumber?: number;
+  stepComponentClassName?: string;
+  type?: MultiStepType;
+  fulfilledStepIcon?: SubIcon;
+  fulfilledStepIconType?: IconType.SVG | IconType.ICON_FONT;
+  isFulfilledStepDisplayNumber?: boolean;
+  onClick?: (stepNumber: number) => void;
+  isFollowedByDivider?: boolean;
+  stepDividerClassName?: string;
+  isVertical?: boolean;
+  size?: Size;
+}
+
+const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepComponentClassName,
-  stepNumber,
-  status,
-  titleText,
-  subtitleText,
-  type,
-  fulfilledStepIcon,
-  fulfilledStepIconType,
-  isFulfilledStepDisplayNumber,
-  onClick,
-  isFollowedByDivider,
+  stepNumber = 1,
+  status = StepStatus.PENDING,
+  titleText = "Title text",
+  subtitleText = "Subtitle text",
+  type = MultiStepType.PRIMARY,
+  fulfilledStepIcon = Check,
+  fulfilledStepIconType = IconType.SVG,
+  isFulfilledStepDisplayNumber = false,
+  onClick = NOOP,
+  isFollowedByDivider = false,
   stepDividerClassName,
-  isVertical,
+  isVertical = false,
   id,
-  size,
+  size = Size.REGULAR,
   "data-testid": dataTestId
 }) => {
   // Animations state
@@ -86,6 +111,7 @@ const StepIndicator = ({
 
   // Event listeners for removing animation.
   useEventListener({
+    // @ts-ignore TODO either fix the import to 'useEventListener' OR fix to fit 'useKeyEvent' OR remove entirely
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
     ref: componentRef
@@ -113,7 +139,7 @@ const StepIndicator = ({
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status, titleText, stepNumber, subtitleText]);
 
-  const getClassNamesWithSuffix = suffix => {
+  const getClassNamesWithSuffix = (suffix: string) => {
     return [
       getStyle(styles, camelCase(suffix || "indicator")),
       getStyle(styles, camelCase(`type-${type}${suffix}`)),
@@ -139,18 +165,20 @@ const StepIndicator = ({
         <div
           className={cx(...getClassNamesWithSuffix("__number-container"))}
           ref={componentRef}
-          tabIndex="0"
+          tabIndex={0}
           role="button"
         >
           <SwitchTransition mode="out-in">
-            <CSSTransition
+            <CSSTransition<undefined>
+              // CSSTransition needs to be specified with the generic parameter to decide type for addEndListener's callback
+              // otherwise, addEndListener cb has only `done` param (ts error)
               classNames={{
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
                 exit: styles.swapExit,
                 exitActive: styles.swapExitActive
               }}
-              addEndListener={(node, done) => {
+              addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);
               }}
               key={status}
@@ -162,7 +190,6 @@ const StepIndicator = ({
                   isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
                   stepNumber={stepNumber}
                   status={status}
-                  size={size}
                 />
               </span>
             </CSSTransition>
@@ -175,47 +202,12 @@ const StepIndicator = ({
           <HiddenText text={status} /> {/* for accessibility */}
           <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
-        {size !== SIZES.COMPACT ? (
+        {size !== Size.COMPACT ? (
           <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
         ) : null}
       </div>
     </Clickable>
   );
-};
-
-StepIndicator.propTypes = {
-  status: PropTypes.oneOf([STEP_STATUSES.PENDING, STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED]).isRequired,
-  titleText: PropTypes.string.isRequired,
-  subtitleText: PropTypes.string,
-  stepNumber: PropTypes.number.isRequired,
-  stepComponentClassName: PropTypes.string,
-  type: PropTypes.oneOf([
-    MULTI_STEP_TYPES.PRIMARY,
-    MULTI_STEP_TYPES.SUCCESS,
-    MULTI_STEP_TYPES.DANGER,
-    MULTI_STEP_TYPES.DARK
-  ]),
-  fulfilledStepIcon: PropTypes.func,
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  isFulfilledStepDisplayNumber: PropTypes.bool,
-  onClick: PropTypes.func,
-  isVertical: PropTypes.bool,
-  size: PropTypes.oneOf([SIZES.REGULAR, SIZES.COMPACT])
-};
-
-StepIndicator.defaultProps = {
-  stepComponentClassName: "",
-  stepNumber: 1,
-  status: STEP_STATUSES.PENDING,
-  titleText: "Title text",
-  subtitleText: "Subtitle text",
-  type: MULTI_STEP_TYPES.PRIMARY,
-  fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG,
-  isFulfilledStepDisplayNumber: false,
-  onClick: NOOP,
-  isVertical: false,
-  size: SIZES.REGULAR
 };
 
 export default StepIndicator;

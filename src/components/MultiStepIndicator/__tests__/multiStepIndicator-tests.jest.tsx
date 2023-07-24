@@ -1,11 +1,10 @@
-import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import MultiStepIndicator from "../MultiStepIndicator";
+import MultiStepIndicator, { type Step } from "../MultiStepIndicator";
 
 describe("MultiStepIndicator tests", () => {
   it("onClick works and is called once", () => {
-    const exampleSteps = [
+    const exampleSteps: Step[] = [
       {
         status: MultiStepIndicator.stepStatuses.FULFILLED,
         titleText: "Title",

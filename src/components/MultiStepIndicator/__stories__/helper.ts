@@ -1,6 +1,6 @@
-import MultiStepIndicator from "../MultiStepIndicator";
+import MultiStepIndicator, { type Step } from "../MultiStepIndicator";
 
-export const firstSteps = [
+export const firstSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan options",
@@ -18,7 +18,7 @@ export const firstSteps = [
   }
 ];
 
-export const secondSteps = [
+export const secondSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan options",
@@ -36,7 +36,7 @@ export const secondSteps = [
   }
 ];
 
-export const thirdSteps = [
+export const thirdSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan",
