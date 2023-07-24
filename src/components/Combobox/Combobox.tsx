@@ -266,6 +266,7 @@ const Combobox: React.FC<ComboboxProps> & {
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
+        ellipsis={false}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
