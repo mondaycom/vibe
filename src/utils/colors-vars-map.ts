@@ -214,7 +214,8 @@ export enum ContentColorByName {
   LAVENDER = "lavender",
   STEEL = "steel",
   LILAC = "lilac",
-  PECAN = "pecan"
+  PECAN = "pecan",
+  WARNING = "warning"
 }
 
 export enum StateSelectedColor {
