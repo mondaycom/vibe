@@ -214,14 +214,14 @@ export enum ContentColorByName {
   LAVENDER = "lavender",
   STEEL = "steel",
   LILAC = "lilac",
-  PECAN = "pecan",
-  WARNING = "warning"
+  PECAN = "pecan"
 }
 
 export enum StateSelectedColor {
   POSITIVE = "--positive-color-selected",
   NEGATIVE = "--negative-color-selected",
-  PRIMARY = "--primary-selected-color"
+  PRIMARY = "--primary-selected-color",
+  WARNING = "--warning-color-selected"
 }
 export enum StateSelectedHoverColor {
   POSITIVE = "--positive-color-selected-hover",
