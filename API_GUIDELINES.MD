@@ -86,3 +86,33 @@ export interface AvatarProps extends VibeComponentProps {
 | icon       | SVG component which should displayed inside vibe's Icon component                                                                                              | SubIcon                                | Icon, IconButton              |
 | size       | When a component supports multiple suitable sizes, it should include a "size" prop that allows developers to define which size variant of the component to use | Sizes / BaseSizes Enums from `sizes.ts` | Button, Combobox, Menu        |
 | type       | A component with several suitable visually different variants should include a "type" prop for distinguish between them                                        | TS Enum                                | AttentionBox                  |
+
+## Coupled `type`s and `interface`s
+
+When defining `interface` for the props of a component, and you need to use it in more than one place, please export it from the same file of the component.
+
+Same goes for a `type` that is strongly coupled to a specific component - e.g. `Step` `type` will most probably always be used as part of `MultistepIndicator` implementation, so we'll want to export them together from the same file.
+
+Here's an example for exporting both `type` and `interface` from a component in `MultiStepIndicator.tsx`:
+
+```tsx
+export type Step = {
+  titleText: string;
+  subtitleText: string;
+  status: StepStatus;
+};
+
+export interface MultiStepIndicatorProps extends VibeComponentProps {
+  ...props of the multi step component
+}
+
+const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> {
+  ...component content
+}
+```
+
+and then consume them as following:
+
+```tsx
+import MultiStepIndicator, { MultiStepIndicatorProps, Step } from 'MultiStepIndicator'
+```
