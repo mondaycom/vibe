@@ -1,0 +1,17 @@
+@import "../../styles/themes.scss";
+
+$indicator-size: 8px;
+
+.indicator {
+  width: $indicator-size;
+  height: $indicator-size;
+  border-radius: 50%;
+
+  &.colorPrimary {
+    background-color: var(--primary-color);
+  }
+
+  &.colorNotification {
+    background-color: var(--negative-color);
+  }
+}
