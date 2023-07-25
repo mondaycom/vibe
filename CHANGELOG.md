@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.17.0 (2023-07-25)
+
+#### New Features
+* [#1431](https://github.com/mondaycom/monday-ui-react-core/pull/1431) Chips: Add WARNING color ([@benpinchas](https://github.com/benpinchas))
+* [#1403](https://github.com/mondaycom/monday-ui-react-core/pull/1403) feat(MultiStepIndicator): add ts support ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1425](https://github.com/mondaycom/monday-ui-react-core/pull/1425) PR #3 of replacing old token variants with mixins ([@hadasfa](https://github.com/hadasfa))
+* [#1430](https://github.com/mondaycom/monday-ui-react-core/pull/1430) Replace storybookComponents with vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.16.1 (2023-07-19)
 
 #### Bug Fixes
