@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indicator renders correctly with a custom indicatorColor 1`] = `
+<div
+  className="indicator colorPrimary"
+  data-testid="indicator"
+/>
+`;
+
+exports[`Indicator renders correctly with an ariaLabel 1`] = `
+<div
+  aria-label="test arialabel"
+  className="indicator colorNotification"
+  data-testid="indicator"
+/>
+`;
+
+exports[`Indicator renders correctly with empty props 1`] = `
+<div
+  className="indicator colorNotification"
+  data-testid="indicator"
+/>
+`;
