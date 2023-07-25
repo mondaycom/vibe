@@ -73,8 +73,7 @@
 
 .text {
   &.compact {
-    display: flex;
-    align-items: center;
+    flex: 1;
 
     &.dismissible {
       padding-right: var(--spacing-xl);

@@ -98,16 +98,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           </Text>
         </Flex>
       )}
-      <Text
-        element={compact ? "div" : "p"}
-        size="small"
-        paragraph={!compact}
-        className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
-          [styles.compact]: compact,
-          [styles.dismissible]: !!onClose,
-          [styles.paragraph]: !compact
-        })}
-      >
+      <Flex justify={Flex.justify.START} align={Flex.align.CENTER}>
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon
             iconType={iconType}
@@ -123,8 +114,18 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {text || children}
-      </Text>
+        <Text
+          size="small"
+          paragraph={!compact}
+          className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+            [styles.compact]: compact,
+            [styles.dismissible]: !!onClose,
+            [styles.paragraph]: !compact
+          })}
+        >
+          {text || children}
+        </Text>
+      </Flex>
       {onClose && (
         <IconButton
           size={IconButton?.sizes?.SMALL}
