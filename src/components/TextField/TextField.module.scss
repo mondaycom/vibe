@@ -233,7 +233,8 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input {
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon {
@@ -252,7 +253,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
-  font-size: var(--font-size-paragraph);
+  font-size: 16px;
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
@@ -264,7 +265,8 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input {
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon {
@@ -281,7 +283,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
-  font-size: var(--font-size-paragraph);
+  font-size: 16px;
 }
 
 .textField .inputWrapper:hover .input {

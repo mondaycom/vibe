@@ -67,50 +67,10 @@ $textClasses: (
   @include vibe-text(small, normal);
 }
 
-// Secondary Heading (h2)
-@mixin font-title {
-  @include base-font(var(--font-h2));
-  letter-spacing: -0.2px;
-}
-
-// Tertiary Heading (h3)
-@mixin font-title-secondary {
-  @include base-font(var(--font-h3));
-  letter-spacing: -0.2px;
-  @include theme-prop(color, primary-text-color);
-}
-
-// Fourth Heading (h4)
-@mixin font-subtitle {
-  @include base-font(var(--font-h4));
-}
-
-// Paragraph Bold (h5)
-@mixin font-paragraph-bold {
-  @include base-font(var(--font-h5));
-}
-
-// UI lables / General text (h6)
-@mixin font-general-text {
-  @include base-font(var(--font-general-label));
-}
-
-// Paragraph text (p)
-@mixin font-paragraph {
-  @include base-font(var(--font-paragraph));
-}
-
-// Please use general text instead of this
-@mixin font-default {
-  @include font-general-text;
-  line-height: 22px;
-}
-
 // Caption / Subtext (small)
 @mixin font-caption {
   @include vibe-text(small, normal);
   @include smoothing-text;
-  color: var(--primary-text-color);
 }
 
 @mixin font-input {
