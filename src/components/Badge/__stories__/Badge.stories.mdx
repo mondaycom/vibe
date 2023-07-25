@@ -1,0 +1,224 @@
+import Badge from "../Badge";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createStoryMetaSettings } from "../../../storybook";
+import styles from "./Badge.stories.module.scss";
+import person from "./assets/person.png";
+import { ExternalPage, WhatsNew } from "../../Icon/Icons";
+import Link from "../../Link/Link";
+import Counter from "../../Counter/Counter";
+import Button from "../../Button/Button";
+import Flex from "../../Flex/Flex";
+import Avatar from "../../Avatar/Avatar";
+import { useState } from "react";
+import Indicator from "../../Indicator/Indicator";
+
+export const metaSettings = createStoryMetaSettings({
+  component: Badge,
+  enumPropNamesArray: ["position"], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta
+  title="Components/Badge/Badge"
+  component={Badge}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+<!--- Component documentation -->
+
+# Badge
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Badge component is responsible for positioning an indicator/badge on a child component
+
+<Canvas>
+  <Story name="Overview">
+    <Badge>
+      <Button leftIcon={WhatsNew}>What's new</Button>
+    </Badge>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Block component
+
+<Canvas>
+  <Story name="Block component">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+      <Badge>
+        <Button leftIcon={WhatsNew}>What's new</Button>
+      </Badge>
+      <Badge>
+        <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
+          What's new
+        </Button>
+      </Badge>
+      <Badge>
+        <Button kind={Button.kinds.TERTIARY} leftIcon={WhatsNew}>
+          What's new
+        </Button>
+      </Badge>
+    </Flex>
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+      <Badge badgeComponent={Counter}>
+        <Button leftIcon={WhatsNew}>What's new</Button>
+      </Badge>
+      <Badge badgeComponent={Counter}>
+        <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
+          What's new
+        </Button>
+      </Badge>
+      <Badge badgeComponent={Counter}>
+        <Button kind={Button.kinds.TERTIARY} leftIcon={WhatsNew}>
+          What's new
+        </Button>
+      </Badge>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Circular component
+
+<Canvas>
+  <Story name="Circular component">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+      <Badge circular>
+        <Avatar size={Avatar.sizes.SMALL} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular badgeComponentProps={{ indicatorColor: Indicator.colors.PRIMARY }}>
+        <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
+      </Badge>
+    </Flex>
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+      <Badge circular badgeComponent={Counter}>
+        <Avatar size={Avatar.sizes.SMALL} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular badgeComponent={Counter}>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular badgeComponent={Counter} badgeComponentProps={{ color: Counter.colors.NEGATIVE }}>
+        <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
+      </Badge>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Transparent component
+
+<Canvas>
+  <Story name="Transparent component">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+      <Badge gap>
+        <Link text="Read more" />
+      </Badge>
+      <Badge gap>
+        <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
+      </Badge>
+      <Badge gap>
+        <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+      </Badge>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Positioning
+
+<Canvas>
+  <Story name="Positioning">
+    <div className={styles.grid}>
+      <Badge circular position={{ horizontal: Badge.directions.LEFT, vertical: Badge.directions.TOP }}>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular position={{ horizontal: Badge.directions.RIGHT, vertical: Badge.directions.TOP }}>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular position={{ horizontal: Badge.directions.LEFT, vertical: Badge.directions.BOTTOM }}>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+      <Badge circular position={{ horizontal: Badge.directions.RIGHT, vertical: Badge.directions.BOTTOM }}>
+        <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+      </Badge>
+    </div>
+  </Story>
+</Canvas>
+
+### Visibility
+
+<Canvas>
+  <Story name="Visibility">
+    {() => {
+      const [hasNew, setHasNew] = useState(true);
+      return (
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
+          <Badge show={hasNew}>
+            <Button leftIcon={WhatsNew} onClick={() => setHasNew(prev => !prev)}>
+              Click to toggle visibility
+            </Button>
+          </Badge>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Badge gap>
+            <Link text="Read more" />
+          </Badge>
+        ),
+        description: "When using transparent component, apply gap to it"
+      },
+      negative: {
+        component: (
+          <Badge>
+            <Link text="Read more" />
+          </Badge>
+        ),
+        description: "Do not leave the indicator in the component boundaries"
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Badge circular>
+            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          </Badge>
+        ),
+        description: "On circular components (like Avatar), apply circular to it"
+      },
+      negative: {
+        component: (
+          <Badge>
+            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          </Badge>
+        ),
+        description: "Do not leave the indicator in the block edges"
+      }
+    }
+  ]}
+/>

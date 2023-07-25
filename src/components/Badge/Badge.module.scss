@@ -1,0 +1,78 @@
+@import "../../styles/themes.scss";
+
+$circularPosition: 15%;
+
+.badgeWrapper {
+  position: relative;
+
+  .badge {
+    z-index: 1;
+    position: absolute;
+    scale: 1;
+    transition: scale var(--motion-productive-long) var(--motion-timing-transition);
+
+    &:not(.show) {
+      scale: 0;
+    }
+
+    &.topRight {
+      top: 0;
+      right: 0;
+      translate: 50% -50%;
+
+      &.circular {
+        top: $circularPosition;
+        right: $circularPosition;
+      }
+
+      &.gap {
+        translate: 100% -50%;
+      }
+    }
+
+    &.topLeft {
+      top: 0;
+      left: 0;
+      translate: -50% -50%;
+
+      &.circular {
+        top: $circularPosition;
+        left: $circularPosition;
+      }
+
+      &.gap {
+        translate: -100% -50%;
+      }
+    }
+
+    &.bottomRight {
+      bottom: 0;
+      right: 0;
+      translate: 50% 50%;
+
+      &.circular {
+        bottom: $circularPosition;
+        right: $circularPosition;
+      }
+
+      &.gap {
+        translate: 100% -50%;
+      }
+    }
+
+    &.bottomLeft {
+      bottom: 0;
+      left: 0;
+      translate: -50% 50%;
+
+      &.circular {
+        bottom: $circularPosition;
+        left: $circularPosition;
+      }
+
+      &.gap {
+        translate: -100% -50%;
+      }
+    }
+  }
+}
