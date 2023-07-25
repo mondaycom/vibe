@@ -17,12 +17,6 @@
   padding: 0 var(--spacing-xs);
 }
 
-.textCompact {
-  display: flex;
-  align-items: center;
-  padding-right: var(--spacing-medium);
-}
-
 .text,
 .titleContainer {
   @include theme-prop(color, primary-text-color);
@@ -77,11 +71,17 @@
   top: calc(50% - 16px);
 }
 
+.text {
+  &.compact {
+    display: flex;
+    align-items: center;
 
-.paragraph {
-  margin: 0;
-}
+    &.dismissible {
+      padding-right: var(--spacing-xl);
+    }
+  }
 
-.paragraph {
-  margin: 0;
+  &.paragraph {
+    margin: 0;
+  }
 }

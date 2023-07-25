@@ -103,7 +103,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         size="small"
         paragraph={!compact}
         className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
-          [styles.textCompact]: compact,
+          [styles.compact]: compact,
+          [styles.dismissible]: !!onClose,
           [styles.paragraph]: !compact
         })}
       >
