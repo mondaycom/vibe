@@ -76,28 +76,28 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
-        {title && !withoutIcon && (
-          <Icon
-            iconType={iconType}
-            ariaHidden
-            clickable={false}
-            icon={icon}
-            className={cx(
-              styles.titleContainerIcon,
-              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-            )}
-            ignoreFocusStyle
-            iconSize="24"
-            iconLabel={iconLabel}
-          />
-        )}
-        {title && (
+      {title && (
+        <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
+          {!withoutIcon && (
+            <Icon
+              iconType={iconType}
+              ariaHidden
+              clickable={false}
+              icon={icon}
+              className={cx(
+                styles.titleContainerIcon,
+                getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
+              )}
+              ignoreFocusStyle
+              iconSize="24"
+              iconLabel={iconLabel}
+            />
+          )}
           <Text element="h5" weight="bold" className={styles.title}>
             {title}
           </Text>
-        )}
-      </Flex>
+        </Flex>
+      )}
       <Text
         element={compact ? "div" : "p"}
         size="small"
