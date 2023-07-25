@@ -114,5 +114,5 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> {
 and then consume them as following:
 
 ```tsx
-import MultiStepIndicator, { MultiStepIndicatorProps, Step } from 'MultiStepIndicator'
+import MultiStepIndicator, { MultiStepIndicatorProps, Step } from 'monday-ui-react-core'
 ```
