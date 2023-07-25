@@ -16,8 +16,7 @@ export const replaceTokensWithMixins = (root: postcss.Root, params: ReplaceToken
 
         const newDeclaration = postcss.decl({
           prop: "",
-          value: `@include ${to}(${params.join(", ")});`,
-          important: declaration.important
+          value: `@include ${to}(${params.join(", ")});`
         });
         declaration.replaceWith(newDeclaration);
       }
