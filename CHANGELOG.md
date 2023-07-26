@@ -1,3 +1,7 @@
+0.1.176 / 2023-07-26
+====================
+  * Fix changelog - only last 50 versions ([#225](https://github.com/mondaycom/monday-ui-style/issues/225))
+
 0.1.175 / 2023-07-26
 ====================
   * Add changelog ([#224](https://github.com/mondaycom/monday-ui-style/issues/224))
@@ -304,15 +308,3 @@
   * add launch icon ([#158](https://github.com/mondaycom/monday-ui-style/issues/158))
     * add launch icon
     * use current color
-
-0.1.129 / 2022-07-19
-====================
-  * Add Legacy core tokens: animation tokens ([#156](https://github.com/mondaycom/monday-ui-style/issues/156))
-    * Add Legacy core tokens: animation tokens
-    * Rename animation custom property to motion.
-    * Add old custom properties as legacy with motion referances.
-    * Revert legacy tokens.
-    * Remove core legacy scope.
-    * Update props to allowed vars
-    * Fix typo in expand-animation-timing
-    * Remove not needed var in props to allowed values
