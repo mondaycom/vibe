@@ -23,6 +23,7 @@ jobs:
       - run: npm version patch --no-git-tag-version
       - run: git config --global user.name 'ci' && git config --global user.email 'deploy@monday.com'
       - run: git add package.json package-lock.json
+      - run: npm run changelog && git add CHANGELOG.md
       - run: git commit -m "version bump"
       - run: git push
       - run: npm run build
