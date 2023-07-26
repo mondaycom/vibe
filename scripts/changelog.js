@@ -3,14 +3,13 @@ const execa = require("execa");
 const fs = require("fs");
 
 function getChangelog() {
-  const { stdout } = execa.sync("changelog", ["monday-ui-style", "all", "-m"]);
+  // TODO changelog only works fine for last 50 versions - replace with other package someday
+  const { stdout } = execa.sync("changelog", ["monday-ui-style", "50", "-m"]);
   return stdout;
 }
 
 function formatChangelog(markdown) {
-  let formattedMarkdown = markdown.replaceAll(/\n\s\s\* version bump\n/g, "");
-  formattedMarkdown = formattedMarkdown.substring(0, formattedMarkdown.indexOf("\n\n0.1.127 / 2022-07-17"));
-  return formattedMarkdown;
+  return markdown.replaceAll(/\n\s\s\* version bump\n/g, "");
 }
 
 function writeToFile(markdown) {
