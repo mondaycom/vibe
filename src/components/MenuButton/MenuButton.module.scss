@@ -39,34 +39,34 @@
 .size16 {
   width: 16px;
   height: 16px;
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
 }
 
 .size24 {
   width: 24px;
   height: 24px;
-  @include vibe-text(medium, normal);
+  @include vibe-text(text1, normal);
   @include smoothing-text;
 }
 
 .size32 {
   width: 32px;
   height: 32px;
-  @include vibe-text(medium, normal);
+  @include vibe-text(text1, normal);
   @include smoothing-text;
 }
 
 .size40 {
   width: 40px;
   height: 40px;
-  @include vibe-title(h3, normal);
+  @include vibe-heading(h3, normal);
 }
 
 .size48 {
   width: 48px;
   height: 48px;
-  @include vibe-title(h2, normal);
+  @include vibe-heading(h2, normal);
 }
 
 .referenceIcon {

@@ -116,7 +116,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
           [styles.disabled]: disabled
         })}
         id={id}
-        size="small"
+        type="text2"
         aria-disabled={disabled}
         onClick={componentOnClick}
         onKeyDown={onKeyDown}

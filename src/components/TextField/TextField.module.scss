@@ -220,7 +220,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeSmall .input {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
 }
 
@@ -233,7 +233,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input {
-  @include vibe-text(medium, normal);
+  @include vibe-text(text1, normal);
   @include smoothing-text;
 }
 
@@ -265,7 +265,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input {
-  @include vibe-text(medium, normal);
+  @include vibe-text(text1, normal);
   @include smoothing-text;
 }
 

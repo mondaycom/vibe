@@ -93,7 +93,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         {title && (
-          <Text element="h5" weight="bold" className={styles.title}>
+          <Text type="text1" element="h5" weight="bold" className={styles.title}>
             {title}
           </Text>
         )}

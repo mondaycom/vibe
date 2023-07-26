@@ -12,7 +12,7 @@ export interface StepsNumbersHeaderProps extends VibeComponentProps {
 
 export const StepsNumbersHeader: FC<StepsNumbersHeaderProps> = ({ activeStepIndex, stepsCount, isOnPrimary }) => {
   return (
-    <Text size="small" color={isOnPrimary ? "onPrimary" : "primary"} className={cx(styles.numbers)}>{`${
+    <Text type="text2" color={isOnPrimary ? "onPrimary" : "primary"} className={cx(styles.numbers)}>{`${
       activeStepIndex + 1
     } \\ ${stepsCount}`}</Text>
   );

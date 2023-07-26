@@ -286,7 +286,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <Text
         element="li"
-        size="small"
+        type="text2"
         {...a11yProps}
         key={key}
         id={overrideId}

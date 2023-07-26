@@ -7,7 +7,7 @@ export const TextStyles = () => {
     <Frame>
       <VisualDescription
         ariaLabel="H1"
-        code="@include vibe-title('h1', 'bold');"
+        code="@include vibe-heading('h1', 'bold');"
         title="H1 bold main heading"
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}

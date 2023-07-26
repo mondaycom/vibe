@@ -23,12 +23,12 @@ $font-size-avatar-small: 12px;
 }
 
 .contentTextLarge {
-  @include vibe-title("h3", "normal");
+  @include vibe-heading("h3", "normal");
   font-family: var(--font-family) !important;
 }
 
 .contentTextMedium {
-  @include vibe-text("small", "normal");
+  @include vibe-text(text1, normal);
   margin-top: 1px;
 }
 

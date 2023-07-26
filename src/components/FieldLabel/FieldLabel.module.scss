@@ -3,7 +3,7 @@
 @import "../../styles/global-css-settings";
 
 .labelComponentWrapper {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   display: flex;
   padding-bottom: var(--spacing-xs);
   align-items: center;

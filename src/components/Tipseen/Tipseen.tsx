@@ -142,7 +142,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color="onPrimary" size="small" paragraph className={cx(styles.tipseenContent)}>
+        <Text color="onPrimary" type="text2" paragraph className={cx(styles.tipseenContent)}>
           {content}
         </Text>
       </div>

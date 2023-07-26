@@ -4,7 +4,7 @@
 @import "../../../../styles/typography";
 
 .rounded-corner-component {
-  @include vibe-text(medium, bold);
+  @include vibe-text(text1, bold);
   color: var(--primary-text-color);
   display: flex;
   justify-content: center;

@@ -31,17 +31,17 @@
 /* Override tags styles */
 
 .elementTypeH1 {
-  @include vibe-title("h1", "normal");
+  @include vibe-heading("h1", "normal");
 }
 
 .elementTypeH2.sizeLarge,
 .elementTypeH1.sizeSmall,
 .elementTypeH1.sizeMedium {
-  @include vibe-title("h2", "normal");
+  @include vibe-heading("h2", "normal");
 }
 
 .elementTypeH3.sizeLarge {
-  @include vibe-title("h2", "light");
+  @include vibe-heading("h2", "light");
 }
 
 .elementTypeH2.sizeSmall,
@@ -49,15 +49,15 @@
 .elementTypeH3.sizeSmall,
 .elementTypeH3.sizeMedium,
 .elementTypeH4 {
-  @include vibe-title("h3", "normal");
+  @include vibe-heading("h3", "normal");
 }
 
 .elementTypeH5, .elementTypeP {
-  @include vibe-text("medium", "normal");
+  @include vibe-heading("medium", "normal");
 }
 
 .elementTypeH6 {
-  @include vibe-text("small", "normal");
+  @include vibe-heading("small", "normal");
 }
 
 .elementTypeSmall {

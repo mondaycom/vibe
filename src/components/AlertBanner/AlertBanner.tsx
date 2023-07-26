@@ -73,7 +73,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
 
     return (
       <Text
-        size="small"
+        type="text2"
         color={backgroundColor === AlertBannerBackgroundColor.DARK ? "onInverted" : "onPrimary"}
         ref={ref}
         className={classNames}
