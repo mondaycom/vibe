@@ -316,8 +316,3 @@
     * Update props to allowed vars
     * Fix typo in expand-animation-timing
     * Remove not needed var in props to allowed values
-
-0.1.128 / 2022-07-17
-====================
-
-  * version bump
