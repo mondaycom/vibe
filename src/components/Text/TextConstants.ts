@@ -1,3 +1,3 @@
-export type TextSize = "medium" | "small";
+export type TextType = "text1" | "text2";
 
-export type TextWeight = "bold" | "normal";
+export type TextWeight = "bold" | "medium" | "normal";

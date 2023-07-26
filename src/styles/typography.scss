@@ -18,7 +18,7 @@ $small-empty-state-height: 12px;
 }
 
 @mixin create-title-classes() {
-  @include create-typography-classes($titleClasses, null);
+  @include create-typography-classes($headingClasses, null);
 }
 
 @mixin create-typography-classes($classes, $token-prefix) {
@@ -39,15 +39,15 @@ $small-empty-state-height: 12px;
   }
 }
 
-$titleClasses: (
+$headingClasses: (
     "h1": ("bold", "normal", "light"),
     "h2": ("bold", "normal", "light"),
     "h3": ("bold", "normal", "light")
 );
 
 $textClasses: (
-    "medium": ("bold", "normal"),
-    "small": ("bold", "normal")
+    "text1": ("bold", "medium", "normal"),
+    "text2": ("bold", "medium", "normal")
 );
 
 @mixin base-font($font-variable) {

@@ -1,6 +1,6 @@
 import Text from "../Text";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import {  createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
+import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
 import { Link as StorybookLink, createComponentTemplate } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
 import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
@@ -10,7 +10,7 @@ import styles from "./Text.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Text,
-  enumPropNamesArray: ["sizes", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
+  enumPropNamesArray: ["types", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: [] // List the component's actions here
 });
@@ -68,17 +68,23 @@ The text component serves as a wrapper for applying typography styles to the tex
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Text size="medium" weight="bold">
-        Bold medium size
+      <Text type="text1" weight="bold">
+        Text1 with bold weight
       </Text>
-      <Text size="medium" weight="normal">
-        Normal medium size
+      <Text type="text1" weight="medium">
+        Text1 with medium weight
       </Text>
-      <Text size="small" weight="bold">
-        Bold small size
+      <Text type="text1" weight="normal">
+        Text1 with normal weight
       </Text>
-      <Text size="small" weight="normal">
-        Normal small size
+      <Text type="text2" weight="bold">
+        Text2 with bold weight
+      </Text>
+      <Text type="text2" weight="medium">
+        Text2 with medium weight
+      </Text>
+      <Text type="text2" weight="normal">
+        Text2 with normal weight
       </Text>
     </Flex>
   </Story>
@@ -115,12 +121,11 @@ When the text is too long and the component includes an ellipsis flag, we will c
       align={Flex.align.STRETCH}
       style={{ width: "70%" }}
     >
-      <Text size="small" ellipsis={false}>
+      <Text ellipsis={false}>
         Text without overflow text without overflow text without overflow text without overflow text without overflow
         text without overflow text without overflow
       </Text>
       <Text
-        size="small"
         ellipsis
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         /**for testing purposes**/
@@ -132,7 +137,7 @@ When the text is too long and the component includes an ellipsis flag, we will c
         overflow text with overflow text with overflow text with overflow text with overflow
       </Text>
       <div>
-        <Text size="small" ellipsis withoutTooltip maxLines={2}>
+        <Text ellipsis withoutTooltip maxLines={2}>
           Text with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text
           with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
           overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
