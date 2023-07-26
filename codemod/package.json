@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "modify": "node dist/scripts/modify.js"
+    "modify": "node dist/scripts/modify.js",
+    "test": "npx jest"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +16,10 @@
     "typescript": "^5.1.3"
   },
   "dependencies": {
+    "@types/jest": "^29.5.3",
     "glob": "^10.3.0",
     "postcss": "^8.4.24",
-    "postcss-scss": "^4.0.6"
+    "postcss-scss": "^4.0.6",
+    "ts-jest": "^29.1.1"
   }
 }

@@ -109,7 +109,7 @@ function applyMixinsToSubTokensDeclarations(root) {
     const fontSizeDecl = rule.nodes.find(node => node.prop === "font-size");
     const fontWeightDecl = rule.nodes.find(node => node.prop === "font-weight");
     const lineHeightDecl = rule.nodes.find(node => node.prop === "line-height");
-
+    console.log("c", fontSizeDecl);
     if (fontSizeDecl && fontSizeDecl.value && FONT_SIZE_TO_MIXIN.has(fontSizeDecl.value.trim())) {
       const mixinProperties = FONT_SIZE_TO_MIXIN.get(fontSizeDecl.value.trim());
 
