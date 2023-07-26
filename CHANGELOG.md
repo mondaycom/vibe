@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.17.1 (2023-07-26)
+
+#### Bug Fixes
+* [#1438](https://github.com/mondaycom/monday-ui-react-core/pull/1438) fix: <Box/> static props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1433](https://github.com/mondaycom/monday-ui-react-core/pull/1433) docs(API_GUIDELINES): add export instructions for type and interface ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.17.0 (2023-07-25)
 
 #### New Features
