@@ -1,10 +1,10 @@
-@mixin vibe-text($class-prefix, $weight-type) {
-  font: var(--font-text-#{$class-prefix}-#{$weight-type});
+@mixin vibe-text($type-prefix, $weight-type) {
+  font: var(--font-#{$type-prefix}-#{$weight-type});
 }
 
-@mixin vibe-title($class-prefix, $weight-type) {
-  font: var(--font-#{$class-prefix}-#{$weight-type});
-  letter-spacing: var(--letter-spacing-#{$class-prefix}-#{$weight-type});
+@mixin vibe-heading($type-prefix, $weight-type) {
+  font: var(--font-#{$type-prefix}-#{$weight-type});
+  letter-spacing: var(--letter-spacing-#{$type-prefix}-#{$weight-type});
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
 }

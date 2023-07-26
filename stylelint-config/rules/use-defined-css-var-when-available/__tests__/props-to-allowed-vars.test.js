@@ -4,6 +4,9 @@ const { PROPS_TO_ALLOWED_VARS } = require("../props-to-allowed-vars");
 const ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING = [
   "--font-h",
   "--font-text",
+  "--font-general-label",
+  "--font-subtext",
+  "--font-paragraph",
   "--font-weight",
   "--font-size",
   "--font-line-height",

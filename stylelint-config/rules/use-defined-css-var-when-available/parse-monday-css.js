@@ -5,8 +5,7 @@ const { PROPS_TO_ALLOWED_VARS } = require("./props-to-allowed-vars");
 
 function getReferencedPropFromVar(value) {
   // var(--my-var) => --my-var
-  const VAR_REGEX = /^var\((--.+)\)/;
-
+  const VAR_REGEX = /var\(\s*(--[\w-]+)\s*\)/g;
   return VAR_REGEX.exec(value)[1];
 }
 

@@ -9,19 +9,21 @@ $text-font-family: $font-family-english-text, $font-family-other-languages;
 $title-font-family: $font-family-english-heading, $font-family-other-languages;
 
 // Font definition shorthands per semantics atom definitions
-$font-h1-bold: 700 32px/40px $title-font-family;
-$font-h1-normal: 500 32px/40px $title-font-family;
-$font-h1-light: 300 32px/40px $title-font-family;
-$font-h2-bold: 700 24px/30px $title-font-family;
-$font-h2-normal: 500 24px/30px $title-font-family;
-$font-h2-light: 300 24px/30px $title-font-family;
-$font-h3-bold: 600 18px/24px $title-font-family;
-$font-h3-normal: 500 18px/24px $title-font-family;
-$font-h3-light: 300 18px/24px $title-font-family;
-$font-text-medium-bold: 600 16px/22px $text-font-family;
-$font-text-medium-normal: 400 16px/22px $text-font-family;
-$font-text-small-bold: 600 14px/20px $text-font-family;
-$font-text-small-normal: 400 14px/20px $text-font-family;
+$font-h1-bold: 700 32px/40px var(--title-font-family);
+$font-h1-normal: 500 32px/40px var(--title-font-family);
+$font-h1-light: 300 32px/40px var(--title-font-family);
+$font-h2-bold: 700 24px/30px var(--title-font-family);
+$font-h2-normal: 500 24px/30px var(--title-font-family);
+$font-h2-light: 300 24px/30px var(--title-font-family);
+$font-h3-bold: 600 18px/24px var(--title-font-family);
+$font-h3-normal: 500 18px/24px var(--title-font-family);
+$font-h3-light: 300 18px/24px var(--title-font-family);
+$font-text1-bold: 700 16px/22px var(--font-family);
+$font-text1-medium: 600 16px/22px var(--font-family);
+$font-text1-normal: 400 16px/22px var(--font-family);
+$font-text2-bold: 700 14px/20px var(--font-family);
+$font-text2-medium: 600 14px/20px var(--font-family);
+$font-text2-normal: 400 14px/20px var(--font-family);
 
 // Letter spacing definition per semantics atom definitions
 $letter-spacing-h1-bold: -0.2%;
