@@ -68,5 +68,11 @@ $circularPosition: 15%;
         translate: -100% -50%;
       }
     }
+
+    &.border {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      @include theme-prop(border-color, primary-background-color);
+    }
   }
 }

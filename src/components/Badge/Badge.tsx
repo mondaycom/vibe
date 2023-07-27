@@ -30,6 +30,7 @@ export interface BadgeProps extends VibeComponentProps {
   color?: BadgeColor;
   outbound?: boolean;
   circular?: boolean;
+  border?: boolean;
   badgeProps?: Omit<CounterProps, "color"> | Omit<IndicatorProps, "color">;
   children: React.ReactNode;
 }
@@ -46,6 +47,7 @@ const Badge: VibeComponent<BadgeProps> & {
       color = Badge.colors.NOTIFICATION,
       outbound = false,
       circular = false,
+      border = false,
       badgeProps,
       className,
       id,
@@ -58,7 +60,8 @@ const Badge: VibeComponent<BadgeProps> & {
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const badgeClassNames = cx(styles.badge, getStyle(styles, camelCase(position as unknown as string)), {
       [styles.outbound]: outbound,
-      [styles.circular]: circular
+      [styles.circular]: circular,
+      [styles.border]: border
     });
 
     return (
