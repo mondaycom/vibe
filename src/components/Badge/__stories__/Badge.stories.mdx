@@ -1,6 +1,6 @@
 import Badge from "../Badge";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
 import styles from "./Badge.stories.module.scss";
 import person from "./assets/person.png";
 import { ExternalPage, WhatsNew } from "../../Icon/Icons";
@@ -9,6 +9,7 @@ import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
 import { useState } from "react";
+import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettings({
   component: Badge,
@@ -217,3 +218,7 @@ Badge component is responsible for positioning an indicator/counter on a child c
     }
   ]}
 />
+
+## Related components
+
+<RelatedComponents componentsNames={[LINK, BUTTON, COUNTER]} />
