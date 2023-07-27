@@ -1,11 +1,11 @@
 import Label from "../Label";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import { Link, MultipleStoryElementsWrapper } from "../../../storybook/components";
+import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import "./label.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
   enumPropNamesArray: ["kind" ,"color"]
 })

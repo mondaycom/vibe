@@ -7,3 +7,5 @@ export const AlphaWarning = () => (
     breaking changes in future minor version updates and use with caution.
   </Tip>
 );
+
+export default AlphaWarning;

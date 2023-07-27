@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
@@ -38,31 +39,34 @@
 .size16 {
   width: 16px;
   height: 16px;
-  @include font-input();
+  @include vibe-text(small, normal);
+  @include smoothing-text;
 }
 
 .size24 {
   width: 24px;
   height: 24px;
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .size32 {
   width: 32px;
   height: 32px;
-  @include font-paragraph();
+  @include vibe-text(medium, normal);
+  @include smoothing-text;
 }
 
 .size40 {
   width: 40px;
   height: 40px;
-  @include font-subtitle();
+  @include vibe-title(h3, normal);
 }
 
 .size48 {
   width: 48px;
   height: 48px;
-  @include font-title();
+  @include vibe-title(h2, normal);
 }
 
 .referenceIcon {

@@ -1,15 +1,15 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback, useEffect, useState } from "react";
 import Counter from "../Counter";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import Avatar from "../../Avatar/Avatar";
 import { AddUpdate, Notifications, Update } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
-import { Link } from "../../../storybook/components";
+import { Link, createComponentTemplate } from "vibe-storybook-components";
 import "./counter.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Counter,
   enumPropNamesArray: ["size", "color", "kind", ]
 });

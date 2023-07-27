@@ -14,13 +14,10 @@
   justify-content: center;
   margin: var(--chips-margin, #{0 var(--spacing-xs)});
   user-select: none;
-  line-height: 22px;
+  @include smoothing-text;
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
-  @include font-general-text();
   &.border {
-    height: 22px;
-    border: 1px solid var(--text-color-on-primary);
-    line-height: 21px;
+    border: 1px solid var(--primary-background-color);
   }
   &.withUserSelect {
     user-select: text;

@@ -1,5 +1,43 @@
 # Changelog
 
+## 2.17.1 (2023-07-26)
+
+#### Bug Fixes
+* [#1438](https://github.com/mondaycom/monday-ui-react-core/pull/1438) fix: <Box/> static props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1433](https://github.com/mondaycom/monday-ui-react-core/pull/1433) docs(API_GUIDELINES): add export instructions for type and interface ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.17.0 (2023-07-25)
+
+#### New Features
+* [#1431](https://github.com/mondaycom/monday-ui-react-core/pull/1431) Chips: Add WARNING color ([@benpinchas](https://github.com/benpinchas))
+* [#1403](https://github.com/mondaycom/monday-ui-react-core/pull/1403) feat(MultiStepIndicator): add ts support ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1425](https://github.com/mondaycom/monday-ui-react-core/pull/1425) PR #3 of replacing old token variants with mixins ([@hadasfa](https://github.com/hadasfa))
+* [#1430](https://github.com/mondaycom/monday-ui-react-core/pull/1430) Replace storybookComponents with vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.16.1 (2023-07-19)
+
+#### Bug Fixes
+* [#1428](https://github.com/mondaycom/monday-ui-react-core/pull/1428) fix heading margin breaking change ([@hadasfa](https://github.com/hadasfa))
+* [#1422](https://github.com/mondaycom/monday-ui-react-core/pull/1422) fix(Chips): change border color token, do not limit chip-with-border's height ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.16.0 (2023-07-18)
+
+#### Bug Fixes
+* [#1421](https://github.com/mondaycom/monday-ui-react-core/pull/1421) fix(DatePicker): do not set vertical alignment to be baseline (defaults to middle) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Features
+* [#1400](https://github.com/mondaycom/monday-ui-react-core/pull/1400) Convert text and title usages with mixins ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1412](https://github.com/mondaycom/monday-ui-react-core/pull/1412) Fix vibe typography instances 2 ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1426](https://github.com/mondaycom/monday-ui-react-core/pull/1426) Update icons - monday-ui-style 0.1.173 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.15.5 (2023-07-13)
 
 #### Bug Fixes

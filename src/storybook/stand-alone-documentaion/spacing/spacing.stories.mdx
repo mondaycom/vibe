@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
 import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
-import { ComponentName, Frame } from "../../components";
+import { ComponentNameDecorator } from "../../components";
+import { Frame } from "vibe-storybook-components";
 import { menuExample, tipseenExample, toolbarExample } from "./assets";
 import { COLORS, TYPOGRAPHY, SHADOW } from "../../components/related-components/component-description-map";
 import "./spacing.stories.scss";
@@ -11,9 +12,9 @@ import "./spacing.stories.scss";
 
 <!--- Component documentation -->
 
-<ComponentName withFoundationBackground>
+<ComponentNameDecorator withFoundationBackground>
   Spacing
-</ComponentName>
+</ComponentNameDecorator>
 
 - [Overview](#overview)
 - [Spacing sizes](#spacing-sizes)

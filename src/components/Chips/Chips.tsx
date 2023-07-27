@@ -8,6 +8,7 @@ import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/
 import Avatar from "../Avatar/Avatar";
 import IconButton from "../IconButton/IconButton";
 import Tooltip from "../Tooltip/Tooltip";
+import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, withStaticProps } from "../../types";
@@ -230,7 +231,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     return (
       <Tooltip {...overflowProps.tooltipProps}>
-        <div {...wrapperProps}>
+        <Text size="small" {...wrapperProps}>
           {leftAvatar ? (
             <Avatar
               withoutBorder
@@ -289,7 +290,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
               ref={iconButtonRef}
             />
           )}
-        </div>
+        </Text>
       </Tooltip>
     );
   }

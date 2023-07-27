@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/global-css-settings";
@@ -7,7 +8,7 @@
   margin-top: $spacing-between-section-items;
   .global-settings-list {
     .global-settings-list-header {
-      @include font-paragraph-bold();
+      @include vibe-text(medium, bold);
       color: var(--primary-text-color);
     }
     .global-settings-list-item {

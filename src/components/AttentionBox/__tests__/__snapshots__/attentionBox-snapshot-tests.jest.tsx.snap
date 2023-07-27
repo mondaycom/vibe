@@ -7,7 +7,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -32,18 +32,18 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;
 
@@ -54,7 +54,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -79,18 +79,18 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;
 
@@ -101,7 +101,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typeDarkTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -126,18 +126,18 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typeDarkText"
+  <p
+    className="typography primary start small normal text typeDarkText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;
 
@@ -148,7 +148,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -173,15 +173,15 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
   <div
-    className="text typePrimaryText textCompact"
+    className="typography primary start singleLineEllipsis small normal text typePrimaryText textCompact"
+    data-testid="text"
   >
     Text
   </div>
@@ -195,15 +195,16 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
       }
     }
   />
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   />
 </aside>
 `;
@@ -215,7 +216,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -225,11 +226,12 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     
     
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;
 
@@ -240,7 +242,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -248,18 +250,18 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     }
   >
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;
 
@@ -270,7 +272,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -295,18 +297,18 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
   <div
     className="closeIconWrapper wrapper"
   >
@@ -373,15 +375,16 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
       }
     }
   />
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     <span>
       renderer with components 
@@ -389,7 +392,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
         and sub components
       </div>
     </span>
-  </div>
+  </p>
 </aside>
 `;
 
@@ -400,7 +403,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer typePrimaryTitleContainer"
+    className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
         "gap": "0px",
@@ -415,17 +418,17 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      aria-label=""
-      className="headingComponent title elementTypeH5 sizeLarge singleLineEllipsis"
-      data-testid="heading"
+      className="typography primary start singleLineEllipsis medium bold title"
+      data-testid="text"
     >
       Title
     </h5>
   </div>
-  <div
-    className="text typePrimaryText"
+  <p
+    className="typography primary start small normal text typePrimaryText paragraph"
+    data-testid="text"
   >
     Text
-  </div>
+  </p>
 </aside>
 `;

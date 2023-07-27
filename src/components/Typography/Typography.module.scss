@@ -23,10 +23,18 @@
 
   &.onPrimary {
     color: var(--text-color-on-primary);
+    a {
+      color: var(--text-color-on-primary);
+      text-decoration: underline;
+    }
   }
 
   &.onInverted {
     color: var(--text-color-on-inverted);
+    a {
+      color: var(--text-color-on-inverted);
+      text-decoration: underline;
+    }
   }
 
   &.start {
@@ -47,5 +55,9 @@
 
   &.multiLineEllipsis {
     @include line-clamp(var(--text-clamp-lines));
+  }
+
+  &:disabled, &[aria-disabled="true"]  {
+    color: var(--disabled-text-color);
   }
 }

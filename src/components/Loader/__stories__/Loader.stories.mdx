@@ -1,16 +1,14 @@
 import Loader from "../Loader";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
 import {
+  StoryDescription,
+  Link,
+  UsageGuidelines,
   ComponentRules,
-  createComponentTemplate,
-  createStoryMetaSettings,
-  RelatedComponents,
-  Tip,
-  UsageGuidelines
-} from "../../../storybook";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+  createComponentTemplate
+} from "vibe-storybook-components";
 import { Button, DialogContentContainer, Flex, Search } from "../..";
-import { Link } from "../../../storybook/components";
 import { useCallback, useState } from "react";
 import {
   BUTTON,
@@ -20,7 +18,7 @@ import {
 
 import "./Loader.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader,
   enumPropNamesArray: ["size", "color"]
 });

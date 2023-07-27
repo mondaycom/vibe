@@ -116,19 +116,6 @@ module.exports = options => {
           test: /\/storybook\/.*\.scss$/,
           use: ["style-loader", "css-loader", "sass-loader"]
         }
-        // TODO Bundling pictures from storybook/components/* - doesn't work right now
-        // {
-        //   test: /\/storybook\/components\/.*\.(png|svg|jpg|gif|jpe?g)$/,
-        //   use: [
-        //     {
-        //       options: {
-        //         name: "[name].[ext]",
-        //         outputPath: "assets/"
-        //       },
-        //       loader: "file-loader"
-        //     }
-        //   ]
-        // }
       ]
     },
     externals: {

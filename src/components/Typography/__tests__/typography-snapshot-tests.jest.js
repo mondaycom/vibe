@@ -23,6 +23,11 @@ describe("Text renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with html attribute", () => {
+    const tree = renderer.create(<Typography role="banner">text</Typography>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with element as children", () => {
     const tree = renderer
       .create(

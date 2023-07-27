@@ -1,3 +1,4 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../styles/typography";
 @import "../../../styles/global-css-settings";
 
@@ -34,7 +35,7 @@
 
 .icon-story-description {
   margin: $spacing-large 0;
-  @include font-paragraph-bold();
+  @include vibe-text(medium, bold);
 }
 
 .icon-story-custom-icon {

@@ -1,13 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import {
-  createComponentTemplate,
-  createStoryMetaSettings,
-  Link,
-  RelatedComponents,
-  Tip,
-  UsageGuidelines,
-  VerticalStories
-} from "../../../storybook";
+import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
+import { createComponentTemplate, Link, UsageGuidelines, VerticalStories } from "vibe-storybook-components";
 import {
   PROGRESS_BAR,
   TOGGLE,
@@ -23,7 +16,7 @@ import {
   rangedSliderMouseEventsPlaySuite
 } from "../__tests__/Slider.interactions";
 
-export const argTypes = createStoryMetaSettings({
+export const argTypes = createStoryMetaSettingsDecorator({
   component: Slider,
   enumPropNamesArray: ["color", "size"]
 });
@@ -61,13 +54,20 @@ Slider is a visual input component that reflects current state status in its app
 
 ## Usage
 
-<UsageGuidelines guidelines={[
-  "Slider adjustment makes immediate changes to its content without need of saving",
-  "Slider works best when the exact value does not matter for the user",
-  "Slider works best for adjusting volume, setting playback time within a music player, adjusting brightness.",
-  "If exact value is necessary use slider with label"
-]} />
-<Tip title="Not what you were looking for?">If you need to visualize progress use Wizard component instead <Link href="/?path=/docs/navigation-wizard--overview" size={Link.sizes.SMALL} withoutSpacing>See link</Link></Tip>
+<UsageGuidelines
+  guidelines={[
+    "Slider adjustment makes immediate changes to its content without need of saving",
+    "Slider works best when the exact value does not matter for the user",
+    "Slider works best for adjusting volume, setting playback time within a music player, adjusting brightness.",
+    "If exact value is necessary use slider with label"
+  ]}
+/>
+<Tip title="Not what you were looking for?">
+  If you need to visualize progress use Wizard component instead{" "}
+  <Link href="/?path=/docs/navigation-wizard--overview" size={Link.sizes.SMALL} withoutSpacing>
+    See link
+  </Link>
+</Tip>
 
 ## Variants
 
@@ -95,7 +95,6 @@ Slider can define range instead of single value
   </Story>
 </Canvas>
 
-
 ### Colors
 
 Color Modes primary/positive/negative are available.
@@ -116,7 +115,13 @@ Slider can be disabled.
   <Story name="Disabled">
     <Slider disabled={true} defaultValue={24} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
     <Slider disabled={true} color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
-    <Slider disabled={true} ranged={true} defaultValue={[12, 55]} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+    <Slider
+      disabled={true}
+      ranged={true}
+      defaultValue={[12, 55]}
+      color={Slider.colors.PRIMARY}
+      size={Slider.sizes.MEDIUM}
+    />
   </Story>
 </Canvas>
 
@@ -153,8 +158,23 @@ Limit and Step can be customized.
 <Canvas>
   <Story name="Limits, Steps" decorators={[VerticalStories]}>
     <Slider prefix="Step 10" step={10} indicateSelection={true} defaultValue={10} size={Slider.sizes.SMALL} />
-    <Slider prefix="Step 2, Max: 20" max={20} step={2}  indicateSelection={true} defaultValue={4} size={Slider.sizes.MEDIUM} />
-    <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} defaultValue={62} size={Slider.sizes.LARGE} />
+    <Slider
+      prefix="Step 2, Max: 20"
+      max={20}
+      step={2}
+      indicateSelection={true}
+      defaultValue={4}
+      size={Slider.sizes.MEDIUM}
+    />
+    <Slider
+      prefix="from 20%"
+      postfix="till 80%"
+      min={20}
+      max={80}
+      showValue={true}
+      defaultValue={62}
+      size={Slider.sizes.LARGE}
+    />
     <Slider ranged={true} indicateSelection={true} min={100} max={200} step={10} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
@@ -163,7 +183,7 @@ Limit and Step can be customized.
 
 Custom ID, custom `data-testid` and Custom Class. Add Custom Items as Prefix and Postfix of Slider.
 
-__Important!__ Please use customisation very careful, only if you really need it. Check twice with your Product/Designer.
+**Important!** Please use customisation very careful, only if you really need it. Check twice with your Product/Designer.
 
 <Canvas>
   <Story name="Customisation" decorators={[VerticalStories]}>
@@ -182,7 +202,7 @@ __Important!__ Please use customisation very careful, only if you really need it
       min={1}
       max={10}
       indicateSelection={true}
-      valueFormatter={(value) => `${value}GB`}
+      valueFormatter={value => `${value}GB`}
       prefix="Custom value formatter"
       size={Slider.sizes.MEDIUM}
     />
@@ -193,8 +213,8 @@ __Important!__ Please use customisation very careful, only if you really need it
       min={1}
       max={10}
       indicateSelection={true}
-      selectionIndicatorWidth='120px'
-      valueFormatter={(value) => `${value} meter/hour`}
+      selectionIndicatorWidth="120px"
+      valueFormatter={value => `${value} meter/hour`}
       prefix="Long value formatter"
       size={Slider.sizes.MEDIUM}
     />
@@ -202,13 +222,10 @@ __Important!__ Please use customisation very careful, only if you really need it
       id="custom-prefix"
       className="my-slider-wide"
       defaultValue={50}
-      prefix={<Chips
-        label="Custom component"
-        readOnly
-      />}
+      prefix={<Chips label="Custom component" readOnly />}
       postfix={(value, valueText) => {
         // set css: .my-slider-wide { max-width: none }
-        return <span style={{'white-space': 'nowrap'}}>{`RenderProps: ${valueText} (${value}) `}</span>
+        return <span style={{ "white-space": "nowrap" }}>{`RenderProps: ${valueText} (${value}) `}</span>;
       }}
       size={Slider.sizes.MEDIUM}
     />

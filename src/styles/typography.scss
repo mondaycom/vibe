@@ -1,5 +1,6 @@
 @import "./theme-mixin";
-$h1-legacy-font-size: 32px;
+@import "~monday-ui-style/dist/mixins";
+
 $h1-legacy-line-height: 52px;
 $h1-medium-font-size: 22px;
 $h1-empty-state-height: 32px;
@@ -11,6 +12,44 @@ $p-empty-state-height: 16px;
 $h6-empty-state-height: 12px;
 $small-empty-state-height: 12px;
 
+
+@mixin create-text-classes() {
+  @include create-typography-classes($textClasses, text);
+}
+
+@mixin create-title-classes() {
+  @include create-typography-classes($titleClasses, null);
+}
+
+@mixin create-typography-classes($classes, $token-prefix) {
+  @each $class-prefix, $weight-types in $classes {
+    @each $weight-type in $weight-types {
+
+      .#{$class-prefix}.#{$weight-type} {
+
+        // if class is a heading class
+        @if str-slice($class-prefix, 1, 1) == "h" {
+          @include vibe-title($class-prefix, $weight-type);
+        }
+        @else {
+          @include vibe-text($class-prefix, $weight-type);
+        }
+      }
+    }
+  }
+}
+
+$titleClasses: (
+    "h1": ("bold", "normal", "light"),
+    "h2": ("bold", "normal", "light"),
+    "h3": ("bold", "normal", "light")
+);
+
+$textClasses: (
+    "medium": ("bold", "normal"),
+    "small": ("bold", "normal")
+);
+
 @mixin base-font($font-variable) {
   @include theme-prop(color, primary-text-color);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
@@ -18,64 +57,24 @@ $small-empty-state-height: 12px;
   font: $font-variable;
 }
 
-// Main Heading (h1)
-@mixin font-main {
-  @include base-font(var(--font-h1));
-  letter-spacing: -1px;
+@mixin smoothing-text {
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
 }
 
-// Secondary Heading (h2)
-@mixin font-title {
-  @include base-font(var(--font-h2));
-  letter-spacing: -0.2px;
-}
-
-// Tertiary Heading (h3)
-@mixin font-title-secondary {
-  @include base-font(var(--font-h3));
-  letter-spacing: -0.2px;
-  @include theme-prop(color, primary-text-color);
-}
-
-// Fourth Heading (h4)
-@mixin font-subtitle {
-  @include base-font(var(--font-h4));
-}
-
-// Paragraph Bold (h5)
-@mixin font-paragraph-bold {
-  @include base-font(var(--font-h5));
-}
-
-// UI lables / General text (h6)
-@mixin font-general-text {
-  @include base-font(var(--font-general-label));
-}
-
-// Paragraph text (p)
-@mixin font-paragraph {
-  @include base-font(var(--font-paragraph));
-}
-
-// Please use general text instead of this
-@mixin font-default {
-  @include font-general-text;
-  line-height: 22px;
+@mixin label-text {
+  @include smoothing-text;
+  @include vibe-text(small, normal);
 }
 
 // Caption / Subtext (small)
 @mixin font-caption {
-  @include base-font(var(--font-subtext));
+  @include vibe-text(small, normal);
+  @include smoothing-text;
 }
 
 @mixin font-input {
-  @include font-default;
-}
-
-@mixin font-link {
-  @include font-default;
-  text-decoration: none;
-  @include theme-prop(color, link-color);
+  @include vibe-text(small, normal);
 }
 
 @mixin line-clamp($lines: 1le) {

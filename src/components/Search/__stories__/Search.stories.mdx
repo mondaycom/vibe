@@ -1,9 +1,10 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Search from "../Search";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
-import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
+import { Tip } from "../../../storybook/components";
+import { Link, UsageGuidelines, createComponentTemplate } from "vibe-storybook-components";
 import {
   COMBOBOX,
   DROPDOWN,
@@ -11,7 +12,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import "./Search.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName"]

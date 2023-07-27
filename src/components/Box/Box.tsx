@@ -3,78 +3,97 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import {
   BACKGROUND_COLORS,
+  BackgroundColor,
   BORDER,
+  Border,
   BORDER_COLOR,
+  BorderColor,
   COLORS,
-  DISABLED,
+  Color,
   MARGIN,
+  Margin,
   MARGIN_BOTTOM,
+  MarginBottom,
   MARGIN_END,
+  MarginEnd,
   MARGIN_START,
+  MarginStart,
   MARGIN_TOP,
+  MarginTop,
   MARGIN_X,
+  MarginX,
   MARGIN_Y,
+  MarginY,
   PADDING,
+  Padding,
   PADDING_BOTTOM,
+  PaddingBottom,
   PADDING_END,
+  PaddingEnd,
   PADDING_START,
+  PaddingStart,
   PADDING_TOP,
+  PaddingTop,
   PADDING_X,
+  PaddingX,
   PADDING_Y,
+  PaddingY,
   ROUNDED,
-  SHADOW
+  Rounded,
+  SHADOW,
+  Shadow,
+  DISABLED
 } from "./BoxConstants";
-import { VibeComponentProps, withStaticProps } from "../../types";
-import VibeComponent from "../../types/VibeComponent";
+import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Box.module.scss";
 
 interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
   children?: ReactElement | ReactElement[];
   disabled?: boolean;
-  border?: typeof BORDER;
-  borderColor?: typeof BORDER_COLOR;
-  rounded?: typeof ROUNDED;
-  shadow?: typeof SHADOW;
-  margin?: typeof MARGIN;
-  marginX?: typeof MARGIN_X;
-  marginY?: typeof MARGIN_Y;
-  marginTop?: typeof MARGIN_TOP;
-  marginEnd?: typeof MARGIN_END;
-  marginBottom?: typeof MARGIN_BOTTOM;
-  marginStart?: typeof MARGIN_START;
-  padding?: typeof PADDING;
-  paddingX?: typeof PADDING_X;
-  paddingY?: typeof PADDING_Y;
-  paddingTop?: typeof PADDING_TOP;
-  paddingEnd?: typeof PADDING_END;
-  paddingBottom?: typeof PADDING_BOTTOM;
-  paddingStart?: typeof PADDING_START;
-  backgroundColor?: typeof BACKGROUND_COLORS;
-  textColor?: typeof COLORS;
+  border?: ValueOf<Border>;
+  borderColor?: ValueOf<BorderColor>;
+  rounded?: ValueOf<Rounded>;
+  shadow?: ValueOf<Shadow>;
+  margin?: ValueOf<Margin>;
+  marginX?: ValueOf<MarginX>;
+  marginY?: ValueOf<MarginY>;
+  marginTop?: ValueOf<MarginTop>;
+  marginEnd?: ValueOf<MarginEnd>;
+  marginBottom?: ValueOf<MarginBottom>;
+  marginStart?: ValueOf<MarginStart>;
+  padding?: ValueOf<Padding>;
+  paddingX?: ValueOf<PaddingX>;
+  paddingY?: ValueOf<PaddingY>;
+  paddingTop?: ValueOf<PaddingTop>;
+  paddingEnd?: ValueOf<PaddingEnd>;
+  paddingBottom?: ValueOf<PaddingBottom>;
+  paddingStart?: ValueOf<PaddingStart>;
+  backgroundColor?: ValueOf<BackgroundColor>;
+  textColor?: ValueOf<Color>;
 }
 
 const Box: VibeComponent<BoxProps> & {
-  borders?: typeof BORDER;
-  borderColors?: typeof BORDER_COLOR;
-  roundeds?: typeof ROUNDED;
-  shadows?: typeof SHADOW;
-  margins?: typeof MARGIN;
-  marginXs?: typeof MARGIN_X;
-  marginYs?: typeof MARGIN_Y;
-  marginTops?: typeof MARGIN_TOP;
-  marginEnds?: typeof MARGIN_END;
-  marginBottoms?: typeof MARGIN_BOTTOM;
-  marginStarts?: typeof MARGIN_START;
-  paddings?: typeof PADDING;
-  paddingXs?: typeof PADDING_X;
-  paddingYs?: typeof PADDING_Y;
-  paddingTops?: typeof PADDING_TOP;
-  paddingEnds?: typeof PADDING_END;
-  paddingBottoms?: typeof PADDING_BOTTOM;
-  paddingStarts?: typeof PADDING_START;
-  backgroundColors?: typeof BACKGROUND_COLORS;
-  textColors?: typeof COLORS;
+  borders?: Border;
+  borderColors?: BorderColor;
+  roundeds?: Rounded;
+  shadows?: Shadow;
+  margins?: Margin;
+  marginXs?: MarginX;
+  marginYs?: MarginY;
+  marginTops?: MarginTop;
+  marginEnds?: MarginEnd;
+  marginBottoms?: MarginBottom;
+  marginStarts?: MarginStart;
+  paddings?: Padding;
+  paddingXs?: PaddingX;
+  paddingYs?: PaddingY;
+  paddingTops?: PaddingTop;
+  paddingEnds?: PaddingEnd;
+  paddingBottoms?: PaddingBottom;
+  paddingStarts?: PaddingStart;
+  backgroundColors?: BackgroundColor;
+  textColors?: Color;
 } = forwardRef(
   (
     {

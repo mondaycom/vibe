@@ -2,6 +2,9 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
+@include create-title-classes;
+@include create-text-classes;
+
 .headingComponent {
   border: 1px solid transparent;
   border-radius: $border-radius-small;
@@ -28,56 +31,33 @@
 /* Override tags styles */
 
 .elementTypeH1 {
-  letter-spacing: -0.2px;
-  font-size: $h1-legacy-font-size;
-  line-height: $h1-legacy-line-height;
-  font-weight: var(--font-weight-bold);
-  font-family: var(--title-font-family);
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+  @include vibe-title("h1", "normal");
 }
 
+.elementTypeH2.sizeLarge,
 .elementTypeH1.sizeSmall,
 .elementTypeH1.sizeMedium {
-  font-size: var(--font-size-h2);
-  line-height: var(--font-line-height-h2);
+  @include vibe-title("h2", "normal");
 }
 
-.elementTypeH2 {
-  letter-spacing: -0.2px;
-  @include font-title();
+.elementTypeH3.sizeLarge {
+  @include vibe-title("h2", "light");
 }
 
 .elementTypeH2.sizeSmall,
-.elementTypeH2.sizeMedium {
-  @include font-subtitle();
-}
-
-.elementTypeH3 {
-  letter-spacing: -0.2px;
-  @include font-title-secondary();
-}
-
+.elementTypeH2.sizeMedium,
 .elementTypeH3.sizeSmall,
-.elementTypeH3.sizeMedium {
-  @include font-subtitle();
-}
-
+.elementTypeH3.sizeMedium,
 .elementTypeH4 {
-  letter-spacing: -0.2px;
-  @include font-subtitle();
+  @include vibe-title("h3", "normal");
 }
 
-.elementTypeH5 {
-  @include font-paragraph-bold();
+.elementTypeH5, .elementTypeP {
+  @include vibe-text("medium", "normal");
 }
 
 .elementTypeH6 {
-  @include font-general-text();
-}
-
-.elementTypeP {
-  @include font-paragraph();
+  @include vibe-text("small", "normal");
 }
 
 .elementTypeSmall {
@@ -85,5 +65,6 @@
 }
 
 .elementTypeLink {
-  @include font-link();
+  text-decoration: none;
+  color: var(--link-color);
 }

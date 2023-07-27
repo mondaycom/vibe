@@ -3,7 +3,8 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
 import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import { createComponentTemplate, createStoryMetaSettings, Link } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate, Link } from "vibe-storybook-components";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -13,7 +14,7 @@ import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
 import "./chips.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
@@ -108,8 +109,9 @@ Chips are compact elements that represent an input, attribute, or action. They m
 <Canvas>
   <Story name="Themes">
     <Chips label="This is a long chip" />
-    <Chips label="Chip negative" color={Chips.colors.NEGATIVE} />
     <Chips label="Chip positive" color={Chips.colors.POSITIVE} />
+    <Chips label="Chip negative" color={Chips.colors.NEGATIVE} />
+    <Chips label="Chip warning" color={Chips.colors.WARNING} />
     <Chips label="Disabled" disabled />
   </Story>
 </Canvas>

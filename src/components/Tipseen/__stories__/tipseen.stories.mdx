@@ -8,17 +8,17 @@ import picture from "./assets/picture.png";
 import Icon from "../../Icon/Icon";
 import { Board, BoardPrivate } from "../../Icon/Icons";
 import { modifiers } from "./helper";
-import { Link } from "../../../storybook/components";
+import { Link } from "vibe-storybook-components";
 import {
   ATTENTION_BOX,
   CHIP,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
   enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
 });
@@ -51,7 +51,7 @@ Tipseen is an virtual unboxing experience that helps users get started with the 
   <Story
     name="Overview"
     args={{
-      title: "title",
+      title: "Title",
       children: "Popover message will appear here loremipsum dolor samet…",
       position: Tipseen.positions.RIGHT,
       isDismissHidden: false
@@ -132,7 +132,14 @@ Use when the tip is too long or when you want to teach something in steps.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
-          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={activeStepIndex} onChangeActiveStep={onChangeActiveStep} />}
+          content={
+            <TipseenWizard
+              title="This is a title"
+              steps={content}
+              activeStepIndex={activeStepIndex}
+              onChangeActiveStep={onChangeActiveStep}
+            />
+          }
         >
           <div className="monday-storybook-tipseen_container" />
         </Tipseen>

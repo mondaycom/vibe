@@ -3,6 +3,7 @@ import VirtualizedList, { VirtualizedListItem } from "../VirtualizedList/Virtual
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { AvatarProps } from "../Avatar/Avatar";
+import { ElementContent } from "../../types";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
 const LIST_OPTIONS = Object.freeze({
@@ -12,7 +13,7 @@ const LIST_OPTIONS = Object.freeze({
 });
 
 export type AvatarItem = {
-  value: AvatarProps & { tooltipContent: string | ReactElement | ReactElement[] };
+  value: AvatarProps & { tooltipContent: ElementContent };
 };
 
 interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
