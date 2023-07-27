@@ -29,6 +29,10 @@ export interface ListProps extends VibeComponentProps {
    */
   renderOnlyVisibleItems?: boolean;
   style?: CSSProperties;
+  /**
+   * Index of list item to be initially keyboard-focused
+   */
+  defaultFocusIndex?: number;
 }
 
 const List: FC<ListProps> = forwardRef(
@@ -41,13 +45,14 @@ const List: FC<ListProps> = forwardRef(
       ariaLabel,
       ariaDescribedBy,
       renderOnlyVisibleItems = false,
+      defaultFocusIndex = 0,
       style,
       "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
-    const [focusIndex, setFocusIndex] = useState(0);
+    const [focusIndex, setFocusIndex] = useState(defaultFocusIndex);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
     const childrenRefs = useRef([]);
