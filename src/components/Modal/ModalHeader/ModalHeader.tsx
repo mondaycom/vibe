@@ -95,7 +95,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       </Title>
 
       {description && (
-        <Text size="small" className={cx(descriptionClassName, styles.description)}>
+        <Text type="text2" className={cx(descriptionClassName, styles.description)}>
           {description}
         </Text>
       )}

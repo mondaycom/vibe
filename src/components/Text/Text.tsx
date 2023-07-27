@@ -6,7 +6,7 @@ import Typography, { TypographyProps } from "../Typography/Typography";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
-  type?: TextType;
+  type: TextType;
   weight?: TextWeight;
   paragraph?: boolean;
 }
