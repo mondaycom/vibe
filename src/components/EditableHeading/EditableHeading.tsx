@@ -3,15 +3,15 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import Heading, { HeadingProps } from "../Heading/Heading";
+import Heading, { HeadingProps } from "../LegacyHeading/LegacyHeading";
 import Clickable from "../Clickable/Clickable";
 import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
-import { HeadingSizes, HeadingTypes } from "../Heading/HeadingConstants";
+import { HeadingSizes, HeadingTypes } from "../LegacyHeading/HeadingConstants";
 import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
-import headingStyles from "../Heading/Heading.module.scss";
+import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";
 import styles from "./EditableHeading.module.scss";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {

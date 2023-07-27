@@ -38,7 +38,7 @@ export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
 export { default as ExpandCollapse } from "./ExpandCollapse/ExpandCollapse";
-export { default as Heading } from "./Heading/Heading";
+export { default as Heading } from "./LegacyHeading/LegacyHeading";
 export { default as EditableInput } from "./EditableInput/EditableInput";
 export { default as EditableHeading } from "./EditableHeading/EditableHeading";
 export { default as ResponsiveList } from "./ResponsiveList/ResponsiveList";
@@ -85,7 +85,7 @@ export { default as ModalContent } from "./Modal/ModalContent/ModalContent";
 export { default as ModalFooter } from "./Modal/ModalFooter/ModalFooter";
 export { default as Box } from "./Box/Box";
 export { default as Text } from "./Text/Text";
-export { default as Title } from "./Title/Title";
+export { default as Title } from "./Heading/Heading";
 export {
   useGridKeyboardNavigationContext,
   GridKeyboardNavigationContext

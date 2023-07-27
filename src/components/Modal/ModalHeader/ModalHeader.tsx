@@ -9,7 +9,7 @@ import { ElementContent } from "src/types/ElementContent";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import Text from "../../Text/Text";
-import Title from "../../Title/Title";
+import Heading from "../../Heading/Heading";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
@@ -80,7 +80,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
 }) => {
   return (
     <div className={cx(styles.container, className)}>
-      <Title
+      <Heading
         id={id}
         type="h2"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
@@ -92,7 +92,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
           </span>
         )}
         {title}
-      </Title>
+      </Heading>
 
       {description && (
         <Text type="text2" className={cx(descriptionClassName, styles.description)}>

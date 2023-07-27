@@ -1,20 +1,15 @@
 @import "../../../styles/themes";
 
-.empty-state-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: var(--spacing-large);
+@mixin color-rectangle-example {
+  width: 400px;
+  padding: var(--spacing-small);
+}
+.primaryBackground {
+  @include color-rectangle-example;
+  background-color: var(--primary-color);
 }
 
-.page-header_commands {
-  margin-top: var(--spacing-large);
-  & > * {
-    margin-left: var(--spacing-small);
-  }
-}
-.page-header_search {
-  width: 146px;
+.invertedBackground {
+  @include color-rectangle-example;
+  background-color: var(--inverted-color-background);
 }
