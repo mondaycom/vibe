@@ -4,6 +4,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { TextType, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
 import styles from "./Text.module.scss";
+import { withStaticProps } from "../../types";
 
 export interface TextProps extends TypographyProps {
   type: TextType;
@@ -11,8 +12,8 @@ export interface TextProps extends TypographyProps {
   paragraph?: boolean;
 }
 
-const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
-  ({ className, type = "text2", weight = "normal", ellipsis, paragraph, ...typographyProps }, ref) => {
+const Text: VibeComponent<TextProps, HTMLElement> & { types?: typeof TextType; weights?: typeof TextWeight } =
+  forwardRef(({ className, type = "text2", weight = "normal", ellipsis, paragraph, ...typographyProps }, ref) => {
     const overrideEllipsis = ellipsis || !paragraph;
     const overrideElement = paragraph ? "p" : "div";
     return (
@@ -24,7 +25,9 @@ const Text: VibeComponent<TextProps, HTMLElement> = forwardRef(
         {...typographyProps}
       />
     );
-  }
-);
+  });
 
-export default Text;
+export default withStaticProps(Text, {
+  types: TextType,
+  weights: TextWeight
+});
