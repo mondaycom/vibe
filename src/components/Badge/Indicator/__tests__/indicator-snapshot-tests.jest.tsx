@@ -9,13 +9,8 @@ describe("Indicator", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with a custom indicatorColor", () => {
-    const tree = renderer.create(<Indicator indicatorColor={IndicatorColor.PRIMARY} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("renders correctly with an ariaLabel", () => {
-    const tree = renderer.create(<Indicator ariaLabel="test arialabel" />).toJSON();
+  it("renders correctly with a custom color", () => {
+    const tree = renderer.create(<Indicator color={IndicatorColor.PRIMARY} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

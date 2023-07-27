@@ -8,14 +8,8 @@ $circularPosition: 15%;
   .badge {
     z-index: 1;
     position: absolute;
-    scale: 1;
-    transition: scale var(--motion-productive-long) var(--motion-timing-transition);
 
-    &:not(.show) {
-      scale: 0;
-    }
-
-    &.topRight {
+    &.topEnd {
       top: 0;
       right: 0;
       translate: 50% -50%;
@@ -25,12 +19,12 @@ $circularPosition: 15%;
         right: $circularPosition;
       }
 
-      &.gap {
+      &.outbound {
         translate: 100% -50%;
       }
     }
 
-    &.topLeft {
+    &.topStart {
       top: 0;
       left: 0;
       translate: -50% -50%;
@@ -40,12 +34,12 @@ $circularPosition: 15%;
         left: $circularPosition;
       }
 
-      &.gap {
+      &.outbound {
         translate: -100% -50%;
       }
     }
 
-    &.bottomRight {
+    &.bottomEnd {
       bottom: 0;
       right: 0;
       translate: 50% 50%;
@@ -55,12 +49,12 @@ $circularPosition: 15%;
         right: $circularPosition;
       }
 
-      &.gap {
+      &.outbound {
         translate: 100% -50%;
       }
     }
 
-    &.bottomLeft {
+    &.bottomStart {
       bottom: 0;
       left: 0;
       translate: -50% 50%;
@@ -70,7 +64,7 @@ $circularPosition: 15%;
         left: $circularPosition;
       }
 
-      &.gap {
+      &.outbound {
         translate: -100% -50%;
       }
     }

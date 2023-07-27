@@ -6,39 +6,47 @@ import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Badge.module.scss";
-import { Direction } from "./BadgeConstants";
-import Indicator, { IndicatorProps } from "../Indicator/Indicator";
+import { BadgeColor, BadgePosition, BadgeType } from "./BadgeConstants";
+import Indicator, { IndicatorProps } from "./Indicator/Indicator";
 import Counter, { CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
+import { IndicatorColor } from "./Indicator/IndicatorConstants";
+import { CounterColor } from "../Counter/CounterConstants";
 
-type Position = {
-  vertical: Direction.TOP | Direction.BOTTOM;
-  horizontal: Direction.LEFT | Direction.RIGHT;
+const BadgeColorToIndicatorColor = {
+  [BadgeColor.PRIMARY]: IndicatorColor.PRIMARY,
+  [BadgeColor.NOTIFICATION]: IndicatorColor.NOTIFICATION
 };
 
-type BadgeOptions = typeof Indicator | typeof Counter;
+const BadgeColorToCounterColor = {
+  [BadgeColor.PRIMARY]: CounterColor.PRIMARY,
+  [BadgeColor.NOTIFICATION]: CounterColor.NEGATIVE
+};
 
-export interface BadgeProps extends VibeComponentProps, React.PropsWithChildren {
-  badgeComponent?: BadgeOptions;
-  position?: Position;
-  gap?: boolean;
+export interface BadgeProps extends VibeComponentProps {
+  type?: BadgeType;
+  position?: BadgePosition;
+  color?: BadgeColor;
+  outbound?: boolean;
   circular?: boolean;
-  show?: boolean;
-  badgeComponentProps?: CounterProps | IndicatorProps;
+  badgeProps?: Omit<CounterProps, "color"> | Omit<IndicatorProps, "color">;
+  children: React.ReactNode;
 }
 
 const Badge: VibeComponent<BadgeProps> & {
-  directions?: typeof Direction;
+  types?: typeof BadgeType;
+  positions?: typeof BadgePosition;
+  colors?: typeof BadgeColor;
 } = forwardRef(
   (
     {
-      badgeComponent: BadgeComponent = Indicator,
-      position = { vertical: Direction.TOP, horizontal: Direction.RIGHT } as Position,
-      gap = false,
+      type = Badge.types.INDICATOR,
+      position = Badge.positions.TOP_END,
+      color = Badge.colors.NOTIFICATION,
+      outbound = false,
       circular = false,
-      show = true,
-      badgeComponentProps,
+      badgeProps,
       className,
       id,
       "data-testid": dataTestId,
@@ -48,24 +56,28 @@ const Badge: VibeComponent<BadgeProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const badgeClassNames = cx(
-      styles.badge,
-      getStyle(styles, camelCase(`${position.vertical}-${position.horizontal}`)),
-      { [styles.gap]: gap, [styles.circular]: circular, [styles.show]: show },
-      className
-    );
+    const badgeClassNames = cx(styles.badge, getStyle(styles, camelCase(position as unknown as string)), {
+      [styles.outbound]: outbound,
+      [styles.circular]: circular
+    });
 
     return (
-      <div ref={mergedRef} className={cx(styles.badgeWrapper)} id={id}>
+      <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id}>
         {children}
         <div className={badgeClassNames} data-testid={dataTestId || getTestId(ComponentDefaultTestId.BADGE, id)}>
-          <BadgeComponent {...badgeComponentProps} />
+          {type === BadgeType.INDICATOR ? (
+            <Indicator color={BadgeColorToIndicatorColor[color]} {...badgeProps} />
+          ) : (
+            type === BadgeType.COUNTER && <Counter color={BadgeColorToCounterColor[color]} {...badgeProps} />
+          )}
         </div>
       </div>
     );
   }
 );
 
-Badge.directions = Direction;
+Badge.types = BadgeType;
+Badge.positions = BadgePosition;
+Badge.colors = BadgeColor;
 
 export default Badge;

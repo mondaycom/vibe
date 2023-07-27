@@ -1,4 +1,4 @@
-@import "../../styles/themes";
+@import "../../../styles/themes";
 
 $indicator-size: 8px;
 
@@ -7,11 +7,11 @@ $indicator-size: 8px;
   height: $indicator-size;
   border-radius: 50%;
 
-  &.colorPrimary {
+  &.primary {
     background-color: var(--primary-color);
   }
 
-  &.colorNotification {
+  &.notification {
     background-color: var(--negative-color);
   }
 }

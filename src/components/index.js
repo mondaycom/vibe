@@ -91,4 +91,3 @@ export {
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 export { default as Badge } from "./Badge/Badge";
-export { default as Indicator } from "./Indicator/Indicator";

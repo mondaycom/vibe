@@ -1,30 +1,27 @@
 import Badge from "../Badge";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
 import styles from "./Badge.stories.module.scss";
 import person from "./assets/person.png";
 import { ExternalPage, WhatsNew } from "../../Icon/Icons";
 import Link from "../../Link/Link";
-import Counter from "../../Counter/Counter";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
 import { useState } from "react";
-import Indicator from "../../Indicator/Indicator";
 
 export const metaSettings = createStoryMetaSettings({
   component: Badge,
-  enumPropNamesArray: ["position"], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  enumPropNamesArray: ["color", "position", "type"],
+  iconPropNamesArray: [],
+  actionPropsArray: []
 });
 
-<Meta
-  title="Components/Badge/Badge"
-  component={Badge}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+<Meta title="Feedback/Badge" component={Badge} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+
+<!--- Component template -->
+
+export const badgeTemplate = createComponentTemplate(Badge);
 
 <!--- Component documentation -->
 
@@ -40,13 +37,11 @@ export const metaSettings = createStoryMetaSettings({
 
 ## Overview
 
-Badge component is responsible for positioning an indicator/badge on a child component
+Badge component is responsible for positioning an indicator/counter on a child component
 
 <Canvas>
-  <Story name="Overview">
-    <Badge>
-      <Button leftIcon={WhatsNew}>What's new</Button>
-    </Badge>
+  <Story name="Overview" args={{ children: <Button leftIcon={WhatsNew}>What's new</Button> }}>
+    {badgeTemplate.bind({})}
   </Story>
 </Canvas>
 
@@ -76,15 +71,15 @@ Badge component is responsible for positioning an indicator/badge on a child com
       </Badge>
     </Flex>
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
-      <Badge badgeComponent={Counter}>
+      <Badge type={Badge.types.COUNTER}>
         <Button leftIcon={WhatsNew}>What's new</Button>
       </Badge>
-      <Badge badgeComponent={Counter}>
+      <Badge type={Badge.types.COUNTER}>
         <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
           What's new
         </Button>
       </Badge>
-      <Badge badgeComponent={Counter}>
+      <Badge type={Badge.types.COUNTER}>
         <Button kind={Button.kinds.TERTIARY} leftIcon={WhatsNew}>
           What's new
         </Button>
@@ -104,18 +99,18 @@ Badge component is responsible for positioning an indicator/badge on a child com
       <Badge circular>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular badgeComponentProps={{ indicatorColor: Indicator.colors.PRIMARY }}>
+      <Badge circular color={Badge.colors.PRIMARY}>
         <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
       </Badge>
     </Flex>
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
-      <Badge circular badgeComponent={Counter}>
+      <Badge circular type={Badge.types.COUNTER}>
         <Avatar size={Avatar.sizes.SMALL} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular badgeComponent={Counter}>
+      <Badge circular type={Badge.types.COUNTER}>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular badgeComponent={Counter} badgeComponentProps={{ color: Counter.colors.NEGATIVE }}>
+      <Badge circular type={Badge.types.COUNTER} color={Badge.colors.PRIMARY}>
         <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
       </Badge>
     </Flex>
@@ -127,13 +122,13 @@ Badge component is responsible for positioning an indicator/badge on a child com
 <Canvas>
   <Story name="Transparent component">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-      <Badge gap>
+      <Badge outbound>
         <Link text="Read more" />
       </Badge>
-      <Badge gap>
+      <Badge outbound>
         <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
       </Badge>
-      <Badge gap>
+      <Badge outbound>
         <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
       </Badge>
     </Flex>
@@ -145,16 +140,16 @@ Badge component is responsible for positioning an indicator/badge on a child com
 <Canvas>
   <Story name="Positioning">
     <div className={styles.grid}>
-      <Badge circular position={{ horizontal: Badge.directions.LEFT, vertical: Badge.directions.TOP }}>
+      <Badge circular position={Badge.positions.TOP_START}>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular position={{ horizontal: Badge.directions.RIGHT, vertical: Badge.directions.TOP }}>
+      <Badge circular position={Badge.positions.TOP_END}>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular position={{ horizontal: Badge.directions.LEFT, vertical: Badge.directions.BOTTOM }}>
+      <Badge circular position={Badge.positions.BOTTOM_START}>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
-      <Badge circular position={{ horizontal: Badge.directions.RIGHT, vertical: Badge.directions.BOTTOM }}>
+      <Badge circular position={Badge.positions.BOTTOM_END}>
         <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
       </Badge>
     </div>
@@ -187,11 +182,11 @@ Badge component is responsible for positioning an indicator/badge on a child com
     {
       positive: {
         component: (
-          <Badge gap>
+          <Badge outbound>
             <Link text="Read more" />
           </Badge>
         ),
-        description: "When using transparent component, apply gap to it"
+        description: "When using transparent component, apply 'outbound' to it"
       },
       negative: {
         component: (
