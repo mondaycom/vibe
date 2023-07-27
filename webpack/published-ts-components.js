@@ -2,7 +2,6 @@ const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
   Text: "components/Text/Text",
-  Title: "components/Title/Title",
   Button: "components/Button/Button",
   Checkbox: "components/Checkbox/Checkbox",
   EditableHeading: "components/EditableHeading/EditableHeading",

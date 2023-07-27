@@ -74,7 +74,7 @@ Snapshot Diff:
       Default title
     </h2>
     <div
-+     class="typography primary start singleLineEllipsis small normal description"
++     class="typography primary start singleLineEllipsis text2 normal description"
 +     data-testid="text"
 +     style="--text-clamp-lines: 1;"
 +   >
