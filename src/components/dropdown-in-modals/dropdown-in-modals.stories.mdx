@@ -5,6 +5,7 @@ import { OpenModalButton } from "./helpers";
 import ModalContent from "../../components/Modal/ModalContent/ModalContent";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "../../components/Modal/Modal";
+import styles from "./dropdown-in-modals.module.scss";
 
 <Meta title="Technical Patterns/Display dropdowns inside pop-overs" />
 
@@ -54,15 +55,16 @@ Our design system contains various fixed units for radius of elements corners.
               top: 0,
               right: 0
             }}
+            className={styles.pointerEventsAutoToAllChildren}
           />
           <OpenModalButton setShow={setShow} />
           <Modal id="modal-with-multiple-choice" title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
               <Dropdown
                 multi
-                defaultValue={options}
                 options={options}
                 popupsContainerSelector={"#popovers-container"}
+                className="dropdown-stories-styles_with-chips"
               />
             </ModalContent>
           </Modal>
