@@ -79,11 +79,14 @@ const Dropdown = forwardRef(
       isLoading,
       loadingMessage,
       ariaLabel,
+      popupsContainerSelector,
       "data-testid": dataTestId
     },
     ref
   ) => {
     const controlRef = useRef();
+    const overrideMenuPortalTarget =
+      menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
     const overrideDefaultValue = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
@@ -219,7 +222,8 @@ const Dropdown = forwardRef(
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         controlRef,
-        tooltipContent
+        tooltipContent,
+        popupsContainerSelector
       }),
       [
         selectedOptions,
@@ -228,7 +232,8 @@ const Dropdown = forwardRef(
         multiline,
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
-        tooltipContent
+        tooltipContent,
+        popupsContainerSelector
       ]
     );
     const onChange = (option, event) => {
@@ -336,7 +341,7 @@ const Dropdown = forwardRef(
         styles={inlineStyles}
         theme={customTheme}
         maxMenuHeight={maxMenuHeight}
-        menuPortalTarget={menuPortalTarget}
+        menuPortalTarget={overrideMenuPortalTarget}
         menuPlacement={menuPlacement}
         menuIsOpen={!readOnly && menuIsOpen}
         tabIndex={tabIndex}
