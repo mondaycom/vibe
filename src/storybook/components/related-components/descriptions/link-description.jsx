@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "vibe-storybook-components";
 import Link from "../../../../components/Link/Link";
-import ExternalPage from "../../../../components/Icon/Icons/components/ExternalPage";
+import { ExternalPage } from "../../../../components/Icon/Icons";
 
 export const LinkDescription = () => {
   const component = useMemo(

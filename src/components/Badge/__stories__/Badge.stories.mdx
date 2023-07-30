@@ -1,17 +1,18 @@
 import Badge from "../Badge";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings, RelatedComponents } from "../../../storybook";
 import person from "./assets/person.png";
 import { ExternalPage, WhatsNew } from "../../Icon/Icons";
 import Link from "../../Link/Link";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
-import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
 import { useSwitch } from "../../../hooks";
 import Checkbox from "../../Checkbox/Checkbox";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
+import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
   enumPropNamesArray: ["color", "position", "type"],
   iconPropNamesArray: [],
