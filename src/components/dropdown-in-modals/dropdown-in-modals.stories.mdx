@@ -1,0 +1,73 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { useCallback, useState } from "react";
+import { ComponentNameDecorator } from "../../storybook/components";
+import { OpenModalButton } from "./helpers";
+import ModalContent from "../../components/Modal/ModalContent/ModalContent";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import Modal from "../../components/Modal/Modal";
+
+<Meta title="Technical Patterns/Display dropdowns inside pop-overs" />
+
+<!--- Component documentation -->
+
+<ComponentNameDecorator withFoundationBackground>Display dropdowns inside pop-overs"</ComponentNameDecorator>
+
+- [Overview](#overview)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+
+Our design system contains various fixed units for radius of elements corners.
+
+<Canvas>
+  <Story name="Modal with multiple choice dropdown">
+    {() => {
+      const [show, setShow] = useState(false);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, [setShow]);
+      const options = [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" },
+        { value: 4, label: "Option 4" },
+        { value: 5, label: "Option 5" },
+        { value: 6, label: "Option 6" },
+        { value: 7, label: "Option 7" },
+        { value: 8, label: "Option 8" },
+        { value: 9, label: "Option 9" },
+        { value: 10, label: "Option 10" },
+        { value: 11, label: "Option 11" },
+        { value: 12, label: "Option 12" }
+      ];
+      return (
+        <div>
+          <div
+            id="popovers-container"
+            style={{
+              position: "fixed",
+              width: "100%",
+              pointerEvents: "none",
+              zIndex: 99999,
+              height: "100%",
+              top: 0,
+              right: 0
+            }}
+          />
+          <OpenModalButton setShow={setShow} />
+          <Modal id="modal-with-multiple-choice" title="Modal with dropdown" show={show} onClose={closeModal}>
+            <ModalContent>
+              <Dropdown
+                multi
+                defaultValue={options}
+                options={options}
+                popupsContainerSelector={"#popovers-container"}
+              />
+            </ModalContent>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>

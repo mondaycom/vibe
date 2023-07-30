@@ -6,7 +6,13 @@ import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
 
 // internal custom hook to help with writing tests and stories.
-export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openModalButtonRef, color, testId }) => {
+export const useHelperOpenModalButton = ({
+  title = "Open modal",
+  setShow,
+  openModalButtonRef,
+  color = undefined,
+  testId = undefined
+}) => {
   return (
     <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} dataTestId={testId}>
       {title}

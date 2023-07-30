@@ -3,6 +3,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
 import ModalContent from "../ModalContent/ModalContent";
+import Dropdown from "../../Dropdown/Dropdown";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
 import {
@@ -32,7 +33,7 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   // This method is not part of our external API and not required for creating functional modal component
   const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
   return (
-    <div>
+    <div className="modalmodal">
       {openModalButton}
       <Modal
         id={"story-book-modal"}
@@ -123,6 +124,20 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
     {() => {
       // Boilerplate for creating a modal, not relevant for this example
       const [show, setShow] = useState(false);
+      const options = [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" },
+        { value: 12, label: "Option 1" },
+        { value: 22, label: "Option 2" },
+        { value: 32, label: "Option 3" },
+        { value: 14, label: "Option 1" },
+        { value: 25, label: "Option 2" },
+        { value: 36, label: "Option 3" },
+        { value: 17, label: "Option 1" },
+        { value: 28, label: "Option 2" },
+        { value: 388, label: "Option 3" }
+      ];
       const openModalButtonRef = useRef(null);
       const closeModal = useCallback(() => {
         setShow(false);
@@ -131,19 +146,25 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
         useHelperOpenModalButton({ title: "Default", setShow, openModalButtonRef }); // internal helper, not part of the API
       return (
         // Modal with default width variant
-        <>
+        <div className="check">
+          <div id="checkit" />
           {openModalButton}
           <Modal
             id="story-book-modal"
-            title="Modal title"
+            title="Modal titl11e"
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
             // Width prop effects on the modal width
             width={Modal.width.DEFAULT}
           >
-            <ModalContent>
-              <p>Modal content goes here</p>
+            <ModalContent id="modala">
+              <Dropdown
+                multi
+                defaultValue={[options[0], options[1]]}
+                options={options}
+                popupsContainerSelector={"#checkit"}
+              />
             </ModalContent>
             <ModalFooter>
               <Flex justify={Flex.justify.END} gap={12}>
@@ -154,7 +175,7 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
               </Flex>
             </ModalFooter>
           </Modal>
-        </>
+        </div>
       );
     }}
   </Story>
@@ -411,7 +432,10 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             width={Modal.width.DEFAULT}
           >
             {/** Please follow the design guidelines when implementing custom title **/}
-            <ModalHeader description={"Description text goes here"} title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />} />
+            <ModalHeader
+              description={"Description text goes here"}
+              title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />}
+            />
             <ModalContent>
               <p>Modal content goes here</p>
             </ModalContent>
