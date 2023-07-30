@@ -6,7 +6,8 @@
   position: relative;
   padding: var(--spacing-medium);
   border-radius: var(--border-radius-medium);
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   height: fit-content;
   @include theme-prop(color, dark-color);
 }
