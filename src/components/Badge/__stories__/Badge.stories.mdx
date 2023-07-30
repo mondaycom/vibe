@@ -6,10 +6,8 @@ import Link from "../../Link/Link";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
-import { useSwitch } from "../../../hooks";
-import Checkbox from "../../Checkbox/Checkbox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -53,69 +51,45 @@ Badge component is responsible for positioning an indicator/counter on a child c
 
 ## Variants
 
-### Block component
+### States
+
+Badge can be of type Indicator or type Counter
 
 <Canvas>
-  <Story name="Block component">
-    <Flex gap={Flex.gaps.LARGE} justify={Flex.justify.SPACE_AROUND} style={{ flex: 1 }}>
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
-        Indicator
+  <Story name="States">
+    <Flex gap={Flex.gaps.LARGE} style={{ flex: 1 }} justify={Flex.justify.START} align={Flex.align.START}>
+      <StoryDescription description="Indicator" vertical align={Flex.align.START}>
         <Badge>
           <Button leftIcon={WhatsNew}>What's new</Button>
         </Badge>
-        <Badge>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            What's new
-          </Button>
-        </Badge>
-        <Badge>
-          <Button kind={Button.kinds.TERTIARY} leftIcon={WhatsNew}>
-            What's new
-          </Button>
-        </Badge>
-      </Flex>
-      <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
-        Counter
+      </StoryDescription>
+      <StoryDescription description="Counter" vertical align={Flex.align.START}>
         <Badge type={Badge.types.COUNTER}>
           <Button leftIcon={WhatsNew}>What's new</Button>
         </Badge>
-        <Badge type={Badge.types.COUNTER}>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            What's new
-          </Button>
-        </Badge>
-        <Badge type={Badge.types.COUNTER}>
-          <Button kind={Button.kinds.TERTIARY} leftIcon={WhatsNew}>
-            What's new
-          </Button>
-        </Badge>
-      </Flex>
+      </StoryDescription>
     </Flex>
   </Story>
 </Canvas>
 
-### Circular component
+### Badge on circular element
+
+When using Badge on a circle-shaped element, use circular in order to attach it to the element
 
 <Canvas>
-  <Story name="Circular component">
-    {() => {
-      const { isChecked: circular, onChange: setCircular } = useSwitch({ defaultChecked: true });
-      return (
-        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
-          <Badge circular={circular}>
-            <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-          </Badge>
-          <Checkbox label="Circular" checked={circular} onChange={setCircular} />
-        </Flex>
-      );
-    }}
+  <Story name="Circular">
+    <Badge circular>
+      <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
+    </Badge>
   </Story>
 </Canvas>
 
-### Transparent component
+### Badge on inline elements
+
+When using Badge on an inline element, use outbound in order to distance it out of the element's horizontal boundaries
 
 <Canvas>
-  <Story name="Transparent component">
+  <Story name="Outbound">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
       <Badge outbound>
         <Link text="Read more" />
@@ -138,27 +112,19 @@ We can set the position of the badge in any of the edges of its child component
   <Story name="Positioning">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
       <Flex gap={Flex.gaps.LARGE}>
-        <Badge type={Badge.types.COUNTER} position={Badge.positions.TOP_START}>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            Top left
-          </Button>
+        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.TOP_START}>
+          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
         </Badge>
-        <Badge type={Badge.types.COUNTER} position={Badge.positions.TOP_END}>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            Top right
-          </Button>
+        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.TOP_END}>
+          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
         </Badge>
       </Flex>
       <Flex gap={Flex.gaps.LARGE}>
-        <Badge type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_START}>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            Bottom left
-          </Button>
+        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_START}>
+          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
         </Badge>
-        <Badge type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_END}>
-          <Button kind={Button.kinds.SECONDARY} leftIcon={WhatsNew}>
-            Bottom right
-          </Button>
+        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_END}>
+          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
         </Badge>
       </Flex>
     </Flex>
@@ -173,36 +139,34 @@ We can set the position of the badge in any of the edges of its child component
       positive: {
         component: (
           <Badge outbound>
-            <Link text="Read more" />
+            <div
+              style={{
+                border: "1px dashed var(--ui-border-color)",
+                borderLeftColor: "transparent",
+                borderBottomColor: "transparent"
+              }}
+            >
+              <Link text="Read more" />
+            </div>
           </Badge>
         ),
-        description: "When using transparent component, apply 'outbound' to it"
+        description: "When using the badge on an inline component, apply 'outbound' to it"
       },
       negative: {
         component: (
           <Badge>
-            <Link text="Read more" />
+            <div
+              style={{
+                border: "1px dashed var(--ui-border-color)",
+                borderLeftColor: "transparent",
+                borderBottomColor: "transparent"
+              }}
+            >
+              <Link text="Read more" />
+            </div>
           </Badge>
         ),
-        description: "Do not leave the indicator in the component boundaries"
-      }
-    },
-    {
-      positive: {
-        component: (
-          <Badge circular>
-            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
-          </Badge>
-        ),
-        description: "On circular components (like Avatar), apply 'circular' to it"
-      },
-      negative: {
-        component: (
-          <Badge>
-            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
-          </Badge>
-        ),
-        description: "Do not leave the indicator in the block edges"
+        description: "Do not leave the indicator inside the element boundaries"
       }
     },
     {
