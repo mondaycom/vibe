@@ -47,6 +47,14 @@ describe("SplitButton tests", () => {
     expect(expectedSecondaryDialog).toBeFalsy();
   });
 
+  it("should move between buttons with tab", () => {
+    const splitButtonComponent = renderComponent();
+    userEvent.tab();
+    expect(getPrimaryButton(splitButtonComponent)).toHaveFocus();
+    userEvent.tab();
+    expect(getSecondaryButton(splitButtonComponent)).toHaveFocus();
+  });
+
   describe("callbacks", () => {
     it("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
       const onSecondaryDialogDidShow = jest.fn();
