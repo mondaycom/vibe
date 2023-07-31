@@ -1,6 +1,6 @@
 import React from "React";
 import { FC } from "preact/compat";
-import Button from "../Button/Button";
+import Button from "../../../components/Button/Button";
 
 interface OpenModalButtonProps {
   setShow: (show: boolean) => void;
