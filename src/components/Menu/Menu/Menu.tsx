@@ -28,7 +28,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Menu.module.scss";
 
-interface MenuProps extends VibeComponentProps {
+export interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
   size?: typeof SIZES[keyof typeof SIZES];

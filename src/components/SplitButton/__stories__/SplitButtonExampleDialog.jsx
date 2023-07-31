@@ -1,6 +1,7 @@
 import React from "react";
 import { Check, Announcement } from "../../Icon/Icons";
-import { Menu, MenuItem } from "../../index";
+import { MenuItem } from "../../index";
+import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 
 const DialogDefault = [
   { icon: Check, text: "Hey" },
@@ -13,11 +14,11 @@ const SplitButtonExampleDialog = ({ options = DialogDefault }) => {
       {!options ? (
         <>I would be anything you want to be</>
       ) : (
-        <Menu>
+        <SplitButtonMenu>
           {options.map(option => (
             <MenuItem key={option.text} icon={option.icon} title={option.text} />
           ))}
-        </Menu>
+        </SplitButtonMenu>
       )}
     </div>
   );

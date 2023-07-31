@@ -48,6 +48,7 @@ const publishedTSComponents = {
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",
+  SplitButtonMenu: "components/SplitButton/SplitButtonMenu/SplitButtonMenu",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
   Skeleton: "components/Skeleton/Skeleton",
