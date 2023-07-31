@@ -2,12 +2,14 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { Add, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
+import { Add, Announcement, Check, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { Tip, createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Link, UsageGuidelines, createComponentTemplate } from "vibe-storybook-components";
 import "./splitButton.stories.scss";
+import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
+import MenuItem from "../../Menu/MenuItem/MenuItem";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
@@ -52,7 +54,18 @@ export const splitButtonTemplate = createComponentTemplate(SplitButton);
 A split button is a dual-function menu button that offers a default action as well as the possibility of choosing a secondary action, by selecting from a set of alternatives.
 
 <Canvas>
-  <Story name="Overview" args={{ children: "Button", secondaryDialogContent: () => SplitButtonExampleDialog({}) }}>
+  <Story
+    name="Overview"
+    args={{
+      children: "Button",
+      secondaryDialogContent: () => (
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      )
+    }}
+  >
     {splitButtonTemplate.bind({})}
   </Story>
 </Canvas>
@@ -88,16 +101,34 @@ The split button has three variants: primary, secondary, and tertiary.
 
 <Canvas>
   <Story name="Types">
-    <SplitButton children="Primary" secondaryDialogContent={<SplitButtonExampleDialog />} />
+    <SplitButton
+      children="Primary"
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
+    />
     <SplitButton
       children="Secondary"
       kind={SplitButton.kinds.SECONDARY}
-      secondaryDialogContent={<SplitButtonExampleDialog />}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
     />
     <SplitButton
       children="Tertiary"
       kind={SplitButton.kinds.TERTIARY}
-      secondaryDialogContent={<SplitButtonExampleDialog />}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
     />
   </Story>
 </Canvas>
@@ -111,17 +142,32 @@ The split button has supports multiple sizes: small, medium and large.
     <SplitButton
       children="Small"
       size={SplitButton.sizes.SMALL}
-      secondaryDialogContent={<SplitButtonExampleDialog />}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
     />
     <SplitButton
       children="Medium"
       size={SplitButton.sizes.MEDIUM}
-      secondaryDialogContent={<SplitButtonExampleDialog />}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
     />
     <SplitButton
       children="Large"
       size={SplitButton.sizes.LARGE}
-      secondaryDialogContent={<SplitButtonExampleDialog />}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
     />
   </Story>
 </Canvas>
@@ -130,10 +176,26 @@ The split button has supports multiple sizes: small, medium and large.
 
 <Canvas>
   <Story name="Split button with icons">
-    <SplitButton leftIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>
+    <SplitButton
+      leftIcon={Add}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
+    >
       Left icon
     </SplitButton>
-    <SplitButton rightIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>
+    <SplitButton
+      rightIcon={Add}
+      secondaryDialogContent={
+        <SplitButtonMenu>
+          <MenuItem icon={Check} title="Hey" />
+          <MenuItem icon={Announcement} title="There" />
+        </SplitButtonMenu>
+      }
+    >
       Right icon
     </SplitButton>
   </Story>
@@ -190,10 +252,11 @@ The split button has supports multiple sizes: small, medium and large.
         ),
         description: (
           <>
-            Don’t use split button if there’s only one option within the menu. Use
+            Don’t use split button if there’s only one option within the menu. Use{" "}
             <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>
               Button
-            </Link> instead (see example in the secondary dialog).
+            </Link>{" "}
+            instead (see example in the secondary dialog).
           </>
         )
       }
@@ -246,13 +309,12 @@ Use template is the main action.
   <Story name="Split button as the primary action">
     {() => {
       const secondaryDialogContent = useMemo(
-        () =>
-          SplitButtonExampleDialog({
-            options: [
-              { icon: Download, text: "Import template" },
-              { icon: Upload, text: "Export template" }
-            ]
-          }),
+        () => (
+          <SplitButtonMenu>
+            <MenuItem icon={Download} title="Import template" />
+            <MenuItem icon={Upload} title="Export template" />
+          </SplitButtonMenu>
+        ),
         []
       );
       return (
@@ -274,10 +336,13 @@ When there’s already a primary button in the view, use a secondary split butto
   <Story name="Secondary split button">
     {() => {
       const secondaryDialogContent = useMemo(
-        () =>
-          SplitButtonExampleDialog({
-            options: [{ text: "Export to PDF" }, { text: "Export to DOCX" }, { text: "Export to Excel" }]
-          }),
+        () => (
+          <SplitButtonMenu>
+            <MenuItem title="Export to PDF" />
+            <MenuItem title="Export to DOCX" />
+            <MenuItem title="Export to Excel" />
+          </SplitButtonMenu>
+        ),
         []
       );
       return (
