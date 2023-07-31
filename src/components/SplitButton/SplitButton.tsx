@@ -207,7 +207,6 @@ const SplitButton: FC<SplitButtonProps> & {
     <div
       className={classNames}
       ref={ref}
-      role="button"
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
     >

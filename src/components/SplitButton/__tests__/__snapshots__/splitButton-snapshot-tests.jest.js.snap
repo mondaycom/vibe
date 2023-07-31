@@ -4,7 +4,6 @@ exports[`SplitButton renders correctly with disabled 1`] = `
 <div
   className="button kindPrimary colorPrimary disabled"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -76,7 +75,6 @@ exports[`SplitButton renders correctly with left icon 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -166,7 +164,6 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -238,7 +235,6 @@ exports[`SplitButton renders correctly with only required props 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -310,7 +306,6 @@ exports[`SplitButton renders correctly with right icon 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -400,7 +395,6 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -472,7 +466,6 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
 <div
   className="button kindTertiary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
@@ -544,7 +537,6 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
 <div
   className="button kindPrimary colorPrimary"
   data-testid="split-button"
-  role="button"
 >
   <button
     aria-busy={false}
