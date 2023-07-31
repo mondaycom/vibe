@@ -20,6 +20,7 @@ import {
   UsageGuidelines,
   withMemoryStats
 } from "vibe-storybook-components";
+import "vibe-storybook-components/index.css";
 
 addParameters({
   controls: {
