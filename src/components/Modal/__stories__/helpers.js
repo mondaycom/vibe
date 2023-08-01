@@ -1,9 +1,10 @@
 import React, { useCallback, useRef, useState } from "react";
 import Button from "../../Button/Button";
 import Modal from "../Modal";
-import { Dialog, DialogContentContainer, Heading, ModalFooter } from "../../../components";
+import { Dialog, DialogContentContainer, Heading } from "../../../components";
 import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
+import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
 import styles from "./Modal.stories.module.scss";
 import cx from "classnames";
 
@@ -42,14 +43,7 @@ export const ModalExampleWrapper = ({
     color: openModalColor
   });
   const footer = hideFooter ? null : (
-    <ModalFooter>
-      <Flex justify={Flex.justify.END} gap={12}>
-        <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-          Cancel
-        </Button>
-        <Button onClick={closeModal}>Confirm</Button>
-      </Flex>
-    </ModalFooter>
+    <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
   );
 
   return (
@@ -66,6 +60,7 @@ export const ModalExampleWrapper = ({
         closeButtonAriaLabel={"close"}
         width={Modal.width.DEFAULT}
         {...otherModalProps}
+        contentSpacing
       >
         {children}
         {footer}
@@ -95,13 +90,12 @@ export const DialogAsModalBadExample = () => {
           type={Heading.types.h2}
           value="Dialog title"
         />
-        <p>Dialog content</p>
-        <Flex justify={Flex.justify.END} style={{ width: "100%" }} gap={12}>
-          <Button onClick={closeDialog} kind={Button.kinds.SECONDARY}>
-            Cancel
-          </Button>
-          <Button onClick={closeDialog}>Confirm</Button>
-        </Flex>
+        Dialog content
+        <ModalFooterButtons
+          className={cx(styles.modalDialogBadExample, styles.footer)}
+          onPrimaryButtonClick={closeDialog}
+          onSecondaryButtonClick={closeDialog}
+        />
       </Flex>
     </DialogContentContainer>
   );
