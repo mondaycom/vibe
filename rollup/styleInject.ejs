@@ -1,4 +1,5 @@
 function styleInject(css) {
+    if(!document) return;
     const head = document.head || document.getElementsByTagName('head')[0];
     const id = "<%= hashValue %>";
     const styleExists = head.querySelector("#<%= hashValue %>");
