@@ -1,5 +1,3 @@
-import React from "react";
+import React from 'react';
 
-export const TableHeadItem = ({ item }) => {
-  return <th title={item}>{item}</th>;
-};
+export const TableHeadItem = ({ item }) => <th title={item}>{item}</th>;

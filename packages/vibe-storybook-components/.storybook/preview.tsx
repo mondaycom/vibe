@@ -1,4 +1,4 @@
-import { Preview } from "@storybook/react";
+import { Preview } from '@storybook/react';
 import {
   AnchorListItem,
   ComponentRules,
@@ -14,11 +14,11 @@ import {
   Title,
   UnstyledList,
   UnstyledListItem,
-  UsageGuidelines
-} from "../src";
-import { ComponentNameDecorator } from "../storybook/components";
-import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
-import "monday-ui-style/dist/index.min.css";
+  UsageGuidelines,
+} from '../src';
+import { ComponentNameDecorator } from '../storybook/components';
+import { DocsContainer, DocsPage, Unstyled } from '@storybook/blocks';
+import 'monday-ui-style/dist/index.min.css';
 
 const preview: Preview = {
   parameters: {
@@ -50,8 +50,8 @@ const preview: Preview = {
         RelatedComponents,
         Frame,
         UnstyledList,
-        UnstyledListItem
-      }
+        UnstyledListItem,
+      },
     },
     // TODO themes when https://storybook.js.org/addons/storybook-addon-themes version 7 will be released
     // themes: {
@@ -65,10 +65,10 @@ const preview: Preview = {
     // },
     options: {
       storySort: {
-        order: ["Welcome", "Change Log", "*"]
-      }
-    }
-  }
+        order: ['Welcome', 'Change Log', '*'],
+      },
+    },
+  },
 };
 
 export default preview;

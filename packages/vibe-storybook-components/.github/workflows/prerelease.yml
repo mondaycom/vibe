@@ -20,7 +20,7 @@ jobs:
           node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: yarn run ci
+        run: npm ci
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'

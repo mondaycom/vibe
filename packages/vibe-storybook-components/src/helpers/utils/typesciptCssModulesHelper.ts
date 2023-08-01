@@ -5,9 +5,9 @@
  */
 export function getStyle<StylesType>(
   styles: StylesType,
-  key: string | undefined | null
+  key: string | undefined | null,
 ): StylesType[keyof StylesType] | string {
-  if (!key || !styles[key as keyof typeof styles]) return "";
+  if (!key || !styles[key as keyof typeof styles]) return '';
 
   return styles[key as keyof typeof styles];
 }

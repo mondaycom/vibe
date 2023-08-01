@@ -1,34 +1,24 @@
 {
+  "include": ["src/**/*"],
   "compilerOptions": {
-    "declaration": true,
-    "noEmit": false,
-    "declarationDir": "./dist",
-    "target": "es6",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "paths": {
-      "*": ["*"]
-    },
+    "rootDir": "./src",
+    "lib": ["esnext", "dom"],
     "allowJs": true,
-    "isolatedModules": true,
-    "noImplicitAny": true,
-    "jsx": "react",
+    "target": "es6",
+    "module": "ESNext",
+    "sourceMap": false,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "downlevelIteration": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["src", "types"],
-  "exclude": ["coverage", "config", "dist", "node_modules/**"]
+    "noImplicitAny": true,
+    "strict": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "esModuleInterop": true
+  }
 }

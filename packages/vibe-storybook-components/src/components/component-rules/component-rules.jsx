@@ -1,12 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useMemo } from "react";
-import cx from "classnames";
-import { BEMClass } from "../../helpers/utils/bem-helper";
-import { ComponentRule } from "../component-rule/component-rule";
-import "./component-rules.scss";
+import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { BEMClass } from '../../helpers/utils/bem-helper';
+import { ComponentRule } from '../component-rule/component-rule';
+import './component-rules.scss';
 
-const CSS_BASE_CLASS = "vibe-sb-comps-component-rules";
+const CSS_BASE_CLASS = 'vibe-sb-comps-component-rules';
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const ComponentRules = ({ rules, className }) => {
@@ -16,7 +15,7 @@ export const ComponentRules = ({ rules, className }) => {
         const key = `rule-${index}`;
 
         return (
-          <section className={cx(bemHelper({ element: "pair" }), className)} key={key}>
+          <section className={cx(bemHelper({ element: 'pair' }), className)} key={key}>
             <ComponentRule
               component={rule.positive?.component}
               description={rule.positive?.description}
@@ -34,7 +33,7 @@ export const ComponentRules = ({ rules, className }) => {
           </section>
         );
       }),
-    [rules]
+    [className, rules],
   );
 
   return <article className={CSS_BASE_CLASS}>{componentRulesElements}</article>;
@@ -45,20 +44,20 @@ ComponentRules.propTypes = {
     PropTypes.shape({
       positive: PropTypes.shape({
         component: PropTypes.element,
-        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       }),
       negative: PropTypes.shape({
         component: PropTypes.element,
-        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       }),
       className: PropTypes.string,
-      componentContainerClassName: PropTypes.string
-    })
-  )
+      componentContainerClassName: PropTypes.string,
+    }),
+  ),
 };
 
 ComponentRules.defaultProps = {
-  rules: []
+  rules: [],
 };
 
 export default ComponentRules;

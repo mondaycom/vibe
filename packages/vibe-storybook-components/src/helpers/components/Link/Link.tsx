@@ -1,10 +1,10 @@
-import cx from "classnames";
-import React, { forwardRef, useCallback } from "react";
-import { NOOP } from "../../utils/function-utils";
-import { LinkTarget } from "./LinkConsts";
-import styles from "./Link.module.scss";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import cx from 'classnames';
+import React, { forwardRef, useCallback } from 'react';
+import { NOOP } from '../../utils/function-utils';
+import { LinkTarget } from './LinkConsts';
+import { VibeComponentProps } from '../../types/VibeComponentProps';
+import { VibeComponent } from '../../types/VibeComponent';
+import styles from './Link.module.scss';
 
 export interface LinkProps extends VibeComponentProps {
   /**
@@ -41,19 +41,19 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
     {
       className,
       textClassName,
-      href = "",
-      text = "",
-      rel = "noreferrer",
+      href = '',
+      text = '',
+      rel = 'noreferrer',
       onClick = NOOP,
       target = Link.targets?.NEW_WINDOW,
-      ariaLabelDescription = "",
-      id = "",
-      ariaLabeledBy = "",
+      ariaLabelDescription = '',
+      id = '',
+      ariaLabeledBy = '',
       disableNavigation = false,
       inheritFontSize = false,
-      inlineText = false
+      inlineText = false,
     },
-    ref: React.ForwardedRef<HTMLAnchorElement>
+    ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
     const onClickWrapper = useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
@@ -62,7 +62,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         }
         onClick && onClick(e);
       },
-      [disableNavigation, onClick]
+      [disableNavigation, onClick],
     );
 
     return (
@@ -75,7 +75,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         target={target}
         className={cx(styles.link, className, {
           [styles.inheritFontSize]: inheritFontSize,
-          [styles.inlineText]: inlineText
+          [styles.inlineText]: inlineText,
         })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
@@ -83,12 +83,12 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         <span className={cx(styles.text, textClassName)}>{text}</span>
       </a>
     );
-  }
+  },
 );
 
 Object.assign(Link, {
   target: LinkTarget,
-  targets: LinkTarget
+  targets: LinkTarget,
 });
 
 export default Link;

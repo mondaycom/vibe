@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export const ComponentDescription = ({ description, children }) => (
   <div>
@@ -10,12 +10,12 @@ export const ComponentDescription = ({ description, children }) => (
 
 ComponentDescription.propTypes = {
   description: PropTypes.string,
-  children: PropTypes.element
+  children: PropTypes.element,
 };
 
 ComponentDescription.defaultProps = {
-  description: "",
-  children: null
+  description: '',
+  children: null,
 };
 
 export default ComponentDescription;

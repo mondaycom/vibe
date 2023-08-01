@@ -1,9 +1,8 @@
-import React from "react";
-import { useMemo } from "react";
-import cx from "classnames";
-import PropTypes from "prop-types";
-import Flex from "../../helpers/components/Flex/Flex";
-import styles from "./story-description.module.scss";
+import React, { useMemo } from 'react';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import Flex from '../../helpers/components/Flex/Flex';
+import styles from './story-description.module.scss';
 
 export const StoryDescription = ({
   description,
@@ -14,7 +13,7 @@ export const StoryDescription = ({
   align,
   justify,
   headerAlign,
-  headerJustify
+  headerJustify,
 }) => {
   const direction = useMemo(() => (vertical ? Flex.directions.COLUMN : Flex.directions.ROW), [vertical]);
 
@@ -22,15 +21,15 @@ export const StoryDescription = ({
     <Flex
       direction={direction}
       gap={Flex.gaps.MEDIUM}
-      justify={justify ? justify : Flex.justify.START}
-      align={align ? align : undefined}
+      justify={justify || Flex.justify.START}
+      align={align || undefined}
       className={className}
     >
       <Flex
         className={cx(styles.description, { [styles.vertical]: vertical })}
-        style={{ width: "120px", ...headerStyle }}
-        justify={headerJustify ? headerJustify : Flex.justify.START}
-        align={headerAlign ? headerAlign : Flex.align.CENTER}
+        style={{ width: '120px', ...headerStyle }}
+        justify={headerJustify || Flex.justify.START}
+        align={headerAlign || Flex.align.CENTER}
       >
         {description}
       </Flex>
@@ -42,13 +41,13 @@ export const StoryDescription = ({
 StoryDescription.propTypes = {
   description: PropTypes.string,
   children: PropTypes.element,
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
 };
 
 StoryDescription.defaultProps = {
-  description: "",
+  description: '',
   children: null,
-  vertical: false
+  vertical: false,
 };
 
 export default StoryDescription;

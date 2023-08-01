@@ -1,4 +1,4 @@
-import MemoryStats from "./memory-stats-lib";
+import MemoryStats from './memory-stats-lib';
 
 let stats = null;
 
@@ -6,9 +6,9 @@ export function startMemoryStats() {
   if (!stats) {
     stats = new MemoryStats();
 
-    stats.domElement.style.position = "fixed";
-    stats.domElement.style.right = "0px";
-    stats.domElement.style.bottom = "0px";
+    stats.domElement.style.position = 'fixed';
+    stats.domElement.style.right = '0px';
+    stats.domElement.style.bottom = '0px';
 
     document.body.appendChild(stats.domElement);
 
