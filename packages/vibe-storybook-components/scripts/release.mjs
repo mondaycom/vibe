@@ -4,6 +4,10 @@ import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import { execaSync } from 'execa';
 import chalk from 'chalk';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const VERSION_STRATEGIES = {
   PATCH: 'patch',
