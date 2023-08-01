@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-const execa = require("execa");
+import { execaSync } from 'execa';
 
 function getVersionPreid() {
   const branchName = process.env.BRANCH_NAME;
   const commitSHA = process.env.COMMIT_SHA;
 
   // Find the last occurrence of the '/' character
-  const index = branchName.lastIndexOf("/");
-  let finalPrName = branchName.replaceAll("_", "-");
+  const index = branchName.lastIndexOf('/');
+  let finalPrName = branchName.replaceAll('_', '-');
   // If the character was found, return the substring after it
   if (index !== -1) {
     finalPrName = branchName.substring(index + 1);
@@ -19,7 +19,7 @@ function getVersionPreid() {
 
 function pushBumpedVersion() {
   const preid = getVersionPreid();
-  const { stdout } = execa.sync("npm", ["version", "prerelease", `--preid=${preid}`, "--no-git-tag-version"]);
+  const { stdout } = execaSync('npm', ['version', 'prerelease', `--preid=${preid}`, '--no-git-tag-version']);
   const versionId = stdout.toString().trim();
 
   // Notify new prerelease version was created

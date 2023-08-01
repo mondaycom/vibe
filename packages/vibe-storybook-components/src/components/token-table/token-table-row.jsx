@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export const TableRow = ({ data }) => {
-  return (
-    <tr>
-      {data.map((item, index) => {
-        return <td key={index}>{item}</td>;
-      })}
-    </tr>
-  );
-};
+export const TableRow = ({ data }) => (
+  <tr>
+    {data.map((item, index) => (
+      <td key={index}>{item}</td>
+    ))}
+  </tr>
+);

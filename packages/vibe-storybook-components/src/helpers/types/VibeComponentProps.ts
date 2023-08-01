@@ -1,5 +1,7 @@
-export default interface VibeComponentProps {
+export interface VibeComponentProps {
   className?: string;
-  "data-testid"?: string;
+  'data-testid'?: string;
   id?: string;
 }
+
+export default VibeComponentProps;

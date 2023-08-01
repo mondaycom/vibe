@@ -16,7 +16,7 @@ jobs:
   #          node-version-file: ".nvmrc"
   #      - name: Install
   #        run: |
-  #          yarn run ci
+  #          npm ci
   #        env:
   #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
   #
@@ -34,7 +34,7 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install
         run: |
-          yarn run ci
+          npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -52,7 +52,7 @@ jobs:
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          yarn run ci
+#          npm ci
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #
@@ -70,7 +70,7 @@ jobs:
 #          node-version-file: ".nvmrc"
 #      - name: Install
 #        run: |
-#          yarn run ci
+#          npm ci
 #        env:
 #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 #

@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const path = require("path");
-const execa = require("execa");
-const chalk = require("chalk");
-const boxt = require("boxt");
+import { readFileSync, writeFileSync } from 'fs';
+import path from 'path';
+import { execaSync } from 'execa';
+import chalk from 'chalk';
+import boxt from 'boxt';
 
 const VERSION_STRATEGIES = {
-  PATCH: "patch",
-  MINOR: "minor",
-  MAJOR: "major"
+  PATCH: 'patch',
+  MINOR: 'minor',
+  MAJOR: 'major',
 };
 
 const CHANGELOG_HEADERS = {
-  TITLE: "# Changelog",
-  UNRELEASED_VERSION: "## Unreleased",
-  BREAKING_CHANGES: "#### Breaking Changes",
-  BUGS: "#### Bug Fixes",
-  NEW_FEATURES: "#### New Features",
-  DEPENDENCIES: "#### Dependency Upgrades",
-  COMMITTERS: "#### Committers"
+  TITLE: '# Changelog',
+  UNRELEASED_VERSION: '## Unreleased',
+  BREAKING_CHANGES: '#### Breaking Changes',
+  BUGS: '#### Bug Fixes',
+  NEW_FEATURES: '#### New Features',
+  DEPENDENCIES: '#### Dependency Upgrades',
+  COMMITTERS: '#### Committers',
 };
 
-const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
+const CHANGELOG_PATH = path.join(__dirname, '..', 'CHANGELOG.md');
 
 const CHANGES_THAT_BUMP_MAJOR = [CHANGELOG_HEADERS.BREAKING_CHANGES];
 const CHANGES_THAT_BUMP_MINOR = [CHANGELOG_HEADERS.NEW_FEATURES];
@@ -44,14 +44,14 @@ function release() {
 }
 
 function updateChangelog(newChangelogSection) {
-  const currentChangelog = fs.readFileSync(CHANGELOG_PATH, "utf8");
+  const currentChangelog = readFileSync(CHANGELOG_PATH, 'utf8');
 
   const newChangelog = currentChangelog.replace(
     CHANGELOG_HEADERS.TITLE,
-    [CHANGELOG_HEADERS.TITLE, "", newChangelogSection].join("\n")
+    [CHANGELOG_HEADERS.TITLE, '', newChangelogSection].join('\n'),
   );
 
-  fs.writeFileSync(CHANGELOG_PATH, newChangelog, "utf8");
+  writeFileSync(CHANGELOG_PATH, newChangelog, 'utf8');
 }
 
 function formatChanges(changelogText) {
@@ -69,7 +69,7 @@ function formatChanges(changelogText) {
 }
 
 function buildChangelogSinceLastVersion() {
-  const { stdout } = execa.sync("npx", ["lerna-changelog", "--from", `v${require("../package.json").version}`]);
+  const { stdout } = execaSync('npx', ['lerna-changelog', '--from', `v${require('../package.json').version}`]);
 
   return stdout;
 }
@@ -91,13 +91,13 @@ function getNewVersionStrategy(changelogText) {
 }
 
 function getCurrentVersion() {
-  const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "package.json"), "utf8"));
+  const packageJson = JSON.parse(readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
 
   return packageJson.version;
 }
 
 function bumpVersion(strategy) {
-  execa.sync("npm", ["version", strategy]);
+  execaSync('npm', ['version', strategy]);
 }
 
 function logNothingToDo(changeLogText) {
@@ -109,16 +109,16 @@ function logNothingToDo(changeLogText) {
 function validateGithubAuthToken() {
   if (!process.env.GITHUB_AUTH) {
     console.log(
-      chalk.red("Please make sure to provide the"),
-      chalk.yellow.underline.bold("GITHUB_AUTH"),
-      chalk.red("environment variable:")
+      chalk.red('Please make sure to provide the'),
+      chalk.yellow.underline.bold('GITHUB_AUTH'),
+      chalk.red('environment variable:'),
     );
     console.log();
     console.log(
-      boxt(chalk.dim("$ GITHUB_AUTH=... npm run release"), {
-        color: "white",
-        minWidth: "full"
-      })
+      boxt(chalk.dim('$ GITHUB_AUTH=... npm run release'), {
+        color: 'white',
+        minWidth: 'full',
+      }),
     );
     process.exit(0);
   }

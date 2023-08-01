@@ -1,9 +1,9 @@
-import { useCallback, useMemo, useState } from "react";
-import { action } from "@storybook/addon-actions";
+import { useCallback, useMemo, useState } from 'react';
+import { action } from '@storybook/addon-actions';
 
 function parseStringForEnums(componentName, enumName, enumObj) {
   let returnValue;
-
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(enumObj)) {
     if (returnValue) returnValue = `${returnValue} | ${parseStringForEnum(componentName, enumName, key)}`;
     else returnValue = parseStringForEnum(componentName, enumName, key);
@@ -35,7 +35,7 @@ function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
         setPropValue(newPropValue);
         createAction(newPropValue);
       },
-      [setPropValue, createAction]
+      [setPropValue, createAction],
     );
 
     context.args[actionName] = injectedCallback;
@@ -51,19 +51,19 @@ export function createStoryMetaSettings({
   iconPropNamesArray,
   actionPropsArray,
   iconsMetaData,
-  allIconsComponents
+  allIconsComponents,
 }) {
   const argTypes = {};
   const decorators = [];
   const allowedIcons = iconsMetaData.reduce(
     (acc, icon) => {
-      const Component = allIconsComponents[icon.file.split(".")[0]];
+      const Component = allIconsComponents[icon.file.split('.')[0]];
       acc.options.push(icon.name);
       acc.mapping[icon.name] = Component;
 
       return acc;
     },
-    { options: [], mapping: {} }
+    { options: [], mapping: {} },
   );
 
   // set enum allowed values inside argsTypes object
@@ -79,6 +79,7 @@ export function createStoryMetaSettings({
     if (enums && enums instanceof Object) {
       // docgen is the parser we using for parsing all our component prop types, default props and
       // other component data (it's configure under storybook main.js file)
+      // eslint-disable-next-line no-underscore-dangle
       const componentName = component.__docgenInfo.displayName;
       argTypes[prop] = {
         options: enums,
@@ -87,9 +88,9 @@ export function createStoryMetaSettings({
           type: {
             summary: parseStringForEnums(componentName, enumName, enums),
             // For not displaying box for enumns in controls of js not converted components
-            detail: null
-          }
-        }
+            detail: null,
+          },
+        },
       };
     }
   });
@@ -100,13 +101,13 @@ export function createStoryMetaSettings({
       options: allowedIcons.options,
       mapping: allowedIcons.mapping,
       control: {
-        type: "select"
-      }
+        type: 'select',
+      },
     };
   });
 
   actionPropsArray?.forEach(actionProp => {
-    if (typeof actionProp === "string") {
+    if (typeof actionProp === 'string') {
       argTypes[actionProp] = { action: actionProp };
     } else if (actionProp?.name && actionProp.linkedToPropValue) {
       // we assume that actionPropsArray is static. If it changes, things may break, since internally we call React.useState for the story decorator.

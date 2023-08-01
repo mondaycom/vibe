@@ -1,13 +1,13 @@
-import React from "react";
-import cx from "classnames";
-import { ComponentName } from "../../../src";
-import "./component-name-decorator.scss";
+import React from 'react';
+import cx from 'classnames';
+import { ComponentName } from '../../../src';
+import './component-name-decorator.scss';
 
 export const ComponentNameDecorator = ({ children, className, withFoundationBackground = false }) => {
   return (
     <ComponentName
-      className={cx("vibe-storybook-component-name", className, {
-        "vibe-storybook-component-name--foundation": withFoundationBackground
+      className={cx('vibe-storybook-component-name', className, {
+        'vibe-storybook-component-name--foundation': withFoundationBackground,
       })}
     >
       {children}

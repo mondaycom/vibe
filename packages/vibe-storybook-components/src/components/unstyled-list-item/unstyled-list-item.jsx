@@ -1,16 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./unstyled-list-item.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './unstyled-list-item.scss';
 
-export const UnstyledListItem = ({ children }) => {
-  return <li className="vibe-sb-comps-unstyled-list-item">{children}</li>;
-};
+export const UnstyledListItem = ({ children }) => <li className="vibe-sb-comps-unstyled-list-item">{children}</li>;
 UnstyledListItem.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.element,
 };
 
 UnstyledListItem.defaultProps = {
-  children: null
+  children: null,
 };
 
 export default UnstyledListItem;
