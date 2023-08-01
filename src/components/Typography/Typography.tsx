@@ -59,7 +59,6 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
     },
     ref
   ) => {
-    console.log("!", htmlAttributes);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
