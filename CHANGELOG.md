@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.3 (2023-08-01)
+
+#### Bug Fixes
+* [#1447](https://github.com/mondaycom/monday-ui-react-core/pull/1447) Fix modal content bug: display ellipsis on modal content ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.17.2 (2023-08-01)
 
 #### Documentation
