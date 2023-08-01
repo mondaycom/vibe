@@ -5,6 +5,7 @@ import path from 'path';
 import { execaSync } from 'execa';
 import chalk from 'chalk';
 import { fileURLToPath } from 'url';
+import packageJson from '../package.json' assert { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,7 +73,7 @@ function formatChanges(changelogText) {
 }
 
 function buildChangelogSinceLastVersion() {
-  const { stdout } = execaSync('npx', ['lerna-changelog', '--from', `v${require('../package.json').version}`]);
+  const { stdout } = execaSync('npx', ['lerna-changelog', '--from', `v${packageJson.version}`]);
 
   return stdout;
 }
