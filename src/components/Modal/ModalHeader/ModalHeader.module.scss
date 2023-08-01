@@ -1,16 +1,7 @@
 @import "../../../styles/typography";
 
 .container {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-block-end: var(--spacing-large);
-
-  .title {
-    margin-block-start: var(--spacing-large);
-    margin-block-end: 0;
-    width: calc(100% - 32px);
-  }
+  margin-block-start: var(--spacing-medium);
 
   .icon {
     vertical-align: middle;
