@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0 (2023-08-01)
+
+#### Internal Changes
+* [#14](https://github.com/mondaycom/vibe-storybook-components/pull/14) fix: release process - remove require statement from release.mjs script ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#13](https://github.com/mondaycom/vibe-storybook-components/pull/13) fix: release process - __dirname ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#12](https://github.com/mondaycom/vibe-storybook-components/pull/12) fix: Remove boxt from release.mjs ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.0.2 (2023-07-23)
 
 #### Documentation
