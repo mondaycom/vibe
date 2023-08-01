@@ -17,7 +17,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
+          node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: npm ci
@@ -25,22 +25,21 @@ jobs:
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
-      #          TODO tests are disabled for now
-      #      - name: "Wait for tests to succeed"
-      #        uses: fountainhead/action-wait-for-check@v1.1.0
-      #        if: success()
-      #        id: wait-for-tests
-      #        with:
-      #          token: ${{ secrets.GITHUB_TOKEN }}
-      #          checkName: "test"
-      #          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      #          timeoutSeconds: 1200
-      #          intervalSeconds: 20
-      #      - name: "Tests failed - exit"
-      #        if: steps.wait-for-tests.outputs.conclusion != 'success'
-      #        run: |
-      #          echo "::error::test check failed - prerelease cancelled"
-      #          exit 1
+      - name: 'Wait for tests to succeed'
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        if: success()
+        id: wait-for-tests
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: 'test'
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          timeoutSeconds: 1200
+          intervalSeconds: 20
+      - name: 'Tests failed - exit'
+        if: steps.wait-for-tests.outputs.conclusion != 'success'
+        run: |
+          echo "::error::test check failed - prerelease cancelled"
+          exit 1
       - name: Create Updated version
         id: create-update-version
         if: success()
@@ -55,10 +54,10 @@ jobs:
         run: npm run build && npm publish --tag prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: 'marvinpinto/action-automatic-releases@latest'
         if: success()
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
           prerelease: true
           automatic_release_tag: prerelease
       - name: Get current PR id

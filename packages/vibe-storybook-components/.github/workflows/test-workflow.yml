@@ -6,24 +6,23 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  # TODO add test workflow
-  #  test:
-  #    runs-on: ubuntu-latest
-  #    steps:
-  #      - uses: actions/checkout@v2
-  #      - uses: actions/setup-node@v3
-  #        with:
-  #          node-version-file: ".nvmrc"
-  #      - name: Install
-  #        run: |
-  #          npm ci
-  #        env:
-  #          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-  #
-  #      - name: Test
-  #        if: success()
-  #        run: |
-  #          npm run test
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install
+        run: |
+          npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run test
 
   lint:
     runs-on: ubuntu-latest
@@ -31,7 +30,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
+          node-version-file: '.nvmrc'
       - name: Install
         run: |
           npm ci
@@ -43,38 +42,38 @@ jobs:
         run: |
           npm run lint
 
-#  build-storybook-test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: ".nvmrc"
-#      - name: Install
-#        run: |
-#          npm ci
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-#
-#      - name: Test
-#        if: success()
-#        run: |
-#          npm run build-storybook
-#
-#  storybook-jest:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: ".nvmrc"
-#      - name: Install
-#        run: |
-#          npm ci
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-#
-#      - name: Test
-#        if: success()
-#        run: |
-#          npm run test:stories
+  build-storybook-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install
+        run: |
+          npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run build-storybook
+
+  storybook-jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install
+        run: |
+          npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run test:stories
