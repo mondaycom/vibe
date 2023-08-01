@@ -4,7 +4,6 @@ import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import { execaSync } from 'execa';
 import chalk from 'chalk';
-import boxt from 'boxt';
 
 const VERSION_STRATEGIES = {
   PATCH: 'patch',
@@ -114,12 +113,10 @@ function validateGithubAuthToken() {
       chalk.red('environment variable:'),
     );
     console.log();
-    console.log(
-      boxt(chalk.dim('$ GITHUB_AUTH=... npm run release'), {
-        color: 'white',
-        minWidth: 'full',
-      }),
-    );
+    console.log(chalk.dim('$ GITHUB_AUTH=... npm run release'), {
+      color: 'white',
+      minWidth: 'full',
+    });
     process.exit(0);
   }
 }
