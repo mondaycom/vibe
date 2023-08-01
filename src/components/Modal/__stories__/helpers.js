@@ -4,6 +4,8 @@ import Modal from "../Modal";
 import { Dialog, DialogContentContainer, Heading, ModalFooter } from "../../../components";
 import Flex from "../../Flex/Flex";
 import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConstants";
+import styles from "./Modal.stories.module.scss";
+import cx from "classnames";
 
 // internal custom hook to help with writing tests and stories.
 export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openModalButtonRef, color, testId }) => {
@@ -83,13 +85,13 @@ export const DialogAsModalBadExample = () => {
   const dialogContent = (
     <DialogContentContainer style={{ width: "500px", margin: "auto" }}>
       <Flex
-        className="monday-storybook-modal-dialog-bad-example-content"
+        className={cx(styles.modalDialogBadExample, styles.content)}
         direction={Flex.directions.COLUMN}
         justify={Flex.justify.START}
         align={Flex.align.START}
       >
         <Heading
-          className="monday-storybook-modal-dialog-bad-example-heading"
+          className={cx(styles.modalDialogBadExample, styles.heading)}
           type={Heading.types.h2}
           value="Dialog title"
         />
@@ -107,7 +109,7 @@ export const DialogAsModalBadExample = () => {
     <Dialog
       open={show}
       onClickOutside={closeDialog}
-      wrapperClassName="monday-storybook-modal-dialog-bad-example-wrapper"
+      wrapperClassName={cx(styles.modalDialogBadExample, styles.wrapper)}
       content={dialogContent}
       showTrigger={DEFAULT_DIALOG_SHOW_TRIGGER}
     >
