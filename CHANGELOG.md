@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.17.5 (2023-08-01)
+
+#### Documentation
+* [#1451](https://github.com/mondaycom/monday-ui-react-core/pull/1451) Sergeyro/fix/update vibe storybook components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1450](https://github.com/mondaycom/monday-ui-react-core/pull/1450) chore: prevent from style injection to explode in server side rendering ([@shlomitc](https://github.com/shlomitc))
+
 ## 2.17.4 (2023-08-01)
 
 #### Bug Fixes
