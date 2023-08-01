@@ -1,4 +1,3 @@
-import React from "React";
 import { FC } from "preact/compat";
 import Button from "../../../components/Button/Button";
 
