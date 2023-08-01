@@ -15,6 +15,7 @@ import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
 import { Button, Flex, EditableHeading } from "../../../components";
+import { Link } from "vibe-storybook-components";
 import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -111,8 +112,7 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
   not by ESC or by clicking outside.
 </Tip>
 <Tip>
-  If you wish to create a popover positioned next to other components, like customized menus, check out our Dialog
-  component.
+  For creating e a popover positioned next to other components, like customized menus, check out our Dialog component.
 </Tip>
 
 ## Variants
@@ -399,6 +399,17 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     }
   ]}
 />
+
+<Tip title="Devs tip">
+  If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
+  correctly, read more about our dropdown in popovers technical pattern
+  <Link
+    href="?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
+    size={Link.sizes.SMALL}
+  >
+    here
+  </Link>.
+</Tip>
 
 ## Use cases and examples
 
