@@ -57,6 +57,10 @@ interface ModalProps {
    */
   closeButtonAriaLabel?: string;
   /**
+   *  Add gaps between parts of the modal
+   */
+  contentSpacing?: boolean;
+  /**
    *  classNames for specific parts of the dialog
    */
   classNames?: {
@@ -87,6 +91,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   width = ModalWidth.DEFAULT,
   hideCloseButton = false,
   closeButtonAriaLabel = "Close",
+  contentSpacing = false,
   zIndex = 10000,
   "data-testid": dataTestId
 }) => {
@@ -169,7 +174,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
           [styles.default]: width === ModalWidth.DEFAULT,
-          [styles.full]: width === ModalWidth.FULL_WIDTH
+          [styles.full]: width === ModalWidth.FULL_WIDTH,
+          [styles.spacing]: contentSpacing
         })}
         style={{ width: customWidth ? width : null }}
       >

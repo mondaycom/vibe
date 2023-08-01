@@ -46,6 +46,10 @@
   &.full {
     width: 100vw;
   }
+
+  &.spacing {
+    gap: var(--spacing-medium);
+  }
 }
 
 @keyframes overlay-fade-in {
