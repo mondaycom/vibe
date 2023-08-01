@@ -8,10 +8,15 @@
     "./package.json": "./package.json",
     ".": {
       "import": "./dist/esm/src/index.js",
-      "default": "./dist/main.js"
+      "default": "./dist/main.js",
+      "types": "./dist/types.d.ts"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
+    "./icons": {
+      "import": "./dist/esm/src/components/Icon/Icons/icons.js",
+      "default": "./dist/esm/src/components/Icon/Icons/icons.js",
+      "types": "./dist/esm/components/Icon/Icons/index.d.ts"
+    },
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
     "./storybookComponents": "./dist/storybook/index.js",
