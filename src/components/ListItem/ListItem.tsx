@@ -108,7 +108,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     return (
       <Text
-        element="div"
+        element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
         className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
@@ -122,7 +122,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         onKeyDown={onKeyDown}
         onMouseEnter={componentOnHover}
         onFocus={componentOnHover}
-        role="listitem"
+        role="option"
         tabIndex={tabIndex}
       >
         {children}
