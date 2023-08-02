@@ -2,7 +2,7 @@
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { FC, forwardRef, ReactElement, useCallback, useRef } from "react";
+import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
 import Text from "../Text/Text";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES } from "../../constants/sizes";
@@ -58,6 +58,7 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "data-testid"?: string;
+  listItemSelectedCallback: (id: string) => void;
 }
 
 const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
@@ -72,12 +73,19 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       size = SIZES.SMALL,
       tabIndex = 0,
       children,
+      listItemSelectedCallback,
       "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    useEffect(() => {
+      if (selected) {
+        listItemSelectedCallback?.(id);
+      }
+    }, [id, listItemSelectedCallback, selected]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent) => {

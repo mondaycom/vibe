@@ -71,6 +71,11 @@ const List: FC<ListProps> = forwardRef(
       },
       [focusIndex]
     );
+
+    const listItemSelected = useCallback((id: string) => {
+      setFocusIndex(childrenRefs.current.findIndex(ref => ref.id === id));
+    }, []);
+
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
@@ -86,13 +91,14 @@ const List: FC<ListProps> = forwardRef(
             : React.cloneElement(child, {
                 // @ts-ignore not sure how to deal with ref here
                 ref: ref => (childrenRefs.current[index] = ref),
-                tabIndex: focusIndex === index ? 0 : -1
+                tabIndex: focusIndex === index ? 0 : -1,
+                listItemSelectedCallback: listItemSelected
               });
         });
       }
 
       return override;
-    }, [children, focusIndex, renderOnlyVisibleItems]);
+    }, [children, focusIndex, listItemSelected, renderOnlyVisibleItems]);
 
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
