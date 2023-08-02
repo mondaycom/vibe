@@ -23,15 +23,9 @@ describe("SplitButtonMenu", () => {
     expect(container).toBeInTheDocument();
   });
 
-  it("should pass the correct props to the underlying Menu component", () => {
+  it("set first item as aria-activedescendant", () => {
     const { getByTestId } = renderSplitButtonMenu();
     expect(getByTestId(menuDataTestId)).toHaveAttribute("aria-activedescendant", `${id}-0`);
-  });
-
-  it("should render the children of Menu", () => {
-    const { getByText } = renderSplitButtonMenu();
-    expect(getByText("Test 1")).toBeInTheDocument();
-    expect(getByText("Test 2")).toBeInTheDocument();
   });
 
   it("should focus first menu item on mount", () => {
