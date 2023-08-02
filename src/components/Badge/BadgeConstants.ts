@@ -5,11 +5,6 @@ export enum BadgeType {
   COUNTER = "counter"
 }
 
-export enum BadgeColor {
-  PRIMARY = "primary",
-  NOTIFICATION = "notification"
-}
-
 export enum BadgePosition {
   TOP_START = DialogPosition.TOP_START,
   TOP_END = DialogPosition.TOP_END,

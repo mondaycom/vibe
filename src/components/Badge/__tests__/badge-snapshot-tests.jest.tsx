@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Badge from "../Badge";
+import Indicator from "../Indicator/Indicator";
 
 describe("Badge", () => {
   it("renders with no props with default badge Indicator", () => {
@@ -11,7 +12,7 @@ describe("Badge", () => {
   it("renders with Counter and counter props", () => {
     const tree = renderer
       .create(
-        <Badge type={Badge.types.COUNTER} badgeProps={{ count: 5 }}>
+        <Badge type={Badge.types.COUNTER} count={5}>
           Child
         </Badge>
       )
@@ -25,7 +26,7 @@ describe("Badge", () => {
   });
 
   it("renders with different color", () => {
-    const tree = renderer.create(<Badge color={Badge.colors.PRIMARY}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge color={Indicator.colors.PRIMARY}>Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

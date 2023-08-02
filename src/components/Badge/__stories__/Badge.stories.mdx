@@ -9,10 +9,11 @@ import Avatar from "../../Avatar/Avatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
+import Indicator from "../Indicator/Indicator";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
-  enumPropNamesArray: ["color", "position", "type"],
+  enumPropNamesArray: ["position", "type"],
   iconPropNamesArray: [],
   actionPropsArray: []
 });
@@ -64,7 +65,7 @@ Badge can be of type Indicator or type Counter
         </Badge>
       </StoryDescription>
       <StoryDescription description="Counter" vertical align={Flex.align.START}>
-        <Badge type={Badge.types.COUNTER} badgeProps={{ count: 100, maxDigits: 2 }}>
+        <Badge type={Badge.types.COUNTER} count={100} maxDigits={2}>
           <Button leftIcon={WhatsNew}>What's new</Button>
         </Badge>
       </StoryDescription>
@@ -156,7 +157,7 @@ We can set the position of the badge in any of the edges of its child component
     {
       positive: {
         component: (
-          <Badge color={Badge.colors.PRIMARY} border>
+          <Badge color={Indicator.colors.PRIMARY} border>
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
@@ -164,7 +165,7 @@ We can set the position of the badge in any of the edges of its child component
       },
       negative: {
         component: (
-          <Badge color={Badge.colors.PRIMARY}>
+          <Badge color={Indicator.colors.PRIMARY}>
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
