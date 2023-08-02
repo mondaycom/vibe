@@ -10,11 +10,11 @@ import {
   TOAST,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
-import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
 import { EditableHeading } from "../../../components";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
+import { Upgrade } from "../../Icon/Icons";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
@@ -241,7 +241,7 @@ Use the ModalHeader component to display a Header with an icon
             contentSpacing
           >
             {/** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/}
-            <ModalHeader title={"Modal Title"} icon={Settings} />
+            <ModalHeader title={"Modal Title"} icon={Upgrade} iconSize={32} />
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
           </Modal>
@@ -347,7 +347,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
       }, []);
       const openModalButton = // Internal helper, not part of the API
         useHelperOpenModalButton({
-          title: "Modal with editable title",
+          title: "Open modal",
           setShow,
           openModalButtonRef
         });
