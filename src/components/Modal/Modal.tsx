@@ -89,6 +89,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   children,
   triggerElement,
   width = ModalWidth.DEFAULT,
+  // TODO remove hideCloseButton on the next breaking changes
+  // eslint-disable-next-line
   hideCloseButton = false,
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
@@ -137,11 +139,10 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         description={description}
         closeModal={onClose}
         id={id}
-        hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  }, [attr.title, childrenArray, title, description, onClose, hideCloseButton, closeButtonAriaLabel]);
+  }, [attr.title, childrenArray, title, description, onClose, closeButtonAriaLabel]);
 
   const content = useMemo(() => {
     return (

@@ -73,6 +73,8 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   closeModal = NOOP,
   iconSize = 24,
   iconClassName,
+  // TODO remove hideCloseButton on the next breaking changes
+  // eslint-disable-next-line
   hideCloseButton,
   closeButtonAriaLabel = "close",
   id,
@@ -100,18 +102,16 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         </Text>
       )}
 
-      {!hideCloseButton && (
-        <div className={cx(styles.closeButton)}>
-          <IconButton
-            key="xxs"
-            onClick={closeModal}
-            ariaLabel={closeButtonAriaLabel}
-            icon={CloseSmall}
-            kind={IconButton.kinds.TERTIARY}
-            size={IconButton.sizes.SMALL}
-          />
-        </div>
-      )}
+      <div className={cx(styles.closeButton)}>
+        <IconButton
+          key="xxs"
+          onClick={closeModal}
+          ariaLabel={closeButtonAriaLabel}
+          icon={CloseSmall}
+          kind={IconButton.kinds.TERTIARY}
+          size={IconButton.sizes.SMALL}
+        />
+      </div>
     </div>
   );
 };
