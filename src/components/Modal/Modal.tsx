@@ -132,7 +132,6 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     if (header) {
       return cloneElement(header, { id, closeModal: onClose });
     }
-
     return (
       <ModalHeader
         title={title}

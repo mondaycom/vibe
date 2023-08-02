@@ -142,7 +142,7 @@ Snapshot Diff:
 +         </div>
 +       </div>
 +       <div
-+         class="typography primary start singleLineEllipsis medium normal container"
++         class="typography primary start medium normal container"
 +         data-testid="modal-content"
 +         style="--text-clamp-lines: 1;"
 +       >
@@ -229,7 +229,7 @@ exports[`Modal with base props 1`] = `
       </div>
     </div>
     <div
-      class="typography primary start singleLineEllipsis medium normal container"
+      class="typography primary start medium normal container"
       data-testid="modal-content"
       style="--text-clamp-lines: 1;"
     >
