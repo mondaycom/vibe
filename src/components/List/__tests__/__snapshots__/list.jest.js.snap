@@ -1,21 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with empty props 1`] = `
+exports[`List renders correctly with empty props 1`] = `
 <ul
   className="list"
-  data-testid="list"
+  data-testid="list_list"
+  id="list"
   onKeyDown={[Function]}
+  role="listbox"
   tabIndex={-1}
 >
   Something
 </ul>
 `;
 
-exports[`renders correctly without props 1`] = `
+exports[`List renders correctly with list items 1`] = `
 <ul
   className="list"
-  data-testid="list"
+  data-testid="list_list"
+  id="list"
   onKeyDown={[Function]}
+  role="listbox"
+  tabIndex={-1}
+>
+  <li
+    aria-disabled={false}
+    className="typography primary start singleLineEllipsis small normal listItem small"
+    data-testid="list-item"
+    id="list-item-0"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseEnter={[Function]}
+    role="option"
+    tabIndex={0}
+  >
+    1
+  </li>
+  <li
+    aria-disabled={false}
+    className="typography primary start singleLineEllipsis small normal listItem small"
+    data-testid="list-item"
+    id="list-item-1"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseEnter={[Function]}
+    role="option"
+    tabIndex={-1}
+  >
+    2
+  </li>
+</ul>
+`;
+
+exports[`List renders correctly without props 1`] = `
+<ul
+  className="list"
+  data-testid="list_list"
+  id="list"
+  onKeyDown={[Function]}
+  role="listbox"
   tabIndex={-1}
 />
 `;

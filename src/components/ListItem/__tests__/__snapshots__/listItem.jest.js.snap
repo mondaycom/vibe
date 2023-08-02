@@ -1,71 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with disabled 1`] = `
-<div
+<li
   aria-disabled={true}
   className="typography primary start singleLineEllipsis small normal listItem small disabled"
   data-testid="list-item"
+  id="undefined-item-undefined"
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseEnter={[Function]}
-  role="listitem"
+  role="option"
   tabIndex={0}
 />
 `;
 
 exports[`renders correctly with empty props 1`] = `
-<div
+<li
   aria-disabled={false}
   className="typography primary start singleLineEllipsis small normal listItem small"
   data-testid="list-item"
+  id="undefined-item-undefined"
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseEnter={[Function]}
-  role="listitem"
+  role="option"
   tabIndex={0}
 />
 `;
 
 exports[`renders correctly with selected 1`] = `
-<div
+<li
   aria-disabled={false}
   className="typography primary start singleLineEllipsis small normal listItem small selected"
   data-testid="list-item"
+  id="undefined-item-undefined"
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseEnter={[Function]}
-  role="listitem"
+  role="option"
   tabIndex={0}
 />
 `;
 
 exports[`renders correctly with selected and disabled 1`] = `
-<div
+<li
   aria-disabled={true}
   className="typography primary start singleLineEllipsis small normal listItem small disabled"
   data-testid="list-item"
+  id="undefined-item-undefined"
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseEnter={[Function]}
-  role="listitem"
+  role="option"
   tabIndex={0}
 />
 `;
 
 exports[`renders correctly with size 1`] = `
-<div
+<li
   aria-disabled={false}
   className="typography primary start singleLineEllipsis small normal listItem large"
   data-testid="list-item"
+  id="undefined-item-undefined"
   onClick={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseEnter={[Function]}
-  role="listitem"
+  role="option"
   tabIndex={0}
 />
 `;

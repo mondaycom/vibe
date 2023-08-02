@@ -59,7 +59,7 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "data-testid"?: string;
-  updateSelectedItemIndex?: (id: string) => void;
+  updateSelectedItem?: (id: string) => void;
   listId?: string;
   index?: number;
 }
@@ -78,7 +78,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       children,
       listId,
       index,
-      updateSelectedItemIndex,
+      updateSelectedItem,
       "data-testid": dataTestId
     },
     ref
@@ -90,12 +90,12 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     useEffect(() => {
       if (selected) {
-        updateSelectedItemIndex?.(overrideId);
+        updateSelectedItem?.(overrideId);
       }
       if (prevSelected && !selected) {
-        updateSelectedItemIndex?.(null);
+        updateSelectedItem?.(null);
       }
-    }, [overrideId, updateSelectedItemIndex, selected, prevSelected]);
+    }, [overrideId, updateSelectedItem, selected, prevSelected]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent) => {
@@ -127,7 +127,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     return (
       <Text
         element="li"
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, overrideId)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
         ref={mergedRef}
         className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
           [styles.selected]: selected && !disabled,

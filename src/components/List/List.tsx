@@ -88,7 +88,7 @@ const List: FC<ListProps> = forwardRef(
       }
     }, [id]);
 
-    const updateSelectedItemIndex = useCallback((id: string) => {
+    const updateSelectedItem = useCallback((id: string) => {
       setFocusIndex(id ? childrenRefs.current.findIndex(ref => ref.id === id) : 0);
 
       if (id) {
@@ -108,21 +108,20 @@ const List: FC<ListProps> = forwardRef(
           if (!React.isValidElement(child)) {
             return child;
           }
-          return typeof child === "string"
-            ? child
-            : React.cloneElement(child, {
-                // @ts-ignore not sure how to deal with ref here
-                ref: ref => (childrenRefs.current[index] = ref),
-                tabIndex: focusIndex === index ? 0 : -1,
-                updateSelectedItemIndex: updateSelectedItemIndex,
-                index: index,
-                listId: id
-              });
+
+          return React.cloneElement(child, {
+            // @ts-ignore not sure how to deal with ref here
+            ref: ref => (childrenRefs.current[index] = ref),
+            tabIndex: focusIndex === index ? 0 : -1,
+            updateSelectedItem: updateSelectedItem,
+            index: index,
+            listId: id
+          });
         });
       }
 
       return override;
-    }, [children, focusIndex, id, updateSelectedItemIndex, renderOnlyVisibleItems]);
+    }, [children, focusIndex, id, updateSelectedItem, renderOnlyVisibleItems]);
 
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
