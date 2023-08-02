@@ -89,7 +89,7 @@ const List: FC<ListProps> = forwardRef(
     }, [id]);
 
     const updateSelectedItem = useCallback((id: string) => {
-      setFocusIndex(id ? childrenRefs.current.findIndex(ref => ref.id === id) : 0);
+      setFocusIndex(id ? childrenRefs.current.findIndex(ref => ref?.id === id) : 0);
 
       if (id) {
         componentRef?.current?.setAttribute("aria-activedescendant", id);
