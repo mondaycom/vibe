@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.17.5 (2023-08-01)
+
+#### Documentation
+* [#1451](https://github.com/mondaycom/monday-ui-react-core/pull/1451) Sergeyro/fix/update vibe storybook components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1450](https://github.com/mondaycom/monday-ui-react-core/pull/1450) chore: prevent from style injection to explode in server side rendering ([@shlomitc](https://github.com/shlomitc))
+
+## 2.17.4 (2023-08-01)
+
+#### Bug Fixes
+* [#1449](https://github.com/mondaycom/monday-ui-react-core/pull/1449) Fix/hadas/log fix ([@hadasfa](https://github.com/hadasfa))
+
+## 2.17.3 (2023-08-01)
+
+#### Bug Fixes
+* [#1447](https://github.com/mondaycom/monday-ui-react-core/pull/1447) Fix modal content bug: display ellipsis on modal content ([@hadasfa](https://github.com/hadasfa))
+
+## 2.17.2 (2023-08-01)
+
+#### Documentation
+* [#1445](https://github.com/mondaycom/monday-ui-react-core/pull/1445) docs: welcome page small fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1446](https://github.com/mondaycom/monday-ui-react-core/pull/1446) chore: fix internal triggers for deployment ([@shlomitc](https://github.com/shlomitc))
+* [#1441](https://github.com/mondaycom/monday-ui-react-core/pull/1441) chore: expose types for vite and next-based projects ([@shlomitc](https://github.com/shlomitc))
+* [#1443](https://github.com/mondaycom/monday-ui-react-core/pull/1443) chore(data-testid): util function does not chain id if it is falsy ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.17.1 (2023-07-26)
 
 #### Bug Fixes
