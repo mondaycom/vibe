@@ -71,7 +71,7 @@ $circularPosition: 15%;
 
     &.border {
       border: 1px solid transparent;
-      border-radius: 50%;
+      border-radius: 16px;
       @include theme-prop(border-color, primary-background-color);
     }
   }
