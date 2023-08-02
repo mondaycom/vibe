@@ -1,5 +1,15 @@
 import cx from "classnames";
-import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/keyCodes";
@@ -72,8 +82,20 @@ const List: FC<ListProps> = forwardRef(
       [focusIndex]
     );
 
-    const listItemSelected = useCallback((id: string) => {
-      setFocusIndex(childrenRefs.current.findIndex(ref => ref.id === id));
+    useEffect(() => {
+      if (!id) {
+        console.warn("List should have a valid id prop");
+      }
+    }, [id]);
+
+    const updateSelectedItemIndex = useCallback((id: string) => {
+      setFocusIndex(id ? childrenRefs.current.findIndex(ref => ref.id === id) : 0);
+
+      if (id) {
+        componentRef?.current?.setAttribute("aria-activedescendant", id);
+      } else {
+        componentRef?.current?.removeAttribute("aria-activedescendant");
+      }
     }, []);
 
     const overrideChildren = useMemo(() => {
@@ -92,13 +114,15 @@ const List: FC<ListProps> = forwardRef(
                 // @ts-ignore not sure how to deal with ref here
                 ref: ref => (childrenRefs.current[index] = ref),
                 tabIndex: focusIndex === index ? 0 : -1,
-                listItemSelectedCallback: listItemSelected
+                updateSelectedItemIndex: updateSelectedItemIndex,
+                index: index,
+                listId: id
               });
         });
       }
 
       return override;
-    }, [children, focusIndex, listItemSelected, renderOnlyVisibleItems]);
+    }, [children, focusIndex, id, updateSelectedItemIndex, renderOnlyVisibleItems]);
 
     return (
       // @ts-ignore Component comes from string, so it couldn't have types

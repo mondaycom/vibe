@@ -10,6 +10,7 @@ import { keyCodes } from "../../constants/keyCodes";
 import { NOOP } from "../../utils/function-utils";
 import { camelCase } from "lodash-es";
 import { withStaticProps, VibeComponentProps } from "../../types";
+import { usePrevious } from "../../hooks";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
@@ -58,7 +59,9 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "data-testid"?: string;
-  listItemSelectedCallback: (id: string) => void;
+  updateSelectedItemIndex?: (id: string) => void;
+  listId?: string;
+  index?: number;
 }
 
 const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
@@ -73,26 +76,33 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       size = SIZES.SMALL,
       tabIndex = 0,
       children,
-      listItemSelectedCallback,
+      listId,
+      index,
+      updateSelectedItemIndex,
       "data-testid": dataTestId
     },
     ref
   ) => {
+    const overrideId = id || `${listId}-item-${index}`;
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const prevSelected = usePrevious(selected);
 
     useEffect(() => {
       if (selected) {
-        listItemSelectedCallback?.(id);
+        updateSelectedItemIndex?.(overrideId);
       }
-    }, [id, listItemSelectedCallback, selected]);
+      if (prevSelected && !selected) {
+        updateSelectedItemIndex?.(null);
+      }
+    }, [overrideId, updateSelectedItemIndex, selected, prevSelected]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent) => {
         if (disabled) return;
-        onClick(event, id);
+        onClick(event, overrideId);
       },
-      [disabled, onClick, id]
+      [disabled, onClick, overrideId]
     );
 
     const onKeyDown = useCallback(
@@ -100,30 +110,30 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         if (disabled) return;
         const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
         if (KEYS.includes(event.key)) {
-          onClick(event, id);
+          onClick(event, overrideId);
         }
       },
-      [disabled, onClick, id]
+      [disabled, onClick, overrideId]
     );
 
     const componentOnHover = useCallback(
       (event: React.MouseEvent | React.FocusEvent) => {
         if (disabled) return;
-        onHover(event, id);
+        onHover(event, overrideId);
       },
-      [disabled, onHover, id]
+      [disabled, onHover, overrideId]
     );
 
     return (
       <Text
         element="li"
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, overrideId)}
         ref={mergedRef}
         className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
           [styles.selected]: selected && !disabled,
           [styles.disabled]: disabled
         })}
-        id={id}
+        id={overrideId}
         size="small"
         aria-disabled={disabled}
         onClick={componentOnClick}
