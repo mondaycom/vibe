@@ -21,7 +21,7 @@ describe("Badge", () => {
   });
 
   it("renders at different position", () => {
-    const tree = renderer.create(<Badge position={Badge.positions.BOTTOM_START}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge anchor={Badge.anchors.BOTTOM_START}>Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -31,12 +31,12 @@ describe("Badge", () => {
   });
 
   it("renders out of horizontal bounds", () => {
-    const tree = renderer.create(<Badge outbound>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge alignment={Badge.alignments.OUTSIDE}>Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders with margins from component's bounds", () => {
-    const tree = renderer.create(<Badge circular>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge alignment={Badge.alignments.EMBEDDED}>Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
