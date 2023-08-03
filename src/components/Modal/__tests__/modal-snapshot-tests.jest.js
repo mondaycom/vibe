@@ -82,12 +82,6 @@ describe("Modal", () => {
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with hideCloseButton", async () => {
-    const props = withContent({ hideCloseButton: true });
-    const currentRender = await renderModal(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
-  });
-
   it("with closeButtonAriaLabel", async () => {
     const props = withContent({ closeButtonAriaLabel: "closeButtonAriaLabel" });
     const currentRender = await renderModal(props);

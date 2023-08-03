@@ -64,6 +64,7 @@ const publishedTSComponents = {
   Modal: "components/Modal/Modal",
   ModalHeader: "components/Modal/ModalHeader/ModalHeader",
   ModalFooter: "components/Modal/ModalFooter/ModalFooter",
+  ModalFooterButtons: "components/Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons",
   ModalContent: "components/Modal/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
