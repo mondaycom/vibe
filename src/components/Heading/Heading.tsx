@@ -20,7 +20,7 @@ export interface HeadingProps extends VibeComponentProps {
   ellipsis?: boolean;
   ellipsisMaxLines?: number;
   suggestEditOnHover?: boolean;
-  /** Tooltip to show when no overflow */
+  /** Show Tooltip when there is no overflow */
   nonEllipsisTooltip?: string;
   size?: Sizes;
   highlightTerm?: string;
