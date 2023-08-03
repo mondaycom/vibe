@@ -1,0 +1,22 @@
+@import "../../../styles/themes";
+
+.modalDialogBadExample {
+  &.wrapper {
+    position: sticky !important;
+    transform: none !important;
+    bottom: 50% !important;
+  }
+
+  &.content {
+    margin-bottom: var(--spacing-large);
+    margin-inline: var(--spacing-large);
+  }
+
+  &.heading {
+    padding: 0;
+  }
+
+  &.footer {
+    width: 100%;
+  }
+}

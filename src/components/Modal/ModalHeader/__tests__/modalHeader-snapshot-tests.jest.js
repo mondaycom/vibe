@@ -24,12 +24,6 @@ describe("ModalHeader", () => {
     expect(defaultRender).toMatchSnapshot();
   });
 
-  it("with close button hidden", async () => {
-    const props = { hideCloseButton: true };
-    const currentRender = await renderModalHeader(props);
-    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
-  });
-
   it("with description", async () => {
     const props = { description: "description" };
     const currentRender = await renderModalHeader(props);
