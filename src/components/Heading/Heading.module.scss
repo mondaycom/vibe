@@ -32,19 +32,19 @@
 
 .elementTypeH1 {
   @include vibe-title("h1", "normal");
-  letter-spacing: 0.5px !important;
+  letter-spacing: 0.5px;
 }
 
 .elementTypeH2.sizeLarge,
 .elementTypeH1.sizeSmall,
 .elementTypeH1.sizeMedium {
   @include vibe-title("h2", "normal");
-  letter-spacing: 0.1px !important;
+  letter-spacing: 0.1px;
 }
 
 .elementTypeH3.sizeLarge {
   @include vibe-title("h2", "light");
-  letter-spacing: 0.1px !important;
+  letter-spacing: 0.1px;
 }
 
 .elementTypeH2.sizeSmall,
@@ -53,7 +53,7 @@
 .elementTypeH3.sizeMedium,
 .elementTypeH4 {
   @include vibe-title("h3", "normal");
-  letter-spacing: 0.1px !important;
+  letter-spacing: 0.1px;
 }
 
 .elementTypeH5, .elementTypeP {
