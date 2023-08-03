@@ -8,14 +8,12 @@
     "./package.json": "./package.json",
     ".": {
       "import": "./dist/esm/src/index.js",
-      "default": "./dist/main.js",
-      "types": "./dist/types.d.ts"
+      "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
     "./icons": {
       "import": "./dist/esm/src/components/Icon/Icons/icons.js",
-      "default": "./dist/esm/src/components/Icon/Icons/icons.js",
-      "types": "./dist/esm/components/Icon/Icons/index.d.ts"
+      "default": "./dist/allIcons.js"
     },
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
@@ -45,6 +43,7 @@
     "test:coverage": "npm run test -- --coverage",
     "start": "npm run build:react-icons && npm run build:commonjs -- --watch",
     "build": "npm run build:react-icons && npm run build:storybook-exports && npm run build:commonjs && npm run build:esm && npm run build:esm:mock-classnames && npm run build:types",
+    "build:short": "npm run build:commonjs && npm run build:esm && npm run build:types",
     "build:exports": "./scripts/build-exports.js",
     "build:types": "./scripts/build-types.js",
     "build:storybook-exports": "./scripts/build-storybook-exports.js",
