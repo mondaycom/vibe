@@ -1,6 +1,6 @@
 @import "../../styles/themes";
 
-$circularPosition: 15%;
+$embeddedPosition: 15%;
 
 .badgeWrapper {
   position: relative;
@@ -8,71 +8,88 @@ $circularPosition: 15%;
   .badge {
     z-index: 1;
     position: absolute;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    @include theme-prop(border-color, primary-background-color);
 
     &.topEnd {
-      top: 0;
-      right: 0;
-      translate: 50% -50%;
-
-      &.circular {
-        top: $circularPosition;
-        right: $circularPosition;
+      &.corner {
+        top: 0;
+        right: 0;
+        translate: 50% -50%;
       }
 
-      &.outbound {
+      &.outside {
+        top: 0;
+        right: 0;
         translate: 100% -50%;
+      }
+
+      &.embedded {
+        top: $embeddedPosition;
+        right: $embeddedPosition;
+        translate: 50% -50%;
       }
     }
 
     &.topStart {
-      top: 0;
-      left: 0;
-      translate: -50% -50%;
-
-      &.circular {
-        top: $circularPosition;
-        left: $circularPosition;
+      &.corner {
+        top: 0;
+        left: 0;
+        translate: -50% -50%;
       }
 
-      &.outbound {
+      &.outside {
+        top: 0;
+        left: 0;
         translate: -100% -50%;
+      }
+
+      &.embedded {
+        top: $embeddedPosition;
+        left: $embeddedPosition;
+        translate: -50% -50%;
       }
     }
 
     &.bottomEnd {
-      bottom: 0;
-      right: 0;
-      translate: 50% 50%;
-
-      &.circular {
-        bottom: $circularPosition;
-        right: $circularPosition;
+      &.corner {
+        bottom: 0;
+        right: 0;
+        translate: 50% 50%;
       }
 
-      &.outbound {
+      &.outside {
+        bottom: 0;
+        right: 0;
         translate: 100% -50%;
+      }
+
+      &.embedded {
+        bottom: $embeddedPosition;
+        right: $embeddedPosition;
+        translate: 50% 50%;
       }
     }
 
     &.bottomStart {
-      bottom: 0;
-      left: 0;
-      translate: -50% 50%;
-
-      &.circular {
-        bottom: $circularPosition;
-        left: $circularPosition;
+      &.corner {
+        bottom: 0;
+        left: 0;
+        translate: -50% 50%;
       }
 
-      &.outbound {
+      &.outside {
+        bottom: 0;
+        left: 0;
         translate: -100% -50%;
       }
-    }
 
-    &.border {
-      border: 1px solid transparent;
-      border-radius: 16px;
-      @include theme-prop(border-color, primary-background-color);
+      &.embedded {
+        bottom: $embeddedPosition;
+        left: $embeddedPosition;
+        translate: -50% 50%;
+      }
     }
   }
 }

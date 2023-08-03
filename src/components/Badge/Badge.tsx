@@ -6,19 +6,17 @@ import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Badge.module.scss";
-import { BadgePosition, BadgeType } from "./BadgeConstants";
+import { BadgeAlignments, BadgeAnchor, BadgeType } from "./BadgeConstants";
 import Indicator, { IndicatorProps } from "./Indicator/Indicator";
 import Counter, { CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
 import { IndicatorColor } from "./Indicator/IndicatorConstants";
 import { CounterColor } from "../Counter/CounterConstants";
+import { camelCase } from "lodash-es";
 
 export interface BadgeBaseProps extends VibeComponentProps {
-  position?: BadgePosition;
-  outbound?: boolean;
-  circular?: boolean;
-  border?: boolean;
+  anchor?: BadgeAnchor;
+  alignment?: BadgeAlignments;
   children: React.ReactNode;
 }
 
@@ -34,15 +32,14 @@ type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
 
 const Badge: VibeComponent<BadgeProps> & {
   types?: typeof BadgeType;
-  positions?: typeof BadgePosition;
+  alignments?: typeof BadgeAlignments;
+  anchors?: typeof BadgeAnchor;
 } = forwardRef(
   (
     {
       type = Badge.types.INDICATOR,
-      position = Badge.positions.TOP_END,
-      outbound = false,
-      circular = false,
-      border = false,
+      anchor = Badge.anchors.TOP_END,
+      alignment = Badge.alignments.CORNER,
       className,
       id,
       "data-testid": dataTestId,
@@ -53,11 +50,11 @@ const Badge: VibeComponent<BadgeProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const badgeClassNames = cx(styles.badge, getStyle(styles, camelCase(position as unknown as string)), {
-      [styles.outbound]: outbound,
-      [styles.circular]: circular,
-      [styles.border]: border
-    });
+    const badgeClassNames = cx(
+      styles.badge,
+      getStyle(styles, camelCase(anchor as unknown as string)),
+      getStyle(styles, alignment)
+    );
 
     const color =
       badgeProps.color || type === BadgeType.INDICATOR ? Indicator.colors.NOTIFICATION : Counter.colors.NEGATIVE;
@@ -80,6 +77,7 @@ const Badge: VibeComponent<BadgeProps> & {
 );
 
 Badge.types = BadgeType;
-Badge.positions = BadgePosition;
+Badge.alignments = BadgeAlignments;
+Badge.anchors = BadgeAnchor;
 
 export default Badge;

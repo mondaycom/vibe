@@ -13,7 +13,7 @@ import Indicator from "../Indicator/Indicator";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
-  enumPropNamesArray: ["position", "type"],
+  enumPropNamesArray: ["anchor", "alignment", "type"],
   iconPropNamesArray: [],
   actionPropsArray: []
 });
@@ -38,7 +38,7 @@ export const badgeTemplate = createComponentTemplate(Badge);
 
 ## Overview
 
-Badge component is responsible for positioning an indicator/counter on a child component
+Badge component is responsible for layout an indicator/counter on a child component
 
 <Canvas>
   <Story name="Overview" args={{ children: <Button leftIcon={WhatsNew}>What's new</Button> }}>
@@ -73,61 +73,46 @@ Badge can be of type Indicator or type Counter
   </Story>
 </Canvas>
 
-### Badge on circular element
+### Button
 
-When using Badge on a circle-shaped element, use circular in order to attach it to the element
+When using Badge on a Button element, use alignment of CORNER in order to attach it to the element
 
 <Canvas>
-  <Story name="Circular">
-    <Badge circular>
+  <Story name="Button">
+    <Badge alignment={Badge.alignments.CORNER}>
+      <Button leftIcon={ExternalPage}>Button</Button>
+    </Badge>
+  </Story>
+</Canvas>
+
+### Avatar
+
+When using Badge on an Avatar element, use alignment of EMBEDDED in order to attach it to the element
+
+<Canvas>
+  <Story name="Avatar">
+    <Badge alignment={Badge.alignments.EMBEDDED}>
       <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
     </Badge>
   </Story>
 </Canvas>
 
-### Badge on inline elements
+### Inline elements
 
-When using Badge on an inline element, use outbound in order to distance it out of the element's horizontal boundaries
+When using Badge on an inline element, use alignment of OUTSIDE in order to attach it to the element
 
 <Canvas>
-  <Story name="Outbound">
+  <Story name="Inline elements">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-      <Badge outbound>
+      <Badge alignment={Badge.alignments.OUTSIDE}>
         <Link text="Read more" />
       </Badge>
-      <Badge outbound>
+      <Badge alignment={Badge.alignments.OUTSIDE}>
         <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
       </Badge>
-      <Badge outbound>
+      <Badge alignment={Badge.alignments.OUTSIDE}>
         <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
       </Badge>
-    </Flex>
-  </Story>
-</Canvas>
-
-### Positioning
-
-We can set the position of the badge in any of the edges of its child component
-
-<Canvas>
-  <Story name="Positioning">
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
-      <Flex gap={Flex.gaps.LARGE}>
-        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.TOP_START}>
-          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-        </Badge>
-        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.TOP_END}>
-          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-        </Badge>
-      </Flex>
-      <Flex gap={Flex.gaps.LARGE}>
-        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_START}>
-          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-        </Badge>
-        <Badge circular type={Badge.types.COUNTER} position={Badge.positions.BOTTOM_END}>
-          <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-        </Badge>
-      </Flex>
     </Flex>
   </Story>
 </Canvas>
@@ -139,11 +124,11 @@ We can set the position of the badge in any of the edges of its child component
     {
       positive: {
         component: (
-          <Badge outbound>
+          <Badge alignment={Badge.alignments.OUTSIDE}>
             <Link text="Read more" />
           </Badge>
         ),
-        description: "When using the badge on an inline component, apply 'outbound' to it"
+        description: "When using the badge on an inline component, apply OUTSIDE alignment to it"
       },
       negative: {
         component: (
@@ -157,11 +142,11 @@ We can set the position of the badge in any of the edges of its child component
     {
       positive: {
         component: (
-          <Badge color={Indicator.colors.PRIMARY} border>
+          <Badge>
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
-        description: "When using badge with same color as the child component, use 'border' prop"
+        description: "Choose a color that does not blend with the one of the child component"
       },
       negative: {
         component: (
@@ -169,21 +154,21 @@ We can set the position of the badge in any of the edges of its child component
             <Button leftIcon={WhatsNew}>What's new</Button>
           </Badge>
         ),
-        description: "Do not have the indicator and child component mixed together"
+        description: "Do not use a color that blends with the child component"
       }
     },
     {
       positive: {
         component: (
-          <Badge circular>
+          <Badge alignment={Badge.alignments.EMBEDDED}>
             <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
           </Badge>
         ),
-        description: "When using Indicator badge, position it at the top-right edge"
+        description: "When using Indicator badge, anchor it at the top-right edge"
       },
       negative: {
         component: (
-          <Badge circular position={Badge.positions.TOP_START}>
+          <Badge alignment={Badge.alignments.EMBEDDED} anchor={Badge.anchors.TOP_START}>
             <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
           </Badge>
         ),
