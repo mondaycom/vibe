@@ -49,7 +49,7 @@ interface ChipsProps extends VibeComponentProps {
   /** ClassName for left or right avatar */
   avatarClassName?: string;
   color?: ElementColor;
-  /** size for font icon */
+  /** Size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
   /**
