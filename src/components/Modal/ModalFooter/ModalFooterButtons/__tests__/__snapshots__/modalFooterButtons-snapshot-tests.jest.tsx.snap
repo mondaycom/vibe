@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalFooterButtons with empty props 1`] = `
+exports[`ModalFooterButtons should render correctly 1`] = `
 <div
   className="container"
 >
@@ -26,98 +26,6 @@ exports[`ModalFooterButtons with empty props 1`] = `
       type="button"
     >
       Cancel
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      aria-pressed={false}
-      className="button sizeMedium kindPrimary colorPrimary"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Confirm
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ModalFooterButtons with primary button text 1`] = `
-<div
-  className="container"
->
-  <div
-    className="container directionRow justifyEnd alignCenter"
-    style={
-      Object {
-        "gap": "8px",
-      }
-    }
-  >
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      aria-pressed={false}
-      className="button sizeMedium kindTertiary colorPrimary"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Cancel
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      aria-pressed={false}
-      className="button sizeMedium kindPrimary colorPrimary"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Primary Confirm
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ModalFooterButtons with secondary button text 1`] = `
-<div
-  className="container"
->
-  <div
-    className="container directionRow justifyEnd alignCenter"
-    style={
-      Object {
-        "gap": "8px",
-      }
-    }
-  >
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      aria-pressed={false}
-      className="button sizeMedium kindTertiary colorPrimary"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Secondary Cancel
     </button>
     <button
       aria-busy={false}

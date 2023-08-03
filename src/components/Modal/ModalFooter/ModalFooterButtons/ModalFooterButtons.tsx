@@ -9,8 +9,8 @@ import Button from "../../../Button/Button";
 import ModalFooter from "../ModalFooter";
 
 export interface ModalFooterButtonsProps extends VibeComponentProps {
-  primaryButtonText?: string;
-  secondaryButtonText?: string;
+  primaryButtonText: string;
+  secondaryButtonText: string;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick?: () => void;
 }
@@ -18,8 +18,8 @@ export interface ModalFooterButtonsProps extends VibeComponentProps {
 const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
   (
     {
-      primaryButtonText = "Confirm",
-      secondaryButtonText = "Cancel",
+      primaryButtonText,
+      secondaryButtonText,
       onPrimaryButtonClick = NOOP,
       onSecondaryButtonClick = NOOP,
       className,
