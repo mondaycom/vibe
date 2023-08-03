@@ -3,7 +3,6 @@ import VibeComponentProps from "../../../../types/VibeComponentProps";
 import VibeComponent from "../../../../types/VibeComponent";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { NOOP } from "../../../../utils/function-utils";
 import Flex from "../../../Flex/Flex";
 import Button from "../../../Button/Button";
 import ModalFooter from "../ModalFooter";
@@ -20,8 +19,8 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
     {
       primaryButtonText,
       secondaryButtonText,
-      onPrimaryButtonClick = NOOP,
-      onSecondaryButtonClick = NOOP,
+      onPrimaryButtonClick,
+      onSecondaryButtonClick,
       className,
       id,
       "data-testid": dataTestId
