@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.18.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1456](https://github.com/mondaycom/monday-ui-react-core/pull/1456) Change vibe version number manually ([@hadasfa](https://github.com/hadasfa))
+* [#1453](https://github.com/mondaycom/monday-ui-react-core/pull/1453) Fix letter spacing in legacy heading (temp until we will able to fix in monday ui style) ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1457](https://github.com/mondaycom/monday-ui-react-core/pull/1457) last manually change for update vibe version? ([@hadasfa](https://github.com/hadasfa))
+* [#1455](https://github.com/mondaycom/monday-ui-react-core/pull/1455) Update vibe version number manually  ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1454](https://github.com/mondaycom/monday-ui-react-core/pull/1454) docs: fix Shadows page usage and examples ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.17.5 (2023-08-01)
 
 #### Documentation
