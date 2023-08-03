@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.19.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1459](https://github.com/mondaycom/monday-ui-react-core/pull/1459) fix: storybookComponents export - include styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1452](https://github.com/mondaycom/monday-ui-react-core/pull/1452) feat(Modal): css changes, add new footer layout ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.18.1 (2023-08-03)
 
 #### Bug Fixes
