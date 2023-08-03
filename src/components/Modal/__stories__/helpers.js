@@ -43,7 +43,12 @@ export const ModalExampleWrapper = ({
     color: openModalColor
   });
   const footer = hideFooter ? null : (
-    <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+    <ModalFooterButtons
+      primaryButtonText="Confirm"
+      secondaryButtonText="Cancel"
+      onPrimaryButtonClick={closeModal}
+      onSecondaryButtonClick={closeModal}
+    />
   );
 
   return (
@@ -92,6 +97,8 @@ export const DialogAsModalBadExample = () => {
         />
         Dialog content
         <ModalFooterButtons
+          primaryButtonText="Confirm"
+          secondaryButtonText="Cancel"
           className={cx(styles.modalDialogBadExample, styles.footer)}
           onPrimaryButtonClick={closeDialog}
           onSecondaryButtonClick={closeDialog}

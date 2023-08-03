@@ -75,7 +75,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             {...modalProps}
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
@@ -137,7 +142,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </>
       );
@@ -168,7 +178,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </>
       );
@@ -199,7 +214,12 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </>
       );
@@ -243,7 +263,12 @@ Use the ModalHeader component to display a Header with an icon
             {/** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/}
             <ModalHeader title={"Modal Title"} icon={Upgrade} iconSize={32} />
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
@@ -285,7 +310,12 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             contentSpacing
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
@@ -352,7 +382,12 @@ clicking outside. Use this variant in case of sensitive or important messages, a
               title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />}
             />
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons onPrimaryButtonClick={closeModal} onSecondaryButtonClick={closeModal} />
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
