@@ -57,6 +57,10 @@ interface ModalProps {
    */
   closeButtonAriaLabel?: string;
   /**
+   *  Add gaps between parts of the modal
+   */
+  contentSpacing?: boolean;
+  /**
    *  classNames for specific parts of the dialog
    */
   classNames?: {
@@ -85,8 +89,11 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   children,
   triggerElement,
   width = ModalWidth.DEFAULT,
+  // TODO remove hideCloseButton on the next breaking changes
+  // eslint-disable-next-line
   hideCloseButton = false,
   closeButtonAriaLabel = "Close",
+  contentSpacing = false,
   zIndex = 10000,
   "data-testid": dataTestId
 }) => {
@@ -131,11 +138,10 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         description={description}
         closeModal={onClose}
         id={id}
-        hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  }, [attr.title, childrenArray, title, description, onClose, hideCloseButton, closeButtonAriaLabel]);
+  }, [attr.title, childrenArray, title, description, onClose, closeButtonAriaLabel]);
 
   const content = useMemo(() => {
     return (
@@ -168,7 +174,8 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
           [styles.default]: width === ModalWidth.DEFAULT,
-          [styles.full]: width === ModalWidth.FULL_WIDTH
+          [styles.full]: width === ModalWidth.FULL_WIDTH,
+          [styles.spacing]: contentSpacing
         })}
         style={{ width: customWidth ? width : null }}
       >
