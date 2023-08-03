@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.18.1 (2023-08-03)
+
+#### Bug Fixes
+* [#1458](https://github.com/mondaycom/monday-ui-react-core/pull/1458) package.json fix types exports for icons and root ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.18.0 (2023-08-03)
 
 #### Bug Fixes
