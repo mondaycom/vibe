@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "2.17.1",
+  "version": "2.19.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -11,7 +11,10 @@
       "default": "./dist/main.js"
     },
     "./dist/": "./dist/",
-    "./icons": "./dist/esm/src/components/Icon/Icons/icons.js",
+    "./icons": {
+      "import": "./dist/esm/src/components/Icon/Icons/icons.js",
+      "default": "./dist/allIcons.js"
+    },
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
     "./storybookComponents": "./dist/storybook/index.js",
@@ -95,7 +98,7 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "^0.0.2"
+    "vibe-storybook-components": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
