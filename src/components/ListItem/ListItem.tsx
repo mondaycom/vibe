@@ -59,8 +59,19 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "data-testid"?: string;
-  updateSelectedItem?: (id: string) => void;
+  /**
+   * A callback function which is being called when the item is being focused: by keyboard navigation or by mouse hover
+   * @param ListItem id
+   * @param shouldChangeFocusIndex - should change the keyboard-focus index in the list
+   */
+  updateFocusedItem?: (id: string, shouldChangeFocusIndex?: boolean) => void;
+  /**
+   * The id of the list which the item belongs to
+   */
   listId?: string;
+  /**
+   * The index of the item in the list
+   */
   index?: number;
 }
 
@@ -78,7 +89,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       children,
       listId,
       index,
-      updateSelectedItem,
+      updateFocusedItem,
       "data-testid": dataTestId
     },
     ref
@@ -90,12 +101,12 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     useEffect(() => {
       if (selected) {
-        updateSelectedItem?.(overrideId);
+        updateFocusedItem(overrideId);
       }
       if (prevSelected && !selected) {
-        updateSelectedItem?.(null);
+        updateFocusedItem(null);
       }
-    }, [overrideId, updateSelectedItem, selected, prevSelected]);
+    }, [overrideId, updateFocusedItem, selected, prevSelected]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent) => {
@@ -120,8 +131,9 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       (event: React.MouseEvent | React.FocusEvent) => {
         if (disabled) return;
         onHover(event, overrideId);
+        updateFocusedItem(overrideId, false);
       },
-      [disabled, onHover, overrideId]
+      [disabled, onHover, overrideId, updateFocusedItem]
     );
 
     return (

@@ -61,6 +61,33 @@ const List: FC<ListProps> = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
     const childrenRefs = useRef([]);
+
+    useEffect(() => {
+      if (!id) {
+        console.warn("List should have a valid id prop");
+      }
+    }, [id]);
+
+    const getListItemIndexById = (id: string) => {
+      return childrenRefs.current.findIndex(ref => ref?.id === id);
+    };
+
+    const getListItemIdByIndex = (index: number) => {
+      return childrenRefs.current[index]?.id;
+    };
+
+    const updateFocusedItem = useCallback((id: string, shouldChangeFocusIndex = true) => {
+      if (shouldChangeFocusIndex) {
+        setFocusIndex(id ? getListItemIndexById(id) : 0);
+      }
+
+      if (id) {
+        componentRef?.current?.setAttribute("aria-activedescendant", id);
+      } else {
+        componentRef?.current?.removeAttribute("aria-activedescendant");
+      }
+    }, []);
+
     const onKeyDown = useCallback(
       (event: KeyboardEvent) => {
         const isUpKey = event.keyCode === keyCodes.UP_ARROW;
@@ -74,29 +101,13 @@ const List: FC<ListProps> = forwardRef(
           }
           event.preventDefault();
           if (overrideFocusIndex !== undefined) {
-            setFocusIndex(overrideFocusIndex);
+            updateFocusedItem(getListItemIdByIndex(overrideFocusIndex));
             childrenRefs.current[overrideFocusIndex].focus();
           }
         }
       },
-      [focusIndex]
+      [focusIndex, updateFocusedItem]
     );
-
-    useEffect(() => {
-      if (!id) {
-        console.warn("List should have a valid id prop");
-      }
-    }, [id]);
-
-    const updateSelectedItem = useCallback((id: string) => {
-      setFocusIndex(id ? childrenRefs.current.findIndex(ref => ref?.id === id) : 0);
-
-      if (id) {
-        componentRef?.current?.setAttribute("aria-activedescendant", id);
-      } else {
-        componentRef?.current?.removeAttribute("aria-activedescendant");
-      }
-    }, []);
 
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
@@ -113,7 +124,7 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            updateSelectedItem,
+            updateFocusedItem,
             index,
             listId: id
           });
@@ -121,7 +132,7 @@ const List: FC<ListProps> = forwardRef(
       }
 
       return override;
-    }, [children, focusIndex, id, updateSelectedItem, renderOnlyVisibleItems]);
+    }, [children, focusIndex, id, updateFocusedItem, renderOnlyVisibleItems]);
 
     return (
       // @ts-ignore Component comes from string, so it couldn't have types
