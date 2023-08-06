@@ -101,10 +101,10 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     useEffect(() => {
       if (selected) {
-        updateFocusedItem(index);
+        updateFocusedItem?.(index);
       }
       if (prevSelected && !selected) {
-        updateFocusedItem(null);
+        updateFocusedItem?.(null);
       }
     }, [updateFocusedItem, selected, prevSelected, index]);
 
@@ -131,7 +131,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       (event: React.MouseEvent | React.FocusEvent) => {
         if (disabled) return;
         onHover(event, overrideId);
-        updateFocusedItem(index, false);
+        updateFocusedItem?.(index, false);
       },
       [disabled, index, onHover, overrideId, updateFocusedItem]
     );

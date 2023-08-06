@@ -33,6 +33,7 @@ exports[`renders correctly with empty props 1`] = `
 exports[`renders correctly with selected 1`] = `
 <li
   aria-disabled={false}
+  aria-selected={true}
   className="typography primary start singleLineEllipsis small normal listItem small selected"
   data-testid="list-item"
   id="undefined-item-undefined"
@@ -48,6 +49,7 @@ exports[`renders correctly with selected 1`] = `
 exports[`renders correctly with selected and disabled 1`] = `
 <li
   aria-disabled={true}
+  aria-selected={true}
   className="typography primary start singleLineEllipsis small normal listItem small disabled"
   data-testid="list-item"
   id="undefined-item-undefined"
