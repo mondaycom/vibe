@@ -14,7 +14,7 @@ const SplitButtonExampleDialog = ({ options = DialogDefault }) => {
       {!options ? (
         <>I would be anything you want to be</>
       ) : (
-        <SplitButtonMenu>
+        <SplitButtonMenu id="split-menu">
           {options.map(option => (
             <MenuItem key={option.text} icon={option.icon} title={option.text} />
           ))}

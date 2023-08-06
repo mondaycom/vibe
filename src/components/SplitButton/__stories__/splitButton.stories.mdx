@@ -307,24 +307,16 @@ Use template is the main action.
 
 <Canvas>
   <Story name="Split button as the primary action">
-    {() => {
-      const secondaryDialogContent = useMemo(
-        () => (
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Download} title="Import template" />
-            <MenuItem icon={Upload} title="Export template" />
-          </SplitButtonMenu>
-        ),
-        []
-      );
-      return (
-        <SplitButton
-          children="Use template"
-          secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
-          secondaryDialogContent={secondaryDialogContent}
-        />
-      );
-    }}
+    <SplitButton
+      children="Use template"
+      secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
+      secondaryDialogContent={
+        <SplitButtonMenu id="split-menu">
+          <MenuItem icon={Download} title="Import template" />
+          <MenuItem icon={Upload} title="Export template" />
+        </SplitButtonMenu>
+      }
+    />
   </Story>
 </Canvas>
 
@@ -334,29 +326,21 @@ When there’s already a primary button in the view, use a secondary split butto
 
 <Canvas>
   <Story name="Secondary split button">
-    {() => {
-      const secondaryDialogContent = useMemo(
-        () => (
+    <>
+      <SplitButton
+        children="Export to CSV"
+        kind={SplitButton.kinds.SECONDARY}
+        secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+        secondaryDialogContent={
           <SplitButtonMenu id="split-menu">
             <MenuItem title="Export to PDF" />
             <MenuItem title="Export to DOCX" />
             <MenuItem title="Export to Excel" />
           </SplitButtonMenu>
-        ),
-        []
-      );
-      return (
-        <>
-          <SplitButton
-            children="Export to CSV"
-            kind={SplitButton.kinds.SECONDARY}
-            secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
-            secondaryDialogContent={secondaryDialogContent}
-          />
-          <Button>New item</Button>
-        </>
-      );
-    }}
+        }
+      />
+      <Button>New item</Button>
+    </>
   </Story>
 </Canvas>
 
