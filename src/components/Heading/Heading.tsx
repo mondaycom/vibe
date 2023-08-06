@@ -1,8 +1,7 @@
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
-import { DialogPosition } from "../../constants/positions";
+import { DialogPosition, Sizes } from "../../constants";
 import React, { CSSProperties, useLayoutEffect } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
@@ -10,9 +9,9 @@ import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
-import { Sizes } from "../../constants";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Heading.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface HeadingProps extends VibeComponentProps {
   type?: HeadingTypes;
@@ -21,7 +20,7 @@ export interface HeadingProps extends VibeComponentProps {
   ellipsis?: boolean;
   ellipsisMaxLines?: number;
   suggestEditOnHover?: boolean;
-  /** Tooltip to show when no overflow */
+  /** Show Tooltip when there is no overflow */
   nonEllipsisTooltip?: string;
   size?: Sizes;
   highlightTerm?: string;

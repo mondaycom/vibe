@@ -3,8 +3,9 @@ import AlertBanner from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
-import { ComponentRules, Link, RelatedComponents, UsageGuidelines } from "../../../storybook/components";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
+import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import { Link } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import {
   ATTENTION_BOX,
   TOAST,
@@ -12,7 +13,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import "./alertBanner.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
   enumPropNamesArray: ["backgroundColor"]
 });

@@ -1,3 +1,3 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
-export type ElementContent = string | ReactElement | ReactElement[] | JSX.Element | JSX.Element[];
+export type ElementContent = ReactNode | ReactNode[];

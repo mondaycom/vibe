@@ -5,9 +5,5 @@
 
 .numbers {
   margin: 0 var(--spacing-small);
-  @include font-default;
-}
-
-.onPrimary {
-  @include theme-prop(color, text-color-on-primary);
+  @include smoothing-text;
 }

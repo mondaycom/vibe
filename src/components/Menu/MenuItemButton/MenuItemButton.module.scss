@@ -4,7 +4,6 @@
 
 .itemButton {
   margin: unset;
-  @include font-default;
   display: flex;
   flex-direction: row;
   padding: var(--spacing-xs) 0;

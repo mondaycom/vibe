@@ -1,0 +1,12 @@
+@import "../../../../styles/global-css-settings";
+@import "../../../../styles/typography";
+
+@include create-text-classes;
+
+@include create-title-classes;
+
+
+.visualExample {
+  margin: var(--spacing-large) var(--spacing-large) var(--spacing-large) 0;
+  text-align: center;
+}

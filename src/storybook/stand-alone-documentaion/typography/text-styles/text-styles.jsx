@@ -1,125 +1,149 @@
-import { VisualDescription, Frame } from "../../../components";
-import styles from "./text-styles.module.scss";
+import cx from "classnames";
+import { VisualDescription, Frame } from "vibe-storybook-components";
+import Heading from "../../../../components/Heading/Heading";
+import { BEMClass } from "../../../../helpers/bem-helper";
+import "./text-styles.scss";
+
+const CSS_BASE_CLASS = "monday-storybook-text-description";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const TextStyles = () => {
   return (
     <Frame>
       <VisualDescription
+        className={CSS_BASE_CLASS}
         ariaLabel="H1"
-        code="classname='vibe-h1-bold'"
-        title="H1 bold main heading"
+        title="Main heading (Poppins 30px bold)"
         description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
       >
-        <h1 className="vibe-h1-bold">{`H1`}</h1>
+        <Heading
+          type={Heading.types.h1}
+          value="H1"
+          ellipsis={false}
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
-        ariaLabel="H1"
-        code="classname='vibe-h1-normal'"
-        title="H1 normal main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
-      >
-        <h1 className="vibe-h1-normal">{`H1`}</h1>
-      </VisualDescription>
-      <VisualDescription
-        ariaLabel="H1"
-        code="classname='vibe-h1-light'"
-        title="H1 light main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
-      >
-        <h1 className="vibe-h1-light">{`H1`}</h1>
-      </VisualDescription>
-      <VisualDescription
+        className="monday-storybook-text-description"
         ariaLabel="H2"
-        code="classname='vibe-h2-bold'"
-        title="H2 bold main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
+        title="Secondary heading (Poppins 24px bold)"
+        description="Use as secondary header on a page"
       >
-        <h2 className="vibe-h2-bold">{`H2`}</h2>
+        <Heading
+          type={Heading.types.h2}
+          value="H2"
+          ellipsis={false}
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
-        ariaLabel="H2"
-        code="classname='vibe-h2-normal'"
-        title="H2 normal main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
-      >
-        <h2 className="vibe-h2-normal">{`H2`}</h2>
-      </VisualDescription>
-      <VisualDescription
-        ariaLabel="H2"
-        code="classname='vibe-h2-light'"
-        title="H2 light main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
-      >
-        <h1 className="vibe-h2-light">{`H2`}</h1>
-      </VisualDescription>
-      <VisualDescription
+        className={CSS_BASE_CLASS}
         ariaLabel="H3"
-        code="classname='vibe-h3-bold'"
-        title="H3 bold main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
+        title="Tertiary heading (Poppins 24px light)"
+        description="Use after heading, profile page headings"
       >
-        <h3 className="vibe-h3-bold">{`H3`}</h3>
+        <Heading
+          type={Heading.types.h3}
+          value="H3"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
-        ariaLabel="H3"
-        code="classname='vibe-h3-normal'"
-        title="H3 normal main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
+        className={CSS_BASE_CLASS}
+        ariaLabel="H4"
+        title="Fourth heading (Poppins 18px bold)"
+        description="Use for subtitles, group name, subheading in admin"
       >
-        <h3 className="vibe-h3-normal">{`H3`}</h3>
+        <Heading
+          type={Heading.types.h4}
+          value="H4"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
-        ariaLabel="H3"
-        code="classname='vibe-h3-light'"
-        title="H3 light main heading"
-        description="Use as main header on a page"
-        visualDescriptionClassName={styles.visualExample}
+        ariaLabel="H5"
+        title="Fourth heading (Poppins 16px bold)"
+        className={CSS_BASE_CLASS}
+        description="Use as subtitles for paragraphs"
       >
-        <h3 className="vibe-h3-light">{`H3`}</h3>
+        <Heading
+          type={Heading.types.h5}
+          value="H5"
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "heading" })
+          )}
+        />
       </VisualDescription>
       <VisualDescription
-        ariaLabel="Text"
-        code="classname='vibe-text-medium-bold'"
-        title="Medium bold text"
-        description="Use as plain text"
-        visualDescriptionClassName={styles.visualExample}
+        ariaLabel="text"
+        title="UI labels / General text (Figtree 14px normal)"
+        description="Use for general text or labels"
+        className={CSS_BASE_CLASS}
       >
-        <span className="vibe-text-medium-bold">{`Text`}</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "regular-text" })
+          )}
+        >
+          text
+        </span>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="Text"
-        code="classname='vibe-text-medium-normal'"
-        title="Medium normal text"
-        description="Use as plain text"
-        visualDescriptionClassName={styles.visualExample}
+        ariaLabel="paragraph"
+        className={CSS_BASE_CLASS}
+        title="Paragraph text (Figtree 16px normal)"
+        description="Use for item name, text in update"
       >
-        <span className="vibe-text-medium-normal">{`Text`}</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "paragraph" })
+          )}
+        >
+          {"<p>"}
+        </span>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="Text"
-        code="classname='vibe-text-small-bold'"
-        title="Small bold text"
-        description="Use as plain text"
-        visualDescriptionClassName={styles.visualExample}
+        title="Caption/Subtext (Figtree 14px normal)"
+        className={CSS_BASE_CLASS}
+        description="Use for subtexts"
       >
-        <span className="vibe-text-small-bold">{`Text`}</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "subtext" })
+          )}
+        >
+          subtext
+        </span>
       </VisualDescription>
       <VisualDescription
-        ariaLabel="Text"
-        code="classname='vibe-text-small-normal'"
-        title="Small normal text"
-        description="Use as plain text"
-        visualDescriptionClassName={styles.visualExample}
+        title="Link text (Figtree 14px normal)"
+        className="monday-storybook-text-description"
+        description="Use for links"
       >
-        <span className="vibe-text-small-normal">{`Text`}</span>
+        <span
+          className={cx(
+            bemHelper({ element: "visual-element" }),
+            bemHelper({ element: "visual-element", state: "link" })
+          )}
+        >
+          Link
+        </span>
       </VisualDescription>
     </Frame>
   );

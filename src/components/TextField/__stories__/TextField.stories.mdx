@@ -1,18 +1,13 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import TextField from "../TextField";
 import { TextFieldTextType } from "../TextFieldConstants";
-import {
-  ComponentRules,
-  createComponentTemplate,
-  createStoryMetaSettings,
-  RelatedComponents,
-  UsageGuidelines
-} from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { ComponentRules, createComponentTemplate, UsageGuidelines } from "vibe-storybook-components";
 import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: TextField,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]

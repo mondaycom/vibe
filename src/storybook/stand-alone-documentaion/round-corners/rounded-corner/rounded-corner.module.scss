@@ -1,9 +1,10 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../../styles/themes";
 @import "../../../../styles/global-css-settings";
 @import "../../../../styles/typography";
 
 .rounded-corner-component {
-  @include font-paragraph-bold();
+  @include vibe-text(medium, bold);
   color: var(--primary-text-color);
   display: flex;
   justify-content: center;

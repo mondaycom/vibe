@@ -3,6 +3,7 @@
 @import "../../styles/global-css-settings";
 
 .labelComponentWrapper {
+  @include vibe-text(small, normal);
   display: flex;
   padding-bottom: var(--spacing-xs);
   align-items: center;
@@ -11,12 +12,10 @@
 .labelComponentIcon {
   margin: 0 var(--spacing-small) 0 var(--spacing-xs);
   line-height: 24px;
-  font-size: var(--font-size-general-label);
-  @include theme-prop(color, icon-color);
-  font-family: var(--font-family);
+  color: var(--secondary-text-color);
 }
 
 .labelComponentText {
-  font: var(--font-general-label);
   @include theme-prop(color, primary-text-color);
+  padding-block: 2px;
 }

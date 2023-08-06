@@ -10,60 +10,12 @@ Snapshot Diff:
 -   class="container"
 +   class="container className"
   >
-    <p
-      aria-level="2"
--     class="title"
-+     class="titleClassName title"
+    <h1
+-     class="typography primary start multiLineEllipsis heading h1 normal"
++     class="typography primary start multiLineEllipsis heading h1 normal titleClassName"
       data-testid="modal-header_modal-title-id"
       id="modal-title-id"
-      role="heading"
-`;
-
-exports[`ModalHeader with close button hidden 1`] = `
-Snapshot Diff:
-- Default Render
-+ Current Render: {"hideCloseButton":true}
-
-@@ --- --- @@
-    >
-      Default title
-    </p>
--   <div
--     class="closeButton"
--   >
--     <span
--       class="referenceWrapper"
--     >
--       <button
--         aria-busy="false"
--         aria-disabled="false"
--         aria-label="close"
--         aria-pressed="false"
--         class="button sizeMedium kindTertiary colorPrimary noSidePadding"
--         data-testid="icon-button"
--         style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
--         type="button"
--       >
--         <svg
--           aria-hidden="true"
--           class="icon noFocusStyle"
--           data-testid="icon"
--           fill="currentColor"
--           height="20"
--           viewBox="0 0 20 20"
--           width="20"
--         >
--           <path
--             clip-rule="evenodd"
--             d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
--             fill="currentColor"
--             fill-rule="evenodd"
--           />
--         </svg>
--       </button>
--     </span>
--   </div>
-  </div>
+      style="--text-clamp-lines: 2;"
 `;
 
 exports[`ModalHeader with description 1`] = `
@@ -73,9 +25,11 @@ Snapshot Diff:
 
 @@ --- --- @@
       Default title
-    </p>
+    </h1>
     <div
-+     class="description"
++     class="typography primary start multiLineEllipsis small normal description"
++     data-testid="text"
++     style="--text-clamp-lines: 2;"
 +   >
 +     description
 +   </div>
@@ -92,7 +46,7 @@ Snapshot Diff:
 
 @@ --- --- @@
       id="modal-title-id"
-      role="heading"
+      style="--text-clamp-lines: 2;"
     >
 +     <span
 +       class="icon"
@@ -115,7 +69,7 @@ Snapshot Diff:
 +       </svg>
 +     </span>
       Default title
-    </p>
+    </h1>
     <div
 `;
 
@@ -123,15 +77,14 @@ exports[`ModalHeader with required props 1`] = `
 <div
   class="container"
 >
-  <p
-    aria-level="2"
-    class="title"
+  <h1
+    class="typography primary start multiLineEllipsis heading h1 normal"
     data-testid="modal-header_modal-title-id"
     id="modal-title-id"
-    role="heading"
+    style="--text-clamp-lines: 2;"
   >
     Default title
-  </p>
+  </h1>
   <div
     class="closeButton"
   >

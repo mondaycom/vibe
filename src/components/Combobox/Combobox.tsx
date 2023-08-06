@@ -9,6 +9,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
+import Text from "../Text/Text";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
@@ -66,7 +67,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * on mouse hover callback for option
    */
   // onOptionHover?: PropTypes.func,
-  onOptionHover?: () => void;
+  onOptionHover?: (event: React.MouseEvent, index: number, option: IComboboxOption) => void;
   /**
    * on mouse leave callback for option
    */
@@ -256,7 +257,8 @@ const Combobox: React.FC<ComboboxProps> & {
     });
 
     return (
-      <div
+      <Text
+        size="small"
         ref={mergedRef}
         className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,
@@ -264,6 +266,7 @@ const Combobox: React.FC<ComboboxProps> & {
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
+        ellipsis={false}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
@@ -301,7 +304,7 @@ const Combobox: React.FC<ComboboxProps> & {
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
-      </div>
+      </Text>
     );
   }
 );

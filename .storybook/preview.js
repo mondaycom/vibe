@@ -2,23 +2,25 @@ import { addParameters } from "@storybook/react";
 import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withPerformance } from "storybook-addon-performance";
 import "monday-ui-style/dist/index.min.css";
+import { ComponentNameDecorator, RelatedComponentsDecorator, Tip } from "../src/storybook";
 import {
   AnchorListItem,
-  ComponentName,
   ComponentRules,
   DocFooter,
+  Frame,
   FunctionArgument,
   FunctionArguments,
   LinkComponent,
   MultipleStoryElementsWrapper,
   Paragraph,
-  RelatedComponents,
   SectionName,
-  Tip,
   Title,
+  UnstyledList,
+  UnstyledListItem,
   UsageGuidelines,
   withMemoryStats
-} from "../src/storybook";
+} from "vibe-storybook-components";
+import "vibe-storybook-components/index.css";
 
 addParameters({
   controls: {
@@ -30,23 +32,27 @@ addParameters({
     container: ({ children, context }) => (
       <DocsContainer context={context}>
         {children}
-        {<DocFooter />}
+        {<DocFooter feedbackFormLink="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1" />}
       </DocsContainer>
     ),
     page: DocsPage,
     components: {
-      h1: ComponentName,
+      h1: ComponentNameDecorator,
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
       a: LinkComponent,
       p: Paragraph,
       Tip,
+      ComponentName: ComponentNameDecorator,
       ComponentRules,
       UsageGuidelines,
       FunctionArguments,
       FunctionArgument,
-      RelatedComponents
+      RelatedComponents: RelatedComponentsDecorator,
+      Frame,
+      UnstyledList,
+      UnstyledListItem
     }
   },
   viewMode: "docs",
@@ -59,7 +65,7 @@ addParameters({
   themes: {
     default: "Light",
     list: [
-      { name: "Light", class: "light-app-them", color: "#ffffff" },
+      { name: "Light", class: "light-app-theme", color: "#ffffff" },
       { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
       { name: "Black", class: "black-app-theme", color: "#111111" },
       { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }

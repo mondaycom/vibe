@@ -1,11 +1,12 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem";
 import { Workspace } from "../../../Icon/Icons";
 import "./breadcrumbItem.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbItem,
   iconPropNamesArray: ["icon"]
 });

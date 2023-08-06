@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import SearchComponent from "../../Search/Search";
 import * as AllIcons from "../Icons";
-import FlexLayout from "../../storybook-helpers/flex-layout/flex-layout";
-import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import FlexLayout from "./flex-layout/flex-layout";
+import DescriptionLabel from "./description-label/description-label";
 
 export const IconsList = () => {
   const [filterData, setFilterData] = useState("");

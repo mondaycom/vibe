@@ -1,10 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toast from "../Toast";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
-import { Link, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook/components";
+import { Tip } from "../../../storybook/components";
+import { Link, UsageGuidelines, createComponentTemplate } from "vibe-storybook-components";
 import {
   ALERT_BANNER,
   ATTENTION_BOX,
@@ -13,7 +14,7 @@ import {
 import { Delete } from "../../Icon/Icons";
 import "./toast.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
   enumPropNamesArray: ["type"],
   iconPropNamesArray: ["icon"]

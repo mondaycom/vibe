@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Paragraph } from "../../../components";
+import { Paragraph } from "vibe-storybook-components";
 import { Contributors } from "./contributors";
 import "./other-contributors-list.scss";
 

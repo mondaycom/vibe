@@ -4,6 +4,7 @@ import useDebounceEvent from "../../hooks/useDebounceEvent";
 import Icon from "../Icon/Icon";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Loader from "../Loader/Loader";
+import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {
   FEEDBACK_CLASSES,
@@ -275,7 +276,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             </Clickable>
           </div>
           {shouldShowExtraText && (
-            <div className={cx(styles.subTextContainer)}>
+            <Text size="small" color="secondary" className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)} aria-label={TextFieldAriaLabel.VALIDATION_TEXT}>
                   {validation.text}
@@ -286,7 +287,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
                   {(inputValue && inputValue.length) || 0}
                 </span>
               )}
-            </div>
+            </Text>
           )}
         </div>
       </div>

@@ -2,6 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
+import Text from "../Text/Text";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
@@ -124,12 +125,14 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
             />
           </span>
           {text && (
-            <span
-              className={cx(styles.label, labelClassName)}
+            <Text
+              element="span"
+              size="small"
+              className={labelClassName}
               data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
             >
               {text}
-            </span>
+            </Text>
           )}
           {children && (
             <Clickable onClick={onChildClick} tabIndex={childrenTabIndex}>

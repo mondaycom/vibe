@@ -1,6 +1,0 @@
-@import "../../styles/typography";
-
-.tipseenTitle {
-  @include font-paragraph-bold;
-  @include theme-prop(color, text-color-on-primary);
-}

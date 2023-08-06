@@ -64,6 +64,7 @@ const publishedTSComponents = {
   Modal: "components/Modal/Modal",
   ModalHeader: "components/Modal/ModalHeader/ModalHeader",
   ModalFooter: "components/Modal/ModalFooter/ModalFooter",
+  ModalFooterButtons: "components/Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons",
   ModalContent: "components/Modal/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",
@@ -84,6 +85,7 @@ const publishedTSComponents = {
   MenuDivider: "components/Menu/MenuDivider/MenuDivider",
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
+  AttentionBoxLink: "components/AttentionBox/AttentionBoxLink/AttentionBoxLink",
   // Don't remove next line
   // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index",

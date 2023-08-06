@@ -1,4 +1,4 @@
-import { Frame } from "../../../components";
+import { Frame } from "vibe-storybook-components";
 import SpacingComponent from "./spacing-component/spacing-component";
 import "./spacing-sizes.scss";
 
