@@ -113,8 +113,8 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            updateSelectedItem: updateSelectedItem,
-            index: index,
+            updateSelectedItem,
+            index,
             listId: id
           });
         });
