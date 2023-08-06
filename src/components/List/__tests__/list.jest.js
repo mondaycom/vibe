@@ -1,5 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 import List from "../List";
 import ListItem from "../../ListItem/ListItem";
 
@@ -24,5 +27,92 @@ describe("List", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  describe("accessibility tests", () => {
+    it("List should have role listbox", () => {
+      const { getByRole } = render(
+        <List id="list">
+          <ListItem>1</ListItem>
+          <ListItem>2</ListItem>
+        </List>
+      );
+      expect(getByRole("listbox")).toBeInTheDocument();
+    });
+
+    it("ListItem should have role option", () => {
+      const { getAllByRole } = render(
+        <List id="list">
+          <ListItem>1</ListItem>
+          <ListItem>2</ListItem>
+        </List>
+      );
+      expect(getAllByRole("option")).toHaveLength(2);
+    });
+
+    it("disabled ListItem should have aria-selected", () => {
+      const { getByTestId } = render(
+        <List id="list">
+          <ListItem data-testid="list-item-1" disabled>
+            1
+          </ListItem>
+          <ListItem data-testid="list-item-2">1</ListItem>
+        </List>
+      );
+      expect(getByTestId("list-item-1")).toHaveAttribute("aria-disabled", "true");
+      expect(getByTestId("list-item-2")).toHaveAttribute("aria-disabled", "false");
+    });
+
+    it("selected ListItem should have aria-selected", () => {
+      const { getByTestId } = render(
+        <List id="list">
+          <ListItem data-testid="list-item-1" selected>
+            1
+          </ListItem>
+          <ListItem data-testid="list-item-2">1</ListItem>
+        </List>
+      );
+      expect(getByTestId("list-item-1")).toHaveAttribute("aria-selected", "true");
+      expect(getByTestId("list-item-2")).not.toHaveAttribute("aria-selected");
+    });
+
+    it("List should have aria-activedescendant", () => {
+      const { getByRole } = render(
+        <List id="list">
+          <ListItem id="list-item-1">1</ListItem>
+          <ListItem id="list-item-2" selected>
+            2
+          </ListItem>
+        </List>
+      );
+      expect(getByRole("listbox")).toHaveAttribute("aria-activedescendant", "list-item-2");
+    });
+
+    it("List aria-activedescendant", () => {
+      const { getByRole, getByTestId } = render(
+        <List id="list">
+          <ListItem id="list-item-1" data-testid="list-item-1">
+            1
+          </ListItem>
+          <ListItem id="list-item-2" data-testid="list-item-2">
+            2
+          </ListItem>
+          <ListItem id="list-item-3" data-testid="list-item-3" selected>
+            3
+          </ListItem>
+        </List>
+      );
+      const list = getByRole("listbox");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-3");
+      userEvent.tab();
+      userEvent.keyboard("{arrowup}");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");
+
+      userEvent.hover(getByTestId("list-item-1"));
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-1");
+      userEvent.keyboard("{arrowdown}");
+      // Cause ListItem hover doesn't change order of keyboard navigation
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-3");
+    });
   });
 });
