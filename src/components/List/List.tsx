@@ -68,21 +68,17 @@ const List: FC<ListProps> = forwardRef(
       }
     }, [id]);
 
-    const getListItemIndexById = (id: string) => {
-      return childrenRefs.current.findIndex(ref => ref?.id === id);
-    };
-
     const getListItemIdByIndex = (index: number) => {
       return childrenRefs.current[index]?.id;
     };
 
-    const updateFocusedItem = useCallback((id: string, shouldChangeFocusIndex = true) => {
+    const updateFocusedItem = useCallback((index: number, shouldChangeFocusIndex = true) => {
       if (shouldChangeFocusIndex) {
-        setFocusIndex(id ? getListItemIndexById(id) : 0);
+        setFocusIndex(index ?? 0);
       }
 
-      if (id) {
-        componentRef?.current?.setAttribute("aria-activedescendant", id);
+      if (index !== null) {
+        componentRef?.current?.setAttribute("aria-activedescendant", getListItemIdByIndex(index));
       } else {
         componentRef?.current?.removeAttribute("aria-activedescendant");
       }
@@ -101,7 +97,7 @@ const List: FC<ListProps> = forwardRef(
           }
           event.preventDefault();
           if (overrideFocusIndex !== undefined) {
-            updateFocusedItem(getListItemIdByIndex(overrideFocusIndex));
+            updateFocusedItem(overrideFocusIndex);
             childrenRefs.current[overrideFocusIndex].focus();
           }
         }
