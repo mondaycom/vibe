@@ -27,7 +27,7 @@ import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
 import Button, { ButtonProps } from "../Button/Button";
-import Dialog from "../Dialog/Dialog";
+import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
@@ -101,6 +101,7 @@ const SplitButton: FC<SplitButtonProps> & {
 
   // Refs //
   const ref = useRef(null);
+  const secondaryButtonRef = useRef(null);
 
   // Callbacks //
   const setHovered = useCallback(() => setIsHover(true), [setIsHover]);
@@ -135,10 +136,16 @@ const SplitButton: FC<SplitButtonProps> & {
     onSecondaryDialogDidShow();
   }, [setDialogOpen, onSecondaryDialogDidShow]);
 
-  const hideDialog = useCallback(() => {
-    setDialogOpen(false);
-    onSecondaryDialogDidHide();
-  }, [setDialogOpen, onSecondaryDialogDidHide]);
+  const hideDialog = useCallback(
+    (_: DialogEvent, eventName: HideShowEvent) => {
+      setDialogOpen(false);
+      onSecondaryDialogDidHide();
+      if (eventName === HideShowEvent.ESCAPE_KEY) {
+        secondaryButtonRef.current.focus();
+      }
+    },
+    [setDialogOpen, onSecondaryDialogDidHide]
+  );
 
   // Event listeners //
 
@@ -249,6 +256,7 @@ const SplitButton: FC<SplitButtonProps> & {
         >
           <Button
             {...buttonProps}
+            ref={secondaryButtonRef}
             preventClickAnimation
             leftFlat
             noSidePadding
