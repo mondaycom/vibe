@@ -147,7 +147,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
         {label === false ? null : (
           <Text
             element="span"
-            type="text2"
+            type={Text.types.TEXT2}
             className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
           >

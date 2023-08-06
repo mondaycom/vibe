@@ -307,12 +307,17 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
           <Flex gap={Flex.gaps.XS}>
             <Link withoutSpacing>Hadas Farhi</Link>
             <span>deleted the item </span>
-            <Text type="text1" element="span" weight="medium" className={classes.recycleBinItemName}>
+            <Text
+              type={Text.types.TEXT1}
+              element="span"
+              weight={Text.weights.MEDIUM}
+              className={classes.recycleBinItemName}
+            >
               Hello World
             </Text>
             <span>from the board</span>
           </Flex>
-          <Text type="text1" element="span" weight="medium">
+          <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
             Tasks
           </Text>
           <Flex gap={Flex.gaps.XS} className={classes.recycleBinSubNote}>

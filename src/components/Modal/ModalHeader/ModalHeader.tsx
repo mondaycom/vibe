@@ -97,7 +97,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       </Heading>
 
       {description && (
-        <Text type="text2" maxLines={2} className={cx(styles.description, descriptionClassName)}>
+        <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}
         </Text>
       )}

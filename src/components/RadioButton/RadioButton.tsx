@@ -127,7 +127,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
           {text && (
             <Text
               element="span"
-              type="text2"
+              type={Text.types.TEXT2}
               className={labelClassName}
               data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
             >

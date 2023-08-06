@@ -6,6 +6,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Text from "../Text/Text";
 import styles from "./ListTitle.module.scss";
+import { TextWeight } from "../Text/TextConstants";
 
 export interface ListTitleProps extends VibeComponentProps {
   tabIndex?: number;
@@ -19,8 +20,8 @@ const ListTitle: React.FC<ListTitleProps> = forwardRef(
 
     return (
       <Text
-        type="text1"
-        weight="medium"
+        type={Text.types.TEXT1}
+        weight={Text.weights.MEDIUM}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_TITLE, id)}
         aria-level={3}
         tabIndex={tabIndex}

@@ -231,7 +231,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     return (
       <Tooltip {...overflowProps.tooltipProps}>
-        <Text type="text2" {...wrapperProps}>
+        <Text type={Text.types.TEXT2} {...wrapperProps}>
           {leftAvatar ? (
             <Avatar
               withoutBorder

@@ -4,17 +4,22 @@ import VibeComponent from "../../types/VibeComponent";
 import { withStaticProps } from "../../types";
 import { HeadingType, HeadingWeight } from "./HeadingConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
+import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
 import styles from "./Heading.module.scss";
 
 export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
   weight?: HeadingWeight;
+  align?: TypographyAlign;
+  color?: TypographyColor;
 }
 
 const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   types?: typeof HeadingType;
   weights?: typeof HeadingWeight;
-} = forwardRef(({ className, type = "h1", weight = "normal", ...typographyProps }, ref) => {
+  colors?: typeof TypographyColor;
+  align?: typeof TypographyAlign;
+} = forwardRef(({ className, type = HeadingType.H1, weight = HeadingWeight.NORMAL, ...typographyProps }, ref) => {
   return (
     <Typography
       element={type}
@@ -27,5 +32,7 @@ const Heading: VibeComponent<HeadingProps, HTMLElement> & {
 
 export default withStaticProps(Heading, {
   types: HeadingType,
-  weights: HeadingWeight
+  weights: HeadingWeight,
+  align: TypographyAlign,
+  colors: TypographyColor
 });

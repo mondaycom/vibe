@@ -67,31 +67,31 @@ Title components are used to title any page sections or sub-sections in top-leve
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Heading type="h1" weight="bold">
+      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
         Bold H1 title
       </Heading>
-      <Heading type="h1" weight="normal">
+      <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
         Normal H1 title
       </Heading>
-      <Heading type="h1" weight="light">
+      <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
         Light H1 title
       </Heading>
-      <Heading type="h2" weight="bold">
+      <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
         Bold H2 title
       </Heading>
-      <Heading type="h2" weight="normal">
+      <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
         Normal H2 title
       </Heading>
-      <Heading type="h2" weight="light">
+      <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
         Light H2 title
       </Heading>
-      <Heading type="h3" weight="bold">
+      <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
         Bold H3 title
       </Heading>
-      <Heading type="h3" weight="normal">
+      <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
         Normal H3 title
       </Heading>
-      <Heading type="h3" weight="light">
+      <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
         Light H3 title
       </Heading>
     </Flex>
@@ -103,12 +103,22 @@ Title components are used to title any page sections or sub-sections in top-leve
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Heading color="primary">Primary title</Heading>
-      <Heading color="secondary">Secondary title</Heading>
-      <Heading element="div" className={styles.primaryBackground} align="center" color="onPrimary">
+      <Heading color={Heading.colors.PRIMARY}>Primary title</Heading>
+      <Heading color={Heading.colors.SECONDARY}>Secondary title</Heading>
+      <Heading
+        element="div"
+        className={styles.primaryBackground}
+        align={Heading.align.CENTER}
+        color={Heading.colors.ON_PRIMARY}
+      >
         On primary title
       </Heading>
-      <Heading element="div" className={styles.invertedBackground} align="center" color="onInverted">
+      <Heading
+        element="div"
+        className={styles.invertedBackground}
+        align={Heading.align.CENTER}
+        color={Heading.colors.ON_INVERTED}
+      >
         On inverted title
       </Heading>
     </Flex>

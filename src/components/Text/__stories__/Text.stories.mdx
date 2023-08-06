@@ -68,22 +68,22 @@ The text component serves as a wrapper for applying typography styles to the tex
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <Text type="text1" weight="bold">
+      <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
         Text1 with bold weight
       </Text>
-      <Text type="text1" weight="medium">
+      <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
         Text1 with medium weight
       </Text>
-      <Text type="text1" weight="normal">
+      <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
         Text1 with normal weight
       </Text>
-      <Text type="text2" weight="bold">
+      <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
         Text2 with bold weight
       </Text>
-      <Text type="text2" weight="medium">
+      <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
         Text2 with medium weight
       </Text>
-      <Text type="text2" weight="normal">
+      <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
         Text2 with normal weight
       </Text>
     </Flex>
@@ -95,12 +95,17 @@ The text component serves as a wrapper for applying typography styles to the tex
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text color="primary">Primary text</Text>
-      <Text color="secondary">Secondary text</Text>
-      <Text element="div" className={styles.primaryBackground} align="center" color="onPrimary">
+      <Text color={Text.colors.PRIMARY}>Primary text</Text>
+      <Text color={Text.colors.SECONDARY}>>Secondary text</Text>
+      <Text element="div" className={styles.primaryBackground} align={Text.align.CENTER} color={Text.colors.ON_PRIMARY}>
         On primary text
       </Text>
-      <Text element="div" className={styles.invertedBackground} align="center" color="onInverted">
+      <Text
+        element="div"
+        className={styles.invertedBackground}
+        align={Text.align.CENTER}
+        color={Text.colors.ON_INVERTED}
+      >
         On inverted text
       </Text>
     </Flex>

@@ -54,11 +54,10 @@ exports[`Text renders correctly with paragraph 1`] = `
 </p>
 `;
 
-exports[`Text renders correctly with size 1`] = `
+exports[`Text renders correctly with type 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text2 normal"
+  className="typography primary start singleLineEllipsis text1 normal"
   data-testid="text"
-  size="small"
 >
   text
 </div>
@@ -66,7 +65,7 @@ exports[`Text renders correctly with size 1`] = `
 
 exports[`Text renders correctly with weight 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text2 bold"
+  className="typography primary start singleLineEllipsis text2 medium"
   data-testid="text"
 >
   text
