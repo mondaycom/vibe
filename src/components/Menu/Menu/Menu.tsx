@@ -129,8 +129,10 @@ const Menu: VibeComponent<MenuProps> & {
       if (focusItemIndexOnMount === -1) {
         return;
       }
-      updateActiveItemIndex(focusItemIndexOnMount);
-      setIsInitialSelectedState(true);
+      requestAnimationFrame(() => {
+        updateActiveItemIndex(focusItemIndexOnMount);
+        setIsInitialSelectedState(true);
+      });
     }, [focusItemIndexOnMount, updateActiveItemIndex, setIsInitialSelectedState]);
 
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
