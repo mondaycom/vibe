@@ -1,3 +1,11 @@
+0.1.177 / 2023-07-26
+====================
+  * Breaking changes for heading and text ([#219](https://github.com/mondaycom/monday-ui-style/issues/219))
+    * change naming
+    * breaking changes in new typography: tokens for texts, mixins for heading and texts
+    * breaking changes in new typography: tokens for texts, mixins for heading and texts
+    * fix tests
+
 0.1.176 / 2023-07-26
 ====================
   * Fix changelog - only last 50 versions ([#225](https://github.com/mondaycom/monday-ui-style/issues/225))
@@ -304,7 +312,5 @@
 
 0.1.130 / 2022-07-19
 ====================
-  * use current color on academy, forum, and idea icons ([#159](https://github.com/mondaycom/monday-ui-style/issues/159))
-  * add launch icon ([#158](https://github.com/mondaycom/monday-ui-style/issues/158))
-    * add launch icon
-    * use current color
+
+  * version bump
