@@ -7,17 +7,20 @@ export const DISABLED = Object.freeze({
 export const BORDER = Object.freeze({
   DEFAULT: styles.border
 });
+export type Border = typeof BORDER;
 
 export const BORDER_COLOR = Object.freeze({
   UI_BORDER_COLOR: styles.borderColorUiBorderColor,
   LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor
 });
+export type BorderColor = typeof BORDER_COLOR;
 
 export const ROUNDED = Object.freeze({
   SMALL: styles.roundedSmall,
   MEDIUM: styles.roundedMedium,
   BIG: styles.roundedBig
 });
+export type Rounded = typeof ROUNDED;
 
 export const SHADOW = Object.freeze({
   XS: styles.shadowXs,
@@ -25,6 +28,7 @@ export const SHADOW = Object.freeze({
   MEDIUM: styles.shadowMedium,
   LARGE: styles.shadowLarge
 });
+export type Shadow = typeof SHADOW;
 
 export const MARGIN = Object.freeze({
   AUTO: styles.mAuto,
@@ -36,6 +40,7 @@ export const MARGIN = Object.freeze({
   XXL: styles.mXxl,
   XXXL: styles.mXxxl
 });
+export type Margin = typeof MARGIN;
 
 export const MARGIN_X = Object.freeze({
   AUTO: styles.mxAuto,
@@ -47,6 +52,7 @@ export const MARGIN_X = Object.freeze({
   XXL: styles.mxXxl,
   XXXL: styles.mxXxxl
 });
+export type MarginX = typeof MARGIN_X;
 
 export const MARGIN_Y = Object.freeze({
   AUTO: styles.myAuto,
@@ -58,6 +64,7 @@ export const MARGIN_Y = Object.freeze({
   XXL: styles.myXxl,
   XXXL: styles.myXxxl
 });
+export type MarginY = typeof MARGIN_Y;
 
 export const MARGIN_TOP = Object.freeze({
   AUTO: styles.mtAuto,
@@ -69,6 +76,7 @@ export const MARGIN_TOP = Object.freeze({
   XXL: styles.mtXxl,
   XXXL: styles.mtXxxl
 });
+export type MarginTop = typeof MARGIN_TOP;
 
 export const MARGIN_END = Object.freeze({
   AUTO: styles.meAuto,
@@ -80,6 +88,7 @@ export const MARGIN_END = Object.freeze({
   XXL: styles.meXxl,
   XXXL: styles.meXxxl
 });
+export type MarginEnd = typeof MARGIN_END;
 
 export const MARGIN_BOTTOM = Object.freeze({
   AUTO: styles.mbAuto,
@@ -91,6 +100,7 @@ export const MARGIN_BOTTOM = Object.freeze({
   XXL: styles.mbXxl,
   XXXL: styles.mbXxxl
 });
+export type MarginBottom = typeof MARGIN_BOTTOM;
 
 export const MARGIN_START = Object.freeze({
   AUTO: styles.msAuto,
@@ -102,6 +112,7 @@ export const MARGIN_START = Object.freeze({
   XXL: styles.msXxl,
   XXXL: styles.msXxxl
 });
+export type MarginStart = typeof MARGIN_START;
 
 export const PADDING = Object.freeze({
   XS: styles.pXs,
@@ -112,6 +123,7 @@ export const PADDING = Object.freeze({
   XXL: styles.pXxl,
   XXXL: styles.pXxxl
 });
+export type Padding = typeof PADDING;
 
 export const PADDING_X = Object.freeze({
   XS: styles.pxXs,
@@ -122,6 +134,7 @@ export const PADDING_X = Object.freeze({
   XXL: styles.pxXxl,
   XXXL: styles.pxXxxl
 });
+export type PaddingX = typeof PADDING_X;
 
 export const PADDING_Y = Object.freeze({
   XS: styles.pyXs,
@@ -132,6 +145,7 @@ export const PADDING_Y = Object.freeze({
   XXL: styles.pyXxl,
   XXXL: styles.pyXxxl
 });
+export type PaddingY = typeof PADDING_Y;
 
 export const PADDING_TOP = Object.freeze({
   XS: styles.ptXs,
@@ -142,6 +156,7 @@ export const PADDING_TOP = Object.freeze({
   XXL: styles.ptXxl,
   XXXL: styles.ptXxxl
 });
+export type PaddingTop = typeof PADDING_TOP;
 
 export const PADDING_END = Object.freeze({
   XS: styles.peXs,
@@ -152,6 +167,7 @@ export const PADDING_END = Object.freeze({
   XXL: styles.peXxl,
   XXXL: styles.peXxxl
 });
+export type PaddingEnd = typeof PADDING_END;
 
 export const PADDING_BOTTOM = Object.freeze({
   XS: styles.pbXs,
@@ -162,6 +178,7 @@ export const PADDING_BOTTOM = Object.freeze({
   XXL: styles.pbXxl,
   XXXL: styles.pbXxxl
 });
+export type PaddingBottom = typeof PADDING_BOTTOM;
 
 export const PADDING_START = Object.freeze({
   XS: styles.psXs,
@@ -172,6 +189,7 @@ export const PADDING_START = Object.freeze({
   XXL: styles.psXxl,
   XXXL: styles.psXxxl
 });
+export type PaddingStart = typeof PADDING_START;
 
 export const BACKGROUND_COLORS = Object.freeze({
   PRIMARY_BACKGROUND_COLOR: styles.bgPrimaryBackgroundColor,
@@ -180,9 +198,11 @@ export const BACKGROUND_COLORS = Object.freeze({
   ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
   INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground
 });
+export type BackgroundColor = typeof BACKGROUND_COLORS;
 
 export const COLORS = Object.freeze({
   PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
   TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,
   SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor
 });
+export type Color = typeof COLORS;

@@ -17,6 +17,7 @@ const ModalContent: FC<ModalContentProps> = ({ className, id, "data-testid": dat
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_CONTENT, id)}
       className={cx(styles.container, className)}
+      ellipsis={false}
     >
       {children}
     </Text>

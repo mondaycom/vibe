@@ -14,7 +14,7 @@ export interface TextProps extends TypographyProps {
 
 const Text: VibeComponent<TextProps, HTMLElement> & { types?: typeof TextType; weights?: typeof TextWeight } =
   forwardRef(({ className, type = "text2", weight = "normal", ellipsis, paragraph, ...typographyProps }, ref) => {
-    const overrideEllipsis = ellipsis || !paragraph;
+    const overrideEllipsis = ellipsis ?? !paragraph;
     const overrideElement = paragraph ? "p" : "div";
     return (
       <Typography
