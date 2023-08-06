@@ -137,6 +137,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         key={overrideId}
         size="small"
         aria-disabled={disabled}
+        aria-selected={selected}
         onClick={componentOnClick}
         onKeyDown={onKeyDown}
         onMouseEnter={componentOnHover}
