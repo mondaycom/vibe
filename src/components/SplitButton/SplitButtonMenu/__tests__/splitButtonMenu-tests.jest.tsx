@@ -4,6 +4,7 @@ import { render } from "@testing-library/react";
 import SplitButtonMenu from "../SplitButtonMenu";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "./test-utils";
 
 const id = "menu";
 const menuDataTestId = getTestId(ComponentDefaultTestId.MENU, id);
@@ -18,6 +19,14 @@ const renderSplitButtonMenu = () => {
 };
 
 describe("SplitButtonMenu", () => {
+  beforeEach(() => {
+    mockRequestAnimationFrame();
+  });
+
+  afterEach(() => {
+    restoreRequestAnimationFrameMock();
+  });
+
   it("renders correctly", () => {
     const { container } = renderSplitButtonMenu();
     expect(container).toBeInTheDocument();
@@ -30,6 +39,7 @@ describe("SplitButtonMenu", () => {
 
   it("should focus first menu item on mount", () => {
     const { getByTestId } = renderSplitButtonMenu();
-    expect(getByTestId(getTestId(ComponentDefaultTestId.MENU_ITEM))).toHaveFocus();
+    const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}0`;
+    expect(getByTestId(firstMenuItemId)).toHaveFocus();
   });
 });

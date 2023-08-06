@@ -15,7 +15,7 @@ exports[`SplitButtonMenu renders correctly 1`] = `
   <li
     aria-current={true}
     className="typography primary start singleLineEllipsis small normal item focused initialSelected"
-    data-testid="menu-item"
+    data-testid="menu-item0"
     id="menu-0"
     onClick={[Function]}
     role="menuitem"

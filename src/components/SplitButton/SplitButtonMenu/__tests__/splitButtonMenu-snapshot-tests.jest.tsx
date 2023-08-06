@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import SplitButtonMenu from "../SplitButtonMenu";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "./test-utils";
 
 const SplitButtonMenuWithItems = (
   <SplitButtonMenu id="menu">
@@ -11,6 +12,14 @@ const SplitButtonMenuWithItems = (
 );
 
 describe("SplitButtonMenu", () => {
+  beforeEach(() => {
+    mockRequestAnimationFrame();
+  });
+
+  afterEach(() => {
+    restoreRequestAnimationFrameMock();
+  });
+
   it("renders correctly", () => {
     const tree = renderer.create(SplitButtonMenuWithItems).toJSON();
     expect(tree).toMatchSnapshot();

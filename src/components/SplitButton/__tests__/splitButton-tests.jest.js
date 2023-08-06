@@ -155,8 +155,8 @@ describe("SplitButton tests", () => {
       });
       const menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
       expect(menu).toHaveAttribute("aria-activedescendant", `${splitMenuId}-0`);
-      const firstMenuItem = splitButtonComponent.getByTestId(getTestId(ComponentDefaultTestId.MENU_ITEM));
-      expect(firstMenuItem).toHaveFocus();
+      const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}0`;
+      expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();
     });
   });
 });
