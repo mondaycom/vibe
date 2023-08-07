@@ -6,7 +6,6 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Text from "../Text/Text";
 import styles from "./ListTitle.module.scss";
-import { TextWeight } from "../Text/TextConstants";
 
 export interface ListTitleProps extends VibeComponentProps {
   tabIndex?: number;

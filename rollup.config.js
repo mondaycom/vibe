@@ -47,7 +47,7 @@ export default {
     icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
-    next: path.join(SRC_PATH, "next.js")
+    next: path.join(SRC_PATH, "next.ts")
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
