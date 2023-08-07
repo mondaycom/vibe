@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.19.1 (2023-08-07)
+
+#### Bug Fixes
+* [#1463](https://github.com/mondaycom/monday-ui-react-core/pull/1463) Add version to class ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1434](https://github.com/mondaycom/monday-ui-react-core/pull/1434) fix(AttentionBox): general improvements + allow ellipsis for overflowin attention box ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1392](https://github.com/mondaycom/monday-ui-react-core/pull/1392) chore: fail chromatic action check in case has visual changes ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.19.0 (2023-08-03)
 
 #### Bug Fixes
