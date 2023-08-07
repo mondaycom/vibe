@@ -19,15 +19,25 @@ const injectStyle = fs.readFileSync("./rollup/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
 
+function replaceDotWithUnderscore(verNum) {
+  return verNum.replace(/\./g, "_");
+}
+
 function getShortSha(content, length = 10) {
   return sha256(content).slice(0, length);
+}
+
+function loadPackageJson() {
+  const packageJson = fs.readFileSync("./package.json", "utf8");
+  return JSON.parse(packageJson);
 }
 
 function generateCssModulesScopedName(name, filename, css) {
   const start = css.indexOf(`${name} {`);
   const end = css.indexOf("}", start);
   const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
-  return `${name}_${getShortSha(content)}`;
+  const loadPackageJsonResult = loadPackageJson();
+  return `${name}_${getShortSha(content + replaceDotWithUnderscore(loadPackageJsonResult.version))}`;
 }
 
 function generateCssModulesMockName(name) {
@@ -85,9 +95,9 @@ export default {
         } catch (err) {
           console.error(err);
         }
-
+        const version = replaceDotWithUnderscore(loadPackageJson().version);
         const hashValue = `s_id-${shaKey}`;
-        return ejs.render(injectStyle, { cssVariableName, hashValue });
+        return ejs.render(injectStyle, { cssVariableName, hashValue, version });
       },
       plugins: [autoprefixer(), postCssImport()],
       modules: {

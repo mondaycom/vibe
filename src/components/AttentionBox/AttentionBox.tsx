@@ -76,37 +76,29 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
-        {title && !withoutIcon && (
-          <Icon
-            iconType={iconType}
-            ariaHidden
-            clickable={false}
-            icon={icon}
-            className={cx(
-              styles.titleContainerIcon,
-              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-            )}
-            ignoreFocusStyle
-            iconSize="24"
-            iconLabel={iconLabel}
-          />
-        )}
-        {title && (
+      {title && (
+        <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
+          {!withoutIcon && (
+            <Icon
+              iconType={iconType}
+              ariaHidden
+              clickable={false}
+              icon={icon}
+              className={cx(
+                styles.titleContainerIcon,
+                getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
+              )}
+              ignoreFocusStyle
+              iconSize="24"
+              iconLabel={iconLabel}
+            />
+          )}
           <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.BOLD} className={styles.title}>
             {title}
           </Text>
-        )}
-      </Flex>
-      <Text
-        element={compact ? "div" : "p"}
-        type={Text.types.TEXT2}
-        paragraph={!compact}
-        className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
-          [styles.textCompact]: compact,
-          [styles.paragraph]: !compact
-        })}
-      >
+        </Flex>
+      )}
+      <Flex justify={Flex.justify.START} align={Flex.align.CENTER}>
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon
             iconType={iconType}
@@ -122,8 +114,18 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconLabel={iconLabel}
           />
         )}
-        {text || children}
-      </Text>
+        <Text
+          type={Text.types.TEXT2}
+          paragraph={!compact}
+          className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+            [styles.compact]: compact,
+            [styles.dismissible]: !!onClose,
+            [styles.paragraph]: !compact
+          })}
+        >
+          {text || children}
+        </Text>
+      </Flex>
       {onClose && (
         <IconButton
           size={IconButton?.sizes?.SMALL}
