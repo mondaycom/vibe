@@ -13,7 +13,9 @@ describe("TextField tests", () => {
   beforeEach(() => {
     cleanup();
     ref = {};
-    onChangeStub = jest.fn();
+    onChangeStub = jest.fn((value, event) => {
+      event.persist();
+    });
     jest.useFakeTimers("modern");
     inputComponent = render(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />);
   });
@@ -34,7 +36,16 @@ describe("TextField tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    expect(onChangeStub).toHaveBeenCalledWith(value);
+
+    expect(onChangeStub).toHaveBeenCalledWith(
+      value,
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: value,
+          id: "test"
+        })
+      })
+    );
   });
 
   it("should not change the value instantly when debounce value is provided", () => {
@@ -64,9 +75,9 @@ describe("TextField tests", () => {
     );
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     userEvent.type(input, "A");
-    expect(onChangeStub).not.toHaveBeenCalledWith("A");
+    expect(onChangeStub).not.toHaveBeenCalled();
     jest.advanceTimersByTime(debounceTime + 1);
-    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A"), { timeout: debounceTime });
+    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A", expect.anything()), { timeout: debounceTime });
   });
 
   it("should be disabled", () => {
