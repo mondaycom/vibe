@@ -14,7 +14,7 @@ export default function useDebounceEvent({
   initialStateValue = "",
   trim
 }: {
-  onChange: (value: string) => void;
+  onChange: (value: string, event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
   initialStateValue?: string;
   delay?: number;
   trim?: boolean;
@@ -43,17 +43,20 @@ export default function useDebounceEvent({
       const { value } = event.target;
       const finalValue = trim ? value.trim() : value;
       setValue(finalValue);
-      debounceCallback(finalValue);
+      debounceCallback(finalValue, event);
     },
     [debounceCallback, setValue, trim]
   );
 
-  const clearValue = useCallback(() => {
-    setValue("");
-    if (onChange) {
-      onChange("");
-    }
-  }, [setValue, onChange]);
+  const clearValue = useCallback(
+    (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
+      setValue("");
+      if (onChange) {
+        onChange("", event);
+      }
+    },
+    [setValue, onChange]
+  );
 
   if (initialStateValue !== previousValue.current && initialStateValue !== inputValue) {
     setValue(initialStateValue);
