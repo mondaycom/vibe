@@ -3,7 +3,7 @@ import TextField from "../TextField";
 import { TextFieldTextType } from "../TextFieldConstants";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ComponentRules, createComponentTemplate, UsageGuidelines } from "vibe-storybook-components";
-import { Check, CloseSmall, Email, Show } from "../../Icon/Icons";
+import { Clear, Check, CloseSmall, Email, Show } from "../../Icon/Icons";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
@@ -70,6 +70,25 @@ An input field includes a label and a text field users can type text into. They 
     "Character or word counters should be used if there is a character or word limit."
   ]}
 />
+
+### Test
+
+<Canvas>
+  <Story name="Test">
+    {() => {
+      const onChange = (value, event) => {
+        console.log("### onChange", value, event.target.value, event.target);
+      };
+      return (
+        <div className="monday-storybook-text-field_column-wrapper">
+          <TextField iconName={Clear} clearOnIconClick onChange={onChange} placeholder="Small" name="small" />
+          <TextField onChange={onChange}  placeholder="Medium" name="medium" size={TextField.sizes.MEDIUM} />
+          <TextField onChange={onChange}  placeholder="Large" name="large" size={TextField.sizes.LARGE} />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Variants
 
