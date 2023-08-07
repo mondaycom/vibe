@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.19.2 (2023-08-07)
+
+#### Bug Fixes
+* [#1464](https://github.com/mondaycom/monday-ui-react-core/pull/1464) fix version number as css selector ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.19.1 (2023-08-07)
 
 #### Bug Fixes
