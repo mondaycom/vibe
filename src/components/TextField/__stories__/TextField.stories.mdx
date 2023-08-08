@@ -77,7 +77,7 @@ An input field includes a label and a text field users can type text into. They 
   <Story name="Test">
     {() => {
       const onChange = (value, event) => {
-        console.log("### onChange", value, event.target.value, event.target);
+        console.log(`value: ${value} || fromRef: ${event.target.value}`)
       };
       return (
         <div className="monday-storybook-text-field_column-wrapper">
