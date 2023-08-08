@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.20.0 (2023-08-08)
+
+#### New Features
+* [#1432](https://github.com/mondaycom/monday-ui-react-core/pull/1432) feat(Indicator): add new Indicator component to component library ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1466](https://github.com/mondaycom/monday-ui-react-core/pull/1466) chore(storybook): upgrade storybook to 6.5.10+ to enable interaction testing on Chromatic ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.19.2 (2023-08-07)
 
 #### Bug Fixes
