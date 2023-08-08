@@ -13,7 +13,7 @@ export enum BadgeAnchor {
 }
 
 export enum BadgeAlignments {
-  CORNER = "corner",
+  RECTANGULAR = "rectangular",
   OUTSIDE = "outside",
-  EMBEDDED = "embedded"
+  CIRCULAR = "circular"
 }

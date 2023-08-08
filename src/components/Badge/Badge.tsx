@@ -39,7 +39,7 @@ const Badge: VibeComponent<BadgeProps> & {
     {
       type = Badge.types.INDICATOR,
       anchor = Badge.anchors.TOP_END,
-      alignment = Badge.alignments.CORNER,
+      alignment = Badge.alignments.RECTANGULAR,
       className,
       id,
       "data-testid": dataTestId,

@@ -13,7 +13,7 @@ $embeddedPosition: 15%;
     @include theme-prop(border-color, primary-background-color);
 
     &.topEnd {
-      &.corner {
+      &.rectangular {
         top: 0;
         right: 0;
         translate: 50% -50%;
@@ -25,7 +25,7 @@ $embeddedPosition: 15%;
         translate: 100% -50%;
       }
 
-      &.embedded {
+      &.circular {
         top: $embeddedPosition;
         right: $embeddedPosition;
         translate: 50% -50%;
@@ -33,7 +33,7 @@ $embeddedPosition: 15%;
     }
 
     &.topStart {
-      &.corner {
+      &.rectangular {
         top: 0;
         left: 0;
         translate: -50% -50%;
@@ -45,7 +45,7 @@ $embeddedPosition: 15%;
         translate: -100% -50%;
       }
 
-      &.embedded {
+      &.circular {
         top: $embeddedPosition;
         left: $embeddedPosition;
         translate: -50% -50%;
@@ -53,7 +53,7 @@ $embeddedPosition: 15%;
     }
 
     &.bottomEnd {
-      &.corner {
+      &.rectangular {
         bottom: 0;
         right: 0;
         translate: 50% 50%;
@@ -65,7 +65,7 @@ $embeddedPosition: 15%;
         translate: 100% -50%;
       }
 
-      &.embedded {
+      &.circular {
         bottom: $embeddedPosition;
         right: $embeddedPosition;
         translate: 50% 50%;
@@ -73,7 +73,7 @@ $embeddedPosition: 15%;
     }
 
     &.bottomStart {
-      &.corner {
+      &.rectangular {
         bottom: 0;
         left: 0;
         translate: -50% 50%;
@@ -85,7 +85,7 @@ $embeddedPosition: 15%;
         translate: -100% -50%;
       }
 
-      &.embedded {
+      &.circular {
         bottom: $embeddedPosition;
         left: $embeddedPosition;
         translate: -50% 50%;

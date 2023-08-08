@@ -75,11 +75,11 @@ Badge can be of type Indicator or type Counter
 
 ### Button
 
-When using Badge on a Button element, use alignment of CORNER in order to attach it to the element
+When using Badge on a Button element, use alignment of RECTANGULAR in order to attach it to the element
 
 <Canvas>
   <Story name="Button">
-    <Badge alignment={Badge.alignments.CORNER}>
+    <Badge alignment={Badge.alignments.RECTANGULAR}>
       <Button leftIcon={ExternalPage}>Button</Button>
     </Badge>
   </Story>
@@ -87,11 +87,11 @@ When using Badge on a Button element, use alignment of CORNER in order to attach
 
 ### Avatar
 
-When using Badge on an Avatar element, use alignment of EMBEDDED in order to attach it to the element
+When using Badge on an Avatar element, use alignment of CIRCULAR in order to attach it to the element
 
 <Canvas>
   <Story name="Avatar">
-    <Badge alignment={Badge.alignments.EMBEDDED}>
+    <Badge alignment={Badge.alignments.CIRCULAR}>
       <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
     </Badge>
   </Story>
@@ -160,7 +160,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
     {
       positive: {
         component: (
-          <Badge alignment={Badge.alignments.EMBEDDED}>
+          <Badge alignment={Badge.alignments.CIRCULAR}>
             <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
           </Badge>
         ),
@@ -168,7 +168,7 @@ When using Badge on an inline element, use alignment of OUTSIDE in order to atta
       },
       negative: {
         component: (
-          <Badge alignment={Badge.alignments.EMBEDDED} anchor={Badge.anchors.TOP_START}>
+          <Badge alignment={Badge.alignments.CIRCULAR} anchor={Badge.anchors.TOP_START}>
             <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
           </Badge>
         ),

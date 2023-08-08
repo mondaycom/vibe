@@ -6,7 +6,7 @@ exports[`Badge renders at different position 1`] = `
 >
   Child
   <div
-    className="badge bottomStart corner"
+    className="badge bottomStart rectangular"
     data-testid="badge"
   >
     <div
@@ -40,7 +40,7 @@ exports[`Badge renders with Counter and counter props 1`] = `
 >
   Child
   <div
-    className="badge topEnd corner"
+    className="badge topEnd rectangular"
     data-testid="badge"
   >
     <span
@@ -70,7 +70,7 @@ exports[`Badge renders with different color 1`] = `
 >
   Child
   <div
-    className="badge topEnd corner"
+    className="badge topEnd rectangular"
     data-testid="badge"
   >
     <div
@@ -87,7 +87,7 @@ exports[`Badge renders with margins from component's bounds 1`] = `
 >
   Child
   <div
-    className="badge topEnd embedded"
+    className="badge topEnd circular"
     data-testid="badge"
   >
     <div
@@ -104,7 +104,7 @@ exports[`Badge renders with no props with default badge Indicator 1`] = `
 >
   Child
   <div
-    className="badge topEnd corner"
+    className="badge topEnd rectangular"
     data-testid="badge"
   >
     <div

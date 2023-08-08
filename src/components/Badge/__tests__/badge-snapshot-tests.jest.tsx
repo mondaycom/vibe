@@ -36,7 +36,7 @@ describe("Badge", () => {
   });
 
   it("renders with margins from component's bounds", () => {
-    const tree = renderer.create(<Badge alignment={Badge.alignments.EMBEDDED}>Child</Badge>).toJSON();
+    const tree = renderer.create(<Badge alignment={Badge.alignments.CIRCULAR}>Child</Badge>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
