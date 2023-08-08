@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.20.1 (2023-08-08)
+
+#### Bug Fixes
+* [#1467](https://github.com/mondaycom/monday-ui-react-core/pull/1467) Fix specificity issues in label and in typography in general ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.20.0 (2023-08-08)
 
 #### New Features
