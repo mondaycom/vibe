@@ -4,7 +4,7 @@ import { noop, debounce } from "lodash-es";
 export type UseDebounceResult = {
   inputValue: string;
   onEventChanged: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
-  clearValue: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
+  clearValue: () => void;
   updateValue: Dispatch<SetStateAction<string>>;
 };
 
@@ -14,7 +14,7 @@ export default function useDebounceEvent({
   initialStateValue = "",
   trim
 }: {
-  onChange: (value: string, event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
+  onChange: (value: string) => void;
   initialStateValue?: string;
   delay?: number;
   trim?: boolean;
@@ -43,20 +43,17 @@ export default function useDebounceEvent({
       const { value } = event.target;
       const finalValue = trim ? value.trim() : value;
       setValue(finalValue);
-      debounceCallback(finalValue, event);
+      debounceCallback(finalValue);
     },
     [debounceCallback, setValue, trim]
   );
 
-  const clearValue = useCallback(
-    (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
-      setValue("");
-      if (onChange) {
-        onChange("", event);
-      }
-    },
-    [setValue, onChange]
-  );
+  const clearValue = useCallback(() => {
+    setValue("");
+    if (onChange) {
+      onChange("");
+    }
+  }, [setValue, onChange]);
 
   if (initialStateValue !== previousValue.current && initialStateValue !== inputValue) {
     setValue(initialStateValue);
