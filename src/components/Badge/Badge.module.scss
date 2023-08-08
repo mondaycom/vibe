@@ -8,7 +8,7 @@ $embeddedPosition: 15%;
   .badge {
     z-index: 1;
     position: absolute;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 16px;
     @include theme-prop(border-color, primary-background-color);
 
