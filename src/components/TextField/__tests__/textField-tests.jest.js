@@ -13,9 +13,7 @@ describe("TextField tests", () => {
   beforeEach(() => {
     cleanup();
     ref = {};
-    onChangeStub = jest.fn((value, event) => {
-      event.persist();
-    });
+    onChangeStub = jest.fn();
     jest.useFakeTimers("modern");
     inputComponent = render(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />);
   });
