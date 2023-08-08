@@ -4,7 +4,7 @@ import { noop, debounce } from "lodash-es";
 export type UseDebounceResult = {
   inputValue: string;
   onEventChanged: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
-  clearValue: () => void;
+  clearValue: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
   updateValue: Dispatch<SetStateAction<string>>;
 };
 

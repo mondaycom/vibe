@@ -73,8 +73,11 @@ describe("useDebounceEvent", () => {
     it("should clear the value", () => {
       const { clearValue } = hookResult.result.current;
 
+      const syntheticChangeEvent = {
+        type: "change"
+      } as ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>;
       act(() => {
-        clearValue();
+        clearValue(syntheticChangeEvent);
       });
 
       expect(hookResult.result.current.inputValue).toEqual("");
