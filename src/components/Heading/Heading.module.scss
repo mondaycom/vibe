@@ -2,9 +2,6 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-@include create-title-classes;
-@include create-text-classes;
-
 .headingComponent {
   border: 1px solid transparent;
   border-radius: $border-radius-small;

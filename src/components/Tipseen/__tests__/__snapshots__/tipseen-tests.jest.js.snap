@@ -213,7 +213,7 @@ Array [
             </button>
           </div>
           <p
-            className="typography onPrimary start small normal tipseenContent"
+            className="typography onPrimary start smallNormal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -272,7 +272,7 @@ Array [
             className="tipseenHeader"
           />
           <p
-            className="typography onPrimary start small normal tipseenContent"
+            className="typography onPrimary start smallNormal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -331,7 +331,7 @@ Array [
             className="tipseenHeader"
           />
           <p
-            className="typography onPrimary start small normal tipseenContent"
+            className="typography onPrimary start smallNormal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -432,7 +432,7 @@ Array [
             </button>
           </div>
           <p
-            className="typography onPrimary start small normal tipseenContent"
+            className="typography onPrimary start smallNormal tipseenContent"
             data-testid="text"
           />
         </div>
