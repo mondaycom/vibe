@@ -8,8 +8,13 @@ import Modal from "../../../components/Modal/Modal";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
 import Button from "../../../components/Button/Button";
-import { Link } from "vibe-storybook-components";
+import { Link, RelatedComponents } from "vibe-storybook-components";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
+import {
+  DROPDOWN,
+  DIALOG_CONTENT_CONTAINER,
+  DIALOG
+} from "../../components/related-components/component-description-map";
 import styles from "./dropdown-in-modals.module.scss";
 
 <Meta title="Technical Patterns/Dropdowns inside pop-overs" />
@@ -24,7 +29,7 @@ import styles from "./dropdown-in-modals.module.scss";
 
 ## Problem description
 
-Our dropdowns are implemented using the React Select library.
+Our dropdowns are implemented using the <Link href="https://react-select.com/home">React Select</Link> library.
 One of the styling issues with React Select dropdowns is that the menu is not fully displayed when its container has `overflow: hidden`, `overflow: auto`, or `overflow: scroll`.
 As a result, when dropdown menus are placed inside a scrolling container or within a Vibe's dialog or modal, the dropdown menu appears damaged, as you can see in the following examples.
 
@@ -57,9 +62,9 @@ As a result, when dropdown menus are placed inside a scrolling container or with
 To address this problem, we need to adjust the styling of the dropdown menu to ensure it appears correctly even within these specific container.
 We implemented few methods for solving this issue.
 
-## 'insideOverflowContainer' prop
+## insideOverflowContainer prop
 
-To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can utilize our dropdown's 'insideOverflowContainer' prop.
+To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can utilize our dropdown's <code>insideOverflowContainer</code> prop.
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
 **This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work for Vibe's Dialog.**
 
@@ -103,9 +108,9 @@ overflow container has one parent or more with conflicting overflow definitions.
   </Story>
 </Canvas>
 
-## 'insideOverflowWithTransformContainer' prop
+## insideOverflowWithTransformContainer prop
 
-The 'insideOverflowContainer' prop will not function as expected for dropdowns displayed inside Vibe's dialog components.
+The <code>insideOverflowContainer</code> prop will not function as expected for dropdowns displayed inside Vibe's dialog components.
 The reason is that Vibe dialogs use CSS transform to position the dialog next to the attached element.
 For this specific case, use the 'insideOverflowWithTransformContainer' prop to ensure proper display and functionality.
 
@@ -147,9 +152,9 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
   </Story>
 </Canvas>
 
-## 'popupsContainerSelector' prop
+## popupsContainerSelector prop
 
-For the most complex use cases, you can utilize our dropdown's "popupsContainerSelector" prop.
+For the most complex use cases, you can utilize our dropdown's <code>popupsContainerSelector</code> prop.
 This prop allows you to render all the dropdown's popovers in a different node in the DOM, as specified by the provided selector.
 
 To implement this solution and ensure proper display of all dropdown popovers, you need to define a few styles for the container selector, as shown in the following code example:
@@ -245,3 +250,5 @@ If you have defined the dropdown's popovers container styles as required, you ca
   </Modal>
 </div>
 ```
+
+<RelatedComponents componentsNames={[DIALOG, DROPDOWN, DIALOG_CONTENT_CONTAINER]} />

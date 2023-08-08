@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
-import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import { ComponentRules, UsageGuidelines, Link } from "vibe-storybook-components";
 import ModalContent from "../ModalContent/ModalContent";
 import Dropdown from "../../Dropdown/Dropdown";
 import ModalFooter from "../ModalFooter/ModalFooter";
@@ -15,7 +15,8 @@ import Settings from "../../../components/Icon/Icons/components/Settings";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
 import { Button, Flex, EditableHeading } from "../../../components";
-import { Link } from "vibe-storybook-components";
+import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
+import { Upgrade } from "../../Icon/Icons";
 import "./Modal.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -34,11 +35,13 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   // This method is not part of our external API and not required for creating functional modal component
   const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
   return (
-    <div className="modalmodal">
+    <div>
       {openModalButton}
       <Modal
         id={"story-book-modal"}
         title={"Modal title"}
+        description="Subtitle description text goes here"
+        contentSpacing
         triggerElement={openModalButtonRef.current}
         // is modal show or hidden
         show={show}
@@ -49,14 +52,12 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
         <ModalContent>
           <p>Modal content goes here</p>
         </ModalContent>
-        <ModalFooter>
-          <Flex justify={Flex.justify.END} gap={12}>
-            <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-              Cancel
-            </Button>
-            <Button onClick={closeModal}>Confirm</Button>
-          </Flex>
-        </ModalFooter>
+        <ModalFooterButtons
+          primaryButtonText="Confirm"
+          secondaryButtonText="Cancel"
+          onPrimaryButtonClick={closeModal}
+          onSecondaryButtonClick={closeModal}
+        />
       </Modal>
     </div>
   );
@@ -112,7 +113,10 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
   not by ESC or by clicking outside.
 </Tip>
 <Tip>
-  For creating e a popover positioned next to other components, like customized menus, check out our Dialog component.
+  For creating a popover positioned next to other components, like customized menus, check out our
+  <Link hredf="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL}>
+    Dialog
+  </Link> component.
 </Tip>
 
 ## Variants
@@ -146,36 +150,27 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
         useHelperOpenModalButton({ title: "Default", setShow, openModalButtonRef }); // internal helper, not part of the API
       return (
         // Modal with default width variant
-        <div className="check">
-          <div id="checkit" />
+        <>
           {openModalButton}
           <Modal
             id="story-book-modal"
-            title="Modal titl11e"
+            title="Modal title"
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
             // Width prop effects on the modal width
             width={Modal.width.DEFAULT}
+            contentSpacing
           >
-            <ModalContent id="modala">
-              <Dropdown
-                multi
-                defaultValue={[options[0], options[1]]}
-                options={options}
-                popupsContainerSelector={"#checkit"}
-              />
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
-        </div>
+        </>
       );
     }}
   </Story>
@@ -201,18 +196,15 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             onClose={closeModal}
             // Width prop effects on the modal width
             width={Modal.width.FULL_WIDTH}
+            contentSpacing
           >
-            <ModalContent>
-              <p>Modal content goes here</p>
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </>
       );
@@ -240,18 +232,15 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             onClose={closeModal}
             // Width prop effects on the modal width
             width={"720px"}
+            contentSpacing
           >
-            <ModalContent>
-              <p>Modal content goes here</p>
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </>
       );
@@ -290,20 +279,17 @@ Use the ModalHeader component to display a Header with an icon
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
             width={Modal.width.DEFAULT}
+            contentSpacing
           >
             {/** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/}
-            <ModalHeader title={"Modal Title"} icon={Settings} />
-            <ModalContent>
-              <p>Modal content goes here</p>
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalHeader title={"Modal Title"} icon={Upgrade} iconSize={32} />
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
@@ -342,18 +328,15 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
+            contentSpacing
           >
-            <ModalContent>
-              <p>Modal content goes here</p>
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
@@ -369,25 +352,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
       positive: {
         component: (
           <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
-            <p>Modal with a proper CTA example</p>
-          </ModalExampleWrapper>
-        ),
-        description: "Allow the user to easily close the modal by CTA and a close button."
-      },
-      negative: {
-        component: (
-          <ModalExampleWrapper bestPractice={false} hideCloseButton modalTitle="Modal title" buttonTitle="Click here">
-            <p>Modal without close button</p>
-          </ModalExampleWrapper>
-        ),
-        description: "Don't implement a modal without a close button or cancel button."
-      }
-    },
-    {
-      positive: {
-        component: (
-          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
-            <p>Modal content</p>
+            Modal content
           </ModalExampleWrapper>
         ),
         description: "Modal must include backdrop element."
@@ -400,11 +365,11 @@ clicking outside. Use this variant in case of sensitive or important messages, a
   ]}
 />
 
-<Tip title="Devs tip">
+<Tip title="Dev tip">
   If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
   correctly, read more about our dropdown in popovers technical pattern
   <Link
-    href="?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
+    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
     size={Link.sizes.SMALL}
   >
     here
@@ -426,7 +391,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
       }, []);
       const openModalButton = // Internal helper, not part of the API
         useHelperOpenModalButton({
-          title: "Modal with editable title",
+          title: "Open modal",
           setShow,
           openModalButtonRef
         });
@@ -441,23 +406,20 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
             width={Modal.width.DEFAULT}
+            contentSpacing
           >
             {/** Please follow the design guidelines when implementing custom title **/}
             <ModalHeader
               description={"Description text goes here"}
               title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />}
             />
-            <ModalContent>
-              <p>Modal content goes here</p>
-            </ModalContent>
-            <ModalFooter>
-              <Flex justify={Flex.justify.END} gap={12}>
-                <Button onClick={closeModal} kind={Button.kinds.TERTIARY}>
-                  Cancel
-                </Button>
-                <Button onClick={closeModal}>Confirm</Button>
-              </Flex>
-            </ModalFooter>
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooterButtons
+              primaryButtonText="Confirm"
+              secondaryButtonText="Cancel"
+              onPrimaryButtonClick={closeModal}
+              onSecondaryButtonClick={closeModal}
+            />
           </Modal>
         </div>
       );
