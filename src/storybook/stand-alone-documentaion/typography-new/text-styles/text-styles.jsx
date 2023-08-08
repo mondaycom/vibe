@@ -1,8 +1,6 @@
-import cx from "classnames";
 import { VisualDescription, Frame } from "vibe-storybook-components";
 import styles from "./text-styles.module.scss";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
 
 export const TextStyles = () => {
   return (
@@ -14,7 +12,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h1-bold"))}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Bold")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
@@ -23,7 +21,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h1-normal"))}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Normal")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
@@ -32,7 +30,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h1-light"))}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Light")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -41,7 +39,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h2-bold"))}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Bold")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -50,7 +48,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h2-normal"))}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Normal")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -59,7 +57,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={getStyle(styles, camelCase("h2-light"))}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Light")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -68,7 +66,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={getStyle(styles, camelCase("h3-bold"))}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Bold")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -77,7 +75,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={getStyle(styles, camelCase("h3-normal"))}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Normal")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -86,7 +84,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={getStyle(styles, camelCase("h3-light"))}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Light")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -95,7 +93,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={getStyle(styles, camelCase("medium-bold"))}>{`Text`}</span>
+        <span className={getStyle(styles, "mediumBold")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -104,7 +102,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={getStyle(styles, camelCase("medium-normal"))}>{`Text`}</span>
+        <span className={getStyle(styles, "mediumNormal")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -113,7 +111,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={getStyle(styles, camelCase("small-bold"))}>{`Text`}</span>
+        <span className={getStyle(styles, "smallBold")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -122,7 +120,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={getStyle(styles, camelCase("small-normal"))}>{`Text`}</span>
+        <span className={getStyle(styles, "smallNormal")}>{`Text`}</span>
       </VisualDescription>
     </Frame>
   );
