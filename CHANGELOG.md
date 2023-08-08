@@ -1,5 +1,58 @@
 # Changelog
 
+## 2.19.2 (2023-08-07)
+
+#### Bug Fixes
+* [#1464](https://github.com/mondaycom/monday-ui-react-core/pull/1464) fix version number as css selector ([@hadasfa](https://github.com/hadasfa))
+
+## 2.19.1 (2023-08-07)
+
+#### Bug Fixes
+* [#1463](https://github.com/mondaycom/monday-ui-react-core/pull/1463) Add version to class ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1434](https://github.com/mondaycom/monday-ui-react-core/pull/1434) fix(AttentionBox): general improvements + allow ellipsis for overflowin attention box ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1392](https://github.com/mondaycom/monday-ui-react-core/pull/1392) chore: fail chromatic action check in case has visual changes ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.19.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1459](https://github.com/mondaycom/monday-ui-react-core/pull/1459) fix: storybookComponents export - include styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1452](https://github.com/mondaycom/monday-ui-react-core/pull/1452) feat(Modal): css changes, add new footer layout ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.18.1 (2023-08-03)
+
+#### Bug Fixes
+* [#1458](https://github.com/mondaycom/monday-ui-react-core/pull/1458) package.json fix types exports for icons and root ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.18.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1456](https://github.com/mondaycom/monday-ui-react-core/pull/1456) Change vibe version number manually ([@hadasfa](https://github.com/hadasfa))
+* [#1453](https://github.com/mondaycom/monday-ui-react-core/pull/1453) Fix letter spacing in legacy heading (temp until we will able to fix in monday ui style) ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1457](https://github.com/mondaycom/monday-ui-react-core/pull/1457) last manually change for update vibe version? ([@hadasfa](https://github.com/hadasfa))
+* [#1455](https://github.com/mondaycom/monday-ui-react-core/pull/1455) Update vibe version number manually  ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1454](https://github.com/mondaycom/monday-ui-react-core/pull/1454) docs: fix Shadows page usage and examples ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.17.5 (2023-08-01)
+
+#### Documentation
+* [#1451](https://github.com/mondaycom/monday-ui-react-core/pull/1451) Sergeyro/fix/update vibe storybook components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1450](https://github.com/mondaycom/monday-ui-react-core/pull/1450) chore: prevent from style injection to explode in server side rendering ([@shlomitc](https://github.com/shlomitc))
+
+## 2.17.4 (2023-08-01)
+
+#### Bug Fixes
+* [#1449](https://github.com/mondaycom/monday-ui-react-core/pull/1449) Fix/hadas/log fix ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.17.3 (2023-08-01)
 
 #### Bug Fixes
