@@ -72,7 +72,7 @@
 }
 
 .kindLine.colorPrimary {
-  @include theme-prop(color, primary-color, true);
+  @include theme-prop(color, primary-color);
 }
 
 .kindLine.colorPrimary svg path {
@@ -80,7 +80,7 @@
 }
 
 .kindLine.colorDark {
-  @include theme-prop(color, inverted-color-background, true);
+  @include theme-prop(color, inverted-color-background);
 }
 
 .kindLine.colorDark svg path {
@@ -88,7 +88,7 @@
 }
 
 .kindLine.colorNegative {
-  @include theme-prop(color, negative-color, true);
+  @include theme-prop(color, negative-color);
 }
 
 .kindLine.colorNegative svg path {
@@ -96,7 +96,7 @@
 }
 
 .kindLine.colorPositive {
-  @include theme-prop(color, positive-color, true);
+  @include theme-prop(color, positive-color);
 }
 
 .kindLine.colorPositive svg path {
