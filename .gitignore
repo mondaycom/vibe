@@ -4,3 +4,5 @@ npm-debug.log
 dist
 .sass-cache
 .DS_Store
+storybook-static
+build-storybook.log

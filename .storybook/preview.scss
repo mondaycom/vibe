@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow: auto;
+}
+
+#storybook-root {
+  height: 100%;
+  padding: 1rem;
+}
