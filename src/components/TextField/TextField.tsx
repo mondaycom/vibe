@@ -165,7 +165,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         clearValue();
       }
       onIconClick(currentStateIconName);
-    }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, clearValue]);
+    }, [inputRef, disabled, clearOnIconClick, onIconClick, currentStateIconName, clearValue]);
 
     const validationClass = useMemo(() => {
       if (!validation || !validation.status) {
