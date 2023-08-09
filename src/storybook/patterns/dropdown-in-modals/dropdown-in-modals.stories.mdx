@@ -64,7 +64,7 @@ We implemented few methods for solving this issue.
 
 ## insideOverflowContainer prop
 
-To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can utilize our dropdown's <code>insideOverflowContainer</code> prop.
+To handle straightforward scenarios of displaying dropdowns inside a container with **relevant overflow styles**, you can utilize our dropdown's <code>insideOverflowContainer</code> prop.
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
 **This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work for Vibe's Dialog.**
 
@@ -156,7 +156,7 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
 
 For the most complex use cases, you can utilize our dropdown's <code>popupsContainerSelector</code> prop.
 This prop allows you to render all the dropdown's popovers in a different node in the DOM, as specified by the provided selector.
-
+This prop will solve all the issues described before and also allow you to control under which DOM element other dropdown containers will render.
 To implement this solution and ensure proper display of all dropdown popovers, you need to define a few styles for the container selector, as shown in the following code example:
 
 ```css
