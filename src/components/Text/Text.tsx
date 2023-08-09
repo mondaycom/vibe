@@ -1,5 +1,7 @@
 import React, { forwardRef, ReactNode } from "react";
 import cx from "classnames";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponent from "../../types/VibeComponent";
 import { TextType, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
@@ -26,7 +28,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
     return (
       <Typography
         ref={ref}
-        className={cx(styles[type], styles[weight], className)}
+        className={cx(getStyle(styles, camelCase(type + "-" + weight)), className)}
         ellipsis={overrideEllipsis}
         element={overrideElement}
         {...typographyProps}

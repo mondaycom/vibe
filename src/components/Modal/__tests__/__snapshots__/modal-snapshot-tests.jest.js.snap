@@ -34,7 +34,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h1
-+           class="typography primary start multiLineEllipsis heading h1 normal"
++           class="typography primary start multiLineEllipsis heading h1Normal"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 2;"
 +         >
@@ -99,7 +99,7 @@ Snapshot Diff:
 +         class="container"
 +       >
 +         <h1
-+           class="typography primary start multiLineEllipsis heading h1 normal"
++           class="typography primary start multiLineEllipsis heading h1Normal"
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 2;"
 +         >
@@ -142,7 +142,7 @@ Snapshot Diff:
 +         </div>
 +       </div>
 +       <div
-+         class="typography primary start text1 normal container"
++         class="typography primary start mediumNormal container"
 +         data-testid="modal-content"
 +         style="--text-clamp-lines: 1;"
 +       >
@@ -185,7 +185,7 @@ exports[`Modal with base props 1`] = `
       class="container"
     >
       <h1
-        class="typography primary start multiLineEllipsis heading h1 normal"
+        class="typography primary start multiLineEllipsis heading h1Normal"
         data-testid="modal-header_modal-id-title"
         id="modal-id-title"
         style="--text-clamp-lines: 2;"
@@ -229,7 +229,7 @@ exports[`Modal with base props 1`] = `
       </div>
     </div>
     <div
-      class="typography primary start text1 normal container"
+      class="typography primary start mediumNormal container"
       data-testid="modal-content"
       style="--text-clamp-lines: 1;"
     >
@@ -314,7 +314,7 @@ Snapshot Diff:
           Modal Title
         </h1>
         <div
-+         class="typography primary start multiLineEllipsis text2 normal description"
++         class="typography primary start multiLineEllipsis smallNormal description"
 +         data-testid="text"
 +         style="--text-clamp-lines: 2;"
 +       >

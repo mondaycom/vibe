@@ -3,6 +3,7 @@ import { ButtonGroupDescription } from "./descriptions/button-group-description"
 import { CheckboxDescription } from "./descriptions/checkbox-description";
 import { RadioButtonDescription } from "./descriptions/radio-button-description";
 import { LabelDescription } from "./descriptions/label-description";
+import { LinkDescription } from "./descriptions/link-description";
 import { CounterDescription } from "./descriptions/counter-description";
 import { ChipsDescription } from "./descriptions/chips-description";
 import { TooltipDescription } from "./descriptions/tooltip-description";
@@ -45,6 +46,7 @@ import { DialogContentContainerDescription } from "./descriptions/dialog-content
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
 export const LABEL = "label";
+export const LINK = "link";
 export const CHECKBOX = "checkbox";
 export const RADIO_BUTTON = "radio-button";
 export const COUNTER = "counter";
@@ -93,6 +95,7 @@ export const descriptionComponentsMap = new Map();
 descriptionComponentsMap.set(SPLIT_BUTTON, <SplitButtonDescription />);
 descriptionComponentsMap.set(BUTTON_GROUP, <ButtonGroupDescription />);
 descriptionComponentsMap.set(LABEL, <LabelDescription />);
+descriptionComponentsMap.set(LINK, <LinkDescription />);
 descriptionComponentsMap.set(CHECKBOX, <CheckboxDescription />);
 descriptionComponentsMap.set(RADIO_BUTTON, <RadioButtonDescription />);
 descriptionComponentsMap.set(COUNTER, <CounterDescription />);
