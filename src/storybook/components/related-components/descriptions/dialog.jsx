@@ -6,9 +6,7 @@ export const DialogDescription = () => {
   const component = useMemo(() => {
     return (
       <div style={{ width: "200px" }}>
-        <DialogContentContainer>
-          <p>Dialog component content</p>
-        </DialogContentContainer>
+        <DialogContentContainer />
       </div>
     );
   }, []);
