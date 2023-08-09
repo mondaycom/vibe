@@ -5,6 +5,7 @@ import TipseenContent from "../TipseenContent";
 import Tipseen from "../Tipseen";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 import renderer from "react-test-renderer";
+import TipseenTitle from "../TipseenTitle";
 
 jest.mock("react-transition-group", () => {
   const FakeTransition = jest.fn(({ children }) => children);
@@ -22,6 +23,18 @@ jest.useFakeTimers();
 const tipseenMockChildren = <div className="monday-storybook-tipseen_container" />;
 
 describe("Snapshot tests", () => {
+  describe("TipseenTitle", () => {
+    it("should render null without text", () => {
+      const tree = renderer.create(<TipseenTitle />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("should render correctly with given text", () => {
+      const tree = renderer.create(<TipseenTitle text="I'm a title" />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+
   describe("Tipseen content tests", () => {
     it("renders correctly without props", () => {
       const tree = renderer.create(<TipseenContent />).toJSON();
