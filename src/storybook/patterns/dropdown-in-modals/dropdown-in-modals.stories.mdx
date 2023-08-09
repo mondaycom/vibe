@@ -7,7 +7,7 @@ import Modal from "../../../components/Modal/Modal";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
 import Button from "../../../components/Button/Button";
-import { RelatedComponents } from "vibe-storybook-components";
+import { RelatedComponents, Link } from "vibe-storybook-components";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import {
   DROPDOWN,
@@ -27,7 +27,7 @@ import {
 
 ## Problem description
 
-Our dropdowns are implemented using the <Link href="https://react-select.com/home">React Select</Link> library.
+Our dropdowns are implemented using the <Link href="https://react-select.com/home" withoutSpacing>React Select</Link> library.
 One of the styling issues with React Select dropdowns is that the menu is not fully displayed when its container has `overflow: hidden`, `overflow: auto`, or `overflow: scroll`.
 As a result, when dropdown menus are placed inside a scrolling container or within a Vibe's dialog or modal, the dropdown menu appears damaged, as you can see in the following examples.
 
