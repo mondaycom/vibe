@@ -329,7 +329,6 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  display: block;
   background: url("./assets/Calendar.svg") no-repeat;
 }
 
