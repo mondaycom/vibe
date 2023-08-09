@@ -93,7 +93,7 @@ overflow container has one parent or more with conflicting overflow definitions.
             <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
           </DialogContentContainer>
           <div>
-            <Button onClick={() => setShow(true)}>Open modal</Button>;
+            <Button onClick={() => setShow(true)}>Open modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
                 <Dropdown options={options} insideOverflowContainer />
@@ -192,7 +192,7 @@ If you have defined the dropdown's popovers container styles as required, you ca
     }}
     className={styles.pointerEventsAutoToAllChildren}
   />
-  <OpenModalButton setShow={setShow} />
+  <Button onClick={() => setShow(true)}>Open modal</Button>
   <Modal id="modal-with-multiple-choice" title="Modal with dropdown" show={show} onClose={closeModal}>
     <ModalContent>
       <Dropdown multi options={options} popupsContainerSelector="#popovers-container" />
