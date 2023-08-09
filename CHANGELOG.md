@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.21.0 (2023-08-09)
+
+#### Bug Fixes
+* [#1468](https://github.com/mondaycom/monday-ui-react-core/pull/1468) fix: <TextField> replace icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1469](https://github.com/mondaycom/monday-ui-react-core/pull/1469) feat(Tipseen): allow tipseen title to have max 2 lines ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1465](https://github.com/mondaycom/monday-ui-react-core/pull/1465) feat: <TextField/> add event as a param to onChange callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.20.1 (2023-08-08)
 
 #### Bug Fixes
