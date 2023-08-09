@@ -71,25 +71,6 @@ An input field includes a label and a text field users can type text into. They 
   ]}
 />
 
-### Test
-
-<Canvas>
-  <Story name="Test">
-    {() => {
-      const onChange = (value, event) => {
-        console.log(`value: ${value} || fromRef: ${event.target.value}`)
-      };
-      return (
-        <div className="monday-storybook-text-field_column-wrapper">
-          <TextField iconName={Clear} clearOnIconClick onChange={onChange} placeholder="Small" name="small" />
-          <TextField onChange={onChange}  placeholder="Medium" name="medium" size={TextField.sizes.MEDIUM} />
-          <TextField onChange={onChange}  placeholder="Large" name="large" size={TextField.sizes.LARGE} />
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ## Variants
 
 ### Sizes
