@@ -1,21 +1,19 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback, useState, useMemo, useRef } from "react";
 import { ComponentNameDecorator } from "../../components";
-import { OpenModalButton } from "./helpers";
 import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import Modal from "../../../components/Modal/Modal";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
 import Button from "../../../components/Button/Button";
-import { Link, RelatedComponents } from "vibe-storybook-components";
+import { RelatedComponents } from "vibe-storybook-components";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import {
   DROPDOWN,
   DIALOG_CONTENT_CONTAINER,
   DIALOG
 } from "../../components/related-components/component-description-map";
-import styles from "./dropdown-in-modals.module.scss";
 
 <Meta title="Technical Patterns/Dropdowns inside pop-overs" />
 
@@ -47,7 +45,7 @@ As a result, when dropdown menus are placed inside a scrolling container or with
       ];
       return (
         <div>
-          <OpenModalButton setShow={setShow} />
+          <Button onClick={() => setShow(true)}>Open modal</Button>
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
               <Dropdown options={options} />
@@ -95,7 +93,7 @@ overflow container has one parent or more with conflicting overflow definitions.
             <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
           </DialogContentContainer>
           <div>
-            <OpenModalButton setShow={setShow} />
+            <Button onClick={() => setShow(true)}>Open modal</Button>;
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
                 <Dropdown options={options} insideOverflowContainer />
