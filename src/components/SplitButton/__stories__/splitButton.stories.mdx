@@ -1,8 +1,21 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
-import { Add, Announcement, Check, Download, Filter, Group, Print, Search, Sort, Upload } from "../../Icon/Icons";
+import {
+  Add,
+  Announcement,
+  Check,
+  Download,
+  Favorite,
+  Filter,
+  Group,
+  Moon,
+  Print,
+  Search,
+  Sort,
+  Sun,
+  Upload
+} from "../../Icon/Icons";
 import { BUTTON, BUTTON_GROUP, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { Tip, createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -10,6 +23,8 @@ import { Link, UsageGuidelines, createComponentTemplate } from "vibe-storybook-c
 import "./splitButton.stories.scss";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
+import Menu from "../../Menu/Menu/Menu";
+import MenuTitle from "../../Menu/MenuTitle/MenuTitle";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
@@ -341,6 +356,29 @@ When there’s already a primary button in the view, use a secondary split butto
       />
       <Button>New item</Button>
     </>
+  </Story>
+</Canvas>
+
+### Custom menu
+
+The split button can accept a custom Menu in case there's a need to override the default behavior.
+
+Notice to always include `focusItemIndexOnMount` prop for accessibility reasons when using custom menus.
+
+<Canvas>
+  <Story name="Custom menu">
+    <SplitButton
+      secondaryDialogContent={
+        <Menu focusItemIndexOnMount={2} id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
+          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
+          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        </Menu>
+      }
+    >
+      Custom menu
+    </SplitButton>
   </Story>
 </Canvas>
 
