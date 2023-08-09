@@ -1,3 +1,7 @@
+0.1.178 / 2023-08-06
+====================
+  * fix letter spacing ([#227](https://github.com/mondaycom/monday-ui-style/issues/227))
+
 0.1.177 / 2023-07-26
 ====================
   * Breaking changes for heading and text ([#219](https://github.com/mondaycom/monday-ui-style/issues/219))
@@ -307,10 +311,6 @@
   * launch icon fill to currentColor ([#161](https://github.com/mondaycom/monday-ui-style/issues/161))
 
 0.1.131 / 2022-07-20
-====================
-  * upload fixed launch icon ([#160](https://github.com/mondaycom/monday-ui-style/issues/160))
-
-0.1.130 / 2022-07-19
 ====================
 
   * version bump
