@@ -11,6 +11,7 @@ import React, {
   useState
 } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -86,24 +87,33 @@ const List: FC<ListProps> = forwardRef(
 
     const onKeyDown = useCallback(
       (event: KeyboardEvent) => {
-        const isUpKey = event.keyCode === keyCodes.UP_ARROW;
-        const isDownKey = event.keyCode === keyCodes.DOWN_ARROW;
+        if (renderOnlyVisibleItems) {
+          return;
+        }
+
+        const isUpKey = event.key === keyCodes.UP_ARROW;
+        const isDownKey = event.key === keyCodes.DOWN_ARROW;
         let overrideFocusIndex = undefined;
-        if (isUpKey || isDownKey) {
-          if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
-            overrideFocusIndex = focusIndex + 1;
-          } else if (isUpKey && focusIndex > 0) {
-            overrideFocusIndex = focusIndex - 1;
-          }
-          event.preventDefault();
-          if (overrideFocusIndex !== undefined) {
-            updateFocusedItem(overrideFocusIndex);
-            childrenRefs.current[overrideFocusIndex].focus();
-          }
+
+        if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
+          overrideFocusIndex = focusIndex + 1;
+        } else if (isUpKey && focusIndex > 0) {
+          overrideFocusIndex = focusIndex - 1;
+        }
+        if (overrideFocusIndex !== undefined) {
+          updateFocusedItem(overrideFocusIndex);
+          childrenRefs.current[overrideFocusIndex].focus();
         }
       },
-      [focusIndex, updateFocusedItem]
+      [focusIndex, renderOnlyVisibleItems, updateFocusedItem]
     );
+
+    useKeyEvent({
+      keys: [keyCodes.UP_ARROW, keyCodes.DOWN_ARROW],
+      callback: onKeyDown,
+      ref: componentRef,
+      preventDefault: true
+    });
 
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
@@ -136,7 +146,6 @@ const List: FC<ListProps> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
         ref={mergedRef}
         style={style}
-        onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
         className={cx(styles.list, className)}
         id={id}
         aria-label={ariaLabel}
