@@ -1,23 +1,28 @@
 import cx from "classnames";
-import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { CSSProperties, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
-import { ListWrapperComponentType } from "./ListConstants";
+import { ListWrapperComponentStringType, ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
-import { generateListId, getListItemIdByIndex, getListItemIndexById } from "./utils/ListUtils";
+import {
+  generateListId,
+  getListItemComponentType,
+  getListItemIdByIndex,
+  getListItemIndexById
+} from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
-  component?: ListWrapperComponentType;
+  component?: ListWrapperComponentType | ListWrapperComponentStringType;
   /**
    * ARIA label string to describe to list
    */
@@ -34,12 +39,14 @@ export interface ListProps extends VibeComponentProps {
   style?: CSSProperties;
 }
 
-const List: FC<ListProps> = forwardRef(
+const List: VibeComponent<ListProps> & {
+  components?: typeof ListWrapperComponentType;
+} = forwardRef(
   (
     {
       className,
       id,
-      component = "ul",
+      component = List.components.UL,
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -107,13 +114,14 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            id
+            id,
+            component: getListItemComponentType(component)
           });
         });
       }
 
       return override;
-    }, [children, focusIndex, overrideId, renderOnlyVisibleItems]);
+    }, [children, component, focusIndex, overrideId, renderOnlyVisibleItems]);
 
     return (
       <ListContext.Provider value={{ updateFocusedItem }}>
@@ -136,4 +144,6 @@ const List: FC<ListProps> = forwardRef(
   }
 );
 
-export default List;
+export default withStaticProps(List, {
+  components: ListWrapperComponentType
+});
