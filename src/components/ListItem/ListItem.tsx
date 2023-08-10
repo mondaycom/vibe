@@ -124,7 +124,6 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
             [styles.disabled]: disabled
           })}
           id={id}
-          key={id}
           size="small"
           aria-disabled={disabled}
           aria-selected={selected}
