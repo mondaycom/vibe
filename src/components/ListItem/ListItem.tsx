@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
+import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
+import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
 import Text from "../Text/Text";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import { SIZES } from "../../constants/sizes";
-import { keyCodes } from "../../constants/keyCodes";
+import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
-import { camelCase } from "lodash-es";
 import { withStaticProps, VibeComponentProps } from "../../types";
-import { usePrevious } from "../../hooks";
+import { useKeyEvent, useMergeRefs } from "../../hooks";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
@@ -62,9 +60,8 @@ export interface ListItemProps extends VibeComponentProps {
   /**
    * A callback function which is being called when the item is being focused: by keyboard navigation or by mouse hover
    * @param ListItem index
-   * @param shouldChangeFocusIndex - should change the keyboard-focus index in the list
    */
-  updateFocusedItem?: (index: number, shouldChangeFocusIndex?: boolean) => void;
+  updateFocusedItem?: (index: number) => void;
   /**
    * The id of the list which the item belongs to
    */
@@ -97,43 +94,33 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     const overrideId = id || `${listId}-item-${index}`;
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const prevSelected = usePrevious(selected);
 
     useEffect(() => {
       if (selected) {
         updateFocusedItem?.(index);
       }
-      if (prevSelected && !selected) {
-        updateFocusedItem?.(null);
-      }
-    }, [updateFocusedItem, selected, prevSelected, index]);
+    }, [updateFocusedItem, selected, index]);
 
     const componentOnClick = useCallback(
-      (event: React.MouseEvent) => {
+      (event: React.MouseEvent | React.KeyboardEvent) => {
         if (disabled) return;
         onClick(event, overrideId);
       },
       [disabled, onClick, overrideId]
     );
 
-    const onKeyDown = useCallback(
-      (event: React.KeyboardEvent) => {
-        if (disabled) return;
-        const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
-        if (KEYS.includes(event.key)) {
-          onClick(event, overrideId);
-        }
-      },
-      [disabled, onClick, overrideId]
-    );
+    useKeyEvent({
+      keys: SELECTION_KEYS,
+      ref: componentRef,
+      callback: componentOnClick
+    });
 
     const componentOnHover = useCallback(
       (event: React.MouseEvent | React.FocusEvent) => {
         if (disabled) return;
         onHover(event, overrideId);
-        updateFocusedItem?.(index, false);
       },
-      [disabled, index, onHover, overrideId, updateFocusedItem]
+      [disabled, onHover, overrideId]
     );
 
     return (
@@ -151,7 +138,6 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
         aria-disabled={disabled}
         aria-selected={selected}
         onClick={componentOnClick}
-        onKeyDown={onKeyDown}
         onMouseEnter={componentOnHover}
         onFocus={componentOnHover}
         role="option"

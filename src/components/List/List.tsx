@@ -13,7 +13,7 @@ import React, {
 import useMergeRefs from "../../hooks/useMergeRefs";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
-import { keyCodes } from "../../constants/keyCodes";
+import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
@@ -73,23 +73,17 @@ const List: FC<ListProps> = forwardRef(
       return childrenRefs.current[index]?.id;
     };
 
-    const updateFocusedItem = useCallback((index: number, shouldChangeFocusIndex = true) => {
-      if (shouldChangeFocusIndex) {
-        setFocusIndex(index ?? 0);
-      }
-
-      if (index !== null) {
-        componentRef?.current?.setAttribute("aria-activedescendant", getListItemIdByIndex(index));
-      } else {
-        componentRef?.current?.removeAttribute("aria-activedescendant");
-      }
+    const updateFocusedItem = useCallback((index: number) => {
+      setFocusIndex(index);
+      componentRef?.current?.setAttribute("aria-activedescendant", getListItemIdByIndex(index));
     }, []);
 
-    const onKeyDown = useCallback(
+    const onUpDownArrows = useCallback(
       (event: KeyboardEvent) => {
         if (renderOnlyVisibleItems) {
           return;
         }
+        event.preventDefault();
 
         const isUpKey = event.key === keyCodes.UP_ARROW;
         const isDownKey = event.key === keyCodes.DOWN_ARROW;
@@ -109,10 +103,9 @@ const List: FC<ListProps> = forwardRef(
     );
 
     useKeyEvent({
-      keys: [keyCodes.UP_ARROW, keyCodes.DOWN_ARROW],
-      callback: onKeyDown,
-      ref: componentRef,
-      preventDefault: true
+      keys: UP_DOWN_ARROWS,
+      callback: onUpDownArrows,
+      ref: componentRef
     });
 
     const overrideChildren = useMemo(() => {
