@@ -10,4 +10,4 @@ export const keyCodes = {
 };
 
 export const SELECTION_KEYS = [keyCodes.ENTER, keyCodes.SPACE];
-export const ESCAPE_KEYS = ["Esc", "Escape"];
+export const UP_DOWN_ARROWS = [keyCodes.UP_ARROW, keyCodes.DOWN_ARROW];
