@@ -19,7 +19,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
+  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline, popupsContainerSelector } =
+    customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
@@ -116,6 +117,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
+              containerSelector={popupsContainerSelector}
               tooltip
               showTrigger={Dialog.hideShowTriggers.CLICK}
               hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
