@@ -58,10 +58,6 @@ export interface ListItemProps extends VibeComponentProps {
    */
   tabIndex?: number;
   "data-testid"?: string;
-  /**
-   * The index of the item in the list
-   */
-  index?: number;
 }
 
 const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
@@ -76,7 +72,6 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       size = SIZES.SMALL,
       tabIndex = 0,
       children,
-      index,
       "data-testid": dataTestId
     },
     ref
@@ -87,9 +82,9 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
 
     useEffect(() => {
       if (selected) {
-        updateFocusedItem?.(index);
+        updateFocusedItem?.(id);
       }
-    }, [selected, index, updateFocusedItem]);
+    }, [selected, id, updateFocusedItem]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent | React.KeyboardEvent) => {

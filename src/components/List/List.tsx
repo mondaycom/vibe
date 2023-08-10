@@ -10,6 +10,7 @@ import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { generateListId, ListContext } from "./utils/ListContext";
+import { getListItemIdByIndex, getListItemIndexById } from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
@@ -53,15 +54,11 @@ const List: FC<ListProps> = forwardRef(
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
-    const childrenRefs = useRef([]);
+    const childrenRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
 
-    const getListItemIdByIndex = (index: number) => {
-      return childrenRefs.current[index]?.id;
-    };
-
-    const updateFocusedItem = useCallback((index: number) => {
-      setFocusIndex(index);
-      componentRef?.current?.setAttribute("aria-activedescendant", getListItemIdByIndex(index));
+    const updateFocusedItem = useCallback((id: string) => {
+      setFocusIndex(getListItemIndexById(childrenRefs, id));
+      componentRef?.current?.setAttribute("aria-activedescendant", id);
     }, []);
 
     const onUpDownArrows = useCallback(
@@ -81,7 +78,7 @@ const List: FC<ListProps> = forwardRef(
           overrideFocusIndex = focusIndex - 1;
         }
         if (overrideFocusIndex !== undefined) {
-          updateFocusedItem(overrideFocusIndex);
+          updateFocusedItem(getListItemIdByIndex(childrenRefs, overrideFocusIndex));
           childrenRefs.current[overrideFocusIndex].focus();
         }
       },
@@ -109,8 +106,7 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            id: (child.props as { id: string }).id || `${overrideId}-item-${index}`,
-            index
+            id: (child.props as { id: string }).id || `${overrideId}-item-${index}`
           });
         });
       }
