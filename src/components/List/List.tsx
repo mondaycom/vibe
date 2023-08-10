@@ -102,11 +102,12 @@ const List: FC<ListProps> = forwardRef(
             return child;
           }
 
+          const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
           return React.cloneElement(child, {
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            id: (child.props as { id: string }).id || `${overrideId}-item-${index}`
+            id
           });
         });
       }
