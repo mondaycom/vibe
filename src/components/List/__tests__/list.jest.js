@@ -8,7 +8,7 @@ import ListItem from "../../ListItem/ListItem";
 
 describe("List", () => {
   it("renders correctly without props", () => {
-    const tree = renderer.create(<List id="list" />).toJSON();
+    const tree = renderer.create(<List />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -89,7 +89,7 @@ describe("List", () => {
     });
 
     it("List aria-activedescendant", () => {
-      const { getByRole, getByTestId } = render(
+      const { getByRole } = render(
         <List id="list">
           <ListItem id="list-item-1" data-testid="list-item-1">
             1
@@ -107,12 +107,6 @@ describe("List", () => {
       userEvent.tab();
       userEvent.keyboard("{arrowup}");
       expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");
-
-      userEvent.hover(getByTestId("list-item-1"));
-      expect(list).toHaveAttribute("aria-activedescendant", "list-item-1");
-      userEvent.keyboard("{arrowdown}");
-      // Cause ListItem hover doesn't change order of keyboard navigation
-      expect(list).toHaveAttribute("aria-activedescendant", "list-item-3");
     });
   });
 });

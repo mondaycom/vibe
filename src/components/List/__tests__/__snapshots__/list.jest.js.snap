@@ -5,7 +5,6 @@ exports[`List renders correctly with empty props 1`] = `
   className="list"
   data-testid="list_list"
   id="list"
-  onKeyDown={[Function]}
   role="listbox"
   tabIndex={-1}
 >
@@ -18,7 +17,6 @@ exports[`List renders correctly with list items 1`] = `
   className="list"
   data-testid="list_list"
   id="list"
-  onKeyDown={[Function]}
   role="listbox"
   tabIndex={-1}
 >
@@ -29,7 +27,6 @@ exports[`List renders correctly with list items 1`] = `
     id="list-item-0"
     onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
     onMouseEnter={[Function]}
     role="option"
     tabIndex={0}
@@ -43,7 +40,6 @@ exports[`List renders correctly with list items 1`] = `
     id="list-item-1"
     onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
     onMouseEnter={[Function]}
     role="option"
     tabIndex={-1}
@@ -56,9 +52,8 @@ exports[`List renders correctly with list items 1`] = `
 exports[`List renders correctly without props 1`] = `
 <ul
   className="list"
-  data-testid="list_list"
-  id="list"
-  onKeyDown={[Function]}
+  data-testid="list"
+  id="list-1"
   role="listbox"
   tabIndex={-1}
 />
