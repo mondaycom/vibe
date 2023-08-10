@@ -44,43 +44,6 @@ function generateCssModulesMockName(name) {
   return name;
 }
 
-function handleNextEntry() {
-  return {
-    name: "handle-next-entry",
-    writeBundle() {
-      const nextFolder = path.join(DIST_PATH, "esm", "next");
-
-      // Ensure the 'next' directory exists.
-      if (!fs.existsSync(nextFolder)) {
-        fs.mkdirSync(nextFolder);
-      }
-
-      // Paths
-      const originalJsPath = path.join(DIST_PATH, "esm", "src", "next.js");
-      const originalDtsPath = path.join(DIST_PATH, "esm", "next.d.ts");
-      const targetJsPath = path.join(nextFolder, "next.js");
-      const targetDtsPath = path.join(nextFolder, "next.d.ts");
-
-      // Move JS and DTS files
-      if (fs.existsSync(originalJsPath)) {
-        fs.renameSync(originalJsPath, targetJsPath);
-      }
-      if (fs.existsSync(originalDtsPath)) {
-        fs.renameSync(originalDtsPath, targetDtsPath);
-      }
-
-      // Create package.json in the 'next' folder
-      const packageData = {
-        name: "next",
-        private: true,
-        main: "next.js",
-        types: "next.d.ts"
-      };
-      fs.writeFileSync(path.join(nextFolder, "package.json"), JSON.stringify(packageData, null, 2));
-    }
-  };
-}
-
 export default {
   output: {
     dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
@@ -93,13 +56,11 @@ export default {
     index: path.join(SRC_PATH, "index.js"),
     icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
-    testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
-    next: path.join(SRC_PATH, "next.ts")
+    testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts")
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
     commonjs(),
-    handleNextEntry(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
