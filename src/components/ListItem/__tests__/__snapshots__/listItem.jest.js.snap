@@ -3,7 +3,7 @@
 exports[`renders correctly with disabled 1`] = `
 <li
   aria-disabled={true}
-  className="typography primary start singleLineEllipsis small normal listItem small disabled"
+  className="typography primary start singleLineEllipsis smallNormal listItem small disabled"
   data-testid="list-item"
   id="list-0-item-undefined"
   onClick={[Function]}
@@ -17,7 +17,7 @@ exports[`renders correctly with disabled 1`] = `
 exports[`renders correctly with empty props 1`] = `
 <li
   aria-disabled={false}
-  className="typography primary start singleLineEllipsis small normal listItem small"
+  className="typography primary start singleLineEllipsis smallNormal listItem small"
   data-testid="list-item"
   id="list-0-item-undefined"
   onClick={[Function]}
@@ -32,7 +32,7 @@ exports[`renders correctly with selected 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="typography primary start singleLineEllipsis small normal listItem small selected"
+  className="typography primary start singleLineEllipsis smallNormal listItem small selected"
   data-testid="list-item"
   id="list-0-item-undefined"
   onClick={[Function]}
@@ -47,7 +47,7 @@ exports[`renders correctly with selected and disabled 1`] = `
 <li
   aria-disabled={true}
   aria-selected={true}
-  className="typography primary start singleLineEllipsis small normal listItem small disabled"
+  className="typography primary start singleLineEllipsis smallNormal listItem small disabled"
   data-testid="list-item"
   id="list-0-item-undefined"
   onClick={[Function]}
@@ -61,7 +61,7 @@ exports[`renders correctly with selected and disabled 1`] = `
 exports[`renders correctly with size 1`] = `
 <li
   aria-disabled={false}
-  className="typography primary start singleLineEllipsis small normal listItem large"
+  className="typography primary start singleLineEllipsis smallNormal listItem large"
   data-testid="list-item"
   id="list-0-item-undefined"
   onClick={[Function]}

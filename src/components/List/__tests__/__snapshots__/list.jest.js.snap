@@ -22,7 +22,7 @@ exports[`List renders correctly with list items 1`] = `
 >
   <li
     aria-disabled={false}
-    className="typography primary start singleLineEllipsis small normal listItem small"
+    className="typography primary start singleLineEllipsis smallNormal listItem small"
     data-testid="list-item"
     id="list-item-0"
     onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`List renders correctly with list items 1`] = `
   </li>
   <li
     aria-disabled={false}
-    className="typography primary start singleLineEllipsis small normal listItem small"
+    className="typography primary start singleLineEllipsis smallNormal listItem small"
     data-testid="list-item"
     id="list-item-1"
     onClick={[Function]}
