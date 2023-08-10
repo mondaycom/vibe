@@ -16,6 +16,7 @@ const TipseenTitle: FC<TipseenTitleProps> = ({ text, className, id, "data-testid
       role="heading"
       color={Text.colors.ON_PRIMARY}
       aria-level={3}
+      maxLines={2}
       className={className}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN_TITLE, id)}

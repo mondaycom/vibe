@@ -9,7 +9,13 @@ import styles from "./Modal.stories.module.scss";
 import cx from "classnames";
 
 // internal custom hook to help with writing tests and stories.
-export const useHelperOpenModalButton = ({ title = "Open modal", setShow, openModalButtonRef, color, testId }) => {
+export const useHelperOpenModalButton = ({
+  title = "Open modal",
+  setShow,
+  openModalButtonRef,
+  color = undefined,
+  testId = undefined
+}) => {
   return (
     <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} dataTestId={testId}>
       {title}

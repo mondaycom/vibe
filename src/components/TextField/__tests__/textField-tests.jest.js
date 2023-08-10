@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event";
 import { act } from "@testing-library/react-hooks";
 import TextField from "../TextField";
 
+const TEST_ID = "test-text-field";
+
 describe("TextField tests", () => {
   let inputComponent;
   let onChangeStub;
@@ -15,7 +17,9 @@ describe("TextField tests", () => {
     ref = {};
     onChangeStub = jest.fn();
     jest.useFakeTimers("modern");
-    inputComponent = render(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />);
+    inputComponent = render(
+      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} ref={ref} />
+    );
   });
   afterEach(() => {
     jest.useRealTimers();
@@ -34,13 +38,22 @@ describe("TextField tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    expect(onChangeStub).toHaveBeenCalledWith(value);
+
+    expect(onChangeStub).toHaveBeenCalledWith(
+      value,
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: value,
+          id: TEST_ID
+        })
+      })
+    );
   });
 
   it("should not change the value instantly when debounce value is provided", () => {
     const { rerender } = inputComponent;
     inputComponent = rerender(
-      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} />
+      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} debounceRate={200} />
     );
     const value = "Value of input";
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
@@ -51,7 +64,7 @@ describe("TextField tests", () => {
   it("should be able to forward ref", () => {
     const { rerender } = inputComponent;
     inputComponent = rerender(
-      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
+      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} debounceRate={200} ref={ref} />
     );
     expect(ref.current.className).toMatch("input");
   });
@@ -60,19 +73,32 @@ describe("TextField tests", () => {
     const { rerender } = inputComponent;
     const debounceTime = 200;
     inputComponent = rerender(
-      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />
+      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} debounceRate={debounceTime} />
     );
+    const value = "A";
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
-    userEvent.type(input, "A");
-    expect(onChangeStub).not.toHaveBeenCalledWith("A");
+    userEvent.type(input, value);
+    expect(onChangeStub).not.toHaveBeenCalled();
     jest.advanceTimersByTime(debounceTime + 1);
-    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A"), { timeout: debounceTime });
+    await waitFor(
+      () =>
+        expect(onChangeStub).toHaveBeenCalledWith(
+          value,
+          expect.objectContaining({
+            target: expect.objectContaining({
+              value: value,
+              id: TEST_ID
+            })
+          })
+        ),
+      { timeout: debounceTime }
+    );
   });
 
   it("should be disabled", () => {
     const { rerender } = inputComponent;
     inputComponent = rerender(
-      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />
+      <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} disabled />
     );
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     expect(input.disabled).toBeTruthy();
@@ -92,7 +118,7 @@ describe("TextField tests", () => {
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {
       const { container } = render(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="on" />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} autoComplete="on" />
       );
       const element = container.querySelector('[autocomplete="on"]');
       expect(element).toBeTruthy();
@@ -100,7 +126,7 @@ describe("TextField tests", () => {
 
     it("should add autocomplete attr and set it to off", () => {
       const { container } = render(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="off" />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} autoComplete="off" />
       );
       const element = container.querySelector('[autocomplete="off"]');
       expect(element).toBeTruthy();
@@ -109,7 +135,7 @@ describe("TextField tests", () => {
 
   it("should trim the value if trim is true", () => {
     const { rerender } = inputComponent;
-    inputComponent = rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" trim />);
+    inputComponent = rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id={TEST_ID} trim />);
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     const value = "Value of input      ";
     fireEvent.change(input, { target: { value } });

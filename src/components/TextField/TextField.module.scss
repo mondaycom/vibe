@@ -326,3 +326,14 @@
 .textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
   font-family: var(--font-family);
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  background: url("./assets/Calendar.svg") no-repeat;
+
+  :global(.dark-app-theme) &,
+  :global(.black-app-theme) &,
+  :global(.hacker_theme-app-theme) & {
+    background: url("./assets/CalendarInverted.svg") no-repeat;
+  }
+}
