@@ -1,5 +1,46 @@
 # Changelog
 
+## 2.22.0 (2023-08-10)
+
+#### New Features
+* [#1442](https://github.com/mondaycom/monday-ui-react-core/pull/1442) Technical pattern from using dropdown in dialog and modals and support for popupsContainerSelector for displaying dropdown properly in modals ([@hadasfa](https://github.com/hadasfa))
+
+## 2.21.0 (2023-08-09)
+
+#### Bug Fixes
+* [#1468](https://github.com/mondaycom/monday-ui-react-core/pull/1468) fix: <TextField> replace icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1469](https://github.com/mondaycom/monday-ui-react-core/pull/1469) feat(Tipseen): allow tipseen title to have max 2 lines ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1465](https://github.com/mondaycom/monday-ui-react-core/pull/1465) feat: <TextField/> add event as a param to onChange callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.20.1 (2023-08-08)
+
+#### Bug Fixes
+* [#1467](https://github.com/mondaycom/monday-ui-react-core/pull/1467) Fix specificity issues in label and in typography in general ([@hadasfa](https://github.com/hadasfa))
+
+## 2.20.0 (2023-08-08)
+
+#### New Features
+* [#1432](https://github.com/mondaycom/monday-ui-react-core/pull/1432) feat(Indicator): add new Indicator component to component library ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1466](https://github.com/mondaycom/monday-ui-react-core/pull/1466) chore(storybook): upgrade storybook to 6.5.10+ to enable interaction testing on Chromatic ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.19.2 (2023-08-07)
+
+#### Bug Fixes
+* [#1464](https://github.com/mondaycom/monday-ui-react-core/pull/1464) fix version number as css selector ([@hadasfa](https://github.com/hadasfa))
+
+## 2.19.1 (2023-08-07)
+
+#### Bug Fixes
+* [#1463](https://github.com/mondaycom/monday-ui-react-core/pull/1463) Add version to class ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1434](https://github.com/mondaycom/monday-ui-react-core/pull/1434) fix(AttentionBox): general improvements + allow ellipsis for overflowin attention box ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1392](https://github.com/mondaycom/monday-ui-react-core/pull/1392) chore: fail chromatic action check in case has visual changes ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.19.0 (2023-08-03)
 
 #### Bug Fixes

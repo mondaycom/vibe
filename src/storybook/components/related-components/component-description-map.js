@@ -3,6 +3,7 @@ import { ButtonGroupDescription } from "./descriptions/button-group-description"
 import { CheckboxDescription } from "./descriptions/checkbox-description";
 import { RadioButtonDescription } from "./descriptions/radio-button-description";
 import { LabelDescription } from "./descriptions/label-description";
+import { LinkDescription } from "./descriptions/link-description";
 import { CounterDescription } from "./descriptions/counter-description";
 import { ChipsDescription } from "./descriptions/chips-description";
 import { TooltipDescription } from "./descriptions/tooltip-description";
@@ -41,10 +42,12 @@ import { ListDescription } from "./descriptions/list-description";
 import { FlexDescription } from "./descriptions/flex-description";
 import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
+import { DialogDescription } from "./descriptions/dialog";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
 export const LABEL = "label";
+export const LINK = "link";
 export const CHECKBOX = "checkbox";
 export const RADIO_BUTTON = "radio-button";
 export const COUNTER = "counter";
@@ -81,6 +84,7 @@ export const LIST = "list";
 export const FLEX = "flex";
 export const DIVIDER = "divider";
 export const DIALOG_CONTENT_CONTAINER = "dialog-content-container-description";
+export const DIALOG = "dialog";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -93,6 +97,7 @@ export const descriptionComponentsMap = new Map();
 descriptionComponentsMap.set(SPLIT_BUTTON, <SplitButtonDescription />);
 descriptionComponentsMap.set(BUTTON_GROUP, <ButtonGroupDescription />);
 descriptionComponentsMap.set(LABEL, <LabelDescription />);
+descriptionComponentsMap.set(LINK, <LinkDescription />);
 descriptionComponentsMap.set(CHECKBOX, <CheckboxDescription />);
 descriptionComponentsMap.set(RADIO_BUTTON, <RadioButtonDescription />);
 descriptionComponentsMap.set(COUNTER, <CounterDescription />);
@@ -129,6 +134,7 @@ descriptionComponentsMap.set(LIST, <ListDescription />);
 descriptionComponentsMap.set(FLEX, <FlexDescription />);
 descriptionComponentsMap.set(DIVIDER, <DividerDescription />);
 descriptionComponentsMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
+descriptionComponentsMap.set(DIALOG, <DialogDescription />);
 
 // General description (not related to specific components)
 descriptionComponentsMap.set(COLORS, <ColorsDescription />);
