@@ -6,8 +6,17 @@ import Menu from "../Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";
 import Divider from "../../../Divider/Divider";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
 describe("Snapshots", () => {
+  beforeEach(() => {
+    mockRequestAnimationFrame();
+  });
+
+  afterEach(() => {
+    restoreRequestAnimationFrameMock();
+  });
+
   it("renders correctly with empty props", () => {
     const tree = renderer.create(<Menu />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,7 +30,7 @@ describe("Snapshots", () => {
   it("renders correctly with children", () => {
     const tree = renderer
       .create(
-        <Menu classname="dummy-class-name">
+        <Menu classname="dummy-class-name" focusItemIndexOnMount={0}>
           <MenuTitle caption="my title" />
           <MenuItem title="item 1" />
           <Divider />
