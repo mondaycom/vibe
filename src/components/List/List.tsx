@@ -9,8 +9,8 @@ import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { generateListId, ListContext } from "./utils/ListContext";
-import { getListItemIdByIndex, getListItemIndexById } from "./utils/ListUtils";
+import { ListContext } from "./utils/ListContext";
+import { generateListId, getListItemIdByIndex, getListItemIndexById } from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
