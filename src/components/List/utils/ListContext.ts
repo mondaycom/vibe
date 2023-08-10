@@ -7,7 +7,7 @@ export const generateListId = () => `list-${listIdCounter++}`;
 
 type ListContextType = {
   /**
-   * A callback function which is being called when the item is being focused: by keyboard navigation or by mouse hover
+   * A callback function which is being called when the item is being focused by keyboard navigation
    * @param ListItem index
    */
   updateFocusedItem: (index: number) => void;
