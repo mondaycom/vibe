@@ -1,15 +1,5 @@
 import cx from "classnames";
-import React, {
-  CSSProperties,
-  FC,
-  forwardRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
