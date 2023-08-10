@@ -9,7 +9,7 @@ import { ElementContent } from "src/types/ElementContent";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import Text from "../../Text/Text";
-import Heading from "../../Heading/Heading";
+import Heading from "../../Title/Title";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Heading from "../Heading";
+import Heading from "../Title";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
