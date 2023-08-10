@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.22.0 (2023-08-10)
+
+#### New Features
+* [#1442](https://github.com/mondaycom/monday-ui-react-core/pull/1442) Technical pattern from using dropdown in dialog and modals and support for popupsContainerSelector for displaying dropdown properly in modals ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.21.0 (2023-08-09)
 
 #### Bug Fixes
