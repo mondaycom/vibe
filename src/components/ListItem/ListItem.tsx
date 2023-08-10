@@ -2,7 +2,6 @@
 import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { SIZES, SELECTION_KEYS } from "../../constants";
@@ -111,7 +110,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     return (
       <Text
         element="li"
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST_ITEM, id)}
+        data-testid={dataTestId || id}
         ref={mergedRef}
         className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
           [styles.selected]: selected && !disabled,

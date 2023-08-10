@@ -13,14 +13,14 @@ describe("List", () => {
   });
 
   it("renders correctly with empty props", () => {
-    const tree = renderer.create(<List id="list">Something</List>).toJSON();
+    const tree = renderer.create(<List>Something</List>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with list items", () => {
     const tree = renderer
       .create(
-        <List id="list">
+        <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
         </List>
@@ -32,7 +32,7 @@ describe("List", () => {
   describe("accessibility tests", () => {
     it("List should have role listbox", () => {
       const { getByRole } = render(
-        <List id="list">
+        <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
         </List>
@@ -42,7 +42,7 @@ describe("List", () => {
 
     it("ListItem should have role option", () => {
       const { getAllByRole } = render(
-        <List id="list">
+        <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
         </List>
@@ -52,7 +52,7 @@ describe("List", () => {
 
     it("disabled ListItem should have aria-selected", () => {
       const { getByTestId } = render(
-        <List id="list">
+        <List>
           <ListItem data-testid="list-item-1" disabled>
             1
           </ListItem>
@@ -65,7 +65,7 @@ describe("List", () => {
 
     it("selected ListItem should have aria-selected", () => {
       const { getByTestId } = render(
-        <List id="list">
+        <List>
           <ListItem data-testid="list-item-1" selected>
             1
           </ListItem>
@@ -78,7 +78,7 @@ describe("List", () => {
 
     it("List should have aria-activedescendant", () => {
       const { getByRole } = render(
-        <List id="list">
+        <List>
           <ListItem id="list-item-1">1</ListItem>
           <ListItem id="list-item-2" selected>
             2
@@ -91,22 +91,16 @@ describe("List", () => {
     it("List aria-activedescendant", () => {
       const { getByRole } = render(
         <List id="list">
-          <ListItem id="list-item-1" data-testid="list-item-1">
-            1
-          </ListItem>
-          <ListItem id="list-item-2" data-testid="list-item-2">
-            2
-          </ListItem>
-          <ListItem id="list-item-3" data-testid="list-item-3" selected>
-            3
-          </ListItem>
+          <ListItem>1</ListItem>
+          <ListItem>2</ListItem>
+          <ListItem selected>3</ListItem>
         </List>
       );
       const list = getByRole("listbox");
-      expect(list).toHaveAttribute("aria-activedescendant", "list-item-3");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");
       userEvent.tab();
       userEvent.keyboard("{arrowup}");
-      expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");
+      expect(list).toHaveAttribute("aria-activedescendant", "list-item-1");
     });
   });
 });

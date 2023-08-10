@@ -3,8 +3,8 @@
 exports[`List renders correctly with empty props 1`] = `
 <ul
   className="list"
-  data-testid="list_list"
-  id="list"
+  data-testid="list"
+  id="list-1"
   role="listbox"
   tabIndex={-1}
 >
@@ -15,16 +15,16 @@ exports[`List renders correctly with empty props 1`] = `
 exports[`List renders correctly with list items 1`] = `
 <ul
   className="list"
-  data-testid="list_list"
-  id="list"
+  data-testid="list"
+  id="list-2"
   role="listbox"
   tabIndex={-1}
 >
   <li
     aria-disabled={false}
     className="typography primary start singleLineEllipsis smallNormal listItem small"
-    data-testid="list-item"
-    id="list-item-0"
+    data-testid="list-2-item-0"
+    id="list-2-item-0"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseEnter={[Function]}
@@ -36,8 +36,8 @@ exports[`List renders correctly with list items 1`] = `
   <li
     aria-disabled={false}
     className="typography primary start singleLineEllipsis smallNormal listItem small"
-    data-testid="list-item"
-    id="list-item-1"
+    data-testid="list-2-item-1"
+    id="list-2-item-1"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseEnter={[Function]}
@@ -53,7 +53,7 @@ exports[`List renders correctly without props 1`] = `
 <ul
   className="list"
   data-testid="list"
-  id="list-1"
+  id="list-0"
   role="listbox"
   tabIndex={-1}
 />
