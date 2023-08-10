@@ -19,6 +19,7 @@ import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { generateListId, ListContext } from "./utils/ListContext";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
@@ -57,17 +58,12 @@ const List: FC<ListProps> = forwardRef(
     },
     ref
   ) => {
+    const overrideId = id || generateListId();
     const componentRef = useRef(null);
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
     const childrenRefs = useRef([]);
-
-    useEffect(() => {
-      if (!id) {
-        console.warn("List should have a valid id prop");
-      }
-    }, [id]);
 
     const getListItemIdByIndex = (index: number) => {
       return childrenRefs.current[index]?.id;
@@ -123,31 +119,31 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
-            updateFocusedItem,
-            index,
-            listId: id
+            index
           });
         });
       }
 
       return override;
-    }, [children, focusIndex, id, updateFocusedItem, renderOnlyVisibleItems]);
+    }, [children, focusIndex, renderOnlyVisibleItems]);
 
     return (
-      // @ts-ignore Component comes from string, so it couldn't have types
-      <Component
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
-        ref={mergedRef}
-        style={style}
-        className={cx(styles.list, className)}
-        id={id}
-        aria-label={ariaLabel}
-        aria-describedby={ariaDescribedBy}
-        tabIndex={-1}
-        role="listbox"
-      >
-        {overrideChildren}
-      </Component>
+      <ListContext.Provider value={{ listId: overrideId, updateFocusedItem }}>
+        {/*@ts-ignore Component comes from string, so it couldn't have types*/}
+        <Component
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+          ref={mergedRef}
+          style={style}
+          className={cx(styles.list, className)}
+          id={overrideId}
+          aria-label={ariaLabel}
+          aria-describedby={ariaDescribedBy}
+          tabIndex={-1}
+          role="listbox"
+        >
+          {overrideChildren}
+        </Component>
+      </ListContext.Provider>
     );
   }
 );

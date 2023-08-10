@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef } from "react";
+import React, { FC, forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -9,6 +9,7 @@ import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import { useKeyEvent, useMergeRefs } from "../../hooks";
+import { ListContext } from "../List/utils/ListContext";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
@@ -58,15 +59,6 @@ export interface ListItemProps extends VibeComponentProps {
   tabIndex?: number;
   "data-testid"?: string;
   /**
-   * A callback function which is being called when the item is being focused: by keyboard navigation or by mouse hover
-   * @param ListItem index
-   */
-  updateFocusedItem?: (index: number) => void;
-  /**
-   * The id of the list which the item belongs to
-   */
-  listId?: string;
-  /**
    * The index of the item in the list
    */
   index?: number;
@@ -84,13 +76,12 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       size = SIZES.SMALL,
       tabIndex = 0,
       children,
-      listId,
       index,
-      updateFocusedItem,
       "data-testid": dataTestId
     },
     ref
   ) => {
+    const { listId, updateFocusedItem } = useContext(ListContext);
     const overrideId = id || `${listId}-item-${index}`;
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
@@ -99,7 +90,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
       if (selected) {
         updateFocusedItem?.(index);
       }
-    }, [updateFocusedItem, selected, index]);
+    }, [selected, index, updateFocusedItem]);
 
     const componentOnClick = useCallback(
       (event: React.MouseEvent | React.KeyboardEvent) => {
