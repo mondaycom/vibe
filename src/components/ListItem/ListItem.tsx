@@ -81,8 +81,7 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     },
     ref
   ) => {
-    const { listId, updateFocusedItem } = useContext(ListContext);
-    const overrideId = id || `${listId}-item-${index}`;
+    const { updateFocusedItem } = useContext(ListContext);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -95,9 +94,9 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     const componentOnClick = useCallback(
       (event: React.MouseEvent | React.KeyboardEvent) => {
         if (disabled) return;
-        onClick(event, overrideId);
+        onClick(event, id);
       },
-      [disabled, onClick, overrideId]
+      [disabled, onClick, id]
     );
 
     useKeyEvent({
@@ -109,9 +108,9 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
     const componentOnHover = useCallback(
       (event: React.MouseEvent | React.FocusEvent) => {
         if (disabled) return;
-        onHover(event, overrideId);
+        onHover(event, id);
       },
-      [disabled, onHover, overrideId]
+      [disabled, onHover, id]
     );
 
     return (
@@ -123,8 +122,8 @@ const ListItem: FC<ListItemProps> & { sizes?: typeof SIZES } = forwardRef(
           [styles.selected]: selected && !disabled,
           [styles.disabled]: disabled
         })}
-        id={overrideId}
-        key={overrideId}
+        id={id}
+        key={id}
         size="small"
         aria-disabled={disabled}
         aria-selected={selected}

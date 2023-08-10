@@ -11,10 +11,6 @@ type ListContextType = {
    * @param ListItem index
    */
   updateFocusedItem: (index: number) => void;
-  /**
-   * The id of the list which the item belongs to
-   */
-  listId: string;
 };
 
-export const ListContext = React.createContext<ListContextType>({ listId: generateListId(), updateFocusedItem: NOOP });
+export const ListContext = React.createContext<ListContextType>({ updateFocusedItem: NOOP });

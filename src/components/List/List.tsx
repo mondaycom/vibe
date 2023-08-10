@@ -109,16 +109,17 @@ const List: FC<ListProps> = forwardRef(
             // @ts-ignore not sure how to deal with ref here
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
+            id: (child.props as { id: string }).id || `${overrideId}-item-${index}`,
             index
           });
         });
       }
 
       return override;
-    }, [children, focusIndex, renderOnlyVisibleItems]);
+    }, [children, focusIndex, overrideId, renderOnlyVisibleItems]);
 
     return (
-      <ListContext.Provider value={{ listId: overrideId, updateFocusedItem }}>
+      <ListContext.Provider value={{ updateFocusedItem }}>
         {/*@ts-ignore Component comes from string, so it couldn't have types*/}
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
