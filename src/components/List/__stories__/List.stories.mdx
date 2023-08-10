@@ -96,29 +96,6 @@ Lists is a group of actionable items containing primary and supplemental actions
 
 ## Variants
 
-### Test
-
-<Canvas>
-  <Story name="Test">
-    {() => {
-      const ref = useRef(null);
-      const [selectedItemIndex, setSelectedItemIndex] = useState(3);
-      const updateSelectedItem = index => {
-        setSelectedItemIndex(prevSelected => (prevSelected === index ? null : index));
-      };
-      return (
-        <List ref={ref} id={"test-list"}>
-          {[0, 1, 2, 3, 4, 5].map(index => (
-            <ListItem selected={selectedItemIndex === index} onClick={() => updateSelectedItem(index)}>
-              {`List item ${index}`}
-            </ListItem>
-          ))}
-        </List>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### List with categories
 
 <Canvas>
