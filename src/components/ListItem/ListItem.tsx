@@ -70,7 +70,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
       {
         className,
         id,
-        component = ListItemComponentType.DIV,
+        component = ListItem.components.DIV,
         onClick = NOOP,
         onHover = NOOP,
         selected,
