@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.23.0 (2023-08-13)
+
+#### New Features
+* [#1439](https://github.com/mondaycom/monday-ui-react-core/pull/1439) feat: <List> a11y improvements ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.22.0 (2023-08-10)
 
 #### New Features
