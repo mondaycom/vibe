@@ -51,11 +51,13 @@ function buildComponentsTypesIndexFile() {
 }
 
 function buildStorybookComponentsIndexFile() {
+  const imports = ["import 'vibe-storybook-components/index.css';"];
   const exports = Object.entries(publishedStorybookComponents).map(([name, _path]) => {
     const fileName = name.split("/").slice(-1);
     return buildComponentExport(fileName, `./${fileName}`);
   });
-  convertExportsToFile(exports, "storybook/index.js");
+  exports.push("export * from 'vibe-storybook-components'");
+  convertExportsToFile(imports.concat(exports), "storybook/index.js");
 }
 
 module.exports = {

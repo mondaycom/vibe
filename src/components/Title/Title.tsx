@@ -4,6 +4,8 @@ import VibeComponent from "../../types/VibeComponent";
 import { TitleType, TitleWeight } from "./TitleConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
 import styles from "./Title.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
 
 export interface TitleProps extends TypographyProps {
   type?: TitleType;
@@ -16,7 +18,7 @@ const Title: VibeComponent<TitleProps, HTMLElement> = forwardRef(
       <Typography
         element={type}
         ref={ref}
-        className={cx(styles[type], styles[weight], className)}
+        className={cx(styles.heading, getStyle(styles, camelCase(type + "-" + weight)), className)}
         {...typographyProps}
       />
     );

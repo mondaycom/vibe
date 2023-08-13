@@ -1,12 +1,10 @@
 import MultiStepIndicator from "../MultiStepIndicator";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { STEP_STATUSES } from "../MultiStepConstants";
-import { createComponentTemplate } from "../../../storybook/functions/createComponentTemplate";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { StepStatus } from "../MultiStepConstants";
+import { StoryDescription, createComponentTemplate, Link } from "vibe-storybook-components";
 import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
-import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
-import { Link } from "../../../storybook/components";
+import { firstSteps, secondSteps, thirdSteps } from "./helper";
 import { Featured } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
 import "./multiStepIndicator.stories.scss";
@@ -338,9 +336,9 @@ State transition automatic example
       }, [numActions]);
       const STEP_TRANSITIONS = useMemo(
         () => ({
-          [STEP_STATUSES.PENDING]: STEP_STATUSES.ACTIVE,
-          [STEP_STATUSES.ACTIVE]: STEP_STATUSES.FULFILLED,
-          [STEP_STATUSES.FULFILLED]: STEP_STATUSES.PENDING
+          [StepStatus.PENDING]: StepStatus.ACTIVE,
+          [StepStatus.ACTIVE]: StepStatus.FULFILLED,
+          [StepStatus.FULFILLED]: StepStatus.PENDING
         }),
         []
       );

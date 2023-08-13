@@ -1,6 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import Toggle from "../Toggle";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   BUTTON_GROUP,
   CHECKBOX,
@@ -10,12 +10,12 @@ import {
   ComponentRules,
   Link,
   MultipleStoryElementsWrapper,
-  RelatedComponents,
-  UsageGuidelines
-} from "../../../storybook/components";
+  UsageGuidelines,
+  createComponentTemplate
+} from "vibe-storybook-components";
 import "./toggle.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Toggle,
   enumPropNamesArray: [],
   iconPropNamesArray: [],

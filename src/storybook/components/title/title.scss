@@ -1,7 +1,0 @@
-@import "../../styles/typography";
-@import "../../../styles/global-css-settings";
-@import "../../styles/content-spacing";
-
-.monday-storybook-title {
-  @include title-appearance;
-}

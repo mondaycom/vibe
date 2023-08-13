@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../../related-component/related-component";
+import { RelatedComponent } from "vibe-storybook-components";
 import AlertBanner from "../../../../components/AlertBanner/AlertBanner";
 import AlertBannerText from "../../../../components/AlertBanner/AlertBannerText/AlertBannerText";
 

@@ -1,7 +1,7 @@
 import LinearProgressBar from "../LinearProgressBar";
 import { useMemo } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import colors from "../../../../constants/colors.json";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import { Info } from "../../../Icon/Icons";
@@ -11,12 +11,12 @@ import {
   SPINNER,
   STEPPER
 } from "../../../../storybook/components/related-components/component-description-map";
-import { Link } from "../../../../storybook/components";
+import { Link } from "vibe-storybook-components";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
 import "./linearProgressBar.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: LinearProgressBar,
   enumPropNamesArray: ["size", "barStyle"]
 });

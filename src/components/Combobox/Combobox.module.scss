@@ -3,10 +3,10 @@
 @import "../../styles/states";
 
 .combobox {
+  @include smoothing-text;
   height: 100%;
   display: flex;
   flex-direction: column;
-  @include font-general-text();
   position: relative;
   margin-bottom: var(--spacing-small);
 }

@@ -1,6 +1,6 @@
-import cx from "classnames";
-import { VisualDescription, Frame } from "../../../components";
+import { VisualDescription, Frame } from "vibe-storybook-components";
 import styles from "./text-styles.module.scss";
+import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 
 export const TextStyles = () => {
   return (
@@ -12,7 +12,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h1, styles.bold)}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Bold")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
@@ -21,7 +21,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h1, styles.normal)}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Normal")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H1"
@@ -30,7 +30,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h1, styles.light)}>{`H1`}</h2>
+        <h2 className={getStyle(styles, "h1Light")}>{`H1`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -39,7 +39,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h2, styles.bold)}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Bold")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -48,7 +48,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h2, styles.normal)}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Normal")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H2"
@@ -57,7 +57,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h2 className={cx(styles.h2, styles.light)}>{`H2`}</h2>
+        <h2 className={getStyle(styles, "h2Light")}>{`H2`}</h2>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -66,7 +66,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={cx(styles.h3, styles.bold)}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Bold")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -75,7 +75,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={cx(styles.h3, styles.normal)}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Normal")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="H3"
@@ -84,7 +84,7 @@ export const TextStyles = () => {
         description="Use as main header on a page"
         visualDescriptionClassName={styles.visualExample}
       >
-        <h3 className={cx(styles.h3, styles.light)}>{`H3`}</h3>
+        <h3 className={getStyle(styles, "h3Light")}>{`H3`}</h3>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -93,7 +93,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={cx(styles.medium, styles.bold)}>{`Text`}</span>
+        <span className={getStyle(styles, "mediumBold")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -102,7 +102,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={cx(styles.medium, styles.normal)}>{`Text`}</span>
+        <span className={getStyle(styles, "mediumNormal")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -111,7 +111,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={cx(styles.small, styles.bold)}>{`Text`}</span>
+        <span className={getStyle(styles, "smallBold")}>{`Text`}</span>
       </VisualDescription>
       <VisualDescription
         ariaLabel="Text"
@@ -120,7 +120,7 @@ export const TextStyles = () => {
         description="Use as plain text"
         visualDescriptionClassName={styles.visualExample}
       >
-        <span className={cx(styles.small, styles.normal)}>{`Text`}</span>
+        <span className={getStyle(styles, "smallNormal")}>{`Text`}</span>
       </VisualDescription>
     </Frame>
   );

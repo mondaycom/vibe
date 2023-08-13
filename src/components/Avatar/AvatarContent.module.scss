@@ -2,8 +2,6 @@
 $avatar-icon-large: 28px;
 $avatar-icon-medium: 18px;
 $avatar-icon-small: 12px;
-$font-size-avatar-large: 18px;
-$font-size-avatar-medium: 14px;
 $font-size-avatar-small: 12px;
 
 .contentImg {
@@ -14,7 +12,7 @@ $font-size-avatar-small: 12px;
 
 .contentText {
   font-family: var(--font-family);
-  font-weight: var(--font-weight-normal);
+  font-weight: 400;
   line-height: 21px;
   letter-spacing: -0.5px;
   display: flex;
@@ -25,11 +23,12 @@ $font-size-avatar-small: 12px;
 }
 
 .contentTextLarge {
-  font-size: $font-size-avatar-large;
+  @include vibe-title("h3", "normal");
+  font-family: var(--font-family) !important;
 }
 
 .contentTextMedium {
-  font-size: $font-size-avatar-medium;
+  @include vibe-text("small", "normal");
   margin-top: 1px;
 }
 

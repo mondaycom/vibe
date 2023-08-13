@@ -2,18 +2,11 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-@include create-title-classes;
-@include create-text-classes;
-
 .headingComponent {
   border: 1px solid transparent;
   border-radius: $border-radius-small;
   min-width: 0;
   @include heading-padding();
-  /**
-  Legacy heading contains the browser default heading margin and removing it will be a breaking change
-  */
-  margin: revert !important;
 }
 
 .headingComponent.multiLineEllipsis {
@@ -36,16 +29,19 @@
 
 .elementTypeH1 {
   @include vibe-title("h1", "normal");
+  letter-spacing: 0.5px !important;
 }
 
 .elementTypeH2.sizeLarge,
 .elementTypeH1.sizeSmall,
 .elementTypeH1.sizeMedium {
   @include vibe-title("h2", "normal");
+  letter-spacing: 0.1px !important;
 }
 
 .elementTypeH3.sizeLarge {
   @include vibe-title("h2", "light");
+  letter-spacing: 0.1px !important;
 }
 
 .elementTypeH2.sizeSmall,
@@ -54,6 +50,7 @@
 .elementTypeH3.sizeMedium,
 .elementTypeH4 {
   @include vibe-title("h3", "normal");
+  letter-spacing: 0.1px !important;
 }
 
 .elementTypeH5, .elementTypeP {

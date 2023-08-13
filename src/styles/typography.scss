@@ -1,3 +1,4 @@
+@use "sass:string";
 @import "./theme-mixin";
 @import "~monday-ui-style/dist/mixins";
 
@@ -12,6 +13,32 @@ $p-empty-state-height: 16px;
 $h6-empty-state-height: 12px;
 $small-empty-state-height: 12px;
 
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}
+
+@function capitalize($string) {
+  @return to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
+}
+
+@function camelize($string) {
+  $progress: $string;
+  $result: "";
+  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
+
+  @while str-length($progress) > 0 {
+    $char: string.slice($progress, 1, 1);
+
+    @if contain($exclude, $char) {
+      $progress: capitalize(string.slice($progress, 2, 2)) + string.slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: string.slice($progress, 2);
+    }
+  }
+
+  @return $result;
+}
 
 @mixin create-text-classes() {
   @include create-typography-classes($textClasses, text);
@@ -24,9 +51,9 @@ $small-empty-state-height: 12px;
 @mixin create-typography-classes($classes, $token-prefix) {
   @each $class-prefix, $weight-types in $classes {
     @each $weight-type in $weight-types {
+      $class-name: camelize(#{$class-prefix}-#{$weight-type});
 
-      .#{$class-prefix}.#{$weight-type} {
-
+      .#{$class-name} {
         // if class is a heading class
         @if str-slice($class-prefix, 1, 1) == "h" {
           @include vibe-title($class-prefix, $weight-type);
@@ -67,50 +94,10 @@ $textClasses: (
   @include vibe-text(small, normal);
 }
 
-// Secondary Heading (h2)
-@mixin font-title {
-  @include base-font(var(--font-h2));
-  letter-spacing: -0.2px;
-}
-
-// Tertiary Heading (h3)
-@mixin font-title-secondary {
-  @include base-font(var(--font-h3));
-  letter-spacing: -0.2px;
-  @include theme-prop(color, primary-text-color);
-}
-
-// Fourth Heading (h4)
-@mixin font-subtitle {
-  @include base-font(var(--font-h4));
-}
-
-// Paragraph Bold (h5)
-@mixin font-paragraph-bold {
-  @include base-font(var(--font-h5));
-}
-
-// UI lables / General text (h6)
-@mixin font-general-text {
-  @include base-font(var(--font-general-label));
-}
-
-// Paragraph text (p)
-@mixin font-paragraph {
-  @include base-font(var(--font-paragraph));
-}
-
-// Please use general text instead of this
-@mixin font-default {
-  @include font-general-text;
-  line-height: 22px;
-}
-
 // Caption / Subtext (small)
 @mixin font-caption {
   @include vibe-text(small, normal);
   @include smoothing-text;
-  color: var(--primary-text-color);
 }
 
 @mixin font-input {

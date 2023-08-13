@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
   Title: "components/Title/Title",
   Button: "components/Button/Button",
@@ -64,6 +65,7 @@ const publishedTSComponents = {
   Modal: "components/Modal/Modal",
   ModalHeader: "components/Modal/ModalHeader/ModalHeader",
   ModalFooter: "components/Modal/ModalFooter/ModalFooter",
+  ModalFooterButtons: "components/Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons",
   ModalContent: "components/Modal/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",

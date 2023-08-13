@@ -83,6 +83,7 @@ export { default as Modal } from "./Modal/Modal";
 export { default as ModalHeader } from "./Modal/ModalHeader/ModalHeader";
 export { default as ModalContent } from "./Modal/ModalContent/ModalContent";
 export { default as ModalFooter } from "./Modal/ModalFooter/ModalFooter";
+export { default as ModalFooterButtons } from "./Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons";
 export { default as Box } from "./Box/Box";
 export { default as Text } from "./Text/Text";
 export { default as Title } from "./Title/Title";
@@ -90,3 +91,4 @@ export {
   useGridKeyboardNavigationContext,
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+export { default as Badge } from "./Badge/Badge";

@@ -59,13 +59,6 @@ input:checked:disabled + .control {
   @include theme-prop(background-color, secondary-text-color);
 }
 
-.label {
-  line-height: 21px;
-  font-weight: 400;
-  font-size: var(--font-size-general-label);
-  @include theme-prop(color, primary-text-color);
-}
-
 .radioButton.disabled {
   cursor: not-allowed;
 }

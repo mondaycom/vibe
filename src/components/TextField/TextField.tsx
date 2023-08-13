@@ -31,7 +31,7 @@ interface TextFieldProps extends VibeComponentProps {
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete?: string;
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string, event: Pick<React.ChangeEvent, "target">) => void;
   onBlur?: (event: React.FocusEvent) => void;
   onFocus?: (event: React.FocusEvent) => void;
   onKeyDown?: (event: React.KeyboardEvent) => void;
@@ -137,7 +137,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const inputRef = useRef(null);
     const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
       delay: debounceRate,
-      onChange,
+      onChange: value => {
+        onChange(value, { target: inputRef.current });
+      },
       initialStateValue: value,
       trim
     });
@@ -158,10 +160,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         if (inputRef.current) {
           inputRef.current.focus();
         }
+        // Do it cause otherwise the value is not cleared in target object
+        inputRef.current.value = "";
         clearValue();
       }
       onIconClick(currentStateIconName);
-    }, [clearValue, currentStateIconName, inputRef, clearOnIconClick, disabled, onIconClick]);
+    }, [inputRef, disabled, clearOnIconClick, onIconClick, currentStateIconName, clearValue]);
 
     const validationClass = useMemo(() => {
       if (!validation || !validation.status) {

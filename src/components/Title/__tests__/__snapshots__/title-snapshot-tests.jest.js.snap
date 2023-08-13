@@ -2,7 +2,7 @@
 
 exports[`Text renders correctly with align 1`] = `
 <h1
-  className="typography primary center singleLineEllipsis h1 normal"
+  className="typography primary center singleLineEllipsis heading h1Normal"
   data-testid="text"
 >
   text
@@ -11,7 +11,7 @@ exports[`Text renders correctly with align 1`] = `
 
 exports[`Text renders correctly with color 1`] = `
 <h1
-  className="typography secondary start singleLineEllipsis h1 normal"
+  className="typography secondary start singleLineEllipsis heading h1Normal"
   data-testid="text"
 >
   text
@@ -20,7 +20,7 @@ exports[`Text renders correctly with color 1`] = `
 
 exports[`Text renders correctly with element 1`] = `
 <p
-  className="typography primary start singleLineEllipsis h1 normal"
+  className="typography primary start singleLineEllipsis heading h1Normal"
   data-testid="text"
 >
   text
@@ -29,7 +29,7 @@ exports[`Text renders correctly with element 1`] = `
 
 exports[`Text renders correctly with element as children 1`] = `
 <h1
-  className="typography primary start singleLineEllipsis h1 normal"
+  className="typography primary start singleLineEllipsis heading h1Normal"
   data-testid="text"
 >
   <div>
@@ -40,14 +40,14 @@ exports[`Text renders correctly with element as children 1`] = `
 
 exports[`Text renders correctly with empty props 1`] = `
 <h1
-  className="typography primary start singleLineEllipsis h1 normal"
+  className="typography primary start singleLineEllipsis heading h1Normal"
   data-testid="text"
 />
 `;
 
 exports[`Text renders correctly with type 1`] = `
 <h2
-  className="typography primary start singleLineEllipsis h2 normal"
+  className="typography primary start singleLineEllipsis heading h2Normal"
   data-testid="text"
 >
   text
@@ -56,7 +56,7 @@ exports[`Text renders correctly with type 1`] = `
 
 exports[`Text renders correctly with weight 1`] = `
 <h1
-  className="typography primary start singleLineEllipsis h1 bold"
+  className="typography primary start singleLineEllipsis heading h1Bold"
   data-testid="text"
 >
   text

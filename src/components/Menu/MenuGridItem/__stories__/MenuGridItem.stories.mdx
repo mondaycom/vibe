@@ -1,11 +1,11 @@
 import MenuGridItem from "../MenuGridItem";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { MENU, MENU_BUTTON } from "../../../../storybook/components/related-components/component-description-map";
 import { menuGridItemInSubMenus, menuGridItemTemplate, menuGridItemWithDisabled } from "./MenuGridItem.stories";
 import "./MenuGridItem.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuGridItem,
   enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here

@@ -1,7 +1,7 @@
 import { Box } from "../../../components";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/createStoryMetaSettings";
-import { RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
+import { Tip, createStoryMetaSettingsDecorator } from "../../../storybook";
+import { UsageGuidelines } from "vibe-storybook-components";
 import {
   DIALOG_CONTENT_CONTAINER,
   DIVIDER,
@@ -9,7 +9,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Box.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Box,
   enumPropNamesArray: [
     "className",
@@ -119,14 +119,14 @@ atom based compositions, it can accept all Vibe style related props and have a s
 <Canvas>
   <Story name="Text Colors">
     <div className={styles.boxWrapper}>
-      <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_textColor_COLOR</Box>
+      <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_TEXT_COLOR</Box>
       <Box
         backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
         textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
       >
-        Box.textColors.textColor_COLOR_ON_INVERTED
+        Box.textColors.TEXT_COLOR_ON_INVERTED
       </Box>
-      <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_textColor_COLOR</Box>
+      <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_TEXT_COLOR</Box>
     </div>
   </Story>
 </Canvas>
@@ -134,7 +134,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 ### BORDER
 
 <Canvas>
-  <Story name="Border ">
+  <Story name="Border">
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
     </div>
@@ -147,10 +147,10 @@ atom based compositions, it can accept all Vibe style related props and have a s
   <Story name="Border Color">
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.UI_BORDER_COLOR}>
-        Box.borderColors.UI_BORDER_COLOR}
+        Box.borderColors.UI_BORDER_COLOR
       </Box>
       <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}>
-        Box.borderColors.LAYOUT_BORDER_COLOR}
+        Box.borderColors.LAYOUT_BORDER_COLOR
       </Box>
     </div>
   </Story>

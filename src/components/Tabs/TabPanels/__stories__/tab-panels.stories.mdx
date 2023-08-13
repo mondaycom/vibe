@@ -1,9 +1,9 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../../storybook/functions/createStoryMetaSettings";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import TabPanel from "../../TabPanel/TabPanel";
 import TabPanels from "../TabPanels";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: TabPanels,
   enumPropNamesArray: ["animationDirection"]
 })

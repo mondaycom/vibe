@@ -1,7 +1,8 @@
 import MenuButton from "../MenuButton";
 import { noop as NOOP } from "lodash-es";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
 import { Menu, MenuItem, MenuTitle } from "../../index";
 import {
   BUTTON,
@@ -11,7 +12,7 @@ import {
 import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
   iconPropNamesArray: ["component"],
     actionPropsArray: ["onMenuHide", "onMenuShow"]

@@ -1,20 +1,28 @@
 import cx from "classnames";
-import React, { CSSProperties, FC, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { CSSProperties, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
-import { keyCodes } from "../../constants/keyCodes";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
+import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
 import { ListItemProps } from "../ListItem/ListItem";
 import { ListTitleProps } from "../ListTitle/ListTitle";
-import { ListWrapperComponentType } from "./ListConstants";
+import { ListWrapperComponentStringType, ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ListContext } from "./utils/ListContext";
+import {
+  generateListId,
+  getListItemComponentType,
+  getListItemIdByIndex,
+  getListItemIndexById
+} from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
   /**
    * the wrapping component to wrap the List Items [div, nav, ul, ol]
    */
-  component?: ListWrapperComponentType;
+  component?: ListWrapperComponentType | ListWrapperComponentStringType;
   /**
    * ARIA label string to describe to list
    */
@@ -31,12 +39,14 @@ export interface ListProps extends VibeComponentProps {
   style?: CSSProperties;
 }
 
-const List: FC<ListProps> = forwardRef(
+const List: VibeComponent<ListProps> & {
+  components?: typeof ListWrapperComponentType;
+} = forwardRef(
   (
     {
       className,
       id,
-      component = "ul",
+      component = List.components.UL,
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -46,31 +56,48 @@ const List: FC<ListProps> = forwardRef(
     },
     ref
   ) => {
+    const overrideId = id || generateListId();
     const componentRef = useRef(null);
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
-    const childrenRefs = useRef([]);
-    const onKeyDown = useCallback(
+    const childrenRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
+
+    const updateFocusedItem = useCallback((id: string) => {
+      setFocusIndex(getListItemIndexById(childrenRefs, id));
+      componentRef?.current?.setAttribute("aria-activedescendant", id);
+    }, []);
+
+    const onUpDownArrows = useCallback(
       (event: KeyboardEvent) => {
-        const isUpKey = event.keyCode === keyCodes.UP_ARROW;
-        const isDownKey = event.keyCode === keyCodes.DOWN_ARROW;
+        if (renderOnlyVisibleItems) {
+          return;
+        }
+        event.preventDefault();
+
+        const isUpKey = event.key === keyCodes.UP_ARROW;
+        const isDownKey = event.key === keyCodes.DOWN_ARROW;
         let overrideFocusIndex = undefined;
-        if (isUpKey || isDownKey) {
-          if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
-            overrideFocusIndex = focusIndex + 1;
-          } else if (isUpKey && focusIndex > 0) {
-            overrideFocusIndex = focusIndex - 1;
-          }
-          event.preventDefault();
-          if (overrideFocusIndex !== undefined) {
-            setFocusIndex(overrideFocusIndex);
-            childrenRefs.current[overrideFocusIndex].focus();
-          }
+
+        if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
+          overrideFocusIndex = focusIndex + 1;
+        } else if (isUpKey && focusIndex > 0) {
+          overrideFocusIndex = focusIndex - 1;
+        }
+        if (overrideFocusIndex !== undefined) {
+          updateFocusedItem(getListItemIdByIndex(childrenRefs, overrideFocusIndex));
+          childrenRefs.current[overrideFocusIndex].focus();
         }
       },
-      [focusIndex]
+      [focusIndex, renderOnlyVisibleItems, updateFocusedItem]
     );
+
+    useKeyEvent({
+      keys: UP_DOWN_ARROWS,
+      callback: onUpDownArrows,
+      ref: componentRef
+    });
+
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
@@ -81,36 +108,42 @@ const List: FC<ListProps> = forwardRef(
           if (!React.isValidElement(child)) {
             return child;
           }
-          return typeof child === "string"
-            ? child
-            : React.cloneElement(child, {
-                // @ts-ignore not sure how to deal with ref here
-                ref: ref => (childrenRefs.current[index] = ref),
-                tabIndex: focusIndex === index ? 0 : -1
-              });
+
+          const id = (child.props as { id: string }).id || `${overrideId}-item-${index}`;
+          return React.cloneElement(child, {
+            // @ts-ignore not sure how to deal with ref here
+            ref: ref => (childrenRefs.current[index] = ref),
+            tabIndex: focusIndex === index ? 0 : -1,
+            id,
+            component: getListItemComponentType(component)
+          });
         });
       }
 
       return override;
-    }, [children, focusIndex, renderOnlyVisibleItems]);
+    }, [children, component, focusIndex, overrideId, renderOnlyVisibleItems]);
 
     return (
-      // @ts-ignore Component comes from string, so it couldn't have types
-      <Component
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
-        ref={mergedRef}
-        style={style}
-        onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx(styles.list, className)}
-        id={id}
-        aria-label={ariaLabel}
-        aria-describedby={ariaDescribedBy}
-        tabIndex={-1}
-      >
-        {overrideChildren}
-      </Component>
+      <ListContext.Provider value={{ updateFocusedItem }}>
+        {/*@ts-ignore Component comes from string, so it couldn't have types*/}
+        <Component
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+          ref={mergedRef}
+          style={style}
+          className={cx(styles.list, className)}
+          id={overrideId}
+          aria-label={ariaLabel}
+          aria-describedby={ariaDescribedBy}
+          tabIndex={-1}
+          role="listbox"
+        >
+          {overrideChildren}
+        </Component>
+      </ListContext.Provider>
     );
   }
 );
 
-export default List;
+export default withStaticProps(List, {
+  components: ListWrapperComponentType
+});

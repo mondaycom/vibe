@@ -1,7 +1,7 @@
 import Dropdown from "../Dropdown";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettings, Link } from "../../../storybook";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   COMBOBOX,
   MENU,
@@ -15,14 +15,14 @@ import person2 from "./assets/person2.png";
 import Avatar from "../../Avatar/Avatar";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../Flex/Flex";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { StoryDescription, Link } from "vibe-storybook-components";
 import { Attach, Email } from "../../Icon/Icons";
 import { DialogContentContainer } from "../../index";
 import Dialog from "../../Dialog/Dialog";
 import Button from "../../Button/Button";
 import "./dropdown.stories.scss";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
   enumPropNamesArray: ["size"],
   actionPropsArray: [
@@ -694,6 +694,18 @@ Use <b>insideOverflowContainer</b> prop attribute for displaying dropdown inside
 component) or container with overflow hidden content.
 Use <b>insideOverflowWithTransformContainer</b> prop attribute for displaying drop down inside scrollable container which use CSS transform function (like our dialog component) or container
 with overflow hidden content which use CSS transform function.
+
+<Tip title="Dev tip">
+  For more details about dropdown's APIs for displaying correctly inside Dialogs, Modals and other popovers{" "}
+  <Link
+    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
+    size={Link.sizes.SMALL}
+    withoutSpacing
+  >
+    press here
+  </Link>
+  .
+</Tip>
 
 <Canvas>
   <Story name="Dropdown inside scrollable dialog">

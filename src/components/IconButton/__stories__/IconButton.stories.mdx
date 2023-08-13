@@ -1,32 +1,38 @@
 import IconButton from "../IconButton";
+import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import person1 from "./assets/person1.png";
 import {
-    Bolt,
-    Robot,
-    Doc,
-    Pin,
-    Show,
-    HighlightColorBucket,
-    Broom,
-    Add,
-    Time,
-    Item,
-    CloseSmall,
-    Drag,
-    Filter
+  Bolt,
+  Robot,
+  Doc,
+  Pin,
+  Show,
+  HighlightColorBucket,
+  Broom,
+  Add,
+  Time,
+  Item,
+  CloseSmall,
+  Drag,
+  Filter
 } from "../../Icon/Icons";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { BUTTON_GROUP, MENU_BUTTON, BUTTON } from "../../../storybook/components/related-components/component-description-map";
-import { Link, createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import {
+  BUTTON_GROUP,
+  MENU_BUTTON,
+  BUTTON
+} from "../../../storybook/components/related-components/component-description-map";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { Link, createComponentTemplate } from "vibe-storybook-components";
 import Icon from "../../Icon/Icon";
 import Heading from "../../Heading/Heading";
 import classes from "./iconButton.stories.module.scss";
 import Avatar from "../../Avatar/Avatar";
 
-export const metaSettings = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
   enumPropNamesArray: ["kind", "size", "color"],
   iconPropNamesArray: ["icon"],
@@ -35,9 +41,9 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta
   title="Buttons/Icon Button"
-  component={ IconButton }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={IconButton}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -47,6 +53,7 @@ export const iconButtonTemplate = createComponentTemplate(IconButton);
 <!--- Component documentation -->
 
 # IconButton
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -57,105 +64,192 @@ export const iconButtonTemplate = createComponentTemplate(IconButton);
 - [Feedback](#feedback)
 
 ## Overview
+
 Icon button is a square button contains only icon with no visible text labels used mostly in control bars.
+
 <Canvas>
-  <Story name="Overview" args={{ariaLabel: "Add", icon: Add }}>
+  <Story name="Overview" args={{ ariaLabel: "Add", icon: Add }}>
     {iconButtonTemplate.bind()}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable story={ "Overview" } />
+
+<ArgsTable story={"Overview"} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  <>Icon button will always appear with a <Link href="/?path=/docs/popover-tooltip--overview">tooltip</Link> while hovering, defining the icon’s meaning.</>,
-  "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
-  "Use icon button when you want to display an active state of a button.",
-  "Use a Primary icon button when it's the most important action to take.",
-  "Use icon button only when the icons is clear and understandable.",
-  "Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row."
-]}/>
 
-<Tip title="Check yourself">To display icons that do not have actions associated with them, use the <Link href="/?path=/docs/components-icon--overview" size={Link.sizes.SMALL} withoutSpacing>Icon component</Link>.</Tip>
+<UsageGuidelines
+  guidelines={[
+    <>
+      Icon button will always appear with a <Link href="/?path=/docs/popover-tooltip--overview">tooltip</Link> while
+      hovering, defining the icon’s meaning.
+    </>,
+    "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
+    "Use icon button when you want to display an active state of a button.",
+    "Use a Primary icon button when it's the most important action to take.",
+    "Use icon button only when the icons is clear and understandable.",
+    "Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row."
+  ]}
+/>
+
+<Tip title="Check yourself">
+  To display icons that do not have actions associated with them, use the{" "}
+  <Link href="/?path=/docs/components-icon--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Icon component
+  </Link>
+  .
+</Tip>
 
 ## Variants
+
 ### Kinds
+
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button kinds.
+
 <Canvas>
   <Story name="Kinds">
-      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" , width: "100%" }}>
-        <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton"/>
-        <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton"/>
-        <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton"/>
-      </div>
+    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
+      <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton" />
+      <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton" />
+      <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton" />
+    </div>
   </Story>
 </Canvas>
 
-<Tip>If you need to use an icon as a button that opens dialog or menu next to it, check out  <Link href="/?path=/docs/buttons-menubutton--overview" size={Link.sizes.SMALL} withoutSpacing>Menu button</Link> component.</Tip>
+<Tip>
+  If you need to use an icon as a button that opens dialog or menu next to it, check out{" "}
+  <Link href="/?path=/docs/buttons-menubutton--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Menu button
+  </Link>{" "}
+  component.
+</Tip>
 
 ### Sizes
 
 <Canvas>
   <Story name="Sizes">
-      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
-        <IconButton key="xxs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XXS} ariaLabel="My xxs IconButton"/>
-        <IconButton key="xs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XS} ariaLabel="My xs IconButton"/>
-        <IconButton key="small" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
-        <IconButton key="medium" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
-        <IconButton key="large" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
-      </div>
+    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
+      <IconButton
+        key="xxs"
+        icon={Robot}
+        kind={IconButton.kinds.SECONDARY}
+        size={IconButton.sizes.XXS}
+        ariaLabel="My xxs IconButton"
+      />
+      <IconButton
+        key="xs"
+        icon={Robot}
+        kind={IconButton.kinds.SECONDARY}
+        size={IconButton.sizes.XS}
+        ariaLabel="My xs IconButton"
+      />
+      <IconButton
+        key="small"
+        icon={Robot}
+        kind={IconButton.kinds.SECONDARY}
+        size={IconButton.sizes.SMALL}
+        ariaLabel="My small IconButton"
+      />
+      <IconButton
+        key="medium"
+        icon={Robot}
+        kind={IconButton.kinds.SECONDARY}
+        size={IconButton.sizes.MEDIUM}
+        ariaLabel="My medium IconButton"
+      />
+      <IconButton
+        key="large"
+        icon={Robot}
+        kind={IconButton.kinds.SECONDARY}
+        size={IconButton.sizes.LARGE}
+        ariaLabel="My large IconButton"
+      />
+    </div>
   </Story>
 </Canvas>
 
 ### Active
+
 <Canvas>
   <Story name="Active">
-      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
-        <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active/>
-        <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active/>
-        <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active/>
-      </div>
+    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
+      <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active />
+      <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active />
+      <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active />
+    </div>
   </Story>
 </Canvas>
 
 ### Disabled
+
 Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
+
 <Canvas>
   <Story name="Disabled">
-      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
-        <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small disabled IconButton" disabled disabledReason="This function is not available"/>
-        <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My disabled medium IconButton" disabled disabledReason="This function is not available" />
-        <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My disabled large IconButton" disabled disabledReason="This function is not available" />
-      </div>
+    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
+      <IconButton
+        icon={Doc}
+        kind={IconButton.kinds.PRIMARY}
+        ariaLabel="My small disabled IconButton"
+        disabled
+        disabledReason="This function is not available"
+      />
+      <IconButton
+        icon={Doc}
+        kind={IconButton.kinds.SECONDARY}
+        ariaLabel="My disabled medium IconButton"
+        disabled
+        disabledReason="This function is not available"
+      />
+      <IconButton
+        icon={Doc}
+        kind={IconButton.kinds.TERTIARY}
+        ariaLabel="My disabled large IconButton"
+        disabled
+        disabledReason="This function is not available"
+      />
+    </div>
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component: <DialogContentContainer>
+        component: (
+          <DialogContentContainer>
             <IconButton icon={Pin} ariaLabel="Pin to top" />
-            <IconButton icon={Show} ariaLabel="Show all"/>
-            <IconButton icon={HighlightColorBucket} ariaLabel="Show color"/>
-            <IconButton icon={Broom} ariaLabel="Clear style"/>
-        </DialogContentContainer>,
-        description: "Use Icon button when action is lower priority than a regular action or there’s no space available to place a button."
+            <IconButton icon={Show} ariaLabel="Show all" />
+            <IconButton icon={HighlightColorBucket} ariaLabel="Show color" />
+            <IconButton icon={Broom} ariaLabel="Clear style" />
+          </DialogContentContainer>
+        ),
+        description:
+          "Use Icon button when action is lower priority than a regular action or there’s no space available to place a button."
       },
       negative: {
-        component:<IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
-        description: <>Don’t use Icon button as the main action on the page. Instead, use the <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>Button component</Link> with an icon.</>
+        component: <IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
+        description: (
+          <>
+            Don’t use Icon button as the main action on the page. Instead, use the{" "}
+            <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>
+              Button component
+            </Link>{" "}
+            with an icon.
+          </>
+        )
       }
     },
     {
       positive: {
-        component: <IconButton icon={Bolt}  ariaLabel="Quick Search" />,
+        component: <IconButton icon={Bolt} ariaLabel="Quick Search" />,
         description: "Always provide ariaLabel or tooltipContent"
       },
       negative: {
-        component:<IconButton icon={Bolt} />,
+        component: <IconButton icon={Bolt} />,
         description: "Don’t use icon button without adding a tooltip while hovering."
       }
     }
@@ -163,47 +257,77 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
 />
 
 ## Use cases and examples
+
 ### Icon button as toolbar button
+
 <Canvas>
-    <Story name="Icon button as toolbar button">
-        <Flex className={classes.dashboard} direction={Flex.directions.COLUMN} align={Flex.align.START} style={{width: "50%"}}>
-            <Flex className={classes.dashboardHeader} gap={Flex.gaps.SMALL}>
-                <Icon icon={Drag} />
-                <Heading type={Heading.types.h5} value="Widget name" />
-                <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL}/>
-            </Flex>
-            <div className={classes.dashboardContent} />
-        </Flex>
-    </Story>
+  <Story name="Icon button as toolbar button">
+    <Flex
+      className={classes.dashboard}
+      direction={Flex.directions.COLUMN}
+      align={Flex.align.START}
+      style={{ width: "50%" }}
+    >
+      <Flex className={classes.dashboardHeader} gap={Flex.gaps.SMALL}>
+        <Icon icon={Drag} />
+        <Heading type={Heading.types.h5} value="Widget name" />
+        <IconButton icon={Filter} ariaLabel="Filter the widget by everything" size={IconButton.sizes.SMALL} />
+      </Flex>
+      <div className={classes.dashboardContent} />
+    </Flex>
+  </Story>
 </Canvas>
 
 ### Icon button as close button
+
 <Canvas>
-    <Story name="Icon button as close button">
-        <Flex style={{width: "100%"}}>
-            <Flex  className={classes.recycleBin} style={{width: "100%"}} justify={Flex.justify.START} gap={Flex.gaps.LARGE}>
-                <Flex direction={Flex.directions.COLUMN} className={classes.recycleBinTitleContainer} justify={Flex.justify.CENTER}>
-                    <Icon icon={Item} iconSize={40}/>
-                    <Heading className={classes.recycleBinTitle} type={Heading.types.h5} value="Item" id="monday-recycle-bin-title"/>
-                </Flex>
-                <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
-                <Flex direction={Flex.directions.COLUMN} className={classes.recycleBinContent} align={Flex.justify.START} ariaLabelledby="monday-recycle-bin-title">
-                    <Flex gap={Flex.gaps.XS}>
-                        <Link withoutSpacing>Hadas Farhi</Link><span>deleted the item </span><span className={classes.recycleBinItemName}>Hello World</span><span>from the board</span>
-                    </Flex>
-                    <span className={classes.recycleBinBoardName}>Tasks</span>
-                    <Flex gap={Flex.gaps.XS} className={classes.recycleBinSubNote}>
-                        <Icon icon={Time}/>
-                        <span className={classes.recycleBinTimeStamp}>13m</span>
-                        <span>(Available for restore in the next 1M)</span>
-                    </Flex>
-                </Flex>
-                <Button className={classes.recycleBinRestoreButton}>Restore</Button>
-            </Flex>
+  <Story name="Icon button as close button">
+    <Flex style={{ width: "100%" }}>
+      <Flex className={classes.recycleBin} style={{ width: "100%" }} justify={Flex.justify.START} gap={Flex.gaps.LARGE}>
+        <Flex
+          direction={Flex.directions.COLUMN}
+          className={classes.recycleBinTitleContainer}
+          justify={Flex.justify.CENTER}
+        >
+          <Icon icon={Item} iconSize={40} />
+          <Heading
+            className={classes.recycleBinTitle}
+            type={Heading.types.h5}
+            value="Item"
+            id="monday-recycle-bin-title"
+          />
         </Flex>
-        <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin"/>
-    </Story>
+        <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+        <Flex
+          direction={Flex.directions.COLUMN}
+          className={classes.recycleBinContent}
+          align={Flex.justify.START}
+          ariaLabelledby="monday-recycle-bin-title"
+        >
+          <Flex gap={Flex.gaps.XS}>
+            <Link withoutSpacing>Hadas Farhi</Link>
+            <span>deleted the item </span>
+            <Text element="span" weight="bold">
+              Hello World
+            </Text>
+            <span>from the board</span>
+          </Flex>
+          <Text element="span" weight="bold">
+            Tasks
+          </Text>
+          <Flex gap={Flex.gaps.XS} className={classes.recycleBinSubNote}>
+            <Icon icon={Time} />
+            <span className={classes.recycleBinTimeStamp}>13m</span>
+            <span>(Available for restore in the next 1M)</span>
+          </Flex>
+        </Flex>
+        <Button className={classes.recycleBinRestoreButton}>Restore</Button>
+      </Flex>
+    </Flex>
+    <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
+  </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[BUTTON, MENU_BUTTON, BUTTON_GROUP]} />

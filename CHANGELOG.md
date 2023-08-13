@@ -1,5 +1,143 @@
 # Changelog
 
+## 2.23.0 (2023-08-13)
+
+#### New Features
+* [#1439](https://github.com/mondaycom/monday-ui-react-core/pull/1439) feat: <List> a11y improvements ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.22.0 (2023-08-10)
+
+#### New Features
+* [#1442](https://github.com/mondaycom/monday-ui-react-core/pull/1442) Technical pattern from using dropdown in dialog and modals and support for popupsContainerSelector for displaying dropdown properly in modals ([@hadasfa](https://github.com/hadasfa))
+
+## 2.21.0 (2023-08-09)
+
+#### Bug Fixes
+* [#1468](https://github.com/mondaycom/monday-ui-react-core/pull/1468) fix: <TextField> replace icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1469](https://github.com/mondaycom/monday-ui-react-core/pull/1469) feat(Tipseen): allow tipseen title to have max 2 lines ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1465](https://github.com/mondaycom/monday-ui-react-core/pull/1465) feat: <TextField/> add event as a param to onChange callback ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.20.1 (2023-08-08)
+
+#### Bug Fixes
+* [#1467](https://github.com/mondaycom/monday-ui-react-core/pull/1467) Fix specificity issues in label and in typography in general ([@hadasfa](https://github.com/hadasfa))
+
+## 2.20.0 (2023-08-08)
+
+#### New Features
+* [#1432](https://github.com/mondaycom/monday-ui-react-core/pull/1432) feat(Indicator): add new Indicator component to component library ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1466](https://github.com/mondaycom/monday-ui-react-core/pull/1466) chore(storybook): upgrade storybook to 6.5.10+ to enable interaction testing on Chromatic ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.19.2 (2023-08-07)
+
+#### Bug Fixes
+* [#1464](https://github.com/mondaycom/monday-ui-react-core/pull/1464) fix version number as css selector ([@hadasfa](https://github.com/hadasfa))
+
+## 2.19.1 (2023-08-07)
+
+#### Bug Fixes
+* [#1463](https://github.com/mondaycom/monday-ui-react-core/pull/1463) Add version to class ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#1434](https://github.com/mondaycom/monday-ui-react-core/pull/1434) fix(AttentionBox): general improvements + allow ellipsis for overflowin attention box ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1392](https://github.com/mondaycom/monday-ui-react-core/pull/1392) chore: fail chromatic action check in case has visual changes ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.19.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1459](https://github.com/mondaycom/monday-ui-react-core/pull/1459) fix: storybookComponents export - include styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1452](https://github.com/mondaycom/monday-ui-react-core/pull/1452) feat(Modal): css changes, add new footer layout ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.18.1 (2023-08-03)
+
+#### Bug Fixes
+* [#1458](https://github.com/mondaycom/monday-ui-react-core/pull/1458) package.json fix types exports for icons and root ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.18.0 (2023-08-03)
+
+#### Bug Fixes
+* [#1456](https://github.com/mondaycom/monday-ui-react-core/pull/1456) Change vibe version number manually ([@hadasfa](https://github.com/hadasfa))
+* [#1453](https://github.com/mondaycom/monday-ui-react-core/pull/1453) Fix letter spacing in legacy heading (temp until we will able to fix in monday ui style) ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1457](https://github.com/mondaycom/monday-ui-react-core/pull/1457) last manually change for update vibe version? ([@hadasfa](https://github.com/hadasfa))
+* [#1455](https://github.com/mondaycom/monday-ui-react-core/pull/1455) Update vibe version number manually  ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1454](https://github.com/mondaycom/monday-ui-react-core/pull/1454) docs: fix Shadows page usage and examples ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.17.5 (2023-08-01)
+
+#### Documentation
+* [#1451](https://github.com/mondaycom/monday-ui-react-core/pull/1451) Sergeyro/fix/update vibe storybook components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1450](https://github.com/mondaycom/monday-ui-react-core/pull/1450) chore: prevent from style injection to explode in server side rendering ([@shlomitc](https://github.com/shlomitc))
+
+## 2.17.4 (2023-08-01)
+
+#### Bug Fixes
+* [#1449](https://github.com/mondaycom/monday-ui-react-core/pull/1449) Fix/hadas/log fix ([@hadasfa](https://github.com/hadasfa))
+
+## 2.17.3 (2023-08-01)
+
+#### Bug Fixes
+* [#1447](https://github.com/mondaycom/monday-ui-react-core/pull/1447) Fix modal content bug: display ellipsis on modal content ([@hadasfa](https://github.com/hadasfa))
+
+## 2.17.2 (2023-08-01)
+
+#### Documentation
+* [#1445](https://github.com/mondaycom/monday-ui-react-core/pull/1445) docs: welcome page small fixes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1446](https://github.com/mondaycom/monday-ui-react-core/pull/1446) chore: fix internal triggers for deployment ([@shlomitc](https://github.com/shlomitc))
+* [#1441](https://github.com/mondaycom/monday-ui-react-core/pull/1441) chore: expose types for vite and next-based projects ([@shlomitc](https://github.com/shlomitc))
+* [#1443](https://github.com/mondaycom/monday-ui-react-core/pull/1443) chore(data-testid): util function does not chain id if it is falsy ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.17.1 (2023-07-26)
+
+#### Bug Fixes
+* [#1438](https://github.com/mondaycom/monday-ui-react-core/pull/1438) fix: <Box/> static props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1433](https://github.com/mondaycom/monday-ui-react-core/pull/1433) docs(API_GUIDELINES): add export instructions for type and interface ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.17.0 (2023-07-25)
+
+#### New Features
+* [#1431](https://github.com/mondaycom/monday-ui-react-core/pull/1431) Chips: Add WARNING color ([@benpinchas](https://github.com/benpinchas))
+* [#1403](https://github.com/mondaycom/monday-ui-react-core/pull/1403) feat(MultiStepIndicator): add ts support ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1425](https://github.com/mondaycom/monday-ui-react-core/pull/1425) PR #3 of replacing old token variants with mixins ([@hadasfa](https://github.com/hadasfa))
+* [#1430](https://github.com/mondaycom/monday-ui-react-core/pull/1430) Replace storybookComponents with vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.16.1 (2023-07-19)
+
+#### Bug Fixes
+* [#1428](https://github.com/mondaycom/monday-ui-react-core/pull/1428) fix heading margin breaking change ([@hadasfa](https://github.com/hadasfa))
+* [#1422](https://github.com/mondaycom/monday-ui-react-core/pull/1422) fix(Chips): change border color token, do not limit chip-with-border's height ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.16.0 (2023-07-18)
+
+#### Bug Fixes
+* [#1421](https://github.com/mondaycom/monday-ui-react-core/pull/1421) fix(DatePicker): do not set vertical alignment to be baseline (defaults to middle) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Features
+* [#1400](https://github.com/mondaycom/monday-ui-react-core/pull/1400) Convert text and title usages with mixins ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1412](https://github.com/mondaycom/monday-ui-react-core/pull/1412) Fix vibe typography instances 2 ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#1426](https://github.com/mondaycom/monday-ui-react-core/pull/1426) Update icons - monday-ui-style 0.1.173 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.15.5 (2023-07-13)
 
 #### Bug Fixes

@@ -1,9 +1,10 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../styles/typography";
 
 .recycleBin {
   border: 1px solid var(--ui-border-color);
   border-radius: var(--border-radius-small);
-  @include font-paragraph;
+  @include vibe-text(medium, normal);
   height: 94px;
 
   &TitleContainer {
@@ -21,20 +22,12 @@
     flex-grow: 1;
   }
 
-  &BoardName{
-    font-weight: var(--font-weight-bold);
-  }
-
-  &ItemName {
-    font-weight: var(--font-weight-bold);
-  }
-
   &SubNote {
-    @include font-general-text;
+    @include label-text;
   }
 
   &TimeStamp {
-    font-weight: var(--font-weight-bold);
+    font-weight: 500;
   }
 
   &RestoreButton {
