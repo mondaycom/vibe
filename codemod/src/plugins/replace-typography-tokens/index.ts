@@ -1,5 +1,7 @@
 import * as postcss from "postcss";
-import { replaceTokensPlugin } from "../replace-tokens";
+import { replaceTokensWithMixins } from "../replace-tokens-with-mixins";
+import { getCssVariableName } from "../../helpers/get-css-variable-name";
+import { addImportsIfNeeded } from "../add-imports-if-needed";
 
 type MixinByFontSizeData = {
   weight: string[];
@@ -7,15 +9,32 @@ type MixinByFontSizeData = {
   mixinName: string;
   mixinParams: string[];
 };
+
+const importStatement = "~monday-ui-style/dist/mixins";
 const TYPOGRAPHY_TOKENS_INFO = [
-  { from: "font-h1", to: "vibe-heading", params: ["h1", "normal"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-h2", to: "vibe-heading", params: ["h2", "normal"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-h3", to: "vibe-heading", params: ["h2", "light"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-h4", to: "vibe-heading", params: ["h3", "normal"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-h5", to: "vibe-text1", params: ["bold"], import: "~monday-ui-style/dist/mixins" },
-  { from: "paragraph-h6", to: "vibe-text", params: ["normal"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-general-label", to: "vibe-text", params: ["normal"], import: "~monday-ui-style/dist/mixins" },
-  { from: "font-subtext", to: "vibe-text", params: ["normal"], import: "~monday-ui-style/dist/mixins" }
+  { from: "font-h1", to: "vibe-heading", params: ["h1", "normal"], importStatement },
+  { from: "font-h2", to: "vibe-heading", params: ["h2", "normal"], importStatement },
+  { from: "font-h3", to: "vibe-heading", params: ["h2", "light"], importStatement },
+  { from: "font-h4", to: "vibe-heading", params: ["h3", "normal"], importStatement },
+  { from: "font-h5", to: "vibe-text", params: ["text-1", "bold"], importStatement },
+  {
+    from: "paragraph-h6",
+    to: "vibe-text",
+    params: ["text-1", "normal"],
+    importStatement: "~monday-ui-style/dist/mixins"
+  },
+  {
+    from: "font-general-label",
+    to: "vibe-text",
+    params: ["text-2", "normal"],
+    importStatement: "~monday-ui-style/dist/mixins"
+  },
+  {
+    from: "font-subtext",
+    to: "vibe-text",
+    params: ["text-2", "normal"],
+    importStatement: "~monday-ui-style/dist/mixins"
+  }
 ];
 
 const FONT_SIZE_TO_MIXIN = new Map<string, MixinByFontSizeData>([
@@ -96,7 +115,7 @@ export const replaceTypographyTokensPlugin: postcss.Plugin = {
   postcssPlugin: "replace-typography-tokens",
   Once(root) {
     // If implementation include font declaration token, replace it with the new mixin
-    replaceTokensPlugin(root, TYPOGRAPHY_TOKENS_INFO);
+    replaceTokensWithMixins(root, TYPOGRAPHY_TOKENS_INFO);
 
     // If implementation use different tokens for font-size, font-family, line-height, font-weight, replace them with mixin
     applyMixinsToSubTokensDeclarations(root);
@@ -105,26 +124,38 @@ export const replaceTypographyTokensPlugin: postcss.Plugin = {
 
 function applyMixinsToSubTokensDeclarations(root) {
   // Traverse the AST to find font-size declarations
-  root.walkDecls(rule => {
-    const fontSizeDecl = rule.nodes.find(node => node.prop === "font-size");
-    const fontWeightDecl = rule.nodes.find(node => node.prop === "font-weight");
-    const lineHeightDecl = rule.nodes.find(node => node.prop === "line-height");
-    console.log("c", fontSizeDecl);
-    if (fontSizeDecl && fontSizeDecl.value && FONT_SIZE_TO_MIXIN.has(fontSizeDecl.value.trim())) {
-      const mixinProperties = FONT_SIZE_TO_MIXIN.get(fontSizeDecl.value.trim());
+  root.walkDecls(decl => {
+    const variableName = getCssVariableName(decl.value.trim());
 
-      // Check if font-weight and line-height declarations are also present
-      if (fontWeightDecl === mixinProperties.weight && lineHeightDecl === mixinProperties.lineHeight) {
-        const newProp = postcss.decl({
-          prop: "",
-          value: `@include ${mixinProperties.mixinName}`
+    if (decl.prop === "font-size" && FONT_SIZE_TO_MIXIN.has(variableName)) {
+      const parentRule = decl.parent; // Get the rule containing the declaration
+      const mixinProperties = FONT_SIZE_TO_MIXIN.get(variableName);
+
+      const fontWeightDecl = parentRule.nodes.find(node => node.prop === "font-weight");
+      const lineHeightDecl = parentRule.nodes.find(node => node.prop === "line-height");
+
+      // Check if font-weight and line-height declarations are also present and match the properties
+      if (
+        fontWeightDecl &&
+        mixinProperties.weight.includes(fontWeightDecl.value) &&
+        lineHeightDecl &&
+        mixinProperties.lineHeight.includes(lineHeightDecl.value)
+      ) {
+        // Create a new PostCSS at-rule containing the mixin include
+        const mixinInclude = postcss.atRule({
+          name: "include",
+          params: ` ${mixinProperties.mixinName}(${mixinProperties.mixinParams.join(", ")})`
         });
 
-        // Replace font-size, font-weight, and line-height declarations with the new mixin
-        fontSizeDecl.remove();
+        // Remove the original declarations
+        decl.remove();
         fontWeightDecl.remove();
         lineHeightDecl.remove();
-        rule.append(newProp);
+
+        // Append the new mixin to the rule
+        parentRule.append(mixinInclude);
+
+        addImportsIfNeeded(root, [importStatement]);
       }
     }
   });
