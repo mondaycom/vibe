@@ -32,6 +32,14 @@ function loadPackageJson() {
   return JSON.parse(packageJson);
 }
 
+function generateCssModulesScopedName(name, filename, css) {
+  const start = css.indexOf(`${name} {`);
+  const end = css.indexOf("}", start);
+  const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
+  const loadPackageJsonResult = loadPackageJson();
+  return `${name}_${getShortSha(content + loadPackageJsonResult.version)}`;
+}
+
 function generateCssModulesMockName(name) {
   return name;
 }
@@ -49,7 +57,7 @@ export default {
     icons: path.join(SRC_PATH, "components/Icon/Icons/index.ts"),
     interactionsTests: path.join(SRC_PATH, "tests/interactions-utils.ts"),
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
-    next: path.join(SRC_PATH, "index.ts")
+    next: path.join(SRC_PATH, "next/next.ts")
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [

@@ -18,7 +18,10 @@
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
     "./storybookComponents": "./dist/storybook/index.js",
-    "./next": "./dist/esm/src/next/index.js",
+    "./next": {
+      "import": "./dist/esm/src/next/next.js",
+      "types": "./dist/esm/next/next.d.ts"
+    },
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames_esm/src/index.js"
@@ -36,7 +39,7 @@
         "./dist/esm/tests/test-ids-utils.d.ts"
       ],
       "next": [
-        "./dist/esm/src/next/index.d.ts"
+        "./dist/esm/next/next.d.ts"
       ]
     }
   },
