@@ -44,24 +44,30 @@
   //workaround to increase the left panel width just enough to show even the longer story names
   //based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
   const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 244; // original default is 230
-  let storybookConfig = JSON.parse(localStorage.getItem('storybook-layout'));
+  let storybookConfig = JSON.parse(localStorage.getItem("storybook-layout"));
 
   // we only resize the left panel if it is set to a value lower than DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
-  if (typeof storybookConfig === 'object' && storybookConfig !== null && storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH) {
+  if (
+    typeof storybookConfig === "object" &&
+    storybookConfig !== null &&
+    storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+  ) {
     storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH;
-    localStorage.setItem('storybook-layout', JSON.stringify(storybookConfig));
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
     document.location.reload();
   } else if (storybookConfig === null) {
-    storybookConfig = { resizerNav: { x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH, y: 0 }, };
-    localStorage.setItem('storybook-layout', JSON.stringify(storybookConfig));
+    storybookConfig = { resizerNav: { x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH, y: 0 } };
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
     document.location.reload();
   }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBP2ER8YL"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-    gtag('config', 'G-0CBP2ER8YL');
+  gtag("config", "G-0CBP2ER8YL");
 </script>
