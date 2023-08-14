@@ -8,7 +8,7 @@ $tooltip-z-index: 9999999999999999;
   position: relative;
   display: inline-block;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
-  padding: var(--tooltip-padding, #{$spacing-small $spacing-medium});
+  padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
   @include theme-prop(box-shadow, box-shadow-medium);
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
@@ -17,7 +17,7 @@ $tooltip-z-index: 9999999999999999;
 
 .tooltip.paddingSizeMd {
   border-radius: var(--border-radius-medium);
-  padding: $spacing-medium;
+  padding: var(--spacing-medium);
   @include font-input();
 }
 

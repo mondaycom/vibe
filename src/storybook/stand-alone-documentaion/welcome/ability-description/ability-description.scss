@@ -6,7 +6,7 @@
   flex-direction: column;
   border: 1px solid;
   @include theme-prop(border-color, layout-border-color);
-  padding: $spacing-large;
+  padding: var(--spacing-large);
   width: 100%;
   &_image {
     height: 48px;
@@ -21,6 +21,6 @@
 
   &_content {
     @include small-text;
-    margin-bottom: $spacing-large;
+    margin-bottom: var(--spacing-large);
   }
 }

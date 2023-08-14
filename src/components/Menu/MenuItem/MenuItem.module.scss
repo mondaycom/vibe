@@ -17,11 +17,11 @@
 }
 
 .iconWrapper {
-  margin-right: $spacing-small;
+  margin-right: var(--spacing-small);
 }
 
 .subMenuIconWrapper {
-  margin-left: $spacing-xs;
+  margin-left: var(--spacing-xs);
 }
 
 .subMenuIconWrapper,

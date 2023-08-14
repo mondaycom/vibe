@@ -4,7 +4,7 @@
 .toggle {
   @include reset-button();
   transition: background-color var(--motion-productive-medium) var(--motion-timing-transition);
-  margin: 0 $spacing-small;
+  margin: 0 var(--spacing-small);
   position: relative;
   height: 24px;
   width: 41px;

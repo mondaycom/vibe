@@ -3,9 +3,9 @@
 @import "../../../../styles/themes";
 
 .clearColorIcon {
-  margin-right: $spacing-small;
+  margin-right: var(--spacing-small);
 }
 
 .clearColorButton {
-  margin-top: $spacing-small;
+  margin-top: var(--spacing-small);
 }

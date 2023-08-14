@@ -62,7 +62,7 @@ $checkbox-size: 16px;
   @include smoothing-text;
   cursor: pointer;
   user-select: none;
-  margin-inline-start: $spacing-small;
+  margin-inline-start: var(--spacing-small);
 }
 
 /* Since it is not possible to change the design of the checkbox according to the requirements using css, */
