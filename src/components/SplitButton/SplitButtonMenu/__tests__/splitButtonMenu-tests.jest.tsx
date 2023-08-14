@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import SplitButtonMenu from "../SplitButtonMenu";
 import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
-import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "./test-utils";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
 const id = "menu";
 const menuDataTestId = getTestId(ComponentDefaultTestId.MENU, id);

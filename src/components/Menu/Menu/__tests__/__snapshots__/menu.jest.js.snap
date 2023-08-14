@@ -23,8 +23,8 @@ exports[`Snapshots renders correctly with children 1`] = `
     </label>
   </div>
   <li
-    aria-current={false}
-    className="typography primary start singleLineEllipsis smallNormal item"
+    aria-current={true}
+    className="typography primary start singleLineEllipsis smallNormal item focused initialSelected"
     data-testid="menu-item_1"
     id="undefined-1"
     onClick={[Function]}
@@ -50,7 +50,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   </li>
   <li
     aria-current={false}
-    className="typography primary start singleLineEllipsis smallNormal item"
+    className="typography primary start singleLineEllipsis smallNormal item initialSelected"
     data-testid="menu-item_2"
     id="undefined-2"
     onClick={[Function]}
