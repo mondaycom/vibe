@@ -65,7 +65,7 @@
   background-color: transparent;
   border: 1px solid;
   @include theme-prop(border-color, ui-border-color);
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   transition: border-color var(--motion-productive-medium) ease-in;
   padding: $spacing-small $spacing-medium;
   white-space: nowrap;
@@ -119,7 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   opacity: 0;
   pointer-events: none;
 }

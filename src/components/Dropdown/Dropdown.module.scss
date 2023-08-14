@@ -7,7 +7,7 @@
   align-content: center;
   @include theme-prop(color, primary-text-color);
   cursor: pointer;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   margin: 0 var(--spacing-small);
   padding: 0 var(--spacing-small);
   transition: all var(--motion-productive-medium) var(--motion-timing-enter);

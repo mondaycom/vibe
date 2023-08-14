@@ -10,7 +10,7 @@ $disabled-on-primary-color-opacity: 0.5;
   outline: none;
   border: none;
   height: auto;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   cursor: pointer;
   white-space: nowrap;
   transition: var(--motion-productive-short) transform,
