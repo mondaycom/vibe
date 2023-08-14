@@ -33,8 +33,8 @@ $tooltip-z-index: 9999999999999999;
 
 .white,
 .arrow.white {
-  background-color: $white-theme-bg-color;
-  color: $white-theme-font-color;
+  background-color: var(--color-snow_white);
+  color: var(--color-blackish);
   @include theme-prop(box-shadow, box-shadow-medium);
 }
 
@@ -52,8 +52,8 @@ $tooltip-z-index: 9999999999999999;
 
 .surface,
 .arrow.surface {
-  background-color: $surface-theme-bg-color;
-  color: $surface-theme-font-color;
+  background-color: #5b607a;
+  color: var(--color-snow_white);
 }
 
 .private,
