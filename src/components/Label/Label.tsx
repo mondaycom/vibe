@@ -7,7 +7,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Label.module.scss";
 
 interface LabelProps extends VibeComponentProps {
@@ -42,6 +42,7 @@ const Label: FC<LabelProps> & {
   "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
+  const textColor = color === LabelColor.DARK ? "onPrimary" : "onInverted";
   const classNames = useMemo(
     () =>
       cx(
@@ -58,7 +59,7 @@ const Label: FC<LabelProps> & {
   );
   return (
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
-      <Text size="small" className={classNames}>
+      <Text size="small" className={classNames} color={textColor}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </Text>

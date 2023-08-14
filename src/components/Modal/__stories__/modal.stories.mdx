@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
-import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import { ComponentRules, UsageGuidelines, Link } from "vibe-storybook-components";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
@@ -22,10 +22,48 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onClose"] // List the component's actions here
 });
 
+export const modalTemplate = ({ onClose, ...modalProps }) => {
+  // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
+  // Control if modal is display or hidden
+  const [show, setShow] = useState(false);
+  const openModalButtonRef = useRef(null);
+  const closeModal = useCallback(() => setShow(false), []);
+  // Internal helper method for creating basic button which change the show state to true in order to display the modal
+  // This method is not part of our external API and not required for creating functional modal component
+  const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
+  return (
+    <div>
+      {openModalButton}
+      <Modal
+        id={"story-book-modal"}
+        title={"Modal title"}
+        description="Subtitle description text goes here"
+        contentSpacing
+        triggerElement={openModalButtonRef.current}
+        // is modal show or hidden
+        show={show}
+        // set show state to close
+        onClose={closeModal}
+        {...modalProps}
+      >
+        <ModalContent>
+          <p>Modal content goes here</p>
+        </ModalContent>
+        <ModalFooterButtons
+          primaryButtonText="Confirm"
+          secondaryButtonText="Cancel"
+          onPrimaryButtonClick={closeModal}
+          onSecondaryButtonClick={closeModal}
+        />
+      </Modal>
+    </div>
+  );
+};
+
 <Meta
   title="Feedback/Modal"
   component={Modal}
-  subcomponents={{ ModalHeader, ModalContent, ModalFooter, ModalFooterButtons }}
+  subcomponents={{ ModalHeader, ModalContent, ModalFooter }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -49,43 +87,7 @@ Modal allows the user to focus on one task or a piece of information, by popping
 Use modal for short and non-frequent tasks. For common tasks consider using the main flow.
 
 <Canvas>
-  <Story name="Overview">
-    {({ onClose, ...modalProps }) => {
-      // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
-      // Control if modal is display or hidden
-      const [show, setShow] = useState(false);
-      const openModalButtonRef = useRef(null);
-      const closeModal = useCallback(() => setShow(false), []);
-      // Internal helper method for creating basic button which change the show state to true in order to display the modal
-      // This method is not part of our external API and not required for creating functional modal component
-      const openModalButton = useHelperOpenModalButton({ title: modalProps.title, setShow, openModalButtonRef });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            description="Subtitle description text goes here"
-            triggerElement={openModalButtonRef.current}
-            // is modal show or hidden
-            show={show}
-            // set show state to close
-            onClose={closeModal}
-            contentSpacing
-            {...modalProps}
-          >
-            <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooterButtons
-              primaryButtonText="Confirm"
-              secondaryButtonText="Cancel"
-              onPrimaryButtonClick={closeModal}
-              onSecondaryButtonClick={closeModal}
-            />
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
+  <Story name="Overview">{modalTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
@@ -108,7 +110,10 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
   not by ESC or by clicking outside.
 </Tip>
 <Tip>
-  If you wish to create a popover positioned next to other components, like customized menus, check out our Dialog
+  For creating a popover positioned next to other components, like customized menus, check out our{" "}
+  <Link hredf="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Dialog
+  </Link>{" "}
   component.
 </Tip>
 
@@ -121,6 +126,20 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
     {() => {
       // Boilerplate for creating a modal, not relevant for this example
       const [show, setShow] = useState(false);
+      const options = [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" },
+        { value: 12, label: "Option 1" },
+        { value: 22, label: "Option 2" },
+        { value: 32, label: "Option 3" },
+        { value: 14, label: "Option 1" },
+        { value: 25, label: "Option 2" },
+        { value: 36, label: "Option 3" },
+        { value: 17, label: "Option 1" },
+        { value: 28, label: "Option 2" },
+        { value: 388, label: "Option 3" }
+      ];
       const openModalButtonRef = useRef(null);
       const closeModal = useCallback(() => {
         setShow(false);
@@ -343,6 +362,18 @@ clicking outside. Use this variant in case of sensitive or important messages, a
     }
   ]}
 />
+
+<Tip title="Dev tip">
+  If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
+  correctly, read more about our dropdown in popovers technical pattern{" "}
+  <Link
+    withoutSpacing
+    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
+    size={Link.sizes.SMALL}
+  >
+    here.
+  </Link>
+</Tip>
 
 ## Use cases and examples
 

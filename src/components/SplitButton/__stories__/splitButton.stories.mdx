@@ -43,6 +43,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 <Meta
   title="Buttons/Split Button"
   component={SplitButton}
+  subcomponents={{ SplitButtonMenu }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -267,11 +268,8 @@ The split button has supports multiple sizes: small, medium and large.
         ),
         description: (
           <>
-            Don’t use split button if there’s only one option within the menu. Use{" "}
-            <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>
-              Button
-            </Link>{" "}
-            instead (see example in the secondary dialog).
+            Don’t use split button if there’s only one option within the menu. Use
+            <Link href="/?path=/docs/buttons-button--overview">Button</Link>instead (see example in the secondary dialog).
           </>
         )
       }

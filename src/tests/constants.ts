@@ -1,6 +1,8 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  INDICATOR = "indicator",
+  BADGE = "badge",
   TITLE = "title",
   TEXT = "text",
   COMBOBOX = "combobox",
@@ -92,8 +94,6 @@ export enum ComponentDefaultTestId {
   ICON = "icon",
   RESPONSIVE_LIST = "responsive-list",
   LIST = "list",
-  LIST_ITEM = "list-item",
-  LIST_TITLE = "list-title",
   MODAL = "monday-dialog-container",
   MODAL_OVERLAY = "monday-modal-overlay",
   MODAL_CONTENT = "modal-content",

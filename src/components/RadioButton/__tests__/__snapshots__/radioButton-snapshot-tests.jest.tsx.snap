@@ -197,7 +197,7 @@ exports[`RadioButton renders correctly with text 1`] = `
     />
   </span>
   <span
-    className="typography primary start singleLineEllipsis small normal"
+    className="typography primary start singleLineEllipsis smallNormal"
     data-testid="radio-button-label"
   >
     test text
