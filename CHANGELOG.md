@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.24.1 (2023-08-15)
+
+#### Bug Fixes
+* [#1477](https://github.com/mondaycom/monday-ui-react-core/pull/1477) add null check to List component for support undef children ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.24.0 (2023-08-15)
 
 #### New Features
