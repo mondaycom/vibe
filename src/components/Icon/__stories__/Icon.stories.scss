@@ -34,7 +34,7 @@
 }
 
 .icon-story-description {
-  margin: $spacing-large 0;
+  margin: var(--spacing-large) 0;
   @include vibe-text(text1, medium);
 }
 

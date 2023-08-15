@@ -2,7 +2,7 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/typography";
 
-$component-rules-grid-gap: $spacing-xxl;
+$component-rules-grid-gap: var(--spacing-xxl);
 $tipseen-rules-cell-min-width: 476px;
 $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-width});
 

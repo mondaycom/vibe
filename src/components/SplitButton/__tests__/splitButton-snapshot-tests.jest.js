@@ -2,9 +2,24 @@ import React from "react";
 import renderer from "react-test-renderer";
 import SplitButton from "../SplitButton";
 import Delete from "../../Icon/Icons/components/Delete";
+import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
+import MenuItem from "../../Menu/MenuItem/MenuItem";
+import Menu from "../../Menu/Menu/Menu";
 
 const secondaryContentText = "Test secondary dialog content";
 const secondaryContent = <div>{secondaryContentText}</div>;
+const SplitButtonMenuWithItems = (
+  <SplitButtonMenu id="menu">
+    <MenuItem title="Test 1" />
+    <MenuItem title="Test 2" />
+  </SplitButtonMenu>
+);
+const CustomMenuWithItems = (
+  <Menu id="menu">
+    <MenuItem title="Test 1" />
+    <MenuItem title="Test 2" />
+  </Menu>
+);
 
 describe("SplitButton renders correctly", () => {
   it("with only required props", () => {
@@ -60,6 +75,16 @@ describe("SplitButton renders correctly", () => {
 
   it("with right icon", () => {
     const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} rightIcon={Delete} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with SplitButtonMenu", () => {
+    const tree = renderer.create(<SplitButton secondaryDialogContent={SplitButtonMenuWithItems} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with custom menu", () => {
+    const tree = renderer.create(<SplitButton secondaryDialogContent={CustomMenuWithItems} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

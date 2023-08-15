@@ -1,6 +1,6 @@
 @import "../../../styles/global-css-settings";
 
 .menuChildDivider {
-  margin-left: -$spacing-small;
-  width: calc(100% + #{$spacing-small * 2});
+  margin-left: calc(var(--spacing-small) * -1);
+  width: calc(100% + var(--spacing-medium));
 }

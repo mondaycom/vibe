@@ -7,7 +7,7 @@
   width: 100%;
   min-width: 0;
   border: 1px solid transparent;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   @include focus-style();
 }
 
