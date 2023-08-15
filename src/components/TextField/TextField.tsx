@@ -280,7 +280,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             </Clickable>
           </div>
           {shouldShowExtraText && (
-            <Text size="small" color="secondary" className={cx(styles.subTextContainer)}>
+            <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)} aria-label={TextFieldAriaLabel.VALIDATION_TEXT}>
                   {validation.text}

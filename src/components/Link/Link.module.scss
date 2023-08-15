@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   color: var(--link-color);
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
   text-decoration: none;
   writing-mode: horizontal-tb;

@@ -1,44 +1,44 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Title from "../Title";
+import Heading from "../Title";
 
 describe("Text renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Title />).toJSON();
+    const tree = renderer.create(<Heading />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with type", () => {
-    const tree = renderer.create(<Title type="h2">text</Title>).toJSON();
+    const tree = renderer.create(<Heading type={Heading.types.H2}>text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with weight", () => {
-    const tree = renderer.create(<Title weight="bold">text</Title>).toJSON();
+    const tree = renderer.create(<Heading weight={Heading.weights.BOLD}>text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with color", () => {
-    const tree = renderer.create(<Title color="secondary">text</Title>).toJSON();
+    const tree = renderer.create(<Heading color={Heading.colors.SECONDARY}>text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with element", () => {
-    const tree = renderer.create(<Title element="p">text</Title>).toJSON();
+    const tree = renderer.create(<Heading element="p">text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with align", () => {
-    const tree = renderer.create(<Title align="center">text</Title>).toJSON();
+    const tree = renderer.create(<Heading align={Heading.align.CENTER}>text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with element as children", () => {
     const tree = renderer
       .create(
-        <Title>
+        <Heading>
           <div>text</div>
-        </Title>
+        </Heading>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

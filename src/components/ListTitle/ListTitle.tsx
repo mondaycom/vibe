@@ -17,8 +17,8 @@ const ListTitle: React.FC<ListTitleProps> = forwardRef(
 
     return (
       <Text
-        size="medium"
-        weight="bold"
+        type={Text.types.TEXT1}
+        weight={Text.weights.MEDIUM}
         data-testid={dataTestId || id}
         aria-level={3}
         tabIndex={tabIndex}

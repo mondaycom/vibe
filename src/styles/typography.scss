@@ -34,7 +34,7 @@
 }
 
 @mixin create-title-classes() {
-  @include create-typography-classes($titleClasses, null);
+  @include create-typography-classes($headingClasses, null);
 }
 
 @mixin create-typography-classes($classes, $token-prefix) {
@@ -45,7 +45,7 @@
       .#{$class-name} {
         // if class is a heading class
         @if str-slice($class-prefix, 1, 1) == "h" {
-          @include vibe-title($class-prefix, $weight-type);
+          @include vibe-heading($class-prefix, $weight-type);
         } @else {
           @include vibe-text($class-prefix, $weight-type);
         }
@@ -54,7 +54,7 @@
   }
 }
 
-$titleClasses: (
+$headingClasses: (
   "h1": (
     "bold",
     "normal",
@@ -73,13 +73,13 @@ $titleClasses: (
 );
 
 $textClasses: (
-  "medium": (
+  "text1": (
     "bold",
-    "normal"
+    "medium", "normal"
   ),
-  "small": (
+  "text2": (
     "bold",
-    "normal"
+    "medium", "normal"
   )
 );
 
@@ -97,17 +97,17 @@ $textClasses: (
 
 @mixin label-text {
   @include smoothing-text;
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
 }
 
 // Caption / Subtext (small)
 @mixin font-caption {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
 }
 
 @mixin font-input {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
 }
 
 @mixin line-clamp($lines: 1le) {

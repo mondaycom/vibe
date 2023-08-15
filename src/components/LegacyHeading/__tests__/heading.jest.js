@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Heading from "../Heading";
+import Heading from "../LegacyHeading";
 
 describe("Renders correctly", () => {
   it("renders correctly with empty props", () => {

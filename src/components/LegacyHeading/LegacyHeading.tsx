@@ -10,7 +10,7 @@ import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
 import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
 import { withStaticProps, VibeComponentProps } from "../../types";
-import styles from "./Heading.module.scss";
+import styles from "./LegacyHeading.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 export interface HeadingProps extends VibeComponentProps {
@@ -20,7 +20,7 @@ export interface HeadingProps extends VibeComponentProps {
   ellipsis?: boolean;
   ellipsisMaxLines?: number;
   suggestEditOnHover?: boolean;
-  /** Show Tooltip when there is no overflow */
+  /** Tooltip to show when no overflow */
   nonEllipsisTooltip?: string;
   size?: Sizes;
   highlightTerm?: string;
@@ -29,7 +29,7 @@ export interface HeadingProps extends VibeComponentProps {
   tooltipPosition?: DialogPosition;
 }
 
-const Heading: React.FC<HeadingProps> & {
+const LegacyHeading: React.FC<HeadingProps> & {
   sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = ({
@@ -110,7 +110,7 @@ const Heading: React.FC<HeadingProps> & {
   return Element;
 };
 
-export default withStaticProps(Heading, {
+export default withStaticProps(LegacyHeading, {
   types: HeadingTypes,
   sizes: Sizes
 });

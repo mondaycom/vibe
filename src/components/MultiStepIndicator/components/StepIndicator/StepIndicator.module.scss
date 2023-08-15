@@ -4,7 +4,7 @@
 @import "../../../../styles/keyframes";
 
 .indicator {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   color: var(--text-color-on-primary);
   display: flex;
   margin: 0;
@@ -36,14 +36,14 @@
 }
 
 .textContainerTitleText {
-  @include vibe-text("small", "bold");
+  @include vibe-text(text2, medium);
   @include theme-prop(color, primary-text-color);
   margin-bottom: 2px;
 }
 
 .textContainerSubtitleText {
   width: 100%;
-  @include vibe-text("small", "normal");
+  @include vibe-text(text2, normal);
   color: var(--primary-text-color);
 }
 .sizeCompactTextContainerTitle{
@@ -70,7 +70,7 @@
 
 .sizeCompactTextContainerTitleText {
   display: block;
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   max-width: 150px;
   overflow: hidden;
   white-space: nowrap;
