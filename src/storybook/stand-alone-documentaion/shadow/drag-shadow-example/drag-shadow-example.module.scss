@@ -15,7 +15,7 @@
     margin-left: var(--spacing-xs);
     border: 1px solid;
     @include theme-prop(border-color, layout-border-color);
-    border-radius: $border-radius-small;
+    border-radius: var(--border-radius-small);
     padding: var(--spacing-small);
     width: 234px;
     height: 37px;

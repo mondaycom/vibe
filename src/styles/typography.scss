@@ -2,17 +2,6 @@
 @import "./theme-mixin";
 @import "~monday-ui-style/dist/mixins";
 
-$h1-legacy-line-height: 52px;
-$h1-medium-font-size: 22px;
-$h1-empty-state-height: 32px;
-$h2-empty-state-height: 24px;
-$h3-empty-state-height: 24px;
-$h4-empty-state-height: 21px;
-$h5-empty-state-height: 16px;
-$p-empty-state-height: 16px;
-$h6-empty-state-height: 12px;
-$small-empty-state-height: 12px;
-
 @function contain($list, $value) {
   @return not not index($list, $value);
 }
@@ -57,8 +46,7 @@ $small-empty-state-height: 12px;
         // if class is a heading class
         @if str-slice($class-prefix, 1, 1) == "h" {
           @include vibe-title($class-prefix, $weight-type);
-        }
-        @else {
+        } @else {
           @include vibe-text($class-prefix, $weight-type);
         }
       }
@@ -67,14 +55,32 @@ $small-empty-state-height: 12px;
 }
 
 $titleClasses: (
-    "h1": ("bold", "normal", "light"),
-    "h2": ("bold", "normal", "light"),
-    "h3": ("bold", "normal", "light")
+  "h1": (
+    "bold",
+    "normal",
+    "light"
+  ),
+  "h2": (
+    "bold",
+    "normal",
+    "light"
+  ),
+  "h3": (
+    "bold",
+    "normal",
+    "light"
+  )
 );
 
 $textClasses: (
-    "medium": ("bold", "normal"),
-    "small": ("bold", "normal")
+  "medium": (
+    "bold",
+    "normal"
+  ),
+  "small": (
+    "bold",
+    "normal"
+  )
 );
 
 @mixin base-font($font-variable) {

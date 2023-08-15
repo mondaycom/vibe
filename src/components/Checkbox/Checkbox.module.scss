@@ -31,7 +31,7 @@ $checkbox-size: 16px;
   width: $checkbox-size;
   border: 1px solid;
   @include theme-prop(border-color, ui-border-color);
-  border-radius: $border-radius-extra-small;
+  border-radius: 2px;
   transition: transform var(--motion-productive-short) var(--motion-timing-enter);
   position: relative;
   overflow: hidden;
@@ -62,7 +62,7 @@ $checkbox-size: 16px;
   @include smoothing-text;
   cursor: pointer;
   user-select: none;
-  margin-inline-start: $spacing-small;
+  margin-inline-start: var(--spacing-small);
 }
 
 /* Since it is not possible to change the design of the checkbox according to the requirements using css, */
