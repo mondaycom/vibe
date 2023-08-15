@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.24.0 (2023-08-15)
+
+#### New Features
+* [#1440](https://github.com/mondaycom/monday-ui-react-core/pull/1440) Heading API changes ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1474](https://github.com/mondaycom/monday-ui-react-core/pull/1474) chore: Cleanup internal css variables ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.23.1 (2023-08-14)
 
 #### Bug Fixes
