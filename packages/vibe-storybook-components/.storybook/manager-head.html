@@ -3,10 +3,9 @@
 <meta property="og:title" content="Vibe Storybook Components" />
 <meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
 <title>Vibe Storybook Components</title>
-<script src="https://use.fontawesome.com/660238b999.js"></script>
 <style>
   body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: #f0f3ff !important;
     font-size: 14px;
   }
@@ -14,19 +13,19 @@
   #storybook-explorer-menu svg {
     color: #5034ff;
   }
-  #storybook-explorer-menu button[aria-expanded="true"],
+  #storybook-explorer-menu button[aria-expanded='true'],
   #storybook-explorer-menu button:focus,
   #storybook-explorer-menu a[data-selected]:hover {
     background-color: rgba(80, 52, 255, 0.1);
   }
 
-  #storybook-explorer-menu a[data-selected="true"],
-  #storybook-explorer-menu a[data-selected="true"]:hover {
+  #storybook-explorer-menu a[data-selected='true'],
+  #storybook-explorer-menu a[data-selected='true']:hover {
     background-color: #5034ff;
     color: #f0f3ff;
   }
 
-  #storybook-explorer-menu a[data-selected="true"] svg {
+  #storybook-explorer-menu a[data-selected='true'] svg {
     color: #f0f3ff;
   }
 
@@ -39,25 +38,3 @@
     color: #5034ff;
   }
 </style>
-
-<script>
-  //workaround to increase the left panel width just enough to show even the longer story names
-  //based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
-  const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 244; // original default is 230
-  let storybookConfig = JSON.parse(localStorage.getItem("storybook-layout"));
-
-  // we only resize the left panel if it is set to a value lower than DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
-  if (
-    typeof storybookConfig === "object" &&
-    storybookConfig !== null &&
-    storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
-  ) {
-    storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH;
-    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
-    document.location.reload();
-  } else if (storybookConfig === null) {
-    storybookConfig = { resizerNav: { x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH, y: 0 } };
-    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
-    document.location.reload();
-  }
-</script>
