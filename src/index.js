@@ -1,4 +1,3 @@
-import "./general.scss";
 import "./style-imports";
 
 export * from "./components";

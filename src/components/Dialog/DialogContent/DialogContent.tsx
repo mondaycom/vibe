@@ -9,13 +9,14 @@ import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HideShowEvent } from "../consts/dialog-show-hide-event";
 import { VibeComponent, VibeComponentProps } from "../../../types";
-import { AnimationType, ESCAPE_KEYS } from "../../../constants";
+import { AnimationType, keyCodes } from "../../../constants";
 import * as PopperJS from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
 import useDisableScroll from "../../../hooks/useDisableScroll";
 
 const EMPTY_OBJECT = {};
+const ESCAPE_KEYS = [keyCodes.ESCAPE];
 
 export interface DialogContentProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
@@ -86,7 +87,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           onContextMenu(event);
         }
       },
-      [isOpen, onClickOutside]
+      [isOpen, onContextMenu]
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });

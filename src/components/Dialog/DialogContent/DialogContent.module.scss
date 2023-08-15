@@ -42,23 +42,25 @@
 
 // Animations
 
+$translate-minus-px: calc(var(--spacing-medium) * -1);
+
 .opacitySlideAppear {
   opacity: 0;
 
   &.top {
-    transform: translateY($spacing-medium);
+    transform: translateY(var(--spacing-medium));
   }
 
   &.right {
-    transform: translateX(-$spacing-medium);
+    transform: translateX($translate-minus-px);
   }
 
   &.bottom {
-    transform: translateY(-$spacing-medium);
+    transform: translateY($translate-minus-px);
   }
 
   &.left {
-    transform: translateX($spacing-medium);
+    transform: translateX(var(--spacing-medium));
   }
 }
 

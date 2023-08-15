@@ -24,6 +24,7 @@ export { default as MenuTitle } from "./Menu/MenuTitle/MenuTitle";
 export { default as RadioButton } from "./RadioButton/RadioButton";
 export { default as MenuButton } from "./MenuButton/MenuButton";
 export { default as SplitButton } from "./SplitButton/SplitButton";
+export { default as SplitButtonMenu } from "./SplitButton/SplitButtonMenu/SplitButtonMenu";
 export { default as Counter } from "./Counter/Counter";
 export { default as AttentionBox } from "./AttentionBox/AttentionBox";
 export { default as Label } from "./Label/Label";

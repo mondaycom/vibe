@@ -13,7 +13,7 @@
 
 .use-grid-keyboard-nav-item {
   width: 60px;
-  margin: $spacing-xs-small;
+  margin: 6px;
 
   &.active-item {
     @include focus-style-css();

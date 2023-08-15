@@ -64,12 +64,12 @@
 }
 
 .square {
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
 }
 
 .square:focus {
   outline: none;
-  @include focus-style($border-radius-small);
+  @include focus-style(var(--border-radius-small));
 }
 
 .withoutBorder {

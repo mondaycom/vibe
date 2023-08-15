@@ -13,7 +13,7 @@
   height: 80px;
   border: 2px solid var(--negative-color);
   background-color: var(--primary-background-color);
-  margin: 0 $spacing-medium $spacing-large;
+  margin: 0 var(--spacing-medium) var(--spacing-large);
 
   &--small {
     border-radius: var(--border-radius-small);

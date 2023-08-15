@@ -6,7 +6,7 @@
 
 .wrapper {
   @include reset-button();
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -92,5 +92,5 @@
 }
 
 .innerText {
-  margin: 0 $spacing-small;
+  margin: 0 var(--spacing-small);
 }

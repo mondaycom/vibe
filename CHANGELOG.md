@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.24.0 (2023-08-15)
+
+#### New Features
+* [#1440](https://github.com/mondaycom/monday-ui-react-core/pull/1440) Heading API changes ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#1474](https://github.com/mondaycom/monday-ui-react-core/pull/1474) chore: Cleanup internal css variables ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.23.1 (2023-08-14)
+
+#### Bug Fixes
+* [#1472](https://github.com/mondaycom/monday-ui-react-core/pull/1472) fix(Menu): `focusIndexOnMount` can focus on an unfocusable item ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1444](https://github.com/mondaycom/monday-ui-react-core/pull/1444) fix(SplitButton): make menu-opening a11y-compatible ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1473](https://github.com/mondaycom/monday-ui-react-core/pull/1473) chore: Storybook config cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.23.0 (2023-08-13)
+
+#### New Features
+* [#1439](https://github.com/mondaycom/monday-ui-react-core/pull/1439) feat: <List> a11y improvements ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.22.0 (2023-08-10)
 
 #### New Features
