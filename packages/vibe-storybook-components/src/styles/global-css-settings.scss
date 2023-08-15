@@ -1,7 +1,3 @@
-$box-shadow-small: 0 4px 8px -1px rgba(0, 0, 0, 0.2);
-$box-shadow-medium: 0px 6px 20px -2px rgba(0, 0, 0, 0.2);
-$box-shadow-large: 0px 15px 50px -10px rgba(0, 0, 0, 0.3);
-
 $border-radius-extra-small: 2px;
 $border-radius-small: 4px;
 $border-radius-medium: 8px;
@@ -17,14 +13,6 @@ $spacing-large: 24px;
 $spacing-xl: 32px;
 $spacing-xxl: 48px;
 $spacing-xxxl: 64px;
-
-@mixin hidden-element() {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  position: absolute;
-}
-
 // Grid auto fit
 // - This mixin defines a grid with auto fit repeat cells using min-max funtion.
 // -- This allows grid to accommodate container width without media queries.
