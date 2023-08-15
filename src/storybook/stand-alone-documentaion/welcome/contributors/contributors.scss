@@ -1,5 +1,7 @@
-@import "../../../../styles/global-css-settings";
-@import "../../../styles/content-spacing";
+//@import "../../../../styles/global-css-settings";
+//@import "../../../styles/content-spacing";
+@import "~vibe-storybook-components/dist/tokens"; // TODO failing with an error
+//@import "~monday-ui-style/dist/mixins"; // though this works - why? Talk with Hadas
 
 $contributor-cell-min-width: $grid-auto-fit-cell-width-xl;
 $contributor-grid-column-gap: $spacing-large;
