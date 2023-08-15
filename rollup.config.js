@@ -37,7 +37,7 @@ function generateCssModulesScopedName(name, filename, css) {
   const end = css.indexOf("}", start);
   const content = css.slice(start + name.length + 1, end).replace(/[\r\n]/, "");
   const loadPackageJsonResult = loadPackageJson();
-  return `${name}_${getShortSha(content + loadPackageJsonResult.version)}`;
+  return `${name}_${getShortSha(content + replaceDotWithUnderscore(loadPackageJsonResult.version))}`;
 }
 
 function generateCssModulesMockName(name) {
