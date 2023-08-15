@@ -2,8 +2,8 @@
 @import "../../../styles/content-spacing";
 
 $principles-cell-min-width: $grid-auto-fit-cell-width-medium;
-$principles-column-gap: var(--spacing-large);
-$principles-row-gap: var(--spacing-xxxl);
+$principles-column-gap: $spacing-large;
+$principles-row-gap: $spacing-xxxl;
 $principles-grid-cell-array-calc: calc(25% - #{$principles-column-gap});
 
 

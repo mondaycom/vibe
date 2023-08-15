@@ -17,7 +17,7 @@
 
 .use-grid-keyboard-dummy-grid-item {
   width: 60px;
-  margin: 6px;
+  margin: $spacing-xs-small;
 
   &.active-item {
     @include focus-style-css();

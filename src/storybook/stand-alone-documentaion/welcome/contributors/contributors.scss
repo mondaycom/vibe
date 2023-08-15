@@ -2,7 +2,7 @@
 @import "../../../styles/content-spacing";
 
 $contributor-cell-min-width: $grid-auto-fit-cell-width-xl;
-$contributor-grid-column-gap: var(--spacing-large);
+$contributor-grid-column-gap: $spacing-large;
 $contributor-grid-row-gap: 90px;
 $contributor-grid-cell-array-calc: calc(33.3% - #{$contributor-grid-column-gap});
 

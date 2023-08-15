@@ -2,6 +2,17 @@
 @import "./theme-mixin";
 @import "~monday-ui-style/dist/mixins";
 
+$h1-legacy-line-height: 52px;
+$h1-medium-font-size: 22px;
+$h1-empty-state-height: 32px;
+$h2-empty-state-height: 24px;
+$h3-empty-state-height: 24px;
+$h4-empty-state-height: 21px;
+$h5-empty-state-height: 16px;
+$p-empty-state-height: 16px;
+$h6-empty-state-height: 12px;
+$small-empty-state-height: 12px;
+
 @function contain($list, $value) {
   @return not not index($list, $value);
 }
@@ -73,14 +84,14 @@ $headingClasses: (
 );
 
 $textClasses: (
-  "text1": (
-    "bold",
-    "medium", "normal"
-  ),
-  "text2": (
-    "bold",
-    "medium", "normal"
-  )
+        "text1": (
+                "bold",
+                "medium", "normal"
+        ),
+        "text2": (
+                "bold",
+                "medium", "normal"
+        )
 );
 
 @mixin base-font($font-variable) {

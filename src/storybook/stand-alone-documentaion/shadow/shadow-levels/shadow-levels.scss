@@ -1,8 +1,8 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
-$shadow-level-grid-column-gap: var(--spacing-large);
-$shadow-level-grid-row-gap: var(--spacing-xl);
+$shadow-level-grid-column-gap: $spacing-large;
+$shadow-level-grid-row-gap: $spacing-xl;
 $shadow-level-cell-min-width: $grid-auto-fit-cell-width-medium;
 $shadow-level-grid-cell-array-calc: calc(25% - #{$shadow-level-grid-column-gap});
 

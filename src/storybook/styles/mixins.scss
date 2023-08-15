@@ -3,6 +3,6 @@
 
 @mixin frame() {
   border: var(--layout-border-color) 1px solid;
-  border-radius: var(--border-radius-medium);
+  border-radius: $border-radius-medium;
   @include theme-prop(border-color, layout-border-color);
 }
