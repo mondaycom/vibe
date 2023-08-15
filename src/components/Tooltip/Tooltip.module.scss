@@ -7,8 +7,8 @@ $tooltip-z-index: 9999999999999999;
 .tooltip {
   position: relative;
   display: inline-block;
-  border-radius: var(--tooltip-border-radius, $border-radius-small);
-  padding: var(--tooltip-padding, #{$spacing-small $spacing-medium});
+  border-radius: var(--tooltip-border-radius, var(--border-radius-small));
+  padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
   @include theme-prop(box-shadow, box-shadow-medium);
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
@@ -16,8 +16,8 @@ $tooltip-z-index: 9999999999999999;
 }
 
 .tooltip.paddingSizeMd {
-  border-radius: $border-radius-medium;
-  padding: $spacing-medium;
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-medium);
   @include font-input();
 }
 
@@ -33,8 +33,8 @@ $tooltip-z-index: 9999999999999999;
 
 .white,
 .arrow.white {
-  background-color: $white-theme-bg-color;
-  color: $white-theme-font-color;
+  background-color: var(--color-snow_white);
+  color: var(--color-blackish);
   @include theme-prop(box-shadow, box-shadow-medium);
 }
 
@@ -52,8 +52,8 @@ $tooltip-z-index: 9999999999999999;
 
 .surface,
 .arrow.surface {
-  background-color: $surface-theme-bg-color;
-  color: $surface-theme-font-color;
+  background-color: #5b607a;
+  color: var(--color-snow_white);
 }
 
 .private,

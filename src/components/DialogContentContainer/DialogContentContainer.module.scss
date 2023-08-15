@@ -7,15 +7,15 @@
 }
 
 .sizeSmall {
-  padding: $spacing-small;
+  padding: var(--spacing-small);
 }
 
 .sizeMedium {
-  padding: $spacing-small;
+  padding: var(--spacing-small);
 }
 
 .sizeLarge {
-  padding: $spacing-large;
+  padding: var(--spacing-large);
 }
 
 .typePopover {

@@ -42,7 +42,7 @@ const Label: FC<LabelProps> & {
   "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
-  const textColor = color === LabelColor.DARK ? "onPrimary" : "onInverted";
+  const textColor = color === LabelColor.DARK ? Text.colors.ON_PRIMARY : Text.colors.ON_INVERTED;
   const classNames = useMemo(
     () =>
       cx(
@@ -59,7 +59,7 @@ const Label: FC<LabelProps> & {
   );
   return (
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
-      <Text size="small" className={classNames} color={textColor}>
+      <Text type={Text.types.TEXT2} className={classNames} color={textColor}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </Text>

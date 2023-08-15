@@ -258,7 +258,7 @@ const Combobox: React.FC<ComboboxProps> & {
 
     return (
       <Text
-        size="small"
+        type={Text.types.TEXT2}
         ref={mergedRef}
         className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,

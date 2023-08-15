@@ -16,13 +16,13 @@
 }
 
 .small {
-  padding: 0 $spacing-small;
+  padding: 0 var(--spacing-small);
 }
 
 .medium {
-  padding: 0 $spacing-small-medium;
+  padding: 0 12px;
 }
 
 .large {
-  padding: 0 $spacing-small-medium;
+  padding: 0 12px;
 }

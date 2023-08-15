@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   line-height: 8px !important;
 
   &.fullWidth {

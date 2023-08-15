@@ -8,13 +8,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   padding: 1px var(--spacing-small);
   position: relative;
 }
 
 .withLeg {
-  border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+  border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
 }
 
 .legWrapper {

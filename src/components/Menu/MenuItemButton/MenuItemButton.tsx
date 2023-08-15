@@ -108,7 +108,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
       showDelay={tooltipShowDelay}
     >
       <Text
-        size="small"
+        type={Text.types.TEXT2}
         element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
         id={id || `${menuId}-${index}`}

@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useCallback, useRef, useState } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
-import Heading from "../Heading/Heading";
+import Heading from "../LegacyHeading/LegacyHeading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";

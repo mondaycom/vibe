@@ -93,7 +93,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconLabel={iconLabel}
             />
           )}
-          <Text element="h5" weight="bold" className={styles.title}>
+          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.BOLD} className={styles.title}>
             {title}
           </Text>
         </Flex>
@@ -115,7 +115,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           />
         )}
         <Text
-          size="small"
+          type={Text.types.TEXT2}
           paragraph={!compact}
           className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
             [styles.compact]: compact,

@@ -36,7 +36,7 @@
   justify-content: center;
   text-decoration: none;
   padding: 4px 16px;
-  @include vibe-text(medium, normal);
+  @include vibe-text(text1, normal);
   user-select: none;
   margin-bottom: $margin-bottom;
   cursor: pointer;
