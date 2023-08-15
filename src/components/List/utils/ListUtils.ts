@@ -10,7 +10,7 @@ export const getListItemIdByIndex = (childrenRefs: MutableRefObject<HTMLElement[
 };
 
 export const getListItemIndexById = (childrenRefs: MutableRefObject<HTMLElement[]>, id: string): number => {
-  return childrenRefs.current.findIndex(child => child.id === id);
+  return childrenRefs.current.findIndex(child => child?.id === id);
 };
 
 export const getListItemComponentType = (listComponent: ListWrapperComponentType | ListWrapperComponentStringType) => {
