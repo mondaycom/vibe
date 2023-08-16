@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.25.1 (2023-08-16)
+
+#### Dependency Upgrades
+* [#1482](https://github.com/mondaycom/monday-ui-react-core/pull/1482) Upgrade monday-ui-style ([@sahariko](https://github.com/sahariko))
+
 ## 2.25.0 (2023-08-16)
 
 #### Bug Fixes
