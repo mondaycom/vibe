@@ -53,11 +53,11 @@
 }
 
 .elementTypeH5, .elementTypeP {
-  @include vibe-heading("medium", "normal");
+  @include vibe-text("text1", "normal");
 }
 
 .elementTypeH6 {
-  @include vibe-heading("small", "normal");
+  @include vibe-text("text2", "normal");
 }
 
 .elementTypeSmall {
