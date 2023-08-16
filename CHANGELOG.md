@@ -1,3 +1,6 @@
+0.1.180 / 2023-08-16
+====================
+  * Move required dev dependencies to dependencies ([#231](https://github.com/mondaycom/monday-ui-style/issues/231))
 
 0.1.179 / 2023-08-09
 ====================
@@ -321,18 +324,3 @@
 0.1.135 / 2022-09-14
 ====================
   * add and export colors json ([#165](https://github.com/mondaycom/monday-ui-style/issues/165))
-
-0.1.134 / 2022-07-28
-====================
-  * Feature/yonatanari/update disabled text color ([#163](https://github.com/mondaycom/monday-ui-style/issues/163))
-    * Update disabled text color logic.
-    * Update disabled-component key to 0.38 ,
-    * Add opacity 0.38 registration value.
-    * Disabled text color use RGBA for {theme}-primary-text-color key with disabled-component key.
-    * Modify Basic theme
-    * Modify Dark theme
-    * Modify Black theme
-    * Modify Hacker theme
-    * Update disabled text color Hacker theme.
-    Correct hacker theme disabled text-color to black-theme value
-    Correct hacker theme disabled background color to black-theme value
