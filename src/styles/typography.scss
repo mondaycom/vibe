@@ -73,14 +73,8 @@ $headingClasses: (
 );
 
 $textClasses: (
-  "text1": (
-    "bold",
-    "medium", "normal"
-  ),
-  "text2": (
-    "bold",
-    "medium", "normal"
-  )
+    "text1": ("bold", "medium", "normal"),
+    "text2": ("bold", "medium", "normal")
 );
 
 @mixin base-font($font-variable) {
