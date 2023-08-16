@@ -1,13 +1,18 @@
 import cx from "classnames";
-import React, { FC, forwardRef, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { ListItemComponentType } from "../ListItem/ListItemConstants";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 
 export interface ListItemIconProps extends VibeComponentProps {
+  /**
+   * the ListItem component [li, div, a]
+   */
+  component?: ListItemComponentType;
   icon?: SubIcon;
   /**
    * the position of the icon inside the list item (this sets the margins of the icon)
@@ -15,24 +20,29 @@ export interface ListItemIconProps extends VibeComponentProps {
   margin?: ListItemIconMargin;
 }
 
-const ListItemIcon: FC<ListItemIconProps> & {
+const ListItemIcon: VibeComponent<ListItemIconProps> & {
   margin?: typeof ListItemIconMargin;
-} = forwardRef(({ className, id, icon, margin = ListItemIconMargin.START }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  components?: typeof ListItemComponentType;
+} = forwardRef(
+  ({ className, id, icon, margin = ListItemIcon.margin.START, component = ListItemIcon.components.DIV }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const Component = component;
 
-  return (
-    <div
-      ref={mergedRef}
-      className={cx(styles.listItemIcon, getStyle(styles, margin), className)}
-      id={id}
-      aria-hidden="true"
-    >
-      <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
-    </div>
-  );
-});
+    return (
+      <Component
+        ref={mergedRef}
+        className={cx(styles.listItemIcon, getStyle(styles, margin), className)}
+        id={id}
+        aria-hidden="true"
+      >
+        <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
+      </Component>
+    );
+  }
+);
 
 export default withStaticProps(ListItemIcon, {
-  margin: ListItemIconMargin
+  margin: ListItemIconMargin,
+  components: ListItemComponentType
 });
