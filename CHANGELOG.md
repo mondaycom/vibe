@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.25.0 (2023-08-16)
+
+#### Bug Fixes
+* [#1479](https://github.com/mondaycom/monday-ui-react-core/pull/1479) Fix h6 size in legacy heading ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1475](https://github.com/mondaycom/monday-ui-react-core/pull/1475) Api changes/hadas/next ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.24.1 (2023-08-15)
 
 #### Bug Fixes
