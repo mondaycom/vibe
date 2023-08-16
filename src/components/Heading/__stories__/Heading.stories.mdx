@@ -36,7 +36,7 @@ export const textTemplate = createComponentTemplate(Title);
 
 ## Overview
 
-Title components are used to title any page sections or sub-sections in top-level page sections.
+Heading components are used for titles at the top of pages and sub-sections.
 
 <Canvas>
   <Story name="Overview" args={{ children: "Title" }}>
@@ -50,13 +50,26 @@ Title components are used to title any page sections or sub-sections in top-leve
 
 ## Usage
 
-<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
+<UsageGuidelines
+  guidelines={[
+    "Never include more than one H1 title per web page.",
+    "Heading always should be linked to content (by design and by implementation by passing the heading id to the content's aria-labelledBy attribute)."
+  ]}
+/>
 
-<Tip title="Not what you were looking for?">Tip content</Tip>
+<Tip title="Not what you were looking for?">
+  Please check out our{" "}
+  <Link href="/?path=/docs/inputs-editableheading--overview" withoutSpacing>
+    EditableHeading
+  </Link>{" "}
+  component if you would like to allow users to edit the title text..
+</Tip>
 
 ## Variants
 
 ### Types and weights
+
+Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and three weights: bold (700), normal (500), light (300)
 
 <Canvas>
   <Story name="Types and weights">
@@ -99,6 +112,8 @@ Title components are used to title any page sections or sub-sections in top-leve
 
 ### Colors
 
+Heading component comes in four colors: primary, secondary, on primary, on inverted
+
 <Canvas>
   <Story name="Colors">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
@@ -126,8 +141,8 @@ Title components are used to title any page sections or sub-sections in top-leve
 
 ### Overflow
 
-Our Text component support overflow state.
-When the text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
+Our Heading component supports overflow state.
+When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
 
 <Canvas>
   <Story name="Overflow" play={titleOverflowSuite}>
@@ -163,6 +178,23 @@ When the text is too long and the component includes an ellipsis flag, we will c
     </Flex>
   </Story>
 </Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Heading value="Hello world" />,
+        description: "Always capitalize the first letter of the first word in the heading."
+      },
+      negative: {
+        component: <Heading value="Hello World" />,
+        description: "Please avoid capitalizing the first letter of each word in the heading."
+      }
+    }
+  ]}
+/>
 
 ## Related components
 
