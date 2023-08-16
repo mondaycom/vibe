@@ -253,7 +253,7 @@ export const iconsMetaData = [
     name: "Open",
     file: "Open.svg",
     description: "Open",
-    tags: "open"
+    tags: "open,maximize,expand"
   },
   {
     name: "Expand",
