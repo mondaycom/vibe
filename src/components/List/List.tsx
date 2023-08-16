@@ -120,7 +120,6 @@ const List: VibeComponent<ListProps> & {
 
     return (
       <ListContext.Provider value={{ updateFocusedItem }}>
-        {/*@ts-ignore Component comes from string, so it couldn't have types*/}
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
           ref={mergedRef}
