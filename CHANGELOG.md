@@ -1,3 +1,45 @@
+
+0.1.179 / 2023-08-09
+====================
+  * Storybook infra ([#223](https://github.com/mondaycom/monday-ui-style/issues/223))
+    * Init storybook
+    * Storybook Vibe infra
+    * Install vibe-storybook-components
+    * Refactor
+    * TODO added
+    * Copy Colors page
+    * Add theming
+    * RelatedComponents infrastructure
+    * Rename storybook classes
+    * Change local port of storybook
+    * Rename classnames
+    * Git ignore storybook-static
+    * Fix stories files location
+    * Remove up-next links
+    * Fix foundation-background.png and component-background.png
+    * Refactor
+    * vibe-storybook-components prerelease version
+    * update vibe-storybook-components version
+    * Changelog added
+    * Chromatic dependencies
+    * Chromatic workflow
+    * Upgrade storybook packages
+    * accessibility.stories.mdx
+    * Remove TODO
+    * Welcome page story
+    * Update vibe-storybook-components version
+    * Convert colors to stories format
+    * Refactor
+    * Refactor colors-vars-map.ts - remove unrelevant
+    * Move postcss to devDependencies
+    * Fix todo
+    * Delete storybook-content related files
+    * Delete font-awesome
+    * Remove google analytics
+    * Cleanup already loaded font from preview-head.html
+    * Remove not used preconnect fonts.gstatic.com
+    * Remove resize of left panel - doesn't work
+
 0.1.178 / 2023-08-06
 ====================
   * fix letter spacing ([#227](https://github.com/mondaycom/monday-ui-style/issues/227))
@@ -294,23 +336,3 @@
     * Update disabled text color Hacker theme.
     Correct hacker theme disabled text-color to black-theme value
     Correct hacker theme disabled background color to black-theme value
-
-0.1.133 / 2022-07-21
-====================
-  * Update disabled text color logic. ([#162](https://github.com/mondaycom/monday-ui-style/issues/162))
-    * Update disabled-component key to 0.38 ,
-    * Add opacity 0.38 registration value.
-    * Disabled text color use RGBA for {theme}-primary-text-color key with disabled-component key.
-    * Modify Basic theme
-    * Modify Dark theme
-    * Modify Black theme
-    * Modify Hacker theme
-
-0.1.132 / 2022-07-20
-====================
-  * launch icon fill to currentColor ([#161](https://github.com/mondaycom/monday-ui-style/issues/161))
-
-0.1.131 / 2022-07-20
-====================
-
-  * version bump
