@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.25.2 (2023-08-16)
+
+#### Bug Fixes
+* [#1481](https://github.com/mondaycom/monday-ui-react-core/pull/1481) fix: removing unneeded aria-label from TextField's error message ([@LihiBechorMarkovitz](https://github.com/LihiBechorMarkovitz))
+
 ## 2.25.1 (2023-08-16)
 
 #### Dependency Upgrades
