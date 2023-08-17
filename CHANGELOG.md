@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.26.0 (2023-08-17)
+
+#### Bug Fixes
+* [#1485](https://github.com/mondaycom/monday-ui-react-core/pull/1485) fix: <List> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1484](https://github.com/mondaycom/monday-ui-react-core/pull/1484) feat: <ListItemIcon>, <ListItemAvatar> component props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.25.2 (2023-08-16)
 
 #### Bug Fixes
