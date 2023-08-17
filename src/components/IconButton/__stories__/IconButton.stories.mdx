@@ -28,7 +28,7 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Link, createComponentTemplate } from "vibe-storybook-components";
 import Icon from "../../Icon/Icon";
-import Heading from "../../Heading/Heading";
+import Heading from "../../LegacyHeading/LegacyHeading";
 import classes from "./iconButton.stories.module.scss";
 import Avatar from "../../Avatar/Avatar";
 
@@ -307,12 +307,16 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
           <Flex gap={Flex.gaps.XS}>
             <Link withoutSpacing>Hadas Farhi</Link>
             <span>deleted the item </span>
-            <Text element="span" weight="bold" className={classes.recycleBinItemName}>
+            <Text
+              type={Text.types.TEXT1}
+              element="span"
+              weight={Text.weights.MEDIUM}
+            >
               Hello World
             </Text>
             <span>from the board</span>
           </Flex>
-          <Text element="span" weight="bold">
+          <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
             Tasks
           </Text>
           <Flex gap={Flex.gaps.XS} className={classes.recycleBinSubNote}>

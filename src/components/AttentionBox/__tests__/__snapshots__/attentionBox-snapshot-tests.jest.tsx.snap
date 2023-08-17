@@ -32,18 +32,27 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
 </aside>
 `;
 
@@ -79,18 +88,27 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
 </aside>
 `;
 
@@ -126,18 +144,27 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typeDarkText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typeDarkText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
 </aside>
 `;
 
@@ -173,17 +200,26 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
   <div
-    className="typography primary start singleLineEllipsis small normal text typePrimaryText textCompact"
-    data-testid="text"
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
+    <div
+      className="typography primary start singleLineEllipsis text2Normal text typePrimaryText compact"
+      data-testid="text"
+    >
+      Text
+    </div>
   </div>
 </aside>
 `;
@@ -195,17 +231,18 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer"
+    className="container directionRow justifyStart alignCenter"
     style={
       Object {
         "gap": "0px",
       }
     }
-  />
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
-  />
+  >
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    />
+  </div>
 </aside>
 `;
 
@@ -215,23 +252,22 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
   data-testid="attention-box"
   role="alert"
 >
+  
   <div
-    className="container directionRow justifyStart alignCenter titleContainer"
+    className="container directionRow justifyStart alignCenter"
     style={
       Object {
         "gap": "0px",
       }
     }
   >
-    
-    
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
-  >
-    Text
-  </p>
 </aside>
 `;
 
@@ -250,18 +286,27 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     }
   >
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
 </aside>
 `;
 
@@ -297,18 +342,27 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText dismissible paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
   <div
     className="closeIconWrapper wrapper"
   >
@@ -375,24 +429,25 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
   role="alert"
 >
   <div
-    className="container directionRow justifyStart alignCenter titleContainer"
+    className="container directionRow justifyStart alignCenter"
     style={
       Object {
         "gap": "0px",
       }
     }
-  />
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
   >
-    <span>
-      renderer with components 
-      <div>
-        and sub components
-      </div>
-    </span>
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      <span>
+        renderer with components 
+        <div>
+          and sub components
+        </div>
+      </span>
+    </p>
+  </div>
 </aside>
 `;
 
@@ -418,17 +473,26 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      className="typography primary start singleLineEllipsis medium bold title"
+      className="typography primary start singleLineEllipsis text1Bold title"
       data-testid="text"
     >
       Title
     </h5>
   </div>
-  <p
-    className="typography primary start small normal text typePrimaryText paragraph"
-    data-testid="text"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "0px",
+      }
+    }
   >
-    Text
-  </p>
+    <p
+      className="typography primary start text2Normal text typePrimaryText paragraph"
+      data-testid="text"
+    >
+      Text
+    </p>
+  </div>
 </aside>
 `;

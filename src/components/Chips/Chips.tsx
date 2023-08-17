@@ -49,11 +49,11 @@ interface ChipsProps extends VibeComponentProps {
   /** ClassName for left or right avatar */
   avatarClassName?: string;
   color?: ElementColor;
-  /** size for font icon */
+  /** Size for font icon */
   iconSize?: number | string;
   onDelete?: (id: string, event: React.MouseEvent<HTMLSpanElement>) => void;
   /**
-   * Disables the Chips's entry animation
+   * Disables the Chip's entry animation
    */
   noAnimation?: boolean;
   /**
@@ -231,7 +231,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
 
     return (
       <Tooltip {...overflowProps.tooltipProps}>
-        <Text size="small" {...wrapperProps}>
+        <Text type={Text.types.TEXT2} {...wrapperProps}>
           {leftAvatar ? (
             <Avatar
               withoutBorder

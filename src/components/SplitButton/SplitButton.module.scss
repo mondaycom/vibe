@@ -5,7 +5,7 @@
 .button {
   display: inline-flex;
   align-items: center;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   transition: var(--motion-productive-short) transform,
     var(--motion-productive-medium) var(--motion-timing-transition) min-width;
 }

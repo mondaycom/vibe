@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
   Title: "components/Title/Title",
   Button: "components/Button/Button",
@@ -38,7 +39,7 @@ const publishedTSComponents = {
   BreadcrumbItem: "components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem",
   ColorPicker: "components/ColorPicker/ColorPicker",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContent",
-  Heading: "components/Heading/Heading",
+  Heading: "components/LegacyHeading/LegacyHeading",
   TextWithHighlight: "components/TextWithHighlight/TextWithHighlight",
   List: "components/List/List",
   ListItem: "components/ListItem/ListItem",
@@ -48,6 +49,7 @@ const publishedTSComponents = {
   Loader: "components/Loader/Loader",
   AttentionBox: "components/AttentionBox/AttentionBox",
   SplitButton: "components/SplitButton/SplitButton",
+  SplitButtonMenu: "components/SplitButton/SplitButtonMenu/SplitButtonMenu",
   SearchComponent: "components/Search/Search", // TODO: remove when bumping to version 1.0.0
   Search: "components/Search/Search",
   Skeleton: "components/Skeleton/Skeleton",
@@ -64,6 +66,7 @@ const publishedTSComponents = {
   Modal: "components/Modal/Modal",
   ModalHeader: "components/Modal/ModalHeader/ModalHeader",
   ModalFooter: "components/Modal/ModalFooter/ModalFooter",
+  ModalFooterButtons: "components/Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons",
   ModalContent: "components/Modal/ModalContent/ModalContent",
   Toast: "components/Toast/Toast",
   Box: "components/Box/Box",

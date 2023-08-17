@@ -27,8 +27,9 @@ import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./Menu.module.scss";
+import { useFocusOnMount } from "./hooks/useFocusOnMount";
 
-interface MenuProps extends VibeComponentProps {
+export interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
   size?: typeof SIZES[keyof typeof SIZES];
@@ -125,14 +126,6 @@ const Menu: VibeComponent<MenuProps> & {
       [updateActiveItemIndex]
     );
 
-    useEffect(() => {
-      if (focusItemIndexOnMount === -1) {
-        return;
-      }
-      updateActiveItemIndex(focusItemIndexOnMount);
-      setIsInitialSelectedState(true);
-    }, [focusItemIndexOnMount, updateActiveItemIndex, setIsInitialSelectedState]);
-
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
       useSubMenuIndex();
 
@@ -159,6 +152,13 @@ const Menu: VibeComponent<MenuProps> & {
       useDocumentEventListeners
     });
     useMouseLeave({ resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex: onSetActiveItemIndexCallback });
+    useFocusOnMount({
+      focusItemIndexOnMount,
+      focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
+      getNextSelectableIndex,
+      updateActiveItemIndex,
+      setIsInitialFocusSet: setIsInitialSelectedState
+    });
 
     const onMouseMove = useCallback(() => {
       setIsInitialSelectedState(true);

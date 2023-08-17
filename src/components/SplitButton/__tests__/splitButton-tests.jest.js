@@ -1,9 +1,13 @@
 import React from "react";
+import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
 import { ComponentDefaultTestId } from "../../../tests/constants";
+import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
+import MenuItem from "../../Menu/MenuItem/MenuItem";
+import { getTestId } from "../../../tests/test-ids-utils";
 
 jest.useFakeTimers();
 
@@ -11,6 +15,15 @@ const text = "Click Me!";
 const className = "test-class";
 const secondaryContentText = "Test secondary dialog content";
 const secondaryContent = <div>{secondaryContentText}</div>;
+const splitMenuId = "split-menu";
+const menuSecondaryContent = () => {
+  return (
+    <SplitButtonMenu id={splitMenuId}>
+      <MenuItem title="Test 1" />
+      <MenuItem title="Test 2" />
+    </SplitButtonMenu>
+  );
+};
 
 const ENTER_KEY = "{Enter}";
 
@@ -45,6 +58,14 @@ describe("SplitButton tests", () => {
     fireEvent.click(arrowButton);
     const expectedSecondaryDialog = screen.queryByText(secondaryContentText);
     expect(expectedSecondaryDialog).toBeFalsy();
+  });
+
+  it("should move between buttons with tab", () => {
+    const splitButtonComponent = renderComponent();
+    userEvent.tab();
+    expect(getPrimaryButton(splitButtonComponent)).toHaveFocus();
+    userEvent.tab();
+    expect(getSecondaryButton(splitButtonComponent)).toHaveFocus();
   });
 
   describe("callbacks", () => {
@@ -119,6 +140,23 @@ describe("SplitButton tests", () => {
       });
       const expectedSecondaryDialog = await screen.findByText(secondaryContentText);
       expect(expectedSecondaryDialog).toBeTruthy();
+    });
+  });
+
+  describe("with SplitButtonMenu", () => {
+    it("should focus on first menu item", async () => {
+      const splitButtonComponent = render(
+        <SplitButton secondaryDialogContent={menuSecondaryContent}>{text}</SplitButton>
+      );
+      const arrowButton = getSecondaryButton(splitButtonComponent);
+      act(() => {
+        arrowButton.focus();
+        userEvent.keyboard(ENTER_KEY);
+      });
+      const menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
+      expect(menu).toHaveAttribute("aria-activedescendant", `${splitMenuId}-0`);
+      const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}0`;
+      expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();
     });
   });
 });

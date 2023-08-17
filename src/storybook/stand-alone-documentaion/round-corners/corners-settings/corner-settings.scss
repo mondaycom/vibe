@@ -8,7 +8,7 @@
   margin-top: $spacing-between-section-items;
   .global-settings-list {
     .global-settings-list-header {
-      @include vibe-text(medium, bold);
+      @include vibe-text(text1, bold);
       color: var(--primary-text-color);
     }
     .global-settings-list-item {
@@ -17,7 +17,7 @@
     }
   }
   .global-settings-general-component-value {
-    margin-top: $spacing-medium;
+    margin-top: var(--spacing-medium);
     @include font-input();
     color: var(--secondary-text-color);
   }

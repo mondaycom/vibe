@@ -10,7 +10,7 @@ $disabled-on-primary-color-opacity: 0.5;
   outline: none;
   border: none;
   height: auto;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   cursor: pointer;
   white-space: nowrap;
   transition: var(--motion-productive-short) transform,
@@ -30,11 +30,11 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .marginRight {
-  margin-right: $spacing-small;
+  margin-right: var(--spacing-small);
 }
 
 .marginLeft {
-  margin-left: $spacing-small;
+  margin-left: var(--spacing-small);
 }
 
 .rightFlat {
@@ -93,24 +93,24 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .sizeXxs {
   @include smoothing-text;
-  @include vibe-text(small, normal);
-  padding: $spacing-xxs $spacing-xs;
+  @include vibe-text(text2, normal);
+  padding: 2px var(--spacing-xs);
   height: 16px;
   line-height: 16px;
 }
 
 .sizeXs {
   @include smoothing-text;
-  @include vibe-text(small, normal);
-  padding: $spacing-xs $spacing-small;
+  @include vibe-text(text2, normal);
+  padding: var(--spacing-xs) var(--spacing-small);
   height: 24px;
   line-height: 21px;
 }
 
 .sizeSmall {
   @include smoothing-text;
-  @include vibe-text(small, normal);
-  padding: $spacing-xs $spacing-small;
+  @include vibe-text(text2, normal);
+  padding: var(--spacing-xs) var(--spacing-small);
   height: 32px;
   line-height: 24px;
 }
@@ -121,15 +121,15 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .sizeMedium {
   @include smoothing-text;
-  @include vibe-text(medium, normal);
-  padding: $spacing-small $spacing-medium;
+  @include vibe-text(text1, normal);
+  padding: var(--spacing-small) var(--spacing-medium);
   height: 40px;
 }
 
 .sizeLarge {
   @include smoothing-text;
-  @include vibe-text(medium, normal);
-  padding: $spacing-small-medium $spacing-large;
+  @include vibe-text(text1, normal);
+  padding: 12px var(--spacing-large);
   height: 48px;
 }
 

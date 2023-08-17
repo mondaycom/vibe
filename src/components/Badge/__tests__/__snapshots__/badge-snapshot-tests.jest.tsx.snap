@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge renders at different position 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge bottomStart rectangular"
+    data-testid="badge"
+  >
+    <div
+      className="indicator notification"
+      data-testid="indicator"
+    />
+  </div>
+</div>
+`;
+
+exports[`Badge renders out of horizontal bounds 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge topEnd outside"
+    data-testid="badge"
+  >
+    <div
+      className="indicator notification"
+      data-testid="indicator"
+    />
+  </div>
+</div>
+`;
+
+exports[`Badge renders with Counter and counter props 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge topEnd rectangular"
+    data-testid="badge"
+  >
+    <span
+      aria-label=" 5"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label="5"
+        className="counter sizeLarge kindFill colorNegative"
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          5
+        </span>
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Badge renders with different color 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge topEnd rectangular"
+    data-testid="badge"
+  >
+    <div
+      className="indicator primary"
+      data-testid="indicator"
+    />
+  </div>
+</div>
+`;
+
+exports[`Badge renders with margins from component's bounds 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge topEnd circular"
+    data-testid="badge"
+  >
+    <div
+      className="indicator notification"
+      data-testid="indicator"
+    />
+  </div>
+</div>
+`;
+
+exports[`Badge renders with no props with default badge Indicator 1`] = `
+<div
+  className="badgeWrapper"
+>
+  Child
+  <div
+    className="badge topEnd rectangular"
+    data-testid="badge"
+  >
+    <div
+      className="indicator notification"
+      data-testid="indicator"
+    />
+  </div>
+</div>
+`;

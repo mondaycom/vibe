@@ -3,7 +3,7 @@
 @import "../../../../styles/states";
 
 .breadcrumbContent {
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   color: var(--secondary-text-color);
   display: inline-flex;
   flex-direction: row;

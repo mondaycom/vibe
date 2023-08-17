@@ -31,8 +31,8 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 0 var(--spacing-xl);
-  padding-block-end: var(--spacing-large);
+  padding-block: var(--spacing-large);
+  padding-inline: var(--spacing-xl);
   border-radius: var(--border-radius-big);
   box-shadow: var(--box-shadow-large);
   background-color: var(--secondary-background-color);
@@ -45,6 +45,10 @@
 
   &.full {
     width: 100vw;
+  }
+
+  &.spacing {
+    gap: var(--spacing-medium);
   }
 }
 

@@ -3,8 +3,5 @@
 .container {
   flex-grow: 1;
   overflow: auto;
-  padding-inline-end: 16px;
-  margin-inline-end: -16px;
   @include scroller();
-  color: var(--primary-text-color);
 }

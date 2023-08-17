@@ -24,6 +24,7 @@ export { default as MenuTitle } from "./Menu/MenuTitle/MenuTitle";
 export { default as RadioButton } from "./RadioButton/RadioButton";
 export { default as MenuButton } from "./MenuButton/MenuButton";
 export { default as SplitButton } from "./SplitButton/SplitButton";
+export { default as SplitButtonMenu } from "./SplitButton/SplitButtonMenu/SplitButtonMenu";
 export { default as Counter } from "./Counter/Counter";
 export { default as AttentionBox } from "./AttentionBox/AttentionBox";
 export { default as Label } from "./Label/Label";
@@ -38,7 +39,7 @@ export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
 export { default as ExpandCollapse } from "./ExpandCollapse/ExpandCollapse";
-export { default as Heading } from "./Heading/Heading";
+export { default as Heading } from "./LegacyHeading/LegacyHeading";
 export { default as EditableInput } from "./EditableInput/EditableInput";
 export { default as EditableHeading } from "./EditableHeading/EditableHeading";
 export { default as ResponsiveList } from "./ResponsiveList/ResponsiveList";
@@ -83,6 +84,7 @@ export { default as Modal } from "./Modal/Modal";
 export { default as ModalHeader } from "./Modal/ModalHeader/ModalHeader";
 export { default as ModalContent } from "./Modal/ModalContent/ModalContent";
 export { default as ModalFooter } from "./Modal/ModalFooter/ModalFooter";
+export { default as ModalFooterButtons } from "./Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons";
 export { default as Box } from "./Box/Box";
 export { default as Text } from "./Text/Text";
 export { default as Title } from "./Title/Title";
@@ -90,3 +92,4 @@ export {
   useGridKeyboardNavigationContext,
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+export { default as Badge } from "./Badge/Badge";

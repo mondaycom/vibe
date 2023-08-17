@@ -123,9 +123,9 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       <Text
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-        size="small"
+        type={Text.types.TEXT2}
         element="div"
-        color="onPrimary"
+        color={Text.colors.ON_PRIMARY}
         className={classNames}
         role="alert"
         aria-live="polite"

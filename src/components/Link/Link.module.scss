@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   color: var(--link-color);
-  @include vibe-text(small, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
   text-decoration: none;
   writing-mode: horizontal-tb;
@@ -30,12 +30,12 @@
 
 .iconStart {
   line-height: 24px;
-  margin-right: $spacing-small;
+  margin-right: var(--spacing-small);
 }
 
 .iconEnd {
   line-height: 24px;
-  margin-left: $spacing-small;
+  margin-left: var(--spacing-small);
 }
 
 @supports (margin-inline-start: initial) {

@@ -8,13 +8,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: $border-radius-small;
+  border-radius: var(--border-radius-small);
   padding: 1px var(--spacing-small);
   position: relative;
 }
 
 .withLeg {
-  border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+  border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
 }
 
 .legWrapper {
@@ -31,7 +31,6 @@
 }
 
 .kindFill.colorPrimary {
-  @include theme-prop(color, text-color-on-primary);
   @include theme-prop(background-color, primary-color);
 }
 
@@ -40,7 +39,6 @@
 }
 
 .kindFill.colorDark {
-  @include theme-prop(color, text-color-on-inverted);
   @include theme-prop(background-color, inverted-color-background);
 }
 
@@ -49,7 +47,6 @@
 }
 
 .kindFill.colorNegative {
-  @include theme-prop(color, text-color-on-primary);
   @include theme-prop(background-color, negative-color);
 }
 
@@ -58,7 +55,6 @@
 }
 
 .kindFill.colorPositive {
-  @include theme-prop(color, text-color-on-primary);
   @include theme-prop(background-color, positive-color);
 }
 
