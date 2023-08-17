@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, useLayoutEffect, useState } from "react";
 import { ListWrapperComponentStringType, ListWrapperComponentType } from "../ListConstants";
 import { ListItemComponentType } from "../../ListItem/ListItemConstants";
 
@@ -9,7 +9,7 @@ export const generateListId = () => {
 
 export const useListId = (id: string) => {
   const [listId, setListId] = useState<string>();
-  useEffect(() => {
+  useLayoutEffect(() => {
     setListId(id || generateListId());
   }, [id]);
   return listId;
