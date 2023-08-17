@@ -24,10 +24,12 @@ const ListItemIcon: VibeComponent<ListItemIconProps> & {
   margin?: typeof ListItemIconMargin;
   components?: typeof ListItemComponentType;
 } = forwardRef(
-  ({ className, id, icon, margin = ListItemIcon.margin.START, component = ListItemIcon.components.DIV }, ref) => {
+  (
+    { className, id, icon, margin = ListItemIcon.margin.START, component: Component = ListItemIcon.components.DIV },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const Component = component;
 
     return (
       <Component

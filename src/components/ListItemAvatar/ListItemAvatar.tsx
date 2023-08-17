@@ -16,10 +16,9 @@ export interface ListItemAvatarProps extends VibeComponentProps {
 }
 
 const ListItemAvatar: VibeComponent<ListItemAvatarProps> & { components?: typeof ListItemComponentType } = forwardRef(
-  ({ className, id, src, avatarClassName, component = ListItemAvatar.components.DIV }, ref) => {
+  ({ className, id, src, avatarClassName, component: Component = ListItemAvatar.components.DIV }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const Component = component;
 
     return (
       <Component ref={mergedRef} className={cx(styles.listItemAvatar, className)} id={id} aria-hidden="true">
