@@ -1,12 +1,17 @@
-import { MutableRefObject, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 import { ListWrapperComponentStringType, ListWrapperComponentType } from "../ListConstants";
 import { ListItemComponentType } from "../../ListItem/ListItemConstants";
 
 let listIdCounter = 0;
-export const generateListId = () => `list-${listIdCounter++}`;
+export const generateListId = () => {
+  return `list-${listIdCounter++}`;
+};
 
 export const useListId = (id: string) => {
-  const [listId] = useState(id || generateListId());
+  const [listId, setListId] = useState<string>();
+  useEffect(() => {
+    setListId(id || generateListId());
+  }, [id]);
   return listId;
 };
 
