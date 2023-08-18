@@ -1,12 +1,11 @@
-@import "../../../styles/typography";
-@import "../../../../styles/themes";
+@import "~vibe-storybook-components/dist/mixins";
 
 .monday-storybook-ability-description {
   display: flex;
   flex-direction: column;
   border: 1px solid;
-  @include theme-prop(border-color, layout-border-color);
-  padding: var(--spacing-large);
+  border-color: var(--sb-layout-border-color);
+  padding: var(--sb-spacing-large);
   width: 100%;
   &_image {
     height: 48px;
@@ -16,11 +15,11 @@
   &_title {
     font-weight: 400;
     font-size: 18px;
-    line-height: $text-line-height;
+    line-height: var(--sb-text-line-height);
   }
 
   &_content {
-    @include small-text;
-    margin-bottom: var(--spacing-large);
+    @include sb-small-text;
+    margin-bottom: var(--sb-spacing-large);
   }
 }

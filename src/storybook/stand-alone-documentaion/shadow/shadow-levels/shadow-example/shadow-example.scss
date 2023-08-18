@@ -1,8 +1,7 @@
 @import "../../../../../styles/global-css-settings";
-@import "../../../../styles/typography";
 
 @mixin shadow-example-text {
-  font-size: $small-text-font-size;
+  font-size: var(--sb-small-text-font-size);
   line-height: 22px;
 }
 .monday-storybook-shadow-example {

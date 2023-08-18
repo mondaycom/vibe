@@ -1,11 +1,11 @@
-@import "../../../storybook/styles/typography";
+@import "~vibe-storybook-components/dist/mixins";
 
 .monday-storybook-checkbox {
   &_border {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed var(--ui-border-color);
+    border: 1px dashed var(--sb-ui-border-color);
     padding: 0 8px;
     height: 38px;
     margin-right: 3px;
@@ -42,7 +42,7 @@
   &_list-item {
     display: inline-block;
     width: 100%;
-    @include content-text();
+    @include sb-content-text();
   }
 
   &_link {
