@@ -1,7 +1,5 @@
-@import "../../styles/content-spacing";
-
 .monday-storybook-shadow {
   &_overview-image {
-    margin-top: $spacing-between-section-items;
+    margin-top: var(--sb-spacing-between-section-items);
   }
 }

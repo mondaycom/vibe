@@ -102,7 +102,7 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "^0.1.0"
+    "vibe-storybook-components": "file:../vibe-storybook-components/vibe-storybook-components-0.1.0.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

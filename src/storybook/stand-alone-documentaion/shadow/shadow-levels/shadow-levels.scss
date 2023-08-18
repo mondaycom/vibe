@@ -1,5 +1,4 @@
 @import "../../../../styles/global-css-settings";
-@import "../../../styles/content-spacing";
 
 $shadow-level-grid-column-gap: var(--spacing-large);
 $shadow-level-grid-row-gap: var(--spacing-xl);
@@ -10,8 +9,9 @@ $shadow-level-grid-cell-array-calc: calc(25% - #{$shadow-level-grid-column-gap})
   padding: 32px;
 
   @include grid-auto-fit(
-          $grid-column-gap: $shadow-level-grid-column-gap,
-          $grid-row-gap: $shadow-level-grid-row-gap,
-          $grid-cell-min-width: $shadow-level-cell-min-width,
-          $grid-cell-array-calc: $shadow-level-grid-cell-array-calc);
+    $grid-column-gap: $shadow-level-grid-column-gap,
+    $grid-row-gap: $shadow-level-grid-row-gap,
+    $grid-cell-min-width: $shadow-level-cell-min-width,
+    $grid-cell-array-calc: $shadow-level-grid-cell-array-calc
+  );
 }

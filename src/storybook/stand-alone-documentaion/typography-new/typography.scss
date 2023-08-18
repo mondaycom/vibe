@@ -1,13 +1,12 @@
-@import "../../styles/content-spacing";
 @import "../../styles/mixins";
 
 .monday-storybook-typography {
-  &_image-container{
+  &_image-container {
     display: flex;
     justify-content: center;
 
     &--first {
-      margin-bottom: $spacing-between-section-items;
+      margin-bottom: var(--sb-spacing-between-section-items);
     }
   }
 

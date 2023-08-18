@@ -2,10 +2,9 @@
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/global-css-settings";
-@import "../../../styles/content-spacing";
 
 .global-settings-general-component {
-  margin-top: $spacing-between-section-items;
+  margin-top: var(--sb-spacing-between-section-items);
   .global-settings-list {
     .global-settings-list-header {
       @include vibe-text(text1, bold);
