@@ -6,20 +6,20 @@
   align-items: flex-end;
 
   & > * {
-    margin: var(--spacing-medium);
+    margin: var(--sb-spacing-medium);
     width: 40px;
     @include theme-prop(background-color, negative-color-selected);
   }
 
   .small-spacing-visual-element {
-    height: var(--spacing-small);
+    height: var(--sb-spacing-small);
   }
 
   .medium-spacing-visual-element {
-    height: var(--spacing-medium);
+    height: var(--sb-spacing-medium);
   }
 
   .large-spacing-visual-element {
-    height: var(--spacing-large);
+    height: var(--sb-spacing-large);
   }
 }

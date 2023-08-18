@@ -33,7 +33,7 @@
   &_title {
     @include shadow-example-text;
     font-weight: 500;
-    margin: var(--spacing-small) 0;
+    margin: var(--sb-spacing-small) 0;
   }
 
   &_code {

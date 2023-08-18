@@ -1,8 +1,8 @@
 @import "../../../../styles/global-css-settings";
 
 $principles-cell-min-width: $grid-auto-fit-cell-width-medium;
-$principles-column-gap: var(--spacing-large);
-$principles-row-gap: var(--spacing-xxxl);
+$principles-column-gap: var(--sb-spacing-large);
+$principles-row-gap: var(--sb-spacing-xxxl);
 $principles-grid-cell-array-calc: calc(25% - #{$principles-column-gap});
 
 .monday-storybook-principles {

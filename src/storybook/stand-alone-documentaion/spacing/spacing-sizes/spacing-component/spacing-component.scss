@@ -1,35 +1,35 @@
 @import "../../../../../styles/themes";
 
 .spacing-xs {
-  height: var(--spacing-xs);
+  height: var(--sb-spacing-xs);
 }
 
 .spacing-small {
-  height: var(--spacing-small);
+  height: var(--sb-spacing-small);
 }
 
 .spacing-medium {
-  height: var(--spacing-medium);
+  height: var(--sb-spacing-medium);
 }
 
 .spacing-large {
-  height: var(--spacing-large);
+  height: var(--sb-spacing-large);
 }
 
 .spacing-xl {
-  height: var(--spacing-xl);
+  height: var(--sb-spacing-xl);
 }
 
 .spacing-xxl {
-  height: var(--spacing-xxl);
+  height: var(--sb-spacing-xxl);
 }
 
 .spacing-xxxl {
-  height: var(--spacing-xxxl);
+  height: var(--sb-spacing-xxxl);
 }
 
 .spacing-component-visualizer {
-  @include theme-prop(background-color, negative-color-selected);
+  background-color: var(--sb-negative-color-selected);
   width: 75px;
 }
 
@@ -37,15 +37,15 @@
   display: flex;
   width: fit-content;
   flex-direction: column;
-  margin: 0 var(--spacing-medium);
+  margin: 0 var(--sb-spacing-medium);
   align-items: center;
   justify-content: flex-end;
 
   &_title-container {
     display: flex;
     justify-content: center;
-    padding: var(--spacing-medium) var(--spacing-xs) var(--spacing-medium) var(--spacing-xs);
-    color: var(--primary-text-color);
+    padding: var(--sb-spacing-medium) var(--sb-spacing-xs) var(--sb-spacing-medium) var(--sb-spacing-xs);
+    color: var(--sb-primary-text-color);
     font-size: var(--sb-small-text-font-size);
   }
 
@@ -56,7 +56,7 @@
   }
 
   &_title {
-    margin-right: var(--spacing-small);
+    margin-right: var(--sb-spacing-small);
   }
 
   &_variable-name {

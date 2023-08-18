@@ -1,7 +1,7 @@
 @import "../../../../styles/global-css-settings";
 
 $abilities-cell-min-width: $grid-auto-fit-cell-width-medium;
-$abilities-grid-gap: var(--spacing-large);
+$abilities-grid-gap: var(--sb-spacing-large);
 $abilities-grid-cell-array-calc: calc(33.3% - #{$abilities-grid-gap});
 
 .monday-storybook-abilities-description {

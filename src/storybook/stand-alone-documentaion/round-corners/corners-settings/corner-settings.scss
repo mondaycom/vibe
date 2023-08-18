@@ -16,7 +16,7 @@
     }
   }
   .global-settings-general-component-value {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--sb-spacing-medium);
     @include font-input();
     color: var(--secondary-text-color);
   }

@@ -12,11 +12,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: var(--spacing-xs);
+    margin-left: var(--sb-spacing-xs);
     border: 1px solid;
     @include theme-prop(border-color, layout-border-color);
     border-radius: var(--border-radius-small);
-    padding: var(--spacing-small);
+    padding: var(--sb-spacing-small);
     width: 234px;
     height: 37px;
   }
