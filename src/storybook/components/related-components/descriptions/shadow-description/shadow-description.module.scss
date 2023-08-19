@@ -3,7 +3,7 @@
 @mixin shadow-box {
   width: 40px;
   height: 40px;
-  background-color: var(--primary-background-color);
+  background-color: var(--sb-primary-background-color);
   margin: 0 var(--sb-spacing-small);
 }
 

@@ -8,16 +8,16 @@
   .global-settings-list {
     .global-settings-list-header {
       @include vibe-text(text1, bold);
-      color: var(--primary-text-color);
+      color: var(--sb-primary-text-color);
     }
     .global-settings-list-item {
       @include font-input();
-      color: var(--secondary-text-color);
+      color: var(--sb-secondary-text-color);
     }
   }
   .global-settings-general-component-value {
     margin-top: var(--sb-spacing-medium);
     @include font-input();
-    color: var(--secondary-text-color);
+    color: var(--sb-secondary-text-color);
   }
 }

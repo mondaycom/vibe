@@ -5,14 +5,14 @@
 
 .rounded-corner-component {
   @include vibe-text(text1, bold);
-  color: var(--primary-text-color);
+  color: var(--sb-primary-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80px;
   height: 80px;
-  border: 2px solid var(--negative-color);
-  background-color: var(--primary-background-color);
+  border: 2px solid var(--sb-negative-color);
+  background-color: var(--sb-primary-background-color);
   margin: 0 var(--sb-spacing-medium) var(--sb-spacing-large);
 
   &--small {
