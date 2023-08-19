@@ -46,7 +46,7 @@
 
   &_box {
     border: 1px solid;
-    @include theme-prop(border-color, ui-border-color);
+    border-color: var(--ui-border-color);
   }
 
   &_header {

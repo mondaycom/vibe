@@ -2,7 +2,7 @@
 @import "../../styles/global-css-settings";
 
 .text {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

@@ -3,7 +3,7 @@
 .tipseenImage {
   object-fit: cover;
   border: solid 2px;
-  @include theme-prop(border-color, primary-color);
+  border-color: var(--primary-color);
   width: 100%;
   border-radius: var(--border-radius-medium);
   position: relative;

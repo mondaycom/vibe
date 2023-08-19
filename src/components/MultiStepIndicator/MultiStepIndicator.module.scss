@@ -5,7 +5,7 @@
 }
 
 .divider {
-  @include theme-prop(background-color, ui-border-color);
+  background-color: var(--ui-border-color);
   margin: 16px;
   height: 1px;
   width: 48px;

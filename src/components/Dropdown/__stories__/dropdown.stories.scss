@@ -27,7 +27,7 @@
     font-size: 14px;
 
     span {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
       margin-left: 4px;
     }
   }

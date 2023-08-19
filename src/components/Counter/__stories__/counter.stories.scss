@@ -19,7 +19,6 @@
     margin-right: 28px;
     height: 105px;
     gap: 16px;
-
   }
 
   &_icon-wrapper {
@@ -36,7 +35,7 @@
   &_line {
     width: 40px;
     height: 1px;
-    @include theme-prop(background-color, icon-color-hover);
+    background-color: var(--color-wolf_gray);
   }
 
   &_position {

@@ -1,6 +1,5 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
-@import "../../styles/themes";
 
 .alertBanner {
   height: 40px;
@@ -11,19 +10,19 @@
 }
 
 .primary {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
 }
 
 .positive {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .negative {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 .dark {
-  @include theme-prop(background-color, inverted-color-background);
+  background-color: var(--inverted-color-background);
 }
 
 .content {

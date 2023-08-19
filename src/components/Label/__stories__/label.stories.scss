@@ -44,7 +44,7 @@
       border: none;
     }
     span {
-      @include theme-prop(color, text-color-on-primary);
+      color: var(--text-color-on-primary);
     }
   }
 

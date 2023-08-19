@@ -6,7 +6,7 @@
   }
 
   &_on-color-button {
-    @include theme-prop(background, primary-color);
+    background: var(--primary-color);
     padding: 16px;
   }
 }

@@ -13,19 +13,19 @@ $grid-auto-fit-cell-width-large: 240px;
 $grid-auto-fit-cell-width-xl: 300px;
 
 @mixin box-shadow-xs() {
-  @include theme-prop(box-shadow, box-shadow-xs);
+  box-shadow: var(--box-shadow-xs);
 }
 
 @mixin box-shadow-small() {
-  @include theme-prop(box-shadow, box-shadow-small);
+  box-shadow: var(--box-shadow-small);
 }
 
 @mixin box-shadow-medium() {
-  @include theme-prop(box-shadow, box-shadow-medium);
+  box-shadow: var(--box-shadow-medium);
 }
 
 @mixin box-shadow-large() {
-  @include theme-prop(box-shadow, box-shadow-large);
+  box-shadow: var(--box-shadow-large);
 }
 
 @mixin hidden-element() {

@@ -16,6 +16,6 @@
 }
 
 .labelComponentText {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   padding-block: 2px;
 }

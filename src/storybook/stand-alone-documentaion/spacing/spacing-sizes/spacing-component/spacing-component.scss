@@ -30,7 +30,7 @@
 }
 
 .spacing-component-visualizer {
-  @include theme-prop(background-color, negative-color-selected);
+  background-color: var(--negative-color-selected);
   width: 75px;
 }
 

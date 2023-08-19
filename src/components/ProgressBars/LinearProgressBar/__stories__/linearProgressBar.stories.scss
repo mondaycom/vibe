@@ -15,7 +15,7 @@
     justify-content: space-between;
     padding: 14px 0 4px;
   }
-  
+
   &_dialog-wrapper {
     width: 254px;
     height: 124px;
@@ -31,7 +31,8 @@
 
   &_without-bg {
     .linear-progress-bar__container {
-      @include theme-prop(background-color, primary-text-on-primary);
+      // TODO check
+      background-color: var(--color-snow_white);
     }
   }
 
@@ -67,7 +68,7 @@
     width: 410px;
     flex-direction: column;
     border: 1px solid;
-    @include theme-prop(border-color, layout-border-color);
+    border-color: var(--layout-border-color);
     padding: 16px;
   }
 

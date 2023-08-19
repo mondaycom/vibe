@@ -10,19 +10,19 @@
 }
 
 .typePrimaryPrimary {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
 }
 
 .typePrimarySecondary {
-  @include theme-prop(background-color, dark-color);
+  background-color: var(--color-mud_black);
 }
 
 .typePrimaryPositive {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .typePrimaryNegative {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 .typeSecondaryPrimary {

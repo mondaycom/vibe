@@ -31,6 +31,6 @@
 
   &_color {
     padding: var(--spacing-small);
-    @include theme-prop(background-color, primary-color);
+    background-color: var(--primary-color);
   }
 }

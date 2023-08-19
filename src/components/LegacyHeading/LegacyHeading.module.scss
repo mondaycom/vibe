@@ -25,7 +25,7 @@
 .headingComponent.suggestEditOnHover:hover {
   cursor: text;
   border: 1px solid;
-  @include theme-prop(border-color, ui-border-color);
+  border-color: var(--ui-border-color);
 }
 
 /* Override tags styles */

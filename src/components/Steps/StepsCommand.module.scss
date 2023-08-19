@@ -28,13 +28,13 @@
 }
 
 .icon {
-  @include theme-prop(color, icon-color);
+  color: var(--icon-color);
   width: 15.5px;
   height: 15.5px;
   &.disabled {
-    @include theme-prop(color, disabled-text-color);
+    color: var(--disabled-text-color);
   }
   &.onPrimary {
-    @include theme-prop(color, text-color-on-primary);
+    color: var(--text-color-on-primary);
   }
 }

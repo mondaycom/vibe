@@ -54,10 +54,10 @@
 
   &.disabled {
     .icon {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
     }
     .label {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
     }
   }
 
