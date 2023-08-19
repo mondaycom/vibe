@@ -362,7 +362,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorOnInvertedBackground {
-  background-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
 }
 
 .kindTertiary.colorOnInvertedBackgroundActive,
