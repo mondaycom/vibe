@@ -16,14 +16,14 @@
   margin: 0 var(--sb-spacing-medium) var(--sb-spacing-large);
 
   &--small {
-    border-radius: var(--border-radius-small);
+    border-radius: var(--sb-border-radius-small);
   }
 
   &--medium {
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--sb-border-radius-medium);
   }
 
   &--big {
-    border-radius: var(--border-radius-big);
+    border-radius: var(--sb-border-radius-big);
   }
 }
