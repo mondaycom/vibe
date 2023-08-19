@@ -10,15 +10,15 @@
     width: 48px;
 
     &:first-child {
-      @include theme-prop(background-color, primary-color);
+      background-color: var(--primary-color);
     }
 
     &:nth-child(2) {
-      @include theme-prop(background-color, primary-hover-color);
+      background-color: var(--primary-hover-color);
     }
 
     &:last-child {
-      @include theme-prop(background-color, primary-selected-color);
+      background-color: var(--primary-selected-color);
     }
   }
 }

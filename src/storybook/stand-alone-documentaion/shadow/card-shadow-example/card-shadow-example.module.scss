@@ -1,20 +1,19 @@
-@import "../../../../styles/themes";
 @import "../../../../styles/global-css-settings";
 
 .card-shadow-example {
-    border: 1px solid;
-    @include theme-prop(border-color, layout-border-color);
-    height: 317px;
-    width: 296px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-medium);
-    cursor: pointer;
+  border: 1px solid;
+  border-color: var(--layout-border-color);
+  height: 317px;
+  width: 296px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium);
+  cursor: pointer;
 
-    &:hover {
-      @include box-shadow-medium;
-    }
+  &:hover {
+    @include box-shadow-medium;
+  }
 
 
   &-title {

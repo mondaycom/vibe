@@ -21,12 +21,12 @@
     }
 
     &--subtext {
-      @include theme-prop(color, secondary-text-color);
+      color: var(--secondary-text-color);
       @include system-regular-text;
     }
 
     &--link {
-      @include theme-prop(color, link-color);
+      color: var(--link-color);
       @include system-regular-text;
     }
 

@@ -8,7 +8,7 @@
   & > * {
     margin: var(--spacing-medium);
     width: 40px;
-    @include theme-prop(background-color, negative-color-selected);
+    background-color: var(--negative-color-selected);
   }
 
   .small-spacing-visual-element {

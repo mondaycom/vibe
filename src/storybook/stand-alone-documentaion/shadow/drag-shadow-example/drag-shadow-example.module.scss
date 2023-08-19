@@ -14,7 +14,7 @@
     align-items: center;
     margin-left: var(--spacing-xs);
     border: 1px solid;
-    @include theme-prop(border-color, layout-border-color);
+    border-color: var(--layout-border-color);
     border-radius: var(--border-radius-small);
     padding: var(--spacing-small);
     width: 234px;
