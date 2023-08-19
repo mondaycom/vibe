@@ -1,5 +1,4 @@
 @use "sass:string";
-@import "./theme-mixin";
 @import "~monday-ui-style/dist/mixins";
 
 @function contain($list, $value) {
