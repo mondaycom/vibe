@@ -27,7 +27,7 @@ $tooltip-z-index: 9999999999999999;
 .dark,
 .arrow.dark {
   background-color: var(--inverted-color-background);
-  background-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
 }
 
 .white,
