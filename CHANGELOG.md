@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.26.0 (2023-08-17)
+
+#### Bug Fixes
+* [#1485](https://github.com/mondaycom/monday-ui-react-core/pull/1485) fix: <List> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1484](https://github.com/mondaycom/monday-ui-react-core/pull/1484) feat: <ListItemIcon>, <ListItemAvatar> component props ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.25.2 (2023-08-16)
+
+#### Bug Fixes
+* [#1481](https://github.com/mondaycom/monday-ui-react-core/pull/1481) fix: removing unneeded aria-label from TextField's error message ([@LihiBechorMarkovitz](https://github.com/LihiBechorMarkovitz))
+
+## 2.25.1 (2023-08-16)
+
+#### Dependency Upgrades
+* [#1482](https://github.com/mondaycom/monday-ui-react-core/pull/1482) Upgrade monday-ui-style ([@sahariko](https://github.com/sahariko))
+
+## 2.25.0 (2023-08-16)
+
+#### Bug Fixes
+* [#1479](https://github.com/mondaycom/monday-ui-react-core/pull/1479) Fix h6 size in legacy heading ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#1475](https://github.com/mondaycom/monday-ui-react-core/pull/1475) Api changes/hadas/next ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.24.1 (2023-08-15)
 
 #### Bug Fixes

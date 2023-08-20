@@ -282,9 +282,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
           {shouldShowExtraText && (
             <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
-                <span className={cx(styles.subTextContainerStatus)} aria-label={TextFieldAriaLabel.VALIDATION_TEXT}>
-                  {validation.text}
-                </span>
+                <span className={cx(styles.subTextContainerStatus)}>{validation.text}</span>
               )}
               {showCharCount && (
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
