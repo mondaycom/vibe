@@ -83,6 +83,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   return (
     <div className={cx(styles.container, className)}>
       <Heading
+        type={Heading.types.H2}
         id={id}
         maxLines={2}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
