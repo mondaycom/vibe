@@ -39,7 +39,7 @@ describe("SplitButtonMenu", () => {
 
   it("should focus first menu item on mount", () => {
     const { getByTestId } = renderSplitButtonMenu();
-    const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}0`;
+    const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}_0`;
     expect(getByTestId(firstMenuItemId)).toHaveFocus();
   });
 });
