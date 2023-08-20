@@ -7,6 +7,7 @@ import { keyCodes } from "../../../../constants/keyCodes";
 import { getOptionId } from "../../helpers";
 import { SubIcon, withStaticProps } from "../../../../types";
 import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "../ComboboxConstants";
+import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 
 interface ComboboxOptionProps extends IComboboxOptionEvents {
@@ -146,6 +147,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
         aria-selected={isActive}
         aria-label={ariaLabel || label}
         id={getOptionId(id, index)}
+        data-testid={getTestId(ComponentDefaultTestId.COMBOBOX_OPTION, index)}
         onMouseEnter={onMouseEnter}
         onClick={onClick}
         onKeyDown={onKeyDown}
