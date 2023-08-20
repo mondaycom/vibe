@@ -64,6 +64,19 @@ describe("Combobox tests", () => {
       await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
     });
 
+    it("should support default filter", async () => {
+      const defaultFilter = "Orange";
+      const { getByTestId, getByLabelText, getByRole } = render(
+        <Combobox options={mockOptions} defaultFilter={defaultFilter} />
+      );
+      const input = getByTestId("search_combobox-search");
+      expect(input.value).toBe(defaultFilter);
+      const treegrid = getByRole("treegrid");
+      expect(treegrid.childElementCount).toBe(1);
+      const orangeOption = getByLabelText(mockOptions[0].label);
+      expect(orangeOption).toBeTruthy();
+    });
+
     it("should call onAddNew func when add new", async () => {
       const onAddMock = jest.fn();
 
