@@ -8,7 +8,7 @@ import Clickable from "../Clickable/Clickable";
 import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
 import usePrevious from "../../hooks/usePrevious";
 import { InputType } from "../EditableInput/EditableInputConstants";
-import { HeadingSizes, HeadingTypes } from "../LegacyHeading/HeadingConstants";
+import { HeadingSizes, HeadingTypes } from "../LegacyHeading/LegacyHeadingConstants";
 import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
 import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";

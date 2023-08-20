@@ -2,9 +2,9 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, Tip, AlphaWarning } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import { createComponentTemplate } from "vibe-storybook-components";
-import Title from "../Title";
+import Title from "../Heading";
 import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/title-tests-constants";
-import styles from "./Title.stories.module.scss";
+import styles from "./Heading.stories.module.scss";
 import { titleOverflowSuite } from "../__tests__/Title.interactions";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -26,6 +26,7 @@ export const textTemplate = createComponentTemplate(Title);
 <!--- Component documentation -->
 
 - [Overview](#overview)
+- [Import] (#import)
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
@@ -43,6 +44,19 @@ Heading components are used for titles at the top of pages and sub-sections.
     {textTemplate.bind({})}
   </Story>
 </Canvas>
+
+## Import
+
+The Heading component has been introduced in version 2.0 of Vibe.
+However, the import statement `{Heading}` from 'monday-ui-react-core' is already reserved for the <Link href="/?path=/docs/text-legacyheading--overview">LegacyHeading</Link> component.
+Therefore, the new Heading with the updated API can be accessed using the following import statement:
+
+```javascript
+import { Heading } from "monday-ui-react\next";
+```
+
+In the upcoming major release of Vie packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
+just like any other component.
 
 ## Props
 

@@ -13,14 +13,19 @@ import {
   SEARCH,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
-import styles from "./Heading.stories.module.scss";
+import styles from "./LegacyHeading.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   enumPropNamesArray: ["type", "size"]
 });
 
-<Meta title="Text/Heading" component={Heading} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+<Meta
+  title="Text/LegacyHeading"
+  component={Heading}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component template -->
 
