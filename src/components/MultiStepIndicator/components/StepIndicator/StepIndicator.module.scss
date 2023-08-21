@@ -175,7 +175,8 @@
 }
 
 .typeDarkNumberContainer {
-  background-color: var(--text-color-on-inverted);
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
 }
 
 .typeDarkNumberContainer:hover {
