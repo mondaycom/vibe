@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.27.0 (2023-08-21)
+
+#### New Features
+* [#1490](https://github.com/mondaycom/monday-ui-react-core/pull/1490) feat: <Toggle>, <Switch> refForwarding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1486](https://github.com/mondaycom/monday-ui-react-core/pull/1486) feat: add configurable aria-describedby attribute to the link element ([@LihiBechorMarkovitz](https://github.com/LihiBechorMarkovitz))
+
 ## 2.26.0 (2023-08-17)
 
 #### Bug Fixes
