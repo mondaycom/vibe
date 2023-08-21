@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.28.0 (2023-08-21)
+
+#### New Features
+* [#1488](https://github.com/mondaycom/monday-ui-react-core/pull/1488) feat: <Combobox> defaultFilter value ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.27.0 (2023-08-21)
 
 #### New Features
