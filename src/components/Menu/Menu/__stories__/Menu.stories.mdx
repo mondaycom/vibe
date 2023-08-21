@@ -17,8 +17,8 @@ import {
   DROPDOWN,
   SPLIT_BUTTON
 } from "../../../../storybook/components/related-components/component-description-map";
-import classes from "./Menu.stories.module.scss";
 import { menuWithTwoDepthsSuite } from "../__tests__/menu-interactions";
+import { Link } from "vibe-storybook-components";
 
 <Meta title="Navigation/Menu/Menu" component={Menu} />
 
@@ -62,7 +62,11 @@ A menu is a navigatable contextual list of items that can be selected.
   ]}
 />
 
-<Tip>Need to place a search field to filter results? Use the Combobox component instead</Tip>
+<Tip>
+  Need to place a search field to filter results? Use the
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/inputs-combo-box--overview">Combobox</Link>
+  component instead
+</Tip>
 
 ## Variants
 
