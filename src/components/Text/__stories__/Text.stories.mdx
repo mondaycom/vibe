@@ -1,9 +1,10 @@
-import Text from "../Text";
+import cx from "classnames";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
+import Text from "../Text";
 import { Link, createComponentTemplate } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
-import { AlphaWarning } from "../../../storybook/components/alpha-warning/alpha-warning";
+import Button from "../../Button/Button";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
 import { textOverflowSuite } from "../__tests__/text.interactions";
 import {
@@ -106,12 +107,17 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Text color={Text.colors.PRIMARY}>Primary text</Text>
       <Text color={Text.colors.SECONDARY}>Secondary text</Text>
-      <Text element="div" className={styles.primaryBackground} align={Text.align.CENTER} color={Text.colors.ON_PRIMARY}>
+      <Text
+        element="div"
+        className={cx(styles.primaryBackground, styles.smallRectangle)}
+        align={Text.align.CENTER}
+        color={Text.colors.ON_PRIMARY}
+      >
         On primary text
       </Text>
       <Text
         element="div"
-        className={styles.invertedBackground}
+        className={cx(styles.invertedBackground, styles.smallRectangle)}
         align={Text.align.CENTER}
         color={Text.colors.ON_INVERTED}
       >
@@ -130,17 +136,7 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 
 <Canvas>
   <Story name="Overflow" play={textOverflowSuite}>
-    <Flex
-      id={OVERFLOW_TEXT_CONTAINER_ID}
-      direction={Flex.directions.COLUMN}
-      gap={Flex.gaps.MEDIUM}
-      align={Flex.align.STRETCH}
-      style={{ width: "70%" }}
-    >
-      <Text ellipsis={false}>
-        Text without overflow text without overflow text without overflow text without overflow text without overflow
-        text without overflow text without overflow
-      </Text>
+    <div style={{ width: "70%" }}>
       <Text
         ellipsis
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
@@ -149,22 +145,12 @@ When the text is longer than its container and the ellipsis flag is on, the end 
           containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
         }}
       >
-        Text with overflow text with overflow text with overflow text with overflow text with overflow text with
-        overflow text with overflow text with overflow text with overflow text with overflow
+        This is an example of text with overflow and a Tooltip to help or provide information about specific components
+        when a user hovers over them.
       </Text>
-      <div>
-        <Text ellipsis withoutTooltip maxLines={2}>
-          Text with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text
-          with overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
-          overflow without tooltip text with overflow without tooltip text with overflow without tooltip text with
-          overflow without tooltip
-        </Text>
-      </div>
-    </Flex>
+    </div>
   </Story>
 </Canvas>
-
-<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
 
 ### Paragraph
 
@@ -200,24 +186,101 @@ A Text component with a link skin can be used to create a link within running te
 
 <Canvas>
   <Story name="Links inside running text">
-    <Text>
-      This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text.
-    </Text>
-    <Text element="div" className={styles.primaryBackground} align={Text.align.CENTER} color={Text.colors.ON_PRIMARY}>
-      This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on a
-      primary color
-    </Text>
-    <Text element="div" className={styles.invertedBackground} align={Text.align.CENTER} color={Text.colors.ON_INVERTED}>
-      This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on an
-      inverted color
-    </Text>
+    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+      <Text>
+        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text.
+      </Text>
+      <Text
+        element="div"
+        ellipsis={false}
+        className={cx(styles.primaryBackground, styles.mediumRectangle)}
+        align={Text.align.CENTER}
+        color={Text.colors.ON_PRIMARY}
+      >
+        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on a
+        primary color
+      </Text>
+      <Text
+        element="div"
+        ellipsis={false}
+        className={cx(styles.invertedBackground, styles.mediumRectangle)}
+        align={Text.align.CENTER}
+        color={Text.colors.ON_INVERTED}
+      >
+        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on an
+        inverted color
+      </Text>
+    </Flex>
   </Story>
 </Canvas>
 
 <Tip>
-  If you need to place a link outside of the textual flow, please use our
-  <Link href="/?path=/docs/navigation-link--overview">Link</Link> component.
+  If you need to place a link outside of the textual flow, please use our{" "}
+  <Link href="/?path=/docs/navigation-link--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Link
+  </Link>{" "}
+  component.
 </Tip>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Text type={Text.types.TEXT1} element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type={Text.types.TEXT1} weight={Text.weights.BOLD} element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "You can combine two font weights in one sentence to create an emphasis."
+      },
+      negative: {
+        component: (
+          <Text type={Text.types.TEXT2} element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type={Text.types.TEXT1} element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "Don't use more then one font size in a sentence."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Flex
+            style={{ width: "70%" }}
+            direction={Flex.directions.COLUMN}
+            justify={Flex.justify.CENTER}
+            align={Flex.align.CENTER}
+            gap={Flex.gaps.SMALL}
+          >
+            <Text maxLines={3}>
+              monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
+              and streamline sales activities from start to finish. Explore monday sales CRM templates
+            </Text>
+            <Button kind={Button.kinds.SECONDARY}>Read more</Button>
+          </Flex>
+        ),
+        description: "If ellipses are used in a paragraph, always use a CTA to reveal more information."
+      },
+      negative: {
+        component: (
+          <Text maxLines={3} style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use ellipsis without providing a way for the user to read the full text."
+      }
+    }
+  ]}
+/>
 
 ## Related components
 
