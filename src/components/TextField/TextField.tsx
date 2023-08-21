@@ -135,11 +135,17 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
     );
     const inputRef = useRef(null);
-    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
-      delay: debounceRate,
-      onChange: value => {
+
+    const onChangeCallback = useCallback(
+      (value: string) => {
         onChange(value, { target: inputRef.current });
       },
+      [onChange]
+    );
+
+    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
+      delay: debounceRate,
+      onChange: onChangeCallback,
       initialStateValue: value,
       trim
     });
