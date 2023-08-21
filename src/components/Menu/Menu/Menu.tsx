@@ -28,6 +28,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { useFocusOnMount } from "./hooks/useFocusOnMount";
 import { useMenuId } from "./hooks/useMenuId";
+import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
@@ -211,7 +212,7 @@ const Menu: VibeComponent<MenuProps> & {
                   setSubMenuIsOpenByIndex,
                   hasOpenSubMenu: index === openSubMenuIndex,
                   closeMenu: onCloseMenu,
-                  id: (child.props as { id: string }).id || `${overrideId}-item-${index}`,
+                  id: generateMenuItemId(overrideId, child, index),
                   useDocumentEventListeners,
                   isInitialSelectedState,
                   shouldScrollMenu,
