@@ -26,8 +26,9 @@ import { CloseMenuOption } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import styles from "./Menu.module.scss";
 import { useFocusOnMount } from "./hooks/useFocusOnMount";
+import { useMenuId } from "./hooks/useMenuId";
+import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
@@ -75,6 +76,7 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
+    const overrideId = useMenuId(id);
     const ref = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -95,19 +97,13 @@ const Menu: VibeComponent<MenuProps> & {
       });
     }, [originalChildren]);
 
-    useEffect(() => {
-      if (!id) {
-        console.warn("Menu should have a valid id prop");
-      }
-    }, [id]);
-
     const updateActiveItemIndex = useCallback(
       (index: number) => {
         setActiveItemIndex(index);
 
         const activeChild = children[index];
         const ariaActiveDescendant = React.isValidElement(activeChild)
-          ? activeChild?.props?.id || `${id}-${index}`
+          ? activeChild?.props?.id || `${overrideId}-item-${index}`
           : undefined;
         if (ariaActiveDescendant) {
           ref?.current?.setAttribute("aria-activedescendant", ariaActiveDescendant);
@@ -115,7 +111,7 @@ const Menu: VibeComponent<MenuProps> & {
           ref?.current?.removeAttribute("aria-activedescendant");
         }
       },
-      [children, id]
+      [children, overrideId]
     );
 
     const onSetActiveItemIndexCallback = useCallback(
@@ -191,7 +187,7 @@ const Menu: VibeComponent<MenuProps> & {
       <ul
         onFocus={focusWithinProps?.onFocus}
         onBlur={focusWithinProps?.onBlur}
-        id={id}
+        id={overrideId}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU, id)}
         className={cx(styles.menu, getStyle(styles, size), overrideClassName)}
         ref={mergedRef}
@@ -215,7 +211,7 @@ const Menu: VibeComponent<MenuProps> & {
                   setSubMenuIsOpenByIndex,
                   hasOpenSubMenu: index === openSubMenuIndex,
                   closeMenu: onCloseMenu,
-                  menuId: id,
+                  id: (child.props as { id: string }).id || `${overrideId}-item-${index}`,
                   useDocumentEventListeners,
                   isInitialSelectedState,
                   shouldScrollMenu,
