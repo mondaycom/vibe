@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import { Switch } from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 
 interface ToggleProps extends VibeComponentProps {
@@ -29,55 +29,61 @@ interface ToggleProps extends VibeComponentProps {
   ariaControls?: string;
 }
 
-const Toggle: FC<ToggleProps> = ({
-  id,
-  // Backward compatibility for props naming
-  componentClassName,
-  className,
-  toggleSelectedClassName,
-  isDefaultSelected = true,
-  isSelected,
-  onChange = NOOP,
-  value,
-  name,
-  disabled,
-  // Backward compatibility for props naming
-  isDisabled,
-  ariaLabel,
-  ariaControls,
-  areLabelsHidden = false,
-  onOverrideText = "On",
-  offOverrideText = "Off"
-}) => {
-  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
-  const wrapperClassName = cx(styles.wrapper);
-  const inputClassName = cx(styles.toggleInput);
+const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
+  (
+    {
+      id,
+      // Backward compatibility for props naming
+      componentClassName,
+      className,
+      toggleSelectedClassName,
+      isDefaultSelected = true,
+      isSelected,
+      onChange = NOOP,
+      value,
+      name,
+      disabled,
+      // Backward compatibility for props naming
+      isDisabled,
+      ariaLabel,
+      ariaControls,
+      areLabelsHidden = false,
+      onOverrideText = "On",
+      offOverrideText = "Off"
+    },
+    ref
+  ) => {
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
+    const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
+    const wrapperClassName = cx(styles.wrapper);
+    const inputClassName = cx(styles.toggleInput);
 
-  return (
-    <Switch
-      defaultChecked={isDefaultSelected}
-      checked={isSelected}
-      id={id}
-      wrapperClassName={wrapperClassName}
-      onChange={onChange}
-      value={value}
-      name={name}
-      disabled={overrideDisabled}
-      ariaLabel={ariaLabel}
-      ariaControls={ariaControls}
-      inputClassName={inputClassName}
-    >
-      <MockToggle
-        areLabelsHidden={areLabelsHidden}
-        offOverrideText={offOverrideText}
-        onOverrideText={onOverrideText}
+    return (
+      <Switch
+        defaultChecked={isDefaultSelected}
+        checked={isSelected}
+        id={id}
+        wrapperClassName={wrapperClassName}
+        onChange={onChange}
+        value={value}
+        name={name}
         disabled={overrideDisabled}
-        className={overrideClassName}
-        selectedClassName={toggleSelectedClassName}
-      />
-    </Switch>
-  );
-};
+        ariaLabel={ariaLabel}
+        ariaControls={ariaControls}
+        inputClassName={inputClassName}
+        ref={ref}
+      >
+        <MockToggle
+          areLabelsHidden={areLabelsHidden}
+          offOverrideText={offOverrideText}
+          onOverrideText={onOverrideText}
+          disabled={overrideDisabled}
+          className={overrideClassName}
+          selectedClassName={toggleSelectedClassName}
+        />
+      </Switch>
+    );
+  }
+);
 
 export default Toggle;
