@@ -16,11 +16,14 @@ Please go over the checklist and make sure all conditions are met.
 - [ ] Styles are added to `NewComponent.modules.scss` file inside the `NewComponent` folder.
 - [ ] Component uses CSS Modules.
 - [ ] Design is compatible with [Monday Design System](https://design.monday.com/).
+- [ ] Styles are defined using [monday-ui-style](https://github.com/mondaycom/monday-ui-style) tokens
+- [ ] Displays correctly in all the themes
 
 #### Storybook
 
 - [ ] Stories were added to `/src/components/NewComponent/__stories__/NewComponent.stories.mdx` file.
 - [ ] Stories include all flows of using the component.
+- [ ] Stories implemented using [vibe-storybook-components](https://github.com/mondaycom/vibe-storybook-components) components and tokens.
 
 #### Tests
 
