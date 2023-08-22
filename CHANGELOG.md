@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.28.2 (2023-08-22)
+
+#### Bug Fixes
+* [#1497](https://github.com/mondaycom/monday-ui-react-core/pull/1497) fix: <Dropdown> pass children to the menuRenderer ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1493](https://github.com/mondaycom/monday-ui-react-core/pull/1493) docs: Update Pull request template ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.28.1 (2023-08-21)
 
 #### Bug Fixes
