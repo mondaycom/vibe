@@ -43,6 +43,7 @@ import { FlexDescription } from "./descriptions/flex-description";
 import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 import { DialogDescription } from "./descriptions/dialog";
+import { AccordionDescription } from "./descriptions/accordion-description/accordion-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -91,6 +92,7 @@ export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
 export const SHADOW = "shadow";
 export const SPACING = "spacing";
+export const ACCORDION = "accordion";
 
 export const descriptionComponentsMap = new Map();
 
@@ -135,6 +137,7 @@ descriptionComponentsMap.set(FLEX, <FlexDescription />);
 descriptionComponentsMap.set(DIVIDER, <DividerDescription />);
 descriptionComponentsMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
 descriptionComponentsMap.set(DIALOG, <DialogDescription />);
+descriptionComponentsMap.set(ACCORDION, <AccordionDescription />);
 
 // General description (not related to specific components)
 descriptionComponentsMap.set(COLORS, <ColorsDescription />);

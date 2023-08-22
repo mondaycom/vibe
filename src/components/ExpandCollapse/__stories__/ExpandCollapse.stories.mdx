@@ -3,7 +3,11 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, RelatedComponentsDecorator } from "../../../storybook";
 import { ExpandCollapseCustomHeadingComponent, expandCollapseTemplate } from "./expandCollapse.stories";
 import { Link } from "vibe-storybook-components";
-import { DROPDOWN } from "../../../storybook/components/related-components/component-description-map";
+import {
+  ACCORDION,
+  DROPDOWN,
+  STEPPER
+} from "../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: ExpandCollapse,
@@ -88,4 +92,4 @@ ExpandCollapse is a component that allows you to hide and show content.
 
 ## Related components
 
-<RelatedComponentsDecorator componentsNames={[]} />
+<RelatedComponentsDecorator componentsNames={[ACCORDION, DROPDOWN, STEPPER]} />
