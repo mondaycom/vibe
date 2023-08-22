@@ -1,0 +1,49 @@
+.tableHeaderCell {
+  background-color: var(--primary-background-color);
+  padding: 9px 8px;
+  padding-inline-start: 16px;
+  color: var(--secondary-text-color);
+  font: var(--font-text-small-normal);
+  box-sizing: border-box;
+  text-align: initial;
+  border-bottom: 2px solid var(--layout-border-color);
+  height: 40px;
+
+  &:hover {
+    background-color: var(--allgrey-background-color);
+  }
+
+  .tableHeaderCellContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .text {
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .icon {
+      margin-inline-end: 4px;
+    }
+
+    .info {
+      margin-inline-start: 4px;
+    }
+
+    .spacer {
+      flex: 1;
+      margin-inline-end: 8px;
+    }
+
+    .sort {
+      color: var(--icon-color);
+
+      &.asc, &.desc {
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}

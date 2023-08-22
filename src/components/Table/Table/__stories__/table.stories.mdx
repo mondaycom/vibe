@@ -1,0 +1,187 @@
+import { useState } from "react";
+import Table from "../Table";
+import TableHeader from "../../TableHeader/TableHeader";
+import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
+import TableBody from "../../TableBody/TableBody";
+import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBody";
+import TableRow from "../../TableRow/TableRow";
+import TableCell from "../../TableCell/TableCell";
+import Label from "../../../Label/Label";
+import Skeleton from "../../../Skeleton/Skeleton";
+import Flex from "../../../Flex/Flex";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook";
+import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
+import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, basicTableProps, scrollTableColumns, scrollTableData } from './helpers';
+
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: Table,
+})
+
+<Meta
+  title="Data display/Table"
+  component={ Table }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
+/>
+
+<!--- Component template -->
+
+export const tableTemplate = createComponentTemplate(Table);
+
+<!--- Component documentation -->
+
+# Table
+- [Overview](#overview)
+- [Props](#props)
+- [Loading](#loading)
+- [Empty State](#empty-state)
+- [Scroll](#scroll)
+
+## Overview
+Table
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const [tableData, setTableData] = useState(emailTableData);
+      const [sorting, setSorting] = useState({});
+      const onSort = (columnId, sortState) => {
+        setSorting({ [columnId]: sortState });
+        setTableData(sort(columnId, sortState, tableData));
+      };
+      return (
+        <Table
+          dataState={{ isError: false, hasMoreResults: false }}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={emailColumns}
+        >
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                onSortClicked={sortState => onSort(headerCell.id, sortState)}
+                sortState={sorting[headerCell.id]}
+              ></TableHeaderCell>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {tableData.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+                <TableCell>
+                  <TableAvatar text={rowItem.sentBy} />
+                </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} isAnimationDisabled />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      );
+    }};
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Table } />
+
+## Loading
+Using skeleton
+<Canvas>
+  <Story name="Loading">
+    {() => {
+      return (
+        <Table
+          dataState={{ isError: false, hasMoreResults: false }}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={emailColumns}
+        >
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+              ></TableHeaderCell>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {[...new Array(5)].map((key, index) => (
+              <TableRow key={key}>
+                <TableCell>
+                  <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 140 : 70} />
+                </TableCell>
+                <TableCell>
+                  <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 200 : 120} />
+                </TableCell>
+                <TableCell>
+                  <Skeleton type={Skeleton.types.CIRCLE} height={24} width={24} />
+                </TableCell>
+                <TableCell>
+                  <Skeleton type={Skeleton.types.TEXT} height={20} />
+                </TableCell>
+                <TableCell>
+                  <Skeleton type={Skeleton.types.TEXT} height={20} />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      );
+    }};
+  </Story>
+</Canvas>
+
+## Empty State
+Table has no data to show
+<Canvas>
+  <Story name="Empty State">
+    <Table {...basicTableProps} emptyState={<TableEmptyState />}>
+      <TableHeader>
+        <TableHeaderCell title="First Column" />
+        <TableHeaderCell title="Second Column" />
+      </TableHeader>
+      <TableBody>
+        {/* Empty */}
+      </TableBody>
+    </Table>
+  </Story>
+</Canvas>
+
+## Scroll
+This is an example of a table with 5000 rows
+<Canvas>
+  <Story name="Scroll">
+    {() => {
+      const Row = ({ id, num, text }, index, style) => {
+        return (
+          <TableRow key={id} style={style}>
+            <TableCell>{num}</TableCell>
+            <TableCell>{`${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text}`}</TableCell>
+            <TableCell>1</TableCell>
+          </TableRow>
+        );
+      };
+      return (<div style={{ display: "flex", overflowX: "scroll", height: 250, flex: 1 }}>
+        <Table
+          dataState={{ isError: false, hasMoreResults: false }}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={scrollTableColumns}
+        >
+          <TableHeader>
+            {scrollTableColumns.map((cell, index) => (
+              <TableHeaderCell key={index} {...cell} />
+            ))}
+          </TableHeader>
+          <TableVirtualizedBody itemRenderer={Row} items={scrollTableData} />
+        </Table>
+      </div>);
+    }}
+  </Story>
+</Canvas>

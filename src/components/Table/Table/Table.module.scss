@@ -1,0 +1,21 @@
+.table {
+  border-radius: 4px 4px 0 0;
+  border: 1px solid var(--layout-border-color);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  [role="rowgroup"] {
+    [role="row"] {
+      > [role="cell"] {
+        border-bottom: 1px solid var(--layout-border-color);
+      }
+    }
+
+    > [role="row"]:last-of-type {
+      > [role="cell"] {
+        border-bottom: none;
+      }
+    }
+  }
+}
