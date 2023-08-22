@@ -1,11 +1,18 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/typography";
-@import "../../../styles/themes";
 
 .bannerLink {
   text-decoration: underline;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
+}
+
+.bannerLinkTextColorOnPrimary {
+  color: var(--text-color-on-primary);
+}
+
+.bannerLinkTextColorOnInverted {
+  color: var(--text-color-on-inverted);
 }
 
 .marginLeft {

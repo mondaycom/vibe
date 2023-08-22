@@ -15,6 +15,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { VibeComponent, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
+import { AlertBannerContext } from "./AlertBannerContext";
 
 interface AlertBannerProps extends VibeComponentProps {
   /**
@@ -50,6 +51,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
     }, [className, backgroundColor]);
 
     const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
+    const textColor = isDarkBackground ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
       const filteredChildren = allChildren.filter((child: ReactElement) => {
@@ -74,7 +76,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
     return (
       <Text
         type={Text.types.TEXT2}
-        color={backgroundColor === AlertBannerBackgroundColor.DARK ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY}
+        color={textColor}
         ref={ref}
         className={classNames}
         role="banner"
@@ -82,22 +84,24 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
       >
-        <div className={cx(styles.content)}>
-          {children.map((child, index) => {
-            // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
-            const childTypeIsAlertBannerText = child.type.isAlertBannerText;
-            return (
-              <div
-                key={index}
-                className={cx(styles.contentItem, {
-                  [styles.contentItemText]: childTypeIsAlertBannerText
-                })}
-              >
-                {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
-              </div>
-            );
-          })}
-        </div>
+        <AlertBannerContext.Provider value={{ textColor }}>
+          <div className={cx(styles.content)}>
+            {children.map((child, index) => {
+              // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
+              const childTypeIsAlertBannerText = child.type.isAlertBannerText;
+              return (
+                <div
+                  key={index}
+                  className={cx(styles.contentItem, {
+                    [styles.contentItemText]: childTypeIsAlertBannerText
+                  })}
+                >
+                  {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
+                </div>
+              );
+            })}
+          </div>
+        </AlertBannerContext.Provider>
         <div className={cx(styles.closeButtonWrapper)}>
           {isCloseHidden ? null : (
             <Button
