@@ -7,11 +7,18 @@ import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tes
 import { Link } from "vibe-storybook-components";
 import { titleOverflowSuite } from "../__tests__/Title.interactions";
 import Divider from "../../Divider/Divider";
+import Text from "../../Text/Text";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "../../Icon/Icons";
 import { emptyStateExample } from "./assets";
+import {
+  EDITABLE_HEADING,
+  TEXT,
+  HIDDEN_TEXT
+} from "../../../storybook/components/related-components/component-description-map";
+
 import styles from "./Heading.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -224,23 +231,19 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 ### Built-in page header (not editable)
 
 <Canvas>
-  <Story name="Not editable header of a page">
+  <Story name="Built-in page header (not editable)">
     <div style={{ width: "100%" }}>
       <Heading type={Heading.types.H1} id="my-work-id">
         My work
       </Heading>
-      <Divider />
-      <div
-        className={styles["page-header_commands"]}
-        style={{ display: "flex", alignItems: "center" }}
-        aria-labelledby="my-work-id"
-      >
-        <Search wrapperClassName={styles["page-header_search"]} placeholder="Search" />
+      <Divider className={styles.pageDivider} />
+      <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
+        <Search wrapperClassName={styles.pageHeaderSearch} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
           Customize
         </Button>
-      </div>
+      </Flex>
     </div>
   </Story>
 </Canvas>
@@ -249,18 +252,18 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 
 <Canvas>
   <Story name="Empty state heading">
-    <div className={styles["empty-state-container"]} aria-labelledby="empty-state-id">
+    <div className={styles.emptyStateContainer} aria-labelledby="empty-state-id">
       <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
-      <Heading type={Heading.types.H2} id="empty-state-id">
+      <Heading type={Heading.types.H2} id="empty-state-id" className={styles.emptyStateHeading}>
         No updates yet for this item
       </Heading>
-      <span style={{ width: "50%", textAlign: "center" }}>
+      <Text element="span" type={Text.types.TEXT1} style={{ width: "50%", textAlign: "center" }} ellipsis={false}>
         Be the first one to update about progress, mention someone or upload files to share with your team members
-      </span>
+      </Text>
     </div>
   </Story>
 </Canvas>
 
 ## Related components
 
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[EDITABLE_HEADING, TEXT, HIDDEN_TEXT]} />
