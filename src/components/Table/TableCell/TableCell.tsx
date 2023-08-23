@@ -13,7 +13,13 @@ const TableCell: FC<ITableCellProps> = ({ children }) => {
 
   return (
     <div role="cell" className={styles.tableCell}>
-      {isSingleChild && isFirstChildString ? <Text type={Text.types.TEXT2} color={Text.colors.PRIMARY}>{children}</Text> : children}
+      {isSingleChild && isFirstChildString ? (
+        <Text type={Text.types.TEXT2} color={Text.colors.PRIMARY}>
+          {children}
+        </Text>
+      ) : (
+        children
+      )}
     </div>
   );
 };

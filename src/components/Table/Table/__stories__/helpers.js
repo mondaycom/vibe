@@ -55,7 +55,11 @@ export const emailColumns = [
   }
 ];
 
-export const scrollTableData = [...new Array(5000)].map((_, index) => ({ id: index, num: index, text: `Line ${index}` }));
+export const scrollTableData = [...new Array(5000)].map((_, index) => ({
+  id: index,
+  num: index,
+  text: `Line ${index}`
+}));
 
 export const scrollTableColumns = [
   {
