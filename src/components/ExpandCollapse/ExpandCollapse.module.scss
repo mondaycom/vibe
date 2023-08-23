@@ -67,16 +67,17 @@
 }
 
 .animateExpandCollapseContent {
-  animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
+  // TODO add some other animation here or remove completely - causing flickering
+  //animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
-@keyframes expandContentAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(var(--dropdown-menu-fadinY, -75px));
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
+//@keyframes expandContentAnimation {
+//  0% {
+//    opacity: 0;
+//    transform: translateY(var(--dropdown-menu-fadinY, -75px));
+//  }
+//  100% {
+//    opacity: 1;
+//    transform: translateY(0px);
+//  }
+//}
