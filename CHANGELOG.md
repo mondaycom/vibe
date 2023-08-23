@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.28.3 (2023-08-23)
+
+#### Bug Fixes
+* [#1498](https://github.com/mondaycom/monday-ui-react-core/pull/1498) fix: <AlertBannerLink> pass textColor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.28.2 (2023-08-22)
 
 #### Bug Fixes
