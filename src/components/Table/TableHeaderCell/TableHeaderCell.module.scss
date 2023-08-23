@@ -8,12 +8,15 @@
   text-align: initial;
   border-bottom: 2px solid var(--layout-border-color);
   height: 40px;
+  display: flex;
+  justify-content: space-between;
 
   &:hover {
     background-color: var(--allgrey-background-color);
   }
 
   .tableHeaderCellContent {
+    min-width: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,6 +40,13 @@
       flex: 1;
       margin-inline-end: 8px;
     }
+  }
+
+  .tableHeaderCellSort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline-start: 8px;
 
     .sort {
       color: var(--icon-color);

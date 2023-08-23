@@ -37,25 +37,24 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
           <IconButton
             icon={Info}
             kind={ButtonType.TERTIARY}
-            size={IconButton.sizes.XS}
+            size={IconButton.sizes.XXS}
             ariaLabel="Info"
             className={styles.info}
           />
         )}
-        {onSortClicked && (
-          <React.Fragment>
-            <div className={styles.spacer} /> {/* space-between */}
-            <IconButton
-              icon={getSortIcon(sortState)}
-              kind={ButtonType.TERTIARY}
-              size={IconButton.sizes.XS}
-              ariaLabel="Sort"
-              className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
-              onClick={() => onSortClicked(getNextSortState(sortState))}
-            />
-          </React.Fragment>
-        )}
       </div>
+      {onSortClicked && (
+        <div className={styles.tableHeaderCellSort}>
+          <IconButton
+            icon={getSortIcon(sortState)}
+            kind={ButtonType.TERTIARY}
+            size={IconButton.sizes.XXS}
+            ariaLabel="Sort"
+            className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
+            onClick={() => onSortClicked(getNextSortState(sortState))}
+          />
+        </div>
+      )}
     </div>
   );
 };
