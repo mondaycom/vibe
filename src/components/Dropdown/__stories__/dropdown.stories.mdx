@@ -16,8 +16,8 @@ import Avatar from "../../Avatar/Avatar";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../Flex/Flex";
 import { StoryDescription, Link } from "vibe-storybook-components";
-import { Attach, Email } from "../../Icon/Icons";
-import { DialogContentContainer } from "../../index";
+import { Attach, CloseSmall, Email } from "../../Icon/Icons";
+import { DialogContentContainer, DropdownMenu, DropdownOption, DropdownSingleValue, Icon } from "../../index";
 import Dialog from "../../Dialog/Dialog";
 import Button from "../../Button/Button";
 import "./dropdown.stories.scss";
@@ -544,6 +544,110 @@ Inside the advanced filters, a user can select multiple people from the dropdown
           placeholder="Dropdown with chips"
           optionRenderer={OptionRenderer}
           className="dropdown-stories-styles_with-chips"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+// TODO demo
+
+### Menu renderer
+
+<Canvas>
+  <Story name="Menu renderer">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: 1, label: "Option 1" },
+          { value: 2, label: "Option 2" },
+          { value: 3, label: "Option 3" }
+        ],
+        []
+      );
+      const MenuRenderer = props => {
+        return (
+          <div>
+            <DropdownMenu {...props} />
+            <Button>Button</Button>
+          </div>
+        );
+      };
+      return (
+        <Dropdown
+          className="dropdown-stories-styles_spacing"
+          defaultValue={[options[0]]}
+          options={options}
+          menuRenderer={MenuRenderer}
+          placeholder="Dropdown with menu renderer"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+// TODO demo
+
+### Option renderer
+
+<Canvas>
+  <Story name="Option renderer">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: 1, label: "Option 1" },
+          { value: 2, label: "Option 2" },
+          { value: 3, label: "Option 3" }
+        ],
+        []
+      );
+      const OptionRenderer = props => {
+        return (
+          <div>
+            <DropdownOption {...props} />
+            <Button>Button</Button>
+          </div>
+        );
+      };
+      return (
+        <Dropdown
+          className="dropdown-stories-styles_spacing"
+          defaultValue={[options[0]]}
+          options={options}
+          optionRenderer={OptionRenderer}
+          placeholder="Dropdown with option renderer"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+// TODO demo
+
+### Value renderer
+
+<Canvas>
+  <Story name="Value renderer">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: 1, label: "Option 1" },
+          { value: 2, label: "Option 2" },
+          { value: 3, label: "Option 3" }
+        ],
+        []
+      );
+      const ValueRenderer = props => {
+        return <DropdownSingleValue {...props} singleValueWrapperClassName={"valueRendererInner"} />;
+      };
+      return (
+        <Dropdown
+          className="dropdown-stories-styles_spacing"
+          defaultValue={[options[0]]}
+          options={options}
+          valueRenderer={ValueRenderer}
+          singleValueWrapperClassName={"valueRenderer"}
+          placeholder="Dropdown with value renderer"
         />
       );
     }}
