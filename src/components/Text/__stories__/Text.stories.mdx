@@ -139,7 +139,13 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 
 <Canvas>
   <Story name="Overflow" play={textOverflowSuite}>
-    <div style={{ width: "70%" }}>
+    <Flex
+      direction={Flex.directions.COLUMN}
+      justify={Flex.justify.START}
+      align={Flex.align.INITIAL}
+      gap={Flex.gaps.SMALL}
+      style={{ width: "480px" }}
+    >
       <Text
         ellipsis
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
@@ -151,7 +157,11 @@ When the text is longer than its container and the ellipsis flag is on, the end 
         This is an example of text with overflow and a Tooltip to help or provide information about specific components
         when a user hovers over them.
       </Text>
-    </div>
+      <Text ellipsis maxLines={2}>
+        This is an example of text with ellipsis which displayed after two full lines of content this is an example of
+        text with ellipsis which displayed after two full lines of content
+      </Text>
+    </Flex>
   </Story>
 </Canvas>
 
