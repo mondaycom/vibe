@@ -3,9 +3,9 @@ import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Heading from "../Heading";
-import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/title-tests-constants";
+import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/heading-tests-constants";
 import { Link } from "vibe-storybook-components";
-import { titleOverflowSuite } from "../__tests__/Title.interactions";
+import { headingOverflowSuite } from "../__tests__/Heading.interactions";
 import Divider from "../../Divider/Divider";
 import Text from "../../Text/Text";
 import Search from "../../Search/Search";
@@ -64,10 +64,10 @@ However, the import statement `{Heading}` from 'monday-ui-react-core' is already
 Therefore, the new Heading with the updated API can be accessed using the following import statement:
 
 ```javascript
-import { Heading } from "monday-ui-react\next";
+import { Heading } from "monday-ui-react-core/next";
 ```
 
-In the upcoming major release of Vie packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
+In the upcoming major release of Vibe packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
 just like any other component.
 
 ## Props
@@ -177,7 +177,7 @@ Our Heading component supports overflow state.
 When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
 
 <Canvas>
-  <Story name="Overflow" play={titleOverflowSuite}>
+  <Story name="Overflow" play={headingOverflowSuite}>
     <Flex
       id={OVERFLOW_TITLE_CONTAINER_ID}
       direction={Flex.directions.COLUMN}
@@ -201,8 +201,9 @@ When the text is longer than its container and the ellipsis flag is on, the end 
       </Heading>
       <div>
         <Heading type={Heading.types.H2} ellipsis withoutTooltip maxLines={2}>
-          Heading with two lines overflow heading with 2 lines overflow heading with two lines overflow heading with 2
-          lines overflow heading with two lines overflow heading with two lines overflow heading with two lines overflow
+          Heading with two lines overflow heading without tooltip heading with two lines overflow heading without
+          tooltip heading with two lines overflow heading without tooltip heading with two lines overflow heading
+          without tooltip
         </Heading>
       </div>
     </Flex>

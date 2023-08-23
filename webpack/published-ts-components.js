@@ -3,7 +3,6 @@ const publishedTSComponents = {
   // plop_marker:published-components
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
-  Title: "components/Heading/Heading",
   Button: "components/Button/Button",
   Checkbox: "components/Checkbox/Checkbox",
   EditableHeading: "components/EditableHeading/EditableHeading",
