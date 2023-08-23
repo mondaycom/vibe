@@ -15,7 +15,9 @@
   "exports": {
     ".": "./dist/index.js",
     "./index.css": "./dist/index.css",
-    "./package.json": "./package.json"
+    "./mixins": "./dist/_mixins.scss",
+    "./package.json": "./package.json",
+    "./dist/": "./dist/"
   },
   "files": [
     "dist/",
@@ -23,7 +25,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c --bundleConfigAsCjs && npm run copy-mixins-to-dist",
+    "copy-mixins-to-dist": "scripts/copy-mixins-to-dist.sh",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "prettier:fix": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
@@ -88,7 +91,6 @@
     "jest-environment-jsdom": "^29.6.2",
     "mini-css-extract-plugin": "^2.6.0",
     "mocha": "^10.2.0",
-    "monday-ui-style": "^0.1.177",
     "postcss": "^8.4.27",
     "postcss-loader": "^7.3.3",
     "prettier": "^3.0.0",
@@ -109,7 +111,6 @@
     "typescript-plugin-css-modules": "^5.0.1"
   },
   "peerDependencies": {
-    "monday-ui-style": ">=0.1.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },

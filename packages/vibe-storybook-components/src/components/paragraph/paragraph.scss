@@ -1,5 +1,5 @@
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-paragraph {
-  @include content-text;
+  @include sb-content-text;
 }

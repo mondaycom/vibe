@@ -1,19 +1,18 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-information-box-title{
   &_content {
-    @include content-text-without-color;
+    @include sb-content-text-without-color;
     font-weight: bold;
-    margin-bottom: $spacing-xs;
-    margin-top: $spacing-xs;
+    margin-bottom: var(--sb-spacing-xs);
+    margin-top: var(--sb-spacing-xs);
     display: inline;
     &--link {
       cursor: pointer;
     }
   }
   &_link {
-    color: var(--link-color);
+    color: var(--sb-link-color);
     text-decoration: none;
   }
 }

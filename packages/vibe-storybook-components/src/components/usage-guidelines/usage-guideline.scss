@@ -1,14 +1,12 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/content-spacing";
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-usage-guidelines{
   &_guideline {
-    color: var(--primary-text-color);
-    margin: var(--spacing-medium) var(--spacing-small);
+    color: var(--sb-primary-text-color);
+    margin: var(--sb-spacing-medium) var(--sb-spacing-small);
     display: flex;
     align-items: center;
-    @include content-text;
+    @include sb-content-text;
     &:first-child {
       margin-top: 0;
     }
@@ -17,9 +15,9 @@
   &_icon {
     font-size: 16px;
     line-height: 21px;
-    margin-right: var(--spacing-medium);
+    margin-right: var(--sb-spacing-medium);
     display: flex;
     align-self: flex-start;
-    margin-top: 2px;
+    margin-top: var(--sb-spacing-xxs);
   }
 }

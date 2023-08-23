@@ -1,14 +1,12 @@
-@import "../../styles/typography";
-@import "../../styles/content-spacing";
-@import "../../styles/global-css-settings";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-section-name {
-  margin-top: $spacing-between-sections;
-  margin-bottom: $spacing-between-section-items;
-  @include basic-text;
-  font-family: $header-primary-font;
+  margin-top: var(--sb-spacing-between-sections);
+  margin-bottom: var(--sb-spacing-between-section-items);
+  @include sb-basic-text;
+  font-family: var(--sb-title-font-family);
   font-weight: 500;
-  font-size: $h2-font-size;
+  font-size: var(--sb-h2-font-size);
   line-height: 33px;
   letter-spacing: -1px;
   text-align: left;
@@ -16,8 +14,8 @@
 
   &:after {
     content: "";
-    margin-top: $spacing-small;
-    background: var(--primary-text-color);
+    margin-top: var(--sb-spacing-small);
+    background: var(--sb-primary-text-color);
     height: 2px;
   }
 }

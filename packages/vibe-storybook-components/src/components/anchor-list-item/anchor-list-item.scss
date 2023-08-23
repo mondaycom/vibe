@@ -1,16 +1,13 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
-
 .vibe-sb-comps-anchor-list-item {
-  color: var(--link-color);
-  font-size: $anchor-font-size;
-  line-height: $text-line-height;
+  color: var(--sb-link-color);
+  font-size: 18px;
+  line-height: var(--sb-text-line-height);
 
   &:not(:last-child) {
-    margin-bottom: $spacing-small;
+    margin-bottom: var(--sb-spacing-small);
   }
 
   a {
-    color: var(--link-color);
+    color: var(--sb-link-color);
   }
 }

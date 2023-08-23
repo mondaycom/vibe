@@ -1,12 +1,9 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
-
 .vibe-sb-comps-unstyled-list-item {
   font-size: 1rem;
-  line-height: $text-line-height;
+  line-height: var(--sb-text-line-height);
 
   &:not(:last-child) {
-    margin-bottom: $spacing-small;
+    margin-bottom: var(--sb-spacing-small);
   }
 
   a {
