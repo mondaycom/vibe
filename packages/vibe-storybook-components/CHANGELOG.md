@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 (2023-08-23)
+
+#### New Features
+* [#17](https://github.com/mondaycom/vibe-storybook-components/pull/17) Export scss tokens and mixins ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#16](https://github.com/mondaycom/vibe-storybook-components/pull/16) Chore: storybook infra cleanup + variables cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#15](https://github.com/mondaycom/vibe-storybook-components/pull/15) infra: tests in ci/cd ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.1.0 (2023-08-01)
 
 #### Internal Changes
