@@ -18,7 +18,7 @@ import {
 } from '../src';
 import { ComponentNameDecorator } from '../storybook/components';
 import { DocsContainer, DocsPage, Unstyled } from '@storybook/blocks';
-import 'monday-ui-style/dist/index.min.css';
+import '../src/styles/tokens/index.scss';
 
 const preview: Preview = {
   parameters: {

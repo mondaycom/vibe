@@ -1,6 +1,3 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
-
 .vibe-sb-comps-related-component {
   &_component {
     width: 100%;
@@ -8,6 +5,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--dark-background-on-secondary-color);
+    background: var(--sb-dark-background-on-secondary-color);
   }
 }

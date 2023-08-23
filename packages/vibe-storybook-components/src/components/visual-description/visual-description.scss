@@ -1,4 +1,4 @@
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-visual-description {
   display: flex;
@@ -10,7 +10,7 @@
   &_visual {
     height: 40px;
     width: 40px;
-    margin: 0 $spacing-medium 0 0;
+    margin: 0 var(--sb-spacing-medium) 0 0;
     & > * {
       width: 100%;
       height: 100%;
@@ -20,17 +20,17 @@
   &_text {
     display: flex;
     flex-direction: column;
-    @include content-text;
-    color: var(--secondary-text-color);
+    @include sb-content-text;
+    color: var(--sb-secondary-text-color);
     &:not(:last-child) {
       margin-bottom: 24px;
     }
   }
 
   &_title {
-    @include content-text;
+    @include sb-content-text;
     font-weight: 500;
     margin: 0;
-    color: var(--primary-text-color);
+    color: var(--sb-primary-text-color);
   }
 }

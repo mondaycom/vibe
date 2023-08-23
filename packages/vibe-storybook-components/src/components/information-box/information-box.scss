@@ -1,15 +1,14 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-information-box {
   &_component {
     width: 100%;
     height: fit-content;
-    margin: 0 0 $spacing-medium;
+    margin: 0 0 var(--sb-spacing-medium);
   }
 
   &_description {
-    @include content-text;
-    font-size: $small-text-font-size;
+    @include sb-content-text;
+    font-size: var(--sb-small-text-font-size);
   }
 }

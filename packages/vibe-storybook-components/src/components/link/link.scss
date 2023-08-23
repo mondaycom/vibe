@@ -1,14 +1,14 @@
-@import "../../styles/typography";
+@import "../../styles/mixins/typography";
 
 .vibe-sb-comps-link {
   display: inline-flex;
   &--small {
-    @include small-text-without-color;
+    @include sb-small-text-without-color;
   }
   &--medium {
-    @include content-text-without-color;
+    @include sb-content-text-without-color;
   }
   &--with-spacing {
-    margin: 0 $spacing-xs;
+    margin: 0 var(--sb-spacing-xs);
   }
 }

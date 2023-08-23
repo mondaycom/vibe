@@ -1,15 +1,14 @@
-@import "../../../styles/typography";
-@import "../../../styles/global-css-settings";
-@import "../../../styles/states";
+@import "../../../styles/mixins/typography";
+@import "../../../styles/mixins/focus";
 
 .link {
   display: flex;
   align-items: center;
-  color: var(--link-color);
-  @include font-link();
+  color: var(--sb-link-color);
+  @include sb-font-link();
   text-decoration: none;
   writing-mode: horizontal-tb;
-  @include focus-style();
+  @include sb-focus-style();
 }
 
 .link:hover .text {
@@ -28,23 +27,23 @@
 
 .iconStart {
   line-height: 24px;
-  margin-right: $spacing-small;
+  margin-right: var(--sb-spacing-small);
 }
 
 .iconEnd {
   line-height: 24px;
-  margin-left: $spacing-small;
+  margin-left: var(--sb-spacing-small);
 }
 
 @supports (margin-inline-start: initial) {
   .iconStart {
     line-height: 24px;
     margin-right: 0;
-    margin-inline-end: var(--spacing-xs);
+    margin-inline-end: var(--sb-spacing-xs);
   }
   .iconEnd {
     line-height: 24px;
     margin-left: 0;
-    margin-inline-start: var(--spacing-xs);
+    margin-inline-start: var(--sb-spacing-xs);
   }
 }

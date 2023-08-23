@@ -1,10 +1,8 @@
-@import "../../styles/global-css-settings";
-
 .monday-storybook_multiple-story-elements-wrapper {
   display: flex;
   align-items: center;
   & > * {
-    margin-right: $spacing-medium;
+    margin-right: var(--sb-spacing-medium);
   }
 }
 

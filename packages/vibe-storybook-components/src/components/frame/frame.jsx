@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import './frams.scss';
+import './frame.scss';
 
 export const Frame = ({ children, className, noGutter, noBorder }) => (
   <div
