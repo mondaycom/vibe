@@ -1,6 +1,6 @@
 import Heading from "../LegacyHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createStoryMetaSettingsDecorator, DeprecatedWarning } from "../../../storybook";
 import { Link, createComponentTemplate } from "vibe-storybook-components";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
@@ -35,6 +35,8 @@ export const headingTemplate = createComponentTemplate(Heading);
 <!--- Component documentation -->
 
 # Heading
+
+<DeprecatedWarning alternativeName="Heading" alternativeLink="/?path=/docs/text-heading--overview" />
 
 - [Overview](#overview)
 - [Props](#props)
@@ -182,7 +184,7 @@ Our heading component support text highlight.
     <div style={{ width: "100%" }}>
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
       <Divider />
-      <Flex align={Flex.align.CENTER} gap={Flex.gap.SMALL} aria-labelledby="my-work-id">
+      <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
         <Search wrapperClassName={styles["page-header_search"]} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
