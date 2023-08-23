@@ -177,7 +177,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="text bannerLink"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>
@@ -310,7 +310,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="text bannerLink"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>
