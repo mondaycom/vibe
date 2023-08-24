@@ -13,7 +13,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   tabIndex={0}
 >
   <div
-    className="typography secondary start singleLineEllipsis text2Normal title"
+    className="typography secondary start singleLineEllipsis text text2Normal title"
     data-testid="menu-title_menu-2-item-0"
   >
     <label
@@ -26,7 +26,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   </div>
   <li
     aria-current={true}
-    className="typography primary start singleLineEllipsis text2Normal item focused initialSelected"
+    className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
     data-testid="menu-item_1"
     id="menu-2-item-1"
     onClick={[Function]}
@@ -52,7 +52,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   </li>
   <li
     aria-current={false}
-    className="typography primary start singleLineEllipsis text2Normal item initialSelected"
+    className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
     data-testid="menu-item_2"
     id="menu-2-item-2"
     onClick={[Function]}
