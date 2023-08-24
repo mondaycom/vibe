@@ -66,8 +66,8 @@
   transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
 }
 
+// TODO add some other animation here or remove completely - causing flickering cause of intersection with the header
 .animateExpandCollapseContent {
-  // TODO add some other animation here or remove completely - causing flickering
   //animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
