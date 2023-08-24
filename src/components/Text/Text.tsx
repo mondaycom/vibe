@@ -28,7 +28,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
     return (
       <Typography
         ref={ref}
-        className={cx(getStyle(styles, camelCase(type + "-" + weight)), className)}
+        className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
         ellipsis={overrideEllipsis}
         element={overrideElement}
         {...typographyProps}

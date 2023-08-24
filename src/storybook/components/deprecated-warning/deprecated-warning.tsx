@@ -10,8 +10,8 @@ type DeprecatedWarningProps = {
 export const DeprecatedWarning: FC<DeprecatedWarningProps> = ({ alternativeName, alternativeLink }) => (
   <Tip emoji="🚨" title="Deprecated component" type={AttentionBox.types.DANGER}>
     <>
-      This is a legacy component and will be deprecated in the next Vibe major version. Please consider using the{" "}
-      <Link href={alternativeLink} size={Link.sizes.SMALL} withoutSpacing>
+      This is a legacy component and will be deprecated in the next Vibe major version. Please consider using the
+      <Link href={alternativeLink} size={Link.sizes.SMALL}>
         {alternativeName}
       </Link>
       component for your needs instead.
