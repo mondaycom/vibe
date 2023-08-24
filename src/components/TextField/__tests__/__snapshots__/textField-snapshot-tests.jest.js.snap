@@ -1160,7 +1160,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
       />
     </div>
     <div
-      className="typography secondary start singleLineEllipsis text2Normal subTextContainer"
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
       data-testid="text"
     >
       <span
@@ -1233,7 +1233,7 @@ exports[`TextField renders correctly with validation 1`] = `
       />
     </div>
     <div
-      className="typography secondary start singleLineEllipsis text2Normal subTextContainer"
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
       data-testid="text"
     >
       <span

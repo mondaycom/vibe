@@ -24,7 +24,7 @@ Snapshot Diff:
 exports[`Modal with Header 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
         data-testid="modal-content"
@@ -38,7 +38,7 @@ Snapshot Diff:
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 2;"
 +         >
-+           ModalHeader Title
++           ModalHeader Heading
 +         </h1>
 +         <div
 +           class="closeButton"
@@ -89,7 +89,7 @@ Compared values have no visual difference.
 exports[`Modal with all parts 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Title"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
++ Current Render: {"content":{"key":null,"ref":null,"props":{"children":[{"key":null,"ref":null,"props":{"title":"ModalHeader Heading"},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},{"key":null,"ref":null,"props":{"children":{"type":"p","key":null,"ref":null,"props":{"children":"footer"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}]},"_owner":null,"_store":{}}}
 
 @@ --- --- @@
         data-testid="modal-content"
@@ -103,7 +103,7 @@ Snapshot Diff:
 +           data-testid="modal-header"
 +           style="--text-clamp-lines: 2;"
 +         >
-+           ModalHeader Title
++           ModalHeader Heading
 +         </h1>
 +         <div
 +           class="closeButton"
@@ -142,7 +142,7 @@ Snapshot Diff:
 +         </div>
 +       </div>
 +       <div
-+         class="typography primary start text1Normal container"
++         class="typography primary start text text1Normal container"
 +         data-testid="modal-content"
 +         style="--text-clamp-lines: 1;"
 +       >
@@ -190,7 +190,7 @@ exports[`Modal with base props 1`] = `
         id="modal-id-title"
         style="--text-clamp-lines: 2;"
       >
-        Modal Title
+        Modal Heading
       </h1>
       <div
         class="closeButton"
@@ -229,7 +229,7 @@ exports[`Modal with base props 1`] = `
       </div>
     </div>
     <div
-      class="typography primary start text1Normal container"
+      class="typography primary start text text1Normal container"
       data-testid="modal-content"
       style="--text-clamp-lines: 1;"
     >
@@ -311,10 +311,10 @@ Snapshot Diff:
 + Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
 
 @@ --- --- @@
-          Modal Title
+          Modal Heading
         </h1>
         <div
-+         class="typography primary start multiLineEllipsis text2Normal description"
++         class="typography primary start multiLineEllipsis text text2Normal description"
 +         data-testid="text"
 +         style="--text-clamp-lines: 2;"
 +       >

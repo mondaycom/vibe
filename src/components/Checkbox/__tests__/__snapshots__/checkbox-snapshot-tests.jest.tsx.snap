@@ -40,7 +40,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -86,7 +86,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -132,7 +132,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -178,7 +178,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -225,7 +225,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -271,7 +271,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -317,7 +317,7 @@ exports[`Checkbox renders correctly with name 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>
@@ -363,7 +363,7 @@ exports[`Checkbox renders correctly with props 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   >
     Option 1
@@ -411,7 +411,7 @@ exports[`Checkbox renders correctly with value 1`] = `
     </svg>
   </div>
   <span
-    className="typography primary start singleLineEllipsis text2Normal label"
+    className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="checkbox-label"
   />
 </label>

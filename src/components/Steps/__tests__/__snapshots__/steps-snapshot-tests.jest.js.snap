@@ -514,7 +514,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       Back
     </button>
     <div
-      className="typography primary start singleLineEllipsis text2Normal numbers"
+      className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -585,7 +585,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text2Normal numbers"
+      className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -667,7 +667,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text2Normal numbers"
+      className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
     >
       1 \\ 2
@@ -752,7 +752,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text2Normal numbers"
+      className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -837,7 +837,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text2Normal numbers"
+      className="typography primary start singleLineEllipsis text text2Normal numbers"
       data-testid="text"
     >
       1 \\ 2
