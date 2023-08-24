@@ -234,6 +234,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     Something Happened
     <a
+      aria-describedby=""
       aria-label=""
       aria-labelledby=""
       className="link actionLink actionLink"
@@ -339,6 +340,7 @@ exports[`Toast renders correctly with link 1`] = `
   >
     Something Happened
     <a
+      aria-describedby=""
       aria-label=""
       aria-labelledby=""
       className="link actionLink actionLink"

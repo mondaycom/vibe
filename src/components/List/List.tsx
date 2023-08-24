@@ -10,12 +10,7 @@ import { ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentStringType, ListWrapperComponentType } from "./ListConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
-import {
-  generateListId,
-  getListItemComponentType,
-  getListItemIdByIndex,
-  getListItemIndexById
-} from "./utils/ListUtils";
+import { getListItemComponentType, getListItemIdByIndex, getListItemIndexById, useListId } from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
 export interface ListProps extends VibeComponentProps {
@@ -56,7 +51,7 @@ const List: VibeComponent<ListProps> & {
     },
     ref
   ) => {
-    const overrideId = id || generateListId();
+    const overrideId = useListId(id);
     const componentRef = useRef(null);
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
@@ -125,7 +120,6 @@ const List: VibeComponent<ListProps> & {
 
     return (
       <ListContext.Provider value={{ updateFocusedItem }}>
-        {/*@ts-ignore Component comes from string, so it couldn't have types*/}
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
           ref={mergedRef}

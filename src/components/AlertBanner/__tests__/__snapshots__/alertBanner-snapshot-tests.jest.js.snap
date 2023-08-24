@@ -148,6 +148,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         data-testid="alert-banner-link"
       >
         <a
+          aria-describedby=""
           aria-label=""
           aria-labelledby=""
           className="link"
@@ -159,7 +160,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="text bannerLink"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>
@@ -370,6 +371,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         data-testid="alert-banner-link"
       >
         <a
+          aria-describedby=""
           aria-label=""
           aria-labelledby=""
           className="link"
@@ -381,7 +383,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="text bannerLink"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>

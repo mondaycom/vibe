@@ -16,7 +16,6 @@ import styles from "./MenuItemButton.module.scss";
 interface MenuItemButtonProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
-  menuId?: string;
   kind?: typeof MenuItemButton.kinds[keyof typeof MenuItemButton.kinds];
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
@@ -53,7 +52,6 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   index,
   activeItemIndex = -1,
   onClick,
-  menuId,
   tooltipPosition = MenuItemButton.tooltipPositions.RIGHT,
   tooltipShowDelay = 300,
   children,
@@ -111,7 +109,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
         type={Text.types.TEXT2}
         element="li"
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
-        id={id || `${menuId}-${index}`}
+        id={id}
         className={cx(styles.itemButton, overrideClassName)}
         ref={mergedRef}
         role="menuitem"

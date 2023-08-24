@@ -135,11 +135,17 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
     );
     const inputRef = useRef(null);
-    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
-      delay: debounceRate,
-      onChange: value => {
+
+    const onChangeCallback = useCallback(
+      (value: string) => {
         onChange(value, { target: inputRef.current });
       },
+      [onChange]
+    );
+
+    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
+      delay: debounceRate,
+      onChange: onChangeCallback,
       initialStateValue: value,
       trim
     });
@@ -282,9 +288,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
           {shouldShowExtraText && (
             <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
-                <span className={cx(styles.subTextContainerStatus)} aria-label={TextFieldAriaLabel.VALIDATION_TEXT}>
-                  {validation.text}
-                </span>
+                <span className={cx(styles.subTextContainerStatus)}>{validation.text}</span>
               )}
               {showCharCount && (
                 <span className={cx(styles.counter)} aria-label={TextFieldAriaLabel.CHAR}>
