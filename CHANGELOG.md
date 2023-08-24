@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.29.0 (2023-08-24)
+
+#### New Features
+* [#1492](https://github.com/mondaycom/monday-ui-react-core/pull/1492) feat: <Menu> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1501](https://github.com/mondaycom/monday-ui-react-core/pull/1501) update monday-ui-style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.28.3 (2023-08-23)
 
 #### Bug Fixes
