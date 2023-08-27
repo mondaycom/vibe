@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.29.1 (2023-08-27)
+
+#### Bug Fixes
+* [#1506](https://github.com/mondaycom/monday-ui-react-core/pull/1506) fix: <List> keyboard focus only on list items ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1505](https://github.com/mondaycom/monday-ui-react-core/pull/1505) fix: <ExpandCollapse> flickering ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1500](https://github.com/mondaycom/monday-ui-react-core/pull/1500) chore: Update stories plop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.29.0 (2023-08-24)
 
 #### New Features
