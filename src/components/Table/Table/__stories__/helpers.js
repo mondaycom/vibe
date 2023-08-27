@@ -84,7 +84,6 @@ export const basicTableProps = {
     { id: "column-id-1", title: "First Column" },
     { id: "column-id-2", title: "Second Column" }
   ],
-  dataState: { isLoading: false, isError: false, hasMoreResults: false },
   emptyState: <h1>Empty State</h1>,
   errorState: <h1>Error State</h1>
 };
