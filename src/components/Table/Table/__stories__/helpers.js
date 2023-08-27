@@ -33,7 +33,7 @@ export const emailTableData = [
 export const emailColumns = [
   {
     id: "sentOn",
-    title: "Sent On",
+    title: "Sent on",
     width: 150
   },
   {
@@ -43,7 +43,7 @@ export const emailColumns = [
   },
   {
     id: "sentBy",
-    title: "Sent By",
+    title: "Sent by",
     width: { min: 120, max: 200 },
     infoContent: "This is the sender"
   },
@@ -56,7 +56,7 @@ export const emailColumns = [
   },
   {
     id: "emailsSent",
-    title: "Emails Sent",
+    title: "Emails sent",
     width: 150
   }
 ];
