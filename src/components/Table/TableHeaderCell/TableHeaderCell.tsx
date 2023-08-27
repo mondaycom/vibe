@@ -30,18 +30,16 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
       <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellContent}>
         {icon && <Icon icon={icon} iconLabel="Icon" className={styles.icon} />}
         {
-          <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY}>
+          <Text
+            type={Text.types.TEXT2}
+            color={Text.colors.SECONDARY}
+            className={cx([styles.text, infoContent && styles.hasInfo])}
+          >
             {title}
           </Text>
         }
         {infoContent && (
-          <IconButton
-            icon={Info}
-            kind={ButtonType.TERTIARY}
-            size={IconButton.sizes.XXS}
-            ariaLabel="Info"
-            className={styles.info}
-          />
+          <IconButton icon={Info} kind={ButtonType.TERTIARY} size={IconButton.sizes.XXS} ariaLabel={infoContent} />
         )}
       </Flex>
       {onSortClicked && (

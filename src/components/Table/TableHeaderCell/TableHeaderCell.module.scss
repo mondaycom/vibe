@@ -18,18 +18,13 @@
     min-width: 0;
 
     .text {
-      display: inline-block;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
+      &.hasInfo {
+        margin-inline-end: var(--spacing-xs);
+      }
     }
 
     .icon {
       margin-inline-end: var(--spacing-xs);
-    }
-
-    .info {
-      margin-inline-start: var(--spacing-xs);
     }
   }
 

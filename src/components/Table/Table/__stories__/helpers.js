@@ -1,4 +1,6 @@
 import Avatar from "../../../Avatar/Avatar";
+import Email from "../../../../components/Icon/Icons/components/Email";
+import Dashboard from "../../../../components/Icon/Icons/components/Dashboard";
 
 export const emailTableData = [
   {
@@ -36,17 +38,21 @@ export const emailColumns = [
   },
   {
     id: "subject",
-    title: "Subject"
+    title: "Subject",
+    icon: Email
   },
   {
     id: "sentBy",
     title: "Sent By",
-    width: { min: 120, max: 200 }
+    width: { min: 120, max: 200 },
+    infoContent: "This is the sender"
   },
   {
     id: "status",
     title: "Status",
-    width: 150
+    width: 150,
+    icon: Dashboard,
+    infoContent: "Info content for the status column",
   },
   {
     id: "emailsSent",

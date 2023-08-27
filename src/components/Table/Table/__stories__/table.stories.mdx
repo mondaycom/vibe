@@ -34,6 +34,7 @@ export const tableTemplate = createComponentTemplate(Table);
 # Table
 - [Overview](#overview)
 - [Props](#props)
+- [Table Header Functionality](#table-header-functionality)
 - [Loading](#loading)
 - [Empty State](#empty-state)
 - [Scroll](#scroll)
@@ -42,6 +43,45 @@ export const tableTemplate = createComponentTemplate(Table);
 Table
 <Canvas>
   <Story name="Overview">
+    <Table
+      errorState={<TableErrorState />}
+      emptyState={<TableEmptyState />}
+      columns={emailColumns}
+    >
+      <TableHeader>
+        {emailColumns.map((headerCell, index) => (
+          <TableHeaderCell
+            key={index}
+            title={headerCell.title}
+          ></TableHeaderCell>
+        ))}
+      </TableHeader>
+      <TableBody>
+        {emailTableData.map(rowItem => (
+          <TableRow key={rowItem.id}>
+            <TableCell>{rowItem.sentOn}</TableCell>
+            <TableCell>{rowItem.subject}</TableCell>
+            <TableCell>
+              <TableAvatar text={rowItem.sentBy} />
+            </TableCell>
+            <TableCell>
+              <Label text={rowItem.status} isAnimationDisabled />
+            </TableCell>
+            <TableCell>{rowItem.emailsSent}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Table } />
+
+## Table header functionality
+Sorting, Icons and Information added to selected columns
+<Canvas>
+  <Story name="Table Header Functionality">
     {() => {
       const [tableData, setTableData] = useState(emailTableData);
       const [sorting, setSorting] = useState({});
@@ -60,6 +100,8 @@ Table
               <TableHeaderCell
                 key={index}
                 title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
                 onSortClicked={sortState => onSort(headerCell.id, sortState)}
                 sortState={sorting[headerCell.id]}
               ></TableHeaderCell>
@@ -85,9 +127,6 @@ Table
     }};
   </Story>
 </Canvas>
-
-## Props
-<ArgsTable of={ Table } />
 
 ## Loading
 Using skeleton
