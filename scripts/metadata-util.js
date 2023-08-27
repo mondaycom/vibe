@@ -4,9 +4,6 @@ const ICONS_FOLDERS = path.resolve("./src/Icons");
 const METADATA_FILENAME = "iconsMetaData.js";
 const METADATA_FILE_PATH = ICONS_FOLDERS + "/" + METADATA_FILENAME;
 
-console.log("CURRENT_FOLDER", path.resolve("./"));
-console.log("ICONS_FOLDERS", ICONS_FOLDERS);
-
 function getIconsFiles() {
   return fs.readdirSync(ICONS_FOLDERS).filter(f => f !== METADATA_FILENAME);
 }
