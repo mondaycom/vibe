@@ -135,7 +135,7 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
 Our Text component supports overflow state.
 When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
 
-<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
+We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
 
 <Canvas>
   <Story name="Overflow" play={textOverflowSuite}>
@@ -164,6 +164,8 @@ When the text is longer than its container and the ellipsis flag is on, the end 
     </Flex>
   </Story>
 </Canvas>
+
+<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
 
 ### Paragraph
 
