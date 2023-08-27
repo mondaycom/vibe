@@ -52,7 +52,7 @@ export const emailColumns = [
     title: "Status",
     width: 150,
     icon: Dashboard,
-    infoContent: "Info content for the status column",
+    infoContent: "Info content for the status column"
   },
   {
     id: "emailsSent",
