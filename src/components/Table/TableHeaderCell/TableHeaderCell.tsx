@@ -7,6 +7,7 @@ import IconButton from "../../IconButton/IconButton";
 import Info from "../../Icon/Icons/components/Info";
 import { ButtonType } from "../../Button/ButtonConstants";
 import Text from "../../Text/Text";
+import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 
 export interface ITableHeaderCellProps extends VibeComponentProps {
@@ -26,7 +27,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
 }) => {
   return (
     <div className={styles.tableHeaderCell} role="columnheader" aria-sort={getAriaSort(sortState)}>
-      <div className={styles.tableHeaderCellContent}>
+      <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellContent}>
         {icon && <Icon icon={icon} iconLabel="Icon" className={styles.icon} />}
         {
           <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY}>
@@ -42,9 +43,9 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
             className={styles.info}
           />
         )}
-      </div>
+      </Flex>
       {onSortClicked && (
-        <div className={styles.tableHeaderCellSort}>
+        <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
           <IconButton
             icon={getSortIcon(sortState)}
             kind={ButtonType.TERTIARY}
@@ -53,7 +54,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
             className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
             onClick={() => onSortClicked(getNextSortState(sortState))}
           />
-        </div>
+        </Flex>
       )}
     </div>
   );
