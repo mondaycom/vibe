@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.30.0 (2023-08-27)
+
+#### New Features
+* [#1503](https://github.com/mondaycom/monday-ui-react-core/pull/1503) feat: export <Dropdown> components - <DropdownMenu>, <DropdownOption>, <DropdownSingleValue> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.29.1 (2023-08-27)
 
 #### Bug Fixes
