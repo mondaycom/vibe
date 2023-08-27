@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.30.1 (2023-08-27)
+
+#### Documentation
+* [#1495](https://github.com/mondaycom/monday-ui-react-core/pull/1495) Docs for text and heading ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.30.0 (2023-08-27)
 
 #### New Features
