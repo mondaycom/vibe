@@ -1,3 +1,7 @@
+0.1.181 / 2023-08-16
+====================
+  * icons: Add tags to Open icon ([#232](https://github.com/mondaycom/monday-ui-style/issues/232))
+
 0.1.180 / 2023-08-16
 ====================
   * Move required dev dependencies to dependencies ([#231](https://github.com/mondaycom/monday-ui-style/issues/231))
@@ -320,7 +324,3 @@
 0.1.136 / 2022-09-20
 ====================
   * remove problematic var colors ([#167](https://github.com/mondaycom/monday-ui-style/issues/167))
-
-0.1.135 / 2022-09-14
-====================
-  * add and export colors json ([#165](https://github.com/mondaycom/monday-ui-style/issues/165))
