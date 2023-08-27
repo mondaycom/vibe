@@ -13,6 +13,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, scrollTableColumns, scrollTableData } from './helpers';
+import './table.stories.scss';
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
@@ -181,6 +182,7 @@ Table has no data to show
     <Table
       columns={[{ id: "column-id-1", title: "First Column" }, { id: "column-id-2", title: "Second Column" }]}
       emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+      className="monday-storybook-table_full-width"
     >
       <TableHeader>
         <TableHeaderCell title="First Column" />
@@ -212,6 +214,7 @@ This is an example of a table with 5000 rows
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={scrollTableColumns}
+          className="monday-storybook-table_full-width"
         >
           <TableHeader>
             {scrollTableColumns.map((cell, index) => (
