@@ -85,15 +85,6 @@ export const scrollTableColumns = [
   }
 ];
 
-export const basicTableProps = {
-  columns: [
-    { id: "column-id-1", title: "First Column" },
-    { id: "column-id-2", title: "Second Column" }
-  ],
-  emptyState: <h1>Empty State</h1>,
-  errorState: <h1>Error State</h1>
-};
-
 export function sort(columnId, sortState, tableData) {
   if (sortState === "asc") {
     return [...tableData].sort((a, b) => {

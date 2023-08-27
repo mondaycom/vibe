@@ -12,7 +12,7 @@ import Flex from "../../../Flex/Flex";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
-import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, basicTableProps, scrollTableColumns, scrollTableData } from './helpers';
+import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, scrollTableColumns, scrollTableData } from './helpers';
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
@@ -178,7 +178,7 @@ Using skeleton
 Table has no data to show
 <Canvas>
   <Story name="Empty State">
-    <Table {...basicTableProps} emptyState={<TableEmptyState />}>
+    <Table columns={[{ id: "column-id-1", title: "First Column" }, { id: "column-id-2", title: "Second Column" }]} emptyState={<TableEmptyState />}>
       <TableHeader>
         <TableHeaderCell title="First Column" />
         <TableHeaderCell title="Second Column" />
