@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import TableCell from "../../TableCell/TableCell";
-import Table from "../Table";
+import Table, { ITableColumn } from "../Table";
 import TableBody from "../../TableBody/TableBody";
 import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
@@ -30,8 +30,7 @@ function traverse(element: Element, acc: TableNode[] = []): TableNode[] {
 describe("Table", () => {
   const tableBoilerplate = {
     columns: [{ id: "column-id", title: "Title", width: 20 }],
-    dataState: { isLoading: false, isError: false, hasMoreResults: false },
-    errorState: <div />,
+    errorState: <h1>Error State</h1>,
     emptyState: <h1>Empty State</h1>
   };
 
@@ -59,7 +58,7 @@ describe("Table", () => {
     });
   });
 
-  describe("Empty state", () => {
+  describe("Empty/error states", () => {
     it("Should render empty state in case <TableBody /> is empty", () => {
       const { getByRole } = render(
         <Table {...tableBoilerplate}>
@@ -84,6 +83,32 @@ describe("Table", () => {
 
       const tableBodyElement = getByRole("rowgroup");
       expect(tableBodyElement.textContent).toBe("Table Cell");
+    });
+
+    it("Should render error state", () => {
+      const { getByRole } = render(
+        <Table {...tableBoilerplate} dataState={{ isError: true }}>
+          <TableBody></TableBody>
+        </Table>
+      );
+
+      const tableBodyElement = getByRole("rowgroup");
+      expect(tableBodyElement.textContent).toBe("Error State");
+    });
+  });
+
+  describe("Layout", () => {
+    it("Should apply column layout CSS variable to table's styling scope", () => {
+      const columns: ITableColumn[] = [
+        { id: "1", title: "Fixed width", width: 20 },
+        { id: "2", title: "Min and max", width: { min: 10, max: 20 } },
+        { id: "3", title: "Dynamic width" }
+      ];
+
+      const { getByRole } = render(<Table {...tableBoilerplate} columns={columns} />);
+
+      const style = getByRole("table").getAttribute("style");
+      expect(style).toMatch("20px minmax(10px, 20px) minmax(112px, 1fr)");
     });
   });
 
