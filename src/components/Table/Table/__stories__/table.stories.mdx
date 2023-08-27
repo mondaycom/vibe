@@ -178,7 +178,10 @@ Using skeleton
 Table has no data to show
 <Canvas>
   <Story name="Empty State">
-    <Table columns={[{ id: "column-id-1", title: "First Column" }, { id: "column-id-2", title: "Second Column" }]} emptyState={<TableEmptyState />}>
+    <Table
+      columns={[{ id: "column-id-1", title: "First Column" }, { id: "column-id-2", title: "Second Column" }]}
+      emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+    >
       <TableHeader>
         <TableHeaderCell title="First Column" />
         <TableHeaderCell title="Second Column" />
