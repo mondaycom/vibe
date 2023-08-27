@@ -17,6 +17,9 @@ $theme-dark-primary-text-color: $color-snow;
 
 $theme-dark-text-color-on-primary: $text-color-on-primary; // todo: fix, value from basic theme
 $theme-dark-text-color-on-inverted: $color-mud_black; // todo: fix, value from basic theme
+$theme-dark-text-color-on-positive: $color-snow_white;
+$theme-dark-text-color-on-negative: $color-snow_white;
+$theme-dark-text-color-on-warning: $color-mud_black;
 
 $theme-dark-secondary-text-color: $color-jaco_gray; // todo: fix, value from basic legacy palette
 $theme-dark-placeholder-color: $color-wolf_gray; // todo: fix, value from basic theme
