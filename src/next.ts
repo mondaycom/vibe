@@ -1,1 +1,1 @@
-export * as Heading from "./components/Title/Title";
+export * as Heading from "./components/Heading/Heading";

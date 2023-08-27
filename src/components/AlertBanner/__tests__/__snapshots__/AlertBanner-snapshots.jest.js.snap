@@ -3,7 +3,7 @@
 exports[`AlertBanner should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal alertBanner primary"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -19,7 +19,7 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
 exports[`AlertBanner should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal my-lorem-ipsum-banner alertBanner negative"
+  className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
   data-testid="alert-banner"
   role="banner"
 >
@@ -85,7 +85,7 @@ exports[`AlertBanner should render correctly with props 1`] = `
 exports[`AlertBanner should render correctly without props 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal alertBanner primary"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -134,7 +134,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
 exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal alertBanner primary"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -267,7 +267,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 exports[`AlertBanner should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal alertBanner primary"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -360,7 +360,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
 exports[`AlertBanner should render with correctly with text and link 2`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text2Normal alertBanner primary"
+  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
   role="banner"
 >

@@ -73,7 +73,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   stepComponentClassName,
   stepNumber = 1,
   status = StepStatus.PENDING,
-  titleText = "Title text",
+  titleText = "Heading text",
   subtitleText = "Subtitle text",
   type = MultiStepType.PRIMARY,
   fulfilledStepIcon = Check,
