@@ -1,7 +1,7 @@
 .tableHeaderCell {
   background-color: var(--primary-background-color);
-  padding: 9px 8px;
-  padding-inline-start: 16px;
+  padding: var(--spacing-small);
+  padding-inline-start: var(--spacing-medium);
   color: var(--secondary-text-color);
   box-sizing: border-box;
   text-align: initial;
@@ -25,6 +25,7 @@
 
     .icon {
       margin-inline-end: var(--spacing-xs);
+      min-width: var(--spacing-medium);
     }
   }
 

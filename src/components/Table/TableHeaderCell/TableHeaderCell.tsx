@@ -39,7 +39,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
           </Text>
         }
         {infoContent && (
-          <IconButton icon={Info} kind={ButtonType.TERTIARY} size={IconButton.sizes.XXS} ariaLabel={infoContent} />
+          <IconButton icon={Info} kind={ButtonType.TERTIARY} size={IconButton.sizes.XS} ariaLabel={infoContent} />
         )}
       </Flex>
       {onSortClicked && (
@@ -47,7 +47,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
           <IconButton
             icon={getSortIcon(sortState)}
             kind={ButtonType.TERTIARY}
-            size={IconButton.sizes.XXS}
+            size={IconButton.sizes.XS}
             ariaLabel="Sort"
             className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
             onClick={() => onSortClicked(getNextSortState(sortState))}
