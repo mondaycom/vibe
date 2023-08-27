@@ -1,3 +1,7 @@
+0.1.182 / 2023-08-27
+====================
+  * Add text-color-on-positive, text-color-on-negative, text-color-on-warning tokens ([#235](https://github.com/mondaycom/monday-ui-style/issues/235))
+
 0.1.181 / 2023-08-16
 ====================
   * icons: Add tags to Open icon ([#232](https://github.com/mondaycom/monday-ui-style/issues/232))
@@ -320,7 +324,3 @@
     * Add hacker theme legacy debug
     * Set debug to false
     * Fix typo
-
-0.1.136 / 2022-09-20
-====================
-  * remove problematic var colors ([#167](https://github.com/mondaycom/monday-ui-style/issues/167))
