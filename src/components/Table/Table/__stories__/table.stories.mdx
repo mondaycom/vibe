@@ -51,7 +51,6 @@ Table
       };
       return (
         <Table
-          dataState={{ isError: false, hasMoreResults: false }}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={emailColumns}
@@ -97,7 +96,6 @@ Using skeleton
     {() => {
       return (
         <Table
-          dataState={{ isError: false, hasMoreResults: false }}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={emailColumns}
@@ -112,7 +110,7 @@ Using skeleton
           </TableHeader>
           <TableBody>
             {[...new Array(5)].map((key, index) => (
-              <TableRow key={key}>
+              <TableRow key={index}>
                 <TableCell>
                   <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 140 : 70} />
                 </TableCell>
@@ -158,18 +156,17 @@ This is an example of a table with 5000 rows
 <Canvas>
   <Story name="Scroll">
     {() => {
-      const Row = ({ id, num, text }, index, style) => {
+      const Row = ({ id, num, text }) => {
         return (
-          <TableRow key={id} style={style}>
+          <TableRow>
             <TableCell>{num}</TableCell>
             <TableCell>{`${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text}`}</TableCell>
-            <TableCell>1</TableCell>
+            <TableCell>{num}</TableCell>
           </TableRow>
         );
       };
       return (<div style={{ display: "flex", overflowX: "scroll", height: 250, flex: 1 }}>
         <Table
-          dataState={{ isError: false, hasMoreResults: false }}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={scrollTableColumns}
@@ -179,7 +176,7 @@ This is an example of a table with 5000 rows
               <TableHeaderCell key={index} {...cell} />
             ))}
           </TableHeader>
-          <TableVirtualizedBody itemRenderer={Row} items={scrollTableData} />
+          <TableVirtualizedBody rowRenderer={Row} items={scrollTableData} />
         </Table>
       </div>);
     }}
