@@ -13,10 +13,11 @@ export interface ITableBodyProps extends VibeComponentProps {
 }
 
 const TableBody: FC<ITableBodyProps> = ({ children }) => {
-  const { emptyState } = useContext(TableContext);
+  const { dataState, emptyState, errorState } = useContext(TableContext);
+
   return (
     <div role="rowgroup" className={styles.tableBody}>
-      {children || emptyState}
+      {dataState?.isError ? errorState : children || emptyState}
     </div>
   );
 };
