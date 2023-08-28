@@ -87,6 +87,13 @@ const publishedTSComponents = {
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
   AttentionBoxLink: "components/AttentionBox/AttentionBoxLink/AttentionBoxLink",
+  Table: "components/Table/Table/Table",
+  TableBody: "components/Table/TableBody/TableBody",
+  TableCell: "components/Table/TableCell/TableCell",
+  TableHeader: "components/Table/TableHeader/TableHeader",
+  TableHeaderCell: "components/Table/TableHeaderCell/TableHeaderCell",
+  TableRow: "components/Table/TableRow/TableRow",
+  TableVirtualizedBody: "components/Table/TableVirtualizedBody/TableVirtualizedBody",
   // Don't remove next line
   // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index",

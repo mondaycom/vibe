@@ -104,7 +104,8 @@ export enum ComponentDefaultTestId {
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
   FLEX = "flex",
   TOOLTIP = "tooltip",
-  DIALOG = "dialog"
+  DIALOG = "dialog",
+  TABLE = "table"
 }
 
 export enum NavigationCommand {
