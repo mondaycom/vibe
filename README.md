@@ -31,6 +31,13 @@ import "monday-ui-style/dist/index.min.css";
 import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ```
 
+**Mixins and functions**: We export multiple scss mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.
+
+```scss
+@import "~monday-ui-style/dist/mixins";
+@import "~monday-ui-style/dist/functions";
+```
+
 ## Icons
 
 ### Adding a new icon
@@ -75,3 +82,16 @@ To use the supplied config, add `monday-ui-style/stylelint-config` as a [Styleli
   ...
 }
 ```
+
+## Functions
+We exporting the following scss functions:
+- camelize: camelcase string
+- capitalize: capitalize string
+- contain: return whether `$value` is contained in `$list` as Boolean
+- map-collect: merge maps from different scopes into one
+- extract-rgb: we use "extract-rgb" when we want to return a comma separated list of rgb values from a color.
+
+## Mixins
+We exporting the following scss mixins:
+- vibe-heading(type, weight)
+- vibe-text(type, weight)
