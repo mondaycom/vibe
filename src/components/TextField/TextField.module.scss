@@ -327,13 +327,24 @@
   font-family: var(--font-family);
 }
 
+// TODO url is not resolving correctly in the rollup build + theming approach isn't the best, as the component ideally shoudn't know about the theme
+//input[type="date"]::-webkit-calendar-picker-indicator,
+//input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+//  background: url("./assets/Calendar.svg") no-repeat;
+//
+//  :global(.dark-app-theme) &,
+//  :global(.black-app-theme) &,
+//  :global(.hacker_theme-app-theme) & {
+//    background: url("./assets/CalendarInverted.svg") no-repeat;
+//  }
+//}
+
+// Temp solution for displaying calendar icon in dark themes
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  background: url("./assets/Calendar.svg") no-repeat;
-
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker_theme-app-theme) & {
-    background: url("./assets/CalendarInverted.svg") no-repeat;
+    filter: invert(1);
   }
 }
