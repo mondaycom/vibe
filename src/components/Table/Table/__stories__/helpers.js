@@ -1,5 +1,4 @@
 import Avatar from "../../../Avatar/Avatar";
-import Email from "../../../../components/Icon/Icons/components/Email";
 import Dashboard from "../../../../components/Icon/Icons/components/Dashboard";
 
 export const emailTableData = [
