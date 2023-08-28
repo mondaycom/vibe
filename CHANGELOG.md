@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.31.1 (2023-08-28)
+
+#### Bug Fixes
+* [#1512](https://github.com/mondaycom/monday-ui-react-core/pull/1512) fix: <Heading> export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.31.0 (2023-08-28)
 
 #### Bug Fixes
