@@ -88,6 +88,7 @@ const publishedTSComponents = {
   Menu: "components/Menu/Menu/Menu",
   MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem",
   AttentionBoxLink: "components/AttentionBox/AttentionBoxLink/AttentionBoxLink",
+  Table: "components/Table/Table/Table",
   // Don't remove next line
   // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index",
