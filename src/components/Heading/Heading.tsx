@@ -9,7 +9,7 @@ import { TypographyAlign, TypographyColor } from "../Typography/TypographyConsta
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Heading.module.scss";
 
-export interface TitleProps extends TypographyProps {
+export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
   weight?: HeadingWeight;
   align?: TypographyAlign;
@@ -17,7 +17,7 @@ export interface TitleProps extends TypographyProps {
   children: ReactNode;
 }
 
-const Heading: VibeComponent<TitleProps, HTMLElement> & {
+const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   types?: typeof HeadingType;
   weights?: typeof HeadingWeight;
   colors?: typeof TypographyColor;
