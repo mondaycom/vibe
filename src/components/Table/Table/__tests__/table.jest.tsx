@@ -46,6 +46,15 @@ describe("Table", () => {
       expect(textElement.textContent).toBe("String");
     });
 
+    it("Should render number as a <Text /> component", () => {
+      const { getByRole } = render(<TableCell>{100}</TableCell>);
+      const cell = getByRole("cell");
+      const textElement = cell.children[0];
+
+      expect(textElement.classList).toContain("typography");
+      expect(textElement.textContent).toBe("100");
+    });
+
     it("Should render HTML element as a child", () => {
       const { getByRole } = render(
         <TableCell>

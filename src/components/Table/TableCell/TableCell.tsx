@@ -9,7 +9,8 @@ export interface ITableCellProps extends VibeComponentProps {
 
 const TableCell: FC<ITableCellProps> = ({ children }) => {
   const isSingleChild = React.Children.count(children) === 1;
-  const isFirstChildString = typeof React.Children.toArray(children)[0] === "string";
+  const typeOfFirstChild = typeof React.Children.toArray(children)[0];
+  const isFirstChildString = typeOfFirstChild === "string" || typeOfFirstChild === "number";
 
   return (
     <div role="cell" className={styles.tableCell}>
