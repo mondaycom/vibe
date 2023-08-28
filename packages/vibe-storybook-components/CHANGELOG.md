@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 (2023-08-28)
+
+#### Bug Fixes
+* [#18](https://github.com/mondaycom/vibe-storybook-components/pull/18) fix: export sb-icon-color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.2.0 (2023-08-23)
 
 #### New Features
