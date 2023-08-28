@@ -38,7 +38,7 @@ export const emailColumns = [
   },
   {
     id: "subject",
-    title: "Subject",
+    title: "Subject"
   },
   {
     id: "sentBy",
