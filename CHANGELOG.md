@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.31.0 (2023-08-28)
+
+#### Bug Fixes
+* [#1510](https://github.com/mondaycom/monday-ui-react-core/pull/1510) fix: <TextField> type=date, revert calendar icon changes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1494](https://github.com/mondaycom/monday-ui-react-core/pull/1494) feat: <Table/> - new component ([@giladar-monday](https://github.com/giladar-monday))
+
 ## 2.30.1 (2023-08-27)
 
 #### Documentation
