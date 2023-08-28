@@ -1,3 +1,12 @@
+0.1.183 / 2023-08-27
+====================
+  * test: validate-icons-colors script  ([#236](https://github.com/mondaycom/monday-ui-style/issues/236))
+    * test on lint: validate-icons-colors script
+    * Run stylelint on test workflow
+    * Remove console.logs from metadata-util.js
+    * Run validate-icons-colors on validate-icons
+    * Remove fill=white in rect inside clipPath
+
 0.1.182 / 2023-08-27
 ====================
   * Add text-color-on-positive, text-color-on-negative, text-color-on-warning tokens ([#235](https://github.com/mondaycom/monday-ui-style/issues/235))
@@ -310,17 +319,3 @@
   * Add new font families for font change ([#168](https://github.com/mondaycom/monday-ui-style/issues/168))
     * Add new font families for font change
     * Rename font-family variables
-
-0.1.137 / 2022-09-20
-====================
-  * Feature/yonatanari/re factor hacker theme structure ([#164](https://github.com/mondaycom/monday-ui-style/issues/164))
-    * Restructure Hacker Theme
-    * Create new hacker theme config tokens
-    * Create new hacker theme config maps
-    * Create new hacker theme loader
-    * Dark and Black Theme Typo corrections
-    * Restructure Hacker Theme test hacker theme keys
-    * Add debug keys
-    * Add hacker theme legacy debug
-    * Set debug to false
-    * Fix typo
