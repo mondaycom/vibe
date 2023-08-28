@@ -13,6 +13,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, scrollTableColumns, scrollTableData } from './helpers';
+import { LABEL, ICON_BUTTON, SKELETON } from "../../../../storybook/components/related-components/component-description-map";
 import './table.stories.scss';
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -35,10 +36,11 @@ export const tableTemplate = createComponentTemplate(Table);
 # Table
 - [Overview](#overview)
 - [Props](#props)
-- [Table Header Functionality](#table-header-functionality)
+- [Table header functionality](#table-header-functionality)
 - [Loading](#loading)
-- [Empty State](#empty-state)
+- [Empty state](#empty-state)
 - [Scroll](#scroll)
+- [Related components](#related-components)
 
 ## Overview
 Table
@@ -227,3 +229,7 @@ This is an example of a table with 5000 rows
     }}
   </Story>
 </Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[LABEL, ICON_BUTTON, SKELETON]} />
