@@ -17,7 +17,7 @@ export const emailTableData = [
     sentBy: "Some Person",
     subject:
       "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
-    status: "In Progress",
+    status: "Sent",
     emailsSent: 999
   },
   {
@@ -25,7 +25,7 @@ export const emailTableData = [
     sentOn: "2022-02-02",
     sentBy: "Other Name",
     subject: "This is the subject",
-    status: "In Progress",
+    status: "Sent",
     emailsSent: 99
   }
 ];
@@ -39,7 +39,6 @@ export const emailColumns = [
   {
     id: "subject",
     title: "Subject",
-    icon: Email
   },
   {
     id: "sentBy",
@@ -51,7 +50,6 @@ export const emailColumns = [
     id: "status",
     title: "Status",
     width: 150,
-    icon: Dashboard,
     infoContent: "Info content for the status column"
   },
   {
@@ -64,7 +62,7 @@ export const emailColumns = [
 export const scrollTableData = [...new Array(5000)].map((_, index) => ({
   id: index,
   num: index,
-  text: `Line ${index}`
+  text: `This is line number ${index}`
 }));
 
 export const scrollTableColumns = [
@@ -77,11 +75,6 @@ export const scrollTableColumns = [
     id: "text",
     title: "Text",
     loadingStateType: "long-text"
-  },
-  {
-    id: "one",
-    title: "One",
-    width: 200
   }
 ];
 
@@ -111,5 +104,6 @@ export const TableAvatar = ({ text }) => (
     customSize={24}
     size={Avatar.sizes.SMALL}
     ariaLabel={text}
+    backgroundColor="dark_purple"
   />
 );

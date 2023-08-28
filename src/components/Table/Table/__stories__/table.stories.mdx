@@ -38,7 +38,6 @@ export const tableTemplate = createComponentTemplate(Table);
 - [Props](#props)
 - [Table header functionality](#table-header-functionality)
 - [Loading](#loading)
-- [Empty state](#empty-state)
 - [Scroll](#scroll)
 - [Related components](#related-components)
 
@@ -68,7 +67,7 @@ Table
               <TableAvatar text={rowItem.sentBy} />
             </TableCell>
             <TableCell>
-              <Label text={rowItem.status} isAnimationDisabled />
+              <Label text={rowItem.status} color="positive" isAnimationDisabled />
             </TableCell>
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
@@ -119,7 +118,7 @@ Sorting, Icons and Information added to selected columns
                   <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
                 <TableCell>
-                  <Label text={rowItem.status} isAnimationDisabled />
+                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
@@ -177,26 +176,6 @@ Using skeleton
   </Story>
 </Canvas>
 
-## Empty State
-Table has no data to show
-<Canvas>
-  <Story name="Empty State">
-    <Table
-      columns={[{ id: "column-id-1", title: "First Column" }, { id: "column-id-2", title: "Second Column" }]}
-      emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
-      className="monday-storybook-table_full-width"
-    >
-      <TableHeader>
-        <TableHeaderCell title="First Column" />
-        <TableHeaderCell title="Second Column" />
-      </TableHeader>
-      <TableBody>
-        {/* Empty */}
-      </TableBody>
-    </Table>
-  </Story>
-</Canvas>
-
 ## Scroll
 This is an example of a table with 5000 rows
 <Canvas>
@@ -206,8 +185,7 @@ This is an example of a table with 5000 rows
         return (
           <TableRow>
             <TableCell>{num}</TableCell>
-            <TableCell>{`${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text} ${text}`}</TableCell>
-            <TableCell>{num}</TableCell>
+            <TableCell>{text}</TableCell>
           </TableRow>
         );
       };
