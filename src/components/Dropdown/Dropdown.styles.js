@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { SIZES } from "../../constants/sizes";
 import { getCSSVar } from "../../services/themes";
+import { getScrollableParent } from "../../utils/dom-utils";
 
 const getSizeInPx = size => {
   switch (size) {
@@ -294,7 +295,7 @@ const valueContainer =
   });
 
 const menu =
-  ({ controlRef, containerRef, insideOverflowContainer, insideOverflowWithTransformContainer }) =>
+  ({ controlRef, insideOverflowContainer, insideOverflowWithTransformContainer }) =>
   provided => {
     const baseStyle = {
       ...provided,
@@ -315,7 +316,8 @@ const menu =
      * start when the menu position is fixed, and this is why in this case we define top:auto.
      */
     let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
-    let translate = insideOverflowWithTransformContainer ? `0 -${containerRef.current?.scrollTop || 0}px` : "0";
+    const translateY = getScrollableParent(controlRef?.current)?.scrollTop;
+    const translate = insideOverflowWithTransformContainer ? `0 -${translateY || 0}px` : "0";
 
     return { ...baseStyle, top, translate, width: parentPositionData.width };
   };

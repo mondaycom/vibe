@@ -110,7 +110,7 @@ overflow container has one parent or more with conflicting overflow definitions.
 
 The <code>insideOverflowContainer</code> prop will not function as expected for dropdowns displayed inside Vibe's dialog components.
 The reason is that Vibe dialogs use CSS transform to position the dialog next to the attached element.
-For this specific case, use the `insideOverflowWithTransformContainer` prop, and pass the ref of the container dialog as `containerRef` to ensure proper display and functionality.
+For this specific case, use the `insideOverflowWithTransformContainer` prop.
 
 <Canvas>
   <Story name="insideOverflowWithTransformContainer">
@@ -129,12 +129,13 @@ For this specific case, use the `insideOverflowWithTransformContainer` prop, and
       const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
       const secondDialogContent = (
         <DialogContentContainer style={dialogStyle} ref={dialogRef}>
-          <Dropdown
-            placeholder="Dropdown inside a scrollable dialog"
-            options={options}
-            insideOverflowWithTransformContainer
-            containerRef={dialogRef}
-          />
+          <div style={{ height: "300px" }}>
+            <Dropdown
+              placeholder="Dropdown inside a scrollable dialog"
+              options={options}
+              insideOverflowWithTransformContainer
+            />
+          </div>
           <div style={{ height: "50vh" }}>I'm scrollable</div>
         </DialogContentContainer>
       );

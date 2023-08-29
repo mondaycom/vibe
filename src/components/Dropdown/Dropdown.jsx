@@ -74,7 +74,6 @@ const Dropdown = forwardRef(
       isOptionSelected,
       insideOverflowContainer,
       insideOverflowWithTransformContainer,
-      containerRef,
       tooltipContent,
       onKeyDown,
       isLoading,
@@ -128,7 +127,6 @@ const Dropdown = forwardRef(
         rtl,
         insideOverflowContainer,
         controlRef,
-        containerRef,
         insideOverflowWithTransformContainer
       });
 
@@ -617,10 +615,6 @@ Dropdown.propTypes = {
    * For display the drop down menu in overflow hidden/scroll container which contains transform css function usage.
    */
   insideOverflowWithTransformContainer: PropTypes.bool,
-  /**
-   * For when insideOverflowWithTransformContainer is used, this is the ref of the container dialog.
-   */
-  containerRef: PropTypes.func,
   /**
    * When content is passed, the dropdown will include a tooltip on the dropdown's value.
    */
