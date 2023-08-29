@@ -34,12 +34,12 @@ describe("SplitButtonMenu", () => {
 
   it("set first item as aria-activedescendant", () => {
     const { getByTestId } = renderSplitButtonMenu();
-    expect(getByTestId(menuDataTestId)).toHaveAttribute("aria-activedescendant", `${id}-0`);
+    expect(getByTestId(menuDataTestId)).toHaveAttribute("aria-activedescendant", `${id}-item-0`);
   });
 
   it("should focus first menu item on mount", () => {
     const { getByTestId } = renderSplitButtonMenu();
-    const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}0`;
+    const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}_0`;
     expect(getByTestId(firstMenuItemId)).toHaveFocus();
   });
 });

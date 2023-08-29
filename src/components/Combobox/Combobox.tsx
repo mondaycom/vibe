@@ -57,6 +57,10 @@ export interface ComboboxProps extends VibeComponentProps {
    */
   addNewLabel?: ((label: string) => ElementContent) | string;
   filter?: (filterValue: string, options: IComboboxOption[]) => IComboboxOption[];
+  /**
+   * Default search input
+   */
+  defaultFilter?: string;
   disableFilter?: boolean;
   onFilterChanged?: (value: string) => void;
   /**
@@ -134,13 +138,14 @@ const Combobox: React.FC<ComboboxProps> & {
       renderOnlyVisibleOptions = false,
       clearFilterOnSelection = false,
       maxOptionsWithoutScroll,
+      defaultFilter: defaultFilterValue = "",
       "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
-    const [filterValue, setFilterValue] = useState("");
+    const [filterValue, setFilterValue] = useState(defaultFilterValue);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const onChangeCallback = useCallback(
       (value: string) => {

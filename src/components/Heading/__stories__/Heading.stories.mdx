@@ -1,0 +1,267 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator, Tip } from "../../../storybook";
+import Flex from "../../Flex/Flex";
+import { createComponentTemplate } from "vibe-storybook-components";
+import Heading from "../Heading";
+import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/heading-tests-constants";
+import { Link } from "vibe-storybook-components";
+import { headingOverflowSuite } from "../__tests__/Heading.interactions";
+import Divider from "../../Divider/Divider";
+import Text from "../../Text/Text";
+import Search from "../../Search/Search";
+import Checkbox from "../../Checkbox/Checkbox";
+import Button from "../../Button/Button";
+import { Custom } from "../../Icon/Icons";
+import { emptyStateExample } from "./assets";
+import {
+  EDITABLE_HEADING,
+  TEXT,
+  HIDDEN_TEXT
+} from "../../../storybook/components/related-components/component-description-map";
+
+import styles from "./Heading.stories.module.scss";
+
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: Heading,
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta title="Text/Heading" component={Heading} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+
+<!--- Component template -->
+
+export const textTemplate = createComponentTemplate(Heading);
+
+# Heading
+
+<!--- Component documentation -->
+
+- [Overview](#overview)
+- [Import](#import)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Heading components are used for titles at the top of pages and sub-sections.
+
+<Canvas>
+  <Story name="Overview" args={{ children: "Title" }}>
+    {textTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Import
+
+The Heading component has been introduced in version 2.0 of Vibe.
+However, the import statement `{Heading}` from 'monday-ui-react-core' is already reserved for the <Link href="/?path=/docs/text-legacyheading--overview">LegacyHeading</Link> component.
+Therefore, the new Heading with the updated API can be accessed using the following import statement:
+
+```javascript
+import { Heading } from "monday-ui-react-core/next";
+```
+
+In the upcoming major release of Vibe packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
+just like any other component.
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+<UsageGuidelines guidelines={["Don't include more than one H1 title per web page."]} />
+
+<Tip title="Heading components are not editable">
+  Check out our
+  <Link href="/?path=/docs/inputs-editableheading--overview" size={Link.sizes.SMALL}>
+    EditableHeading
+  </Link>
+  component if you would like to allow users to edit the title text.
+</Tip>
+
+## Variants
+
+### Types and weights
+
+Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and three weights: bold (700), normal (500), light (300)
+
+<Canvas>
+  <Story name="Types and weights">
+    <Flex
+      gap={Flex.gaps.SMALL}
+      direction={Flex.directions.COLUMN}
+      justify={Flex.justify.START}
+      align={Flex.align.START}
+    >
+      <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
+        Bold H1 title
+      </Heading>
+      <Heading type={Heading.types.H1} weight="normal">
+        Normal H1 title
+      </Heading>
+      <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
+        Light H1 title
+      </Heading>
+      <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
+        Bold H2 title
+      </Heading>
+      <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+        Normal H2 title
+      </Heading>
+      <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
+        Light H2 title
+      </Heading>
+      <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
+        Bold H3 title
+      </Heading>
+      <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
+        Normal H3 title
+      </Heading>
+      <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
+        Light H3 title
+      </Heading>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Colors
+
+Heading component comes in four colors: primary, secondary, on primary, on inverted
+
+<Canvas>
+  <Story name="Colors">
+    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
+      <Heading type={Heading.types.H2} color={Heading.colors.PRIMARY}>
+        Primary title
+      </Heading>
+      <Heading type={Heading.types.H2} type={Heading.types.H2} type={Heading.types.H2} color={Heading.colors.SECONDARY}>
+        Secondary title
+      </Heading>
+      <Heading
+        element="div"
+        type={Heading.types.H2}
+        className={styles.primaryBackground}
+        align={Heading.align.CENTER}
+        color={Heading.colors.ON_PRIMARY}
+      >
+        On primary title
+      </Heading>
+      <Heading
+        element="div"
+        type={Heading.types.H2}
+        className={styles.invertedBackground}
+        align={Heading.align.CENTER}
+        color={Heading.colors.ON_INVERTED}
+      >
+        On inverted title
+      </Heading>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Overflow
+
+Our Heading component supports overflow state.
+When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
+
+We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
+
+<Canvas>
+  <Story name="Overflow" play={headingOverflowSuite}>
+    <Flex
+      id={OVERFLOW_TITLE_CONTAINER_ID}
+      direction={Flex.directions.COLUMN}
+      gap={Flex.gaps.MEDIUM}
+      align={Flex.align.STRETCH}
+      style={{ width: "480px" }}
+    >
+      <Heading type={Heading.types.H2} ellipsis={false}>
+        Heading without overflow
+      </Heading>
+      <Heading
+        type={Heading.types.H2}
+        ellipsis
+        /**for testing purposes**/
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
+        }}
+      >
+        Heading with ellipsis and tooltip when hovering
+      </Heading>
+      <div>
+        <Heading type={Heading.types.H2} ellipsis withoutTooltip maxLines={2}>
+          Heading with two lines overflow heading without tooltip heading with two lines overflow heading without
+          tooltip heading with two lines overflow heading without tooltip heading with two lines overflow heading
+          without tooltip
+        </Heading>
+      </div>
+    </Flex>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Heading>Hello world</Heading>,
+        description: "Always capitalize the first letter of the first word in the heading."
+      },
+      negative: {
+        component: <Heading>Hello World</Heading>,
+        description: "Please avoid capitalizing the first letter of each word in the heading."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Built-in page header (not editable)
+
+<Canvas>
+  <Story name="Built-in page header (not editable)">
+    <div style={{ width: "100%" }}>
+      <Heading type={Heading.types.H1} id="my-work-id">
+        My work
+      </Heading>
+      <Divider className={styles.pageDivider} />
+      <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
+        <Search wrapperClassName={styles.pageHeaderSearch} placeholder="Search" />
+        <Checkbox label="Hide done items" checked />
+        <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
+          Customize
+        </Button>
+      </Flex>
+    </div>
+  </Story>
+</Canvas>
+
+### Empty state heading
+
+<Canvas>
+  <Story name="Empty state heading">
+    <div className={styles.emptyStateContainer} aria-labelledby="empty-state-id">
+      <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
+      <Heading type={Heading.types.H2} id="empty-state-id" className={styles.emptyStateHeading}>
+        No updates yet for this item
+      </Heading>
+      <Text element="span" type={Text.types.TEXT1} style={{ width: "50%", textAlign: "center" }} ellipsis={false}>
+        Be the first one to update about progress, mention someone or upload files to share with your team members
+      </Text>
+    </div>
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[EDITABLE_HEADING, TEXT, HIDDEN_TEXT]} />

@@ -21,6 +21,9 @@
     &SpaceAround {
       justify-content: space-around;
     }
+    &Inital {
+      justify-content: initial;
+    }
   }
   &.align {
     &Start {
@@ -37,6 +40,9 @@
 
     &Stretch {
       align-items: stretch;
+    }
+    &Initial {
+      align-items: initial;
     }
   }
   &.direction {

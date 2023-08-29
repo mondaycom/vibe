@@ -3,7 +3,7 @@
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips disabled noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips disabled noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -23,7 +23,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips withClose noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -84,7 +84,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips withClose noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -145,7 +145,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -188,7 +188,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 exports[`Chips renders correctly renders correctly with left custom renderer 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips withClose noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -256,7 +256,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -293,7 +293,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -336,7 +336,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 exports[`Chips renders correctly renders correctly with right custom renderer 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips withClose noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -404,7 +404,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -441,7 +441,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   aria-label="text"
-  className="typography primary start singleLineEllipsis text2Normal chips withClose noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips withClose noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={
@@ -502,7 +502,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
   aria-label=""
-  className="typography primary start singleLineEllipsis text2Normal chips noAnimation"
+  className="typography primary start singleLineEllipsis text text2Normal chips noAnimation"
   data-testid="chip"
   onClick={[Function]}
   style={

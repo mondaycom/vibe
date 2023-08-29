@@ -24,7 +24,7 @@ interface ModalProps {
    */
   show: boolean;
   /**
-   * Title for the modal, mandatory when ModalHeader isn't provided in children
+   * Heading for the modal, mandatory when ModalHeader isn't provided in children
    */
   title?: string;
   /**

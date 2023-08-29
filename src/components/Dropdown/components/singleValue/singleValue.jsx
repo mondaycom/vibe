@@ -5,11 +5,10 @@ import { components } from "react-select";
 import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import styles from "./singleValue.module.scss";
 
-const SingleValue = props => {
-  const { Renderer, data, children, readOnly, singleValueWrapperClassName } = props;
-
+const SingleValue = ({ Renderer, data, children, readOnly, singleValueWrapperClassName, ...props }) => {
+  const rendererProps = { children, readOnly, data, ...props };
   const value = Renderer ? (
-    <Renderer {...data} />
+    <Renderer {...rendererProps} {...data} /> // Spreading data here for a backward compatability
   ) : (
     <ChildrenContent data={data} readOnly={readOnly}>
       {children}

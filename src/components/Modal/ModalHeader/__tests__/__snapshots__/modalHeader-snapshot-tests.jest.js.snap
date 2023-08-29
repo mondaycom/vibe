@@ -27,7 +27,7 @@ Snapshot Diff:
       Default title
     </h1>
     <div
-+     class="typography primary start multiLineEllipsis text2Normal description"
++     class="typography primary start multiLineEllipsis text text2Normal description"
 +     data-testid="text"
 +     style="--text-clamp-lines: 2;"
 +   >

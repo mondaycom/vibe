@@ -1,5 +1,74 @@
 # Changelog
 
+## 2.31.1 (2023-08-28)
+
+#### Bug Fixes
+* [#1512](https://github.com/mondaycom/monday-ui-react-core/pull/1512) fix: <Heading> export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.31.0 (2023-08-28)
+
+#### Bug Fixes
+* [#1510](https://github.com/mondaycom/monday-ui-react-core/pull/1510) fix: <TextField> type=date, revert calendar icon changes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1494](https://github.com/mondaycom/monday-ui-react-core/pull/1494) feat: <Table/> - new component ([@giladar-monday](https://github.com/giladar-monday))
+
+## 2.30.1 (2023-08-27)
+
+#### Documentation
+* [#1495](https://github.com/mondaycom/monday-ui-react-core/pull/1495) Docs for text and heading ([@hadasfa](https://github.com/hadasfa))
+
+## 2.30.0 (2023-08-27)
+
+#### New Features
+* [#1503](https://github.com/mondaycom/monday-ui-react-core/pull/1503) feat: export <Dropdown> components - <DropdownMenu>, <DropdownOption>, <DropdownSingleValue> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.29.1 (2023-08-27)
+
+#### Bug Fixes
+* [#1506](https://github.com/mondaycom/monday-ui-react-core/pull/1506) fix: <List> keyboard focus only on list items ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1505](https://github.com/mondaycom/monday-ui-react-core/pull/1505) fix: <ExpandCollapse> flickering ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1500](https://github.com/mondaycom/monday-ui-react-core/pull/1500) chore: Update stories plop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.29.0 (2023-08-24)
+
+#### New Features
+* [#1492](https://github.com/mondaycom/monday-ui-react-core/pull/1492) feat: <Menu> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1501](https://github.com/mondaycom/monday-ui-react-core/pull/1501) update monday-ui-style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.3 (2023-08-23)
+
+#### Bug Fixes
+* [#1498](https://github.com/mondaycom/monday-ui-react-core/pull/1498) fix: <AlertBannerLink> pass textColor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.2 (2023-08-22)
+
+#### Bug Fixes
+* [#1497](https://github.com/mondaycom/monday-ui-react-core/pull/1497) fix: <Dropdown> pass children to the menuRenderer ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1493](https://github.com/mondaycom/monday-ui-react-core/pull/1493) docs: Update Pull request template ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.1 (2023-08-21)
+
+#### Bug Fixes
+* [#1491](https://github.com/mondaycom/monday-ui-react-core/pull/1491) fix: <TextField> debounce recreation bug ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.0 (2023-08-21)
+
+#### New Features
+* [#1488](https://github.com/mondaycom/monday-ui-react-core/pull/1488) feat: <Combobox> defaultFilter value ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.27.0 (2023-08-21)
+
+#### New Features
+* [#1490](https://github.com/mondaycom/monday-ui-react-core/pull/1490) feat: <Toggle>, <Switch> refForwarding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1486](https://github.com/mondaycom/monday-ui-react-core/pull/1486) feat: add configurable aria-describedby attribute to the link element ([@LihiBechorMarkovitz](https://github.com/LihiBechorMarkovitz))
+
 ## 2.26.0 (2023-08-17)
 
 #### Bug Fixes
