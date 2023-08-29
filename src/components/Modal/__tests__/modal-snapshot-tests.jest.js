@@ -7,7 +7,7 @@ import { snapshotDiff } from "../../../utils/jest-utils";
 const baseProps = {
   id: "modal-id",
   show: true,
-  title: "Modal Title",
+  title: "Modal Heading",
   onClose: () => {}
 };
 
@@ -47,7 +47,7 @@ describe("Modal", () => {
     const props = {
       content: (
         <>
-          <ModalHeader title={"ModalHeader Title"} />
+          <ModalHeader title={"ModalHeader Heading"} />
           {content}
         </>
       )
@@ -110,7 +110,7 @@ describe("Modal", () => {
     const props = {
       content: (
         <>
-          <ModalHeader title={"ModalHeader Title"} />
+          <ModalHeader title={"ModalHeader Heading"} />
           <ModalContent>{content}</ModalContent>
           <ModalFooter>{footerContent}</ModalFooter>
         </>

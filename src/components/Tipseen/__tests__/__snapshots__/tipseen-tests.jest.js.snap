@@ -213,7 +213,7 @@ Array [
             </button>
           </div>
           <p
-            className="typography onPrimary start text2Normal tipseenContent"
+            className="typography onPrimary start text text2Normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -272,7 +272,7 @@ Array [
             className="tipseenHeader"
           />
           <p
-            className="typography onPrimary start text2Normal tipseenContent"
+            className="typography onPrimary start text text2Normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -331,7 +331,7 @@ Array [
             className="tipseenHeader"
           />
           <p
-            className="typography onPrimary start text2Normal tipseenContent"
+            className="typography onPrimary start text text2Normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -432,7 +432,7 @@ Array [
             </button>
           </div>
           <p
-            className="typography onPrimary start text2Normal tipseenContent"
+            className="typography onPrimary start text text2Normal tipseenContent"
             data-testid="text"
           />
         </div>
@@ -456,7 +456,7 @@ Array [
 exports[`Snapshot tests TipseenTitle should render correctly with given text 1`] = `
 <div
   aria-level={3}
-  className="typography onPrimary start multiLineEllipsis text2Medium"
+  className="typography onPrimary start multiLineEllipsis text text2Medium"
   data-testid="tipseen-title"
   role="heading"
 >

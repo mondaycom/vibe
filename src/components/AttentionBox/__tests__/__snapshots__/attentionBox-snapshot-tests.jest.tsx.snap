@@ -32,7 +32,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -47,7 +47,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       Text
@@ -88,7 +88,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -103,7 +103,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       Text
@@ -144,7 +144,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -159,7 +159,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typeDarkText paragraph"
+      className="typography primary start text text2Normal text typeDarkText paragraph"
       data-testid="text"
     >
       Text
@@ -200,7 +200,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -215,7 +215,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     }
   >
     <div
-      className="typography primary start singleLineEllipsis text2Normal text typePrimaryText compact"
+      className="typography primary start singleLineEllipsis text text2Normal text typePrimaryText compact"
       data-testid="text"
     >
       Text
@@ -239,7 +239,7 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     />
   </div>
@@ -262,7 +262,7 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       Text
@@ -286,7 +286,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     }
   >
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -301,7 +301,7 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       Text
@@ -342,7 +342,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -357,7 +357,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText dismissible paragraph"
+      className="typography primary start text text2Normal text typePrimaryText dismissible paragraph"
       data-testid="text"
     >
       Text
@@ -437,7 +437,7 @@ exports[`AttentionBox renders correctly renders correctly with renderer 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       <span>
@@ -473,7 +473,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      className="typography primary start singleLineEllipsis text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Bold title"
       data-testid="text"
     >
       Title
@@ -488,7 +488,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
     }
   >
     <p
-      className="typography primary start text2Normal text typePrimaryText paragraph"
+      className="typography primary start text text2Normal text typePrimaryText paragraph"
       data-testid="text"
     >
       Text

@@ -1,11 +1,12 @@
 import Heading from "../LegacyHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createStoryMetaSettingsDecorator, DeprecatedWarning } from "../../../storybook";
 import { Link, createComponentTemplate } from "vibe-storybook-components";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
+import Flex from "../../Flex/Flex";
 import { Custom } from "../../Icon/Icons";
 import { emptyStateExample } from "./assets";
 import {
@@ -13,14 +14,19 @@ import {
   SEARCH,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
-import styles from "./Heading.stories.module.scss";
+import styles from "./LegacyHeading.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   enumPropNamesArray: ["type", "size"]
 });
 
-<Meta title="Text/Heading" component={Heading} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+<Meta
+  title="Text/LegacyHeading"
+  component={Heading}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component template -->
 
@@ -28,7 +34,9 @@ export const headingTemplate = createComponentTemplate(Heading);
 
 <!--- Component documentation -->
 
-# Heading
+# Legacy heading
+
+<DeprecatedWarning alternativeName="Heading" alternativeLink="/?path=/docs/text-heading--overview" />
 
 - [Overview](#overview)
 - [Props](#props)
@@ -176,17 +184,13 @@ Our heading component support text highlight.
     <div style={{ width: "100%" }}>
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
       <Divider />
-      <div
-        className={styles["page-header_commands"]}
-        style={{ display: "flex", alignItems: "center" }}
-        aria-labelledby="my-work-id"
-      >
+      <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
         <Search wrapperClassName={styles["page-header_search"]} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
           Customize
         </Button>
-      </div>
+      </Flex>
     </div>
   </Story>
 </Canvas>
@@ -195,13 +199,13 @@ Our heading component support text highlight.
 
 <Canvas>
   <Story name="Empty state title">
-    <div className={styles["empty-state-container"]} aria-labelledby="empty-state-id">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} aria-labelledby="empty-state-id">
       <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
       <Heading type={Heading.types.h2} id="empty-state-id" value="No updates yet for this item" />
       <span style={{ width: "50%", textAlign: "center" }}>
         Be the first one to update about progress, mention someone or upload files to share with your team members
       </span>
-    </div>
+    </Flex>
   </Story>
 </Canvas>
 

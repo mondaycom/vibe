@@ -12,7 +12,7 @@ const Switcher: React.FC<SwitcherProps> = ({size, ...props}) => (
     </g>
     <defs>
       <clipPath id="clip0_1898_40324">
-        <path fill="#fff" transform="translate(.211 .974)" d="M0 0H15.053V15.053H0z" />
+        <path transform="translate(.211 .974)" d="M0 0H15.053V15.053H0z" />
       </clipPath>
     </defs>
   </svg>

@@ -2,7 +2,7 @@
 
 exports[`Combobox renders correctly when disabled 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -122,7 +122,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
 
 exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -242,7 +242,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 
 exports[`Combobox renders correctly with autoFocus 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -362,7 +362,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 
 exports[`Combobox renders correctly with className 1`] = `
 <div
-  className="typography primary start text2Normal combobox test sizeMedium empty"
+  className="typography primary start text text2Normal combobox test sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -482,7 +482,7 @@ exports[`Combobox renders correctly with className 1`] = `
 
 exports[`Combobox renders correctly with divider 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium"
+  className="typography primary start text text2Normal combobox sizeMedium"
   data-testid="combobox"
   id=""
 >
@@ -700,7 +700,7 @@ exports[`Combobox renders correctly with divider 1`] = `
 
 exports[`Combobox renders correctly with empty props 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -820,7 +820,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
 
 exports[`Combobox renders correctly with id 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox_test"
   id="test"
 >
@@ -940,7 +940,7 @@ exports[`Combobox renders correctly with id 1`] = `
 
 exports[`Combobox renders correctly with loading 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -1089,7 +1089,7 @@ exports[`Combobox renders correctly with loading 1`] = `
 
 exports[`Combobox renders correctly with optionClassName 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -1209,7 +1209,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
 
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -1329,7 +1329,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 
 exports[`Combobox renders correctly with optionRenderer 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium"
+  className="typography primary start text text2Normal combobox sizeMedium"
   data-testid="combobox"
   id=""
 >
@@ -1502,7 +1502,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 
 exports[`Combobox renders correctly with optionsListHeight 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -1622,7 +1622,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 
 exports[`Combobox renders correctly with placeholder 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeMedium empty"
+  className="typography primary start text text2Normal combobox sizeMedium empty"
   data-testid="combobox"
   id=""
 >
@@ -1742,7 +1742,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 
 exports[`Combobox renders correctly with size 1`] = `
 <div
-  className="typography primary start text2Normal combobox sizeLarge empty"
+  className="typography primary start text text2Normal combobox sizeLarge empty"
   data-testid="combobox"
   id=""
 >

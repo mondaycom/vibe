@@ -1,6 +1,15 @@
 @import "../../../styles/themes";
 @import "../../../styles/typography";
 
+// TODO demo
+.valueRenderer {
+  width: 100px;
+  &Inner {
+    color: red !important;
+  }
+}
+
+
 .dropdown-stories-styles {
   &_spacing {
     min-width: 250px;

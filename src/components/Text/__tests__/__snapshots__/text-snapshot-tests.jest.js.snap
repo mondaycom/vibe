@@ -2,7 +2,7 @@
 
 exports[`Text renders correctly with align 1`] = `
 <div
-  className="typography primary center singleLineEllipsis text2Normal"
+  className="typography primary center singleLineEllipsis text text2Normal"
   data-testid="text"
 >
   text
@@ -11,7 +11,7 @@ exports[`Text renders correctly with align 1`] = `
 
 exports[`Text renders correctly with color 1`] = `
 <div
-  className="typography secondary start singleLineEllipsis text2Normal"
+  className="typography secondary start singleLineEllipsis text text2Normal"
   data-testid="text"
 >
   text
@@ -20,7 +20,7 @@ exports[`Text renders correctly with color 1`] = `
 
 exports[`Text renders correctly with element 1`] = `
 <p
-  className="typography primary start singleLineEllipsis text2Normal"
+  className="typography primary start singleLineEllipsis text text2Normal"
   data-testid="text"
 >
   text
@@ -29,7 +29,7 @@ exports[`Text renders correctly with element 1`] = `
 
 exports[`Text renders correctly with element as children 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text2Normal"
+  className="typography primary start singleLineEllipsis text text2Normal"
   data-testid="text"
 >
   <div>
@@ -40,14 +40,14 @@ exports[`Text renders correctly with element as children 1`] = `
 
 exports[`Text renders correctly with empty props 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text2Normal"
+  className="typography primary start singleLineEllipsis text text2Normal"
   data-testid="text"
 />
 `;
 
 exports[`Text renders correctly with paragraph 1`] = `
 <p
-  className="typography primary start text2Normal"
+  className="typography primary start text text2Normal"
   data-testid="text"
 >
   text
@@ -56,7 +56,7 @@ exports[`Text renders correctly with paragraph 1`] = `
 
 exports[`Text renders correctly with type 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text1Normal"
+  className="typography primary start singleLineEllipsis text text1Normal"
   data-testid="text"
 >
   text
@@ -65,7 +65,7 @@ exports[`Text renders correctly with type 1`] = `
 
 exports[`Text renders correctly with weight 1`] = `
 <div
-  className="typography primary start singleLineEllipsis text2Medium"
+  className="typography primary start singleLineEllipsis text text2Medium"
   data-testid="text"
 >
   text

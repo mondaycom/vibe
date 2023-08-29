@@ -4,7 +4,7 @@ import { components } from "react-select";
 import styles from "./menu.module.scss";
 
 const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, ...props }) => {
-  const rendererProps = { children, ...props };
+  const rendererProps = { children, selectProps, ...props };
   const withFixedPosition =
     selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
   return (

@@ -60,7 +60,6 @@ export interface MenuItemProps extends VibeComponentProps {
    * Class name which is added to div which wraps an Icon
    */
   iconWrapperClassName?: string;
-  menuId?: string;
   isInitialSelectedState?: boolean;
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
@@ -95,7 +94,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       index,
       key,
       id,
-      menuId,
       children,
       isParentMenuVisible = false,
       resetOpenSubMenuIndex,
@@ -114,7 +112,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
-    const overrideId = id || `${menuId}-${index}`;
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -289,7 +286,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         type={Text.types.TEXT2}
         {...a11yProps}
         key={key}
-        id={overrideId}
+        id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM, index)}
         className={cx(styles.item, overrideClassName, {
           [styles.disabled]: disabled,
