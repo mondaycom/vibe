@@ -27,13 +27,6 @@
     padding: 0 20px 10px;
   }
 
-  &_without-bg {
-    .linear-progress-bar__container {
-      // TODO check
-      background-color: var(--color-snow_white);
-    }
-  }
-
   &_icon-wrapper {
     display: flex;
     align-items: center;
