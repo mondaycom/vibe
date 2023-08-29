@@ -7,12 +7,8 @@ export const AccordionDescription = () => {
   const component = useMemo(() => {
     return (
       <Accordion className={styles.smallWrapper}>
-        <AccordionItem title="Notifications">
-          <div className={styles.smallContent} />
-        </AccordionItem>
-        <AccordionItem title="Setting">
-          <div className={styles.smallContent} />
-        </AccordionItem>
+        <AccordionItem title="Notifications">Notifications content</AccordionItem>
+        <AccordionItem title="Settings">Settings content</AccordionItem>
       </Accordion>
     );
   }, []);
