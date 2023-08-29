@@ -44,7 +44,7 @@ import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 import { DialogDescription } from "./descriptions/dialog";
 import { AccordionDescription } from "./descriptions/accordion-description/accordion-description";
-import { ExpandCollapseDescription } from "./descriptions/expand-collapse-description";
+import { ExpandCollapseDescription } from "./descriptions/expand-collapse-description/expand-collapse-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
