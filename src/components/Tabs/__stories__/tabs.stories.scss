@@ -1,4 +1,3 @@
-@import "../../../styles/themes";
 @import "../../../styles/typography";
 
 .monday-storybook-tabs {
@@ -11,7 +10,7 @@
     width: 480px;
     height: 111px;
     margin-left: 40px;
-    @include theme-prop(background-color, disabled-background-color);
+    background-color: var(--disabled-background-color);
     padding: 16px;
   }
 

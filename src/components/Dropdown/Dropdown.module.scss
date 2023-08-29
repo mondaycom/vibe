@@ -1,11 +1,10 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
 .dropdown :global(.fast-option) {
   display: flex;
   align-content: center;
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   cursor: pointer;
   border-radius: var(--border-radius-small);
   margin: 0 var(--spacing-small);
@@ -15,30 +14,30 @@
 
 .dropdown :global(.fast-option):disabled {
   background-color: transparent;
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
 }
 
 .dropdown :global(.fast-option-disabled) {
   background-color: transparent;
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
 }
 
 .dropdown :global(.fast-option-focused) {
-  @include theme-prop(color, primary-text-color);
-  @include theme-prop(background-color, primary-selected-color);
+  color: var(--primary-text-color);
+  background-color: var(--primary-selected-color);
   user-select: none;
   box-sizing: border-box;
 }
 
 .dropdown :global(.fast-option-focused):hover {
-  @include theme-prop(color, primary-text-color);
-  @include theme-prop(background-color, primary-background-hover-color);
+  color: var(--primary-text-color);
+  background-color: var(--primary-background-hover-color);
 }
 
 .dropdown :global(.fast-option-selected) {
-  @include theme-prop(color, primary-color);
-  @include theme-prop(background-color, primary-selected-color);
+  color: var(--primary-color);
+  background-color: var(--primary-selected-color);
   cursor: pointer;
 }

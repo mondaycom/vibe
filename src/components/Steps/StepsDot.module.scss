@@ -1,10 +1,9 @@
 @import "../../styles/typography";
-@import "../../styles/themes";
 @import "../../styles/global-css-settings";
 @import "../../styles/states";
 
 @mixin active-step-dot {
-  @include theme-prop(background, primary-color);
+  background: var(--primary-color);
   transform: scale(1.3);
 }
 
@@ -14,7 +13,7 @@
   height: 6px;
   cursor: pointer;
   border-radius: 50%;
-  @include theme-prop(background, ui-border-color);
+  background: var(--ui-border-color);
   @include focus-style;
   transform-origin: center;
   transform: scale(1);
@@ -31,10 +30,10 @@
 }
 
 .onPrimary.dot {
-  @include theme-prop(background, primary-hover-color);
+  background: var(--primary-hover-color);
   @include focus-style-on-primary;
 }
 
 .onPrimary.isActive {
-  @include theme-prop(background, text-color-on-primary);
+  background: var(--text-color-on-primary);
 }

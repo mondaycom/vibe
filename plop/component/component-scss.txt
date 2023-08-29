@@ -1,5 +1,3 @@
-@import "../../styles/themes.scss";
-
 .{{camelCase componentName}} {
 
 }

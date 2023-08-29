@@ -1,4 +1,3 @@
-@import "../../../styles/themes";
 @import "../../../styles/global-css-settings";
 @import "../../../styles/typography";
 
@@ -62,6 +61,6 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
   }
 
   &_hovered {
-    @include theme-prop(background-color, primary-selected-color);
+    background-color: var(--primary-selected-color);
   }
 }

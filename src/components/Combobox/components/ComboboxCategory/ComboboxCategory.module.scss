@@ -1,9 +1,8 @@
-@import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/states";
 
 .comboboxCategory {
-  @include theme-prop(color, placeholder-color);
+  color: var(--placeholder-color);
   display: flex;
   align-items: center;
   padding-top: var(--spacing-small);

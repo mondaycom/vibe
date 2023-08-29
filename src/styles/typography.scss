@@ -1,5 +1,4 @@
 @use "sass:string";
-@import "./theme-mixin";
 @import "~monday-ui-style/dist/mixins";
 
 @function contain($list, $value) {
@@ -78,7 +77,7 @@ $textClasses: (
 );
 
 @mixin base-font($font-variable) {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
   font: $font-variable;

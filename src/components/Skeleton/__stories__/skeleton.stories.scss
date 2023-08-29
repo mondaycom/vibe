@@ -1,5 +1,4 @@
 @import "../../../styles/global-css-settings";
-@import "../../../styles/themes";
 @import "../../../styles/typography";
 
 .monday-storybook-skeleton {
@@ -46,7 +45,7 @@
 
   &_box {
     border: 1px solid;
-    @include theme-prop(border-color, ui-border-color);
+    border-color: var(--ui-border-color);
   }
 
   &_header {

@@ -1,6 +1,5 @@
 @import "~monday-ui-style/dist/mixins";
 @import "../../../styles/states";
-@import "../../../styles/themes";
 @import "../../../styles/typography";
 
 .tabWrapper {
@@ -10,8 +9,8 @@
   padding-right: 1px;
   border-top: 1px solid transparent;
   border-bottom: 2px solid;
-  @include theme-prop(border-bottom-color, primary-background-hover-color);
-  @include theme-prop(color, primary-text-color);
+  border-bottom-color: var(--primary-background-hover-color);
+  color: var(--primary-text-color);
   text-align: center;
   height: 100%;
 }
@@ -23,7 +22,7 @@
   right: 0;
   content: "";
   border-bottom: solid 2px;
-  @include theme-prop(border-bottom-color, primary-color);
+  border-bottom-color: var(--primary-color);
   transform: scaleX(0);
   z-index: 0;
 }
@@ -40,7 +39,7 @@
   user-select: none;
   margin-bottom: $margin-bottom;
   cursor: pointer;
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
 }
 
 .tabWrapper .tabInner:focus {
@@ -48,7 +47,7 @@
 }
 
 .tabWrapper .tabInner .tabIcon {
-  @include theme-prop(color, icon-color);
+  color: var(--icon-color);
   margin-right: var(--spacing-small);
 }
 
@@ -68,11 +67,11 @@
 }
 
 .tabWrapper.disabled .tabInner {
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
 }
 
 .tabWrapper:not(.disabled) .tabInner:hover {
   border-radius: 4px;
-  @include theme-prop(background-color, primary-background-hover-color);
+  background-color: var(--primary-background-hover-color);
 }

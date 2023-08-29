@@ -1,9 +1,7 @@
-@import "../../../styles/themes";
-
 .track {
   position: absolute;
   border-radius: inherit;
-  @include theme-prop(background-color, primary-selected-color);
+  background-color: var(--primary-selected-color);
   height: inherit;
   top: 50%;
   transform: translateY(-50%);
@@ -11,9 +9,9 @@
 }
 
 .positive {
-  @include theme-prop(background-color, positive-color-selected);
+  background-color: var(--positive-color-selected);
 }
 
 .negative {
-  @include theme-prop(background-color, negative-color-selected);
+  background-color: var(--negative-color-selected);
 }

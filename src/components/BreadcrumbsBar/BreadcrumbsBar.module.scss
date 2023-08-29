@@ -1,5 +1,3 @@
-@import "../../styles/themes";
-
 .breadcrumbsBar ol {
   display: flex;
   flex-direction: row;
@@ -8,6 +6,6 @@
 }
 
 .breadcrumbsBar ol .separatorIcon {
-  @include theme-prop(color, secondary-text-color);
+  color: var(--secondary-text-color);
   flex-shrink: 0;
 }

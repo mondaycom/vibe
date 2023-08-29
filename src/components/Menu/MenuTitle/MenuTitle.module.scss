@@ -1,4 +1,3 @@
-@import "../../../styles/themes";
 @import "../../../styles/typography";
 @import "../../../styles/global-css-settings";
 
@@ -8,7 +7,7 @@
 }
 
 .titleCaption {
-  @include theme-prop(color, icon-color);
+  color: var(--icon-color);
   margin: var(--spacing-small) 0;
 }
 
@@ -31,7 +30,7 @@
 .titleCaptionCenter::after {
   content: "";
   flex-grow: 1;
-  @include theme-prop(background-color, ui-border-color);
+  background-color: var(--ui-border-color);
   height: 1px;
   font-size: 0;
   line-height: 0;

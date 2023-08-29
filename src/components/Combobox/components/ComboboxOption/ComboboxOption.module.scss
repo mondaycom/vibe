@@ -1,4 +1,3 @@
-@import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/global-css-settings";
 @import "../../../../styles/states";
@@ -21,13 +20,13 @@ $icon-margin: 4px;
 }
 
 .comboboxOption.selected {
-  @include theme-prop(background-color, primary-selected-color);
+  background-color: var(--primary-selected-color);
 }
 
 .comboboxOption:hover:not(.disabled):not(.selected),
 .comboboxOption.active {
-  @include theme-prop(color, primary-text-color);
-  @include theme-prop(background-color, primary-background-hover-color);
+  color: var(--primary-text-color);
+  background-color: var(--primary-background-hover-color);
   position: relative;
 }
 

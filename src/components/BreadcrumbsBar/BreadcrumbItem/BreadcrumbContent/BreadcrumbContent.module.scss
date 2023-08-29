@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../../../styles/themes";
 @import "../../../../styles/states";
 
 .breadcrumbContent {
@@ -39,12 +38,12 @@
 
 .breadcrumbContent.clickable:hover,
 .breadcrumbContent:focus-within {
-  @include theme-prop(background-color, primary-background-hover-color);
+  background-color: var(--primary-background-hover-color);
   border-radius: 4px;
 }
 
 .breadcrumbContent.current {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   font-weight: 500;
 }
 

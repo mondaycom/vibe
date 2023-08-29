@@ -1,4 +1,3 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
@@ -9,7 +8,7 @@ $tooltip-z-index: 9999999999999999;
   display: inline-block;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
   padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
-  @include theme-prop(box-shadow, box-shadow-medium);
+  box-shadow: var(--box-shadow-medium);
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
   word-break: break-word;
@@ -27,27 +26,27 @@ $tooltip-z-index: 9999999999999999;
 
 .dark,
 .arrow.dark {
-  @include theme-prop(background-color, inverted-color-background);
-  @include theme-prop(color, text-color-on-inverted);
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
 }
 
 .white,
 .arrow.white {
   background-color: var(--color-snow_white);
   color: var(--color-blackish);
-  @include theme-prop(box-shadow, box-shadow-medium);
+  box-shadow: var(--box-shadow-medium);
 }
 
 .primary,
 .arrow.primary {
-  @include theme-prop(background-color, primary-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--primary-color);
+  color: var(--text-color-on-primary);
 }
 
 .success,
 .arrow.success {
-  @include theme-prop(background-color, positive-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--positive-color);
+  color: var(--text-color-on-primary);
 }
 
 .surface,
@@ -58,18 +57,18 @@ $tooltip-z-index: 9999999999999999;
 
 .private,
 .arrow.private {
-  @include theme-prop(background-color, private-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--private-color);
+  color: var(--text-color-on-primary);
 }
 
 .share,
 .arrow.share {
-  @include theme-prop(background-color, shareable-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--shareable-color);
+  color: var(--text-color-on-primary);
 }
 
 .error,
 .arrow.error {
-  @include theme-prop(background-color, negative-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--negative-color);
+  color: var(--text-color-on-primary);
 }

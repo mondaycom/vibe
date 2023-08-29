@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 @import "../../styles/keyframes";
@@ -57,15 +56,15 @@
 }
 
 .kindLine.colorPrimary {
-  @include theme-prop(color, primary-color);
+  color: var(--primary-color);
 }
 
 .kindLine.colorDark {
-  @include theme-prop(color, inverted-color-background);
+  color: var(--inverted-color-background);
 }
 
 .kindLine.colorNegative {
-  @include theme-prop(color, negative-color);
+  color: var(--negative-color);
 }
 
 .kindLine.colorLight {

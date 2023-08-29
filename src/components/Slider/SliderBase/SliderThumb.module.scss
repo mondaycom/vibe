@@ -1,13 +1,12 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/states";
-@import "../../../styles/themes";
 
 .thumb {
   position: absolute;
   border: 3px solid;
   border-radius: 50%;
-  @include theme-prop(border-color, primary-color);
-  @include theme-prop(background-color, primary-background-color);
+  border-color: var(--primary-color);
+  background-color: var(--primary-background-color);
   font-size: 14px;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -23,7 +22,7 @@
   @include box-shadow-small();
 }
 .focused {
-  @include theme-prop(border-color, primary-hover-color);
+  border-color: var(--primary-hover-color);
   cursor: grab;
   @include box-shadow-small();
 }
@@ -32,29 +31,29 @@
 .notDisabledThumb {
   @include focus-style(50%);
   &:hover {
-    @include theme-prop(border-color, primary-hover-color);
+    border-color: var(--primary-hover-color);
     cursor: grab;
     @include box-shadow-small();
   }
 }
 
 .positive {
-  @include theme-prop(border-color, positive-color);
+  border-color: var(--positive-color);
 }
 
 .positive.notDisabledThumb {
   &:hover {
-    @include theme-prop(border-color, positive-color-hover);
+    border-color: var(--positive-color-hover);
   }
 }
 
 .negative {
-  @include theme-prop(border-color, negative-color);
+  border-color: var(--negative-color);
 }
 
 .negative.notDisabledThumb {
   &:hover {
-    @include theme-prop(border-color, negative-color-hover);
+    border-color: var(--negative-color-hover);
   }
 }
 

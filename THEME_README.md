@@ -4,7 +4,6 @@ Theming is the ability of our components to change their appearance according to
 ### Key Guidelines for supporting themes
 1. When styling a component you should be theme agnostic - you should not be aware of the current theme.
 2. You should not import colors by their name (snow_white, basic_blue...), you should import colors by their theme name - (primaryHoverColor, primaryTextColor...)
-3. Use the `theme-prop` helper mixin to use a theme. (theme-prop is our mixing for supporting ie11)
 
 ### How we implemented themes
 Our theme mechanism is based on [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), CSS variables are a very powerful tool to create dynamic css variables (it is not supported on ie11 - we have a fallback for it).
@@ -16,9 +15,6 @@ In order to create a new theme you need to override all of the keys (the list of
 
 #### Adding a new variable to a theme
 Adding a key should be done in the @mondaydotcomorg/monday-ui-style repo
-
-### IE11 support
-As IE 11 is at it's final breath we don't want to invest too much time to support it but we do have around 3% usage in ie so in order to do so we will show the default theme when using ie 11. In order to achive that please use the `theme-prop`
 
 ### Theme example:
 ```css

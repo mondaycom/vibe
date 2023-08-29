@@ -1,11 +1,10 @@
 @import "../../../styles/typography";
-@import "../../../../styles/themes";
 
 .monday-storybook-ability-description {
   display: flex;
   flex-direction: column;
   border: 1px solid;
-  @include theme-prop(border-color, layout-border-color);
+  border-color: var(--layout-border-color);
   padding: var(--spacing-large);
   width: 100%;
   &_image {

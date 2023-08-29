@@ -17,7 +17,7 @@
   border-radius: calc($border-radius * var(--border-radius-multiplier, 1));
   inset: $inset;
   border: $border-width solid;
-  @include theme-prop(border-color, $border-color-var-name);
+  border-color: var(--#{$border-color-var-name});
   pointer-events: none;
 }
 
