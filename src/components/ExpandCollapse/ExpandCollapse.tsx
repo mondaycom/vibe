@@ -4,8 +4,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
 import Heading from "../LegacyHeading/LegacyHeading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
+import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 
