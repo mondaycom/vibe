@@ -57,10 +57,6 @@ ExpandCollapse is a component that allows you to hide and show content.
   </Story>
 </Canvas>
 
-## Props
-
-<ArgsTable story="Overview" />
-
 <Tip title="Want to combine multiple ExpandCollapse?">
   Use our
   <Link size={Link.sizes.SMALL} href="/?path=/docs/data-display-accordion--overview">
@@ -68,6 +64,10 @@ ExpandCollapse is a component that allows you to hide and show content.
   </Link>
   component
 </Tip>
+
+## Props
+
+<ArgsTable story="Overview" />
 
 ## Variants
 
@@ -83,6 +83,8 @@ ExpandCollapse is a component that allows you to hide and show content.
 
 ### Controlled open state
 
+You can control the open state of the ExpandCollapse component by passing the <code>open</code> prop.
+
 <Canvas>
   <Story name="Controlled open state">
     {() => {
@@ -97,7 +99,6 @@ ExpandCollapse is a component that allows you to hide and show content.
           >
             <Text maxLines={2}>Insert here any component that you want</Text>
           </ExpandCollapse>
-          <Button onClick={() => setOpen(prevState => !prevState)}>Toggle open state</Button>
         </Flex>
       );
     }}
