@@ -315,11 +315,17 @@ const menu =
      * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative positioned inner container, which our menu will be attach to it's
      * start when the menu position is fixed, and this is why in this case we define top:auto.
      */
-    let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
-    const translateY = getScrollableParent(controlRef?.current)?.scrollTop;
-    const translate = insideOverflowWithTransformContainer ? `0 -${translateY || 0}px` : "0";
 
-    return { ...baseStyle, top, translate, width: parentPositionData.width };
+    if (insideOverflowContainer) {
+      return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width };
+    }
+    const translateY = `-${getScrollableParent(controlRef?.current)?.scrollTop}px`;
+    return {
+      ...baseStyle,
+      top: "auto",
+      translate: `0 ${translateY}`,
+      width: parentPositionData.width
+    };
   };
 
 const option = () => (provided, state) => ({

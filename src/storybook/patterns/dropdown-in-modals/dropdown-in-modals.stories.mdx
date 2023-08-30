@@ -90,7 +90,9 @@ overflow container has one parent or more with conflicting overflow definitions.
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
+            <div style={{ height: "100px" }} />
             <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+            <div style={{ height: "100px" }} />
           </DialogContentContainer>
           <div>
             <Button onClick={() => setShow(true)}>Open modal</Button>
@@ -129,14 +131,15 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
       const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
       const secondDialogContent = (
         <DialogContentContainer style={dialogStyle} ref={dialogRef}>
-          <div style={{ height: "300px" }}>
+          <div style={{ height: "100px" }} />
+          <div style={{ height: "100px" }}>
             <Dropdown
               placeholder="Dropdown inside a scrollable dialog"
               options={options}
               insideOverflowWithTransformContainer
             />
           </div>
-          <div style={{ height: "50vh" }}>I'm scrollable</div>
+          <div style={{ height: "100px" }} />
         </DialogContentContainer>
       );
       return (
