@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState should render correctly with required props 1`] = `
+<div
+  className="container directionColumn justifyCenter alignCenter emptyState"
+  data-testid="empty-state"
+  style={
+    Object {
+      "gap": "24px",
+    }
+  }
+>
+  <img
+    alt="This is title"
+    className="image"
+    src="someImg"
+  />
+  <div
+    className="container directionColumn justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "8px",
+      }
+    }
+  >
+    <h2
+      className="typography primary start singleLineEllipsis heading h2Normal"
+      data-testid="text"
+    >
+      This is title
+    </h2>
+    <div
+      className="typography primary start singleLineEllipsis text text1Normal"
+      data-testid="text"
+    >
+      This is body
+    </div>
+  </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      Object {
+        "gap": "8px",
+      }
+    }
+  />
+</div>
+`;

@@ -1,0 +1,54 @@
+import EmptyState from "../EmptyState";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
+import emptyStateImage from "./assets/empty_state_img.svg";
+
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: EmptyState,
+  actionPropsArray: ["onPrimaryActionClick", "onSecondaryActionClick"]
+});
+
+<Meta
+  title="Feedback/EmptyState"
+  component={metaSettings.component}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+<!--- Component template -->
+
+export const emptyStateTemplate = createComponentTemplate(EmptyState);
+export const emptyStateTemplateDefaults = {
+  imgSrc: emptyStateImage,
+  title: "This is a title",
+  body: "This is a body, more detailed description",
+  primaryActionLabel: "Do something",
+  secondaryActionLabel: "Learn more"
+};
+
+<!--- Component documentation -->
+
+# EmptyState
+
+- [Overview](#overview)
+- [Props](#props)
+- [Feedback](#feedback)
+
+## Overview
+
+Empty states are used when a list, table, or chart has no items or data to show.
+
+By providing constructive guidance about next steps, they enlighten users about what they would see if they had data.
+
+An empty state ensures a smooth experience, even when things do not work as expected.
+
+<Canvas>
+  <Story name="Overview" args={emptyStateTemplateDefaults}>
+    {emptyStateTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
