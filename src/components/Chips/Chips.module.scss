@@ -1,5 +1,4 @@
 @use "../Clickable/Clickable.module" as clickable;
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
@@ -54,10 +53,10 @@
 
   &.disabled {
     .icon {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
     }
     .label {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
     }
   }
 

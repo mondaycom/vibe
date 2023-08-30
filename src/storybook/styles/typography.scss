@@ -17,7 +17,7 @@ $small-text-font-size: 14px;
 $text-line-height: 24px;
 
 @mixin basic-text {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
 }
 
 @mixin content-text-without-color {

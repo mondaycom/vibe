@@ -1,16 +1,15 @@
 @import "../../styles/global-css-settings";
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
 $checkbox-size: 16px;
 
 @mixin hover-selected {
-  @include theme-prop(background-color, primary-hover-color);
+  background-color: var(--primary-hover-color);
   border-color: transparent;
 }
 
 @mixin hover-unselected {
-  @include theme-prop(border-color, secondary-text-color);
+  border-color: var(--secondary-text-color);
 }
 
 .wrapper {
@@ -30,7 +29,7 @@ $checkbox-size: 16px;
   height: $checkbox-size;
   width: $checkbox-size;
   border: 1px solid;
-  @include theme-prop(border-color, ui-border-color);
+  border-color: var(--ui-border-color);
   border-radius: 2px;
   transition: transform var(--motion-productive-short) var(--motion-timing-enter);
   position: relative;
@@ -54,7 +53,7 @@ $checkbox-size: 16px;
 
 .icon {
   width: 100%;
-  @include theme-prop(color, text-color-on-primary);
+  color: var(--text-color-on-primary);
   visibility: hidden;
 }
 
@@ -85,14 +84,14 @@ $checkbox-size: 16px;
 .input:focus-visible + .checkbox {
   outline: none;
   border: 1px solid;
-  @include theme-prop(border-color, primary-color);
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
   border-radius: 2px;
 }
 
 .input:checked:focus + .checkbox:after,
 .input:indeterminate:focus + .checkbox:after {
-  @include theme-prop(background-color, primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 .input:checked + .checkbox,
@@ -102,7 +101,7 @@ $checkbox-size: 16px;
 
 .input:checked + .checkbox,
 .input:indeterminate + .checkbox {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
   border-color: transparent;
 }
 
@@ -113,13 +112,13 @@ $checkbox-size: 16px;
 
 .input:checked + .checkbox:hover:after,
 .input:indeterminate + .checkbox:hover:after {
-  @include theme-prop(background-color, primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 .input:checked + .checkbox:after,
 .input:indeterminate + .checkbox:after {
   content: " ";
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
   height: $checkbox-size;
   transform: scaleX(0);
   transition: transform var(--motion-productive-long);
@@ -134,18 +133,18 @@ $checkbox-size: 16px;
 
 .input:checked:disabled + .checkbox:after,
 .input:indeterminate:disabled + .checkbox:after {
-  @include theme-prop(background-color, disabled-background-color);
+  background-color: var(--disabled-background-color);
 }
 
 .input:disabled + .checkbox,
 .input:disabled + .checkbox:hover {
-  @include theme-prop(background-color, disabled-background-color);
-  @include theme-prop(border-color, ui-border-color);
+  background-color: var(--disabled-background-color);
+  border-color: var(--ui-border-color);
 }
 
 .input:disabled + .checkbox .icon,
 .input:disabled + .checkbox:hover .icon {
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
 }
 
 .input:disabled + .checkbox,

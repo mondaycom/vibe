@@ -1,5 +1,3 @@
-@import "../../../styles/themes";
-
 .monday-storybook-alert-banner {
   &_column-wrapper {
       display: flex;
@@ -21,13 +19,13 @@
 
   &_pink {
     .monday-alert-banner__close-button-wrapper {
-      @include theme-prop(background, private-color);
+      background: var(--private-color);
     }
     .monday-alert-banner__inner {
-      @include theme-prop(background, private-color);
+      background: var(--private-color);
     }
     .monday-alert-banner__alert-banner-close-btn {
-      @include theme-prop(background, private-color);
+      background: var(--private-color);
     }
   }
 }

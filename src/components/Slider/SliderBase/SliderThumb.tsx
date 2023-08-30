@@ -75,7 +75,6 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
 
   return (
     <Tooltip
-      // @ts-ignore TODO TS-migration the comment can be removed once TooltipProps will extend DialogProps, once Dialog is converted to TS
       open={active === index || dragging === index}
       content={showValue ? null : valueText}
       position={tooltipPosition}

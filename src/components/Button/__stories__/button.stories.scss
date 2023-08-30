@@ -1,12 +1,10 @@
-@import "../../../styles/themes";
-
 .monday-storybook-button {
   &_icons {
     display: flex;
   }
 
   &_on-color-button {
-    @include theme-prop(background, primary-color);
+    background: var(--primary-color);
     padding: 16px;
   }
 }

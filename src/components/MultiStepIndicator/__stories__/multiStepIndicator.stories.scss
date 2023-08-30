@@ -1,4 +1,3 @@
-@import "../../../styles/themes";
 @import "../../../styles/typography";
 
 .monday-storybook-multiStepIndicator {
@@ -34,8 +33,8 @@
     width: 400px;
     height: 80px;
     padding-bottom: 10px;
-    @include theme-prop(background-color, primary-background-color);
-    @include theme-prop(box-shadow, box-shadow-medium);
+    background-color: var(--primary-background-color);
+    box-shadow: var(--box-shadow-medium);
   }
 
   &_box-wrapper {

@@ -1,9 +1,7 @@
-@import "../../../styles/themes";
-
 .filledTrack {
   position: absolute;
   border-radius: inherit;
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
   height: inherit;
   top: 50%;
   transform: translateY(-50%);
@@ -11,9 +9,9 @@
 }
 
 .positive {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .negative {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }

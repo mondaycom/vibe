@@ -1,5 +1,4 @@
 @import "../../styles/global-css-settings";
-@import "../../styles/themes";
 @import "../../styles/typography";
 
 .buttonGroup {
@@ -19,27 +18,27 @@
 
 .buttonsContainer .button {
   border: 1px solid;
-  @include theme-prop(background-color, primary-background-color);
-  @include theme-prop(border-color, ui-border-color);
+  background-color: var(--primary-background-color);
+  border-color: var(--ui-border-color);
 }
 
 .buttonsContainer .button.activeButton {
   z-index: 20;
-  @include theme-prop(background-color, primary-selected-color);
-  @include theme-prop(border-color, primary-color);
+  background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
 }
 
 .buttonsContainer .button.activeButton:hover {
-  @include theme-prop(background-color, primary-selected-color);
+  background-color: var(--primary-selected-color);
 }
 
 .optionText:not(.disabled) {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
 }
 
 .optionText:not(.disabled).selected {
   z-index: 10;
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
 }
 
 .kindTertiary .button {

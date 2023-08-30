@@ -1,7 +1,6 @@
 @import "~monday-ui-style/dist/mixins";
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
-@import "../../styles/themes";
 @import "../../styles/states";
 $disabled-on-primary-color-opacity: 0.5;
 
@@ -134,11 +133,11 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary {
-  @include theme-prop(color, text-color-on-primary);
+  color: var(--text-color-on-primary);
 }
 
 .kindPrimary.colorPrimary {
-  @include theme-prop(background, primary-color);
+  background: var(--primary-color);
 }
 
 .kindPrimary.colorBrand {
@@ -149,7 +148,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindPrimary.colorPrimaryActive,
 .kindPrimary.colorPrimary:hover,
 .kindPrimary.colorPrimary:focus {
-  @include theme-prop(background, primary-hover-color);
+  background: var(--primary-hover-color);
 }
 
 .kindPrimary.colorBrandActive,
@@ -159,27 +158,27 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorPositive {
-  @include theme-prop(background, positive-color);
+  background: var(--positive-color);
 }
 
 .kindPrimary.colorPositiveActive,
 .kindPrimary.colorPositive:hover,
 .kindPrimary.colorPositive:focus {
-  @include theme-prop(background, positive-color-hover);
+  background: var(--positive-color-hover);
 }
 
 .kindPrimary.colorNegative {
-  @include theme-prop(background, negative-color);
+  background: var(--negative-color);
 }
 
 .kindPrimary.colorNegativeActive,
 .kindPrimary.colorNegative:hover,
 .kindPrimary.colorNegative:focus {
-  @include theme-prop(background, negative-color-hover);
+  background: var(--negative-color-hover);
 }
 
 .kindPrimary.colorOnPrimaryColor {
-  @include theme-prop(background, text-color-on-primary);
+  background: var(--text-color-on-primary);
 }
 
 .kindPrimary.colorOnPrimaryColorActive,
@@ -196,16 +195,16 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.button.disabled {
-  @include theme-prop(background, disabled-background-color);
-  @include theme-prop(color, disabled-text-color);
+  background: var(--disabled-background-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
   pointer-events: none;
 }
 
 .kindSecondary {
   border: 1px solid;
-  @include theme-prop(border-color, ui-border-color);
-  @include theme-prop(color, primary-text-color);
+  border-color: var(--ui-border-color);
+  color: var(--primary-text-color);
   background-color: transparent;
 }
 
@@ -239,39 +238,39 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindSecondary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindSecondary.colorPrimary:focus:not(.colorPrimaryActive) {
-  @include theme-prop(background, primary-background-hover-color);
+  background: var(--primary-background-hover-color);
 }
 
 .kindSecondary.colorBrand:hover:not(.colorBrandActive),
 .kindSecondary.colorBrand:focus:not(.colorBrandActive) {
-  @include theme-prop(background, primary-background-hover-color);
+  background: var(--primary-background-hover-color);
 }
 
 .kindSecondary.colorPositive {
-  @include theme-prop(color, positive-color);
-  @include theme-prop(border-color, positive-color);
+  color: var(--positive-color);
+  border-color: var(--positive-color);
 }
 
 .kindSecondary.colorPositiveActive,
 .kindSecondary.colorPositive:hover,
 .kindSecondary.colorPositive:focus {
-  @include theme-prop(background, positive-color-selected);
+  background: var(--positive-color-selected);
 }
 
 .kindSecondary.colorNegative {
-  @include theme-prop(color, negative-color);
-  @include theme-prop(border-color, negative-color);
+  color: var(--negative-color);
+  border-color: var(--negative-color);
 }
 
 .kindSecondary.colorNegativeActive,
 .kindSecondary.colorNegative:hover,
 .kindSecondary.colorNegative:focus {
-  @include theme-prop(background, negative-color-selected);
+  background: var(--negative-color-selected);
 }
 
 .kindSecondary.colorOnPrimaryColor {
-  @include theme-prop(color, text-color-on-primary);
-  @include theme-prop(border-color, text-color-on-primary);
+  color: var(--text-color-on-primary);
+  border-color: var(--text-color-on-primary);
 }
 
 .kindSecondary.colorOnPrimaryColorActive,
@@ -287,8 +286,8 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.disabled {
-  @include theme-prop(border-color, disabled-background-color);
-  @include theme-prop(color, disabled-text-color);
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -298,7 +297,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   background-color: transparent;
 }
 
@@ -318,36 +317,36 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindTertiary.colorPrimary:hover:not(.colorPrimaryActive),
 .kindTertiary.colorPrimary:focus:not(.colorPrimaryActive) {
-  @include theme-prop(background, primary-background-hover-color);
+  background: var(--primary-background-hover-color);
 }
 
 .kindTertiary.colorBrand:hover:not(.colorBrandActive),
 .kindTertiary.colorBrand:focus:not(.colorBrandActive) {
-  @include theme-prop(background, primary-background-hover-color);
+  background: var(--primary-background-hover-color);
 }
 
 .kindTertiary.colorPositive {
-  @include theme-prop(color, positive-color);
+  color: var(--positive-color);
 }
 
 .kindTertiary.colorPositiveActive,
 .kindTertiary.colorPositive:hover,
 .kindTertiary.colorPositive:focus {
-  @include theme-prop(background, positive-color-selected);
+  background: var(--positive-color-selected);
 }
 
 .kindTertiary.colorNegative {
-  @include theme-prop(color, negative-color);
+  color: var(--negative-color);
 }
 
 .kindTertiary.colorNegativeActive,
 .kindTertiary.colorNegative:hover,
 .kindTertiary.colorNegative:focus {
-  @include theme-prop(background, negative-color-selected);
+  background: var(--negative-color-selected);
 }
 
 .kindTertiary.colorOnPrimaryColor {
-  @include theme-prop(color, text-color-on-primary);
+  color: var(--text-color-on-primary);
 }
 
 .kindTertiary.colorOnPrimaryColorActive,
@@ -363,7 +362,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorOnInvertedBackground {
-  @include theme-prop(color, text-color-on-inverted);
+  color: var(--text-color-on-inverted);
 }
 
 .kindTertiary.colorOnInvertedBackgroundActive,
@@ -373,7 +372,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.disabled {
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
   pointer-events: none;
 }

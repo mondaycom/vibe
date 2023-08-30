@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 @import "../../styles/states";
@@ -13,27 +12,27 @@
   justify-content: center;
   cursor: pointer;
   transition: transform var(--motion-productive-short) var(--motion-timing-transition);
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   @include focus-style();
 }
 
 .wrapper:focus,
 .wrapper:hover {
-  @include theme-prop(background-color, primary-background-hover-color);
+  background-color: var(--primary-background-hover-color);
 }
 
 .open {
   transform: scale(0.95);
-  @include theme-prop(background-color, primary-selected-color);
-  @include theme-prop(color, primary-color);
+  background-color: var(--primary-selected-color);
+  color: var(--primary-color);
 }
 
 .open:focus {
-  @include theme-prop(background-color, primary-selected-color);
+  background-color: var(--primary-selected-color);
 }
 
 .open:hover {
-  @include theme-prop(background-color, primary-selected-color);
+  background-color: var(--primary-selected-color);
 }
 
 .size16 {
@@ -78,8 +77,8 @@
 }
 
 .disabled {
-  @include theme-prop(border-color, disabled-background-color);
-  @include theme-prop(color, disabled-text-color);
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
   cursor: not-allowed;
 }
 

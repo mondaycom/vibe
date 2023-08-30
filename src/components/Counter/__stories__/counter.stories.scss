@@ -1,5 +1,3 @@
-@import "../../../styles/themes";
-
 .storybook-counter {
   &_column {
     display: flex;
@@ -19,7 +17,6 @@
     margin-right: 28px;
     height: 105px;
     gap: 16px;
-
   }
 
   &_icon-wrapper {
@@ -31,12 +28,6 @@
 
   &_usage-link-line {
     display: flex;
-  }
-
-  &_line {
-    width: 40px;
-    height: 1px;
-    @include theme-prop(background-color, icon-color-hover);
   }
 
   &_position {

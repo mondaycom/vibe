@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/keyframes";
 
@@ -37,7 +36,7 @@
 
 .textContainerTitleText {
   @include vibe-text(text2, medium);
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   margin-bottom: 2px;
 }
 
@@ -46,7 +45,7 @@
   @include vibe-text(text2, normal);
   color: var(--primary-text-color);
 }
-.sizeCompactTextContainerTitle{
+.sizeCompactTextContainerTitle {
   margin-bottom: 0px;
 }
 
@@ -75,11 +74,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-bottom: 0px
+  margin-bottom: 0;
 }
 
 .textPlacementVertical .numberDividerContainer .divider {
-  @include theme-prop(background-color, ui-border-color);
+  background-color: var(--ui-border-color);
   margin: 16px 0 16px 16px;
   height: 1px;
   flex: 1 1 0;
@@ -152,36 +151,36 @@
 }
 
 .typePrimaryNumberContainer {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
 }
 
 .typePrimaryNumberContainer:hover {
-  @include theme-prop(background-color, primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 .typeDangerNumberContainer {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 .typeDangerNumberContainer:hover {
-  @include theme-prop(background-color, negative-color-hover);
+  background-color: var(--negative-color-hover);
 }
 
 .typeSuccessNumberContainer {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .typeSuccessNumberContainer:hover {
-  @include theme-prop(background-color, positive-color-hover);
+  background-color: var(--positive-color-hover);
 }
 
 .typeDarkNumberContainer {
-  @include theme-prop(background-color, inverted-color-background);
-  @include theme-prop(color, text-color-on-inverted);
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
 }
 
 .typeDarkNumberContainer:hover {
-  @include theme-prop(background-color, secondary-text-color);
+  background-color: var(--secondary-text-color);
 }
 
 .statusActiveNumberContainer {
@@ -206,29 +205,28 @@
 }
 
 .statusPendingNumberContainer {
-  @include theme-prop(background-color, primary-background-color);
-  @include theme-prop(color, primary-text-color);
-  @include theme-prop(border-color, ui-border-color, true);
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  border-color: var(--ui-border-color) !important;
   border: 1px solid;
 }
 
 .statusPendingNumberContainer:hover {
-  @include theme-prop(background-color, primary-color);
-  @include theme-prop(color, text-color-on-primary);
+  background-color: var(--primary-color);
+  color: var(--text-color-on-primary);
   border: none;
 }
 
 .statusPendingNumberContainer.typeDangerNumberContainer:hover {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 .statusPendingNumberContainer.typeSuccessNumberContainer:hover {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .statusPendingNumberContainer.typeDarkNumberContainer:hover {
-  @include theme-prop(background-color, primary-text-color);
-  @include theme-prop(color, text-color-on-inverted);
+  background-color: var(--text-color-on-inverted);
 }
 
 @include keyframe(step-indicatior-circle-pop-elastic) {

@@ -1,6 +1,5 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/typography";
-@import "../../styles/themes";
 @import "../../styles/keyframes";
 
 .toast {
@@ -48,15 +47,15 @@
 }
 
 .typeNormal {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
 }
 
 .typePositive {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .typeNegative {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 // Animation

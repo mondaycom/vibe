@@ -1,7 +1,5 @@
-@import "../../../styles/themes";
-
 @mixin spacing {
-  padding: var(--spacing-small);
+  padding: var(--sb-spacing-small);
 }
 .primaryBackground {
   @include spacing;

@@ -1,8 +1,7 @@
-@import "../../styles/themes";
 @import "../../styles/global-css-settings";
 
 @mixin frame() {
   border: var(--layout-border-color) 1px solid;
   border-radius: var(--border-radius-medium);
-  @include theme-prop(border-color, layout-border-color);
+  border-color: var(--layout-border-color);
 }

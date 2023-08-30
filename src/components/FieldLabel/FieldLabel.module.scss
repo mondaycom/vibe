@@ -1,4 +1,3 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
@@ -16,6 +15,6 @@
 }
 
 .labelComponentText {
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
   padding-block: 2px;
 }

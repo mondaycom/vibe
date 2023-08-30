@@ -1,4 +1,3 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 
 .textWithHighlightWrapper {
@@ -8,8 +7,8 @@
 }
 
 .textWithHighlightWrapper em.highlightText {
-  @include theme-prop(background-color, primary-selected-color);
-  @include theme-prop(color, primary-text-color);
+  background-color: var(--primary-selected-color);
+  color: var(--primary-text-color);
   border-radius: 2px;
 }
 

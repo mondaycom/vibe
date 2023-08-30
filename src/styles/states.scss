@@ -1,8 +1,6 @@
-@import "./theme-mixin";
-
 @mixin disabled {
-  @include theme-prop(border-color, disabled-background-color);
-  @include theme-prop(color, disabled-text-color);
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
 
   cursor: not-allowed;
 
