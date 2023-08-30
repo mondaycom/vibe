@@ -8,6 +8,11 @@
   width: fit-content;
   max-width: 100%;
   height: fit-content;
+
+  // Overriding on primary icon color should be with bigger specificity than the original color
+  & .closeIconWrapper .closeIcon {
+    color: var(--primary-text-color);
+  }
 }
 
 .title {
@@ -54,10 +59,6 @@
 
 .titleContainerIcon {
   margin-right: var(--spacing-xs);
-}
-
-.closeIcon.closeIcon {
-  color: var(--primary-text-color);
 }
 
 .closeIconWrapper {
