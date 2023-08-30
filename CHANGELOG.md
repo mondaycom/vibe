@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.31.2 (2023-08-30)
+
+#### Bug Fixes
+* [#1513](https://github.com/mondaycom/monday-ui-react-core/pull/1513) fix attention box icon color  ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1499](https://github.com/mondaycom/monday-ui-react-core/pull/1499) docs: <ExpandCollapse> story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1487](https://github.com/mondaycom/monday-ui-react-core/pull/1487) Sergeyro/chore/replace theme prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1509](https://github.com/mondaycom/monday-ui-react-core/pull/1509) Update icons - monday-ui-style 0.1.184 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.31.1 (2023-08-28)
 
 #### Bug Fixes
