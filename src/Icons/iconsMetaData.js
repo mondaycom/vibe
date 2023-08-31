@@ -1688,7 +1688,7 @@ export const iconsMetaData = [
     name: "Versioning",
     file: "Versioning.svg",
     description: "Versioning",
-    tags: "version, versions, versioning, version history"
+    tags: "Retrospective,Recurring,Time,Time Based,Every,Automation,Cron,Version,History,Platform"
   },
 
   {
