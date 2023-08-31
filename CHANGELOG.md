@@ -1,3 +1,30 @@
+0.1.185 / 2023-08-31
+====================
+  * Storybook content - Welcome, Changelog, Colors, Spacing ([#228](https://github.com/mondaycom/monday-ui-style/issues/228))
+    * Storybook content - Welcome, Changelog, Colors, Spacing
+    * Remove spacing, border-radius, box-shadows variables from the global-css-settings.scss
+    * Prettier refactor
+    * Remove mixins.scss, states.scss
+    * Remove unused variable from content-spacing.scss
+    * Remove content-spacing.scss
+    * Remove @title-appereance mixin
+    * Remove commented contributor.scss definitions
+    * TODO added
+    * TODO added
+    * Remove inner storybook styles, change spacing tokens to reference sb tokens
+    * Replace tokens used for documentation with sb tokens
+    * Install prerelease vibe-storybook-components version
+    * Remove TODO
+    * Remove unrelevant tsconfig.json
+    * Update vibe-storybook-components version
+    * Move import index.scss to colors.stories.mdx
+    * Fix package.json merge conflicts
+    * Change --icon-color token to --sb-icon-color
+    * Update vibe-storybook-components version (^0.2.1)
+    * Convert welcome files to use modular styles
+    * Fix intro text appereance
+    * Move color utils to colors.stories folder
+
 0.1.184 / 2023-08-28
 ====================
   * Notes and readme about mixins and functions ([#237](https://github.com/mondaycom/monday-ui-style/issues/237))
@@ -305,19 +332,3 @@
 0.1.140 / 2022-10-02
 ====================
   * Change h2,h3,h4 font family to var(--title-font-family) ([#170](https://github.com/mondaycom/monday-ui-style/issues/170))
-
-0.1.139 / 2022-09-22
-====================
-  * Feature/sergeyro/new fonts ([#169](https://github.com/mondaycom/monday-ui-style/issues/169))
-    * Add new font families for font change
-    * Rename font-family variables
-    * Rename font-tokens
-    * Rename heading-font-family to title-font-family
-    * Merge branch 'master' into feature/sergeyro/new-fonts
-    # Conflicts:
-    #    src/config/tokens/core/_core-fonts.scss
-    * Fix styleint test
-    * Fix styleint rule
-    * Fix styleint rule
-    * Fix styleint rule - fix recommendations
-    * Fix typo
