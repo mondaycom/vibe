@@ -1,0 +1,6 @@
+@import "~vibe-storybook-components/dist/mixins";
+
+.contributor:after {
+  @include sb-small-text;
+  content: ",";
+}
