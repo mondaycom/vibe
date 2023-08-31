@@ -1,3 +1,11 @@
+0.1.184 / 2023-08-28
+====================
+  * Notes and readme about mixins and functions ([#237](https://github.com/mondaycom/monday-ui-style/issues/237))
+    * notes and readme
+    * Update README.md
+    * Update scripts/copy-public-folder.sh
+    * Update scripts/copy-public-folder.sh
+
 0.1.183 / 2023-08-27
 ====================
   * test: validate-icons-colors script  ([#236](https://github.com/mondaycom/monday-ui-style/issues/236))
@@ -313,9 +321,3 @@
     * Fix styleint rule
     * Fix styleint rule - fix recommendations
     * Fix typo
-
-0.1.138 / 2022-09-20
-====================
-  * Add new font families for font change ([#168](https://github.com/mondaycom/monday-ui-style/issues/168))
-    * Add new font families for font change
-    * Rename font-family variables
