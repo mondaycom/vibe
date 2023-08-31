@@ -1,3 +1,7 @@
+0.1.187 / 2023-08-31
+====================
+  * icon: Add tags for Versioning ([#239](https://github.com/mondaycom/monday-ui-style/issues/239))
+
 0.1.186 / 2023-08-31
 ====================
   * feat: replace sort icon ([#238](https://github.com/mondaycom/monday-ui-style/issues/238))
@@ -328,7 +332,3 @@
 0.1.142 / 2022-11-10
 ====================
   * fix: chart icon size ([#174](https://github.com/mondaycom/monday-ui-style/issues/174))
-
-0.1.141 / 2022-10-11
-====================
-  * Remove debug. no longer needed. ([#171](https://github.com/mondaycom/monday-ui-style/issues/171))
