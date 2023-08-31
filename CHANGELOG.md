@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.31.3 (2023-08-31)
+
+#### New Icons
+* [#1516](https://github.com/mondaycom/monday-ui-react-core/pull/1516) Update icons - monday-ui-style 0.1.186 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.31.2 (2023-08-30)
 
 #### Bug Fixes
