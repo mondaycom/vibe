@@ -1,3 +1,7 @@
+0.1.186 / 2023-08-31
+====================
+  * feat: replace sort icon ([#238](https://github.com/mondaycom/monday-ui-style/issues/238))
+
 0.1.185 / 2023-08-31
 ====================
   * Storybook content - Welcome, Changelog, Colors, Spacing ([#228](https://github.com/mondaycom/monday-ui-style/issues/228))
@@ -328,7 +332,3 @@
 0.1.141 / 2022-10-11
 ====================
   * Remove debug. no longer needed. ([#171](https://github.com/mondaycom/monday-ui-style/issues/171))
-
-0.1.140 / 2022-10-02
-====================
-  * Change h2,h3,h4 font family to var(--title-font-family) ([#170](https://github.com/mondaycom/monday-ui-style/issues/170))
