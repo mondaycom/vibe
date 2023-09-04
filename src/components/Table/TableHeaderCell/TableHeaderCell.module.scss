@@ -5,7 +5,7 @@
   color: var(--secondary-text-color);
   box-sizing: border-box;
   text-align: initial;
-  border-bottom: 2px solid var(--layout-border-color);
+  border-bottom: 1px solid var(--layout-border-color);
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -39,7 +39,8 @@
     .sort {
       color: var(--icon-color);
 
-      &.asc, &.desc {
+      &.asc,
+      &.desc {
         color: var(--primary-text-color);
       }
     }
