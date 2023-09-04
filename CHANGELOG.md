@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.31.4 (2023-09-04)
+
+#### Bug Fixes
+* [#1522](https://github.com/mondaycom/monday-ui-react-core/pull/1522) fix: <BreadcrumbsBar> type ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1518](https://github.com/mondaycom/monday-ui-react-core/pull/1518) Update icons - monday-ui-style 0.1.188 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.31.3 (2023-08-31)
 
 #### New Icons
