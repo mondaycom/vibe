@@ -61,6 +61,7 @@ interface TipseenProps extends VibeComponentProps {
    * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
+  withoutDialog?: boolean;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
@@ -97,6 +98,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tip = true,
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
+      withoutDialog = false,
       "data-testid": dataTestId
     },
     ref
@@ -173,6 +175,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           tip={tip}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
+          withoutDialog={withoutDialog}
         >
           {children}
         </Tooltip>
