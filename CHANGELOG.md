@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.32.0 (2023-09-04)
+
+#### New Features
+* [#1523](https://github.com/mondaycom/monday-ui-react-core/pull/1523) feat(Tipseen): allow withoutDialog for component ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.31.4 (2023-09-04)
 
 #### Bug Fixes
