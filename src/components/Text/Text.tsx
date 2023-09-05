@@ -12,7 +12,6 @@ import styles from "./Text.module.scss";
 export interface TextProps extends TypographyProps {
   type: TextType;
   weight?: TextWeight;
-  paragraph?: boolean;
   children: ReactNode;
 }
 
@@ -22,15 +21,14 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   colors?: typeof TypographyColor;
   align?: typeof TypographyAlign;
 } = forwardRef(
-  ({ className, type = TextType.TEXT2, weight = TextWeight.NORMAL, ellipsis, paragraph, ...typographyProps }, ref) => {
-    const overrideEllipsis = ellipsis ?? !paragraph;
-    const overrideElement = paragraph ? "p" : "div";
+  ({ className, type = TextType.TEXT2, weight = TextWeight.NORMAL, ellipsis, element, ...typographyProps }, ref) => {
+    const overrideEllipsis = ellipsis ?? element !== "p";
     return (
       <Typography
         ref={ref}
         className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
         ellipsis={overrideEllipsis}
-        element={overrideElement}
+        element={element}
         {...typographyProps}
       />
     );
