@@ -22,7 +22,15 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   align?: typeof TypographyAlign;
 } = forwardRef(
   (
-    { className, type = TextType.TEXT2, weight = TextWeight.NORMAL, ellipsis, element, children, ...typographyProps },
+    {
+      className,
+      type = TextType.TEXT2,
+      weight = TextWeight.NORMAL,
+      ellipsis,
+      element = "div",
+      children,
+      ...typographyProps
+    },
     ref
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
