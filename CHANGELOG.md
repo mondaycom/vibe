@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.33.0 (2023-09-05)
+
+#### Bug Fixes
+* [#1511](https://github.com/mondaycom/monday-ui-react-core/pull/1511) fix(Dropdown): when used inside overflowed container with transform, consider container scroll ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Features
+* [#1528](https://github.com/mondaycom/monday-ui-react-core/pull/1528) feat(Tipseen): add floating variation for Tipseen ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1525](https://github.com/mondaycom/monday-ui-react-core/pull/1525) Revert "chore: fail chromatic action check in case has visual changes (#1392) ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.32.0 (2023-09-04)
 
 #### New Features
