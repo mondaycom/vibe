@@ -30,7 +30,7 @@ export const ThemeProviderTemplateTwoButtons = (_args: JSX.IntrinsicAttributes &
               "primary-color": "orange"
             },
             hacker: {
-              "primary-color": "yellow"
+              "primary-color": "#ff9191"
             }
           }
         }}

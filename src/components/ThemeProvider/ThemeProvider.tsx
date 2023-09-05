@@ -58,6 +58,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
     };
   }, [theme]);
 
+  // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
     className: cx(getThemeProviderClassname(theme?.name), children?.props?.className)
   });
