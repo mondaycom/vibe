@@ -33,7 +33,7 @@ const generateThemeCssOverride = (theme: Theme) => {
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
   useLayoutEffect(() => {
-    if (!theme || !theme.colors) {
+    if (!theme) {
       return;
     }
 
