@@ -14,9 +14,24 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
-// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
-export interface TooltipProps extends VibeComponentProps {
+export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
+
+interface TooltipWithoutChildrenProps {
+  /**
+   * When true, the tooltip would be rendered on a Dialog without children
+   * Use case is currently for rendering Tipseen with floating prop
+   */
+  forceRenderWithoutChildren: boolean;
+  children?: ReactElement | Array<ReactElement>;
+}
+
+interface TooltipWithChildrenProps {
+  forceRenderWithoutChildren?: boolean;
   children: ReactElement | Array<ReactElement>;
+}
+
+// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
+interface TooltipBaseProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;
@@ -231,6 +246,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       moveBy,
       justify,
       children,
+      forceRenderWithoutChildren,
       getContainer,
       theme,
       paddingSize,
@@ -245,13 +261,14 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       "data-testid": dataTestId
     } = this.props;
 
-    if (!children) {
+    if (!children && !forceRenderWithoutChildren) {
       return null;
     }
 
     if (withoutDialog) {
       return this.renderTooltipContent();
     }
+
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
