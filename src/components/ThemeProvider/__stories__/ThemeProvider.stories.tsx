@@ -41,3 +41,31 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
     </>
   );
 };
+
+export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
+  return (
+    <ThemeProvider
+      theme={{
+        name: "outer-theme",
+        colors: {
+          [SystemTheme.LIGHT]: {
+            [Color.primaryColor]: "red"
+          }
+        }
+      }}
+    >
+      <ThemeProvider
+        theme={{
+          name: "inner-theme",
+          colors: {
+            [SystemTheme.LIGHT]: {
+              [Color.primaryColor]: "green"
+            }
+          }
+        }}
+      >
+        <Button>Themed</Button>
+      </ThemeProvider>
+    </ThemeProvider>
+  );
+};
