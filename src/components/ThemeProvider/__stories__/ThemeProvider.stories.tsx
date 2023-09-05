@@ -54,18 +54,20 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
         }
       }}
     >
-      <ThemeProvider
-        theme={{
-          name: "inner-theme",
-          colors: {
-            [SystemTheme.LIGHT]: {
-              [Color.primaryColor]: "green"
+      <div>
+        <ThemeProvider
+          theme={{
+            name: "inner-theme",
+            colors: {
+              [SystemTheme.LIGHT]: {
+                [Color.primaryColor]: "green"
+              }
             }
-          }
-        }}
-      >
-        <Button>Themed</Button>
-      </ThemeProvider>
+          }}
+        >
+          <Button>Themed</Button>
+        </ThemeProvider>
+      </div>
     </ThemeProvider>
   );
 };
