@@ -21,7 +21,10 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   colors?: typeof TypographyColor;
   align?: typeof TypographyAlign;
 } = forwardRef(
-  ({ className, type = TextType.TEXT2, weight = TextWeight.NORMAL, ellipsis, element, ...typographyProps }, ref) => {
+  (
+    { className, type = TextType.TEXT2, weight = TextWeight.NORMAL, ellipsis, element, children, ...typographyProps },
+    ref
+  ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
       <Typography
@@ -30,7 +33,9 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
         ellipsis={overrideEllipsis}
         element={element}
         {...typographyProps}
-      />
+      >
+        {children}
+      </Typography>
     );
   }
 );
