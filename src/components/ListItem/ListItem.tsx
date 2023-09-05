@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
-import React, { forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
+import React, { AriaAttributes, forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
@@ -12,57 +12,58 @@ import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType } from "./ListItemConstants";
 import styles from "./ListItem.module.scss";
 
-export interface ListItemProps extends VibeComponentProps {
-  /**
-   * the ListItem component [li, div, a]
-   */
-  component?: ListItemComponentType;
-  /**
-   * The textual content of the list item
-   */
-  children?: string | ReactElement;
-  /**
-   * A class name to be passed to the list item wrapper
-   */
-  className?: string;
-  /**
-   * An id to be passed to the list item wrapper
-   */
-  id?: string;
-  /**
-   * A callback function which is being called when the item is being clicked
-   * It will be called with the following params
-   * event (DomEvent)
-   * id (the id which is being passed)
-   * onClick(event, id)
-   */
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent, id: string) => void;
-  /**
-   * A callback function which is being called when the item is being hovered
-   * It will be called with the following params
-   * event (DomEvent)
-   * id (the id which is being passed)
-   * onHover(event, id)
-   */
-  onHover?: (event: React.MouseEvent | React.FocusEvent, id: string) => void;
-  /**
-   * disabled state - callback will not be called and navigation will be skipped
-   */
-  disabled?: boolean;
-  /**
-   * Selected indication
-   */
-  selected?: boolean;
-  /**
-   * The size of the list item
-   */
-  size?: typeof SIZES[keyof typeof SIZES];
-  /**
+export type ListItemProps = VibeComponentProps &
+  AriaAttributes & {
+    /**
+     * the ListItem component [li, div, a]
+     */
+    component?: ListItemComponentType;
+    /**
+     * The textual content of the list item
+     */
+    children?: string | ReactElement;
+    /**
+     * A class name to be passed to the list item wrapper
+     */
+    className?: string;
+    /**
+     * An id to be passed to the list item wrapper
+     */
+    id?: string;
+    /**
+     * A callback function which is being called when the item is being clicked
+     * It will be called with the following params
+     * event (DomEvent)
+     * id (the id which is being passed)
+     * onClick(event, id)
+     */
+    onClick?: (event: React.MouseEvent | React.KeyboardEvent, id: string) => void;
+    /**
+     * A callback function which is being called when the item is being hovered
+     * It will be called with the following params
+     * event (DomEvent)
+     * id (the id which is being passed)
+     * onHover(event, id)
+     */
+    onHover?: (event: React.MouseEvent | React.FocusEvent, id: string) => void;
+    /**
+     * disabled state - callback will not be called and navigation will be skipped
+     */
+    disabled?: boolean;
+    /**
+     * Selected indication
+     */
+    selected?: boolean;
+    /**
+     * The size of the list item
+     */
+    size?: typeof SIZES[keyof typeof SIZES];
+    /**
    Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
    */
-  tabIndex?: number;
-  "data-testid"?: string;
-}
+    tabIndex?: number;
+    "data-testid"?: string;
+  };
 
 const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; components?: typeof ListItemComponentType } =
   forwardRef(
@@ -78,7 +79,8 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         size = SIZES.SMALL,
         tabIndex = 0,
         children,
-        "data-testid": dataTestId
+        "data-testid": dataTestId,
+        ...restAriaAttributes
       },
       ref
     ) => {
@@ -132,6 +134,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           onFocus={componentOnHover}
           role="option"
           tabIndex={tabIndex}
+          {...restAriaAttributes}
         >
           {children}
         </Text>
