@@ -17,6 +17,8 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
+import { useSwitch } from "../../../hooks";
+import Button from "../../Button/Button";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
@@ -176,6 +178,36 @@ Use when the tip is too long or when you want to teach something in steps.
         >
           <div className="monday-storybook-tipseen_big-container" />
         </Tipseen>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Floating
+
+<Canvas>
+  <Story name="Floating">
+    {() => {
+      const { isChecked: shown, onChange: setShown } = useSwitch();
+      const buttonString = shown ? "Hide Tipseen" : "Show Tipseen";
+      return (
+        <>
+          <Button onClick={setShown}>{buttonString}</Button>
+          {shown && (
+            <Tipseen
+              closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+              floating
+              content={
+                <>
+                  <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+                  <TipseenContent title="This is a floating Tipseen">
+                    Popover message will appear here loremipsum dolor samet…
+                  </TipseenContent>
+                </>
+              }
+            />
+          )}
+        </>
       );
     }}
   </Story>

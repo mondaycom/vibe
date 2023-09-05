@@ -33,7 +33,6 @@ interface TipseenProps extends VibeComponentProps {
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
-  // Better be required, but it might be a breaking change
   children?: ReactElement;
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
@@ -61,7 +60,7 @@ interface TipseenProps extends VibeComponentProps {
    * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
-  withoutDialog?: boolean;
+  floating?: boolean;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
@@ -98,7 +97,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tip = true,
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
-      withoutDialog = false,
+      floating = false,
       "data-testid": dataTestId
     },
     ref
@@ -154,7 +153,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
       <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
-            [styles.tipseenWrapperWithoutCustomWidth]: !width
+            [styles.tipseenWrapperWithoutCustomWidth]: !width,
+            [styles.floating]: floating
           })}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
@@ -175,7 +175,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           tip={tip}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
-          withoutDialog={withoutDialog}
+          forceRenderWithoutChildren={floating}
         >
           {children}
         </Tooltip>
