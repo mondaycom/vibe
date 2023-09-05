@@ -13,7 +13,7 @@ export const ThemeProviderTemplateOverview = (args: JSX.IntrinsicAttributes & Th
   );
 };
 
-export const ThemeProviderTemplateTwoButtons = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
+export const ThemeProviderStories = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
     <>
       <ThemeProvider
