@@ -1,7 +1,7 @@
 import Heading from "../LegacyHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator, DeprecatedWarning } from "../../../storybook";
-import { Link, createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, Link } from "vibe-storybook-components";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
@@ -11,7 +11,7 @@ import { Custom } from "../../Icon/Icons";
 import { emptyStateExample } from "./assets";
 import {
   EDITABLE_HEADING,
-  SEARCH,
+  HEADING,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
 import styles from "./LegacyHeading.stories.module.scss";
@@ -34,7 +34,7 @@ export const headingTemplate = createComponentTemplate(Heading);
 
 <!--- Component documentation -->
 
-# Legacy heading
+# Legacy Heading
 
 <DeprecatedWarning alternativeName="Heading" alternativeLink="/?path=/docs/text-heading--overview" />
 
@@ -52,8 +52,8 @@ export const headingTemplate = createComponentTemplate(Heading);
 Heading components are used to title any page sections or sub-sections in top-level page sections.
 
 <Canvas>
-  <Story name="Overview" args={{ value: "Hello world" }}>
-    {headingTemplate.bind({})}
+  <Story name="Overview" args={{}}>
+    <Heading value="Hello world" />
   </Story>
 </Canvas>
 
@@ -71,11 +71,11 @@ Heading components are used to title any page sections or sub-sections in top-le
 />
 
 <Tip title="Not what you were looking for?">
-  Please check out our{" "}
-  <Link href="/?path=/docs/inputs-editableheading--overview" withoutSpacing>
+  Please check out our
+  <Link href="/?path=/docs/inputs-editableheading--overview" size={Link.sizes.SMALL}>
     EditableHeading
-  </Link>{" "}
-  component if you would like to allow users to edit the title text..
+  </Link>
+  component if you would like to allow users to edit the title text.
 </Tip>
 
 ## Variants
@@ -211,4 +211,4 @@ Our heading component support text highlight.
 
 ## Related components
 
-<RelatedComponents componentsNames={[EDITABLE_HEADING, TEXT_FIELD, SEARCH]} />
+<RelatedComponents componentsNames={[HEADING, EDITABLE_HEADING, TEXT_FIELD]} />
