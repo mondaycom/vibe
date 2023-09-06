@@ -1,3 +1,7 @@
+0.1.188 / 2023-08-31
+====================
+  * feat: add sort ascending and sort descending icons ([#240](https://github.com/mondaycom/monday-ui-style/issues/240))
+
 0.1.187 / 2023-08-31
 ====================
   * icon: Add tags for Versioning ([#239](https://github.com/mondaycom/monday-ui-style/issues/239))
@@ -328,7 +332,3 @@
 0.1.143 / 2022-11-16
 ====================
   * Add form icon ([#175](https://github.com/mondaycom/monday-ui-style/issues/175))
-
-0.1.142 / 2022-11-10
-====================
-  * fix: chart icon size ([#174](https://github.com/mondaycom/monday-ui-style/issues/174))
