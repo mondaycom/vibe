@@ -116,7 +116,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         )}
         <Text
           type={Text.types.TEXT2}
-          paragraph={!compact}
+          element={compact ? undefined : "p"}
           className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
             [styles.compact]: compact,
             [styles.dismissible]: !!onClose,
