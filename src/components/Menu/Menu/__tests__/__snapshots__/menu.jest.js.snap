@@ -34,9 +34,18 @@ exports[`Snapshots renders correctly with children 1`] = `
     tabIndex={-1}
   >
     <div
-      className="title"
+      className="container directionRow justifyStart alignCenter"
+      style={
+        Object {
+          "gap": "0px",
+        }
+      }
     >
-      item 1
+      <div
+        className="title"
+      >
+        item 1
+      </div>
     </div>
     
     <div
@@ -60,9 +69,18 @@ exports[`Snapshots renders correctly with children 1`] = `
     tabIndex={-1}
   >
     <div
-      className="title"
+      className="container directionRow justifyStart alignCenter"
+      style={
+        Object {
+          "gap": "0px",
+        }
+      }
     >
-      item 2
+      <div
+        className="title"
+      >
+        item 2
+      </div>
     </div>
     
     <div
