@@ -77,6 +77,10 @@ describe("Snapshot tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("renders correctly with floating variation", () => {
+      const tree = renderer.create(<Tipseen floating />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
 

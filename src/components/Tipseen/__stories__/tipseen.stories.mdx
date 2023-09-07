@@ -183,33 +183,25 @@ Use when the tip is too long or when you want to teach something in steps.
   </Story>
 </Canvas>
 
-### Floating
+### Floating Tipseen
 
 <Canvas>
-  <Story name="Floating">
-    {() => {
-      const { isChecked: shown, onChange: setShown } = useSwitch();
-      const buttonString = shown ? "Hide Tipseen" : "Show Tipseen";
-      return (
+  <Story name="Floating Tipseen" height="500px">
+    <Tipseen
+      closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+      floating
+      content={
         <>
-          <Button onClick={setShown}>{buttonString}</Button>
-          {shown && (
-            <Tipseen
-              closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-              floating
-              content={
-                <>
-                  <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
-                  <TipseenContent title="This is a floating Tipseen">
-                    Popover message will appear here loremipsum dolor samet…
-                  </TipseenContent>
-                </>
-              }
-            />
-          )}
+          <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+          <TipseenContent title="This is a Floating Tipseen">
+            Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general. In
+            this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+          </TipseenContent>
         </>
-      );
-    }}
+      }
+      /* You do not have to use containerSelector, in current use this is for story only */
+      containerSelector="#story--popover-tipseen--floating-tipseen"
+    />
   </Story>
 </Canvas>
 
