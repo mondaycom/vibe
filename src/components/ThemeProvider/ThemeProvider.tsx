@@ -15,6 +15,10 @@ const getThemeProviderClassname = (themeName: string) => {
 };
 
 const generateThemeCssOverride = (theme: Theme) => {
+  if (!theme.colors) {
+    return null;
+  }
+
   let css = "";
   for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
     for (const colorToken of Object.keys(theme.colors[systemTheme]) as Color[]) {
