@@ -22,18 +22,9 @@ exports[`SplitButtonMenu renders correctly 1`] = `
     tabIndex={-1}
   >
     <div
-      className="container directionRow justifyStart alignCenter"
-      style={
-        Object {
-          "gap": "0px",
-        }
-      }
+      className="title"
     >
-      <div
-        className="title"
-      >
-        Test 1
-      </div>
+      Test 1
     </div>
     
     <div
@@ -57,18 +48,9 @@ exports[`SplitButtonMenu renders correctly 1`] = `
     tabIndex={-1}
   >
     <div
-      className="container directionRow justifyStart alignCenter"
-      style={
-        Object {
-          "gap": "0px",
-        }
-      }
+      className="title"
     >
-      <div
-        className="title"
-      >
-        Test 2
-      </div>
+      Test 2
     </div>
     
     <div
