@@ -588,12 +588,12 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
   </Story>
 </Canvas>
 
-### Dropdown with lables
+### Dropdown with labels
 
 A dropdown menu can include labels.
 
 <Canvas>
-  <Story name="Dropdown with lables">
+  <Story name="Dropdown with labels">
     {() => {
       const labelRenderer = useCallback(({ label, color }) => {
         return <Label text={label} color={color} isAnimationDisabled />;
@@ -817,6 +817,41 @@ If you need to programmatically control Dropdown state, use `ref` prop. Pay atte
           <Button onClick={focusDropdownInput} className="dropdown-stories-styles_button">
             Focus dropdown input
           </Button>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown value selection
+
+Control the value selection mechanism with the <code>tabSelectsValue</code> (default: true) prop.
+
+<Canvas>
+  <Story name="Dropdown value selection">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      return (
+        <Flex gap={Flex.gaps.LARGE}>
+          <Dropdown
+            placeholder="Tab selects value"
+            options={options}
+            className="dropdown-stories-styles_big-spacing"
+          />
+
+          <Dropdown
+            placeholder="Tab does not select value"
+            options={options}
+            tabSelectsValue={false}
+            className="dropdown-stories-styles_big-spacing"
+          />
         </Flex>
       );
     }}
