@@ -307,6 +307,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
+          // Tooltip should be on a whole MenuItem, but it's a breaking change - should be fixed in the next major and then this can be removed
+          moveBy={icon && tooltipPosition === Tooltip.positions.LEFT ? { main: 30 } : undefined}
         >
           <div ref={titleRef} className={styles.title}>
             {title}
