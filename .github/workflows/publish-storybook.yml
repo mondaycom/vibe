@@ -1,0 +1,32 @@
+name: Publish Storybook
+
+on:
+  workflow_run:
+    workflows: ["Node.js Package"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Build & deploy Storybook to GitHub Pages
+        run: |
+          npm ci
+          npm run build-storybook -- -o static_storybook
+          cd static_storybook
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Push to Storybook's branch
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: "gh-pages"
+          build_dir: static_storybook
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
