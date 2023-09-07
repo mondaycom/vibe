@@ -1,3 +1,7 @@
+0.1.189 / 2023-09-06
+====================
+  * fix(Lines): replace hard coded color ([#241](https://github.com/mondaycom/monday-ui-style/issues/241))
+
 0.1.188 / 2023-08-31
 ====================
   * feat: add sort ascending and sort descending icons ([#240](https://github.com/mondaycom/monday-ui-style/issues/240))
@@ -328,7 +332,3 @@
 0.1.144 / 2022-11-20
 ====================
   * * Replace team icon shape with a centered one. ([#178](https://github.com/mondaycom/monday-ui-style/issues/178))
-
-0.1.143 / 2022-11-16
-====================
-  * Add form icon ([#175](https://github.com/mondaycom/monday-ui-style/issues/175))
