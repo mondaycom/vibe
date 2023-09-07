@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import ThemeProvider from "../ThemeProvider";
+// import React from "react";
+// import renderer from "react-test-renderer";
+// import ThemeProvider from "../ThemeProvider";
 
 /**
  * There are cases where the component we want to test in the snapshot test will contain additional components.
