@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
-import React, { forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
+import React, { AriaAttributes, forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
@@ -61,7 +61,7 @@ export interface ListItemProps extends VibeComponentProps {
    Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
    */
   tabIndex?: number;
-  "data-testid"?: string;
+  "aria-current"?: AriaAttributes["aria-current"];
 }
 
 const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; components?: typeof ListItemComponentType } =
@@ -78,6 +78,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         size = SIZES.SMALL,
         tabIndex = 0,
         children,
+        "aria-current": ariaCurrent,
         "data-testid": dataTestId
       },
       ref
@@ -132,6 +133,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           onFocus={componentOnHover}
           role="option"
           tabIndex={tabIndex}
+          aria-current={ariaCurrent}
         >
           {children}
         </Text>
