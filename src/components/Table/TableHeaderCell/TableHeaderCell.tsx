@@ -9,6 +9,7 @@ import { ButtonType } from "../../Button/ButtonConstants";
 import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
+import Tooltip from "../../Tooltip/Tooltip";
 
 export interface ITableHeaderCellProps extends VibeComponentProps {
   title: string;
@@ -39,7 +40,9 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
           </Text>
         }
         {infoContent && (
-          <IconButton icon={Info} kind={ButtonType.TERTIARY} size={IconButton.sizes.XS} ariaLabel={infoContent} />
+          <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
+            <Icon icon={Info} iconLabel={infoContent} />
+          </Tooltip>
         )}
       </Flex>
       {onSortClicked && (

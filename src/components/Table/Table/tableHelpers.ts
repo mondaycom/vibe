@@ -1,9 +1,8 @@
 import React, { AriaAttributes } from "react";
 import { ITableColumn } from "./Table";
-import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
-import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 import Sort from "../../Icon/Icons/components/Sort";
 import { ITableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { SortAscending, SortDescending } from "../../Icon/Icons";
 
 function generateWidth(width: ITableColumn["width"]) {
   if (typeof width === "number") {
@@ -25,9 +24,9 @@ export function getTableRowLayoutStyles(columns: ITableColumn[], style: React.CS
 
 export function getSortIcon(sortState: ITableHeaderCellProps["sortState"]) {
   if (sortState === "asc") {
-    return MoveArrowUp;
+    return SortAscending;
   } else if (sortState === "desc") {
-    return MoveArrowDown;
+    return SortDescending;
   } else {
     return Sort;
   }
