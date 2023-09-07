@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.34.1 (2023-09-07)
+
+#### Bug Fixes
+* [#1534](https://github.com/mondaycom/monday-ui-react-core/pull/1534) fix: <MenuItem/> Tooltip shouldn't cover the icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.34.0 (2023-09-07)
 
 #### New Features
