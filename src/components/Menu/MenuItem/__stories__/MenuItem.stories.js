@@ -4,6 +4,7 @@ import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity, Bolt, Settings } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
+import Tooltip from "../../../Tooltip/Tooltip";
 
 export const menuItemTemplate = args => (
   <Menu>
@@ -77,6 +78,13 @@ export const menuItemTooltipTemplate = args => {
         title="Menu item with bottom tooltip"
         tooltipContent="I am tooltip"
         tooltipPosition={MenuItem.tooltipPositions.BOTTOM}
+      />
+      <MenuItem
+        title="Menu item with icon and tooltip"
+        tooltipContent="I am tooltip"
+        tooltipPosition={Tooltip.positions.LEFT}
+        icon={Activity}
+        iconType={Icon.type.SVG}
       />
     </Menu>
   );
