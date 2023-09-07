@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.35.0 (2023-09-07)
+
+#### New Features
+* [#1535](https://github.com/mondaycom/monday-ui-react-core/pull/1535) feat: add a11y arias props for `List`, `ListItem`, and `Button` ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1530](https://github.com/mondaycom/monday-ui-react-core/pull/1530) feat(Table): table leftovers phase 1 ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.34.1 (2023-09-07)
 
 #### Bug Fixes
