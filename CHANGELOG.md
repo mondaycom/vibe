@@ -1,3 +1,7 @@
+0.1.191 / 2023-09-07
+====================
+  * Replace text-color-on-positive, text-color-on-negative, text-color-on-warning with text-color-fixed-light, text-color-fixed-dark ([#242](https://github.com/mondaycom/monday-ui-style/issues/242))
+
 0.1.190 / 2023-09-07
 ====================
   * fix(Erase): replace hard coded color ([#243](https://github.com/mondaycom/monday-ui-style/issues/243))
@@ -326,9 +330,3 @@
 0.1.146 / 2022-11-24
 ====================
   * revert to roboto ([#180](https://github.com/mondaycom/monday-ui-style/issues/180))
-
-0.1.145 / 2022-11-20
-====================
-  * update figtree ([#177](https://github.com/mondaycom/monday-ui-style/issues/177))
-    * update figtree
-    * update lock file
