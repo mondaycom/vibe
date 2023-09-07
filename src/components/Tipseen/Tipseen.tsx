@@ -172,7 +172,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
-          tip={tip}
+          tip={tip && !floating}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           forceRenderWithoutChildren={floating}
