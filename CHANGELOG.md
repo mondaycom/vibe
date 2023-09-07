@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.34.0 (2023-09-07)
+
+#### New Features
+* [#1524](https://github.com/mondaycom/monday-ui-react-core/pull/1524) feat(Text): remove paragraph prop (can be achieved with element="p") ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1529](https://github.com/mondaycom/monday-ui-react-core/pull/1529) docs: Change <LegacyHeading> name in the story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1531](https://github.com/mondaycom/monday-ui-react-core/pull/1531) Update icons - monday-ui-style 0.1.189 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.33.0 (2023-09-05)
 
 #### Bug Fixes
