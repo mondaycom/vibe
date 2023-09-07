@@ -1,3 +1,7 @@
+0.1.190 / 2023-09-07
+====================
+  * fix(Erase): replace hard coded color ([#243](https://github.com/mondaycom/monday-ui-style/issues/243))
+
 0.1.189 / 2023-09-06
 ====================
   * fix(Lines): replace hard coded color ([#241](https://github.com/mondaycom/monday-ui-style/issues/241))
@@ -328,7 +332,3 @@
   * update figtree ([#177](https://github.com/mondaycom/monday-ui-style/issues/177))
     * update figtree
     * update lock file
-
-0.1.144 / 2022-11-20
-====================
-  * * Replace team icon shape with a centered one. ([#178](https://github.com/mondaycom/monday-ui-style/issues/178))
