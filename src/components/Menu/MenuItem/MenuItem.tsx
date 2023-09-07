@@ -25,6 +25,7 @@ import { backwardCompatibilityForProperties } from "../../../helpers/backwardCom
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import Flex from "../../Flex/Flex";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
@@ -302,15 +303,17 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         onMouseEnter={onMouseEnter}
         tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
-        {renderMenuItemIconIfNeeded()}
         <Tooltip
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
-          <div ref={titleRef} className={styles.title}>
-            {title}
-          </div>
+          <Flex>
+            {renderMenuItemIconIfNeeded()}
+            <div ref={titleRef} className={styles.title}>
+              {title}
+            </div>
+          </Flex>
         </Tooltip>
         {label && (
           <div ref={titleRef} className={styles.label}>
