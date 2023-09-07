@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
@@ -75,6 +75,7 @@ export interface ButtonProps extends VibeComponentProps {
   ariaExpanded?: boolean;
   /** aria controls - receives id for the controlled region */
   ariaControls?: string;
+  "aria-describedby"?: AriaAttributes["aria-describedby"];
   /** On Button Focus callback */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
@@ -136,6 +137,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
+      "aria-describedby": ariaDescribedBy,
       blurOnMouseUp,
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
@@ -279,7 +281,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-pressed": active
+        "aria-pressed": active,
+        "aria-describedby": ariaDescribedBy
       };
       return props;
     }, [
@@ -303,6 +306,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
+      ariaDescribedBy,
       active
     ]);
 
