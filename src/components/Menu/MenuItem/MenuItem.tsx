@@ -315,11 +315,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             </div>
           </Flex>
         </Tooltip>
-        {label && (
-          <div ref={titleRef} className={styles.label}>
-            {label}
-          </div>
-        )}
+        {label && <div className={styles.label}>{label}</div>}
         {renderSubMenuIconIfNeeded()}
         <div
           style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
