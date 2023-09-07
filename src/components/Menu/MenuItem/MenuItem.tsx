@@ -307,16 +307,14 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
+          // Tooltip should be on a whole MenuItem, but it's a breaking change - should be fixed in the next major and then this can be removed
+          moveBy={icon && tooltipPosition === Tooltip.positions.LEFT ? { main: 30 } : undefined}
         >
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
         </Tooltip>
-        {label && (
-          <div ref={titleRef} className={styles.label}>
-            {label}
-          </div>
-        )}
+        {label && <div className={styles.label}>{label}</div>}
         {renderSubMenuIconIfNeeded()}
         <div
           style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
