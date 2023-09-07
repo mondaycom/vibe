@@ -81,7 +81,7 @@ export const menuItemTooltipTemplate = args => {
       />
       <MenuItem
         title="Menu item with icon and tooltip"
-        tooltipContent="I am tooltip"
+        tooltipContent="Menu item with icon and tooltip"
         tooltipPosition={Tooltip.positions.LEFT}
         icon={Activity}
         iconType={Icon.type.SVG}
