@@ -224,7 +224,7 @@ const Dropdown = forwardRef(
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector,
+        popupsContainerSelector
       }),
       [
         selectedOptions,
