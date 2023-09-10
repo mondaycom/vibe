@@ -19,7 +19,8 @@ import {
   TableEmptyState,
   sort,
   scrollTableColumns,
-  scrollTableData
+  scrollTableData,
+  doAndDontIconsRuleData
 } from "./helpers";
 import {
   LABEL,
@@ -211,6 +212,39 @@ This is an example of a table with 5000 rows
     }}
   </Story>
 </Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={doAndDontIconsRuleData}>
+            <TableHeader>
+              {doAndDontIconsRuleData.map(cell => (
+                <TableHeaderCell key={cell.id} {...cell} />
+              ))}
+            </TableHeader>
+          </Table>
+        ),
+        description: "If there’s a need to insert an icon, use for all columns."
+      },
+      negative: {
+        component: (
+          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={doAndDontIconsRuleData}>
+            <TableHeader>
+              {doAndDontIconsRuleData.map((cell, index) => (
+                <TableHeaderCell key={cell.id} {...cell} icon={index === 0 ? cell.icon : undefined} />
+              ))}
+            </TableHeader>
+          </Table>
+        ),
+        description: "Don't use icons if not applied to all columns titles."
+      }
+    }
+  ]}
+/>
 
 ## Related components
 

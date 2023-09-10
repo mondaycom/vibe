@@ -1,4 +1,28 @@
 import Avatar from "../../../Avatar/Avatar";
+import { Board, Folder, Group, Workspace } from "../../../Icon/Icons";
+
+export const doAndDontIconsRuleData = [
+  {
+    id: "workspace",
+    title: "Workspace",
+    icon: Workspace
+  },
+  {
+    id: "folder",
+    title: "Folder",
+    icon: Folder
+  },
+  {
+    id: "board",
+    title: "Board",
+    icon: Board
+  },
+  {
+    id: "group",
+    title: "Group",
+    icon: Group
+  }
+];
 
 export const emailTableData = [
   {
