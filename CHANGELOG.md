@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.36.1 (2023-09-10)
+
+#### Bug Fixes
+* [#1538](https://github.com/mondaycom/monday-ui-react-core/pull/1538) <AttentionBox> withoutIcon remove padding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.36.0 (2023-09-10)
 
 #### New Features
