@@ -1,8 +1,8 @@
+import cx from "classnames";
+import React, { useMemo } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import cx from "classnames";
-import React, { useMemo } from "react";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
@@ -78,17 +78,18 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       {title && (
-        <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
+        <Flex
+          justify={Flex.justify.START}
+          align={Flex.align.CENTER}
+          className={styles.titleContainer}
+          gap={Flex.gaps.SMALL}
+        >
           {!withoutIcon && (
             <Icon
               iconType={iconType}
               ariaHidden
               clickable={false}
               icon={icon}
-              className={cx(
-                styles.titleContainerIcon,
-                getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-              )}
               ignoreFocusStyle
               iconSize="24"
               iconLabel={iconLabel}
@@ -99,7 +100,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           </Text>
         </Flex>
       )}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER}>
+      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon
             iconType={iconType}
@@ -107,10 +108,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             ariaHidden
             clickable={false}
             icon={icon}
-            className={cx(
-              styles.titleContainerIcon,
-              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-            )}
             ignoreFocusStyle
             iconLabel={iconLabel}
           />
