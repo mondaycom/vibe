@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import cx from "classnames";
-import { VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./Table.module.scss";
 import { ITableHeaderProps } from "../TableHeader/TableHeader";
 import { ITableBodyProps } from "../TableBody/TableBody";
@@ -13,6 +13,7 @@ export interface ITableColumn {
   title: string;
   infoContent?: string;
   width?: number | { min: number; max: number };
+  icon?: SubIcon;
 }
 
 interface ITableProps extends VibeComponentProps {
