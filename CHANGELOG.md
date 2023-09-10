@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.36.0 (2023-09-10)
+
+#### New Features
+* [#1537](https://github.com/mondaycom/monday-ui-react-core/pull/1537) feat(Tipseen): in floating variation do not show tip, make docs for variation clearer ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1521](https://github.com/mondaycom/monday-ui-react-core/pull/1521) chore(browserslist): Use browserslist-config-monday on Vibe ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.35.0 (2023-09-07)
 
 #### New Features
