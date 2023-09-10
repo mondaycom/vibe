@@ -69,11 +69,10 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   }, [type]);
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const classNameWithType = camelCase(`type-${type}`);
 
   return (
     <aside
-      className={cx(styles.attentionBox, getStyle(styles, classNameWithType), overrideClassName)}
+      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName)}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
@@ -115,7 +114,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         <Text
           type={Text.types.TEXT2}
           element={compact ? undefined : "p"}
-          className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+          className={cx(styles.text, {
             [styles.compact]: compact,
             [styles.dismissible]: !!onClose,
             [styles.paragraph]: !compact
