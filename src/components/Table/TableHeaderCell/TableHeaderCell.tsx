@@ -30,6 +30,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
     <div className={styles.tableHeaderCell} role="columnheader" aria-sort={getAriaSort(sortState)}>
       <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellContent}>
         {icon && <Icon icon={icon} iconLabel="Icon" className={styles.icon} />}
+        {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
         {
           <Text
             type={Text.types.TEXT2}
@@ -41,7 +42,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
         }
         {infoContent && (
           <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
-            <Icon icon={Info} iconLabel={infoContent} />
+            <Icon icon={Info} iconLabel={infoContent} clickable={false} />
           </Tooltip>
         )}
       </Flex>
