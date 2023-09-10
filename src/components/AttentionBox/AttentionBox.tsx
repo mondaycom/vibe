@@ -41,7 +41,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   className,
   // Backward compatibility for props naming
   componentClassName,
-  // TODO Vibe 2.0 Remove when releasing version 2 as BREAKING CHANGES
+  // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
   icon = AlertIcon,
@@ -49,6 +49,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   title,
   text,
   children,
+  // TODO Remove in next major as breaking change
   withoutIcon = false,
   onClose,
   compact = false,
