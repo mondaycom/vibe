@@ -21,15 +21,15 @@ const generateThemeCssOverride = (theme: Theme) => {
 
   let css = "";
   for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
-    for (const colorToken of Object.keys(theme.colors[systemTheme]) as Color[]) {
-      css += `
-        .${SystemThemeClassMap[systemTheme]} {
-          .${getThemeProviderClassname(theme.name)} {
-            --${colorToken}: ${theme.colors[systemTheme][colorToken]};
-          }
+    css += `
+      .${SystemThemeClassMap[systemTheme]} {
+        .${getThemeProviderClassname(theme.name)} {
+          ${(Object.keys(theme.colors[systemTheme]) as Color[])
+            .map(colorToken => `--${colorToken}: ${theme.colors[systemTheme][colorToken]}`)
+            .join(";\n\t\t  ")}
         }
-      `;
-    }
+      }
+    `;
   }
 
   return css;
