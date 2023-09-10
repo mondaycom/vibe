@@ -1,3 +1,7 @@
+0.1.192 / 2023-09-07
+====================
+  * Publish storybook workflow ([#244](https://github.com/mondaycom/monday-ui-style/issues/244))
+
 0.1.191 / 2023-09-07
 ====================
   * Replace text-color-on-positive, text-color-on-negative, text-color-on-warning with text-color-fixed-light, text-color-fixed-dark ([#242](https://github.com/mondaycom/monday-ui-style/issues/242))
@@ -326,7 +330,3 @@
 0.1.147 / 2022-11-28
 ====================
   * Update Person.svg ([#182](https://github.com/mondaycom/monday-ui-style/issues/182))
-
-0.1.146 / 2022-11-24
-====================
-  * revert to roboto ([#180](https://github.com/mondaycom/monday-ui-style/issues/180))
