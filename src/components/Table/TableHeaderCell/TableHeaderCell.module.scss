@@ -16,14 +16,7 @@
   .tableHeaderCellContent {
     min-width: 0;
 
-    .text {
-      &.hasInfo {
-        margin-inline-end: var(--spacing-xs);
-      }
-    }
-
     .icon {
-      margin-inline-end: var(--spacing-xs);
       min-width: var(--spacing-medium);
     }
 

@@ -28,15 +28,15 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
 }) => {
   return (
     <div className={styles.tableHeaderCell} role="columnheader" aria-sort={getAriaSort(sortState)}>
-      <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellContent}>
-        {icon && <Icon icon={icon} iconLabel="Icon" className={styles.icon} />}
+      <Flex
+        direction={Flex.directions.ROW}
+        align={Flex.align.CENTER}
+        className={styles.tableHeaderCellContent}
+        gap={Flex.gaps.XS}
+      >
         {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
         {
-          <Text
-            type={Text.types.TEXT2}
-            color={Text.colors.SECONDARY}
-            className={cx([styles.text, infoContent && styles.hasInfo])}
-          >
+          <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY}>
             {title}
           </Text>
         }
