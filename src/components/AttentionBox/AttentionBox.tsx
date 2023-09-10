@@ -1,8 +1,8 @@
+import cx from "classnames";
+import React, { useMemo } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import cx from "classnames";
-import React, { useMemo } from "react";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
@@ -41,7 +41,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   className,
   // Backward compatibility for props naming
   componentClassName,
-  // TODO Vibe 2.0 Remove when releasing version 2 as BREAKING CHANGES
+  // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
   icon = AlertIcon,
@@ -49,6 +49,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   title,
   text,
   children,
+  // TODO Remove in next major as breaking change
   withoutIcon = false,
   onClose,
   compact = false,
@@ -68,26 +69,26 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   }, [type]);
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const classNameWithType = camelCase(`type-${type}`);
 
   return (
     <aside
-      className={cx(styles.attentionBox, getStyle(styles, classNameWithType), overrideClassName)}
+      className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName)}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
     >
       {title && (
-        <Flex justify={Flex.justify.START} align={Flex.align.CENTER} className={styles.titleContainer}>
+        <Flex
+          justify={Flex.justify.START}
+          align={Flex.align.CENTER}
+          className={styles.titleContainer}
+          gap={Flex.gaps.SMALL}
+        >
           {!withoutIcon && (
             <Icon
               iconType={iconType}
               ariaHidden
               clickable={false}
               icon={icon}
-              className={cx(
-                styles.titleContainerIcon,
-                getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-              )}
               ignoreFocusStyle
               iconSize="24"
               iconLabel={iconLabel}
@@ -98,7 +99,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           </Text>
         </Flex>
       )}
-      <Flex justify={Flex.justify.START} align={Flex.align.CENTER}>
+      <Flex justify={Flex.justify.START} align={Flex.align.CENTER} gap={Flex.gaps.XS}>
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
           <Icon
             iconType={iconType}
@@ -106,10 +107,6 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             ariaHidden
             clickable={false}
             icon={icon}
-            className={cx(
-              styles.titleContainerIcon,
-              getStyle(styles, camelCase(classNameWithType + "__title-container__icon"))
-            )}
             ignoreFocusStyle
             iconLabel={iconLabel}
           />
@@ -117,7 +114,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         <Text
           type={Text.types.TEXT2}
           element={compact ? undefined : "p"}
-          className={cx(styles.text, getStyle(styles, camelCase(classNameWithType + "__text")), {
+          className={cx(styles.text, {
             [styles.compact]: compact,
             [styles.dismissible]: !!onClose,
             [styles.paragraph]: !compact

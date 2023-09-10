@@ -18,7 +18,6 @@
 .title {
   margin: 0;
   font-weight: 700 !important;
-  padding: 0 var(--spacing-xs);
 }
 
 .text,
@@ -55,10 +54,6 @@
 
 .titleContainer:empty {
   margin-bottom: 0;
-}
-
-.titleContainerIcon {
-  margin-right: var(--spacing-xs);
 }
 
 .closeIconWrapper {
