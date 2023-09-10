@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validate-icons-colors validateColors should throw an error for disallowed colors 1`] = `
+"[31mvalidate-icons-colors: Invalid color - fill=\\"#123456\\" used in 'invalid-icon.svg'.
+      Should be one of the folowing values for outlined icons: [\\"currentColor\\",\\"none\\"].
+      If color='white' and it's declared in <rect> (when using <clipPath> element), delete it and check if the icon looks fine[0m"
+`;
