@@ -11,8 +11,8 @@ interface TipseenTitleProps extends VibeComponentProps {
 const TipseenTitle: FC<TipseenTitleProps> = ({ text, className, id, "data-testid": dataTestId }) => {
   return text ? (
     <Text
-      type={Text.types.TEXT2}
-      weight={Text.weights.MEDIUM}
+      type={Text.types.TEXT1}
+      weight={Text.weights.BOLD}
       role="heading"
       color={Text.colors.ON_PRIMARY}
       aria-level={3}
