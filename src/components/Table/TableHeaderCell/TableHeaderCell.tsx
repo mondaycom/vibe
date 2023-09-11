@@ -36,7 +36,7 @@ const TableHeaderCell: FC<ITableHeaderCellProps> = ({
       >
         {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
         {
-          <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY}>
+          <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
             {title}
           </Text>
         }
