@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.36.2 (2023-09-12)
+
+#### Bug Fixes
+* [#1541](https://github.com/mondaycom/monday-ui-react-core/pull/1541) fix(Table): export table-related components ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1540](https://github.com/mondaycom/monday-ui-react-core/pull/1540) fix(TipseenTitle): font size should be TEXT1 (16px) ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.36.1 (2023-09-10)
 
 #### Bug Fixes
