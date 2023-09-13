@@ -1,0 +1,10 @@
+.scrollTable {
+  height: 220px;
+}
+
+.virtualizedScrollTable {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  flex: 1;
+}

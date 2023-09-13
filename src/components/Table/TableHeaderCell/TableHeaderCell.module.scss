@@ -8,6 +8,7 @@
   height: 40px;
   display: flex;
   justify-content: space-between;
+  background-color: inherit;
 
   &:hover {
     background-color: var(--allgrey-background-color);

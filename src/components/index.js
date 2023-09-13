@@ -95,6 +95,7 @@ export {
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 export { default as Badge } from "./Badge/Badge";
+export { default as TableContainer } from "./TableContainer/TableContainer";
 export { default as Table } from "./Table/Table/Table";
 export { default as TableHeader } from "./Table/TableHeader/TableHeader";
 export { default as TableHeaderCell } from "./Table/TableHeaderCell/TableHeaderCell";

@@ -1,9 +1,6 @@
 .table {
-  border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
-  background-color: var(--primary-background-color);
-  border: 1px solid var(--layout-border-color);
-  display: flex;
-  flex-direction: column;
+  background-color: inherit;
+  width: 100%;
 
   [role="rowgroup"] {
     [role="row"] {
