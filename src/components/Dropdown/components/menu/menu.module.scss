@@ -2,6 +2,10 @@
 
 .dropdownMenuWrapper {
   animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
+
+  &.withoutAnimation {
+    animation: none;
+  }
 }
 
 .dropdownMenuWrapperFixedPosition {
