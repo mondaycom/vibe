@@ -1,3 +1,7 @@
+0.1.193 / 2023-09-10
+====================
+  * build(validate-icons-colors): fix script to catch multiple fill/stroke usages ([#245](https://github.com/mondaycom/monday-ui-style/issues/245))
+
 0.1.192 / 2023-09-07
 ====================
   * Publish storybook workflow ([#244](https://github.com/mondaycom/monday-ui-style/issues/244))
@@ -326,7 +330,3 @@
     * Add 3 tokens ($primary-selected-hover-color, $negative-color-selected-hover, $positive-color-selected-hover) for chips hover support
     * Publish colors in themes map
     * Update colors.json
-
-0.1.147 / 2022-11-28
-====================
-  * Update Person.svg ([#182](https://github.com/mondaycom/monday-ui-style/issues/182))
