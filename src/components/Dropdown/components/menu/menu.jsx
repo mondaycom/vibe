@@ -7,13 +7,16 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, .
   const rendererProps = { children, selectProps, ...props };
   const withFixedPosition =
     selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
+  // Temporary fix for menu animation is above the select when using menuPortalTarget
+  const withoutAnimation = !!selectProps?.menuPortalTarget;
   return (
     <components.Menu
       {...props}
       className={cx(
         styles.dropdownMenuWrapper,
         {
-          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition
+          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition,
+          [styles.withoutAnimation]: withoutAnimation
         },
         dropdownMenuWrapperClassName
       )}
