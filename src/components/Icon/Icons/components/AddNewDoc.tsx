@@ -14,7 +14,7 @@ const AddNewDoc: React.FC<AddNewDocProps> = ({size, ...props}) => (
     </g>
     <defs>
       <clipPath id="clip0_337_7087">
-        <path fill="#fff" transform="translate(.195 .151)" d="M0 0H20V20H0z" />
+        <path transform="translate(.195 .151)" d="M0 0H20V20H0z" />
       </clipPath>
     </defs>
   </svg>

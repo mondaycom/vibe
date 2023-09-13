@@ -114,7 +114,7 @@ describe("TextField Tests", () => {
 
   it("title should not be available", () => {
     const { rerender, queryByText } = inputComponent;
-    const title = "My Awesome Title";
+    const title = "My Awesome Heading";
     act(() => {
       rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />);
     });

@@ -27,6 +27,8 @@ export interface LinkProps extends VibeComponentProps {
   target?: LinkTarget;
   /** Aria label description */
   ariaLabelDescription?: string;
+  /** Identifies the element (or elements) that describes the element on which the attribute is set. */
+  ariaDescribedby?: string;
   /** element id to describe the counter accordingly */
   ariaLabeledBy?: string;
   /** Icon to add to the link element */
@@ -58,6 +60,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       onClick = NOOP,
       target = Link.targets.NEW_WINDOW,
       ariaLabelDescription = "",
+      ariaDescribedby = "",
       icon = "",
       iconPosition = Link.position.START,
       id = "",
@@ -96,6 +99,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
           [styles.inlineText]: inlineText
         })}
         aria-label={ariaLabelDescription}
+        aria-describedby={ariaDescribedby}
         aria-labelledby={ariaLabeledBy}
       >
         {getIcon(isStart, icon, cx(styles.iconStart))}

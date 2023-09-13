@@ -1,5 +1,163 @@
 # Changelog
 
+## 2.36.3 (2023-09-13)
+
+#### Bug Fixes
+* [#1543](https://github.com/mondaycom/monday-ui-react-core/pull/1543) <DropdownMenu> - disable animation when using menuPortalTarget - temp fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.36.2 (2023-09-12)
+
+#### Bug Fixes
+* [#1541](https://github.com/mondaycom/monday-ui-react-core/pull/1541) fix(Table): export table-related components ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1540](https://github.com/mondaycom/monday-ui-react-core/pull/1540) fix(TipseenTitle): font size should be TEXT1 (16px) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.36.1 (2023-09-10)
+
+#### Bug Fixes
+* [#1538](https://github.com/mondaycom/monday-ui-react-core/pull/1538) <AttentionBox> withoutIcon remove padding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.36.0 (2023-09-10)
+
+#### New Features
+* [#1537](https://github.com/mondaycom/monday-ui-react-core/pull/1537) feat(Tipseen): in floating variation do not show tip, make docs for variation clearer ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1521](https://github.com/mondaycom/monday-ui-react-core/pull/1521) chore(browserslist): Use browserslist-config-monday on Vibe ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.35.0 (2023-09-07)
+
+#### New Features
+* [#1535](https://github.com/mondaycom/monday-ui-react-core/pull/1535) feat: add a11y arias props for `List`, `ListItem`, and `Button` ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1530](https://github.com/mondaycom/monday-ui-react-core/pull/1530) feat(Table): table leftovers phase 1 ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.34.1 (2023-09-07)
+
+#### Bug Fixes
+* [#1534](https://github.com/mondaycom/monday-ui-react-core/pull/1534) fix: <MenuItem/> Tooltip shouldn't cover the icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.34.0 (2023-09-07)
+
+#### New Features
+* [#1524](https://github.com/mondaycom/monday-ui-react-core/pull/1524) feat(Text): remove paragraph prop (can be achieved with element="p") ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1529](https://github.com/mondaycom/monday-ui-react-core/pull/1529) docs: Change <LegacyHeading> name in the story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1531](https://github.com/mondaycom/monday-ui-react-core/pull/1531) Update icons - monday-ui-style 0.1.189 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.33.0 (2023-09-05)
+
+#### Bug Fixes
+* [#1511](https://github.com/mondaycom/monday-ui-react-core/pull/1511) fix(Dropdown): when used inside overflowed container with transform, consider container scroll ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Features
+* [#1528](https://github.com/mondaycom/monday-ui-react-core/pull/1528) feat(Tipseen): add floating variation for Tipseen ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1525](https://github.com/mondaycom/monday-ui-react-core/pull/1525) Revert "chore: fail chromatic action check in case has visual changes (#1392) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.32.0 (2023-09-04)
+
+#### New Features
+* [#1523](https://github.com/mondaycom/monday-ui-react-core/pull/1523) feat(Tipseen): allow withoutDialog for component ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.31.4 (2023-09-04)
+
+#### Bug Fixes
+* [#1522](https://github.com/mondaycom/monday-ui-react-core/pull/1522) fix: <BreadcrumbsBar> type ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1518](https://github.com/mondaycom/monday-ui-react-core/pull/1518) Update icons - monday-ui-style 0.1.188 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.31.3 (2023-08-31)
+
+#### New Icons
+* [#1516](https://github.com/mondaycom/monday-ui-react-core/pull/1516) Update icons - monday-ui-style 0.1.186 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.31.2 (2023-08-30)
+
+#### Bug Fixes
+* [#1513](https://github.com/mondaycom/monday-ui-react-core/pull/1513) fix attention box icon color  ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#1499](https://github.com/mondaycom/monday-ui-react-core/pull/1499) docs: <ExpandCollapse> story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1487](https://github.com/mondaycom/monday-ui-react-core/pull/1487) Sergeyro/chore/replace theme prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1509](https://github.com/mondaycom/monday-ui-react-core/pull/1509) Update icons - monday-ui-style 0.1.184 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.31.1 (2023-08-28)
+
+#### Bug Fixes
+* [#1512](https://github.com/mondaycom/monday-ui-react-core/pull/1512) fix: <Heading> export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.31.0 (2023-08-28)
+
+#### Bug Fixes
+* [#1510](https://github.com/mondaycom/monday-ui-react-core/pull/1510) fix: <TextField> type=date, revert calendar icon changes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1494](https://github.com/mondaycom/monday-ui-react-core/pull/1494) feat: <Table/> - new component ([@giladar-monday](https://github.com/giladar-monday))
+
+## 2.30.1 (2023-08-27)
+
+#### Documentation
+* [#1495](https://github.com/mondaycom/monday-ui-react-core/pull/1495) Docs for text and heading ([@hadasfa](https://github.com/hadasfa))
+
+## 2.30.0 (2023-08-27)
+
+#### New Features
+* [#1503](https://github.com/mondaycom/monday-ui-react-core/pull/1503) feat: export <Dropdown> components - <DropdownMenu>, <DropdownOption>, <DropdownSingleValue> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.29.1 (2023-08-27)
+
+#### Bug Fixes
+* [#1506](https://github.com/mondaycom/monday-ui-react-core/pull/1506) fix: <List> keyboard focus only on list items ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1505](https://github.com/mondaycom/monday-ui-react-core/pull/1505) fix: <ExpandCollapse> flickering ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1500](https://github.com/mondaycom/monday-ui-react-core/pull/1500) chore: Update stories plop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.29.0 (2023-08-24)
+
+#### New Features
+* [#1492](https://github.com/mondaycom/monday-ui-react-core/pull/1492) feat: <Menu> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Dependency Upgrades
+* [#1501](https://github.com/mondaycom/monday-ui-react-core/pull/1501) update monday-ui-style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.3 (2023-08-23)
+
+#### Bug Fixes
+* [#1498](https://github.com/mondaycom/monday-ui-react-core/pull/1498) fix: <AlertBannerLink> pass textColor ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.2 (2023-08-22)
+
+#### Bug Fixes
+* [#1497](https://github.com/mondaycom/monday-ui-react-core/pull/1497) fix: <Dropdown> pass children to the menuRenderer ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1493](https://github.com/mondaycom/monday-ui-react-core/pull/1493) docs: Update Pull request template ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.1 (2023-08-21)
+
+#### Bug Fixes
+* [#1491](https://github.com/mondaycom/monday-ui-react-core/pull/1491) fix: <TextField> debounce recreation bug ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.28.0 (2023-08-21)
+
+#### New Features
+* [#1488](https://github.com/mondaycom/monday-ui-react-core/pull/1488) feat: <Combobox> defaultFilter value ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.27.0 (2023-08-21)
+
+#### New Features
+* [#1490](https://github.com/mondaycom/monday-ui-react-core/pull/1490) feat: <Toggle>, <Switch> refForwarding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1486](https://github.com/mondaycom/monday-ui-react-core/pull/1486) feat: add configurable aria-describedby attribute to the link element ([@LihiBechorMarkovitz](https://github.com/LihiBechorMarkovitz))
+
 ## 2.26.0 (2023-08-17)
 
 #### Bug Fixes

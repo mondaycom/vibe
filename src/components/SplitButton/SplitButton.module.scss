@@ -1,4 +1,3 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
@@ -66,26 +65,26 @@
 .kindTertiary.colorPositive:hover .secondaryButton,
 .kindTertiary.colorPositive:focus .secondaryButton {
   border-color: transparent;
-  @include theme-prop(background-color, positive-color-selected);
+  background-color: var(--positive-color-selected);
 }
 
 .kindTertiary.colorPositive.splitContentOpen .mainButton,
 .kindTertiary.colorPositive:hover .mainButton,
 .kindTertiary.colorPositive:focus .mainButton {
-  @include theme-prop(background-color, positive-color-selected);
+  background-color: var(--positive-color-selected);
 }
 
 .kindTertiary.colorNegative.splitContentOpen .secondaryButton,
 .kindTertiary.colorNegative:hover .secondaryButton,
 .kindTertiary.colorNegative:focus .secondaryButton {
   border-color: transparent;
-  @include theme-prop(background-color, negative-color-selected);
+  background-color: var(--negative-color-selected);
 }
 
 .kindTertiary.colorNegative.splitContentOpen .mainButton,
 .kindTertiary.colorNegative:hover .mainButton,
 .kindTertiary.colorNegative:focus .mainButton {
-  @include theme-prop(background-color, negative-color-selected);
+  background-color: var(--negative-color-selected);
 }
 
 .kindTertiary .secondaryButton {
@@ -95,7 +94,7 @@
 
 .kindPrimary.disabled .secondaryButton {
   border-left: 1px solid;
-  @include theme-prop(border-color, ui-border-color);
+  border-color: var(--ui-border-color);
 }
 
 .kindPrimary:not(.disabled).colorPrimary.mainActive .secondaryButton {
@@ -105,7 +104,7 @@
 
 .kindPrimary:not(.disabled).colorPrimary .secondaryButton {
   border-left: 1px solid;
-  @include theme-prop(border-color, primary-hover-color);
+  border-color: var(--primary-hover-color);
 }
 
 .kindPrimary:not(.disabled).colorBrand.mainActive .secondaryButton {
@@ -120,12 +119,12 @@
 
 .kindPrimary:not(.disabled).colorPositive .secondaryButton {
   border-left: 1px solid;
-  @include theme-prop(border-color, positive-color-hover);
+  border-color: var(--positive-color-hover);
 }
 
 .kindPrimary:not(.disabled).colorNegative .secondaryButton {
   border-left: 1px solid;
-  @include theme-prop(border-color, negative-color-hover);
+  border-color: var(--negative-color-hover);
 }
 
 .kindPrimary:not(.disabled).colorOnPrimaryColor .secondaryButton {
@@ -148,9 +147,9 @@
 
 .kindSecondary.colorPrimary.splitContentOpen .secondaryButton,
 .kindSecondary.colorPrimary.splitContentOpen .secondaryButton:hover {
-  @include theme-prop(color, primary-color);
-  @include theme-prop(border-color, primary-color);
-  @include theme-prop(background-color, primary-selected-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: var(--primary-selected-color);
 }
 
 .kindSecondary.colorBrand.mainActive .mainButton {

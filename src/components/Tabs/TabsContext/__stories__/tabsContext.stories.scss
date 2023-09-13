@@ -1,5 +1,3 @@
-@import "../../../../styles/themes";
-
 .tabs-context--wrapper {
   height: 95vh;
 
@@ -10,7 +8,7 @@
       height: 100%;
 
       padding: 8px;
-      @include theme-prop(background-color, primary-background-hover-color);
+      background-color: var(--primary-background-hover-color);
     }
   }
 }

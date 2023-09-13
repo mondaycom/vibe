@@ -1,5 +1,4 @@
 @import "../../../../styles/global-css-settings";
-@import "../../../../styles/themes";
 @import "../../../../styles/typography";
 
 .bar {
@@ -10,19 +9,19 @@
 }
 
 .typePrimaryPrimary {
-  @include theme-prop(background-color, primary-color);
+  background-color: var(--primary-color);
 }
 
 .typePrimarySecondary {
-  @include theme-prop(background-color, dark-color);
+  background-color: var(--inverted-color-background);
 }
 
 .typePrimaryPositive {
-  @include theme-prop(background-color, positive-color);
+  background-color: var(--positive-color);
 }
 
 .typePrimaryNegative {
-  @include theme-prop(background-color, negative-color);
+  background-color: var(--negative-color);
 }
 
 .typeSecondaryPrimary {

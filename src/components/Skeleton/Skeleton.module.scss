@@ -21,7 +21,7 @@
 }
 
 @mixin skeleton($radius: var(--border-radius-small)) {
-  @include theme-prop(background, primary-background-hover-color);
+  background: var(--primary-background-hover-color);
   border-radius: $radius;
   @include shine-animation;
 }

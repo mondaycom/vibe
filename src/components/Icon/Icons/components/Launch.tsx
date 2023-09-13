@@ -12,7 +12,7 @@ const Launch: React.FC<LaunchProps> = ({size, ...props}) => (
     </g>
     <defs>
       <clipPath id="clip0_26224_38435">
-        <path fill="#fff" d="M0 0H20V20H0z" />
+        <path d="M0 0H20V20H0z" />
       </clipPath>
     </defs>
   </svg>

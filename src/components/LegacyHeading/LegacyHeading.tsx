@@ -8,7 +8,7 @@ import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../TextWithHighlight/TextWithHighlight";
-import { HeadingSizes, HeadingTypes } from "./HeadingConstants";
+import { HeadingSizes, HeadingTypes } from "./LegacyHeadingConstants";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./LegacyHeading.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

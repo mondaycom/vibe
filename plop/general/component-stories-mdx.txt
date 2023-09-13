@@ -1,7 +1,7 @@
 import {{properCase componentName}} from "../{{properCase componentName}}";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate } from "monday-ui-story-blocks";
+import { createComponentTemplate } from "vibe-storybook-components";
 import styles from "./{{properCase componentName}}.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -12,7 +12,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 <Meta
-  title="Components/{{properCase componentName}}/{{properCase componentName}}"
+  title="Components/{{properCase componentName}}"
   component={ {{properCase componentName}} }
   argTypes={ metaSettings.argTypes }
   decorators={ metaSettings.decorators }

@@ -6,6 +6,8 @@ export enum ComponentDefaultTestId {
   TITLE = "title",
   TEXT = "text",
   COMBOBOX = "combobox",
+  COMBOBOX_CATEGORY = "combobox-category",
+  COMBOBOX_OPTION = "combobox-option",
   COLOR_PICKER = "color-picker",
   CHECKBOX = "checkbox",
   CHECKBOX_LABEL = "checkbox-label",
@@ -48,8 +50,6 @@ export enum ComponentDefaultTestId {
   BAR_PRIMARY = "bar-primary",
   BAR_SECONDARY = "bar-secondary",
   COLOR_PICKER_ITEM_COMPONENT = "color-picker-item-component",
-  COMBOBOX_CATEGORY = "combobox-category",
-  COMBOBOX_OPTION = "combobox-option",
   COUNTER = "counter",
   MENU = "menu",
   OPTION = "option",
@@ -104,7 +104,8 @@ export enum ComponentDefaultTestId {
   DIALOG_CONTENT_CONTAINER = "dialog-content-container",
   FLEX = "flex",
   TOOLTIP = "tooltip",
-  DIALOG = "dialog"
+  DIALOG = "dialog",
+  TABLE = "table"
 }
 
 export enum NavigationCommand {

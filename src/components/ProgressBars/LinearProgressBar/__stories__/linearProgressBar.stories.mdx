@@ -140,32 +140,6 @@ Progress bars show continuous progress through a process, such as a percentage v
           </DialogContentContainer>,
         description:"Don’t use an infinite scalable indicator."
       }
-    },
-    {
-      positive: {
-        component:
-          <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
-            <h4>Loading files</h4>
-            <div className="linear-progress-bar_inline-wrapper">
-              <span>0%</span>
-              <span>100%</span>
-            </div>
-            <LinearProgressBar value={50} />
-          </DialogContentContainer>,
-        description:"Always indincate visually the empty part of the progress bar."
-      },
-      negative: {
-        component:
-          <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
-            <h4>Loading files</h4>
-            <div className="linear-progress-bar_inline-wrapper">
-              <span>0%</span>
-              <span>100%</span>
-            </div>
-            <LinearProgressBar className="linear-progress-bar_without-bg" value={50} />
-          </DialogContentContainer>,
-        description:"Don’t let the user guess where is the end of the progress."
-      }
     }
   ]}
 />

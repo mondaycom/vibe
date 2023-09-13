@@ -12,7 +12,7 @@ const Status: React.FC<StatusProps> = ({size, ...props}) => (
     </g>
     <defs>
       <clipPath id="clip0">
-        <path fill="#fff" transform="translate(2 2)" d="M0 0H16V16H0z" />
+        <path transform="translate(2 2)" d="M0 0H16V16H0z" />
       </clipPath>
     </defs>
   </svg>

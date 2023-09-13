@@ -1,5 +1,3 @@
-@import "../../styles/themes";
-
 $embeddedPosition: 15%;
 
 .badgeWrapper {
@@ -8,9 +6,9 @@ $embeddedPosition: 15%;
   .badge {
     z-index: 1;
     position: absolute;
-    border: 2px solid transparent;
+    border: 2px solid;
     border-radius: 16px;
-    @include theme-prop(border-color, primary-background-color);
+    border-color: var(--primary-background-color);
 
     &.topEnd {
       &.rectangular {

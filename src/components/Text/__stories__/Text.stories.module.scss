@@ -1,15 +1,20 @@
-@import "../../../styles/themes";
-
-@mixin color-rectangle-example {
-  width: 150px;
-  padding: var(--spacing-small);
+@mixin spacing {
+  padding: var(--sb-spacing-small);
 }
 .primaryBackground {
-  @include color-rectangle-example;
+  @include spacing;
   background-color: var(--primary-color);
 }
 
 .invertedBackground {
-  @include color-rectangle-example;
+  @include spacing;
   background-color: var(--inverted-color-background);
+}
+
+.smallRectangle {
+  width: 150px;
+}
+
+.mediumRectangle {
+  width: 420px;
 }

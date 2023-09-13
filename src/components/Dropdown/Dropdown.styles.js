@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { SIZES } from "../../constants/sizes";
 import { getCSSVar } from "../../services/themes";
+import { getScrollableParent } from "../../utils/dom-utils";
 
 const getSizeInPx = size => {
   switch (size) {
@@ -313,10 +314,21 @@ const menu =
      * For this case we will override the top menu position value to be the according the the drop down location for correct dispaly.
      * When the dropdown container (with overflow:hidden or overflow:scroll) using transform CSS function, we can use a relative positioned inner container, which our menu will be attach to it's
      * start when the menu position is fixed, and this is why in this case we define top:auto.
+     * we also need in this case to translate the menu y position to fit inside a scrollable parent.
      */
-    let top = insideOverflowWithTransformContainer ? "auto" : parentPositionData.bottom;
 
-    return { ...baseStyle, top, width: parentPositionData.width };
+    if (insideOverflowContainer) {
+      return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width };
+    } else if (insideOverflowWithTransformContainer) {
+      const translateY = `-${getScrollableParent(controlRef?.current)?.scrollTop}px`;
+      return {
+        ...baseStyle,
+        top: "auto",
+        translate: `0 ${translateY}`,
+        width: parentPositionData.width
+      };
+    }
+    return baseStyle;
   };
 
 const option = () => (provided, state) => ({

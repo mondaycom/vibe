@@ -1,0 +1,140 @@
+import { useState } from "react";
+import ExpandCollapse from "../ExpandCollapse";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate, Link } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator, RelatedComponentsDecorator } from "../../../storybook";
+import {
+  ACCORDION,
+  DROPDOWN,
+  WIZARD
+} from "../../../storybook/components/related-components/component-description-map";
+import { Button, Icon, Text, Flex } from "../../index";
+import { Heading } from "../../../next/next";
+import { Robot } from "../../Icon/Icons";
+import styles from "./ExpandCollapse.stories.module.scss";
+
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: ExpandCollapse,
+  enumPropNamesArray: [], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta
+  title="Data Display/ExpandCollapse"
+  component={ExpandCollapse}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+export const expandCollapseTemplate = createComponentTemplate(ExpandCollapse);
+
+# ExpandCollapse
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+ExpandCollapse is a component that allows you to hide and show content.
+
+<Canvas>
+  <Story
+    name="Overview"
+    args={{
+      title: "Expand collapse",
+      children: [
+        <Text maxLines={2}>Insert here any component that you want, here is a robot for you</Text>,
+        <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} clickable={false} />
+      ],
+      className: styles.storybookExpandCollapse
+    }}
+  >
+    {expandCollapseTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<Tip title="Want to combine multiple ExpandCollapse?">
+  Use our
+  <Link size={Link.sizes.SMALL} href="/?path=/docs/data-display-accordion--overview">
+    Accordion
+  </Link>
+  component
+</Tip>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Open by default
+
+<Canvas>
+  <Story name="Open by default">
+    <ExpandCollapse title="Open by default" defaultOpenState className={styles.storybookExpandCollapse}>
+      <Text maxLines={2}>Insert here any component that you want</Text>
+    </ExpandCollapse>
+  </Story>
+</Canvas>
+
+### Controlled open state
+
+You can control the open state of the ExpandCollapse component by passing the <code>open</code> prop.
+
+<Canvas>
+  <Story name="Controlled open state">
+    {() => {
+      const [open, setOpen] = useState(false);
+      return (
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+          <ExpandCollapse
+            title="Controlled open state"
+            open={open}
+            onClick={() => setOpen(prevState => !prevState)}
+            className={styles.storybookExpandCollapse}
+          >
+            <Text maxLines={2}>Insert here any component that you want</Text>
+          </ExpandCollapse>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Custom header renderer
+
+<Canvas>
+  <Story name="Custom header renderer">
+    {() => {
+      const ExpandCollapseCustomHeadingComponent = () => {
+        return <Heading type={Heading.types.H3}>Any component you want</Heading>;
+      };
+      return (
+        <ExpandCollapse
+          headerComponentRenderer={ExpandCollapseCustomHeadingComponent}
+          className={styles.storybookExpandCollapse}
+        >
+          <Text maxLines={2}>Insert here any component that you want</Text>
+        </ExpandCollapse>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Without borders
+
+<Canvas>
+  <Story name="Without borders">
+    <ExpandCollapse hideBorder title="Without borders" className={styles.storybookExpandCollapse}>
+      <Text maxLines={2}>Insert here any component that you want</Text>
+    </ExpandCollapse>
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponentsDecorator componentsNames={[ACCORDION, DROPDOWN, WIZARD]} />

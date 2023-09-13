@@ -43,6 +43,9 @@ import { FlexDescription } from "./descriptions/flex-description";
 import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 import { DialogDescription } from "./descriptions/dialog";
+import { AccordionDescription } from "./descriptions/accordion-description/accordion-description";
+import { ExpandCollapseDescription } from "./descriptions/expand-collapse-description/expand-collapse-description";
+import { TextDescription } from "./descriptions/text-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -85,6 +88,9 @@ export const FLEX = "flex";
 export const DIVIDER = "divider";
 export const DIALOG_CONTENT_CONTAINER = "dialog-content-container-description";
 export const DIALOG = "dialog";
+export const TEXT = "text";
+export const ACCORDION = "accordion";
+export const EXPAND_COLLAPSE = "expand-collapse";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -135,6 +141,9 @@ descriptionComponentsMap.set(FLEX, <FlexDescription />);
 descriptionComponentsMap.set(DIVIDER, <DividerDescription />);
 descriptionComponentsMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
 descriptionComponentsMap.set(DIALOG, <DialogDescription />);
+descriptionComponentsMap.set(TEXT, <TextDescription />);
+descriptionComponentsMap.set(ACCORDION, <AccordionDescription />);
+descriptionComponentsMap.set(EXPAND_COLLAPSE, <ExpandCollapseDescription />);
 
 // General description (not related to specific components)
 descriptionComponentsMap.set(COLORS, <ColorsDescription />);

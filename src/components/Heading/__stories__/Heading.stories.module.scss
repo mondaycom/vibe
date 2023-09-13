@@ -1,0 +1,41 @@
+@mixin color-rectangle-example {
+  width: 210px;
+  padding: var(--spacing-small);
+}
+
+.pageDivider {
+  margin-block: var(--spacing-medium);
+}
+
+.primaryBackground {
+  @include color-rectangle-example;
+  background-color: var(--primary-color);
+}
+
+.invertedBackground {
+  @include color-rectangle-example;
+  background-color: var(--inverted-color-background);
+}
+
+.emptyStateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-large);
+}
+
+.emptyStateHeading {
+  margin-block: var(--spacing-large);
+}
+
+.pageHeaderCommands {
+  margin-top: var(--spacing-large);
+  & > * {
+    margin-left: var(--spacing-small);
+  }
+}
+.pageHeaderSearch {
+  width: 146px;
+}

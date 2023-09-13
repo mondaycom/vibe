@@ -33,7 +33,6 @@ interface TipseenProps extends VibeComponentProps {
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
-  // Better be required, but it might be a breaking change
   children?: ReactElement;
   containerSelector?: string;
   hideTrigger?: HideShowEvent | Array<HideShowEvent>;
@@ -61,6 +60,7 @@ interface TipseenProps extends VibeComponentProps {
    * Control the color of the Tipseen close button. Dark theme can be usfull while presenting bright images under the tipseen image
    */
   closeButtonTheme?: TipseenCloseButtonTheme;
+  floating?: boolean;
 }
 
 const Tipseen: VibeComponent<TipseenProps> & {
@@ -97,6 +97,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tip = true,
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
+      floating = false,
       "data-testid": dataTestId
     },
     ref
@@ -142,7 +143,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={Text.colors.ON_PRIMARY} type={Text.types.TEXT2} paragraph className={cx(styles.tipseenContent)}>
+        <Text color={Text.colors.ON_PRIMARY} type={Text.types.TEXT2} element="p" className={cx(styles.tipseenContent)}>
           {content}
         </Text>
       </div>
@@ -152,7 +153,8 @@ const Tipseen: VibeComponent<TipseenProps> & {
       <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
-            [styles.tipseenWrapperWithoutCustomWidth]: !width
+            [styles.tipseenWrapperWithoutCustomWidth]: !width,
+            [styles.floating]: floating
           })}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
@@ -170,9 +172,10 @@ const Tipseen: VibeComponent<TipseenProps> & {
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
-          tip={tip}
+          tip={tip && !floating}
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
+          forceRenderWithoutChildren={floating}
         >
           {children}
         </Tooltip>

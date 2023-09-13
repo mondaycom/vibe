@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/global-css-settings";
@@ -41,12 +40,12 @@
   user-select: none;
   border: none;
   pointer-events: none;
-  @include theme-prop(background-color, disabled-background-color);
+  background-color: var(--disabled-background-color);
   cursor: not-allowed;
 }
 
 .textField.disabled .inputWrapper .input::placeholder {
-  @include theme-prop(color, disabled-text-color);
+  color: var(--disabled-text-color);
 }
 
 .textField.disabled .inputWrapper .iconContainer.iconContainerHasIcon:hover {
@@ -64,28 +63,28 @@
   outline: 0;
   background-color: transparent;
   border: 1px solid;
-  @include theme-prop(border-color, ui-border-color);
+  border-color: var(--ui-border-color);
   border-radius: var(--border-radius-small);
   transition: border-color var(--motion-productive-medium) ease-in;
   padding: var(--spacing-small) var(--spacing-medium);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @include theme-prop(color, primary-text-color);
+  color: var(--primary-text-color);
 }
 
 .textField .inputWrapper .input.inputHover {
-  @include theme-prop(border-color, primary-text-color);
+  border-color: var(--primary-text-color);
 }
 
 .textField .inputWrapper .input:focus,
 .textField .inputWrapper .input:active,
 .textField .inputWrapper .input.inputActive {
-  @include theme-prop(border-color, primary-color);
+  border-color: var(--primary-color);
 }
 
 .textField .inputWrapper .input::placeholder {
-  @include theme-prop(color, secondary-text-color);
+  color: var(--secondary-text-color);
   font-weight: 400;
 }
 
@@ -128,7 +127,7 @@
 .textField .inputWrapper .iconContainer:focus,
 .textField .inputWrapper .iconContainer:focus-visible {
   outline: none;
-  @include theme-prop(background-color, primary-background-hover-color);
+  background-color: var(--primary-background-hover-color);
 }
 
 .textField .inputWrapper .iconContainer {
@@ -152,12 +151,12 @@
 
 .textField .inputWrapper .iconContainer.iconContainerHasIcon:hover,
 .textField .inputWrapper .iconContainer.iconContainerHasIcon:focus-within {
-  @include theme-prop(background-color, primary-background-hover-color);
+  background-color: var(--primary-background-hover-color);
 }
 
 .textField .inputWrapper .iconContainer .icon {
   transform: rotate(90deg) scale(0.8);
-  @include theme-prop(color, icon-color);
+  color: var(--icon-color);
   will-change: transform;
   pointer-events: none;
   transition: color var(--motion-productive-short) var(--motion-timing-enter),
@@ -166,53 +165,53 @@
 }
 
 .textField .inputWrapper.inputErrorValidation:hover .input {
-  @include theme-prop(border-color, negative-color);
+  border-color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputErrorValidation .input {
-  @include theme-prop(border-color, negative-color);
+  border-color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputErrorValidation .input:focus,
 .textField .inputWrapper.inputErrorValidation .input:active {
-  @include theme-prop(border-color, negative-color);
+  border-color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputErrorValidation .iconContainer .icon {
-  @include theme-prop(color, negative-color);
+  color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputErrorValidation .iconContainer .icon:hover {
-  @include theme-prop(color, negative-color);
+  color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus {
-  @include theme-prop(color, negative-color);
+  color: var(--negative-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation:hover .input {
-  @include theme-prop(border-color, positive-color);
+  border-color: var(--positive-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation .input {
-  @include theme-prop(border-color, positive-color);
+  border-color: var(--positive-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation .input:focus,
 .textField .inputWrapper.inputSuccessValidation .input:active {
-  @include theme-prop(border-color, positive-color);
+  border-color: var(--positive-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation .iconContainer .icon {
-  @include theme-prop(color, positive-color);
+  color: var(--positive-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation .iconContainer .icon:hover {
-  @include theme-prop(color, positive-color);
+  color: var(--positive-color);
 }
 
 .textField .inputWrapper.inputSuccessValidation + .subTextContainer .subTextContainerStatus {
-  @include theme-prop(color, positive-color);
+  color: var(--positive-color);
 }
 
 .textField .inputWrapper.wrapperSizeSmall {
@@ -257,7 +256,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
-  @include theme-prop(border-color, primary-text-color);
+  border-color: var(--primary-text-color);
 }
 
 .textField .inputWrapper.wrapperSizeLarge {
@@ -287,7 +286,7 @@
 }
 
 .textField .inputWrapper:hover .input {
-  @include theme-prop(border-color, primary-text-color);
+  border-color: var(--primary-text-color);
 }
 
 .textField .inputWrapper .loaderContainer {
@@ -312,7 +311,7 @@
 }
 
 .textField .inputWrapper .loaderContainer .loader .loaderSvg {
-  @include theme-prop(color, secondary-text-color);
+  color: var(--secondary-text-color);
 }
 
 .textField .inputWrapper .iconContainer .icon {
@@ -327,13 +326,24 @@
   font-family: var(--font-family);
 }
 
+// TODO url is not resolving correctly in the rollup build + theming approach isn't the best, as the component ideally shoudn't know about the theme
+//input[type="date"]::-webkit-calendar-picker-indicator,
+//input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+//  background: url("./assets/Calendar.svg") no-repeat;
+//
+//  :global(.dark-app-theme) &,
+//  :global(.black-app-theme) &,
+//  :global(.hacker_theme-app-theme) & {
+//    background: url("./assets/CalendarInverted.svg") no-repeat;
+//  }
+//}
+
+// Temp solution for displaying calendar icon in dark themes
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  background: url("./assets/Calendar.svg") no-repeat;
-
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker_theme-app-theme) & {
-    background: url("./assets/CalendarInverted.svg") no-repeat;
+    filter: invert(1);
   }
 }

@@ -1,5 +1,13 @@
-@import "../../../styles/themes";
 @import "../../../styles/typography";
+
+// TODO demo
+.valueRenderer {
+  width: 100px;
+  &Inner {
+    color: red !important;
+  }
+}
+
 
 .dropdown-stories-styles {
   &_spacing {
@@ -27,7 +35,7 @@
     font-size: 14px;
 
     span {
-      @include theme-prop(color, disabled-text-color);
+      color: var(--disabled-text-color);
       margin-left: 4px;
     }
   }

@@ -33,11 +33,6 @@ describe("Text renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with paragraph", () => {
-    const tree = renderer.create(<Text paragraph>text</Text>).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with element as children", () => {
     const tree = renderer
       .create(

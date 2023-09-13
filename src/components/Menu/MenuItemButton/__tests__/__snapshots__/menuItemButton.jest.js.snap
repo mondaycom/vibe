@@ -3,9 +3,8 @@
 exports[`Snapshots renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text2Normal itemButton"
+  className="typography primary start singleLineEllipsis text text2Normal itemButton"
   data-testid="menu-item-button"
-  id="undefined-undefined"
   role="menuitem"
 >
   <button
@@ -33,9 +32,8 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 exports[`Snapshots renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text2Normal itemButton"
+  className="typography primary start singleLineEllipsis text text2Normal itemButton"
   data-testid="menu-item-button"
-  id="undefined-undefined"
   role="menuitem"
 >
   <button
@@ -63,9 +61,8 @@ exports[`Snapshots renders correctly when selected 1`] = `
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text2Normal itemButton dummy-class-name"
+  className="typography primary start singleLineEllipsis text text2Normal itemButton dummy-class-name"
   data-testid="menu-item-button"
-  id="undefined-undefined"
   role="menuitem"
 >
   <button
@@ -91,9 +88,8 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 exports[`Snapshots renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text2Normal itemButton"
+  className="typography primary start singleLineEllipsis text text2Normal itemButton"
   data-testid="menu-item-button"
-  id="undefined-undefined"
   role="menuitem"
 >
   <button
@@ -119,9 +115,8 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 exports[`Snapshots renders correctly with title and icon 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text2Normal itemButton"
+  className="typography primary start singleLineEllipsis text text2Normal itemButton"
   data-testid="menu-item-button"
-  id="undefined-undefined"
   role="menuitem"
 >
   <button

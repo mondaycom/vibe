@@ -17,6 +17,8 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
+import { useSwitch } from "../../../hooks";
+import Button from "../../Button/Button";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
@@ -178,6 +180,28 @@ Use when the tip is too long or when you want to teach something in steps.
         </Tipseen>
       );
     }}
+  </Story>
+</Canvas>
+
+### Floating Tipseen
+
+<Canvas>
+  <Story name="Floating Tipseen" height="500px">
+    <Tipseen
+      closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+      floating
+      content={
+        <>
+          <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+          <TipseenContent title="This is a Floating Tipseen">
+            Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general. In
+            this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+          </TipseenContent>
+        </>
+      }
+      /* You do not have to use containerSelector, in current use this is for story only */
+      containerSelector="#story--popover-tipseen--floating-tipseen"
+    />
   </Story>
 </Canvas>
 

@@ -3,13 +3,13 @@ import cx from "classnames";
 import { camelCase } from "lodash-es";
 import VibeComponent from "../../types/VibeComponent";
 import { withStaticProps } from "../../types";
-import { HeadingType, HeadingWeight } from "./TitleConstants";
+import { HeadingType, HeadingWeight } from "./HeadingConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import styles from "./Title.module.scss";
+import styles from "./Heading.module.scss";
 
-export interface TitleProps extends TypographyProps {
+export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
   weight?: HeadingWeight;
   align?: TypographyAlign;
@@ -17,7 +17,7 @@ export interface TitleProps extends TypographyProps {
   children: ReactNode;
 }
 
-const Title: VibeComponent<TitleProps, HTMLElement> & {
+const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   types?: typeof HeadingType;
   weights?: typeof HeadingWeight;
   colors?: typeof TypographyColor;
@@ -33,7 +33,7 @@ const Title: VibeComponent<TitleProps, HTMLElement> & {
   );
 });
 
-export default withStaticProps(Title, {
+export default withStaticProps(Heading, {
   types: HeadingType,
   weights: HeadingWeight,
   align: TypographyAlign,

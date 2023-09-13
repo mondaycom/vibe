@@ -31,6 +31,9 @@ export { default as Label } from "./Label/Label";
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as DialogContentContainer } from "./DialogContentContainer/DialogContentContainer";
 export { default as Dropdown } from "./Dropdown/Dropdown";
+export { default as DropdownMenu } from "./Dropdown/components/menu/menu";
+export { default as DropdownOption } from "./Dropdown/components/option/option";
+export { default as DropdownSingleValue } from "./Dropdown/components/singleValue/singleValue";
 export { default as Toast } from "./Toast/Toast";
 export { default as ToastButton } from "./Toast/ToastButton/ToastButton";
 export { default as ToastLink } from "./Toast/ToastLink/ToastLink";
@@ -87,9 +90,15 @@ export { default as ModalFooter } from "./Modal/ModalFooter/ModalFooter";
 export { default as ModalFooterButtons } from "./Modal/ModalFooter/ModalFooterButtons/ModalFooterButtons";
 export { default as Box } from "./Box/Box";
 export { default as Text } from "./Text/Text";
-export { default as Title } from "./Title/Title";
 export {
   useGridKeyboardNavigationContext,
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 export { default as Badge } from "./Badge/Badge";
+export { default as Table } from "./Table/Table/Table";
+export { default as TableHeader } from "./Table/TableHeader/TableHeader";
+export { default as TableHeaderCell } from "./Table/TableHeaderCell/TableHeaderCell";
+export { default as TableBody } from "./Table/TableBody/TableBody";
+export { default as TableVirtualizedBody } from "./Table/TableVirtualizedBody/TableVirtualizedBody";
+export { default as TableRow } from "./Table/TableRow/TableRow";
+export { default as TableCell } from "./Table/TableCell/TableCell";

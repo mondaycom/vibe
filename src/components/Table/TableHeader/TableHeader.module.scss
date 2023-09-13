@@ -1,0 +1,12 @@
+.tableHeader {
+  display: grid;
+  grid-template-columns: var(--table-grid-template-columns);
+
+  >:first-child {
+    border-top-left-radius: 3px;
+  }
+
+  >:last-child {
+    border-top-right-radius: 3px;
+  }
+}

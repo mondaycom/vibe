@@ -34,3 +34,27 @@ export const getListItemComponentType = (listComponent: ListWrapperComponentType
       return ListItemComponentType.DIV;
   }
 };
+
+const isListItem = (element: HTMLElement) => {
+  return element && element.getAttribute("role") === "option";
+};
+
+export const getNextListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {
+  while (currentIndex < childrenRefs.current.length - 1) {
+    const child = childrenRefs.current[++currentIndex];
+    if (isListItem(child)) {
+      return currentIndex;
+    }
+  }
+  return undefined;
+};
+
+export const getPrevListItemIndex = (currentIndex: number, childrenRefs: MutableRefObject<HTMLElement[]>) => {
+  while (currentIndex > 0) {
+    const child = childrenRefs.current[--currentIndex];
+    if (isListItem(child)) {
+      return currentIndex;
+    }
+  }
+  return undefined;
+};

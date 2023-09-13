@@ -1,6 +1,5 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/typography";
-@import "../../../styles/themes";
 
 .monday-storybook-steps {
   &_inline-wrapper {
@@ -31,6 +30,6 @@
 
   &_color {
     padding: var(--spacing-small);
-    @include theme-prop(background-color, primary-color);
+    background-color: var(--primary-color);
   }
 }

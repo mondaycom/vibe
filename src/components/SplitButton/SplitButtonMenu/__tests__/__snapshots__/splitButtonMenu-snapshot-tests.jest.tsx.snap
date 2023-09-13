@@ -14,9 +14,9 @@ exports[`SplitButtonMenu renders correctly 1`] = `
 >
   <li
     aria-current={true}
-    className="typography primary start singleLineEllipsis text2Normal item focused initialSelected"
-    data-testid="menu-item0"
-    id="menu-0"
+    className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
+    data-testid="menu-item_0"
+    id="menu-item-0"
     onClick={[Function]}
     role="menuitem"
     tabIndex={-1}
@@ -40,9 +40,9 @@ exports[`SplitButtonMenu renders correctly 1`] = `
   </li>
   <li
     aria-current={false}
-    className="typography primary start singleLineEllipsis text2Normal item initialSelected"
+    className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
     data-testid="menu-item_1"
-    id="menu-1"
+    id="menu-item-1"
     onClick={[Function]}
     role="menuitem"
     tabIndex={-1}

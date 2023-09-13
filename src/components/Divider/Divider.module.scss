@@ -1,9 +1,8 @@
-@import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
 .divider {
-  @include theme-prop(background-color, layout-border-color);
+  background-color: var(--layout-border-color);
 }
 
 .divider.withoutMargin {
