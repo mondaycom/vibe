@@ -20,11 +20,12 @@ import {
   sort,
   virtualizedScrollTableColumns,
   virtualizedScrollTableData,
-  doAndDontIconsRuleData,
-  scrollTablePriorityColumnToLabelColor,
-  scrollTableStatusColumnToLabelColor,
+  doAndDontIconsRuleColumns,
+  priorityColumnToLabelColor,
+  statusColumnToLabelColor,
   scrollTableData,
-  scrollTableColumns
+  scrollTableColumns,
+  doAndDontIconsRuleData
 } from "./helpers";
 import {
   LABEL,
@@ -195,13 +196,8 @@ Table with both vertical and horizontal scroll
 
 <Canvas>
   <Story name="Scroll">
-    <TableContainer>
-      <Table
-        errorState={<TableErrorState />}
-        emptyState={<TableEmptyState />}
-        columns={scrollTableColumns}
-        className={styles.scrollTable}
-      >
+    <TableContainer className={styles.scrollTable}>
+      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
         <TableHeader>
           {scrollTableColumns.map((headerCell, index) => (
             <TableHeaderCell key={index} title={headerCell.title} />
@@ -211,23 +207,19 @@ Table with both vertical and horizontal scroll
           {scrollTableData.map(rowItem => (
             <TableRow key={rowItem.id}>
               <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>
+                <Label
+                  text={rowItem.priority}
+                  color={priorityColumnToLabelColor[rowItem.priority]}
+                  isAnimationDisabled
+                />
+              </TableCell>
               <TableCell>{rowItem.subject}</TableCell>
               <TableCell>
                 <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Label
-                  text={rowItem.status}
-                  color={scrollTableStatusColumnToLabelColor[rowItem.status]}
-                  isAnimationDisabled
-                />
-              </TableCell>
-              <TableCell>
-                <Label
-                  text={rowItem.priority}
-                  color={scrollTablePriorityColumnToLabelColor[rowItem.priority]}
-                  isAnimationDisabled
-                />
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
               </TableCell>
               <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
@@ -281,13 +273,35 @@ This is an example of a table with 5000 rows
     {
       positive: {
         component: (
-          <TableContainer>
-            <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={doAndDontIconsRuleData}>
+          <TableContainer className={styles.iconRule}>
+            <Table
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontIconsRuleColumns}
+            >
               <TableHeader>
-                {doAndDontIconsRuleData.map(cell => (
+                {doAndDontIconsRuleColumns.map(cell => (
                   <TableHeaderCell key={cell.id} {...cell} />
                 ))}
               </TableHeader>
+              <TableBody>
+                {doAndDontIconsRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>
+                      <TableAvatar text={rowItem.sentBy} />
+                    </TableCell>
+                    <TableCell>
+                      <Label
+                        text={rowItem.status}
+                        color={statusColumnToLabelColor[rowItem.status]}
+                        isAnimationDisabled
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
             </Table>
           </TableContainer>
         ),
@@ -295,13 +309,39 @@ This is an example of a table with 5000 rows
       },
       negative: {
         component: (
-          <TableContainer>
-            <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={doAndDontIconsRuleData}>
+          <TableContainer className={styles.iconRule}>
+            <Table
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontIconsRuleColumns}
+            >
               <TableHeader>
-                {doAndDontIconsRuleData.map((cell, index) => (
-                  <TableHeaderCell key={cell.id} {...cell} icon={index === 0 ? cell.icon : undefined} />
+                {doAndDontIconsRuleColumns.map(cell => (
+                  <TableHeaderCell
+                    key={cell.id}
+                    {...cell}
+                    icon={["subject", "sentBy"].includes(cell.id) ? cell.icon : undefined}
+                  />
                 ))}
               </TableHeader>
+              <TableBody>
+                {doAndDontIconsRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>
+                      <TableAvatar text={rowItem.sentBy} />
+                    </TableCell>
+                    <TableCell>
+                      <Label
+                        text={rowItem.status}
+                        color={statusColumnToLabelColor[rowItem.status]}
+                        isAnimationDisabled
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
             </Table>
           </TableContainer>
         ),

@@ -1,27 +1,59 @@
 import Avatar from "../../../Avatar/Avatar";
-import { Board, Folder, Group, Workspace } from "../../../Icon/Icons";
+import { Calendar, Doc, PersonRound, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
+
+export const doAndDontIconsRuleColumns = [
+  {
+    id: "sentOn",
+    title: "Sent on",
+    icon: Calendar
+  },
+  {
+    id: "subject",
+    title: "Subject",
+    icon: Doc
+  },
+  {
+    id: "sentBy",
+    title: "Sent by",
+    icon: PersonRound,
+    width: 100
+  },
+  {
+    id: "status",
+    title: "Status",
+    icon: Status
+  }
+];
 
 export const doAndDontIconsRuleData = [
   {
-    id: "workspace",
-    title: "Workspace",
-    icon: Workspace
+    id: "1",
+    sentOn: "Apr 22",
+    subject: "Limited time offer: AP Process",
+    sentBy: "John Doe",
+    status: "In progress"
   },
   {
-    id: "folder",
-    title: "Folder",
-    icon: Folder
+    id: "2",
+    sentOn: "Apr 22",
+    subject: "Action required: Update your AP",
+    sentBy: "Jane Doe",
+    status: "Queued"
   },
   {
-    id: "board",
-    title: "Board",
-    icon: Board
+    id: "3",
+    sentOn: "Apr 22",
+    subject: "Limited time offer: AP Process",
+    sentBy: "Peter Smith",
+    status: "Sent"
   },
   {
-    id: "group",
-    title: "Group",
-    icon: Group
+    id: "4",
+    sentOn: "Apr 22",
+    subject: "Action required: Update your AP",
+    sentBy: "Susan Jones",
+    status: "Failed"
   }
 ];
 
@@ -88,7 +120,7 @@ export const scrollTableData = [
     sentOn: "2020-01-01",
     sentBy: "John Doe",
     subject: "Lorem ipsum dolor",
-    status: "Sent",
+    status: "In progress",
     priority: "Urgent",
     emailsSent: 100
   },
@@ -97,7 +129,7 @@ export const scrollTableData = [
     sentOn: "2020-02-02",
     sentBy: "Jane Doe",
     subject: "Dolor sit amet",
-    status: "Draft",
+    status: "In progress",
     priority: "High",
     emailsSent: 50
   },
@@ -106,7 +138,7 @@ export const scrollTableData = [
     sentOn: "2020-03-03",
     sentBy: "Peter Smith",
     subject: "Consectetur adipiscing elit",
-    status: "Draft",
+    status: "Queued",
     priority: "Normal",
     emailsSent: 0
   },
@@ -115,7 +147,7 @@ export const scrollTableData = [
     sentOn: "2020-04-04",
     sentBy: "Susan Jones",
     subject: "Sed do eiusmod tempor incididunt",
-    status: "Sent",
+    status: "Failed",
     priority: "Low",
     emailsSent: 200
   },
@@ -133,29 +165,35 @@ export const scrollTableData = [
     sentOn: "2020-06-06",
     sentBy: "Michael Johnson",
     subject: "Et harum quidem rerum facilis est et expedita distinctio",
-    status: "Pending",
+    status: "Sent",
     priority: "High",
     emailsSent: 75
   }
 ];
 
-export const scrollTablePriorityColumnToLabelColor = {
+export const priorityColumnToLabelColor = {
   Urgent: LabelColor.NEGATIVE,
   High: LabelColor.DARK,
   Normal: LabelColor.PRIMARY,
   Low: LabelColor.POSITIVE
 };
 
-export const scrollTableStatusColumnToLabelColor = {
+export const statusColumnToLabelColor = {
   Sent: LabelColor.POSITIVE,
-  Draft: LabelColor.NEGATIVE,
-  Pending: LabelColor.PRIMARY
+  Queued: LabelColor.DARK,
+  Failed: LabelColor.NEGATIVE,
+  "In progress": LabelColor.PRIMARY
 };
 
 export const scrollTableColumns = [
   {
     id: "sentOn",
     title: "Sent on",
+    width: 150
+  },
+  {
+    id: "priority",
+    title: "Priority",
     width: 150
   },
   {
@@ -174,11 +212,6 @@ export const scrollTableColumns = [
     title: "Status",
     width: 150,
     infoContent: "Info content for the status column"
-  },
-  {
-    id: "priority",
-    title: "Priority",
-    width: 150
   },
   {
     id: "emailsSent",
