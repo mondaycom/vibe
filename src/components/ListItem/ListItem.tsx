@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import cx from "classnames";
-import React, { AriaAttributes, forwardRef, ReactElement, useCallback, useContext, useEffect, useRef } from "react";
+import React, { AriaAttributes, forwardRef, useCallback, useContext, useEffect, useRef } from "react";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
+import { withStaticProps, VibeComponentProps, VibeComponent, ElementContent } from "../../types";
 import { useKeyEvent, useMergeRefs } from "../../hooks";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType } from "./ListItemConstants";
@@ -20,7 +20,7 @@ export interface ListItemProps extends VibeComponentProps {
   /**
    * The textual content of the list item
    */
-  children?: string | ReactElement;
+  children?: ElementContent;
   /**
    * A class name to be passed to the list item wrapper
    */
