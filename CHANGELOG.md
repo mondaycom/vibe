@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.38.0 (2023-09-14)
+
+#### New Features
+* [#1520](https://github.com/mondaycom/monday-ui-react-core/pull/1520) Added the ability for combobox categories to get classNames and inline color as props ([@MBYOded](https://github.com/MBYOded))
+
 ## 2.37.1 (2023-09-14)
 
 #### Bug Fixes
