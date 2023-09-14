@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.37.1 (2023-09-14)
+
+#### Bug Fixes
+* [#1546](https://github.com/mondaycom/monday-ui-react-core/pull/1546) fix: <ListItem> children type change to ElementContent ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.37.0 (2023-09-14)
 
 #### New Features
