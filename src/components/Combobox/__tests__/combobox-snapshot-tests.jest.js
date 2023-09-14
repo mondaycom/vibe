@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Combobox from "../Combobox";
+import NewTab from "../../Icon/Icons/components/NewTab";
 
 describe("Combobox renders correctly", () => {
   it("with empty props", () => {
@@ -15,6 +16,11 @@ describe("Combobox renders correctly", () => {
 
   it("with optionClassName", () => {
     const tree = renderer.create(<Combobox optionClassName="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with custom search icon", () => {
+    const tree = renderer.create(<Combobox optionClassName="test" searchIcon={NewTab} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
