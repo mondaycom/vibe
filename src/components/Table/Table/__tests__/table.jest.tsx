@@ -1,11 +1,14 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import TableCell from "../../TableCell/TableCell";
 import Table, { ITableColumn } from "../Table";
 import TableBody from "../../TableBody/TableBody";
 import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
+import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
+import { SkeletonType } from "../../../Skeleton/SkeletonConstants";
 
 interface TableNode {
   role: string;
@@ -64,6 +67,26 @@ describe("Table", () => {
       const cell = getByRole("cell");
 
       expect(cell.innerHTML).toBe(`<div>Content</div>`);
+    });
+  });
+
+  describe("TableCellSkeleton", () => {
+    it("should render with a specified type", () => {
+      const { getByTestId } = render(<TableCellSkeleton type="long-text" />);
+      expect(getByTestId("skeleton")).toHaveClass("longText");
+    });
+  });
+
+  describe("loading state", () => {
+    it("should render skeletons body in case loadingState is true", () => {
+      const { getByRole } = render(
+        <Table {...tableBoilerplate} dataState={{ isLoading: true }}>
+          <TableBody></TableBody>
+        </Table>
+      );
+
+      const tableBodyElement = getByRole("rowgroup");
+      expect(tableBodyElement.children.length).toBe(5);
     });
   });
 

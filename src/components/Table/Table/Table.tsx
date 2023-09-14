@@ -8,12 +8,15 @@ import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
+export type TableContentSkeletonType = "long-text" | "medium-text" | "circle" | "rectangle";
+
 export interface ITableColumn {
   id: string;
   title: string;
   infoContent?: string;
   width?: number | { min: number; max: number };
   icon?: SubIcon;
+  contentSkeleton?: TableContentSkeletonType | TableContentSkeletonType[];
 }
 
 interface ITableProps extends VibeComponentProps {
