@@ -47,13 +47,6 @@ export const doAndDontIconsRuleData = [
     subject: "Limited time offer: AP Process",
     sentBy: "Peter Smith",
     status: "Sent"
-  },
-  {
-    id: "4",
-    sentOn: "Apr 22",
-    subject: "Action required: Update your AP",
-    sentBy: "Susan Jones",
-    status: "Failed"
   }
 ];
 
