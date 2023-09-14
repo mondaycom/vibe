@@ -102,9 +102,9 @@ describe("Combobox tests", () => {
       { id: "item 7", label: "item 7", categoryId: "third", value: "item 7" }
     ];
     const categories = {
-      first: { id: "first", label: "first" },
-      second: { id: "second", label: "second" },
-      third: { id: "third", label: "third" }
+      first: { id: "first", label: "first", color: "red" },
+      second: { id: "second", label: "second", color: "blue" },
+      third: { id: "third", label: "third", color: "orange" }
     };
 
     it("Should trigger the on click callback on the correct item with regular categories", () => {
