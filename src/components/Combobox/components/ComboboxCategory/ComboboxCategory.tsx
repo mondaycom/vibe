@@ -10,7 +10,7 @@ interface ComboboxCategoryProps {
 }
 
 const ComboboxCategory: FC<ComboboxCategoryProps> = ({ category, className }) => {
-  const { label, id, ariaLabel, categoryClassName, color } = category;
+  const { label, id, ariaLabel, color } = category;
 
   if (!label) return null;
 
@@ -22,7 +22,7 @@ const ComboboxCategory: FC<ComboboxCategoryProps> = ({ category, className }) =>
       aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
       style={{ color }}
-      className={cx(styles.comboboxCategory, comboboxStyles.comboboxCategory, className, categoryClassName)}
+      className={cx(styles.comboboxCategory, comboboxStyles.comboboxCategory, className)}
     >
       {label}
     </div>

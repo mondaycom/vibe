@@ -21,8 +21,7 @@ export interface IComboboxCategory {
   id: string;
   ariaLabel?: string;
   onlyShowOnSearch?: boolean;
-  categoryClassName?: string;
-  color?: ElementColor;
+  color?: string;
 }
 
 export interface IComboboxOption {
