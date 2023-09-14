@@ -196,6 +196,11 @@ Table with both vertical and horizontal scroll
 
 <Canvas>
   <Story name="Scroll">
+    {
+      {
+        /* styles.scrollTable = height: 220px; width: 800px to enforce scrolling container */
+      }
+    }
     <TableContainer className={styles.scrollTable}>
       <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
         <TableHeader>
