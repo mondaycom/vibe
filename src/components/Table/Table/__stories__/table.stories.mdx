@@ -158,30 +158,29 @@ Using skeleton
 <Canvas>
   <Story name="Loading">
     <TableContainer>
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+      <Table
+        dataState={{ isLoading: true }}
+        errorState={<TableErrorState />}
+        emptyState={<TableEmptyState />}
+        columns={emailColumns}
+      >
         <TableHeader>
           {emailColumns.map((headerCell, index) => (
             <TableHeaderCell key={index} title={headerCell.title} />
           ))}
         </TableHeader>
         <TableBody>
-          {[...new Array(5)].map((key, index) => (
-            <TableRow key={index}>
+          {emailTableData.map(rowItem => (
+            <TableRow key={rowItem.id}>
+              <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>{rowItem.subject}</TableCell>
               <TableCell>
-                <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 140 : 70} />
+                <TableAvatar text={rowItem.sentBy} />
               </TableCell>
               <TableCell>
-                <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 200 : 120} />
+                <Label text={rowItem.status} color="positive" isAnimationDisabled />
               </TableCell>
-              <TableCell>
-                <Skeleton type={Skeleton.types.CIRCLE} height={24} width={24} />
-              </TableCell>
-              <TableCell>
-                <Skeleton type={Skeleton.types.TEXT} height={20} />
-              </TableCell>
-              <TableCell>
-                <Skeleton type={Skeleton.types.TEXT} height={20} />
-              </TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
             </TableRow>
           ))}
         </TableBody>
