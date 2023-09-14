@@ -243,6 +243,62 @@ When having a lot of options, you may use headings to categorize them.
   </Story>
 </Canvas>
 
+You can also provide custom colors for your headings.
+
+<Canvas>
+  <Story name="With colored categories">
+    {() => {
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Apple", categoryId: "red" },
+          { id: "2", label: "Banana", categoryId: "yellow" },
+          { id: "3", label: "Submarine", categoryId: "yellow" },
+          { id: "4", label: "Ruby", categoryId: "red" },
+          { id: "5", label: "Strawberry", categoryId: "red" },
+          { id: "6", label: "SpongeBob", categoryId: "yellow" }
+        ],
+        []
+      );
+      const categories = useMemo(
+        () => ({
+          favorites: { id: "red", label: "I'm red", color: "red" },
+          workspace: { id: "yellow", label: "I'm yellow", color: "yellow" }
+        }),
+        []
+      );
+      return (
+        <Flex
+          gap={50}
+          style={{ width: "100%" }}
+          justify={Flex.justify.START}
+          align={Flex.align.START}
+        >
+          <StoryDescription description="Regular" vertical align={Flex.align.START}>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here"/>
+            </DialogContentContainer>
+          </StoryDescription>
+          <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+            </DialogContentContainer>
+          </StoryDescription>
+          <StoryDescription description="With divider" vertical align={Flex.align.START}>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox
+                options={options}
+                categories={categories}
+                withCategoriesDivider
+                placeholder="Placeholder text here"
+              />
+            </DialogContentContainer>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### With icons
 
 <Canvas>
