@@ -1,7 +1,6 @@
 import { SubIcon } from "../../../types";
 import React from "react";
 import { MutableRef } from "preact/hooks";
-import { ElementColor } from "../../../utils/colors-vars-map";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
