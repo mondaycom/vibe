@@ -4,20 +4,33 @@ import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { StoryDescription, Link } from "vibe-storybook-components";
 import { defaultPlaySuite } from "../__tests__/combobox-interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
-import { Update, Time, Upgrade, ThumbsUp, Wand, Person } from "../../Icon/Icons";
+import { Update, Time, Upgrade, ThumbsUp, Wand, Person, Form } from "../../Icon/Icons";
 import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import { Edit } from "../../Icon/Icons";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";
-import { StoryDescription, Link } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import "./combobox.stories.scss";
 
-<Meta title="Inputs/Combo box" component={Combobox} />
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: Combobox,
+  enumPropNamesArray: ["size"],
+  iconPropNamesArray: ["searchIcon"],
+  actionPropsArray: ["onOptionHover", "onOptionLeave", "onFilterChanged"]
+});
+
+<Meta
+  title="Inputs/Combo box"
+  component={Combobox}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component template -->
 
@@ -203,15 +216,10 @@ When having a lot of options, you may use headings to categorize them.
         []
       );
       return (
-        <Flex
-          gap={50}
-          style={{ width: "100%" }}
-          justify={Flex.justify.START}
-          align={Flex.align.START}
-        >
+        <Flex gap={50} style={{ width: "100%" }} justify={Flex.justify.START} align={Flex.align.START}>
           <StoryDescription description="Regular" vertical align={Flex.align.START}>
             <DialogContentContainer style={{ height: "200px" }}>
-              <Combobox options={options} categories={categories} placeholder="Placeholder text here"/>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
           <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
@@ -330,22 +338,23 @@ If combo box requires action, use button component at the end of the list.
 
 <Canvas>
   <Story name="With Creation">
-      {() => {
-        const [options, setOptions] = useState([]);
-        return (
-          <DialogContentContainer>
-            <Combobox
-              options={options}
-              placeholder="Type to create"
-              addNewLabel="Create new item"
-              onAddNew={() => setOptions([...options, {id: options.length + 1, label: `Option: ${options.length + 1}`}]) }
-            />
-          </DialogContentContainer>
-        );
-      }}
+    {() => {
+      const [options, setOptions] = useState([]);
+      return (
+        <DialogContentContainer>
+          <Combobox
+            options={options}
+            placeholder="Type to create"
+            addNewLabel="Create new item"
+            onAddNew={() =>
+              setOptions([...options, { id: options.length + 1, label: `Option: ${options.length + 1}` }])
+            }
+          />
+        </DialogContentContainer>
+      );
+    }}
   </Story>
 </Canvas>
-
 
 ### With virtualization optimization
 
