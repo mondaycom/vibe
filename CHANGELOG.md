@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.37.0 (2023-09-14)
+
+#### New Features
+* [#1545](https://github.com/mondaycom/monday-ui-react-core/pull/1545) Exposed the ability to control the search icon for combobox ([@MBYOded](https://github.com/MBYOded))
+
 ## 2.36.3 (2023-09-13)
 
 #### Bug Fixes
