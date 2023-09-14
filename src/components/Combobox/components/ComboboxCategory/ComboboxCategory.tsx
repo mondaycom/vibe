@@ -21,7 +21,7 @@ const ComboboxCategory: FC<ComboboxCategoryProps> = ({ category, className }) =>
       aria-level={1}
       aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
-      style={{ color }}
+      style={color && { color }}
       className={cx(styles.comboboxCategory, comboboxStyles.comboboxCategory, className)}
     >
       {label}

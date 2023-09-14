@@ -725,11 +725,6 @@ exports[`Combobox renders correctly with divider 1`] = `
           className="comboboxCategory comboboxCategory categoryWithOptions firstCategory"
           id="combobox-category-cat1"
           role="row"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
         >
           cat1
         </div>
@@ -787,11 +782,6 @@ exports[`Combobox renders correctly with divider 1`] = `
           className="comboboxCategory comboboxCategory categoryWithOptions"
           id="combobox-category-cat2"
           role="row"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
         >
           cat2
         </div>
