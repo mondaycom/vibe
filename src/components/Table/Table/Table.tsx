@@ -27,6 +27,7 @@ interface ITableProps extends VibeComponentProps {
   };
   errorState: ReactElement;
   emptyState: ReactElement;
+  style?: React.CSSProperties;
   children?:
     | ReactElement<ITableHeaderProps>
     | ReactElement<ITableBodyProps>
@@ -50,6 +51,7 @@ const Table: FC<ITableProps> = ({
   errorState,
   emptyState,
   dataState,
+  style,
   children
 }) => {
   const classNames = cx(styles.table, className);
@@ -59,13 +61,13 @@ const Table: FC<ITableProps> = ({
     /* The `--table-grid-template-columns` variable will be available under each <Table /> scope
      * and will be consumed in the stylesheets of its children (<TableHeader />, <TableRow />) */
   }
-  const style = { "--table-grid-template-columns": gridTemplateColumns } as React.CSSProperties;
+  const calculatedStyle = { "--table-grid-template-columns": gridTemplateColumns, ...style } as React.CSSProperties;
 
   const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
 
   return (
     <TableContext.Provider value={{ columns, emptyState, errorState, dataState }}>
-      <div id={id} className={classNames} data-testid={testId} role="table" style={style}>
+      <div id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
         {children}
       </div>
     </TableContext.Provider>

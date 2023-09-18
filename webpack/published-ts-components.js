@@ -1,7 +1,6 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
-  TableContainer: "components/TableContainer/TableContainer",
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
   Button: "components/Button/Button",

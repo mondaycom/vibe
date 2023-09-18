@@ -32,8 +32,6 @@ import {
   ICON_BUTTON,
   SKELETON
 } from "../../../../storybook/components/related-components/component-description-map";
-import styles from "./table.stories.module.scss";
-import TableContainer from "../../../TableContainer/TableContainer";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table
@@ -42,7 +40,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 <Meta
   title="Data display/Table"
   component={metaSettings.component}
-  subcomponents={{ TableContainer, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, TableVirtualizedBody }}
+  subcomponents={{ TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, TableVirtualizedBody }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -69,30 +67,28 @@ Table
 
 <Canvas>
   <Story name="Overview">
-    <TableContainer>
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
-        <TableHeader>
-          {emailColumns.map((headerCell, index) => (
-            <TableHeaderCell key={index} title={headerCell.title} />
-          ))}
-        </TableHeader>
-        <TableBody>
-          {emailTableData.map(rowItem => (
-            <TableRow key={rowItem.id}>
-              <TableCell>{rowItem.sentOn}</TableCell>
-              <TableCell>{rowItem.subject}</TableCell>
-              <TableCell>
-                <TableAvatar text={rowItem.sentBy} />
-              </TableCell>
-              <TableCell>
-                <Label text={rowItem.status} color="positive" isAnimationDisabled />
-              </TableCell>
-              <TableCell>{rowItem.emailsSent}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+      <TableHeader>
+        {emailColumns.map((headerCell, index) => (
+          <TableHeaderCell key={index} title={headerCell.title} />
+        ))}
+      </TableHeader>
+      <TableBody>
+        {emailTableData.map(rowItem => (
+          <TableRow key={rowItem.id}>
+            <TableCell>{rowItem.sentOn}</TableCell>
+            <TableCell>{rowItem.subject}</TableCell>
+            <TableCell>
+              <TableAvatar text={rowItem.sentBy} />
+            </TableCell>
+            <TableCell>
+              <Label text={rowItem.status} color="positive" isAnimationDisabled />
+            </TableCell>
+            <TableCell>{rowItem.emailsSent}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   </Story>
 </Canvas>
 
@@ -114,37 +110,35 @@ Sorting, Icons and Information added to selected columns
         setTableData(sort(columnId, sortState, tableData));
       };
       return (
-        <TableContainer>
-          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
-            <TableHeader>
-              {emailColumns.map((headerCell, index) => (
-                <TableHeaderCell
-                  key={index}
-                  title={headerCell.title}
-                  icon={headerCell.icon}
-                  infoContent={headerCell.infoContent}
-                  onSortClicked={sortState => onSort(headerCell.id, sortState)}
-                  sortState={sorting[headerCell.id]}
-                />
-              ))}
-            </TableHeader>
-            <TableBody>
-              {tableData.map(rowItem => (
-                <TableRow key={rowItem.id}>
-                  <TableCell>{rowItem.sentOn}</TableCell>
-                  <TableCell>{rowItem.subject}</TableCell>
-                  <TableCell>
-                    <TableAvatar text={rowItem.sentBy} />
-                  </TableCell>
-                  <TableCell>
-                    <Label text={rowItem.status} isAnimationDisabled color="positive" />
-                  </TableCell>
-                  <TableCell>{rowItem.emailsSent}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
+                onSortClicked={sortState => onSort(headerCell.id, sortState)}
+                sortState={sorting[headerCell.id]}
+              />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {tableData.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+                <TableCell>
+                  <TableAvatar text={rowItem.sentBy} />
+                </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       );
     }}
     ;
@@ -157,35 +151,33 @@ Using skeleton
 
 <Canvas>
   <Story name="Loading">
-    <TableContainer>
-      <Table
-        dataState={{ isLoading: true }}
-        errorState={<TableErrorState />}
-        emptyState={<TableEmptyState />}
-        columns={emailColumns}
-      >
-        <TableHeader>
-          {emailColumns.map((headerCell, index) => (
-            <TableHeaderCell key={index} title={headerCell.title} />
-          ))}
-        </TableHeader>
-        <TableBody>
-          {emailTableData.map(rowItem => (
-            <TableRow key={rowItem.id}>
-              <TableCell>{rowItem.sentOn}</TableCell>
-              <TableCell>{rowItem.subject}</TableCell>
-              <TableCell>
-                <TableAvatar text={rowItem.sentBy} />
-              </TableCell>
-              <TableCell>
-                <Label text={rowItem.status} color="positive" isAnimationDisabled />
-              </TableCell>
-              <TableCell>{rowItem.emailsSent}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Table
+      dataState={{ isLoading: true }}
+      errorState={<TableErrorState />}
+      emptyState={<TableEmptyState />}
+      columns={emailColumns}
+    >
+      <TableHeader>
+        {emailColumns.map((headerCell, index) => (
+          <TableHeaderCell key={index} title={headerCell.title} />
+        ))}
+      </TableHeader>
+      <TableBody>
+        {emailTableData.map(rowItem => (
+          <TableRow key={rowItem.id}>
+            <TableCell>{rowItem.sentOn}</TableCell>
+            <TableCell>{rowItem.subject}</TableCell>
+            <TableCell>
+              <TableAvatar text={rowItem.sentBy} />
+            </TableCell>
+            <TableCell>
+              <Label text={rowItem.status} color="positive" isAnimationDisabled />
+            </TableCell>
+            <TableCell>{rowItem.emailsSent}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   </Story>
 </Canvas>
 
@@ -195,12 +187,7 @@ Table with both vertical and horizontal scroll
 
 <Canvas>
   <Story name="Scroll">
-    {
-      {
-        /* styles.scrollTable = height: 220px; width: 800px to enforce scrolling container */
-      }
-    }
-    <TableContainer className={styles.scrollTable}>
+    <div style={{ height: 220, width: 800 }}>
       <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
         <TableHeader>
           {scrollTableColumns.map((headerCell, index) => (
@@ -230,7 +217,7 @@ Table with both vertical and horizontal scroll
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </div>
   </Story>
 </Canvas>
 
@@ -250,21 +237,19 @@ This is an example of a table with 5000 rows
         );
       };
       return (
-        <TableContainer>
-          <Table
-            errorState={<TableErrorState />}
-            emptyState={<TableEmptyState />}
-            columns={virtualizedScrollTableColumns}
-            className={styles.virtualizedScrollTable}
-          >
-            <TableHeader>
-              {virtualizedScrollTableColumns.map((cell, index) => (
-                <TableHeaderCell key={index} {...cell} />
-              ))}
-            </TableHeader>
-            <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
-          </Table>
-        </TableContainer>
+        <Table
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={virtualizedScrollTableColumns}
+          style={{ height: 250 }}
+        >
+          <TableHeader>
+            {virtualizedScrollTableColumns.map((cell, index) => (
+              <TableHeaderCell key={index} {...cell} />
+            ))}
+          </TableHeader>
+          <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
+        </Table>
       );
     }}
   </Story>
@@ -277,7 +262,7 @@ This is an example of a table with 5000 rows
     {
       positive: {
         component: (
-          <TableContainer className={styles.iconRule}>
+          <div style={{ width: "95%" }}>
             <Table
               errorState={<TableErrorState />}
               emptyState={<TableEmptyState />}
@@ -307,13 +292,13 @@ This is an example of a table with 5000 rows
                 ))}
               </TableBody>
             </Table>
-          </TableContainer>
+          </div>
         ),
         description: "If there’s a need to insert an icon, use for all columns."
       },
       negative: {
         component: (
-          <TableContainer className={styles.iconRule}>
+          <div style={{ width: "95%" }}>
             <Table
               errorState={<TableErrorState />}
               emptyState={<TableEmptyState />}
@@ -347,7 +332,7 @@ This is an example of a table with 5000 rows
                 ))}
               </TableBody>
             </Table>
-          </TableContainer>
+          </div>
         ),
         description: "Don't use icons if not applied to all columns titles."
       }
