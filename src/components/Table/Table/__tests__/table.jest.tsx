@@ -8,7 +8,6 @@ import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
-import { SkeletonType } from "../../../Skeleton/SkeletonConstants";
 
 interface TableNode {
   role: string;
