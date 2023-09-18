@@ -6,6 +6,7 @@ import styles from "./TableBody.module.scss";
 import { TableContext } from "../Table/Table";
 import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";
 import { SKELETON_ROWS_AMOUNT } from "../Table/TableConsts";
+import { getLoadingTypeForCell } from "../Table/tableHelpers";
 
 export interface ITableBodyProps extends VibeComponentProps {
   children?:
@@ -20,14 +21,12 @@ const TableBody: FC<ITableBodyProps> = ({ children }) => {
 
   const skeletonRender = [...new Array(SKELETON_ROWS_AMOUNT)].map((_, rowIndex) => (
     <TableRow key={rowIndex}>
-      {columns.map(({ contentSkeleton }, columnIndex) => {
-        return (
-          <TableCellSkeleton
-            key={`${rowIndex}-${columnIndex}`}
-            type={Array.isArray(contentSkeleton) ? contentSkeleton[rowIndex % contentSkeleton.length] : contentSkeleton}
-          />
-        );
-      })}
+      {columns.map(({ loadingStateType }, columnIndex) => (
+        <TableCellSkeleton
+          key={`${rowIndex}-${columnIndex}`}
+          type={getLoadingTypeForCell(loadingStateType, rowIndex)}
+        />
+      ))}
     </TableRow>
   ));
 

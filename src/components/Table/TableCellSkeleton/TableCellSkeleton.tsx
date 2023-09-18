@@ -5,12 +5,12 @@ import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
 import { VibeComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { TableContentSkeletonType } from "../Table/Table";
+import { TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
 import { camelCase } from "lodash-es";
 
 export interface TableCellSkeletonProps extends VibeComponentProps {
-  type?: TableContentSkeletonType;
+  type?: TableLoadingStateType;
   short?: boolean;
 }
 

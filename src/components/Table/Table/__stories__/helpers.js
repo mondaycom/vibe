@@ -79,32 +79,32 @@ export const emailColumns = [
     id: "sentOn",
     title: "Sent on",
     width: 150,
-    contentSkeleton: "long-text"
+    loadingStateType: "medium-text"
   },
   {
     id: "subject",
     title: "Subject",
-    contentSkeleton: ["long-text", "medium-text"]
+    loadingStateType: "long-text"
   },
   {
     id: "sentBy",
     title: "Sent by",
     width: { min: 120, max: 200 },
     infoContent: "This is the sender",
-    contentSkeleton: "circle"
+    loadingStateType: "circle"
   },
   {
     id: "status",
     title: "Status",
     width: 150,
     infoContent: "Info content for the status column",
-    contentSkeleton: "long-text"
+    loadingStateType: "medium-text"
   },
   {
     id: "emailsSent",
     title: "Emails sent",
     width: 150,
-    contentSkeleton: "long-text"
+    loadingStateType: "medium-text"
   }
 ];
 
