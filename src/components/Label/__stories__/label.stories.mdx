@@ -4,10 +4,12 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import "./label.stories.scss";
+import { NOOP } from "../../../utils/function-utils";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
-  enumPropNamesArray: ["kind" ,"color"]
+  enumPropNamesArray: ["kind" ,"color"],
+    actionPropsArray: ["onClick"]
 })
 
 <Meta
@@ -34,7 +36,7 @@ export const labelTemplate = createComponentTemplate(Label);
 - [Feedback](#feedback)
 
 ## Overview
-A label indicates the status of an item. It is not clickable.
+A label indicates the status of an item.
 <Canvas>
   <Story name="Overview"
          args={ {text: "New"} }>
@@ -135,6 +137,19 @@ In case of visual overload, use the secondary label in order to create hirarchy.
         <p>Enhance your dashboard with widgets built on the monday apps framework</p>
       </div>
     </MultipleStoryElementsWrapper>
+  </Story>
+</Canvas>
+
+### Clickable
+Default prop is set to false. In case you want to activate, change boolean to true.
+<Canvas>
+  <Story name="Clickable">
+    <div className="monday-storybook-label_block">
+      <div className="monday-storybook-label_inline-block">
+        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
+        <Label text="Beta" onClick={NOOP} />
+      </div>
+    </div>
   </Story>
 </Canvas>
 
