@@ -279,9 +279,6 @@ This is an example of a table with 5000 rows
                     <TableCell>{rowItem.sentOn}</TableCell>
                     <TableCell>{rowItem.subject}</TableCell>
                     <TableCell>
-                      <TableAvatar text={rowItem.sentBy} />
-                    </TableCell>
-                    <TableCell>
                       <Label
                         text={rowItem.status}
                         color={statusColumnToLabelColor[rowItem.status]}
@@ -306,11 +303,7 @@ This is an example of a table with 5000 rows
             >
               <TableHeader>
                 {doAndDontIconsRuleColumns.map(cell => (
-                  <TableHeaderCell
-                    key={cell.id}
-                    {...cell}
-                    icon={["subject", "sentBy"].includes(cell.id) ? cell.icon : undefined}
-                  />
+                  <TableHeaderCell key={cell.id} {...cell} icon={cell.id === "subject" ? cell.icon : undefined} />
                 ))}
               </TableHeader>
               <TableBody>
@@ -318,9 +311,6 @@ This is an example of a table with 5000 rows
                   <TableRow key={rowItem.id}>
                     <TableCell>{rowItem.sentOn}</TableCell>
                     <TableCell>{rowItem.subject}</TableCell>
-                    <TableCell>
-                      <TableAvatar text={rowItem.sentBy} />
-                    </TableCell>
                     <TableCell>
                       <Label
                         text={rowItem.status}

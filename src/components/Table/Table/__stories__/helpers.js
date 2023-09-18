@@ -1,12 +1,13 @@
 import Avatar from "../../../Avatar/Avatar";
-import { Calendar, Doc, PersonRound, Status } from "../../../Icon/Icons";
+import { Calendar, Doc, Status } from "../../../Icon/Icons";
 import { LabelColor } from "../../../Label/LabelConstants";
 
 export const doAndDontIconsRuleColumns = [
   {
     id: "sentOn",
     title: "Sent on",
-    icon: Calendar
+    icon: Calendar,
+    width: 95
   },
   {
     id: "subject",
@@ -14,15 +15,10 @@ export const doAndDontIconsRuleColumns = [
     icon: Doc
   },
   {
-    id: "sentBy",
-    title: "Sent by",
-    icon: PersonRound,
-    width: 100
-  },
-  {
     id: "status",
     title: "Status",
-    icon: Status
+    icon: Status,
+    width: 120
   }
 ];
 
