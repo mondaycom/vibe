@@ -259,5 +259,6 @@ export const TableAvatar = ({ text }) => (
     size={Avatar.sizes.SMALL}
     ariaLabel={text}
     backgroundColor="dark_purple"
+    tabIndex={-1}
   />
 );

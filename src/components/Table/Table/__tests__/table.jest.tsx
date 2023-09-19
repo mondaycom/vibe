@@ -69,6 +69,18 @@ describe("Table", () => {
     });
   });
 
+  describe("TableRow", () => {
+    it("should render without a highlight state", () => {
+      const { getByRole } = render(<TableRow />);
+      expect(getByRole("row")).toHaveAttribute("aria-selected", "false");
+    });
+
+    it("should render with a highlight state", () => {
+      const { getByRole } = render(<TableRow highlight />);
+      expect(getByRole("row")).toHaveAttribute("aria-selected", "true");
+    });
+  });
+
   describe("TableCellSkeleton", () => {
     it("should render with a specified type", () => {
       const { getByTestId } = render(<TableCellSkeleton type="long-text" />);
