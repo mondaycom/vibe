@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { FC, useMemo, useRef } from "react";
+import React, { FC, useCallback, useMemo, useRef } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
@@ -45,7 +45,6 @@ const Label: FC<LabelProps> & {
   onClick
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
-  const textColor = color === LabelColor.DARK ? Text.colors.ON_PRIMARY : Text.colors.ON_INVERTED;
   const isClickable = Boolean(onClick);
   const classNames = useMemo(
     () =>
@@ -62,10 +61,21 @@ const Label: FC<LabelProps> & {
       ),
     [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isClickable]
   );
+
+  const onClickCallback = useCallback(
+    (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+      if (onClick) {
+        event.preventDefault();
+        onClick(event);
+      }
+    },
+    [onClick]
+  );
+
   const labelRef = useRef<HTMLSpanElement>(null);
   const clickableProps = useClickableProps(
     {
-      onClick,
+      onClick: onClickCallback,
       id,
       ariaHidden: false,
       ariaHasPopup: false,
@@ -81,7 +91,7 @@ const Label: FC<LabelProps> & {
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
       ref={labelRef}
     >
-      <Text type={Text.types.TEXT2} className={classNames} color={textColor}>
+      <Text element="span" type={Text.types.TEXT2} className={classNames} color={Text.colors.ON_INVERTED}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </Text>
