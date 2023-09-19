@@ -25,7 +25,7 @@ interface LabelProps extends VibeComponentProps {
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 const Label: FC<LabelProps> & {
