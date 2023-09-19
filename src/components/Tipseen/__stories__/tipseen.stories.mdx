@@ -4,6 +4,7 @@ import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
+import TipseenMedia from "../TipseenMedia/TipseenMedia";
 import picture from "./assets/picture.png";
 import Icon from "../../Icon/Icon";
 import { Board, BoardPrivate } from "../../Icon/Icons";
@@ -17,8 +18,6 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
-import { useSwitch } from "../../../hooks";
-import Button from "../../Button/Button";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
@@ -28,6 +27,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 <Meta
   title="Popover/Tipseen"
   component={Tipseen}
+  subcomponents={{ TipseenMedia, TipseenImage, TipseenContent, TipseenWizard }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
