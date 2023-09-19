@@ -3,6 +3,10 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/keyframes";
 
+.clickable {
+  @include clickable.clickable;
+}
+
 .label {
   @include smoothing-text;
   display: inline-flex;
@@ -11,10 +15,6 @@
   border-radius: var(--border-radius-small);
   padding: 1px var(--spacing-small);
   position: relative;
-
-  &.clickable {
-    @include clickable.clickable;
-  }
 }
 
 .withLeg {

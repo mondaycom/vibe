@@ -56,10 +56,9 @@ const Label: FC<LabelProps> & {
           [styles.withAnimation]: !isAnimationDisabled,
           [styles.withLeg]: isLegIncluded
         },
-        labelClassName,
-        { [styles.clickable]: isClickable }
+        labelClassName
       ),
-    [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isClickable]
+    [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
 
   const labelRef = useRef<HTMLSpanElement>(null);
@@ -77,7 +76,7 @@ const Label: FC<LabelProps> & {
   return (
     <span
       {...(isClickable && clickableProps)}
-      className={cx(overrideClassName)}
+      className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
       ref={labelRef}
     >
