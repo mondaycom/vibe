@@ -185,6 +185,10 @@ Use when the tip is too long or when you want to teach something in steps.
 
 ### Floating Tipseen
 
+Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
+
+In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+
 <Canvas>
   <Story name="Floating Tipseen" height="500px">
     <Tipseen
@@ -194,8 +198,7 @@ Use when the tip is too long or when you want to teach something in steps.
         <>
           <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
           <TipseenContent title="This is a Floating Tipseen">
-            Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general. In
-            this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+            Popover message will appear here lorem ipsum dolor samet…
           </TipseenContent>
         </>
       }
