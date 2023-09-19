@@ -14,6 +14,7 @@
   margin: var(--chips-margin, #{0 var(--spacing-xs)});
   user-select: none;
   @include smoothing-text;
+  color: var(--primary-text-color);
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
   &.border {
     border: 1px solid var(--primary-background-color);
