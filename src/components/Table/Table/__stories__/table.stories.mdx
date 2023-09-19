@@ -67,14 +67,108 @@ Table
 
 <Canvas>
   <Story name="Overview">
-    <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+    <Table
+      errorState={<TableErrorState />}
+      emptyState={<TableEmptyState />}
+      columns={[
+        {
+          id: "sentOn",
+          title: "Sent on",
+          width: 150,
+          loadingStateType: "medium-text"
+        },
+        {
+          id: "subject",
+          title: "Subject",
+          loadingStateType: "long-text"
+        },
+        {
+          id: "sentBy",
+          title: "Sent by",
+          width: { min: 120, max: 200 },
+          infoContent: "This is the sender",
+          loadingStateType: "circle"
+        },
+        {
+          id: "status",
+          title: "Status",
+          width: 150,
+          infoContent: "Info content for the status column",
+          loadingStateType: "medium-text"
+        },
+        {
+          id: "emailsSent",
+          title: "Emails sent",
+          width: 150,
+          loadingStateType: "medium-text"
+        }
+      ]}
+    >
       <TableHeader>
-        {emailColumns.map((headerCell, index) => (
+        {[
+          {
+            id: "sentOn",
+            title: "Sent on",
+            width: 150,
+            loadingStateType: "medium-text"
+          },
+          {
+            id: "subject",
+            title: "Subject",
+            loadingStateType: "long-text"
+          },
+          {
+            id: "sentBy",
+            title: "Sent by",
+            width: { min: 120, max: 200 },
+            infoContent: "This is the sender",
+            loadingStateType: "circle"
+          },
+          {
+            id: "status",
+            title: "Status",
+            width: 150,
+            infoContent: "Info content for the status column",
+            loadingStateType: "medium-text"
+          },
+          {
+            id: "emailsSent",
+            title: "Emails sent",
+            width: 150,
+            loadingStateType: "medium-text"
+          }
+        ].map((headerCell, index) => (
           <TableHeaderCell key={index} title={headerCell.title} />
         ))}
       </TableHeader>
       <TableBody>
-        {emailTableData.map(rowItem => (
+        {[
+          {
+            id: "1",
+            sentOn: "2020-01-01",
+            sentBy: "John Doe",
+            subject: "Lorem ipsum dolor",
+            status: "Sent",
+            emailsSent: 100
+          },
+          {
+            id: "3",
+            sentOn: "2023-03-03",
+            sentBy: "Some Person",
+            subject:
+              "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
+            status: "Sent",
+            emailsSent: 999
+          },
+          {
+            id: "2",
+            sentOn: "2022-02-02",
+            sentBy: "Other Name",
+            subject: "This is the subject",
+            status: "Sent",
+            emailsSent: 99
+          }
+        ].map(rowItem => (
           <TableRow key={rowItem.id}>
             <TableCell>{rowItem.sentOn}</TableCell>
             <TableCell>{rowItem.subject}</TableCell>
