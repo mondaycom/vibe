@@ -205,6 +205,40 @@ When a chip appears on a background color identical to its color, use `showBorde
   </Story>
 </Canvas>
 
+### Overflowing chip
+
+[Demonstration examples]
+
+<Canvas>
+  <Story name="Overflowing chip">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
+      <Chips label="Chip with limited width" className="monday-storybook-chips_overflowing_chip" />
+      <div className="monday-storybook-chips_overflowing_chip_container">
+        <Chips
+          label="Chip inside container with limited width"
+          className="monday-storybook-chips_overflowing_chip_container--chip"
+        />
+      </div>
+      <Chips label="Chip with limited width" className="monday-storybook-chips_overflowing_chip" disabled />
+      <div className="monday-storybook-chips_overflowing_chip_container">
+        <Chips
+          label="Chip inside container with limited width"
+          className="monday-storybook-chips_overflowing_chip_container--chip"
+          disabled
+        />
+      </div>
+      <Chips label="Chip with limited width" className="monday-storybook-chips_overflowing_chip" onClick={NOOP} />
+      <div className="monday-storybook-chips_overflowing_chip_container">
+        <Chips
+          label="Chip inside container with limited width"
+          className="monday-storybook-chips_overflowing_chip_container--chip"
+          onClick={NOOP}
+        />
+      </div>
+    </Flex>
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 
 <ComponentRules
