@@ -5,7 +5,7 @@ import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import TipseenMedia from "../TipseenMedia/TipseenMedia";
-import picture from "./assets/picture.png";
+import { video, picture } from "./assets";
 import Icon from "../../Icon/Icon";
 import { Board, BoardPrivate } from "../../Icon/Icons";
 import { modifiers } from "./helper";
@@ -198,9 +198,9 @@ Wrap your custom media with `TipseenMedia` component. This use case is good for 
       content={
         <>
           <TipseenMedia>
-            <img src={picture} style={{ objectFit: "cover", width: "100%", height: 175 }} />
+            <video autoPlay muted loop src={video} style={{ width: "100%" }} />
           </TipseenMedia>
-          <TipseenContent title="This is a Floating Tipseen">
+          <TipseenContent title="This is a title">
             Popover message will appear here lorem ipsum dolor samet…
           </TipseenContent>
         </>
