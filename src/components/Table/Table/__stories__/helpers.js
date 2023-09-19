@@ -1,4 +1,50 @@
 import Avatar from "../../../Avatar/Avatar";
+import { Calendar, Doc, Status } from "../../../Icon/Icons";
+import { LabelColor } from "../../../Label/LabelConstants";
+
+export const doAndDontIconsRuleColumns = [
+  {
+    id: "sentOn",
+    title: "Sent on",
+    icon: Calendar,
+    width: 95
+  },
+  {
+    id: "subject",
+    title: "Subject",
+    icon: Doc
+  },
+  {
+    id: "status",
+    title: "Status",
+    icon: Status,
+    width: 120
+  }
+];
+
+export const doAndDontIconsRuleData = [
+  {
+    id: "1",
+    sentOn: "Apr 22",
+    subject: "Limited time offer: AP Process",
+    sentBy: "John Doe",
+    status: "In progress"
+  },
+  {
+    id: "2",
+    sentOn: "Apr 22",
+    subject: "Action required: Update your AP",
+    sentBy: "Jane Doe",
+    status: "Queued"
+  },
+  {
+    id: "3",
+    sentOn: "Apr 22",
+    subject: "Limited time offer: AP Process",
+    sentBy: "Peter Smith",
+    status: "Sent"
+  }
+];
 
 export const emailTableData = [
   {
@@ -32,16 +78,127 @@ export const emailColumns = [
   {
     id: "sentOn",
     title: "Sent on",
-    width: 150
+    width: 150,
+    loadingStateType: "medium-text"
   },
   {
     id: "subject",
-    title: "Subject"
+    title: "Subject",
+    loadingStateType: "long-text"
   },
   {
     id: "sentBy",
     title: "Sent by",
     width: { min: 120, max: 200 },
+    infoContent: "This is the sender",
+    loadingStateType: "circle"
+  },
+  {
+    id: "status",
+    title: "Status",
+    width: 150,
+    infoContent: "Info content for the status column",
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "emailsSent",
+    title: "Emails sent",
+    width: 150,
+    loadingStateType: "medium-text"
+  }
+];
+
+export const scrollTableData = [
+  {
+    id: "1",
+    sentOn: "2020-01-01",
+    sentBy: "John Doe",
+    subject: "Lorem ipsum dolor",
+    status: "In progress",
+    priority: "Urgent",
+    emailsSent: 100
+  },
+  {
+    id: "2",
+    sentOn: "2020-02-02",
+    sentBy: "Jane Doe",
+    subject: "Dolor sit amet",
+    status: "In progress",
+    priority: "High",
+    emailsSent: 50
+  },
+  {
+    id: "3",
+    sentOn: "2020-03-03",
+    sentBy: "Peter Smith",
+    subject: "Consectetur adipiscing elit",
+    status: "Queued",
+    priority: "Normal",
+    emailsSent: 0
+  },
+  {
+    id: "4",
+    sentOn: "2020-04-04",
+    sentBy: "Susan Jones",
+    subject: "Sed do eiusmod tempor incididunt",
+    status: "Failed",
+    priority: "Low",
+    emailsSent: 200
+  },
+  {
+    id: "5",
+    sentOn: "2020-05-05",
+    sentBy: "David Brown",
+    subject: "Ut labore et dolore magna aliqua",
+    status: "Sent",
+    priority: "Urgent",
+    emailsSent: 150
+  },
+  {
+    id: "6",
+    sentOn: "2020-06-06",
+    sentBy: "Michael Johnson",
+    subject: "Et harum quidem rerum facilis est et expedita distinctio",
+    status: "Sent",
+    priority: "High",
+    emailsSent: 75
+  }
+];
+
+export const priorityColumnToLabelColor = {
+  Urgent: LabelColor.NEGATIVE,
+  High: LabelColor.DARK,
+  Normal: LabelColor.PRIMARY,
+  Low: LabelColor.POSITIVE
+};
+
+export const statusColumnToLabelColor = {
+  Sent: LabelColor.POSITIVE,
+  Queued: LabelColor.DARK,
+  Failed: LabelColor.NEGATIVE,
+  "In progress": LabelColor.PRIMARY
+};
+
+export const scrollTableColumns = [
+  {
+    id: "sentOn",
+    title: "Sent on",
+    width: 150
+  },
+  {
+    id: "priority",
+    title: "Priority",
+    width: 150
+  },
+  {
+    id: "subject",
+    title: "Subject",
+    width: { min: 300, max: 500 }
+  },
+  {
+    id: "sentBy",
+    title: "Sent by",
+    width: 150,
     infoContent: "This is the sender"
   },
   {
@@ -57,13 +214,13 @@ export const emailColumns = [
   }
 ];
 
-export const scrollTableData = [...new Array(5000)].map((_, index) => ({
+export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) => ({
   id: index,
   num: index,
   text: `This is line number ${index}`
 }));
 
-export const scrollTableColumns = [
+export const virtualizedScrollTableColumns = [
   {
     id: "num",
     title: "#",
@@ -71,8 +228,7 @@ export const scrollTableColumns = [
   },
   {
     id: "text",
-    title: "Text",
-    loadingStateType: "long-text"
+    title: "Text"
   }
 ];
 
