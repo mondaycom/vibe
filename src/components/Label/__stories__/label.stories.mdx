@@ -9,7 +9,6 @@ import { NOOP } from "../../../utils/function-utils";
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
   enumPropNamesArray: ["kind" ,"color"],
-  actionPropsArray: ["onClick"]
 })
 
 <Meta
@@ -77,6 +76,19 @@ A label indicates the status of an item.
   </Story>
 </Canvas>
 
+### Clickable
+By applying the onClick prop, the label will become clickable and get all the relevant states (hover, focus, ...) and keyboard support
+<Canvas>
+  <Story name="Clickable">
+    <div className="monday-storybook-label_group">
+      <div className="monday-storybook-label_inline-block">
+        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
+        <Label text="Beta" onClick={NOOP} />
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
@@ -140,18 +152,6 @@ In case of visual overload, use the secondary label in order to create hirarchy.
   </Story>
 </Canvas>
 
-### Clickable
-By applying the onClick prop, the label will become clickable and get all the relevant states (hover, focus, ...) and keyboard support
-<Canvas>
-  <Story name="Clickable">
-    <div className="monday-storybook-label_block">
-      <div className="monday-storybook-label_inline-block">
-        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
-        <Label text="Beta" onClick={NOOP} />
-      </div>
-    </div>
-  </Story>
-</Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[TOOLTIP, COUNTER, CHIP]} />
