@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.38.1 (2023-09-19)
+
+#### Bug Fixes
+* [#1549](https://github.com/mondaycom/monday-ui-react-core/pull/1549) fix: <Chips> text overflow Tooltip issue - replace internal Tooltip logic with Text overflow Tooltip logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1544](https://github.com/mondaycom/monday-ui-react-core/pull/1544) Update icons - monday-ui-style 0.1.194 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.38.0 (2023-09-14)
 
 #### New Features
