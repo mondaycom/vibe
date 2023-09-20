@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.40.0 (2023-09-20)
+
+#### New Features
+* [#1547](https://github.com/mondaycom/monday-ui-react-core/pull/1547) Feat/talko/label clickable ([@talkor](https://github.com/talkor))
+
 ## 2.39.1 (2023-09-20)
 
 #### Internal Changes
