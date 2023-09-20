@@ -89,7 +89,7 @@
     "a11y-dialog": "^7.5.2",
     "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "browserslist-config-monday": "^1.0.6",
+    "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
     "monday-ui-style": "0.1.194",
