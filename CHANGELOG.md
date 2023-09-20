@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.39.0 (2023-09-20)
+
+#### New Features
+* [#1548](https://github.com/mondaycom/monday-ui-react-core/pull/1548) feat(Tipseen): add TipseenMedia component to act as a container for tipseen medias ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1542](https://github.com/mondaycom/monday-ui-react-core/pull/1542) feat(Table): table leftovers ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.38.1 (2023-09-19)
 
 #### Bug Fixes
