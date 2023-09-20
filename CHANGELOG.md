@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.39.1 (2023-09-20)
+
+#### Internal Changes
+* [#1550](https://github.com/mondaycom/monday-ui-react-core/pull/1550) fix(TipseenMedia): fix import/export path ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.39.0 (2023-09-20)
 
 #### New Features
