@@ -4,10 +4,11 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import "./label.stories.scss";
+import { NOOP } from "../../../utils/function-utils";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
-  enumPropNamesArray: ["kind" ,"color"]
+  enumPropNamesArray: ["kind" ,"color"],
 })
 
 <Meta
@@ -34,7 +35,7 @@ export const labelTemplate = createComponentTemplate(Label);
 - [Feedback](#feedback)
 
 ## Overview
-A label indicates the status of an item. It is not clickable.
+A label indicates the status of an item.
 <Canvas>
   <Story name="Overview"
          args={ {text: "New"} }>
@@ -59,7 +60,7 @@ A label indicates the status of an item. It is not clickable.
 ## Variants
 ### States
 <Canvas>
-  <Story name="States">
+  <Story name="States" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     <div className="monday-storybook-label_group monday-storybook-label_states-gap"><Label text="New" />Fill</div>
     <div className="monday-storybook-label_group monday-storybook-label_states-gap"><Label text="New" kind={Label.kinds.LINE} />Outline</div>
   </Story>
@@ -67,11 +68,22 @@ A label indicates the status of an item. It is not clickable.
 
 ### Colors
 <Canvas>
-  <Story name="Colors">
+  <Story name="Colors" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     <div className="monday-storybook-label_group"><Label text="New" /><Label text="New" kind={Label.kinds.LINE} /></div>
     <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.NEGATIVE} /><Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} /></div>
     <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.POSITIVE} /><Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} /></div>
     <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.DARK} /><Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} /></div>
+  </Story>
+</Canvas>
+
+### Clickable
+By applying the onClick prop, the label will become clickable and get all the relevant states (hover, focus, ...) and keyboard support
+<Canvas>
+  <Story name="Clickable" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
+    <div className="monday-storybook-label_group"><Label text="New" onClick={NOOP} /><Label text="New" kind={Label.kinds.LINE} onClick={NOOP} /></div>
+    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.NEGATIVE} onClick={NOOP} /><Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} onClick={NOOP} /></div>
+    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.POSITIVE} onClick={NOOP} /><Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} onClick={NOOP} /></div>
+    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.DARK} onClick={NOOP} /><Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} onClick={NOOP} /></div>
   </Story>
 </Canvas>
 
@@ -122,7 +134,7 @@ A label indicates the status of an item. It is not clickable.
 ### Secondary label 
 In case of visual overload, use the secondary label in order to create hirarchy.
 <Canvas>
-  <Story name="Secondary label">
+  <Story name="Secondary label" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     <MultipleStoryElementsWrapper className="monday-storybook-label_column-block">
       <div className="monday-storybook-label_article">
         <h5 className="monday-storybook-label_title">Gannt</h5>
@@ -137,6 +149,7 @@ In case of visual overload, use the secondary label in order to create hirarchy.
     </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
+
 
 ## Related components
 <RelatedComponents componentsNames={[TOOLTIP, COUNTER, CHIP]} />
