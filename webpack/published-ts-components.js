@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  TipseenMedia: "components/TipseenMedia/TipseenMedia",
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
   Button: "components/Button/Button",

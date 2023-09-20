@@ -4,7 +4,8 @@ import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
-import picture from "./assets/picture.png";
+import TipseenMedia from "../TipseenMedia/TipseenMedia";
+import { video, picture } from "./assets";
 import Icon from "../../Icon/Icon";
 import { Board, BoardPrivate } from "../../Icon/Icons";
 import { modifiers } from "./helper";
@@ -17,8 +18,6 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
-import { useSwitch } from "../../../hooks";
-import Button from "../../Button/Button";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
@@ -28,6 +27,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 <Meta
   title="Popover/Tipseen"
   component={Tipseen}
+  subcomponents={{ TipseenMedia, TipseenImage, TipseenContent, TipseenWizard }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -183,7 +183,39 @@ Use when the tip is too long or when you want to teach something in steps.
   </Story>
 </Canvas>
 
+### Tipseen with custom media
+
+Wrap your custom media with `TipseenMedia` component. This use case is good for when using Lottie animations or other media that is not necessarily an image.
+
+<Canvas>
+  <Story name="Tipseen with custom media">
+    <Tipseen
+      // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+      // Therefore, there is no need to move this prop in your implementations.
+      position={Tipseen.positions.RIGHT}
+      modifiers={modifiers}
+      closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+      content={
+        <>
+          <TipseenMedia>
+            <video autoPlay muted loop src={video} style={{ width: "100%" }} />
+          </TipseenMedia>
+          <TipseenContent title="This is a title">
+            Popover message will appear here lorem ipsum dolor samet…
+          </TipseenContent>
+        </>
+      }
+    >
+      <div className="monday-storybook-tipseen_big-container" />
+    </Tipseen>
+  </Story>
+</Canvas>
+
 ### Floating Tipseen
+
+Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
+
+In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
 
 <Canvas>
   <Story name="Floating Tipseen" height="500px">
@@ -194,8 +226,7 @@ Use when the tip is too long or when you want to teach something in steps.
         <>
           <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
           <TipseenContent title="This is a Floating Tipseen">
-            Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general. In
-            this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+            Popover message will appear here lorem ipsum dolor samet…
           </TipseenContent>
         </>
       }
