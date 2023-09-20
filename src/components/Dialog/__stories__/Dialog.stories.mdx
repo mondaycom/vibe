@@ -534,6 +534,46 @@ Manage the open and close state of the dialog. Note that `isOpen` is used and `s
   </Story>
 </Canvas>
 
+### Dialog with tooltip
+
+Dialog has a <code>tooltip</code> prop which adds an arrow pointing toward the center of the reference.<Link href="https://popper.js.org/docs/v2/modifiers/arrow/">Read more</Link>
+
+<Canvas>
+  <Story name="Dialog with tooltip">
+    {() => {
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <div className="monday-storybook-dialog--story-padding">
+          <Dialog
+            tooltip
+            modifiers={modifiers}
+            shouldShowOnMount
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            position={Dialog.positions.RIGHT}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 <Tip title="Dev tip">
   If you wish to implement a dropdown inside a Dialog container and need help displaying the dropdown's popovers
   correctly, read more about our dropdown in popovers technical pattern
