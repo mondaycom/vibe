@@ -4,7 +4,6 @@ import { VibeComponentProps } from "../../../types";
 import { ITableCellProps } from "../TableCell/TableCell";
 import { useKeyEvent } from "../../../hooks";
 import { SELECTION_KEYS } from "../../../constants";
-import { NOOP } from "../../../utils/function-utils";
 
 export interface ITableRowProps extends VibeComponentProps {
   highlight?: boolean;
@@ -13,7 +12,7 @@ export interface ITableRowProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const TableRow: FC<ITableRowProps> = ({ highlight = false, onClick = NOOP, children, style = {} }) => {
+const TableRow: FC<ITableRowProps> = ({ highlight, onClick, children, style }) => {
   const ref = useRef(null);
   useKeyEvent({
     keys: SELECTION_KEYS,
@@ -25,7 +24,7 @@ const TableRow: FC<ITableRowProps> = ({ highlight = false, onClick = NOOP, child
   const onClickCallback = useCallback(
     (event: React.MouseEvent) => {
       event.preventDefault();
-      onClick(event);
+      onClick?.(event);
     },
     [onClick]
   );
@@ -35,7 +34,7 @@ const TableRow: FC<ITableRowProps> = ({ highlight = false, onClick = NOOP, child
     <div
       ref={ref}
       role="row"
-      aria-selected={highlight}
+      aria-selected={highlight || false}
       className={styles.tableRow}
       style={style}
       tabIndex={onClick ? 0 : -1}
