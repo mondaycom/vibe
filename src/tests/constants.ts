@@ -106,7 +106,12 @@ export enum ComponentDefaultTestId {
   FLEX = "flex",
   TOOLTIP = "tooltip",
   DIALOG = "dialog",
-  TABLE = "table"
+  TABLE = "table",
+  TABLE_BODY = "table-body",
+  TABLE_CELL = "table-cell",
+  TABLE_HEADER = "table-header",
+  TABLE_HEADER_CELL = "table-header-cell",
+  TABLE_ROW = "table-row"
 }
 
 export enum NavigationCommand {
