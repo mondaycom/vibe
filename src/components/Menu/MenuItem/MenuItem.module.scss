@@ -76,11 +76,3 @@
   flex-grow: 1;
   padding-block: 1px;
 }
-
-.label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-grow: 0;
-  @include font-caption();
-}
