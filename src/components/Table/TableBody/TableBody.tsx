@@ -1,6 +1,6 @@
-import React, { ReactElement, ComponentProps, useContext, forwardRef, useRef } from "react";
+import React, { ReactElement, ComponentProps, useContext, forwardRef } from "react";
 import cx from "classnames";
-import { VibeComponentProps } from "../../../types";
+import { VibeComponent, VibeComponentProps } from "../../../types";
 import TableRow, { ITableRowProps } from "../TableRow/TableRow";
 import VirtualizedList from "../../VirtualizedList/VirtualizedList";
 import styles from "./TableBody.module.scss";
@@ -8,8 +8,6 @@ import { TableContext } from "../Table/Table";
 import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";
 import { SKELETON_ROWS_AMOUNT } from "../Table/TableConsts";
 import { getLoadingTypeForCell } from "../Table/tableHelpers";
-import VibeComponent from "../../../types/VibeComponent";
-import useMergeRefs from "../../../hooks/useMergeRefs";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
@@ -20,11 +18,8 @@ export interface ITableBodyProps extends VibeComponentProps {
     | ReactElement<ComponentProps<typeof VirtualizedList>>;
 }
 
-const TableBody: VibeComponent<ITableBodyProps> = forwardRef(
+const TableBody: VibeComponent<ITableBodyProps, HTMLDivElement> = forwardRef(
   ({ id, className, "data-testid": dataTestId, children }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
     const { dataState, emptyState, errorState, columns } = useContext(TableContext);
     const { isLoading, isError } = dataState || {};
 
@@ -41,7 +36,7 @@ const TableBody: VibeComponent<ITableBodyProps> = forwardRef(
 
     return (
       <div
-        ref={mergedRef}
+        ref={ref}
         id={id}
         className={cx(styles.tableBody, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_BODY, id)}

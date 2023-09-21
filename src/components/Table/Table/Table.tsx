@@ -1,14 +1,12 @@
-import React, { forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, ReactElement } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./Table.module.scss";
 import { ITableHeaderProps } from "../TableHeader/TableHeader";
 import { ITableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import VibeComponent from "../../../types/VibeComponent";
-import useMergeRefs from "../../../hooks/useMergeRefs";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -45,25 +43,22 @@ interface ITableContext {
 
 export const TableContext = React.createContext<ITableContext>(null);
 
-const Table: VibeComponent<ITableProps> = forwardRef(
+const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
   ({ id, className, "data-testid": dataTestId, columns, errorState, emptyState, dataState, style, children }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
     const classNames = cx(styles.table, className);
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
 
-    {
-      /* The `--table-grid-template-columns` variable will be available under each <Table /> scope
-       * and will be consumed in the stylesheets of its children (<TableHeader />, <TableRow />) */
-    }
+    /**
+     * The `--table-grid-template-columns` variable will be available under each <Table /> scope
+     * and will be consumed in the stylesheets of its children (<TableHeader />, <TableRow />)
+     */
     const calculatedStyle = { "--table-grid-template-columns": gridTemplateColumns, ...style } as React.CSSProperties;
 
     const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
 
     return (
       <TableContext.Provider value={{ columns, emptyState, errorState, dataState }}>
-        <div ref={mergedRef} id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
+        <div ref={ref} id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
           {children}
         </div>
       </TableContext.Provider>

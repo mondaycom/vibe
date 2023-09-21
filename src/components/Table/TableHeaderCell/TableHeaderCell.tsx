@@ -1,6 +1,6 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
@@ -10,10 +10,8 @@ import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 import Tooltip from "../../Tooltip/Tooltip";
-import VibeComponent from "../../../types/VibeComponent";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import useMergeRefs from "../../../hooks/useMergeRefs";
 
 export interface ITableHeaderCellProps extends VibeComponentProps {
   title: string;
@@ -23,14 +21,11 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   onSortClicked?: (direction: "asc" | "desc" | "none") => void;
 }
 
-const TableHeaderCell: VibeComponent<ITableHeaderCellProps> = forwardRef(
+const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
   ({ id, className, "data-testid": dataTestId, title, onSortClicked, infoContent, icon, sortState = "none" }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
     return (
       <div
-        ref={mergedRef}
+        ref={ref}
         id={id}
         className={cx(styles.tableHeaderCell, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_HEADER_CELL, id)}
