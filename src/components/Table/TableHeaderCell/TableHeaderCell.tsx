@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { SubIcon, VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
@@ -10,6 +10,10 @@ import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 import Tooltip from "../../Tooltip/Tooltip";
+import VibeComponent from "../../../types/VibeComponent";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
+import useMergeRefs from "../../../hooks/useMergeRefs";
 
 export interface ITableHeaderCellProps extends VibeComponentProps {
   title: string;
@@ -19,47 +23,53 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   onSortClicked?: (direction: "asc" | "desc" | "none") => void;
 }
 
-const TableHeaderCell: FC<ITableHeaderCellProps> = ({
-  title,
-  onSortClicked,
-  infoContent,
-  icon,
-  sortState = "none"
-}) => {
-  return (
-    <div className={styles.tableHeaderCell} role="columnheader" aria-sort={getAriaSort(sortState)}>
-      <Flex
-        direction={Flex.directions.ROW}
-        align={Flex.align.CENTER}
-        className={styles.tableHeaderCellContent}
-        gap={Flex.gaps.XS}
+const TableHeaderCell: VibeComponent<ITableHeaderCellProps> = forwardRef(
+  ({ id, className, "data-testid": dataTestId, title, onSortClicked, infoContent, icon, sortState = "none" }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    return (
+      <div
+        ref={mergedRef}
+        id={id}
+        className={cx(styles.tableHeaderCell, className)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_HEADER_CELL, id)}
+        role="columnheader"
+        aria-sort={getAriaSort(sortState)}
       >
-        {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
-        {
-          <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
-            {title}
-          </Text>
-        }
-        {infoContent && (
-          <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
-            <Icon icon={Info} iconLabel={infoContent} clickable={false} />
-          </Tooltip>
-        )}
-      </Flex>
-      {onSortClicked && (
-        <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
-          <IconButton
-            icon={getSortIcon(sortState)}
-            kind={ButtonType.TERTIARY}
-            size={IconButton.sizes.XS}
-            ariaLabel="Sort"
-            className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
-            onClick={() => onSortClicked(getNextSortState(sortState))}
-          />
+        <Flex
+          direction={Flex.directions.ROW}
+          align={Flex.align.CENTER}
+          className={styles.tableHeaderCellContent}
+          gap={Flex.gaps.XS}
+        >
+          {icon && <Icon icon={icon} iconLabel="Icon" clickable={false} className={styles.icon} />}
+          {
+            <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM} color={Text.colors.SECONDARY}>
+              {title}
+            </Text>
+          }
+          {infoContent && (
+            <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
+              <Icon icon={Info} iconLabel={infoContent} clickable={false} />
+            </Tooltip>
+          )}
         </Flex>
-      )}
-    </div>
-  );
-};
+        {onSortClicked && (
+          <Flex direction={Flex.directions.ROW} align={Flex.align.CENTER} className={styles.tableHeaderCellSort}>
+            <IconButton
+              icon={getSortIcon(sortState)}
+              kind={ButtonType.TERTIARY}
+              size={IconButton.sizes.XS}
+              ariaLabel="Sort"
+              className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
+              onClick={() => onSortClicked(getNextSortState(sortState))}
+            />
+          </Flex>
+        )}
+      </div>
+    );
+  }
+);
 
 export default TableHeaderCell;
