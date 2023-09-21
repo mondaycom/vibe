@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.41.0 (2023-09-21)
+
+#### New Features
+* [#1555](https://github.com/mondaycom/monday-ui-react-core/pull/1555) feat(Table): add vibe component props to all table-related components make components VibeComponent type - with forwardRef ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.40.0 (2023-09-20)
 
 #### New Features
