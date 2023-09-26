@@ -8,7 +8,7 @@ export const crmProductTheme: Theme = {
       "primary-hover-color": "#006278",
       "primary-selected-color": "#bee3e8",
       "primary-selected-hover-color": "#d4ebef",
-      brandColors: {
+      "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
         "text-color-on-brand": "#ffffff"
@@ -19,7 +19,7 @@ export const crmProductTheme: Theme = {
       "primary-hover-color": "#006278",
       "primary-selected-color": "#004858",
       "primary-selected-hover-color": "#003844",
-      brandColors: {
+      "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
         "text-color-on-brand": "#ffffff"
@@ -30,7 +30,7 @@ export const crmProductTheme: Theme = {
       "primary-hover-color": "#006278",
       "primary-selected-color": "#004858",
       "primary-selected-hover-color": "#003844",
-      brandColors: {
+      "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
         "text-color-on-brand": "#ffffff"

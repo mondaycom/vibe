@@ -7,10 +7,9 @@ export const softwareProductTheme: Theme = {
       "primary-color": "#00854d",
       "primary-hover-color": "#025231",
       "primary-selected-color": "#c6e9d5",
-      "surfce-color": "#e2f0e7",
       "primary-selected-hover-color": "#a7ddbe",
       "primary-selected-on-secondary-color": "var(--primary-selected-color)",
-      brandColors: {
+      "brand-colors": {
         "primary-color": "#181b34",
         "primary-hover-color": "#393d60",
         "primary-selected-hover-color": "#d4d6de",
@@ -29,7 +28,7 @@ export const softwareProductTheme: Theme = {
       "primary-selected-color": "#013c29",
       "primary-selected-hover-color": "#0c3125",
       "primary-selected-on-secondary-color": "var(--primary-selected-color)",
-      brandColors: {
+      "brand-colors": {
         "primary-color": "#ffffff",
         "primary-hover-color": "#c5c7d0",
         "primary-selected-hover-color": "#30324e",
@@ -48,7 +47,7 @@ export const softwareProductTheme: Theme = {
       "primary-selected-color": "#013c29",
       "primary-selected-hover-color": "#0c3125",
       "primary-selected-on-secondary-color": "var(--primary-selected-color)",
-      brandColors: {
+      "brand-colors": {
         "primary-color": "#ffffff",
         "primary-hover-color": "#c5c7d0",
         "primary-selected-hover-color": "#30324e",

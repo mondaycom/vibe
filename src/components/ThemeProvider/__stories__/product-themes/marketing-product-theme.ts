@@ -7,7 +7,6 @@ export const marketingProductTheme: Theme = {
       "primary-color": "#e21277",
       "primary-hover-color": "#bb0c61",
       "primary-selected-color": "#f8d4e6",
-      "surfce-color": "#f5eaf0",
       "primary-selected-hover-color": "#f1d8dc"
     },
     dark: {

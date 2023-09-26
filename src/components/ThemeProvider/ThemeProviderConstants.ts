@@ -12,13 +12,12 @@ export enum Color {
   primarySelectedColor = "primary-selected-color",
   primarySelectedHoverColor = "primary-selected-hover-color",
   primarySelectedOnSecondaryColor = "primary-selected-on-secondary-color",
+  textColorOnPrimary = "text-color-on-primary",
   brandColor = "brand-color",
   brandHoverColor = "brand-hover-color",
   brandSelectedColor = "brand-selected-color",
   brandSelectedHoverColor = "brand-selected-hover-color",
-  textColorOnPrimary = "text-color-on-primary",
-  textColorOnBrand = "text-color-on-brand",
-  surfaceColor = "surfce-color" // not vibe color
+  textColorOnBrand = "text-color-on-brand"
 }
 
 export type Theme = {
@@ -30,14 +29,14 @@ type SystemThemeColorMap = {
   [key in SystemTheme]?: ColorTokenValueMap;
 };
 
-type ColorTokenValueMap = ColorTokenValue & BrandColorTokenValueMap;
-
-export type BrandColorTokenValueMap = {
-  brandColors?: ColorTokenValue;
-};
+export type ColorTokenValueMap = ColorTokenValue | CustomClassValue;
 
 export type ColorTokenValue = {
   [key in Color]?: string;
+};
+
+type CustomClassValue = {
+  [key: string]: ColorTokenValue | CustomClassValue;
 };
 
 export const SystemThemeClassMap: SystemThemeClassMapType = {

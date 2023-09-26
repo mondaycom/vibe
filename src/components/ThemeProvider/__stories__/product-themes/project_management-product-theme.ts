@@ -7,7 +7,6 @@ export const projectManagementProductTheme: Theme = {
       "primary-color": "#d14900",
       "primary-hover-color": "#ad4005",
       "primary-selected-color": "#f8dccf",
-      "surfce-color": "#f9ede8",
       "primary-selected-hover-color": "#f1d3c4"
     },
     dark: {

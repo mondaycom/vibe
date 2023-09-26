@@ -1,18 +1,32 @@
-import React, { FC, ReactElement, useLayoutEffect } from "react";
-import { Color, SystemTheme, SystemThemeClassMap, Theme } from "./ThemeProviderConstants";
 import cx from "classnames";
+import React, { FC, ReactElement, useLayoutEffect } from "react";
+import { ColorTokenValueMap, SystemTheme, SystemThemeClassMap, Theme } from "./ThemeProviderConstants";
 
 export interface ThemeProviderProps {
   theme?: Theme;
   children: ReactElement;
 }
 
-const getThemeProviderClassname = (themeName: string) => {
-  if (!themeName) {
-    return null;
+function generateCss(object: ColorTokenValueMap, stack: string, parentSelector: string) {
+  for (const key of Object.keys(object)) {
+    if (typeof object[key as keyof ColorTokenValueMap] === "string") {
+      stack += `--${key}: ${object[key as keyof ColorTokenValueMap]};`;
+    }
   }
-  return `theme-provider_${themeName}`;
-};
+
+  if (stack !== "") {
+    stack = parentSelector + " {" + stack + "}";
+  }
+
+  for (const key of Object.keys(object)) {
+    if (typeof object[key as keyof ColorTokenValueMap] === "object") {
+      const selector = `${parentSelector}.${key}`;
+      stack += "\n" + generateCss(object[key as keyof ColorTokenValueMap] as ColorTokenValueMap, "", selector);
+    }
+  }
+
+  return stack;
+}
 
 const generateThemeCssOverride = (theme: Theme) => {
   if (!theme.colors) {
@@ -21,15 +35,7 @@ const generateThemeCssOverride = (theme: Theme) => {
 
   let css = "";
   for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
-    css += `
-      .${SystemThemeClassMap[systemTheme]} {
-        .${getThemeProviderClassname(theme.name)} {
-          ${(Object.keys(theme.colors[systemTheme]) as Color[])
-            .map(colorToken => `--${colorToken}: ${theme.colors[systemTheme][colorToken]}`)
-            .join(";\n\t\t  ")}
-        }
-      }
-    `;
+    css += generateCss(theme.colors[systemTheme], "", `.${SystemThemeClassMap[systemTheme]} .${theme.name}`) + "\n";
   }
 
   console.log("### css", css);
@@ -45,7 +51,6 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
     // Create a new style element
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
-    // const themeCssOverride = generateThemeCssOverride(theme, brandColors);
     const themeCssOverride = generateThemeCssOverride(theme);
 
     try {
@@ -66,7 +71,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(getThemeProviderClassname(theme?.name), children?.props?.className)
+    className: cx(theme?.name, children?.props?.className)
   });
 };
 

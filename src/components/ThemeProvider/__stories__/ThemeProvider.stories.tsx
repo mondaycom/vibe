@@ -1,14 +1,17 @@
+import cx from "classnames";
 import React from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import { Color, SystemTheme } from "../ThemeProviderConstants";
-import { crmProductTheme } from "./product-themes/crm-product-theme";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
+import {
+  crmProductTheme,
+  projectManagementProductTheme,
+  softwareProductTheme,
+  marketingProductTheme
+} from "./product-themes";
 import styles from "./ThemeProvider.stories.module.scss";
-import { projectManagementProductTheme } from "./product-themes/project_management-product-theme";
-import { softwareProductTheme } from "./product-themes/software-product-theme";
-import { marketingProductTheme } from "./product-themes/marketing-product-theme";
 
 export const ThemeProviderTemplateOverview = (args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
@@ -89,18 +92,25 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
   const [selectedTheme, setSelectedTheme] = React.useState(null);
 
   return (
-    <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
-      <Dropdown
-        placeholder="No theme selected"
-        options={dropdownOptions}
-        value={selectedTheme}
-        onClear={() => setSelectedTheme(null)}
-        onOptionSelect={option => setSelectedTheme(option)}
-        className={styles.productThemingDropdown}
-      />
-      <ThemeProvider theme={selectedTheme?.value}>
+    <ThemeProvider theme={selectedTheme?.value}>
+      <Flex
+        gap={Flex.gaps.LARGE}
+        align={Flex.align.START}
+        wrap
+        className={cx(styles.productThemingContainer, "brand-colors")}
+      >
+        <Dropdown
+          // @ts-ignore
+          placeholder={"No theme selected"}
+          options={dropdownOptions}
+          value={selectedTheme}
+          onClear={() => setSelectedTheme(null)}
+          onOptionSelect={(option: any) => setSelectedTheme(option)}
+          className={styles.productThemingDropdown}
+        />
         <Button>Themed</Button>
-      </ThemeProvider>
-    </Flex>
+        <Button color={Button.colors.BRAND}>Themed branded</Button>
+      </Flex>
+    </ThemeProvider>
   );
 };
