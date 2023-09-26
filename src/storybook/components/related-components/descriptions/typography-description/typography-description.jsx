@@ -17,6 +17,7 @@ export const TypographyDescription = () => {
     <RelatedComponent
       component={component}
       title="Typography"
+      href="/?path=/docs/foundations-typography--page"
       description="Typography expresses hierarchy and brand presence."
     />
   );

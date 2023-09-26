@@ -16,6 +16,7 @@ export const ClickableDescription = () => {
     <RelatedComponent
       component={component}
       title="Clickable"
+      href="/?path=/docs/accessibility-clickable--overview"
       description="An accessibility helper component which simulates a button behaviour on non button elements."
     />
   );
