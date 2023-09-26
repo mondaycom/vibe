@@ -52,6 +52,12 @@ export const menuItemIconsWithColorsTemplate = args => {
   );
 };
 
+export const menuItemLabelTemplate = args => (
+  <Menu>
+    <MenuItem title="Menu item" label="New" />
+  </Menu>
+);
+
 export const menuItemOverflowTemplate = args => {
   return (
     <Menu>
@@ -89,3 +95,15 @@ export const menuItemTooltipTemplate = args => {
     </Menu>
   );
 };
+
+export const menuItemWithLabelDoTemplate = args => (
+  <Menu>
+    <MenuItem title="Menu item" label="New" />
+  </Menu>
+);
+
+export const menuItemWithLabelDontTemplate = args => (
+  <Menu>
+    <MenuItem title="Menu Item" label="Long menu item label" />
+  </Menu>
+);

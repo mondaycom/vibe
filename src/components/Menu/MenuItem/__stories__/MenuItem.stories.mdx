@@ -6,7 +6,10 @@ import {
   menuItemOverflowTemplate,
   menuItemStatesTemplate,
   menuItemTemplate,
-  menuItemTooltipTemplate
+  menuItemTooltipTemplate,
+  menuItemLabelTemplate,
+  menuItemWithLabelDoTemplate,
+  menuItemWithLabelDontTemplate
 } from "./MenuItem.stories";
 import MenuItem from "../MenuItem";
 
@@ -67,6 +70,12 @@ Use menu item for drawing one options that displayed inside a menu.
   <Story name="Icons with colors">{menuItemIconsWithColorsTemplate.bind({})}</Story>
 </Canvas>
 
+### Label
+
+<Canvas>
+  <Story name="Label">{menuItemLabelTemplate.bind({})}</Story>
+</Canvas>
+
 ### Overflow
 
 <Canvas>
@@ -78,3 +87,20 @@ Use menu item for drawing one options that displayed inside a menu.
 <Canvas>
   <Story name="Tooltip">{menuItemTooltipTemplate.bind({})}</Story>
 </Canvas>
+
+## Do's and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: menuItemWithLabelDoTemplate(),
+        description: ""
+      },
+      negative: {
+        component: menuItemWithLabelDontTemplate(),
+        description: ""
+      }
+    }
+  ]}
+/>
