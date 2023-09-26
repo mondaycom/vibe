@@ -8,7 +8,17 @@ export enum SystemTheme {
 // Colors which are eligible for theming
 export enum Color {
   primaryColor = "primary-color",
-  primaryHoverColor = "primary-hover-color"
+  primaryHoverColor = "primary-hover-color",
+  primarySelectedColor = "primary-selected-color",
+  primarySelectedHoverColor = "primary-selected-hover-color",
+  primarySelectedOnSecondaryColor = "primary-selected-on-secondary-color",
+  brandColor = "brand-color",
+  brandHoverColor = "brand-hover-color",
+  brandSelectedColor = "brand-selected-color",
+  brandSelectedHoverColor = "brand-selected-hover-color",
+  textColorOnPrimary = "text-color-on-primary",
+  textColorOnBrand = "text-color-on-brand",
+  surfaceColor = "surfce-color" // not vibe color
 }
 
 export type Theme = {
@@ -20,7 +30,13 @@ type SystemThemeColorMap = {
   [key in SystemTheme]?: ColorTokenValueMap;
 };
 
-type ColorTokenValueMap = {
+type ColorTokenValueMap = ColorTokenValue & BrandColorTokenValueMap;
+
+export type BrandColorTokenValueMap = {
+  brandColors?: ColorTokenValue;
+};
+
+export type ColorTokenValue = {
   [key in Color]?: string;
 };
 

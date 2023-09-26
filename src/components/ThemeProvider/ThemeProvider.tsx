@@ -32,6 +32,7 @@ const generateThemeCssOverride = (theme: Theme) => {
     `;
   }
 
+  console.log("### css", css);
   return css;
 };
 
@@ -44,6 +45,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
     // Create a new style element
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
+    // const themeCssOverride = generateThemeCssOverride(theme, brandColors);
     const themeCssOverride = generateThemeCssOverride(theme);
 
     try {
