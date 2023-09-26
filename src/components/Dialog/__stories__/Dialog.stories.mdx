@@ -238,7 +238,7 @@ Please be aware that the dialog component is not responsible for the appearance 
 We can choose what will be the related element's trigger which will be responsible for the dialog appearance
 
 <Canvas>
-  <Story name="Show triggers">
+  <Story name="Show triggers" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     {() => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: clickButtonActive, onChange: onClickClickButton } = useSwitch({ defaultChecked: false });
