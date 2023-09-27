@@ -8,6 +8,7 @@ import {
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories";
 import { SystemTheme, Color } from "../ThemeProviderConstants";
+import { ColorsEligibleForTheming } from "./colors-eligible-for-theming";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
@@ -88,6 +89,14 @@ Product theme is a custom theme that can be provided by a user, there you can sp
 />
 
 <Tip title="Not what you were looking for?">Tip content</Tip>
+
+## Variants
+
+### Colors eligible for theming
+
+<Story name="Colors eligible for theming">
+  <ColorsEligibleForTheming />
+</Story>
 
 ## Use cases and examples
 
