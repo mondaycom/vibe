@@ -56,6 +56,49 @@ exports[`Snapshots renders correctly when selected 1`] = `
 </li>
 `;
 
+exports[`Snapshots renders correctly with a label 1`] = `
+<li
+  aria-current={false}
+  className="typography primary start singleLineEllipsis text text2Normal item"
+  data-testid="menu-item"
+  onClick={[Function]}
+  role="menuitem"
+  tabIndex={-1}
+>
+  <div
+    className="title"
+  >
+    my item
+  </div>
+  <span
+    className=""
+    data-testid="label"
+  >
+    <span
+      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary withAnimation"
+      data-testid="text"
+    >
+      <span>
+        New
+      </span>
+      <span
+        className="legWrapper"
+      />
+    </span>
+  </span>
+  <div
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+        "visibility": "hidden",
+      }
+    }
+  />
+</li>
+`;
+
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
