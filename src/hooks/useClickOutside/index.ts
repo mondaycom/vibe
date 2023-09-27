@@ -2,7 +2,7 @@ import { useCallback, useRef, RefObject } from "react";
 import useEventListener from "../useEventListener";
 import { GenericEventCallback } from "../../types/events";
 
-export default function useOnClickOutside({
+export default function useClickOutside({
   ref,
   callback,
   eventName = "click"
