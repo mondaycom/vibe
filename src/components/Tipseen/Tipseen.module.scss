@@ -11,6 +11,14 @@
     --tooltip-max-width: 320px;
   }
 
+  &.floating {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: var(--spacing-medium);
+    margin-right: var(--spacing-medium);
+  }
+
   .tipseen {
     &Header {
       display: flex;

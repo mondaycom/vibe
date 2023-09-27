@@ -1,9 +1,9 @@
 import React, { AriaAttributes } from "react";
-import { ITableColumn } from "./Table";
-import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
-import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
+import { ITableColumn, TableLoadingStateType } from "./Table";
 import Sort from "../../Icon/Icons/components/Sort";
 import { ITableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { SortAscending, SortDescending } from "../../Icon/Icons";
+import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 
 function generateWidth(width: ITableColumn["width"]) {
   if (typeof width === "number") {
@@ -25,9 +25,9 @@ export function getTableRowLayoutStyles(columns: ITableColumn[], style: React.CS
 
 export function getSortIcon(sortState: ITableHeaderCellProps["sortState"]) {
   if (sortState === "asc") {
-    return MoveArrowUp;
+    return SortAscending;
   } else if (sortState === "desc") {
-    return MoveArrowDown;
+    return SortDescending;
   } else {
     return Sort;
   }
@@ -49,4 +49,23 @@ export function getAriaSort(sortState: ITableHeaderCellProps["sortState"]): Aria
   } else if (sortState === "desc") {
     return "descending";
   }
+}
+
+export function getSkeletonType(loadingStateType: TableLoadingStateType): SkeletonType {
+  if (loadingStateType === "circle") {
+    return SkeletonType.CIRCLE;
+  }
+  if (loadingStateType === "rectangle") {
+    return SkeletonType.RECTANGLE;
+  }
+  return SkeletonType.TEXT;
+}
+
+export function getLoadingTypeForCell(
+  loadingStateType: TableLoadingStateType,
+  rowIndex: number
+): TableLoadingStateType {
+  return loadingStateType === "long-text"
+    ? (["long-text", "medium-text"] as TableLoadingStateType[])[rowIndex % 2]
+    : loadingStateType;
 }

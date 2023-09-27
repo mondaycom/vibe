@@ -5,6 +5,7 @@ export function useKeyboardButtonPressedFunc(onClick: (event: React.KeyboardEven
   return useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === keyCodes.SPACE || e.key === keyCodes.ENTER) {
+        e.preventDefault();
         onClick(e);
       }
     },

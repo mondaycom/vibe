@@ -79,6 +79,7 @@ const publishedTSComponents = {
   TipseenContent: "components/Tipseen/TipseenContent",
   TipseenWizard: "components/Tipseen/TipseenWizard",
   TipseenImage: "components/Tipseen/TipseenImage",
+  TipseenMedia: "components/Tipseen/TipseenMedia/TipseenMedia",
   Flex: "components/Flex/Flex",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle",
   MenuItem: "components/Menu/MenuItem/MenuItem",

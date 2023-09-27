@@ -95,3 +95,11 @@ export {
   GridKeyboardNavigationContext
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 export { default as Badge } from "./Badge/Badge";
+export { default as Table } from "./Table/Table/Table";
+export { default as TableHeader } from "./Table/TableHeader/TableHeader";
+export { default as TableHeaderCell } from "./Table/TableHeaderCell/TableHeaderCell";
+export { default as TableBody } from "./Table/TableBody/TableBody";
+export { default as TableVirtualizedBody } from "./Table/TableVirtualizedBody/TableVirtualizedBody";
+export { default as TableRow } from "./Table/TableRow/TableRow";
+export { default as TableCell } from "./Table/TableCell/TableCell";
+export { default as TipseenMedia } from "./Tipseen/TipseenMedia/TipseenMedia";

@@ -14,6 +14,8 @@ import {
   DIALOG_CONTENT_CONTAINER,
   DIALOG
 } from "../../components/related-components/component-description-map";
+import ModalExampleContent from "./ModalExampleContent";
+import Box from "../../../components/Box/Box";
 
 <Meta title="Technical Patterns/Dropdowns inside pop-overs" />
 
@@ -90,7 +92,10 @@ overflow container has one parent or more with conflicting overflow definitions.
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
-            <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+            <ModalExampleContent />
+            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+              <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+            </Box>
           </DialogContentContainer>
           <div>
             <Button onClick={() => setShow(true)}>Open modal</Button>
@@ -128,12 +133,15 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
       const dialogRef = useRef();
       const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
       const secondDialogContent = (
-        <DialogContentContainer style={dialogStyle} ref={dialogRef}>
-          <Dropdown
-            placeholder="Dropdown inside a scrollable dialog"
-            options={options}
-            insideOverflowWithTransformContainer
-          />
+        <DialogContentContainer style={dialogStyle}>
+          <ModalExampleContent />
+          <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+            <Dropdown
+              placeholder="Dropdown inside a scrollable dialog"
+              options={options}
+              insideOverflowWithTransformContainer
+            />
+          </Box>
         </DialogContentContainer>
       );
       return (

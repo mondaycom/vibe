@@ -1,6 +1,11 @@
+@use "../Clickable/Clickable.module" as clickable;
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 @import "../../styles/keyframes";
+
+.clickable {
+  @include clickable.clickable;
+}
 
 .label {
   @include smoothing-text;
@@ -29,77 +34,115 @@
   transform-origin: bottom left;
 }
 
-.kindFill.colorPrimary {
-  background-color: var(--primary-color);
-}
+.kindFill {
+  &.colorPrimary {
+    background-color: var(--primary-color);
 
-.kindFill.colorPrimary svg path {
-  fill: var(--primary-color);
-}
+    svg path {
+      fill: var(--primary-color);
+    }
 
-.kindFill.colorDark {
-  background-color: var(--inverted-color-background);
-}
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--primary-hover-color);
+    }
+  }
 
-.kindFill.colorDark svg path {
-  fill: var(--inverted-color-background);
-}
+  &.colorDark {
+    background-color: var(--inverted-color-background);
 
-.kindFill.colorNegative {
-  background-color: var(--negative-color);
-}
+    svg path {
+      fill: var(--inverted-color-background);
+    }
+  }
 
-.kindFill.colorNegative svg path {
-  fill: var(--negative-color);
-}
+  &.colorNegative {
+    background-color: var(--negative-color);
 
-.kindFill.colorPositive {
-  background-color: var(--positive-color);
-}
+    svg path {
+      fill: var(--negative-color);
+    }
 
-.kindFill.colorPositive svg path {
-  fill: var(--positive-color);
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--negative-color-hover);
+    }
+  }
+
+  &.colorPositive {
+    background-color: var(--positive-color);
+
+    svg path {
+      fill: var(--positive-color);
+    }
+
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--positive-color-hover);
+    }
+  }
 }
 
 .kindLine {
   border: 1px solid currentColor;
-}
+  padding: 0 var(--spacing-small);
 
-.kindLine .legWrapper {
-  left: -1px;
-  top: calc(100% + 1px);
-}
+  .legWrapper {
+    left: -1px;
+    top: calc(100% + 1px);
+  }
 
-.kindLine.colorPrimary {
-  color: var(--primary-color);
-}
+  &.colorPrimary {
+    color: var(--primary-color);
 
-.kindLine.colorPrimary svg path {
-  fill: var(--primary-color);
-}
+    svg path {
+      fill: var(--primary-color);
+    }
 
-.kindLine.colorDark {
-  color: var(--inverted-color-background);
-}
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--primary-background-hover-color);
+    }
+  }
 
-.kindLine.colorDark svg path {
-  fill: var(--inverted-color-background);
-}
+  &.colorDark {
+    color: var(--inverted-color-background);
 
-.kindLine.colorNegative {
-  color: var(--negative-color);
-}
+    svg path {
+      fill: var(--inverted-color-background);
+    }
 
-.kindLine.colorNegative svg path {
-  fill: var(--negative-color);
-}
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--primary-background-hover-color);
+    }
+  }
 
-.kindLine.colorPositive {
-  color: var(--positive-color);
-}
+  &.colorNegative {
+    color: var(--negative-color);
 
-.kindLine.colorPositive svg path {
-  fill: var(--positive-color);
+    svg path {
+      fill: var(--negative-color);
+    }
+
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--negative-color-selected);
+    }
+  }
+
+  &.colorPositive {
+    color: var(--positive-color);
+
+    svg path {
+      fill: var(--positive-color);
+    }
+
+    .clickable:hover &,
+    .clickable:active & {
+      background-color: var(--positive-color-selected);
+    }
+  }
 }
 
 @include keyframe(label-spin-in-emphasized) {

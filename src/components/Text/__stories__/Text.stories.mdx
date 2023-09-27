@@ -170,22 +170,22 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
 
 ### Paragraph
 
-To use the Text component for a paragraph, utilize the 'paragraph' prop.
-This changes the text wrapper element to p, enabling the creation of paragraph-style text without ellipsis by default.
-The paragraph will receive default top and bottom margins based on browser settings for p elements.
+To use the Text component for a paragraph, utilize the element prop with value of `"p"`.
+This changes the text wrapper element to `p`, enabling the creation of paragraph-style text without ellipsis by default.
+The paragraph will receive default top and bottom margins based on browser settings for `p` elements.
 Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
 
 <Canvas>
   <Story name="Paragraph">
     <Flex direction={Flex.directions.COLUMN}>
-      <Text paragraph>
+      <Text element="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Text>
-      <Text paragraph ellipsis maxLines={3}>
+      <Text element="p" ellipsis maxLines={3}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla

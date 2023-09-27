@@ -1,5 +1,14 @@
 import cx from "classnames";
-import React, { CSSProperties, forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  AriaAttributes,
+  CSSProperties,
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
@@ -33,6 +42,7 @@ export interface ListProps extends VibeComponentProps {
    * ARIA described by string to reference an id to describe by
    */
   ariaDescribedBy?: string;
+  "aria-controls"?: AriaAttributes["aria-controls"];
   children?: ReactElement<ListItemProps | ListTitleProps> | ReactElement<ListItemProps | ListTitleProps>[];
   /**
    * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
@@ -52,6 +62,7 @@ const List: VibeComponent<ListProps> & {
       children,
       ariaLabel,
       ariaDescribedBy,
+      "aria-controls": ariaControls,
       renderOnlyVisibleItems = false,
       style,
       "data-testid": dataTestId
@@ -135,6 +146,7 @@ const List: VibeComponent<ListProps> & {
           id={overrideId}
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
+          aria-controls={ariaControls}
           tabIndex={-1}
           role="listbox"
         >

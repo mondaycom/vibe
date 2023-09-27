@@ -8,23 +8,41 @@ import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
 import Skeleton from "../../../Skeleton/Skeleton";
-import Flex from "../../../Flex/Flex";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
-import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
-import { emailTableData, emailColumns, TableAvatar, TableErrorState, TableEmptyState, sort, scrollTableColumns, scrollTableData } from './helpers';
-import { LABEL, ICON_BUTTON, SKELETON } from "../../../../storybook/components/related-components/component-description-map";
-import './table.stories.scss';
+import { createComponentTemplate } from "vibe-storybook-components";
+import {
+  emailTableData,
+  emailColumns,
+  TableAvatar,
+  TableErrorState,
+  TableEmptyState,
+  sort,
+  virtualizedScrollTableColumns,
+  virtualizedScrollTableData,
+  doAndDontIconsRuleColumns,
+  priorityColumnToLabelColor,
+  statusColumnToLabelColor,
+  scrollTableData,
+  scrollTableColumns,
+  doAndDontIconsRuleData
+} from "./helpers";
+import {
+  LABEL,
+  ICON_BUTTON,
+  SKELETON
+} from "../../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
-  component: Table,
-})
+  component: Table
+});
 
 <Meta
   title="Data display/Table"
-  component={ Table }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={metaSettings.component}
+  subcomponents={{ TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, TableVirtualizedBody }}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -34,28 +52,208 @@ export const tableTemplate = createComponentTemplate(Table);
 <!--- Component documentation -->
 
 # Table
+
 - [Overview](#overview)
 - [Props](#props)
 - [Table header functionality](#table-header-functionality)
 - [Loading](#loading)
 - [Scroll](#scroll)
+- [Virtualized Scroll](#virtualized-scroll)
 - [Related components](#related-components)
 
 ## Overview
+
 Table
+
 <Canvas>
   <Story name="Overview">
     <Table
+      errorState={<TableErrorState />}
+      emptyState={<TableEmptyState />}
+      columns={[
+        {
+          id: "sentOn",
+          title: "Sent on",
+          width: 150,
+          loadingStateType: "medium-text"
+        },
+        {
+          id: "subject",
+          title: "Subject",
+          loadingStateType: "long-text"
+        },
+        {
+          id: "sentBy",
+          title: "Sent by",
+          width: { min: 120, max: 200 },
+          infoContent: "This is the sender",
+          loadingStateType: "circle"
+        },
+        {
+          id: "status",
+          title: "Status",
+          width: 150,
+          infoContent: "Info content for the status column",
+          loadingStateType: "medium-text"
+        },
+        {
+          id: "emailsSent",
+          title: "Emails sent",
+          width: 150,
+          loadingStateType: "medium-text"
+        }
+      ]}
+    >
+      <TableHeader>
+        {[
+          {
+            id: "sentOn",
+            title: "Sent on",
+            width: 150,
+            loadingStateType: "medium-text"
+          },
+          {
+            id: "subject",
+            title: "Subject",
+            loadingStateType: "long-text"
+          },
+          {
+            id: "sentBy",
+            title: "Sent by",
+            width: { min: 120, max: 200 },
+            infoContent: "This is the sender",
+            loadingStateType: "circle"
+          },
+          {
+            id: "status",
+            title: "Status",
+            width: 150,
+            infoContent: "Info content for the status column",
+            loadingStateType: "medium-text"
+          },
+          {
+            id: "emailsSent",
+            title: "Emails sent",
+            width: 150,
+            loadingStateType: "medium-text"
+          }
+        ].map((headerCell, index) => (
+          <TableHeaderCell key={index} title={headerCell.title} />
+        ))}
+      </TableHeader>
+      <TableBody>
+        {[
+          {
+            id: "1",
+            sentOn: "2020-01-01",
+            sentBy: "John Doe",
+            subject: "Lorem ipsum dolor",
+            status: "Sent",
+            emailsSent: 100
+          },
+          {
+            id: "3",
+            sentOn: "2023-03-03",
+            sentBy: "Some Person",
+            subject:
+              "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
+            status: "Sent",
+            emailsSent: 999
+          },
+          {
+            id: "2",
+            sentOn: "2022-02-02",
+            sentBy: "Other Name",
+            subject: "This is the subject",
+            status: "Sent",
+            emailsSent: 99
+          }
+        ].map(rowItem => (
+          <TableRow key={rowItem.id}>
+            <TableCell>{rowItem.sentOn}</TableCell>
+            <TableCell>{rowItem.subject}</TableCell>
+            <TableCell>
+              <TableAvatar text={rowItem.sentBy} />
+            </TableCell>
+            <TableCell>
+              <Label text={rowItem.status} color="positive" isAnimationDisabled />
+            </TableCell>
+            <TableCell>{rowItem.emailsSent}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Table} />
+
+## Table header functionality
+
+Sorting, Icons and Information added to selected columns
+
+<Canvas>
+  <Story name="Table Header Functionality">
+    {() => {
+      const [tableData, setTableData] = useState(emailTableData);
+      const [sorting, setSorting] = useState({});
+      const onSort = (columnId, sortState) => {
+        setSorting({ [columnId]: sortState });
+        setTableData(sort(columnId, sortState, tableData));
+      };
+      return (
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
+                onSortClicked={sortState => onSort(headerCell.id, sortState)}
+                sortState={sorting[headerCell.id]}
+              />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {tableData.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+                <TableCell>
+                  <TableAvatar text={rowItem.sentBy} />
+                </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      );
+    }}
+    ;
+  </Story>
+</Canvas>
+
+## Loading
+
+Using skeleton
+
+<Canvas>
+  <Story name="Loading">
+    <Table
+      dataState={{ isLoading: true }}
       errorState={<TableErrorState />}
       emptyState={<TableEmptyState />}
       columns={emailColumns}
     >
       <TableHeader>
         {emailColumns.map((headerCell, index) => (
-          <TableHeaderCell
-            key={index}
-            title={headerCell.title}
-          ></TableHeaderCell>
+          <TableHeaderCell key={index} title={headerCell.title} />
         ))}
       </TableHeader>
       <TableBody>
@@ -77,111 +275,54 @@ Table
   </Story>
 </Canvas>
 
-## Props
-<ArgsTable of={ Table } />
-
-## Table header functionality
-Sorting, Icons and Information added to selected columns
-<Canvas>
-  <Story name="Table Header Functionality">
-    {() => {
-      const [tableData, setTableData] = useState(emailTableData);
-      const [sorting, setSorting] = useState({});
-      const onSort = (columnId, sortState) => {
-        setSorting({ [columnId]: sortState });
-        setTableData(sort(columnId, sortState, tableData));
-      };
-      return (
-        <Table
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
-          columns={emailColumns}
-        >
-          <TableHeader>
-            {emailColumns.map((headerCell, index) => (
-              <TableHeaderCell
-                key={index}
-                title={headerCell.title}
-                icon={headerCell.icon}
-                infoContent={headerCell.infoContent}
-                onSortClicked={sortState => onSort(headerCell.id, sortState)}
-                sortState={sorting[headerCell.id]}
-              ></TableHeaderCell>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {tableData.map(rowItem => (
-              <TableRow key={rowItem.id}>
-                <TableCell>{rowItem.sentOn}</TableCell>
-                <TableCell>{rowItem.subject}</TableCell>
-                <TableCell>
-                  <TableAvatar text={rowItem.sentBy} />
-                </TableCell>
-                <TableCell>
-                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
-                </TableCell>
-                <TableCell>{rowItem.emailsSent}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      );
-    }};
-  </Story>
-</Canvas>
-
-## Loading
-Using skeleton
-<Canvas>
-  <Story name="Loading">
-    {() => {
-      return (
-        <Table
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
-          columns={emailColumns}
-        >
-          <TableHeader>
-            {emailColumns.map((headerCell, index) => (
-              <TableHeaderCell
-                key={index}
-                title={headerCell.title}
-              ></TableHeaderCell>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {[...new Array(5)].map((key, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 140 : 70} />
-                </TableCell>
-                <TableCell>
-                  <Skeleton type={Skeleton.types.TEXT} height={20} width={index % 2 === 0 ? 200 : 120} />
-                </TableCell>
-                <TableCell>
-                  <Skeleton type={Skeleton.types.CIRCLE} height={24} width={24} />
-                </TableCell>
-                <TableCell>
-                  <Skeleton type={Skeleton.types.TEXT} height={20} />
-                </TableCell>
-                <TableCell>
-                  <Skeleton type={Skeleton.types.TEXT} height={20} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      );
-    }};
-  </Story>
-</Canvas>
-
 ## Scroll
-This is an example of a table with 5000 rows
+
+Table with both vertical and horizontal scroll
+
 <Canvas>
   <Story name="Scroll">
+    <div style={{ height: 220, width: 800 }}>
+      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
+        <TableHeader>
+          {scrollTableColumns.map((headerCell, index) => (
+            <TableHeaderCell key={index} title={headerCell.title} />
+          ))}
+        </TableHeader>
+        <TableBody>
+          {scrollTableData.map(rowItem => (
+            <TableRow key={rowItem.id}>
+              <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>
+                <Label
+                  text={rowItem.priority}
+                  color={priorityColumnToLabelColor[rowItem.priority]}
+                  isAnimationDisabled
+                />
+              </TableCell>
+              <TableCell>{rowItem.subject}</TableCell>
+              <TableCell>
+                <TableAvatar text={rowItem.sentBy} />
+              </TableCell>
+              <TableCell>
+                <Label text={rowItem.status} color={statusColumnToLabelColor[rowItem.status]} isAnimationDisabled />
+              </TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  </Story>
+</Canvas>
+
+## Virtualized Scroll
+
+This is an example of a table with 5000 rows
+
+<Canvas>
+  <Story name="Virtualized Scroll">
     {() => {
-      const Row = ({ id, num, text }) => {
+      const Row = ({ _id, num, text }) => {
         return (
           <TableRow>
             <TableCell>{num}</TableCell>
@@ -189,24 +330,99 @@ This is an example of a table with 5000 rows
           </TableRow>
         );
       };
-      return (<div style={{ display: "flex", overflowX: "scroll", height: 250, flex: 1 }}>
+      return (
         <Table
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
-          columns={scrollTableColumns}
-          className="monday-storybook-table_full-width"
+          columns={virtualizedScrollTableColumns}
+          style={{ height: 250 }}
         >
           <TableHeader>
-            {scrollTableColumns.map((cell, index) => (
+            {virtualizedScrollTableColumns.map((cell, index) => (
               <TableHeaderCell key={index} {...cell} />
             ))}
           </TableHeader>
-          <TableVirtualizedBody rowRenderer={Row} items={scrollTableData} />
+          <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
         </Table>
-      </div>);
+      );
     }}
   </Story>
 </Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <div style={{ width: "95%" }}>
+            <Table
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontIconsRuleColumns}
+            >
+              <TableHeader>
+                {doAndDontIconsRuleColumns.map(cell => (
+                  <TableHeaderCell key={cell.id} {...cell} />
+                ))}
+              </TableHeader>
+              <TableBody>
+                {doAndDontIconsRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>
+                      <Label
+                        text={rowItem.status}
+                        color={statusColumnToLabelColor[rowItem.status]}
+                        isAnimationDisabled
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ),
+        description: "If there’s a need to insert an icon, use for all columns."
+      },
+      negative: {
+        component: (
+          <div style={{ width: "95%" }}>
+            <Table
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontIconsRuleColumns}
+            >
+              <TableHeader>
+                {doAndDontIconsRuleColumns.map(cell => (
+                  <TableHeaderCell key={cell.id} {...cell} icon={cell.id === "subject" ? cell.icon : undefined} />
+                ))}
+              </TableHeader>
+              <TableBody>
+                {doAndDontIconsRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>
+                      <Label
+                        text={rowItem.status}
+                        color={statusColumnToLabelColor[rowItem.status]}
+                        isAnimationDisabled
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ),
+        description: "Don't use icons if not applied to all columns titles."
+      }
+    }
+  ]}
+/>
 
 ## Related components
 
