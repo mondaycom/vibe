@@ -73,7 +73,9 @@ Use menu item for drawing one options that displayed inside a menu.
 ### Label
 
 <Canvas>
-  <Story name="Label">{menuItemLabelTemplate.bind({})}</Story>
+  <Story name="Label" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
+    {menuItemLabelTemplate.bind({})}
+  </Story>
 </Canvas>
 
 ### Overflow
