@@ -21,7 +21,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta title="Text/Text" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+<Meta title="Text/Text [beta]" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -138,7 +138,7 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
 
 <Canvas>
-  <Story name="Overflow" play={textOverflowSuite}>
+  <Story name="Overflow" play={textOverflowSuite} parameters={{ status: "new" }}>
     <Flex
       direction={Flex.directions.COLUMN}
       id={OVERFLOW_TEXT_CONTAINER_ID}
