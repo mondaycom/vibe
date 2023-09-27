@@ -39,7 +39,7 @@ addons.setConfig({
         return name;
       }
 
-      return <SidebarItem status={parameters.status}>{storyStatus}</SidebarItem>;
+      return <SidebarItem status={parameters.status}>{name.replace(storyStatus, "").trim()}</SidebarItem>;
     }
   }
 });
