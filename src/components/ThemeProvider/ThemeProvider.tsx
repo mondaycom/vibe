@@ -1,46 +1,12 @@
 import cx from "classnames";
 import React, { FC, ReactElement, useLayoutEffect } from "react";
-import { ColorTokenValueMap, SystemTheme, SystemThemeClassMap, Theme } from "./ThemeProviderConstants";
+import { Theme } from "./ThemeProviderConstants";
+import { generateThemeCssOverride } from "./ThemeProviderUtils";
 
 export interface ThemeProviderProps {
   theme?: Theme;
   children: ReactElement;
 }
-
-function generateCss(object: ColorTokenValueMap, stack: string, parentSelector: string) {
-  for (const key of Object.keys(object)) {
-    if (typeof object[key as keyof ColorTokenValueMap] === "string") {
-      stack += `--${key}: ${object[key as keyof ColorTokenValueMap]};`;
-    }
-  }
-
-  if (stack !== "") {
-    stack = parentSelector + " {" + stack + "}";
-  }
-
-  for (const key of Object.keys(object)) {
-    if (typeof object[key as keyof ColorTokenValueMap] === "object") {
-      const selector = `${parentSelector}.${key}`;
-      stack += "\n" + generateCss(object[key as keyof ColorTokenValueMap] as ColorTokenValueMap, "", selector);
-    }
-  }
-
-  return stack;
-}
-
-const generateThemeCssOverride = (theme: Theme) => {
-  if (!theme.colors) {
-    return null;
-  }
-
-  let css = "";
-  for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
-    css += generateCss(theme.colors[systemTheme], "", `.${SystemThemeClassMap[systemTheme]} .${theme.name}`) + "\n";
-  }
-
-  console.log("### css", css);
-  return css;
-};
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
   useLayoutEffect(() => {
