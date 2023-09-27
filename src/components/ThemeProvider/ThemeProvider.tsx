@@ -1,14 +1,18 @@
 import cx from "classnames";
 import React, { FC, ReactElement, useLayoutEffect } from "react";
-import { Theme } from "./ThemeProviderConstants";
+import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import { generateThemeCssOverride } from "./ThemeProviderUtils";
+import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
   theme?: Theme;
   children: ReactElement;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
+const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemTheme; colors?: typeof ThemeColor } = ({
+  theme,
+  children
+}) => {
   useLayoutEffect(() => {
     if (!theme) {
       return;
@@ -41,4 +45,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ theme, children }) => {
   });
 };
 
-export default ThemeProvider;
+export default withStaticProps(ThemeProvider, {
+  systemThemes: SystemTheme,
+  colors: ThemeColor
+});
