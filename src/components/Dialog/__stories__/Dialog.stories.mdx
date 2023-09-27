@@ -111,6 +111,14 @@ Please be aware that the dialog component is not responsible for the appearance 
 
 <ArgsTable story="Overview" />
 
+<Tip title="Dev tip">
+  You can use the
+  <Link size={Link.sizes.SMALL} href="https://popper.js.org/docs/v2/modifiers/">
+    Popper.js modifiers
+  </Link>
+  for extended Dialog customization.
+</Tip>
+
 ## Usage
 
 <UsageGuidelines
@@ -534,16 +542,45 @@ Manage the open and close state of the dialog. Note that `isOpen` is used and `s
   </Story>
 </Canvas>
 
-<Tip title="Dev tip">
-  If you wish to implement a dropdown inside a Dialog container and need help displaying the dropdown's popovers
-  correctly, read more about our dropdown in popovers technical pattern
-  <Link
-    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
-    size={Link.sizes.SMALL}
-  >
-    here
-  </Link>.
-</Tip>
+### Dialog with tooltip
+
+Dialog has a <code>tooltip</code> prop which adds an arrow pointing toward the center of the reference element.
+
+<Canvas>
+  <Story name="Dialog with tooltip">
+    {() => {
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <div className="monday-storybook-dialog--story-padding">
+          <Dialog
+            tooltip
+            modifiers={modifiers}
+            shouldShowOnMount
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            position={Dialog.positions.RIGHT}
+            content={
+              <DialogContentContainer>
+                <ExampleContent />
+              </DialogContentContainer>
+            }
+          >
+            <IconButton icon={Info} active kind={IconButton.kinds.SECONDARY} />
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ### Dialog prevent container scroll
 
@@ -582,6 +619,19 @@ Prevent containerSelector scroll when dialog open
     }}
   </Story>
 </Canvas>
+
+<Tip title="Dev tip">
+  If you wish to implement a Dropdown inside a Dialog container and need help displaying the Dropdown's popovers
+  correctly, read more about our Dropdown in popovers technical pattern{" "}
+  <Link
+    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
+    size={Link.sizes.SMALL}
+    withoutSpacing
+  >
+    here
+  </Link>
+  .
+</Tip>
 
 ## Related components
 
