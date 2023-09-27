@@ -5,6 +5,7 @@ import Menu from "../../Menu/Menu";
 import { Activity, Bolt, Settings } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
+import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 
 export const menuItemTemplate = args => (
   <Menu>
@@ -97,13 +98,21 @@ export const menuItemTooltipTemplate = args => {
 };
 
 export const menuItemWithLabelDoTemplate = args => (
-  <Menu>
-    <MenuItem title="Menu item" label="New" />
-  </Menu>
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu item 1" label="New" />
+      <MenuItem title="Menu item 2" />
+      <MenuItem title="Menu item 3" />
+    </Menu>
+  </DialogContentContainer>
 );
 
 export const menuItemWithLabelDontTemplate = args => (
-  <Menu>
-    <MenuItem title="Menu Item" label="Long menu item label" />
-  </Menu>
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu Item 1" label="Long menu item label" />
+      <MenuItem title="Menu Item 2" />
+      <MenuItem title="Menu Item 3" />
+    </Menu>
+  </DialogContentContainer>
 );
