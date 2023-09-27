@@ -2,6 +2,6 @@
 
 exports[`ThemeProvider renders correctly with theme name 1`] = `
 <div
-  className="theme-provider_test-theme-name"
+  className="test-theme-name"
 />
 `;
