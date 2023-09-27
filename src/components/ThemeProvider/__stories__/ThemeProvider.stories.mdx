@@ -7,7 +7,7 @@ import {
   ThemeProviderTemplateOverview,
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories";
-import { SystemTheme, Color } from "../ThemeProviderConstants";
+import { SystemTheme, ThemeColor } from "../ThemeProviderConstants";
 import { ColorsEligibleForTheming } from "./colors-eligible-for-theming";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -51,12 +51,12 @@ Product theme is a custom theme that can be provided by a user, there you can sp
         name: "overview-theme",
         colors: {
           [SystemTheme.LIGHT]: {
-            [Color.primaryColor]: "green",
-            [Color.primaryHoverColor]: "darkgreen"
+            [ThemeColor.primaryColor]: "green",
+            [ThemeColor.primaryHoverColor]: "darkgreen"
           },
           [SystemTheme.DARK]: {
-            [Color.primaryColor]: "red",
-            [Color.primaryHoverColor]: "darkred"
+            [ThemeColor.primaryColor]: "red",
+            [ThemeColor.primaryHoverColor]: "darkred"
           },
           black: {
             "primary-color": "orange",
@@ -88,7 +88,10 @@ Product theme is a custom theme that can be provided by a user, there you can sp
   ]}
 />
 
-<Tip title="Not what you were looking for?">Tip content</Tip>
+<Tip title="Dev tip">
+  Use <code>Theme</code>, <code>SystemTheme</code> and <code>ThemeColor</code> types/enums to unleash the power of
+  auto-completion
+</Tip>
 
 ## Variants
 

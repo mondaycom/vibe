@@ -1,9 +1,9 @@
-import { Theme, ColorTokenValueMap, SystemTheme, SystemThemeClassMap } from "./ThemeProviderConstants";
+import { Theme, ThemeColorTokenValueMap, SystemTheme, SystemThemeClassMap } from "./ThemeProviderConstants";
 
-const generateCss = (object: ColorTokenValueMap, stack: string, parentSelector: string) => {
+const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelector: string) => {
   for (const key of Object.keys(object)) {
-    if (typeof object[key as keyof ColorTokenValueMap] === "string") {
-      stack += `--${key}: ${object[key as keyof ColorTokenValueMap]};`;
+    if (typeof object[key as keyof ThemeColorTokenValueMap] === "string") {
+      stack += `--${key}: ${object[key as keyof ThemeColorTokenValueMap]};`;
     }
   }
 
@@ -12,9 +12,10 @@ const generateCss = (object: ColorTokenValueMap, stack: string, parentSelector: 
   }
 
   for (const key of Object.keys(object)) {
-    if (typeof object[key as keyof ColorTokenValueMap] === "object") {
+    if (typeof object[key as keyof ThemeColorTokenValueMap] === "object") {
       const selector = `${parentSelector}.${key}`;
-      stack += "\n" + generateCss(object[key as keyof ColorTokenValueMap] as ColorTokenValueMap, "", selector);
+      stack +=
+        "\n" + generateCss(object[key as keyof ThemeColorTokenValueMap] as ThemeColorTokenValueMap, "", selector);
     }
   }
 

@@ -2,7 +2,7 @@ import cx from "classnames";
 import React from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
-import { Color, SystemTheme } from "../ThemeProviderConstants";
+import { ThemeColor, SystemTheme } from "../ThemeProviderConstants";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import {
@@ -31,10 +31,10 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
           name: "theming-scope-theme",
           colors: {
             [SystemTheme.LIGHT]: {
-              [Color.primaryColor]: "green"
+              [ThemeColor.primaryColor]: "green"
             },
             [SystemTheme.DARK]: {
-              [Color.primaryColor]: "red"
+              [ThemeColor.primaryColor]: "red"
             },
             black: {
               "primary-color": "orange"
@@ -59,8 +59,8 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
         name: "outer-theme",
         colors: {
           [SystemTheme.LIGHT]: {
-            [Color.primaryColor]: "red",
-            [Color.primaryHoverColor]: "red"
+            [ThemeColor.primaryColor]: "red",
+            [ThemeColor.primaryHoverColor]: "red"
           }
         }
       }}
@@ -71,7 +71,7 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
             name: "inner-theme",
             colors: {
               [SystemTheme.LIGHT]: {
-                [Color.primaryColor]: "green"
+                [ThemeColor.primaryColor]: "green"
               }
             }
           }}

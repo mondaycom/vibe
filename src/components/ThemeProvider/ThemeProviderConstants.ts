@@ -6,7 +6,7 @@ export enum SystemTheme {
 }
 
 // Colors which are eligible for theming
-export enum Color {
+export enum ThemeColor {
   primaryColor = "primary-color",
   primaryHoverColor = "primary-hover-color",
   primarySelectedColor = "primary-selected-color",
@@ -26,17 +26,17 @@ export type Theme = {
 };
 
 type SystemThemeColorMap = {
-  [key in SystemTheme]?: ColorTokenValueMap;
+  [key in SystemTheme]?: ThemeColorTokenValueMap;
 };
 
-export type ColorTokenValueMap = ColorTokenValue | CustomClassValue;
+export type ThemeColorTokenValueMap = ThemeColorTokenValue | ThemeCustomClassValue;
 
-export type ColorTokenValue = {
-  [key in Color]?: string;
+export type ThemeColorTokenValue = {
+  [key in ThemeColor]?: string;
 };
 
-type CustomClassValue = {
-  [key: string]: ColorTokenValue | CustomClassValue;
+type ThemeCustomClassValue = {
+  [key: string]: ThemeColorTokenValue | ThemeCustomClassValue;
 };
 
 export const SystemThemeClassMap: SystemThemeClassMapType = {
