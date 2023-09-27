@@ -2,14 +2,14 @@ import cx from "classnames";
 import React from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
-import { ThemeColor, SystemTheme } from "../ThemeProviderConstants";
+import { SystemTheme, ThemeColor } from "../ThemeProviderConstants";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import {
   crmProductTheme,
+  marketingProductTheme,
   projectManagementProductTheme,
-  softwareProductTheme,
-  marketingProductTheme
+  softwareProductTheme
 } from "./product-themes";
 import styles from "./ThemeProvider.stories.module.scss";
 
@@ -111,6 +111,33 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
         />
         <Button>Themed</Button>
         <Button color={Button.colors.BRAND}>Themed branded</Button>
+      </Flex>
+    </ThemeProvider>
+  );
+};
+
+export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
+  return (
+    <ThemeProvider
+      theme={{
+        name: "theme-with-custom-class-selector",
+        colors: {
+          [SystemTheme.LIGHT]: {
+            [ThemeColor.primaryColor]: "green",
+            [ThemeColor.primaryHoverColor]: "green",
+            "custom-class": {
+              [ThemeColor.primaryColor]: "orange",
+              [ThemeColor.primaryHoverColor]: "orange"
+            }
+          }
+        }
+      }}
+    >
+      <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.ROW}>
+        <Button>Themed</Button>
+        <div className={"custom-class"}>
+          <Button>Themed by custom class</Button>
+        </div>
       </Flex>
     </ThemeProvider>
   );

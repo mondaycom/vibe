@@ -2,6 +2,7 @@ import ThemeProvider from "../ThemeProvider";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
+  ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
   ThemeProviderTemplateOverview,
@@ -133,4 +134,12 @@ These are theme-definitions, which are used in monday.com products.
 
 <Canvas>
   <Story name="Product theming">{ThemeProviderProductThemingTemplate.bind({})}</Story>
+</Canvas>
+
+### Custom class selector
+
+If you need to apply some of the tokens overrides only on elements under specific class you can declare theme like that:
+
+<Canvas>
+  <Story name="Custom class selector">{ThemeProviderCustomClassTemplate.bind({})}</Story>
 </Canvas>
