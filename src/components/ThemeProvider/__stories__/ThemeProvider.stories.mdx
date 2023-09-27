@@ -40,7 +40,8 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 ## Overview
 
 This component helps to customize the colors of library's components by overriding a specific css variables with a values provided within theme object.
-There are 2 levels of theming: **system theme** and **product theme**. System theme is a one of a 4 predefined themes: <code>light</code>, <code>dark</code>, <code>black</code> and <code>hacker</code>.
+There are 2 levels of theming: **system theme** and **product theme**.
+System theme is a one of a 4 predefined themes: <code>light</code>(<code>.light-app-theme</code>), <code>dark</code>(<code>.dark-app-theme</code>), <code>black</code>(<code>.black-app-theme</code>) and <code>hacker</code>(<code>.hacker_theme-app-theme</code>).
 Product theme is a custom theme that can be provided by a user, there you can specify the values of specific color tokens for each of the system themes.
 
 <Canvas>
@@ -82,14 +83,19 @@ Product theme is a custom theme that can be provided by a user, there you can sp
 
 <UsageGuidelines
   guidelines={[
-    "In most common case should only be used once to wrap whole application on a root level",
-    "Usage guideline 2",
-    "Usage guideline 3"
+    <>
+      Control themes in your application by setting theme classes (e.g. <code>.light-app-theme</code>) on your{" "}
+      <code>body</code> and render everything else inside it
+    </>,
+    <>
+      In most common case <code>ThemeProvider</code> should be rendered only once on the root level of the application -
+      below the <code>body</code>
+    </>
   ]}
 />
 
 <Tip title="Dev tip">
-  Use <code>Theme</code>, <code>SystemTheme</code> and <code>ThemeColor</code> types/enums to unleash the power of
+  Use <code>ThemeProvider.systemThemes</code> and <code>ThemeProvider.colors</code> enums to unleash the power of
   auto-completion
 </Tip>
 
