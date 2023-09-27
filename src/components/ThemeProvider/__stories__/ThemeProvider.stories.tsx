@@ -142,3 +142,38 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
     </ThemeProvider>
   );
 };
+
+export const ThemeProviderPositiveExampleTemplate = () => {
+  return (
+    <ThemeProvider
+      theme={{
+        name: "positive-example-theme",
+        colors: {
+          [SystemTheme.LIGHT]: {
+            [ThemeColor.primaryColor]: "green",
+            [ThemeColor.primaryHoverColor]: "darkgreen"
+          }
+        }
+      }}
+    >
+      <Button>Hover me</Button>
+    </ThemeProvider>
+  );
+};
+
+export const ThemeProviderNegativeExampleTemplate = () => {
+  return (
+    <ThemeProvider
+      theme={{
+        name: "negative-example-theme",
+        colors: {
+          [SystemTheme.LIGHT]: {
+            [ThemeColor.primaryColor]: "green"
+          }
+        }
+      }}
+    >
+      <Button>Hover me</Button>
+    </ThemeProvider>
+  );
+};

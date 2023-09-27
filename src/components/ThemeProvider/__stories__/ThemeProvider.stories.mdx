@@ -4,6 +4,8 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
+  ThemeProviderNegativeExampleTemplate,
+  ThemeProviderPositiveExampleTemplate,
   ThemeProviderProductThemingTemplate,
   ThemeProviderTemplateOverview,
   ThemeProviderThemingScopeTemplate
@@ -34,8 +36,6 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 - [Usage](#usage)
 - [Variants](#variants)
 - [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
@@ -143,3 +143,20 @@ If you need to apply some of the tokens overrides only on elements under specifi
 <Canvas>
   <Story name="Custom class selector">{ThemeProviderCustomClassTemplate.bind({})}</Story>
 </Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [<ThemeProviderPositiveExampleTemplate />],
+        description: "Pay attention and override all semantically close tokens, if needed."
+      },
+      negative: {
+        component: [<ThemeProviderNegativeExampleTemplate />],
+        description: "Don’t override only specific tokens to avoid inconsistent behaviour"
+      }
+    }
+  ]}
+/>
