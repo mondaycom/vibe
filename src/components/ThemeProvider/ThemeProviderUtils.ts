@@ -13,7 +13,7 @@ const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelec
 
   for (const key of Object.keys(object)) {
     if (typeof object[key as keyof ThemeColorTokenValueMap] === "object") {
-      const selector = `${parentSelector}.${key}`;
+      const selector = `${parentSelector} .${key}`;
       stack +=
         "\n" + generateCss(object[key as keyof ThemeColorTokenValueMap] as ThemeColorTokenValueMap, "", selector);
     }
