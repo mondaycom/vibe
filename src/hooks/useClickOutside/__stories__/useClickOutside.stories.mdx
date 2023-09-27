@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from "react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 import useClickOutside from "..";
-import { FunctionArgument, FunctionArguments, UsageGuidelines } from "vibe-storybook-components";
+import { FunctionArgument, FunctionArguments, Link, UsageGuidelines } from "vibe-storybook-components";
 import "../../__stories__/general-hooks-stories.scss";
 
 <Meta title="Hooks/useClickOutside" />
@@ -46,10 +46,10 @@ This hook is used when you want to capture click events outside of your componen
       type="React.MutableRefObject"
       description={
         <>
-          A React{" "}
-          <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">
+          A React
+          <Link href="https://reactjs.org/docs/hooks-reference.html#useref">
             ref
-          </a>{" "}
+          </Link>
           object.
         </>
       }
@@ -60,6 +60,20 @@ This hook is used when you want to capture click events outside of your componen
       type="(value: string) => void"
       description="Callback function to execute on outside clicks."
       required
+    />
+    <FunctionArgument
+      name="eventName"
+      type="keyof HTMLElementEventMap | string"
+      description={
+        <>
+          The event to listen to. See
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">
+            a full list
+          </Link>
+          for more info.
+        </>
+      }
+      defaultValue="click"
     />
   </FunctionArgument>
 </FunctionArguments>
