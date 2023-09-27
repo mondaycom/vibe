@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.41.1 (2023-09-27)
+
+#### Bug Fixes
+* [#1560](https://github.com/mondaycom/monday-ui-react-core/pull/1560) fix: remove preventDefault from useKeyboardButtonPressedFunc.ts ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1554](https://github.com/mondaycom/monday-ui-react-core/pull/1554) docs: <Dialog> - Dialog with tooltip story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1557](https://github.com/mondaycom/monday-ui-react-core/pull/1557) docs: add missing up next links ([@talkor](https://github.com/talkor))
+* [#1553](https://github.com/mondaycom/monday-ui-react-core/pull/1553) Infra/talko/flaky chromatic tests ([@talkor](https://github.com/talkor))
+
 ## 2.41.0 (2023-09-21)
 
 #### New Features
