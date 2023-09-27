@@ -102,17 +102,23 @@ Product theme is a custom theme that can be provided by a user, there you can sp
 
 ### Theming scope
 
+Only components wrapped with ThemeProvider will be affected by the theme.
+
 <Canvas>
   <Story name="Theming scope">{ThemeProviderThemingScopeTemplate.bind({})}</Story>
 </Canvas>
 
 ### Folded theming
 
+If component is wrapped with multiple ThemeProviders, the most nested one will override the values of the outer one, but if the nested ThemeProvider doesn't provide a value for a specific color token, the outer ThemeProvider will be used.
+
 <Canvas>
   <Story name="Folded theming">{ThemeProviderFoldedThemingTemplate.bind({})}</Story>
 </Canvas>
 
 ### Product theming
+
+These are theme-definitions, which are used in monday.com products.
 
 <Canvas>
   <Story name="Product theming">{ThemeProviderProductThemingTemplate.bind({})}</Story>

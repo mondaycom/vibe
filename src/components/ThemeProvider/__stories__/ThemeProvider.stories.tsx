@@ -59,7 +59,8 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
         name: "outer-theme",
         colors: {
           [SystemTheme.LIGHT]: {
-            [Color.primaryColor]: "red"
+            [Color.primaryColor]: "red",
+            [Color.primaryHoverColor]: "red"
           }
         }
       }}
