@@ -3,6 +3,15 @@ import { generateThemeCssOverride } from "../ThemeProviderUtils";
 const THEME_NAME = "test-theme-name";
 
 describe("ThemeProvider tests", () => {
+  it("theme with no colors", () => {
+    expect(true).toBe(true);
+    const theme = {
+      name: THEME_NAME
+    };
+    const css = generateThemeCssOverride(theme);
+    expect(css).toBeNull();
+  });
+
   it("theme with empty colors", () => {
     expect(true).toBe(true);
     const theme = {
