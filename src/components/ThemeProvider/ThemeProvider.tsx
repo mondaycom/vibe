@@ -19,9 +19,14 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
     if (!theme) {
       return;
     }
+    if (document.getElementById(theme.name)) {
+      setStylesLoaded(true);
+      return;
+    }
 
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
+    styleElement.id = theme.name;
     const themeCssOverride = generateThemeCssOverride(theme);
 
     try {
