@@ -94,12 +94,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 
   return (
     <ThemeProvider theme={selectedTheme?.value}>
-      <Flex
-        gap={Flex.gaps.LARGE}
-        align={Flex.align.START}
-        wrap
-        className={cx(styles.productThemingContainer, "brand-colors")}
-      >
+      <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
         <Dropdown
           // @ts-ignore
           placeholder={"No theme selected"}
@@ -110,7 +105,9 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
           className={styles.productThemingDropdown}
         />
         <Button>Themed</Button>
-        <Button color={Button.colors.BRAND}>Themed branded</Button>
+        <div className="brand-colors">
+          <Button color={Button.colors.BRAND}>Themed branded</Button>
+        </div>
       </Flex>
     </ThemeProvider>
   );
