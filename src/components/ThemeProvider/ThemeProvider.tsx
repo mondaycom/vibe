@@ -43,7 +43,7 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
     };
   }, [theme]);
 
-  if (!stylesLoaded) {
+  if (!stylesLoaded && theme) {
     // Waiting for styles to load before children render
     return null;
   }
