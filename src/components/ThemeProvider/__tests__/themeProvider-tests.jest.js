@@ -4,7 +4,6 @@ const THEME_NAME = "test-theme-name";
 
 describe("ThemeProvider tests", () => {
   it("theme with no colors", () => {
-    expect(true).toBe(true);
     const theme = {
       name: THEME_NAME
     };
@@ -13,7 +12,6 @@ describe("ThemeProvider tests", () => {
   });
 
   it("theme with empty colors", () => {
-    expect(true).toBe(true);
     const theme = {
       name: THEME_NAME,
       colors: {}
@@ -23,7 +21,6 @@ describe("ThemeProvider tests", () => {
   });
 
   it("theme with only one override", () => {
-    expect(true).toBe(true);
     const theme = {
       name: THEME_NAME,
       colors: {
@@ -37,7 +34,6 @@ describe("ThemeProvider tests", () => {
   });
 
   it("basic theme", () => {
-    expect(true).toBe(true);
     const theme = {
       name: THEME_NAME,
       colors: {
@@ -77,7 +73,6 @@ describe("ThemeProvider tests", () => {
   });
 
   it("theme with custom classes and variables", () => {
-    expect(true).toBe(true);
     const theme = {
       name: THEME_NAME,
       colors: {
