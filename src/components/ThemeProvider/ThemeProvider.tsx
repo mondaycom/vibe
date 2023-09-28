@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useLayoutEffect } from "react";
+import React, { FC, ReactElement, useEffect, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import { generateThemeCssOverride } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
@@ -13,7 +13,9 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
   theme,
   children
 }) => {
-  useLayoutEffect(() => {
+  const [stylesLoaded, setStylesLoaded] = useState(false);
+
+  useEffect(() => {
     if (!theme) {
       return;
     }
@@ -21,6 +23,7 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
     // Create a new style element
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
+    styleElement.id = theme.name;
     const themeCssOverride = generateThemeCssOverride(theme);
 
     try {
@@ -29,6 +32,7 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
 
       // Append the style element to the document head
       document.head.appendChild(styleElement);
+      setStylesLoaded(true);
     } catch (error) {
       console.error("Error loading dynamic CSS:", error);
     }
@@ -38,6 +42,11 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
       document.head.removeChild(styleElement);
     };
   }, [theme]);
+
+  if (!stylesLoaded) {
+    // Waiting for styles to load before children render
+    return null;
+  }
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
