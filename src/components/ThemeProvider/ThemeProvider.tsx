@@ -20,21 +20,16 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
       return;
     }
 
-    // Create a new style element
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
-    styleElement.id = theme.name;
     const themeCssOverride = generateThemeCssOverride(theme);
 
     try {
-      // Set the innerText property of the style element with the dynamic CSS
       styleElement.appendChild(document.createTextNode(themeCssOverride));
-
-      // Append the style element to the document head
       document.head.appendChild(styleElement);
       setStylesLoaded(true);
     } catch (error) {
-      console.error("Error loading dynamic CSS:", error);
+      console.error("vibe: error inserting theme-generated css - ", error);
     }
 
     // Cleanup: Remove the style element when the component unmounts
