@@ -11,14 +11,14 @@
 }
 
 .main-icon-story {
-  color: var(--icon-color);
+  color: var(--sb-icon-color);
   align-items: center;
   justify-content: flex-start;
 }
 
 .icon-story-component {
   width: Max(250px, 20%);
-  color: var(--icon-color);
+  color: var(--sb-icon-color);
   align-items: center;
   justify-content: flex-start;
   &:last-of-type {
