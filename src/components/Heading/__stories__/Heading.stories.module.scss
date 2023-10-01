@@ -9,7 +9,7 @@
 
 .primaryBackground {
   @include color-rectangle-example;
-  background-color: var(--primary-color);
+  background-color: var(--sb-primary-color);
 }
 
 .invertedBackground {
