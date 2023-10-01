@@ -50,7 +50,8 @@ export default {
     indent: false,
     strict: false,
     exports: "named",
-    preserveModules: true
+    preserveModules: true,
+    sourcemap: true
   },
   input: {
     index: path.join(SRC_PATH, "index.js"),

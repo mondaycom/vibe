@@ -16,7 +16,7 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { ElementContent, VibeComponentProps, withStaticProps } from "../../types";
+import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
 import { IComboboxCategoryMap, IComboboxItem, IComboboxOption } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 
@@ -99,6 +99,10 @@ export interface ComboboxProps extends VibeComponentProps {
    * On option click callback
    */
   onClick?: (optionData: IComboboxOption) => void;
+  /**
+   * Custom search icon
+   */
+  searchIcon?: SubIcon;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -110,6 +114,7 @@ const Combobox: React.FC<ComboboxProps> & {
       className = "",
       optionClassName = "",
       searchWrapperClassName,
+      searchIcon,
       id = "",
       placeholder = "",
       size = Combobox.sizes.MEDIUM,
@@ -288,6 +293,7 @@ const Combobox: React.FC<ComboboxProps> & {
             onChange={onChangeCallback}
             autoFocus={autoFocus}
             loading={loading}
+            iconName={searchIcon}
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems

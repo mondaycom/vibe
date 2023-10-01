@@ -1,10 +1,9 @@
 .tableRow {
   height: 40px;
-  background-color: var(--primary-background-color);
   display: grid;
   grid-template-columns: var(--table-grid-template-columns);
 
-  &:hover {
+  &:hover > * {
     background-color: var(--allgrey-background-color);
   }
 }

@@ -2,13 +2,14 @@ import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { FC, useMemo } from "react";
+import React, { FC, useCallback, useMemo, useRef } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
 import { VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./Label.module.scss";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 
 interface LabelProps extends VibeComponentProps {
   /**
@@ -24,6 +25,7 @@ interface LabelProps extends VibeComponentProps {
   text?: string;
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 const Label: FC<LabelProps> & {
@@ -39,10 +41,11 @@ const Label: FC<LabelProps> & {
   isAnimationDisabled = false,
   isLegIncluded = false,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  onClick
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
-  const textColor = color === LabelColor.DARK ? Text.colors.ON_PRIMARY : Text.colors.ON_INVERTED;
+  const isClickable = Boolean(onClick);
   const classNames = useMemo(
     () =>
       cx(
@@ -57,9 +60,37 @@ const Label: FC<LabelProps> & {
       ),
     [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
+
+  const onClickCallback = useCallback(
+    (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+      if (onClick) {
+        event.preventDefault();
+        onClick(event);
+      }
+    },
+    [onClick]
+  );
+
+  const labelRef = useRef<HTMLSpanElement>(null);
+  const clickableProps = useClickableProps(
+    {
+      onClick: onClickCallback,
+      id,
+      ariaHidden: false,
+      ariaHasPopup: false,
+      ariaExpanded: false
+    },
+    labelRef
+  );
+
   return (
-    <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}>
-      <Text type={Text.types.TEXT2} className={classNames} color={textColor}>
+    <span
+      {...(isClickable && clickableProps)}
+      className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
+      ref={labelRef}
+    >
+      <Text element="span" type={Text.types.TEXT2} className={classNames} color={Text.colors.ON_INVERTED}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
       </Text>

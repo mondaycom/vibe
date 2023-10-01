@@ -1,9 +1,15 @@
-import React, { FC, ReactElement, ComponentProps, useContext } from "react";
-import { VibeComponentProps } from "../../../types";
-import { ITableRowProps } from "../TableRow/TableRow";
+import React, { ReactElement, ComponentProps, useContext, forwardRef } from "react";
+import cx from "classnames";
+import { VibeComponent, VibeComponentProps } from "../../../types";
+import TableRow, { ITableRowProps } from "../TableRow/TableRow";
 import VirtualizedList from "../../VirtualizedList/VirtualizedList";
 import styles from "./TableBody.module.scss";
 import { TableContext } from "../Table/Table";
+import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";
+import { SKELETON_ROWS_AMOUNT } from "../Table/TableConsts";
+import { getLoadingTypeForCell } from "../Table/tableHelpers";
+import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface ITableBodyProps extends VibeComponentProps {
   children?:
@@ -12,14 +18,34 @@ export interface ITableBodyProps extends VibeComponentProps {
     | ReactElement<ComponentProps<typeof VirtualizedList>>;
 }
 
-const TableBody: FC<ITableBodyProps> = ({ children }) => {
-  const { dataState, emptyState, errorState } = useContext(TableContext);
+const TableBody: VibeComponent<ITableBodyProps, HTMLDivElement> = forwardRef(
+  ({ id, className, "data-testid": dataTestId, children }, ref) => {
+    const { dataState, emptyState, errorState, columns } = useContext(TableContext);
+    const { isLoading, isError } = dataState || {};
 
-  return (
-    <div role="rowgroup" className={styles.tableBody}>
-      {dataState?.isError ? errorState : children || emptyState}
-    </div>
-  );
-};
+    const skeletonRender = [...new Array(SKELETON_ROWS_AMOUNT)].map((_, rowIndex) => (
+      <TableRow key={rowIndex}>
+        {columns.map(({ loadingStateType }, columnIndex) => (
+          <TableCellSkeleton
+            key={`${rowIndex}-${columnIndex}`}
+            type={getLoadingTypeForCell(loadingStateType, rowIndex)}
+          />
+        ))}
+      </TableRow>
+    ));
+
+    return (
+      <div
+        ref={ref}
+        id={id}
+        className={cx(styles.tableBody, className)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_BODY, id)}
+        role="rowgroup"
+      >
+        {isLoading ? skeletonRender : isError ? errorState : children || emptyState}
+      </div>
+    );
+  }
+);
 
 export default TableBody;

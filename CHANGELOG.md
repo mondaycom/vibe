@@ -1,5 +1,70 @@
 # Changelog
 
+## 2.41.2 (2023-10-01)
+
+#### Bug Fixes
+* [#1561](https://github.com/mondaycom/monday-ui-react-core/pull/1561) fix(Label): apply preventDefault when calling onClick event ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1558](https://github.com/mondaycom/monday-ui-react-core/pull/1558) useClickOutside event name argument documentation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1562](https://github.com/mondaycom/monday-ui-react-core/pull/1562) chore(rollup): export sourcemap with build ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.41.1 (2023-09-27)
+
+#### Bug Fixes
+* [#1560](https://github.com/mondaycom/monday-ui-react-core/pull/1560) fix: remove preventDefault from useKeyboardButtonPressedFunc.ts ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1554](https://github.com/mondaycom/monday-ui-react-core/pull/1554) docs: <Dialog> - Dialog with tooltip story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1557](https://github.com/mondaycom/monday-ui-react-core/pull/1557) docs: add missing up next links ([@talkor](https://github.com/talkor))
+* [#1553](https://github.com/mondaycom/monday-ui-react-core/pull/1553) Infra/talko/flaky chromatic tests ([@talkor](https://github.com/talkor))
+
+## 2.41.0 (2023-09-21)
+
+#### New Features
+* [#1555](https://github.com/mondaycom/monday-ui-react-core/pull/1555) feat(Table): add vibe component props to all table-related components make components VibeComponent type - with forwardRef ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.40.0 (2023-09-20)
+
+#### New Features
+* [#1547](https://github.com/mondaycom/monday-ui-react-core/pull/1547) Feat/talko/label clickable ([@talkor](https://github.com/talkor))
+
+## 2.39.1 (2023-09-20)
+
+#### Internal Changes
+* [#1550](https://github.com/mondaycom/monday-ui-react-core/pull/1550) fix(TipseenMedia): fix import/export path ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.39.0 (2023-09-20)
+
+#### New Features
+* [#1548](https://github.com/mondaycom/monday-ui-react-core/pull/1548) feat(Tipseen): add TipseenMedia component to act as a container for tipseen medias ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1542](https://github.com/mondaycom/monday-ui-react-core/pull/1542) feat(Table): table leftovers ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.38.1 (2023-09-19)
+
+#### Bug Fixes
+* [#1549](https://github.com/mondaycom/monday-ui-react-core/pull/1549) fix: <Chips> text overflow Tooltip issue - replace internal Tooltip logic with Text overflow Tooltip logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1544](https://github.com/mondaycom/monday-ui-react-core/pull/1544) Update icons - monday-ui-style 0.1.194 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.38.0 (2023-09-14)
+
+#### New Features
+* [#1520](https://github.com/mondaycom/monday-ui-react-core/pull/1520) Added the ability for combobox categories to get classNames and inline color as props ([@MBYOded](https://github.com/MBYOded))
+
+## 2.37.1 (2023-09-14)
+
+#### Bug Fixes
+* [#1546](https://github.com/mondaycom/monday-ui-react-core/pull/1546) fix: <ListItem> children type change to ElementContent ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.37.0 (2023-09-14)
+
+#### New Features
+* [#1545](https://github.com/mondaycom/monday-ui-react-core/pull/1545) Exposed the ability to control the search icon for combobox ([@MBYOded](https://github.com/MBYOded))
+
 ## 2.36.3 (2023-09-13)
 
 #### Bug Fixes

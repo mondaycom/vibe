@@ -20,6 +20,7 @@ export interface IComboboxCategory {
   id: string;
   ariaLabel?: string;
   onlyShowOnSearch?: boolean;
+  color?: string;
 }
 
 export interface IComboboxOption {

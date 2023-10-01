@@ -1,8 +1,9 @@
 import React, { AriaAttributes } from "react";
-import { ITableColumn } from "./Table";
+import { ITableColumn, TableLoadingStateType } from "./Table";
 import Sort from "../../Icon/Icons/components/Sort";
 import { ITableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "../../Icon/Icons";
+import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 
 function generateWidth(width: ITableColumn["width"]) {
   if (typeof width === "number") {
@@ -48,4 +49,23 @@ export function getAriaSort(sortState: ITableHeaderCellProps["sortState"]): Aria
   } else if (sortState === "desc") {
     return "descending";
   }
+}
+
+export function getSkeletonType(loadingStateType: TableLoadingStateType): SkeletonType {
+  if (loadingStateType === "circle") {
+    return SkeletonType.CIRCLE;
+  }
+  if (loadingStateType === "rectangle") {
+    return SkeletonType.RECTANGLE;
+  }
+  return SkeletonType.TEXT;
+}
+
+export function getLoadingTypeForCell(
+  loadingStateType: TableLoadingStateType,
+  rowIndex: number
+): TableLoadingStateType {
+  return loadingStateType === "long-text"
+    ? (["long-text", "medium-text"] as TableLoadingStateType[])[rowIndex % 2]
+    : loadingStateType;
 }

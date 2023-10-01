@@ -49,7 +49,7 @@ export const tooltipTemplate = args => {
 Tooltips show contextual help or information about specific components when a user hovers on them.
 
 <Canvas>
-  <Story name="Overview" args={{ shouldShowOnMount: true, content: "I’m a tooltip" }}>
+  <Story name="Overview" args={{ shouldShowOnMount: true, content: "I’m a tooltip" }}  parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     {tooltipTemplate.bind({})}
   </Story>
 </Canvas>
@@ -86,7 +86,7 @@ Tooltips show contextual help or information about specific components when a us
 Tooltip’s arrow can appear from top, bottom, left or right.
 
 <Canvas>
-  <Story name="Positions">
+  <Story name="Positions" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
     <div className="monday-storybook-tooltip_top">
       <Tooltip
         // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
