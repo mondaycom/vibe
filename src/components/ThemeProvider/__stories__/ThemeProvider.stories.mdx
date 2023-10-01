@@ -52,21 +52,21 @@ Product theme is a custom theme that can be provided by a user, there you can sp
       theme: {
         name: "overview-theme",
         colors: {
-          [SystemTheme.LIGHT]: {
-            [ThemeColor.primaryColor]: "green",
-            [ThemeColor.primaryHoverColor]: "darkgreen"
+          [ThemeProvider.systemThemes.LIGHT]: {
+            [ThemeProvider.colors.primaryColor]: "green",
+            [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
           },
-          [SystemTheme.DARK]: {
-            [ThemeColor.primaryColor]: "salmon",
-            [ThemeColor.primaryHoverColor]: "darksalmon"
+          [ThemeProvider.systemThemes.DARK]: {
+            [ThemeProvider.colors.primaryColor]: "salmon",
+            [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
           },
-          black: {
-            [ThemeColor.primaryColor]: "slateblue",
-            [ThemeColor.primaryHoverColor]: "darkslateblue"
+          [ThemeProvider.systemThemes.BLACK]: {
+            [ThemeProvider.colors.primaryColor]: "slateblue",
+            [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
           },
-          hacker: {
-            [ThemeColor.primaryColor]: "purple",
-            [ThemeColor.primaryHoverColor]: "darkmagenta"
+          [ThemeProvider.systemThemes.HACKER]: {
+            [ThemeProvider.colors.primaryColor]: "purple",
+            [ThemeProvider.colors.primaryHoverColor]: "darkmagenta"
           }
         }
       }

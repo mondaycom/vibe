@@ -1,7 +1,6 @@
 import React from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
-import { SystemTheme, ThemeColor } from "../ThemeProviderConstants";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme4, productTheme2, productTheme3 } from "./product-themes";
@@ -24,21 +23,21 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
         theme={{
           name: "theming-scope-theme",
           colors: {
-            [SystemTheme.LIGHT]: {
-              [ThemeColor.primaryColor]: "green",
-              [ThemeColor.primaryHoverColor]: "darkgreen"
+            [ThemeProvider.systemThemes.LIGHT]: {
+              [ThemeProvider.colors.primaryColor]: "green",
+              [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
             },
-            [SystemTheme.DARK]: {
-              [ThemeColor.primaryColor]: "slateblue",
-              [ThemeColor.primaryHoverColor]: "darkslateblue"
+            [ThemeProvider.systemThemes.DARK]: {
+              [ThemeProvider.colors.primaryColor]: "slateblue",
+              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
             },
-            black: {
-              [ThemeColor.primaryColor]: "salmon",
-              [ThemeColor.primaryHoverColor]: "darksalmon"
+            [ThemeProvider.systemThemes.BLACK]: {
+              [ThemeProvider.colors.primaryColor]: "salmon",
+              [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
             },
-            hacker: {
-              [ThemeColor.primaryColor]: "slateblue",
-              [ThemeColor.primaryHoverColor]: "darkslateblue"
+            [ThemeProvider.systemThemes.HACKER]: {
+              [ThemeProvider.colors.primaryColor]: "slateblue",
+              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
             }
           }
         }}
@@ -56,9 +55,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
       theme={{
         name: "outer-theme",
         colors: {
-          [SystemTheme.LIGHT]: {
-            [ThemeColor.primaryColor]: "red",
-            [ThemeColor.primaryHoverColor]: "darkred"
+          [ThemeProvider.systemThemes.LIGHT]: {
+            [ThemeProvider.colors.primaryColor]: "red",
+            [ThemeProvider.colors.primaryHoverColor]: "darkred"
           }
         }
       }}
@@ -68,9 +67,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
           theme={{
             name: "inner-theme",
             colors: {
-              [SystemTheme.LIGHT]: {
-                [ThemeColor.primaryColor]: "green",
-                [ThemeColor.primaryHoverColor]: "darkgreen"
+              [ThemeProvider.systemThemes.LIGHT]: {
+                [ThemeProvider.colors.primaryColor]: "green",
+                [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
               }
             }
           }}
@@ -118,12 +117,12 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
       theme={{
         name: "theme-with-custom-class-selector",
         colors: {
-          [SystemTheme.LIGHT]: {
-            [ThemeColor.primaryColor]: "green",
-            [ThemeColor.primaryHoverColor]: "darkgreen",
+          [ThemeProvider.systemThemes.LIGHT]: {
+            [ThemeProvider.colors.primaryColor]: "green",
+            [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
             "custom-class": {
-              [ThemeColor.primaryColor]: "slateblue",
-              [ThemeColor.primaryHoverColor]: "darkslateblue"
+              [ThemeProvider.colors.primaryColor]: "slateblue",
+              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
             }
           }
         }
@@ -145,9 +144,9 @@ export const ThemeProviderPositiveExampleTemplate = () => {
       theme={{
         name: "positive-example-theme",
         colors: {
-          [SystemTheme.LIGHT]: {
-            [ThemeColor.primaryColor]: "green",
-            [ThemeColor.primaryHoverColor]: "darkgreen"
+          [ThemeProvider.systemThemes.LIGHT]: {
+            [ThemeProvider.colors.primaryColor]: "green",
+            [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
           }
         }
       }}
@@ -163,8 +162,8 @@ export const ThemeProviderNegativeExampleTemplate = () => {
       theme={{
         name: "negative-example-theme",
         colors: {
-          [SystemTheme.LIGHT]: {
-            [ThemeColor.primaryColor]: "green"
+          [ThemeProvider.systemThemes.LIGHT]: {
+            [ThemeProvider.colors.primaryColor]: "green"
           }
         }
       }}
