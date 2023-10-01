@@ -34,19 +34,19 @@ export const menuItemIconsWithColorsTemplate = args => {
         title="My Item (stuck red)"
         icon={Settings}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-stuck-red)"
+        iconBackgroundColor="var(--sb-negative-color)"
       />
       <MenuItem
         title="My Item (done green)"
         icon={Activity}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-done-green)"
+        iconBackgroundColor="var(--sb-positive-color)"
       />
       <MenuItem
         title="My Item (indigo)"
         icon={Bolt}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-indigo)"
+        iconBackgroundColor="var(--sb-color-purple)"
       />
     </Menu>
   );

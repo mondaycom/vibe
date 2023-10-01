@@ -15,7 +15,7 @@ export const DividerDescription = () => {
             title="My Item (stuck red)"
             icon={Settings}
             iconType={Icon.type.SVG}
-            iconBackgroundColor="var(--color-stuck-red)"
+            iconBackgroundColor="var(--sb-negative-color)"
           />
         </Menu>
         <Divider />
@@ -24,7 +24,7 @@ export const DividerDescription = () => {
             title="My Item (indigo)"
             icon={Bolt}
             iconType={Icon.type.SVG}
-            iconBackgroundColor="var(--color-indigo)"
+            iconBackgroundColor="var(--sb-color-purple)"
           />
         </Menu>
       </div>
