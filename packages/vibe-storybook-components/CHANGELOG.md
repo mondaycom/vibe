@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 (2023-10-01)
+
+#### New Features
+* [#20](https://github.com/mondaycom/vibe-storybook-components/pull/20) Add mising color tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.2.2 (2023-10-01)
 
 #### Bug Fixes
