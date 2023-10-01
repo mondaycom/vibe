@@ -26,6 +26,22 @@ describe("ThemeProvider tests", () => {
     expect(button).toBeInTheDocument();
   });
 
+  it("renders children correctly with empty theme", () => {
+    const theme = null;
+    const { getByTestId } = render(
+      <ThemeProvider theme={theme}>
+        <Flex data-testid={"container"}>
+          <Button data-testid={"button"} />
+        </Flex>
+      </ThemeProvider>
+    );
+
+    const container = getByTestId("container");
+    const button = getByTestId("button");
+    expect(container).toBeInTheDocument();
+    expect(button).toBeInTheDocument();
+  });
+
   describe("ThemeProviderUtils tests", () => {
     it("theme with no colors", () => {
       const theme = {
