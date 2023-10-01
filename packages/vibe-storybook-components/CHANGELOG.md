@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2 (2023-10-01)
+
+#### Bug Fixes
+* [#19](https://github.com/mondaycom/vibe-storybook-components/pull/19) fix(UsageGuidelines): wrap content in a span ([@talkor](https://github.com/talkor))
+
 ## 0.2.1 (2023-08-28)
 
 #### Bug Fixes
