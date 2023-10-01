@@ -8,7 +8,7 @@
 .monday-story-clickable {
   &_first-element {
     @include clickable-element;
-    background-color: var(--primary-selected-color);
+    background-color: var(--sb-primary-selected-color);
   }
 
   &_disabled-element {

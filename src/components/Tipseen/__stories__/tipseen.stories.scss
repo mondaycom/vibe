@@ -61,6 +61,6 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
   }
 
   &_hovered {
-    background-color: var(--primary-selected-color);
+    background-color: var(--sb-primary-selected-color);
   }
 }
