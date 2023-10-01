@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
-import { generateThemeCssOverride } from "./ThemeProviderUtils";
+import { generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
@@ -37,13 +37,12 @@ const ThemeProvider: FC<ThemeProviderProps> & { systemThemes?: typeof SystemThem
       console.error("vibe: error inserting theme-generated css - ", error);
     }
 
-    // Cleanup: Remove the style element when the component unmounts
     return () => {
       document.head.removeChild(styleElement);
     };
   }, [theme]);
 
-  if (!stylesLoaded && theme) {
+  if (!stylesLoaded && shouldGenerateTheme(theme)) {
     // Waiting for styles to load before children render
     return null;
   }

@@ -22,8 +22,12 @@ const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelec
   return stack;
 };
 
+export const shouldGenerateTheme = (theme: Theme) => {
+  return !!theme?.colors;
+};
+
 export const generateThemeCssOverride = (theme: Theme) => {
-  if (!theme.colors) {
+  if (!shouldGenerateTheme(theme)) {
     return null;
   }
 
@@ -32,6 +36,5 @@ export const generateThemeCssOverride = (theme: Theme) => {
     css += generateCss(theme.colors[systemTheme], "", `.${SystemThemeClassMap[systemTheme]} .${theme.name}`) + "\n";
   }
 
-  console.log("### css", css);
   return css;
 };
