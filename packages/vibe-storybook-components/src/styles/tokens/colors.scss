@@ -20,6 +20,12 @@
   --sb-primary-selected-color: #cce5ff;
   --sb-negative-color-selected: #f4c3cb;
   --sb-icon-color: #676879;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #323338;
+  --sb-disabled-background-color: #ecedf5;
+  --sb-primary-background-hover-color: #dcdfec;
+  --sb-dark-background-color: #f6f7fb;
 }
 
 .dark-app-theme {
@@ -42,6 +48,12 @@
   --sb-primary-selected-color: #133774;
   --sb-negative-color-selected: #642830;
   --sb-icon-color: #c3c6d4;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #ffffff;
+  --sb-disabled-background-color: #3c3f59;
+  --sb-primary-background-hover-color: #4b4e69;
+  --sb-dark-background-color: #393b53;
 }
 
 .black-app-theme {
@@ -64,6 +76,12 @@
   --sb-primary-selected-color: #133774;
   --sb-negative-color-selected: #642830;
   --sb-icon-color: #aaaaaa;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #eeeeee;
+  --sb-disabled-background-color: #3a3a3a;
+  --sb-primary-background-hover-color: #636363;
+  --sb-dark-background-color: #2c2c2c;
 }
 
 .hacker_theme-app-theme {
@@ -86,4 +104,10 @@
   --sb-primary-selected-color: #9f4077;
   --sb-negative-color-selected: #642830;
   --sb-icon-color: #c3c6d4;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #ffffff;
+  --sb-disabled-background-color: #3a3a3a;
+  --sb-primary-background-hover-color: #4b4e69;
+  --sb-dark-background-color: #303241;
 }
