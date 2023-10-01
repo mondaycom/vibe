@@ -3,7 +3,7 @@
 
 .recycleBin {
   border: 1px solid var(--ui-border-color);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--sb-border-radius-small);
   @include vibe-text(text1, normal);
   height: 94px;
 
@@ -37,7 +37,7 @@
 
 .dashboard {
   border: 1px solid var(--layout-border-color);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--sb-border-radius-medium);
 
   &Header {
     padding-inline-start: var(--sb-spacing-small);
