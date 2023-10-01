@@ -26,7 +26,7 @@
   min-height: inherit;
   padding: 0;
   background-color: var(--grey-background-color);
-  border-bottom: 1px solid var(--inverted-color-background);
+  border-bottom: 1px solid var(--sb-inverted-color-background);
   color: var(--sb-text-color-fixed-dark);
 }
 
@@ -41,7 +41,7 @@
     background: white;
 
     &::before {
-      background-color: var(--color-error-highlight);
+      background-color: #f4c3cb;
       opacity: 0.5;
       position: absolute;
       top: 0;
