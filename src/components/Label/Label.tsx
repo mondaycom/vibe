@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { FC, useMemo, useRef } from "react";
+import React, { FC, useCallback, useMemo, useRef } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
@@ -61,10 +61,20 @@ const Label: FC<LabelProps> & {
     [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
   );
 
+  const onClickCallback = useCallback(
+    (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+      if (onClick) {
+        event.preventDefault();
+        onClick(event);
+      }
+    },
+    [onClick]
+  );
+
   const labelRef = useRef<HTMLSpanElement>(null);
   const clickableProps = useClickableProps(
     {
-      onClick,
+      onClick: onClickCallback,
       id,
       ariaHidden: false,
       ariaHasPopup: false,
