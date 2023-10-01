@@ -3,10 +3,10 @@
     padding: var(--sb-spacing-medium);
     width: 254px;
     font-size: 14px;
-    background-color: var(--dark-background-color);
+    background-color: var(--sb-dark-background-color);
   }
   &-title {
-    color: var(--placeholder-on-secondary-color);
+    color: var(--sb-secondary-text-color);
     margin-left: var(--sb-spacing-small);
   }
 
@@ -28,7 +28,7 @@
     margin-bottom: var(--sb-spacing-medium);
     border: 1px solid;
     border-radius: var(--sb-border-radius-small);
-    border-color: var(--placeholder-color);
+    border-color: var(--sb-secondary-text-color);
     padding: var(--sb-spacing-small);
 
     &-icon {

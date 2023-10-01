@@ -10,12 +10,12 @@
     padding: 6px;
     gap: 8px;
     align-items: center;
-    background-color: var(--color-ui_grey);
+    background-color: var(--sb-icon-color);
     cursor: pointer;
   }
 
   &_icon-box {
-    background-color: var(--color-ui_grey);
+    background-color: var(--sb-icon-color);
     width: 54px;
     height: 54px;
     display: flex;

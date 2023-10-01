@@ -43,16 +43,16 @@
       border: none;
     }
     span {
-      color: var(--text-color-on-primary);
+      color: var(--sb-text-color-on-primary);
     }
   }
 
   &_purple {
-    background-color: var(--color-amethyst);
+    background-color: var(--sb-color-purple);
   }
 
   &_pink {
-    background-color: var(--color-light-pink);
+    background-color: var(--sb-color-sofia_pink);
   }
 
   &_states-gap {

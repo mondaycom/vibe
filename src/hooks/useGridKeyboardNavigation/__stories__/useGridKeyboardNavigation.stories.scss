@@ -1,7 +1,4 @@
-@import "../../__stories__/general-hooks-stories";
-@import "../../../styles/states";
-@import "../../../styles/typography";
-@import "../../../styles/global-css-settings";
+@import "~vibe-storybook-components/dist/mixins";
 
 .use-grid-keyboard-nav-comp-wrapper {
   padding: 24px;
@@ -16,7 +13,7 @@
   margin: 6px;
 
   &.active-item {
-    @include focus-style-css();
+    @include sb-focus-style-css();
   }
 }
 
