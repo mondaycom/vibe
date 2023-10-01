@@ -1,3 +1,6 @@
+/**
+ * System themes: dark, light, black, hacker
+ */
 export enum SystemTheme {
   LIGHT = "light",
   DARK = "dark",
@@ -5,7 +8,9 @@ export enum SystemTheme {
   HACKER = "hacker"
 }
 
-// Colors which are eligible for theming
+/**
+ * Colors which are eligible for theming
+ */
 export enum ThemeColor {
   primaryColor = "primary-color",
   primaryHoverColor = "primary-hover-color",
@@ -21,6 +26,9 @@ export enum ThemeColor {
 }
 
 export type Theme = {
+  /**
+   * The name of the theme - name of css class that will be added to the children - should be unique
+   */
   name: string;
   colors: SystemThemeColorMap;
 };

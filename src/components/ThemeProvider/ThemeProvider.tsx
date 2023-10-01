@@ -6,6 +6,9 @@ import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
   theme?: Theme;
+  /**
+   * The children to render with the theme
+   */
   children: ReactElement;
 }
 
