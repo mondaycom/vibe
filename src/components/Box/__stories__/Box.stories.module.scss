@@ -27,11 +27,13 @@
   padding: 0;
   background-color: var(--grey-background-color);
   border-bottom: 1px solid var(--inverted-color-background);
+  color: var(--sb-text-color-fixed-dark);
 }
 
 .boxPaddingWrapper {
   overflow: hidden;
   padding: 0;
+  color: var(--sb-text-color-fixed-dark);
 
   > * {
     position: relative;
