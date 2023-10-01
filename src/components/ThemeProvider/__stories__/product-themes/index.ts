@@ -1,4 +1,4 @@
-export { crmProductTheme } from "./crm-product-theme";
-export { marketingProductTheme } from "./marketing-product-theme";
-export { softwareProductTheme } from "./software-product-theme";
-export { projectManagementProductTheme } from "./project_management-product-theme";
+export { productTheme1 } from "./product-theme-1";
+export { productTheme2 } from "./product-theme-2";
+export { productTheme4 } from "./product-theme-4";
+export { productTheme3 } from "./product-theme-3";

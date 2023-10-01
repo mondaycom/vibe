@@ -1,7 +1,7 @@
 import { Theme } from "../../ThemeProviderConstants";
 
-export const marketingProductTheme: Theme = {
-  name: "marketing-product-theme",
+export const productTheme4: Theme = {
+  name: "product-theme-4",
   colors: {
     light: {
       "primary-color": "#e21277",

@@ -4,12 +4,7 @@ import Button from "../../Button/Button";
 import { SystemTheme, ThemeColor } from "../ThemeProviderConstants";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
-import {
-  crmProductTheme,
-  marketingProductTheme,
-  projectManagementProductTheme,
-  softwareProductTheme
-} from "./product-themes";
+import { productTheme1, productTheme4, productTheme2, productTheme3 } from "./product-themes";
 import styles from "./ThemeProvider.stories.module.scss";
 
 export const ThemeProviderTemplateOverview = (args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
@@ -89,10 +84,10 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
 
 export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   const dropdownOptions = [
-    { value: crmProductTheme, label: "CRM" },
-    { value: projectManagementProductTheme, label: "Project Management" },
-    { value: softwareProductTheme, label: "Software (dev)" },
-    { value: marketingProductTheme, label: "Marketing" }
+    { value: productTheme1, label: "Product 1" },
+    { value: productTheme2, label: "Product 2" },
+    { value: productTheme3, label: "Product 3" },
+    { value: productTheme4, label: "Product 4" }
   ];
   const [selectedTheme, setSelectedTheme] = React.useState(null);
 

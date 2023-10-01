@@ -1,7 +1,7 @@
 import { Theme } from "../../ThemeProviderConstants";
 
-export const crmProductTheme: Theme = {
-  name: "crm-product-theme",
+export const productTheme1: Theme = {
+  name: "product-theme-1",
   colors: {
     light: {
       "primary-color": "#007f9b",
