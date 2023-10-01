@@ -1,7 +1,7 @@
 @mixin clickable-element {
   padding: var(--sb-spacing-small);
   border-radius: var(--sb-border-radius-small);
-  color: var(--primary-text-color);
+  color: var(--sb-primary-text-color);
   width: 40%;
 }
 
