@@ -1,13 +1,13 @@
 .leftpane-workspaces {
   &-section {
-    padding: var(--spacing-medium);
+    padding: var(--sb-spacing-medium);
     width: 254px;
     font-size: 14px;
     background-color: var(--dark-background-color);
   }
   &-title {
     color: var(--placeholder-on-secondary-color);
-    margin-left: var(--spacing-small);
+    margin-left: var(--sb-spacing-small);
   }
 
   &-description {
@@ -15,21 +15,21 @@
     align-items: center;
 
     & > * {
-      margin-right: var(--spacing-small);
+      margin-right: var(--sb-spacing-small);
     }
   }
 
   &-options {
-    margin-left: var(--spacing-small);
+    margin-left: var(--sb-spacing-small);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: var(--spacing-small);
-    margin-bottom: var(--spacing-medium);
+    margin-top: var(--sb-spacing-small);
+    margin-bottom: var(--sb-spacing-medium);
     border: 1px solid;
     border-radius: var(--border-radius-small);
     border-color: var(--placeholder-color);
-    padding: var(--spacing-small);
+    padding: var(--sb-spacing-small);
 
     &-icon {
       justify-self: flex-end;

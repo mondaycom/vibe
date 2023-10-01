@@ -24,7 +24,7 @@
   display: flex;
 
   & :not(:first-child) {
-    margin-left: var(--spacing-medium);
+    margin-left: var(--sb-spacing-medium);
   }
 
   input {

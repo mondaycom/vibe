@@ -31,7 +31,7 @@
   }
 
   &RestoreButton {
-    margin-inline-end: var(--spacing-large);
+    margin-inline-end: var(--sb-spacing-large);
   }
 }
 
@@ -40,7 +40,7 @@
   border-radius: var(--border-radius-medium);
 
   &Header {
-    padding-inline-start: var(--spacing-small);
+    padding-inline-start: var(--sb-spacing-small);
     height: 49px;
     width: 100%;
     border-bottom: 1px solid var(--layout-border-color);
