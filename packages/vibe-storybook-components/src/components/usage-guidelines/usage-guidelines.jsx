@@ -13,7 +13,7 @@ export const UsageGuidelines = ({ guidelines }) => {
         // eslint-disable-next-line react/no-array-index-key
         <span id={index} key={index} className={bemHelper({ element: 'guideline' })}>
           <span className={bemHelper({ element: 'icon' })}>➡️</span>
-          {guideline}
+          <span>{guideline}</span>
         </span>
       )),
     [guidelines],
