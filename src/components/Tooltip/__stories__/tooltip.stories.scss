@@ -10,12 +10,15 @@
     padding: 6px;
     gap: 8px;
     align-items: center;
-    background-color: var(--sb-icon-color);
+    background-color: var(--sb-disabled-background-color);
     cursor: pointer;
+    &:hover {
+      background-color: var(--sb-primary-background-hover-color);
+    }
   }
 
   &_icon-box {
-    background-color: var(--sb-icon-color);
+    background-color: var(--sb-color-winter);
     width: 54px;
     height: 54px;
     display: flex;
