@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
@@ -31,16 +30,20 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
           name: "theming-scope-theme",
           colors: {
             [SystemTheme.LIGHT]: {
-              [ThemeColor.primaryColor]: "green"
+              [ThemeColor.primaryColor]: "green",
+              [ThemeColor.primaryHoverColor]: "darkgreen"
             },
             [SystemTheme.DARK]: {
-              [ThemeColor.primaryColor]: "red"
+              [ThemeColor.primaryColor]: "slateblue",
+              [ThemeColor.primaryHoverColor]: "darkslateblue"
             },
             black: {
-              "primary-color": "orange"
+              [ThemeColor.primaryColor]: "salmon",
+              [ThemeColor.primaryHoverColor]: "darksalmon"
             },
             hacker: {
-              "primary-color": "#ff9191"
+              [ThemeColor.primaryColor]: "slateblue",
+              [ThemeColor.primaryHoverColor]: "darkslateblue"
             }
           }
         }}
@@ -60,7 +63,7 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
         colors: {
           [SystemTheme.LIGHT]: {
             [ThemeColor.primaryColor]: "red",
-            [ThemeColor.primaryHoverColor]: "red"
+            [ThemeColor.primaryHoverColor]: "darkred"
           }
         }
       }}
@@ -71,7 +74,8 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
             name: "inner-theme",
             colors: {
               [SystemTheme.LIGHT]: {
-                [ThemeColor.primaryColor]: "green"
+                [ThemeColor.primaryColor]: "green",
+                [ThemeColor.primaryHoverColor]: "darkgreen"
               }
             }
           }}
@@ -121,10 +125,10 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
         colors: {
           [SystemTheme.LIGHT]: {
             [ThemeColor.primaryColor]: "green",
-            [ThemeColor.primaryHoverColor]: "green",
+            [ThemeColor.primaryHoverColor]: "darkgreen",
             "custom-class": {
-              [ThemeColor.primaryColor]: "orange",
-              [ThemeColor.primaryHoverColor]: "orange"
+              [ThemeColor.primaryColor]: "slateblue",
+              [ThemeColor.primaryHoverColor]: "darkslateblue"
             }
           }
         }
