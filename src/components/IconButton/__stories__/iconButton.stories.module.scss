@@ -2,13 +2,13 @@
 @import "../../../styles/typography";
 
 .recycleBin {
-  border: 1px solid var(--ui-border-color);
+  border: 1px solid var(--sb-ui-border-color);
   border-radius: var(--sb-border-radius-small);
   @include vibe-text(text1, normal);
   height: 94px;
 
   &TitleContainer {
-    border-inline-end: 1px solid var(--ui-border-color);
+    border-inline-end: 1px solid var(--sb-ui-border-color);
     width: 96px;
     height: 100%;
     color: var(--icon-color);
@@ -36,14 +36,14 @@
 }
 
 .dashboard {
-  border: 1px solid var(--layout-border-color);
+  border: 1px solid var(--sb-layout-border-color);
   border-radius: var(--sb-border-radius-medium);
 
   &Header {
     padding-inline-start: var(--sb-spacing-small);
     height: 49px;
     width: 100%;
-    border-bottom: 1px solid var(--layout-border-color);
+    border-bottom: 1px solid var(--sb-layout-border-color);
   }
   &Content {
     height: 200px;
