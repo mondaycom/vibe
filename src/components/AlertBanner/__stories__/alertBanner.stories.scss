@@ -1,12 +1,12 @@
 .monday-storybook-alert-banner {
   &_column-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &_big-container {
-     width: 610px;
+    width: 610px;
   }
 
   &_small-container {
@@ -18,14 +18,6 @@
   }
 
   &_pink {
-    .monday-alert-banner__close-button-wrapper {
-      background: var(--private-color);
-    }
-    .monday-alert-banner__inner {
-      background: var(--private-color);
-    }
-    .monday-alert-banner__alert-banner-close-btn {
-      background: var(--private-color);
-    }
+    background: var(--sb-color-sofia_pink);
   }
 }
