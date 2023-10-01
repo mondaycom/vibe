@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.41.2 (2023-10-01)
+
+#### Bug Fixes
+* [#1561](https://github.com/mondaycom/monday-ui-react-core/pull/1561) fix(Label): apply preventDefault when calling onClick event ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1558](https://github.com/mondaycom/monday-ui-react-core/pull/1558) useClickOutside event name argument documentation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1562](https://github.com/mondaycom/monday-ui-react-core/pull/1562) chore(rollup): export sourcemap with build ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.41.1 (2023-09-27)
 
 #### Bug Fixes
