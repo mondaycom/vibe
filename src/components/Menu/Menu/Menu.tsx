@@ -61,7 +61,6 @@ const Menu: VibeComponent<MenuProps> & {
       // Backward compatibility for props naming
       classname,
       size = Menu.sizes.MEDIUM,
-      tabIndex = 0,
       ariaLabel = "Menu",
       ariaDescribedBy,
       children: originalChildren,

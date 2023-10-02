@@ -76,7 +76,6 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         selected,
         disabled = false,
         size = SIZES.SMALL,
-        tabIndex = 0,
         children,
         "aria-current": ariaCurrent,
         "data-testid": dataTestId
