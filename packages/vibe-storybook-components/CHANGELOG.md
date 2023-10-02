@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 (2023-10-02)
+
+#### New Features
+* [#22](https://github.com/mondaycom/vibe-storybook-components/pull/22) Replace Rubik with Noto Sans Hebrew ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.3.0 (2023-10-01)
 
 #### New Features
