@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.43.0 (2023-10-02)
+
+#### New Features
+* [#1570](https://github.com/mondaycom/monday-ui-react-core/pull/1570) feat(useActiveDescendantListFocus): add option to ignoreDocumentFallback to prevent vibe from adding event listeners ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1563](https://github.com/mondaycom/monday-ui-react-core/pull/1563) docs: <Dialog> story improvements - UsageGuidelines, add links ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1551](https://github.com/mondaycom/monday-ui-react-core/pull/1551) chore: set browserslist config to specific version to avoid breaking changes, update caniuse browserslist ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.42.0 (2023-10-02)
 
 #### New Features
