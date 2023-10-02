@@ -1,3 +1,7 @@
+0.1.194 / 2023-09-13
+====================
+  * Remove duplications from colors.json ([#246](https://github.com/mondaycom/monday-ui-style/issues/246))
+
 0.1.193 / 2023-09-10
 ====================
   * build(validate-icons-colors): fix script to catch multiple fill/stroke usages ([#245](https://github.com/mondaycom/monday-ui-style/issues/245))
@@ -323,10 +327,3 @@
 0.1.149 / 2023-02-04
 ====================
   * update fonts to both title and general fonts ([#186](https://github.com/mondaycom/monday-ui-style/issues/186))
-
-0.1.148 / 2022-11-29
-====================
-  * feature/sergeyro/theme-selected-hover-colors ([#183](https://github.com/mondaycom/monday-ui-style/issues/183))
-    * Add 3 tokens ($primary-selected-hover-color, $negative-color-selected-hover, $positive-color-selected-hover) for chips hover support
-    * Publish colors in themes map
-    * Update colors.json
