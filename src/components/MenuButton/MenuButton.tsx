@@ -108,7 +108,7 @@ interface MenuButtonProps extends VibeComponentProps {
   /**
    * Backward compatibility for props naming
    */
-  disabledReason?: boolean;
+  disabledReason?: string;
   children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
@@ -281,8 +281,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
-    // TODO disabledReason - boolean, why?
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]) as string;
+    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     return (
