@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.42.0 (2023-10-02)
+
+#### New Features
+* [#1565](https://github.com/mondaycom/monday-ui-react-core/pull/1565) Replace Rubik with Noto Sans Hebrew ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1564](https://github.com/mondaycom/monday-ui-react-core/pull/1564) docs: component-name-decorator- text color = fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.41.2 (2023-10-01)
 
 #### Bug Fixes
