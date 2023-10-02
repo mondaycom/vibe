@@ -22,7 +22,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   const [stylesLoaded, setStylesLoaded] = useState(false);
 
   useEffect(() => {
-    if (!theme) {
+    if (!theme || !theme?.name) {
       return;
     }
     if (document.getElementById(theme.name)) {
