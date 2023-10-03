@@ -231,6 +231,7 @@ export {default as UserStatus} from './components/UserStatus';
 export {default as Versioning} from './components/Versioning';
 export {default as Video} from './components/Video';
 export {default as Wand} from './components/Wand';
+export {default as Warning} from './components/Warning';
 export {default as WhatsNew} from './components/WhatsNew';
 export {default as Widgets} from './components/Widgets';
 export {default as Work} from './components/Work';
