@@ -44,21 +44,12 @@ export const datePickerTemplate = createComponentTemplate(DatePicker);
 A simple and reusable Datepicker component
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
-      return (
-        <DialogContentContainer className={styles.datepickerDialogContentContainer}>
-          <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} />
-        </DialogContentContainer>
-      );
-    }}
-  </Story>
+  <Story name="Overview">{datePickerTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={DatePicker} />
+<ArgsTable story="Overview" />
 
 ## Variants
 
