@@ -16,7 +16,6 @@ jobs:
       - name: Install
         run: |
           npm ci
-          echo ${{secrets.npm_token}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
