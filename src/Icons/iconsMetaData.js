@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Warning",
+      file: "Warning.svg",
+      description: "Warning",
+      tags: "warning, caution"
+  },
+
+  {
       name: "SortDescending",
       file: "SortDescending.svg",
       description: "Sort Descending",
