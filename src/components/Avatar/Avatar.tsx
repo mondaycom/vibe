@@ -138,13 +138,13 @@ const Avatar: React.FC<AvatarProps> & {
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const defaultTabIndex = useMemo(() => {
-    if (!!onClick || (tooltipProps && tooltipProps.content)) {
+    if (!disabled && (onClick || overrideTooltipProps?.content)) {
       return 0;
     }
     return -1;
-  }, [onClick, tooltipProps]);
+  }, [disabled, onClick, overrideTooltipProps?.content]);
 
-  const tabIndexValue = tabIndex === undefined ? defaultTabIndex : tabIndex;
+  const overrideTabIndex = tabIndex ?? defaultTabIndex;
 
   const clickHandler = useCallback(
     (event: React.MouseEvent | React.KeyboardEvent) => {
@@ -188,7 +188,7 @@ const Avatar: React.FC<AvatarProps> & {
               avatarContentWrapperClassName
             )}
             aria-hidden={ariaHidden}
-            tabIndex={tabIndexValue}
+            tabIndex={overrideTabIndex}
             style={{ ...backgroundColorStyle }}
           >
             <AvatarContent
