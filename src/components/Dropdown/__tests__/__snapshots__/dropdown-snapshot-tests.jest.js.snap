@@ -2454,7 +2454,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     aria-hidden={false}
                     className="circle circleImg withoutBorder"
                     style={Object {}}
-                    tabIndex={0}
+                    tabIndex={-1}
                   >
                     <img
                       className="contentImg contentImgLarge"
