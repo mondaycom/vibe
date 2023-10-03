@@ -1,3 +1,9 @@
+0.1.195 / 2023-10-02
+====================
+  * Replace Rubik with Noto Sans Hebrew ([#247](https://github.com/mondaycom/monday-ui-style/issues/247))
+    * Replace Rubik with Noto Sans Hebrew
+    * preview-head.html - replace Rubik with Noto Sans Hebrew
+
 0.1.194 / 2023-09-13
 ====================
   * Remove duplications from colors.json ([#246](https://github.com/mondaycom/monday-ui-style/issues/246))
@@ -323,7 +329,3 @@
   * Fix typos in README.md ([#189](https://github.com/mondaycom/monday-ui-style/issues/189))
     Fix two typos in the README doc.
   * Content Directory icon ([#190](https://github.com/mondaycom/monday-ui-style/issues/190))
-
-0.1.149 / 2023-02-04
-====================
-  * update fonts to both title and general fonts ([#186](https://github.com/mondaycom/monday-ui-style/issues/186))
