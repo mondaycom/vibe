@@ -23,7 +23,7 @@ export const menuTemplate = args => (
   <Menu {...args}>
     <MenuItem title="Menu item 1" />
     <MenuItem title="Menu item 2" disabled />
-    <MenuItem title="More item 3" />
+    <MenuItem title="Menu item 3" />
   </Menu>
 );
 
@@ -34,7 +34,7 @@ export const menuSizesTemplate = args => [
       <MenuDivider />
       <MenuItem title="Menu item 1" />
       <MenuItem title="Menu item 2" disabled />
-      <MenuItem title="More item 3" />
+      <MenuItem title="Menu item 3" />
     </Menu>
   </DialogContentContainer>,
   <DialogContentContainer key="md">
@@ -43,7 +43,7 @@ export const menuSizesTemplate = args => [
       <MenuDivider />
       <MenuItem title="Menu item 1" />
       <MenuItem title="Menu item 2" disabled />
-      <MenuItem title="More item 3" />
+      <MenuItem title="Menu item 3" />
     </Menu>
   </DialogContentContainer>,
   <DialogContentContainer key="lg">
@@ -52,7 +52,7 @@ export const menuSizesTemplate = args => [
       <MenuDivider />
       <MenuItem title="Menu item 1" />
       <MenuItem title="Menu item 2" disabled />
-      <MenuItem title="More item 3" />
+      <MenuItem title="Menu item 3" />
     </Menu>
   </DialogContentContainer>
 ];
