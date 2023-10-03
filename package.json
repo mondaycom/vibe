@@ -262,5 +262,8 @@
       "PR: Breaking Changes 💥": "Breaking Changes",
       "PR: Icon 💎": "New Icons"
     }
+  },
+  "engines": {
+    "yarn": "please-use-npm"
   }
 }
