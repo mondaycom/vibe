@@ -26,6 +26,7 @@ Link.sizes = {
 };
 
 Link.defaultProps = {
+  className: undefined,
   children: undefined,
   href: undefined,
   size: Link.sizes.MEDIUM,
@@ -33,6 +34,7 @@ Link.defaultProps = {
 };
 
 Link.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.string,
   href: PropTypes.string,
   size: PropTypes.oneOf([Link.sizes.SMALL, Link.sizes.MEDIUM]),

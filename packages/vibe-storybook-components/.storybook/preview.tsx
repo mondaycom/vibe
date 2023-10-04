@@ -6,7 +6,7 @@ import {
   Frame,
   FunctionArgument,
   FunctionArguments,
-  LinkComponent,
+  Link,
   Paragraph,
   RelatedComponent,
   RelatedComponents,
@@ -23,8 +23,10 @@ import '../src/styles/tokens/index.scss';
 const preview: Preview = {
   parameters: {
     docs: {
-      inlineStories: true,
-      container: ({ children, context }) => (
+      story: {
+        inline: true,
+      },
+      container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
             {children}
@@ -39,9 +41,10 @@ const preview: Preview = {
         h2: SectionName,
         h3: Title,
         li: AnchorListItem,
-        a: LinkComponent,
+        a: Link,
         p: Paragraph,
         SectionName,
+        Link,
         ComponentRules,
         UsageGuidelines,
         FunctionArguments,
