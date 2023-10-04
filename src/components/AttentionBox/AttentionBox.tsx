@@ -46,7 +46,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
-  icon = AlertIcon,
+  icon,
   iconType = Icon.type.SVG,
   title,
   text,
@@ -73,13 +73,11 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
-  const overrideIcon = useMemo(() => {
-    if (type === AttentionBox.types.PRIMARY) {
-      return InfoIcon;
-    }
+  const defaultIcon = useMemo(() => {
+    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+  }, [type]);
 
-    return icon;
-  }, [type, icon]);
+  const overrideIcon = icon ?? defaultIcon;
 
   return (
     <aside
