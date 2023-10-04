@@ -32,6 +32,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   withoutIcon?: boolean;
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
+  closeButtonAriaLabel?: string;
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
@@ -54,7 +55,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   onClose,
   compact = false,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  closeButtonAriaLabel = "Close"
 }) => {
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
@@ -131,7 +133,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           wrapperClassName={cx(styles.closeIconWrapper, {
             [styles.closeIconCompact]: compact
           })}
-          ariaLabel="Close"
+          ariaLabel={closeButtonAriaLabel}
+          hideTooltip
           icon={CloseSmall}
           onClick={onClose}
         />

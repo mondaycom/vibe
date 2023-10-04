@@ -88,6 +88,7 @@ interface ChipsProps extends VibeComponentProps {
    * selected-color
    */
   showBorder?: boolean;
+  closeButtonAriaLabel?: string;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -121,7 +122,8 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       rightAvatarType = AvatarType.IMG,
       showBorder = false,
       leftRenderer,
-      rightRenderer
+      rightRenderer,
+      closeButtonAriaLabel = "Remove"
     },
     ref
   ) => {
@@ -268,7 +270,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             size={IconButton.sizes.XXS}
             color={IconButton.colors.ON_PRIMARY_COLOR}
             className={cx(styles.icon, styles.close)}
-            ariaLabel="Remove"
+            ariaLabel={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
