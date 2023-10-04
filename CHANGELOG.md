@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.44.1 (2023-10-04)
+
+#### Bug Fixes
+* [#1604](https://github.com/mondaycom/monday-ui-react-core/pull/1604) Revert "chore: enforce using npm" ([@talkor](https://github.com/talkor))
+
 ## 2.44.0 (2023-10-03)
 
 #### Bug Fixes
