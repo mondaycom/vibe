@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.46.0 (2023-10-04)
+
+#### New Features
+* [#1611](https://github.com/mondaycom/monday-ui-react-core/pull/1611) feat: <AttentionBox> - update default icon for Primary type to Info icon ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Internal Changes
+* [#1613](https://github.com/mondaycom/monday-ui-react-core/pull/1613) chore: Update snapshots ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.45.0 (2023-10-04)
 
 #### New Features
