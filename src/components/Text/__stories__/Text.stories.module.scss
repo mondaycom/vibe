@@ -3,12 +3,12 @@
 }
 .primaryBackground {
   @include spacing;
-  background-color: var(--primary-color);
+  background-color: var(--sb-primary-color);
 }
 
 .invertedBackground {
   @include spacing;
-  background-color: var(--inverted-color-background);
+  background-color: var(--sb-inverted-color-background);
 }
 
 .smallRectangle {
