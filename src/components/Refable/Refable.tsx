@@ -38,7 +38,7 @@ export const Refable = React.forwardRef<
 function getChainedFunction(
   name: keyof React.HTMLProps<unknown>,
   childProps: React.PropsWithChildren<React.HTMLProps<unknown>>,
-  wrapperProps: React.PropsWithChildren<React.HTMLProps<unknown>>
+  wrapperProps: React.HTMLProps<unknown>
 ) {
   return chainFunctions([childProps[name], wrapperProps[name]], true);
 }
