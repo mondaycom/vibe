@@ -3,7 +3,6 @@
 name: 'Chromatic'
 
 on:
-  push:
   pull_request:
     types: [opened, synchronize]
 
