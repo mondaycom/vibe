@@ -2,7 +2,7 @@
 import React, { MutableRefObject, ReactNode, RefAttributes } from "react";
 import { chainFunctions, chainRefFunctions } from "../../utils/function-utils";
 
-export function Refable<Component, Props extends unknown & { children: (ReactNode & RefAttributes<any>)[] }>() {
+export function Refable<Component, Props extends React.PropsWithChildren>() {
   return React.forwardRef<Component, Props>(({ children, ...rest }, ref) => {
     return React.Children.map(children, child => {
       if (!React.isValidElement(child)) return null;
