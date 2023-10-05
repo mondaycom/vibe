@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.46.1 (2023-10-05)
+
+#### Bug Fixes
+* [#1615](https://github.com/mondaycom/monday-ui-react-core/pull/1615) fix: <AttentionBox> don't apply defaultIcon for case when icon=null ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.46.0 (2023-10-04)
 
 #### New Features
