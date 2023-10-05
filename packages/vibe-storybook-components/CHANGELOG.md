@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.0 (2023-10-05)
+
+#### New Features
+* [#33](https://github.com/mondaycom/vibe-storybook-components/pull/33) feat: add StatusTag ([@talkor](https://github.com/talkor))
+
 ## 0.6.0 (2023-10-05)
 
 #### New Features
