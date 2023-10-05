@@ -17,7 +17,7 @@ export const Refable = React.forwardRef<
         <span ref={ref as MutableRefObject<any>} {...rest}>
           {React.cloneElement(child, { ...child.props })}
         </span>
-      ) as ReactElement;
+      );
     }
 
     return React.cloneElement(child, {
