@@ -44,6 +44,7 @@ addParameters({
       a: Link,
       p: Paragraph,
       Tip,
+      Link,
       ComponentName: ComponentNameDecorator,
       ComponentRules,
       UsageGuidelines,
