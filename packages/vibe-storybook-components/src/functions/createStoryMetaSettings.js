@@ -52,10 +52,11 @@ export function createStoryMetaSettings({
   actionPropsArray,
   iconsMetaData,
   allIconsComponents,
+  ignoreControlsPropNamesArray,
 }) {
   const argTypes = {};
   const decorators = [];
-  const allowedIcons = iconsMetaData.reduce(
+  const allowedIcons = iconsMetaData?.reduce(
     (acc, icon) => {
       const Component = allIconsComponents[icon.file.split('.')[0]];
       acc.options.push(icon.name);
@@ -112,6 +113,15 @@ export function createStoryMetaSettings({
     } else if (actionProp?.name && actionProp.linkedToPropValue) {
       // we assume that actionPropsArray is static. If it changes, things may break, since internally we call React.useState for the story decorator.
       decorators.push(createMappedActionToInputPropDecorator(actionProp.name, actionProp.linkedToPropValue));
+    }
+  });
+
+  // Disable controls for specific props
+  ignoreControlsPropNamesArray?.forEach(propName => {
+    if (argTypes[propName] instanceof Object) {
+      argTypes[propName] = { ...argTypes[propName], control: false };
+    } else {
+      argTypes[propName] = { control: false };
     }
   });
 
