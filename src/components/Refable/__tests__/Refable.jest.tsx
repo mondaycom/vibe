@@ -1,8 +1,6 @@
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
 import { Refable } from "../Refable";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { VibeComponentProps } from "../../../types";
 
 describe("Refable", () => {
   afterEach(() => {
