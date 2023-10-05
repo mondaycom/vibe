@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0 (2023-10-05)
+
+#### New Features
+* [#28](https://github.com/mondaycom/vibe-storybook-components/pull/28) createStoryMetaSettings.js add ignoreControlsPropNamesArray ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#26](https://github.com/mondaycom/vibe-storybook-components/pull/26) docs: contibuting.md + components_documentation_guidelines.md ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#23](https://github.com/mondaycom/vibe-storybook-components/pull/23) docs(Storybook): document UsageGuidelines ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#27](https://github.com/mondaycom/vibe-storybook-components/pull/27) infra: test-workflow.yml - remove push trigger ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.4.0 (2023-10-02)
 
 #### New Features
