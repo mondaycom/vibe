@@ -77,7 +77,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
     return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
   }, [type]);
 
-  const overrideIcon = icon ?? defaultIcon;
+  const overrideIcon = icon === undefined ? defaultIcon : icon;
 
   return (
     <aside
