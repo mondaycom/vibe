@@ -7,20 +7,27 @@ describe("Refable", () => {
     cleanup();
   });
 
-  it("should be able to render a string child", () => {
+  // TODO: add tests for string children and
+
+  it("should be able to render multiple JSX elements", () => {
     const onClickCallback = jest.fn();
-    const { getByTestId } = render(
+    const { getAllByTestId } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
-        test
+        <span>test</span>
+        <span>test</span>
       </Refable>
     );
 
-    const component = getByTestId("ref-component");
+    const components = getAllByTestId("ref-component");
 
-    expect(component).toHaveTextContent("test");
+    expect(components.length).toBe(2);
 
-    fireEvent.click(component);
-    expect(onClickCallback.mock.calls.length).toBe(1);
+    components.forEach(component => {
+      expect(component.innerHTML).toBe("test");
+      expect(component.getAttribute("data-testid")).toBe("ref-component");
+      fireEvent.click(component);
+    });
+    expect(onClickCallback.mock.calls.length).toBe(2);
   });
 
   it("onClick callback should be called after clicking the element", () => {
