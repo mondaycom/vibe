@@ -79,6 +79,7 @@ const Dropdown = forwardRef(
       isLoading,
       loadingMessage,
       ariaLabel,
+      tabSelectsValue = true,
       popupsContainerSelector,
       "data-testid": dataTestId
     },
@@ -354,6 +355,7 @@ const Dropdown = forwardRef(
         isOptionSelected={isOptionSelected}
         isLoading={isLoading}
         loadingMessage={loadingMessage}
+        tabSelectsValue={tabSelectsValue}
         {...asyncAdditions}
         {...additions}
       />
@@ -630,7 +632,11 @@ Dropdown.propTypes = {
   /**
    * aria-label attribute for dropdown
    */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  /**
+   * Overrides the built-in logic of tab selecting value (default: true)
+   */
+  tabSelectsValue: PropTypes.bool
 };
 
 export default Dropdown;

@@ -4,7 +4,7 @@ import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
-import useOnClickOutside from "../../../hooks/useClickOutside";
+import useClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions, NOOP } from "../../../utils/function-utils";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HideShowEvent } from "../consts/dialog-show-hide-event";
@@ -90,8 +90,8 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       [isOpen, onContextMenu]
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
-    useOnClickOutside({ callback: onOutSideClick, ref });
-    useOnClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref });
+    useClickOutside({ callback: onOutSideClick, ref });
+    useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref });
     const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 

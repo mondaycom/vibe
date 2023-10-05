@@ -17,6 +17,7 @@ export const SpacingDescription = () => {
     <RelatedComponent
       component={component}
       title="Spacing"
+      href="/?path=/docs/foundations-spacing--page"
       description="Spacing creates relationships and hierarchy withing the visual controls."
     />
   );

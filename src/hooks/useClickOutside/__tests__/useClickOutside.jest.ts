@@ -1,6 +1,6 @@
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import useOnClickOutside from "../index";
+import useClickOutside from "../index";
 
 describe("useClickOutside", () => {
   let element: HTMLElement;
@@ -10,7 +10,7 @@ describe("useClickOutside", () => {
     callbackStub = jest.fn();
     element = document.createElement("div");
     document.body.appendChild(element);
-    renderHook(() => useOnClickOutside({ ref: { current: element }, callback: callbackStub }));
+    renderHook(() => useClickOutside({ ref: { current: element }, callback: callbackStub }));
   });
 
   afterEach(() => {
@@ -54,7 +54,7 @@ describe("useClickOutside", () => {
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
-        useOnClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
       );
       act(() => {
         fireEvent.mouseDown(document.body);
@@ -67,7 +67,7 @@ describe("useClickOutside", () => {
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
-        useOnClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
       );
 
       act(() => {

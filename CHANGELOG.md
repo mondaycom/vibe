@@ -1,5 +1,72 @@
 # Changelog
 
+## 2.44.1 (2023-10-04)
+
+#### Bug Fixes
+* [#1604](https://github.com/mondaycom/monday-ui-react-core/pull/1604) Revert "chore: enforce using npm" ([@talkor](https://github.com/talkor))
+
+## 2.44.0 (2023-10-03)
+
+#### Bug Fixes
+* [#1594](https://github.com/mondaycom/monday-ui-react-core/pull/1594) fix: <Avatar> remove default tabIndex = 0 ([@Kritik-J](https://github.com/Kritik-J))
+* [#1582](https://github.com/mondaycom/monday-ui-react-core/pull/1582) fix: <MenuButton> disabledReason?: boolean change type to string ([@Franqsanz](https://github.com/Franqsanz))
+
+#### New Features
+* [#1586](https://github.com/mondaycom/monday-ui-react-core/pull/1586) feat: <AttentionBox> closeButton - add hideTooltip and closeButtonAriaLabel prop ([@Kritik-J](https://github.com/Kritik-J))
+* [#1585](https://github.com/mondaycom/monday-ui-react-core/pull/1585) feat: <Chips> - add closeButtonAriaLabel as a prop ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Documentation
+* [#1593](https://github.com/mondaycom/monday-ui-react-core/pull/1593) fix text in a few places ([@Vijeth56](https://github.com/Vijeth56))
+* [#1591](https://github.com/mondaycom/monday-ui-react-core/pull/1591) docs: replace legacy links with the new ones ([@jes14](https://github.com/jes14))
+* [#1592](https://github.com/mondaycom/monday-ui-react-core/pull/1592) docs: Add space between <Combobox> tips and links ([@anirudhsudhir](https://github.com/anirudhsudhir))
+
+#### Internal Changes
+* [#1596](https://github.com/mondaycom/monday-ui-react-core/pull/1596) chore: enforce using npm ([@talkor](https://github.com/talkor))
+* [#1590](https://github.com/mondaycom/monday-ui-react-core/pull/1590) Sergeyro/chore/cleanup  ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1597](https://github.com/mondaycom/monday-ui-react-core/pull/1597) Update icons - monday-ui-style 0.1.196 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.43.0 (2023-10-02)
+
+#### New Features
+* [#1570](https://github.com/mondaycom/monday-ui-react-core/pull/1570) feat(useActiveDescendantListFocus): add option to ignoreDocumentFallback to prevent vibe from adding event listeners ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1563](https://github.com/mondaycom/monday-ui-react-core/pull/1563) docs: <Dialog> story improvements - UsageGuidelines, add links ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1551](https://github.com/mondaycom/monday-ui-react-core/pull/1551) chore: set browserslist config to specific version to avoid breaking changes, update caniuse browserslist ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.42.0 (2023-10-02)
+
+#### New Features
+* [#1565](https://github.com/mondaycom/monday-ui-react-core/pull/1565) Replace Rubik with Noto Sans Hebrew ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1564](https://github.com/mondaycom/monday-ui-react-core/pull/1564) docs: component-name-decorator- text color = fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.41.2 (2023-10-01)
+
+#### Bug Fixes
+* [#1561](https://github.com/mondaycom/monday-ui-react-core/pull/1561) fix(Label): apply preventDefault when calling onClick event ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1558](https://github.com/mondaycom/monday-ui-react-core/pull/1558) useClickOutside event name argument documentation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1562](https://github.com/mondaycom/monday-ui-react-core/pull/1562) chore(rollup): export sourcemap with build ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.41.1 (2023-09-27)
+
+#### Bug Fixes
+* [#1560](https://github.com/mondaycom/monday-ui-react-core/pull/1560) fix: remove preventDefault from useKeyboardButtonPressedFunc.ts ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1554](https://github.com/mondaycom/monday-ui-react-core/pull/1554) docs: <Dialog> - Dialog with tooltip story ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1557](https://github.com/mondaycom/monday-ui-react-core/pull/1557) docs: add missing up next links ([@talkor](https://github.com/talkor))
+* [#1553](https://github.com/mondaycom/monday-ui-react-core/pull/1553) Infra/talko/flaky chromatic tests ([@talkor](https://github.com/talkor))
+
 ## 2.41.0 (2023-09-21)
 
 #### New Features
