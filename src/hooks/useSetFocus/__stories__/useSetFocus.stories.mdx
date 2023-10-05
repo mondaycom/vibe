@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from "@storybook/addon-docs";
+import { Story, Canvas, Meta, Link } from "@storybook/addon-docs";
 import { useRef } from "react";
 import { Button, Flex, InputField } from "../../../components";
 import useSetFocus from "../../useSetFocus/index";
@@ -16,7 +16,7 @@ import styles from "./useSetFocus.stories.module.scss";
 
 ## Overview
 
-Hook for controlling focus on specific component e.g. Input.
+Hook for controlling focus on a specific component (e.g., Input).
 
 <Canvas>
   <Story name="Overview">
@@ -51,9 +51,9 @@ Hook for controlling focus on specific component e.g. Input.
       description={
         <>
           A React{" "}
-          <a href="https://react.dev/reference/react/useRef" target="_blank" rel="noopener noreferrer">
+          <Link to="https://react.dev/reference/react/useRef">
             ref
-          </a>{" "}
+          </Link>{" "}
           object.
         </>
       }
