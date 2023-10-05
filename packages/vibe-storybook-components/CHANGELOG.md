@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0 (2023-10-05)
+
+#### New Features
+* [#30](https://github.com/mondaycom/vibe-storybook-components/pull/30) feat: createMetastorySettings - string type for ContentElement controls, disable action controls ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.5.0 (2023-10-05)
 
 #### New Features
