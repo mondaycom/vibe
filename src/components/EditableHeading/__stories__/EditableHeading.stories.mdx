@@ -34,7 +34,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 An extension of Heading component, it allows built in editing capabilities
 
 <Canvas>
-  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1 }}>
+  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1 }} play={overviewPlaySuite} >
     {editableHeadingTemplate.bind({})}
   </Story>
 </Canvas>
@@ -72,7 +72,7 @@ An extension of Heading component, it allows built in editing capabilities
 
 <Canvas>
   <Story name="Placeholder">
-    <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" ariaLabel="editableHeading"/>
+    <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" />
   </Story>
 </Canvas>
 

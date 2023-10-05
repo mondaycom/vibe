@@ -1,19 +1,33 @@
 import { expect } from "@storybook/jest";
+import {
+  Canvas,
+  clearText,
+  clickElement,
+  getByTestId,
+  interactionSuite,
+  typeText
+} from "../../../tests/interactions-utils";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 import { resetFocus } from "../../../__tests__/interactions-helper";
-import { getByLabelText, interactionSuite } from "../../../tests/interactions-utils";
-import { fireEvent } from "@testing-library/react";
-
-async function states_editableHeadingElementTest(canvas: HTMLCanvasElement) {
-  const editableHeadingElement = await getByLabelText(canvas, "editableHeading");
-  editableHeadingElement.click();
-  expect(editableHeadingElement).toHaveFocus();
-  fireEvent.change(editableHeadingElement, { target: { value: "Typed Text" } });
-  expect(editableHeadingElement).toHaveAttribute("value", "Typed Text");
+const getEditableHeadingHeading = async (canvas: Canvas) => {
+  await resetFocus();
+  return getByTestId(canvas, ComponentDefaultTestId.HEADING);
+};
+const getEditableHeadingInput = async (canvas: Canvas) => {
+  await resetFocus();
+  const editableHeadingElement = getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
+  clickElement(editableHeadingElement);
+  return getByTestId(canvas, ComponentDefaultTestId.EDITABLE_INPUT);
+};
+async function textSimpleText(canvas: Canvas) {
+  const editableHeadingInput = await getEditableHeadingInput(canvas);
+  await clearText(editableHeadingInput);
+  const text = "Typed Text";
+  await typeText(editableHeadingInput, text);
+  expect(editableHeadingInput).toHaveAttribute("value", text);
+  const editableHeading = await getEditableHeadingHeading(canvas);
+  expect(editableHeading).toHaveTextContent(text);
 }
-
-export const statesPlaySuite = interactionSuite({
-  tests: [states_editableHeadingElementTest],
-  afterEach: async () => {
-    await resetFocus();
-  }
+export const overviewPlaySuite = interactionSuite({
+  tests: [textSimpleText]
 });
