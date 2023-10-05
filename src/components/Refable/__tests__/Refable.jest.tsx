@@ -7,6 +7,7 @@ describe("Refable", () => {
     cleanup();
   });
 
+  // TODO: add tests for invalid children elements
   // TODO: add tests for string children and
 
   it("should be able to render multiple JSX elements", () => {
