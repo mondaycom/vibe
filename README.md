@@ -12,7 +12,7 @@
 
 ## Installation
 
-Install the component library
+Install the component library.
 
 ```
 $ npm install monday-ui-react-core
@@ -26,7 +26,7 @@ Components are imported from the library's root entry:
 import { Button } from "monday-ui-react-core";
 ```
 
-In order to load all the relevant CSS tokens, you should import the `tokens` file at the root of your application file
+In order to load all the relevant CSS tokens, you should import the `tokens` file at the root of your application file.
 
 ```javascript
 import "monday-ui-react-core/tokens";
@@ -37,7 +37,7 @@ _If your project is importing files differently - read more [here](DEPRECATED_IM
 ### Font installation
 
 We don't import fonts ourselves, we work best with the following fonts -
-Poppins, Figtree and Roboto, we recommend adding the following `link` import to your application
+Poppins, Figtree and Roboto, we recommend adding the following `link` import to your application.
 
 ```html
 <link
@@ -48,7 +48,7 @@ Poppins, Figtree and Roboto, we recommend adding the following `link` import to 
 
 ### Peer dependencies
 
-We are reliant on React and React DOM, we are using them as externals, and we don't package them to the package, so you must have them in your project
+We are reliant on React and React DOM, we are using them as externals, and we don't package them to the package, so you must have them in your project.
 
 ## Storybook
 
@@ -70,7 +70,7 @@ This functionality basically overrides the npm mapping between package name to i
 ### Troubleshooting local development
 
 - If you are using NVM, make sure both packages are using the same version.
-- Because we are using react hooks and having react as a peerDependency - if you want to develop locally and encounter issues with "invalid hook call" [see this github thread](https://github.com/facebook/react/issues/13991). The quick fix is in your webpack config file alias react to resolve the node_modules path
+- Because we are using react hooks and having react as a peerDependency - if you want to develop locally and encounter issues with "invalid hook call" [see this github thread](https://github.com/facebook/react/issues/13991). The quick fix is in your webpack config file alias react to resolve the node_modules path.
 
 Go to the project's directory and run:
 
@@ -83,11 +83,11 @@ npm start
 
 ## Contributing
 
-We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR
+We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR.
 
 ## Themes
 
-We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](THEME_README.md) file
+We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](THEME_README.md) file.
 
 ## Release
 
