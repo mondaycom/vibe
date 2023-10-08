@@ -4,12 +4,12 @@ import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
 
 describe("GridKeyboardNavigationContext", () => {
-  let wrapperRef;
-  let ref1;
-  let ref2;
-  let ref3;
-  let ref4;
-  let ref5;
+  let wrapperRef: React.MutableRefObject<HTMLElement | null>;
+  let ref1: React.MutableRefObject<HTMLElement | null>;
+  let ref2: React.MutableRefObject<HTMLElement | null>;
+  let ref3: React.MutableRefObject<HTMLElement | null>;
+  let ref4: React.MutableRefObject<HTMLElement | null>;
+  let ref5: React.MutableRefObject<HTMLElement | null>;
 
   beforeEach(() => {
     ref1 = createElementRef("ref1");
@@ -71,7 +71,7 @@ describe("GridKeyboardNavigationContext", () => {
     it("should not focus any other element when the is no last direction of keyboard navigation, after the wrapper element is focused", () => {
       const positions = [
         { leftElement: ref2, rightElement: ref4 },
-        { topElement: ref1, rightElement: ref3 }
+        { topElement: ref1, bottomElement: ref3 }
       ];
 
       renderHookForTest(positions);
@@ -110,14 +110,38 @@ describe("GridKeyboardNavigationContext", () => {
       expect(ref4.current.focus).toHaveBeenCalled();
     });
 
-    function renderHookForTest(positions, disabled = false) {
+    function renderHookForTest(
+      positions: (
+        | {
+            topElement: React.MutableRefObject<any>;
+            bottomElement: React.MutableRefObject<any>;
+          }
+        | {
+            leftElement: React.MutableRefObject<any>;
+            rightElement: React.MutableRefObject<any>;
+          }
+      )[],
+      disabled = false
+    ) {
       wrapperRef = createElementRef("wrapper");
       return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef, { disabled }));
     }
 
-    function renderHookWithContext(positions, contextValue) {
-      wrapperRef = createElementRef();
-      const wrapper = ({ children }) => (
+    function renderHookWithContext(
+      positions: (
+        | {
+            topElement: React.MutableRefObject<any>;
+            bottomElement: React.MutableRefObject<any>;
+          }
+        | {
+            leftElement: React.MutableRefObject<any>;
+            rightElement: React.MutableRefObject<any>;
+          }
+      )[],
+      contextValue: any
+    ) {
+      wrapperRef = createElementRef(null);
+      const wrapper = ({ children }: { children: React.ReactNode }) => (
         <GridKeyboardNavigationContext.Provider value={contextValue}>{children}</GridKeyboardNavigationContext.Provider>
       );
       return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef), { wrapper });
@@ -130,7 +154,7 @@ describe("GridKeyboardNavigationContext", () => {
     }
   });
 
-  function createElementRef(id) {
+  function createElementRef(id: string) {
     const element = document.createElement("div");
     element.id = id;
     document.body.appendChild(element);

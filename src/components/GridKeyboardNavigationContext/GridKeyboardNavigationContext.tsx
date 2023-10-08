@@ -2,22 +2,42 @@ import React, { useContext, useCallback, useMemo } from "react";
 import useEventListener from "../../hooks/useEventListener";
 import { useLastNavigationDirection } from "../Menu/Menu/hooks/useLastNavigationDirection";
 import {
+  DirectionMap,
+  Direction,
   getDirectionMaps,
   getNextElementToFocusInDirection,
   getOppositeDirection,
   getOutmostElementInDirection
 } from "./helper";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import { NavDirections } from "../../hooks/useFullKeyboardListeners";
 
-export const GridKeyboardNavigationContext = React.createContext();
+export interface GridKeyboardNavigationContextProps extends VibeComponentProps {
+  disabled?: boolean;
+}
+export const GridKeyboardNavigationContext = React.createContext<any>(null);
 
 /**
  * @param {({topElement: React.MutableRefObject, bottomElement: React.MutableRefObject}|
  * {leftElement: React.MutableRefObject, rightElement: React.MutableRefObject})[]} positions - the positions of the navigable items
  * @param {*} wrapperRef - a reference for a wrapper element which contains all the referenced elements
  */
-export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabled } = { disabled: false }) => {
-  const directionMaps = useMemo(() => getDirectionMaps(positions), [positions]);
-  const upperContext = useContext(GridKeyboardNavigationContext);
+export const useGridKeyboardNavigationContext = (
+  positions: (
+    | {
+        topElement: React.MutableRefObject<any>;
+        bottomElement: React.MutableRefObject<any>;
+      }
+    | {
+        leftElement: React.MutableRefObject<any>;
+        rightElement: React.MutableRefObject<any>;
+      }
+  )[],
+  wrapperRef: React.MutableRefObject<any>,
+  { disabled }: GridKeyboardNavigationContextProps = { disabled: false }
+) => {
+  const directionMaps: DirectionMap = useMemo(() => getDirectionMaps(positions), [positions]);
+  const upperContext: any = useContext(GridKeyboardNavigationContext);
   const { lastNavigationDirectionRef } = useLastNavigationDirection();
 
   const onWrapperFocus = useCallback(() => {
@@ -29,12 +49,16 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabl
     const refToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
     refToFocus?.current?.focus();
   }, [directionMaps, disabled, lastNavigationDirectionRef]);
-  useEventListener({ eventName: "focus", callback: onWrapperFocus, ref: wrapperRef });
+  useEventListener({
+    eventName: "focus",
+    callback: onWrapperFocus,
+    ref: wrapperRef
+  });
 
   const onOutboundNavigation = useCallback(
-    (elementRef, direction) => {
+    (elementRef: React.MutableRefObject<any>, direction: string) => {
       if (disabled) return;
-      const maybeNextElement = getNextElementToFocusInDirection(directionMaps[direction], elementRef);
+      const maybeNextElement = getNextElementToFocusInDirection(directionMaps[direction as NavDirections], elementRef);
       if (maybeNextElement) {
         elementRef.current?.blur();
         maybeNextElement.current?.focus();

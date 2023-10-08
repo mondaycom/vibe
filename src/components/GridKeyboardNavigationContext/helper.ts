@@ -1,6 +1,11 @@
 import { NavDirections } from "../../hooks/useFullKeyboardListeners";
 
-function throwIfCausingCircularDependency(directionMaps, newPosition) {
+export type DirectionMap = {
+  [key in NavDirections]: Map<any, any>;
+};
+export type Direction = NavDirections;
+
+function throwIfCausingCircularDependency(directionMaps: DirectionMap, newPosition: any): void {
   const { topElement, bottomElement, leftElement, rightElement } = newPosition;
   if (topElement && bottomElement) {
     if (directionMaps[NavDirections.UP].get(topElement) === bottomElement) {
@@ -19,15 +24,15 @@ function throwIfCausingCircularDependency(directionMaps, newPosition) {
     }
   }
 
-  function throwMessage(directionFrom, directionTo) {
+  function throwMessage(directionFrom: string, directionTo: string): void {
     throw new Error(
       `Circular positioning detected: the ${directionFrom} element is already positioned to the ${directionTo} of the ${directionTo} element. This probably means the layout isn't ordered correctly.`
     );
   }
 }
 
-export const getDirectionMaps = positions => {
-  const directionMaps = {
+export const getDirectionMaps = (positions: any[]): DirectionMap => {
+  const directionMaps: DirectionMap = {
     [NavDirections.RIGHT]: new Map(),
     [NavDirections.LEFT]: new Map(),
     [NavDirections.UP]: new Map(),
@@ -49,7 +54,7 @@ export const getDirectionMaps = positions => {
   return directionMaps;
 };
 
-export const getOppositeDirection = direction => {
+export const getOppositeDirection = (direction: string) => {
   switch (direction) {
     case NavDirections.LEFT:
       return NavDirections.RIGHT;
@@ -64,12 +69,15 @@ export const getOppositeDirection = direction => {
   }
 };
 
-export const getOutmostElementInDirection = (directionMaps, direction) => {
-  const directionMap = directionMaps[direction];
+export const getOutmostElementInDirection = (
+  directionMaps: DirectionMap,
+  direction: Direction
+): React.MutableRefObject<any> => {
+  const directionMap: Map<any, any> = directionMaps[direction as NavDirections];
   const firstEntry = [...directionMap][0]; // start with any element
   if (!firstEntry) {
     // no relations were registered for this direction - fallback to a different direction
-    if ([NavDirections.LEFT, NavDirections.RIGHT].includes(direction)) {
+    if ([NavDirections.LEFT, NavDirections.RIGHT].includes(direction as NavDirections)) {
       // there are no registered horizontal relations registered, try vertical relations. Get the top-most element.
       return getOutmostElementInDirection(directionMaps, NavDirections.UP);
     }
@@ -80,7 +88,10 @@ export const getOutmostElementInDirection = (directionMaps, direction) => {
   return getLastFocusableElementFromElementInDirection(directionMap, firstRef);
 };
 
-export const getNextElementToFocusInDirection = (directionMap, elementRef) => {
+export const getNextElementToFocusInDirection = (
+  directionMap: Map<any, any>,
+  elementRef: React.MutableRefObject<any>
+): React.MutableRefObject<any> => {
   const next = directionMap.get(elementRef);
   if (!next) {
     // this is the last element on the direction map - there' nothing next
@@ -93,7 +104,10 @@ export const getNextElementToFocusInDirection = (directionMap, elementRef) => {
   return next;
 };
 
-function getLastFocusableElementFromElementInDirection(directionMap, initialRef) {
+function getLastFocusableElementFromElementInDirection(
+  directionMap: Map<any, any>,
+  initialRef: React.MutableRefObject<any>
+): React.MutableRefObject<any> {
   let done = false;
   let currentRef = initialRef;
 

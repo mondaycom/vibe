@@ -12,15 +12,15 @@ describe("GridKeyboardNavigationContext.helper", () => {
   const ELEMENT3 = { current: "e3" };
   const ELEMENT4 = { current: "e4" };
   const ELEMENT5 = { current: "e5" };
-  const UNMOUNTED_ELEMENT_1 = { current: null };
-  const UNMOUNTED_ELEMENT_2 = { current: null };
+  const UNMOUNTED_ELEMENT_1: { current: any } = { current: null };
+  const UNMOUNTED_ELEMENT_2: { current: any } = { current: null };
   const DISABLED_ELEMENT = { current: { disabled: true } };
   const DISABLED_DATASET_ELEMENT = { current: { dataset: { disabled: "true" } } };
   const DATASET_NOT_DISABLED_ELEMENT = { current: { dataset: { disabled: "false" } } };
 
   describe("getDirectionMaps", () => {
     it("should return empty direction maps when no positions are supplied", () => {
-      const input = [];
+      const input: any[] = [];
       const expected = {
         [NavDirections.RIGHT]: new Map(),
         [NavDirections.LEFT]: new Map(),
