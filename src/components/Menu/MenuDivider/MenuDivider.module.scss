@@ -1,8 +1,6 @@
 @import "../../../styles/global-css-settings";
 
 .menuChildDivider {
-  margin-left: 0px;
   width: 100%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 var(--spacing-small);
 }
