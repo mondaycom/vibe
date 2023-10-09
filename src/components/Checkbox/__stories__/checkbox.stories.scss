@@ -37,12 +37,17 @@
   &_list {
     display: flex;
     flex-direction: column;
+    span {
+      @include sb-content-text-without-color;
+    }
   }
 
   &_list-item {
     display: inline-block;
     width: 100%;
-    @include sb-content-text();
+    span {
+      @include sb-content-text-without-color;
+    }
   }
 
   &_link {
