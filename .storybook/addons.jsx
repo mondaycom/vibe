@@ -6,7 +6,8 @@ import "@storybook/addon-links/register";
 import { create } from "@storybook/theming";
 import { addons } from "@storybook/addons";
 import logo from "./logo.png";
-import SidebarItem from "./SidebarItem";
+import { SidebarItem } from "vibe-storybook-components";
+import "vibe-storybook-components/index.css";
 
 window.STORYBOOK_GA_ID = "UA-308574295";
 window.STORYBOOK_REACT_GA_OPTIONS = {};
