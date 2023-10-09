@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InformationBoxTitle } from '../information-box-title/information-box-title';
+import InformationBoxTitle from '../information-box-title/information-box-title';
 import { BEMClass } from '../../helpers/utils/bem-helper';
 import './information-box.scss';
 
@@ -8,7 +8,7 @@ const BASE_CSS_CLASS = 'vibe-sb-comps-information-box';
 
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
-export const InformationBox = ({ component, title, description, href }) => {
+const InformationBox = ({ component, title, description, href }) => {
   const overrideTitle =
     typeof title === 'string' ? <InformationBoxTitle href={href}>{title}</InformationBoxTitle> : title;
 

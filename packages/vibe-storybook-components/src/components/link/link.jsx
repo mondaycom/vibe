@@ -8,7 +8,7 @@ import './link.scss';
 const BASE_CLASS = 'vibe-sb-comps-link';
 const bemHelper = BEMClass(BASE_CLASS);
 
-export const Link = ({ children, href, size, withoutSpacing, className }) => (
+const Link = ({ children, href, size, withoutSpacing, className }) => (
   <CoreLink
     text={children}
     href={href}

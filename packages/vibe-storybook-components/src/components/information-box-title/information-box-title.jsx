@@ -7,7 +7,7 @@ import './information-box-title.scss';
 const BASE_CSS_CLASS = 'vibe-sb-comps-information-box-title';
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
-export const InformationBoxTitle = ({ children, href }) => {
+const InformationBoxTitle = ({ children, href }) => {
   const title = (
     <h4 className={cx(bemHelper({ element: 'content' }), { [bemHelper({ element: 'content', state: 'link' })]: href })}>
       {children}

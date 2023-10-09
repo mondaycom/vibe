@@ -9,7 +9,7 @@ import './component-rule.scss';
 
 const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);
 
-export const ComponentRule = ({ component, description, isRecommended, className, componentContainerClassName }) => {
+const ComponentRule = ({ component, description, isRecommended, className, componentContainerClassName }) => {
   const stateDescription = isRecommended ? 'recommended' : 'not-recommended';
   const titleIcon = isRecommended ? (
     <Check className={bemHelper({ element: 'icon' })} />
@@ -41,3 +41,5 @@ ComponentRule.defaultProps = {
   component: undefined,
   description: '',
 };
+
+export default ComponentRule;

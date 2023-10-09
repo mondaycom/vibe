@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LinkComponent = ({ children, href, target: originalTarget, rel }) => {
+const LinkComponent = ({ children, href, target: originalTarget, rel }) => {
   const onClick = event => {
     if (originalTarget) {
       return;
@@ -26,6 +26,8 @@ export const LinkComponent = ({ children, href, target: originalTarget, rel }) =
     </a>
   );
 };
+
 LinkComponent.propTypes = {};
 LinkComponent.defaultProps = {};
+
 export default LinkComponent;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Flex from '../../helpers/components/Flex/Flex';
 import styles from './story-description.module.scss';
 
-export const StoryDescription = ({
+const StoryDescription = ({
   description,
   headerStyle,
   children,

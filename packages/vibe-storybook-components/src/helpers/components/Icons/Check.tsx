@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
 import React from 'react';
-export interface CheckProps extends React.SVGAttributes<SVGElement> {
+interface CheckProps extends React.SVGAttributes<SVGElement> {
   size?: string | number;
 }
 const Check: React.FC<CheckProps> = ({ size, ...props }) => (

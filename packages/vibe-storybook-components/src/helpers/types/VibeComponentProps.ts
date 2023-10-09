@@ -3,5 +3,3 @@ export interface VibeComponentProps {
   'data-testid'?: string;
   id?: string;
 }
-
-export default VibeComponentProps;
