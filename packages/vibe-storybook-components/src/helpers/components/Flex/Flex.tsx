@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import cx from 'classnames';
 import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from './FlexConstants';
 import { getStyle } from '../../utils/typesciptCssModulesHelper';
-import { ElementContent } from '../../types';
+import { ElementContent } from '../../../types';
 import { VibeComponentProps } from '../../types/VibeComponentProps';
 import { withStaticProps } from '../../../types/withStaticProps';
 import styles from './Flex.module.scss';
