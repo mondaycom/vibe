@@ -4,6 +4,7 @@ import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from './FlexConstants'
 import { getStyle } from '../../utils/typesciptCssModulesHelper';
 import { ElementContent } from '../../types';
 import { VibeComponentProps } from '../../types/VibeComponentProps';
+import { withStaticProps } from '../../../types/withStaticProps';
 import styles from './Flex.module.scss';
 
 interface FlexProps extends VibeComponentProps {
@@ -78,11 +79,9 @@ const Flex: React.FC<FlexProps> & {
   );
 };
 
-Object.assign(Flex, {
+export default withStaticProps(Flex, {
   justify: FlexJustify,
   align: FlexAlign,
   gaps: FlexGap,
   directions: FlexDirection,
 });
-
-export default Flex;
