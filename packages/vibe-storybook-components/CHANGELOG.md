@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.7.1 (2023-10-09)
+
+#### Bug Fixes
+* [#34](https://github.com/mondaycom/vibe-storybook-components/pull/34) Export Tip, AlphaWarning, DeprecatedWarning components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#36](https://github.com/mondaycom/vibe-storybook-components/pull/36) docs: TYPESCRIPT_MIGRATION.md ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#46](https://github.com/mondaycom/vibe-storybook-components/pull/46) docs: CSS_MODULES_MIGRATION.md ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#35](https://github.com/mondaycom/vibe-storybook-components/pull/35) Export components withStaticProps ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.7.0 (2023-10-05)
 
 #### New Features
