@@ -1,5 +1,6 @@
 @mixin sb-basic-text {
   color: var(--sb-primary-text-color);
+  -webkit-font-smoothing: initial;
 }
 
 @mixin sb-content-text-without-color {
