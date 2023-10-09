@@ -17,7 +17,6 @@
     },
     "./interactionsTests": "./dist/esm/src/tests/interactionsTests.js",
     "./testIds": "./dist/esm/src/tests/testIds.js",
-    "./storybookComponents": "./dist/storybook/index.js",
     "./next": "./dist/esm/src/next/next.js",
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
@@ -103,7 +102,7 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "^0.2.2"
+    "vibe-storybook-components": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
