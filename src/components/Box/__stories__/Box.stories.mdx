@@ -202,7 +202,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.NONE}
         >
-          Box.margins.NONE
+          <div className={styles.boxPaddingInner}>Box.margins.NONE</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -211,7 +211,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.XS}
         >
-          Box.margins.XS
+          <div className={styles.boxPaddingInner}>Box.margins.XS</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -220,7 +220,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.SMALL}
         >
-          Box.margins.SMALL
+          <div className={styles.boxPaddingInner}>Box.margins.SMALL</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -229,7 +229,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.MEDIUM}
         >
-          Box.margins.MEDIUM
+          <div className={styles.boxPaddingInner}>Box.margins.MEDIUM</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -238,7 +238,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.LARGE}
         >
-          Box.margins.LARGE
+          <div className={styles.boxPaddingInner}>Box.margins.LARGE</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -247,7 +247,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.XL}
         >
-          Box.margins.XL
+          <div className={styles.boxPaddingInner}>Box.margins.XL</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
@@ -256,16 +256,12 @@ atom based compositions, it can accept all Vibe style related props and have a s
           border={Box.borders.DEFAULT}
           margin={Box.margins.XXL}
         >
-          Box.margins.XXL
+          <div className={styles.boxPaddingInner}>Box.margins.XXL</div>
         </Box>
       </div>
       <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
-          margin={Box.margins.XXXL}
-        >
-          Box.margins.XXXL
+        <Box border={Box.borders.DEFAULT} margin={Box.margins.XXXL}>
+          <div className={styles.boxPaddingInner}>Box.margins.XXXL</div>
         </Box>
       </div>
     </div>

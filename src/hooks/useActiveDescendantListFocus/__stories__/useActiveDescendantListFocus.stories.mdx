@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 import cx from "classnames";
 import { Flex, Search } from "../../../components";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
 import useActiveDescendantListFocus from "../index";
 import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
 import { FunctionArgument, FunctionArguments, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
@@ -96,9 +96,47 @@ import styles from "./useActiveDescendantListFocus.module.scss";
   </Story>
 </Canvas>
 
-## Props
+## Arguments
 
-<ArgsTable of={UseActiveDescendantListFocus} />
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="focusedElementRef"
+      type="MutableRefObject<HTMLElement>"
+      description="The reference for the component that listens to keyboard"
+      required
+    />
+    <FunctionArgument name="itemsIds" type="string[]" description="Array of elements ids" required />
+    <FunctionArgument
+      name="isItemSelectable"
+      type="(index: number) => boolean"
+      description="If user can select index item"
+      required
+    />
+    <FunctionArgument
+      name="onItemClick"
+      type="(event: React.KeyboardEvent | React.MouseEvent, index: number) => void"
+      description="Callback on item click"
+      required
+    />
+    <FunctionArgument
+      name="defaultVisualFocusFirstIndex"
+      type="boolean"
+      default={"false"}
+      description="Default value of index of the first element, which will get visual focus."
+    />
+    <FunctionArgument
+      name="focusedElementRole"
+      type="Role"
+      description="Possible values: useActiveDescendantListFocus.roles."
+      default={"useActiveDescendantListFocus.roles.GROUP"}
+    />
+    <FunctionArgument name="isHorizontalList" type="boolean" description="" default={"false"} />
+    <FunctionArgument name="isIgnoreSpaceAsItemSelection" type="boolean" description="" default={"false"} />
+    <FunctionArgument name="useDocumentEventListeners" type="boolean" description="" default={"false"} />
+    <FunctionArgument name="ignoreDocumentFallback" type="boolean" description="" default={"false"} />
+  </FunctionArgument>
+</FunctionArguments>
 
 ## Returns
 

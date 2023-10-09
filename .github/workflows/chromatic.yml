@@ -2,9 +2,7 @@
 
 name: 'Chromatic'
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: push
 
 jobs:
   chromatic-deployment:

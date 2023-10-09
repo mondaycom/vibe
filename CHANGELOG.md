@@ -1,5 +1,48 @@
 # Changelog
 
+## 2.46.2 (2023-10-09)
+
+#### Bug Fixes
+* [#1619](https://github.com/mondaycom/monday-ui-react-core/pull/1619) fix: <MenuDivider/> - added necessary stylings ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1621](https://github.com/mondaycom/monday-ui-react-core/pull/1621) docs: <Checkbox> Usage guidelines - fix font #1577 ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+* [#1600](https://github.com/mondaycom/monday-ui-react-core/pull/1600) docs: fix links ([@Dhoni77](https://github.com/Dhoni77))
+* [#1618](https://github.com/mondaycom/monday-ui-react-core/pull/1618) docs: add npm version badge ([@talkor](https://github.com/talkor))
+* [#1616](https://github.com/mondaycom/monday-ui-react-core/pull/1616) chore: cleanup in stories controls ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1599](https://github.com/mondaycom/monday-ui-react-core/pull/1599) docs: enable controls for some of the stories ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1626](https://github.com/mondaycom/monday-ui-react-core/pull/1626) chore: cleanup, update vibe-storybook-components to ^0.8.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1612](https://github.com/mondaycom/monday-ui-react-core/pull/1612) test: add editable heading interaction test ([@jes14](https://github.com/jes14))
+
+## 2.46.1 (2023-10-05)
+
+#### Bug Fixes
+* [#1615](https://github.com/mondaycom/monday-ui-react-core/pull/1615) fix: <AttentionBox> don't apply defaultIcon for case when icon=null ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.46.0 (2023-10-04)
+
+#### New Features
+* [#1611](https://github.com/mondaycom/monday-ui-react-core/pull/1611) feat: <AttentionBox> - update default icon for Primary type to Info icon ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Internal Changes
+* [#1613](https://github.com/mondaycom/monday-ui-react-core/pull/1613) chore: Update snapshots ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.45.0 (2023-10-04)
+
+#### New Features
+* [#1595](https://github.com/mondaycom/monday-ui-react-core/pull/1595) feat: update label with VibeComponent ([@jes14](https://github.com/jes14))
+
+#### Documentation
+* [#1504](https://github.com/mondaycom/monday-ui-react-core/pull/1504) docs: separate docs tokens from components tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1609](https://github.com/mondaycom/monday-ui-react-core/pull/1609) docs: Shortening texts - add space before the link ([@Kritik-J](https://github.com/Kritik-J))
+* [#1608](https://github.com/mondaycom/monday-ui-react-core/pull/1608) docs: added a link to Combobox on the Menu page  ([@SarthakD15](https://github.com/SarthakD15))
+
+#### Internal Changes
+* [#1610](https://github.com/mondaycom/monday-ui-react-core/pull/1610) infra: Fix workflows running twice ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1603](https://github.com/mondaycom/monday-ui-react-core/pull/1603) infra: allow running chromatic workflow on pull_request ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.44.1 (2023-10-04)
 
 #### Bug Fixes
