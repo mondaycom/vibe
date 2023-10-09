@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.46.2 (2023-10-09)
+
+#### Bug Fixes
+* [#1619](https://github.com/mondaycom/monday-ui-react-core/pull/1619) fix: <MenuDivider/> - added necessary stylings ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1621](https://github.com/mondaycom/monday-ui-react-core/pull/1621) docs: <Checkbox> Usage guidelines - fix font #1577 ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+* [#1600](https://github.com/mondaycom/monday-ui-react-core/pull/1600) docs: fix links ([@Dhoni77](https://github.com/Dhoni77))
+* [#1618](https://github.com/mondaycom/monday-ui-react-core/pull/1618) docs: add npm version badge ([@talkor](https://github.com/talkor))
+* [#1616](https://github.com/mondaycom/monday-ui-react-core/pull/1616) chore: cleanup in stories controls ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1599](https://github.com/mondaycom/monday-ui-react-core/pull/1599) docs: enable controls for some of the stories ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1626](https://github.com/mondaycom/monday-ui-react-core/pull/1626) chore: cleanup, update vibe-storybook-components to ^0.8.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1612](https://github.com/mondaycom/monday-ui-react-core/pull/1612) test: add editable heading interaction test ([@jes14](https://github.com/jes14))
+
 ## 2.46.1 (2023-10-05)
 
 #### Bug Fixes
