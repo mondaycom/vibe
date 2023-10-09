@@ -1,5 +1,4 @@
 @import "~vibe-storybook-components/dist/mixins";
-@import "~monday-ui-style/dist/mixins";
 
 .monday-storybook-checkbox {
   &_border {
@@ -38,13 +37,12 @@
   &_list {
     display: flex;
     flex-direction: column;
-    font-family :var(--font-family) !important;
   }
 
   &_list-item {
     display: inline-block;
     width: 100%;
-    font-family :var(--font-family) !important;
+    @include sb-content-text();
   }
 
   &_link {
