@@ -25,7 +25,7 @@ const getEditableHeadingInput = async (canvas: Canvas) => {
 async function textSimpleText(canvas: Canvas) {
   const editableHeadingInput = await getEditableHeadingInput(canvas);
   await clearText(editableHeadingInput);
-  const text = "Typed Text";
+  const text = "This heading is editable";
   await typeText(editableHeadingInput, text);
   expect(editableHeadingInput).toHaveAttribute("value", text);
   const editableHeading = await getEditableHeadingHeading(canvas);
