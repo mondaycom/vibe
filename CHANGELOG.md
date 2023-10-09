@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.46.3 (2023-10-09)
+
+#### Bug Fixes
+* [#1624](https://github.com/mondaycom/monday-ui-react-core/pull/1624) fix: <Counter> use color - text-color-fixed-light ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.46.2 (2023-10-09)
 
 #### Bug Fixes
