@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.0 (2023-10-09)
+
+#### New Features
+* [#47](https://github.com/mondaycom/vibe-storybook-components/pull/47) feat: mixin sb-basic-text - disable font smoothing ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.7.1 (2023-10-09)
 
 #### Bug Fixes
