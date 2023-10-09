@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BEMClass } from '../../helpers/utils/bem-helper';
-import { ComponentRule } from '../component-rule/component-rule';
+import ComponentRule from '../component-rule/component-rule';
 import './component-rules.scss';
 
 const CSS_BASE_CLASS = 'vibe-sb-comps-component-rules';
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const ComponentRules = ({ rules, className }) => {
+const ComponentRules = ({ rules, className }) => {
   const componentRulesElements = useMemo(
     () =>
       rules.map((rule, index) => {

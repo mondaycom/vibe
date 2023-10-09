@@ -6,7 +6,7 @@ import './usage-guidelines.scss';
 const CSS_BASE_CLASS = 'vibe-sb-comps-usage-guidelines';
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const UsageGuidelines = ({ guidelines }) => {
+const UsageGuidelines = ({ guidelines }) => {
   const guidelinesElements = useMemo(
     () =>
       guidelines.map((guideline, index) => (

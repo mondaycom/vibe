@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InformationBox } from '../information-box/information-box';
+import InformationBox from '../information-box/information-box';
 import './related-component.scss';
 
-export const RelatedComponent = ({ component, title, description, href }) => (
+const RelatedComponent = ({ component, title, description, href }) => (
   <InformationBox
     component={<div className="vibe-sb-comps-related-component_component">{component}</div>}
     title={title}
@@ -23,3 +23,5 @@ RelatedComponent.defaultProps = {
   title: '',
   description: '',
 };
+
+export default RelatedComponent;

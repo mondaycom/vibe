@@ -2,12 +2,11 @@ import cx from 'classnames';
 import React, { forwardRef, useCallback } from 'react';
 import { NOOP } from '../../utils/function-utils';
 import { LinkTarget } from './LinkConsts';
-import { VibeComponentProps } from '../../types/VibeComponentProps';
-import { VibeComponent } from '../../types/VibeComponent';
-import { withStaticProps } from '../../../types/withStaticProps';
+import { VibeComponentProps, VibeComponent } from '../../types';
+import { withStaticProps } from '../../../types';
 import styles from './Link.module.scss';
 
-export interface LinkProps extends VibeComponentProps {
+interface LinkProps extends VibeComponentProps {
   /**
    * Class name for overriding link text styles
    */

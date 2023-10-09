@@ -1,19 +1,11 @@
 import cx from 'classnames';
 import React from 'react';
 import Flex from '../../helpers/components/Flex/Flex';
-import { ElementContent } from '../../types';
-import { withStaticProps } from '../../types/withStaticProps';
+import { ElementContent, withStaticProps } from '../../types';
+import { TipTypes } from './tipConstants';
 import styles from './tip.module.scss';
 
-export enum TipTypes {
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  DARK = 'dark',
-  WARNING = 'warning',
-}
-
-export interface TipProps {
+interface TipProps {
   children: ElementContent;
   title?: string;
   type?: TipTypes;

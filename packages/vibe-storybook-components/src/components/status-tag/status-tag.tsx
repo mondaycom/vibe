@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 export type StatusTagType = 'beta' | 'deprecated';
 
-export interface StatusTagProps {
+interface StatusTagProps {
   type: StatusTagType;
 }
 

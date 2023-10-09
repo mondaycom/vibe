@@ -1,9 +1,9 @@
 import React from 'react';
-import { TableRow } from './token-table-row';
-import { TableHeadItem } from './token-table-head-item';
+import TableRow from './token-table-row';
+import TableHeadItem from './token-table-head-item';
 import styles from './token-table.module.scss';
 
-export const TokenTable = ({ theadData, tbodyData }) => (
+const TokenTable = ({ theadData, tbodyData }) => (
   <div className={styles.tableWrapper}>
     <table className={styles.table}>
       <thead>

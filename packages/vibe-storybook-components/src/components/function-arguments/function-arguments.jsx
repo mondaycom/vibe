@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FunctionArgument } from './function-argument';
+import FunctionArgument from './function-argument';
 
-export const FunctionArguments = ({ children }) => <ul>{children}</ul>;
+const FunctionArguments = ({ children }) => <ul>{children}</ul>;
 
 FunctionArguments.propTypes = {
   children: PropTypes.oneOfType([FunctionArgument, PropTypes.arrayOf(FunctionArgument)]),

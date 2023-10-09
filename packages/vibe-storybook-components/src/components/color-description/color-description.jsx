@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import { VisualDescription } from '../visual-description/visual-description';
+import VisualDescription from '../visual-description/visual-description';
 import './color-description.scss';
 
-export const ColorDescription = ({ colorName, description, withBorder }) => {
+const ColorDescription = ({ colorName, description, withBorder }) => {
   const color = (
     <div
       className={cx('vibe-sb-comps-color-description', {
@@ -19,3 +19,5 @@ export const ColorDescription = ({ colorName, description, withBorder }) => {
     </VisualDescription>
   );
 };
+
+export default ColorDescription;

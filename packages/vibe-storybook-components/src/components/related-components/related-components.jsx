@@ -6,7 +6,7 @@ import './related-components.scss';
 const CSS_BASE_CLASS = 'vibe-sb-comps-related-components';
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const RelatedComponents = ({ componentsNames, descriptionComponentsMap }) => {
+const RelatedComponents = ({ componentsNames, descriptionComponentsMap }) => {
   const componentsDataElements = useMemo(
     () =>
       componentsNames.map((componentName, index) => {

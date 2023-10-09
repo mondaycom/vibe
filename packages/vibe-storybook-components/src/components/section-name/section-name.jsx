@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './section-name.scss';
 
-export const SectionName = ({ className, children, ...props }) => {
+const SectionName = ({ className, children, ...props }) => {
   const id = useMemo(
     () => children.toLowerCase().replaceAll('’', '').replaceAll("'", '').split(' ').join('-'),
     [children],

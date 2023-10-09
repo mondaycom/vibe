@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
 import React from 'react';
-export interface CloseSmallProps extends React.SVGAttributes<SVGElement> {
+interface CloseSmallProps extends React.SVGAttributes<SVGElement> {
   size?: string | number;
 }
 const CloseSmall: React.FC<CloseSmallProps> = ({ size, ...props }) => (

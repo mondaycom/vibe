@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const ComponentDescription = ({ description, children }) => (
+const ComponentDescription = ({ description, children }) => (
   <div>
     <span>{description}</span>
     {children}

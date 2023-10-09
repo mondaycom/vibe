@@ -1,12 +1,12 @@
 import React from 'react';
-import { SectionName } from '../section-name/section-name';
+import SectionName from '../section-name/section-name';
 import { BEMClass } from '../../helpers/utils/bem-helper';
 import './doc-footer.scss';
 
 const CSS_BASE_CLASS = 'vibe-sb-comps-footer';
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const DocFooter = ({ feedbackFormLink }) => (
+const DocFooter = ({ feedbackFormLink }) => (
   <div className={CSS_BASE_CLASS}>
     <SectionName>Feedback</SectionName>
     <div className={bemHelper({ element: 'text' })}>

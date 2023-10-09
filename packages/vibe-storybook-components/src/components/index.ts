@@ -1,53 +1,29 @@
-import { AnchorListItem } from './anchor-list-item/anchor-list-item';
-import { ColorDescription } from './color-description/color-description';
-import { ComponentName } from './component-name/component-name';
-import { ComponentRules } from './component-rules/component-rules';
-import { DocFooter } from './doc-footer/doc-footer';
-import { Frame } from './frame/frame';
-import { FunctionArgument } from './function-arguments/function-argument';
-import { FunctionArguments } from './function-arguments/function-arguments';
-import { InformationBox } from './information-box/information-box';
-import { InformationBoxTitle } from './information-box-title/information-box-title';
-import { Link } from './link/link';
-import { LinkComponent } from './link-component/link-component';
-import { MultipleStoryElementsWrapper } from './multiple-story-elements-wrapper/multiple-story-elements-wrapper';
-import { Paragraph } from './paragraph/paragraph';
-import { RelatedComponent } from './related-component/related-component';
-import { RelatedComponents } from './related-components/related-components';
-import { SectionName } from './section-name/section-name';
-import { StoryDescription } from './story-description/story-description';
-// import { Tip } from "./tip/tip"; // uses attention box - not exported for now
-import { Title } from './title/title';
-import { TokenTable } from './token-table/token-table';
-import { UnstyledList } from './unstyled-list/unstyled-list';
-import { UnstyledListItem } from './unstyled-list-item/unstyled-list-item';
-import { UsageGuidelines } from './usage-guidelines/usage-guidelines';
-import { VisualDescription } from './visual-description/visual-description';
-
-export {
-  AnchorListItem,
-  ColorDescription,
-  ComponentName,
-  ComponentRules,
-  DocFooter,
-  Frame,
-  FunctionArgument,
-  FunctionArguments,
-  InformationBox,
-  InformationBoxTitle,
-  Link,
-  LinkComponent,
-  MultipleStoryElementsWrapper,
-  Paragraph,
-  RelatedComponent,
-  RelatedComponents,
-  SectionName,
-  StoryDescription,
-  // Tip, // uses attention box - not exported for now
-  Title,
-  TokenTable,
-  UnstyledList,
-  UnstyledListItem,
-  UsageGuidelines,
-  VisualDescription,
-};
+export { default as AlphaWarning } from './alpha-warning/alpha-warning';
+export { default as AnchorListItem } from './anchor-list-item/anchor-list-item';
+export { default as ColorDescription } from './color-description/color-description';
+export { default as ComponentDescription } from './component-description/component-description';
+export { default as ComponentName } from './component-name/component-name';
+export { default as ComponentRules } from './component-rules/component-rules';
+export { default as DeprecatedWarning } from './deprecated-warning/deprecated-warning';
+export { default as DocFooter } from './doc-footer/doc-footer';
+export { default as Frame } from './frame/frame';
+export { default as FunctionArgument } from './function-arguments/function-argument';
+export { default as FunctionArguments } from './function-arguments/function-arguments';
+export { default as InformationBox } from './information-box/information-box';
+export { default as InformationBoxTitle } from './information-box-title/information-box-title';
+export { default as Link } from './link/link';
+export { default as LinkComponent } from './link-component/link-component';
+export { default as MultipleStoryElementsWrapper } from './multiple-story-elements-wrapper/multiple-story-elements-wrapper';
+export { default as Paragraph } from './paragraph/paragraph';
+export { default as RelatedComponent } from './related-component/related-component';
+export { default as RelatedComponents } from './related-components/related-components';
+export { default as SectionName } from './section-name/section-name';
+export { default as StatusTag } from './status-tag/status-tag';
+export { default as StoryDescription } from './story-description/story-description';
+export { default as Tip } from './tip/tip';
+export { default as Title } from './title/title';
+export { default as TokenTable } from './token-table/token-table';
+export { default as UnstyledList } from './unstyled-list/unstyled-list';
+export { default as UnstyledListItem } from './unstyled-list-item/unstyled-list-item';
+export { default as UsageGuidelines } from './usage-guidelines/usage-guidelines';
+export { default as VisualDescription } from './visual-description/visual-description';
