@@ -38,16 +38,13 @@
     display: flex;
     flex-direction: column;
     span {
-      @include sb-content-text-without-color;
+      @include sb-content-text;
     }
   }
 
   &_list-item {
     display: inline-block;
     width: 100%;
-    span {
-      @include sb-content-text-without-color;
-    }
   }
 
   &_link {
