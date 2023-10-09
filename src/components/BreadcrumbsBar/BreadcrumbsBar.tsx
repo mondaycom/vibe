@@ -34,7 +34,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
                 index > 0 && <NavigationChevronRight className={styles.separatorIcon} size="14" aria-hidden="true" />,
                 React.cloneElement(child, {
                   ...child?.props,
-                  isClickable: type !== BreadcrumbsBar.types.INDICATION
+                  isClickable: type === BreadcrumbsBar.types.NAVIGATION
                 })
               ]
             : null
