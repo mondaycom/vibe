@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import Flex from '../../helpers/components/Flex/Flex';
+import { ElementContent } from '../../types';
 import { withStaticProps } from '../../types/withStaticProps';
 import styles from './tip.module.scss';
 
@@ -13,7 +14,7 @@ export enum TipTypes {
 }
 
 export interface TipProps {
-  children: React.ReactNode | string;
+  children: ElementContent;
   title?: string;
   type?: TipTypes;
   emoji?: string;
