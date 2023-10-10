@@ -69,6 +69,7 @@ export interface ButtonProps extends VibeComponentProps {
   ariaLabeledBy?: string;
   /** aria label to provide important when providing only Icon */
   ariaLabel?: string;
+  closeButtonAriaLabel?:string;
   /** aria for a button popup */
   ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /** aria to be set if the popup is open */
