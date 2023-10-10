@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0 (2023-10-10)
+
+#### New Features
+* [#48](https://github.com/mondaycom/vibe-storybook-components/pull/48) Add sidebar item ([@talkor](https://github.com/talkor))
+
 ## 0.8.0 (2023-10-09)
 
 #### New Features
