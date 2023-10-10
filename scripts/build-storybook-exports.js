@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-const { createFoldersIfNotExist } = require("./build-utils");
+const { createFoldersIfNotExist, buildStorybookComponentsIndexFile } = require("./build-utils");
 
 createFoldersIfNotExist();
+
+buildStorybookComponentsIndexFile();
