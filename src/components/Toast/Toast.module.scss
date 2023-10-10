@@ -58,6 +58,21 @@
   background-color: var(--negative-color);
 }
 
+.typeWarning {
+  background-color: var(--warning-color);
+  color: var(--text-color-fixed-dark);
+
+  .closeButton {
+    color: var(--text-color-fixed-dark);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-fixed-dark);
+    border-color: var(--text-color-fixed-dark);
+  }
+}
+
 // Animation
 .enterActive {
   animation-iteration-count: 1;
