@@ -35,7 +35,8 @@ export const metaSettings = createStoryMetaSettingsDecorator({
     "onOptionRemove",
     "onOptionSelect",
     "onClear",
-    "onInputChange"
+    "onInputChange",
+    "onKeyDown"
   ]
 });
 
@@ -93,7 +94,7 @@ Dropdown present a list of options from which a user can select one or several.
 
 ## Props
 
-<ArgsTable of={Dropdown} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -838,11 +839,7 @@ Control the value selection mechanism with the <code>tabSelectsValue</code> (def
       );
       return (
         <Flex gap={Flex.gaps.LARGE}>
-          <Dropdown
-            placeholder="Tab selects value"
-            options={options}
-            className="dropdown-stories-styles_big-spacing"
-          />
+          <Dropdown placeholder="Tab selects value" options={options} className="dropdown-stories-styles_big-spacing" />
           <Dropdown
             placeholder="Tab does not select value"
             options={options}

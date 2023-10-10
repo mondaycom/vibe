@@ -31,22 +31,22 @@ export const menuItemIconsWithColorsTemplate = args => {
   return (
     <Menu>
       <MenuItem
-        title="My Item (stuck red)"
+        title="My Item (negative)"
         icon={Settings}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-stuck-red)"
+        iconBackgroundColor="var(--sb-negative-color)"
       />
       <MenuItem
-        title="My Item (done green)"
+        title="My Item (positive)"
         icon={Activity}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-done-green)"
+        iconBackgroundColor="var(--sb-positive-color)"
       />
       <MenuItem
-        title="My Item (indigo)"
+        title="My Item (purple)"
         icon={Bolt}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-indigo)"
+        iconBackgroundColor="var(--sb-color-purple)"
       />
     </Menu>
   );

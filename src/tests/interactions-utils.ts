@@ -16,6 +16,10 @@ export const testFunctionWrapper = (testFunc: TestFunction) => {
   };
 };
 
+export const clearText = async (element: HTMLElement) => {
+  userEvent.clear(element);
+};
+
 function logFunctionStart(name: string) {
   expect(` ➡️ ${name}`).toBeDefined();
 }

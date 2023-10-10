@@ -1,10 +1,9 @@
-@import "../../../styles/typography";
-@import "../../../styles/content-spacing";
+@import "~vibe-storybook-components/dist/mixins";
 
 .monday-other-contributors-list {
-  margin-top: $spacing-between-section-items;
+  margin-top: var(--sb-spacing-between-section-items);
   &_contributor:after {
-    @include small-text;
-    content: ","
+    @include sb-small-text;
+    content: ",";
   }
 }

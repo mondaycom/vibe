@@ -7,6 +7,7 @@ import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
+import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
@@ -45,7 +46,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
-  icon = AlertIcon,
+  icon,
   iconType = Icon.type.SVG,
   title,
   text,
@@ -72,6 +73,12 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
+  const defaultIcon = useMemo(() => {
+    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+  }, [type]);
+
+  const overrideIcon = icon === undefined ? defaultIcon : icon;
+
   return (
     <aside
       className={cx(styles.attentionBox, getStyle(styles, camelCase(`type-${type}`)), overrideClassName)}
@@ -90,7 +97,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconType={iconType}
               ariaHidden
               clickable={false}
-              icon={icon}
+              icon={overrideIcon}
               ignoreFocusStyle
               iconSize="24"
               iconLabel={iconLabel}
@@ -108,7 +115,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconSize={18}
             ariaHidden
             clickable={false}
-            icon={icon}
+            icon={overrideIcon}
             ignoreFocusStyle
             iconLabel={iconLabel}
           />
