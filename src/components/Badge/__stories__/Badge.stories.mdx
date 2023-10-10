@@ -15,7 +15,8 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
   enumPropNamesArray: ["anchor", "alignment", "type"],
   iconPropNamesArray: [],
-  actionPropsArray: []
+  actionPropsArray: [],
+  ignoreControlsPropNamesArray: ["children"]
 });
 
 <Meta title="Feedback/Badge" component={Badge} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />

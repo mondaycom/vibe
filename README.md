@@ -1,5 +1,7 @@
 # Vibe Design System
 
+[![npm](https://img.shields.io/npm/v/monday-ui-react-core)](https://www.npmjs.com/package/monday-ui-react-core)
+
 ![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
 
 [monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com)
@@ -39,8 +41,8 @@ Poppins, Figtree and Roboto, we recommend adding the following `link` import to 
 
 ```html
 <link
-        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
 />
 ```
 

@@ -15,7 +15,8 @@ import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
   iconPropNamesArray: ["component"],
-    actionPropsArray: ["onMenuHide", "onMenuShow"]
+  actionPropsArray: ["onMenuHide", "onMenuShow"],
+  ignoreControlsPropNamesArray: ["children"]
 });
 
 <Meta
@@ -64,7 +65,7 @@ MenuButton is a component that opens a Dialog next to a button, the content of t
 
 ## Props
 
-<ArgsTable of={MenuButton} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

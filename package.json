@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "2.41.2",
+  "version": "2.46.2",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -89,7 +89,7 @@
     "a11y-dialog": "^7.5.2",
     "autosize": "^5.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "browserslist-config-monday": "^1.0.6",
+    "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
     "monday-ui-style": "0.1.196",
@@ -103,7 +103,7 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "^0.1.0"
+    "vibe-storybook-components": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

@@ -5,11 +5,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--primary-color);
-  border-radius: var(--border-radius-small);
+  color: var(--sb-primary-color);
+  border-radius: var(--sb-border-radius-small);
   padding: 2px;
   &:hover {
-    background: var(--primary-background-hover-color);
+    background: var(--sb-primary-background-hover-color);
   }
   .icon-resizer {
     transform: rotate(45deg);

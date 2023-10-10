@@ -1,7 +1,7 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/typography";
 
-$component-rules-grid-gap: var(--spacing-xxl);
+$component-rules-grid-gap: var(--sb-spacing-xxl);
 $tipseen-rules-cell-min-width: 476px;
 $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-width});
 
@@ -61,6 +61,6 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
   }
 
   &_hovered {
-    background-color: var(--primary-selected-color);
+    background-color: var(--sb-primary-selected-color);
   }
 }

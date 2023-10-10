@@ -10,15 +10,15 @@
     width: 48px;
 
     &:first-child {
-      background-color: var(--primary-color);
+      background-color: var(--sb-primary-color);
     }
 
     &:nth-child(2) {
-      background-color: var(--primary-hover-color);
+      background-color: var(--sb-primary-hover-color);
     }
 
     &:last-child {
-      background-color: var(--primary-selected-color);
+      background-color: var(--sb-primary-selected-color);
     }
   }
 }

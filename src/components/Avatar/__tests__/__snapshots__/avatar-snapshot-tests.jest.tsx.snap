@@ -38,7 +38,7 @@ exports[`Avatar renders correctly renders correctly an icon 1`] = `
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -62,7 +62,7 @@ exports[`Avatar renders correctly renders correctly square avatar 1`] = `
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -86,7 +86,7 @@ exports[`Avatar renders correctly renders correctly with badges 1`] = `
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -142,7 +142,7 @@ exports[`Avatar renders correctly renders correctly with damaged src badges 1`] 
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -198,7 +198,7 @@ exports[`Avatar renders correctly renders correctly with empty props 1`] = `
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -218,7 +218,7 @@ exports[`Avatar renders correctly renders correctly with image 1`] = `
     aria-hidden={false}
     className="circle circleText"
     style={Object {}}
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -238,7 +238,7 @@ exports[`Avatar renders correctly renders correctly with image and text 1`] = `
     aria-hidden={false}
     className="circle circleText"
     style={Object {}}
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -260,7 +260,7 @@ exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
     aria-hidden={false}
     className="circle circleText"
     style={Object {}}
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
@@ -284,7 +284,7 @@ exports[`Avatar renders correctly renders correctly with text 1`] = `
         "backgroundColor": "var(--color-chili-blue)",
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <span
       className="contentText contentTextLarge"
