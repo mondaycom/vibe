@@ -19,6 +19,7 @@ export { default as RelatedComponent } from './related-component/related-compone
 export { default as RelatedComponents } from './related-components/related-components';
 export { default as SectionName } from './section-name/section-name';
 export { default as StatusTag } from './status-tag/status-tag';
+export { default as SidebarItem } from './sidebar-item/sidebar-item';
 export { default as StoryDescription } from './story-description/story-description';
 export { default as Tip } from './tip/tip';
 export { default as Title } from './title/title';
