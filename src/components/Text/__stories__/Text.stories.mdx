@@ -111,7 +111,6 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
       <Text color={Text.colors.PRIMARY}>Primary text</Text>
       <Text color={Text.colors.SECONDARY}>Secondary text</Text>
       <Text
-        element="div"
         className={cx(styles.primaryBackground, styles.smallRectangle)}
         align={Text.align.CENTER}
         color={Text.colors.ON_PRIMARY}
@@ -119,7 +118,6 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
         On primary text
       </Text>
       <Text
-        element="div"
         className={cx(styles.invertedBackground, styles.smallRectangle)}
         align={Text.align.CENTER}
         color={Text.colors.ON_INVERTED}
@@ -203,28 +201,34 @@ A Text component with a link skin can be used to create a link within running te
 <Canvas>
   <Story name="Links inside running text">
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
-      <Text>
-        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text.
+      <Text align={Text.align.CENTER}>
+        This is the story of a
+        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+          link
+        </Link>
+        inside running text.
       </Text>
       <Text
-        element="div"
-        ellipsis={false}
         className={cx(styles.primaryBackground, styles.mediumRectangle)}
         align={Text.align.CENTER}
         color={Text.colors.ON_PRIMARY}
       >
-        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on a
-        primary color
+        This is the story of a
+        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+          link
+        </Link>
+        inside running text on a primary color
       </Text>
       <Text
-        element="div"
-        ellipsis={false}
         className={cx(styles.invertedBackground, styles.mediumRectangle)}
         align={Text.align.CENTER}
         color={Text.colors.ON_INVERTED}
       >
-        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text on an
-        inverted color
+        This is the story of a
+        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+          link
+        </Link>
+        inside running text on an inverted color
       </Text>
     </Flex>
   </Story>

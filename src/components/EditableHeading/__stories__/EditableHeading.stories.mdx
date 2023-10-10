@@ -2,6 +2,7 @@ import EditableHeading from "../EditableHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
+import { overviewPlaySuite } from "../__tests__/editable-heading-interactions";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
@@ -34,7 +35,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 An extension of Heading component, it allows built in editing capabilities
 
 <Canvas>
-  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1 }}>
+  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1 }} play={overviewPlaySuite} >
     {editableHeadingTemplate.bind({})}
   </Story>
 </Canvas>

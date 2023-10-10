@@ -20,7 +20,7 @@ import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
-  onValueChange: (value: ColorPickerArrayValueOnly) => any;
+  onValueChange: (value: ColorPickerArrayValueOnly) => void;
   colorsList: ColorPickerArrayValueOnly;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;

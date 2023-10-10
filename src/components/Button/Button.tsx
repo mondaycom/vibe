@@ -261,7 +261,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
 
     const buttonProps = useMemo(() => {
-      const props: Record<string, any> = {
+      const props: Record<string, unknown> = {
         ref: mergedRef,
         type,
         className: classNames,
