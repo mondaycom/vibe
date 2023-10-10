@@ -6,7 +6,7 @@ import { NOOP } from "../../../../utils/function-utils";
 import styles from "./ColorPickerClearButton.module.scss";
 
 interface ColorPickerClearButtonProps extends VibeComponentProps {
-  onClick: () => any;
+  onClick: () => void;
   text?: string;
   Icon: SubIcon;
 }
