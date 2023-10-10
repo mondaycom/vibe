@@ -81,8 +81,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
           className={cx(styles.breadcrumbContent, className, {
             [styles.disabled]: disabled,
             [styles.clickable]: isClickable,
-            [styles.current]: isCurrent,
-            [styles.notClickable]: !isClickable
+            [styles.current]: isCurrent
           })}
           aria-disabled="true"
           tabIndex={tabIndex}
