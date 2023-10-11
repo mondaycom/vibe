@@ -20,7 +20,7 @@ export function useEllipsisClass(ref: (node: HTMLElement) => void, ellipsis: boo
 }
 
 export function useTooltipProps(
-  ref: MutableRefObject<any>,
+  ref: MutableRefObject<HTMLElement>,
   withoutTooltip: boolean,
   ellipsis: boolean,
   tooltipProps: TooltipProps,
