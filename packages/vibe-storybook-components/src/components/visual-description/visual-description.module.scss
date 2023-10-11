@@ -1,13 +1,13 @@
 @import "../../styles/mixins/typography";
 
-.vibe-sb-comps-visual-description {
+.visualDescription {
   display: flex;
 
   &:not(:last-child) {
     margin-bottom: 24px;
   }
 
-  &_visual {
+  &Visual {
     height: 40px;
     width: 40px;
     margin: 0 var(--sb-spacing-medium) 0 0;
@@ -17,7 +17,7 @@
     }
   }
 
-  &_text {
+  &Text {
     display: flex;
     flex-direction: column;
     @include sb-content-text;
@@ -27,7 +27,7 @@
     }
   }
 
-  &_title {
+  &Title {
     @include sb-content-text;
     font-weight: 500;
     margin: 0;
