@@ -43,7 +43,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -284,7 +284,7 @@ const Combobox: React.FC<ComboboxProps> & {
             value={filterValue}
             wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             className={styles.comboboxSearch}
-            inputAriaLabel="Search for content"
+            searchInputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
             id="combobox-search"
             placeholder={placeholder}

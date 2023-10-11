@@ -27,7 +27,7 @@ export interface SearchProps extends VibeComponentProps {
   setRef?: () => void;
   autoComplete?: string;
   /* BASE_SIZES is exposed on the component itself */
-  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
   /* TYPES is exposed on the component itself */
   type?: SearchType;
   validation?:
@@ -36,7 +36,7 @@ export interface SearchProps extends VibeComponentProps {
         text: string;
       }
     | { text: string };
-  inputAriaLabel?: string;
+  searchInputAriaLabel?: string;
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /*  Icon names labels for a11y */
@@ -73,7 +73,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
       className,
       id = "search",
       validation = null,
-      inputAriaLabel,
+      searchInputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
       iconNames = SearchDefaultIconNames,
@@ -105,7 +105,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
         size={size}
         clearOnIconClick
         validation={validation}
-        inputAriaLabel={inputAriaLabel}
+        searchInputAriaLabel={searchInputAriaLabel}
         searchResultsContainerId={searchResultsContainerId}
         activeDescendant={activeDescendant}
         iconsNames={iconNames}

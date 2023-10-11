@@ -150,7 +150,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
-            ariaLabel="close-toast"
+            closeButtonAriaLabel="Close"
           >
             <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
           </Button>
