@@ -1,7 +1,7 @@
 @import "../../styles/mixins/typography";
 
-.vibe-sb-comps-usage-guidelines{
-  &_guideline {
+.usageGuidelines{
+  &Guideline {
     color: var(--sb-primary-text-color);
     margin: var(--sb-spacing-medium) var(--sb-spacing-small);
     display: flex;
@@ -12,7 +12,7 @@
     }
   }
 
-  &_icon {
+  &Icon {
     font-size: 16px;
     line-height: 21px;
     margin-right: var(--sb-spacing-medium);
