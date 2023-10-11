@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from "./unstyled-list-item.module.scss"
-
+import styles from './unstyled-list-item.module.scss';
 
 const UnstyledListItem = ({ children }) => <li className={styles.unstyledListItem}>{children}</li>;
 
