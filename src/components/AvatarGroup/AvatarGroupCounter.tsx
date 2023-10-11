@@ -27,6 +27,7 @@ interface AvatarGroupCounterProps extends VibeComponentProps {
   counterTooltipIsVirtualizedList?: boolean;
   size?: AvatarSize;
   type?: AvatarType;
+  counterAriaLabel?: string;
 }
 
 const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
@@ -35,7 +36,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
   size = Avatar.sizes.MEDIUM,
-  type
+  type,
+  counterAriaLabel
 }) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
@@ -58,10 +60,10 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         count={counterValue}
         prefix={counterPrefix}
         maxDigits={counterMaxDigits}
-        ariaLabel={`Tab for more ${counterAriaLabelItemsName}`}
+        ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
       />
     );
-  }, [counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue]);
+  }, [counterAriaLabel, counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue]);
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
@@ -74,7 +76,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         component={counterComponent}
         zIndex={1}
         componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
-        ariaLabel={`${counterValue} additional ${counterAriaLabelItemsName}`}
+        ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
