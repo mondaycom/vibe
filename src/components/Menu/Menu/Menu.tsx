@@ -34,7 +34,7 @@ import styles from "./Menu.module.scss";
 export interface MenuProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
-  size?: typeof SIZES[keyof typeof SIZES];
+  size?: (typeof SIZES)[keyof typeof SIZES];
   tabIndex?: number;
   ariaLabel?: string;
   ariaDescribedBy?: string;
@@ -87,15 +87,20 @@ const Menu: VibeComponent<MenuProps> & {
 
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
-      return allChildren.filter(child => {
-        // @ts-ignore
-        if (child.type.isMenuChild) return true;
-        console.error(
-          "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
-          child
-        );
-        return false;
-      });
+      return allChildren.filter(
+        (
+          child: ReactElement & {
+            type: Record<string, unknown>;
+          }
+        ) => {
+          if (child.type.isMenuChild) return true;
+          console.error(
+            "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
+            child
+          );
+          return false;
+        }
+      );
     }, [originalChildren]);
 
     const updateActiveItemIndex = useCallback(
