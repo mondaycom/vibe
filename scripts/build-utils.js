@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const {
-  publishedTSComponents,
-  publishedJSComponents,
-  publishedStorybookComponents
-} = require("../webpack/published-components");
+const { publishedTSComponents, publishedJSComponents } = require("../webpack/published-components");
 
 function createFoldersIfNotExist() {
   // if dist is not exist let's create it
@@ -52,11 +48,7 @@ function buildComponentsTypesIndexFile() {
 
 function buildStorybookComponentsIndexFile() {
   const imports = ["import 'vibe-storybook-components/index.css';"];
-  const exports = Object.entries(publishedStorybookComponents).map(([name, _path]) => {
-    const fileName = name.split("/").slice(-1);
-    return buildComponentExport(fileName, `./${fileName}`);
-  });
-  exports.push("export * from 'vibe-storybook-components'");
+  const exports = ["export * from 'vibe-storybook-components'"];
   convertExportsToFile(imports.concat(exports), "storybook/index.js");
 }
 
