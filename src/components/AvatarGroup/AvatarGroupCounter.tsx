@@ -72,6 +72,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
   if (areAvatarsClickable) {
     return (
+      // @ts-ignore TODO ts-migration: remove this line & fix the issues when MenuButton is converted to TS
       <MenuButton
         component={counterComponent}
         zIndex={1}
