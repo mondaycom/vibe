@@ -23,20 +23,22 @@ function createCheckboxesVariables() {
   };
 }
 
+type MockedFunction = (...args: unknown[]) => void;
+
 type RenderHelper = {
   formName: string;
   checkbox1Name: string;
   option1Value: string;
   option1Text: string;
-  onChangeMock1: jest.MockedFunction<any>;
+  onChangeMock1: jest.MockedFunction<MockedFunction>;
   checkbox2Name: string;
   option2Text: string;
   option2Value: string;
-  onChangeMock2: jest.MockedFunction<any>;
+  onChangeMock2: jest.MockedFunction<MockedFunction>;
   checkbox3Name: string;
   option3Text: string;
   option3Value: string;
-  onChangeMock3: jest.MockedFunction<any>;
+  onChangeMock3: jest.MockedFunction<MockedFunction>;
 };
 
 function renderCheckboxes({
@@ -69,7 +71,12 @@ function renderCheckboxes({
   );
 }
 
-function testUnselectFirstOption(option1Text: string, option2Text: string, option3Text: string, clickOptions?: any) {
+function testUnselectFirstOption(
+  option1Text: string,
+  option2Text: string,
+  option3Text: string,
+  clickOptions?: Record<string, unknown>
+) {
   const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
   const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
   const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
@@ -94,9 +101,9 @@ describe("Checkbox tests", () => {
       option3Text
     } = createCheckboxesVariables();
 
-    let onChangeMock1: jest.MockedFunction<any>,
-      onChangeMock2: jest.MockedFunction<any>,
-      onChangeMock3: jest.MockedFunction<any>;
+    let onChangeMock1: jest.MockedFunction<MockedFunction>,
+      onChangeMock2: jest.MockedFunction<MockedFunction>,
+      onChangeMock3: jest.MockedFunction<MockedFunction>;
     beforeEach(() => {
       onChangeMock1 = jest.fn();
       onChangeMock2 = jest.fn();
@@ -202,9 +209,9 @@ describe("Checkbox tests", () => {
       });
     });
 
-    let onChangeMock1: jest.MockedFunction<any>,
-      onChangeMock2: jest.MockedFunction<any>,
-      onChangeMock3: jest.MockedFunction<any>;
+    let onChangeMock1: jest.MockedFunction<MockedFunction>,
+      onChangeMock2: jest.MockedFunction<MockedFunction>,
+      onChangeMock3: jest.MockedFunction<MockedFunction>;
 
     beforeEach(() => {
       onChangeMock1 = jest.fn();
