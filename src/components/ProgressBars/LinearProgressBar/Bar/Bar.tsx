@@ -53,7 +53,7 @@ const Bar: FC<BarProps> = ({
     return cx(styles.bar, getStyle(styles, camelCase("type__" + type + "--" + barStyle)), className, {
       [styles.animate]: animated
     });
-  }, [type, barStyle, animated]);
+  }, [type, barStyle, animated, className]);
 
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;
