@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './unstyled-list-item.scss';
+import styles from "./unstyled-list-item.module.scss"
 
-const UnstyledListItem = ({ children }) => <li className="vibe-sb-comps-unstyled-list-item">{children}</li>;
+
+const UnstyledListItem = ({ children }) => <li className={styles.unstyledListItem}>{children}</li>;
 
 UnstyledListItem.propTypes = {
   children: PropTypes.element,
