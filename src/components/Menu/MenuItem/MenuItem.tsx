@@ -27,7 +27,7 @@ import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
-import { CloseMenuOption } from "../Menu/MenuConstants";
+import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import styles from "./MenuItem.module.scss";
 
 export interface MenuItemProps extends VibeComponentProps {
@@ -64,7 +64,7 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
-  children?: ReactElement | ReactElement[];
+  children?: MenuChild | MenuChild[];
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -117,11 +117,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const hasChildren = !!children;
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
-    const submenuChild =
-      children &&
-      (React.Children.only(children) as ReactElement & {
-        type: Record<string, unknown>;
-      });
+    const submenuChild: MenuChild = children && React.Children.only(children);
+
     let menuChild;
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
       menuChild = submenuChild;
