@@ -1,6 +1,6 @@
 @import "../../styles/mixins/typography";
 
-.vibe-sb-comps-section-name {
+.sectionName {
   margin-top: var(--sb-spacing-between-sections);
   margin-bottom: var(--sb-spacing-between-section-items);
   @include sb-basic-text;

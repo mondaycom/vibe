@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InformationBox from '../information-box/information-box';
-import './related-component.scss';
+import styles from './related-component.module.scss';
 
 const RelatedComponent = ({ component, title, description, href }) => (
   <InformationBox
-    component={<div className="vibe-sb-comps-related-component_component">{component}</div>}
+    component={<div className={styles.relatedComponentComponent}>{component}</div>}
     title={title}
     description={description}
     href={href}
