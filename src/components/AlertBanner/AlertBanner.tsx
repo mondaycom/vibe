@@ -26,6 +26,7 @@ interface AlertBannerProps extends VibeComponentProps {
   isCloseHidden?: boolean;
   /** ARIA description for the progress bar */
   ariaLabel?: string;
+  closeButtonAriaLabel?: string;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 }
@@ -40,6 +41,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
       backgroundColor = AlertBanner.backgroundColors.PRIMARY,
       onClose = NOOP,
       ariaLabel = "",
+      closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
       "data-testid": dataTestId
@@ -122,7 +124,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
               color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
-              closeButtonAriaLabel="Close"
+              ariaLabel={closeButtonAriaLabel}
             >
               <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
             </Button>

@@ -53,7 +53,7 @@ interface TextFieldProps extends VibeComponentProps {
   clearOnIconClick?: boolean;
   labelIconName?: string | React.FunctionComponent | null;
   showCharCount?: boolean;
-  searchInputAriaLabel?: string;
+  inputAriaLabel?: string;
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /**  Icon names labels for a11y */
@@ -111,7 +111,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       clearOnIconClick = false,
       labelIconName,
       showCharCount = false,
-      searchInputAriaLabel,
+      inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
       iconsNames = EMPTY_OBJECT,
@@ -229,7 +229,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               onWheel={onWheel}
               maxLength={maxLength}
               role={searchResultsContainerId && "combobox"} // For voice reader
-              aria-label={searchInputAriaLabel || placeholder}
+              aria-label={inputAriaLabel || placeholder}
               aria-invalid={validation && validation.status === "error"}
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
