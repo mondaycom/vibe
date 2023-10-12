@@ -16,7 +16,7 @@ import styles from "./MenuItemButton.module.scss";
 interface MenuItemButtonProps extends VibeComponentProps {
   /** Backward compatibility for props naming **/
   classname?: string;
-  kind?: (typeof MenuItemButton.kinds)[keyof typeof MenuItemButton.kinds];
+  kind?: typeof MenuItemButton.kinds[keyof typeof MenuItemButton.kinds];
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
   index?: number;
