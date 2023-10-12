@@ -82,7 +82,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
     });
 
     const keyboardContext = useMenuGridItemNavContext({
-      wrapperRef: mergedRef,
+      wrapperRef: componentRef,
       setActiveItemIndex,
       getPreviousSelectableIndex,
       getNextSelectableIndex,
