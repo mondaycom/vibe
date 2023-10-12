@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import './section-name.scss';
+import styles from './section-name.module.scss';
 
 const SectionName = ({ className, children, ...props }) => {
   const id = useMemo(
@@ -10,7 +10,7 @@ const SectionName = ({ className, children, ...props }) => {
   );
 
   return (
-    <h2 id={id} className={cx('vibe-sb-comps-section-name', className)} {...props}>
+    <h2 id={id} className={cx(styles.sectionName, className)} {...props}>
       {children}
     </h2>
   );
