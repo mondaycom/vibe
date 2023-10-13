@@ -37,6 +37,7 @@ export interface SearchProps extends VibeComponentProps {
       }
     | { text: string };
   inputAriaLabel?: string;
+  searchInputAriaLabel?: string;
   searchResultsContainerId?: string;
   activeDescendant?: string;
   /*  Icon names labels for a11y */
