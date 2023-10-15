@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.48.0 (2023-10-15)
+
+#### Bug Fixes
+* [#1657](https://github.com/mondaycom/monday-ui-react-core/pull/1657) fix: colorpicker indicator is dissapearing when color is selected ([@sayyedarib](https://github.com/sayyedarib))
+
+#### New Features
+* [#1654](https://github.com/mondaycom/monday-ui-react-core/pull/1654) feat: provide props for ariaLabel - < Toast />, < AlertBanner />, < Combobox /> Fixes: #1642 ([@viditagrawal56](https://github.com/viditagrawal56))
+
 ## 2.47.3 (2023-10-15)
 
 #### Bug Fixes
