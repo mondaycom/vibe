@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.47.1 (2023-10-15)
+
+#### Bug Fixes
+* [#1623](https://github.com/mondaycom/monday-ui-react-core/pull/1623) fix: <Toast> use color - text-color-fixed-light ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1628](https://github.com/mondaycom/monday-ui-react-core/pull/1628) docs: Replace tip alpha warning deprecated warning with vibe storybook components ([@talkor](https://github.com/talkor))
+
 ## 2.47.0 (2023-10-12)
 
 #### New Features
