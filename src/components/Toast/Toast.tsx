@@ -35,6 +35,7 @@ interface ToastProps extends VibeComponentProps {
    * (0 or null cancels this behaviour) */
   autoHideDuration?: number;
   children?: ReactElement | ReactElement[] | string;
+  closeButtonAriaLabel?: string;
 }
 
 const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof ToastActionType } = ({
@@ -50,6 +51,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   onClose = NOOP,
   className,
   id,
+  closeButtonAriaLabel = "Close",
   "data-testid": dataTestId
 }) => {
   const toastLinks = useMemo(() => {
@@ -150,7 +152,8 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
             color={Button.colors.FIXED_LIGHT}
-            ariaLabel="close-toast"
+            ariaLabel={closeButtonAriaLabel}
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
           >
             <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
           </Button>
