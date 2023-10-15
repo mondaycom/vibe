@@ -4,10 +4,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import Menu from "../../Menu/Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 
-<Meta
-  title="Navigation/Menu/MenuDivider"
-  component={ MenuDivider }
-/>
+<Meta title="Navigation/Menu/MenuDivider" component={MenuDivider} />
 
 <!--- Component template -->
 
@@ -16,6 +13,7 @@ export const menuDividerTemplate = createComponentTemplate(MenuDivider);
 <!--- Component documentation -->
 
 # Menu Divider
+
 - [Overview](#overview)
 - [Props](#props)
 - [Use cases and examples](#use-cases-and-examples)
@@ -23,22 +21,24 @@ export const menuDividerTemplate = createComponentTemplate(MenuDivider);
 - [Feedback](#feedback)
 
 ## Overview
+
 Use menu divider for create separation between to menu items inside a menu
 
 <Canvas>
-  <Story name="Overview">
-    { menuDividerTemplate.bind({}) }
-  </Story>
+  <Story name="Overview">{menuDividerTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ MenuDivider } />
+
+<ArgsTable story="Overview" />
 
 ## Use cases and examples
+
 ### Menu with divider
+
 <Canvas>
   <Story name="Menu with divider">
-    <div style={{width: 200}}>
+    <div style={{ width: 200 }}>
       <Menu>
         <MenuItem title="Menu item 1" />
         <MenuDivider />
@@ -49,9 +49,10 @@ Use menu divider for create separation between to menu items inside a menu
 </Canvas>
 
 ### Sub menu with divider
+
 <Canvas>
   <Story name="Sub menu with divider">
-    <div style={{width: 200, height: 90}}>
+    <div style={{ width: 200, height: 90 }}>
       <Menu>
         <MenuItem title="Item with sub menu">
           <Menu>

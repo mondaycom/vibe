@@ -21,12 +21,12 @@
     }
 
     &--subtext {
-      color: var(--secondary-text-color);
+      color: var(--sb-secondary-text-color);
       @include system-regular-text;
     }
 
     &--link {
-      color: var(--link-color);
+      color: var(--sb-link-color);
       @include system-regular-text;
     }
 

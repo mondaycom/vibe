@@ -12,7 +12,8 @@
     }
   }
 
-  &:disabled, &[aria-disabled="true"]  {
+  &:disabled,
+  &[aria-disabled="true"] {
     color: var(--disabled-text-color);
   }
 }
@@ -37,6 +38,22 @@
   color: var(--text-color-on-inverted);
   a {
     color: var(--text-color-on-inverted);
+    text-decoration: underline;
+  }
+}
+
+.fixedLight {
+  color: var(--text-color-fixed-light);
+  a {
+    color: var(--text-color-fixed-light);
+    text-decoration: underline;
+  }
+}
+
+.fixedDark {
+  color: var(--text-color-fixed-dark);
+  a {
+    color: var(--text-color-fixed-dark);
     text-decoration: underline;
   }
 }

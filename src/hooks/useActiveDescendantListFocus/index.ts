@@ -24,8 +24,9 @@ function useActiveDescendantListFocus({
   defaultVisualFocusFirstIndex = false,
   focusedElementRole = Role.GROUP,
   isHorizontalList = false,
+  isIgnoreSpaceAsItemSelection = false,
   useDocumentEventListeners = false,
-  isIgnoreSpaceAsItemSelection = false
+  ignoreDocumentFallback = false
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsIds: string[];
@@ -36,6 +37,7 @@ function useActiveDescendantListFocus({
   isHorizontalList?: boolean;
   isIgnoreSpaceAsItemSelection?: boolean;
   useDocumentEventListeners?: boolean;
+  ignoreDocumentFallback?: boolean;
 }) {
   const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;
@@ -43,14 +45,16 @@ function useActiveDescendantListFocus({
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
 
   const listenerOptions = useMemo(() => {
-    if (useDocumentEventListeners) return undefined;
+    if (useDocumentEventListeners) {
+      return ignoreDocumentFallback ? { ignoreDocumentFallback } : undefined;
+    }
 
     return {
       ref: focusedElementRef,
       preventDefault: true,
       stopPropagation: true
     };
-  }, [useDocumentEventListeners, focusedElementRef]);
+  }, [useDocumentEventListeners, focusedElementRef, ignoreDocumentFallback]);
 
   const { triggeredByKeyboard } = useSetDefaultItemOnFocusEvent({
     focusedElementRef,

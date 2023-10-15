@@ -20,7 +20,7 @@ const ToastButton: FC<ToastButtonProps> = ({ className, id, "data-testid": dataT
       dataTestId={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
       className={className}
       size={Button.sizes.SMALL}
-      color={Button.colors.ON_PRIMARY_COLOR}
+      color={Button.colors.FIXED_LIGHT}
     />
   );
 };
