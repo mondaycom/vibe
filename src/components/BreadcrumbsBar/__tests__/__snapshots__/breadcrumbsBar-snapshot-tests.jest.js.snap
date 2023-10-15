@@ -33,7 +33,7 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
     >
       <span
         aria-disabled="true"
-        className="breadcrumbContent"
+        className="breadcrumbContent notClickable"
         tabIndex={0}
       >
         <span
@@ -64,7 +64,7 @@ exports[`BreadcrumbsBar renders correctly with children 1`] = `
     >
       <span
         aria-disabled="true"
-        className="breadcrumbContent"
+        className="breadcrumbContent notClickable"
         tabIndex={0}
       >
         <span
