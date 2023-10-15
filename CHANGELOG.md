@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.47.3 (2023-10-15)
+
+#### Bug Fixes
+* [#1659](https://github.com/mondaycom/monday-ui-react-core/pull/1659) fix: <BreadcrumbsBar> - shouldn't be clickable when type = Indication ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1660](https://github.com/mondaycom/monday-ui-react-core/pull/1660) docs: fix description of text-color-fixed-light and text-color-fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.47.2 (2023-10-15)
 
 #### Bug Fixes
