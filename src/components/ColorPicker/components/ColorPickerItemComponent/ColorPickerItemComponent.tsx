@@ -37,7 +37,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       colorStyle = ColorStyle.REGULAR,
       shouldRenderIndicatorWithoutBackground,
       ColorIndicatorIcon,
-      SelectedIndicatorIcon,
+      SelectedIndicatorIcon = ColorIndicatorIcon,
       isSelected,
       colorSize,
       tooltipContent,

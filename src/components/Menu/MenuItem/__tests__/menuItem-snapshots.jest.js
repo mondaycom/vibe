@@ -33,6 +33,11 @@ describe("Snapshots", () => {
     const tree = renderer.create(<MenuItem title="my item" selected={true} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("renders correctly with a label", () => {
+    const tree = renderer.create(<MenuItem title="my item" label="New" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 
 jest.useFakeTimers();

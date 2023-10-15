@@ -9,6 +9,10 @@ export interface TabsContextProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
 }
 
+type TabsChild = ReactElement & {
+  type: Record<string, unknown>;
+};
+
 const TabsContext: FC<TabsContextProps> = forwardRef(
   ({ className, id, activeTabId = 0, children, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
@@ -41,12 +45,10 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABS_CONTEXT, id)}
       >
-        {React.Children.map(children, child => {
-          // @ts-ignore
+        {React.Children.map(children, (child: TabsChild) => {
           if (child.type.isTabList) {
             return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange: onTabClick });
           }
-          // @ts-ignore
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
             return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection });

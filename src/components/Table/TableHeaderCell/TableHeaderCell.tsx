@@ -19,10 +19,24 @@ export interface ITableHeaderCellProps extends VibeComponentProps {
   infoContent?: string;
   sortState?: "asc" | "desc" | "none";
   onSortClicked?: (direction: "asc" | "desc" | "none") => void;
+  sortButtonAriaLabel?: string;
 }
 
 const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, title, onSortClicked, infoContent, icon, sortState = "none" }, ref) => {
+  (
+    {
+      id,
+      className,
+      "data-testid": dataTestId,
+      title,
+      onSortClicked,
+      infoContent,
+      icon,
+      sortState = "none",
+      sortButtonAriaLabel = "Sort"
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -56,7 +70,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
               icon={getSortIcon(sortState)}
               kind={ButtonType.TERTIARY}
               size={IconButton.sizes.XS}
-              ariaLabel="Sort"
+              ariaLabel={sortButtonAriaLabel}
               className={cx(styles.sort, { [styles.asc]: sortState === "asc", [styles.desc]: sortState === "desc" })}
               onClick={() => onSortClicked(getNextSortState(sortState))}
             />

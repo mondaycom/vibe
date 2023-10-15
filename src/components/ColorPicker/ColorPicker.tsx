@@ -20,7 +20,7 @@ import styles from "./ColorPicker.module.scss";
 
 export interface ColorPickerProps extends VibeComponentProps {
   value?: ColorPickerValue;
-  onSave?: (value: ColorPickerArrayValueOnly) => any;
+  onSave?: (value: ColorPickerArrayValueOnly) => void;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
   /**

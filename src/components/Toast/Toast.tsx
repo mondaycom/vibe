@@ -121,39 +121,39 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
       timeout={400}
       unmountOnExit
-      >
+    >
       <Text
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type={Text.types.TEXT2}
         element="div"
-        color={Text.colors.ON_PRIMARY}
+        color={Text.colors.FIXED_LIGHT}
         className={classNames}
         role="alert"
         aria-live="polite"
-        >
+      >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <div
           data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
           className={cx(styles.content, {
             [styles.contentNoIcon]: !iconElement
           })}
-          >
+        >
           {children}
           {toastLinks}
         </div>
         {(toastButtons || deprecatedAction) && (
           <div className={cx(styles.action)}>{toastButtons || deprecatedAction}</div>
-          )}
+        )}
         {closeable && (
           <Button
-          className={cx(styles.closeButton)}
-          onClick={handleClose}
-          size={Button.sizes.SMALL}
-          kind={Button.kinds.TERTIARY}
-          color={Button.colors.ON_PRIMARY_COLOR}
-          ariaLabel={closeButtonAriaLabel}
-          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+            className={cx(styles.closeButton)}
+            onClick={handleClose}
+            size={Button.sizes.SMALL}
+            kind={Button.kinds.TERTIARY}
+            color={Button.colors.FIXED_LIGHT}
+            ariaLabel={closeButtonAriaLabel}
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
           >
             <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
           </Button>

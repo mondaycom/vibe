@@ -1,5 +1,43 @@
 # Changelog
 
+## 2.47.3 (2023-10-15)
+
+#### Bug Fixes
+* [#1659](https://github.com/mondaycom/monday-ui-react-core/pull/1659) fix: <BreadcrumbsBar> - shouldn't be clickable when type = Indication ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1660](https://github.com/mondaycom/monday-ui-react-core/pull/1660) docs: fix description of text-color-fixed-light and text-color-fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.47.2 (2023-10-15)
+
+#### Bug Fixes
+* [#1556](https://github.com/mondaycom/monday-ui-react-core/pull/1556) fix: Fix menu item label style ([@talkor](https://github.com/talkor))
+
+## 2.47.1 (2023-10-15)
+
+#### Bug Fixes
+* [#1623](https://github.com/mondaycom/monday-ui-react-core/pull/1623) fix: <Toast> use color - text-color-fixed-light ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1628](https://github.com/mondaycom/monday-ui-react-core/pull/1628) docs: Replace tip alpha warning deprecated warning with vibe storybook components ([@talkor](https://github.com/talkor))
+
+## 2.47.0 (2023-10-12)
+
+#### New Features
+* [#1646](https://github.com/mondaycom/monday-ui-react-core/pull/1646) feat: provide props for ariaLabel - < AvatarGroupCounter />, < TableHeaderCell /> ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Documentation
+* [#1627](https://github.com/mondaycom/monday-ui-react-core/pull/1627) docs: replace all <a/> tags with <Link/> in stories ([@evadrake89](https://github.com/evadrake89))
+
+#### Internal Changes
+* [#1652](https://github.com/mondaycom/monday-ui-react-core/pull/1652) Resolved lint warnings - < Slider />, < StepIndicator />, < Bar />, <TabsContext /> ([@balajik](https://github.com/balajik))
+* [#1640](https://github.com/mondaycom/monday-ui-react-core/pull/1640) chore: fix Github actions lint warnings - < Button /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#1643](https://github.com/mondaycom/monday-ui-react-core/pull/1643) chore: fix Github actions lint warnings - < ColorPicker /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#1639](https://github.com/mondaycom/monday-ui-react-core/pull/1639) docs: Text.stories cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1636](https://github.com/mondaycom/monday-ui-react-core/pull/1636) chore: fix github actions lint warnings - <AlertBanner /> ([@Dhoni77](https://github.com/Dhoni77))
+* [#1635](https://github.com/mondaycom/monday-ui-react-core/pull/1635) chore: fix github actions lint warnings - < Checkbox /> tests ([@Dhoni77](https://github.com/Dhoni77))
+* [#1634](https://github.com/mondaycom/monday-ui-react-core/pull/1634) chore: fix Github actions lint warnings - < AvatarGroup /> ([@Kritik-J](https://github.com/Kritik-J))
+
 ## 2.46.3 (2023-10-09)
 
 #### Bug Fixes
