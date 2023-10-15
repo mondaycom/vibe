@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.47.2 (2023-10-15)
+
+#### Bug Fixes
+* [#1556](https://github.com/mondaycom/monday-ui-react-core/pull/1556) fix: Fix menu item label style ([@talkor](https://github.com/talkor))
+
 ## 2.47.1 (2023-10-15)
 
 #### Bug Fixes
