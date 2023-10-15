@@ -394,7 +394,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
             updateListSize(width, height);
             return (
               <List
-                ref={mergedListRef as unknown as LegacyRef<VariableSizeList<unknown>>}
+                ref={listRef}
                 height={height}
                 width={width}
                 itemCount={items.length}
