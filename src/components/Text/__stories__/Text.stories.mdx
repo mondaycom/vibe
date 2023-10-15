@@ -124,6 +124,24 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
       >
         On inverted text
       </Text>
+      <Text
+        element="div"
+        className={cx(styles.smallRectangle)}
+        style={{ backgroundColor: "black" }}
+        align={Text.align.CENTER}
+        color={Text.colors.FIXED_LIGHT}
+      >
+        Fixed light
+      </Text>
+      <Text
+        element="div"
+        className={cx(styles.smallRectangle)}
+        style={{ backgroundColor: "whitesmoke" }}
+        align={Text.align.CENTER}
+        color={Text.colors.FIXED_DARK}
+      >
+        Fixed dark
+      </Text>
     </Flex>
   </Story>
 </Canvas>
@@ -230,15 +248,37 @@ A Text component with a link skin can be used to create a link within running te
         </Link>
         inside running text on an inverted color
       </Text>
+      <Text
+        element="div"
+        ellipsis={false}
+        className={cx(styles.mediumRectangle)}
+        style={{ backgroundColor: "black" }}
+        align={Text.align.CENTER}
+        color={Text.colors.FIXED_LIGHT}
+      >
+        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text with
+        fixed light color
+      </Text>
+      <Text
+        element="div"
+        ellipsis={false}
+        className={cx(styles.mediumRectangle)}
+        style={{ backgroundColor: "whitesmoke" }}
+        align={Text.align.CENTER}
+        color={Text.colors.FIXED_DARK}
+      >
+        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text with
+        fixed dark color
+      </Text>
     </Flex>
   </Story>
 </Canvas>
 
 <Tip>
-  If you need to place a link outside of the textual flow, please use our{" "}
-  <Link href="/?path=/docs/navigation-link--overview" size={Link.sizes.SMALL} withoutSpacing>
+  If you need to place a link outside of the textual flow, please use our
+  <Link href="/?path=/docs/navigation-link--overview" size={Link.sizes.SMALL}>
     Link
-  </Link>{" "}
+  </Link>
   component.
 </Tip>
 

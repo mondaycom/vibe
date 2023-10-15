@@ -125,7 +125,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type={Text.types.TEXT2}
         element="div"
-        color={Text.colors.ON_PRIMARY}
+        color={Text.colors.FIXED_LIGHT}
         className={classNames}
         role="alert"
         aria-live="polite"
@@ -149,7 +149,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
+            color={Button.colors.FIXED_LIGHT}
             ariaLabel="close-toast"
           >
             <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />

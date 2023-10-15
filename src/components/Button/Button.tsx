@@ -168,7 +168,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
     });
     useEffect(() => {
-      if (color !== ButtonColor.ON_PRIMARY_COLOR) return;
+      if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
       if (!buttonRef.current) return;
 
