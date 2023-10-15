@@ -1,15 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
-import React, {
-  ForwardedRef,
-  forwardRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef
-} from "react";
+import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
