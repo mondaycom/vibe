@@ -1,13 +1,13 @@
 @import "../../styles/mixins/typography";
 
-.vibe-sb-comps-information-box {
-  &_component {
+.informationBox {
+  .component {
     width: 100%;
     height: fit-content;
     margin: 0 0 var(--sb-spacing-medium);
   }
 
-  &_description {
+  .description {
     @include sb-content-text;
     font-size: var(--sb-small-text-font-size);
   }

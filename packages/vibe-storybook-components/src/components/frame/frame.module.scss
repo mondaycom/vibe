@@ -1,15 +1,15 @@
 @import "../../styles/mixins/layout";
 
-.vibe-sb-comps-frame {
+.frame {
   @include sb-frame;
   padding: 32px;
   margin: var(--sb-spacing-between-section-items) 0;
 
-  &--no-border {
+  &.noBorder {
     border: 0;
   }
 
-  &--no-gutter {
+  &.noGutter {
     padding-right: 0;
     padding-left: 0;
   }
