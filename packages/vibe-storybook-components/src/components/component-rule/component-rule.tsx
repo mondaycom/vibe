@@ -1,15 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Check from '../../helpers/components/Icons/Check';
 import CloseSmall from '../../helpers/components/Icons/CloseSmall';
 import { BEMClass } from '../../helpers/utils/bem-helper';
 import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE, COMPONENT_RULE_BASE_CSS_CLASS } from './component-rule-constants';
 import './component-rule.scss';
+import { ElementContent } from '../../types';
 
 const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);
 
-const ComponentRule = ({ component, description, isRecommended, className, componentContainerClassName }) => {
+interface ComponentRuleProps {
+  component: ElementContent;
+  description: string | ElementContent;
+  isRecommended: boolean;
+  className?: string;
+  componentContainerClassName?: string;
+}
+
+const ComponentRule: React.FC<ComponentRuleProps> = ({
+  component,
+  description = '',
+  isRecommended = false,
+  className,
+  componentContainerClassName,
+}) => {
   const stateDescription = isRecommended ? 'recommended' : 'not-recommended';
   const titleIcon = isRecommended ? (
     <Check className={bemHelper({ element: 'icon' })} />
@@ -28,18 +42,6 @@ const ComponentRule = ({ component, description, isRecommended, className, compo
       <section className={bemHelper({ element: 'description' })}>{description}</section>
     </section>
   );
-};
-
-ComponentRule.propTypes = {
-  component: PropTypes.element,
-  description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  isRecommended: PropTypes.bool,
-};
-
-ComponentRule.defaultProps = {
-  isRecommended: false,
-  component: undefined,
-  description: '',
 };
 
 export default ComponentRule;
