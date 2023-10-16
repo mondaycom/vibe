@@ -53,7 +53,13 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
     }, [className, backgroundColor]);
 
     const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
-    const textColor = isDarkBackground ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
+    const isFixedColor = backgroundColor === AlertBanner.backgroundColors.WARNING;
+    const textColor = useMemo(() => {
+      if (isFixedColor) {
+        return Text.colors.FIXED_DARK;
+      }
+      return isDarkBackground ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
+    }, [isDarkBackground, isFixedColor]);
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
       const filteredChildren = allChildren.filter(
