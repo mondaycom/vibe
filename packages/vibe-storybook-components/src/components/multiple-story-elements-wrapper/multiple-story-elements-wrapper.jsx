@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
-import './multiple-story-elements-wrapper.scss';
+import styles from './multiple-story-elements-wrapper.module.scss';
 
 const MultipleStoryElementsWrapper = ({ className, children }) => (
-  <div className={cx('monday-storybook_multiple-story-elements-wrapper', className)}>
-    <div data-testid="focusTrap" className="monday-storybook_focus-trap" />
+  <div className={cx(styles.multipleStoryElementsWrapper, className)}>
+    <div data-testid="focusTrap" className={styles.focusTrap} />
     {children}
   </div>
 );

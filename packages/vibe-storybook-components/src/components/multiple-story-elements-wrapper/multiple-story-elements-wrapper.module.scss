@@ -1,4 +1,4 @@
-.monday-storybook_multiple-story-elements-wrapper {
+.multipleStoryElementsWrapper {
   display: flex;
   align-items: center;
   & > * {
@@ -6,7 +6,7 @@
   }
 }
 
-.monday-storybook_focus-trap {
+.focusTrap {
   position: fixed;
   top: -2000px;
   left: -2000px;
