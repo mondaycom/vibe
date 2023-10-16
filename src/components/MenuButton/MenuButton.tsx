@@ -18,6 +18,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./MenuButton.module.scss";
+import { MenuChild } from "../Menu/Menu/MenuConstants";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 
@@ -215,18 +216,16 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       if (removeTabCloseTrigger) {
         triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
       }
-      const childrenArr = React.Children.toArray(children);
+      const childrenArr = React.Children.toArray(children) as MenuChild[];
       const cloned = childrenArr.map(child => {
         if (!React.isValidElement(child)) return null;
 
         const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
-        // @ts-ignore
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
           triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
         }
 
-        // @ts-ignore
         if (child.type && child.type.isMenu) {
           newProps.onClose = onMenuDidClose;
         }

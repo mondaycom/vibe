@@ -5,5 +5,10 @@ export type CloseMenuOption = {
 };
 
 export type MenuChild = ReactElement & {
-  type?: Record<string, unknown>;
+  type?: {
+    isSelectable?: boolean;
+    isMenuChild?: boolean;
+    isMenu?: boolean;
+    supportFocusOnMount?: boolean;
+  };
 };
