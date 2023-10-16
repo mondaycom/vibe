@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.9.1 (2023-10-16)
+
+#### Bug Fixes
+* [#71](https://github.com/mondaycom/vibe-storybook-components/pull/71) fix: build issues ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#59](https://github.com/mondaycom/vibe-storybook-components/pull/59) feat: migrated < Paragrapgh />, < MultipleStoryElementsWrapper />, < Link /> to scss modules ([@Dhoni77](https://github.com/Dhoni77))
+* [#67](https://github.com/mondaycom/vibe-storybook-components/pull/67) TS migration: < UsageGuidelines />, < VisualDescription /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#58](https://github.com/mondaycom/vibe-storybook-components/pull/58) Migrated <AnchorListItem>, <ComponentDescription>, <ComponentName> components to TS ([@balajik](https://github.com/balajik))
+* [#60](https://github.com/mondaycom/vibe-storybook-components/pull/60) TS migration: < ComponentRule />, < ComponentRules /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#57](https://github.com/mondaycom/vibe-storybook-components/pull/57) Migrated < DocFooter />, < Frame />, < Paragraph /> and also child component <SectionName /> to TS ([@balajik](https://github.com/balajik))
+* [#55](https://github.com/mondaycom/vibe-storybook-components/pull/55) Migrated < InformationBox />, < InformationBoxTitle />, < Frame /> to CSS modules ([@balajik](https://github.com/balajik))
+* [#54](https://github.com/mondaycom/vibe-storybook-components/pull/54) CSS modules migration: < SectionName />, < RelatedComponent />, < RelatedComponents /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#53](https://github.com/mondaycom/vibe-storybook-components/pull/53) chore: prettier cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#51](https://github.com/mondaycom/vibe-storybook-components/pull/51) CSS modules migration: < UnstyledList />, < UnstyledListItem />, < Title />  ([@Kritik-J](https://github.com/Kritik-J))
+* [#52](https://github.com/mondaycom/vibe-storybook-components/pull/52) CSS modules migration: < UsageGuidelines />, < VisualDescription /> ([@Kritik-J](https://github.com/Kritik-J))
+
 ## 0.9.0 (2023-10-10)
 
 #### New Features
