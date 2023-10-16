@@ -4,7 +4,7 @@ import { SIZES } from "../../../constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { ProgressBarStyle, ProgressBarType } from "./LinearProgressBarConstants";
-import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
+import { calculatePercentage, getProgressBarClassNames, Size } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -43,7 +43,7 @@ interface LinearProgressBarProps extends VibeComponentProps {
   /**
    * Determine the progress bar height (Supported options exposed through `LinearProgressBar.sizes`)
    */
-  size?: typeof SIZES;
+  size?: Size;
   /**
    * Show progress bar progression in percentages
    */
