@@ -1,13 +1,13 @@
-import { useMemo, FC } from 'react';
+import React, { useMemo } from 'react';
 import cx from 'classnames';
 import styles from './section-name.module.scss';
 
-type SectionNameProps = {
+interface SectionNameProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
   children: string;
-};
+}
 
-const SectionName: FC<SectionNameProps> = ({ className, children, ...props }) => {
+const SectionName: React.FC<SectionNameProps> = ({ className, children, ...props }) => {
   const id = useMemo(
     () => children.toLowerCase().replaceAll('’', '').replaceAll("'", '').split(' ').join('-'),
     [children],

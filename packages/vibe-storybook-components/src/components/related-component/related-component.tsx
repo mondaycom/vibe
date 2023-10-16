@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import InformationBox from '../information-box/information-box';
 import styles from './related-component.module.scss';
+import { ElementContent } from '../../types';
 
-const RelatedComponent = ({ component, title, description, href }) => (
+interface RelatedComponentProps {
+  component?: ElementContent;
+  title?: string;
+  description?: string;
+  href: string;
+}
+
+const RelatedComponent: React.FC<RelatedComponentProps> = ({ component, title = '', description = '', href }) => (
   <InformationBox
     component={<div className={styles.relatedComponentComponent}>{component}</div>}
     title={title}
@@ -11,17 +18,5 @@ const RelatedComponent = ({ component, title, description, href }) => (
     href={href}
   />
 );
-
-RelatedComponent.propTypes = {
-  component: PropTypes.element,
-  title: PropTypes.string,
-  description: PropTypes.string,
-};
-
-RelatedComponent.defaultProps = {
-  component: null,
-  title: '',
-  description: '',
-};
 
 export default RelatedComponent;
