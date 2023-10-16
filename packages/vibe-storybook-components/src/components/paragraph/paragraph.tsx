@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import cx from 'classnames';
-import './paragraph.scss';
+import './paragraph.module.scss';
 
 type ParagraphProps = {
   children: string;

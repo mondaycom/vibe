@@ -10,11 +10,11 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 interface ComponentRulesProps {
   rules: {
-    positive?: {
+    positive: {
       component: ElementContent;
       description: string | ElementContent;
     };
-    negative?: {
+    negative: {
       component: ElementContent;
       description: string | ElementContent;
     };
@@ -33,15 +33,15 @@ const ComponentRules: React.FC<ComponentRulesProps> = ({ rules = [], className }
         return (
           <section className={cx(bemHelper({ element: 'pair' }), className)} key={key}>
             <ComponentRule
-              component={rule.positive?.component}
-              description={rule.positive?.description}
+              component={rule.positive.component}
+              description={rule.positive.description}
               className={rule.className}
               componentContainerClassName={rule.componentContainerClassName}
               isRecommended
             />
             <ComponentRule
-              component={rule.negative?.component}
-              description={rule.negative?.description}
+              component={rule.negative.component}
+              description={rule.negative.description}
               className={rule.className}
               componentContainerClassName={rule.componentContainerClassName}
               isRecommended={false}
