@@ -1,9 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import cx from 'classnames';
 import styles from './information-box-title.module.scss';
+import { ElementContent } from '../../types';
 
-const InformationBoxTitle = ({ children, href }) => {
+type InformationBoxTitleProps = {
+  children: ElementContent;
+  href?: string;
+};
+
+const InformationBoxTitle: FC<InformationBoxTitleProps> = ({ children, href }) => {
   const title = <h4 className={cx(styles.informationBoxTitle, { [styles.titleLink]: href })}>{children}</h4>;
 
   return href ? (
@@ -13,14 +18,6 @@ const InformationBoxTitle = ({ children, href }) => {
   ) : (
     title
   );
-};
-
-InformationBoxTitle.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-};
-
-InformationBoxTitle.defaultProps = {
-  component: '',
 };
 
 export default InformationBoxTitle;
