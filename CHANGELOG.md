@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.49.0 (2023-10-16)
+
+#### New Features
+* [#1637](https://github.com/mondaycom/monday-ui-react-core/pull/1637) feat: add Toast warning variation ([@talkor](https://github.com/talkor))
+* [#1662](https://github.com/mondaycom/monday-ui-react-core/pull/1662) feat(AlertBanner): add warning variation ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1559](https://github.com/mondaycom/monday-ui-react-core/pull/1559) docs: sidebar tags ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1663](https://github.com/mondaycom/monday-ui-react-core/pull/1663) infra: add build-test in test-workflow.yml ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.48.0 (2023-10-15)
 
 #### Bug Fixes
