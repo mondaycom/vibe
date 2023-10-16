@@ -162,6 +162,27 @@ Use when something was deleted, a problem has occured, etc.
   </Story>
 </Canvas>
 
+### Warning message
+
+<Canvas>
+  <Story name="Warning message">
+    {() => {
+      const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Button" }], []);
+      return (
+        <Toast
+          open
+          actions={actions}
+          type={Toast.types.WARNING}
+          autoHideDuration={5000}
+          className="monday-storybook-toast_wrapper"
+        >
+          Warning message toast
+        </Toast>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 
 <ComponentRules
