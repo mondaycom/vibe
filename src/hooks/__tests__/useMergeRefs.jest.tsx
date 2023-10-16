@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef, useEffect, RefObject, createRef } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
-import useMergeRefs from "../useMergeRefs";
+import useMergeRefs, { assignRef } from "../useMergeRefs";
 
 describe("useMergeRefs", () => {
   let Component: React.ElementType;
@@ -21,6 +21,7 @@ describe("useMergeRefs", () => {
 
     afterEach(() => {
       cleanup();
+      assignRef(internalRef, null);
     });
 
     it("should be able to set internal ref", () => {
@@ -88,6 +89,7 @@ describe("useMergeRefs", () => {
 
     afterEach(() => {
       cleanup();
+      assignRef(internalRef, null);
     });
 
     it("should not call any listeners if element didn't had click event", () => {
