@@ -1,12 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 import cx from 'classnames';
 import './component-name.scss';
+
+type ComponentNameProps = {
+  children: string;
+  className: string;
+};
 
 /**
  * ComponentName is a component that displays the name of the component.
  * Use className prop to give it some kind of background - image or color.
  */
-const ComponentName = ({ children, className }) => (
+const ComponentName: FC<ComponentNameProps> = ({ children, className }) => (
   <h1 className={cx('vibe-sb-comps-component-name', className)}>{children}</h1>
 );
 
