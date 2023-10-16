@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { RefObject, useMemo } from "react";
 import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
 import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { CloseMenuOption } from "../Menu/MenuConstants";
@@ -12,7 +12,7 @@ export const useMenuGridItemNavContext = ({
   isUnderSubMenu,
   closeMenu
 }: {
-  wrapperRef?: (node: HTMLElement) => void;
+  wrapperRef?: RefObject<HTMLElement>;
   setActiveItemIndex?: (index: number) => void;
   getNextSelectableIndex?: (activeItemIndex: number) => number;
   getPreviousSelectableIndex?: (activeItemIndex: number) => number;
