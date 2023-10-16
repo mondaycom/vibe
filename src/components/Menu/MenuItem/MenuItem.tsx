@@ -29,6 +29,7 @@ import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import styles from "./MenuItem.module.scss";
+import Label from "../../Label/Label";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -314,7 +315,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             {title}
           </div>
         </Tooltip>
-        {label && <div className={styles.label}>{label}</div>}
+        {label && <Label kind={Label.kinds.LINE} text={label} />}
         {renderSubMenuIconIfNeeded()}
         <div
           style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}

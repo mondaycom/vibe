@@ -81,6 +81,7 @@ export enum ComponentDefaultTestId {
   TOAST_CONTENT = "toast-content",
   TOAST_LINK = "toast-link",
   TOAST_BUTTON = "toast-button",
+  TOAST_CLOSE_BUTTON = "toast-close-button",
   TOGGLE = "toggle",
   TIPSEEN = "tipseen",
   TIPSEEN_CONTENT = "tipseen-content",

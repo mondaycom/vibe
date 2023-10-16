@@ -6,7 +6,7 @@ import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useEventListener from "../../../../hooks/useKeyEvent";
+import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../../components/Icon/Icon";
 import Check from "../../../../components/Icon/Icons/components/Check";
@@ -111,7 +111,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   // Event listeners for removing animation.
   useEventListener({
-    // @ts-ignore TODO either fix the import to 'useEventListener' OR fix to fit 'useKeyEvent' OR remove entirely
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
     ref: componentRef

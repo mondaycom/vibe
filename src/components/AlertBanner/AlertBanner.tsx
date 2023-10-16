@@ -26,6 +26,7 @@ interface AlertBannerProps extends VibeComponentProps {
   isCloseHidden?: boolean;
   /** ARIA description for the progress bar */
   ariaLabel?: string;
+  closeButtonAriaLabel?: string;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 }
@@ -40,6 +41,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
       backgroundColor = AlertBanner.backgroundColors.PRIMARY,
       onClose = NOOP,
       ariaLabel = "",
+      closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
       "data-testid": dataTestId
@@ -54,15 +56,20 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
     const textColor = isDarkBackground ? Text.colors.ON_INVERTED : Text.colors.ON_PRIMARY;
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
-      const filteredChildren = allChildren.filter((child: ReactElement) => {
-        // @ts-ignore displayName & isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
-        if (child.type.isAlertBannerItem || child.type.displayName === "MDXCreateElement") return true;
-        console.error(
-          "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
-          child
-        );
-        return false;
-      });
+      const filteredChildren = allChildren.filter(
+        (
+          child: ReactElement & {
+            type: Record<string, unknown>;
+          }
+        ) => {
+          if (child.type.isAlertBannerItem || child.type.displayName === "MDXCreateElement") return true;
+          console.error(
+            "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
+            child
+          );
+          return false;
+        }
+      );
 
       return filteredChildren.map((child, index) => {
         return React.cloneElement(child, {
@@ -86,20 +93,26 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
       >
         <AlertBannerContext.Provider value={{ textColor }}>
           <div className={cx(styles.content)}>
-            {children.map((child, index) => {
-              // @ts-ignore isAlertBannerItem is coming from child assigned field: AlertBannerButton, AlertBannerLink, AlertBannerText
-              const childTypeIsAlertBannerText = child.type.isAlertBannerText;
-              return (
-                <div
-                  key={index}
-                  className={cx(styles.contentItem, {
-                    [styles.contentItemText]: childTypeIsAlertBannerText
-                  })}
-                >
-                  {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
-                </div>
-              );
-            })}
+            {children.map(
+              (
+                child: ReactElement & {
+                  type: Record<string, unknown>;
+                },
+                index
+              ) => {
+                const childTypeIsAlertBannerText = child.type.isAlertBannerText;
+                return (
+                  <div
+                    key={index}
+                    className={cx(styles.contentItem, {
+                      [styles.contentItemText]: childTypeIsAlertBannerText
+                    })}
+                  >
+                    {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
+                  </div>
+                );
+              }
+            )}
           </div>
         </AlertBannerContext.Provider>
         <div className={cx(styles.closeButtonWrapper)}>
@@ -111,7 +124,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
               color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
-              ariaLabel="close-toast"
+              ariaLabel={closeButtonAriaLabel}
             >
               <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
             </Button>
