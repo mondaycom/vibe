@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.49.1 (2023-10-16)
+
+#### Internal Changes
+* [#1666](https://github.com/mondaycom/monday-ui-react-core/pull/1666) Bug Fix: Closes [#1661](https://github.com/mondaycom/monday-ui-react-core/issues/1661) Fixed the TS error while using size prop for <ProgressBar /> ([@viditagrawal56](https://github.com/viditagrawal56))
+* [#1665](https://github.com/mondaycom/monday-ui-react-core/pull/1665) chore(deps-dev): bump @babel/traverse from 7.18.2 to 7.23.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## 2.49.0 (2023-10-16)
 
 #### New Features
