@@ -41,6 +41,24 @@ jobs:
         run: |
           npm run lint
 
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install
+        run: |
+          npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run build
+
   build-storybook-test:
     runs-on: ubuntu-latest
     steps:
