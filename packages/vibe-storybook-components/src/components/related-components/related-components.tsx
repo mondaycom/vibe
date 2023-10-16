@@ -1,8 +1,12 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 import styles from './related-components.module.scss';
 
-const RelatedComponents = ({ componentsNames, descriptionComponentsMap }) => {
+interface RelatedComponentsProps {
+  componentsNames: string[];
+  descriptionComponentsMap: Map<string, JSX.Element>;
+}
+
+const RelatedComponents: React.FC<RelatedComponentsProps> = ({ componentsNames = [], descriptionComponentsMap }) => {
   const componentsDataElements = useMemo(
     () =>
       componentsNames.map((componentName, index) => {
@@ -14,14 +18,6 @@ const RelatedComponents = ({ componentsNames, descriptionComponentsMap }) => {
   );
 
   return <article className={styles.relatedComponents}>{componentsDataElements}</article>;
-};
-
-RelatedComponents.propTypes = {
-  componentsNames: PropTypes.arrayOf(PropTypes.string),
-};
-
-RelatedComponents.defaultProps = {
-  componentsNames: [],
 };
 
 export default RelatedComponents;
