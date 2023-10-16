@@ -11,7 +11,7 @@ const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);
 
 interface ComponentRuleProps {
   component: ElementContent;
-  description: string | ElementContent;
+  description: ElementContent;
   isRecommended: boolean;
   className?: string;
   componentContainerClassName?: string;
