@@ -1,3 +1,7 @@
+0.1.196 / 2023-10-03
+====================
+  * feat(Icons): add warning icon ([#248](https://github.com/mondaycom/monday-ui-style/issues/248))
+
 0.1.195 / 2023-10-02
 ====================
   * Replace Rubik with Noto Sans Hebrew ([#247](https://github.com/mondaycom/monday-ui-style/issues/247))
@@ -299,33 +303,3 @@
   * Add warning colors ([#193](https://github.com/mondaycom/monday-ui-style/issues/193))
     * Add warning colors
     * Undo prettier changes
-
-0.1.150 / 2023-04-13
-====================
-  * Bump decode-uri-component from 0.2.0 to 0.2.2 ([#184](https://github.com/mondaycom/monday-ui-style/issues/184))
-    Bumps [decode-uri-component](https://github.com/SamVerschueren/decode-uri-component) from 0.2.0 to 0.2.2.
-    - [Release notes](https://github.com/SamVerschueren/decode-uri-component/releases)
-    - [Commits](https://github.com/SamVerschueren/decode-uri-component/compare/v0.2.0...v0.2.2)
-    ---
-    updated-dependencies:
-    - dependency-name: decode-uri-component
-    dependency-type: indirect
-    ...
-    Signed-off-by: dependabot[bot] <support@github.com>
-    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-  * Bump json5 from 2.2.1 to 2.2.3 ([#185](https://github.com/mondaycom/monday-ui-style/issues/185))
-    Bumps [json5](https://github.com/json5/json5) from 2.2.1 to 2.2.3.
-    - [Release notes](https://github.com/json5/json5/releases)
-    - [Changelog](https://github.com/json5/json5/blob/main/CHANGELOG.md)
-    - [Commits](https://github.com/json5/json5/compare/v2.2.1...v2.2.3)
-    ---
-    updated-dependencies:
-    - dependency-name: json5
-    dependency-type: indirect
-    ...
-    Signed-off-by: dependabot[bot] <support@github.com>
-    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-  * update node version ([#191](https://github.com/mondaycom/monday-ui-style/issues/191))
-  * Fix typos in README.md ([#189](https://github.com/mondaycom/monday-ui-style/issues/189))
-    Fix two typos in the README doc.
-  * Content Directory icon ([#190](https://github.com/mondaycom/monday-ui-style/issues/190))
