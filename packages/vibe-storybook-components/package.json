@@ -42,6 +42,7 @@
     "extends browserslist-config-monday"
   ],
   "dependencies": {
+    "@storybook/addon-themes": "^7.4.6",
     "@types/react": "^18.2.28",
     "browserslist-config-monday": "^1.0.6",
     "classnames": "^2.3.2"
@@ -61,8 +62,8 @@
     "@storybook/addon-actions": "^7.1.1",
     "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-links": "^7.1.1",
-    "@storybook/addon-styling": "^1.3.5",
     "@storybook/blocks": "^7.1.1",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.1.1",
     "@storybook/react-webpack5": "^7.1.1",
     "@storybook/testing-library": "^0.2.0",
@@ -103,6 +104,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
+    "sass": "^1.69.3",
     "sass-loader": "^13.3.2",
     "storybook": "^7.1.1",
     "style-loader": "^3.3.3",

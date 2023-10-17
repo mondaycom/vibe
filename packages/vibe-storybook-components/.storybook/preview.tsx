@@ -1,3 +1,4 @@
+import React from 'react';
 import { Preview } from '@storybook/react';
 import {
   AnchorListItem,
@@ -18,6 +19,7 @@ import {
 } from '../src';
 import { ComponentNameDecorator } from '../storybook/components';
 import { DocsContainer, DocsPage, Unstyled } from '@storybook/blocks';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import '../src/styles/tokens/index.scss';
 
 const preview: Preview = {
@@ -56,22 +58,23 @@ const preview: Preview = {
         UnstyledListItem,
       },
     },
-    // TODO themes when https://storybook.js.org/addons/storybook-addon-themes version 7 will be released
-    // themes: {
-    //   default: "Light",
-    //   list: [
-    //     { name: "Light", class: "light-app-theme", color: "#ffffff" },
-    //     { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
-    //     { name: "Black", class: "black-app-theme", color: "#111111" },
-    //     { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
-    //   ]
-    // },
     options: {
       storySort: {
         order: ['Welcome', 'Change Log', '*'],
       },
     },
   },
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        Light: 'light-app-theme',
+        Dark: 'dark-app-theme',
+        Black: 'black-app-theme',
+        Hacker: 'hacker_theme-app-theme',
+      },
+      defaultTheme: 'Light',
+    }),
+  ],
 };
 
 export default preview;
