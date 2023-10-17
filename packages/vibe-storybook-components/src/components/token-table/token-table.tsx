@@ -1,9 +1,19 @@
-import React from 'react';
+import { FC } from 'react';
 import TableRow from './token-table-row';
 import TableHeadItem from './token-table-head-item';
 import styles from './token-table.module.scss';
 
-const TokenTable = ({ theadData, tbodyData }) => (
+type TableBody = {
+  id: string;
+  items: string[];
+};
+
+type TokenTableProps = {
+  theadData: string[];
+  tbodyData: TableBody[];
+};
+
+const TokenTable: FC<TokenTableProps> = ({ theadData, tbodyData }) => (
   <div className={styles.tableWrapper}>
     <table className={styles.table}>
       <thead>

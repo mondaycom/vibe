@@ -1,9 +1,15 @@
-import React from 'react';
+import { FC } from 'react';
 import cx from 'classnames';
 import VisualDescription from '../visual-description/visual-description';
 import './color-description.scss';
 
-const ColorDescription = ({ colorName, description, withBorder }) => {
+type ColorDescriptionProps = {
+  colorName: string;
+  description: string;
+  withBorder: boolean;
+};
+
+const ColorDescription: FC<ColorDescriptionProps> = ({ colorName, description, withBorder }) => {
   const color = (
     <div
       className={cx('vibe-sb-comps-color-description', {
@@ -14,7 +20,7 @@ const ColorDescription = ({ colorName, description, withBorder }) => {
   );
 
   return (
-    <VisualDescription title={colorName} description={description}>
+    <VisualDescription title={colorName} description={description} ariaLabel={description}>
       {color}
     </VisualDescription>
   );
