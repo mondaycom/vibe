@@ -73,7 +73,7 @@ const preview: Preview = {
         Hacker: 'hacker_theme-app-theme',
       },
       defaultTheme: 'Light',
-    }),
+    }) as any,
   ],
 };
 
