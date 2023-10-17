@@ -2,12 +2,9 @@ import React from 'react';
 import cx from 'classnames';
 import Check from '../../helpers/components/Icons/Check';
 import CloseSmall from '../../helpers/components/Icons/CloseSmall';
-import { BEMClass } from '../../helpers/utils/bem-helper';
-import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE, COMPONENT_RULE_BASE_CSS_CLASS } from './component-rule-constants';
-import './component-rule.scss';
+import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE } from './component-rule-constants';
+import styles from './component-rule.module.scss';
 import { ElementContent } from '../../types';
-
-const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);
 
 interface ComponentRuleProps {
   component: ElementContent;
@@ -24,22 +21,26 @@ const ComponentRule: React.FC<ComponentRuleProps> = ({
   className,
   componentContainerClassName,
 }) => {
-  const stateDescription = isRecommended ? 'recommended' : 'not-recommended';
-  const titleIcon = isRecommended ? (
-    <Check className={bemHelper({ element: 'icon' })} />
-  ) : (
-    <CloseSmall className={bemHelper({ element: 'icon' })} />
-  );
+  const titleIcon = isRecommended ? <Check className={styles.icon} /> : <CloseSmall className={styles.icon} />;
   const title = isRecommended ? RECOMMENDED_TITLE : NOT_RECOMMENDED_TITLE;
 
   return (
-    <section className={cx(COMPONENT_RULE_BASE_CSS_CLASS, bemHelper({ state: stateDescription }), className)}>
-      <figure className={cx(bemHelper({ element: 'component' }), componentContainerClassName)}>{component}</figure>
-      <h5 className={bemHelper({ element: 'title' })}>
+    <section
+      className={cx(
+        styles.componentRule,
+        {
+          [styles.recommended]: isRecommended,
+          [styles.notRecommended]: !isRecommended,
+        },
+        className,
+      )}
+    >
+      <figure className={cx(styles.component, componentContainerClassName)}>{component}</figure>
+      <h5 className={styles.title}>
         {titleIcon}
         {title}
       </h5>
-      <section className={bemHelper({ element: 'description' })}>{description}</section>
+      <section className={styles.description}>{description}</section>
     </section>
   );
 };

@@ -4,8 +4,8 @@ $component-rules-grid-gap: var(--sb-spacing-xxl);
 $component-rules-cell-min-width: $sb-grid-auto-fit-cell-width-xl;
 $component-rules-grid-cell-array-calc: calc(50% - #{$component-rules-grid-gap});
 
-.vibe-sb-comps-component-rules {
-  &_pair {
+.componentRules {
+  .pair {
     margin-bottom: 80px;
     @include sb-grid-auto-fit(
       $grid-gap: $component-rules-grid-gap,

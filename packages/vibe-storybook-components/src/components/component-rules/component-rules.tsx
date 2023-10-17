@@ -1,12 +1,8 @@
 import React, { useMemo } from 'react';
 import cx from 'classnames';
-import { BEMClass } from '../../helpers/utils/bem-helper';
 import ComponentRule from '../component-rule/component-rule';
-import './component-rules.scss';
+import styles from './component-rules.module.scss';
 import { ElementContent } from '../../types';
-
-const CSS_BASE_CLASS = 'vibe-sb-comps-component-rules';
-const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 interface ComponentRulesProps {
   rules: {
@@ -31,7 +27,7 @@ const ComponentRules: React.FC<ComponentRulesProps> = ({ rules = [], className }
         const key = `rule-${index}`;
 
         return (
-          <section className={cx(bemHelper({ element: 'pair' }), className)} key={key}>
+          <section className={cx(styles.pair, className)} key={key}>
             <ComponentRule
               component={rule.positive.component}
               description={rule.positive.description}
@@ -52,7 +48,7 @@ const ComponentRules: React.FC<ComponentRulesProps> = ({ rules = [], className }
     [className, rules],
   );
 
-  return <article className={CSS_BASE_CLASS}>{componentRulesElements}</article>;
+  return <article className={styles.componentRules}>{componentRulesElements}</article>;
 };
 
 export default ComponentRules;
