@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import cx from 'classnames';
-import './component-name.scss';
+import styles from './component-name.module.scss';
 
 type ComponentNameProps = {
   children: string;
@@ -12,7 +12,7 @@ type ComponentNameProps = {
  * Use className prop to give it some kind of background - image or color.
  */
 const ComponentName: FC<ComponentNameProps> = ({ children, className }) => (
-  <h1 className={cx('vibe-sb-comps-component-name', className)}>{children}</h1>
+  <h1 className={cx(styles.componentName, className)}>{children}</h1>
 );
 
 export default ComponentName;
