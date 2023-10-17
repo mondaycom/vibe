@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.9.2 (2023-10-17)
+
+#### Bug Fixes
+* [#86](https://github.com/mondaycom/vibe-storybook-components/pull/86) chore: fix theme switcher type error ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#79](https://github.com/mondaycom/vibe-storybook-components/pull/79) Feat: add theme switching to storybook ([@pedaars](https://github.com/pedaars))
+* [#84](https://github.com/mondaycom/vibe-storybook-components/pull/84) docs: Add story for < ComponentName /> component ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#85](https://github.com/mondaycom/vibe-storybook-components/pull/85) chore: fix package-lock.json ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#81](https://github.com/mondaycom/vibe-storybook-components/pull/81) Migrated < AnchorListItem />, < ComponentName />, < DocFooter /> to CSS modules ([@balajik](https://github.com/balajik))
+* [#82](https://github.com/mondaycom/vibe-storybook-components/pull/82) Migrated < TokenTable /> , < ColorDescription /> to TS ([@balajik](https://github.com/balajik))
+* [#73](https://github.com/mondaycom/vibe-storybook-components/pull/73) feat: Migrate < ComponentRule />, < ComponentRules /> to css modules ([@Dhoni77](https://github.com/Dhoni77))
+* [#75](https://github.com/mondaycom/vibe-storybook-components/pull/75) Migrated < InformationBox />, < InformationBoxTitle /> to TS ([@balajik](https://github.com/balajik))
+* [#74](https://github.com/mondaycom/vibe-storybook-components/pull/74) Migrated < FunctionArgument />, < FunctionArguments />, < MultipleStoryElementsWrapper /> to TS ([@balajik](https://github.com/balajik))
+* [#65](https://github.com/mondaycom/vibe-storybook-components/pull/65) Convert UnstyledList UnstyledListItem Title to TSX ([@Ryan-Biondo](https://github.com/Ryan-Biondo))
+* [#70](https://github.com/mondaycom/vibe-storybook-components/pull/70) TS migration: < SectionName />, < RelatedComponent />, < RelatedComponents /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#72](https://github.com/mondaycom/vibe-storybook-components/pull/72) infra: add build into test-workflow.yml ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.9.1 (2023-10-16)
 
 #### Bug Fixes
