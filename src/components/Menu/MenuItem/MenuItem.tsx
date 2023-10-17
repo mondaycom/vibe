@@ -1,15 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
-import React, {
-  ForwardedRef,
-  forwardRef,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef
-} from "react";
+import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
@@ -27,7 +18,7 @@ import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
-import { CloseMenuOption } from "../Menu/MenuConstants";
+import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import styles from "./MenuItem.module.scss";
 import Label from "../../Label/Label";
 
@@ -65,7 +56,7 @@ export interface MenuItemProps extends VibeComponentProps {
   shouldScrollMenu?: boolean;
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
-  children?: ReactElement | ReactElement[];
+  children?: MenuChild | MenuChild[];
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -118,9 +109,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const hasChildren = !!children;
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
-    const submenuChild = children && React.Children.only(children);
+    const submenuChild: MenuChild = children && React.Children.only(children);
+
     let menuChild;
-    // @ts-ignore
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
       menuChild = submenuChild;
     } else if (submenuChild) {
