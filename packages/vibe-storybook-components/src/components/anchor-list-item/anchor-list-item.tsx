@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './anchor-list-item.scss';
+import styles from './anchor-list-item.module.scss';
 import { ElementContent } from '../../types';
 
 type AnchorListItemProps = {
@@ -7,7 +7,7 @@ type AnchorListItemProps = {
 };
 
 const AnchorListItem: FC<AnchorListItemProps> = ({ children = null }) => (
-  <li className="vibe-sb-comps-anchor-list-item">{children}</li>
+  <li className={styles.anchorListItem}>{children}</li>
 );
 
 export default AnchorListItem;

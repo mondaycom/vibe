@@ -1,11 +1,11 @@
 @import "../../styles/mixins/typography";
 
-.vibe-sb-comps-footer {
-  &_text {
+.docFooter {
+  .text {
     @include sb-content-text;
   }
 
-  &_link {
+  .link {
     color: var(--sb-link-color);
     margin-left: var(--sb-spacing-xs);
   }
