@@ -17,6 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run stylelint
       - run: npm run test
+      - run: npm run build
       - run: npm run validate-icons
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
