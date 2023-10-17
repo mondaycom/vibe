@@ -1,3 +1,7 @@
+0.1.197 / 2023-10-17
+====================
+  * infra: add build test in test.yml ([#250](https://github.com/mondaycom/monday-ui-style/issues/250))
+
 0.1.196 / 2023-10-03
 ====================
   * feat(Icons): add warning icon ([#248](https://github.com/mondaycom/monday-ui-style/issues/248))
@@ -297,9 +301,3 @@
 0.1.152 / 2023-04-30
 ====================
   * Rename warning-color-select to warning-color-selected ([#194](https://github.com/mondaycom/monday-ui-style/issues/194))
-
-0.1.151 / 2023-04-30
-====================
-  * Add warning colors ([#193](https://github.com/mondaycom/monday-ui-style/issues/193))
-    * Add warning colors
-    * Undo prettier changes
