@@ -393,6 +393,14 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   }
 );
 
+Button.propTypes = {
+  disableResizeObserver: function (props) {
+    if (props.loading && props.disableResizeObserver) {
+      return new Error('Do not use "disableResizeObserver" with loading state');
+    }
+  }
+};
+
 Button.defaultProps = {
   className: undefined,
   name: undefined,
