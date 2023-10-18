@@ -1,5 +1,50 @@
 # Changelog
 
+## 2.50.2 (2023-10-18)
+
+#### Bug Fixes
+* [#1680](https://github.com/mondaycom/monday-ui-react-core/pull/1680) fix(types): fix unknown path '/types' ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1656](https://github.com/mondaycom/monday-ui-react-core/pull/1656) chore: < GridKeyboardNavigationContext /> - migrate to TS ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1677](https://github.com/mondaycom/monday-ui-react-core/pull/1677) Update icons - monday-ui-style 0.1.199 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.50.1 (2023-10-18)
+
+#### Bug Fixes
+* [#1671](https://github.com/mondaycom/monday-ui-react-core/pull/1671) Update vibe-storybook-components version, @babel/core version ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.50.0 (2023-10-18)
+
+#### New Features
+* [#1670](https://github.com/mondaycom/monday-ui-react-core/pull/1670) feat(types): export general types ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1653](https://github.com/mondaycom/monday-ui-react-core/pull/1653) chore: resolve lint warnings - < Menu /> ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Icons
+* [#1669](https://github.com/mondaycom/monday-ui-react-core/pull/1669) Update icons - monday-ui-style 0.1.198 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.49.1 (2023-10-16)
+
+#### Internal Changes
+* [#1666](https://github.com/mondaycom/monday-ui-react-core/pull/1666) Bug Fix: Closes [#1661](https://github.com/mondaycom/monday-ui-react-core/issues/1661) Fixed the TS error while using size prop for <ProgressBar /> ([@viditagrawal56](https://github.com/viditagrawal56))
+* [#1665](https://github.com/mondaycom/monday-ui-react-core/pull/1665) chore(deps-dev): bump @babel/traverse from 7.18.2 to 7.23.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## 2.49.0 (2023-10-16)
+
+#### New Features
+* [#1637](https://github.com/mondaycom/monday-ui-react-core/pull/1637) feat: add Toast warning variation ([@talkor](https://github.com/talkor))
+* [#1662](https://github.com/mondaycom/monday-ui-react-core/pull/1662) feat(AlertBanner): add warning variation ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1559](https://github.com/mondaycom/monday-ui-react-core/pull/1559) docs: sidebar tags ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1663](https://github.com/mondaycom/monday-ui-react-core/pull/1663) infra: add build-test in test-workflow.yml ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.48.0 (2023-10-15)
 
 #### Bug Fixes
