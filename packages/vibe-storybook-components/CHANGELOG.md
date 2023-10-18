@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.3 (2023-10-18)
+
+#### Bug Fixes
+* [#87](https://github.com/mondaycom/vibe-storybook-components/pull/87) fix: < ComponentName /> use text-color-fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.9.2 (2023-10-17)
 
 #### Bug Fixes
