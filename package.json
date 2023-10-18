@@ -38,6 +38,9 @@
       ],
       "next": [
         "./dist/esm/next/next.d.ts"
+      ],
+      "types": [
+        "./dist/esm/types/index.d.ts"
       ]
     }
   },
