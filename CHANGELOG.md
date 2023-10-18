@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.50.1 (2023-10-18)
+
+#### Bug Fixes
+* [#1671](https://github.com/mondaycom/monday-ui-react-core/pull/1671) Update vibe-storybook-components version, @babel/core version ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.50.0 (2023-10-18)
 
 #### New Features
