@@ -12,7 +12,9 @@ export enum ButtonColor {
   NEGATIVE = "negative",
   ON_PRIMARY_COLOR = "on-primary-color",
   ON_INVERTED_BACKGROUND = "on-inverted-background",
-  BRAND = "brand"
+  BRAND = "brand",
+  FIXED_LIGHT = "fixed-light"
+  // FIXED_DARK = "fixed-dark"
 }
 
 export const OLD_BUTTON_SIZES = {

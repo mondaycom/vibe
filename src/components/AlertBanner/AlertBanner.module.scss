@@ -25,6 +25,15 @@
   background-color: var(--inverted-color-background);
 }
 
+.warning {
+  background-color: var(--warning-color);
+  color: var(--text-color-fixed-dark);
+
+  .closeBtn {
+    color: var(--text-color-fixed-dark);
+  }
+}
+
 .content {
   flex: 1 1 auto;
   display: flex;

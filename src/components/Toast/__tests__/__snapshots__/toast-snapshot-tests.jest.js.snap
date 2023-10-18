@@ -5,7 +5,7 @@ exports[`Toast renders correctly (renders nothing) with empty props 1`] = `null`
 exports[`Toast renders correctly and don't renders close button if closeable=false 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -46,7 +46,7 @@ exports[`Toast renders correctly when icon is hidden 1`] = `null`;
 exports[`Toast renders correctly when open is true 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -80,10 +80,10 @@ exports[`Toast renders correctly when open is true 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeSmall kindTertiary colorFixedLight"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -115,7 +115,7 @@ exports[`Toast renders correctly when open is true 1`] = `
 exports[`Toast renders correctly with button 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -153,7 +153,7 @@ exports[`Toast renders correctly with button 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="actionButton button sizeSmall kindSecondary colorOnPrimaryColor"
+      className="actionButton button sizeSmall kindSecondary colorFixedLight"
       data-testid="toast-button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -168,10 +168,10 @@ exports[`Toast renders correctly with button 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeSmall kindTertiary colorFixedLight"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -203,7 +203,7 @@ exports[`Toast renders correctly with button 1`] = `
 exports[`Toast renders correctly with button and link 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -259,7 +259,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="actionButton button sizeSmall kindSecondary colorOnPrimaryColor"
+      className="actionButton button sizeSmall kindSecondary colorFixedLight"
       data-testid="toast-button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -274,10 +274,10 @@ exports[`Toast renders correctly with button and link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeSmall kindTertiary colorFixedLight"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -309,7 +309,7 @@ exports[`Toast renders correctly with button and link 1`] = `
 exports[`Toast renders correctly with link 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -364,10 +364,10 @@ exports[`Toast renders correctly with link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeSmall kindTertiary colorFixedLight"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -399,7 +399,7 @@ exports[`Toast renders correctly with link 1`] = `
 exports[`Toast renders correctly with negative type 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNegative"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNegative"
   data-testid="toast"
   role="alert"
 >
@@ -433,10 +433,10 @@ exports[`Toast renders correctly with negative type 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeSmall kindTertiary colorFixedLight"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

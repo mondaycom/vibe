@@ -194,6 +194,23 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--text-color-on-primary);
 }
 
+.kindPrimary.colorFixedLight {
+  background: var(--text-color-fixed-light);
+}
+
+.kindPrimary.colorFixedLightActive,
+.kindPrimary.colorFixedLight:hover,
+.kindPrimary.colorFixedLight:focus {
+  background-color: #e6e9ef;
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
+}
+
 .kindPrimary.button.disabled {
   background: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -285,6 +302,23 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--text-color-on-primary);
 }
 
+.kindSecondary.colorFixedLight {
+  border-color: var(--text-color-fixed-light);
+  color: var(--text-color-fixed-light);
+}
+
+.kindSecondary.colorFixedLightActive,
+.kindSecondary.colorFixedLight:hover,
+.kindSecondary.colorFixedLight:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindSecondary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
+}
+
 .kindSecondary.disabled {
   border-color: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -359,6 +393,22 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorOnPrimaryColor.disabled {
   opacity: $disabled-on-primary-color-opacity;
   color: var(--text-color-on-primary);
+}
+
+.kindTertiary.colorFixedLight {
+  color: var(--text-color-fixed-light);
+}
+
+.kindTertiary.colorFixedLightActive,
+.kindTertiary.colorFixedLight:hover,
+.kindTertiary.colorFixedLight:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindTertiary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
 }
 
 .kindTertiary.colorOnInvertedBackground {

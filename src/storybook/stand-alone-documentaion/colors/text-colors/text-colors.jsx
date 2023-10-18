@@ -9,6 +9,8 @@ export const TextColors = () => {
       "secondary-text-on-secondary-color",
       "text-color-on-inverted",
       "text-color-on-primary",
+      "text-color-fixed-light",
+      "text-color-fixed-dark",
       "disabled-text-color",
       "placeholder-color",
       "link-color"

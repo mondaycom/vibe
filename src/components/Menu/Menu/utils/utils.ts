@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
+import { MenuChild } from "../MenuConstants";
 
-export function isMenuChildSelectable(child: ReactElement): boolean {
-  // @ts-ignore
+export function isMenuChildSelectable(child: MenuChild): boolean {
   return !!child.type.isSelectable && !child.props.disabled;
 }
 

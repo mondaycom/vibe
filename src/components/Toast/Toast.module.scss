@@ -18,6 +18,7 @@
   display: flex;
   min-width: 200px;
   border-radius: var(--border-radius-small);
+  color: var(--text-color-fixed-light)
 }
 
 .icon {
@@ -56,6 +57,21 @@
 
 .typeNegative {
   background-color: var(--negative-color);
+}
+
+.typeWarning {
+  background-color: var(--warning-color);
+  color: var(--text-color-fixed-dark);
+
+  .closeButton {
+    color: var(--text-color-fixed-dark);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-fixed-dark);
+    border-color: var(--text-color-fixed-dark);
+  }
 }
 
 // Animation

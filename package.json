@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "2.46.3",
+  "version": "2.50.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "types": "./dist/types.d.ts",
@@ -22,7 +22,8 @@
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames_esm/src/index.js"
-    }
+    },
+    "./types": "./dist/esm/types/index.d.ts"
   },
   "typesVersions": {
     "*": {
@@ -92,7 +93,7 @@
     "browserslist-config-monday": "1.0.6",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.1.196",
+    "monday-ui-style": "0.1.198",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^3.0.1",
@@ -103,10 +104,10 @@
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0",
-    "vibe-storybook-components": "^0.8.0"
+    "vibe-storybook-components": "^0.9.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
+    "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-proposal-class-properties": "^7.16.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.5",
