@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
 import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { CloseMenuOption } from "../Menu/MenuConstants";
+import { GridElementRef } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContextConstants";
 
 export const useMenuGridItemNavContext = ({
   wrapperRef,
@@ -12,7 +13,7 @@ export const useMenuGridItemNavContext = ({
   isUnderSubMenu,
   closeMenu
 }: {
-  wrapperRef?: (node: HTMLElement) => void;
+  wrapperRef?: GridElementRef;
   setActiveItemIndex?: (index: number) => void;
   getNextSelectableIndex?: (activeItemIndex: number) => number;
   getPreviousSelectableIndex?: (activeItemIndex: number) => number;

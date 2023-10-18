@@ -1,6 +1,7 @@
 import { NavDirections } from "../../hooks/useFullKeyboardListeners";
+import { DirectionMap, DirectionMaps, GridElementRef, Position } from "./GridKeyboardNavigationContextConstants";
 
-function throwIfCausingCircularDependency(directionMaps, newPosition) {
+function throwIfCausingCircularDependency(directionMaps: DirectionMaps, newPosition: Position) {
   const { topElement, bottomElement, leftElement, rightElement } = newPosition;
   if (topElement && bottomElement) {
     if (directionMaps[NavDirections.UP].get(topElement) === bottomElement) {
@@ -19,15 +20,15 @@ function throwIfCausingCircularDependency(directionMaps, newPosition) {
     }
   }
 
-  function throwMessage(directionFrom, directionTo) {
+  function throwMessage(directionFrom: string, directionTo: string) {
     throw new Error(
       `Circular positioning detected: the ${directionFrom} element is already positioned to the ${directionTo} of the ${directionTo} element. This probably means the layout isn't ordered correctly.`
     );
   }
 }
 
-export const getDirectionMaps = positions => {
-  const directionMaps = {
+export const getDirectionMaps = (positions: Position[]) => {
+  const directionMaps: DirectionMaps = {
     [NavDirections.RIGHT]: new Map(),
     [NavDirections.LEFT]: new Map(),
     [NavDirections.UP]: new Map(),
@@ -49,7 +50,7 @@ export const getDirectionMaps = positions => {
   return directionMaps;
 };
 
-export const getOppositeDirection = direction => {
+export const getOppositeDirection = (direction: NavDirections) => {
   switch (direction) {
     case NavDirections.LEFT:
       return NavDirections.RIGHT;
@@ -64,7 +65,10 @@ export const getOppositeDirection = direction => {
   }
 };
 
-export const getOutmostElementInDirection = (directionMaps, direction) => {
+export const getOutmostElementInDirection = (
+  directionMaps: DirectionMaps,
+  direction: NavDirections
+): GridElementRef => {
   const directionMap = directionMaps[direction];
   const firstEntry = [...directionMap][0]; // start with any element
   if (!firstEntry) {
@@ -80,7 +84,10 @@ export const getOutmostElementInDirection = (directionMaps, direction) => {
   return getLastFocusableElementFromElementInDirection(directionMap, firstRef);
 };
 
-export const getNextElementToFocusInDirection = (directionMap, elementRef) => {
+export const getNextElementToFocusInDirection = (
+  directionMap: DirectionMap,
+  elementRef: GridElementRef
+): null | GridElementRef => {
   const next = directionMap.get(elementRef);
   if (!next) {
     // this is the last element on the direction map - there' nothing next
@@ -93,7 +100,7 @@ export const getNextElementToFocusInDirection = (directionMap, elementRef) => {
   return next;
 };
 
-function getLastFocusableElementFromElementInDirection(directionMap, initialRef) {
+function getLastFocusableElementFromElementInDirection(directionMap: DirectionMap, initialRef: GridElementRef) {
   let done = false;
   let currentRef = initialRef;
 
