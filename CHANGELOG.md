@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.50.0 (2023-10-18)
+
+#### New Features
+* [#1670](https://github.com/mondaycom/monday-ui-react-core/pull/1670) feat(types): export general types ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1653](https://github.com/mondaycom/monday-ui-react-core/pull/1653) chore: resolve lint warnings - < Menu /> ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Icons
+* [#1669](https://github.com/mondaycom/monday-ui-react-core/pull/1669) Update icons - monday-ui-style 0.1.198 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.49.1 (2023-10-16)
 
 #### Internal Changes
