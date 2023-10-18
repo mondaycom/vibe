@@ -1,3 +1,9 @@
+0.1.198 / 2023-10-17
+====================
+  * infra: use nvmrc file in test.yml ([#251](https://github.com/mondaycom/monday-ui-style/issues/251))
+    * infra: use nvmrc file in test.yml
+    * Upgrade version of actions/setup-node@3
+
 0.1.197 / 2023-10-17
 ====================
   * infra: add build test in test.yml ([#250](https://github.com/mondaycom/monday-ui-style/issues/250))
@@ -297,7 +303,3 @@
   * warning-color-select, warning-color-select-hover - fix colors ([#195](https://github.com/mondaycom/monday-ui-style/issues/195))
     * warning-color-select, warning-color-select-hover - for dark, black, hacker - fix colors
     * Add changes in colors.json
-
-0.1.152 / 2023-04-30
-====================
-  * Rename warning-color-select to warning-color-selected ([#194](https://github.com/mondaycom/monday-ui-style/issues/194))
