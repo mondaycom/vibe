@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
-import Icon, { IconSubComponentProps } from "../../components/Icon/Icon";
+import { IconSubComponentProps } from "../../components/Icon/Icon";
 import Text from "../Text/Text";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
@@ -15,6 +15,7 @@ import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
+import IconButton from "../IconButton/IconButton";
 
 interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
@@ -146,7 +147,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
           <div className={cx(styles.action)}>{toastButtons || deprecatedAction}</div>
         )}
         {closeable && (
-          <Button
+          <IconButton
             className={cx(styles.closeButton)}
             onClick={handleClose}
             size={Button.sizes.SMALL}
@@ -154,9 +155,9 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             color={Button.colors.FIXED_LIGHT}
             ariaLabel={closeButtonAriaLabel}
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-          >
-            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-          </Button>
+            icon={CloseSmall}
+            hideTooltip
+          />
         )}
       </Text>
     </CSSTransition>
