@@ -24,7 +24,7 @@ const preview: Preview = {
   parameters: {
     docs: {
       inlineStories: true,
-      container: ({ children, context }) => (
+      container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
             {children}
