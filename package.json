@@ -22,7 +22,8 @@
     "./tokens": "./dist/tokens/tokens.css",
     "./mockedClassNames": {
       "import": "./dist/mocked_classnames_esm/src/index.js"
-    }
+    },
+    "./types": "./dist/esm/types/index.d.ts"
   },
   "typesVersions": {
     "*": {
