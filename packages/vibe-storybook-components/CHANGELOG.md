@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.4 (2023-10-18)
+
+#### Bug Fixes
+* [#88](https://github.com/mondaycom/vibe-storybook-components/pull/88) fix: dependency issue, upgrade storybook ^7.5.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.9.3 (2023-10-18)
 
 #### Bug Fixes
