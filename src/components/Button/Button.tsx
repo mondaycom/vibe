@@ -92,6 +92,8 @@ export interface ButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
   tabIndex?: number;
+  /** Controls resize observer for smooth transition between states. Do not use with loading state */
+  disableResizeObserver?: boolean;
 }
 
 const Button: VibeComponent<ButtonProps, unknown> & {
@@ -142,7 +144,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus,
-      tabIndex
+      tabIndex,
+      disableResizeObserver
     },
     ref
   ) => {
@@ -151,6 +154,9 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const [hasSizeStyle, setHasSizeStyle] = useState(false);
 
     const updateCssVariables = useMemo(() => {
+      if (disableResizeObserver) {
+        return NOOP;
+      }
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
         const { blockSize, inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
@@ -160,7 +166,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
         setHasSizeStyle(true);
       };
-    }, [buttonRef]);
+    }, [buttonRef, disableResizeObserver]);
 
     useResizeObserver({
       ref: buttonRef,
@@ -422,7 +428,8 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
-  insetFocus: false
+  insetFocus: false,
+  disableResizeObserver: false
 };
 
 export default withStaticProps(Button, {
