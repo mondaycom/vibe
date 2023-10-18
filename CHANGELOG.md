@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.50.2 (2023-10-18)
+
+#### Bug Fixes
+* [#1680](https://github.com/mondaycom/monday-ui-react-core/pull/1680) fix(types): fix unknown path '/types' ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1656](https://github.com/mondaycom/monday-ui-react-core/pull/1656) chore: < GridKeyboardNavigationContext /> - migrate to TS ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1677](https://github.com/mondaycom/monday-ui-react-core/pull/1677) Update icons - monday-ui-style 0.1.199 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.50.1 (2023-10-18)
 
 #### Bug Fixes
