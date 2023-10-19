@@ -8,6 +8,7 @@ const BASE_CLASS = "monday-other-contributors-list";
 const excludedDevelopers = new Set();
 excludedDevelopers.add(41898282); // github-actions[bot]
 excludedDevelopers.add(49699333); // dependabot[bot]
+excludedDevelopers.add(19733683); // snyk-bot
 
 const STATIC_FOUNDING_DESIGNERS = [
   {
