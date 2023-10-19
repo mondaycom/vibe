@@ -17,7 +17,7 @@ export const useHelperOpenModalButton = ({
   testId = undefined
 }) => {
   return (
-    <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} dataTestId={testId}>
+    <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} data-testid={testId}>
       {title}
     </Button>
   );

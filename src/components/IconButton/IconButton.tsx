@@ -9,6 +9,7 @@ import { getWidthHeight, Size } from "./services/IconButton-helpers";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
 import styles from "./IconButton.module.scss";
@@ -73,6 +74,9 @@ export interface IconButtonProps extends VibeComponentProps {
    * if disabled - this will be shown in the tooltip
    */
   disabledReason?: string;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
@@ -104,12 +108,14 @@ const IconButton: VibeComponent<IconButtonProps> & {
       disabledReason,
       onClick = NOOP,
       color,
-      dataTestId,
+      dataTestId: backwardCompatabilityDataTestId,
+      "data-testid": dataTestId,
       insetFocus = false,
       tabIndex
     },
     ref
   ) => {
+    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideTooltipContent = useMemo(
@@ -178,7 +184,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             ariaExpanded={ariaExpanded}
             ref={mergedRef}
             id={id}
-            dataTestId={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+            data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}

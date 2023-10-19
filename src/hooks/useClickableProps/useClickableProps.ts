@@ -5,6 +5,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ClickableProps } from "../../components/Clickable/Clickable";
 import { NOOP } from "../../utils/function-utils";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 /**
  * Return props for adding clickable functionality to the element except for the styles and classNames
@@ -17,7 +18,8 @@ export default function useClickableProps(
     onMouseLeave = NOOP,
     disabled = false,
     id,
-    dataTestId,
+    dataTestId: backwardCompatabilityDataTestId,
+    "data-testid": dataTestId,
     role = "button",
     tabIndex = 0,
     ariaLabel,
@@ -27,6 +29,7 @@ export default function useClickableProps(
   }: ClickableProps,
   ref: React.ForwardedRef<HTMLElement>
 ) {
+  const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
   const componentRef = useRef<HTMLElement | null>(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
@@ -36,7 +39,7 @@ export default function useClickableProps(
   return {
     ref: mergedRef,
     id,
-    "data-testid": dataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
+    "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
     onClick: disabled ? undefined : onClick,
     onKeyDown: disabled ? undefined : onKeyDown,
     onMouseDown,
