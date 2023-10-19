@@ -32,7 +32,9 @@ import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   size?: typeof SIZES[keyof typeof SIZES];
   tabIndex?: number;

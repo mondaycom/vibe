@@ -29,7 +29,7 @@ type ButtonGroupOption = {
 
 interface ButtonGroupProps extends VibeComponentProps {
   /**
-   * Backward compatibility for props naming - please use className instead
+   * @deprecated - use className instead
    */
   componentClassName?: string;
   options: Array<ButtonGroupOption>;

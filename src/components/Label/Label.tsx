@@ -14,7 +14,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 
 interface LabelProps extends VibeComponentProps {
   /**
-   * Backward compatibility for props naming - please use className instead
+   * @deprecated - use className instead
    */
   wrapperClassName?: string;
   /**

@@ -136,8 +136,7 @@ export interface DialogProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
-   * Backward compatibility for props naming
-   * @deprecated
+   * @deprecated - use shouldCallbackOnMount instead
    */
   shoudlCallbackOnMount?: boolean;
   shouldCallbackOnMount?: boolean;

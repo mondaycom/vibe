@@ -28,7 +28,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 interface MenuButtonProps extends VibeComponentProps {
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use className instead
    */
   componentClassName?: string;
   /**
@@ -107,7 +107,7 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use tooltipContent instead
    */
   disabledReason?: string;
   children?: ElementContent;

@@ -17,7 +17,9 @@ export interface BreadcrumbItemProps extends VibeComponentProps {
   text?: string;
   /** Should item be disabled. */
   disabled?: boolean;
-  /** Backward compatibility for props naming */
+  /**
+   * @deprecated - use disabled instead
+   */
   isDisabled?: boolean;
   /** Should item be clickable - this should be recieved from the breadcrumbsBar ( Navigation/Indication bar ). */
   isClickable?: boolean;

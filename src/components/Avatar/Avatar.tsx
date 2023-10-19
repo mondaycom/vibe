@@ -34,7 +34,13 @@ export interface AvatarProps extends VibeComponentProps {
   tabIndex?: number;
   ariaHidden?: boolean;
   disabled?: boolean;
+  /**
+   * @deprecated - use square instead
+   */
   isSquare?: boolean;
+  /**
+   * @deprecated - use disabled instead
+   */
   isDisabled?: boolean;
   square?: boolean;
   topLeftBadgeProps?: AvatarBadgeProps;
