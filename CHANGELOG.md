@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.51.0 (2023-10-19)
+
+#### New Features
+* [#1687](https://github.com/mondaycom/monday-ui-react-core/pull/1687) Add mising data-testid, replace dataTestId (not breaking) ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1683](https://github.com/mondaycom/monday-ui-react-core/pull/1683) feat: < Tipseen /> export hideShowTriggers ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1689](https://github.com/mondaycom/monday-ui-react-core/pull/1689) chore: add @deprecated comments where backwardCompatibilityForProperties is being used ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1684](https://github.com/mondaycom/monday-ui-react-core/pull/1684) docs: fix contributors list to include all contributors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1682](https://github.com/mondaycom/monday-ui-react-core/pull/1682) docs(AlertBanner): fix documentation ([@talkor](https://github.com/talkor))
+* [#1601](https://github.com/mondaycom/monday-ui-react-core/pull/1601) chore(deps-dev): bump postcss from 8.4.21 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### New Icons
+* [#1688](https://github.com/mondaycom/monday-ui-react-core/pull/1688) Update icons - monday-ui-style 0.1.201 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1685](https://github.com/mondaycom/monday-ui-react-core/pull/1685) Update icons - monday-ui-style 0.1.200 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.50.2 (2023-10-18)
 
 #### Bug Fixes
