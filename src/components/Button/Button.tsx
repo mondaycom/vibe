@@ -92,8 +92,8 @@ export interface ButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
   tabIndex?: number;
-  /** Controls resize observer for smooth transition between states. Do not use with loading state */
-  disableResizeObserver?: boolean;
+  /** Make the button width dynamic according to container width. */
+  dynamicWidth?: boolean;
 }
 
 const Button: VibeComponent<ButtonProps, unknown> & {
@@ -145,16 +145,15 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       "data-testid": dataTestId,
       insetFocus,
       tabIndex,
-      disableResizeObserver
+      dynamicWidth
     },
     ref
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const [hasSizeStyle, setHasSizeStyle] = useState(false);
 
     const updateCssVariables = useMemo(() => {
-      if (disableResizeObserver) {
+      if (dynamicWidth) {
         return NOOP;
       }
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
@@ -164,9 +163,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         if (!buttonRef.current) return;
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
-        setHasSizeStyle(true);
       };
-    }, [buttonRef, disableResizeObserver]);
+    }, [buttonRef, dynamicWidth]);
 
     useResizeObserver({
       ref: buttonRef,
@@ -229,8 +227,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
-          [styles.hasStyleSize]: hasSizeStyle,
-          [styles.loading]: loading,
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
           [styles.marginRight]: marginRight,
@@ -249,8 +245,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       className,
       size,
       kind,
-      hasSizeStyle,
-      loading,
       active,
       activeButtonClassName,
       marginRight,
@@ -336,6 +330,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         <button {...buttonProps}>
           <span className={styles.loader}>
             <Loader svgClassName={styles.loaderSvg} />
+            <span className={styles.textPlaceholder}>{children}</span>
           </span>
         </button>
       );
@@ -393,14 +388,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   }
 );
 
-Button.propTypes = {
-  disableResizeObserver: function (props) {
-    if (props.loading && props.disableResizeObserver) {
-      return new Error('Do not use "disableResizeObserver" with loading state');
-    }
-  }
-};
-
 Button.defaultProps = {
   className: undefined,
   name: undefined,
@@ -437,7 +424,7 @@ Button.defaultProps = {
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
   insetFocus: false,
-  disableResizeObserver: false
+  dynamicWidth: false
 };
 
 export default withStaticProps(Button, {
