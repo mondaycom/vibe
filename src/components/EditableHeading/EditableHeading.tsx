@@ -13,6 +13,7 @@ import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
 import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";
 import styles from "./EditableHeading.module.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
@@ -20,6 +21,9 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   errorClass?: string;
   headingClassName?: string;
   inputClassName?: string;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   "data-testid"?: string;
   editing?: boolean;
@@ -40,8 +44,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     id = "",
     className,
     inputClassName = "",
-    dataTestId = "",
-    "data-testid": dataTestIdOverride = "",
+    dataTestId: backwardCompatabilityDataTestId = "",
+    "data-testid": dataTestId = "",
     value,
     editing,
     disabled,
@@ -62,6 +66,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     suggestEditOnHover = true,
     type = Heading.types.h1
   } = props;
+
+  const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
 
   // State
   const [isEditing, setIsEditing] = useState(editing && !disabled);
@@ -223,7 +229,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
-      data-testid={dataTestIdOverride || dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+      data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}

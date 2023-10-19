@@ -39,7 +39,7 @@ describe("EditableHeading", () => {
   });
 
   it("renders correctly with dataTestId prop", () => {
-    const { getByTestId } = render(<EditableHeading dataTestId="data-test-id" />);
+    const { getByTestId } = render(<EditableHeading data-testid="data-test-id" />);
 
     const editableHeadingElement = getByTestId("data-test-id");
 
