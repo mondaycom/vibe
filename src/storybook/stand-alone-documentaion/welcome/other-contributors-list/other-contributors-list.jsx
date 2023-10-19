@@ -47,15 +47,43 @@ const STATIC_CONTRIBUTERS = [
   {
     name: "LeanyLabs",
     href: "https://github.com/LeanyLabs"
+  },
+  {
+    name: "Hadas Farhi",
+    href: "https://github.com/hadasfa"
   }
 ];
+
+async function getContributors(page) {
+  let request = await fetch(
+    `https://api.github.com/repos/mondaycom/monday-ui-react-core/contributors?per_page=100&page=${page}&order=desc`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  );
+
+  return await request.json();
+}
+
+async function getAllContributors() {
+  let contributors = [];
+  let page = 1;
+  let list;
+  do {
+    list = await getContributors(page++);
+    contributors = contributors.concat(list);
+  } while (list.length > 0);
+
+  return contributors;
+}
 
 export const OtherContributorsList = () => {
   const [contributorsJson, setContributorsJson] = useState();
   useEffect(() => {
-    fetch("https://api.github.com/repos/mondaycom/monday-ui-react-core/contributors")
-      .then(response => response.json())
-      .then(data => setContributorsJson(data));
+    getAllContributors().then(contributors => setContributorsJson(contributors));
   }, []);
 
   const contributors = useMemo(() => {
@@ -63,7 +91,12 @@ export const OtherContributorsList = () => {
       // developer contributors
       const developerContributors = contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
-        .map(contributor => ({ name: contributor.login, href: contributor.html_url, key: contributor.id }));
+        .sort((a, b) => b.contributions - a.contributions)
+        .map(contributor => ({
+          name: contributor.login,
+          href: contributor.html_url,
+          key: contributor.id
+        }));
       const contributorsData = STATIC_CONTRIBUTERS.concat(developerContributors);
       return <Contributors contributorsData={contributorsData} />;
     }
