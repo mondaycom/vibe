@@ -51,10 +51,10 @@
   },
   "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
   "dependencies": {
-    "postcss": "8.4.4",
-    "postcss-scss": "^4.0.3",
-    "postcss-value-parser": "4.1.0",
-    "stylelint": "^14.1.0",
+    "postcss": "8.4.31",
+    "postcss-scss": "^4.0.9",
+    "postcss-value-parser": "4.2.0",
+    "stylelint": "^14.16.1",
     "typescript-plugin-css-modules": "^5.0.1"
   },
   "devDependencies": {
