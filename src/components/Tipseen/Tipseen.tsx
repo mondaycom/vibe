@@ -28,7 +28,7 @@ interface TipseenProps extends VibeComponentProps {
   showDelay?: number;
   title?: string;
   /**
-   * Backward compatability for hideCloseButton prop
+   * @deprecated - use hideCloseButton instead
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;

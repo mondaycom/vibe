@@ -72,6 +72,9 @@ interface TextFieldProps extends VibeComponentProps {
   required?: boolean;
   /** shows loading animation */
   loading?: boolean;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   secondaryDataTestId?: string;
   tabIndex?: number;

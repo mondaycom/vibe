@@ -18,7 +18,9 @@ import styles from "./AttentionBox.module.scss";
 
 interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
-  // Backward compatibility for props naming
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;

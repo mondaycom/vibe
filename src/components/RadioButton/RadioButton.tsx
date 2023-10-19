@@ -13,7 +13,9 @@ import styles from "./RadioButton.module.scss";
 interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
   className?: string;
-  /** deprecated */
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
   /** class to add to the  text/label */
   labelClassName?: string;

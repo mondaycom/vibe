@@ -9,4 +9,8 @@ export enum TipseenCloseButtonTheme {
   LIGHT = "light",
   DARK = "dark"
 }
+
+/**
+ * @deprecated
+ */
 export type ButtonPropsBackwardCompatible = ButtonProps & { content?: ElementContent };

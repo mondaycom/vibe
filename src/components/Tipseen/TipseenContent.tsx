@@ -20,22 +20,20 @@ interface TipseenContentProps extends VibeComponentProps {
    */
   titleClassName?: string;
   /**
-   * Backward compatability for hideDismiss prop
+   * @deprecated - use hideDismiss instead
    */
   isDismissHidden?: boolean;
   hideDismiss?: boolean;
   children?: ElementContent;
   /**
-   * Backward compatability for hideSubmit prop
+   * @deprecated - use hideSubmit instead
    */
   isSubmitHidden?: boolean;
   hideSubmit?: boolean;
   submitButtonText?: string;
-  /** Backward compatibility for props naming **/
   submitButtonProps?: ButtonPropsBackwardCompatible;
   onSubmit?: (event: React.MouseEvent) => void;
   dismissButtonText?: string;
-  /** Backward compatibility for props naming **/
   dismissButtonProps?: ButtonPropsBackwardCompatible;
   onDismiss?: (event: React.MouseEvent) => void;
 }
