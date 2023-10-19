@@ -1,3 +1,9 @@
+0.1.200 / 2023-10-19
+====================
+  * docs: add theme-switcher ([#253](https://github.com/mondaycom/monday-ui-style/issues/253))
+    * docs: add theme-switcher
+    * Remove TODO
+
 0.1.199 / 2023-10-18
 ====================
   * chore: update storybook packages ([#252](https://github.com/mondaycom/monday-ui-style/issues/252))
@@ -297,9 +303,3 @@
 0.1.155 / 2023-05-17
 ====================
   * Brand colors ([#199](https://github.com/mondaycom/monday-ui-style/issues/199))
-
-0.1.154 / 2023-05-04
-====================
-  * Prettify files ([#196](https://github.com/mondaycom/monday-ui-style/issues/196))
-    * Prettify files
-    * Fix test cause of empty line
