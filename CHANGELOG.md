@@ -1,3 +1,9 @@
+0.1.199 / 2023-10-18
+====================
+  * chore: update storybook packages ([#252](https://github.com/mondaycom/monday-ui-style/issues/252))
+    * Fix preview file TS issue
+    * Upgrade storybook packages to ^7.5.0
+
 0.1.198 / 2023-10-17
 ====================
   * infra: use nvmrc file in test.yml ([#251](https://github.com/mondaycom/monday-ui-style/issues/251))
@@ -297,9 +303,3 @@
   * Prettify files ([#196](https://github.com/mondaycom/monday-ui-style/issues/196))
     * Prettify files
     * Fix test cause of empty line
-
-0.1.153 / 2023-05-02
-====================
-  * warning-color-select, warning-color-select-hover - fix colors ([#195](https://github.com/mondaycom/monday-ui-style/issues/195))
-    * warning-color-select, warning-color-select-hover - for dark, black, hacker - fix colors
-    * Add changes in colors.json
