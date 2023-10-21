@@ -38,6 +38,10 @@ interface AvatarGroupProps extends VibeComponentProps {
    * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
    */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * Whether or not to render the AvatarGroup with padding
+   */
+  padding?: boolean
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -50,22 +54,28 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   max = 5,
   counterProps,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList = false
+  counterTooltipIsVirtualizedList = false,
+  padding = true
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     const childrenArray = Array.isArray(children) ? children : [children];
     return {
-      displayAvatars: childrenArray.slice(0, max),
+      displayAvatars: childrenArray.slice(0, max).map((avatar) => {
+        return React.cloneElement(avatar, {
+          ...avatar?.props,
+          className: cx(styles.avatarContainer, avatarClassName, padding && styles.noPadding)
+        });
+      }),
       counterTooltipAvatars: childrenArray.slice(max)
     };
-  }, [children, max]);
+  }, [children, max, padding]);
 
   if (!children) {
     return null;
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id} style={{ padding: padding ? 0 : undefined }}>
       {displayAvatars.map((avatar, index) => {
         return React.cloneElement(avatar, {
           key: index,
