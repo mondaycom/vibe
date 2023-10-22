@@ -12,10 +12,10 @@ import { HeadingSizes, HeadingTypes } from "../LegacyHeading/LegacyHeadingConsta
 import { Sizes } from "../../constants";
 import { withStaticProps } from "../../types";
 import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";
-import styles from "./EditableHeading.module.scss";
+import styles from "./LegacyEditableHeading.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
-export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
+export interface LegacyEditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
   inputAriaLabel?: string;
   errorClass?: string;
@@ -36,7 +36,7 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   contentRenderer?: React.FC;
 }
 
-const EditableHeading: React.FC<EditableHeadingProps> & {
+const LegacyEditableHeading: React.FC<LegacyEditableHeadingProps> & {
   sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = props => {
@@ -238,7 +238,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
   );
 };
 
-export default withStaticProps(EditableHeading, {
+export default withStaticProps(LegacyEditableHeading, {
   types: HeadingTypes,
   sizes: HeadingSizes
 });
