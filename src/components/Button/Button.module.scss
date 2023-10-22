@@ -24,8 +24,8 @@ $disabled-on-primary-color-opacity: 0.5;
   user-select: none;
   /* Will be updated dynamically after render by js */
   --element-width: 32;
-  min-width: var(--element-width);
-  width: fit-content;
+  width: var(--element-width);
+  min-width: min-content;
 
   .loader {
     height: 100%;
