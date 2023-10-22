@@ -1,7 +1,37 @@
 import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
-function parseStringForEnums(componentName, enumName, enumObj) {
+type EnumPropNames = {
+  propName: string;
+  enumName: string;
+};
+
+type ActionProps = {
+  name: string;
+  linkedToPropValue: string;
+};
+
+type IconMetaData = {
+  file: string;
+  name: string;
+};
+
+type StoryMetaSettingsArgs = {
+  component: any;
+  enumPropNamesArray?: Array<string | EnumPropNames>;
+  iconPropNamesArray?: string[];
+  actionPropsArray?: Array<string | ActionProps>;
+  iconsMetaData?: IconMetaData[];
+  allIconsComponents: { [key: string]: () => {} };
+  ignoreControlsPropNamesArray?: string[];
+};
+
+type AllowedIcons = {
+  options: string[];
+  mapping: { [key: string]: any };
+};
+
+function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: any }) {
   let returnValue;
   // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(enumObj)) {
@@ -12,7 +42,7 @@ function parseStringForEnums(componentName, enumName, enumObj) {
   return returnValue;
 }
 
-function parseStringForEnum(componentName, enumName, enumKey) {
+function parseStringForEnum(componentName: string, enumName: string, enumKey: string) {
   return `${componentName}.${enumName}.${enumKey}`;
 }
 
@@ -25,13 +55,13 @@ function parseStringForEnum(componentName, enumName, enumKey) {
  * @param {string} linkedToPropValue - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
  * @returns A decorate for storybook which updates the {@link linkedToPropValue} input of the component, whenever {@link actionName} is called.
  */
-function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
-  return (Story, context) => {
+function createMappedActionToInputPropDecorator(actionName: string, linkedToPropValue: string) {
+  return (Story: any, context: any) => {
     const [propValue, setPropValue] = useState(context.initialArgs[linkedToPropValue]);
     const createAction = useMemo(() => action(actionName), []);
 
     const injectedCallback = useCallback(
-      newPropValue => {
+      (newPropValue: any) => {
         setPropValue(newPropValue);
         createAction(newPropValue);
       },
@@ -53,11 +83,11 @@ export function createStoryMetaSettings({
   iconsMetaData,
   allIconsComponents,
   ignoreControlsPropNamesArray,
-}) {
-  const argTypes = {};
-  const decorators = [];
+}: StoryMetaSettingsArgs) {
+  const argTypes: any = {};
+  const decorators: any = [];
   const allowedIcons = iconsMetaData?.reduce(
-    (acc, icon) => {
+    (acc: AllowedIcons, icon: IconMetaData) => {
       const Component = allIconsComponents[icon.file.split('.')[0]];
       acc.options.push(icon.name);
       acc.mapping[icon.name] = Component;
@@ -99,8 +129,8 @@ export function createStoryMetaSettings({
   // set icon allowed values inside argsTypes object
   iconPropNamesArray?.forEach(propName => {
     argTypes[propName] = {
-      options: allowedIcons.options,
-      mapping: allowedIcons.mapping,
+      options: allowedIcons?.options,
+      mapping: allowedIcons?.mapping,
       control: {
         type: 'select',
       },
