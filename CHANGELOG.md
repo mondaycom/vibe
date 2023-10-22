@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.52.0 (2023-10-22)
+
+#### New Features
+* [#1691](https://github.com/mondaycom/monday-ui-react-core/pull/1691) feat(EditableInput): expose inputType ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1693](https://github.com/mondaycom/monday-ui-react-core/pull/1693) chore: fix < Tip /> imports to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.51.2 (2023-10-22)
 
 #### Bug Fixes
