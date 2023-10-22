@@ -10,12 +10,12 @@ import {
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 
-const getEditableHeadingHeading = async (canvas: Canvas) => {
+const getLegacyEditableHeadingHeading = async (canvas: Canvas) => {
   await resetFocus();
   return getByTestId(canvas, ComponentDefaultTestId.HEADING);
 };
 
-const getEditableHeadingInput = async (canvas: Canvas) => {
+const getLegacyEditableHeadingInput = async (canvas: Canvas) => {
   await resetFocus();
   const editableHeadingElement = getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
   clickElement(editableHeadingElement);
@@ -23,12 +23,12 @@ const getEditableHeadingInput = async (canvas: Canvas) => {
 };
 
 async function textSimpleText(canvas: Canvas) {
-  const editableHeadingInput = await getEditableHeadingInput(canvas);
+  const editableHeadingInput = await getLegacyEditableHeadingInput(canvas);
   await clearText(editableHeadingInput);
   const text = "This heading is editable";
   await typeText(editableHeadingInput, text);
   expect(editableHeadingInput).toHaveAttribute("value", text);
-  const editableHeading = await getEditableHeadingHeading(canvas);
+  const editableHeading = await getLegacyEditableHeadingHeading(canvas);
   expect(editableHeading).toHaveTextContent(text);
 }
 

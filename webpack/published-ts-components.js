@@ -5,7 +5,7 @@ const publishedTSComponents = {
   Text: "components/Text/Text",
   Button: "components/Button/Button",
   Checkbox: "components/Checkbox/Checkbox",
-  EditableHeading: "components/EditableHeading/EditableHeading",
+  EditableHeading: "components/LegacyEditableHeading/LegacyEditableHeading",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
   IconButton: "components/IconButton/IconButton",
