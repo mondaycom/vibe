@@ -251,7 +251,7 @@ const Dropdown = forwardRef(
           }
 
           if (!isControlled) {
-            setSelected([...selected, selectedOption]);
+            setSelected([...selectedOptions, selectedOption]);
           }
           break;
         }
