@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.51.2 (2023-10-22)
+
+#### Bug Fixes
+* [#1692](https://github.com/mondaycom/monday-ui-react-core/pull/1692) < Slider /> controlled state fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.51.1 (2023-10-22)
 
 #### Bug Fixes
