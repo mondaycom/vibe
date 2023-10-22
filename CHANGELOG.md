@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.52.1 (2023-10-22)
+
+#### Bug Fixes
+* [#1694](https://github.com/mondaycom/monday-ui-react-core/pull/1694) fix: <Dropdown> controlled multi fix option remove ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.52.0 (2023-10-22)
 
 #### New Features
