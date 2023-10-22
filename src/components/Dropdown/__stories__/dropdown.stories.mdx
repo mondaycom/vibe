@@ -493,58 +493,6 @@ The Dropdown component supports multiple options selection in two different stat
 
 ## Use cases and examples
 
-### Controlled multiple dropdown - demo story for Omri
-
-<Canvas>
-  <Story name="Controlled multiple dropdown">
-    {() => {
-      const options = useMemo(
-        () => [
-          {
-            value: "Rotem",
-            label: "Rotem Dekel"
-          },
-          {
-            value: "Hadas",
-            label: "Hadas Farhi"
-          },
-          {
-            value: "Netta",
-            label: "Netta Muller"
-          },
-          {
-            value: "Dor",
-            label: "Dor Yehuda"
-          }
-        ],
-        []
-      );
-      const [value, setValue] = useState([options[0]]);
-      const onChange = options => {
-        console.log("### options", options);
-        setValue(options);
-      };
-      const onOptionRemove = options => {
-        console.log("### onOptionRemove", options)
-      }
-      return (
-        <div style={{ width: "600px" }}>
-          <Dropdown
-            placeholder="Single line multi state"
-            options={options}
-            value={value}
-            onChange={onChange}
-            onOptionRemove={onOptionRemove}
-            clearable={false}
-            multi
-            className="dropdown-stories-styles_with-chips"
-          />
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Multiple dropdown with renderers as options
 
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
