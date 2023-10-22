@@ -14,7 +14,7 @@ function _useSliderValue(
   isControlled: boolean,
   value: number | number[]
 ): [number | number[], (value: number | number[]) => void] {
-  const initialValue = isControlled ? (value as number[]) : defaultValue;
+  const initialValue = isControlled ? value : defaultValue;
   const [internalStateValue, setInternalStateValue] = useState(initialValue);
   if (isControlled) {
     return [value as number, NOOP];
@@ -220,6 +220,14 @@ export function useSliderValues(
   const isControlled = _useIsStateControlledFromOutside(value);
   const [actualValue, setStateSelectedValue] = _useSliderValue(defaultValue, isControlled, value);
   const valueRef = useRef(actualValue);
+
+  // Update ref when actualValue was changed from outside in controlled mode
+  useEffect(() => {
+    if (isControlled && valueRef.current !== actualValue) {
+      valueRef.current = actualValue;
+    }
+  }, [isControlled, actualValue]);
+
   const setSelectedValue = useCallback(
     (newValue: number) => {
       setStateSelectedValue(newValue);
@@ -228,7 +236,7 @@ export function useSliderValues(
     [valueRef, setStateSelectedValue]
   );
 
-  const getSelectedValue = useCallback(() => valueRef.current, [valueRef]);
+  const getSelectedValue = () => valueRef.current;
 
   const actualValueText = ensureValueText(valueText, actualValue, valueFormatter);
   return { actualValue, actualValueText, getSelectedValue, isControlled, setSelectedValue };
