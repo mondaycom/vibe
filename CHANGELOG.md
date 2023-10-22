@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.51.1 (2023-10-22)
+
+#### Bug Fixes
+* [#1678](https://github.com/mondaycom/monday-ui-react-core/pull/1678) fix: <Toast /> close button - replace <Button /> and <Icon /> with <IconButton /> ([@Kritik-J](https://github.com/Kritik-J))
+
 ## 2.51.0 (2023-10-19)
 
 #### New Features
