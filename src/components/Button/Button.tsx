@@ -144,6 +144,9 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
+      if (!buttonRef.current) {
+        return;
+      }
       const width = buttonRef.current.clientWidth;
       buttonRef.current.style.setProperty("--element-width", `${width}px`);
     }, []);
