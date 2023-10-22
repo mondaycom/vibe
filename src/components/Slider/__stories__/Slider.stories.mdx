@@ -15,7 +15,6 @@ import {
   nonRangedSliderMouseEventsPlaySuite,
   rangedSliderMouseEventsPlaySuite
 } from "../__tests__/Slider.interactions";
-import OnChangeBugStory from "./onChangeBugStory";
 
 export const argTypes = createStoryMetaSettingsDecorator({
   component: Slider,
@@ -81,17 +80,6 @@ Sizes small/medium/large are available.
     <Slider size={Slider.sizes.SMALL} defaultValue={12} />
     <Slider size={Slider.sizes.MEDIUM} defaultValue={24} />
     <Slider size={Slider.sizes.LARGE} defaultValue={35} />
-  </Story>
-</Canvas>
-
-
-### Omri this one's for you ❤️
-
-This is a bug fix
-
-<Canvas>
-  <Story name="Omri">
-    <OnChangeBugStory/>
   </Story>
 </Canvas>
 
