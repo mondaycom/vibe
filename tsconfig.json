@@ -1,7 +1,7 @@
 {
   "include": ["src/**/*", "types/**/*"],
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDirs": ["./src", "./types"],
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "target": "es6",
