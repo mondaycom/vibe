@@ -1,6 +1,7 @@
 import Dropdown from "../Dropdown";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { StoryDescription, Link } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   COMBOBOX,
@@ -8,18 +9,12 @@ import {
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
 import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
-import Label from "../../Label/Label";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import Avatar from "../../Avatar/Avatar";
 import { OptionRenderer } from "./OptionRenderer.js";
-import Flex from "../../Flex/Flex";
-import { StoryDescription, Link } from "vibe-storybook-components";
-import { Attach, CloseSmall, Email } from "../../Icon/Icons";
-import { DialogContentContainer, DropdownMenu, DropdownOption, DropdownSingleValue, Icon } from "../../index";
-import Dialog from "../../Dialog/Dialog";
-import Button from "../../Button/Button";
+import { Attach, Email } from "../../Icon/Icons";
+import { DialogContentContainer, Dialog, Button, Flex, Avatar, Label } from "../../index";
 import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
