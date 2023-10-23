@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 (2023-10-23)
+
+#### Bug Fixes
+* [#100](https://github.com/mondaycom/vibe-storybook-components/pull/100) fix(SidebarItem): add ellipsis to item name ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#99](https://github.com/mondaycom/vibe-storybook-components/pull/99) docs: replace logo in storybook ([@talkor](https://github.com/talkor))
+
 ## 0.10.0 (2023-10-23)
 
 #### New Features
