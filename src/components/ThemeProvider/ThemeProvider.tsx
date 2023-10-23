@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
-import { generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
+import { generateRandomAlphaString, generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
@@ -20,6 +20,8 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   colors?: typeof ThemeColor;
 } = ({ theme, children }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
+  // Using random string selector to secure selector by making it more specific - if theme name is not unique
+  const randomStringSelector = useState(generateRandomAlphaString())[0];
 
   useEffect(() => {
     if (!theme || !theme?.name) {
@@ -33,7 +35,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
     styleElement.id = theme.name;
-    const themeCssOverride = generateThemeCssOverride(theme);
+    const themeCssOverride = generateThemeCssOverride(theme, randomStringSelector);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -46,7 +48,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [theme]);
+  }, [randomStringSelector, theme]);
 
   if (!stylesLoaded && shouldGenerateTheme(theme)) {
     // Waiting for styles to load before children render
@@ -55,7 +57,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(theme?.name, children?.props?.className)
+    className: cx(theme?.name, randomStringSelector, children?.props?.className)
   });
 };
 

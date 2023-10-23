@@ -26,15 +26,31 @@ export const shouldGenerateTheme = (theme: Theme) => {
   return !!theme?.colors;
 };
 
-export const generateThemeCssOverride = (theme: Theme) => {
+export const generateThemeCssOverride = (theme: Theme, randomStringSelector: string) => {
   if (!shouldGenerateTheme(theme)) {
     return null;
   }
 
   let css = "";
   for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
-    css += generateCss(theme.colors[systemTheme], "", `.${SystemThemeClassMap[systemTheme]} .${theme.name}`) + "\n";
+    css +=
+      generateCss(
+        theme.colors[systemTheme],
+        "",
+        `.${SystemThemeClassMap[systemTheme]} .${randomStringSelector}.${theme.name}`
+      ) + "\n";
   }
 
   return css;
+};
+
+export const generateRandomAlphaString = (length = 6) => {
+  let result = "";
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return result;
 };
