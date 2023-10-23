@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import cx from 'classnames';
 import VisualDescription from '../visual-description/visual-description';
-import './color-description.scss';
+import styles from './color-description.module.scss';
 
 type ColorDescriptionProps = {
   colorName: string;
@@ -12,8 +12,8 @@ type ColorDescriptionProps = {
 const ColorDescription: FC<ColorDescriptionProps> = ({ colorName, description, withBorder }) => {
   const color = (
     <div
-      className={cx('vibe-sb-comps-color-description', {
-        'vibe-sb-comps-color-description--with-border': withBorder,
+      className={cx(styles.colorDescription, {
+        [styles.withBorder]: withBorder,
       })}
       style={{ backgroundColor: `var(--${colorName})` }}
     />

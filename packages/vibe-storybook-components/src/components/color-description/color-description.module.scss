@@ -1,6 +1,6 @@
-.vibe-sb-comps-color-description {
+.colorDescription {
   border-radius: var(--sb-border-radius-extra-small);
-  &--with-border {
+  &.withBorder {
     border: 1px solid;
     border-color: var(--sb-ui-border-color);
   }
