@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.0 (2023-10-23)
+
+#### New Features
+* [#83](https://github.com/mondaycom/vibe-storybook-components/pull/83) feat: Migrate < Link />, < StoryDescription /> to ts ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#106](https://github.com/mondaycom/vibe-storybook-components/pull/106) chore: prettier fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#105](https://github.com/mondaycom/vibe-storybook-components/pull/105) chore: migrate <ColorDescription/> to css modules ([@Dhoni77](https://github.com/Dhoni77))
+
 ## 0.9.5 (2023-10-23)
 
 #### Bug Fixes
