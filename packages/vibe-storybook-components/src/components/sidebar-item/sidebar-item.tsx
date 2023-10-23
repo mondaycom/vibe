@@ -12,7 +12,7 @@ interface SidebarItemProps {
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ children, status }) => {
   return (
-    <Flex justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.MEDIUM}>
+    <Flex className={styles.sidebarItem} justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.MEDIUM}>
       <span className={styles.name}>{children}</span>
       <StatusTag type={status} />
     </Flex>
