@@ -72,6 +72,9 @@ interface TextFieldProps extends VibeComponentProps {
   required?: boolean;
   /** shows loading animation */
   loading?: boolean;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   secondaryDataTestId?: string;
   tabIndex?: number;
@@ -272,7 +275,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
-              dataTestId={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
+              data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}

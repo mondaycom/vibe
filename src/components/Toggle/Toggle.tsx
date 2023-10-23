@@ -8,7 +8,9 @@ import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 
 interface ToggleProps extends VibeComponentProps {
-  // Backward compatibility for props naming
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
   /**
    * ClassName to override styles of selected toggle
@@ -19,7 +21,9 @@ interface ToggleProps extends VibeComponentProps {
   onChange?: (value: boolean) => void;
   value?: string;
   name?: string;
-  // Backward compatibility for props naming
+  /**
+   * @deprecated - use disabled instead
+   */
   isDisabled?: boolean;
   disabled?: boolean;
   areLabelsHidden?: boolean;

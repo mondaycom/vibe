@@ -7,19 +7,19 @@
 
       &--color {
         &-black {
-          background: var(--primary-text-color);
+          background: var(--sb-primary-text-color);
         }
 
         &-negative {
-          background: var(--negative-color);
+          background: var(--sb-negative-color);
         }
 
         &-positive {
-          background: var(--positive-color);
+          background: var(--sb-positive-color);
         }
 
         &-primary {
-          background: var(--primary-color);
+          background: var(--sb-primary-color);
         }
       }
     }
@@ -35,7 +35,7 @@
   &_dos-and-donts {
     &_heading {
       font-size: 32px !important;
-      margin-right: var(--spacing-small) !important;
+      margin-right: var(--sb-spacing-small) !important;
     }
   }
 }

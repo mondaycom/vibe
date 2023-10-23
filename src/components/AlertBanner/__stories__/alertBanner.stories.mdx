@@ -91,7 +91,7 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
 
 ### Types
 
-There are four types of alert banners: primary, negative, positive, and inverted.
+There are five types of alert banners: primary, positive, negative, warning and inverted.
 
 <Canvas>
   <Story name="Types">
@@ -100,11 +100,15 @@ There are four types of alert banners: primary, negative, positive, and inverted
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
+      <AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE}>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
       <AlertBanner backgroundColor={AlertBanner.backgroundColors.NEGATIVE}>
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE}>
+      <AlertBanner backgroundColor={AlertBanner.backgroundColors.WARNING}>
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>

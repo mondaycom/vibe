@@ -12,8 +12,8 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 <Meta
   title="Popover/DialogContentContainer"
   component={DialogContentContainer}
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -36,13 +36,13 @@ This component is a style component, it provide the look and feel of elevation.
 
 <Canvas>
   <Story name="Overview" args={{ children: <DialogContentContainerExample /> }}>
-    { dialogContentContainerTemplate.bind({}) }
+    {dialogContentContainerTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={DialogContentContainer} />
+<ArgsTable story="Overview" />
 
 ## Usage
 

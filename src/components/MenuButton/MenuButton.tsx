@@ -18,6 +18,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./MenuButton.module.scss";
+import { MenuChild } from "../Menu/Menu/MenuConstants";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
 
@@ -27,7 +28,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 interface MenuButtonProps extends VibeComponentProps {
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use className instead
    */
   componentClassName?: string;
   /**
@@ -106,9 +107,9 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use tooltipContent instead
    */
-  disabledReason?: boolean;
+  disabledReason?: string;
   children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
@@ -215,18 +216,16 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       if (removeTabCloseTrigger) {
         triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
       }
-      const childrenArr = React.Children.toArray(children);
+      const childrenArr = React.Children.toArray(children) as MenuChild[];
       const cloned = childrenArr.map(child => {
         if (!React.isValidElement(child)) return null;
 
         const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
-        // @ts-ignore
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
           triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
         }
 
-        // @ts-ignore
         if (child.type && child.type.isMenu) {
           newProps.onClose = onMenuDidClose;
         }
@@ -281,8 +280,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
-    // TODO disabledReason - boolean, why?
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]) as string;
+    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     return (

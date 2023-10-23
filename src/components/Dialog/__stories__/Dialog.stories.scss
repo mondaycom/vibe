@@ -1,6 +1,6 @@
 .monday-storybook-dialog {
   &--story-padding {
-    padding-inline: var(--spacing-small);
+    padding-inline: var(--sb-spacing-small);
     padding-block: 80px;
   }
 
@@ -11,12 +11,12 @@
   }
 
   &_content-example {
-    padding: var(--spacing-small);
+    padding: var(--sb-spacing-small);
     width: 150px;
   }
 
   &_hide-triggers-story {
-    padding-inline: var(--spacing-small);
+    padding-inline: var(--sb-spacing-small);
     .hide-triggers-button {
       margin-block: 48px;
     }

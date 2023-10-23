@@ -14,7 +14,9 @@ import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 
 interface MenuItemButtonProps extends VibeComponentProps {
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   kind?: typeof MenuItemButton.kinds[keyof typeof MenuItemButton.kinds];
   leftIcon?: SubIcon;

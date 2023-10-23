@@ -12,7 +12,9 @@ export enum ButtonColor {
   NEGATIVE = "negative",
   ON_PRIMARY_COLOR = "on-primary-color",
   ON_INVERTED_BACKGROUND = "on-inverted-background",
-  BRAND = "brand"
+  BRAND = "brand",
+  FIXED_LIGHT = "fixed-light"
+  // FIXED_DARK = "fixed-dark"
 }
 
 export const OLD_BUTTON_SIZES = {
@@ -29,7 +31,7 @@ export const getActualSize = (size?: Size) => {
     //  Element implicitly has an 'any' type because expression of type 'Size' can't be used to index type
     //  '{ readonly sm: "small"; readonly md: "medium"; readonly lg: "large"; }'.
     //   Property 'xxs' does not exist on type '{ readonly sm: "small"; readonly md: "medium"; readonly lg: "large"; }'.
-    // @ts-expect-error
+    // @ts-expect-error:  Backward compatibility check for old button sizes
     return OLD_BUTTON_SIZES[size];
   }
 

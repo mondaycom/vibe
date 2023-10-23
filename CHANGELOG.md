@@ -1,5 +1,242 @@
 # Changelog
 
+## 2.52.1 (2023-10-22)
+
+#### Bug Fixes
+* [#1694](https://github.com/mondaycom/monday-ui-react-core/pull/1694) fix: <Dropdown> controlled multi fix option remove ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.52.0 (2023-10-22)
+
+#### New Features
+* [#1691](https://github.com/mondaycom/monday-ui-react-core/pull/1691) feat(EditableInput): expose inputType ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1693](https://github.com/mondaycom/monday-ui-react-core/pull/1693) chore: fix < Tip /> imports to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.51.2 (2023-10-22)
+
+#### Bug Fixes
+* [#1692](https://github.com/mondaycom/monday-ui-react-core/pull/1692) < Slider /> controlled state fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.51.1 (2023-10-22)
+
+#### Bug Fixes
+* [#1678](https://github.com/mondaycom/monday-ui-react-core/pull/1678) fix: <Toast /> close button - replace <Button /> and <Icon /> with <IconButton /> ([@Kritik-J](https://github.com/Kritik-J))
+
+## 2.51.0 (2023-10-19)
+
+#### New Features
+* [#1687](https://github.com/mondaycom/monday-ui-react-core/pull/1687) Add mising data-testid, replace dataTestId (not breaking) ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1683](https://github.com/mondaycom/monday-ui-react-core/pull/1683) feat: < Tipseen /> export hideShowTriggers ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1689](https://github.com/mondaycom/monday-ui-react-core/pull/1689) chore: add @deprecated comments where backwardCompatibilityForProperties is being used ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1684](https://github.com/mondaycom/monday-ui-react-core/pull/1684) docs: fix contributors list to include all contributors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1682](https://github.com/mondaycom/monday-ui-react-core/pull/1682) docs(AlertBanner): fix documentation ([@talkor](https://github.com/talkor))
+* [#1601](https://github.com/mondaycom/monday-ui-react-core/pull/1601) chore(deps-dev): bump postcss from 8.4.21 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### New Icons
+* [#1688](https://github.com/mondaycom/monday-ui-react-core/pull/1688) Update icons - monday-ui-style 0.1.201 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1685](https://github.com/mondaycom/monday-ui-react-core/pull/1685) Update icons - monday-ui-style 0.1.200 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.50.2 (2023-10-18)
+
+#### Bug Fixes
+* [#1680](https://github.com/mondaycom/monday-ui-react-core/pull/1680) fix(types): fix unknown path '/types' ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1656](https://github.com/mondaycom/monday-ui-react-core/pull/1656) chore: < GridKeyboardNavigationContext /> - migrate to TS ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1677](https://github.com/mondaycom/monday-ui-react-core/pull/1677) Update icons - monday-ui-style 0.1.199 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.50.1 (2023-10-18)
+
+#### Bug Fixes
+* [#1671](https://github.com/mondaycom/monday-ui-react-core/pull/1671) Update vibe-storybook-components version, @babel/core version ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.50.0 (2023-10-18)
+
+#### New Features
+* [#1670](https://github.com/mondaycom/monday-ui-react-core/pull/1670) feat(types): export general types ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1653](https://github.com/mondaycom/monday-ui-react-core/pull/1653) chore: resolve lint warnings - < Menu /> ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Icons
+* [#1669](https://github.com/mondaycom/monday-ui-react-core/pull/1669) Update icons - monday-ui-style 0.1.198 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.49.1 (2023-10-16)
+
+#### Internal Changes
+* [#1666](https://github.com/mondaycom/monday-ui-react-core/pull/1666) Bug Fix: Closes [#1661](https://github.com/mondaycom/monday-ui-react-core/issues/1661) Fixed the TS error while using size prop for <ProgressBar /> ([@viditagrawal56](https://github.com/viditagrawal56))
+* [#1665](https://github.com/mondaycom/monday-ui-react-core/pull/1665) chore(deps-dev): bump @babel/traverse from 7.18.2 to 7.23.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## 2.49.0 (2023-10-16)
+
+#### New Features
+* [#1637](https://github.com/mondaycom/monday-ui-react-core/pull/1637) feat: add Toast warning variation ([@talkor](https://github.com/talkor))
+* [#1662](https://github.com/mondaycom/monday-ui-react-core/pull/1662) feat(AlertBanner): add warning variation ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1559](https://github.com/mondaycom/monday-ui-react-core/pull/1559) docs: sidebar tags ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1663](https://github.com/mondaycom/monday-ui-react-core/pull/1663) infra: add build-test in test-workflow.yml ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.48.0 (2023-10-15)
+
+#### Bug Fixes
+* [#1657](https://github.com/mondaycom/monday-ui-react-core/pull/1657) fix: colorpicker indicator is dissapearing when color is selected ([@sayyedarib](https://github.com/sayyedarib))
+
+#### New Features
+* [#1654](https://github.com/mondaycom/monday-ui-react-core/pull/1654) feat: provide props for ariaLabel - < Toast />, < AlertBanner />, < Combobox /> Fixes: #1642 ([@viditagrawal56](https://github.com/viditagrawal56))
+
+## 2.47.3 (2023-10-15)
+
+#### Bug Fixes
+* [#1659](https://github.com/mondaycom/monday-ui-react-core/pull/1659) fix: <BreadcrumbsBar> - shouldn't be clickable when type = Indication ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1660](https://github.com/mondaycom/monday-ui-react-core/pull/1660) docs: fix description of text-color-fixed-light and text-color-fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.47.2 (2023-10-15)
+
+#### Bug Fixes
+* [#1556](https://github.com/mondaycom/monday-ui-react-core/pull/1556) fix: Fix menu item label style ([@talkor](https://github.com/talkor))
+
+## 2.47.1 (2023-10-15)
+
+#### Bug Fixes
+* [#1623](https://github.com/mondaycom/monday-ui-react-core/pull/1623) fix: <Toast> use color - text-color-fixed-light ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1628](https://github.com/mondaycom/monday-ui-react-core/pull/1628) docs: Replace tip alpha warning deprecated warning with vibe storybook components ([@talkor](https://github.com/talkor))
+
+## 2.47.0 (2023-10-12)
+
+#### New Features
+* [#1646](https://github.com/mondaycom/monday-ui-react-core/pull/1646) feat: provide props for ariaLabel - < AvatarGroupCounter />, < TableHeaderCell /> ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Documentation
+* [#1627](https://github.com/mondaycom/monday-ui-react-core/pull/1627) docs: replace all <a/> tags with <Link/> in stories ([@evadrake89](https://github.com/evadrake89))
+
+#### Internal Changes
+* [#1652](https://github.com/mondaycom/monday-ui-react-core/pull/1652) Resolved lint warnings - < Slider />, < StepIndicator />, < Bar />, <TabsContext /> ([@balajik](https://github.com/balajik))
+* [#1640](https://github.com/mondaycom/monday-ui-react-core/pull/1640) chore: fix Github actions lint warnings - < Button /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#1643](https://github.com/mondaycom/monday-ui-react-core/pull/1643) chore: fix Github actions lint warnings - < ColorPicker /> ([@Kritik-J](https://github.com/Kritik-J))
+* [#1639](https://github.com/mondaycom/monday-ui-react-core/pull/1639) docs: Text.stories cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1636](https://github.com/mondaycom/monday-ui-react-core/pull/1636) chore: fix github actions lint warnings - <AlertBanner /> ([@Dhoni77](https://github.com/Dhoni77))
+* [#1635](https://github.com/mondaycom/monday-ui-react-core/pull/1635) chore: fix github actions lint warnings - < Checkbox /> tests ([@Dhoni77](https://github.com/Dhoni77))
+* [#1634](https://github.com/mondaycom/monday-ui-react-core/pull/1634) chore: fix Github actions lint warnings - < AvatarGroup /> ([@Kritik-J](https://github.com/Kritik-J))
+
+## 2.46.3 (2023-10-09)
+
+#### Bug Fixes
+* [#1624](https://github.com/mondaycom/monday-ui-react-core/pull/1624) fix: <Counter> use color - text-color-fixed-light ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.46.2 (2023-10-09)
+
+#### Bug Fixes
+* [#1619](https://github.com/mondaycom/monday-ui-react-core/pull/1619) fix: <MenuDivider/> - added necessary stylings ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+
+#### Documentation
+* [#1621](https://github.com/mondaycom/monday-ui-react-core/pull/1621) docs: <Checkbox> Usage guidelines - fix font #1577 ([@SoumyadiptoPal](https://github.com/SoumyadiptoPal))
+* [#1600](https://github.com/mondaycom/monday-ui-react-core/pull/1600) docs: fix links ([@Dhoni77](https://github.com/Dhoni77))
+* [#1618](https://github.com/mondaycom/monday-ui-react-core/pull/1618) docs: add npm version badge ([@talkor](https://github.com/talkor))
+* [#1616](https://github.com/mondaycom/monday-ui-react-core/pull/1616) chore: cleanup in stories controls ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1599](https://github.com/mondaycom/monday-ui-react-core/pull/1599) docs: enable controls for some of the stories ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1626](https://github.com/mondaycom/monday-ui-react-core/pull/1626) chore: cleanup, update vibe-storybook-components to ^0.8.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1612](https://github.com/mondaycom/monday-ui-react-core/pull/1612) test: add editable heading interaction test ([@jes14](https://github.com/jes14))
+
+## 2.46.1 (2023-10-05)
+
+#### Bug Fixes
+* [#1615](https://github.com/mondaycom/monday-ui-react-core/pull/1615) fix: <AttentionBox> don't apply defaultIcon for case when icon=null ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.46.0 (2023-10-04)
+
+#### New Features
+* [#1611](https://github.com/mondaycom/monday-ui-react-core/pull/1611) feat: <AttentionBox> - update default icon for Primary type to Info icon ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Internal Changes
+* [#1613](https://github.com/mondaycom/monday-ui-react-core/pull/1613) chore: Update snapshots ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.45.0 (2023-10-04)
+
+#### New Features
+* [#1595](https://github.com/mondaycom/monday-ui-react-core/pull/1595) feat: update label with VibeComponent ([@jes14](https://github.com/jes14))
+
+#### Documentation
+* [#1504](https://github.com/mondaycom/monday-ui-react-core/pull/1504) docs: separate docs tokens from components tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1609](https://github.com/mondaycom/monday-ui-react-core/pull/1609) docs: Shortening texts - add space before the link ([@Kritik-J](https://github.com/Kritik-J))
+* [#1608](https://github.com/mondaycom/monday-ui-react-core/pull/1608) docs: added a link to Combobox on the Menu page  ([@SarthakD15](https://github.com/SarthakD15))
+
+#### Internal Changes
+* [#1610](https://github.com/mondaycom/monday-ui-react-core/pull/1610) infra: Fix workflows running twice ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1603](https://github.com/mondaycom/monday-ui-react-core/pull/1603) infra: allow running chromatic workflow on pull_request ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.44.1 (2023-10-04)
+
+#### Bug Fixes
+* [#1604](https://github.com/mondaycom/monday-ui-react-core/pull/1604) Revert "chore: enforce using npm" ([@talkor](https://github.com/talkor))
+
+## 2.44.0 (2023-10-03)
+
+#### Bug Fixes
+* [#1594](https://github.com/mondaycom/monday-ui-react-core/pull/1594) fix: <Avatar> remove default tabIndex = 0 ([@Kritik-J](https://github.com/Kritik-J))
+* [#1582](https://github.com/mondaycom/monday-ui-react-core/pull/1582) fix: <MenuButton> disabledReason?: boolean change type to string ([@Franqsanz](https://github.com/Franqsanz))
+
+#### New Features
+* [#1586](https://github.com/mondaycom/monday-ui-react-core/pull/1586) feat: <AttentionBox> closeButton - add hideTooltip and closeButtonAriaLabel prop ([@Kritik-J](https://github.com/Kritik-J))
+* [#1585](https://github.com/mondaycom/monday-ui-react-core/pull/1585) feat: <Chips> - add closeButtonAriaLabel as a prop ([@Kritik-J](https://github.com/Kritik-J))
+
+#### Documentation
+* [#1593](https://github.com/mondaycom/monday-ui-react-core/pull/1593) fix text in a few places ([@Vijeth56](https://github.com/Vijeth56))
+* [#1591](https://github.com/mondaycom/monday-ui-react-core/pull/1591) docs: replace legacy links with the new ones ([@jes14](https://github.com/jes14))
+* [#1592](https://github.com/mondaycom/monday-ui-react-core/pull/1592) docs: Add space between <Combobox> tips and links ([@anirudhsudhir](https://github.com/anirudhsudhir))
+
+#### Internal Changes
+* [#1596](https://github.com/mondaycom/monday-ui-react-core/pull/1596) chore: enforce using npm ([@talkor](https://github.com/talkor))
+* [#1590](https://github.com/mondaycom/monday-ui-react-core/pull/1590) Sergeyro/chore/cleanup  ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1597](https://github.com/mondaycom/monday-ui-react-core/pull/1597) Update icons - monday-ui-style 0.1.196 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.43.0 (2023-10-02)
+
+#### New Features
+* [#1570](https://github.com/mondaycom/monday-ui-react-core/pull/1570) feat(useActiveDescendantListFocus): add option to ignoreDocumentFallback to prevent vibe from adding event listeners ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1563](https://github.com/mondaycom/monday-ui-react-core/pull/1563) docs: <Dialog> story improvements - UsageGuidelines, add links ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1551](https://github.com/mondaycom/monday-ui-react-core/pull/1551) chore: set browserslist config to specific version to avoid breaking changes, update caniuse browserslist ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.42.0 (2023-10-02)
+
+#### New Features
+* [#1565](https://github.com/mondaycom/monday-ui-react-core/pull/1565) Replace Rubik with Noto Sans Hebrew ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1564](https://github.com/mondaycom/monday-ui-react-core/pull/1564) docs: component-name-decorator- text color = fixed-dark ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.41.2 (2023-10-01)
+
+#### Bug Fixes
+* [#1561](https://github.com/mondaycom/monday-ui-react-core/pull/1561) fix(Label): apply preventDefault when calling onClick event ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1558](https://github.com/mondaycom/monday-ui-react-core/pull/1558) useClickOutside event name argument documentation ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1562](https://github.com/mondaycom/monday-ui-react-core/pull/1562) chore(rollup): export sourcemap with build ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.41.1 (2023-09-27)
 
 #### Bug Fixes

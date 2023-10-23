@@ -21,7 +21,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
-        <Button dataTestId={testId}>hello</Button>
+        <Button data-testid={testId}>hello</Button>
       </Tooltip>
     );
     fireEvent.focus(getByTestId(testId));
@@ -33,7 +33,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow} addKeyboardHideShowTriggersByDefault>
-        <Button dataTestId={testId}>hello</Button>
+        <Button data-testid={testId}>hello</Button>
       </Tooltip>
     );
     fireEvent.focus(getByTestId(testId));
@@ -60,7 +60,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
-        <Button dataTestId={testId}>hello</Button>
+        <Button data-testid={testId}>hello</Button>
       </Tooltip>
     );
     fireEvent.mouseOver(getByTestId(testId));
@@ -74,7 +74,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide} addKeyboardHideShowTriggersByDefault>
-        <Button dataTestId={testId}>hello</Button>
+        <Button data-testid={testId}>hello</Button>
       </Tooltip>
     );
     fireEvent.mouseOver(getByTestId(testId));

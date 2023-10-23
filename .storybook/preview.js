@@ -2,7 +2,7 @@ import { addParameters } from "@storybook/react";
 import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withPerformance } from "storybook-addon-performance";
 import "monday-ui-style/dist/index.min.css";
-import { AlphaWarning, ComponentNameDecorator, RelatedComponentsDecorator, Tip } from "../src/storybook";
+import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
 import {
   AnchorListItem,
   ComponentRules,
@@ -10,10 +10,11 @@ import {
   Frame,
   FunctionArgument,
   FunctionArguments,
-  LinkComponent,
+  Link,
   MultipleStoryElementsWrapper,
   Paragraph,
   SectionName,
+  Tip,
   Title,
   UnstyledList,
   UnstyledListItem,
@@ -41,9 +42,10 @@ addParameters({
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
-      a: LinkComponent,
+      a: Link,
       p: Paragraph,
       Tip,
+      Link,
       ComponentName: ComponentNameDecorator,
       ComponentRules,
       UsageGuidelines,
@@ -52,8 +54,7 @@ addParameters({
       RelatedComponents: RelatedComponentsDecorator,
       Frame,
       UnstyledList,
-      UnstyledListItem,
-      AlphaWarning
+      UnstyledListItem
     }
   },
   viewMode: "docs",

@@ -1,10 +1,9 @@
 import { Meta } from "@storybook/addon-docs";
-import { Frame, Link } from "vibe-storybook-components";
+import { Frame, Link, AlphaWarning } from "vibe-storybook-components";
 import { TextStyles } from "./text-styles/text-styles";
 import TextColors from "../colors/text-colors/text-colors";
 import { COLORS, SHADOW, SPACING } from "../../components/related-components/component-description-map";
 import { typographyExample1, typographyExample2 } from "./assets";
-import { AlphaWarning } from "../../components/alpha-warning/alpha-warning";
 import "./typography.scss";
 
 <Meta title="Foundations/Typography" />
@@ -23,7 +22,7 @@ import "./typography.scss";
 
 ## Overview
 
-Like in other ui in mondays interface, typography works by principle of accessibility before aesthetics.
+Like in other UI in mondays interface, typography works by principle of accessibility before aesthetics.
 Therefore the text should be readable and help the user understand what’s important by well contrasted size and colors hierarchy.
 
 ## Fonts
@@ -42,8 +41,8 @@ We don't import the font within our CSS in order to give full control of the fon
 More ever this is how we are building our css variable for our main font families
 
 ```css
---font-family: Figtree, Roboto, Rubik, Noto Kufi Arabic, Noto Sans JP, sans-serif;
---title-font-family: Poppins, Roboto, Rubik, Noto Kufi Arabic, Noto Sans JP, sans-serif;
+--font-family: Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
+--title-font-family: Poppins, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
 ```
 
 ## Text styles

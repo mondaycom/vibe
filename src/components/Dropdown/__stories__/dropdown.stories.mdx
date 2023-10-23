@@ -1,6 +1,7 @@
 import Dropdown from "../Dropdown";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { StoryDescription, Link } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   COMBOBOX,
@@ -8,18 +9,12 @@ import {
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
 import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
-import Label from "../../Label/Label";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
-import Avatar from "../../Avatar/Avatar";
 import { OptionRenderer } from "./OptionRenderer.js";
-import Flex from "../../Flex/Flex";
-import { StoryDescription, Link } from "vibe-storybook-components";
-import { Attach, CloseSmall, Email } from "../../Icon/Icons";
-import { DialogContentContainer, DropdownMenu, DropdownOption, DropdownSingleValue, Icon } from "../../index";
-import Dialog from "../../Dialog/Dialog";
-import Button from "../../Button/Button";
+import { Attach, Email } from "../../Icon/Icons";
+import { DialogContentContainer, Dialog, Button, Flex, Avatar, Label } from "../../index";
 import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -35,7 +30,8 @@ export const metaSettings = createStoryMetaSettingsDecorator({
     "onOptionRemove",
     "onOptionSelect",
     "onClear",
-    "onInputChange"
+    "onInputChange",
+    "onKeyDown"
   ]
 });
 
@@ -93,7 +89,7 @@ Dropdown present a list of options from which a user can select one or several.
 
 ## Props
 
-<ArgsTable of={Dropdown} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
@@ -588,12 +584,12 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
   </Story>
 </Canvas>
 
-### Dropdown with lables
+### Dropdown with labels
 
 A dropdown menu can include labels.
 
 <Canvas>
-  <Story name="Dropdown with lables">
+  <Story name="Dropdown with labels">
     {() => {
       const labelRenderer = useCallback(({ label, color }) => {
         return <Label text={label} color={color} isAnimationDisabled />;
@@ -652,8 +648,6 @@ A classic dropdown presents options a user needs to choose from.
 </Canvas>
 
 ### Dropdown with groups
-
-Dropdown with group.
 
 <Canvas>
   <Story name="Dropdown with groups">
@@ -817,6 +811,36 @@ If you need to programmatically control Dropdown state, use `ref` prop. Pay atte
           <Button onClick={focusDropdownInput} className="dropdown-stories-styles_button">
             Focus dropdown input
           </Button>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown value selection
+
+Control the value selection mechanism with the <code>tabSelectsValue</code> (default: true) prop.
+
+<Canvas>
+  <Story name="Dropdown value selection">
+    {() => {
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" }
+        ],
+        []
+      );
+      return (
+        <Flex gap={Flex.gaps.LARGE}>
+          <Dropdown placeholder="Tab selects value" options={options} className="dropdown-stories-styles_big-spacing" />
+          <Dropdown
+            placeholder="Tab does not select value"
+            options={options}
+            tabSelectsValue={false}
+            className="dropdown-stories-styles_big-spacing"
+          />
         </Flex>
       );
     }}

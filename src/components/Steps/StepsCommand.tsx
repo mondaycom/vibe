@@ -46,7 +46,9 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   return (
     <Button
       className={cx(styles.command, { [styles.forward]: isNext, [styles.backward]: !isNext })}
-      dataTestId={isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND}
+      data-testid={
+        isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND
+      }
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisabled}

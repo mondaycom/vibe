@@ -86,6 +86,9 @@ export interface ButtonProps extends VibeComponentProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */
@@ -168,7 +171,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
     });
     useEffect(() => {
-      if (color !== ButtonColor.ON_PRIMARY_COLOR) return;
+      if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
       if (!buttonRef.current) return;
 
@@ -260,7 +263,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
 
     const buttonProps = useMemo(() => {
-      const props: Record<string, any> = {
+      const props: Record<string, unknown> = {
         ref: mergedRef,
         type,
         className: classNames,

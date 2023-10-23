@@ -1,17 +1,13 @@
 import HiddenText from "../HiddenText";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, Tip } from "vibe-storybook-components";
 import {
   CLICKABLE,
   HEADING,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
-import { Tip } from "../../../storybook/components";
 
-<Meta
-  title="Accessibility/HiddenText"
-  component={ HiddenText }
-/>
+<Meta title="Accessibility/HiddenText" component={HiddenText} />
 
 <!--- Component template -->
 
@@ -20,6 +16,7 @@ export const hiddenTextTemplate = createComponentTemplate(HiddenText);
 <!--- Component documentation -->
 
 # HiddenText
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -27,23 +24,29 @@ export const hiddenTextTemplate = createComponentTemplate(HiddenText);
 - [Feedback](#feedback)
 
 ## Overview
+
 Hidden text helps us to create a text which is accessible to screen reader users but not to users who see the screen.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {text: "Hello hidden text"} }>
-    { hiddenTextTemplate.bind({}) }
+  <Story name="Overview" args={{ text: "Hello hidden text" }}>
+    {hiddenTextTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ HiddenText } />
+
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use hidden text for writing a text which should be exposed to screen reader users only.",
-]}/>
 
-<Tip> If your text should be hidden from everyone please hide it by using CSS with "display: none" or "visibility: hidden".</Tip>
+<UsageGuidelines
+  guidelines={["Use hidden text for writing a text which should be exposed to screen reader users only."]}
+/>
+
+<Tip>
+  If your text should be hidden from everyone please hide it by using CSS with "display: none" or "visibility: hidden".
+</Tip>
 
 ## Related components
+
 <RelatedComponents componentsNames={[CLICKABLE, HEADING, TEXT_FIELD]} />

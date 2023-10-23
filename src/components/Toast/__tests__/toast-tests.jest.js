@@ -2,6 +2,7 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Toast from "../Toast";
+import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const renderComponent = props => {
   return render(<Toast {...props} />);
@@ -14,7 +15,7 @@ describe("Toast tests", () => {
       open: true,
       onClose: onCloseMock
     });
-    const closeButton = toast.getByLabelText("close-toast");
+    const closeButton = toast.getByTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON);
 
     act(() => {
       fireEvent.click(closeButton);

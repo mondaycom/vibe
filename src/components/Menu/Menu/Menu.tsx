@@ -22,7 +22,7 @@ import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMen
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
-import { CloseMenuOption } from "./MenuConstants";
+import { CloseMenuOption, MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -32,7 +32,9 @@ import { generateMenuItemId } from "./utils/utils";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps extends VibeComponentProps {
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   size?: typeof SIZES[keyof typeof SIZES];
   tabIndex?: number;
@@ -86,9 +88,8 @@ const Menu: VibeComponent<MenuProps> & {
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
 
     const children = useMemo(() => {
-      const allChildren = React.Children.toArray(originalChildren);
+      const allChildren = React.Children.toArray(originalChildren) as MenuChild[];
       return allChildren.filter(child => {
-        // @ts-ignore
         if (child.type.isMenuChild) return true;
         console.error(
           "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",

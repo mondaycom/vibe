@@ -36,6 +36,8 @@ export const colorsMap = [
   },
   { color: "--text-color-on-inverted", description: "Inverted text color (opposite of primary text color)" },
   { color: "--text-color-on-primary", description: "Use for text on primary color" },
+  { color: "--text-color-fixed-light", description: "Use for text that should remain light in all themes" },
+  { color: "--text-color-fixed-dark", description: "Use for text that should remain dark in all themes" },
   // states
   {
     color: "--positive-color",
@@ -236,6 +238,11 @@ export const ElementAllowedColor = {
 };
 
 export type ElementColor = typeof ElementAllowedColor[keyof typeof ElementAllowedColor] | string;
+
+export const elementColorsNames = Object.values(ElementAllowedColor).reduce((acc: Record<string, string>, key) => {
+  acc[key] = key;
+  return acc;
+}, {});
 
 const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) => {
   return Object.keys(colors)[Object.values(colors).indexOf(colorValue)];

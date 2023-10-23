@@ -7,8 +7,8 @@ import {
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
-import { Tip, createStoryMetaSettingsDecorator } from "../../../storybook";
-import { StoryDescription, Link, ComponentRules, createComponentTemplate } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { Tip, StoryDescription, Link, ComponentRules, createComponentTemplate } from "vibe-storybook-components";
 import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
@@ -81,9 +81,9 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 <Tip>
   If you want to stack multiple avatars together, check out
-  <a href="/?path=/docs/media-avatar-avatargroup--overview" size={Link.sizes.SMALL}>
+  <Link href="/?path=/docs/media-avatar-avatargroup--overview" size={Link.sizes.SMALL}>
     AvatarGroup
-  </a>
+  </Link>
   component
 </Tip>
 

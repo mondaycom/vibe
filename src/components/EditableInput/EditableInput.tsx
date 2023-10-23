@@ -13,7 +13,7 @@ import {
   isTabEvent
 } from "../../utils/dom-event-utils";
 import VibeComponent from "../../types/VibeComponent";
-import { VibeComponentProps } from "../../types";
+import { VibeComponentProps, withStaticProps } from "../../types";
 import { InputType } from "./EditableInputConstants";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./EditableInput.module.scss";
@@ -49,7 +49,9 @@ export interface EditableInputProps extends VibeComponentProps {
   onTabHandler?: (value: string, event: React.KeyboardEvent) => void;
 }
 
-const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
+const EditableInput: VibeComponent<EditableInputProps> & {
+  inputTypes?: typeof InputType;
+} = forwardRef(
   (
     {
       className,
@@ -255,4 +257,6 @@ const EditableInput: VibeComponent<EditableInputProps> = forwardRef(
   }
 );
 
-export default EditableInput;
+export default withStaticProps(EditableInput, {
+  inputTypes: InputType
+});

@@ -5,7 +5,7 @@ exports[`Toast renders correctly (renders nothing) with empty props 1`] = `null`
 exports[`Toast renders correctly and don't renders close button if closeable=false 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -46,7 +46,7 @@ exports[`Toast renders correctly when icon is hidden 1`] = `null`;
 exports[`Toast renders correctly when open is true 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -80,15 +80,24 @@ exports[`Toast renders correctly when open is true 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeMedium kindTertiary colorFixedLight noSidePadding"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": "32px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "32px",
+      }
+    }
     type="button"
   >
     <svg
@@ -96,10 +105,10 @@ exports[`Toast renders correctly when open is true 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="20px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="20px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -115,7 +124,7 @@ exports[`Toast renders correctly when open is true 1`] = `
 exports[`Toast renders correctly with button 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -153,7 +162,7 @@ exports[`Toast renders correctly with button 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="actionButton button sizeSmall kindSecondary colorOnPrimaryColor"
+      className="actionButton button sizeSmall kindSecondary colorFixedLight"
       data-testid="toast-button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -168,15 +177,24 @@ exports[`Toast renders correctly with button 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeMedium kindTertiary colorFixedLight noSidePadding"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": "32px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "32px",
+      }
+    }
     type="button"
   >
     <svg
@@ -184,10 +202,10 @@ exports[`Toast renders correctly with button 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="20px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="20px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -203,7 +221,7 @@ exports[`Toast renders correctly with button 1`] = `
 exports[`Toast renders correctly with button and link 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -259,7 +277,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="actionButton button sizeSmall kindSecondary colorOnPrimaryColor"
+      className="actionButton button sizeSmall kindSecondary colorFixedLight"
       data-testid="toast-button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -274,15 +292,24 @@ exports[`Toast renders correctly with button and link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeMedium kindTertiary colorFixedLight noSidePadding"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": "32px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "32px",
+      }
+    }
     type="button"
   >
     <svg
@@ -290,10 +317,10 @@ exports[`Toast renders correctly with button and link 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="20px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="20px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -309,7 +336,7 @@ exports[`Toast renders correctly with button and link 1`] = `
 exports[`Toast renders correctly with link 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNormal"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNormal"
   data-testid="toast"
   role="alert"
 >
@@ -364,15 +391,24 @@ exports[`Toast renders correctly with link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeMedium kindTertiary colorFixedLight noSidePadding"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": "32px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "32px",
+      }
+    }
     type="button"
   >
     <svg
@@ -380,10 +416,10 @@ exports[`Toast renders correctly with link 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="20px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="20px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -399,7 +435,7 @@ exports[`Toast renders correctly with link 1`] = `
 exports[`Toast renders correctly with negative type 1`] = `
 <div
   aria-live="polite"
-  className="typography onPrimary start singleLineEllipsis text text2Normal toast typeNegative"
+  className="typography fixedLight start singleLineEllipsis text text2Normal toast typeNegative"
   data-testid="toast"
   role="alert"
 >
@@ -433,15 +469,24 @@ exports[`Toast renders correctly with negative type 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-label="close-toast"
+    aria-label="Close"
     aria-pressed={false}
-    className="closeButton button sizeSmall kindTertiary colorOnPrimaryColor"
-    data-testid="button"
+    className="closeButton button sizeMedium kindTertiary colorFixedLight noSidePadding"
+    data-testid="toast-close-button"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "height": "32px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "32px",
+      }
+    }
     type="button"
   >
     <svg
@@ -449,10 +494,10 @@ exports[`Toast renders correctly with negative type 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="20px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="20px"
+      width="20"
     >
       <path
         clipRule="evenodd"

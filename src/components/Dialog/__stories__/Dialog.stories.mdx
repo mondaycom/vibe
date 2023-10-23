@@ -1,8 +1,15 @@
-import Dialog from "../Dialog";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Link } from "vibe-storybook-components";
-import { Button, DialogContentContainer, IconButton, AttentionBox } from "../../../components";
+import {
+  Dialog,
+  Button,
+  DialogContentContainer,
+  IconButton,
+  AttentionBox,
+  AttentionBoxLink,
+  Flex
+} from "../../../components";
 import { ExampleContent } from "./helpers";
 import { Info } from "../../Icon/Icons";
 import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions.ts";
@@ -18,7 +25,6 @@ import {
   DIALOG_CONTENT_CONTAINER,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
-import Flex from "../../Flex/Flex";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
 
@@ -125,19 +131,23 @@ Please be aware that the dialog component is not responsible for the appearance 
   guidelines={[
     "Dialog can appear from top, bottom, left and right to an element",
     "Usually, the dialog will be positioned next to the triggered element.",
-    <span>
+    <>
       The Dialog component is mainly used to create customized menus that cannot be developed using our
-      <Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link> and <Link href="?path=/docs/buttons-menubutton--overview">
-        MenuButton
-      </Link> components.
-    </span>
+      <Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link>
+      and
+      <Link href="?path=/docs/buttons-menubutton--overview">MenuButton</Link>
+      components.
+    </>
   ]}
 />
 
-<AttentionBox
-  title="Trying to implement your own customize menu?"
-  text="Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such as our menu component, because creating an over-complicated UI can hurt user experience."
-/>
+<AttentionBox title="Trying to implement your own customize menu?">
+  <>
+    Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such
+    as our <AttentionBoxLink href="/?path=/docs/navigation-menu-menu--overview" text="Menu component" />, because
+    creating an over-complicated UI can hurt user experience.
+  </>
+</AttentionBox>
 
 <Tip title="Wishing to position your pop over in the center of the page?">
   Exactly for this purpose, we created the
@@ -246,7 +256,7 @@ Please be aware that the dialog component is not responsible for the appearance 
 We can choose what will be the related element's trigger which will be responsible for the dialog appearance
 
 <Canvas>
-  <Story name="Show triggers" parameters={{ chromatic: { pauseAnimationAtEnd: true }}}>
+  <Story name="Show triggers" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
     {() => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: clickButtonActive, onChange: onClickClickButton } = useSwitch({ defaultChecked: false });
@@ -621,16 +631,18 @@ Prevent containerSelector scroll when dialog open
 </Canvas>
 
 <Tip title="Dev tip">
-  If you wish to implement a Dropdown inside a Dialog container and need help displaying the Dropdown's popovers
-  correctly, read more about our Dropdown in popovers technical pattern{" "}
-  <Link
+  If you wish to implement a
+  <Link href="/?path=/docs/inputs-dropdown--overview" size={Link.sizes.SMALL}>
+    Dropdown
+  </Link>
+  inside a Dialog container and need help displaying the Dropdown's popovers correctly, read more about our Dropdown in popovers
+  technical pattern <Link
     href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
     size={Link.sizes.SMALL}
     withoutSpacing
   >
     here
-  </Link>
-  .
+  </Link>.
 </Tip>
 
 ## Related components

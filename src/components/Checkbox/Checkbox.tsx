@@ -16,10 +16,11 @@ import styles from "./Checkbox.module.scss";
 export interface CheckBoxProps extends VibeComponentProps {
   /** A classname to be added to the wrapping element */
   className?: string;
-  // Backward compatibility for props naming
-  /** deprecated */
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
-  /** A classname to be added to the cehckbox element label */
+  /** A classname to be added to the checkbox element label */
   checkboxClassName?: string;
   /** A classname to be added to the label element */
   labelClassName?: string;

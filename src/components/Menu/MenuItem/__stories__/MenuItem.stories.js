@@ -5,6 +5,7 @@ import Menu from "../../Menu/Menu";
 import { Activity, Bolt, Settings } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
+import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 
 export const menuItemTemplate = args => (
   <Menu>
@@ -31,26 +32,32 @@ export const menuItemIconsWithColorsTemplate = args => {
   return (
     <Menu>
       <MenuItem
-        title="My Item (stuck red)"
+        title="My Item (negative)"
         icon={Settings}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-stuck-red)"
+        iconBackgroundColor="var(--sb-negative-color)"
       />
       <MenuItem
-        title="My Item (done green)"
+        title="My Item (positive)"
         icon={Activity}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-done-green)"
+        iconBackgroundColor="var(--sb-positive-color)"
       />
       <MenuItem
-        title="My Item (indigo)"
+        title="My Item (purple)"
         icon={Bolt}
         iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--color-indigo)"
+        iconBackgroundColor="var(--sb-color-purple)"
       />
     </Menu>
   );
 };
+
+export const menuItemLabelTemplate = args => (
+  <Menu>
+    <MenuItem title="Menu item" label="New" />
+  </Menu>
+);
 
 export const menuItemOverflowTemplate = args => {
   return (
@@ -89,3 +96,23 @@ export const menuItemTooltipTemplate = args => {
     </Menu>
   );
 };
+
+export const menuItemWithLabelDoTemplate = args => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu item 1" label="New" />
+      <MenuItem title="Menu item 2" />
+      <MenuItem title="Menu item 3" />
+    </Menu>
+  </DialogContentContainer>
+);
+
+export const menuItemWithLabelDontTemplate = args => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu Item 1" label="Long menu item label" />
+      <MenuItem title="Menu Item 2" />
+      <MenuItem title="Menu Item 3" />
+    </Menu>
+  </DialogContentContainer>
+);

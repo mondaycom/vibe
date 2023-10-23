@@ -79,6 +79,7 @@ const Dropdown = forwardRef(
       isLoading,
       loadingMessage,
       ariaLabel,
+      tabSelectsValue = true,
       popupsContainerSelector,
       "data-testid": dataTestId
     },
@@ -204,13 +205,13 @@ const Dropdown = forwardRef(
         if (customOnOptionRemove) {
           customOnOptionRemove(selectedOptionsMap[optionValue]);
         }
-        const newSelectedOptions = selected.filter(option => option.value !== optionValue);
+        const newSelectedOptions = selectedOptions.filter(option => option.value !== optionValue);
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
         setSelected(newSelectedOptions);
       };
-    }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selectedOptions, selectedOptionsMap]);
 
     const customProps = useMemo(
       () => ({
@@ -250,7 +251,7 @@ const Dropdown = forwardRef(
           }
 
           if (!isControlled) {
-            setSelected([...selected, selectedOption]);
+            setSelected([...selectedOptions, selectedOption]);
           }
           break;
         }
@@ -354,6 +355,7 @@ const Dropdown = forwardRef(
         isOptionSelected={isOptionSelected}
         isLoading={isLoading}
         loadingMessage={loadingMessage}
+        tabSelectsValue={tabSelectsValue}
         {...asyncAdditions}
         {...additions}
       />
@@ -630,7 +632,11 @@ Dropdown.propTypes = {
   /**
    * aria-label attribute for dropdown
    */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  /**
+   * Overrides the built-in logic of tab selecting value (default: true)
+   */
+  tabSelectsValue: PropTypes.bool
 };
 
 export default Dropdown;

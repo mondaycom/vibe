@@ -54,7 +54,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           : Chips.colors.PRIMARY;
         return index >= from && index < to ? (
           <Chips
-            dataTestId="value-container-chip"
+            data-testid="value-container-chip"
             key={option.value}
             className={chipClassName}
             noAnimation

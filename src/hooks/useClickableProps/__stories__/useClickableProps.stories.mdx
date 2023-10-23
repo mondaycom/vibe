@@ -1,7 +1,6 @@
 import { useCallback, useRef } from "react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { Tip } from "../../../storybook";
-import { Link } from "vibe-storybook-components";
+import { Link, Tip } from "vibe-storybook-components";
 import useClickableProps from "../useClickableProps";
 import "./useClickableProps.stories.scss";
 
@@ -173,7 +172,7 @@ Return props for making an element or component clickable by mouse and keyboard 
     description={
       <>
         A React
-        <Link size={Link.sizes.SMALL} href="https://reactjs.org/docs/hooks-reference.html#useref">
+        <Link size={Link.sizes.SMALL} href="https://react.dev/reference/react/useRef">
           ref
         </Link>
         object for the clickable element.

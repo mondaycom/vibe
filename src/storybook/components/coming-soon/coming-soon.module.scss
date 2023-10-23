@@ -1,6 +1,4 @@
-@import "../../styles/content-spacing";
-
-.coming-soon{
+.coming-soon {
   &-container {
     display: flex;
     justify-content: center;
@@ -9,7 +7,7 @@
   }
   &-image {
     width: 374px;
-    margin: $spacing-between-section-items;
+    margin: var(--sb-spacing-between-section-items);
   }
   &-title {
     width: 374px;
