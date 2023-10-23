@@ -4,7 +4,7 @@ import Tip from '../tip/tip';
 
 interface DeprecatedWarningProps {
   alternativeName: string;
-  alternativeLink?: string;
+  alternativeLink: string;
 }
 
 const DeprecatedWarning: FC<DeprecatedWarningProps> = ({ alternativeName, alternativeLink }) => (
