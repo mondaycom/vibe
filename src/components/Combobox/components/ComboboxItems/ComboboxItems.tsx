@@ -26,6 +26,7 @@ interface ComboboxItemsProps extends IComboboxOptionEvents {
   onActiveCategoryChanged?: (category: IComboboxItem) => void;
   maxOptionsWithoutScroll?: number;
   itemsMap?: Map<string, IComboboxItem>;
+  stickyCategories?: boolean;
 }
 
 export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
@@ -46,7 +47,8 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
-      itemsMap
+      itemsMap,
+      stickyCategories
     },
     ref: RefObject<HTMLDivElement>
   ) => {
@@ -63,6 +65,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
     const createItemElementRenderer = useCallback(
       (item: IComboboxItem, index: number, style: CSSProperties) =>
         comboboxItemRenderer({
+          stickyCategories,
           item,
           style,
           optionEvents: {
