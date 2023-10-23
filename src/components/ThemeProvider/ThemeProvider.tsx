@@ -13,15 +13,19 @@ export interface ThemeProviderProps {
    * The children to render with the theme
    */
   children: ReactElement;
+  /**
+   * Random string which adds up to theme name to make it more specific (in case if theme.name is colliding with some other class name)
+   */
+  randomStringSelector?: string;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children }) => {
+} = ({ theme, children, randomStringSelector: customRandomStringSelector }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   // Using random string selector to secure selector by making it more specific - if theme name is not unique
-  const randomStringSelector = useState(generateRandomAlphaString())[0];
+  const randomStringSelector = useState(customRandomStringSelector || generateRandomAlphaString())[0];
 
   useEffect(() => {
     if (!theme || !theme?.name) {
