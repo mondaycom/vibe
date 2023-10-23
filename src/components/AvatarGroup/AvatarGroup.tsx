@@ -41,7 +41,7 @@ interface AvatarGroupProps extends VibeComponentProps {
   /**
    * Whether or not to render the AvatarGroup with padding
    */
-  padding?: boolean
+  padding?: boolean;
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -60,23 +60,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     const childrenArray = Array.isArray(children) ? children : [children];
     return {
-      displayAvatars: childrenArray.slice(0, max).map((avatar) => {
-        return React.cloneElement(avatar, {
-          ...avatar?.props,
-          className: cx(styles.avatarContainer, avatarClassName, padding && styles.noPadding)
-        });
-      }),
-      counterTooltipAvatars: childrenArray.slice(max)
-    };
-  }, [children, max, padding]);
-
-  if (!children) {
-    return null;
-  }
-
-  return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id} style={{ padding: padding ? 0 : undefined }}>
-      {displayAvatars.map((avatar, index) => {
+      displayAvatars: childrenArray.slice(0, max).map((avatar, index) => {
         return React.cloneElement(avatar, {
           key: index,
           ...avatar?.props,
@@ -85,7 +69,18 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
           className: cx(styles.avatarContainer, avatarClassName),
           onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
         });
-      })}
+      }),
+      counterTooltipAvatars: childrenArray.slice(max)
+    };
+  }, [avatarClassName, children, max, size, type]);
+
+  if (!children) {
+    return null;
+  }
+
+  return (
+    <div className={cx(styles.avatarGroupContainer, className, { [styles.noPadding]: !padding })} id={id}>
+      {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
