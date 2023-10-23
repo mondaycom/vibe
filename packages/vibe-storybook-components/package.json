@@ -16,8 +16,16 @@
     ".": "./dist/index.js",
     "./index.css": "./dist/index.css",
     "./mixins": "./dist/_mixins.scss",
+    "./types": "./dist/types/published-types.d.ts",
     "./package.json": "./package.json",
     "./dist/": "./dist/"
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "./dist/types/published-types.d.ts"
+      ]
+    }
   },
   "files": [
     "dist/",
@@ -43,7 +51,8 @@
   ],
   "dependencies": {
     "browserslist-config-monday": "^1.0.6",
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "@storybook/types": "^7.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",

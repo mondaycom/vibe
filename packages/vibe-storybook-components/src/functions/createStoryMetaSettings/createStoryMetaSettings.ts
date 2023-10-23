@@ -1,39 +1,10 @@
 import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
+import { AllowedIcons, Decorator, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from './types';
+import { ArgTypes } from '@storybook/types';
 
-type EnumPropNames = {
-  propName: string;
-  enumName: string;
-};
-
-type ActionProps = {
-  name: string;
-  linkedToPropValue: string;
-};
-
-type IconMetaData = {
-  file: string;
-  name: string;
-};
-
-type StoryMetaSettingsArgs = {
-  component: any;
-  enumPropNamesArray?: Array<string | EnumPropNames>;
-  iconPropNamesArray?: string[];
-  actionPropsArray?: Array<string | ActionProps>;
-  iconsMetaData?: IconMetaData[];
-  allIconsComponents: { [key: string]: () => {} };
-  ignoreControlsPropNamesArray?: string[];
-};
-
-type AllowedIcons = {
-  options: string[];
-  mapping: { [key: string]: any };
-};
-
-function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: any }) {
+function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: unknown }) {
   let returnValue;
-  // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(enumObj)) {
     if (returnValue) returnValue = `${returnValue} | ${parseStringForEnum(componentName, enumName, key)}`;
     else returnValue = parseStringForEnum(componentName, enumName, key);
@@ -55,13 +26,13 @@ function parseStringForEnum(componentName: string, enumName: string, enumKey: st
  * @param {string} linkedToPropValue - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
  * @returns A decorate for storybook which updates the {@link linkedToPropValue} input of the component, whenever {@link actionName} is called.
  */
-function createMappedActionToInputPropDecorator(actionName: string, linkedToPropValue: string) {
-  return (Story: any, context: any) => {
+function createMappedActionToInputPropDecorator(actionName: string, linkedToPropValue: string): Decorator {
+  return (Story, context) => {
     const [propValue, setPropValue] = useState(context.initialArgs[linkedToPropValue]);
     const createAction = useMemo(() => action(actionName), []);
 
     const injectedCallback = useCallback(
-      (newPropValue: any) => {
+      (newPropValue: unknown) => {
         setPropValue(newPropValue);
         createAction(newPropValue);
       },
@@ -83,9 +54,9 @@ export function createStoryMetaSettings({
   iconsMetaData,
   allIconsComponents,
   ignoreControlsPropNamesArray,
-}: StoryMetaSettingsArgs) {
-  const argTypes: any = {};
-  const decorators: any = [];
+}: StoryMetaSettingsArgs): StoryMetaSettingsResult {
+  const argTypes: ArgTypes = {};
+  const decorators: Decorator[] = [];
   const allowedIcons = iconsMetaData?.reduce(
     (acc: AllowedIcons, icon: IconMetaData) => {
       const Component = allIconsComponents[icon.file.split('.')[0]];
@@ -158,7 +129,7 @@ export function createStoryMetaSettings({
   }
 
   // Disable controls for specific props
-  ignoreControlsPropNamesArray?.forEach(propName => {
+  ignoreControlsPropNamesArray?.forEach((propName: string) => {
     if (argTypes[propName] instanceof Object) {
       argTypes[propName] = { ...argTypes[propName], control: false };
     } else {
