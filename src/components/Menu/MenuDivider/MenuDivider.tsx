@@ -7,7 +7,9 @@ import { FC } from "react";
 import styles from "./MenuDivider.module.scss";
 
 interface MenuDividerProps extends VibeComponentProps {
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
 }
 

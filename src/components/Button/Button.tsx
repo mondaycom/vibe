@@ -86,6 +86,9 @@ export interface ButtonProps extends VibeComponentProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
   "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */

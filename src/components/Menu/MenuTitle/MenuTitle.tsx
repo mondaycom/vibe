@@ -10,7 +10,9 @@ import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 interface MenuTitleProps extends VibeComponentProps {
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   caption?: string;
   captionPosition?: MenuTitleCaptionPosition;

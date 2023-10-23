@@ -46,7 +46,9 @@ export interface MenuItemProps extends VibeComponentProps {
   tooltipShowDelay?: number;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
-  /** Backward compatibility for props naming **/
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   /**
    * Class name which is added to div which wraps an Icon

@@ -158,7 +158,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
-      dataTestId={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
         <div

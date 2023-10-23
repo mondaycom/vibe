@@ -239,6 +239,11 @@ export const ElementAllowedColor = {
 
 export type ElementColor = typeof ElementAllowedColor[keyof typeof ElementAllowedColor] | string;
 
+export const elementColorsNames = Object.values(ElementAllowedColor).reduce((acc: Record<string, string>, key) => {
+  acc[key] = key;
+  return acc;
+}, {});
+
 const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) => {
   return Object.keys(colors)[Object.values(colors).indexOf(colorValue)];
 };
