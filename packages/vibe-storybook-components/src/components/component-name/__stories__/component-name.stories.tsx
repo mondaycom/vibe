@@ -11,6 +11,6 @@ type Story = StoryObj<typeof ComponentName>;
 
 export const Overview: Story = {
   args: {
-    children: 'This is a heading',
+    children: 'Component Name',
   },
 };
