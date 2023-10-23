@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.2 (2023-10-23)
+
+#### Bug Fixes
+* [#108](https://github.com/mondaycom/vibe-storybook-components/pull/108) fix(SidebarItem): flex the container ([@talkor](https://github.com/talkor))
+
 ## 0.10.1 (2023-10-23)
 
 #### Bug Fixes
