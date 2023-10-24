@@ -58,6 +58,9 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   padding = true
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
+    if (!children) {
+      return {};
+    }
     const childrenArray = Array.isArray(children) ? children : [children];
     return {
       displayAvatars: childrenArray.slice(0, max).map((avatar, index) => {
