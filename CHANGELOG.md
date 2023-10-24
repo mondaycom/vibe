@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.54.0 (2023-10-24)
+
+#### Bug Fixes
+* [#1699](https://github.com/mondaycom/monday-ui-react-core/pull/1699) fix: < ComboBox / > - change stickyCategories to not be the default behavior ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Features
+* [#1700](https://github.com/mondaycom/monday-ui-react-core/pull/1700) feat: < TextField /> add red asterisks(*) when required=true ([@HarshitVashisht11](https://github.com/HarshitVashisht11))
+* [#1690](https://github.com/mondaycom/monday-ui-react-core/pull/1690) feat: < AvatarGroup /> - added new prop to remove padding (#1674) ([@nabinbhatt](https://github.com/nabinbhatt))
+
+#### Documentation
+* [#1519](https://github.com/mondaycom/monday-ui-react-core/pull/1519) docs(Typography): new docs page for Typography ([@hadasfa](https://github.com/hadasfa))
+
 ## 2.53.0 (2023-10-24)
 
 #### New Features
