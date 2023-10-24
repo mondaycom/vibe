@@ -16,7 +16,15 @@ interface FieldLabelProps extends VibeComponentProps {
 
 const FieldLabel: FC<FieldLabelProps> = forwardRef(
   (
-    { icon = "", iconLabel = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "", requiredAsterisk = false, },
+    {
+      icon = "",
+      iconLabel = "",
+      labelText = "",
+      labelFor = "",
+      iconClassName = "",
+      labelClassName = "",
+      requiredAsterisk = false
+    },
     ref: ForwardedRef<HTMLLabelElement>
   ) => {
     if (!labelText) {
@@ -34,8 +42,9 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
           iconType={Icon.type.ICON_FONT}
         />
         <label htmlFor={labelFor} ref={ref} className={cx(styles.labelComponentText, labelClassName)}>
-        {labelText}
-        {requiredAsterisk && <span className={styles.requiredAsterisk}> *</span>} {/* Render asterisk based on the prop */}
+          {labelText}
+          {requiredAsterisk && <span className={styles.requiredAsterisk}> *</span>}{" "}
+          {/* Render asterisk based on the prop */}
         </label>
       </section>
     );
