@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.53.0 (2023-10-24)
+
+#### New Features
+* [#1701](https://github.com/mondaycom/monday-ui-react-core/pull/1701) export useElementsOverflowingIndex hook ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1695](https://github.com/mondaycom/monday-ui-react-core/pull/1695) createStoryMetaSettingsDecorator.ts - TS migration, add ignoreControlsPropNamesArray ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.52.1 (2023-10-22)
 
 #### Bug Fixes
