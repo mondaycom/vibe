@@ -195,7 +195,8 @@ export function comboboxItemRenderer({
   style,
   optionEvents,
   optionRenderData,
-  isVirtualized
+  isVirtualized,
+  stickyCategories
 }: {
   item: IComboboxItem;
   style: CSSProperties;
@@ -203,6 +204,7 @@ export function comboboxItemRenderer({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   optionRenderData: any;
   isVirtualized: boolean;
+  stickyCategories?: boolean;
 }) {
   const { type, ...otherArgs } = item;
   let customClassNames;
@@ -218,7 +220,7 @@ export function comboboxItemRenderer({
         category: otherArgs.category,
         className: otherArgs.className
       });
-      if (!isVirtualized) {
+      if (stickyCategories && !isVirtualized) {
         customClassNames = styles.sticky;
       }
       break;
