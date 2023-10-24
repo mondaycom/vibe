@@ -205,13 +205,13 @@ const Dropdown = forwardRef(
         if (customOnOptionRemove) {
           customOnOptionRemove(selectedOptionsMap[optionValue]);
         }
-        const newSelectedOptions = selected.filter(option => option.value !== optionValue);
+        const newSelectedOptions = selectedOptions.filter(option => option.value !== optionValue);
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
         setSelected(newSelectedOptions);
       };
-    }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selectedOptions, selectedOptionsMap]);
 
     const customProps = useMemo(
       () => ({
@@ -251,7 +251,7 @@ const Dropdown = forwardRef(
           }
 
           if (!isControlled) {
-            setSelected([...selected, selectedOption]);
+            setSelected([...selectedOptions, selectedOption]);
           }
           break;
         }

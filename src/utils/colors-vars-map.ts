@@ -23,10 +23,10 @@ export const colorsMap = [
     color: "--primary-text-on-secondary-color",
     description: "Use for default text color on secondary background color"
   },
-  { color: "--secondary-text-color", description: "Use for text with lesser importance" },
+  { color: "--secondary-text-color", description: "Use when you need text with lesser importance" },
   {
     color: "--secondary-text-on-secondary-color",
-    description: "Use for text with lesser importance (on secondary background color)"
+    description: "Use when you need text with lesser importance (on secondary background color)"
   },
   { color: "--primary-background-hover-color", description: "Use as hover color" },
   { color: "--primary-background-hover-on-secondary-color", description: "Use as hover color on secondary color" },
@@ -238,6 +238,11 @@ export const ElementAllowedColor = {
 };
 
 export type ElementColor = typeof ElementAllowedColor[keyof typeof ElementAllowedColor] | string;
+
+export const elementColorsNames = Object.values(ElementAllowedColor).reduce((acc: Record<string, string>, key) => {
+  acc[key] = key;
+  return acc;
+}, {});
 
 const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) => {
   return Object.keys(colors)[Object.values(colors).indexOf(colorValue)];

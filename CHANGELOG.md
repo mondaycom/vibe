@@ -1,5 +1,43 @@
 # Changelog
 
+## 2.54.0 (2023-10-24)
+
+#### Bug Fixes
+* [#1699](https://github.com/mondaycom/monday-ui-react-core/pull/1699) fix: < ComboBox / > - change stickyCategories to not be the default behavior ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Features
+* [#1700](https://github.com/mondaycom/monday-ui-react-core/pull/1700) feat: < TextField /> add red asterisks(*) when required=true ([@HarshitVashisht11](https://github.com/HarshitVashisht11))
+* [#1690](https://github.com/mondaycom/monday-ui-react-core/pull/1690) feat: < AvatarGroup /> - added new prop to remove padding (#1674) ([@nabinbhatt](https://github.com/nabinbhatt))
+
+#### Documentation
+* [#1519](https://github.com/mondaycom/monday-ui-react-core/pull/1519) docs(Typography): new docs page for Typography ([@hadasfa](https://github.com/hadasfa))
+
+## 2.53.0 (2023-10-24)
+
+#### New Features
+* [#1701](https://github.com/mondaycom/monday-ui-react-core/pull/1701) export useElementsOverflowingIndex hook ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1695](https://github.com/mondaycom/monday-ui-react-core/pull/1695) createStoryMetaSettingsDecorator.ts - TS migration, add ignoreControlsPropNamesArray ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.52.1 (2023-10-22)
+
+#### Bug Fixes
+* [#1694](https://github.com/mondaycom/monday-ui-react-core/pull/1694) fix: <Dropdown> controlled multi fix option remove ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.52.0 (2023-10-22)
+
+#### New Features
+* [#1691](https://github.com/mondaycom/monday-ui-react-core/pull/1691) feat(EditableInput): expose inputType ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1693](https://github.com/mondaycom/monday-ui-react-core/pull/1693) chore: fix < Tip /> imports to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.51.2 (2023-10-22)
+
+#### Bug Fixes
+* [#1692](https://github.com/mondaycom/monday-ui-react-core/pull/1692) < Slider /> controlled state fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.51.1 (2023-10-22)
 
 #### Bug Fixes

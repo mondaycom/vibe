@@ -97,15 +97,12 @@ Combo box allowing users to filter longer lists to only the selections matching 
   When there are fewer than five items, consider using{" "}
   <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
     Radio buttons
-  </Link>
-  {" "}(if only one item can be selected) or <Link
-    href="/?path=/docs/inputs-checkbox--overview"
-    size={Link.sizes.SMALL}
-    withoutSpacing
-  >
+  </Link>{" "}
+  (if only one item can be selected) or{" "}
+  <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>
     Checkboxes
-  </Link>
-  {" "}(if multiple items can be selected).
+  </Link>{" "}
+  (if multiple items can be selected).
 </Tip>
 
 ## Variants
@@ -224,12 +221,18 @@ When having a lot of options, you may use headings to categorize them.
           </StoryDescription>
           <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
             <DialogContentContainer style={{ height: "200px" }}>
-              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+              <Combobox
+                stickyCategories
+                options={options}
+                categories={categories}
+                placeholder="Placeholder text here"
+              />
             </DialogContentContainer>
           </StoryDescription>
           <StoryDescription description="With divider" vertical align={Flex.align.START}>
             <DialogContentContainer style={{ height: "200px" }}>
               <Combobox
+                stickyCategories
                 options={options}
                 categories={categories}
                 withCategoriesDivider
