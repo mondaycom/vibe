@@ -3,12 +3,12 @@ import { Frame, Link } from "vibe-storybook-components";
 import Heading from "../../../components/Heading/Heading";
 import Text from "../../../components/Text/Text";
 import TextColors from "../colors/text-colors/text-colors";
-import { COLORS, SHADOW, SPACING } from "../../components/related-components/component-description-map";
+import { TEXT, HEADING, EDITABLE_HEADING } from "../../components/related-components/component-description-map";
 import { typographyExample1, typographyExample2, typographyExample3, typographyExample4 } from "./assets";
 import ExamplesTable from "./examples-table/examples-table";
 import styles from "./typography.module.scss";
 
-<Meta title="Foundations/Typography1" />
+<Meta title="Foundations/Typography" />
 
 <!--- Component documentation -->
 
@@ -47,6 +47,18 @@ More ever this is how we are building our css variable for our main font familie
 --font-family: Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
 --title-font-family: Poppins, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
 ```
+
+<Tip title="How to use the fonts?">
+  Figtree and Poppins are both Google Fonts. Click
+  <Link size={Link.sizes.SMALL} href="https://fonts.google.com/specimen/Figtree">
+    here
+  </Link>
+  to download Figtree, and click
+  <Link size={Link.sizes.SMALL} href="https://fonts.google.com/specimen/Poppins">
+    here
+  </Link>
+  to download Poppins.
+</Tip>
 
 ## Type styles
 
@@ -117,7 +129,6 @@ We use two key type styles: heading and text
   ]}
 />
 
-{" "}
 <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
   H3 - 18px
 </Text>
@@ -150,7 +161,6 @@ We use two key type styles: heading and text
   ]}
 />
 
-{" "}
 <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
   Text1 - 16px
 </Text>
@@ -216,7 +226,7 @@ We use two key type styles: heading and text
   />
 </Frame>
 
-## Typography colors
+## Text colors
 
 <TextColors />
 
@@ -224,19 +234,11 @@ We use two key type styles: heading and text
 
 <UsageGuidelines
   guidelines={[
-    "Use fonts bigger than 14 pixel only.",
-    "Don’t underline words, use bold text.",
+    "Avoid using text size smaller than 14px.",
+    "Don't underline words. For typographic emphasis use bold text.",
     "Don't use 2 different sizes of text in the same line."
   ]}
 />
-
-<Tip title="What font to use?">
-  We are using Figtree from Google Fonts as default for our design system. Click
-  <Link size={Link.sizes.SMALL} href="https://fonts.google.com/specimen/Figtree">
-    here
-  </Link>
-  to download.
-</Tip>
 
 <Frame className={styles.usageImageFrame}>
   <img src={typographyExample1} />
@@ -254,6 +256,6 @@ We use two key type styles: heading and text
   <img src={typographyExample4} />
 </Frame>
 
-## Up next
+## Related components
 
-<RelatedComponents componentsNames={[COLORS, SPACING, SHADOW]} />
+<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_HEADING]} />
