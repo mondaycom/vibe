@@ -39,9 +39,10 @@ interface AvatarGroupProps extends VibeComponentProps {
    */
   counterTooltipIsVirtualizedList?: boolean;
   /**
-   * Whether or not to render the AvatarGroup with padding
+   * If true, padding will be removed from the container
    */
-  padding?: boolean;
+  // TODO remove this prop in the next major release, make it true by default
+  removePadding?: boolean;
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -55,7 +56,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  padding = true
+  removePadding = false
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     if (!children) {
@@ -82,7 +83,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className, { [styles.noPadding]: !padding })} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className, { [styles.noPadding]: removePadding })} id={id}>
       {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
