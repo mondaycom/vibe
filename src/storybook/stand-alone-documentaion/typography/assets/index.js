@@ -1,4 +1,4 @@
-import typographyExample1 from "./typographyExample1.png";
-import typographyExample2 from "./typographyExample2.png";
-
-export { typographyExample1, typographyExample2 };
+export { default as typographyExample1 } from "./typographyExample1.png";
+export { default as typographyExample2 } from "./typographyExample2.png";
+export { default as typographyExample3 } from "./typographyExample3.png";
+export { default as typographyExample4 } from "./typographyExample4.png";

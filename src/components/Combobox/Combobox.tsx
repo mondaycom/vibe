@@ -299,6 +299,7 @@ const Combobox: React.FC<ComboboxProps> & {
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            stickyCategories={stickyCategories}
             categories={categories}
             options={items}
             itemsMap={itemsMap}

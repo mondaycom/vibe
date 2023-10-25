@@ -38,6 +38,11 @@ interface AvatarGroupProps extends VibeComponentProps {
    * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
    */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * If true, padding will be removed from the container
+   */
+  // TODO remove this prop in the next major release, should be no padding by default
+  removePadding?: boolean;
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -50,23 +55,16 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   max = 5,
   counterProps,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList = false
+  counterTooltipIsVirtualizedList = false,
+  removePadding = false
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
+    if (!children) {
+      return {};
+    }
     const childrenArray = Array.isArray(children) ? children : [children];
     return {
-      displayAvatars: childrenArray.slice(0, max),
-      counterTooltipAvatars: childrenArray.slice(max)
-    };
-  }, [children, max]);
-
-  if (!children) {
-    return null;
-  }
-
-  return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
-      {displayAvatars.map((avatar, index) => {
+      displayAvatars: childrenArray.slice(0, max).map((avatar, index) => {
         return React.cloneElement(avatar, {
           key: index,
           ...avatar?.props,
@@ -75,7 +73,18 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
           className: cx(styles.avatarContainer, avatarClassName),
           onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
         });
-      })}
+      }),
+      counterTooltipAvatars: childrenArray.slice(max)
+    };
+  }, [avatarClassName, children, max, size, type]);
+
+  if (!children) {
+    return null;
+  }
+
+  return (
+    <div className={cx(styles.avatarGroupContainer, className, { [styles.noPadding]: removePadding })} id={id}>
+      {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
