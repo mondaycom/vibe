@@ -332,7 +332,10 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return (
         <button {...buttonProps}>
           <span className={styles.loader}>
-            <Loader svgClassName={styles.loaderSvg} />
+            <Loader className={styles.loaderSvg} />
+            <span aria-hidden className={styles.textPlaceholder}>
+              {children}
+            </span>
           </span>
         </button>
       );
