@@ -41,7 +41,7 @@ interface AvatarGroupProps extends VibeComponentProps {
   /**
    * If true, padding will be removed from the container
    */
-  // TODO remove this prop in the next major release, make it true by default
+  // TODO remove this prop in the next major release, should be no padding by default
   removePadding?: boolean;
 }
 
