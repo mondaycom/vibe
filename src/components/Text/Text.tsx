@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, ReactNode, useContext } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -8,6 +8,7 @@ import Typography, { TypographyProps } from "../Typography/Typography";
 import { withStaticProps } from "../../types";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
 import styles from "./Text.module.scss";
+import { TextContext } from "./utils/TextContext";
 
 export interface TextProps extends TypographyProps {
   type: TextType;
@@ -32,9 +33,11 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       ...typographyProps
     },
     ref
-  ) => {
+    ) => {
+    const { ignoreHeightOverflow } = useContext(TextContext);
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
+      <TextContext.Provider value={{ignoreHeightOverflow}}>
       <Typography
         ref={ref}
         className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
@@ -44,6 +47,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       >
         {children}
       </Typography>
+      </TextContext.Provider>
     );
   }
 );
