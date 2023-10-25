@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.54.1 (2023-10-25)
+
+#### Bug Fixes
+* [#1704](https://github.com/mondaycom/monday-ui-react-core/pull/1704) fix: <AvatarGroup> rename freshly added padding prop to removePadding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1702](https://github.com/mondaycom/monday-ui-react-core/pull/1702) chore: cleanup demo styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.54.0 (2023-10-24)
 
 #### Bug Fixes
