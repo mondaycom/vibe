@@ -84,13 +84,6 @@ $textClasses: (
   )
 );
 
-@mixin base-font($font-variable) {
-  color: var(--primary-text-color);
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
-  font: $font-variable;
-}
-
 @mixin smoothing-text {
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
