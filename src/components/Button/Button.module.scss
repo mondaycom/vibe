@@ -23,7 +23,8 @@ $disabled-on-primary-color-opacity: 0.5;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  min-width: var(--element-width, auto);
+  --element-width: auto;
+  min-width: var(--element-width);
 
   .loader {
     height: 100%;
