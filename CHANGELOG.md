@@ -1,3 +1,7 @@
+0.1.201 / 2023-10-19
+====================
+  * Update postcss, postcss-scss, postcss-value-parser, styleint due to dependabot recommendations ([#254](https://github.com/mondaycom/monday-ui-style/issues/254))
+
 0.1.200 / 2023-10-19
 ====================
   * docs: add theme-switcher ([#253](https://github.com/mondaycom/monday-ui-style/issues/253))
@@ -299,7 +303,3 @@
     * add new icon of workflow
     * update to the new icon
     * removed .DS_Store and update .gitignore
-
-0.1.155 / 2023-05-17
-====================
-  * Brand colors ([#199](https://github.com/mondaycom/monday-ui-style/issues/199))
