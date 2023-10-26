@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { components } from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
@@ -23,6 +23,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
+  const [isCounterShown, setIsCounterShown] = useState(false);
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
@@ -35,9 +36,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
     ref,
     chipClassName,
     chipWrapperClassName,
-    selectedOptionsCount: selectedOptions.length
+    selectedOptionsCount: selectedOptions.length,
+    isCounterShown
   });
-  const isCounterShown = hiddenOptionsCount > 0;
+
+  useEffect(() => {
+    setIsCounterShown(hiddenOptionsCount > 0);
+  }, [hiddenOptionsCount]);
 
   const onDelete = useCallback(
     option => {
