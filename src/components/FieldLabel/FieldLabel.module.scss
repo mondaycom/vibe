@@ -1,5 +1,4 @@
-@import "../../styles/typography";
-@import "../../styles/global-css-settings";
+@import "~monday-ui-style/dist/mixins";
 
 .labelComponentWrapper {
   @include vibe-text(text2, normal);
@@ -18,6 +17,6 @@
   color: var(--primary-text-color);
   padding-block: 2px;
 }
-.requiredAsterisk{
+.requiredAsterisk {
   color: var(--negative-color);
 }

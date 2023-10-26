@@ -1,9 +1,7 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
 @import "../../styles/keyframes";
 
 .toast {
-  @include box-shadow-medium();
+  box-shadow: var(--box-shadow-medium);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
   margin: var(--spacing-medium);
@@ -18,7 +16,7 @@
   display: flex;
   min-width: 200px;
   border-radius: var(--border-radius-small);
-  color: var(--text-color-fixed-light)
+  color: var(--text-color-fixed-light);
 }
 
 .icon {

@@ -1,6 +1,5 @@
 @import "../../styles/typography";
-@import "../../styles/global-css-settings";
-@import "../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 
 .link {
   display: flex;

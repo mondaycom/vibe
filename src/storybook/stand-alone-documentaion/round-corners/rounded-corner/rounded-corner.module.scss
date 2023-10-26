@@ -1,6 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../../../styles/global-css-settings";
-@import "../../../../styles/typography";
 
 .rounded-corner-component {
   @include vibe-text(text1, bold);
