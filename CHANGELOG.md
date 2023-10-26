@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.55.1 (2023-10-26)
+
+#### Bug Fixes
+* [#1707](https://github.com/mondaycom/monday-ui-react-core/pull/1707) fix(Button): adjust loading state to initial button size ([@talkor](https://github.com/talkor))
+
 ## 2.55.0 (2023-10-26)
 
 #### New Features
