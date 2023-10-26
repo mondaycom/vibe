@@ -11,15 +11,13 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { isIE11 } from "../../utils/user-agent-utils";
 import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
 
-// min button width
-const MIN_BUTTON_HEIGHT_PX = isIE11() ? 32 : 6;
+const MIN_BUTTON_WIDTH_PX = 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps extends VibeComponentProps {
@@ -155,12 +153,10 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     const updateCssVariables = useMemo(() => {
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
-        const { blockSize, inlineSize } = borderBoxSize;
-        const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
-        const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
+        const { inlineSize } = borderBoxSize;
+        const width = Math.max(inlineSize, MIN_BUTTON_WIDTH_PX);
         if (!buttonRef.current) return;
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
-        buttonRef.current.style.setProperty("--element-height", `${height}px`);
         setHasSizeStyle(true);
       };
     }, [buttonRef]);
