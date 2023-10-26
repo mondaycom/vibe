@@ -19,8 +19,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline, popupsContainerSelector } =
-    customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -126,9 +125,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
               tooltip
               showTrigger={Dialog.hideShowTriggers.CLICK}
               hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-              open={isDialogShown}
-              onClick={() => setIsDialogShown(true)}
-              onClickOutside={() => setIsDialogShown(false)}
             >
               <Counter
                 kind={Counter.kinds.LINE}
