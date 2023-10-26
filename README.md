@@ -84,14 +84,29 @@ To use the supplied config, add `monday-ui-style/stylelint-config` as a [Styleli
 ```
 
 ## Functions
-We exporting the following scss functions:
-- camelize: camelcase string
-- capitalize: capitalize string
-- contain: return whether `$value` is contained in `$list` as Boolean
-- map-collect: merge maps from different scopes into one
-- extract-rgb: we use "extract-rgb" when we want to return a comma separated list of rgb values from a color.
+
+The following SCSS functions are exported:
+
+- `camelize`: camelcase string
+- `capitalize`: capitalize string
+- `contain`: returns whether `$value` is contained in `$list` as a Boolean
+- `map-collect`: merges maps from different scopes into one
+- `extract-rgb`: returns a comma separated list of rgb values from a color
 
 ## Mixins
-We exporting the following scss mixins:
-- vibe-heading(type, weight)
-- vibe-text(type, weight)
+
+The following SCSS mixins are exported:
+
+- Common:
+  - `hidden-element`
+  - `grid-auto-fit($grid-gap, $grid-column-gap, $grid-row-gap. $grid-cell-min-width, $grid-cell-array-calc, $important)`
+  - `scroller($width, $height, $color)`
+- States:
+  - `disabled`
+  - `reset-button`
+  - `focus-style($focus-radius)`
+- Typography:
+  - `vibe-text($type, $weight)`
+  - `vibe-heading($type, $weight)`
+  - `line-clamp($lines)`
+  - `ellipsis`
