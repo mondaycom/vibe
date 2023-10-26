@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.55.0 (2023-10-26)
+
+#### New Features
+* [#1703](https://github.com/mondaycom/monday-ui-react-core/pull/1703) feat: < Dialog /> should throw console.error if containerSelector is not found ([@Kritik-J](https://github.com/Kritik-J))
+
 ## 2.54.1 (2023-10-25)
 
 #### Bug Fixes
