@@ -194,6 +194,47 @@ There are three sizes available: Small, Medium, and Large
   </Story>
 </Canvas>
 
+### Demo story
+
+<Canvas>
+  <Story name="Demo story">
+    {() => {
+      const options = useMemo(
+        () => [
+          {
+            value: "Video",
+            label: "Video"
+          },
+          {
+            value: "Photo",
+            label: "Photo"
+          },
+          {
+            value: "Sound",
+            label: "Sound"
+          },
+          {
+            value: "Blank",
+            label: "Blank"
+          }
+        ],
+        []
+      );
+      return (
+        <div style={{ width: "350px" }}>
+          <Dropdown
+            placeholder="Single line multi state"
+            defaultValue={[options[0], options[1], options[2]]}
+            options={options}
+            multi
+            className="dropdown-stories-styles_with-chips"
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Multi line states
 
 The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
