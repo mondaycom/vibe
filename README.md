@@ -95,5 +95,5 @@ Perform the following steps to **release** a **new version**:
 
 - Bump the version in `package.json`
 - Merge into `origin/master`
-- [Release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) the new version in the [monday-ui-react-core
+- [Release the new version](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) on the [monday-ui-react-core
   ](https://github.com/mondaycom/monday-ui-react-core)
