@@ -1,4 +1,4 @@
-@import "../../../../styles/global-css-settings";
+@import "~monday-ui-style/dist/mixins";
 
 $abilities-cell-min-width: $grid-auto-fit-cell-width-medium;
 $abilities-grid-gap: var(--sb-spacing-large);

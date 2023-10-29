@@ -1,5 +1,3 @@
-@import "../../../../styles/global-css-settings";
-
 .monday-storybook-welcome-header {
   position: relative;
   width: 100%;
@@ -9,7 +7,7 @@
   padding-left: 40px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../assets/WelcomePageCover.png');
+  background-image: url("../assets/WelcomePageCover.png");
 
   &_text {
     width: 461px;

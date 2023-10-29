@@ -1,5 +1,5 @@
 @import "../../styles/typography";
-@import "../../styles/global-css-settings";
+@import "~monday-ui-style/dist/mixins";
 
 @include create-title-classes;
 @include create-text-classes;
@@ -51,7 +51,8 @@
   @include vibe-heading("h3", "normal");
 }
 
-.elementTypeH5, .elementTypeP {
+.elementTypeH5,
+.elementTypeP {
   @include vibe-text("text1", "normal");
 }
 
