@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, HTMLAttributes } from "react";
+import React, { forwardRef, useRef, HTMLAttributes, useContext } from "react";
 import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -10,6 +10,7 @@ import { TypographyColor, TypographyAlign } from "./TypographyConstants";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
+import { TypographyContext } from "./utils/TypographyContext";
 
 export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {
   /**
@@ -59,6 +60,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
     },
     ref
   ) => {
+    const { ignoreHeightOverflow } = useContext(TypographyContext);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const { ref: overrideRef, class: ellipsisClass } = useEllipsisClass(mergedRef, ellipsis, maxLines);
@@ -67,7 +69,8 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       withoutTooltip,
       ellipsis,
       tooltipProps,
-      children
+      children,
+      ignoreHeightOverflow
     ) as TooltipProps;
 
     return (

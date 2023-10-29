@@ -8,6 +8,7 @@ import Typography, { TypographyProps } from "../Typography/Typography";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Heading.module.scss";
+import { TypographyContext } from "../Typography/utils/TypographyContext";
 
 export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
@@ -24,12 +25,14 @@ const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   align?: typeof TypographyAlign;
 } = forwardRef(({ className, type = HeadingType.H1, weight = HeadingWeight.NORMAL, ...typographyProps }, ref) => {
   return (
-    <Typography
-      element={type}
-      ref={ref}
-      className={cx(styles.heading, getStyle(styles, camelCase(type + "-" + weight)), className)}
-      {...typographyProps}
-    />
+    <TypographyContext.Provider value={{ ignoreHeightOverflow: true }}>
+      <Typography
+        element={type}
+        ref={ref}
+        className={cx(styles.heading, getStyle(styles, camelCase(type + "-" + weight)), className)}
+        {...typographyProps}
+      />
+    </TypographyContext.Provider>
   );
 });
 
