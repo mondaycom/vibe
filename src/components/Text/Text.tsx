@@ -1,14 +1,14 @@
-import React, { forwardRef, ReactNode, useContext } from "react";
+import React, { forwardRef, ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponent from "../../types/VibeComponent";
 import { TextType, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
-import { withStaticProps } from "../../types";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
-import styles from "./Text.module.scss";
 import { TypographyContext } from "../Typography/utils/TypographyContext";
+import { withStaticProps } from "../../types";
+import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
   type: TextType;
