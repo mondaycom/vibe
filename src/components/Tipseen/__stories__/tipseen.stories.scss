@@ -1,5 +1,4 @@
-@import "../../../styles/global-css-settings";
-@import "../../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
 
 $component-rules-grid-gap: var(--sb-spacing-xxl);
 $tipseen-rules-cell-min-width: 476px;
@@ -11,7 +10,8 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
       $grid-gap: $component-rules-grid-gap,
       $grid-cell-min-width: $tipseen-rules-cell-min-width,
       $grid-cell-array-calc: $component-rules-grid-cell-array-calc,
-      $important: true);
+      $important: true
+    );
   }
   &_container {
     width: 20px;
@@ -30,10 +30,10 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
 
   &_inline-container {
     width: 300px;
-    height: 20px; 
+    height: 20px;
   }
 
-  &_inline-spacing  {
+  &_inline-spacing {
     width: 280px;
     height: 20px;
     padding-left: 10px;

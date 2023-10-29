@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/global-css-settings";
 @import "../../styles/typography";
 @import "../../styles/states";
 $disabled-on-primary-color-opacity: 0.5;
@@ -23,9 +22,22 @@ $disabled-on-primary-color-opacity: 0.5;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /* Will be updated dynamically after render by js */
-  --element-width: 32;
-  --element-height: 32;
+  --element-width: auto;
+  min-width: var(--element-width);
+
+  .loader {
+    height: 100%;
+
+    .loaderSvg {
+      position: static;
+      height: 100%;
+      margin: 0;
+    }
+
+    .textPlaceholder {
+      opacity: 0;
+    }
+  }
 }
 
 .marginRight {
@@ -44,38 +56,6 @@ $disabled-on-primary-color-opacity: 0.5;
 .leftFlat {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.button {
-  min-width: var(--element-width);
-}
-
-.button.loading {
-  min-width: 0;
-}
-
-.button.loading.hasStyleSize {
-  width: var(--element-height);
-  max-width: var(--element-height);
-  height: var(--element-height);
-  max-height: var(--element-height);
-}
-
-.button.loading {
-  position: relative;
-}
-
-.button .loader {
-  width: calc(var(--element-height) - var(--loader-padding) * 2);
-  height: calc(var(--element-height) - var(--loader-padding) * 2);
-  position: absolute;
-  top: var(--loader-padding);
-  left: auto;
-}
-
-.button .loader .loaderSvg {
-  width: calc(var(--element-height) - var(--loader-padding) * 2);
-  height: calc(var(--element-height) - var(--loader-padding) * 2);
 }
 
 .button:active:not(.preventClickAnimation) {

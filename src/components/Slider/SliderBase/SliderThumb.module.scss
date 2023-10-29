@@ -1,5 +1,4 @@
-@import "../../../styles/global-css-settings";
-@import "../../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 
 .thumb {
   position: absolute;
@@ -19,12 +18,12 @@
   transform: translate(-50%, -50%) scale(1.33, 1.33);
   transform-origin: center center;
   transition: transform var(--motion-productive-long) var(--motion-timing-enter);
-  @include box-shadow-small();
+  box-shadow: var(--box-shadow-small);
 }
 .focused {
   border-color: var(--primary-hover-color);
   cursor: grab;
-  @include box-shadow-small();
+  box-shadow: var(--box-shadow-small);
 }
 
 // thumb (for NOT-disabled)
@@ -33,7 +32,7 @@
   &:hover {
     border-color: var(--primary-hover-color);
     cursor: grab;
-    @include box-shadow-small();
+    box-shadow: var(--box-shadow-small);
   }
 }
 

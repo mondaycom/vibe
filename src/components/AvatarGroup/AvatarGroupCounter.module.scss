@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 @import "../../components/Avatar/AvatarConstants";
 
 .counterContainer {

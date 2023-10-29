@@ -1,4 +1,4 @@
-@import "../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 
 .scrollableContainer {
   @include scroller();
