@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.56.2 (2023-10-29)
+
+#### Bug Fixes
+* [#1708](https://github.com/mondaycom/monday-ui-react-core/pull/1708) fix: <Dropdown> multi single line - counter options display ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.56.1 (2023-10-29)
 
 #### Bug Fixes
