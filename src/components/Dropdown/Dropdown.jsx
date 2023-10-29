@@ -99,7 +99,6 @@ const Dropdown = forwardRef(
     }, [defaultValue]);
 
     const [selected, setSelected] = useState(overrideDefaultValue || []);
-    const [isDialogShown, setIsDialogShown] = useState(false);
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;
@@ -217,8 +216,6 @@ const Dropdown = forwardRef(
       () => ({
         selectedOptions,
         onSelectedDelete: onOptionRemove,
-        setIsDialogShown,
-        isDialogShown,
         isMultiline: multiline,
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
@@ -229,7 +226,6 @@ const Dropdown = forwardRef(
       [
         selectedOptions,
         onOptionRemove,
-        isDialogShown,
         multiline,
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
