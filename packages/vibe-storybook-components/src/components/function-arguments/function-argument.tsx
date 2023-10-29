@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Code } from '@storybook/components'; // eslint-disable-line import/no-extraneous-dependencies
 import classes from './index.module.scss';
 import { ElementContent } from '../../types';
 
@@ -28,7 +27,7 @@ const FunctionArgument: FC<FunctionArgumentProps> = ({
     {defaultValue && (
       <>
         {' '}
-        Defaults to: <Code>{defaultValue}</Code>
+        Defaults to: <code>{defaultValue}</code>
       </>
     )}
     {children && <ul>{children}</ul>}
