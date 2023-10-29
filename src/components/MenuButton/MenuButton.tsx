@@ -316,7 +316,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref={mergedRef}
             type="button"
             className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
-              [styles.open]: isActive,
+              [styles.active]: isActive,
               [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
               [styles.disabled]: disabled,
               [styles.text]: text
