@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.56.1 (2023-10-29)
+
+#### Bug Fixes
+* [#1714](https://github.com/mondaycom/monday-ui-react-core/pull/1714) fix: <MenuButton> change moveBy <Dialog> and active state text color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - monday-ui-style 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.56.0 (2023-10-29)
 
 #### New Features
