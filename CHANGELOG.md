@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.56.3 (2023-10-29)
+
+#### Bug Fixes
+* [#1706](https://github.com/mondaycom/monday-ui-react-core/pull/1706) Fixes: #1673 BUG Tooltip not visible when more than one row ellipsis is applied to Text component  ([@viditagrawal56](https://github.com/viditagrawal56))
+
+#### Internal Changes
+* [#1717](https://github.com/mondaycom/monday-ui-react-core/pull/1717) chore: cleanup - lint issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.56.2 (2023-10-29)
 
 #### Bug Fixes
