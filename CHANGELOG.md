@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.56.0 (2023-10-29)
+
+#### New Features
+* [#1705](https://github.com/mondaycom/monday-ui-react-core/pull/1705) feat: fix for Vite ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from monday-ui-style ([@talkor](https://github.com/talkor))
+
 ## 2.55.1 (2023-10-26)
 
 #### Bug Fixes
