@@ -1,6 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../../styles/typography";
-@import "../../../styles/global-css-settings";
 
 .icon-story-inline-style {
   display: flex;
@@ -49,7 +47,6 @@
   display: flex;
   justify-self: center;
   align-items: center;
-
 }
 .icon-story-search-component {
   width: 50% !important;

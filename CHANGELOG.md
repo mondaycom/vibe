@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.56.1 (2023-10-29)
+
+#### Bug Fixes
+* [#1714](https://github.com/mondaycom/monday-ui-react-core/pull/1714) fix: <MenuButton> change moveBy <Dialog> and active state text color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - monday-ui-style 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.56.0 (2023-10-29)
+
+#### New Features
+* [#1705](https://github.com/mondaycom/monday-ui-react-core/pull/1705) feat: fix for Vite ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from monday-ui-style ([@talkor](https://github.com/talkor))
+
+## 2.55.1 (2023-10-26)
+
+#### Bug Fixes
+* [#1707](https://github.com/mondaycom/monday-ui-react-core/pull/1707) fix(Button): adjust loading state to initial button size ([@talkor](https://github.com/talkor))
+
 ## 2.55.0 (2023-10-26)
 
 #### New Features

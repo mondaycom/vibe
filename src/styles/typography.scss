@@ -1,32 +1,6 @@
 @use "sass:string";
 @import "~monday-ui-style/dist/mixins";
-
-@function contain($list, $value) {
-  @return not not index($list, $value);
-}
-
-@function capitalize($string) {
-  @return to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
-}
-
-@function camelize($string) {
-  $progress: $string;
-  $result: "";
-  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
-
-  @while str-length($progress) > 0 {
-    $char: string.slice($progress, 1, 1);
-
-    @if contain($exclude, $char) {
-      $progress: capitalize(string.slice($progress, 2, 2)) + string.slice($progress, 3);
-    } @else {
-      $result: $result + $char;
-      $progress: string.slice($progress, 2);
-    }
-  }
-
-  @return $result;
-}
+@import "~monday-ui-style/dist/functions";
 
 @mixin create-text-classes() {
   @include create-typography-classes($textClasses, text);
@@ -72,16 +46,17 @@ $headingClasses: (
 );
 
 $textClasses: (
-    "text1": ("bold", "medium", "normal"),
-    "text2": ("bold", "medium", "normal")
+  "text1": (
+    "bold",
+    "medium",
+    "normal"
+  ),
+  "text2": (
+    "bold",
+    "medium",
+    "normal"
+  )
 );
-
-@mixin base-font($font-variable) {
-  color: var(--primary-text-color);
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
-  font: $font-variable;
-}
 
 @mixin smoothing-text {
   -webkit-font-smoothing: var(--font-smoothing-webkit);
@@ -103,20 +78,6 @@ $textClasses: (
   @include vibe-text(text2, normal);
 }
 
-@mixin line-clamp($lines: 1le) {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
-  white-space: initial; // doesn't work with white-space: no-wrap
-}
-
 @mixin heading-padding {
   padding: 0 4px;
-}
-
-@mixin ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
