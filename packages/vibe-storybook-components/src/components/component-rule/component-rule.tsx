@@ -3,8 +3,8 @@ import cx from 'classnames';
 import Check from '../../helpers/components/Icons/Check';
 import CloseSmall from '../../helpers/components/Icons/CloseSmall';
 import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE } from './component-rule-constants';
-import styles from './component-rule.module.scss';
 import { ElementContent } from '../../types';
+import styles from './component-rule.module.scss';
 
 interface ComponentRuleProps {
   component: ElementContent;
