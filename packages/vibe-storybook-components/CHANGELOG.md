@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.10.3 (2023-10-30)
+
+#### Bug Fixes
+* [#116](https://github.com/mondaycom/vibe-storybook-components/pull/116) chore: cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#115](https://github.com/mondaycom/vibe-storybook-components/pull/115) docs: add story for < FunctionArguments /> and < InformationBox /> ([@Dhoni77](https://github.com/Dhoni77))
+* [#114](https://github.com/mondaycom/vibe-storybook-components/pull/114) Add story for < Title /> component ([@balajik](https://github.com/balajik))
+* [#112](https://github.com/mondaycom/vibe-storybook-components/pull/112) Created basic story for < SectionName />, < AnchorListItem /> ([@balajik](https://github.com/balajik))
+* [#111](https://github.com/mondaycom/vibe-storybook-components/pull/111) docs: add story for < Link /> and < StoryDescription /> ([@Dhoni77](https://github.com/Dhoni77))
+* [#109](https://github.com/mondaycom/vibe-storybook-components/pull/109) docs: add story for < ComponentRules />, < DocFooter /> ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#113](https://github.com/mondaycom/vibe-storybook-components/pull/113) Add Tip to preview.tsx ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#110](https://github.com/mondaycom/vibe-storybook-components/pull/110) prettier fix + component-name.stories change text ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.10.2 (2023-10-23)
 
 #### Bug Fixes
