@@ -48,7 +48,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
       document.head.appendChild(styleElement);
       setStylesLoaded(true);
     } catch (error) {
-      console.error("vibe: error inserting theme-generated css - ", error);
+      console.error("vibe ThemeProvider: error inserting theme-generated css - ", error);
     }
 
     return () => {
