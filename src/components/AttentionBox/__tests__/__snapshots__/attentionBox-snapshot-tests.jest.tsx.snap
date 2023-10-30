@@ -16,7 +16,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="24"
@@ -72,7 +72,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="24"
@@ -128,7 +128,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="24"
@@ -184,7 +184,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="24"
@@ -326,7 +326,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon noFocusStyle"
+      className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
       height="24"
@@ -456,7 +456,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   >
     <span
       aria-hidden={true}
-      className="icon noFocusStyle fa fa fa-star"
+      className="icon icon noFocusStyle fa fa fa-star"
       data-testid="icon"
       onClick={[Function]}
       role="img"
