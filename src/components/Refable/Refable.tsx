@@ -29,7 +29,7 @@ export const Refable = React.forwardRef<
       onMouseLeave: getChainedFunction("onMouseLeave", child.props, rest),
       onMouseDown: getChainedFunction("onMouseDown", child.props, rest),
       onFocus: getChainedFunction("onFocus", child.props, rest),
-      // @ts-expect-error TODO: fix this
+      // @ts-expect-error
       ref: chainRefFunctions([child.ref, ref as MutableRefObject<any>])
     });
   });
