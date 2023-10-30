@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import { generateRandomAlphaString, generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
@@ -24,7 +24,10 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   colors?: typeof ThemeColor;
 } = ({ theme, children, additionalStringSelector: customAdditionalStringSelector }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
-  const additionalStringSelector = useState(customAdditionalStringSelector || generateRandomAlphaString())[0];
+  const additionalStringSelector = useMemo(
+    () => customAdditionalStringSelector || generateRandomAlphaString(),
+    [customAdditionalStringSelector]
+  );
 
   useEffect(() => {
     if (!shouldGenerateTheme(theme)) {
