@@ -97,3 +97,7 @@ Perform the following steps to **release** a **new version**:
 - Merge into `origin/master`
 - [Release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) the new version in the [monday-ui-react-core
   ](https://github.com/mondaycom/monday-ui-react-core)
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
