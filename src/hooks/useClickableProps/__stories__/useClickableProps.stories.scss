@@ -1,4 +1,4 @@
-@import "../../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 
 .monday-storybook-use-clickable-props {
   @include focus-style;

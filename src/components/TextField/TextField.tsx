@@ -76,6 +76,7 @@ interface TextFieldProps extends VibeComponentProps {
    * @deprecated - use "data-testid" instead
    */
   dataTestId?: string;
+  requiredAsterisk?: boolean; // TODO: Deprecate in next major version.
   secondaryDataTestId?: string;
   tabIndex?: number;
   name?: string;
@@ -124,6 +125,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       role = "",
       required = false,
       loading = false,
+      requiredAsterisk = false,
       dataTestId: backwardCompatibilityDataTestId,
       "data-testid": dataTestId,
       secondaryDataTestId,
@@ -188,7 +190,6 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
-
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
     useEffect(() => {
       if (inputRef.current && autoFocus) {
@@ -207,7 +208,13 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         aria-busy={loading}
       >
         <div className={cx(styles.labelWrapper)}>
-          <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
+          <FieldLabel
+            labelText={title}
+            icon={labelIconName}
+            iconLabel={iconsNames.layout}
+            labelFor={id}
+            requiredAsterisk={requiredAsterisk}
+          />
           <div className={cx(styles.inputWrapper, SIZE_MAPPER[getActualSize(size)], validationClass)}>
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}

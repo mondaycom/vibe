@@ -1,5 +1,80 @@
 # Changelog
 
+## 2.56.4 (2023-10-30)
+
+#### Bug Fixes
+* [#1715](https://github.com/mondaycom/monday-ui-react-core/pull/1715) fix(AttentionBox): fix title overflow behavior ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1716](https://github.com/mondaycom/monday-ui-react-core/pull/1716) docs: extract AlertBanner template to stories file ([@talkor](https://github.com/talkor))
+
+## 2.56.3 (2023-10-29)
+
+#### Bug Fixes
+* [#1706](https://github.com/mondaycom/monday-ui-react-core/pull/1706) Fixes: #1673 BUG Tooltip not visible when more than one row ellipsis is applied to Text component  ([@viditagrawal56](https://github.com/viditagrawal56))
+
+#### Internal Changes
+* [#1717](https://github.com/mondaycom/monday-ui-react-core/pull/1717) chore: cleanup - lint issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.56.2 (2023-10-29)
+
+#### Bug Fixes
+* [#1708](https://github.com/mondaycom/monday-ui-react-core/pull/1708) fix: <Dropdown> multi single line - counter options display ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.56.1 (2023-10-29)
+
+#### Bug Fixes
+* [#1714](https://github.com/mondaycom/monday-ui-react-core/pull/1714) fix: <MenuButton> change moveBy <Dialog> and active state text color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - monday-ui-style 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.56.0 (2023-10-29)
+
+#### New Features
+* [#1705](https://github.com/mondaycom/monday-ui-react-core/pull/1705) feat: fix for Vite ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from monday-ui-style ([@talkor](https://github.com/talkor))
+
+## 2.55.1 (2023-10-26)
+
+#### Bug Fixes
+* [#1707](https://github.com/mondaycom/monday-ui-react-core/pull/1707) fix(Button): adjust loading state to initial button size ([@talkor](https://github.com/talkor))
+
+## 2.55.0 (2023-10-26)
+
+#### New Features
+* [#1703](https://github.com/mondaycom/monday-ui-react-core/pull/1703) feat: < Dialog /> should throw console.error if containerSelector is not found ([@Kritik-J](https://github.com/Kritik-J))
+
+## 2.54.1 (2023-10-25)
+
+#### Bug Fixes
+* [#1704](https://github.com/mondaycom/monday-ui-react-core/pull/1704) fix: <AvatarGroup> rename freshly added padding prop to removePadding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1702](https://github.com/mondaycom/monday-ui-react-core/pull/1702) chore: cleanup demo styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.54.0 (2023-10-24)
+
+#### Bug Fixes
+* [#1699](https://github.com/mondaycom/monday-ui-react-core/pull/1699) fix: < ComboBox / > - change stickyCategories to not be the default behavior ([@Kritik-J](https://github.com/Kritik-J))
+
+#### New Features
+* [#1700](https://github.com/mondaycom/monday-ui-react-core/pull/1700) feat: < TextField /> add red asterisks(*) when required=true ([@HarshitVashisht11](https://github.com/HarshitVashisht11))
+* [#1690](https://github.com/mondaycom/monday-ui-react-core/pull/1690) feat: < AvatarGroup /> - added new prop to remove padding (#1674) ([@nabinbhatt](https://github.com/nabinbhatt))
+
+#### Documentation
+* [#1519](https://github.com/mondaycom/monday-ui-react-core/pull/1519) docs(Typography): new docs page for Typography ([@hadasfa](https://github.com/hadasfa))
+
+## 2.53.0 (2023-10-24)
+
+#### New Features
+* [#1701](https://github.com/mondaycom/monday-ui-react-core/pull/1701) export useElementsOverflowingIndex hook ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Internal Changes
+* [#1695](https://github.com/mondaycom/monday-ui-react-core/pull/1695) createStoryMetaSettingsDecorator.ts - TS migration, add ignoreControlsPropNamesArray ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.52.1 (2023-10-22)
 
 #### Bug Fixes

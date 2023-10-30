@@ -24,9 +24,10 @@ export function useTooltipProps(
   withoutTooltip: boolean,
   ellipsis: boolean,
   tooltipProps: TooltipProps,
-  children: ElementContent
+  children: ElementContent,
+  ignoreHeightOverflow: boolean
 ) {
-  const isOverflowing = useIsOverflowing({ ref: ellipsis ? ref : null, ignoreHeightOverflow: true });
+  const isOverflowing = useIsOverflowing({ ref: ellipsis ? ref : null, ignoreHeightOverflow });
   const isTooltipRendered = !withoutTooltip && ellipsis && isOverflowing && typeof children === "string";
   return isTooltipRendered ? { ...tooltipProps, content: children } : {};
 }

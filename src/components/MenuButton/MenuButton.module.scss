@@ -1,6 +1,5 @@
 @import "~monday-ui-style/dist/mixins";
 @import "../../styles/typography";
-@import "../../styles/global-css-settings";
 @import "../../styles/states";
 
 .wrapper {
@@ -21,17 +20,16 @@
   background-color: var(--primary-background-hover-color);
 }
 
-.open {
+.active {
   transform: scale(0.95);
   background-color: var(--primary-selected-color);
-  color: var(--primary-color);
 }
 
-.open:focus {
+.active:focus {
   background-color: var(--primary-selected-color);
 }
 
-.open:hover {
+.active:hover {
   background-color: var(--primary-selected-color);
 }
 

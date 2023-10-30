@@ -117,7 +117,8 @@ const publishedTSComponents = {
   useListenFocusTriggers: "hooks/useListenFocusTriggers",
   useSwitch: "hooks/useSwitch",
   useClickableProps: "hooks/useClickableProps/useClickableProps",
-  useHover: "hooks/useHover/useHover"
+  useHover: "hooks/useHover/useHover",
+  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex",
 };
 
 // eslint-disable-next-line no-undef

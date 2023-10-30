@@ -717,7 +717,7 @@ exports[`Combobox renders correctly with divider 1`] = `
       role="treegrid"
     >
       <div
-        className="comboboxItemContainer sticky"
+        className="comboboxItemContainer"
       >
         <div
           aria-label="cat1"
@@ -774,7 +774,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className="comboboxItemContainer sticky"
+        className="comboboxItemContainer"
       >
         <div
           aria-label="cat2"
@@ -935,7 +935,7 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
       role="treegrid"
     >
       <div
-        className="comboboxItemContainer sticky"
+        className="comboboxItemContainer"
       >
         <div
           aria-label="cat1"
@@ -997,7 +997,7 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
         </div>
       </div>
       <div
-        className="comboboxItemContainer sticky"
+        className="comboboxItemContainer"
       >
         <div
           aria-label="cat2"
