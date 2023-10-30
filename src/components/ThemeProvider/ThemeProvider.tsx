@@ -28,7 +28,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   const randomStringSelector = useState(customRandomStringSelector || generateRandomAlphaString())[0];
 
   useEffect(() => {
-    if (!theme || !theme?.name) {
+    if (!shouldGenerateTheme(theme)) {
       return;
     }
     if (document.getElementById(theme.name)) {

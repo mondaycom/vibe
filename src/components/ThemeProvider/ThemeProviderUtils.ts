@@ -23,7 +23,7 @@ const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelec
 };
 
 export const shouldGenerateTheme = (theme: Theme) => {
-  return !!theme?.colors;
+  return !!theme?.colors && !!theme?.name;
 };
 
 export const generateThemeCssOverride = (theme: Theme, randomStringSelector: string) => {
