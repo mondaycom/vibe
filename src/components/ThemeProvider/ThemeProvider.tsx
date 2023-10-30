@@ -14,18 +14,17 @@ export interface ThemeProviderProps {
    */
   children: ReactElement;
   /**
-   * Random string which adds up to theme name to make it more specific (in case if theme.name is colliding with some other class name)
+   * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
    */
-  randomStringSelector?: string;
+  additionalStringSelector?: string;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children, randomStringSelector: customRandomStringSelector }) => {
+} = ({ theme, children, additionalStringSelector: customAdditionalStringSelector }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
-  // Using random string selector to secure selector by making it more specific - if theme name is not unique
-  const randomStringSelector = useState(customRandomStringSelector || generateRandomAlphaString())[0];
+  const additionalStringSelector = useState(customAdditionalStringSelector || generateRandomAlphaString())[0];
 
   useEffect(() => {
     if (!shouldGenerateTheme(theme)) {
@@ -39,7 +38,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
     styleElement.id = theme.name;
-    const themeCssOverride = generateThemeCssOverride(theme, randomStringSelector);
+    const themeCssOverride = generateThemeCssOverride(theme, additionalStringSelector);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -52,7 +51,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [randomStringSelector, theme]);
+  }, [additionalStringSelector, theme]);
 
   if (!stylesLoaded && shouldGenerateTheme(theme)) {
     // Waiting for styles to load before children render
@@ -61,7 +60,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(theme?.name, randomStringSelector, children?.props?.className)
+    className: cx(theme?.name, additionalStringSelector, children?.props?.className)
   });
 };
 
