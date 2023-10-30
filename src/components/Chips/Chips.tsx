@@ -17,6 +17,8 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
+const CHIPS_AVATAR_SIZE = 18;
+
 interface ChipsProps extends VibeComponentProps {
   label?: string;
   disabled?: boolean;
@@ -115,7 +117,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       readOnly = false,
       allowTextSelection = false,
       color = Chips.colors.PRIMARY,
-      iconSize = 16,
+      iconSize = 18,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
@@ -199,7 +201,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
         onMouseDown,
         disabled,
         id,
-        dataTestId: overrideDataTestId,
+        "data-testid": overrideDataTestId,
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
@@ -233,7 +235,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={18}
+            customSize={CHIPS_AVATAR_SIZE}
             type={leftAvatarType}
             key={id}
             {...leftAvatarProps}
@@ -267,7 +269,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={16}
+            customSize={CHIPS_AVATAR_SIZE}
             type={rightAvatarType}
             key={id}
             {...rightAvatarProps}
