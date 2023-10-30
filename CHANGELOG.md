@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.56.4 (2023-10-30)
+
+#### Bug Fixes
+* [#1715](https://github.com/mondaycom/monday-ui-react-core/pull/1715) fix(AttentionBox): fix title overflow behavior ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1716](https://github.com/mondaycom/monday-ui-react-core/pull/1716) docs: extract AlertBanner template to stories file ([@talkor](https://github.com/talkor))
+
 ## 2.56.3 (2023-10-29)
 
 #### Bug Fixes
