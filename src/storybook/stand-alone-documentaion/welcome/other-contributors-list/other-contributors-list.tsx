@@ -1,10 +1,10 @@
 import { GithubContributorsList, ContributorsList, Paragraph } from "vibe-storybook-components";
 import styles from "./other-contributors-list.module.scss";
 
-const excludedContributorsIds: Set<string> = new Set();
-excludedContributorsIds.add("41898282"); // github-actions[bot]
-excludedContributorsIds.add("49699333"); // dependabot[bot]
-excludedContributorsIds.add("19733683"); // snyk-bot
+const excludedContributorsIds: Set<number> = new Set();
+excludedContributorsIds.add(41898282); // github-actions[bot]
+excludedContributorsIds.add(49699333); // dependabot[bot]
+excludedContributorsIds.add(19733683); // snyk-bot
 
 const STATIC_FOUNDING_DESIGNERS = [
   {
