@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.0 (2023-10-31)
+
+#### New Features
+* [#117](https://github.com/mondaycom/vibe-storybook-components/pull/117) feat, docs: <GithubContributorsList>, use it on welcome page ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.10.3 (2023-10-30)
 
 #### Bug Fixes
