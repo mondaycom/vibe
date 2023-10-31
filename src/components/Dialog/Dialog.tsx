@@ -519,7 +519,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
         <Reference>
           {({ ref }) => {
             return (
-              // @ts-ignore TODO convert Refable to TS
               <Refable
                 className={cx(referenceWrapperClassName)}
                 ref={ref}
