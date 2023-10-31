@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import cx from 'classnames';
+import { ElementContent } from '../../types';
 import './paragraph.module.scss';
 
 type ParagraphProps = {
-  children: string;
-  className: string;
+  children: ElementContent;
+  className?: string;
 };
 
 const Paragraph: FC<ParagraphProps> = ({ children, className }) => (
