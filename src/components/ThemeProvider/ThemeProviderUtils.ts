@@ -26,7 +26,7 @@ export const shouldGenerateTheme = (theme: Theme) => {
   return !!theme?.colors && !!theme?.name;
 };
 
-export const generateThemeCssOverride = (theme: Theme, additionalStringSelector: string) => {
+export const generateThemeCssOverride = (theme: Theme, themeClassSpecifier: string) => {
   if (!shouldGenerateTheme(theme)) {
     return null;
   }
@@ -37,7 +37,7 @@ export const generateThemeCssOverride = (theme: Theme, additionalStringSelector:
       generateCss(
         theme.colors[systemTheme],
         "",
-        `.${SystemThemeClassMap[systemTheme]} .${additionalStringSelector}.${theme.name}`
+        `.${SystemThemeClassMap[systemTheme]} .${themeClassSpecifier}.${theme.name}`
       ) + "\n";
   }
 

@@ -16,17 +16,17 @@ export interface ThemeProviderProps {
   /**
    * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
    */
-  additionalStringSelector?: string;
+  themeClassSpecifier?: string;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children, additionalStringSelector: customAdditionalStringSelector }) => {
+} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
-  const additionalStringSelector = useMemo(
-    () => customAdditionalStringSelector || generateRandomAlphaString(),
-    [customAdditionalStringSelector]
+  const themeClassSpecifier = useMemo(
+    () => customThemeClassSpecifier || generateRandomAlphaString(),
+    [customThemeClassSpecifier]
   );
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
     styleElement.id = theme.name;
-    const themeCssOverride = generateThemeCssOverride(theme, additionalStringSelector);
+    const themeCssOverride = generateThemeCssOverride(theme, themeClassSpecifier);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -54,7 +54,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [additionalStringSelector, theme]);
+  }, [themeClassSpecifier, theme]);
 
   if (!stylesLoaded && shouldGenerateTheme(theme)) {
     // Waiting for styles to load before children render
@@ -63,7 +63,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(theme?.name, additionalStringSelector, children?.props?.className)
+    className: cx(theme?.name, themeClassSpecifier, children?.props?.className)
   });
 };
 
