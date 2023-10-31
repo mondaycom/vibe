@@ -12,7 +12,8 @@ const HiddenInputPlaceholder: FC<HiddenInputPlaceholderProps> = ({ className, va
   const valueRef = useRef(null);
 
   useEffect(() => {
-    onChange(valueRef.current?.offsetWidth);
+    const { width } = valueRef.current.getBoundingClientRect();
+    onChange(width);
   }, [onChange, value]);
 
   return (
