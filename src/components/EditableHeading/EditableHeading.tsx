@@ -132,19 +132,21 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
         className={cx(styles.editableHeading, className)}
       >
-        <HiddenInputPlaceholder className={inputClassNames} value={inputValue} onChange={setInputWidth} />
         {isEditing && editable ? (
-          <input
-            ref={inputRef}
-            className={inputClassNames}
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            aria-label={ariaLabel}
-            style={{ width: inputWidth }}
-            role="input"
-          />
+          <>
+            <HiddenInputPlaceholder className={inputClassNames} value={inputValue} onChange={setInputWidth} />
+            <input
+              ref={inputRef}
+              className={inputClassNames}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              style={{ width: inputWidth }}
+              role="input"
+            />
+          </>
         ) : (
           <Heading
             {...clickableProps}
