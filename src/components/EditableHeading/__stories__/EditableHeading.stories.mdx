@@ -1,0 +1,66 @@
+import EditableHeading from "../EditableHeading";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { createComponentTemplate } from "vibe-storybook-components";
+import { useState } from "react";
+import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
+
+export const metaSettings = createStoryMetaSettingsDecorator({
+  component: EditableHeading,
+  enumPropNamesArray: ["weight", "type"],
+  actionPropsArray: ["onChange"]
+});
+
+<Meta
+  title="Inputs/EditableHeading"
+  component={EditableHeading}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
+
+# EditableHeading
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+An extension of the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component with built in editing capabilities.
+
+<Canvas>
+  <Story
+    name="Overview"
+    args={{
+      value: "This heading is an editable heading",
+      type: EditableHeading.types.h1
+    }}
+    play={overviewPlaySuite}
+  >
+    {editableHeadingTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+<UsageGuidelines guidelines={[]} />
+
+## Variants
+
+### Heading types
+
+<Canvas>
+  <Story name="Types">
+    <EditableHeading type={EditableHeading.types.H1} value="H1 Header" />
+    <EditableHeading type={EditableHeading.types.H2} value="H2 Header" />
+    <EditableHeading type={EditableHeading.types.H3} value="H3 Header" />
+  </Story>
+</Canvas>
