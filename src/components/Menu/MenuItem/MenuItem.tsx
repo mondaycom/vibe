@@ -212,7 +212,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconLabel={title}
             className={styles.subMenuIcon}
             ignoreFocusStyle
-            iconSize={20}
+            iconSize={18}
           />
         </div>
       );
@@ -224,13 +224,11 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             {
               backgroundColor: iconBackgroundColor,
               borderRadius: "4px",
-              width: 20,
-              height: 20,
               opacity: disabled ? 0.4 : 1
             },
             { color: "var(--text-color-on-primary)" }
           ]
-        : [undefined, undefined];
+        : [];
     }, [iconBackgroundColor, disabled]);
 
     const renderMenuItemIconIfNeeded = () => {
@@ -251,7 +249,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             className={styles.icon}
             ignoreFocusStyle
             style={iconStyle}
-            iconSize={20}
+            iconSize={18}
           />
         </div>
       );
