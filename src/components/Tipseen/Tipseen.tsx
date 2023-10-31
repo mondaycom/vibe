@@ -50,7 +50,7 @@ interface TipseenProps extends VibeComponentProps {
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
    */
-  modifiers?: Array<Modifier<any>>;
+  modifiers?: Array<Modifier<unknown>>;
   closeAriaLabel?: string;
   onClose?: () => void;
   // Better be required, but it might be a breaking change
