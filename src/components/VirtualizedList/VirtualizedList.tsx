@@ -3,6 +3,7 @@ import React, {
   CSSProperties,
   ForwardedRef,
   forwardRef,
+  LegacyRef,
   ReactElement,
   useCallback,
   useEffect,
@@ -11,7 +12,14 @@ import React, {
   useState
 } from "react";
 import { noop as NOOP } from "lodash-es";
-import { Layout, ScrollDirection, VariableSizeList as List } from "react-window";
+import {
+  Layout,
+  ScrollDirection,
+  VariableSizeList as List,
+  ListOnItemsRenderedProps,
+  ListChildComponentProps,
+  VariableSizeList
+} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
@@ -184,7 +192,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       animationStartTime: 0
     });
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] }) as any;
+    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] });
 
     const animationData = animationDataRef.current;
     if (!animationData.initialized) {
@@ -319,7 +327,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
     );
 
     const onItemsRenderedCB = useThrottledCallback(
-      ({ visibleStartIndex, visibleStopIndex }) => {
+      ({ visibleStartIndex, visibleStopIndex }: ListOnItemsRenderedProps) => {
         if (!onItemsRendered) return;
         const data = getOnItemsRenderedData(
           items,
@@ -386,7 +394,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
             updateListSize(width, height);
             return (
               <List
-                ref={mergedListRef}
+                ref={listRef}
                 height={height}
                 width={width}
                 itemCount={items.length}
@@ -397,8 +405,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {/*@ts-ignore*/}
-                {rowRenderer}
+                {rowRenderer as VibeComponent<ListChildComponentProps>}
               </List>
             );
           }}

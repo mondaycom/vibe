@@ -299,8 +299,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {/*@ts-ignore*/}
-                {cellRenderer}
+                {cellRenderer as unknown as VibeComponent<GridChildComponentProps>}
               </Grid>
             );
           }}
