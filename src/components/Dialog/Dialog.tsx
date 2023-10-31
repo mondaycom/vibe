@@ -279,7 +279,15 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     if (!containerSelector) {
       return document.body;
     }
-    return document.querySelector(containerSelector) || document.body;
+
+    const containerElement = document.querySelector(containerSelector);
+    if (!containerElement) {
+      console.error(
+        `Dialog: Container element with selector "${containerSelector}" was not found. Dialog may not be correctly positioned.`
+      );
+      return document.body;
+    }
+    return containerElement;
   }
 
   showDialog(options: { preventAnimation?: boolean } = {}) {

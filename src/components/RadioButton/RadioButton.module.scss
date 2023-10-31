@@ -1,6 +1,3 @@
-@import "../../styles/typography";
-@import "../../styles/global-css-settings";
-
 .radioButton {
   display: grid;
   grid-template-columns: 1.5em auto;
@@ -73,21 +70,12 @@ input:checked:disabled + .control {
   border-radius: 50%;
 }
 
-.radioButton:hover
-.inputContainer
-input:enabled:checked
-+ .control {
+.radioButton:hover .inputContainer input:enabled:checked + .control {
   border-color: var(--primary-hover-color);
 }
 
-.radioButton:hover
-.inputContainer
-input:enabled:not(:checked)
-+ .control,
-.radioButton:focus-within
-.inputContainer
-input:enabled:not(:checked)
-+ .control {
+.radioButton:hover .inputContainer input:enabled:not(:checked) + .control,
+.radioButton:focus-within .inputContainer input:enabled:not(:checked) + .control {
   border-color: var(--primary-text-color);
 }
 

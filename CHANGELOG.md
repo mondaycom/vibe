@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.56.0 (2023-10-29)
+
+#### New Features
+* [#1705](https://github.com/mondaycom/monday-ui-react-core/pull/1705) feat: fix for Vite ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from monday-ui-style ([@talkor](https://github.com/talkor))
+
+## 2.55.1 (2023-10-26)
+
+#### Bug Fixes
+* [#1707](https://github.com/mondaycom/monday-ui-react-core/pull/1707) fix(Button): adjust loading state to initial button size ([@talkor](https://github.com/talkor))
+
+## 2.55.0 (2023-10-26)
+
+#### New Features
+* [#1703](https://github.com/mondaycom/monday-ui-react-core/pull/1703) feat: < Dialog /> should throw console.error if containerSelector is not found ([@Kritik-J](https://github.com/Kritik-J))
+
+## 2.54.1 (2023-10-25)
+
+#### Bug Fixes
+* [#1704](https://github.com/mondaycom/monday-ui-react-core/pull/1704) fix: <AvatarGroup> rename freshly added padding prop to removePadding ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1702](https://github.com/mondaycom/monday-ui-react-core/pull/1702) chore: cleanup demo styles ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.54.0 (2023-10-24)
 
 #### Bug Fixes

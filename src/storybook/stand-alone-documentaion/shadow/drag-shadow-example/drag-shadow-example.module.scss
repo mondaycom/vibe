@@ -1,7 +1,4 @@
-@import "../../../../styles/global-css-settings";
-
 .drag-shadow-example {
-
   &-frame {
     display: flex;
     justify-content: flex-start;
@@ -24,7 +21,7 @@
   &-icon {
     &:hover {
       & + .drag-shadow-example-draggable {
-        @include box-shadow-medium;
+        box-shadow: var(--box-shadow-medium);
         transform: rotate(1deg);
       }
     }
