@@ -53,16 +53,14 @@ const STATIC_CONTRIBUTORS = [
 
 export const OtherContributorsList = () => {
   return (
-    <>
-      <Paragraph className={styles.contributorsList}>
-        Special thanks to our founding designers: <ContributorsList contributorsData={STATIC_FOUNDING_DESIGNERS} />
-        <GithubContributorsList
-          organizationName="mondaycom"
-          packageName="monday-ui-react-core"
-          staticContributors={STATIC_CONTRIBUTORS}
-          excludedContributorsIds={excludedContributorsIds}
-        />
-      </Paragraph>
-    </>
+    <Paragraph className={styles.contributorsList}>
+      Special thanks to our founding designers: <ContributorsList contributorsData={STATIC_FOUNDING_DESIGNERS} />
+      <GithubContributorsList
+        organizationName="mondaycom"
+        packageName="monday-ui-react-core"
+        staticContributors={STATIC_CONTRIBUTORS}
+        excludedContributorsIds={excludedContributorsIds}
+      />
+    </Paragraph>
   );
 };
