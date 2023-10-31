@@ -10,11 +10,16 @@
   & .closeIconWrapper .closeIcon {
     color: var(--primary-text-color);
   }
+
+  .icon {
+    flex-shrink: 0;
+  }
 }
 
 .title {
   margin: 0;
   font-weight: 700 !important;
+  padding-right: var(--spacing-xl);
 }
 
 .text,

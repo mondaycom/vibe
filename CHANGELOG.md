@@ -1,5 +1,34 @@
 # Changelog
 
+## 2.56.4 (2023-10-30)
+
+#### Bug Fixes
+* [#1715](https://github.com/mondaycom/monday-ui-react-core/pull/1715) fix(AttentionBox): fix title overflow behavior ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1716](https://github.com/mondaycom/monday-ui-react-core/pull/1716) docs: extract AlertBanner template to stories file ([@talkor](https://github.com/talkor))
+
+## 2.56.3 (2023-10-29)
+
+#### Bug Fixes
+* [#1706](https://github.com/mondaycom/monday-ui-react-core/pull/1706) Fixes: #1673 BUG Tooltip not visible when more than one row ellipsis is applied to Text component  ([@viditagrawal56](https://github.com/viditagrawal56))
+
+#### Internal Changes
+* [#1717](https://github.com/mondaycom/monday-ui-react-core/pull/1717) chore: cleanup - lint issue ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.56.2 (2023-10-29)
+
+#### Bug Fixes
+* [#1708](https://github.com/mondaycom/monday-ui-react-core/pull/1708) fix: <Dropdown> multi single line - counter options display ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.56.1 (2023-10-29)
+
+#### Bug Fixes
+* [#1714](https://github.com/mondaycom/monday-ui-react-core/pull/1714) fix: <MenuButton> change moveBy <Dialog> and active state text color ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - monday-ui-style 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.56.0 (2023-10-29)
 
 #### New Features

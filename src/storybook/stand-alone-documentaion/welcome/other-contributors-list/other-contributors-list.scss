@@ -1,9 +1,0 @@
-@import "~vibe-storybook-components/dist/mixins";
-
-.monday-other-contributors-list {
-  margin-top: var(--sb-spacing-between-section-items);
-  &_contributor:after {
-    @include sb-small-text;
-    content: ",";
-  }
-}

@@ -96,6 +96,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         >
           {!withoutIcon && (
             <Icon
+              className={styles.icon}
               iconType={iconType}
               ariaHidden
               clickable={false}

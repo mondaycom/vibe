@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { components } from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
@@ -19,10 +19,10 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline, popupsContainerSelector } =
-    customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
+  const [isCounterShown, setIsCounterShown] = useState(false);
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
@@ -35,9 +35,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
     ref,
     chipClassName,
     chipWrapperClassName,
-    selectedOptionsCount: selectedOptions.length
+    selectedOptionsCount: selectedOptions.length,
+    isCounterShown
   });
-  const isCounterShown = hiddenOptionsCount > 0;
+
+  useEffect(() => {
+    setIsCounterShown(hiddenOptionsCount > 0);
+  }, [hiddenOptionsCount]);
 
   const onDelete = useCallback(
     option => {
@@ -121,9 +125,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
               tooltip
               showTrigger={Dialog.hideShowTriggers.CLICK}
               hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-              open={isDialogShown}
-              onClick={() => setIsDialogShown(true)}
-              onClickOutside={() => setIsDialogShown(false)}
             >
               <Counter
                 kind={Counter.kinds.LINE}
