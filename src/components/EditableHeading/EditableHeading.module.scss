@@ -4,7 +4,6 @@
 @include create-title-classes;
 
 .editableHeading {
-  @include ellipsis;
   display: inline-flex;
   width: 100%;
   min-width: 0;
