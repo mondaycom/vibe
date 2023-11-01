@@ -1,5 +1,5 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import React, { forwardRef, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import Heading from "../Heading/Heading";
 import { withStaticProps } from "../../types";
@@ -17,8 +17,8 @@ export interface EditableHeadingProps extends VibeComponentProps {
   value: string;
   type?: HeadingType;
   weight?: HeadingWeight;
-  editable?: boolean;
   onChange?: (value: string) => void;
+  readOnly?: boolean;
   focusOnMount?: boolean;
   selectOnMount?: boolean;
   ariaLabel?: string;
@@ -36,8 +36,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       value,
       type = Heading.types.H1,
       weight = HeadingWeight.NORMAL,
-      editable = true,
-      onChange = () => {},
+      onChange,
+      readOnly = false,
       focusOnMount = true,
       selectOnMount = false,
       ariaLabel = ""
@@ -54,7 +54,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     const inputRef = useRef(null);
 
     function toggleEditMode() {
-      if (!editable || isEditing) {
+      if (readOnly || isEditing) {
         return;
       }
 
@@ -67,7 +67,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         setInputValue(value);
         return;
       }
-      onChange(inputValue);
+      onChange?.(inputValue);
     }
 
     function handleBlur() {
@@ -99,9 +99,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
 
     function focus() {
       if (inputRef.current) {
-        requestAnimationFrame(() => {
-          inputRef.current?.focus();
-        });
+        inputRef.current?.focus();
       }
     }
 
@@ -111,14 +109,17 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       }
     }
 
-    useLayoutEffect(() => {
-      if (focusOnMount) {
+    useEffect(() => {
+      if (isEditing && focusOnMount) {
         focus();
       }
-      if (selectOnMount) {
+    }, [focusOnMount, isEditing]);
+
+    useLayoutEffect(() => {
+      if (isEditing && selectOnMount) {
         select();
       }
-    }, [focusOnMount, isEditing, selectOnMount]);
+    }, [selectOnMount, isEditing]);
 
     const inputClassNames = useMemo(() => {
       return cx(styles.input, getStyle(styles, camelCase(type + "-" + weight)));
@@ -132,7 +133,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
         className={cx(styles.editableHeading, className)}
       >
-        {isEditing && editable ? (
+        {isEditing && !readOnly ? (
           <>
             <HiddenInputPlaceholder className={inputClassNames} value={inputValue} onChange={setInputWidth} />
             <input
@@ -150,7 +151,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         ) : (
           <Heading
             {...clickableProps}
-            className={cx(styles.heading, { [styles.disabled]: !editable })}
+            className={cx(styles.heading, { [styles.disabled]: readOnly })}
             type={type}
             weight={weight}
           >
