@@ -1,9 +1,9 @@
 @import "../../styles/typography";
 @import "~monday-ui-style/dist/mixins";
 
-@include create-title-classes;
-
 .editableHeading {
+  // Creates typography classes
+  @include create-title-classes;
   display: inline-flex;
   width: 100%;
   min-width: 0;

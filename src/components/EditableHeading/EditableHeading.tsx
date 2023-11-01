@@ -14,13 +14,21 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 
 export interface EditableHeadingProps extends VibeComponentProps {
+  /** Heading text */
   value: string;
+  /** Heading type */
   type?: HeadingType;
+  /** Heading weight */
   weight?: HeadingWeight;
+  /** onChange callback */
   onChange?: (value: string) => void;
+  /** Disable editing mode */
   readOnly?: boolean;
+  /** Focus input on mount in edit mode */
   focusOnMount?: boolean;
+  /** Select input text on mount in edit mode */
   selectOnMount?: boolean;
+  /** ARIA Label */
   ariaLabel?: string;
 }
 
