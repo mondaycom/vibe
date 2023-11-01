@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useLayoutEffect, useRef } from "react";
 import cx from "classnames";
 import styles from "./HiddenInputPlaceholder.module.scss";
 
@@ -11,7 +11,7 @@ interface HiddenInputPlaceholderProps {
 const HiddenInputPlaceholder: FC<HiddenInputPlaceholderProps> = ({ className, value, onChange }) => {
   const valueRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const { width } = valueRef.current.getBoundingClientRect();
     onChange(width);
   }, [onChange, value]);
