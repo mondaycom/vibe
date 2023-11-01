@@ -16,7 +16,7 @@ import styles from "./LegacyEditableHeading.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 /**
- * @deprecated - use EditableHeading from 'monday-ui-reacy-core/next'
+ * @deprecated - use EditableHeading from 'monday-ui-react-core/next'
  */
 export interface LegacyEditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
