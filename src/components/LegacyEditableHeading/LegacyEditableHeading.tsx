@@ -15,10 +15,7 @@ import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";
 import styles from "./LegacyEditableHeading.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
-/**
- * @deprecated - use EditableHeading from 'monday-ui-react-core/next'
- */
-export interface LegacyEditableHeadingProps extends EditableInputProps, HeadingProps {
+export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   displayPlaceholderInTextMode?: boolean;
   inputAriaLabel?: string;
   errorClass?: string;
@@ -39,7 +36,10 @@ export interface LegacyEditableHeadingProps extends EditableInputProps, HeadingP
   contentRenderer?: React.FC;
 }
 
-const LegacyEditableHeading: React.FC<LegacyEditableHeadingProps> & {
+/**
+ * @deprecated - use EditableHeading from 'monday-ui-react-core/next'
+ */
+const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
   sizes?: typeof Sizes;
   types?: typeof HeadingTypes;
 } = props => {
