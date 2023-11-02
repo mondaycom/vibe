@@ -10,6 +10,8 @@ import Chips from "../../../Chips/Chips";
 import { DROPDOWN_CHIP_COLORS } from "../../dropdown-constants";
 import classes from "./MultiValueContainer.module.scss";
 
+const DIALOG_OFFSET_Y = 5;
+
 export default function Container({ children, selectProps, ...otherProps }) {
   const {
     isDisabled,
@@ -126,6 +128,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               showTrigger={Dialog.hideShowTriggers.CLICK}
               hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
               position="bottom"
+              moveBy={{ main: DIALOG_OFFSET_Y }}
             >
               <Counter
                 kind={Counter.kinds.LINE}
