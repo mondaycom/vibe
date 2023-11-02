@@ -1,4 +1,4 @@
-@import "../../../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
 
 .chip-with-input-wrapper {
   display: flex;
@@ -42,4 +42,7 @@
 .valueDialogContent {
   display: flex;
   flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  @include scroller();
 }
