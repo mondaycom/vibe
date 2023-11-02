@@ -117,7 +117,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes["value-container-dialog-content"]}>
+                <DialogContentContainer className={classes.valueDialogContent}>
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
@@ -125,6 +125,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               tooltip
               showTrigger={Dialog.hideShowTriggers.CLICK}
               hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+              position="bottom"
             >
               <Counter
                 kind={Counter.kinds.LINE}

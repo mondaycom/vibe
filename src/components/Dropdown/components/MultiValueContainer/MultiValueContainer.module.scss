@@ -39,6 +39,7 @@
   }
 }
 
-.value-container-dialog-content {
-  max-width: 300px;
+.valueDialogContent {
+  display: flex;
+  flex-direction: column;
 }
