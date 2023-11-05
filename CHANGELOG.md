@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.57.0 (2023-11-05)
+
+#### New Features
+* [#1526](https://github.com/mondaycom/monday-ui-react-core/pull/1526) feat: <ThemeProvider> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1614](https://github.com/mondaycom/monday-ui-react-core/pull/1614) feat(Refable): add TypeScript support ([@naorpeled](https://github.com/naorpeled))
+
+#### Documentation
+* [#1720](https://github.com/mondaycom/monday-ui-react-core/pull/1720) Update vibe-storybook-components to ^0.10.3 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1721](https://github.com/mondaycom/monday-ui-react-core/pull/1721) chore: Replace Github contributors list to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1724](https://github.com/mondaycom/monday-ui-react-core/pull/1724) chore: cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1651](https://github.com/mondaycom/monday-ui-react-core/pull/1651) chore: fix lint warnings ([@Dhoni77](https://github.com/Dhoni77))
+
 ## 2.56.4 (2023-10-30)
 
 #### Bug Fixes
