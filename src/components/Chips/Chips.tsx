@@ -15,12 +15,17 @@ import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  /**
+   * @deprecated - use "data-testid" instead
+   */
   dataTestId?: string;
+  "data-testid"?: string;
   /**
    * A React element that is positioned to the right of the text
    */
@@ -88,6 +93,7 @@ interface ChipsProps extends VibeComponentProps {
    * selected-color
    */
   showBorder?: boolean;
+  closeButtonAriaLabel?: string;
 }
 
 const Chips: VibeComponent<ChipsProps, HTMLElement> & {
@@ -115,17 +121,22 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
       onClick,
       noAnimation = true,
       ariaLabel,
-      dataTestId,
+      dataTestId: backwardCompatabilityDataTestId,
+      "data-testid": dataTestId,
       disableClickableBehavior = false,
       leftAvatarType = AvatarType.IMG,
       rightAvatarType = AvatarType.IMG,
       showBorder = false,
       leftRenderer,
-      rightRenderer
+      rightRenderer,
+      closeButtonAriaLabel = "Remove"
     },
     ref
   ) => {
-    const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
+    const overrideDataTestId = backwardCompatibilityForProperties(
+      [dataTestId, backwardCompatabilityDataTestId],
+      getTestId(ComponentDefaultTestId.CHIP, id)
+    );
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || label;
@@ -268,11 +279,11 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
             size={IconButton.sizes.XXS}
             color={IconButton.colors.ON_PRIMARY_COLOR}
             className={cx(styles.icon, styles.close)}
-            ariaLabel="Remove"
+            ariaLabel={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
+            data-testid={`${overrideDataTestId}-close`}
             ref={iconButtonRef}
           />
         )}

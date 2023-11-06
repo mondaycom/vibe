@@ -16,9 +16,9 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 
 <Meta
   title="Navigation/Menu/MenuItemButton"
-  component={ MenuItemButton }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={MenuItemButton}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -28,6 +28,7 @@ export const menuItemButtonTemplate = createComponentTemplate(MenuItemButton);
 <!--- Component documentation -->
 
 # Menu Item Button
+
 - [Overview](#overview)
 - [Props](#props)
 - [Variants](#variants)
@@ -36,34 +37,36 @@ export const menuItemButtonTemplate = createComponentTemplate(MenuItemButton);
 ## Overview
 
 <Canvas>
-  <Story name="Overview" args={{children: "Menu item children"}}>
-      { menuItemButtonTemplate.bind({}) }
+  <Story name="Overview" args={{ children: "Menu item children" }}>
+    {menuItemButtonTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ MenuItemButton } />
 
-<Tip>Need to place multiple buttons in a grid-like layout inside a Menu? Consider using the <code>MenuGridItem</code> component</Tip>
+<ArgsTable story="Overview" />
+
+<Tip>
+  Need to place multiple buttons in a grid-like layout inside a Menu? Consider using the <code>MenuGridItem</code>{" "}
+  component
+</Tip>
 
 ## Variants
+
 ### States
+
 <Canvas>
-  <Story name="States">
-    { menuItemButtonKindsTemplate.bind({}) }
-  </Story>
+  <Story name="States">{menuItemButtonKindsTemplate.bind({})}</Story>
 </Canvas>
 
 ### Disabled
+
 <Canvas>
-  <Story name="Disabled">
-    { menuItemButtonDisabledTemplate.bind({}) }
-  </Story>
+  <Story name="Disabled">{menuItemButtonDisabledTemplate.bind({})}</Story>
 </Canvas>
 
 ### Icons
+
 <Canvas>
-  <Story name="Icons">
-    { menuItemButtonIconTemplate.bind({}) }
-  </Story>
+  <Story name="Icons">{menuItemButtonIconTemplate.bind({})}</Story>
 </Canvas>

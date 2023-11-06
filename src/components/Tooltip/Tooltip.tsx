@@ -82,7 +82,7 @@ interface TooltipBaseProps extends VibeComponentProps {
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
    */
-  modifiers?: Array<Modifier<any>>;
+  modifiers?: Array<Modifier<unknown>>;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
    */
@@ -143,7 +143,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     containerSelector: "#tooltips-container",
     tip: true,
     hideWhenReferenceHidden: false,
-    modifiers: new Array<Modifier<any>>(),
+    modifiers: new Array<Modifier<unknown>>(),
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: false,

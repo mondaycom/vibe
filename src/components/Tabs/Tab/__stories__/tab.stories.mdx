@@ -3,10 +3,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Email } from "../../../Icon/Icons";
 
-<Meta
-  title="Navigation/Tabs/Tab"
-  component={ Tab }
-/>
+<Meta title="Navigation/Tabs/Tab" component={Tab} />
 
 <!--- Component template -->
 
@@ -15,24 +12,28 @@ export const TabTemplate = createComponentTemplate(Tab);
 <!--- Component documentation -->
 
 # Tab
+
 - [Overview](#overview)
 - [Props](#props)
 - [Variants](#variants)
 - [Feedback](#feedback)
 
 ## Overview
+
 <Canvas>
-  <Story name="Overview"
-         args={ {children: "Tab"} }>
-    { TabTemplate.bind({}) }
+  <Story name="Overview" args={{ children: "Tab" }}>
+    {TabTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Tab } />
+
+<ArgsTable story="Overview" />
 
 ## Variants
+
 ### States
+
 <Canvas>
   <Story name="States">
     <Tab>Normal</Tab>
@@ -42,11 +43,10 @@ export const TabTemplate = createComponentTemplate(Tab);
 </Canvas>
 
 ### Icons
+
 <Canvas>
   <Story name="Icons">
-    <Tab icon={Email}>
-      Tab
-    </Tab>
+    <Tab icon={Email}>Tab</Tab>
     <Tab icon={Email} iconSide="right">
       Tab
     </Tab>

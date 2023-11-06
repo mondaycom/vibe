@@ -1,8 +1,5 @@
-@import "../../../../../styles/global-css-settings";
-@import "../../../../styles/typography";
-
 @mixin shadow-example-text {
-  font-size: $small-text-font-size;
+  font-size: var(--sb-small-text-font-size);
   line-height: 22px;
 }
 .monday-storybook-shadow-example {
@@ -15,26 +12,26 @@
     height: 81px;
 
     &--xs {
-      @include box-shadow-xs;
+      box-shadow: var(--box-shadow-xs);
     }
 
     &--small {
-      @include box-shadow-small;
+      box-shadow: var(--box-shadow-small);
     }
 
     &--medium {
-      @include box-shadow-medium;
+      box-shadow: var(--box-shadow-medium);
     }
 
     &--large {
-      @include box-shadow-large;
+      box-shadow: var(--box-shadow-large);
     }
   }
 
   &_title {
     @include shadow-example-text;
     font-weight: 500;
-    margin: var(--spacing-small) 0;
+    margin: var(--sb-spacing-small) 0;
   }
 
   &_code {

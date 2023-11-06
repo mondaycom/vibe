@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 
-export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, chipClassName, chipWrapperClassName }) {
+export function useHiddenOptionsData({
+  isMultiline,
+  ref,
+  selectedOptionsCount,
+  chipClassName,
+  chipWrapperClassName,
+  isCounterShown
+}) {
   const [overflowIndex, setOverflowIndex] = useState(-1);
   useEffect(() => {
     let finalOverflowingIndex = -1;
@@ -27,7 +34,7 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
     }
 
     setOverflowIndex(finalOverflowingIndex);
-  }, [ref, isMultiline, selectedOptionsCount, chipClassName, setOverflowIndex, chipWrapperClassName]);
+  }, [ref, isMultiline, selectedOptionsCount, chipWrapperClassName, chipClassName, isCounterShown]);
 
   const hiddenOptionsCount = overflowIndex > -1 ? selectedOptionsCount - overflowIndex : 0;
   return { overflowIndex, hiddenOptionsCount };

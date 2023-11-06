@@ -1,7 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
-  TABLE_CONTAINER = "table-container",
+  TIPSEEN_MEDIA = "tipseen-media",
   INDICATOR = "indicator",
   BADGE = "badge",
   TITLE = "title",
@@ -81,6 +81,7 @@ export enum ComponentDefaultTestId {
   TOAST_CONTENT = "toast-content",
   TOAST_LINK = "toast-link",
   TOAST_BUTTON = "toast-button",
+  TOAST_CLOSE_BUTTON = "toast-close-button",
   TOGGLE = "toggle",
   TIPSEEN = "tipseen",
   TIPSEEN_CONTENT = "tipseen-content",
@@ -106,7 +107,12 @@ export enum ComponentDefaultTestId {
   FLEX = "flex",
   TOOLTIP = "tooltip",
   DIALOG = "dialog",
-  TABLE = "table"
+  TABLE = "table",
+  TABLE_BODY = "table-body",
+  TABLE_CELL = "table-cell",
+  TABLE_HEADER = "table-header",
+  TABLE_HEADER_CELL = "table-header-cell",
+  TABLE_ROW = "table-row"
 }
 
 export enum NavigationCommand {

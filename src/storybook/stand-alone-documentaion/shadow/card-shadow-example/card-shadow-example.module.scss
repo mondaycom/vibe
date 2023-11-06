@@ -1,23 +1,20 @@
-@import "../../../../styles/global-css-settings";
-
 .card-shadow-example {
   border: 1px solid;
-  border-color: var(--layout-border-color);
+  border-color: var(--sb-layout-border-color);
   height: 317px;
   width: 296px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-medium);
+  padding: var(--sb-spacing-medium);
   cursor: pointer;
 
   &:hover {
-    @include box-shadow-medium;
+    box-shadow: var(--box-shadow-medium);
   }
 
-
   &-title {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--sb-spacing-medium);
     margin-bottom: 0;
     font-size: 18px;
     font-weight: 700;
@@ -25,12 +22,12 @@
   }
 
   &-description {
-    margin-top: var(--spacing-small);
+    margin-top: var(--sb-spacing-small);
     font-size: 14px;
     line-height: 18px;
   }
 
   &-button {
-    margin-top: var(--spacing-large);
+    margin-top: var(--sb-spacing-large);
   }
 }

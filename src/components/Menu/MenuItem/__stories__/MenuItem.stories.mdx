@@ -6,7 +6,10 @@ import {
   menuItemOverflowTemplate,
   menuItemStatesTemplate,
   menuItemTemplate,
-  menuItemTooltipTemplate
+  menuItemTooltipTemplate,
+  menuItemLabelTemplate,
+  menuItemWithLabelDoTemplate,
+  menuItemWithLabelDontTemplate
 } from "./MenuItem.stories";
 import MenuItem from "../MenuItem";
 
@@ -45,7 +48,7 @@ Use menu item for drawing one options that displayed inside a menu.
 
 ## Props
 
-<ArgsTable of={MenuItem} />
+<ArgsTable story="Overview" />
 
 ## Variants
 
@@ -67,6 +70,14 @@ Use menu item for drawing one options that displayed inside a menu.
   <Story name="Icons with colors">{menuItemIconsWithColorsTemplate.bind({})}</Story>
 </Canvas>
 
+### Label
+
+<Canvas>
+  <Story name="Label" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
+    {menuItemLabelTemplate.bind({})}
+  </Story>
+</Canvas>
+
 ### Overflow
 
 <Canvas>
@@ -78,3 +89,20 @@ Use menu item for drawing one options that displayed inside a menu.
 <Canvas>
   <Story name="Tooltip">{menuItemTooltipTemplate.bind({})}</Story>
 </Canvas>
+
+## Do's and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: menuItemWithLabelDoTemplate(),
+        description: "Keep the label text in the menu item short and informative. Use 1 word only."
+      },
+      negative: {
+        component: menuItemWithLabelDontTemplate(),
+        description: "Dont use long text with more than 1 word, to ensure clarity and to avoid ellipsis."
+      }
+    }
+  ]}
+/>

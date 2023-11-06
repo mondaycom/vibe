@@ -12,6 +12,16 @@ import "./clickable.stories.scss";
 
 <Meta title="Accessibility/Clickable" component={Clickable} />
 
+<!--- Component template -->
+
+export const clickableTemplate = args => {
+  return (
+    <Clickable className="monday-story-clickable_first-element" onClick={() => alert("clicked")} {...args}>
+      <div>I act like a button</div>
+    </Clickable>
+  );
+};
+
 # Clickable
 
 - [Overview](#overview)
@@ -24,16 +34,12 @@ import "./clickable.stories.scss";
 An accessibility helper component, this component simulates a button on non button elements
 
 <Canvas>
-  <Story name="Overview">
-    <Clickable className="monday-story-clickable_first-element" onClick={() => alert("clicked")}>
-      <div>I act like a button</div>
-    </Clickable>
-  </Story>
+  <Story name="Overview">{clickableTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
 
-<ArgsTable of={Clickable} />
+<ArgsTable story="Overview" />
 
 ## Variants
 

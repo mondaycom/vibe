@@ -6,7 +6,7 @@ import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useEventListener from "../../../../hooks/useKeyEvent";
+import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../../components/Icon/Icon";
 import Check from "../../../../components/Icon/Icons/components/Check";
@@ -111,7 +111,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   // Event listeners for removing animation.
   useEventListener({
-    // @ts-ignore TODO either fix the import to 'useEventListener' OR fix to fit 'useKeyEvent' OR remove entirely
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
     ref: componentRef
@@ -159,7 +158,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
-      dataTestId={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEP_INDICATOR, id)}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
         <div

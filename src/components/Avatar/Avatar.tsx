@@ -34,7 +34,13 @@ export interface AvatarProps extends VibeComponentProps {
   tabIndex?: number;
   ariaHidden?: boolean;
   disabled?: boolean;
+  /**
+   * @deprecated - use square instead
+   */
   isSquare?: boolean;
+  /**
+   * @deprecated - use disabled instead
+   */
   isDisabled?: boolean;
   square?: boolean;
   topLeftBadgeProps?: AvatarBadgeProps;
@@ -71,7 +77,7 @@ const Avatar: React.FC<AvatarProps> & {
   isSquare,
   // Backward compatibility for props naming
   isDisabled,
-  tabIndex = 0,
+  tabIndex,
   ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
@@ -137,6 +143,15 @@ const Avatar: React.FC<AvatarProps> & {
     return badges.length > 0 ? <div className={cx(styles.badges)}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
+  const defaultTabIndex = useMemo(() => {
+    if (!disabled && (onClick || overrideTooltipProps?.content)) {
+      return 0;
+    }
+    return -1;
+  }, [disabled, onClick, overrideTooltipProps?.content]);
+
+  const overrideTabIndex = tabIndex ?? defaultTabIndex;
+
   const clickHandler = useCallback(
     (event: React.MouseEvent | React.KeyboardEvent) => {
       event.preventDefault();
@@ -179,7 +194,7 @@ const Avatar: React.FC<AvatarProps> & {
               avatarContentWrapperClassName
             )}
             aria-hidden={ariaHidden}
-            tabIndex={tabIndex}
+            tabIndex={overrideTabIndex}
             style={{ ...backgroundColorStyle }}
           >
             <AvatarContent

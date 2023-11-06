@@ -3,8 +3,8 @@
   width: 100%;
 
   > * {
-    margin-bottom: var(--spacing-medium);
-    padding: var(--spacing-large);
+    margin-bottom: var(--sb-spacing-medium);
+    padding: var(--sb-spacing-large);
     font-family: monospace;
   }
 }
@@ -25,13 +25,15 @@
   margin: 0;
   min-height: inherit;
   padding: 0;
-  background-color: var(--grey-background-color);
-  border-bottom: 1px solid var(--inverted-color-background);
+  background-color: var(--sb-disabled-background-color);
+  border-bottom: 1px solid var(--sb-inverted-color-background);
+  color: var(--sb-text-color-fixed-dark);
 }
 
 .boxPaddingWrapper {
   overflow: hidden;
   padding: 0;
+  color: var(--sb-text-color-fixed-dark);
 
   > * {
     position: relative;
@@ -39,7 +41,7 @@
     background: white;
 
     &::before {
-      background-color: var(--color-error-highlight);
+      background-color: #f4c3cb;
       opacity: 0.5;
       position: absolute;
       top: 0;

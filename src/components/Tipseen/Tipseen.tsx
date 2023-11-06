@@ -1,12 +1,11 @@
 import { forwardRef, Fragment, ReactElement, useEffect, useRef, useState } from "react";
-import { DialogPosition } from "../../constants";
 import cx from "classnames";
+import { AnimationType, DialogPosition, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
-import { AnimationType, EMPTY_ARR, HideShowEvent, JustifyType } from "../../constants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL, TipseenCloseButtonTheme } from "./TipseenConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -29,7 +28,7 @@ interface TipseenProps extends VibeComponentProps {
   showDelay?: number;
   title?: string;
   /**
-   * Backward compatability for hideCloseButton prop
+   * @deprecated - use hideCloseButton instead
    */
   isCloseButtonHidden?: boolean;
   hideCloseButton?: boolean;
@@ -51,7 +50,7 @@ interface TipseenProps extends VibeComponentProps {
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
    */
-  modifiers?: Array<Modifier<any>>;
+  modifiers?: Array<Modifier<unknown>>;
   closeAriaLabel?: string;
   onClose?: () => void;
   // Better be required, but it might be a breaking change
@@ -68,6 +67,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
   positions?: typeof DialogPosition;
   animationTypes?: typeof AnimationType;
   justifyTypes?: typeof JustifyType;
+  hideShowTriggers?: typeof HideShowEvent;
 } = forwardRef(
   (
     {
@@ -188,5 +188,6 @@ export default withStaticProps(Tipseen, {
   closeButtonThemes: TipseenCloseButtonTheme,
   positions: DialogPosition,
   animationTypes: AnimationType,
-  justifyTypes: JustifyType
+  justifyTypes: JustifyType,
+  hideShowTriggers: HideShowEvent
 });

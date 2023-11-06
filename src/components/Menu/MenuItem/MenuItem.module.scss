@@ -1,6 +1,6 @@
+@import "~monday-ui-style/dist/mixins";
 @import "../../../styles/typography";
 @import "../../../styles/states";
-@import "../../../styles/global-css-settings";
 
 .item {
   @include smoothing-text;
@@ -75,12 +75,4 @@
   text-overflow: ellipsis;
   flex-grow: 1;
   padding-block: 1px;
-}
-
-.label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-grow: 0;
-  @include font-caption();
 }

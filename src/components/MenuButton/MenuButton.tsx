@@ -1,6 +1,6 @@
-/* eslint-disable react/forbid-prop-types */
 import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
+import { camelCase } from "lodash-es";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
@@ -15,19 +15,18 @@ import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import { Menu } from "../Icon/Icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 
 const TOOLTIP_SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
-
-const showTrigger = [HideShowEvent.CLICK, HideShowEvent.ENTER];
+const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
 const EMPTY_ARRAY: HideShowEvent[] = [];
-const MOVE_BY = { main: 0, secondary: -6 };
+const MOVE_BY = { main: 8, secondary: 0 };
 
 interface MenuButtonProps extends VibeComponentProps {
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use className instead
    */
   componentClassName?: string;
   /**
@@ -106,9 +105,9 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
-   * Backward compatibility for props naming
+   * @deprecated - use tooltipContent instead
    */
-  disabledReason?: boolean;
+  disabledReason?: string;
   children?: ElementContent;
   /**
    * Specifies whether to render the component before or after the text
@@ -215,18 +214,16 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       if (removeTabCloseTrigger) {
         triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
       }
-      const childrenArr = React.Children.toArray(children);
+      const childrenArr = React.Children.toArray(children) as MenuChild[];
       const cloned = childrenArr.map(child => {
         if (!React.isValidElement(child)) return null;
 
         const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
-        // @ts-ignore
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
           triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
         }
 
-        // @ts-ignore
         if (child.type && child.type.isMenu) {
           newProps.onClose = onMenuDidClose;
         }
@@ -281,8 +278,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       setIsOpen(open);
     }, [open, setIsOpen]);
 
-    // TODO disabledReason - boolean, why?
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]) as string;
+    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
     return (
@@ -302,7 +298,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           animationType={AnimationType.EXPAND}
           content={content}
           moveBy={computedDialogOffset}
-          showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
+          showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
           hideTrigger={hideTrigger}
           showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
           hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
@@ -320,7 +316,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref={mergedRef}
             type="button"
             className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
-              [styles.open]: isActive,
+              [styles.active]: isActive,
               [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
               [styles.disabled]: disabled,
               [styles.text]: text

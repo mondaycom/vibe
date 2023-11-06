@@ -9,7 +9,9 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import styles from "./Link.module.scss";
 
 export interface LinkProps extends VibeComponentProps {
-  /** Backward compatibility for props naming */
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
   /**
    * Class name for overriding link text styles

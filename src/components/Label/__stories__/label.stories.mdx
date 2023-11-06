@@ -4,17 +4,18 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
 import "./label.stories.scss";
+import { NOOP } from "../../../utils/function-utils";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
-  enumPropNamesArray: ["kind" ,"color"]
-})
+  enumPropNamesArray: ["kind", "color"]
+});
 
 <Meta
   title="Data display/Label"
-  component={ Label }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={Label}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -24,6 +25,7 @@ export const labelTemplate = createComponentTemplate(Label);
 <!--- Component documentation -->
 
 # Label
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -34,95 +36,174 @@ export const labelTemplate = createComponentTemplate(Label);
 - [Feedback](#feedback)
 
 ## Overview
-A label indicates the status of an item. It is not clickable.
+
+A label indicates the status of an item.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {text: "New"} }>
-    { labelTemplate.bind({}) }
+  <Story name="Overview" args={{ text: "New" }}>
+    {labelTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Label } />
+
+<ArgsTable story="Overview" />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Label will always appear in context next to the item it classifies.",
-  "Displays a short message like new, beta, coming soon.,etc.",
-  "Use only UI colors, not content colors (like status colors).",
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Label will always appear in context next to the item it classifies.",
+    "Displays a short message like new, beta, coming soon.,etc.",
+    "Use only UI colors, not content colors (like status colors)."
+  ]}
+/>
 
 <Tip title="Check yourself">
-  Need to count or indicate numbers? Use the <Link href="/?path=/docs/feedback-counter--overview" size={Link.sizes.SMALL} withoutSpacing>Counter</Link> component instead.
+  Need to count or indicate numbers? Use the{" "}
+  <Link href="/?path=/docs/feedback-counter--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Counter
+  </Link>{" "}
+  component instead.
 </Tip>
 
 ## Variants
-### States
+
+### Kinds
+
 <Canvas>
-  <Story name="States">
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap"><Label text="New" />Fill</div>
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap"><Label text="New" kind={Label.kinds.LINE} />Outline</div>
+  <Story name="States" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
+    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+      <Label text="New" />
+      Fill
+    </div>
+    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+      <Label text="New" kind={Label.kinds.LINE} />
+      Outline
+    </div>
   </Story>
 </Canvas>
 
 ### Colors
+
 <Canvas>
-  <Story name="Colors">
-    <div className="monday-storybook-label_group"><Label text="New" /><Label text="New" kind={Label.kinds.LINE} /></div>
-    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.NEGATIVE} /><Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} /></div>
-    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.POSITIVE} /><Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} /></div>
-    <div className="monday-storybook-label_group"><Label text="New" color={Label.colors.DARK} /><Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} /></div>
+  <Story name="Colors" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
+    <div className="monday-storybook-label_group">
+      <Label text="New" />
+      <Label text="New" kind={Label.kinds.LINE} />
+    </div>
+    <div className="monday-storybook-label_group">
+      <Label text="New" color={Label.colors.NEGATIVE} />
+      <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
+    </div>
+    <div className="monday-storybook-label_group">
+      <Label text="New" color={Label.colors.POSITIVE} />
+      <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
+    </div>
+    <div className="monday-storybook-label_group">
+      <Label text="New" color={Label.colors.DARK} />
+      <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
+    </div>
+  </Story>
+</Canvas>
+
+### Clickable
+
+<Canvas>
+  <Story name="Clickable" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
+    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+      <Label text="New" onClick={NOOP} />
+    </div>
+    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+      <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
+    </div>
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:<Label text="New" />,
-        description:"Use label to indicate the status of an item, for example: “New”."
+        component: <Label text="New" />,
+        description: "Use label to indicate the status of an item, for example: “New”."
       },
       negative: {
-        component:<Label text="123"/>,
-        description:
-          <>Don’t use the label component in order to indicate numbers, instead use the <Link href="/?path=/docs/feedback-counter--overview" withoutSpacing>Counter.</Link></>
+        component: <Label text="123" />,
+        description: (
+          <>
+            Don’t use the label component in order to indicate numbers, instead use the{" "}
+            <Link href="/?path=/docs/feedback-counter--overview" withoutSpacing>
+              Counter.
+            </Link>
+          </>
+        )
       }
     },
     {
       positive: {
-        component:<div className="monday-storybook-label_inline-block"><h5 className="monday-storybook-label_title">Categories</h5><Label text="new" /></div>,
-        description:"Use label only once per item."
+        component: (
+          <div className="monday-storybook-label_inline-block">
+            <h5 className="monday-storybook-label_title">Categories</h5>
+            <Label text="new" />
+          </div>
+        ),
+        description: "Use label only once per item."
       },
       negative: {
-        component:
-          [
-            <div className="monday-storybook-label_block">
-              <h5>Categories</h5>
-              <div className="monday-storybook-label_inline-block"><Label text="Featured" /><Label text="CRM" /><Label text="Export" /></div>
+        component: [
+          <div className="monday-storybook-label_block">
+            <h5>Categories</h5>
+            <div className="monday-storybook-label_inline-block">
+              <Label text="Featured" />
+              <Label text="CRM" />
+              <Label text="Export" />
             </div>
-          ],
-        description:<>Don’t use multiple lables for one item. Instead, use <Link href="/?path=/docs/data-display-chips--overview" withoutSpacing>Chips.</Link></>
+          </div>
+        ],
+        description: (
+          <>
+            Don’t use multiple lables for one item. Instead, use{" "}
+            <Link href="/?path=/docs/data-display-chips--overview" withoutSpacing>
+              Chips.
+            </Link>
+          </>
+        )
       }
     },
     {
       positive: {
-        component:[<Label text="New" kind={Label.kinds.LINE} />,<Label text="Beta" />],
-        description:"Use only the UI colors above."
+        component: [<Label text="New" kind={Label.kinds.LINE} />, <Label text="Beta" />],
+        description: "Use only the UI colors above."
       },
       negative: {
-        component:[<Label className="monday-storybook-label_bad-lable monday-storybook-label_purple" kind={Label.kinds.LINE} text="Beta" />,<Label className="monday-storybook-label_bad-lable monday-storybook-label_pink" kind={Label.kinds.LINE}  text="Beta" />],
-        description:"Don’t use any content colors for labels. If the page is full of CTAs, use the outline state."
+        component: [
+          <Label
+            className="monday-storybook-label_bad-lable monday-storybook-label_purple"
+            kind={Label.kinds.LINE}
+            text="Beta"
+          />,
+          <Label
+            className="monday-storybook-label_bad-lable monday-storybook-label_pink"
+            kind={Label.kinds.LINE}
+            text="Beta"
+          />
+        ],
+        description: "Don’t use any content colors for labels. If the page is full of CTAs, use the outline state."
       }
     }
   ]}
 />
 
 ## Use cases and examples
-### Secondary label 
+
+### Secondary label
+
 In case of visual overload, use the secondary label in order to create hirarchy.
+
 <Canvas>
-  <Story name="Secondary label">
+  <Story name="Secondary label" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
     <MultipleStoryElementsWrapper className="monday-storybook-label_column-block">
       <div className="monday-storybook-label_article">
         <h5 className="monday-storybook-label_title">Gannt</h5>
@@ -139,4 +220,5 @@ In case of visual overload, use the secondary label in order to create hirarchy.
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[TOOLTIP, COUNTER, CHIP]} />

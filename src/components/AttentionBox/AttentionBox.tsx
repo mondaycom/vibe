@@ -7,6 +7,7 @@ import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
+import InfoIcon from "../Icon/Icons/components/Info";
 import { IconType } from "../Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { AttentionBoxType } from "./AttentionBoxConstants";
@@ -17,7 +18,9 @@ import styles from "./AttentionBox.module.scss";
 
 interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
-  // Backward compatibility for props naming
+  /**
+   * @deprecated - use className instead
+   */
   componentClassName?: string;
   // Will remove when releasing version 2 as BREAKING CHANGES
   withIconWithoutHeader?: boolean;
@@ -32,6 +35,7 @@ interface AttentionBoxProps extends VibeComponentProps {
   withoutIcon?: boolean;
   onClose?: (event: React.MouseEvent) => void;
   compact?: boolean;
+  closeButtonAriaLabel?: string;
 }
 
 const AttentionBox: React.FC<AttentionBoxProps> & {
@@ -44,7 +48,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   // TODO Remove in next major as breaking change
   withIconWithoutHeader = false,
   type = AttentionBox.types.PRIMARY,
-  icon = AlertIcon,
+  icon,
   iconType = Icon.type.SVG,
   title,
   text,
@@ -54,7 +58,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   onClose,
   compact = false,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  closeButtonAriaLabel = "Close"
 }) => {
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
@@ -69,6 +74,12 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   }, [type]);
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
+  const defaultIcon = useMemo(() => {
+    return type === AttentionBox.types.PRIMARY ? InfoIcon : AlertIcon;
+  }, [type]);
+
+  const overrideIcon = icon === undefined ? defaultIcon : icon;
 
   return (
     <aside
@@ -85,10 +96,11 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
         >
           {!withoutIcon && (
             <Icon
+              className={styles.icon}
               iconType={iconType}
               ariaHidden
               clickable={false}
-              icon={icon}
+              icon={overrideIcon}
               ignoreFocusStyle
               iconSize="24"
               iconLabel={iconLabel}
@@ -106,7 +118,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
             iconSize={18}
             ariaHidden
             clickable={false}
-            icon={icon}
+            icon={overrideIcon}
             ignoreFocusStyle
             iconLabel={iconLabel}
           />
@@ -131,7 +143,8 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           wrapperClassName={cx(styles.closeIconWrapper, {
             [styles.closeIconCompact]: compact
           })}
-          ariaLabel="Close"
+          ariaLabel={closeButtonAriaLabel}
+          hideTooltip
           icon={CloseSmall}
           onClick={onClose}
         />

@@ -1,25 +1,23 @@
-@import "../../../../../styles/global-css-settings";
-
 .spacing-description-visual-element {
   display: flex;
   justify-content: center;
   align-items: flex-end;
 
   & > * {
-    margin: var(--spacing-medium);
+    margin: var(--sb-spacing-medium);
     width: 40px;
-    background-color: var(--negative-color-selected);
+    background-color: var(--sb-negative-color-selected);
   }
 
   .small-spacing-visual-element {
-    height: var(--spacing-small);
+    height: var(--sb-spacing-small);
   }
 
   .medium-spacing-visual-element {
-    height: var(--spacing-medium);
+    height: var(--sb-spacing-medium);
   }
 
   .large-spacing-visual-element {
-    height: var(--spacing-large);
+    height: var(--sb-spacing-large);
   }
 }

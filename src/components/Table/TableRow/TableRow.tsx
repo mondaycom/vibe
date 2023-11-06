@@ -12,7 +12,7 @@ export interface ITableRowProps extends VibeComponentProps {
   style?: React.CSSProperties;
 }
 
-const TableRow: FC<ITableRowProps> = ({ highlight, onClick, children, style }) => {
+const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(({ highlight, onClick, children, style }, ref) => {
   const ref = useRef(null);
   useKeyEvent({
     keys: SELECTION_KEYS,
@@ -32,6 +32,8 @@ const TableRow: FC<ITableRowProps> = ({ highlight, onClick, children, style }) =
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW, id)}
       ref={ref}
       role="row"
       aria-selected={highlight || false}
@@ -43,6 +45,6 @@ const TableRow: FC<ITableRowProps> = ({ highlight, onClick, children, style }) =
       {children}
     </div>
   );
-};
+});
 
 export default TableRow;

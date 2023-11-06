@@ -1,6 +1,3 @@
-@import "../../../styles/global-css-settings";
-@import "../../../styles/typography";
-
 .monday-storybook-steps {
   &_inline-wrapper {
     display: flex;
@@ -29,7 +26,7 @@
   }
 
   &_color {
-    padding: var(--spacing-small);
-    background-color: var(--primary-color);
+    padding: var(--sb-spacing-small);
+    background-color: var(--sb-primary-color);
   }
 }

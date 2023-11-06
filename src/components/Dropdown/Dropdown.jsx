@@ -79,6 +79,7 @@ const Dropdown = forwardRef(
       isLoading,
       loadingMessage,
       ariaLabel,
+      tabSelectsValue = true,
       popupsContainerSelector,
       "data-testid": dataTestId
     },
@@ -98,7 +99,6 @@ const Dropdown = forwardRef(
     }, [defaultValue]);
 
     const [selected, setSelected] = useState(overrideDefaultValue || []);
-    const [isDialogShown, setIsDialogShown] = useState(false);
     const finalOptionRenderer = optionRenderer || OptionRenderer;
     const finalValueRenderer = valueRenderer || ValueRenderer;
     const isControlled = !!customValue;
@@ -204,20 +204,18 @@ const Dropdown = forwardRef(
         if (customOnOptionRemove) {
           customOnOptionRemove(selectedOptionsMap[optionValue]);
         }
-        const newSelectedOptions = selected.filter(option => option.value !== optionValue);
+        const newSelectedOptions = selectedOptions.filter(option => option.value !== optionValue);
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
         setSelected(newSelectedOptions);
       };
-    }, [customOnChange, customOnOptionRemove, selected, selectedOptionsMap]);
+    }, [customOnChange, customOnOptionRemove, selectedOptions, selectedOptionsMap]);
 
     const customProps = useMemo(
       () => ({
         selectedOptions,
         onSelectedDelete: onOptionRemove,
-        setIsDialogShown,
-        isDialogShown,
         isMultiline: multiline,
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
@@ -228,7 +226,6 @@ const Dropdown = forwardRef(
       [
         selectedOptions,
         onOptionRemove,
-        isDialogShown,
         multiline,
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
@@ -250,7 +247,7 @@ const Dropdown = forwardRef(
           }
 
           if (!isControlled) {
-            setSelected([...selected, selectedOption]);
+            setSelected([...selectedOptions, selectedOption]);
           }
           break;
         }
@@ -354,6 +351,7 @@ const Dropdown = forwardRef(
         isOptionSelected={isOptionSelected}
         isLoading={isLoading}
         loadingMessage={loadingMessage}
+        tabSelectsValue={tabSelectsValue}
         {...asyncAdditions}
         {...additions}
       />
@@ -630,7 +628,11 @@ Dropdown.propTypes = {
   /**
    * aria-label attribute for dropdown
    */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  /**
+   * Overrides the built-in logic of tab selecting value (default: true)
+   */
+  tabSelectsValue: PropTypes.bool
 };
 
 export default Dropdown;

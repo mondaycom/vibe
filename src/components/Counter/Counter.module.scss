@@ -1,6 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
 @import "../../styles/typography";
-@import "../../styles/global-css-settings";
 @import "../../styles/keyframes";
 
 .counter {
@@ -32,7 +30,7 @@
 }
 
 .kindFill.colorPrimary {
-  color: var(--text-color-on-primary);
+  color: var(--text-color-fixed-light);
   background-color: var(--primary-color);
 }
 
@@ -42,7 +40,7 @@
 }
 
 .kindFill.colorNegative {
-  color: var(--text-color-on-primary);
+  color: var(--text-color-fixed-light);
   background-color: var(--negative-color);
 }
 

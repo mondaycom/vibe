@@ -1,9 +1,7 @@
-@import "../../styles/global-css-settings";
-@import "../../styles/typography";
 @import "../../styles/keyframes";
 
 .toast {
-  @include box-shadow-medium();
+  box-shadow: var(--box-shadow-medium);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
   margin: var(--spacing-medium);
@@ -18,6 +16,7 @@
   display: flex;
   min-width: 200px;
   border-radius: var(--border-radius-small);
+  color: var(--text-color-fixed-light);
 }
 
 .icon {
@@ -56,6 +55,21 @@
 
 .typeNegative {
   background-color: var(--negative-color);
+}
+
+.typeWarning {
+  background-color: var(--warning-color);
+  color: var(--text-color-fixed-dark);
+
+  .closeButton {
+    color: var(--text-color-fixed-dark);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-fixed-dark);
+    border-color: var(--text-color-fixed-dark);
+  }
 }
 
 // Animation

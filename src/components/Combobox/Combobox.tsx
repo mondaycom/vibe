@@ -103,6 +103,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Custom search icon
    */
   searchIcon?: SubIcon;
+  searchInputAriaLabel?: string;
 }
 
 const Combobox: React.FC<ComboboxProps> & {
@@ -144,6 +145,7 @@ const Combobox: React.FC<ComboboxProps> & {
       clearFilterOnSelection = false,
       maxOptionsWithoutScroll,
       defaultFilter: defaultFilterValue = "",
+      searchInputAriaLabel = "Search for content",
       "data-testid": dataTestId
     },
     ref
@@ -284,7 +286,7 @@ const Combobox: React.FC<ComboboxProps> & {
             value={filterValue}
             wrapperClassName={cx(styles.comboboxSearchWrapper, searchWrapperClassName)}
             className={styles.comboboxSearch}
-            inputAriaLabel="Search for content"
+            inputAriaLabel={searchInputAriaLabel}
             activeDescendant={visualFocusItemId}
             id="combobox-search"
             placeholder={placeholder}
@@ -297,6 +299,7 @@ const Combobox: React.FC<ComboboxProps> & {
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            stickyCategories={stickyCategories}
             categories={categories}
             options={items}
             itemsMap={itemsMap}

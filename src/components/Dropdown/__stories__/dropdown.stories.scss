@@ -1,14 +1,5 @@
 @import "../../../styles/typography";
 
-// TODO demo
-.valueRenderer {
-  width: 100px;
-  &Inner {
-    color: red !important;
-  }
-}
-
-
 .dropdown-stories-styles {
   &_spacing {
     min-width: 250px;
@@ -35,7 +26,7 @@
     font-size: 14px;
 
     span {
-      color: var(--disabled-text-color);
+      color: var(--sb-icon-color);
       margin-left: 4px;
     }
   }

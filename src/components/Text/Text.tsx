@@ -5,8 +5,9 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import VibeComponent from "../../types/VibeComponent";
 import { TextType, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
-import { withStaticProps } from "../../types";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
+import { TypographyContext } from "../Typography/utils/TypographyContext";
+import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
@@ -35,15 +36,17 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
-      <Typography
-        ref={ref}
-        className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
-        ellipsis={overrideEllipsis}
-        element={element}
-        {...typographyProps}
-      >
-        {children}
-      </Typography>
+      <TypographyContext.Provider value={{ ignoreHeightOverflow: false }}>
+        <Typography
+          ref={ref}
+          className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
+          ellipsis={overrideEllipsis}
+          element={element}
+          {...typographyProps}
+        >
+          {children}
+        </Typography>
+      </TypographyContext.Provider>
     );
   }
 );

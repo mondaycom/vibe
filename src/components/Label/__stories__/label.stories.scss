@@ -1,5 +1,3 @@
-@import "../../../styles/global-css-settings";
-
 .monday-storybook-label {
   &_group {
     display: flex;
@@ -38,21 +36,21 @@
   }
 
   &_bad-lable {
-    border-radius: var(--border-radius-small);
+    border-radius: var(--sb-border-radius-small);
     div {
       border: none;
     }
     span {
-      color: var(--text-color-on-primary);
+      color: var(--sb-text-color-on-primary);
     }
   }
 
   &_purple {
-    background-color: var(--color-amethyst);
+    background-color: var(--sb-color-purple);
   }
 
   &_pink {
-    background-color: var(--color-light-pink);
+    background-color: var(--sb-color-sofia_pink);
   }
 
   &_states-gap {

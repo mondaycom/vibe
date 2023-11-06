@@ -79,6 +79,7 @@ const publishedTSComponents = {
   TipseenContent: "components/Tipseen/TipseenContent",
   TipseenWizard: "components/Tipseen/TipseenWizard",
   TipseenImage: "components/Tipseen/TipseenImage",
+  TipseenMedia: "components/Tipseen/TipseenMedia/TipseenMedia",
   Flex: "components/Flex/Flex",
   MenuTitle: "components/Menu/MenuTitle/MenuTitle",
   MenuItem: "components/Menu/MenuItem/MenuItem",
@@ -94,6 +95,7 @@ const publishedTSComponents = {
   TableHeaderCell: "components/Table/TableHeaderCell/TableHeaderCell",
   TableRow: "components/Table/TableRow/TableRow",
   TableVirtualizedBody: "components/Table/TableVirtualizedBody/TableVirtualizedBody",
+  ThemeProvider: "components/ThemeProvider/ThemeProvider",
   // Don't remove next line
   // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index",
@@ -115,7 +117,8 @@ const publishedTSComponents = {
   useListenFocusTriggers: "hooks/useListenFocusTriggers",
   useSwitch: "hooks/useSwitch",
   useClickableProps: "hooks/useClickableProps/useClickableProps",
-  useHover: "hooks/useHover/useHover"
+  useHover: "hooks/useHover/useHover",
+  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex",
 };
 
 // eslint-disable-next-line no-undef

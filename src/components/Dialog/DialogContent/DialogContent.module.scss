@@ -1,27 +1,40 @@
-@import "../../../styles/global-css-settings";
+@import "~monday-ui-style/dist/mixins";
 
 .contentWrapper {
   outline: 0;
 
-  &.top, &.right, &.left, &.bottom {
+  &.top,
+  &.right,
+  &.left,
+  &.bottom {
     padding: var(--spacing-xs);
   }
-  &.bottomStart, &.topStart, &.bottomEnd, &.topEnd {
+  &.bottomStart,
+  &.topStart,
+  &.bottomEnd,
+  &.topEnd {
     padding-block: var(--spacing-xs);
   }
-  &.bottomStart, &.topStart {
+  &.bottomStart,
+  &.topStart {
     padding-inline-end: var(--spacing-xs);
   }
-  &.bottomEnd, &.topEnd {
+  &.bottomEnd,
+  &.topEnd {
     padding-inline-start: var(--spacing-xs);
   }
-  &.leftStart, &.rightStart, &.leftEnd, &.rightEnd {
+  &.leftStart,
+  &.rightStart,
+  &.leftEnd,
+  &.rightEnd {
     padding-inline: var(--spacing-xs);
   }
-  &.leftStart, &.rightStart {
+  &.leftStart,
+  &.rightStart {
     padding-block-end: var(--spacing-xs);
   }
-  &.leftEnd, &.rightEnd {
+  &.leftEnd,
+  &.rightEnd {
     padding-block-start: var(--spacing-xs);
   }
 }

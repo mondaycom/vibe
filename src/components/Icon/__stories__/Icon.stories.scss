@@ -1,6 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../../styles/typography";
-@import "../../../styles/global-css-settings";
 
 .icon-story-inline-style {
   display: flex;
@@ -11,14 +9,14 @@
 }
 
 .main-icon-story {
-  color: var(--icon-color);
+  color: var(--sb-icon-color);
   align-items: center;
   justify-content: flex-start;
 }
 
 .icon-story-component {
   width: Max(250px, 20%);
-  color: var(--icon-color);
+  color: var(--sb-icon-color);
   align-items: center;
   justify-content: flex-start;
   &:last-of-type {
@@ -34,14 +32,14 @@
 }
 
 .icon-story-description {
-  margin: var(--spacing-large) 0;
+  margin: var(--sb-spacing-large) 0;
   @include vibe-text(text1, medium);
 }
 
 .icon-story-custom-icon {
   width: 20px;
   height: 16px;
-  color: var(--primary-text-color);
+  color: var(--sb-primary-text-color);
   border-radius: 4px;
 }
 
@@ -49,7 +47,6 @@
   display: flex;
   justify-self: center;
   align-items: center;
-
 }
 .icon-story-search-component {
   width: 50% !important;

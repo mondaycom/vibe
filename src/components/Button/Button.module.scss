@@ -1,5 +1,4 @@
 @import "~monday-ui-style/dist/mixins";
-@import "../../styles/global-css-settings";
 @import "../../styles/typography";
 @import "../../styles/states";
 $disabled-on-primary-color-opacity: 0.5;
@@ -23,9 +22,22 @@ $disabled-on-primary-color-opacity: 0.5;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /* Will be updated dynamically after render by js */
-  --element-width: 32;
-  --element-height: 32;
+  --element-width: auto;
+  min-width: var(--element-width);
+
+  .loader {
+    height: 100%;
+
+    .loaderSvg {
+      position: static;
+      height: 100%;
+      margin: 0;
+    }
+
+    .textPlaceholder {
+      opacity: 0;
+    }
+  }
 }
 
 .marginRight {
@@ -44,38 +56,6 @@ $disabled-on-primary-color-opacity: 0.5;
 .leftFlat {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.button {
-  min-width: var(--element-width);
-}
-
-.button.loading {
-  min-width: 0;
-}
-
-.button.loading.hasStyleSize {
-  width: var(--element-height);
-  max-width: var(--element-height);
-  height: var(--element-height);
-  max-height: var(--element-height);
-}
-
-.button.loading {
-  position: relative;
-}
-
-.button .loader {
-  width: calc(var(--element-height) - var(--loader-padding) * 2);
-  height: calc(var(--element-height) - var(--loader-padding) * 2);
-  position: absolute;
-  top: var(--loader-padding);
-  left: auto;
-}
-
-.button .loader .loaderSvg {
-  width: calc(var(--element-height) - var(--loader-padding) * 2);
-  height: calc(var(--element-height) - var(--loader-padding) * 2);
 }
 
 .button:active:not(.preventClickAnimation) {
@@ -194,6 +174,23 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--text-color-on-primary);
 }
 
+.kindPrimary.colorFixedLight {
+  background: var(--text-color-fixed-light);
+}
+
+.kindPrimary.colorFixedLightActive,
+.kindPrimary.colorFixedLight:hover,
+.kindPrimary.colorFixedLight:focus {
+  background-color: #e6e9ef;
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindPrimary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
+}
+
 .kindPrimary.button.disabled {
   background: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -285,6 +282,23 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--text-color-on-primary);
 }
 
+.kindSecondary.colorFixedLight {
+  border-color: var(--text-color-fixed-light);
+  color: var(--text-color-fixed-light);
+}
+
+.kindSecondary.colorFixedLightActive,
+.kindSecondary.colorFixedLight:hover,
+.kindSecondary.colorFixedLight:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindSecondary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
+}
+
 .kindSecondary.disabled {
   border-color: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -359,6 +373,22 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorOnPrimaryColor.disabled {
   opacity: $disabled-on-primary-color-opacity;
   color: var(--text-color-on-primary);
+}
+
+.kindTertiary.colorFixedLight {
+  color: var(--text-color-fixed-light);
+}
+
+.kindTertiary.colorFixedLightActive,
+.kindTertiary.colorFixedLight:hover,
+.kindTertiary.colorFixedLight:focus {
+  backdrop-filter: brightness(85%);
+  @include focus-style-on-primary();
+}
+
+.kindTertiary.colorFixedLight.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-fixed-light);
 }
 
 .kindTertiary.colorOnInvertedBackground {

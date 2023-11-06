@@ -1,24 +1,7 @@
-import cx from "classnames";
-import { BEM_PREFIX, COMPONENT_ID } from "./SliderConstants";
-
 export function _calcDimension(max: number, min: number, value: number): [number, number] {
   const valuePoints = max - min;
   const dimension = Math.round(((value - min) * 100) / valuePoints);
   return [dimension, dimension];
-}
-
-function _createBemBlockHelper(block: string, isConsume = false) {
-  if (!block || block === "") {
-    return () => "";
-  }
-  const blockClass = isConsume ? block : `${BEM_PREFIX}-${block}`;
-  return function bem(element: any, modifiers: any = "", extraClasses = "") {
-    const elClass = element !== "" ? `${blockClass}__${element}` : blockClass;
-    const modClasses = cx(modifiers)
-      .split(" ")
-      .map(modClass => (modClass === "" ? "" : `${elClass}--${modClass}`));
-    return cx(elClass, modClasses, extraClasses);
-  };
 }
 
 function _ensureSingleValueText(valueText: string, value: number, formatter: (value: number) => string): string {
@@ -41,8 +24,6 @@ function _ensureStepModulo(pageStep: number, step: number) {
   }
   return pageStep - moduloToStep;
 }
-
-export const bem = _createBemBlockHelper(COMPONENT_ID);
 
 export function calcDimensions(max: number, min: number, ranged: boolean, value: number | number[]) {
   if (!ranged) {

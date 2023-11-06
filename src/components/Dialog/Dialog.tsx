@@ -136,8 +136,7 @@ export interface DialogProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
-   * Backward compatibility for props naming
-   * @deprecated
+   * @deprecated - use shouldCallbackOnMount instead
    */
   shoudlCallbackOnMount?: boolean;
   shouldCallbackOnMount?: boolean;
@@ -280,7 +279,15 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     if (!containerSelector) {
       return document.body;
     }
-    return document.querySelector(containerSelector) || document.body;
+
+    const containerElement = document.querySelector(containerSelector);
+    if (!containerElement) {
+      console.error(
+        `Dialog: Container element with selector "${containerSelector}" was not found. Dialog may not be correctly positioned.`
+      );
+      return document.body;
+    }
+    return containerElement;
   }
 
   showDialog(options: { preventAnimation?: boolean } = {}) {
@@ -512,7 +519,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
         <Reference>
           {({ ref }) => {
             return (
-              // @ts-ignore TODO convert Refable to TS
               <Refable
                 className={cx(referenceWrapperClassName)}
                 ref={ref}

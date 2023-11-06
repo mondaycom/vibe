@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
-import Icon, { IconSubComponentProps } from "../../components/Icon/Icon";
+import { IconSubComponentProps } from "../../components/Icon/Icon";
 import Text from "../Text/Text";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
@@ -15,6 +15,7 @@ import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
+import IconButton from "../IconButton/IconButton";
 
 interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
@@ -35,6 +36,7 @@ interface ToastProps extends VibeComponentProps {
    * (0 or null cancels this behaviour) */
   autoHideDuration?: number;
   children?: ReactElement | ReactElement[] | string;
+  closeButtonAriaLabel?: string;
 }
 
 const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof ToastActionType } = ({
@@ -50,6 +52,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   onClose = NOOP,
   className,
   id,
+  closeButtonAriaLabel = "Close",
   "data-testid": dataTestId
 }) => {
   const toastLinks = useMemo(() => {
@@ -125,7 +128,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type={Text.types.TEXT2}
         element="div"
-        color={Text.colors.ON_PRIMARY}
+        color={Text.colors.FIXED_LIGHT}
         className={classNames}
         role="alert"
         aria-live="polite"
@@ -144,16 +147,17 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
           <div className={cx(styles.action)}>{toastButtons || deprecatedAction}</div>
         )}
         {closeable && (
-          <Button
+          <IconButton
             className={cx(styles.closeButton)}
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-            ariaLabel="close-toast"
-          >
-            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-          </Button>
+            color={Button.colors.FIXED_LIGHT}
+            ariaLabel={closeButtonAriaLabel}
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+            icon={CloseSmall}
+            hideTooltip
+          />
         )}
       </Text>
     </CSSTransition>

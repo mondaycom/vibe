@@ -9,6 +9,9 @@ import styles from "./Divider.module.scss";
 
 interface DividerProps extends VibeComponentProps {
   direction?: DirectionType;
+  /**
+   * @deprecated - use className instead
+   */
   classname?: string;
   withoutMargin?: boolean;
 }

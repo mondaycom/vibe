@@ -4,8 +4,7 @@ import Toast from "../Toast";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
-import { Tip } from "../../../storybook/components";
-import { Link, UsageGuidelines, createComponentTemplate } from "vibe-storybook-components";
+import { Link, UsageGuidelines, Tip, createComponentTemplate } from "vibe-storybook-components";
 import {
   ALERT_BANNER,
   ATTENTION_BOX,
@@ -156,6 +155,27 @@ Use when something was deleted, a problem has occured, etc.
           className="monday-storybook-toast_wrapper"
         >
           Negative message toast
+        </Toast>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Warning message
+
+<Canvas>
+  <Story name="Warning message">
+    {() => {
+      const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Button" }], []);
+      return (
+        <Toast
+          open
+          actions={actions}
+          type={Toast.types.WARNING}
+          autoHideDuration={5000}
+          className="monday-storybook-toast_wrapper"
+        >
+          Warning message toast
         </Toast>
       );
     }}

@@ -1,7 +1,3 @@
-@import "../../../styles/global-css-settings";
-@import "../../../styles/typography";
-@import "../../../styles/states";
-
 .monday-storybook-split-button {
   &_dialog {
     min-width: 176px;
@@ -25,7 +21,7 @@
     }
 
     &_icon-spacing {
-      margin-right: var(--spacing-small);
+      margin-right: var(--sb-spacing-small);
     }
   }
 

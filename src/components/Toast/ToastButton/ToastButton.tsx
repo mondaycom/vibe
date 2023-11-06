@@ -17,10 +17,10 @@ const ToastButton: FC<ToastButtonProps> = ({ className, id, "data-testid": dataT
     <Button
       {...overrideButtonProps}
       id={id}
-      dataTestId={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
       className={className}
       size={Button.sizes.SMALL}
-      color={Button.colors.ON_PRIMARY_COLOR}
+      color={Button.colors.FIXED_LIGHT}
     />
   );
 };

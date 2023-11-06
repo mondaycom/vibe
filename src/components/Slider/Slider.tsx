@@ -61,7 +61,7 @@ export type SliderProps = {
    * Optional onChange callback (for outer trigger or Controlled mode)
    * - required in Controlled Mode
    */
-  onChange?: () => void;
+  onChange?: (value: number | number[]) => void;
   /**
    * If true switch slider to RRange mode (two Thumbs)
    */
@@ -87,11 +87,9 @@ export type SliderProps = {
    */
   value?: number | number[];
   /**
-   * Default `value` if value not specified
-   *  - should be used in NON-Controlled mode to set initial Value
-   *  - in ranged mode should be an array of two numbers
+   * Function to format the value, e.g. add %. By default, returns `${value}%`
    */
-  valueFormatter?: (value: number | number[]) => string;
+  valueFormatter?: (value: number) => string;
   /**
    * Text/presentation of current/selected value
    *  - should be used in Controlled Mode only
@@ -179,7 +177,6 @@ const Slider: React.FC<SliderProps> & {
         valueText={valueText}
       >
         <div
-          // className={bem("", { disabled, "value-shown": showValue }, className)}
           className={cx(styles.slider, { [styles.valueShown]: showValue }, className)}
           data-testid={dataTestId}
           id={id}

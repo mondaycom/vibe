@@ -17,10 +17,11 @@ import {
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
+import { useMergeRefs } from "../../../../hooks";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
-  onValueChange: (value: ColorPickerArrayValueOnly) => any;
+  onValueChange: (value: ColorPickerArrayValueOnly) => void;
   colorsList: ColorPickerArrayValueOnly;
   ColorIndicatorIcon?: SubIcon;
   SelectedIndicatorIcon?: SubIcon;
@@ -87,6 +88,8 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
 
     const colorsRef = useRef(null);
     const buttonRef = useRef(null);
+    const gridRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, gridRef] });
 
     const colorsToRender = useMemo(() => {
       if (forceUseRawColorList) {
@@ -116,11 +119,11 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     );
 
     const positions = useMemo(() => [{ topElement: colorsRef, bottomElement: buttonRef }], []);
-    const keyboardContext = useGridKeyboardNavigationContext(positions, ref);
+    const keyboardContext = useGridKeyboardNavigationContext(positions, gridRef);
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
     return (
-      <div className={className} style={{ width }} ref={ref} tabIndex={-1}>
+      <div className={className} style={{ width }} ref={mergedRef} tabIndex={-1}>
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid
             ref={colorsRef}

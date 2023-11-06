@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { Tip } from "../../../storybook";
-import { FunctionArgument, FunctionArguments, Link } from "vibe-storybook-components";
+import { FunctionArgument, FunctionArguments, Link, Tip } from "vibe-storybook-components";
 import useIsOverflowing from "../useIsOverflowing";
 import { EditableInput, Flex, Tooltip } from "../../../components";
 import styles from "./useIsOverflowing.stories.module.scss";
@@ -68,7 +67,7 @@ Use this hook, when there is a chance that content won't fit into the container,
     description={
       <>
         A React
-        <Link size={Link.sizes.MEDIUM} href="https://reactjs.org/docs/hooks-reference.html#useref">
+        <Link size={Link.sizes.MEDIUM} href="https://react.dev/reference/react/useRef">
           ref
         </Link>
         object for the container of likely to overflow content.
