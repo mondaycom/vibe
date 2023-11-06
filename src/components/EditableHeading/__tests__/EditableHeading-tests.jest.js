@@ -18,8 +18,8 @@ describe("EditableHeading", () => {
     expect(input).toBeInTheDocument();
   });
 
-  it("should not render an input when 'editable' is false when clicked", () => {
-    render(<EditableHeading value="Editable heading" editable={false} />);
+  it("should not render an input when 'readOnly' is false when clicked", () => {
+    render(<EditableHeading value="Editable heading" readOnly />);
 
     const component = screen.getByRole("button");
     fireEvent.click(component);
