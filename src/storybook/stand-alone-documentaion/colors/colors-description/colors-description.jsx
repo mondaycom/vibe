@@ -6,6 +6,7 @@ const colorsWithBorder = new Set([
   "text-color-on-inverted",
   "text-color-on-primary",
   "text-color-fixed-light",
+  "text-color-on-brand",
   "primary-background-color",
   "secondary-background-color"
 ]);

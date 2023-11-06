@@ -5,6 +5,7 @@ import "monday-ui-style/dist/index.min.css";
 import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
 import {
   AnchorListItem,
+  AlphaWarning,
   ComponentRules,
   DocFooter,
   Frame,
@@ -44,6 +45,7 @@ addParameters({
       li: AnchorListItem,
       a: Link,
       p: Paragraph,
+      AlphaWarning,
       Tip,
       Link,
       ComponentName: ComponentNameDecorator,
