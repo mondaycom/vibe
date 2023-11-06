@@ -25,7 +25,19 @@ function getInput(canvas: Canvas) {
   return getByRole(canvas, "input");
 }
 
-async function testBasicEditing(canvas: Canvas) {
+async function changeModes(canvas: Canvas) {
+  const compponent = getComponent(canvas);
+  clickElement(compponent);
+
+  const input = getInput(canvas);
+  expect(input).toHaveAttribute("value", text);
+
+  await resetFocus();
+  const heading = getHeading(canvas);
+  expect(heading).toHaveTextContent(text);
+}
+
+async function editAndChangeToValidText(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
 
@@ -39,7 +51,7 @@ async function testBasicEditing(canvas: Canvas) {
   expect(heading).toHaveTextContent(text);
 }
 
-async function testClearInput(canvas: Canvas) {
+async function clearInput(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
 
@@ -51,7 +63,7 @@ async function testClearInput(canvas: Canvas) {
   expect(heading).toHaveTextContent(text);
 }
 
-async function testCancelEditing(canvas: Canvas) {
+async function cancelEditing(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
 
@@ -69,5 +81,5 @@ async function testCancelEditing(canvas: Canvas) {
 }
 
 export const overviewPlaySuite = interactionSuite({
-  tests: [testBasicEditing, testClearInput, testCancelEditing]
+  tests: [changeModes, editAndChangeToValidText, clearInput, cancelEditing]
 });
