@@ -8,6 +8,9 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TableRow.module.scss";
 
 export interface ITableRowProps extends VibeComponentProps {
+  /**
+   * Is row is selected
+   */
   highlight?: boolean;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   children?: React.ReactElement<ITableCellProps> | React.ReactElement<ITableCellProps>[];
