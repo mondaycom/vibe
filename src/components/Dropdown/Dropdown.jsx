@@ -81,6 +81,7 @@ const Dropdown = forwardRef(
       ariaLabel,
       tabSelectsValue = true,
       popupsContainerSelector,
+      filterOption,
       "data-testid": dataTestId
     },
     ref
@@ -352,6 +353,7 @@ const Dropdown = forwardRef(
         isLoading={isLoading}
         loadingMessage={loadingMessage}
         tabSelectsValue={tabSelectsValue}
+        filterOption={filterOption}
         {...asyncAdditions}
         {...additions}
       />
@@ -396,7 +398,8 @@ Dropdown.defaultProps = {
   readOnly: false,
   isLoading: false,
   loadingMessage: undefined,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  filterOption: undefined
 };
 
 Dropdown.propTypes = {
@@ -632,7 +635,11 @@ Dropdown.propTypes = {
   /**
    * Overrides the built-in logic of tab selecting value (default: true)
    */
-  tabSelectsValue: PropTypes.bool
+  tabSelectsValue: PropTypes.bool,
+  /**
+   * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
+   */
+  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 export default Dropdown;
