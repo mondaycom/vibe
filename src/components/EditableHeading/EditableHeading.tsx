@@ -53,7 +53,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       weight = HeadingWeight.NORMAL,
       onChange,
       readOnly = false,
-      focusOnMount = true,
+      focusOnMount = false,
       selectOnMount = false,
       ariaLabel = "",
       alignWithText = true
