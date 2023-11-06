@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.57.1 (2023-11-06)
+
+#### Documentation
+* [#1730](https://github.com/mondaycom/monday-ui-react-core/pull/1730) docs: ThemeProvider alpha tag instead of beta ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.57.0 (2023-11-05)
 
 #### New Features
