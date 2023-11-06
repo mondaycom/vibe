@@ -30,6 +30,7 @@ export interface EditableHeadingProps extends VibeComponentProps {
   selectOnMount?: boolean;
   /** ARIA Label */
   ariaLabel?: string;
+  alignWithText: boolean;
 }
 
 const EditableHeading: React.FC<EditableHeadingProps> & {
@@ -48,7 +49,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       readOnly = false,
       focusOnMount = true,
       selectOnMount = false,
-      ariaLabel = ""
+      ariaLabel = "",
+      alignWithText = true
     },
     ref
   ) => {
@@ -139,7 +141,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         id={id}
         aria-label={ariaLabel}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
-        className={cx(styles.editableHeading, className)}
+        className={cx(styles.editableHeading, { [styles.alignWithText]: alignWithText }, className)}
       >
         {isEditing && !readOnly ? (
           <>

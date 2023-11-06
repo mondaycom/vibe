@@ -32,4 +32,8 @@
       border-color: var(--ui-border-color);
     }
   }
+
+  &.alignWithText {
+    margin-left: -6px;
+  }
 }
