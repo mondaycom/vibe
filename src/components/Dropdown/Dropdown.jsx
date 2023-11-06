@@ -3,7 +3,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import Select, { components } from "react-select";
+import Select, { components, createFilter } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
@@ -363,6 +363,7 @@ const Dropdown = forwardRef(
 
 Dropdown.size = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
+Dropdown.createFilter = createFilter;
 
 Dropdown.defaultProps = {
   className: "",
@@ -638,6 +639,7 @@ Dropdown.propTypes = {
   tabSelectsValue: PropTypes.bool,
   /**
    * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
+   * createFilter function is available at Dropdown.createFilter
    */
   filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
