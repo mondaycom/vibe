@@ -14,22 +14,28 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 
 export interface EditableHeadingProps extends VibeComponentProps {
-  /** Heading text */
+  /** Value of the text */
   value: string;
-  /** Heading type */
+  /**
+   * Sets the Heading type
+   * @type {HeadingType}
+   * */
   type?: HeadingType;
-  /** Heading weight */
+  /** Sets the Heading weight
+   * @type {HeadingWeight}
+   */
   weight?: HeadingWeight;
-  /** onChange callback */
+  /** Will be called whenever the current value changes to a non-empty value */
   onChange?: (value: string) => void;
-  /** Disable editing mode */
+  /** Disables editing mode - component will be just a <Heading /> */
   readOnly?: boolean;
-  /** Focus input on mount in edit mode */
+  /** Focuses on input on mount in edit mode */
   focusOnMount?: boolean;
-  /** Select input text on mount in edit mode */
+  /** Selects input text on mount in edit mode */
   selectOnMount?: boolean;
   /** ARIA Label */
   ariaLabel?: string;
+  /** Shifts the component to keep the text aligned to the container in both view and edit mode */
   alignWithText: boolean;
 }
 
