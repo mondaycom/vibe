@@ -9,7 +9,7 @@ import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, Tip } from "vibe-storybook-components";
 import {
   emailTableData,
   emailColumns,
@@ -342,6 +342,55 @@ This is an example of a table with 5000 rows
             ))}
           </TableHeader>
           <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
+        </Table>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Clickable rows
+
+Click on the rows to highlight them.
+
+<Tip emoji="🔨" title="This feature is WIP">
+  This functionality is pre-added for selectable rows feature - checkboxes to multiselect rows will appear on the left.
+  Use with caution.
+</Tip>
+
+<Canvas>
+  <Story name="Clickable rows">
+    {() => {
+      const [selectedRows, setSelectedRows] = useState({});
+      const onRowClick = (rowId, event) => {
+        console.log("### onRowClick: ", rowId, event);
+        setSelectedRows(prevState => ({ ...prevState, [rowId]: !prevState?.[rowId] }));
+      };
+      return (
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell key={index} title={headerCell.title} />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {emailTableData.map(rowItem => (
+              <TableRow
+                key={rowItem.id}
+                highlight={selectedRows[rowItem.id]}
+                onClick={event => onRowClick(rowItem.id, event)}
+              >
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+                <TableCell>
+                  <TableAvatar text={rowItem.sentBy} />
+                </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} color="positive" isAnimationDisabled />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
       );
     }}
