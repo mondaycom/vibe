@@ -12,7 +12,7 @@ export interface ITableRowProps extends VibeComponentProps {
 }
 
 const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }, ref) => {
+  ({ id, className, "data-testid": dataTestId, children, style }, ref) => {
     return (
       <div
         ref={ref}
@@ -20,6 +20,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
         className={cx(styles.tableRow, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW, id)}
         role="row"
+        style={style}
       >
         {children}
       </div>
