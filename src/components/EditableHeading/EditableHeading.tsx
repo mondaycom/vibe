@@ -1,5 +1,5 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import Heading from "../Heading/Heading";
 import { withStaticProps } from "../../types";
@@ -29,12 +29,8 @@ export interface EditableHeadingProps extends VibeComponentProps {
   onChange?: (value: string) => void;
   /** Disables editing mode - component will be just a <Heading /> */
   readOnly?: boolean;
-  /** Selects input text on mount in edit mode */
-  selectOnMount?: boolean;
   /** ARIA Label */
   ariaLabel?: string;
-  /** Shifts the component to keep the text aligned to the container in both view and edit mode */
-  alignWithText: boolean;
 }
 
 const EditableHeading: React.FC<EditableHeadingProps> & {
@@ -51,9 +47,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       weight = Heading.weights.NORMAL,
       onChange,
       readOnly = false,
-      selectOnMount = false,
-      ariaLabel = "",
-      alignWithText = true
+      ariaLabel = ""
     },
     ref
   ) => {
@@ -116,23 +110,11 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       }
     }
 
-    function select() {
-      if (inputRef.current) {
-        inputRef.current.select();
-      }
-    }
-
     useEffect(() => {
       if (isEditing) {
         focus();
       }
     }, [isEditing]);
-
-    useLayoutEffect(() => {
-      if (isEditing && selectOnMount) {
-        select();
-      }
-    }, [selectOnMount, isEditing]);
 
     const inputClassNames = useMemo(() => {
       return cx(styles.input, getStyle(styles, camelCase(type + "-" + weight)));
@@ -144,7 +126,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
         id={id}
         aria-label={ariaLabel}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
-        className={cx(styles.editableHeading, { [styles.alignWithText]: alignWithText }, className)}
+        className={cx(styles.editableHeading, className)}
       >
         {isEditing && !readOnly ? (
           <>

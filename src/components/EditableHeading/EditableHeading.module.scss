@@ -7,6 +7,8 @@
   display: inline-flex;
   width: 100%;
   min-width: 0;
+  // Shifts the component to align the text with the container
+  margin-left: -6px;
 
   .input {
     display: inline-block;
@@ -31,9 +33,5 @@
     &:hover:not(.disabled) {
       border-color: var(--ui-border-color);
     }
-  }
-
-  &.alignWithText {
-    margin-left: -6px;
   }
 }
