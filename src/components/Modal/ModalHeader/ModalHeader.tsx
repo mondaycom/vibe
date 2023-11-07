@@ -20,7 +20,7 @@ export interface ModalHeaderProps extends VibeComponentProps {
   /**
    * Slot for the heading of the modal for maximum flexibility. Using it should be according to design and typography guidelines
    */
-  children: ElementContent;
+  children?: ElementContent;
   /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
