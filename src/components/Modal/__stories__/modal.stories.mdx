@@ -408,10 +408,9 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             contentSpacing
           >
             {/** Please follow the design guidelines when implementing custom title **/}
-            <ModalHeader
-              description={"Description text goes here"}
-              title={<EditableHeading type={EditableHeading.types.H2} value={"Modal title"} />}
-            />
+            <ModalHeader description={"Description text goes here"}>
+              <EditableHeading type={EditableHeading.types.H2} value={"Modal title"} />
+            </ModalHeader>
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons
               primaryButtonText="Confirm"
