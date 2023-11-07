@@ -198,9 +198,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       }
     }, [inputRef, autoFocus]);
 
-      const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
+    const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
-      return (
+    return (
       <div
         className={cx(styles.textField, wrapperClassName, {
           [styles.disabled]: disabled,
