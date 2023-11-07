@@ -10,7 +10,7 @@ import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../compone
 <Flex direction={Flex.directions.COLUMN}>
   <Flex direction={Flex.directions.ROW}>
     <RelatedComponentsDecorator
-      componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys())}
+      componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys()).sort()}
     />
   </Flex>
 </Flex>
