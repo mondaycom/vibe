@@ -249,6 +249,7 @@ export function sort(columnId, sortState, tableData) {
 export const TableEmptyState = () => <h1 style={{ textAlign: "center" }}>Empty State</h1>;
 
 export const TableErrorState = () => <h1 style={{ textAlign: "center" }}>Error State</h1>;
+
 export const TableAvatar = ({ text }) => (
   <Avatar
     text={text
@@ -258,7 +259,6 @@ export const TableAvatar = ({ text }) => (
     customSize={24}
     size={Avatar.sizes.SMALL}
     ariaLabel={text}
-    backgroundColor="dark_purple"
-    tabIndex={-1}
+    backgroundColor={Avatar.colors.DARK_PURPLE}
   />
 );
