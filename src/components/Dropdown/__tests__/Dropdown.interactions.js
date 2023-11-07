@@ -1,13 +1,11 @@
-import { findByRole, userEvent, waitFor } from "@storybook/testing-library";
+import { userEvent, waitFor } from "@storybook/testing-library";
 import {
   getByRole,
   getByText,
   clickElement,
   typeText,
   getFirstByClassName,
-  waitForElementVisible,
-  interactionSuite,
-  delay
+  interactionSuite
 } from "../../../tests/interactions-utils";
 import { expect } from "@storybook/jest";
 
