@@ -4,7 +4,7 @@
 .textField {
   position: relative;
   box-sizing: border-box;
-  font-family: var(--font-family);
+  @include font-input;
   width: 100%;
 }
 
