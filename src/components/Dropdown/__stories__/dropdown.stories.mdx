@@ -8,7 +8,7 @@ import {
   MENU,
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
-import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
+import { overviewPlaySuite, multiInteractionTests } from "../__tests__/Dropdown.interactions";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
@@ -199,7 +199,7 @@ There are three sizes available: Small, Medium, and Large
 The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
 
 <Canvas>
-  <Story name="Multi-choice with different states">
+  <Story name="Multi-choice with different states" play={multiInteractionTests}>
     {() => {
       const options = useMemo(
         () => [
@@ -256,6 +256,16 @@ The Dropdown component supports multiple options selection in two different stat
                 multiline
                 className="dropdown-stories-styles_with-chips"
                 withMandatoryDefaultOptions
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription description="Hidden options list" vertical headerStyle={{ width: 190 }}>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                defaultValue={[...options]}
+                options={options}
+                multi
+                className="dropdown-stories-styles_with-chips"
               />
             </div>
           </StoryDescription>
