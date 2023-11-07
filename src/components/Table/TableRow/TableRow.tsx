@@ -9,7 +9,7 @@ import styles from "./TableRow.module.scss";
 
 export interface ITableRowProps extends VibeComponentProps {
   /**
-   * Is row is selected
+   * Does the row have a highlighted style
    */
   highlight?: boolean;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
