@@ -260,7 +260,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             <Clickable
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
-                [styles.iconContainerActive]: isPrimary
+                [styles.iconContainerActive]: isPrimary,
+                [styles.iconContainerClickable]: onIconClick !== NOOP
               })}
               onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
