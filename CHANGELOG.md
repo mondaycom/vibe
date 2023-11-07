@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.57.2 (2023-11-07)
+
+#### Bug Fixes
+* [#1734](https://github.com/mondaycom/monday-ui-react-core/pull/1734) fix: Modified the styling of the <TextField> icon  ([@Nirco96](https://github.com/Nirco96))
+
 ## 2.57.1 (2023-11-06)
 
 #### Documentation
