@@ -95,6 +95,7 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
       <div className="monday-storybook-text-field_column-wrapper monday-storybook-text-field_spacing">
         <TextField placeholder="Disabled" size={TextField.sizes.MEDIUM} disabled />
         <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
+        <TextField placeholder="With clickable icon" iconName={Email} onIconClick={() => {}} size={TextField.sizes.MEDIUM} />
       </div>
       <div className="monday-storybook-text-field_column-wrapper">
         <TextField placeholder="With field label" title="Name" size={TextField.sizes.MEDIUM} />

@@ -50,7 +50,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -80,7 +80,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -170,7 +170,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -200,7 +200,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -290,7 +290,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -320,7 +320,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -410,7 +410,7 @@ exports[`Combobox renders correctly with className 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -440,7 +440,7 @@ exports[`Combobox renders correctly with className 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -530,7 +530,7 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -560,7 +560,7 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -650,7 +650,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -680,7 +680,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -868,7 +868,7 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -898,7 +898,7 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1096,7 +1096,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1126,7 +1126,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1216,7 +1216,7 @@ exports[`Combobox renders correctly with id 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1246,7 +1246,7 @@ exports[`Combobox renders correctly with id 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1365,7 +1365,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             </div>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1395,7 +1395,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1485,7 +1485,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1515,7 +1515,7 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1605,7 +1605,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1635,7 +1635,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1725,7 +1725,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1755,7 +1755,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1898,7 +1898,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1928,7 +1928,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2018,7 +2018,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2048,7 +2048,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2138,7 +2138,7 @@ exports[`Combobox renders correctly with size 1`] = `
             value=""
           />
           <div
-            className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerActive iconContainerClickable disableTextSelection"
             data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2168,7 +2168,7 @@ exports[`Combobox renders correctly with size 1`] = `
             </svg>
           </div>
           <div
-            className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+            className="clickable iconContainer iconContainerHasIcon iconContainerClickable disableTextSelection"
             data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
