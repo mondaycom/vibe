@@ -29,8 +29,6 @@ export interface EditableHeadingProps extends VibeComponentProps {
   onChange?: (value: string) => void;
   /** Disables editing mode - component will be just a <Heading /> */
   readOnly?: boolean;
-  /** Focuses on input on mount in edit mode */
-  focusOnMount?: boolean;
   /** Selects input text on mount in edit mode */
   selectOnMount?: boolean;
   /** ARIA Label */
@@ -50,10 +48,9 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       "data-testid": dataTestId,
       value,
       type = Heading.types.H1,
-      weight = HeadingWeight.NORMAL,
+      weight = Heading.weights.NORMAL,
       onChange,
       readOnly = false,
-      focusOnMount = false,
       selectOnMount = false,
       ariaLabel = "",
       alignWithText = true
@@ -126,10 +123,10 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
     }
 
     useEffect(() => {
-      if (isEditing && focusOnMount) {
+      if (isEditing) {
         focus();
       }
-    }, [focusOnMount, isEditing]);
+    }, [isEditing]);
 
     useLayoutEffect(() => {
       if (isEditing && selectOnMount) {
