@@ -261,7 +261,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
                 [styles.iconContainerActive]: isPrimary,
-                [styles.iconContainerClickable]: onIconClick !== NOOP
+                [styles.iconContainerClickable]: onIconClick !== NOOP || clearOnIconClick
               })}
               onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
@@ -279,7 +279,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             <Clickable
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
-                [styles.iconContainerActive]: isSecondary
+                [styles.iconContainerActive]: isSecondary,
+                [styles.iconContainerClickable]: onIconClick !== NOOP || clearOnIconClick
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
