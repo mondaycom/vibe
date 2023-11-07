@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.58.0 (2023-11-07)
+
+#### Bug Fixes
+* [#1736](https://github.com/mondaycom/monday-ui-react-core/pull/1736) fix: <TextField> add typograpghy mixin to the textField container to prevent avoid line-height overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1733](https://github.com/mondaycom/monday-ui-react-core/pull/1733) feat: <Dropdown> add filterOption prop for custom filter ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.57.2 (2023-11-07)
 
 #### Bug Fixes
