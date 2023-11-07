@@ -198,7 +198,9 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       }
     }, [inputRef, autoFocus]);
 
-    return (
+      const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
+
+      return (
       <div
         className={cx(styles.textField, wrapperClassName, {
           [styles.disabled]: disabled,
@@ -261,7 +263,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
                 [styles.iconContainerActive]: isPrimary,
-                [styles.iconContainerClickable]: onIconClick !== NOOP || clearOnIconClick
+                [styles.iconContainerClickable]: isIconContainerClickable
               })}
               onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
@@ -280,7 +282,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
                 [styles.iconContainerActive]: isSecondary,
-                [styles.iconContainerClickable]: onIconClick !== NOOP || clearOnIconClick
+                [styles.iconContainerClickable]: isIconContainerClickable
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
