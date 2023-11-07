@@ -145,6 +145,8 @@ descriptionComponentsMap.set(TEXT, <TextDescription />);
 descriptionComponentsMap.set(ACCORDION, <AccordionDescription />);
 descriptionComponentsMap.set(EXPAND_COLLAPSE, <ExpandCollapseDescription />);
 
+export const descriptionComponentsWithoutGeneralDescriptionMap = new Map(descriptionComponentsMap);
+
 // General description (not related to specific components)
 descriptionComponentsMap.set(COLORS, <ColorsDescription />);
 descriptionComponentsMap.set(TYPOGRAPHY, <TypographyDescription />);

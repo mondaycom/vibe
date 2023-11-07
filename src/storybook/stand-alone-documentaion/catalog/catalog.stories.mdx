@@ -1,0 +1,16 @@
+import { Meta } from "@storybook/addon-docs";
+import { Flex } from "../../../components";
+import { RelatedComponentsDecorator } from "../../components";
+import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../components/related-components/component-description-map";
+
+<Meta title="Catalog" />
+
+# Catalog
+
+<Flex direction={Flex.directions.COLUMN}>
+  <Flex direction={Flex.directions.ROW}>
+    <RelatedComponentsDecorator
+      componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys())}
+    />
+  </Flex>
+</Flex>
