@@ -3,7 +3,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import Select, { components } from "react-select";
+import Select, { components, createFilter } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
@@ -81,6 +81,7 @@ const Dropdown = forwardRef(
       ariaLabel,
       tabSelectsValue = true,
       popupsContainerSelector,
+      filterOption,
       "data-testid": dataTestId
     },
     ref
@@ -352,6 +353,7 @@ const Dropdown = forwardRef(
         isLoading={isLoading}
         loadingMessage={loadingMessage}
         tabSelectsValue={tabSelectsValue}
+        filterOption={filterOption}
         {...asyncAdditions}
         {...additions}
       />
@@ -361,6 +363,7 @@ const Dropdown = forwardRef(
 
 Dropdown.size = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
+Dropdown.createFilter = createFilter;
 
 Dropdown.defaultProps = {
   className: "",
@@ -396,7 +399,8 @@ Dropdown.defaultProps = {
   readOnly: false,
   isLoading: false,
   loadingMessage: undefined,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  filterOption: undefined
 };
 
 Dropdown.propTypes = {
@@ -632,7 +636,12 @@ Dropdown.propTypes = {
   /**
    * Overrides the built-in logic of tab selecting value (default: true)
    */
-  tabSelectsValue: PropTypes.bool
+  tabSelectsValue: PropTypes.bool,
+  /**
+   * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
+   * createFilter function is available at Dropdown.createFilter
+   */
+  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 export default Dropdown;
