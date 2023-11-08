@@ -86,22 +86,22 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   "data-testid": dataTestId
 }) => {
   return (
-    <div className={cx(styles.container, className)}>
-      <div data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}>
-        {children ? (
-          children
-        ) : (
-          <Heading id={id} maxLines={2} className={titleClassName}>
-            {icon && (
-              <span className={cx(styles.icon, iconClassName)}>
-                <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
-              </span>
-            )}
-            {title}
-          </Heading>
-        )}
-      </div>
-
+    <div
+      className={cx(styles.container, className)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
+    >
+      {children ? (
+        children
+      ) : (
+        <Heading id={id} maxLines={2} className={titleClassName}>
+          {icon && (
+            <span className={cx(styles.icon, iconClassName)}>
+              <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
+            </span>
+          )}
+          {title}
+        </Heading>
+      )}
       {description && (
         <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}
