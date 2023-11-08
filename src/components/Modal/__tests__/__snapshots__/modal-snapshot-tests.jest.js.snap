@@ -32,18 +32,15 @@ Snapshot Diff:
       >
 +       <div
 +         class="container"
++         data-testid="modal-header"
 +       >
-+         <div
-+           data-testid="modal-header"
++         <h1
++           class="typography primary start multiLineEllipsis heading h1Normal"
++           data-testid="text"
++           style="--text-clamp-lines: 2;"
 +         >
-+           <h1
-+             class="typography primary start multiLineEllipsis heading h1Normal"
-+             data-testid="text"
-+             style="--text-clamp-lines: 2;"
-+           >
-+             ModalHeader Heading
-+           </h1>
-+         </div>
++           ModalHeader Heading
++         </h1>
 +         <div
 +           class="closeButton"
 +         >
@@ -101,18 +98,15 @@ Snapshot Diff:
       >
 +       <div
 +         class="container"
++         data-testid="modal-header"
 +       >
-+         <div
-+           data-testid="modal-header"
++         <h1
++           class="typography primary start multiLineEllipsis heading h1Normal"
++           data-testid="text"
++           style="--text-clamp-lines: 2;"
 +         >
-+           <h1
-+             class="typography primary start multiLineEllipsis heading h1Normal"
-+             data-testid="text"
-+             style="--text-clamp-lines: 2;"
-+           >
-+             ModalHeader Heading
-+           </h1>
-+         </div>
++           ModalHeader Heading
++         </h1>
 +         <div
 +           class="closeButton"
 +         >
@@ -156,14 +150,14 @@ Snapshot Diff:
 +       >
           <p>
             content
-          </p>
++         </p>
 +       </div>
 +       <div
 +         class="container"
 +       >
 +         <p>
 +           footer
-+         </p>
+          </p>
 +       </div>
       </div>
     </div>
@@ -191,19 +185,16 @@ exports[`Modal with base props 1`] = `
   >
     <div
       class="container"
+      data-testid="modal-header_modal-id-title"
     >
-      <div
-        data-testid="modal-header_modal-id-title"
+      <h1
+        class="typography primary start multiLineEllipsis heading h1Normal"
+        data-testid="text_modal-id-title"
+        id="modal-id-title"
+        style="--text-clamp-lines: 2;"
       >
-        <h1
-          class="typography primary start multiLineEllipsis heading h1Normal"
-          data-testid="text_modal-id-title"
-          id="modal-id-title"
-          style="--text-clamp-lines: 2;"
-        >
-          Modal Heading
-        </h1>
-      </div>
+        Modal Heading
+      </h1>
       <div
         class="closeButton"
       >
@@ -323,8 +314,8 @@ Snapshot Diff:
 + Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"description":"description"}
 
 @@ --- --- @@
-          </h1>
-        </div>
+          Modal Heading
+        </h1>
         <div
 +         class="typography primary start multiLineEllipsis text text2Normal description"
 +         data-testid="text"
