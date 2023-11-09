@@ -62,7 +62,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           <Chips
             data-testid="value-container-chip"
             key={option.value}
-            className={chipClassName}
+            className={cx(classes.chips, chipClassName)}
             noAnimation
             disabled={isDisabled}
             id={option.value}

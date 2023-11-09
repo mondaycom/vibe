@@ -40,9 +40,14 @@
 }
 
 .valueDialogContent {
+  @include scroller();
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   max-height: 300px;
   overflow-y: auto;
-  @include scroller();
+
+  .chips {
+    flex-shrink: 0;
+  }
 }
