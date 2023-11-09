@@ -62,6 +62,49 @@ As a result, when dropdown menus are placed inside a scrolling container or with
 To address this problem, we need to adjust the styling of the dropdown menu to ensure it appears correctly even within these specific container.
 We implemented few methods for solving this issue.
 
+## In modal
+
+<Canvas>
+  <Story name="In modal">
+    {() => {
+      const [show, setShow] = useState(false);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, [setShow]);
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" },
+          { value: "4", label: "Option 4" },
+          { value: "5", label: "Option 5" },
+          { value: "6", label: "Option 6" },
+          { value: "7", label: "Option 7" },
+          { value: "8", label: "Option 8" },
+          { value: "9", label: "Option 9" },
+          { value: "10", label: "Option 10" },
+          { value: "11", label: "Option 11" },
+          { value: "12", label: "Option 12" },
+          { value: "13", label: "Option 13" },
+          { value: "14", label: "Option 14" },
+          { value: "15", label: "Option 15" }
+        ],
+        []
+      );
+      return (
+        <div>
+          <Button onClick={() => setShow(true)}>Open modal</Button>
+          <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
+            <ModalContent>
+              <Dropdown options={options} inModal />
+            </ModalContent>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## insideOverflowContainer prop
 
 To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can utilize our dropdown's <code>insideOverflowContainer</code> prop.
