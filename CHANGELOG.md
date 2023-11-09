@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.59.1 (2023-11-09)
+
+#### Documentation
+* [#1735](https://github.com/mondaycom/monday-ui-react-core/pull/1735) docs: improve readme files on how to import css - mention storybook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1726](https://github.com/mondaycom/monday-ui-react-core/pull/1726) feat: new EditableHeading with new typography ([@talkor](https://github.com/talkor))
+
 ## 2.59.0 (2023-11-09)
 
 #### New Features
