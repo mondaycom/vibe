@@ -358,7 +358,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     }
 
     return (
-      <button {...buttonProps}>
+      <button {...buttonProps} key={`${id}-button`}>
         {leftIcon ? (
           <Icon
             iconType={Icon?.type.ICON_FONT}
