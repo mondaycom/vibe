@@ -17,7 +17,7 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
-const CHIPS_AVATAR_SIZE = 18;
+const CHIPS_AVATAR_SIZE = 20;
 
 interface ChipsProps extends VibeComponentProps {
   label?: string;
