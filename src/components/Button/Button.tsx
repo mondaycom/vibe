@@ -149,17 +149,16 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const [hasSizeStyle, setHasSizeStyle] = useState(false);
+    const buttonWidth = useRef(MIN_BUTTON_WIDTH_PX);
 
     const updateCssVariables = useMemo(() => {
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
         const { inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_WIDTH_PX);
         if (!buttonRef.current) return;
-        buttonRef.current.style.setProperty("--element-width", `${width}px`);
-        setHasSizeStyle(true);
+        buttonWidth.current = width;
       };
-    }, [buttonRef]);
+    }, []);
 
     useResizeObserver({
       ref: buttonRef,
@@ -222,7 +221,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
-          [styles.hasStyleSize]: hasSizeStyle,
           [styles.loading]: loading,
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
@@ -242,7 +240,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       className,
       size,
       kind,
-      hasSizeStyle,
       loading,
       active,
       activeButtonClassName,
@@ -265,7 +262,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         className: classNames,
         name,
         onMouseUp,
-        style,
+        style: { minWidth: `${buttonWidth.current}px`, ...style },
         onClick: onButtonClicked,
         id,
         onFocus,
@@ -286,6 +283,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return props;
     }, [
       mergedRef,
+      buttonWidth,
       type,
       classNames,
       name,
