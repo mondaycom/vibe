@@ -32,10 +32,11 @@ Snapshot Diff:
       >
 +       <div
 +         class="container"
++         data-testid="modal-header"
 +       >
 +         <h1
 +           class="typography primary start multiLineEllipsis heading h1Normal"
-+           data-testid="modal-header"
++           data-testid="text"
 +           style="--text-clamp-lines: 2;"
 +         >
 +           ModalHeader Heading
@@ -97,10 +98,11 @@ Snapshot Diff:
       >
 +       <div
 +         class="container"
++         data-testid="modal-header"
 +       >
 +         <h1
 +           class="typography primary start multiLineEllipsis heading h1Normal"
-+           data-testid="modal-header"
++           data-testid="text"
 +           style="--text-clamp-lines: 2;"
 +         >
 +           ModalHeader Heading
@@ -183,10 +185,11 @@ exports[`Modal with base props 1`] = `
   >
     <div
       class="container"
+      data-testid="modal-header_modal-id-title"
     >
       <h1
         class="typography primary start multiLineEllipsis heading h1Normal"
-        data-testid="modal-header_modal-id-title"
+        data-testid="text_modal-id-title"
         id="modal-id-title"
         style="--text-clamp-lines: 2;"
       >

@@ -6,13 +6,13 @@ import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
-import { FlexDirection, FlexGap } from "../Flex/FlexConstants";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { ElementContent } from "src/types/ElementContent";
+import { AVATAR_GROUP_COUNTER_AVATAR_SIZE, AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
+import { keyCodes } from "../../constants";
 
-const TAB = ["Tab"];
-const ESC = ["Escape"];
-export const TOOLTIP_SHOW_DELAY = 200;
+const TAB = [keyCodes.TAB];
+const ESC = [keyCodes.ESCAPE];
 
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
@@ -32,7 +32,7 @@ export function useTooltipContentTabNavigation({
   const showKeyboardTooltip = useCallback(() => {
     if (!isKeyboardTooltipVisible) {
       // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
-      setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
+      setTimeout(() => setIsKeyboardTooltipVisible(true), AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY);
     }
   }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
 
@@ -132,12 +132,12 @@ export const avatarRenderer = (
       clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
     >
       <div style={overrideStyle}>
-        <Flex direction={FlexDirection.ROW} gap={FlexGap.XS} ariaLabelledby={labelId}>
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}
             ariaLabel={""}
-            size={Avatar.sizes.SMALL}
+            customSize={AVATAR_GROUP_COUNTER_AVATAR_SIZE}
             type={type || avatarProps?.type}
             tabIndex={-1}
           />

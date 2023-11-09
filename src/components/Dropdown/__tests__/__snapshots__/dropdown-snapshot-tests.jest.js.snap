@@ -2445,8 +2445,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                   data-testid="avatar"
                   style={
                     Object {
-                      "height": 18,
-                      "width": 18,
+                      "height": 20,
+                      "width": 20,
                     }
                   }
                 >
@@ -2681,10 +2681,10 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                   className="icon icon left noFocusStyle"
                   data-testid="icon"
                   fill="currentColor"
-                  height="16"
+                  height="18"
                   onClick={[Function]}
                   viewBox="0 0 20 20"
-                  width="16"
+                  width="18"
                 >
                   <path
                     clipRule="evenodd"

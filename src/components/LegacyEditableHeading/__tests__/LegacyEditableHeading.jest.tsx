@@ -1,20 +1,20 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import EditableHeading from "../EditableHeading";
+import LegacyEditableHeading from "../LegacyEditableHeading";
 import "@testing-library/jest-dom";
 
-describe("EditableHeading", () => {
+describe("LegacyEditableHeading", () => {
   afterEach(() => {
     cleanup();
   });
   it("renders correctly with empty props", () => {
-    const tree = renderer.create(<EditableHeading type={EditableHeading.types.h1} />).toJSON();
+    const tree = renderer.create(<LegacyEditableHeading type={LegacyEditableHeading.types.h1} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should not render an button when editing = false", () => {
-    const { queryByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing={false} />);
+    const { queryByRole } = render(<LegacyEditableHeading type={LegacyEditableHeading.types.h1} editing={false} />);
 
     const button = queryByRole("button");
 
@@ -22,7 +22,7 @@ describe("EditableHeading", () => {
   });
 
   it("should render a button when editing = true", () => {
-    const { getByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing />);
+    const { getByRole } = render(<LegacyEditableHeading type={LegacyEditableHeading.types.h1} editing />);
 
     const button = getByRole("button");
 
@@ -30,25 +30,25 @@ describe("EditableHeading", () => {
   });
 
   it("should render a button when editing prop changes from false to true", () => {
-    const { getByRole, rerender } = render(<EditableHeading type={EditableHeading.types.h1} />);
+    const { getByRole, rerender } = render(<LegacyEditableHeading type={LegacyEditableHeading.types.h1} />);
 
-    rerender(<EditableHeading type={EditableHeading.types.h1} editing />);
+    rerender(<LegacyEditableHeading type={LegacyEditableHeading.types.h1} editing />);
     const button = getByRole("button");
 
     expect(button).toBeInTheDocument();
   });
 
   it("renders correctly with dataTestId prop", () => {
-    const { getByTestId } = render(<EditableHeading data-testid="data-test-id" />);
+    const { getByTestId } = render(<LegacyEditableHeading data-testid="data-test-id" />);
 
     const editableHeadingElement = getByTestId("data-test-id");
 
     expect(editableHeadingElement).toBeInTheDocument();
   });
 
-  it("should play the onStartEditing function without params when click on the input element inside the EditableHeading element", () => {
+  it("should play the onStartEditing function without params when click on the input element inside the LegacyEditableHeading element", () => {
     const mockCallback = jest.fn();
-    const { getByRole } = render(<EditableHeading onStartEditing={mockCallback} />);
+    const { getByRole } = render(<LegacyEditableHeading onStartEditing={mockCallback} />);
 
     const input = getByRole("input");
     fireEvent.click(input);
@@ -56,9 +56,9 @@ describe("EditableHeading", () => {
     expect(mockCallback.mock.calls.length).toBe(1);
   });
 
-  it("should play the onStartEditing function with params when click on the input element inside the EditableHeading element", () => {
+  it("should play the onStartEditing function with params when click on the input element inside the LegacyEditableHeading element", () => {
     const mockCallback = jest.fn();
-    const { getByRole } = render(<EditableHeading onStartEditing={mockCallback} />);
+    const { getByRole } = render(<LegacyEditableHeading onStartEditing={mockCallback} />);
 
     const input = getByRole("input");
     fireEvent.click(input);
