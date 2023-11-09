@@ -22,11 +22,6 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -42,11 +37,6 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -62,11 +52,6 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -82,11 +67,6 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -117,11 +97,6 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -137,11 +112,6 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -157,11 +127,6 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -177,11 +142,6 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -212,11 +172,6 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -232,11 +187,6 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -252,11 +202,6 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -272,11 +217,6 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -307,11 +247,6 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -327,11 +262,6 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -347,11 +277,6 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -367,11 +292,6 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -402,11 +322,6 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -422,11 +337,6 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -442,11 +352,6 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -462,11 +367,6 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -497,11 +397,6 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -517,11 +412,6 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -537,11 +427,6 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -557,11 +442,6 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta
@@ -592,11 +472,6 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Alpha
@@ -612,11 +487,6 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Beta
@@ -632,11 +502,6 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Gamma
@@ -652,11 +517,6 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Delta

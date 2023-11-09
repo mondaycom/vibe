@@ -25,11 +25,6 @@ exports[`AlertBanner should render correctly with background color 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg
@@ -95,11 +90,6 @@ exports[`AlertBanner should render correctly without props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg
@@ -211,11 +201,6 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           onFocus={[Function]}
           onMouseDown={[Function]}
           onMouseUp={[Function]}
-          style={
-            Object {
-              "minWidth": "6px",
-            }
-          }
           type="button"
         >
           Lorem Ipsum Bailar
@@ -238,11 +223,6 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg
@@ -311,11 +291,6 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
           onFocus={[Function]}
           onMouseDown={[Function]}
           onMouseUp={[Function]}
-          style={
-            Object {
-              "minWidth": "6px",
-            }
-          }
           type="button"
         >
           Lorem Ipsum Salura
@@ -338,11 +313,6 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg
@@ -436,11 +406,6 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg
@@ -507,11 +472,6 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       <svg

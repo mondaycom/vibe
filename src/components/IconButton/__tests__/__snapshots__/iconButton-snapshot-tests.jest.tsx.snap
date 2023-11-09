@@ -17,7 +17,6 @@ exports[`IconButton renders correctly with 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -61,7 +60,6 @@ exports[`IconButton renders correctly with active 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -116,7 +114,6 @@ exports[`IconButton renders correctly with aria label 1`] = `
         "alignItems": "center",
         "height": "40px",
         "justifyContent": "center",
-        "minWidth": "6px",
         "padding": 0,
         "width": "40px",
       }
@@ -161,7 +158,6 @@ exports[`IconButton renders correctly with disabled 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -205,7 +201,6 @@ exports[`IconButton renders correctly with empty props 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -250,7 +245,6 @@ exports[`IconButton renders correctly with id 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -294,7 +288,6 @@ exports[`IconButton renders correctly with size - large 1`] = `
       "alignItems": "center",
       "height": "48px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "48px",
     }
@@ -338,7 +331,6 @@ exports[`IconButton renders correctly with size - medium 1`] = `
       "alignItems": "center",
       "height": "40px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "40px",
     }
@@ -382,7 +374,6 @@ exports[`IconButton renders correctly with size - small 1`] = `
       "alignItems": "center",
       "height": "32px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "32px",
     }
@@ -426,7 +417,6 @@ exports[`IconButton renders correctly with size - xs 1`] = `
       "alignItems": "center",
       "height": "24px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "24px",
     }
@@ -470,7 +460,6 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
       "alignItems": "center",
       "height": "16px",
       "justifyContent": "center",
-      "minWidth": "6px",
       "padding": 0,
       "width": "16px",
     }

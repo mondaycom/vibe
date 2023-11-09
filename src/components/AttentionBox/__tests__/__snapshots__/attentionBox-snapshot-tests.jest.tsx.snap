@@ -383,7 +383,6 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
           "alignItems": "center",
           "height": "32px",
           "justifyContent": "center",
-          "minWidth": "6px",
           "padding": 0,
           "width": "32px",
         }

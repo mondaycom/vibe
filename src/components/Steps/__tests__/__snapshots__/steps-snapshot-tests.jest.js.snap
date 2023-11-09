@@ -19,11 +19,6 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -58,11 +53,6 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -130,11 +120,6 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -186,11 +171,6 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -235,11 +215,6 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -291,11 +266,6 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -343,11 +313,6 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -399,11 +364,6 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -451,11 +411,6 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -507,11 +462,6 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -559,11 +509,6 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -585,11 +530,6 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -623,11 +563,6 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -666,11 +601,6 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -715,11 +645,6 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -758,11 +683,6 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -810,11 +730,6 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -853,11 +768,6 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next
@@ -905,11 +815,6 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Back
@@ -948,11 +853,6 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
-      style={
-        Object {
-          "minWidth": "6px",
-        }
-      }
       type="button"
     >
       Next

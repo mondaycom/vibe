@@ -1625,7 +1625,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     "alignItems": "center",
                     "height": "16px",
                     "justifyContent": "center",
-                    "minWidth": "6px",
                     "padding": 0,
                     "width": "16px",
                   }
@@ -1687,7 +1686,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     "alignItems": "center",
                     "height": "16px",
                     "justifyContent": "center",
-                    "minWidth": "6px",
                     "padding": 0,
                     "width": "16px",
                   }
@@ -1752,7 +1750,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                       "alignItems": "center",
                       "height": "16px",
                       "justifyContent": "center",
-                      "minWidth": "6px",
                       "padding": 0,
                       "width": "16px",
                     }
@@ -2489,7 +2486,6 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                       "alignItems": "center",
                       "height": "16px",
                       "justifyContent": "center",
-                      "minWidth": "6px",
                       "padding": 0,
                       "width": "16px",
                     }
@@ -2720,7 +2716,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                       "alignItems": "center",
                       "height": "16px",
                       "justifyContent": "center",
-                      "minWidth": "6px",
                       "padding": 0,
                       "width": "16px",
                     }
