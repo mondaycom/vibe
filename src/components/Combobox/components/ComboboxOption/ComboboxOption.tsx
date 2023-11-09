@@ -45,7 +45,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     rightIcon,
     rightIconType,
     label,
-    iconSize = 16,
+    iconSize = 18,
     disabled,
     selected,
     ariaLabel,

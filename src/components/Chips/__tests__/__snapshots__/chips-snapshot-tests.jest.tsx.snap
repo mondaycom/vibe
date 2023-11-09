@@ -162,8 +162,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
     data-testid="avatar"
     style={
       Object {
-        "height": 18,
-        "width": 18,
+        "height": 20,
+        "width": 20,
       }
     }
   >
@@ -275,10 +275,10 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
     className="icon icon left noFocusStyle"
     data-testid="icon"
     fill="currentColor"
-    height="16"
+    height="18"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="16"
+    width="18"
   >
     <path
       clipRule="evenodd"
@@ -319,8 +319,8 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
     data-testid="avatar"
     style={
       Object {
-        "height": 16,
-        "width": 16,
+        "height": 20,
+        "width": 20,
       }
     }
   >
@@ -432,10 +432,10 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
     className="icon icon right noFocusStyle"
     data-testid="icon"
     fill="currentColor"
-    height="16"
+    height="18"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="16"
+    width="18"
   >
     <path
       clipRule="evenodd"

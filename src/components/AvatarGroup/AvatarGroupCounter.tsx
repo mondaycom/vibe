@@ -13,6 +13,7 @@ import { AvatarGroupCounterVisualProps } from "./AvatarGroup";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
+import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
 interface AvatarGroupCounterProps extends VibeComponentProps {
   /**
@@ -75,7 +76,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
       <MenuButton
         component={counterComponent}
         zIndex={1}
-        componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
+        className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
@@ -88,7 +89,12 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
                   title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.ariaLabel,
                   onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
                 }}
-                avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: -1 }}
+                avatarProps={{
+                  ...avatar.props,
+                  customSize: AVATAR_GROUP_COUNTER_AVATAR_SIZE,
+                  ariaLabel: "",
+                  tabIndex: -1
+                }}
               />
             );
           })}

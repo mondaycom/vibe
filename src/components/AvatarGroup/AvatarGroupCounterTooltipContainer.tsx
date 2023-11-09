@@ -2,9 +2,10 @@ import React, { ReactElement, RefObject, useCallback, useMemo, useRef, useState 
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import { AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
-import { TOOLTIP_SHOW_DELAY, useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
+import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
+import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   className?: string;
@@ -23,6 +24,9 @@ interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
   counterContainerRef?: RefObject<HTMLDivElement>;
 }
+
+const SHOW_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_ENTER];
+const HIDE_TRIGGER = [Tooltip.hideShowTriggers.MOUSE_LEAVE];
 
 const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipContainerProps> = ({
   focusPrevPlaceholderRef,
@@ -64,8 +68,6 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   const onHide = useCallback(() => {
     setIsKeyboardTooltipVisible(false);
   }, []);
-  const showTrigger = useMemo(() => [Tooltip.hideShowTriggers.MOUSE_ENTER], []);
-  const hideTrigger = useMemo(() => [Tooltip.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return <>{children}</>;
@@ -75,9 +77,9 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
       // for disable close tooltip when hovering content
       showOnDialogEnter
       open={isKeyboardTooltipVisible}
-      hideDelay={TOOLTIP_SHOW_DELAY}
-      showTrigger={showTrigger}
-      hideTrigger={hideTrigger}
+      hideDelay={AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY}
+      showTrigger={SHOW_TRIGGER}
+      hideTrigger={HIDE_TRIGGER}
       onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}

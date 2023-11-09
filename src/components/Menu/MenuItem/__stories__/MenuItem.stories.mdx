@@ -2,7 +2,6 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import {
   menuItemIconsTemplate,
-  menuItemIconsWithColorsTemplate,
   menuItemOverflowTemplate,
   menuItemStatesTemplate,
   menuItemTemplate,
@@ -62,12 +61,6 @@ Use menu item for drawing one options that displayed inside a menu.
 
 <Canvas>
   <Story name="Icons">{menuItemIconsTemplate.bind({})}</Story>
-</Canvas>
-
-### Icons with colors
-
-<Canvas>
-  <Story name="Icons with colors">{menuItemIconsWithColorsTemplate.bind({})}</Story>
 </Canvas>
 
 ### Label

@@ -3,4 +3,4 @@ export enum ListItemIconMargin {
   END = "end"
 }
 
-export const LIST_ITEM_ICON_SIZE = 20;
+export const LIST_ITEM_ICON_SIZE = 18;
