@@ -4,6 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { useState } from "react";
 import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
+import { TEXT, HEADING } from "../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
@@ -26,6 +27,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
+- [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
@@ -69,3 +71,7 @@ An extension of the <Link href="/?path=/docs/text-heading--overview" withoutSpac
     <EditableHeading type={EditableHeading.types.H3} value="H3 Header" />
   </Story>
 </Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT, HEADING]} />
