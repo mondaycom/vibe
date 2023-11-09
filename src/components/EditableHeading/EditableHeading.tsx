@@ -29,6 +29,8 @@ export interface EditableHeadingProps extends VibeComponentProps {
   onChange?: (value: string) => void;
   /** Disables editing mode - component will be just a <Heading /> */
   readOnly?: boolean;
+  /** Shown in edit mode when the text value is empty */
+  placeholder?: string;
   /** ARIA Label */
   ariaLabel?: string;
 }
@@ -47,7 +49,8 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       weight = Heading.weights.NORMAL,
       onChange,
       readOnly = false,
-      ariaLabel = ""
+      ariaLabel = "",
+      placeholder
     },
     ref
   ) => {
@@ -130,7 +133,11 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
       >
         {isEditing && !readOnly ? (
           <>
-            <HiddenInputPlaceholder className={inputClassNames} value={inputValue} onChange={setInputWidth} />
+            <HiddenInputPlaceholder
+              className={inputClassNames}
+              value={inputValue || placeholder}
+              onChange={setInputWidth}
+            />
             <input
               ref={inputRef}
               className={inputClassNames}
@@ -139,6 +146,7 @@ const EditableHeading: React.FC<EditableHeadingProps> & {
               onKeyDown={handleKeyDown}
               onBlur={handleBlur}
               aria-label={ariaLabel}
+              placeholder={placeholder}
               style={{ width: inputWidth }}
               role="input"
             />
