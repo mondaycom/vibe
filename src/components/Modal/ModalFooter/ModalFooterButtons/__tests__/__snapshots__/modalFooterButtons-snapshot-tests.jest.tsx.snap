@@ -23,6 +23,11 @@ exports[`ModalFooterButtons should render correctly 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Cancel
@@ -38,6 +43,11 @@ exports[`ModalFooterButtons should render correctly 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Confirm

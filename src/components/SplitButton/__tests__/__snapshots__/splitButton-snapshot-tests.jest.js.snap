@@ -16,6 +16,11 @@ exports[`SplitButton renders correctly with SplitButtonMenu 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -45,6 +50,11 @@ exports[`SplitButton renders correctly with SplitButtonMenu 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -87,6 +97,11 @@ exports[`SplitButton renders correctly with custom menu 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -116,6 +131,11 @@ exports[`SplitButton renders correctly with custom menu 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -158,6 +178,11 @@ exports[`SplitButton renders correctly with disabled 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -187,6 +212,11 @@ exports[`SplitButton renders correctly with disabled 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -229,6 +259,11 @@ exports[`SplitButton renders correctly with left icon 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   >
     <svg
@@ -276,6 +311,11 @@ exports[`SplitButton renders correctly with left icon 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -318,6 +358,11 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -347,6 +392,11 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -389,6 +439,11 @@ exports[`SplitButton renders correctly with only required props 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -418,6 +473,11 @@ exports[`SplitButton renders correctly with only required props 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -460,6 +520,11 @@ exports[`SplitButton renders correctly with right icon 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   >
     <svg
@@ -507,6 +572,11 @@ exports[`SplitButton renders correctly with right icon 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -549,6 +619,11 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -578,6 +653,11 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -620,6 +700,11 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -649,6 +734,11 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div
@@ -691,6 +781,11 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    style={
+      Object {
+        "minWidth": "6px",
+      }
+    }
     type="button"
   />
   <div
@@ -720,6 +815,11 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseUp={[Function]}
+        style={
+          Object {
+            "minWidth": "6px",
+          }
+        }
         type="button"
       >
         <div

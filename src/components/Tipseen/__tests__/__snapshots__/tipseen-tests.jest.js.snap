@@ -19,6 +19,11 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Dismiss
@@ -34,6 +39,11 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Submit
@@ -61,6 +71,11 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Dismiss
@@ -76,6 +91,11 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Submit
@@ -103,6 +123,11 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      style={
+        Object {
+          "minWidth": "6px",
+        }
+      }
       type="button"
     >
       Submit
@@ -187,6 +212,7 @@ Array [
                   "alignItems": "center",
                   "height": "24px",
                   "justifyContent": "center",
+                  "minWidth": "6px",
                   "padding": 0,
                   "width": "24px",
                 }
@@ -277,6 +303,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
                 "alignItems": "center",
                 "height": "24px",
                 "justifyContent": "center",
+                "minWidth": "6px",
                 "padding": 0,
                 "width": "24px",
               }
@@ -484,6 +511,7 @@ Array [
                   "alignItems": "center",
                   "height": "24px",
                   "justifyContent": "center",
+                  "minWidth": "6px",
                   "padding": 0,
                   "width": "24px",
                 }
