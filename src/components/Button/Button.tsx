@@ -326,7 +326,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     if (loading) {
       return (
-        <button {...buttonProps}>
+        <button {...buttonProps} key={`${id}-loading`}>
           <span className={styles.loader}>
             <Loader className={styles.loaderSvg} />
             <span aria-hidden className={styles.textPlaceholder}>
@@ -339,7 +339,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     if (success) {
       return (
-        <button {...buttonProps}>
+        <button {...buttonProps} key={`${id}-success`}>
           {successIcon ? (
             <Icon
               iconType={Icon?.type.ICON_FONT}
