@@ -3,7 +3,6 @@ import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, use
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
-import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
@@ -16,9 +15,6 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
-
-const MIN_BUTTON_WIDTH_PX = 6;
-const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -149,21 +145,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const buttonWidth = useRef(MIN_BUTTON_WIDTH_PX);
-
-    const updateCssVariables = useMemo(() => {
-      return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
-        const { inlineSize } = borderBoxSize;
-        const width = Math.max(inlineSize, MIN_BUTTON_WIDTH_PX);
-        buttonWidth.current = width;
-      };
-    }, []);
-
-    useResizeObserver({
-      ref: buttonRef,
-      callback: updateCssVariables,
-      debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
-    });
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
@@ -224,6 +205,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
           [styles.marginRight]: marginRight,
+          [styles.success]: success,
           [styles.marginLeft]: marginLeft,
           [styles.rightFlat]: rightFlat,
           [styles.leftFlat]: leftFlat,
@@ -261,7 +243,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         className: classNames,
         name,
         onMouseUp,
-        style: { minWidth: `${buttonWidth.current}px`, ...style },
+        style,
         onClick: onButtonClicked,
         id,
         onFocus,
@@ -282,7 +264,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return props;
     }, [
       mergedRef,
-      buttonWidth,
       type,
       classNames,
       name,
@@ -337,19 +318,24 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     if (success) {
       return (
         <button {...buttonProps} key={`${id}-success`}>
-          {successIcon ? (
-            <Icon
-              iconType={Icon?.type.ICON_FONT}
-              clickable={false}
-              icon={successIcon}
-              iconSize={successIconSize}
-              className={cx({
-                [styles.leftIcon]: !!successText
-              })}
-              ignoreFocusStyle
-            />
-          ) : null}
-          {successText}
+          <span className={styles.successContent}>
+            {successIcon ? (
+              <Icon
+                iconType={Icon?.type.ICON_FONT}
+                clickable={false}
+                icon={successIcon}
+                iconSize={successIconSize}
+                className={cx({
+                  [styles.leftIcon]: !!successText
+                })}
+                ignoreFocusStyle
+              />
+            ) : null}
+            {successText}
+          </span>
+          <span aria-hidden className={styles.textPlaceholder}>
+            {children}
+          </span>
         </button>
       );
     }

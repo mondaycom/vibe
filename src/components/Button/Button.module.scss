@@ -32,10 +32,20 @@ $disabled-on-primary-color-opacity: 0.5;
       height: 100%;
       margin: 0;
     }
+  }
 
-    .textPlaceholder {
-      opacity: 0;
-    }
+  .textPlaceholder {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    white-space: pre;
+  }
+
+  .successContent {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
