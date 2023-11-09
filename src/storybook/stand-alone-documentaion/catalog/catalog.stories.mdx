@@ -1,5 +1,4 @@
 import { Meta } from "@storybook/addon-docs";
-import { Flex } from "../../../components";
 import { RelatedComponentsDecorator } from "../../components";
 import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../components/related-components/component-description-map";
 
@@ -7,10 +6,6 @@ import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../compone
 
 # Catalog
 
-<Flex direction={Flex.directions.COLUMN}>
-  <Flex direction={Flex.directions.ROW}>
-    <RelatedComponentsDecorator
-      componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys()).sort()}
-    />
-  </Flex>
-</Flex>
+<RelatedComponentsDecorator
+  componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys()).sort()}
+/>
