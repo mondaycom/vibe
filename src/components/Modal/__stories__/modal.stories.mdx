@@ -12,7 +12,7 @@ import {
 } from "../../../storybook/components/related-components/component-description-map";
 import Modal from "../Modal";
 import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
-import { EditableHeading } from "../../../components";
+import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
 import { Upgrade } from "../../Icon/Icons";
 
@@ -408,10 +408,9 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             contentSpacing
           >
             {/** Please follow the design guidelines when implementing custom title **/}
-            <ModalHeader
-              description={"Description text goes here"}
-              title={<EditableHeading type={EditableHeading.types.h2} placeholder={"Modal title"} />}
-            />
+            <ModalHeader description={"Description text goes here"}>
+              <EditableHeading type={EditableHeading.types.H2} value={"Modal title"} />
+            </ModalHeader>
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons
               primaryButtonText="Confirm"

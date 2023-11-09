@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LegacyEditableHeading renders correctly with empty props 1`] = `
+<div
+  aria-label="undefined "
+  className="editableHeadingWrapper"
+  data-testid="editable-heading"
+  id=""
+>
+  <div
+    className="clickable disableTextSelection"
+    data-testid="clickable"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="input"
+    tabIndex={0}
+  >
+    <h1
+      aria-label=""
+      className="headingComponent headingComponent elementTypeH1 sizeLarge singleLineEllipsis suggestEditOnHover"
+      data-testid="heading"
+    >
+      
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`LegacyEditableHeading renders correctly with empty props 1`] = `
+<div
+  aria-label="undefined "
+  className="editableHeadingWrapper"
+  data-testid="editable-heading"
+  id=""
+>
+  <div
+    className="clickable disableTextSelection"
+    data-testid="clickable"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="input"
+    tabIndex={0}
+  >
+    <h1
+      aria-label=""
+      className="headingComponent headingComponent elementTypeH1 sizeLarge singleLineEllipsis suggestEditOnHover"
+      data-testid="heading"
+    >
+      
+    </h1>
+  </div>
+</div>
+`;
