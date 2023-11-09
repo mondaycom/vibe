@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
@@ -155,7 +155,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
         const { inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_WIDTH_PX);
-        if (!buttonRef.current) return;
         buttonWidth.current = width;
       };
     }, []);
