@@ -41,11 +41,17 @@ $disabled-on-primary-color-opacity: 0.5;
     white-space: pre;
   }
 
-  .successContent {
-    position: absolute;
+  &.success {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .successContent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 

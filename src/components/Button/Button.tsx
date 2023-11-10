@@ -202,6 +202,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
           [styles.loading]: loading,
+          [styles.success]: success,
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
           [styles.marginRight]: marginRight,
