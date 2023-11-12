@@ -7,7 +7,7 @@ import Modal from "../../../components/Modal/Modal";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
 import Button from "../../../components/Button/Button";
-import { RelatedComponents, Link } from "vibe-storybook-components";
+import { RelatedComponents, Tip } from "vibe-storybook-components";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import {
   DROPDOWN,
@@ -74,11 +74,99 @@ As a result, when dropdown menus are placed inside a scrolling container or with
 To address this problem, we need to adjust the styling of the dropdown menu to ensure it appears correctly even within these specific container.
 We implemented few methods for solving this issue.
 
-## insideOverflowContainer prop
+## Solution 1: menuPosition = 'fixed'
+
+To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can set <code>menuPosition</code> prop to <code>fixed</code>.
+This prop overrides the dropdown menu's default settings and ensures proper display within the container.
+**This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work properly for Vibe's Dialog.**
+
+<Canvas>
+  <Story name="menuPosition">
+    {() => {
+      const [show, setShow] = useState(false);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, [setShow]);
+      const options = useMemo(
+        () => [
+          { value: "1", label: "Option 1" },
+          { value: "2", label: "Option 2" },
+          { value: "3", label: "Option 3" },
+          { value: "4", label: "Option 4" },
+          { value: "5", label: "Option 5" },
+          { value: "6", label: "Option 6" },
+          { value: "7", label: "Option 7" },
+          { value: "8", label: "Option 8" },
+          { value: "9", label: "Option 9" },
+          { value: "10", label: "Option 10" },
+          { value: "11", label: "Option 11" },
+          { value: "12", label: "Option 12" },
+          { value: "13", label: "Option 13" },
+          { value: "14", label: "Option 14" },
+          { value: "15", label: "Option 15" }
+        ],
+        []
+      );
+      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
+      return (
+        <Flex gap={Flex.gaps.LARGE}>
+          <DialogContentContainer style={dialogStyle}>
+            <ModalExampleContent />
+            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition={"fixed"} />
+            </Box>
+          </DialogContentContainer>
+          <div>
+            <Button onClick={() => setShow(true)}>Open modal</Button>
+            <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
+              <ModalContent>
+                <Dropdown placeholder="Dropdown" options={options} menuPosition={"fixed"} />
+              </ModalContent>
+            </Modal>
+          </div>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            content={
+              <DialogContentContainer style={dialogStyle}>
+                <ModalExampleContent />
+                <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+                  <Dropdown placeholder="Dropdown" options={options} menuPosition={"fixed"} />
+                </Box>
+              </DialogContentContainer>
+            }
+          >
+            <Button kind={Button.kinds.PRIMARY} color={Button.colors.NEGATIVE}>
+              Popup Dialog
+            </Button>
+          </Dialog>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Solution 2: insideOverflowContainer
 
 To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can utilize our dropdown's <code>insideOverflowContainer</code> prop.
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
-**This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work for Vibe's Dialog.**
+**This solution will work for single select dropdown inside Vibe's Modal or DialogContentContainer cases, it will not work for Vibe's Dialog.**
+
+<Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
+  This solution have a serious issue - it doesn't properly support options-scrolling on popovers. We recommend checking
+  using other options instead of this one.
+</Tip>
 
 Please note that this solution is intended for the most basic use cases and may not function optimally if your
 overflow container has one parent or more with conflicting overflow definitions.
@@ -110,13 +198,27 @@ overflow container has one parent or more with conflicting overflow definitions.
         ],
         []
       );
+      const modifiers =
+        // for prevent dialog to move while scrolling
+        [
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
+          }
+        ];
       const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
             <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-              <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+              <Dropdown
+                placeholder="Dropdown inside DialogContentContainer"
+                options={options}
+                insideOverflowContainer
+              />
             </Box>
           </DialogContentContainer>
           <div>
@@ -127,17 +229,37 @@ overflow container has one parent or more with conflicting overflow definitions.
               </ModalContent>
             </Modal>
           </div>
+          <Dialog
+            modifiers={modifiers}
+            showTrigger={[Dialog.hideShowTriggers.CLICK]}
+            hideTrigger={[Dialog.hideShowTriggers.CLICK]}
+            content={
+              <DialogContentContainer style={dialogStyle}>
+                <ModalExampleContent />
+                <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+                  <Dropdown placeholder="Dropdown" options={options} insideOverflowContainer />
+                </Box>
+              </DialogContentContainer>
+            }
+          >
+            <Button color={Button.colors.NEGATIVE}>Popup Dialog</Button>
+          </Dialog>
         </Flex>
       );
     }}
   </Story>
 </Canvas>
 
-## insideOverflowWithTransformContainer prop
+## Solution 3: insideOverflowWithTransformContainer
 
 The <code>insideOverflowContainer</code> prop will not function as expected for dropdowns displayed inside Vibe's dialog components.
 The reason is that Vibe dialogs use CSS transform to position the dialog next to the attached element.
 For this specific case, use the 'insideOverflowWithTransformContainer' prop to ensure proper display and functionality.
+
+<Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
+  This solution have a serious issue - it doesn't properly support options-scrolling on popovers. We recommend checking
+  using other options instead of this one.
+</Tip>
 
 <Canvas>
   <Story name="insideOverflowWithTransformContainer">
@@ -162,35 +284,29 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
         ],
         []
       );
-      const dialogRef = useRef();
       const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
       const secondDialogContent = (
         <DialogContentContainer style={dialogStyle}>
           <ModalExampleContent />
           <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-            <Dropdown
-              placeholder="Dropdown inside a scrollable dialog"
-              options={options}
-              insideOverflowWithTransformContainer
-            />
+            <Dropdown placeholder="Dropdown" options={options} insideOverflowWithTransformContainer />
           </Box>
         </DialogContentContainer>
       );
       return (
         <Dialog
-          ref={dialogRef}
           content={secondDialogContent}
           hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
           showTrigger={Dialog.hideShowTriggers.CLICK}
         >
-          <Button>Press me for dropdown inside dialog!</Button>
+          <Button>Popup Dialog</Button>
         </Dialog>
       );
     }}
   </Story>
 </Canvas>
 
-## popupsContainerSelector prop
+## Solution 4: popupsContainerSelector - universal solution
 
 For the most complex use cases, you can utilize our dropdown's <code>popupsContainerSelector</code> prop.
 This prop allows you to render all the dropdown's popovers in a different node in the DOM, as specified by the provided selector.
