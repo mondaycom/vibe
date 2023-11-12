@@ -6,6 +6,11 @@
   }
 }
 
+.dropdownMenuWrapperFixedPosition {
+  /* When inside a scrollable area, we want the menu to appear above the scrollable container (we set the specific position by js) */
+  position: fixed !important;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

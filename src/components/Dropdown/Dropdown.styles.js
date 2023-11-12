@@ -318,15 +318,14 @@ const menu =
      */
 
     if (insideOverflowContainer) {
-      return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width, position: "fixed" };
+      return { ...baseStyle, top: parentPositionData.bottom, width: parentPositionData.width };
     } else if (insideOverflowWithTransformContainer) {
       const translateY = `-${getScrollableParent(controlRef?.current)?.scrollTop}px`;
       return {
         ...baseStyle,
         top: "auto",
         translate: `0 ${translateY}`,
-        width: parentPositionData.width,
-        position: "fixed"
+        width: parentPositionData.width
       };
     }
     return baseStyle;
