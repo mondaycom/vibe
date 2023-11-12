@@ -333,7 +333,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             ) : null}
             {successText}
           </span>
-          <span aria-hidden className={styles.textPlaceholder}>
+          <span aria-hidden="true" className={styles.textPlaceholder}>
             {children}
           </span>
         </button>
