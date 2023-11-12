@@ -83,6 +83,7 @@ const Dropdown = forwardRef(
       popupsContainerSelector,
       filterOption,
       inModal,
+      menuPosition,
       "data-testid": dataTestId
     },
     ref
@@ -354,6 +355,7 @@ const Dropdown = forwardRef(
         maxMenuHeight={maxMenuHeight}
         menuPortalTarget={overrideMenuPortalTarget}
         menuPlacement={menuPlacement}
+        menuPosition={menuPosition}
         menuIsOpen={!readOnly && menuIsOpen}
         tabIndex={tabIndex}
         id={id}
@@ -394,6 +396,7 @@ Dropdown.defaultProps = {
   searchable: true,
   options: [],
   menuPlacement: "bottom",
+  menuPosition: "absolute",
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -508,6 +511,11 @@ Dropdown.propTypes = {
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
   menuPlacement: PropTypes.oneOf(["bottom", "top", "auto"]),
+  /**
+   * The CSS position value of the menu, when "fixed" extra layout management might be required
+   * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
+   */
+  menuPosition: PropTypes.oneOf(["fixed", "absolute"]),
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
