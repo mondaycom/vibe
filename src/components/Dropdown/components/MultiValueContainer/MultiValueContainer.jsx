@@ -8,6 +8,7 @@ import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import { DROPDOWN_CHIP_COLORS } from "../../dropdown-constants";
+import { BASE_SIZES } from "../../../../constants";
 import classes from "./MultiValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
@@ -17,7 +18,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
     inputValue,
     selectProps: customProps = {},
     withMandatoryDefaultOptions,
-    readOnly
+    readOnly,
+    size
   } = selectProps;
   const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector } = customProps;
   const clickHandler = children[1];
@@ -27,7 +29,10 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
     isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"],
-    { [classes["multiselect-chip-disabled"]]: isDisabled }
+    {
+      [classes["multiselect-chip-disabled"]]: isDisabled,
+      [classes["multiselect-chip-single-line-size-small"]]: size === BASE_SIZES.SMALL
+    }
   );
 
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({

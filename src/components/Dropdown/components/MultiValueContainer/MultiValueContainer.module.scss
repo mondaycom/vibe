@@ -13,6 +13,9 @@
 
 .multiselect-chip-single-line {
   --chips-margin: 5px 2px;
+  &-size-small {
+    --chips-margin: 0 2px;
+  }
 }
 
 .multiselect-chip-disabled {
