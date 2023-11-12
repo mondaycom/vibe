@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.59.2 (2023-11-12)
+
+#### Bug Fixes
+* [#1729](https://github.com/mondaycom/monday-ui-react-core/pull/1729) fix(MultiValueContainer): align items vertically ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1741](https://github.com/mondaycom/monday-ui-react-core/pull/1741) docs: remove hacker theme from storybook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.59.1 (2023-11-09)
 
 #### Documentation
