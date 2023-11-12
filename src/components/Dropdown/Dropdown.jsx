@@ -361,6 +361,7 @@ const Dropdown = forwardRef(
   }
 );
 
+// TODO Should be BASE_SIZES, but breaking change?
 Dropdown.size = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 Dropdown.createFilter = createFilter;
