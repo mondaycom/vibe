@@ -34,7 +34,9 @@ export function useHiddenOptionsData({
     }
 
     setOverflowIndex(finalOverflowingIndex);
-  }, [ref, isMultiline, selectedOptionsCount, chipWrapperClassName, chipClassName, isCounterShown]);
+  }, [ref, isMultiline, selectedOptionsCount, chipWrapperClassName, chipClassName]);
+  // TODO removed isCounterShown from the dependencies array because it was causing an infinite loop for specific cases
+  // }, [ref, isMultiline, selectedOptionsCount, chipWrapperClassName, chipClassName, isCounterShown]);
 
   const hiddenOptionsCount = overflowIndex > -1 ? selectedOptionsCount - overflowIndex : 0;
   return { overflowIndex, hiddenOptionsCount };
