@@ -1,7 +1,7 @@
 import React from 'react';
 import InformationBox from '../information-box/information-box';
-import styles from './related-component.module.scss';
 import { ElementContent } from '../../types';
+import styles from './related-component.module.scss';
 
 interface RelatedComponentProps {
   component?: ElementContent;
