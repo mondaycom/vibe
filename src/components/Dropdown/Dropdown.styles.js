@@ -332,15 +332,6 @@ const menu =
     return baseStyle;
   };
 
-const menuPortal =
-  ({ inModal }) =>
-  provided => {
-    if (inModal) {
-      return { ...provided, zIndex: 100000 };
-    }
-    return provided;
-  };
-
 const option = () => (provided, state) => ({
   ...getFont(),
   ...getOptionStyle(provided, state)
@@ -397,7 +388,6 @@ export default data => ({
   input: input(data),
   valueContainer: valueContainer(data),
   menu: menu(data),
-  menuPortal: menuPortal(data),
   option: option(data),
   indicatorSeparator: indicatorSeparator(data),
   group: group(data),

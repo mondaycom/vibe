@@ -82,7 +82,6 @@ const Dropdown = forwardRef(
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
-      inModal,
       menuPosition,
       "data-testid": dataTestId
     },
@@ -90,9 +89,7 @@ const Dropdown = forwardRef(
   ) => {
     const controlRef = useRef();
     const overrideMenuPortalTarget =
-      menuPortalTarget ||
-      (popupsContainerSelector && document.querySelector(popupsContainerSelector)) ||
-      (inModal && document.body);
+      menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
     const overrideDefaultValue = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
@@ -132,8 +129,7 @@ const Dropdown = forwardRef(
         rtl,
         insideOverflowContainer,
         controlRef,
-        insideOverflowWithTransformContainer,
-        inModal
+        insideOverflowWithTransformContainer
       });
 
       // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -170,16 +166,7 @@ const Dropdown = forwardRef(
       }
 
       return mergedStyles;
-    }, [
-      size,
-      rtl,
-      insideOverflowContainer,
-      insideOverflowWithTransformContainer,
-      inModal,
-      extraStyles,
-      multi,
-      multiline
-    ]);
+    }, [size, rtl, insideOverflowContainer, insideOverflowWithTransformContainer, extraStyles, multi, multiline]);
 
     const Menu = useCallback(
       props => (
@@ -416,8 +403,7 @@ Dropdown.defaultProps = {
   isLoading: false,
   loadingMessage: undefined,
   ariaLabel: undefined,
-  filterOption: undefined,
-  inModal: false
+  filterOption: undefined
 };
 
 Dropdown.propTypes = {
@@ -663,8 +649,7 @@ Dropdown.propTypes = {
    * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
    * createFilter function is available at Dropdown.createFilter
    */
-  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  inModal: PropTypes.bool
+  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 export default Dropdown;
