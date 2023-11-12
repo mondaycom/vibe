@@ -13,6 +13,7 @@
 
 .multiselect-chip-single-line {
   --chips-margin: 5px 2px;
+  // TODO -size-large? cause second-line should be hidden
   &-size-small {
     // TODO causing incorrect display of hidden options?
     --chips-margin: 1px 2px;
