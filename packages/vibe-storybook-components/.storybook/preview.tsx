@@ -72,7 +72,6 @@ const preview: Preview = {
         Light: 'light-app-theme',
         Dark: 'dark-app-theme',
         Black: 'black-app-theme',
-        Hacker: 'hacker_theme-app-theme',
       },
       defaultTheme: 'Light',
     }) as any,
