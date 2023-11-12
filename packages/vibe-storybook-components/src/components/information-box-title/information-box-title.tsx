@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import cx from 'classnames';
-import styles from './information-box-title.module.scss';
 import { ElementContent } from '../../types';
+import Link from '../link/link';
+import styles from './information-box-title.module.scss';
 
 type InformationBoxTitleProps = {
   children: ElementContent;
@@ -9,14 +10,12 @@ type InformationBoxTitleProps = {
 };
 
 const InformationBoxTitle: FC<InformationBoxTitleProps> = ({ children, href }) => {
-  const title = <h4 className={cx(styles.informationBoxTitle, { [styles.titleLink]: href })}>{children}</h4>;
-
-  return href ? (
-    <a className={cx({ [styles.link]: href })} href={href}>
-      {title}
-    </a>
+  return href && typeof children === 'string' ? (
+    <Link className={cx(styles.informationBoxTitle)} href={href}>
+      {children}
+    </Link>
   ) : (
-    title
+    <h4 className={cx(styles.informationBoxTitle, { [styles.titleLink]: href })}>{children}</h4>
   );
 };
 
