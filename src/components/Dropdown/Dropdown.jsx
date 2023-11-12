@@ -14,10 +14,14 @@ import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
-import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
+import {
+  ADD_AUTO_HEIGHT_COMPONENTS,
+  defaultCustomStyles,
+  DROPDOWN_ID,
+  DROPDOWN_CHIP_COLORS
+} from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 
