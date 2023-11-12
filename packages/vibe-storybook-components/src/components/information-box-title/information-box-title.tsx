@@ -11,7 +11,7 @@ type InformationBoxTitleProps = {
 
 const InformationBoxTitle: FC<InformationBoxTitleProps> = ({ children, href }) => {
   return href && typeof children === 'string' ? (
-    <Link className={cx(styles.informationBoxTitle)} href={href}>
+    <Link className={cx(styles.informationBoxTitle)} href={href} withoutSpacing>
       {children}
     </Link>
   ) : (
