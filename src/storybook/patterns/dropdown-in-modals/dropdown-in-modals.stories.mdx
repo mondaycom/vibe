@@ -1,9 +1,11 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { useCallback, useState, useMemo, useRef } from "react";
+import { useCallback, useState, useMemo } from "react";
 import { ComponentNameDecorator } from "../../components";
 import ModalContent from "../../../components/Modal/ModalContent/ModalContent";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import Modal from "../../../components/Modal/Modal";
+import ModalExampleContent from "./ModalExampleContent";
+import Box from "../../../components/Box/Box";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
 import Button from "../../../components/Button/Button";
@@ -14,8 +16,6 @@ import {
   DIALOG_CONTENT_CONTAINER,
   DIALOG
 } from "../../components/related-components/component-description-map";
-import ModalExampleContent from "./ModalExampleContent";
-import Box from "../../../components/Box/Box";
 
 <Meta title="Technical Patterns/Dropdowns inside pop-overs" />
 
