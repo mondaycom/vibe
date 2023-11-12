@@ -164,7 +164,7 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
 **This solution will work for single select dropdown inside Vibe's Modal or DialogContentContainer cases, it will not work for Vibe's Dialog.**
 
 <Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
-  This solution have a serious issue - it doesn't properly support options-scrolling on popovers. We recommend checking
+  This solution have a serious issue - it doesn't properly support options-scrolling on popovers when lacking of screen space. We recommend checking
   using other options instead of this one.
 </Tip>
 
@@ -257,9 +257,10 @@ The reason is that Vibe dialogs use CSS transform to position the dialog next to
 For this specific case, use the 'insideOverflowWithTransformContainer' prop to ensure proper display and functionality.
 
 <Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
-  This solution have a serious issue - it doesn't properly support options-scrolling on popovers. We recommend checking
+  This solution have a serious issue - it doesn't properly support options-scrolling on popovers when lacking of screen space. We recommend checking
   using other options instead of this one.
 </Tip>
+
 
 <Canvas>
   <Story name="insideOverflowWithTransformContainer">
