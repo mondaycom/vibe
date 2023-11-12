@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.11.1 (2023-11-12)
+
+#### Bug Fixes
+* [#120](https://github.com/mondaycom/vibe-storybook-components/pull/120) fix: <DocFooter> use <Link> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#119](https://github.com/mondaycom/vibe-storybook-components/pull/119) fix: <InformationBoxTitle> use <Link> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#121](https://github.com/mondaycom/vibe-storybook-components/pull/121) docs: remove hacker theme from storybook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.11.0 (2023-10-31)
 
 #### New Features
