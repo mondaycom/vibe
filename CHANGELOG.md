@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.59.3 (2023-11-12)
+
+#### Bug Fixes
+* [#1739](https://github.com/mondaycom/monday-ui-react-core/pull/1739) fix(Button): differentiate different states of the button with a key ([@talkor](https://github.com/talkor))
+* [#1740](https://github.com/mondaycom/monday-ui-react-core/pull/1740) fix: <ThemeProvider> remove Hacker theme from eligible for overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.59.2 (2023-11-12)
 
 #### Bug Fixes
