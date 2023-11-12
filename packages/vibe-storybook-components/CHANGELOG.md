@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.2 (2023-11-12)
+
+#### Bug Fixes
+* [#122](https://github.com/mondaycom/vibe-storybook-components/pull/122) fix: <InformationBoxTitle> Link withoutSpacing ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.11.1 (2023-11-12)
 
 #### Bug Fixes
