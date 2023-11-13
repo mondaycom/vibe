@@ -371,7 +371,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             ignoreFocusStyle
           />
         ) : null}
-        {children}
+        <span>{children}</span>
         {rightIcon ? (
           <Icon
             iconType={Icon?.type.ICON_FONT}
