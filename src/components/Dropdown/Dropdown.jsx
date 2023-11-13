@@ -369,10 +369,12 @@ const Dropdown = forwardRef(
   }
 );
 
+// TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
 Dropdown.size = SIZES;
+Dropdown.sizes = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
-Dropdown.menuPlacement = DROPDOWN_MENU_PLACEMENT;
-Dropdown.menuPosition = DROPDOWN_MENU_POSITION;
+Dropdown.menuPlacements = DROPDOWN_MENU_PLACEMENT;
+Dropdown.menuPositions = DROPDOWN_MENU_POSITION;
 Dropdown.createFilter = createFilter;
 
 Dropdown.defaultProps = {
@@ -390,8 +392,8 @@ Dropdown.defaultProps = {
   onInputChange: NOOP,
   searchable: true,
   options: [],
-  menuPlacement: Dropdown.menuPlacement.BOTTOM,
-  menuPosition: Dropdown.menuPosition.ABSOLUTE,
+  menuPlacement: Dropdown.menuPlacements.BOTTOM,
+  menuPosition: Dropdown.menuPositions.ABSOLUTE,
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -546,7 +548,7 @@ Dropdown.propTypes = {
     })
   ]),
   /**
-   * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
+   * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
   size: PropTypes.string,
   /**

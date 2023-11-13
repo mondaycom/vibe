@@ -111,9 +111,9 @@ There are three sizes available: Small, Medium, and Large
 
 <Canvas>
   <Story name="Sizes">
-    <Dropdown placeholder="Small" size={Dropdown.size.SMALL} className="dropdown-stories-styles_spacing" />
-    <Dropdown placeholder="Medium" size={Dropdown.size.MEDIUM} className="dropdown-stories-styles_spacing" />
-    <Dropdown placeholder="Large" size={Dropdown.size.LARGE} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
   </Story>
 </Canvas>
 
@@ -684,7 +684,7 @@ A classic dropdown presents options a user needs to choose from.
 
 ### Dropdown inside popover
 
-Use <code>menuPosition={Dropdown.menuPosition.FIXED}</code> prop attribute for displaying dropdown inside popover (like our Modal
+Use <code>menuPosition={Dropdown.menuPositions.FIXED}</code> prop attribute for displaying dropdown inside popover (like our Modal
 component) or container with overflow hidden content.
 
 <Tip title="Dev tip">
@@ -739,7 +739,7 @@ component) or container with overflow hidden content.
               <Dropdown
                 placeholder="Dropdown inside DialogContentContainer"
                 options={options}
-                menuPosition={Dropdown.menuPosition.FIXED}
+                menuPosition={Dropdown.menuPositions.FIXED}
               />
             </Box>
           </DialogContentContainer>
@@ -747,7 +747,7 @@ component) or container with overflow hidden content.
             <Button onClick={() => setShow(true)}>Open modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
-                <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPosition.FIXED} />
+                <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
               </ModalContent>
             </Modal>
           </div>
