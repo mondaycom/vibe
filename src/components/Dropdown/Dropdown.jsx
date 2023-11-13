@@ -369,13 +369,15 @@ const Dropdown = forwardRef(
   }
 );
 
-// TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
-Dropdown.size = SIZES;
-Dropdown.sizes = SIZES;
-Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
-Dropdown.menuPlacements = DROPDOWN_MENU_PLACEMENT;
-Dropdown.menuPositions = DROPDOWN_MENU_POSITION;
-Dropdown.createFilter = createFilter;
+Object.assign(Dropdown, {
+  // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
+  size: SIZES,
+  sizes: SIZES,
+  chipColors: DROPDOWN_CHIP_COLORS,
+  menuPlacements: DROPDOWN_MENU_PLACEMENT,
+  menuPositions: DROPDOWN_MENU_POSITION,
+  createFilter: createFilter
+});
 
 Dropdown.defaultProps = {
   className: "",
