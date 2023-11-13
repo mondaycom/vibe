@@ -76,7 +76,7 @@ We implemented few methods for solving this issue.
 
 ## Solution 1: menuPosition = 'fixed'
 
-To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can set <code>menuPosition</code> prop to <code>fixed</code>.
+To handle straightforward scenarios of displaying dropdowns inside a container with relevant overflow styles, you can set <code>menuPosition</code> prop to <code>Dropdown.menuPosition.FIXED</code>.
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
 **This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work properly for Vibe's Dialog.**
 
@@ -123,14 +123,18 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
             <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition={"fixed"} />
+              <Dropdown
+                placeholder="Dropdown inside DialogContentContainer"
+                options={options}
+                menuPosition={Dropdown.menuPosition.FIXED}
+              />
             </Box>
           </DialogContentContainer>
           <div>
             <Button onClick={() => setShow(true)}>Open modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
-                <Dropdown placeholder="Dropdown" options={options} menuPosition={"fixed"} />
+                <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPosition.FIXED} />
               </ModalContent>
             </Modal>
           </div>
@@ -142,7 +146,7 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
               <DialogContentContainer style={dialogStyle}>
                 <ModalExampleContent />
                 <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-                  <Dropdown placeholder="Dropdown" options={options} menuPosition={"fixed"} />
+                  <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPosition.FIXED} />
                 </Box>
               </DialogContentContainer>
             }

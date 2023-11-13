@@ -18,7 +18,9 @@ import {
   ADD_AUTO_HEIGHT_COMPONENTS,
   defaultCustomStyles,
   DROPDOWN_ID,
-  DROPDOWN_CHIP_COLORS
+  DROPDOWN_CHIP_COLORS,
+  DROPDOWN_MENU_PLACEMENT,
+  DROPDOWN_MENU_POSITION
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
@@ -369,6 +371,8 @@ const Dropdown = forwardRef(
 
 Dropdown.size = SIZES;
 Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
+Dropdown.menuPlacement = DROPDOWN_MENU_PLACEMENT;
+Dropdown.menuPosition = DROPDOWN_MENU_POSITION;
 Dropdown.createFilter = createFilter;
 
 Dropdown.defaultProps = {
@@ -386,8 +390,8 @@ Dropdown.defaultProps = {
   onInputChange: NOOP,
   searchable: true,
   options: [],
-  menuPlacement: "bottom",
-  menuPosition: "absolute",
+  menuPlacement: Dropdown.menuPlacement.BOTTOM,
+  menuPosition: Dropdown.menuPosition.ABSOLUTE,
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -500,12 +504,12 @@ Dropdown.propTypes = {
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement: PropTypes.oneOf(["bottom", "top", "auto"]),
+  menuPlacement: PropTypes.oneOf(Object.values(DROPDOWN_MENU_PLACEMENT)),
   /**
    * The CSS position value of the menu, when "fixed" extra layout management might be required
    * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
    */
-  menuPosition: PropTypes.oneOf(["fixed", "absolute"]),
+  menuPosition: PropTypes.oneOf(Object.values(DROPDOWN_MENU_POSITION)),
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */

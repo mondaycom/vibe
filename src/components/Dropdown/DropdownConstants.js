@@ -9,3 +9,14 @@ export const DROPDOWN_CHIP_COLORS = {
   NEGATIVE: "NEGATIVE",
   POSITIVE: "POSITIVE"
 };
+
+export const DROPDOWN_MENU_POSITION = {
+  ABSOLUTE: "absolute",
+  FIXED: "fixed"
+};
+
+export const DROPDOWN_MENU_PLACEMENT = {
+  TOP: "top",
+  BOTTOM: "bottom",
+  AUTO: "auto"
+};

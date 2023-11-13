@@ -684,7 +684,7 @@ A classic dropdown presents options a user needs to choose from.
 
 ### Dropdown inside popover
 
-Use <code>menuPosition='fixed'</code> prop attribute for displaying dropdown inside popover (like our Modal
+Use <code>menuPosition={Dropdown.menuPosition.FIXED}</code> prop attribute for displaying dropdown inside popover (like our Modal
 component) or container with overflow hidden content.
 
 <Tip title="Dev tip">
@@ -736,14 +736,18 @@ component) or container with overflow hidden content.
           <DialogContentContainer style={dialogStyle}>
             <ModalExampleContent />
             <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
-              <Dropdown placeholder="Dropdown inside DialogContentContainer" options={options} menuPosition={"fixed"} />
+              <Dropdown
+                placeholder="Dropdown inside DialogContentContainer"
+                options={options}
+                menuPosition={Dropdown.menuPosition.FIXED}
+              />
             </Box>
           </DialogContentContainer>
           <div>
             <Button onClick={() => setShow(true)}>Open modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
-                <Dropdown placeholder="Dropdown" options={options} menuPosition={"fixed"} />
+                <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPosition.FIXED} />
               </ModalContent>
             </Modal>
           </div>
