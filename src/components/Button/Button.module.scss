@@ -22,7 +22,8 @@ $disabled-on-primary-color-opacity: 0.5;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  min-width: auto;
+  --element-width: auto;
+  min-width: var(--element-width);
 
   .loader {
     height: 100%;
@@ -32,25 +33,9 @@ $disabled-on-primary-color-opacity: 0.5;
       height: 100%;
       margin: 0;
     }
-  }
 
-  .textPlaceholder {
-    opacity: 0;
-    height: 0;
-    visibility: hidden;
-    white-space: pre;
-  }
-
-  &.success {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .successContent {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .textPlaceholder {
+      opacity: 0;
     }
   }
 }

@@ -1,8 +1,9 @@
 /* eslint-disable react/button-has-type */
-import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
+import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
@@ -15,6 +16,9 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
+
+const MIN_BUTTON_WIDTH_PX = 6;
+const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -145,6 +149,23 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const [hasSizeStyle, setHasSizeStyle] = useState(false);
+
+    const updateCssVariables = useMemo(() => {
+      return ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
+        const { inlineSize } = borderBoxSize;
+        const width = Math.max(inlineSize, MIN_BUTTON_WIDTH_PX);
+        if (!buttonRef.current) return;
+        buttonRef.current.style.setProperty("--element-width", `${width}px`);
+        setHasSizeStyle(true);
+      };
+    }, [buttonRef]);
+
+    useResizeObserver({
+      ref: buttonRef,
+      callback: updateCssVariables,
+      debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
+    });
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
@@ -201,8 +222,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
+          [styles.hasStyleSize]: hasSizeStyle,
           [styles.loading]: loading,
-          [styles.success]: success,
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
           [styles.marginRight]: marginRight,
@@ -221,6 +242,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       className,
       size,
       kind,
+      hasSizeStyle,
       loading,
       active,
       activeButtonClassName,
@@ -304,7 +326,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     if (loading) {
       return (
-        <button {...buttonProps} key={`${id}-loading`}>
+        <button {...buttonProps}>
           <span className={styles.loader}>
             <Loader className={styles.loaderSvg} />
             <span aria-hidden className={styles.textPlaceholder}>
@@ -317,31 +339,26 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     if (success) {
       return (
-        <button {...buttonProps} key={`${id}-success`}>
-          <span className={styles.successContent}>
-            {successIcon ? (
-              <Icon
-                iconType={Icon?.type.ICON_FONT}
-                clickable={false}
-                icon={successIcon}
-                iconSize={successIconSize}
-                className={cx({
-                  [styles.leftIcon]: !!successText
-                })}
-                ignoreFocusStyle
-              />
-            ) : null}
-            {successText}
-          </span>
-          <span aria-hidden="true" className={styles.textPlaceholder}>
-            {children}
-          </span>
+        <button {...buttonProps}>
+          {successIcon ? (
+            <Icon
+              iconType={Icon?.type.ICON_FONT}
+              clickable={false}
+              icon={successIcon}
+              iconSize={successIconSize}
+              className={cx({
+                [styles.leftIcon]: !!successText
+              })}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {successText}
         </button>
       );
     }
 
     return (
-      <button {...buttonProps} key={`${id}-button`}>
+      <button {...buttonProps}>
         {leftIcon ? (
           <Icon
             iconType={Icon?.type.ICON_FONT}
