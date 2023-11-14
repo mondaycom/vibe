@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.60.0 (2023-11-14)
+
+#### New Features
+* [#1738](https://github.com/mondaycom/monday-ui-react-core/pull/1738) fix: <Dropdown> inside <Modal> overflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.59.3 (2023-11-12)
 
 #### Bug Fixes
