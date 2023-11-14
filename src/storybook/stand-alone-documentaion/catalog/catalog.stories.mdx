@@ -1,11 +1,8 @@
 import { Meta } from "@storybook/addon-docs";
-import { RelatedComponentsDecorator } from "../../components";
-import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../components/related-components/component-description-map";
+import { Catalog } from "./Catalog/Catalog.stories";
 
 <Meta title="Catalog" />
 
 # Catalog
 
-<RelatedComponentsDecorator
-  componentsNames={Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys()).sort()}
-/>
+<Catalog />

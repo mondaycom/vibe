@@ -1,0 +1,12 @@
+.emptyStateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: var(--sb-spacing-large);
+}
+
+.emptyStateHeading {
+  margin-block: var(--sb-spacing-large);
+}
