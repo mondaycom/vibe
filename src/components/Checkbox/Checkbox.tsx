@@ -153,7 +153,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           <Text
             element="label"
             type={Text.types.TEXT2}
-            className={cx(styles.label, labelClassName, { disabled })}
+            className={cx(styles.label, labelClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
             {...domAttributes}
           >
