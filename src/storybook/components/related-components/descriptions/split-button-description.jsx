@@ -7,7 +7,7 @@ export const SplitButtonDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Split button"
+      title="SplitButton"
       href="/?path=/docs/buttons-split-button--overview"
       description="Dual-function menu button offers a default action and a secondary action"
     />

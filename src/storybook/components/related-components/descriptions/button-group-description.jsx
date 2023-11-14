@@ -20,7 +20,7 @@ export const ButtonGroupDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Button group"
+      title="ButtonGroup"
       href="/?path=/docs/buttons-button-group--overview"
       description="Used to group related options."
     />
