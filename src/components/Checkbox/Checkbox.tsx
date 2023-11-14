@@ -108,6 +108,10 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
+    const domAttributes = {
+      htmlFor: refId.current
+    };
+
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <span
@@ -146,16 +150,15 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           />
         </div>
         {label === false ? null : (
-          <label htmlFor={refId.current}>
-            <Text
-              element="span"
-              type={Text.types.TEXT2}
-              className={cx(styles.label, labelClassName)}
-              data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
-            >
-              {label}
-            </Text>
-          </label>
+          <Text
+            element="label"
+            type={Text.types.TEXT2}
+            className={cx(styles.label, labelClassName, { disabled })}
+            data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+            {...domAttributes}
+          >
+            {label}
+          </Text>
         )}
       </span>
     );
