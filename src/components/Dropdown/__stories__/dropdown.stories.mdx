@@ -730,7 +730,7 @@ component) or container with overflow hidden content.
       const closeModal = useCallback(() => {
         setShow(false);
       }, [setShow]);
-      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
+      const dialogStyle = { width: "350px", height: "200px", overflow: "auto" };
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
@@ -744,7 +744,7 @@ component) or container with overflow hidden content.
             </Box>
           </DialogContentContainer>
           <div>
-            <Button onClick={() => setShow(true)}>Open modal</Button>
+            <Button onClick={() => setShow(true)}>Open Modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
                 <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />

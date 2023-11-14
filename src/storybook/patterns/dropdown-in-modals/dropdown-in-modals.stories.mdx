@@ -19,18 +19,12 @@ import {
 
 <Meta title="Technical Patterns/Dropdowns inside pop-overs" />
 
-<!--- Component documentation -->
-
 <ComponentNameDecorator withFoundationBackground>Display dropdowns inside pop-overs</ComponentNameDecorator>
-
-- [Overview](#overview)
-- [Up next](#up-next)
-- [Feedback](#feedback)
 
 ## Problem description
 
 Our dropdowns are implemented using the <Link href="https://react-select.com/home" withoutSpacing>React Select</Link> library.
-One of the styling issues with React Select dropdowns is that the menu is not fully displayed when its container has `overflow: hidden`, `overflow: auto`, or `overflow: scroll`.
+One of the styling issues with React Select dropdowns is that the menu is not fully displayed when its container has <code>overflow: hidden</code>, <code>overflow: auto</code>, or <code>overflow: scroll</code>.
 As a result, when dropdown menus are placed inside a scrolling container or within a Vibe's dialog or modal, the dropdown menu appears damaged, as you can see in the following examples.
 
 <Canvas>
@@ -59,7 +53,7 @@ As a result, when dropdown menus are placed inside a scrolling container or with
       ];
       return (
         <div>
-          <Button onClick={() => setShow(true)}>Open modal</Button>
+          <Button onClick={() => setShow(true)}>Open Modal</Button>
           <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
             <ModalContent>
               <Dropdown options={options} />
@@ -107,7 +101,7 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
         ],
         []
       );
-      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
+      const dialogStyle = { width: "350px", height: "200px", overflow: "auto" };
       const modifiers =
         // for prevent dialog to move while scrolling
         [
@@ -131,7 +125,7 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
             </Box>
           </DialogContentContainer>
           <div>
-            <Button onClick={() => setShow(true)}>Open modal</Button>
+            <Button onClick={() => setShow(true)}>Open Modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
                 <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
@@ -212,7 +206,7 @@ overflow container has one parent or more with conflicting overflow definitions.
             }
           }
         ];
-      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
+      const dialogStyle = { width: "350px", height: "200px", overflow: "auto" };
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
@@ -226,7 +220,7 @@ overflow container has one parent or more with conflicting overflow definitions.
             </Box>
           </DialogContentContainer>
           <div>
-            <Button onClick={() => setShow(true)}>Open modal</Button>
+            <Button onClick={() => setShow(true)}>Open Modal</Button>
             <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
               <ModalContent>
                 <Dropdown options={options} insideOverflowContainer />
@@ -310,7 +304,7 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
   </Story>
 </Canvas>
 
-## Solution 4: popupsContainerSelector - universal solution
+## Solution 4: popupsContainerSelector
 
 For the most complex use cases, you can utilize our dropdown's <code>popupsContainerSelector</code> prop.
 This prop allows you to render all the dropdown's popovers in a different node in the DOM, as specified by the provided selector.
@@ -352,7 +346,7 @@ If you have defined the dropdown's popovers container styles as required, you ca
     }}
     className={styles.pointerEventsAutoToAllChildren}
   />
-  <Button onClick={() => setShow(true)}>Open modal</Button>
+  <Button onClick={() => setShow(true)}>Open Modal</Button>
   <Modal id="modal-with-multiple-choice" title="Modal with dropdown" show={show} onClose={closeModal}>
     <ModalContent>
       <Dropdown multi options={options} popupsContainerSelector="#popovers-container" />
