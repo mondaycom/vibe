@@ -14,7 +14,7 @@ export const Catalog = () => {
   const componentsToDisplay = RELATED_COMPONENT_NAMES.filter(name => name.includes(query.toLowerCase()));
 
   return (
-    <>
+    <div className={styles.container}>
       <Search
         placeholder="Search by component name..."
         value={query}
@@ -23,6 +23,6 @@ export const Catalog = () => {
       />
       <RelatedComponentsDecorator componentsNames={componentsToDisplay} />
       {componentsToDisplay.length === 0 && <CatalogEmptyState />}
-    </>
+    </div>
   );
 };
