@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox renders correctly when checked 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -12,6 +12,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
     checked={true}
     className="input"
     disabled={false}
+    id="checkbox-195891"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -39,15 +40,19 @@ exports[`Checkbox renders correctly when checked 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-195891"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly when default checked 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -58,6 +63,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     className="input"
     defaultChecked={true}
     disabled={false}
+    id="checkbox-412679"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -85,15 +91,19 @@ exports[`Checkbox renders correctly when default checked 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-412679"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly when disabled 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -104,6 +114,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     className="input"
     defaultChecked={false}
     disabled={true}
+    id="checkbox-899161"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -131,15 +142,19 @@ exports[`Checkbox renders correctly when disabled 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-899161"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly when interminate 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -150,6 +165,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-973208"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -177,15 +193,19 @@ exports[`Checkbox renders correctly when interminate 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-973208"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -197,6 +217,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-733526"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -224,15 +245,19 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-733526"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly with empty props 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -243,6 +268,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-667629"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -270,15 +296,19 @@ exports[`Checkbox renders correctly with empty props 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-667629"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly with name 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -289,6 +319,7 @@ exports[`Checkbox renders correctly with name 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-867308"
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
@@ -316,15 +347,19 @@ exports[`Checkbox renders correctly with name 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-867308"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly with props 1`] = `
-<label
+<span
   className="wrapper dummy-class-name"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -335,6 +370,7 @@ exports[`Checkbox renders correctly with props 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-239008"
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
@@ -362,17 +398,21 @@ exports[`Checkbox renders correctly with props 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
+  <label
+    htmlFor="checkbox-239008"
   >
-    Option 1
-  </span>
-</label>
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    >
+      Option 1
+    </span>
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly with value 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -383,6 +423,7 @@ exports[`Checkbox renders correctly with value 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-547708"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -410,15 +451,19 @@ exports[`Checkbox renders correctly with value 1`] = `
       />
     </svg>
   </div>
-  <span
-    className="typography primary start singleLineEllipsis text text2Normal label"
-    data-testid="checkbox-label"
-  />
-</label>
+  <label
+    htmlFor="checkbox-547708"
+  >
+    <span
+      className="typography primary start singleLineEllipsis text text2Normal label"
+      data-testid="checkbox-label"
+    />
+  </label>
+</span>
 `;
 
 exports[`Checkbox renders correctly without label 1`] = `
-<label
+<span
   className="wrapper"
   data-testid="checkbox"
   onClickCapture={[Function]}
@@ -429,6 +474,7 @@ exports[`Checkbox renders correctly without label 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
+    id="checkbox-322229"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -456,5 +502,5 @@ exports[`Checkbox renders correctly without label 1`] = `
       />
     </svg>
   </div>
-</label>
+</span>
 `;
