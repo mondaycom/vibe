@@ -1,5 +1,50 @@
 # Changelog
 
+## 2.60.0 (2023-11-14)
+
+#### New Features
+* [#1738](https://github.com/mondaycom/monday-ui-react-core/pull/1738) fix: <Dropdown> inside <Modal> overflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.59.3 (2023-11-12)
+
+#### Bug Fixes
+* [#1739](https://github.com/mondaycom/monday-ui-react-core/pull/1739) fix(Button): differentiate different states of the button with a key ([@talkor](https://github.com/talkor))
+* [#1740](https://github.com/mondaycom/monday-ui-react-core/pull/1740) fix: <ThemeProvider> remove Hacker theme from eligible for overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.59.2 (2023-11-12)
+
+#### Bug Fixes
+* [#1729](https://github.com/mondaycom/monday-ui-react-core/pull/1729) fix(MultiValueContainer): align items vertically ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1741](https://github.com/mondaycom/monday-ui-react-core/pull/1741) docs: remove hacker theme from storybook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.59.1 (2023-11-09)
+
+#### Documentation
+* [#1735](https://github.com/mondaycom/monday-ui-react-core/pull/1735) docs: improve readme files on how to import css - mention storybook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1726](https://github.com/mondaycom/monday-ui-react-core/pull/1726) feat: new EditableHeading with new typography ([@talkor](https://github.com/talkor))
+
+## 2.59.0 (2023-11-09)
+
+#### New Features
+* [#1718](https://github.com/mondaycom/monday-ui-react-core/pull/1718) feat: change < Icon /> and < Avatar /> sizes inside < Chips />, < Dropdown /> < ChildrenContent />,  < ComboboxOption />, < ListItem />, < MenuItem /> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.58.0 (2023-11-07)
+
+#### Bug Fixes
+* [#1736](https://github.com/mondaycom/monday-ui-react-core/pull/1736) fix: <TextField> add typograpghy mixin to the textField container to prevent avoid line-height overrides ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1733](https://github.com/mondaycom/monday-ui-react-core/pull/1733) feat: <Dropdown> add filterOption prop for custom filter ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.57.2 (2023-11-07)
+
+#### Bug Fixes
+* [#1734](https://github.com/mondaycom/monday-ui-react-core/pull/1734) fix: Modified the styling of the <TextField> icon  ([@Nirco96](https://github.com/Nirco96))
+
 ## 2.57.1 (2023-11-06)
 
 #### Documentation

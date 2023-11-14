@@ -34,10 +34,6 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
             [ThemeProvider.systemThemes.BLACK]: {
               [ThemeProvider.colors.primaryColor]: "salmon",
               [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
-            },
-            [ThemeProvider.systemThemes.HACKER]: {
-              [ThemeProvider.colors.primaryColor]: "slateblue",
-              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
             }
           }
         }}

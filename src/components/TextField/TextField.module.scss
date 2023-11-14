@@ -4,7 +4,7 @@
 .textField {
   position: relative;
   box-sizing: border-box;
-  font-family: var(--font-family);
+  @include font-input;
   width: 100%;
 }
 
@@ -121,20 +121,18 @@
   pointer-events: none;
 }
 
-.textField .inputWrapper .iconContainer:active,
-.textField .inputWrapper .iconContainer:focus,
-.textField .inputWrapper .iconContainer:focus-visible {
-  outline: none;
-  background-color: var(--primary-background-hover-color);
-}
-
 .textField .inputWrapper .iconContainer {
   -webkit-appearance: none;
 }
 
-.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon {
+.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon.iconContainerClickable {
   pointer-events: all;
   cursor: pointer;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon:not(.iconContainerClickable) {
+  pointer-events: none;
+  cursor: default;
 }
 
 .textField .inputWrapper .iconContainer.iconContainerActive {
@@ -147,9 +145,12 @@
   transform: rotate(0) scale(1);
 }
 
-.textField .inputWrapper .iconContainer.iconContainerHasIcon:hover,
-.textField .inputWrapper .iconContainer.iconContainerHasIcon:focus-within {
+.textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:hover {
   background-color: var(--primary-background-hover-color);
+}
+
+.textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:active {
+  transform: translateY(-50%) scale(0.9);
 }
 
 .textField .inputWrapper .iconContainer .icon {

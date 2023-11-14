@@ -9,11 +9,12 @@ Snapshot Diff:
   <div
 -   class="container"
 +   class="container className"
+    data-testid="modal-header_modal-title-id"
   >
     <h1
 -     class="typography primary start multiLineEllipsis heading h1Normal"
 +     class="typography primary start multiLineEllipsis heading h1Normal titleClassName"
-      data-testid="modal-header_modal-title-id"
+      data-testid="text_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"
 `;
@@ -76,10 +77,11 @@ Snapshot Diff:
 exports[`ModalHeader with required props 1`] = `
 <div
   class="container"
+  data-testid="modal-header_modal-title-id"
 >
   <h1
     class="typography primary start multiLineEllipsis heading h1Normal"
-    data-testid="modal-header_modal-title-id"
+    data-testid="text_modal-title-id"
     id="modal-title-id"
     style="--text-clamp-lines: 2;"
   >

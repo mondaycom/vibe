@@ -1,0 +1,23 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/states";
+
+.editableHeadingWrapper {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-small);
+  @include focus-style();
+}
+
+.editableHeadingWrapper:focus,
+.editableHeadingWrapper:active {
+  outline: none;
+}
+
+.headingComponent {
+  margin: 0;
+}
+
+.editableHeadingWrapper.insetFocus {
+  @include focus-style-inset();
+}

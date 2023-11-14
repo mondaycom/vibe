@@ -18,6 +18,10 @@ export interface ModalHeaderProps extends VibeComponentProps {
    */
   title: ElementContent;
   /**
+   * Slot for the heading of the modal for maximum flexibility. Using it should be according to design and typography guidelines
+   */
+  children?: ElementContent;
+  /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */
   description?: ElementContent;
@@ -66,6 +70,7 @@ export interface ModalHeaderProps extends VibeComponentProps {
 const ModalHeader: FC<ModalHeaderProps> = ({
   className,
   title,
+  children,
   titleClassName,
   description = "",
   descriptionClassName,
@@ -81,21 +86,22 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   "data-testid": dataTestId
 }) => {
   return (
-    <div className={cx(styles.container, className)}>
-      <Heading
-        id={id}
-        maxLines={2}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
-        className={titleClassName}
-      >
-        {icon && (
-          <span className={cx(styles.icon, iconClassName)}>
-            <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
-          </span>
-        )}
-        {title}
-      </Heading>
-
+    <div
+      className={cx(styles.container, className)}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
+    >
+      {children ? (
+        children
+      ) : (
+        <Heading id={id} maxLines={2} className={titleClassName}>
+          {icon && (
+            <span className={cx(styles.icon, iconClassName)}>
+              <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
+            </span>
+          )}
+          {title}
+        </Heading>
+      )}
       {description && (
         <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
           {description}

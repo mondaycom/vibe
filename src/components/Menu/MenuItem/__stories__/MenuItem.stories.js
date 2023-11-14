@@ -28,31 +28,6 @@ export const menuItemIconsTemplate = args => (
   </Menu>
 );
 
-export const menuItemIconsWithColorsTemplate = args => {
-  return (
-    <Menu>
-      <MenuItem
-        title="My Item (negative)"
-        icon={Settings}
-        iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--sb-negative-color)"
-      />
-      <MenuItem
-        title="My Item (positive)"
-        icon={Activity}
-        iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--sb-positive-color)"
-      />
-      <MenuItem
-        title="My Item (purple)"
-        icon={Bolt}
-        iconType={Icon.type.SVG}
-        iconBackgroundColor="var(--sb-color-purple)"
-      />
-    </Menu>
-  );
-};
-
 export const menuItemLabelTemplate = args => (
   <Menu>
     <MenuItem title="Menu item" label="New" />

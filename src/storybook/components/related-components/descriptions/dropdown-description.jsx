@@ -9,7 +9,7 @@ export const DropdownDescription = () => {
     };
     return (
       <div style={style}>
-        <Dropdown placeholder="Placeholder text here" size={Dropdown.size.MEDIUM} />
+        <Dropdown placeholder="Placeholder text here" size={Dropdown.sizes.MEDIUM} />
       </div>
     );
   }, []);
