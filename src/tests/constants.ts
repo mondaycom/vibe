@@ -1,6 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  EDITABLE_TEXT = "editable-text",
   TIPSEEN_MEDIA = "tipseen-media",
   INDICATOR = "indicator",
   BADGE = "badge",

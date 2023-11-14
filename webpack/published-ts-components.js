@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  EditableText: "components/EditableText/EditableText",
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",
   Button: "components/Button/Button",
@@ -118,7 +119,7 @@ const publishedTSComponents = {
   useSwitch: "hooks/useSwitch",
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover",
-  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex",
+  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex"
 };
 
 // eslint-disable-next-line no-undef

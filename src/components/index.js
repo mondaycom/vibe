@@ -104,3 +104,4 @@ export { default as TableRow } from "./Table/TableRow/TableRow";
 export { default as TableCell } from "./Table/TableCell/TableCell";
 export { default as TipseenMedia } from "./Tipseen/TipseenMedia/TipseenMedia";
 export { default as ThemeProvider } from "./ThemeProvider/ThemeProvider";
+export { default as EditableText } from "./EditableText/EditableText";
