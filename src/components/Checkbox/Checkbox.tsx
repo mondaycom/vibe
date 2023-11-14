@@ -73,6 +73,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   ) => {
     const iconContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const refId = useRef(id || `checkbox-${Math.floor(Math.random() * 1000000)}`);
     const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onMouseUpCallback = useCallback(() => {
@@ -109,16 +110,15 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      <label
+      <span
         className={cx(styles.wrapper, overrideClassName)}
         onMouseUp={onMouseUpCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
-        htmlFor={id}
         onClickCapture={onClickCaptureLabel}
       >
         <input
           ref={mergedInputRef}
-          id={id}
+          id={refId.current}
           className={styles.input}
           value={value}
           name={name}
@@ -146,16 +146,18 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           />
         </div>
         {label === false ? null : (
-          <Text
-            element="span"
-            type={Text.types.TEXT2}
-            className={cx(styles.label, labelClassName)}
-            data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
-          >
-            {label}
-          </Text>
+          <label htmlFor={refId.current}>
+            <Text
+              element="span"
+              type={Text.types.TEXT2}
+              className={cx(styles.label, labelClassName)}
+              data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+            >
+              {label}
+            </Text>
+          </label>
         )}
-      </label>
+      </span>
     );
   }
 );

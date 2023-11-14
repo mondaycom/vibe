@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
@@ -49,7 +49,7 @@ export interface ButtonProps extends VibeComponentProps {
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */
-  loading?: boolean;
+  isLoading?: boolean;
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
@@ -114,7 +114,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       successText,
       successIcon,
       style,
-      loading,
+      isLoading,
       active,
       activeButtonClassName,
       id,
@@ -143,6 +143,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     },
     ref
   ) => {
+    const [loading, setLoading] = useState(isLoading);
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
     useEffect(() => {
@@ -153,6 +154,15 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       const buttonElement = buttonRef.current;
       buttonElement.style.color = getParentBackgroundColorNotTransparent(buttonElement, defaultTextColorOnPrimaryColor);
     }, [kind, buttonRef, color, defaultTextColorOnPrimaryColor]);
+
+    useEffect(() => {
+      const frameId = window.requestAnimationFrame(() => {
+        setLoading(isLoading);
+      });
+      return () => {
+        window.cancelAnimationFrame(frameId);
+      };
+    }, [isLoading]);
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
