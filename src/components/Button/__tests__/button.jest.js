@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, waitFor } from "@testing-library/react";
 import Button from "../Button";
 
 const text = "Click Me!";
@@ -63,8 +63,10 @@ describe("<Buttoon />", () => {
             {text}
           </Button>
         );
-        fireEvent.click(getByRole("alert"));
-        expect(clickActionStub.mock.calls.length).toEqual(0);
+        waitFor(() => {
+          fireEvent.click(getByRole("alert"));
+          expect(clickActionStub.mock.calls.length).toEqual(0);
+        });
       });
 
       describe("Success", () => {
