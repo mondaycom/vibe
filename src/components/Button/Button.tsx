@@ -49,7 +49,7 @@ export interface ButtonProps extends VibeComponentProps {
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */
-  isLoading?: boolean;
+  loading?: boolean;
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
@@ -114,7 +114,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       successText,
       successIcon,
       style,
-      isLoading,
+      loading: isLoading,
       active,
       activeButtonClassName,
       id,
