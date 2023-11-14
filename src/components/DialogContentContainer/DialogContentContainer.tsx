@@ -5,8 +5,8 @@ import React, { useRef, forwardRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
 import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
-import styles from "./DialogContentContainer.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
