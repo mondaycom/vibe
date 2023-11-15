@@ -1,4 +1,3 @@
-import Dropdown from "../Dropdown";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { StoryDescription, Link } from "vibe-storybook-components";
@@ -8,13 +7,14 @@ import {
   MENU,
   SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
-import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
+import { overviewPlaySuite, multiInteractionTests } from "../__tests__/Dropdown.interactions";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { OptionRenderer } from "./OptionRenderer.js";
 import { Attach, Email } from "../../Icon/Icons";
-import { DialogContentContainer, Dialog, Button, Flex, Avatar, Label } from "../../index";
+import { Dropdown, DialogContentContainer, Button, Flex, Avatar, Label, ModalContent, Modal, Box } from "../../index";
+import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
@@ -111,9 +111,9 @@ There are three sizes available: Small, Medium, and Large
 
 <Canvas>
   <Story name="Sizes">
-    <Dropdown placeholder="Small" size={Dropdown.size.SMALL} className="dropdown-stories-styles_spacing" />
-    <Dropdown placeholder="Medium" size={Dropdown.size.MEDIUM} className="dropdown-stories-styles_spacing" />
-    <Dropdown placeholder="Large" size={Dropdown.size.LARGE} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
   </Story>
 </Canvas>
 
@@ -199,7 +199,7 @@ There are three sizes available: Small, Medium, and Large
 The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
 
 <Canvas>
-  <Story name="Multi-choice with different states">
+  <Story name="Multi-choice with different states" play={multiInteractionTests}>
     {() => {
       const options = useMemo(
         () => [
@@ -256,6 +256,16 @@ The Dropdown component supports multiple options selection in two different stat
                 multiline
                 className="dropdown-stories-styles_with-chips"
                 withMandatoryDefaultOptions
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription description="Hidden options list" vertical headerStyle={{ width: 190 }}>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                defaultValue={[...options]}
+                options={options}
+                multi
+                className="dropdown-stories-styles_with-chips"
               />
             </div>
           </StoryDescription>
@@ -682,27 +692,29 @@ A classic dropdown presents options a user needs to choose from.
   </Story>
 </Canvas>
 
-### Dropdown inside scrollable dialog
+### Dropdown inside popover
 
-Use <b>insideOverflowContainer</b> prop attribute for displaying dropdown inside scrollable container (like our modal
+Use <code>menuPosition={Dropdown.menuPositions.FIXED}</code> prop attribute for displaying dropdown inside popover (like our Modal
 component) or container with overflow hidden content.
-Use <b>insideOverflowWithTransformContainer</b> prop attribute for displaying drop down inside scrollable container which use CSS transform function (like our dialog component) or container
-with overflow hidden content which use CSS transform function.
 
 <Tip title="Dev tip">
-  For more details about dropdown's APIs for displaying correctly inside Dialogs, Modals and other popovers{" "}
-  <Link
+  For more details about dropdown's APIs for displaying correctly inside{" "}
+  <Link href="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Dialogs
+  </Link>
+  , <Link href="/?path=/docs/feedback-modal--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Modals
+  </Link> and other popovers click <Link
     href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
     size={Link.sizes.SMALL}
     withoutSpacing
   >
-    press here
-  </Link>
-  .
+    here
+  </Link>.
 </Tip>
 
 <Canvas>
-  <Story name="Dropdown inside scrollable dialog">
+  <Story name="Dropdown inside popover">
     {() => {
       const options = useMemo(
         () => [
@@ -710,34 +722,45 @@ with overflow hidden content which use CSS transform function.
           { value: "2", label: "Option 2" },
           { value: "3", label: "Option 3" },
           { value: "4", label: "Option 4" },
-          { value: "5", label: "Option 5" }
+          { value: "5", label: "Option 5" },
+          { value: "6", label: "Option 6" },
+          { value: "7", label: "Option 7" },
+          { value: "8", label: "Option 8" },
+          { value: "9", label: "Option 9" },
+          { value: "10", label: "Option 10" },
+          { value: "11", label: "Option 11" },
+          { value: "12", label: "Option 12" },
+          { value: "13", label: "Option 13" },
+          { value: "14", label: "Option 14" },
+          { value: "15", label: "Option 15" }
         ],
         []
       );
-      const dialogRef = useRef();
-      const dialogStyle = { width: "300px", height: "200px", overflow: "auto" };
-      const secondDialogContent = (
-        <DialogContentContainer style={dialogStyle} ref={dialogRef}>
-          <Dropdown
-            placeholder="Dropdown inside a scrollable dialog"
-            options={options}
-            insideOverflowWithTransformContainer
-          />
-        </DialogContentContainer>
-      );
+      const [show, setShow] = useState(false);
+      const closeModal = useCallback(() => {
+        setShow(false);
+      }, [setShow]);
+      const dialogStyle = { width: "350px", height: "200px", overflow: "auto" };
       return (
         <Flex gap={Flex.gaps.LARGE}>
           <DialogContentContainer style={dialogStyle}>
-            <Dropdown placeholder="Dropdown inside a scrollable dialog" options={options} insideOverflowContainer />
+            <ModalExampleContent />
+            <Box marginTop={Box.marginTops.MEDIUM} marginBottom={Box.marginBottoms.XXL}>
+              <Dropdown
+                placeholder="Dropdown inside DialogContentContainer"
+                options={options}
+                menuPosition={Dropdown.menuPositions.FIXED}
+              />
+            </Box>
           </DialogContentContainer>
-          <Dialog
-            ref={dialogRef}
-            content={secondDialogContent}
-            hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-            showTrigger={Dialog.hideShowTriggers.CLICK}
-          >
-            <Button>Press me for dropdown inside dialog!</Button>
-          </Dialog>
+          <div>
+            <Button onClick={() => setShow(true)}>Open Modal</Button>
+            <Modal title="Modal with dropdown" show={show} onClose={closeModal}>
+              <ModalContent>
+                <Dropdown placeholder="Dropdown" options={options} menuPosition={Dropdown.menuPositions.FIXED} />
+              </ModalContent>
+            </Modal>
+          </div>
         </Flex>
       );
     }}

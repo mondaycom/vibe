@@ -14,10 +14,16 @@ import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
-import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles, DROPDOWN_ID } from "./DropdownConstants";
+import {
+  ADD_AUTO_HEIGHT_COMPONENTS,
+  defaultCustomStyles,
+  DROPDOWN_ID,
+  DROPDOWN_CHIP_COLORS,
+  DROPDOWN_MENU_PLACEMENT,
+  DROPDOWN_MENU_POSITION
+} from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 
@@ -82,6 +88,7 @@ const Dropdown = forwardRef(
       tabSelectsValue = true,
       popupsContainerSelector,
       filterOption,
+      menuPosition,
       "data-testid": dataTestId
     },
     ref
@@ -341,6 +348,7 @@ const Dropdown = forwardRef(
         maxMenuHeight={maxMenuHeight}
         menuPortalTarget={overrideMenuPortalTarget}
         menuPlacement={menuPlacement}
+        menuPosition={menuPosition}
         menuIsOpen={!readOnly && menuIsOpen}
         tabIndex={tabIndex}
         id={id}
@@ -361,9 +369,15 @@ const Dropdown = forwardRef(
   }
 );
 
-Dropdown.size = SIZES;
-Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
-Dropdown.createFilter = createFilter;
+Object.assign(Dropdown, {
+  // TODO Deprecate Dropdown.size in the next major version - use Dropdown.sizes instead
+  size: SIZES,
+  sizes: SIZES,
+  chipColors: DROPDOWN_CHIP_COLORS,
+  menuPlacements: DROPDOWN_MENU_PLACEMENT,
+  menuPositions: DROPDOWN_MENU_POSITION,
+  createFilter: createFilter
+});
 
 Dropdown.defaultProps = {
   className: "",
@@ -380,7 +394,8 @@ Dropdown.defaultProps = {
   onInputChange: NOOP,
   searchable: true,
   options: [],
-  menuPlacement: "bottom",
+  menuPlacement: Dropdown.menuPlacements.BOTTOM,
+  menuPosition: Dropdown.menuPositions.ABSOLUTE,
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -493,7 +508,12 @@ Dropdown.propTypes = {
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement: PropTypes.oneOf(["bottom", "top", "auto"]),
+  menuPlacement: PropTypes.oneOf(Object.values(DROPDOWN_MENU_PLACEMENT)),
+  /**
+   * The CSS position value of the menu, when "fixed" extra layout management might be required
+   * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
+   */
+  menuPosition: PropTypes.oneOf(Object.values(DROPDOWN_MENU_POSITION)),
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
@@ -530,7 +550,7 @@ Dropdown.propTypes = {
     })
   ]),
   /**
-   * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
+   * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
   size: PropTypes.string,
   /**

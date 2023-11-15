@@ -1,244 +1,172 @@
-import { camelCase } from "lodash-es";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import cx from "classnames";
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import Heading, { HeadingProps } from "../LegacyHeading/LegacyHeading";
-import Clickable from "../Clickable/Clickable";
-import EditableInput, { EditableInputProps } from "../EditableInput/EditableInput";
-import usePrevious from "../../hooks/usePrevious";
-import { InputType } from "../EditableInput/EditableInputConstants";
-import { HeadingSizes, HeadingTypes } from "../LegacyHeading/LegacyHeadingConstants";
-import { Sizes } from "../../constants";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import Heading from "../Heading/Heading";
 import { withStaticProps } from "../../types";
-import headingStyles from "../LegacyHeading/LegacyHeading.module.scss";
 import styles from "./EditableHeading.module.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { HeadingType, HeadingWeight } from "../Heading/HeadingConstants";
+import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { camelCase } from "lodash-es";
+import HiddenInputPlaceholder from "./HiddenInputPlaceholder";
+import { keyCodes } from "../../constants";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 
-export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
-  displayPlaceholderInTextMode?: boolean;
-  inputAriaLabel?: string;
-  errorClass?: string;
-  headingClassName?: string;
-  inputClassName?: string;
+export interface EditableHeadingProps extends VibeComponentProps {
+  /** Value of the text */
+  value: string;
   /**
-   * @deprecated - use "data-testid" instead
+   * Sets the Heading type
+   * @type {HeadingType}
+   * */
+  type?: HeadingType;
+  /** Sets the Heading weight
+   * @type {HeadingWeight}
    */
-  dataTestId?: string;
-  "data-testid"?: string;
-  editing?: boolean;
-  disabled?: boolean;
-  errorClassTimeout?: number;
-  style?: React.CSSProperties;
-  onStartEditing?: (event: React.KeyboardEvent) => void;
-  tooltip?: string;
-  insetFocus?: boolean;
-  contentRenderer?: React.FC;
+  weight?: HeadingWeight;
+  /** Will be called whenever the current value changes to a non-empty value */
+  onChange?: (value: string) => void;
+  /** Disables editing mode - component will be just a <Heading /> */
+  readOnly?: boolean;
+  /** Shown in edit mode when the text value is empty */
+  placeholder?: string;
+  /** ARIA Label */
+  ariaLabel?: string;
 }
 
 const EditableHeading: React.FC<EditableHeadingProps> & {
-  sizes?: typeof Sizes;
-  types?: typeof HeadingTypes;
-} = props => {
-  const {
-    id = "",
-    className,
-    inputClassName = "",
-    dataTestId: backwardCompatabilityDataTestId = "",
-    "data-testid": dataTestId = "",
-    value,
-    editing,
-    disabled,
-    onFinishEditing,
-    onCancelEditing,
-    onIgnoreBlurEvent,
-    errorClassTimeout = 2000,
-    style,
-    customColor,
-    onStartEditing,
-    contentRenderer,
-    tooltip,
-    autoSize = true,
-    highlightTerm = null,
-    insetFocus = false,
-    size = HeadingSizes.LARGE,
-    displayPlaceholderInTextMode = true,
-    suggestEditOnHover = true,
-    type = Heading.types.h1
-  } = props;
+  types?: typeof Heading.types;
+  weights?: typeof Heading.weights;
+} = forwardRef(
+  (
+    {
+      id,
+      className,
+      "data-testid": dataTestId,
+      value,
+      type = Heading.types.H1,
+      weight = Heading.weights.NORMAL,
+      onChange,
+      readOnly = false,
+      ariaLabel = "",
+      placeholder
+    },
+    ref
+  ) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
+    const [isEditing, setIsEditing] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+    const [inputWidth, setInputWidth] = useState(0);
 
-  // State
-  const [isEditing, setIsEditing] = useState(editing && !disabled);
-  const [isError, setIsError] = useState(false);
-  const [valueState, setValueState] = useState(value || "");
-  const prevValue = usePrevious(value);
+    const inputRef = useRef(null);
 
-  // Refs
-  const ref = useRef(null);
+    function toggleEditMode() {
+      if (readOnly || isEditing) {
+        return;
+      }
 
-  // Callbacks
-  const onClick = useCallback(
-    (event: React.KeyboardEvent) => {
-      if (disabled || isEditing) return;
       setIsEditing(true);
-      onStartEditing && onStartEditing(event);
-    },
-    [isEditing, disabled, setIsEditing, onStartEditing]
-  );
+    }
 
-  const onFinishEditingCallback = useCallback(
-    (newValue: string, event: React.KeyboardEvent | React.FocusEvent) => {
+    function handleInputValueChange() {
       setIsEditing(false);
-      setValueState(newValue);
-      onFinishEditing?.(newValue, event);
-    },
-    [onFinishEditing, setIsEditing, setValueState]
-  );
-
-  const onCancelEditingCallback = useCallback(
-    (event: React.KeyboardEvent) => {
-      setIsEditing(false);
-      onCancelEditing?.(event);
-    },
-    [onCancelEditing, setIsEditing]
-  );
-
-  const onIgnoreBlurEventCallback = useCallback(
-    (value: string) => {
-      onIgnoreBlurEvent?.(value);
-    },
-    [onIgnoreBlurEvent]
-  );
-
-  const clearErrorState = useCallback(() => {
-    setIsError(false);
-  }, [setIsError]);
-
-  const onInputErrorCallback = useCallback(() => {
-    setIsError(true);
-  }, [setIsError]);
-
-  const onInputSuccessCallback = useCallback(() => {
-    clearErrorState();
-  }, [clearErrorState]);
-
-  // Effects
-  useEffect(() => {
-    // Update value if changed from props
-    if (!editing && value !== prevValue && value !== valueState) {
-      setValueState(value);
+      if (!inputValue || value === inputValue) {
+        setInputValue(value);
+        return;
+      }
+      onChange?.(inputValue);
     }
-  }, [editing, value, prevValue, valueState, setValueState]);
 
-  useEffect(() => {
-    // update isEditing state if "editing" prop changed
-    setIsEditing(editing);
-  }, [editing]);
-
-  useLayoutEffect(() => {
-    if (!editing && !valueState && value) {
-      // When user entered empty value - rollback to value from props
-      setValueState(value);
+    function handleBlur() {
+      handleInputValueChange();
     }
-  }, [editing, value, prevValue, valueState, setValueState]);
 
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    if (isError) {
-      timer = setTimeout(clearErrorState, errorClassTimeout);
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+      if (event.key === keyCodes.ENTER) {
+        handleInputValueChange();
+      }
+      if (event.key === keyCodes.ESCAPE) {
+        setIsEditing(false);
+        setInputValue(value);
+      }
     }
-    return () => timer && clearTimeout(timer);
-  }, [isError, setIsError, clearErrorState, errorClassTimeout]);
 
-  const renderContentComponent = () => {
-    const valueOrPlaceholder = valueState || props.placeholder || "";
-    const contentProps = {
-      value: displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
-      type,
-      customColor,
-      suggestEditOnHover: suggestEditOnHover && !disabled,
-      tooltipPosition: props.tooltipPosition,
-      ellipsisMaxLines: props.ellipsisMaxLines,
-      nonEllipsisTooltip: props.tooltip,
-      size: size as Sizes,
-      highlightTerm,
-      className: cx(styles.headingComponent, props.headingClassName)
-    };
-
-    if (contentRenderer) {
-      return contentRenderer(contentProps);
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+      setInputValue(event.target.value);
     }
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Heading {...contentProps} />;
-  };
 
-  const getInputProps = () => {
-    const textAreaType = props.ellipsisMaxLines > 1 ? InputType.TEXT_AREA : undefined;
-    const inputType = props.inputType || textAreaType;
-    return {
-      value: valueState,
-      className: cx(
-        getStyle(headingStyles, camelCase("element-type-" + type)),
-        getStyle(headingStyles, camelCase("size-" + size)),
-        inputClassName
-      ),
-      isValidValue: props.isValidValue,
-      onChange: props.onChange,
-      onKeyDown: props.onKeyDown,
-      onKeyPress: props.onKeyPress,
-      onClick: props.onClick,
-      customColor,
-      onTabHandler: props.onTabHandler,
-      onArrowKeyDown: props.onArrowKeyDown,
-      autoComplete: props.autoComplete,
-      maxLength: props.maxLength,
-      placeholder: props.placeholder,
-      shouldFocusOnMount: props.shouldFocusOnMount,
-      selectOnMount: props.selectOnMount,
-      onBlur: props.onBlur,
-      onFocus: props.onFocus,
-      inputType,
-      ignoreBlurClass: props.ignoreBlurClass,
-      autoSize,
-      textareaSubmitOnEnter: props.textareaSubmitOnEnter,
-      onFinishEditing: onFinishEditingCallback,
-      onCancelEditing: onCancelEditingCallback,
-      onIgnoreBlurEvent: onIgnoreBlurEventCallback,
-      onError: onInputErrorCallback,
-      onSuccess: onInputSuccessCallback,
-      ariaLabel: props.inputAriaLabel
-    };
-  };
+    const clickableProps = useClickableProps(
+      {
+        onClick: toggleEditMode,
+        id,
+        role: "button"
+      },
+      mergedRef
+    );
 
-  const renderInputComponent = () => {
-    const inputProps = getInputProps();
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <EditableInput {...inputProps} />;
-  };
+    function focus() {
+      if (inputRef.current) {
+        inputRef.current?.focus();
+      }
+    }
 
-  const shouldEdit = !disabled && isEditing;
+    useEffect(() => {
+      if (isEditing) {
+        focus();
+      }
+    }, [isEditing]);
 
-  return (
-    <div
-      ref={ref}
-      style={style}
-      className={cx(styles.editableHeadingWrapper, className, {
-        [styles.insetFocus]: insetFocus
-      })}
-      aria-label={`${value} ${tooltip || ""}`}
-      id={id}
-      data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
-    >
-      <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
-        {shouldEdit ? renderInputComponent() : renderContentComponent()}
-      </Clickable>
-    </div>
-  );
-};
+    const inputClassNames = useMemo(() => {
+      return cx(styles.input, getStyle(styles, camelCase(type + "-" + weight)));
+    }, [type, weight]);
+
+    return (
+      <div
+        ref={mergedRef}
+        id={id}
+        aria-label={ariaLabel}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
+        className={cx(styles.editableHeading, className)}
+      >
+        {isEditing && !readOnly ? (
+          <>
+            <HiddenInputPlaceholder
+              className={inputClassNames}
+              value={inputValue || placeholder}
+              onChange={setInputWidth}
+            />
+            <input
+              ref={inputRef}
+              className={inputClassNames}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth }}
+              role="input"
+            />
+          </>
+        ) : (
+          <Heading
+            {...clickableProps}
+            className={cx(styles.heading, { [styles.disabled]: readOnly })}
+            type={type}
+            weight={weight}
+          >
+            {inputValue}
+          </Heading>
+        )}
+      </div>
+    );
+  }
+);
 
 export default withStaticProps(EditableHeading, {
-  types: HeadingTypes,
-  sizes: HeadingSizes
+  types: HeadingType,
+  weights: HeadingWeight
 });

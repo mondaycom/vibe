@@ -1,4 +1,4 @@
-import { userEvent } from "@storybook/testing-library";
+import { userEvent, waitFor } from "@storybook/testing-library";
 import {
   getByRole,
   getByText,
@@ -49,4 +49,18 @@ export const overviewPlaySuite = interactionSuite({
     expect(optionElement).toBeNull(); //expect not to exist
   },
   tests: [selectAndClearTest, hideDropdownWhenPressingEscape]
+});
+
+const openMultiValueDialog = async canvas => {
+  const optionElement = await canvas.queryByText("+2");
+  await clickElement(optionElement);
+
+  await waitFor(async () => {
+    const popover = await getByRole(document.body, "dialog");
+    expect(popover).toBeInTheDocument();
+  });
+};
+
+export const multiInteractionTests = interactionSuite({
+  tests: [openMultiValueDialog]
 });

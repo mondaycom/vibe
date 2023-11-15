@@ -22,13 +22,13 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
       data-testid={getTestId(ComponentDefaultTestId.DROPDOWN_OPTION_CONTENT)}
     >
       {data?.leftAvatar && (
-        <Avatar withoutBorder square={data.square} src={data.leftAvatar} type={Avatar.types.IMG} customSize={18} />
+        <Avatar withoutBorder square={data.square} src={data.leftAvatar} type={Avatar.types.IMG} customSize={20} />
       )}
-      {data?.leftIcon && <Icon icon={data.leftIcon} clickable={false} />}
+      {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
       {children}
-      {data?.rightIcon && <Icon icon={data.rightIcon} clickable={false} />}
+      {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
       {data?.rightAvatar && (
-        <Avatar withoutBorder square={data.square} src={data.rightAvatar} type={Avatar.types.IMG} customSize={18} />
+        <Avatar withoutBorder square={data.square} src={data.rightAvatar} type={Avatar.types.IMG} customSize={20} />
       )}
     </div>
   );

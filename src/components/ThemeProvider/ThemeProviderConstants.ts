@@ -4,8 +4,7 @@
 export enum SystemTheme {
   LIGHT = "light",
   DARK = "dark",
-  BLACK = "black",
-  HACKER = "hacker"
+  BLACK = "black"
 }
 
 /**
@@ -50,8 +49,7 @@ type ThemeCustomClassValue = {
 export const SystemThemeClassMap: SystemThemeClassMapType = {
   [SystemTheme.LIGHT]: "light-app-theme",
   [SystemTheme.DARK]: "dark-app-theme",
-  [SystemTheme.BLACK]: "black-app-theme",
-  [SystemTheme.HACKER]: "hacker_theme-app-theme"
+  [SystemTheme.BLACK]: "black-app-theme"
 };
 
 type SystemThemeClassMapType = {

@@ -1,4 +1,4 @@
-@import "../../../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
 
 .chip-with-input-wrapper {
   display: flex;
@@ -39,6 +39,15 @@
   }
 }
 
-.value-container-dialog-content {
-  max-width: 300px;
+.valueDialogContent {
+  @include scroller();
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 300px;
+  overflow-y: auto;
+
+  .chips {
+    flex-shrink: 0;
+  }
 }
