@@ -3,7 +3,7 @@
 exports[`Checkbox renders correctly when checked 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -12,7 +12,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
     checked={true}
     className="input"
     disabled={false}
-    id="checkbox-195891"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -20,7 +20,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -41,20 +41,17 @@ exports[`Checkbox renders correctly when checked 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-195891"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly when default checked 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -63,7 +60,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     className="input"
     defaultChecked={true}
     disabled={false}
-    id="checkbox-412679"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -71,7 +68,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -92,20 +89,17 @@ exports[`Checkbox renders correctly when default checked 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-412679"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly when disabled 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -114,7 +108,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     className="input"
     defaultChecked={false}
     disabled={true}
-    id="checkbox-899161"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -122,7 +116,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -143,20 +137,17 @@ exports[`Checkbox renders correctly when disabled 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-899161"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly when interminate 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -165,7 +156,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-973208"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -173,7 +164,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -194,20 +185,17 @@ exports[`Checkbox renders correctly when interminate 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-973208"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -217,7 +205,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-733526"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -225,7 +213,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -246,20 +234,17 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-733526"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly with empty props 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -268,7 +253,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-667629"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -276,7 +261,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -297,20 +282,17 @@ exports[`Checkbox renders correctly with empty props 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-667629"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly with name 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -319,7 +301,7 @@ exports[`Checkbox renders correctly with name 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-867308"
+    id="test"
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
@@ -327,7 +309,7 @@ exports[`Checkbox renders correctly with name 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -348,20 +330,17 @@ exports[`Checkbox renders correctly with name 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-867308"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly with props 1`] = `
 <span
   className="wrapper dummy-class-name"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -370,7 +349,7 @@ exports[`Checkbox renders correctly with props 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-239008"
+    id="test"
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
@@ -378,7 +357,7 @@ exports[`Checkbox renders correctly with props 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -399,14 +378,11 @@ exports[`Checkbox renders correctly with props 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-239008"
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
   >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    >
-      Option 1
-    </span>
+    Option 1
   </label>
 </span>
 `;
@@ -414,7 +390,7 @@ exports[`Checkbox renders correctly with props 1`] = `
 exports[`Checkbox renders correctly with value 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -423,7 +399,7 @@ exports[`Checkbox renders correctly with value 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-547708"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -431,7 +407,7 @@ exports[`Checkbox renders correctly with value 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
@@ -452,20 +428,17 @@ exports[`Checkbox renders correctly with value 1`] = `
     </svg>
   </div>
   <label
-    htmlFor="checkbox-547708"
-  >
-    <span
-      className="typography primary start singleLineEllipsis text text2Normal label"
-      data-testid="checkbox-label"
-    />
-  </label>
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="checkbox-label_test"
+    htmlFor="test"
+  />
 </span>
 `;
 
 exports[`Checkbox renders correctly without label 1`] = `
 <span
   className="wrapper"
-  data-testid="checkbox"
+  data-testid="checkbox_test"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -474,7 +447,7 @@ exports[`Checkbox renders correctly without label 1`] = `
     className="input"
     defaultChecked={false}
     disabled={false}
-    id="checkbox-322229"
+    id="test"
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -482,7 +455,7 @@ exports[`Checkbox renders correctly without label 1`] = `
   />
   <div
     className="checkbox"
-    data-testid="checkbox-checkbox"
+    data-testid="checkbox-checkbox_test"
   >
     <svg
       aria-hidden={true}
