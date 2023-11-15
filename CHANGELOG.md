@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.60.1 (2023-11-15)
+
+#### Bug Fixes
+* [#1752](https://github.com/mondaycom/monday-ui-react-core/pull/1752) fix(Button): fix loading behavior when button is type submit in a for… ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1748](https://github.com/mondaycom/monday-ui-react-core/pull/1748) docs: rename stories names to be in pascal case ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.60.0 (2023-11-14)
 
 #### New Features
