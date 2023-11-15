@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import cx from 'classnames';
 import CoreLink from '../../helpers/components/Link/Link';
-import styles from './link.module.scss';
-import { LinkSize } from './LinkConstants';
+import { LinkSize, LinkTarget } from './LinkConstants';
 import { withStaticProps } from '../../types';
+import styles from './link.module.scss';
 
 type LinkProps = {
   className?: string;
@@ -11,18 +11,21 @@ type LinkProps = {
   href: string;
   size?: LinkSize;
   withoutSpacing?: boolean;
+  target?: LinkTarget;
 };
 
-const Link: FC<LinkProps> & { sizes?: typeof LinkSize } = ({
+const Link: FC<LinkProps> & { sizes?: typeof LinkSize; targets?: typeof LinkTarget } = ({
   children,
   href,
   size = Link.sizes?.MEDIUM,
   withoutSpacing = false,
+  target = Link.targets?.NEW_WINDOW,
   className,
 }) => (
   <CoreLink
     text={children}
     href={href}
+    target={target}
     className={cx(styles.compsLink, className, {
       [styles.small]: size === Link.sizes?.SMALL,
       [styles.medium]: size === Link.sizes?.MEDIUM,
@@ -31,4 +34,4 @@ const Link: FC<LinkProps> & { sizes?: typeof LinkSize } = ({
   />
 );
 
-export default withStaticProps(Link, { sizes: LinkSize });
+export default withStaticProps(Link, { sizes: LinkSize, targets: LinkTarget });
