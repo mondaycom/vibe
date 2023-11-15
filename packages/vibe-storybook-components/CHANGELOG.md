@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.0 (2023-11-15)
+
+#### New Features
+* [#124](https://github.com/mondaycom/vibe-storybook-components/pull/124) feat: <Link> add target prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.11.3 (2023-11-15)
 
 #### Bug Fixes
