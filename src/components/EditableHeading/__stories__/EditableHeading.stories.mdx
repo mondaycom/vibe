@@ -36,7 +36,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
 ## Overview
 
-An extension of the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component with built in editing capabilities.
+Editable Heading component is based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component, allowing users to dynamically edit its content.
 
 <Canvas>
   <Story
@@ -59,8 +59,8 @@ An extension of the <Link href="/?path=/docs/text-heading--overview" withoutSpac
 
 <UsageGuidelines
   guidelines={[
-    "Use when the title (Heading) is editable and you want to edit it",
-    "The component takes 100% of width and height of its container"
+    "Use when you want to allow the user to edit the heading text",
+    "This component grows relative to its content, and its maximum width is 100% of its container "
   ]}
 />
 
@@ -78,4 +78,4 @@ An extension of the <Link href="/?path=/docs/text-heading--overview" withoutSpac
 
 ## Related components
 
-<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_TEXT]} />
+<RelatedComponents componentsNames={[EDITABLE_TEXT, TEXT, HEADING]} />
