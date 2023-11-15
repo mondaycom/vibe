@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.3 (2023-11-15)
+
+#### Bug Fixes
+* [#123](https://github.com/mondaycom/vibe-storybook-components/pull/123) fix: reduce <InformationBox> line-height from 24px to 20px ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.11.2 (2023-11-12)
 
 #### Bug Fixes
