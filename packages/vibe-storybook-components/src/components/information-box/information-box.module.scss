@@ -1,4 +1,4 @@
-@import "../../styles/mixins/typography";
+@import '../../styles/mixins/typography';
 
 .informationBox {
   .component {
@@ -9,6 +9,7 @@
 
   .description {
     @include sb-content-text;
+    line-height: var(--sb-text-line-height-small);
     font-size: var(--sb-small-text-font-size);
   }
 }
