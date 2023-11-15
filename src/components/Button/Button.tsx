@@ -15,6 +15,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Button.module.scss";
+import { useButtonLoading } from "./helper/useButtonLoading";
 
 export interface ButtonProps extends VibeComponentProps {
   children?: React.ReactNode;
@@ -114,7 +115,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       successText,
       successIcon,
       style,
-      loading,
+      loading: isLoading,
       active,
       activeButtonClassName,
       id,
@@ -143,6 +144,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     },
     ref
   ) => {
+    const { loading } = useButtonLoading({ isLoading });
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const buttonRef = useRef<HTMLButtonElement>(null);
     useEffect(() => {
