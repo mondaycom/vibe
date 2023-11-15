@@ -1,4 +1,4 @@
-import { emptyStateExample } from "../assets";
+import emptyStateExample from "../../../stories-common-assets/emptyStateExample.svg";
 import { Heading } from "../../../../next/next";
 import { Text } from "../../../../components";
 import styles from "./Catalog.stories.EmptyState.module.scss";
