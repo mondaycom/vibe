@@ -6,7 +6,7 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
 import person3 from "./assets/person3.png";
 import { Link } from "vibe-storybook-components";
-import { BUTTON_GROUP, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
+import { BUTTON_GROUP, TABS, MULTI_STEP_INDICATOR } from "../../../storybook/components/related-components/component-description-map";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./breadcrumbsBar.stories.scss";
 
@@ -67,7 +67,7 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
   "Place breadcrumbs at the top left corner of the screen, above the page title.",
 ]}/>
 
-<Tip title="Check yourself">If you are taking users through a multistep process, use the <Link href="/?path=/docs/navigation-wizard--overview" size={Link.sizes.SMALL} withoutSpacing>Wizard</Link> component instead.</Tip>
+<Tip title="Check yourself">If you are taking users through a multistep process, use the <Link href="/?path=/docs/navigation-multistepindicator--overview" size={Link.sizes.SMALL} withoutSpacing>Wizard</Link> component instead.</Tip>
 
 ## Variants
 ### Text only
@@ -170,4 +170,4 @@ Use when breadcrumbs are clickable and are used for information and navigation
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[BUTTON_GROUP, WIZARD, TABS]} />
+<RelatedComponents componentsNames={[BUTTON_GROUP, MULTI_STEP_INDICATOR, TABS]} />

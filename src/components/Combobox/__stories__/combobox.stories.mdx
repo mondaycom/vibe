@@ -1,16 +1,16 @@
-import Combobox from "../Combobox";
 import { useMemo, useState } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { StoryDescription, Link } from "vibe-storybook-components";
+import Combobox from "../Combobox";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { StoryDescription, Link } from "vibe-storybook-components";
 import { defaultPlaySuite } from "../__tests__/combobox-interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
-import { Update, Time, Upgrade, ThumbsUp, Wand, Person, Form } from "../../Icon/Icons";
-import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
+import { Update, Time, Upgrade, ThumbsUp, Wand, Person } from "../../Icon/Icons";
+import { DROPDOWN, MENU, SEARCH } from "../../../storybook/components/related-components/component-description-map";
 import { Edit } from "../../Icon/Icons";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
@@ -26,7 +26,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 <Meta
-  title="Inputs/Combo box"
+  title="Inputs/Combobox"
   component={Combobox}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
@@ -88,14 +88,14 @@ Combobox allowing users to filter longer lists to only the selections matching a
     "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
     "The menu opens by clicking anywhere in the field.",
     "The option that best matches the typed characters is highlighted.",
-    "Limit the text content of combo box items to a single line.",
+    "Limit the text content of Combobox items to a single line.",
     "Could be used inside a dialog or as a standalone component."
   ]}
 />
 
 <Tip>
   When there are fewer than five items, consider using{" "}
-  <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
+  <Link href="/?path=/docs/inputs-radiobutton--overview" size={Link.sizes.SMALL} withoutSpacing>
     Radio buttons
   </Link>{" "}
   (if only one item can be selected) or{" "}
@@ -109,7 +109,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
 
 ### Default
 
-Default combo box can be used without dialog or as part of the layout.
+Default Combobox can be used without dialog or as part of the layout.
 
 <Canvas>
   <Story name="Default" play={defaultPlaySuite}>
@@ -127,12 +127,12 @@ Default combo box can be used without dialog or as part of the layout.
   </Story>
 </Canvas>
 
-### Comobox inside a dialog
+### Combobox inside a dialog
 
-Use this for combo box that triggered by button.
+Use this for Combobox that triggered by button.
 
 <Canvas>
-  <Story name="Comobox inside a dialog">
+  <Story name="Combobox inside a dialog">
     {() => {
       const options = useMemo(
         () => [
@@ -155,7 +155,7 @@ Use this for combo box that triggered by button.
 
 ### Sizes
 
-We have three pre-defined sizes for combo box width size: Small 200px, Medium 240px, Large 260px.
+We have three pre-defined sizes for Combobox width size: Small 200px, Medium 240px, Large 260px.
 
 <Canvas>
   <Story name="Sizes">
@@ -310,7 +310,7 @@ When having a lot of options, you may use headings to categorize them.
 
 ### With Button
 
-If combo box requires action, use button component at the end of the list.
+If Combobox requires action, use button component at the end of the list.
 
 <Canvas>
   <Story name="With Button">
@@ -466,7 +466,7 @@ better user experience.
 
 ### Loading state
 
-If importing the combo box options may take time, you reflect this to the user by using our Combo Box loading mode.
+If importing the Combobox options may take time, you reflect this to the user by using our Combobox loading mode.
 
 <Canvas>
   <Story name="Loading state">
@@ -502,7 +502,7 @@ If importing the combo box options may take time, you reflect this to the user b
             />
           </DialogContentContainer>
         ),
-        description: "Use combo box to make large lists easier to search."
+        description: "Use Combobox to make large lists easier to search."
       },
       negative: {
         component: (
@@ -519,8 +519,8 @@ If importing the combo box options may take time, you reflect this to the user b
         ),
         description: (
           <>
-            Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combo box, use a{" "}
-            <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>
+            Don’t use Combobox if you have less than 5 list items. If it's not complex enough for a Combobox, use a{" "}
+            <Link href="/?path=/docs/inputs-radiobutton--overview" withoutSpacing>
               Radio button
             </Link>{" "}
             or{" "}
@@ -548,7 +548,7 @@ If importing the combo box options may take time, you reflect this to the user b
             />
           </DialogContentContainer>
         ),
-        description: "Use the combo box input to filter results from the list."
+        description: "Use the Combobox input to filter results from the list."
       },
       negative: {
         component: (
@@ -565,7 +565,7 @@ If importing the combo box options may take time, you reflect this to the user b
             />
           </DialogContentContainer>
         ),
-        description: "Don’t use the combo box as a search input to search results that are not within the list."
+        description: "Don’t use the Combobox as a search input to search results that are not within the list."
       }
     }
   ]}
@@ -573,12 +573,12 @@ If importing the combo box options may take time, you reflect this to the user b
 
 ## Use cases and examples
 
-### Combo box as person picker
+### Combobox as person picker
 
-We are using combo box component for our board person picker.
+We are using Combobox component for our board person picker.
 
 <Canvas>
-  <Story name="Combo box as person picker">
+  <Story name="Combobox as person picker">
     {() => {
       const options = useMemo(
         () => [
@@ -645,4 +645,4 @@ We are using combo box component for our board person picker.
 
 ## Related components
 
-<RelatedComponents componentsNames={[TOOLTIP, BREADCRUBMS, CHIP]} />
+<RelatedComponents componentsNames={[DROPDOWN, MENU, SEARCH]} />
