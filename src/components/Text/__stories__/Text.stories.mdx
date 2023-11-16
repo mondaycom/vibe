@@ -256,8 +256,11 @@ A Text component with a link skin can be used to create a link within running te
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
       >
-        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text with
-        fixed light color
+        This is the story of a
+        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+          link
+        </Link>
+        inside running text with fixed light color
       </Text>
       <Text
         element="div"
@@ -267,8 +270,11 @@ A Text component with a link skin can be used to create a link within running te
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
       >
-        This is the story of a <a href="/?path=/docs/foundations-typography--page">link</a> inside running text with
-        fixed dark color
+        This is the story of a
+        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+          link
+        </Link>
+        inside running text with fixed dark color
       </Text>
     </Flex>
   </Story>
