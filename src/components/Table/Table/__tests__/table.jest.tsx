@@ -76,7 +76,7 @@ describe("Table", () => {
     });
 
     it("should render with a highlight state", () => {
-      const { getByRole } = render(<TableRow highlight />);
+      const { getByRole } = render(<TableRow highlighted />);
       expect(getByRole("row")).toHaveAttribute("aria-selected", "true");
     });
   });

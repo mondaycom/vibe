@@ -369,7 +369,7 @@ This is an example of a table with 5000 rows
             {emailTableData.map(rowItem => (
               <TableRow
                 key={rowItem.id}
-                highlight={selectedRows[rowItem.id]}
+                highlighted={selectedRows[rowItem.id]}
                 onClick={event => onRowClick(rowItem.id, event)}
               >
                 <TableCell>{rowItem.sentOn}</TableCell>

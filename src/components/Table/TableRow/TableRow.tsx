@@ -11,14 +11,14 @@ export interface ITableRowProps extends VibeComponentProps {
   /**
    * Does the row have a highlighted style
    */
-  highlight?: boolean;
+  highlighted?: boolean;
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   children?: React.ReactElement<ITableCellProps> | React.ReactElement<ITableCellProps>[];
   style?: React.CSSProperties;
 }
 
 const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
-  ({ highlight, onClick, children, style, id, "data-testid": dataTestId }, ref) => {
+  ({ highlighted, onClick, children, style, id, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [componentRef, ref] });
     useKeyEvent({
@@ -43,7 +43,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW, id)}
         ref={mergedRef}
         role="row"
-        aria-selected={highlight || false}
+        aria-selected={highlighted || false}
         className={styles.tableRow}
         style={style}
         tabIndex={onClick ? 0 : -1}
