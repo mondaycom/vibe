@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RelatedComponentsDecorator } from "../../../components";
+import { RelatedComponents } from "vibe-storybook-components";
 import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../../components/related-components/component-description-map";
 import { Search } from "../../../../components";
 import { CatalogEmptyState } from "../EmptyState/Catalog.stories.EmptyState";
@@ -21,7 +22,10 @@ export const Catalog = () => {
         onChange={setQuery}
         wrapperClassName={styles.search}
       />
-      <RelatedComponentsDecorator componentsNames={componentsToDisplay} />
+      <RelatedComponentsDecorator
+        componentsNames={componentsToDisplay}
+        linkTarget={RelatedComponents.linkTargets.PARENT}
+      />
       {componentsToDisplay.length === 0 && <CatalogEmptyState />}
     </div>
   );

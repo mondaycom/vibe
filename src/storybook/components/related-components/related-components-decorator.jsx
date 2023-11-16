@@ -1,17 +1,25 @@
 import PropTypes from "prop-types";
-import { descriptionComponentsMap } from "./component-description-map";
 import { RelatedComponents } from "vibe-storybook-components";
+import { descriptionComponentsMap } from "./component-description-map";
 
-export const RelatedComponentsDecorator = ({ componentsNames }) => {
-  return <RelatedComponents componentsNames={componentsNames} descriptionComponentsMap={descriptionComponentsMap} />;
+export const RelatedComponentsDecorator = ({ componentsNames, linkTarget }) => {
+  return (
+    <RelatedComponents
+      componentsNames={componentsNames}
+      descriptionComponentsMap={descriptionComponentsMap}
+      linkTarget={linkTarget}
+    />
+  );
 };
 
 RelatedComponentsDecorator.propTypes = {
-  componentsNames: PropTypes.arrayOf(PropTypes.string)
+  componentsNames: PropTypes.arrayOf(PropTypes.string),
+  linkTarget: PropTypes.string
 };
 
 RelatedComponentsDecorator.defaultProps = {
-  componentsNames: []
+  componentsNames: [],
+  linkTarget: undefined
 };
 
 export default RelatedComponentsDecorator;
