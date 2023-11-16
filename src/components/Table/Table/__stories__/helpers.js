@@ -56,6 +56,14 @@ export const emailTableData = [
     emailsSent: 100
   },
   {
+    id: "2",
+    sentOn: "2022-02-02",
+    sentBy: "Other Name",
+    subject: "This is the subject",
+    status: "Sent",
+    emailsSent: 99
+  },
+  {
     id: "3",
     sentOn: "2023-03-03",
     sentBy: "Some Person",
@@ -63,14 +71,6 @@ export const emailTableData = [
       "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
     status: "Sent",
     emailsSent: 999
-  },
-  {
-    id: "2",
-    sentOn: "2022-02-02",
-    sentBy: "Other Name",
-    subject: "This is the subject",
-    status: "Sent",
-    emailsSent: 99
   }
 ];
 
@@ -162,6 +162,17 @@ export const scrollTableData = [
     status: "Sent",
     priority: "High",
     emailsSent: 75
+  }
+];
+
+export const emailColumnsWithHighlightButton = [
+  ...emailColumns,
+  {
+    id: "highlight",
+    title: "Highlight",
+    width: 150,
+    infoContent: "Info content for the highlight column",
+    loadingStateType: "medium-text"
   }
 ];
 
