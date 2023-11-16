@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { StepStatus } from "../MultiStepConstants";
 import { StoryDescription, createComponentTemplate, Link } from "vibe-storybook-components";
-import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
+import { BREADCRUBMS, STEPS, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps } from "./helper";
 import { Featured } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
@@ -469,4 +469,4 @@ State transition automatic example
 
 ## Related components
 
-<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPPER]} />
+<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPS]} />

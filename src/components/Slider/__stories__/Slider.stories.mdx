@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, Link, UsageGuidelines, VerticalStories, Tip } from "vibe-storybook-components";
 import {
-  PROGRESS_BAR,
+  LINEAR_PROGRESS_BAR,
   TOGGLE,
   MULTI_STEP_INDICATOR
 } from "../../../storybook/components/related-components/component-description-map";
@@ -64,7 +64,7 @@ Slider is a visual input component that reflects current state status in its app
 />
 <Tip title="Not what you were looking for?">
   If you need to visualize progress use Wizard component instead{" "}
-  <Link href="/?path=/docs/navigation-multistepindicator--overview" size={Link.sizes.SMALL} withoutSpacing>
+  <Link href="/?path=/docs/navigation-wizard--overview" size={Link.sizes.SMALL} withoutSpacing>
     See link
   </Link>
 </Tip>
@@ -234,4 +234,4 @@ Custom ID, custom `data-testid` and Custom Class. Add Custom Items as Prefix and
 
 ## Related components
 
-<RelatedComponents componentsNames={[PROGRESS_BAR, TOGGLE, MULTI_STEP_INDICATOR]} />
+<RelatedComponents componentsNames={[LINEAR_PROGRESS_BAR, TOGGLE, MULTI_STEP_INDICATOR]} />
