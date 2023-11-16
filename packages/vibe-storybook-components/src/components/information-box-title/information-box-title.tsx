@@ -1,17 +1,23 @@
 import { FC } from 'react';
 import cx from 'classnames';
-import { ElementContent } from '../../types';
+import { ElementContent, withStaticProps } from '../../types';
 import Link from '../link/link';
+import { LinkTarget } from '../link/LinkConstants';
 import styles from './information-box-title.module.scss';
 
 type InformationBoxTitleProps = {
   children: ElementContent;
   href?: string;
+  linkTarget?: LinkTarget;
 };
 
-const InformationBoxTitle: FC<InformationBoxTitleProps> = ({ children, href }) => {
+const InformationBoxTitle: FC<InformationBoxTitleProps> & { linkTargets?: typeof LinkTarget } = ({
+  children,
+  href,
+  linkTarget,
+}) => {
   return href && typeof children === 'string' ? (
-    <Link className={cx(styles.informationBoxTitle)} href={href} withoutSpacing>
+    <Link className={cx(styles.informationBoxTitle)} href={href} withoutSpacing target={linkTarget}>
       {children}
     </Link>
   ) : (
@@ -19,4 +25,4 @@ const InformationBoxTitle: FC<InformationBoxTitleProps> = ({ children, href }) =
   );
 };
 
-export default InformationBoxTitle;
+export default withStaticProps(InformationBoxTitle, { linkTargets: LinkTarget });
