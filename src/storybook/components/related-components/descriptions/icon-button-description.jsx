@@ -8,7 +8,7 @@ export const IconButtonDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Icon Button"
+      title="IconButton"
       href="/?path=/docs/buttons-iconbutton--overview"
       description="When you want to have a button with just an Icon"
     />
