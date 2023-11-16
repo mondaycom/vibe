@@ -19,7 +19,7 @@ export const AttentionBoxDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Attention box"
+      title="AttentionBox"
       href="/?path=/docs/feedback-attentionbox--overview"
       description="Displays content classification."
     />

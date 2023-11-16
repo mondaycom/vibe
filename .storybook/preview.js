@@ -78,6 +78,8 @@ addParameters({
     storySort: {
       order: [
         "Welcome",
+        "Catalog",
+        "Change Log",
         "Foundations",
         "Buttons",
         "Inputs",

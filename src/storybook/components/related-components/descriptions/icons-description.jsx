@@ -21,6 +21,7 @@ export const IconsDescription = () => {
     <RelatedComponent
       component={component}
       title="Icons"
+      href="/?path=/docs/media-icon--icons-list"
       description="Compact elements that represent an input, attribute, or action."
     />
   );
