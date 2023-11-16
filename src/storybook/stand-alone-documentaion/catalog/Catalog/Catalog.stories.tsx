@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { RelatedComponentsDecorator } from "../../../components";
 import { RelatedComponents } from "vibe-storybook-components";
-import { descriptionComponentsWithoutGeneralDescriptionMap } from "../../../components/related-components/component-description-map";
+import { DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP } from "../../../components/related-components/component-description-map";
 import { Search } from "../../../../components";
 import { CatalogEmptyState } from "../EmptyState/Catalog.stories.EmptyState";
 import styles from "./Catalog.stories.module.scss";
 
-const RELATED_COMPONENT_NAMES = Array.from(descriptionComponentsWithoutGeneralDescriptionMap.keys())
+const RELATED_COMPONENT_NAMES = Array.from(DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP.keys())
   .map(name => name.toLowerCase())
   .sort();
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { SplitButtonDescription } from "./descriptions/split-button-description";
 import { ButtonGroupDescription } from "./descriptions/button-group-description";
 import { CheckboxDescription } from "./descriptions/checkbox-description";
@@ -92,63 +93,71 @@ export const TEXT = "text";
 export const ACCORDION = "accordion";
 export const EXPAND_COLLAPSE = "expand-collapse";
 
-// General description names (not related to specific components)
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
 export const SHADOW = "shadow";
 export const SPACING = "spacing";
 
-export const descriptionComponentsMap = new Map();
+// Component description names (related to specific components)
+const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
+  [SPLIT_BUTTON, <SplitButtonDescription />],
+  [BUTTON_GROUP, <ButtonGroupDescription />],
+  [LABEL, <LabelDescription />],
+  [LINK, <LinkDescription />],
+  [CHECKBOX, <CheckboxDescription />],
+  [RADIO_BUTTON, <RadioButtonDescription />],
+  [COUNTER, <CounterDescription />],
+  [TOOLTIP, <TooltipDescription />],
+  [TOGGLE, <ToggleDescription />],
+  [DROPDOWN, <DropdownDescription />],
+  [CHIP, <ChipsDescription />],
+  [ATTENTION_BOX, <AttentionBoxDescription />],
+  [ALERT_BANNER, <AlertBannerDescription />],
+  [TOAST, <ToastDescription />],
+  [BUTTON, <ButtonDescription />],
+  [TABS, <TabsDescription />],
+  [BREADCRUBMS, <BreadcrumbsDescription />],
+  [MENU, <MenuDescription />],
+  [MULTI_STEP_INDICATOR, <MultiStepIndicatorDescription />],
+  [TIPSEEN, <TipseenDescription />],
+  [TEXT_FIELD, <TextFieldDescription />],
+  [SEARCH, <SearchDescription />],
+  [COMBOBOX, <ComboboxDescription />],
+  [AVATAR, <AvatarDescription />],
+  [AVATAR_GROUP, <AvatarGroupDescription />],
+  [ICONS, <IconsDescription />],
+  [STEPS, <StepsDescription />],
+  [SPINNER, <SpinnerDescription />],
+  [SKELETON, <SkeletonDescription />],
+  [ICON_BUTTON, <IconButtonDescription />],
+  [MENU_BUTTON, <MenuButtonDescription />],
+  [LINEAR_PROGRESS_BAR, <LinearProgressBarDescription />],
+  [EDITABLE_HEADING, <EditableHeadingDescription />],
+  [HEADING, <HeadingDescription />],
+  [CLICKABLE, <ClickableDescription />],
+  [HIDDEN_TEXT, <HiddenTextDescription />],
+  [LIST, <ListDescription />],
+  [FLEX, <FlexDescription />],
+  [DIVIDER, <DividerDescription />],
+  [DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />],
+  [DIALOG, <DialogDescription />],
+  [TEXT, <TextDescription />],
+  [ACCORDION, <AccordionDescription />],
+  [EXPAND_COLLAPSE, <ExpandCollapseDescription />]
+];
 
-descriptionComponentsMap.set(SPLIT_BUTTON, <SplitButtonDescription />);
-descriptionComponentsMap.set(BUTTON_GROUP, <ButtonGroupDescription />);
-descriptionComponentsMap.set(LABEL, <LabelDescription />);
-descriptionComponentsMap.set(LINK, <LinkDescription />);
-descriptionComponentsMap.set(CHECKBOX, <CheckboxDescription />);
-descriptionComponentsMap.set(RADIO_BUTTON, <RadioButtonDescription />);
-descriptionComponentsMap.set(COUNTER, <CounterDescription />);
-descriptionComponentsMap.set(TOOLTIP, <TooltipDescription />);
-descriptionComponentsMap.set(TOGGLE, <ToggleDescription />);
-descriptionComponentsMap.set(DROPDOWN, <DropdownDescription />);
-descriptionComponentsMap.set(CHIP, <ChipsDescription />);
-descriptionComponentsMap.set(ATTENTION_BOX, <AttentionBoxDescription />);
-descriptionComponentsMap.set(ALERT_BANNER, <AlertBannerDescription />);
-descriptionComponentsMap.set(TOAST, <ToastDescription />);
-descriptionComponentsMap.set(BUTTON, <ButtonDescription />);
-descriptionComponentsMap.set(TABS, <TabsDescription />);
-descriptionComponentsMap.set(BREADCRUBMS, <BreadcrumbsDescription />);
-descriptionComponentsMap.set(MENU, <MenuDescription />);
-descriptionComponentsMap.set(MULTI_STEP_INDICATOR, <MultiStepIndicatorDescription />);
-descriptionComponentsMap.set(TIPSEEN, <TipseenDescription />);
-descriptionComponentsMap.set(TEXT_FIELD, <TextFieldDescription />);
-descriptionComponentsMap.set(SEARCH, <SearchDescription />);
-descriptionComponentsMap.set(COMBOBOX, <ComboboxDescription />);
-descriptionComponentsMap.set(AVATAR, <AvatarDescription />);
-descriptionComponentsMap.set(AVATAR_GROUP, <AvatarGroupDescription />);
-descriptionComponentsMap.set(ICONS, <IconsDescription />);
-descriptionComponentsMap.set(STEPS, <StepsDescription />);
-descriptionComponentsMap.set(SPINNER, <SpinnerDescription />);
-descriptionComponentsMap.set(SKELETON, <SkeletonDescription />);
-descriptionComponentsMap.set(ICON_BUTTON, <IconButtonDescription />);
-descriptionComponentsMap.set(MENU_BUTTON, <MenuButtonDescription />);
-descriptionComponentsMap.set(LINEAR_PROGRESS_BAR, <LinearProgressBarDescription />);
-descriptionComponentsMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
-descriptionComponentsMap.set(HEADING, <HeadingDescription />);
-descriptionComponentsMap.set(CLICKABLE, <ClickableDescription />);
-descriptionComponentsMap.set(HIDDEN_TEXT, <HiddenTextDescription />);
-descriptionComponentsMap.set(LIST, <ListDescription />);
-descriptionComponentsMap.set(FLEX, <FlexDescription />);
-descriptionComponentsMap.set(DIVIDER, <DividerDescription />);
-descriptionComponentsMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
-descriptionComponentsMap.set(DIALOG, <DialogDescription />);
-descriptionComponentsMap.set(TEXT, <TextDescription />);
-descriptionComponentsMap.set(ACCORDION, <AccordionDescription />);
-descriptionComponentsMap.set(EXPAND_COLLAPSE, <ExpandCollapseDescription />);
+// General description names (not related to specific components)
+const GENERAL_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
+  [COLORS, <ColorsDescription />],
+  [TYPOGRAPHY, <TypographyDescription />],
+  [SHADOW, <ShadowDescription />],
+  [SPACING, <SpacingDescription />]
+];
 
-export const descriptionComponentsWithoutGeneralDescriptionMap = new Map(descriptionComponentsMap);
-
-// General description (not related to specific components)
-descriptionComponentsMap.set(COLORS, <ColorsDescription />);
-descriptionComponentsMap.set(TYPOGRAPHY, <TypographyDescription />);
-descriptionComponentsMap.set(SHADOW, <ShadowDescription />);
-descriptionComponentsMap.set(SPACING, <SpacingDescription />);
+export const DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP = new Map<string, JSX.Element>(
+  COMPONENTS_DESCRIPTIONS_ENTRIES
+);
+export const DESCRIPTION_COMPONENTS_MAP = new Map<string, JSX.Element>([
+  ...COMPONENTS_DESCRIPTIONS_ENTRIES,
+  ...GENERAL_DESCRIPTIONS_ENTRIES
+]);
