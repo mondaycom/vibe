@@ -8,7 +8,7 @@ export const RadioButtonDescription = () => {
     <RelatedComponent
       component={component}
       title="RadioButton"
-      href="/?path=/docs/inputs-radio-button--overview"
+      href="/?path=/docs/inputs-radiobutton--overview"
       description="Allow for a single option to be selected from a visible list."
     />
   );
