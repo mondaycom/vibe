@@ -46,6 +46,8 @@ export interface CheckBoxProps extends VibeComponentProps {
   name?: string;
   /** An id to be added the input element */
   id?: string;
+  /** Specifies the tab order of the input element */
+  tabIndex?: number;
 }
 
 const Checkbox: React.FC<CheckBoxProps> = forwardRef(
@@ -64,6 +66,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
       indeterminate = false,
       disabled = false,
       defaultChecked,
+      tabIndex,
       value = "",
       name = "",
       id,
@@ -129,6 +132,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
           aria-label={finalAriaLabel}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
+          tabIndex={tabIndex}
         />
         <div
           className={cx(styles.checkbox, checkboxClassName)}

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import MultiStepIndicator from "../../../../components/MultiStepIndicator/MultiStepIndicator";
 
-export const WizardDescription = () => {
+export const MultiStepIndicatorDescription = () => {
   const component = useMemo(() => {
     const style = {
       marginLeft: "-40px"
@@ -33,8 +33,8 @@ export const WizardDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Wizard"
-      href="/?path=/docs/navigation-wizard--overview"
+      title="MultiStepIndicator"
+      href="/?path=/docs/navigation-multistepindicator--overview"
       description="Shows information related to a component when a user hovers over it."
     />
   );
