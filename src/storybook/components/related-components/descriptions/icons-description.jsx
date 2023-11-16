@@ -22,7 +22,7 @@ export const IconsDescription = () => {
       component={component}
       title="Icons"
       href="/?path=/docs/media-icon--icons-list"
-      description="Compact elements that represent an input, attribute, or action."
+      description="Catalog of publicly avaliable icons."
     />
   );
 };
