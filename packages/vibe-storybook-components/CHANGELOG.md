@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.0 (2023-11-16)
+
+#### New Features
+* [#125](https://github.com/mondaycom/vibe-storybook-components/pull/125) feat: add linkTarget to <RelatedComponents> ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.12.0 (2023-11-15)
 
 #### New Features
