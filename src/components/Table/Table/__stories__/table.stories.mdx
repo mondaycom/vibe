@@ -24,13 +24,15 @@ import {
   statusColumnToLabelColor,
   scrollTableData,
   scrollTableColumns,
-  doAndDontIconsRuleData
+  doAndDontIconsRuleData,
+  emailColumnsWithHighlightButton
 } from "./helpers";
 import {
   LABEL,
   ICON_BUTTON,
   SKELETON
 } from "../../../../storybook/components/related-components/component-description-map";
+import { Button } from "../../../index";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table
@@ -348,30 +350,29 @@ This is an example of a table with 5000 rows
   </Story>
 </Canvas>
 
-## [Clickable-highlighted rows - demo story]
+## Highlightable row
 
 <Canvas>
-  <Story name="Clickable-highlighted rows">
+  <Story name="Highlightable row">
     {() => {
-      const [selectedRows, setSelectedRows] = useState({});
-      const onRowClick = (rowId, event) => {
-        console.log("### onRowClick: ", rowId, event);
-        setSelectedRows(prevState => ({ ...prevState, [rowId]: !prevState?.[rowId] }));
+      const [highlightRow, setHighlightRow] = useState(false);
+      const onButtonClick = () => {
+        setHighlightRow(prevState => !prevState);
       };
       return (
-        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+        <Table
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={emailColumnsWithHighlightButton}
+        >
           <TableHeader>
-            {emailColumns.map((headerCell, index) => (
+            {emailColumnsWithHighlightButton.map((headerCell, index) => (
               <TableHeaderCell key={index} title={headerCell.title} />
             ))}
           </TableHeader>
           <TableBody>
             {emailTableData.map(rowItem => (
-              <TableRow
-                key={rowItem.id}
-                highlighted={selectedRows[rowItem.id]}
-                onClick={event => onRowClick(rowItem.id, event)}
-              >
+              <TableRow key={rowItem.id} highlighted={highlightRow && rowItem.id === "2"}>
                 <TableCell>{rowItem.sentOn}</TableCell>
                 <TableCell>{rowItem.subject}</TableCell>
                 <TableCell>
@@ -381,6 +382,16 @@ This is an example of a table with 5000 rows
                   <Label text={rowItem.status} color="positive" isAnimationDisabled />
                 </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
+                <TableCell>
+                  <Button
+                    kind={Button.kinds.TERTIARY}
+                    size={Button.sizes.XS}
+                    onClick={onButtonClick}
+                    disabled={rowItem.id !== "2"}
+                  >
+                    Highlight
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
