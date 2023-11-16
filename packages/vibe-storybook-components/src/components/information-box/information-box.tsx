@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import InformationBoxTitle from '../information-box-title/information-box-title';
-import { ElementContent } from '../../types';
+import { ElementContent, withStaticProps } from '../../types';
+import { LinkTarget } from '../link/LinkConstants';
 import styles from './information-box.module.scss';
 
 type InformationBoxProps = {
@@ -8,11 +9,24 @@ type InformationBoxProps = {
   title?: ElementContent;
   description?: string;
   href?: string;
+  linkTarget?: LinkTarget;
 };
 
-const InformationBox: FC<InformationBoxProps> = ({ component = null, title = '', description = '', href }) => {
+const InformationBox: FC<InformationBoxProps> & { linkTargets?: typeof LinkTarget } = ({
+  component = null,
+  title = '',
+  description = '',
+  href,
+  linkTarget,
+}) => {
   const overrideTitle =
-    typeof title === 'string' ? <InformationBoxTitle href={href}>{title}</InformationBoxTitle> : title;
+    typeof title === 'string' ? (
+      <InformationBoxTitle href={href} linkTarget={linkTarget}>
+        {title}
+      </InformationBoxTitle>
+    ) : (
+      title
+    );
 
   return (
     <section className={styles.informationBox}>
@@ -23,4 +37,4 @@ const InformationBox: FC<InformationBoxProps> = ({ component = null, title = '',
   );
 };
 
-export default InformationBox;
+export default withStaticProps(InformationBox, { linkTargets: LinkTarget });

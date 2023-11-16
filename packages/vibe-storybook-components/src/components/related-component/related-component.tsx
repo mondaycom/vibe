@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import InformationBox from '../information-box/information-box';
-import { ElementContent } from '../../types';
+import { LinkTarget } from '../link/LinkConstants';
+import { ElementContent, withStaticProps } from '../../types';
+import { RelatedComponentsContext } from '../related-components/related-components-context';
 import styles from './related-component.module.scss';
 
 interface RelatedComponentProps {
@@ -8,15 +10,26 @@ interface RelatedComponentProps {
   title?: string;
   description?: string;
   href: string;
+  linkTarget?: LinkTarget;
 }
 
-const RelatedComponent: React.FC<RelatedComponentProps> = ({ component, title = '', description = '', href }) => (
-  <InformationBox
-    component={<div className={styles.relatedComponentComponent}>{component}</div>}
-    title={title}
-    description={description}
-    href={href}
-  />
-);
+const RelatedComponent: React.FC<RelatedComponentProps> & { linkTargets?: typeof LinkTarget } = ({
+  component,
+  title = '',
+  description = '',
+  href,
+  linkTarget,
+}) => {
+  const overrideLinkTarget = linkTarget || useContext(RelatedComponentsContext).linkTarget;
+  return (
+    <InformationBox
+      component={<div className={styles.relatedComponentComponent}>{component}</div>}
+      title={title}
+      description={description}
+      href={href}
+      linkTarget={overrideLinkTarget}
+    />
+  );
+};
 
-export default RelatedComponent;
+export default withStaticProps(RelatedComponent, { linkTargets: LinkTarget });
