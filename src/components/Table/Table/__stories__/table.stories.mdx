@@ -356,6 +356,7 @@ This is an example of a table with 5000 rows
   <Story name="Highlightable row">
     {() => {
       const [highlightRow, setHighlightRow] = useState(false);
+      const canRowBeHighlighted = rowItem => rowItem.id === "2";
       const onButtonClick = () => {
         setHighlightRow(prevState => !prevState);
       };
@@ -372,7 +373,7 @@ This is an example of a table with 5000 rows
           </TableHeader>
           <TableBody>
             {emailTableData.map(rowItem => (
-              <TableRow key={rowItem.id} highlighted={highlightRow && rowItem.id === "2"}>
+              <TableRow key={rowItem.id} highlighted={highlightRow && canRowBeHighlighted(rowItem)}>
                 <TableCell>{rowItem.sentOn}</TableCell>
                 <TableCell>{rowItem.subject}</TableCell>
                 <TableCell>
@@ -387,7 +388,7 @@ This is an example of a table with 5000 rows
                     kind={Button.kinds.TERTIARY}
                     size={Button.sizes.XS}
                     onClick={onButtonClick}
-                    disabled={rowItem.id !== "2"}
+                    disabled={!canRowBeHighlighted(rowItem)}
                   >
                     Highlight
                   </Button>
