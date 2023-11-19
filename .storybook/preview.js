@@ -43,7 +43,6 @@ addParameters({
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
-      a: Link,
       p: Paragraph,
       AlphaWarning,
       Tip,

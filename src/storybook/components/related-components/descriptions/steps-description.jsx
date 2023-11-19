@@ -25,7 +25,7 @@ export const StepsDescription = () => {
       component={component}
       title="Steps"
       href="/?path=/docs/data-display-steps--overview"
-      description="Compact elements that represent an input, attribute, or action."
+      description="Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation."
     />
   );
 };
