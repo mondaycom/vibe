@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.62.0 (2023-11-19)
+
+#### Bug Fixes
+* [#1756](https://github.com/mondaycom/monday-ui-react-core/pull/1756) fix: <Dropdown> disabled option - fix keyboard focused style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1745](https://github.com/mondaycom/monday-ui-react-core/pull/1745) Editable text ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1754](https://github.com/mondaycom/monday-ui-react-core/pull/1754) docs: Fix overview links - scroll instead of openning new page ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1750](https://github.com/mondaycom/monday-ui-react-core/pull/1750) docs: related components fix description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1737](https://github.com/mondaycom/monday-ui-react-core/pull/1737) docs: Components catalog ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1751](https://github.com/mondaycom/monday-ui-react-core/pull/1751) docs: fix typo ([@talkor](https://github.com/talkor))
+
 ## 2.61.0 (2023-11-15)
 
 #### New Features
