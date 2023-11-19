@@ -351,10 +351,10 @@ This is an example of a table with 5000 rows
   </Story>
 </Canvas>
 
-## Highlightable row
+## Highlighted row
 
 <Canvas>
-  <Story name="Highlightable row">
+  <Story name="Highlighted row">
     {() => {
       const NO_HIGHLIGHT_STATE = { "1": false, "2": false, "3": false };
       const [highlightRow, setHighlightRow] = useState({ "1": false, "2": true, "3": false });
@@ -379,7 +379,7 @@ This is an example of a table with 5000 rows
                 <TableCell>{rowItem.subject}</TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
                 <TableCell>
-                  <Button kind={Button.kinds.SECONDARY} size={Button.sizes.XS} onClick={() => onButtonClick(rowItem)}>
+                  <Button kind={Button.kinds.PRIMARY} size={Button.sizes.XS} onClick={() => onButtonClick(rowItem)}>
                     Highlight
                   </Button>
                 </TableCell>
