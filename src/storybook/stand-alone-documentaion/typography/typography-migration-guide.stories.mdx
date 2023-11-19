@@ -23,12 +23,12 @@ import { migrationTable } from "./assets";
 ## Overview
 
 A new typography change was introduced in `v2.24.0+`, including two new components: <Link href="/?path=/docs/text-text--overview" withoutSpacing> Text </Link> and <Link href="/?path=/docs/text-heading--overview" withoutSpacing>
-Heading</Link>
+Heading</Link>.
 
 ## Why?
 
 In order to produce a unified language, Vibe now uses a well defined set of typography variants and weights.
-This change allows designers to create more accurate and refined designs, while enhancing the developer experience, making implementation easier and more intuitive.
+This change allows designers crating more accurate and refined designs, while enhancing the developer experience, making implementation easier and more intuitive.
 
 ## When to use
 
@@ -48,7 +48,7 @@ This change allows designers to create more accurate and refined designs, while 
         Heading
       </Link>{" "}
       component the for titles and text from 18px and up. It includes 3 variants: <code>H1</code>, <code>H2</code> and{" "}
-      <code>H3</code>. Each of these variant is mapped to a <code>h1</code>, <code>h2</code>, <code>h3</code> element
+      <code>H3</code>. Each of these variant is mapped to an <code>h1</code>, <code>h2</code>, <code>h3</code> element
       accordingly.
     </>
   ]}
@@ -62,8 +62,8 @@ import { Heading } from "monday-ui-react-core/next";
 ```
 
 <Tip emoji="⚠️" title="Notice">
-  Heading is imported from `/next` since there's a legacy component with the same name. This component will replace the
-  legacy component in the next major version.
+  Heading is imported from <code>/next</code> since there's a legacy component with the same name. This component will
+  replace the legacy component in the next major version.
 </Tip>
 
 ## How to use
@@ -82,7 +82,7 @@ Each of these components can get the variants as a prop. You also get out-of-the
 </Heading>
 ```
 
-For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--page#type-styles" withoutSpacing>Type Styles table</Link>
+For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--page#type-styles" withoutSpacing>Type Styles table</Link>.
 
 <Tip title="Notice">
   No need to define classes for text element and use typography CSS variables anymore, these components cover all the
@@ -91,7 +91,7 @@ For a more detailed breakdown of the variants see the <Link href="/?path=/docs/f
 
 ## How to migrate
 
-For every new usage, use the new components. For existing usages, refactor gradually according to the migration table below:
+For every new usage, <strong>use the new components</strong>. For existing usages, <strong>refactor gradually</strong> according to the migration table below:
 
 <img src={migrationTable} alt="Migration table" />
 
