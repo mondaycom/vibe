@@ -30,7 +30,7 @@ export const ComboboxDescription = () => {
       component={component}
       title="Combobox"
       href="/?path=/docs/inputs-combobox--overview"
-      description="Compact elements that represent an input, attribute, or action."
+      description="Combobox allowing users to filter longer lists to only the selections matching a query."
     />
   );
 };
