@@ -1,0 +1,109 @@
+import { Meta } from "@storybook/addon-docs";
+import { Frame, Link } from "vibe-storybook-components";
+import Heading from "../../../components/Heading/Heading";
+import Text from "../../../components/Text/Text";
+import TextColors from "../colors/text-colors/text-colors";
+import { TEXT, HEADING, EDITABLE_HEADING } from "../../components/related-components/component-description-map";
+import { migrationTable } from "./assets";
+
+<Meta title="Text/Typography Migration Guide" />
+
+<ComponentName withFoundationBackground>Typography Migration Guide</ComponentName>
+
+- [Overview](#overview)
+- [Why](#why)
+- [When to use](#when-to-use)
+- [How to import](#how-to-import)
+- [How to use](#how-to-use)
+- [How to migrate](#how-to-migrate)
+- [More information](#more-information)
+- [Related Components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A new typography change was introduced in `v2.24.0+`, including two new components: <Link href="/?path=/docs/text-text--overview" withoutSpacing> Text </Link> and <Link href="/?path=/docs/text-heading--overview" withoutSpacing>
+Heading</Link>
+
+## Why?
+
+In order to produce a unified language, Vibe now uses a well defined set of typography variants and weights.
+This change allows designers to create more accurate and refined designs, while enhancing the developer experience, making implementation easier and more intuitive.
+
+## When to use
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the{" "}
+      <Link href="/?path=/docs/text-text--overview" withoutSpacing>
+        Text
+      </Link>{" "}
+      component for paragraphs, labels, and texts up to 16px. It includes 2 variants: <code>Text1</code> and{" "}
+      <code>Text2</code>. Each variant has a fixed size and three different weights.
+    </>,
+    <>
+      Use the{" "}
+      <Link href="/?path=/docs/text-heading--overview" withoutSpacing>
+        Heading
+      </Link>{" "}
+      component the for titles and text from 18px and up. It includes 3 variants: <code>H1</code>, <code>H2</code> and{" "}
+      <code>H3</code>. Each of these variant is mapped to a <code>h1</code>, <code>h2</code>, <code>h3</code> element
+      accordingly.
+    </>
+  ]}
+/>
+
+## How to import
+
+```js
+import { Text } from "monday-ui-react-core";
+import { Heading } from "monday-ui-react-core/next";
+```
+
+<Tip emoji="⚠️" title="Notice">
+  Heading is imported from `/next` since there's a legacy component with the same name. This component will replace the
+  legacy component in the next major version.
+</Tip>
+
+## How to use
+
+Each of these components can get the variants as a prop. You also get out-of-the-box built-in colors and an "ellipsis" with a Tooltip for a long text that breaks the line. For example:
+
+```jsx
+<Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+  This is text1 normal
+</Text>
+```
+
+```jsx
+<Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+  Normal H2 title
+</Heading>
+```
+
+For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--page#type-styles" withoutSpacing>Type Styles table</Link>
+
+<Tip title="Notice">
+  No need to define classes for text element and use typography CSS variables anymore, these components cover all the
+  possible variants.
+</Tip>
+
+## How to migrate
+
+For every new usage, use the new components. For existing usages, refactor gradually according to the migration table below:
+
+<img src={migrationTable} alt="Migration table" />
+
+### What if I need a variant that doesn't exist?
+
+We highly suggest using the new components, but if it is still needed, SCSS mixins and CSS custom properties (CSS Variables) are still available. Read the <Link href="/?path=/docs/foundations-typography--page" withoutSpacing>Typography Foundation</Link> docs for more information.
+
+## More information
+
+Learn more about the components APIs and functionality in the <Link href="/?path=/docs/text-text--overview" withoutSpacing> Text </Link> and <Link href="/?path=/docs/text-heading--overview" withoutSpacing>
+Heading</Link> pages.
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_HEADING]} />
