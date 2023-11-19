@@ -6,7 +6,7 @@ import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
 import { modifiers, NavigableStepsTemplate, StepsGalleryDontTemplate, StepsNumbersDoTemplate } from "./helpers.js";
-import { BREADCRUBMS, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
+import { BREADCRUBMS, TABS, MULTI_STEP_INDICATOR } from "../../../storybook/components/related-components/component-description-map";
 import { ComponentRules, UsageGuidelines, createComponentTemplate } from "vibe-storybook-components";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./steps.stories.scss";
@@ -44,7 +44,7 @@ const steps5 = [<div />, <div />, <div />, <div />, <div />];
 
 ## Overview
 
-Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.
+Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation.
 
 <Canvas>
   <Story name="Overview" args={{ steps: steps5 }}>
@@ -235,4 +235,4 @@ Our Tipseen component includes support for steps as content.
 
 ## Related components
 
-<RelatedComponents componentsNames={[WIZARD, BREADCRUBMS, TABS]} />
+<RelatedComponents componentsNames={[MULTI_STEP_INDICATOR, BREADCRUBMS, TABS]} />

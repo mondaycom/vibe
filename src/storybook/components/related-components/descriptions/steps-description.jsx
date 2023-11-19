@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Steps from "../../../../components/Steps/Steps";
 
-export const StepperDescription = () => {
+export const StepsDescription = () => {
   const component = useMemo(() => {
     const style = {
       marginLeft: "-10px"
@@ -23,9 +23,9 @@ export const StepperDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      title="Stepper"
+      title="Steps"
       href="/?path=/docs/data-display-steps--overview"
-      description="Compact elements that represent an input, attribute, or action."
+      description="Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation."
     />
   );
 };

@@ -9,7 +9,7 @@ export const DropdownDescription = () => {
     };
     return (
       <div style={style}>
-        <Dropdown placeholder="Placeholder text here" size={Dropdown.size.MEDIUM} />
+        <Dropdown placeholder="Placeholder text here" size={Dropdown.sizes.MEDIUM} />
       </div>
     );
   }, []);
@@ -18,7 +18,7 @@ export const DropdownDescription = () => {
       component={component}
       href="/?path=/docs/inputs-dropdown--overview"
       title="Dropdown"
-      description="Compact elements that represent an input, attribute, or action."
+      description="Dropdown present a list of options from which a user can select one or several."
     />
   );
 };

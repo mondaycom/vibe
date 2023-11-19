@@ -3,13 +3,13 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { StepStatus } from "../MultiStepConstants";
 import { StoryDescription, createComponentTemplate, Link } from "vibe-storybook-components";
-import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
+import { BREADCRUBMS, STEPS, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps } from "./helper";
 import { Featured } from "../../Icon/Icons";
 import Flex from "../../Flex/Flex";
 import "./multiStepIndicator.stories.scss";
 
-<Meta title="Navigation/Wizard" component={MultiStepIndicator} />
+<Meta title="Navigation/MultiStepIndicator" component={MultiStepIndicator} />
 
 <!--- Component template -->
 
@@ -17,7 +17,7 @@ export const multiStepIndicatorTemplate = createComponentTemplate(MultiStepIndic
 
 <!--- Component documentation -->
 
-# Wizard
+# MultiStepIndicator
 
 - [Overview](#overview)
 - [Props](#props)
@@ -469,4 +469,4 @@ State transition automatic example
 
 ## Related components
 
-<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPPER]} />
+<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPS]} />

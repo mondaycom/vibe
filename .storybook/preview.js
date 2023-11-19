@@ -43,7 +43,6 @@ addParameters({
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
-      a: Link,
       p: Paragraph,
       AlphaWarning,
       Tip,
@@ -78,6 +77,8 @@ addParameters({
     storySort: {
       order: [
         "Welcome",
+        "Catalog",
+        "Change Log",
         "Foundations",
         "Buttons",
         "Inputs",
