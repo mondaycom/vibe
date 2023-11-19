@@ -9,7 +9,7 @@ import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
-import { createComponentTemplate, Tip } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 import {
   emailTableData,
   emailColumns,
@@ -25,7 +25,8 @@ import {
   scrollTableData,
   scrollTableColumns,
   doAndDontIconsRuleData,
-  emailColumnsWithHighlightButton
+  highlightableRowColumns,
+  highlightableTableData
 } from "./helpers";
 import {
   LABEL,
@@ -355,41 +356,30 @@ This is an example of a table with 5000 rows
 <Canvas>
   <Story name="Highlightable row">
     {() => {
-      const [highlightRow, setHighlightRow] = useState(false);
-      const canRowBeHighlighted = rowItem => rowItem.id === "2";
-      const onButtonClick = () => {
-        setHighlightRow(prevState => !prevState);
+      const NO_HIGHLIGHT_STATE = { "1": false, "2": false, "3": false };
+      const [highlightRow, setHighlightRow] = useState({ "1": false, "2": true, "3": false });
+      const onButtonClick = rowItem => {
+        setHighlightRow(prevState => {
+          const newState = { ...NO_HIGHLIGHT_STATE };
+          newState[rowItem.id] = !prevState[rowItem.id];
+          return newState;
+        });
       };
       return (
-        <Table
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
-          columns={emailColumnsWithHighlightButton}
-        >
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={highlightableRowColumns}>
           <TableHeader>
-            {emailColumnsWithHighlightButton.map((headerCell, index) => (
+            {highlightableRowColumns.map((headerCell, index) => (
               <TableHeaderCell key={index} title={headerCell.title} />
             ))}
           </TableHeader>
           <TableBody>
-            {emailTableData.map(rowItem => (
-              <TableRow key={rowItem.id} highlighted={highlightRow && canRowBeHighlighted(rowItem)}>
+            {highlightableTableData.map(rowItem => (
+              <TableRow key={rowItem.id} highlighted={highlightRow[rowItem.id]}>
                 <TableCell>{rowItem.sentOn}</TableCell>
                 <TableCell>{rowItem.subject}</TableCell>
-                <TableCell>
-                  <TableAvatar text={rowItem.sentBy} />
-                </TableCell>
-                <TableCell>
-                  <Label text={rowItem.status} color="positive" isAnimationDisabled />
-                </TableCell>
                 <TableCell>{rowItem.emailsSent}</TableCell>
                 <TableCell>
-                  <Button
-                    kind={Button.kinds.TERTIARY}
-                    size={Button.sizes.XS}
-                    onClick={onButtonClick}
-                    disabled={!canRowBeHighlighted(rowItem)}
-                  >
+                  <Button kind={Button.kinds.SECONDARY} size={Button.sizes.XS} onClick={() => onButtonClick(rowItem)}>
                     Highlight
                   </Button>
                 </TableCell>
