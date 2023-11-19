@@ -32,6 +32,7 @@ import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 import { LinearProgressBarDescription } from "./descriptions/linear-progress-bar-description";
 import { EditableHeadingDescription } from "./descriptions/editable-heading-description";
+import { EditableTextDescription } from "./descriptions/editable-text-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
 import { HeadingDescription } from "./descriptions/heading-description";
 import { SpacingDescription } from "./descriptions/spacing-description/spacing-description";
@@ -80,6 +81,7 @@ export const SKELETON = "skeleton";
 export const LINEAR_PROGRESS_BAR = "linear-progress-bar";
 export const HEADING = "heading";
 export const EDITABLE_HEADING = "editable-heading";
+export const EDITABLE_TEXT = "editable-text";
 export const ICON_BUTTON = "icon-button";
 export const MENU_BUTTON = "menu-button";
 export const CLICKABLE = "clickable";
@@ -133,6 +135,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [MENU_BUTTON, <MenuButtonDescription />],
   [LINEAR_PROGRESS_BAR, <LinearProgressBarDescription />],
   [EDITABLE_HEADING, <EditableHeadingDescription />],
+  [EDITABLE_TEXT, <EditableTextDescription />],
   [HEADING, <HeadingDescription />],
   [CLICKABLE, <ClickableDescription />],
   [HIDDEN_TEXT, <HiddenTextDescription />],

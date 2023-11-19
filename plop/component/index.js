@@ -58,7 +58,7 @@ module.exports = plop => {
         path: "webpack/published-ts-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
         template:
-          '  {{properCase componentName}}: "/src/components/{{properCase componentName}}/{{properCase componentName}}",'
+          '  {{properCase componentName}}: "components/{{properCase componentName}}/{{properCase componentName}}",'
       }
     ]
   });
