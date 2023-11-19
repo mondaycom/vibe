@@ -1,31 +1,30 @@
-import EditableHeading from "../EditableHeading";
+import EditableText from "../EditableText";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { useState } from "react";
-import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
+import { overviewPlaySuite } from "../__tests__/EditableText-interactions";
 import {
   TEXT,
   HEADING,
-  EDITABLE_TEXT
+  EDITABLE_HEADING
 } from "../../../storybook/components/related-components/component-description-map";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
-  component: EditableHeading,
+  component: EditableText,
   enumPropNamesArray: ["weight", "type"],
   actionPropsArray: ["onChange"]
 });
 
 <Meta
-  title="Inputs/EditableHeading"
-  component={EditableHeading}
+  title="Inputs/EditableText"
+  component={EditableText}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
 
-export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
+export const EditableTextTemplate = createComponentTemplate(EditableText);
 
-# EditableHeading
+# EditableText
 
 - [Overview](#overview)
 - [Props](#props)
@@ -36,18 +35,18 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
 ## Overview
 
-Editable Heading component is based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component, allowing users to dynamically edit its content.
+Editable Text component is based on the <Link href="/?path=/docs/text-text--overview" withoutSpacing>Text</Link> component, allowing users to dynamically edit its content.
 
 <Canvas>
   <Story
     name="Overview"
     args={{
-      value: "This heading is an editable heading",
-      type: EditableHeading.types.H1
+      value: "This text is an editable text",
+      type: EditableText.types.H1
     }}
     play={overviewPlaySuite}
   >
-    {editableHeadingTemplate.bind({})}
+    {EditableTextTemplate.bind({})}
   </Story>
 </Canvas>
 
@@ -59,23 +58,22 @@ Editable Heading component is based on the <Link href="/?path=/docs/text-heading
 
 <UsageGuidelines
   guidelines={[
-    "Use when you want to allow the user to edit the heading text",
+    "Use when you want to allow the user to edit the text",
     "This component grows relative to its content, and its maximum width is 100% of its container "
   ]}
 />
 
 ## Variants
 
-### Heading types
+### Text types
 
 <Canvas>
   <Story name="Types">
-    <EditableHeading type={EditableHeading.types.H1} value="H1 Header" />
-    <EditableHeading type={EditableHeading.types.H2} value="H2 Header" />
-    <EditableHeading type={EditableHeading.types.H3} value="H3 Header" />
+    <EditableText type={EditableText.types.H1} value="Text1" />
+    <EditableText type={EditableText.types.H2} value="Text2" />
   </Story>
 </Canvas>
 
 ## Related components
 
-<RelatedComponents componentsNames={[EDITABLE_TEXT, TEXT, HEADING]} />
+<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_HEADING]} />
