@@ -7,7 +7,6 @@ import styles from "./EditableTypography.module.scss";
 import HiddenInputPlaceholder from "./HiddenInputPlaceholder";
 import { keyCodes } from "../../constants";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -53,7 +52,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [inputWidth, setInputWidth] = useState(0);
 
     const inputRef = useRef(null);
-    const typographyRef = useRef(null);
 
     function toggleEditMode() {
       if (readOnly || isEditing) {
@@ -119,50 +117,29 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         data-testid={dataTestId}
         className={cx(styles.editableTypography, className)}
       >
-        <TransitionGroup component={null}>
-          {isEditing && !readOnly ? (
-            <CSSTransition
-              key="input"
-              nodeRef={inputRef}
-              timeout={{ enter: 0, exit: 200, appear: 0 }}
-              classNames={{ enter: styles.slideOutEnter, enterActive: styles.slideOutEnterActive }}
-            >
-              <>
-                <HiddenInputPlaceholder
-                  className={cx(styles.input, typographyClassName)}
-                  value={inputValue || placeholder}
-                  onChange={setInputWidth}
-                />
-                <input
-                  ref={inputRef}
-                  className={cx(styles.input, typographyClassName)}
-                  value={inputValue}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyDown}
-                  onBlur={handleBlur}
-                  aria-label={ariaLabel}
-                  placeholder={placeholder}
-                  style={{ width: inputWidth }}
-                  role="input"
-                />
-              </>
-            </CSSTransition>
-          ) : (
-            <CSSTransition
-              key="typography"
-              nodeRef={typographyRef}
-              timeout={{ exit: 0, enter: 200 }}
-              classNames={{ exit: styles.slideInExit, exitActive: styles.slideInExitActive }}
-            >
-              {renderTypography({
-                value: inputValue,
-                className: styles.typograpy,
-                ...clickableProps,
-                ...{ ref: typographyRef }
-              })}
-            </CSSTransition>
-          )}
-        </TransitionGroup>
+        {isEditing && !readOnly ? (
+          <>
+            <HiddenInputPlaceholder
+              className={cx(styles.input, typographyClassName)}
+              value={inputValue || placeholder}
+              onChange={setInputWidth}
+            />
+            <input
+              ref={inputRef}
+              className={cx(styles.input, typographyClassName)}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              aria-label={ariaLabel}
+              placeholder={placeholder}
+              style={{ width: inputWidth }}
+              role="input"
+            />
+          </>
+        ) : (
+          renderTypography({ value: inputValue, className: styles.typograpy, ...clickableProps })
+        )}
       </div>
     );
   }
