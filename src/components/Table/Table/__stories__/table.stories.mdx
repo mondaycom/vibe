@@ -359,33 +359,28 @@ A highlighted row allows adding additional information for the entire row, using
 <Canvas>
   <Story name="Highlighted row">
     {() => {
-      const NO_HIGHLIGHT_STATE = { "1": false, "2": false, "3": false };
-      const [highlightRow, setHighlightRow] = useState({ "1": false, "2": true, "3": false });
-      const onButtonClick = rowItem => {
-        setHighlightRow(prevState => {
-          const newState = { ...NO_HIGHLIGHT_STATE };
-          newState[rowItem.id] = !prevState[rowItem.id];
-          return newState;
-        });
+      const shouldRowBeHighlighted = rowItem => {
+        return rowItem.id === "2";
       };
       return (
-        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={highlightableRowColumns}>
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
           <TableHeader>
-            {highlightableRowColumns.map((headerCell, index) => (
+            {emailColumns.map((headerCell, index) => (
               <TableHeaderCell key={index} title={headerCell.title} />
             ))}
           </TableHeader>
           <TableBody>
-            {highlightableTableData.map(rowItem => (
-              <TableRow key={rowItem.id} highlighted={highlightRow[rowItem.id]}>
+            {emailTableData.map(rowItem => (
+              <TableRow key={rowItem.id} highlighted={shouldRowBeHighlighted(rowItem)}>
                 <TableCell>{rowItem.sentOn}</TableCell>
                 <TableCell>{rowItem.subject}</TableCell>
-                <TableCell>{rowItem.emailsSent}</TableCell>
                 <TableCell>
-                  <Button kind={Button.kinds.PRIMARY} size={Button.sizes.XS} onClick={() => onButtonClick(rowItem)}>
-                    Highlight
-                  </Button>
+                  <TableAvatar text={rowItem.sentBy} />
                 </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
               </TableRow>
             ))}
           </TableBody>
