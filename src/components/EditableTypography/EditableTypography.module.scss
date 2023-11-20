@@ -15,6 +15,7 @@
     outline: none;
     border: 1px solid var(--primary-color);
     border-radius: var(--border-radius-small);
+    color: var(--primary-text-color);
 
     &:focus,
     &:active {
@@ -31,4 +32,23 @@
       border-color: var(--ui-border-color);
     }
   }
+}
+.slideInExit {
+  opacity: 1;
+  position: absolute;
+}
+
+.slideInExitActive {
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: opacity 0.05s linear, transform 0.4s linear;
+}
+
+.slideOutEnter {
+  opacity: 0;
+}
+
+.slideOutEnterActive {
+  opacity: 1;
+  transition: all 0.2s linear;
 }
