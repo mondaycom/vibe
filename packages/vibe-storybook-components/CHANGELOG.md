@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.0 (2023-11-20)
+
+#### New Features
+* [#126](https://github.com/mondaycom/vibe-storybook-components/pull/126) feat(DeprecatedWarning): add children ([@talkor](https://github.com/talkor))
+
 ## 0.13.0 (2023-11-16)
 
 #### New Features
