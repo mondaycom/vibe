@@ -7,7 +7,6 @@ import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBod
 import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
-import Skeleton from "../../../Skeleton/Skeleton";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
@@ -25,13 +24,16 @@ import {
   statusColumnToLabelColor,
   scrollTableData,
   scrollTableColumns,
-  doAndDontIconsRuleData
+  doAndDontIconsRuleData,
+  highlightableRowColumns,
+  highlightableTableData
 } from "./helpers";
 import {
   LABEL,
   ICON_BUTTON,
   SKELETON
 } from "../../../../storybook/components/related-components/component-description-map";
+import { Button } from "../../../index";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table
@@ -343,6 +345,45 @@ This is an example of a table with 5000 rows
             ))}
           </TableHeader>
           <TableVirtualizedBody rowRenderer={Row} items={virtualizedScrollTableData} />
+        </Table>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Highlighted row
+
+Use a highlighted row to mark a single row of the table.
+A highlighted row allows adding additional information for the entire row, using a system trigger such as a side-panel or model.
+
+<Canvas>
+  <Story name="Highlighted row">
+    {() => {
+      const shouldRowBeHighlighted = rowItem => {
+        return rowItem.id === "2";
+      };
+      return (
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+          <TableHeader>
+            {emailColumns.map((headerCell, index) => (
+              <TableHeaderCell key={index} title={headerCell.title} />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {emailTableData.map(rowItem => (
+              <TableRow key={rowItem.id} highlighted={shouldRowBeHighlighted(rowItem)}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+                <TableCell>
+                  <TableAvatar text={rowItem.sentBy} />
+                </TableCell>
+                <TableCell>
+                  <Label text={rowItem.status} isAnimationDisabled color="positive" />
+                </TableCell>
+                <TableCell>{rowItem.emailsSent}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
       );
     }}

@@ -56,6 +56,14 @@ export const emailTableData = [
     emailsSent: 100
   },
   {
+    id: "2",
+    sentOn: "2022-02-02",
+    sentBy: "Other Name",
+    subject: "This is the subject",
+    status: "Sent",
+    emailsSent: 99
+  },
+  {
     id: "3",
     sentOn: "2023-03-03",
     sentBy: "Some Person",
@@ -63,14 +71,6 @@ export const emailTableData = [
       "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
     status: "Sent",
     emailsSent: 999
-  },
-  {
-    id: "2",
-    sentOn: "2022-02-02",
-    sentBy: "Other Name",
-    subject: "This is the subject",
-    status: "Sent",
-    emailsSent: 99
   }
 ];
 
@@ -165,6 +165,55 @@ export const scrollTableData = [
   }
 ];
 
+export const highlightableRowColumns = [
+  {
+    id: "sentOn",
+    title: "Sent on",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "subject",
+    title: "Subject",
+    loadingStateType: "long-text"
+  },
+  {
+    id: "emailsSent",
+    title: "Emails sent",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "highlight",
+    title: "Highlight",
+    width: 150,
+    infoContent: "Info content for the highlight column",
+    loadingStateType: "medium-text"
+  }
+];
+
+export const highlightableTableData = [
+  {
+    id: "1",
+    sentOn: "2020-01-01",
+    subject: "Lorem ipsum dolor",
+    emailsSent: 100
+  },
+  {
+    id: "2",
+    sentOn: "2022-02-02",
+    subject: "This is the subject",
+    emailsSent: 99
+  },
+  {
+    id: "3",
+    sentOn: "2023-03-03",
+    subject:
+      "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
+    emailsSent: 999
+  }
+];
+
 export const priorityColumnToLabelColor = {
   Urgent: LabelColor.NEGATIVE,
   High: LabelColor.DARK,
@@ -249,6 +298,7 @@ export function sort(columnId, sortState, tableData) {
 export const TableEmptyState = () => <h1 style={{ textAlign: "center" }}>Empty State</h1>;
 
 export const TableErrorState = () => <h1 style={{ textAlign: "center" }}>Error State</h1>;
+
 export const TableAvatar = ({ text }) => (
   <Avatar
     text={text
@@ -258,6 +308,6 @@ export const TableAvatar = ({ text }) => (
     customSize={24}
     size={Avatar.sizes.SMALL}
     ariaLabel={text}
-    backgroundColor="dark_purple"
+    backgroundColor={Avatar.colors.DARK_PURPLE}
   />
 );
