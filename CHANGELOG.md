@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.63.0 (2023-11-20)
+
+#### New Features
+* [#1552](https://github.com/mondaycom/monday-ui-react-core/pull/1552) feat(TableRow): add highlighted styling for TableRow ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.62.0 (2023-11-19)
 
 #### Bug Fixes
