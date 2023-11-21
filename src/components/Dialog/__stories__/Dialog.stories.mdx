@@ -19,7 +19,6 @@ import {
   CLICK_OUTSIDE_DIALOG,
   CLICK_OUTSIDE_DIALOG_BUTTON
 } from "../__tests__/DialogDataTestIds";
-
 import {
   MENU,
   DIALOG_CONTENT_CONTAINER,
@@ -43,16 +42,17 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 />
 
 export const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
-  const modifiers =
-    // for prevent dialog to move while scrolling
-    [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
+  {
+    /* for prevent dialog to move while scrolling */
+  }
+  const modifiers = [
+    {
+      name: "preventOverflow",
+      options: {
+        mainAxis: false
       }
-    ];
+    }
+  ];
   return (
     <div className="monday-storybook-dialog--story-padding">
       <Dialog
@@ -632,13 +632,15 @@ Prevent containerSelector scroll when dialog open
     Dropdown
   </Link>
   inside a Dialog container and need help displaying the Dropdown's popovers correctly, read more about our Dropdown in popovers
-  technical pattern <Link
+  technical pattern
+  <Link
     href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
     size={Link.sizes.SMALL}
     withoutSpacing
   >
     here
-  </Link>.
+  </Link>
+  .
 </Tip>
 
 ## Related components

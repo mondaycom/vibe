@@ -9,7 +9,6 @@ import {
   DIALOG_CONTENT_CONTAINER
 } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { DatePickerTemplate } from "./DatePicker.stories";
 import styles from "./DatePicker.stories.module.scss";
 
 export const MOCK_INITIAL_DATE = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") }; // for Chromatic check to always have the same date UI
@@ -25,6 +24,15 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
+
+export const DatePickerTemplate = args => {
+  const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+  return (
+    <DialogContentContainer className={styles.datepickerDialogContentContainer}>
+      <DatePicker data-testid="date-picker" date={date} onPickDate={d => setDate(d)} {...args} />
+    </DialogContentContainer>
+  );
+};
 
 # DatePicker
 

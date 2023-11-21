@@ -12,7 +12,6 @@ import {
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
 import "./alertBanner.stories.scss";
-import { alertBannerTemplate } from "./alertBanner.stories";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
@@ -25,6 +24,15 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
+
+export const alertBannerTemplate = args => {
+  return (
+    <AlertBanner {...args}>
+      <AlertBannerText text={args.bannerText} />
+      <AlertBannerLink text={args.linkText} href="https://monday.com" />
+    </AlertBanner>
+  );
+};
 
 # Alert Banner
 
