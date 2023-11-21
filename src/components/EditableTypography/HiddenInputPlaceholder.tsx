@@ -15,6 +15,9 @@ const HiddenInputPlaceholder = forwardRef<HTMLElement, HiddenInputPlaceholderPro
     const mergedRef = useMergeRefs({ refs: [ref, valueRef] });
 
     useLayoutEffect(() => {
+      if (!valueRef.current) {
+        return;
+      }
       const { width } = valueRef.current.getBoundingClientRect();
       onChange(width);
     }, [onChange, value]);
