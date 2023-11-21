@@ -10,7 +10,7 @@ function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, 
 
 describe("Combobox tests", () => {
   beforeEach(() => {
-    jest.useFakeTimers("modern");
+    jest.useFakeTimers({ advanceTimers: true });
   });
 
   afterEach(() => {
