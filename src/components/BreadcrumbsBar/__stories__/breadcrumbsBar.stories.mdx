@@ -22,16 +22,12 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   decorators={ metaSettings.decorators }
 />
 
-<!--- Component template -->
-
-export const breadcrumbsBarTemplate = (args) => { 
+export const breadcrumbsBarTemplate = (args) => {
   return (
     <BreadcrumbsBar {...args}> 
       {args.items && args.items.map((item) => <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />)}
     </BreadcrumbsBar>);
 }
-
-<!--- Component documentation -->
 
 # BreadcrumbsBar
 - [Overview](#overview)

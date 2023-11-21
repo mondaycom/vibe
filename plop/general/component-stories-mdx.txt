@@ -18,11 +18,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   decorators={ metaSettings.decorators }
 />
 
-<!--- Component template -->
-
 export const {{camelCase componentName}}Template = createComponentTemplate({{properCase componentName}});
-
-<!--- Component documentation -->
 
 # {{properCase componentName}}
 - [Overview](#overview)

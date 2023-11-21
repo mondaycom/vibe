@@ -8,8 +8,6 @@ import { UsageGuidelines, Tip } from "vibe-storybook-components";
 
 <Meta title="Navigation/VirtualizedList" component={VirtualizedList} />
 
-<!--- Component template -->
-
 export const virtualizedListTemplate = args => {
   const itemRenderer = useCallback((item, index, style) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
@@ -71,8 +69,6 @@ export const virtualizedListTemplate = args => {
     </Flex>
   );
 };
-
-<!--- Component documentation -->
 
 # VirtualizedList
 
