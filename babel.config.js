@@ -53,6 +53,7 @@ module.exports = api => {
               }
         }
       ],
+      "@babel/preset-typescript",
       "@babel/preset-react"
     ],
     plugins
