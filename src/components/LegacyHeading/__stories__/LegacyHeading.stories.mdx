@@ -36,7 +36,23 @@ export const headingTemplate = createComponentTemplate(Heading);
 
 # Legacy Heading
 
-<DeprecatedWarning alternativeName="Heading" alternativeLink="/?path=/docs/text-heading--overview" />
+<DeprecatedWarning
+  alternativeName="Heading"
+  alternativeLink="/?path=/docs/text-heading--overview"
+  additionalContent={
+    <>
+      {" "}
+      For more information see the <Link
+        href="/?path=/docs/typography-migration-guide--page"
+        target={Link.targets.PARENT}
+        size="small"
+        withoutSpacing
+      >
+        Typography Migration Guide
+      </Link>.
+    </>
+  }
+/>
 
 - [Overview](#overview)
 - [Props](#props)

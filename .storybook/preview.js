@@ -79,6 +79,7 @@ addParameters({
         "Welcome",
         "Catalog",
         "Change Log",
+        "Typography Migration Guide",
         "Foundations",
         "Buttons",
         "Inputs",
