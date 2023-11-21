@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.63.1 (2023-11-21)
+
+#### Documentation
+* [#1757](https://github.com/mondaycom/monday-ui-react-core/pull/1757) docs: Typography migration guide ([@talkor](https://github.com/talkor))
+
 ## 2.63.0 (2023-11-20)
 
 #### New Features
