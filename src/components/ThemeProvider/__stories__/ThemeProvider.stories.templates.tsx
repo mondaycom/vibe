@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme4, productTheme2, productTheme3 } from "./product-themes";
-import styles from "./ThemeProvider.stories.module.scss";
+import styles from "./ThemeProvider.stories.templates.module.scss";
 
 export const ThemeProviderTemplateOverview = (args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
