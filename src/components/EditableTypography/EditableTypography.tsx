@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef, useEffect, useRef, useState } from "react";
+import React, { ComponentType, forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { useMergeRefs } from "../../hooks";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -7,13 +7,17 @@ import styles from "./EditableTypography.module.scss";
 import HiddenInputPlaceholder from "./HiddenInputPlaceholder";
 import { keyCodes } from "../../constants";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import { useIsOverflowing } from "../../hooks";
+import { m as motion, LazyMotion, domAnimation } from "framer-motion";
+import { HeadingProps } from "../Heading/Heading";
+import { TextProps } from "../Text/Text";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
   value: string;
   /** Will be called whenever the current value changes to a non-empty value */
   onChange?: (value: string) => void;
-  /** Disables editing mode - component will be just a <Heading /> */
+  /** Disables editing mode - component will be just a typography element */
   readOnly?: boolean;
   /** Shown in edit mode when the text value is empty */
   placeholder?: string;
@@ -23,7 +27,7 @@ export interface EditableTypographyImplementationProps {
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /** A typography component that is being rendered in view mode */
-  renderTypography: ({ value, className }: { value: string; className: string }) => ReactNode;
+  component: ComponentType<HeadingProps | TextProps>;
   /** Controls the style of the typography component in view mode */
   typographyClassName: string;
 }
@@ -40,18 +44,19 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       ariaLabel = "",
       placeholder,
       typographyClassName,
-      renderTypography
+      component: TypographyComponent
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(null);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
 
     const inputRef = useRef(null);
+    const typographyRef = useRef(null);
 
     function toggleEditMode() {
       if (readOnly || isEditing) {
@@ -109,22 +114,27 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [isEditing]);
 
+    const AnimatedTypography = motion(TypographyComponent);
+    const isOverflowing = useIsOverflowing({ ref: typographyRef, ignoreHeightOverflow: true });
+    const shouldAnimate = useMemo(() => isOverflowing && isEditing !== null, [isEditing, isOverflowing]);
+
     return (
-      <div
-        ref={mergedRef}
-        id={id}
-        aria-label={ariaLabel}
-        data-testid={dataTestId}
-        className={cx(styles.editableTypography, className)}
-      >
-        {isEditing && !readOnly ? (
-          <>
-            <HiddenInputPlaceholder
-              className={cx(styles.input, typographyClassName)}
-              value={inputValue || placeholder}
-              onChange={setInputWidth}
-            />
-            <input
+      <LazyMotion features={domAnimation}>
+        <div
+          ref={mergedRef}
+          id={id}
+          aria-label={ariaLabel}
+          data-testid={dataTestId}
+          className={cx(styles.editableTypography, className)}
+        >
+          <HiddenInputPlaceholder
+            ref={typographyRef}
+            className={cx(styles.input, typographyClassName)}
+            value={inputValue || placeholder}
+            onChange={setInputWidth}
+          />
+          {isEditing && !readOnly ? (
+            <motion.input
               ref={inputRef}
               className={cx(styles.input, typographyClassName)}
               value={inputValue}
@@ -136,11 +146,19 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
               style={{ width: inputWidth }}
               role="input"
             />
-          </>
-        ) : (
-          renderTypography({ value: inputValue, className: styles.typograpy, ...clickableProps })
-        )}
-      </div>
+          ) : (
+            <AnimatedTypography
+              {...clickableProps}
+              className={cx(styles.typography, typographyClassName)}
+              initial={shouldAnimate && { x: "-50%" }}
+              animate={shouldAnimate && { x: 0 }}
+              transition={{ duration: 0.1 }}
+            >
+              {inputValue}
+            </AnimatedTypography>
+          )}
+        </div>
+      </LazyMotion>
     );
   }
 );

@@ -38,11 +38,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
       <EditableTypography
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_TEXT, id)}
-        renderTypography={({ value, className, ...clickableProps }) => (
-          <Text type={type} weight={weight} className={className} {...clickableProps}>
-            {value}
-          </Text>
-        )}
+        component={Text}
         typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
         {...editableTypographyProps}
       />

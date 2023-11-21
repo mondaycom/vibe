@@ -6,6 +6,7 @@
   min-width: 0;
   // Shifts the component to align the text with the container
   margin-left: -6px;
+  overflow: hidden;
 
   .input {
     display: inline-block;
@@ -15,6 +16,7 @@
     outline: none;
     border: 1px solid var(--primary-color);
     border-radius: var(--border-radius-small);
+    color: var(--primary-text-color);
 
     &:focus,
     &:active {
@@ -22,7 +24,7 @@
     }
   }
 
-  .typograpy {
+  .typography {
     border: 1px solid transparent;
     padding: 0 var(--spacing-xs);
     border-radius: var(--border-radius-small);
