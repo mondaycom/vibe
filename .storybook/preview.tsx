@@ -14,7 +14,6 @@ import {
   FunctionArgument,
   FunctionArguments,
   Link,
-  MultipleStoryElementsWrapper,
   Paragraph,
   SectionName,
   Tip,
@@ -93,16 +92,9 @@ const preview: Preview = {
         Black: "black-app-theme"
       },
       defaultTheme: "Light"
-    }) as any
-    //   withPerformance,
-    //   (Story, { className }) => {
-    //     return (
-    //       <MultipleStoryElementsWrapper className={className}>
-    //         <Story />
-    //       </MultipleStoryElementsWrapper>
-    //     );
-    //   },
-    //   withMemoryStats
+    }) as any,
+    withPerformance,
+    withMemoryStats
   ],
   globalTypes: {
     memoryStats: {
