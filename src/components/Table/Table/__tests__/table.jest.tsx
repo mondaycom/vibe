@@ -9,6 +9,7 @@ import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/Ta
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
 import { RowSizes } from "../TableConsts";
+import renderer from "react-test-renderer";
 
 interface TableNode {
   role: string;
@@ -212,6 +213,26 @@ describe("Table", () => {
       it(`Should apply aria-sort to header element (${sortState}, ${ariaSort})`, () => {
         const { getByRole } = render(<TableHeaderCell title="Title" sortState={sortState} />);
         expect(getByRole("columnheader").getAttribute("aria-sort")).toBe(ariaSort);
+      });
+    });
+
+    describe("snapshot test", () => {
+      it("basic snapshot of a Table component", () => {
+        const tree = renderer
+          .create(
+            <Table {...tableBoilerplate}>
+              <TableHeader>
+                <TableHeaderCell title="  Title" />
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Table Cell</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
       });
     });
   });

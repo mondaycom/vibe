@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table a11y snapshot test basic snapshot of Table component 1`] = `
+<div
+  className="table"
+  data-testid="table"
+  role="table"
+  style={
+    Object {
+      "--table-grid-template-columns": "20px",
+    }
+  }
+>
+  <div
+    className="tableHeader"
+    data-testid="table-header"
+    role="rowgroup"
+    style={
+      Object {
+        "height": "40px",
+      }
+    }
+  >
+    <div
+      className="tableHeaderCell"
+      data-testid="table-header-cell"
+      role="columnheader"
+    >
+      <div
+        className="container directionRow justifyStart alignCenter tableHeaderCellContent"
+        style={
+          Object {
+            "gap": "4px",
+          }
+        }
+      >
+        <div
+          className="typography secondary start singleLineEllipsis text text2Medium"
+          data-testid="text"
+        >
+            Title
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="tableBody"
+    data-testid="table-body"
+    role="rowgroup"
+  >
+    <div
+      aria-selected={false}
+      className="tableRow"
+      data-testid="table-row"
+      role="row"
+      style={
+        Object {
+          "height": "40px",
+        }
+      }
+    >
+      <div
+        className="tableCell"
+        data-testid="table-cell"
+        role="cell"
+      >
+        <div
+          className="typography primary start singleLineEllipsis text text2Normal"
+          data-testid="text"
+        >
+          Table Cell
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
