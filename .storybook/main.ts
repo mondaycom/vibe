@@ -119,6 +119,5 @@ const config: StorybookConfig = {
   features: {
     legacyMdx1: true // 👈 Enables MDX v1 support
   }
-  // staticDirs: ["../public"]
 };
 export default config;

@@ -6,7 +6,7 @@ export default create({
   brandImage: logo,
   brandUrl: "https://style.monday.com",
   barSelectedColor: "#5034ff",
-  brandTitle: "Vibe Design",
+  brandTitle: "Vibe Design System",
   background: {
     hoverable: "rgba(80, 52, 255, 0.1)"
   },
