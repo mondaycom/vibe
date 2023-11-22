@@ -118,12 +118,12 @@ module.exports = options => {
           ],
           // only include 3rd party libraries
           use: styleLoaders
-        },
-        {
-          // Straightforward bundle of storybook/**/*.scss
-          test: /\/storybook\/.*\.scss$/,
-          use: ["style-loader", "css-loader", "sass-loader"]
-        }
+        } //,
+        // {
+        //   // Straightforward bundle of storybook/**/*.scss
+        //   test: /\/storybook\/.*\.scss$/,
+        //   use: ["style-loader", "css-loader", "sass-loader"]
+        // }
       ]
     },
     externals: {
