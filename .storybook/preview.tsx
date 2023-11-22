@@ -31,9 +31,7 @@ import "vibe-storybook-components/dist/index.css";
 const preview: Preview = {
   parameters: {
     docs: {
-      story: {
-        inline: true
-      },
+      inlineStories: true,
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
