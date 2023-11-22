@@ -60,11 +60,7 @@ module.exports = options => {
   const publishedComponents = storybook ? {} : getPublishedComponents();
 
   const entry = {
-    main: [
-      path.join(__dirname, "/src/style-imports"),
-      // path.join(__dirname, "/src/vibe-storybook-components-style-imports"),
-      path.join(__dirname, "/src/index.js")
-    ],
+    main: [path.join(__dirname, "/src/style-imports"), path.join(__dirname, "/src/index.js")],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
     testIds: path.join(__dirname, "/src/tests/test-ids-utils"),
     ...publishedComponents
@@ -112,18 +108,14 @@ module.exports = options => {
         },
         {
           test: /\.css$/,
-          include: [
-            path.resolve(__dirname, "node_modules/")
-            // path.join(__dirname, "/src/vibe-storybook-components-style-imports")
-          ],
-          // only include 3rd party libraries
+          include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
           use: styleLoaders
-        } //,
-        // {
-        //   // Straightforward bundle of storybook/**/*.scss
-        //   test: /\/storybook\/.*\.scss$/,
-        //   use: ["style-loader", "css-loader", "sass-loader"]
-        // }
+        },
+        {
+          // Straightforward bundle of storybook/**/*.scss
+          test: /\/storybook\/.*\.scss$/,
+          use: ["style-loader", "css-loader", "sass-loader"]
+        }
       ]
     },
     externals: {
