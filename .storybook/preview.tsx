@@ -2,7 +2,6 @@ import React from "react";
 import { Preview } from "@storybook/react";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { withPerformance } from "storybook-addon-performance";
 import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
 import {
   AnchorListItem,
@@ -93,7 +92,6 @@ const preview: Preview = {
       },
       defaultTheme: "Light"
     }) as any,
-    withPerformance,
     withMemoryStats
   ],
   globalTypes: {
