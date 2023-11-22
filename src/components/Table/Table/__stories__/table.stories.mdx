@@ -24,16 +24,14 @@ import {
   statusColumnToLabelColor,
   scrollTableData,
   scrollTableColumns,
-  doAndDontIconsRuleData,
-  highlightableRowColumns,
-  highlightableTableData
+  doAndDontIconsRuleData
 } from "./helpers";
 import {
   LABEL,
   ICON_BUTTON,
   SKELETON
 } from "../../../../storybook/components/related-components/component-description-map";
-import { Button } from "../../../index";
+import { RowSizes } from "../TableConsts";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: Table
@@ -57,6 +55,7 @@ export const tableTemplate = createComponentTemplate(Table);
 
 - [Overview](#overview)
 - [Props](#props)
+- [Variants](#variants)
 - [Table header functionality](#table-header-functionality)
 - [Loading](#loading)
 - [Scroll](#scroll)
@@ -191,6 +190,66 @@ Table
 ## Props
 
 <ArgsTable of={Table} />
+
+## Variants
+
+### Sizes
+
+The table is available in 2 different row heights: medium (40px) and large (48 px). Medium size is the default size.
+
+<Canvas>
+  <Story name="Table Size Variants">
+    {() => {
+      const columns = emailColumns.slice(0, 2);
+      const data = emailTableData.slice(0, 2);
+      return (
+        <>
+          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
+            <TableHeader size={RowSizes.MEDIUM}>
+              {columns.map((headerCell, index) => (
+                <TableHeaderCell
+                  key={index}
+                  title={headerCell.title}
+                  icon={headerCell.icon}
+                  infoContent={headerCell.infoContent}
+                />
+              ))}
+            </TableHeader>
+            <TableBody>
+              {data.map(rowItem => (
+                <TableRow key={rowItem.id} size={RowSizes.MEDIUM}>
+                  <TableCell>{rowItem.sentOn}</TableCell>
+                  <TableCell>{rowItem.subject}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />}
+                 columns={columns}>
+            <TableHeader size={RowSizes.LARGE}>
+              {columns.map((headerCell, index) => (
+                <TableHeaderCell
+                  key={index}
+                  title={headerCell.title}
+                  icon={headerCell.icon}
+                  infoContent={headerCell.infoContent}
+                />
+              ))}
+            </TableHeader>
+            <TableBody>
+              {data.map(rowItem => (
+                <TableRow key={rowItem.id} size={RowSizes.LARGE}>
+                  <TableCell>{rowItem.sentOn}</TableCell>
+                  <TableCell>{rowItem.subject}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </>
+      );
+    }};
+  </Story>
+</Canvas>
 
 ## Table header functionality
 
