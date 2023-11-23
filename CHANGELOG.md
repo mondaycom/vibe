@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.63.2 (2023-11-23)
+
+#### Bug Fixes
+* [#1760](https://github.com/mondaycom/monday-ui-react-core/pull/1760) fix(Button): include entire content for width placeholder ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1762](https://github.com/mondaycom/monday-ui-react-core/pull/1762) test(Chromatic): wait for font loading before taking a snapshot ([@talkor](https://github.com/talkor))
+
 ## 2.63.1 (2023-11-21)
 
 #### Documentation
