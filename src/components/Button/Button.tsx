@@ -304,13 +304,46 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return BUTTON_ICON_SIZE;
     }, [successIcon]);
 
+    const buttonContent = useMemo(
+      () => (
+        <>
+          {leftIcon ? (
+            <Icon
+              iconType={Icon?.type.ICON_FONT}
+              clickable={false}
+              icon={leftIcon}
+              iconSize={leftIconSize}
+              className={cx({
+                [styles.leftIcon]: !!children
+              })}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {children}
+          {rightIcon ? (
+            <Icon
+              iconType={Icon?.type.ICON_FONT}
+              clickable={false}
+              icon={rightIcon}
+              iconSize={rightIconSize}
+              className={cx({
+                [styles.rightIcon]: !!children
+              })}
+              ignoreFocusStyle
+            />
+          ) : null}
+        </>
+      ),
+      [children, leftIcon, leftIconSize, rightIcon, rightIconSize]
+    );
+
     if (loading) {
       return (
         <button {...buttonProps} key={`${id}-loading`}>
           <span className={styles.loader}>
             <Loader className={styles.loaderSvg} />
             <span aria-hidden className={styles.textPlaceholder}>
-              {children}
+              {buttonContent}
             </span>
           </span>
         </button>
@@ -336,7 +369,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
             {successText}
           </span>
           <span aria-hidden="true" className={styles.textPlaceholder}>
-            {children}
+            {buttonContent}
           </span>
         </button>
       );
@@ -344,31 +377,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     return (
       <button {...buttonProps} key={`${id}-button`}>
-        {leftIcon ? (
-          <Icon
-            iconType={Icon?.type.ICON_FONT}
-            clickable={false}
-            icon={leftIcon}
-            iconSize={leftIconSize}
-            className={cx({
-              [styles.leftIcon]: !!children
-            })}
-            ignoreFocusStyle
-          />
-        ) : null}
-        {children}
-        {rightIcon ? (
-          <Icon
-            iconType={Icon?.type.ICON_FONT}
-            clickable={false}
-            icon={rightIcon}
-            iconSize={rightIconSize}
-            className={cx({
-              [styles.rightIcon]: !!children
-            })}
-            ignoreFocusStyle
-          />
-        ) : null}
+        {buttonContent}
       </button>
     );
   }
