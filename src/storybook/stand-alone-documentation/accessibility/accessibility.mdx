@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta } from "@storybook/blocks";
 import { Frame, Link, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
 import { PrinciplesAccesability } from "./principles/principlesAccesability";
 import { ComponentNameDecorator } from "../../components";
@@ -14,6 +14,7 @@ import {
   navigationFocus,
   navigationTabs
 } from "./assets";
+import {TipChecklistLink, TipColorContrast} from "./accessibility.stories.helpers";
 
 <Meta title="Foundations/Accessibility" />
 
@@ -35,12 +36,7 @@ Web Accessibility is based on guidelines published by The World Wide Web Consort
 
 [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
 
-<Tip title="Get our Accessibility checklist">
-  <Link href={accessibilityCheckList} size={Link.sizes.SMALL}>
-    Download
-  </Link>
-  our accessibility checklist file.
-</Tip>
+<TipChecklistLink />
 
 ## Accessibility principles
 
@@ -79,16 +75,10 @@ The visual presentation of the following have a contrast ratio of at least 3:1 a
   <img src={colorContrastImage} alt="example for non text color contrast" />
 </Frame>
 
-UI Components - Visual information required to identify active UI components and states, including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br/>
+UI Components - Visual information required to identify active UI components and states, including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br />
 Graphical Objects - Parts of graphics required to understand the content
 
-<Tip title="Use color contrast tools for code and design">
-  To check color contrast in design use
-  <Link href="https://www.figma.com/community/plugin/748533339900865323/Contrast" size={Link.sizes.SMALL}>
-    contrast figma plugin
-  </Link>
-  and inspect elements accessibility tab for live code verification
-</Tip>
+<TipColorContrast />
 
 ## Imagery
 
@@ -125,7 +115,7 @@ Such as borders, empty states, background ambience images:
   <UnstyledListItem>Do not convey information</UnstyledListItem>
   <UnstyledListItem>Should be ignored by the screen reader</UnstyledListItem>
   <UnstyledListItem>Can be defined as background image in the stylesheet</UnstyledListItem>
-  <UnstyledListItem>Should use ``role="presentation"``</UnstyledListItem>
+  <UnstyledListItem>Should use `role="presentation"`</UnstyledListItem>
 </UnstyledList>
 
 <Frame noBorder noGutter>
@@ -136,8 +126,8 @@ Such as borders, empty states, background ambience images:
 
 ### Reading Order
 
-The reading and navigation order is determined by code order<br/>
-The reading order must be logical and intuitive.<br/>
+The reading and navigation order is determined by code order<br />
+The reading order must be logical and intuitive.<br />
 We arrange the order of the elements within the HTML so that the reading order follows the same order as the visual presentation of the screen.
 
 <Frame noBorder noGutter>
@@ -154,15 +144,14 @@ Text labels & form group labels
 Headings communicate the structure of the content on the page. Assistive technologies users can use them as in-page navigation elements.
 
 <UnstyledList>
-  <UnstyledListItem>Arrange the headings on the page according to their level (``H1...H6``).</UnstyledListItem>
-  <UnstyledListItem>The most important heading on the page is heading level 1 (``H1``).</UnstyledListItem>
-  <UnstyledListItem>Only one heading level 1 ``H1`` is allowed on a page.</UnstyledListItem>
+  <UnstyledListItem>Arrange the headings on the page according to their level (`H1...H6`).</UnstyledListItem>
+  <UnstyledListItem>The most important heading on the page is heading level 1 (`H1`).</UnstyledListItem>
+  <UnstyledListItem>Only one heading level 1 `H1` is allowed on a page.</UnstyledListItem>
   <UnstyledListItem>
     Headings should be placed at the start of new sections of content not for decoration
   </UnstyledListItem>
   <UnstyledListItem>
-    void skipping heading levels. Ensure that a heading level 1 ``H1`` is not followed directly by an ``H3``, for
-    example.
+    void skipping heading levels. Ensure that a heading level 1 `H1` is not followed directly by an `H3`, for example.
   </UnstyledListItem>
 </UnstyledList>
 
@@ -170,9 +159,9 @@ Headings communicate the structure of the content on the page. Assistive technol
 
 ### Keyboard Access
 
-All active elements that can be activated with a mouse have to be operable by keyboard, or have a keyboard equivalent.<br/>
-Dynamic components such as dialogs, not initially in the tab order must also receive keyboard focus.<br/>
-Elements that show content on mouse hover needs to be added to the tab-order and be operable with the keyboard.<br/>
+All active elements that can be activated with a mouse have to be operable by keyboard, or have a keyboard equivalent.<br />
+Dynamic components such as dialogs, not initially in the tab order must also receive keyboard focus.<br />
+Elements that show content on mouse hover needs to be added to the tab-order and be operable with the keyboard.<br />
 In your design, annotate the tab-order and number the tab stops.
 
 <Frame noBorder noGutter>
@@ -181,17 +170,17 @@ In your design, annotate the tab-order and number the tab stops.
 
 ### Focus Management
 
-Keyboard navigation in a rich internet application is different from tabbing in a website.<br/>
-In rich internet applications, users tab to complex components such as comboboxes, grids, menus etc. then use the arrow keys to navigate within the component.<br/>
-Dynamic components such as dialogs, not initially in the tab order have to receive keyboard focus.<br/>
-When dynamic components are closed, focus shifts back to the point where interaction started.<br/>
+Keyboard navigation in a rich internet application is different from tabbing in a website.<br />
+In rich internet applications, users tab to complex components such as comboboxes, grids, menus etc. then use the arrow keys to navigate within the component.<br />
+Dynamic components such as dialogs, not initially in the tab order have to receive keyboard focus.<br />
+When dynamic components are closed, focus shifts back to the point where interaction started.<br />
 Receiving focus or interacting with an input element must not result in a substantial change to the page like invoking a dialog or sending focus somewhere else on the page.
 
 <Tip title="We got you covered with tab navigation">Use this keyboard navigation infra in any UI that requires it.</Tip>
 
 ### Focus Visible
 
-Provide a visible focus indicator to mark currently focused active elements.<br/>
+Provide a visible focus indicator to mark currently focused active elements.<br />
 As keyboard users tab through the page, they can see where they are.
 
 <Frame noBorder noGutter>

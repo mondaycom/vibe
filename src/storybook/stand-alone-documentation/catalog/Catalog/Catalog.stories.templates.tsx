@@ -10,7 +10,7 @@ const RELATED_COMPONENT_NAMES = Array.from(DESCRIPTION_COMPONENTS_WITHOUT_GENERA
   .map(name => name.toLowerCase())
   .sort();
 
-export const Catalog = () => {
+export const CatalogTemplate = () => {
   const [query, setQuery] = useState("");
   const componentsToDisplay = RELATED_COMPONENT_NAMES.filter(name => name.includes(query.toLowerCase()));
 
