@@ -1,8 +1,8 @@
 import React from "react";
 import { Preview } from "@storybook/react";
+import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
 import {
   AnchorListItem,
   AlphaWarning,
@@ -24,6 +24,7 @@ import {
   RelatedComponent,
   MultipleStoryElementsWrapper
 } from "vibe-storybook-components";
+import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 
@@ -119,5 +120,11 @@ const preview: Preview = {
     }
   }
 };
+
+const fontLoader = async () => ({
+  fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
+});
+
+export const loaders = isChromatic() && document.fonts ? [fontLoader] : [];
 
 export default preview;
