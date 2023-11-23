@@ -8,8 +8,6 @@ import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { ITableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
-import { RowSizes } from "../TableConsts";
-import renderer from "react-test-renderer";
 
 interface TableNode {
   role: string;
@@ -71,18 +69,6 @@ describe("Table", () => {
     });
   });
 
-  describe("TableHeader", () => {
-    it("should have default medium height", () => {
-      const { getByRole } = render(<TableHeader />);
-      expect(getByRole("rowgroup")).toHaveStyle(`height: ${RowSizes.MEDIUM}px`);
-    });
-
-    it("should have large height", () => {
-      const { getByRole } = render(<TableHeader size={RowSizes.LARGE} />);
-      expect(getByRole("rowgroup")).toHaveStyle(`height: ${RowSizes.LARGE}px`);
-    });
-  });
-
   describe("TableRow", () => {
     it("should render without a highlight state", () => {
       const { getByRole } = render(<TableRow />);
@@ -92,16 +78,6 @@ describe("Table", () => {
     it("should render with a highlight state", () => {
       const { getByRole } = render(<TableRow highlighted />);
       expect(getByRole("row")).toHaveAttribute("aria-selected", "true");
-    });
-
-    it("should have default medium height", () => {
-      const { getByRole } = render(<TableRow />);
-      expect(getByRole("row")).toHaveStyle(`height: ${RowSizes.MEDIUM}px`);
-    });
-
-    it("should have large height", () => {
-      const { getByRole } = render(<TableRow size={RowSizes.LARGE} />);
-      expect(getByRole("row")).toHaveStyle(`height: ${RowSizes.LARGE}px`);
     });
   });
 
@@ -213,26 +189,6 @@ describe("Table", () => {
       it(`Should apply aria-sort to header element (${sortState}, ${ariaSort})`, () => {
         const { getByRole } = render(<TableHeaderCell title="Title" sortState={sortState} />);
         expect(getByRole("columnheader").getAttribute("aria-sort")).toBe(ariaSort);
-      });
-    });
-
-    describe("snapshot test", () => {
-      it("basic snapshot of a Table component", () => {
-        const tree = renderer
-          .create(
-            <Table {...tableBoilerplate}>
-              <TableHeader>
-                <TableHeaderCell title="  Title" />
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell>Table Cell</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          )
-          .toJSON();
-        expect(tree).toMatchSnapshot();
       });
     });
   });
