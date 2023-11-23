@@ -98,6 +98,13 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
         "@typescript-eslint/no-empty-function": "off"
       }
+    },
+    {
+      files: ["*.stories.@(js|jsx|mjs|ts|tsx)"],
+      rules: {
+        ...commonRules,
+        "react-hooks/rules-of-hooks": "off"
+      }
     }
   ],
   env: {
