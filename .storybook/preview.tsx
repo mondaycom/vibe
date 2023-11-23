@@ -21,7 +21,8 @@ import {
   UnstyledListItem,
   UsageGuidelines,
   withMemoryStats,
-  RelatedComponent
+  RelatedComponent,
+  MultipleStoryElementsWrapper
 } from "vibe-storybook-components";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
@@ -94,7 +95,14 @@ const preview: Preview = {
       },
       defaultTheme: "Light"
     }) as any,
-    withMemoryStats
+    withMemoryStats,
+    (Story, { className }) => {
+      return (
+        <MultipleStoryElementsWrapper className={className}>
+          <Story />
+        </MultipleStoryElementsWrapper>
+      );
+    }
   ],
   globalTypes: {
     memoryStats: {
