@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
+import { storybookAddonStylingWebpackOptions } from "./addon-styling-webpack-options";
 // const projectConfig = require("../webpack/storybook.config.js");
 //
 // const mergeConfigRules = (originalConfig: any, newConfigRules: any) => {
@@ -57,7 +58,12 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-themes",
-    "@storybook/preset-scss"
+    "@storybook/preset-scss",
+    "@storybook/addon-styling-webpack",
+    {
+      name: "@storybook/addon-styling-webpack",
+      options: storybookAddonStylingWebpackOptions
+    }
   ],
   // webpackFinal: async config => {
   //   return buildConfig(config);
