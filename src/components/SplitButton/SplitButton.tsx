@@ -48,7 +48,7 @@ export interface SplitButtonProps extends ButtonProps {
   /*
     Popover Container padding size
    */
-  dialogPaddingSize?: typeof DialogContentContainer.sizes[keyof typeof DialogContentContainer.sizes];
+  dialogPaddingSize?: (typeof DialogContentContainer.sizes)[keyof typeof DialogContentContainer.sizes];
   /**
    * the container selector in which to append the dialog
    * for examples: "body" , ".my-class", "#my-id"

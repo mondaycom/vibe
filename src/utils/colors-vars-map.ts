@@ -168,7 +168,7 @@ export const contentColors = [
   "pecan"
 ] as const;
 
-export type CONTENT_COLORS_VALUES = typeof contentColors[number];
+export type CONTENT_COLORS_VALUES = (typeof contentColors)[number];
 
 export enum ColorStyle {
   REGULAR = "regular",
@@ -237,7 +237,7 @@ export const ElementAllowedColor = {
   ...StateSelectedHoverColor
 };
 
-export type ElementColor = typeof ElementAllowedColor[keyof typeof ElementAllowedColor] | string;
+export type ElementColor = (typeof ElementAllowedColor)[keyof typeof ElementAllowedColor] | string;
 
 export const elementColorsNames = Object.values(ElementAllowedColor).reduce((acc: Record<string, string>, key) => {
   acc[key] = key;
