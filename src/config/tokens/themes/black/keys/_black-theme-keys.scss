@@ -8,6 +8,10 @@
 // - When several key has the same value and have a connection
 // - We either use $theme-dark token or var(--token) depending on connection logic and value type.
 
+// Fixed colors
+$theme-black-fixed-light-color: $color-snow_white;
+$theme-black-fixed-dark-color: $color-vanta;
+
 // Text colors
 $theme-black-primary-color: $primary-color;
 $theme-black-primary-hover-color: $primary-hover-color;

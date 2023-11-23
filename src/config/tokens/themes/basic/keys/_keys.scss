@@ -9,6 +9,10 @@
 // - When several key has the same value and have a connection
 // - We either use $token or var(--token) depending on connection logic and value type.
 
+// Fixed colors
+$fixed-light-color: $color-snow_white;
+$fixed-dark-color: $color-mud_black;
+
 // Text colors
 $primary-color: $color-basic_blue;
 $primary-hover-color: $color-dark_blue;

@@ -10,6 +10,10 @@
 
 @use "sass:color";
 
+// Fixed colors
+$theme-hacker-fixed-light-color: $color-snow_white;
+$theme-hacker-fixed-dark-color: $color-mud_black;
+
 // Text colors
 $theme-hacker-primary-color: $color-pink-plastic;
 $theme-hacker-primary-hover-color: #{color.adjust($color-pink-plastic, $lightness: -6%)};
