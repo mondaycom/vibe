@@ -1,3 +1,10 @@
+0.1.202 / 2023-10-26
+====================
+  * feat(mixins): export mixins ([#256](https://github.com/mondaycom/monday-ui-style/issues/256))
+    * feat(mixins): export mixins
+    * refactor: remove redundant mixins
+    * docs: restructure mixins list in README
+
 0.1.201 / 2023-10-19
 ====================
   * Update postcss, postcss-scss, postcss-value-parser, styleint due to dependabot recommendations ([#254](https://github.com/mondaycom/monday-ui-style/issues/254))
@@ -296,10 +303,3 @@
 0.1.157 / 2023-05-18
 ====================
   * text-color-on-brand token ([#200](https://github.com/mondaycom/monday-ui-style/issues/200))
-
-0.1.156 / 2023-05-17
-====================
-  * New Icon Request - Workflow ([#198](https://github.com/mondaycom/monday-ui-style/issues/198))
-    * add new icon of workflow
-    * update to the new icon
-    * removed .DS_Store and update .gitignore
