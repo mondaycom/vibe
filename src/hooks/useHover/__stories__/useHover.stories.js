@@ -9,6 +9,7 @@ export default {
 
 export const Overview = {
   render: () => {
+    // TODO Storybook 7 migration: story isn't working - in general hooks in stories are not working correctly, as a temp solution importing basic hooks from @storybook addons
     const [hoverRef, isHovered] = useHover();
 
     return (
