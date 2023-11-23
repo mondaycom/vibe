@@ -1,14 +1,8 @@
-import { useCallback, useRef } from "react";
-import cx from "classnames";
-import { Flex, Search } from "../../../components";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useActiveDescendantListFocus from "../index";
-import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
-import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
-import styles from "./useActiveDescendantListFocus.module.scss";
+import * as UseActiveDescendantListFocusStories from "./useActiveDescendantListFocus.stories";
 
-<Meta title="Hooks/useActiveDescendantListFocus" component={UseActiveDescendantListFocus} />
+<Meta of={UseActiveDescendantListFocusStories} />
 
 # useActiveDescendantListFocus
 
@@ -21,6 +15,7 @@ import styles from "./useActiveDescendantListFocus.module.scss";
 ## Overview
 
 <b>Using this hook for not its intended purpose will hurt your component accessibility.</b> <br />
+
 <UnstyledList>
   <UnstyledListItem>
     Please use this hook only if your component role is one of the following: "composite" widget, "combobox", "textbox",
@@ -40,60 +35,7 @@ import styles from "./useActiveDescendantListFocus.module.scss";
 </UnstyledList>
 
 <Canvas>
-  <Story name="Overview" play={overviewInteractionSuite}>
-    {() => {
-      const focusedElementRef = useRef(null);
-      const itemsIds = ["id-1", "id-2", "id-3"];
-      const isItemSelectable = useCallback(() => true, []);
-      const onItemClick = useCallback(() => {
-        alert("clicked");
-      }, []);
-      const { focusedElementProps, visualFocusItemId } = useActiveDescendantListFocus({
-        focusedElementRef,
-        focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
-        itemsIds,
-        onItemClick,
-        isItemSelectable,
-        isHorizontalList: false,
-        isIgnoreSpaceAsItemSelection: true
-      });
-      return (
-        <Flex direction={Flex.directions.COLUMN}>
-          <Search
-            ref={focusedElementRef}
-            role={focusedElementProps.role}
-            activeDescendant={focusedElementProps["aria-activedescendant"]}
-          />
-          <ul>
-            <li
-              onClick={onItemClick}
-              className={cx({ [styles.visualFocus]: visualFocusItemId === "id-1" })}
-              id="id-1"
-              key="id-1"
-            >
-              Item 1
-            </li>
-            <li
-              onClick={onItemClick}
-              className={cx({ [styles.visualFocus]: visualFocusItemId === "id-2" })}
-              id="id-2"
-              key="id-2"
-            >
-              Item 2
-            </li>
-            <li
-              onClick={onItemClick}
-              className={cx({ [styles.visualFocus]: visualFocusItemId === "id-3" })}
-              id="id-3"
-              key="id-3"
-            >
-              Item 3
-            </li>
-          </ul>
-        </Flex>
-      );
-    }}
-  </Story>
+  <Story of={UseActiveDescendantListFocusStories.Overview} />
 </Canvas>
 
 ## Arguments

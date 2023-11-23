@@ -1,9 +1,8 @@
-import { useCallback } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useTimeout from "..";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseTimeoutStories from "./useTimeout.stories";
 
-<Meta title="Hooks/useTimeout" />
+<Meta of={UseTimeoutStories} />
 
 # useTimeout
 
@@ -17,15 +16,7 @@ import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 Use this hook when you need to perform an action with timeout, this hook will cancel the timeout when the component unmounts.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const callback = useCallback(() => {
-        alert("5s passed");
-      });
-      useTimeout({ time: 5000, callback });
-      return <div>Alert is coming!</div>;
-    }}
-  </Story>
+  <Story of={UseTimeoutStories.Overview} />
 </Canvas>
 
 ## Arguments

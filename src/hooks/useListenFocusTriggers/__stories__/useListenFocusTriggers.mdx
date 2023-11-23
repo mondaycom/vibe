@@ -1,11 +1,8 @@
-import { useCallback, useRef, useState } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, Link, UsageGuidelines } from "vibe-storybook-components";
-import useListenFocusTriggers from "../index";
-import { Button, Flex } from "../../../components";
-import "../../__stories__/general-hooks-stories.scss";
+import * as UseListenFocusTriggersStories from "./useListenFocusTriggers.stories";
 
-<Meta title="Hooks/useListenFocusTriggers" />
+<Meta of={UseListenFocusTriggersStories} />
 
 # useListenFocusTriggers
 
@@ -20,29 +17,7 @@ import "../../__stories__/general-hooks-stories.scss";
 Fire provided callbacks, when focus by mouse or by keyboard happens.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const [text, setText] = useState("-");
-      const ref = useRef(null);
-      const onFocusByMouse = useCallback(_event => {
-        setText("mouse");
-      }, []);
-      const onFocusByKeyboard = useCallback(_event => {
-        setText("keyboard");
-      }, []);
-      useListenFocusTriggers({
-        ref: ref,
-        onFocusByMouse: onFocusByMouse,
-        onFocusByKeyboard: onFocusByKeyboard
-      });
-      return (
-        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-          <Button ref={ref}>Focus target</Button>
-          <div>Received focus by: {text}</div>
-        </Flex>
-      );
-    }}
-  </Story>
+  <Story of={UseListenFocusTriggersStories.Overview} />
 </Canvas>
 
 ## Arguments

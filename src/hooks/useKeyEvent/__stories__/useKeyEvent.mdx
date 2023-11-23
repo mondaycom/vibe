@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useKeyEvent from "..";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, UsageGuidelines } from "vibe-storybook-components";
-import "../../__stories__/general-hooks-stories.scss";
+import * as UseKeyEventStories from "./useKeyEvent.stories";
 
-<Meta title="Hooks/useKeyEvent" />
+<Meta of={UseKeyEventStories} />
 
 # useKeyEvent
 
@@ -19,16 +17,7 @@ import "../../__stories__/general-hooks-stories.scss";
 Attaches a listener to keyboard DOM events on a specific element, firing a provided callback when the event is triggered.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const [keyName, setKeyName] = useState("-");
-      useKeyEvent({
-        keys: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-        callback: e => setKeyName(e.key)
-      });
-      return <div>Last pressed digit: {keyName}</div>;
-    }}
-  </Story>
+  <Story of={UseKeyEventStories.Overview} />
 </Canvas>
 
 ## Arguments
@@ -41,10 +30,7 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
       description={
         <>
           A list of keys to trigger the passed callback. See
-          <Link
-            href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">
-            a full list
-          </Link>
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">a full list</Link>
           for more info.
         </>
       }
@@ -61,9 +47,7 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
       description={
         <>
           A React
-          <Link href="https://react.dev/reference/react/useRef">
-            ref
-          </Link>
+          <Link href="https://react.dev/reference/react/useRef">ref</Link>
           object.
         </>
       }
@@ -92,8 +76,7 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
         <>
           Runs{" "}
           <code>
-            <Link
-              href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault" withoutSpacing>
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault" withoutSpacing>
               preventDefault
             </Link>
           </code>{" "}
@@ -109,8 +92,7 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
         <>
           Runs{" "}
           <code>
-            <Link
-              href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" withoutSpacing>
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" withoutSpacing>
               stopPropagation
             </Link>
           </code>{" "}
@@ -125,10 +107,7 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
       description={
         <>
           The event to listen to. See
-          <Link
-            href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#events">
-            a full list
-          </Link>
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#events">a full list</Link>
           for more info.
         </>
       }

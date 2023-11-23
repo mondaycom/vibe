@@ -1,10 +1,8 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useVibeMediaQuery from "..";
-import "../../__stories__/general-hooks-stories.scss";
-import styles from "./useVibeMediaQuery.modules.scss";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseVibeMediaQueryStories from "./useVibeMediaQuery.stories";
 
-<Meta title="Hooks/useVibeMediaQuery" />
+<Meta of={UseVibeMediaQueryStories} />
 
 # useVibeMediaQuery
 
@@ -27,12 +25,7 @@ This hook will return the value of the current vibe break point
 | 6     | screen and (min-width: 1920px)                         |
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const currentSize = useVibeMediaQuery();
-      return <div className={`hooks-reference-element ${styles.container}`}>{currentSize}</div>;
-    }}
-  </Story>
+  <Story of={UseVibeMediaQueryStories.Overview} />
 </Canvas>
 
 ## Arguments

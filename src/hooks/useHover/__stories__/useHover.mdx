@@ -1,11 +1,8 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useHover from "../useHover";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { Link, UsageGuidelines } from "vibe-storybook-components";
-import cx from "classnames";
-import "../../__stories__/general-hooks-stories.scss";
-import styles from "./useHover.stories.module.scss";
+import * as UseHoverStories from "./useHover.stories";
 
-<Meta title="Hooks/useHover" />
+<Meta of={UseHoverStories} />
 
 # useHover
 
@@ -19,19 +16,7 @@ import styles from "./useHover.stories.module.scss";
 Detect whether the mouse is hovering an element by returning its <code>isHovered</code> state.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const [hoverRef, isHovered] = useHover();
-      return (
-        <div
-          ref={hoverRef}
-          className={cx("hooks-reference-element", styles.container, { [styles.isHovered]: isHovered })}
-        >
-          {isHovered ? "Boom!" : "Hover me"}
-        </div>
-      );
-    }}
-  </Story>
+  <Story of={UseHoverStories.Overview} />
 </Canvas>
 
 ## Usage

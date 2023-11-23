@@ -1,10 +1,9 @@
-import { useCallback, useRef } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import { Link, Tip } from "vibe-storybook-components";
-import useClickableProps from "../useClickableProps";
-import "./useClickableProps.stories.scss";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import { TipClickable } from "./useClickableProps.stories.helpers";
+import * as UseClickablePropsStories from "./useClickableProps.stories";
 
-<Meta title="Hooks/useClickableProps" />
+<Meta of={UseClickablePropsStories} />
 
 # useClickableProps
 
@@ -18,36 +17,10 @@ import "./useClickableProps.stories.scss";
 Return props for making an element or component clickable by mouse and keyboard with screen reader support.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const ref = useRef(null);
-      const onClick = useCallback(() => alert("click!"), []);
-      const clickableProps = useClickableProps(
-        {
-          onClick: onClick,
-          id: "clickable-id",
-          ariaHidden: false,
-          ariaHasPopup: false,
-          ariaExpanded: false
-        },
-        ref
-      );
-      return (
-        <div {...clickableProps} className="monday-storybook-use-clickable-props">
-          I act like a button
-        </div>
-      );
-    }}
-  </Story>
+  <Story of={UseClickablePropsStories.Overview} />
 </Canvas>
 
-<Tip title="Check out our component solution for this use case">
-  For more simple use cases, you also can use our
-  <Link size={Link.sizes.SMALL} href="/?path=/docs/accessibility-clickable--overview">
-    Clickable
-  </Link>
-  component wrapper.
-</Tip>
+<TipClickable />
 
 ## Usage
 

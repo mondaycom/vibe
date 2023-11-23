@@ -1,10 +1,8 @@
-import { useCallback, useRef, useState } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useClickOutside from "..";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, Link, UsageGuidelines } from "vibe-storybook-components";
-import "../../__stories__/general-hooks-stories.scss";
+import * as UseClickOutsideStories from "./useClickOutside.stories";
 
-<Meta title="Hooks/useClickOutside" />
+<Meta of={UseClickOutsideStories} />
 
 # useClickOutside
 
@@ -18,23 +16,7 @@ import "../../__stories__/general-hooks-stories.scss";
 This hook is used when you want to capture click events outside your component.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const [counter, setCounter] = useState(0);
-      const ref = useRef(null);
-      const onClick = useCallback(() => {
-        setCounter(currentCounter => {
-          return currentCounter + 1;
-        });
-      }, [setCounter]);
-      useClickOutside({ ref, callback: onClick });
-      return (
-        <div className="hooks-reference-element" ref={ref}>
-          Click outside {counter}
-        </div>
-      );
-    }}
-  </Story>
+  <Story of={UseClickOutsideStories.Overview} />
 </Canvas>
 
 ## Arguments
@@ -47,9 +29,7 @@ This hook is used when you want to capture click events outside your component.
       description={
         <>
           A React
-          <Link href="https://react.dev/reference/react/useRef">
-            ref
-          </Link>
+          <Link href="https://react.dev/reference/react/useRef">ref</Link>
           object.
         </>
       }
@@ -67,9 +47,7 @@ This hook is used when you want to capture click events outside your component.
       description={
         <>
           The event to listen to. See
-          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">
-            a full list
-          </Link>
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">a full list</Link>
           for more info.
         </>
       }

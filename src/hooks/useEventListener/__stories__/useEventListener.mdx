@@ -1,9 +1,7 @@
-import { useRef, useCallback, useState } from "react";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import useEventListener from "..";
-import "../../__stories__/general-hooks-stories.scss";
+import { Story, Canvas, Meta } from "@storybook/blocks";
+import * as UseEventListenerStories from "./useEventListener.stories";
 
-<Meta title="Hooks/useEventListener" />
+<Meta of={UseEventListenerStories} />
 
 # useEventListener
 
@@ -16,24 +14,7 @@ import "../../__stories__/general-hooks-stories.scss";
 Attaches a listener to any DOM event on a specific element, firing a provided callback when the event is triggered.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const ref = useRef(null);
-      const [hovered, setHovered] = useState(false);
-      const callback = useCallback(
-        e => {
-          setHovered(true);
-        },
-        [setHovered]
-      );
-      useEventListener({ ref, callback, eventName: "mouseenter" });
-      return (
-        <div ref={ref} className="hooks-reference-element">
-          Hover me {hovered ? "Boom!" : undefined}
-        </div>
-      );
-    }}
-  </Story>
+  <Story of={UseEventListenerStories.Overview} />
 </Canvas>
 
 ## Arguments
@@ -46,9 +27,7 @@ Attaches a listener to any DOM event on a specific element, firing a provided ca
       description={
         <>
           A React
-          <Link href="https://react.dev/reference/react/useRef">
-            ref
-          </Link>
+          <Link href="https://react.dev/reference/react/useRef">ref</Link>
           object.
         </>
       }
@@ -65,9 +44,7 @@ Attaches a listener to any DOM event on a specific element, firing a provided ca
       description={
         <>
           The event to listen to. See
-          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">
-            a full list
-          </Link>
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">a full list</Link>
           for more info.
         </>
       }

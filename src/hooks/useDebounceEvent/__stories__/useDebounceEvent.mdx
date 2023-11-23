@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
-import useDebounceEvent from "..";
-import "../../__stories__/general-hooks-stories.scss";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseDebounceEventStories from "./useDebounceEvent.stories";
 
-<Meta title="Hooks/useDebounceEvent" />
+<Meta of={UseDebounceEventStories} />
 
 # useDebounceEvent
 
@@ -20,12 +18,7 @@ import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 This hook generates an easy to use debounced value updater.
 
 <Canvas>
-  <Story name="Overview">
-    {() => {
-      const { inputValue, onEventChanged } = useDebounceEvent({ delay: 100 });
-      return <input type="text" value={inputValue} onChange={onEventChanged} />;
-    }}
-  </Story>
+  <Story of={UseDebounceEventStories.Overview} />
 </Canvas>
 
 ## Arguments
@@ -77,38 +70,17 @@ This hook generates an easy to use debounced value updater.
 ### Passing an initial value
 
 <Canvas>
-  <Story name="Passing an initial value">
-    {() => {
-      const { inputValue, onEventChanged } = useDebounceEvent({ initialStateValue: "bla bla bla" });
-      return <input type="text" value={inputValue} onChange={onEventChanged} />;
-    }}
-  </Story>
+  <Story of={UseDebounceEventStories.PassingAnInitialValue} />
 </Canvas>
 
 ### Passing an `onChange` handler
 
 <Canvas>
-  <Story name="Passing an `onChange` handler">
-    {() => {
-      const [length, setLength] = useState(0);
-      const { inputValue, onEventChanged } = useDebounceEvent({ onChange: value => setLength(value.length) });
-      return (
-        <>
-          <input type="text" value={inputValue} onChange={onEventChanged} />
-          {<span>Input has {length} characters</span>}
-        </>
-      );
-    }}
-  </Story>
+  <Story of={UseDebounceEventStories.PassingAnOnChangeHandler} />
 </Canvas>
 
 ### Trimming the value
 
 <Canvas>
-  <Story name="With trim">
-    {() => {
-      const { inputValue, onEventChanged } = useDebounceEvent({ trim: true });
-      return <input type="text" value={inputValue} onChange={onEventChanged} />;
-    }}
-  </Story>
+  <Story of={UseDebounceEventStories.WithTrim} />
 </Canvas>
