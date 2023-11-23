@@ -1,4 +1,5 @@
 .tableHeaderCell {
+  height: var(--table-row-size);
   padding: var(--spacing-small);
   padding-inline-start: var(--spacing-medium);
   color: var(--secondary-text-color);

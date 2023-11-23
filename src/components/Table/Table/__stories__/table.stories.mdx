@@ -204,8 +204,8 @@ The table is available in 2 different row heights: medium (40px) and large (48 p
       const data = emailTableData.slice(0, 2);
       return (
         <>
-          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
-            <TableHeader size={RowSizes.MEDIUM}>
+          <Table size={RowSizes.MEDIUM} errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
+            <TableHeader>
               {columns.map((headerCell, index) => (
                 <TableHeaderCell
                   key={index}
@@ -217,16 +217,15 @@ The table is available in 2 different row heights: medium (40px) and large (48 p
             </TableHeader>
             <TableBody>
               {data.map(rowItem => (
-                <TableRow key={rowItem.id} size={RowSizes.MEDIUM}>
+                <TableRow key={rowItem.id}>
                   <TableCell>{rowItem.sentOn}</TableCell>
                   <TableCell>{rowItem.subject}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-          <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />}
-                 columns={columns}>
-            <TableHeader size={RowSizes.LARGE}>
+          <Table size={RowSizes.LARGE} errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
+            <TableHeader>
               {columns.map((headerCell, index) => (
                 <TableHeaderCell
                   key={index}
@@ -238,7 +237,7 @@ The table is available in 2 different row heights: medium (40px) and large (48 p
             </TableHeader>
             <TableBody>
               {data.map(rowItem => (
-                <TableRow key={rowItem.id} size={RowSizes.LARGE}>
+                <TableRow key={rowItem.id}>
                   <TableCell>{rowItem.sentOn}</TableCell>
                   <TableCell>{rowItem.subject}</TableCell>
                 </TableRow>
