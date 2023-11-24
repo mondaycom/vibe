@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.1 (2023-11-24)
+
+#### Bug Fixes
+* [#128](https://github.com/mondaycom/vibe-storybook-components/pull/128) fix: <StoryDescription> make className and headerStyle props not required ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.14.0 (2023-11-20)
 
 #### New Features
