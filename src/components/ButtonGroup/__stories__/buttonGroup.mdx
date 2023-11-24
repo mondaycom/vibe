@@ -1,26 +1,13 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
 import ButtonGroup from "../ButtonGroup";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate, Link } from "vibe-storybook-components";
 import { Mobile } from "../../Icon/Icons";
-import { BUTTON, TABS, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
+import { BREADCRUBMS, BUTTON, TABS } from "../../../storybook/components/related-components/component-description-map";
 import Desktop from "./assets/Desktop.js";
-import "./buttonGroup.stories.scss";
+import { TipCheckYourself } from "./buttonGroup.stories.helpers";
+import * as ButtonGroupStories from "./buttonGroup.stories";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: ButtonGroup,
-  enumPropNamesArray: ["kind", "size"],
-  actionPropsArray: ["onSelect"]
-});
-
-<Meta
-  title="Buttons/ButtonGroup"
-  component={ButtonGroup}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
-
-export const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
+<Meta of={ButtonGroupStories} />
 
 # ButtonGroup
 
@@ -38,20 +25,7 @@ export const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
 ButtonGroup can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container.
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={{
-      options: [
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" }
-      ],
-      value: 1
-    }}
-  >
-    {buttonGroupTemplate.bind({})}
-  </Story>
+  <Story of={ButtonGroupStories.Overview} />
 </Canvas>
 
 ## Props
@@ -72,124 +46,44 @@ ButtonGroup can be used to group related options. To emphasize groups of related
       component.
     </>,
     <>
-      Button group is used to diplay the same content in diffrent view, if you need to present diffrent content, use{" "}
+      Button group is used to display the same content in different view, if you need to present different content, use
       <Link href="/?path=/docs/navigation-tabs-tabs--overview">Tabs.</Link>
     </>
   ]}
 />
 
-<Tip title="Check yourself">
-  Button group will always have one button selected. If you need to display adjacent buttons without selected mode, use
-  the
-  <Link href="/?path=/docs/buttons-button--overview" size={Link.sizes.SMALL}>
-    Button
-  </Link>
-  component with “Flat” props.{" "}
-</Tip>
+<TipCheckYourself />
 
 ## Variants
 
 ### Default
 
 <Canvas>
-  <Story name="Default">
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      value={1}
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" }
-      ]}
-    />
-  </Story>
+  <Story of={ButtonGroupStories.Default} />
 </Canvas>
 
 ### Tertiary
 
 <Canvas>
-  <Story name="Tertiary">
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      value={1}
-      kind={ButtonGroup.kinds.TERTIARY}
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" }
-      ]}
-    />
-  </Story>
+  <Story of={ButtonGroupStories.Tertiary} />
 </Canvas>
 
 ### Disabled - all buttons
 
 <Canvas>
-  <Story name="Disabled">
-    <ButtonGroup
-      disabled
-      groupAriaLabel="button group aria label"
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" }
-      ]}
-    />
-  </Story>
+  <Story of={ButtonGroupStories.Disabled} />
 </Canvas>
 
 ### Disabled - single button
 
 <Canvas>
-  <Story name="Disabled - Singe Button">
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta", disabled: true, tooltipContent: "I'm the worst variant ever" }
-      ]}
-    />
-  </Story>
+  <Story of={ButtonGroupStories.DisabledSingeButton} />
 </Canvas>
 
 ### Size
 
 <Canvas>
-  <Story name="Size">
-    <div className="monday-storybook-button-group_column">
-      Medium
-      <ButtonGroup
-        groupAriaLabel="button group aria label"
-        size={ButtonGroup.sizes.MEDIUM}
-        value={1}
-        options={[
-          { value: 1, text: "Alpha" },
-          { value: 2, text: "Beta" },
-          { value: 3, text: "Gamma" },
-          { value: 4, text: "Delta" }
-        ]}
-      />
-    </div>
-    <div className="monday-storybook-button-group_column">
-      Small
-      <ButtonGroup
-        groupAriaLabel="button group aria label"
-        size={ButtonGroup.sizes.SMALL}
-        value={1}
-        options={[
-          { value: 1, text: "Alpha" },
-          { value: 2, text: "Beta" },
-          { value: 3, text: "Gamma" },
-          { value: 4, text: "Delta" }
-        ]}
-      />
-    </div>
-  </Story>
+  <Story of={ButtonGroupStories.Size} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -226,9 +120,7 @@ ButtonGroup can be used to group related options. To emphasize groups of related
         description: (
           <>
             Don’t use a button group when switching between content or object pages. Use
-            <Link href="/?path=/docs/navigation-tabs-tabs--overview">
-              Tabs
-            </Link>
+            <Link href="/?path=/docs/navigation-tabs-tabs--overview">Tabs</Link>
             instead.
           </>
         )
@@ -321,25 +213,10 @@ ButtonGroup can be used to group related options. To emphasize groups of related
 
 ### Button group in settings
 
-For example: on the views setttings you can choose only one option.
+For example: on the views settings you can choose only one option.
 
 <Canvas>
-  <Story name="Button group in settings">
-    <div className="monday-storybook-button-group_column">
-      Function
-      <ButtonGroup
-        groupAriaLabel="button group aria label"
-        size={ButtonGroup.sizes.SMALL}
-        value={1}
-        options={[
-          { value: 1, text: "Sum" },
-          { value: 2, text: "Average" },
-          { value: 3, text: "Median" },
-          { value: 4, text: "Min" }
-        ]}
-      />
-    </div>
-  </Story>
+  <Story of={ButtonGroupStories.ButtonGroupInSettings} />
 </Canvas>
 
 ### Button group as toggle
@@ -348,16 +225,7 @@ Use button group as toggle for change the view between two states.
 For on and off actions, use the <Link withoutSpacing href="/?path=/docs/inputs-toggle--overview">Toggle component</Link>.
 
 <Canvas>
-  <Story name="Button group as toggle">
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      value={1}
-      options={[
-        { value: 1, text: "Grid" },
-        { value: 2, text: "List" }
-      ]}
-    />
-  </Story>
+  <Story of={ButtonGroupStories.ButtonGroupAsToggle} />
 </Canvas>
 
 ## Related components

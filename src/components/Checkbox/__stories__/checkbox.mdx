@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import Checkbox from "../Checkbox";
 import { Link, createComponentTemplate } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -8,11 +8,13 @@ import {
   TOGGLE
 } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { TipAmIUsingTheRightComponent } from "./checkbox.stories.helpers";
 import "./checkbox.stories.scss";
+import * as CheckboxStories from "./checkbox.stories";
 
 export const metaSettings = createStoryMetaSettingsDecorator({ component: Checkbox });
 
-<Meta title="Inputs/Checkbox" component={Checkbox} decorators={metaSettings.decorators} />
+<Meta of={CheckboxStories} />
 
 export const checkboxTemplate = createComponentTemplate(Checkbox);
 
@@ -32,9 +34,7 @@ export const checkboxTemplate = createComponentTemplate(Checkbox);
 Checkboxes allow users to select one or more items from a set of options.
 
 <Canvas>
-  <Story name="Overview" args={{ label: "Option", defaultChecked: true }}>
-    {checkboxTemplate.bind({})}
-  </Story>
+  <Story of={CheckboxStories.Overview} />
 </Canvas>
 
 ## Props
@@ -59,13 +59,7 @@ Checkboxes allow users to select one or more items from a set of options.
   ]}
 />
 
-<Tip title="Am I using the right component?">
-  For settings that are immediately applied, consider using a
-  <Link href="/?path=/docs/inputs-toggle--overview" size={Link.sizes.SMALL}>
-    toggle switch
-  </Link>
-  instead.
-</Tip>
+<TipAmIUsingTheRightComponent />
 
 ## Variants
 
@@ -74,14 +68,7 @@ Checkboxes allow users to select one or more items from a set of options.
 Has 4 states: regular, hover, selected, and disabled.
 
 <Canvas>
-  <Story name="States">
-    <Checkbox label="Regular" />
-    <Checkbox label="Selected" checked />
-    <Checkbox label="Indeterminate" indeterminate />
-    <Checkbox label="Disabled" disabled />
-    <Checkbox label="Disabled checked" disabled checked />
-    <Checkbox label="Disabled indeterminate" disabled indeterminate />
-  </Story>
+  <Story of={CheckboxStories.States} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -110,9 +97,7 @@ Has 4 states: regular, hover, selected, and disabled.
         description: (
           <>
             Don't use checkboxes when only one item can be selected from a list. Use
-            <Link href="/?path=/docs/inputs-radiobutton--overview">
-              radio buttons
-            </Link>
+            <Link href="/?path=/docs/inputs-radiobutton--overview">radio buttons</Link>
             instead.
           </>
         )
@@ -196,22 +181,7 @@ Has 4 states: regular, hover, selected, and disabled.
 Allows the user to choose a single option. For example: accept terms of use.
 
 <Canvas>
-  <Story name="Single checkbox">
-    <Checkbox
-      checked
-      label={
-        <>
-          I agree to the
-          <Link size={Link.sizes.SMALL}>Terms of Service</Link>
-          and{" "}
-          <Link size={Link.sizes.SMALL} withoutSpacing>
-            Privacy Policy
-          </Link>
-          .
-        </>
-      }
-    />
-  </Story>
+  <Story of={CheckboxStories.SingleCheckbox} />
 </Canvas>
 
 ## Related components
