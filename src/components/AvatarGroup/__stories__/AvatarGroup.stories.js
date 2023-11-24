@@ -1,8 +1,6 @@
-import { useCallback, useState } from "react";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { UsageGuidelines, Link, StoryDescription } from "vibe-storybook-components";
+import { useCallback, useState } from "@storybook/addons";
+import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { person1, person2, person3 } from "./assets";
 import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
@@ -12,12 +10,12 @@ import Slider from "../../Slider/Slider";
 import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./AvatarGroup.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup,
   enumPropNamesArray: ["type", "size"] // List enum props here
 });
 
-export const avatarGroupTemplate = ({ persons, ...args }) => {
+const avatarGroupTemplate = ({ persons, ...args }) => {
   return (
     <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
       <Avatar type={Avatar.types.IMG} src={persons.person1} ariaLabel="Hadas Fahri" />
@@ -37,68 +35,28 @@ export const avatarGroupTemplate = ({ persons, ...args }) => {
   );
 };
 
-<Meta
-  title="Media/Avatar/AvatarGroup"
-  component={AvatarGroup}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+export default {
+  title: "Media/Avatar/AvatarGroup",
+  component: AvatarGroup,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-# AvatarGroup
+export const Overview = {
+  render: avatarGroupTemplate.bind(),
+  name: "Overview",
 
-- [Overview](#overview)
-- [Props](#props)
-- [Variants](#variants)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
+  args: {
+    persons: {
+      person1: window.location.origin + "/" + person1,
+      person2: window.location.origin + "/" + person2,
+      person3: window.location.origin + "/" + person3
+    }
+  }
+};
 
-## Overview
-
-Use this component if you need to stack avatars as a group.
-
-<Canvas>
-  <Story
-    name="Overview"
-    args={{
-      persons: {
-        person1: window.location.origin + "/" + person1,
-        person2: window.location.origin + "/" + person2,
-        person3: window.location.origin + "/" + person3
-      }
-    }}
-  >
-    {avatarGroupTemplate.bind()}
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    <>
-      Use <Link href="/?path=/docs/popover-tooltip--overview">tooltip</Link> component while hovering on the counter
-      when you need only to display the content
-    </>,
-    <>
-      If clickable and navigable list is required on counter, use{" "}
-      <Link href="/?path=/docs/navigation-menu-menu--overview">menu</Link> component
-    </>
-  ]}
-/>
-
-## Variants
-
-### Size
-
-As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
-
-<Canvas>
-  <Story name="Size">
+export const Size = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
       <StoryDescription description="Large" vertical align={Flex.align.START}>
         <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3}>
@@ -131,22 +89,22 @@ As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Color variants
+  name: "Size"
+};
 
-You can use Light or Dark counter color to maintain visual hierarchy.
-
-<Canvas>
-  <Story name="Color variants">
+export const ColorVariants = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
       <StoryDescription description="Light" vertical align={Flex.align.START}>
         <AvatarGroup
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           max={3}
-          counterProps={{ color: Counter.colors.LIGHT }}
+          counterProps={{
+            color: Counter.colors.LIGHT
+          }}
         >
           <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
           <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
@@ -161,7 +119,9 @@ You can use Light or Dark counter color to maintain visual hierarchy.
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           max={3}
-          counterProps={{ color: Counter.colors.DARK }}
+          counterProps={{
+            color: Counter.colors.DARK
+          }}
         >
           <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
           <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
@@ -172,34 +132,35 @@ You can use Light or Dark counter color to maintain visual hierarchy.
         </AvatarGroup>
       </StoryDescription>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Custom counter
+  name: "Color variants"
+};
 
-You can pass `counterProps` to specify counter params.
-
-<Canvas>
-  <Story name="Custom counter">
+export const CustomCounter = {
+  render: () => (
     <AvatarGroup
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       max={3}
-      counterProps={{ count: 100500, color: Counter.colors.DARK, prefix: "", maxDigits: 5 }}
+      counterProps={{
+        count: 100500,
+        color: Counter.colors.DARK,
+        prefix: "",
+        maxDigits: 5
+      }}
     >
       <Avatar src={person1} ariaLabel="Hadas Fahri" />
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  </Story>
-</Canvas>
+  ),
 
-### Grid tooltip
+  name: "Custom counter"
+};
 
-When tooltip text for additional avatars is not passed, extra avatars will be displayed in a grid mode.
-
-<Canvas>
-  <Story name="Grid tooltip">
+export const GridTooltip = {
+  render: () => (
     <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3}>
       <Avatar src={person1} />
       <Avatar src={person2} />
@@ -220,150 +181,162 @@ When tooltip text for additional avatars is not passed, extra avatars will be di
       <Avatar src={person2} />
       <Avatar src={person3} />
     </AvatarGroup>
-  </Story>
-</Canvas>
+  ),
 
-### Max amount to display
+  name: "Grid tooltip"
+};
 
-Choose the maximum amount of avatars you want to display.
+export const MaxAmountToDisplay = {
+  render: () => {
+    const [max, setMax] = useState(3);
 
-<Canvas>
-  <Story name="Max amount to display">
-    {() => {
-      const [max, setMax] = useState(3);
-      return (
-        <Flex
-          direction={Flex.directions.COLUMN}
-          gap={Flex.gaps.MEDIUM}
-          align={Flex.align.START}
-          className={styles.sliderCountContainer}
-        >
-          <Slider
-            size={Slider.sizes.SMALL}
-            min={1}
-            max={16}
-            defaultValue={max}
-            onChange={value => setMax(value)}
-            prefix="1"
-            postfix="16"
-            valueText={`${max}`}
-          />
-          <AvatarGroup size={Avatar.sizes.LARGE} max={max}>
-            <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-            <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-            <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-            <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-            <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-            <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-            <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-            <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-            <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-            <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-            <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-            <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-            <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-            <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-            <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-            <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
+    return (
+      <Flex
+        direction={Flex.directions.COLUMN}
+        gap={Flex.gaps.MEDIUM}
+        align={Flex.align.START}
+        className={styles.sliderCountContainer}
+      >
+        <Slider
+          size={Slider.sizes.SMALL}
+          min={1}
+          max={16}
+          defaultValue={max}
+          onChange={value => setMax(value)}
+          prefix="1"
+          postfix="16"
+          valueText={`${max}`}
+        />
+        <AvatarGroup size={Avatar.sizes.LARGE} max={max}>
+          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+          <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+          <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+          <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+          <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
+        </AvatarGroup>
+      </Flex>
+    );
+  },
+
+  name: "Max amount to display"
+};
+
+export const HoverVsClickable = {
+  render: () => {
+    const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
+
+    const avatarOnClick = useCallback((_event, avatarId) => {
+      setLastClickedAvatarId(avatarId);
+    }, []);
+
+    const avatarsProps = [
+      {
+        type: Avatar.types.IMG,
+        src: person1,
+        ariaLabel: "Hadas Fahri"
+      },
+      {
+        type: Avatar.types.IMG,
+        src: person2,
+        ariaLabel: "Sergey Roytman"
+      },
+      {
+        type: Avatar.types.IMG,
+        src: person3,
+        ariaLabel: "Yossi Saadi"
+      }
+    ];
+
+    const getDummyAvatarsProps = useCallback(multiplier => {
+      let result = [];
+
+      for (let i = 0; i <= multiplier; ++i) {
+        result = result.concat(avatarsProps);
+      }
+
+      return result;
+    }, []);
+
+    return (
+      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+        <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+          <AvatarGroup
+            size={Avatar.sizes.LARGE}
+            max={3}
+            counterTooltipCustomProps={{
+              position: Tooltip.positions.BOTTOM
+            }}
+          >
+            {getDummyAvatarsProps(3).map(avatarProps => (
+              <Avatar {...avatarProps} />
+            ))}
           </AvatarGroup>
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Hover vs Clickable
-
-If avatars are clickable, they will be displayed via<Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link>and user will be able to navigate each additional item.
-Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
-
-<Canvas>
-  <Story name="Hover vs Clickable">
-    {() => {
-      const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
-      const avatarOnClick = useCallback((_event, avatarId) => {
-        setLastClickedAvatarId(avatarId);
-      }, []);
-      const avatarsProps = [
-        { type: Avatar.types.IMG, src: person1, ariaLabel: "Hadas Fahri" },
-        { type: Avatar.types.IMG, src: person2, ariaLabel: "Sergey Roytman" },
-        { type: Avatar.types.IMG, src: person3, ariaLabel: "Yossi Saadi" }
-      ];
-      const getDummyAvatarsProps = useCallback(multiplier => {
-        let result = [];
-        for (let i = 0; i <= multiplier; ++i) {
-          result = result.concat(avatarsProps);
-        }
-        return result;
-      }, []);
-      return (
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-          <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
-            <AvatarGroup
-              size={Avatar.sizes.LARGE}
-              max={3}
-              counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
-            >
-              {getDummyAvatarsProps(3).map(avatarProps => (
-                <Avatar {...avatarProps} />
+        </StoryDescription>
+        <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+          <Flex>
+            <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
+              {getDummyAvatarsProps(3).map((avatarProps, index) => (
+                <Avatar {...avatarProps} onClick={avatarOnClick} id={index} />
               ))}
             </AvatarGroup>
-          </StoryDescription>
-          <StoryDescription description="Counter click" vertical align={Flex.align.START}>
-            <Flex>
-              <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-                {getDummyAvatarsProps(3).map((avatarProps, index) => (
-                  <Avatar {...avatarProps} onClick={avatarOnClick} id={index} />
-                ))}
-              </AvatarGroup>
-              <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id: {lastClickedAvatarId}</div>
-            </Flex>
-          </StoryDescription>
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
+            <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id:{lastClickedAvatarId}</div>
+          </Flex>
+        </StoryDescription>
+      </Flex>
+    );
+  },
 
-### Virtualized list
+  name: "Hover vs Clickable"
+};
 
-Should be used only to display large amount of avatars in default counter tooltip
+export const VirtualizedList = {
+  render: () => {
+    const avatars = [
+      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />,
+      <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />,
+      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+    ];
 
-<Canvas>
-  <Story name="Virtualized list">
-    {() => {
-      const avatars = [
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />,
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />,
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
-      ];
-      const getDummyAvatars = multiplier => {
-        let result = [];
-        for (let i = 0; i < multiplier; ++i) {
-          result = result.concat(avatars);
-        }
-        return result;
-      };
-      return (
-        <AvatarGroup size={Avatar.sizes.LARGE} max={3} counterTooltipIsVirtualizedList={true}>
-          {getDummyAvatars(334)}
-        </AvatarGroup>
-      );
-    }}
-  </Story>
-</Canvas>
+    const getDummyAvatars = multiplier => {
+      let result = [];
 
-### Counter custom tooltip content
+      for (let i = 0; i < multiplier; ++i) {
+        result = result.concat(avatars);
+      }
 
-Counter tooltip props can be specified in order to render tooltip with custom content.
+      return result;
+    };
 
-<Canvas>
-  <Story name="Counter custom tooltip content">
+    return (
+      <AvatarGroup size={Avatar.sizes.LARGE} max={3} counterTooltipIsVirtualizedList={true}>
+        {getDummyAvatars(334)}
+      </AvatarGroup>
+    );
+  },
+
+  name: "Virtualized list"
+};
+
+export const CounterCustomTooltipContent = {
+  render: () => (
     <AvatarGroup
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       max={3}
-      counterTooltipCustomProps={{ content: "... and plenty more employees" }}
+      counterTooltipCustomProps={{
+        content: "... and plenty more employees"
+      }}
     >
       <Avatar src={person1} ariaLabel="Hadas Fahri" />
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
@@ -372,15 +345,13 @@ Counter tooltip props can be specified in order to render tooltip with custom co
       <Avatar src={person2} ariaLabel="Sergey Roytman" />
       <Avatar src={person3} ariaLabel="Yossi Saadi" />
     </AvatarGroup>
-  </Story>
-</Canvas>
+  ),
 
-## Use cases and examples
+  name: "Counter custom tooltip content"
+};
 
-### Last seen users
-
-<Canvas>
-  <Story name="Last seen users">
+export const LastSeenUsers = {
+  render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM}>
       <div>Last seen</div>
       <AvatarGroup size={Avatar.sizes.MEDIUM} max={3}>
@@ -392,13 +363,13 @@ Counter tooltip props can be specified in order to render tooltip with custom co
         <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
       </AvatarGroup>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Displaying teams
+  name: "Last seen users"
+};
 
-<Canvas>
-  <Story name="Displaying teams">
+export const DisplayingTeams = {
+  render: () => (
     <table>
       <thead>
         <tr>
@@ -423,7 +394,13 @@ Counter tooltip props can be specified in order to render tooltip with custom co
           </td>
           <td align="left">Developer</td>
           <td align="left">
-            <AvatarGroup size={Avatar.sizes.MEDIUM} max={2} counterProps={{ ariaLabelItemsName: "teams" }}>
+            <AvatarGroup
+              size={Avatar.sizes.MEDIUM}
+              max={2}
+              counterProps={{
+                ariaLabelItemsName: "teams"
+              }}
+            >
               <Avatar
                 type={Avatar.types.TEXT}
                 text="T1"
@@ -447,9 +424,7 @@ Counter tooltip props can be specified in order to render tooltip with custom co
         </tr>
       </tbody>
     </table>
-  </Story>
-</Canvas>
+  ),
 
-## Related components
-
-<RelatedComponents componentsNames={[AVATAR, TOOLTIP, COUNTER]} />
+  name: "Displaying teams"
+};

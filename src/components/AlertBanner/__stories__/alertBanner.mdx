@@ -1,28 +1,18 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { ComponentRules, UsageGuidelines, Link } from "vibe-storybook-components";
 import AlertBanner from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
-import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
-import { Link } from "vibe-storybook-components";
 import {
   ATTENTION_BOX,
   TOAST,
   TOOLTIP
 } from "../../../storybook/components/related-components/component-description-map";
-import "./alertBanner.stories.scss";
+import { TipWhenToUse } from "./alertBanner.stories.helpers";
 import * as AlertBannerStories from "./alertBanner.stories";
 
 <Meta of={AlertBannerStories} />
-
-export const alertBannerTemplate = args => {
-  return (
-    <AlertBanner {...args}>
-      <AlertBannerText text={args.bannerText} />
-      <AlertBannerLink text={args.linkText} href="https://monday.com" />
-    </AlertBanner>
-  );
-};
 
 # Alert Banner
 
@@ -57,12 +47,7 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
   ]}
 />
 
-<Tip>
-  Alert banners should be reserved only for high-signal, system-level alert messages. For in-app notifications use a
-  <Link href="/?path=/docs/feedback-toast--overview" size={Link.sizes.SMALL} withoutSpacing>
-    Toast.
-  </Link>
-</Tip>
+<TipWhenToUse />
 
 ## Variants
 

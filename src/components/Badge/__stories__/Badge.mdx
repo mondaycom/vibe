@@ -1,27 +1,15 @@
 import Badge from "../Badge";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import person from "./assets/person.png";
-import { ExternalPage, WhatsNew } from "../../Icon/Icons";
+import { WhatsNew } from "../../Icon/Icons";
 import Link from "../../Link/Link";
 import Button from "../../Button/Button";
-import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
 import Indicator from "../Indicator/Indicator";
+import * as BadgeStories from "./Badge.stories";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: Badge,
-  enumPropNamesArray: ["anchor", "alignment", "type"],
-  iconPropNamesArray: [],
-  actionPropsArray: [],
-  ignoreControlsPropNamesArray: ["children"]
-});
-
-<Meta title="Feedback/Badge" component={Badge} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
-
-export const badgeTemplate = createComponentTemplate(Badge);
+<Meta of={BadgeStories} />
 
 # Badge
 
@@ -38,9 +26,7 @@ export const badgeTemplate = createComponentTemplate(Badge);
 Badge component is responsible for layout an indicator/counter on a child component
 
 <Canvas>
-  <Story name="Overview" args={{ children: <Button leftIcon={WhatsNew}>What's new</Button> }}>
-    {badgeTemplate.bind({})}
-  </Story>
+  <Story of={BadgeStories.Overview} />
 </Canvas>
 
 ## Props
@@ -54,20 +40,7 @@ Badge component is responsible for layout an indicator/counter on a child compon
 Badge can be of type Indicator or type Counter
 
 <Canvas>
-  <Story name="States">
-    <Flex gap={Flex.gaps.LARGE} style={{ flex: 1 }} justify={Flex.justify.START} align={Flex.align.START}>
-      <StoryDescription description="Indicator" vertical align={Flex.align.START}>
-        <Badge>
-          <Button leftIcon={WhatsNew}>What's new</Button>
-        </Badge>
-      </StoryDescription>
-      <StoryDescription description="Counter" vertical align={Flex.align.START}>
-        <Badge type={Badge.types.COUNTER} count={100} maxDigits={2}>
-          <Button leftIcon={WhatsNew}>What's new</Button>
-        </Badge>
-      </StoryDescription>
-    </Flex>
-  </Story>
+  <Story of={BadgeStories.States} />
 </Canvas>
 
 ### Button
@@ -75,11 +48,7 @@ Badge can be of type Indicator or type Counter
 When using Badge on a Button element, use alignment of RECTANGULAR in order to attach it to the element
 
 <Canvas>
-  <Story name="Button">
-    <Badge alignment={Badge.alignments.RECTANGULAR}>
-      <Button leftIcon={ExternalPage}>Button</Button>
-    </Badge>
-  </Story>
+  <Story of={BadgeStories.ButtonStory} />
 </Canvas>
 
 ### Avatar
@@ -87,11 +56,7 @@ When using Badge on a Button element, use alignment of RECTANGULAR in order to a
 When using Badge on an Avatar element, use alignment of CIRCULAR in order to attach it to the element
 
 <Canvas>
-  <Story name="Avatar">
-    <Badge alignment={Badge.alignments.CIRCULAR}>
-      <Avatar size={Avatar.sizes.LARGE} src={person} type={Avatar.types.IMG} />
-    </Badge>
-  </Story>
+  <Story of={BadgeStories.AvatarStory} />
 </Canvas>
 
 ### Inline elements
@@ -99,19 +64,7 @@ When using Badge on an Avatar element, use alignment of CIRCULAR in order to att
 When using Badge on an inline element, use alignment of OUTSIDE in order to attach it to the element
 
 <Canvas>
-  <Story name="Inline elements">
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} align={Flex.align.START}>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="Read more" />
-      </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="What's new" iconPosition={Link.iconPositions.START} icon={WhatsNew} />
-      </Badge>
-      <Badge alignment={Badge.alignments.OUTSIDE}>
-        <Link text="Learn more" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
-      </Badge>
-    </Flex>
-  </Story>
+  <Story of={BadgeStories.InlineElements} />
 </Canvas>
 
 ## Do’s and Don’ts

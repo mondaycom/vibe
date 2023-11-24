@@ -1,15 +1,8 @@
 import { Box } from "../../../components";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { UsageGuidelines, Tip } from "vibe-storybook-components";
-import {
-  DIALOG_CONTENT_CONTAINER,
-  DIVIDER,
-  FLEX
-} from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Box.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Box,
   enumPropNamesArray: [
     "className",
@@ -39,58 +32,27 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   ]
 });
 
-<Meta title="Layout/Box" component={Box} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+export default {
+  title: "Layout/Box",
+  component: Box,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-# Box
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
-Box component is used as a wrapper component.
-
-Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. <br/>It can be used as a container for
-atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
-
-<Canvas>
-  <Story name="Overview">
+export const Overview = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
         Box composite component
       </Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-## Props
+  name: "Overview"
+};
 
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Use as a styled container",
-    "Use to add spacing, borders, and rounded corners to areas of content",
-    "Use as an inner component for spacing or styles"
-  ]}
-/>
-
-<Tip title="Benefits of the Box component">Easily add Vibe styles without adding css</Tip>
-
-## Utility props
-
-### BACKGROUNDS COLORS
-
-<Canvas>
-  <Story name="Background colors">
+export const BackgroundColors = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}>
         Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
@@ -109,13 +71,13 @@ atom based compositions, it can accept all Vibe style related props and have a s
         Box.backgroundColors.INVERTED_COLOR_BACKGROUND
       </Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### TEXT COLORS
+  name: "Background colors"
+};
 
-<Canvas>
-  <Story name="Text Colors">
+export const TextColors = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_TEXT_COLOR</Box>
       <Box
@@ -126,23 +88,23 @@ atom based compositions, it can accept all Vibe style related props and have a s
       </Box>
       <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_TEXT_COLOR</Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### BORDER
+  name: "Text Colors"
+};
 
-<Canvas>
-  <Story name="Border">
+export const Border = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### BORDER COLOR
+  name: "Border"
+};
 
-<Canvas>
-  <Story name="Border Color">
+export const BorderColor = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.UI_BORDER_COLOR}>
         Box.borderColors.UI_BORDER_COLOR
@@ -151,15 +113,13 @@ atom based compositions, it can accept all Vibe style related props and have a s
         Box.borderColors.LAYOUT_BORDER_COLOR
       </Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### ROUNDED CORNERS
+  name: "Border Color"
+};
 
-#### Size props
-
-<Canvas>
-  <Story name="Round Corners">
+export const RoundCorners = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.SMALL}>
         Box.roundeds.SMALL
@@ -171,28 +131,26 @@ atom based compositions, it can accept all Vibe style related props and have a s
         Box.roundeds.BIG
       </Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### SHADOW
+  name: "Round Corners"
+};
 
-<Canvas>
-  <Story name="Shadow">
+export const Shadow = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box shadow={Box.shadows.XS}>Box.shadows.XS</Box>
       <Box shadow={Box.shadows.SMALL}>Box.shadows.SMALL</Box>
       <Box shadow={Box.shadows.MEDIUM}>Box.shadows.MEDIUM</Box>
       <Box shadow={Box.shadows.LARGE}>Box.shadows.LARGE</Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### MARGIN
+  name: "Shadow"
+};
 
-#### Size props
-
-<Canvas>
-  <Story name="Margin">
+export const Margin = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxMarginWrapper}>
         <Box
@@ -263,36 +221,13 @@ atom based compositions, it can accept all Vibe style related props and have a s
         </Box>
       </div>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-#### Property variations per each size:
+  name: "Margin"
+};
 
-```
-margin
-marginX (x axis: left, right)
-marginY (y axis: top, bottom)
-marginTop
-marginEnd
-marginBottom
-marginStart
-```
-
-#### Aligning Auto and none
-
-each property variation can hold additional values for:
-
-```
-AUTO
-NONE
-```
-
-### PADDING
-
-#### Size props
-
-<Canvas>
-  <Story name="Padding">
+export const Padding = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.NONE}>
@@ -335,33 +270,19 @@ NONE
         </Box>
       </div>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-#### Property variations per each size:
+  name: "Padding"
+};
 
-```
-padding
-paddingX (x axis: left, right)
-paddingY (y axis: top, bottom)
-paddingTop
-paddingEnd
-paddingBottom
-paddingStart
-```
-
-### Component Disabled
-
-<Canvas>
-  <Story name="Disabled">
+export const Disabled = {
+  render: () => (
     <div className={styles.boxWrapper}>
       <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR} border={Box.borders.DEFAULT} disabled>
         Box.disabled.DISABLED
       </Box>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-## Related components
-
-<RelatedComponents componentsNames={[FLEX, DIVIDER, DIALOG_CONTENT_CONTAINER]} />
+  name: "Disabled"
+};

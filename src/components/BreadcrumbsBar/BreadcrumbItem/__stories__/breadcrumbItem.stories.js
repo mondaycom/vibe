@@ -1,4 +1,3 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
@@ -6,45 +5,32 @@ import BreadcrumbItem from "../BreadcrumbItem";
 import { Workspace } from "../../../Icon/Icons";
 import "./breadcrumbItem.stories.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbItem,
   iconPropNamesArray: ["icon"]
 });
 
-<Meta
-  title="Navigation/BreadcrumbsBar/BreadcrumbItem"
-  component={BreadcrumbItem}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
 
-export const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
+export default {
+  title: "Navigation/BreadcrumbsBar/BreadcrumbItem",
+  component: BreadcrumbItem,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-# BreadcrumbItem
+export const Overview = {
+  render: breadcrumbItemTemplate.bind({}),
+  name: "Overview",
 
-- [Overview](#overview)
-- [Props](#props)
-- [Variants](#variants)
-- [Feedback](#feedback)
+  args: {
+    text: "Workspace",
+    icon: Workspace
+  }
+};
 
-## Overview
-
-<Canvas>
-  <Story name="Overview" args={{ text: "Workspace", icon: Workspace }}>
-    {breadcrumbItemTemplate.bind({})}
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Variants
-
-### States
-
-<Canvas>
-  <Story name="States">
+export const States = {
+  render: () => (
     <div className="monday-storybook-breadcrumb-item_column-wrapper">
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Link</span>
@@ -77,13 +63,13 @@ export const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
         </BreadcrumbsBar>
       </div>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### With icon
+  name: "States"
+};
 
-<Canvas>
-  <Story name="With icon">
+export const WithIcon = {
+  render: () => (
     <div className="monday-storybook-breadcrumb-item_column-wrapper">
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>With Icon</span>
@@ -98,5 +84,7 @@ export const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
         </BreadcrumbsBar>
       </div>
     </div>
-  </Story>
-</Canvas>
+  ),
+
+  name: "With icon"
+};
