@@ -1,23 +1,9 @@
-import MenuGridItem from "../MenuGridItem";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettingsDecorator } from "../../../../storybook";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { MENU, MENU_BUTTON } from "../../../../storybook/components/related-components/component-description-map";
-import { menuGridItemInSubMenus, menuGridItemTemplate, menuGridItemWithDisabled } from "./MenuGridItem.stories";
-import "./MenuGridItem.stories.scss";
+import { TipOtherMenuItemComponents } from "./MenuGridItem.stories.helpers";
+import * as MenuGridItemStories from "./MenuGridItem.stories";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: MenuGridItem,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
-});
-
-<Meta
-  title="Navigation/Menu/MenuGridItem"
-  component={MenuGridItem}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+<Meta of={MenuGridItemStories} />
 
 # MenuGridItem
 
@@ -34,7 +20,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
 able to interact and navigate into and from the grid in a natural way.
 
 <Canvas>
-  <Story name="Overview">{menuGridItemTemplate.bind({})}</Story>
+  <Story of={MenuGridItemStories.Overview} />
 </Canvas>
 
 ## Props
@@ -68,7 +54,7 @@ Since <code>MenuGridItem</code> should be used only inside a <code>Menu</code>, 
   ]}
 />
 
-<Tip title="Looking for a single button in a menu?">Check the MenuItem or MenuItemButton components</Tip>
+<TipOtherMenuItemComponents />
 
 ## Use cases and examples
 
@@ -77,7 +63,7 @@ Since <code>MenuGridItem</code> should be used only inside a <code>Menu</code>, 
 Disabled items will be "skipped" when using keyboard navigation. Try it for yourself!
 
 <Canvas>
-  <Story name="With disabled states">{menuGridItemWithDisabled.bind({})}</Story>
+  <Story of={MenuGridItemStories.WithDisabledStates} />
 </Canvas>
 
 ### Inside sub-menus
@@ -85,7 +71,7 @@ Disabled items will be "skipped" when using keyboard navigation. Try it for your
 Keyboard navigation is also supported in sub-menus
 
 <Canvas>
-  <Story name="Inside sub-menus">{menuGridItemInSubMenus.bind({})}</Story>
+  <Story of={MenuGridItemStories.InsideSubMenus} />
 </Canvas>
 
 ## Related components
