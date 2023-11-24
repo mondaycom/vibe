@@ -1,28 +1,21 @@
-import { useCallback, useRef, useState } from "react";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { useCallback, useRef, useState } from "@storybook/addons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { ComponentRules, UsageGuidelines, Link, Tip } from "vibe-storybook-components";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";
 import ModalHeader from "../ModalHeader/ModalHeader";
-import {
-  ATTENTION_BOX,
-  TOAST,
-  TOOLTIP
-} from "../../../storybook/components/related-components/component-description-map";
 import Modal from "../Modal";
-import { DialogAsModalBadExample, ModalExampleWrapper, useHelperOpenModalButton } from "./helpers";
+import { useHelperOpenModalButton } from "./modal.stories.helpers.js";
 import EditableHeading from "../../../components/EditableHeading/EditableHeading";
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
 import { Upgrade } from "../../Icon/Icons";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
   enumPropNamesArray: ["width"], // List enum props here
   actionPropsArray: ["onClose"] // List the component's actions here
 });
 
-export const modalTemplate = ({ onClose, ...modalProps }) => {
+const modalTemplate = ({ onClose, ...modalProps }) => {
   // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
   // Control if modal is display or hidden
   const [show, setShow] = useState(false);
@@ -60,92 +53,44 @@ export const modalTemplate = ({ onClose, ...modalProps }) => {
   );
 };
 
-<Meta
-  title="Feedback/Modal"
-  component={Modal}
-  subcomponents={{ ModalHeader, ModalContent, ModalFooter }}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+export default {
+  title: "Feedback/Modal",
+  component: Modal,
+  subcomponents: {
+    ModalHeader,
+    ModalContent,
+    ModalFooter
+  },
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-# Modal
+export const Overview = {
+  render: modalTemplate.bind({}),
+  name: "Overview"
+};
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
-Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
-Use modal for short and non-frequent tasks. For common tasks consider using the main flow.
-
-<Canvas>
-  <Story name="Overview">{modalTemplate.bind({})}</Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Modals appear centered on the page, with a visible backdrop dimming the rest of the page for focus.",
-    "Modals height is dynamic according to its content.",
-    "All modals must have a title and a close button",
-    "By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons."
-  ]}
-/>
-
-<Tip>
-  Set <code>alertDialog</code> to <code>true</code> in order to allow closing the modal only by the close buttons and
-  not by ESC or by clicking outside.
-</Tip>
-<Tip>
-  For creating a popover positioned next to other components, like customized menus, check out our
-  <Link hredf="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL}>
-    Dialog
-  </Link>
-  component.
-</Tip>
-
-## Variants
-
-### Sizes
-
-<Canvas>
-  <Story name="Width variants - Normal">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for this example
+export const WidthVariantsNormal = {
+  // Boilerplate for creating a modal, not relevant for this example
+  render:
+    // Internal helper, not part of the API
+    // internal helper, not part of the API
+    // Modal with default width variant
+    // Width prop effects on the modal width
+    () => {
       const [show, setShow] = useState(false);
-      const options = [
-        { value: 1, label: "Option 1" },
-        { value: 2, label: "Option 2" },
-        { value: 3, label: "Option 3" },
-        { value: 12, label: "Option 1" },
-        { value: 22, label: "Option 2" },
-        { value: 32, label: "Option 3" },
-        { value: 14, label: "Option 1" },
-        { value: 25, label: "Option 2" },
-        { value: 36, label: "Option 3" },
-        { value: 17, label: "Option 1" },
-        { value: 28, label: "Option 2" },
-        { value: 388, label: "Option 3" }
-      ];
       const openModalButtonRef = useRef(null);
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({ title: "Default", setShow, openModalButtonRef }); // internal helper, not part of the API
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Default",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal with default width variant
         <>
           {openModalButton}
           <Modal
@@ -154,7 +99,6 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            // Width prop effects on the modal width
             width={Modal.width.DEFAULT}
             contentSpacing
           >
@@ -168,20 +112,32 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
           </Modal>
         </>
       );
-    }}
-  </Story>
-  <Story name="Width variants - Full">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for this example
+    },
+
+  name: "Width variants - Normal"
+};
+
+export const WidthVariantsFull = {
+  // Boilerplate for creating a modal, not relevant for this example
+  render:
+    // Internal helper, not part of the API
+    // Modal with full width variant
+    // Width prop effects on the modal width
+    () => {
       const [show, setShow] = useState(false);
       const openModalButtonRef = useRef(null);
+
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({ title: "Full size", setShow, openModalButtonRef });
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Full size",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal with full width variant
         <>
           {openModalButton}
           <Modal
@@ -190,7 +146,6 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            // Width prop effects on the modal width
             width={Modal.width.FULL_WIDTH}
             contentSpacing
           >
@@ -204,20 +159,32 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
           </Modal>
         </>
       );
-    }}
-  </Story>
-  <Story name="Width variants - custom">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for this example
+    },
+
+  name: "Width variants - Full"
+};
+
+export const WidthVariantsCustom = {
+  // Boilerplate for creating a modal, not relevant for this example
+  render:
+    // Internal helper, not part of the API
+    // Modal with full width variant
+    // Width prop effects on the modal width
+    () => {
       const [show, setShow] = useState(false);
       const openModalButtonRef = useRef(null);
+
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({ title: "Custom size (i.e. 720px)", setShow, openModalButtonRef });
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Custom size (i.e. 720px)",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal with full width variant
         <>
           {openModalButton}
           <Modal
@@ -226,7 +193,6 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
             triggerElement={openModalButtonRef.current}
             show={show}
             onClose={closeModal}
-            // Width prop effects on the modal width
             width={"720px"}
             contentSpacing
           >
@@ -240,31 +206,32 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
           </Modal>
         </>
       );
-    }}
-  </Story>
-</Canvas>
+    },
 
-### Modal header with an icon
+  name: "Width variants - custom"
+};
 
-Use the ModalHeader component to display a Header with an icon
-
-<Canvas>
-  <Story name="Modal with icon">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for add icon to the header
+export const ModalWithIcon = {
+  // Boilerplate for creating a modal, not relevant for add icon to the header
+  render:
+    // Internal helper, not part of the API
+    // Modal header with an icon example
+    /** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/
+    () => {
       const [show, setShow] = useState(false);
       const openModalButtonRef = useRef(null);
+
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({
-          title: "Header with icon",
-          setShow,
-          openModalButtonRef
-        });
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Header with icon",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal header with an icon example
         <div>
           {openModalButton}
           <Modal
@@ -277,7 +244,7 @@ Use the ModalHeader component to display a Header with an icon
             width={Modal.width.DEFAULT}
             contentSpacing
           >
-            {/** Please implement your custom Modal header and set it as child for adding an Icon to your modal **/}
+            {}
             <ModalHeader title={"Modal Heading"} icon={Upgrade} iconSize={32} />
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons
@@ -289,36 +256,36 @@ Use the ModalHeader component to display a Header with an icon
           </Modal>
         </div>
       );
-    }}
-  </Story>
-</Canvas>
+    },
 
-### Alert Modal
+  name: "Modal with icon"
+};
 
-Use the <code>alertDialog</code> boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by
-clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
-
-<Canvas>
-  <Story name="Alert Modal">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for add icon to the header
+export const AlertModal = {
+  // Boilerplate for creating a modal, not relevant for add icon to the header
+  render:
+    // Internal helper, not part of the API
+    // Modal header with an icon example
+    // this makes your modal as alert dialog
+    () => {
       const [show, setShow] = useState(false);
       const openModalButtonRef = useRef(null);
+
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({
-          title: "Alert dialog",
-          setShow,
-          openModalButtonRef
-        });
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Alert dialog",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal header with an icon example
         <div>
           {openModalButton}
           <Modal
-            alertDialog // this makes your modal as alert dialog
+            alertDialog
             id="story-book-modal"
             title="Alert modal"
             triggerElement={openModalButtonRef.current}
@@ -336,64 +303,32 @@ clicking outside. Use this variant in case of sensitive or important messages, a
           </Modal>
         </div>
       );
-    }}
-  </Story>
-</Canvas>
+    },
 
-## Do’s and Don’ts
+  name: "Alert Modal"
+};
 
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component: (
-          <ModalExampleWrapper bestPractice modalTitle="Modal title" buttonTitle="Click here">
-            Modal content
-          </ModalExampleWrapper>
-        ),
-        description: "Modal must include backdrop element."
-      },
-      negative: {
-        component: <DialogAsModalBadExample />,
-        description: "Don't remove the backdrop element of the modal or the modal's title."
-      }
-    }
-  ]}
-/>
-
-<Tip title="Dev tip">
-  If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
-  correctly, read more about our dropdown in popovers technical pattern{" "}
-  <Link
-    withoutSpacing
-    href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
-    size={Link.sizes.SMALL}
-  >
-    here.
-  </Link>
-</Tip>
-
-## Use cases and examples
-
-### Modal with editable title
-
-<Canvas>
-  <Story name="Modal with editable title">
-    {() => {
-      // Boilerplate for creating a modal, not relevant for add icon to the header
+export const ModalWithEditableTitle = {
+  // Boilerplate for creating a modal, not relevant for add icon to the header
+  render:
+    // Internal helper, not part of the API
+    // Modal header with an icon example
+    /** Please follow the design guidelines when implementing custom title **/
+    () => {
       const [show, setShow] = useState(false);
       const openModalButtonRef = useRef(null);
+
       const closeModal = useCallback(() => {
         setShow(false);
       }, []);
-      const openModalButton = // Internal helper, not part of the API
-        useHelperOpenModalButton({
-          title: "Open modal",
-          setShow,
-          openModalButtonRef
-        });
+
+      const openModalButton = useHelperOpenModalButton({
+        title: "Open modal",
+        setShow,
+        openModalButtonRef
+      });
+
       return (
-        // Modal header with an icon example
         <div>
           {openModalButton}
           <Modal
@@ -405,7 +340,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
             width={Modal.width.DEFAULT}
             contentSpacing
           >
-            {/** Please follow the design guidelines when implementing custom title **/}
+            {}
             <ModalHeader description={"Description text goes here"}>
               <EditableHeading type={EditableHeading.types.H2} value={"Modal title"} />
             </ModalHeader>
@@ -419,10 +354,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
           </Modal>
         </div>
       );
-    }}
-  </Story>
-</Canvas>
+    },
 
-## Related components
-
-<RelatedComponents componentsNames={[TOOLTIP, ATTENTION_BOX, TOAST]} />
+  name: "Modal with editable title"
+};
