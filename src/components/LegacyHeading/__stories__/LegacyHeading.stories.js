@@ -1,7 +1,5 @@
 import Heading from "../LegacyHeading";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate, DeprecatedWarning, Link } from "vibe-storybook-components";
 import Divider from "../../Divider/Divider";
 import Search from "../../Search/Search";
 import Checkbox from "../../Checkbox/Checkbox";
@@ -9,94 +7,34 @@ import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import { Custom } from "../../Icon/Icons";
 import emptyStateExample from "../../../storybook/stories-common-assets/emptyStateExample.svg";
-import {
-  EDITABLE_HEADING,
-  HEADING,
-  TEXT_FIELD
-} from "../../../storybook/components/related-components/component-description-map";
 import styles from "./LegacyHeading.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   enumPropNamesArray: ["type", "size"]
 });
 
-<Meta
-  title="Text/LegacyHeading [deprecated]"
-  component={Heading}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+export default {
+  title: "Text/LegacyHeading [deprecated]",
+  component: Heading,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-export const headingTemplate = createComponentTemplate(Heading);
+export const Overview = {
+  render: () => <Heading value="Hello world" />,
+  name: "Overview",
+  args: {}
+};
 
-# Legacy Heading
-
-<DeprecatedWarning
-  alternativeName="Heading"
-  alternativeLink="/?path=/docs/text-heading--overview"
-  additionalContent={
-    <>
-      {" "}
-      For more information see the <Link
-        href="/?path=/docs/typography-migration-guide--page"
-        target={Link.targets.PARENT}
-        size="small"
-        withoutSpacing
-      >
-        Typography Migration Guide
-      </Link>.
-    </>
-  }
-/>
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
-Heading components are used to title any page sections or sub-sections in top-level page sections.
-
-<Canvas>
-  <Story name="Overview" args={{}}>
-    <Heading value="Hello world" />
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Never include more than one H1 title per web page.",
-    "Heading always should be linked to content (by design and by implementation by passing the heading id to the content's aria-labelledBy attribute)."
-  ]}
-/>
-
-<Tip title="Not what you were looking for?">
-  Please check out our
-  <Link href="/?path=/docs/inputs-editableheading--overview" size={Link.sizes.SMALL}>
-    EditableHeading
-  </Link>
-  component if you would like to allow users to edit the title text.
-</Tip>
-
-## Variants
-
-### Sizes
-
-<Canvas>
-  <Story name="Sizes">
-    <div style={{ display: "flex", flexDirection: "column" }}>
+export const Sizes = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
       <Heading type={Heading.types.h1} value="Hello H1" />
       <Heading type={Heading.types.h1} value="Hello H1 medium" size="medium" />
       <Heading type={Heading.types.h2} value="Hello H2" />
@@ -105,17 +43,20 @@ Heading components are used to title any page sections or sub-sections in top-le
       <Heading type={Heading.types.h4} value="Suggest Edit H4" suggestEditOnHover />
       <Heading type={Heading.types.h5} value="H5 with tooltip" nonEllipsisTooltip="Click to edit" />
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Overflow
+  name: "Sizes"
+};
 
-Our heading component support overflow state.
-When the heading text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
-
-<Canvas>
-  <Story name="Overflow">
-    <div style={{ display: "flex", flexDirection: "column", width: "70%" }}>
+export const Overflow = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "70%"
+      }}
+    >
       <Heading
         type={Heading.types.h2}
         value="Heading without overflow heading without overflow heading without overflow"
@@ -137,16 +78,20 @@ When the heading text is too long and the component includes an ellipsis flag, w
         />
       </div>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### With text highlight
+  name: "Overflow"
+};
 
-Our heading component support text highlight.
-
-<Canvas>
-  <Story name="Text Highlight">
-    <div style={{ display: "flex", flexDirection: "column", width: "70%" }}>
+export const TextHighlight = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "70%"
+      }}
+    >
       <Heading
         type={Heading.types.h2}
         highlightTerm="heading highlight"
@@ -167,33 +112,18 @@ Our heading component support text highlight.
         ellipsisMaxLines={2}
       />
     </div>
-  </Story>
-</Canvas>
+  ),
 
-## Do’s and Don’ts
+  name: "Text Highlight"
+};
 
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component: <Heading value="Hello world" />,
-        description: "Always capitalize the first letter of the first word in the heading."
-      },
-      negative: {
-        component: <Heading value="Hello World" />,
-        description: "Please avoid capitalizing the first letter of each word in the heading."
-      }
-    }
-  ]}
-/>
-
-## Use cases and examples
-
-### Not editable header of a page
-
-<Canvas>
-  <Story name="Not editable header of a page">
-    <div style={{ width: "100%" }}>
+export const NotEditableHeaderOfAPage = {
+  render: () => (
+    <div
+      style={{
+        width: "100%"
+      }}
+    >
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
       <Divider />
       <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
@@ -204,23 +134,32 @@ Our heading component support text highlight.
         </Button>
       </Flex>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Empty state title
+  name: "Not editable header of a page"
+};
 
-<Canvas>
-  <Story name="Empty state title">
+export const EmptyStateTitle = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} aria-labelledby="empty-state-id">
-      <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
+      <img
+        style={{
+          width: "290px"
+        }}
+        src={emptyStateExample}
+        alt=""
+      />
       <Heading type={Heading.types.h2} id="empty-state-id" value="No updates yet for this item" />
-      <span style={{ width: "50%", textAlign: "center" }}>
+      <span
+        style={{
+          width: "50%",
+          textAlign: "center"
+        }}
+      >
         Be the first one to update about progress, mention someone or upload files to share with your team members
       </span>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-## Related components
-
-<RelatedComponents componentsNames={[HEADING, EDITABLE_HEADING, TEXT_FIELD]} />
+  name: "Empty state title"
+};

@@ -1,20 +1,11 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import Link from "../Link.tsx";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { ExternalPage, Gallery, Info, Link as IconLink } from "../../Icon/Icons";
-import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
-import { Link as StorybookLink, createComponentTemplate } from "vibe-storybook-components";
-import "./Link.stories.scss";
+import { ExternalPage, Gallery } from "../../Icon/Icons";
+import { BREADCRUBMS, BUTTON, CHIP } from "../../../storybook/components/related-components/component-description-map";
+import { TipButton } from "./Link.stories.helpers";
+import * as LinkStories from "./Link.stories";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: Link,
-  enumPropNamesArray: ["iconPosition", "target"],
-  iconPropNamesArray: ["icon"]
-});
-
-<Meta title="Navigation/Link" component={Link} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
-
-export const linkTemplate = createComponentTemplate(Link);
+<Meta of={LinkStories} />
 
 # Link
 
@@ -32,9 +23,7 @@ export const linkTemplate = createComponentTemplate(Link);
 Link is an actionable text component with connection to another web pages.
 
 <Canvas>
-  <Story name="Overview" args={{ text: "Read more", href: "https://www.monday.com" }}>
-    {linkTemplate.bind({})}
-  </Story>
+  <Story of={LinkStories.Overview} />
 </Canvas>
 
 ## Props
@@ -51,40 +40,26 @@ Link is an actionable text component with connection to another web pages.
   ]}
 />
 
-<Tip>
-  If you need an action that does not have context with text{" "}
-  <StorybookLink href="/?path=/docs/inputs-combobox--overview" size={StorybookLink.sizes.SMALL} withoutSpacing>
-    Button
-  </StorybookLink>
-  .
-</Tip>
+<TipButton />
 
 ## Variants
 
 ### States
 
 <Canvas>
-  <Story name="States">
-    <Link text="Default" href="https://www.monday.com" />
-  </Story>
+  <Story of={LinkStories.States} />
 </Canvas>
 
 ### Right to left
 
 <Canvas>
-  <Story name="Right to left">
-    <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
-    <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={Info} />
-  </Story>
+  <Story of={LinkStories.RightToLeft} />
 </Canvas>
 
 ### With icons
 
 <Canvas>
-  <Story name="With icons">
-    <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
-    <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
-  </Story>
+  <Story of={LinkStories.WithIcons} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -146,13 +121,7 @@ Link is an actionable text component with connection to another web pages.
 Use this menu to allow a user to either select one or more items from the list.
 
 <Canvas>
-  <Story name="Reference link">
-    <div>
-      Lorem Ipsum has been the industry's{" "}
-      <Link inlineText inheritFontSize text="standard" href="https://www.monday.com" /> dummy text ever since the 1500s,
-      when an unknown printer took a galley of type and scrambled it to make a type specimen book.{" "}
-    </div>
-  </Story>
+  <Story of={LinkStories.ReferenceLink} />
 </Canvas>
 
 ### Shortening texts
@@ -160,13 +129,7 @@ Use this menu to allow a user to either select one or more items from the list.
 Use read more to shorten long paragraphs of text
 
 <Canvas>
-  <Story name="Shortening texts">
-    <div>
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-      galley of type and scrambled it to make a type specimen book.{" "}
-      <Link text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
-    </div>
-  </Story>
+  <Story of={LinkStories.ShorteningTexts} />
 </Canvas>
 
 ## Related components

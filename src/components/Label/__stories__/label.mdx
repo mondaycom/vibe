@@ -1,24 +1,11 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
 import Label from "../Label";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import { Link, MultipleStoryElementsWrapper, createComponentTemplate } from "vibe-storybook-components";
-import "./label.stories.scss";
-import { NOOP } from "../../../utils/function-utils";
+import * as LabelStories from "./label.stories";
+import { TipCheckYourself } from "./label.stories.helpers";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: Label,
-  enumPropNamesArray: ["kind", "color"]
-});
-
-<Meta
-  title="Data display/Label"
-  component={Label}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
-
-export const labelTemplate = createComponentTemplate(Label);
+<Meta of={LabelStories} />
 
 # Label
 
@@ -36,9 +23,7 @@ export const labelTemplate = createComponentTemplate(Label);
 A label indicates the status of an item.
 
 <Canvas>
-  <Story name="Overview" args={{ text: "New" }}>
-    {labelTemplate.bind({})}
-  </Story>
+  <Story of={LabelStories.Overview} />
 </Canvas>
 
 ## Props
@@ -55,65 +40,26 @@ A label indicates the status of an item.
   ]}
 />
 
-<Tip title="Check yourself">
-  Need to count or indicate numbers? Use the
-  <Link href="/?path=/docs/feedback-counter--overview" size={Link.sizes.SMALL}>
-    Counter
-  </Link>
-  component instead.
-</Tip>
+<TipCheckYourself />
 
 ## Variants
 
 ### Kinds
 
 <Canvas>
-  <Story name="States" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" />
-      Fill
-    </div>
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" kind={Label.kinds.LINE} />
-      Outline
-    </div>
-  </Story>
+  <Story of={LabelStories.States} />
 </Canvas>
 
 ### Colors
 
 <Canvas>
-  <Story name="Colors" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
-    <div className="monday-storybook-label_group">
-      <Label text="New" />
-      <Label text="New" kind={Label.kinds.LINE} />
-    </div>
-    <div className="monday-storybook-label_group">
-      <Label text="New" color={Label.colors.NEGATIVE} />
-      <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
-    </div>
-    <div className="monday-storybook-label_group">
-      <Label text="New" color={Label.colors.POSITIVE} />
-      <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
-    </div>
-    <div className="monday-storybook-label_group">
-      <Label text="New" color={Label.colors.DARK} />
-      <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
-    </div>
-  </Story>
+  <Story of={LabelStories.Colors} />
 </Canvas>
 
 ### Clickable
 
 <Canvas>
-  <Story name="Clickable" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" onClick={NOOP} />
-    </div>
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
-    </div>
-  </Story>
+  <Story of={LabelStories.Clickable} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -199,20 +145,7 @@ A label indicates the status of an item.
 In case of visual overload, use the secondary label in order to create hirarchy.
 
 <Canvas>
-  <Story name="Secondary label" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
-    <MultipleStoryElementsWrapper className="monday-storybook-label_column-block">
-      <div className="monday-storybook-label_article">
-        <h5 className="monday-storybook-label_title">Gannt</h5>
-        <Label text="New" kind={Label.kinds.LINE} />
-        <p>Plan, track and present your projects visually using the Gannt chart</p>
-      </div>
-      <div className="monday-storybook-label_article">
-        <h5 className="monday-storybook-label_title">Apps</h5>
-        <Label text="New" kind={Label.kinds.LINE} />
-        <p>Enhance your dashboard with widgets built on the monday apps framework</p>
-      </div>
-    </MultipleStoryElementsWrapper>
-  </Story>
+  <Story of={LabelStories.SecondaryLabel} />
 </Canvas>
 
 ## Related components
