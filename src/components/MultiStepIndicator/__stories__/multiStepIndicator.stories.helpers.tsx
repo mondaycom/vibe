@@ -1,3 +1,5 @@
+import React from "react";
+import { Link, Tip } from "vibe-storybook-components";
 import MultiStepIndicator, { type Step } from "../MultiStepIndicator";
 
 export const firstSteps: Step[] = [
@@ -53,3 +55,17 @@ export const thirdSteps: Step[] = [
     subtitleText: ""
   }
 ];
+
+export const TipNotWhatYouAreLookingFor = () => (
+  <Tip title="Not what you were looking for?">
+    In order to navigate between content without a linear progress, use the
+    <Link href="/?path=/docs/navigation-tabs-tabs--overview" size={Link.sizes.SMALL}>
+      Tabs
+    </Link>
+    or
+    <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL}>
+      Button group
+    </Link>
+    component.
+  </Tip>
+);
