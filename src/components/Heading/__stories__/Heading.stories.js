@@ -1,9 +1,8 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Flex from "../../Flex/Flex";
-import { createComponentTemplate, Link, Tip } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 import Heading from "../Heading";
-import { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID } from "../__tests__/heading-tests-constants";
+import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID } from "../__tests__/heading-tests-constants";
 import { headingOverflowSuite } from "../__tests__/Heading.interactions";
 import Divider from "../../Divider/Divider";
 import Text from "../../Text/Text";
@@ -12,82 +11,34 @@ import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import { Custom } from "../../Icon/Icons";
 import emptyStateExample from "../../../storybook/stories-common-assets/emptyStateExample.svg";
-import {
-  EDITABLE_HEADING,
-  TEXT,
-  HIDDEN_TEXT
-} from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Heading.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta title="Text/Heading" component={Heading} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+const textTemplate = createComponentTemplate(Heading);
 
-export const textTemplate = createComponentTemplate(Heading);
+export default {
+  title: "Text/Heading",
+  component: Heading,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-# Heading
+export const Overview = {
+  render: textTemplate.bind({}),
+  name: "Overview",
 
-- [Overview](#overview)
-- [Import](#import)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
+  args: {
+    children: "Title"
+  }
+};
 
-## Overview
-
-Heading components are used for titles at the top of pages and sub-sections.
-
-<Canvas>
-  <Story name="Overview" args={{ children: "Title" }}>
-    {textTemplate.bind({})}
-  </Story>
-</Canvas>
-
-## Import
-
-The Heading component has been introduced in version 2.0 of Vibe.
-However, the import statement `{Heading}` from 'monday-ui-react-core' is already reserved for the <Link href="/?path=/docs/text-legacyheading--overview">LegacyHeading</Link> component.
-Therefore, the new Heading with the updated API can be accessed using the following import statement:
-
-```javascript
-import { Heading } from "monday-ui-react-core/next";
-```
-
-In the upcoming major release of Vibe packages (3.0), we will remove LegacyHeading from the main entry, and then you will be able to import this Heading component
-just like any other component.
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines guidelines={["Don't include more than one H1 title per web page."]} />
-
-<Tip title="Heading components are not editable">
-  Check out our
-  <Link href="/?path=/docs/inputs-editableheading--overview" size={Link.sizes.SMALL}>
-    EditableHeading
-  </Link>
-  component if you would like to allow users to edit the title text.
-</Tip>
-
-## Variants
-
-### Types and weights
-
-Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and three weights: bold (700), normal (500), light (300)
-
-<Canvas>
-  <Story name="Types and weights">
+export const TypesAndWeights = {
+  render: () => (
     <Flex
       gap={Flex.gaps.SMALL}
       direction={Flex.directions.COLUMN}
@@ -122,20 +73,18 @@ Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and thre
         Light H3 title
       </Heading>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Colors
+  name: "Types and weights"
+};
 
-Heading component comes in four colors: primary, secondary, on primary, on inverted
-
-<Canvas>
-  <Story name="Colors">
+export const Colors = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Heading type={Heading.types.H2} color={Heading.colors.PRIMARY}>
         Primary title
       </Heading>
-      <Heading type={Heading.types.H2} type={Heading.types.H2} type={Heading.types.H2} color={Heading.colors.SECONDARY}>
+      <Heading type={Heading.types.H2} color={Heading.colors.SECONDARY}>
         Secondary title
       </Heading>
       <Heading
@@ -157,24 +106,21 @@ Heading component comes in four colors: primary, secondary, on primary, on inver
         On inverted title
       </Heading>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Overflow
+  name: "Colors"
+};
 
-Our Heading component supports overflow state.
-When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
-
-We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
-
-<Canvas>
-  <Story name="Overflow" play={headingOverflowSuite}>
+export const Overflow = {
+  render: () => (
     <Flex
       id={OVERFLOW_TITLE_CONTAINER_ID}
       direction={Flex.directions.COLUMN}
       gap={Flex.gaps.MEDIUM}
       align={Flex.align.STRETCH}
-      style={{ width: "480px" }}
+      style={{
+        width: "480px"
+      }}
     >
       <Heading type={Heading.types.H2} ellipsis={false}>
         Heading without overflow
@@ -197,33 +143,19 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
         </Heading>
       </div>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-## Do’s and Don’ts
+  name: "Overflow",
+  play: headingOverflowSuite
+};
 
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component: <Heading>Hello world</Heading>,
-        description: "Always capitalize the first letter of the first word in the heading."
-      },
-      negative: {
-        component: <Heading>Hello World</Heading>,
-        description: "Please avoid capitalizing the first letter of each word in the heading."
-      }
-    }
-  ]}
-/>
-
-## Use cases and examples
-
-### Built-in page header (not editable)
-
-<Canvas>
-  <Story name="Built-in page header (not editable)">
-    <div style={{ width: "100%" }}>
+export const BuiltInPageHeaderNotEditable = {
+  render: () => (
+    <div
+      style={{
+        width: "100%"
+      }}
+    >
       <Heading type={Heading.types.H1} id="my-work-id">
         My work
       </Heading>
@@ -236,25 +168,37 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
         </Button>
       </Flex>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Empty state heading
+  name: "Built-in page header (not editable)"
+};
 
-<Canvas>
-  <Story name="Empty state heading">
+export const EmptyStateHeading = {
+  render: () => (
     <div className={styles.emptyStateContainer} aria-labelledby="empty-state-id">
-      <img style={{ width: "290px" }} src={emptyStateExample} alt="" />
+      <img
+        style={{
+          width: "290px"
+        }}
+        src={emptyStateExample}
+        alt=""
+      />
       <Heading type={Heading.types.H2} id="empty-state-id" className={styles.emptyStateHeading}>
         No updates yet for this item
       </Heading>
-      <Text element="span" type={Text.types.TEXT1} style={{ width: "50%", textAlign: "center" }} ellipsis={false}>
+      <Text
+        element="span"
+        type={Text.types.TEXT1}
+        style={{
+          width: "50%",
+          textAlign: "center"
+        }}
+        ellipsis={false}
+      >
         Be the first one to update about progress, mention someone or upload files to share with your team members
       </Text>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-## Related components
-
-<RelatedComponents componentsNames={[EDITABLE_HEADING, TEXT, HIDDEN_TEXT]} />
+  name: "Empty state heading"
+};

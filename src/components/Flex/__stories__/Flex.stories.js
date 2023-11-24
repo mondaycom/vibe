@@ -1,22 +1,18 @@
 import Flex from "../Flex";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { Add, Filter, Person, Search, Sort } from "../../Icon/Icons";
 import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";
 import { StoryDescription } from "vibe-storybook-components";
-import { LIST, MENU, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Flex.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Flex,
   enumPropNamesArray: ["justify", "align"],
   actionPropsArray: ["onClick"]
 });
 
-<Meta title="Layout/Flex" component={Flex} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
-
-export const flexTemplate = args => {
+const flexTemplate = args => {
   return (
     <Flex {...args}>
       <Button>Primary</Button>
@@ -26,47 +22,21 @@ export const flexTemplate = args => {
   );
 };
 
-# Flex
+export default {
+  title: "Layout/Flex",
+  component: Flex,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
+export const Overview = {
+  render: flexTemplate.bind({}),
+  name: "Overview",
+  args: {}
+};
 
-## Overview
-
-Use Flex component to position group of sub-elements in one dimension, horizontal or vertical, without being dependent on a custom CSS file for positioning the sub-elements.
-
-<Canvas>
-  <Story name="Overview" args={{}}>
-    {flexTemplate.bind({})}
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Use flex component whenever you want to define a layout with one dimension.",
-    "Flex layout can be either horizontal or vertical.",
-    "You can defined the spacing between the layout children by using our fixed sizes - xs (4px), small (8px), medium (16px) or large( 24px)."
-  ]}
-/>
-
-## Variants
-
-### Directions
-
-<Canvas>
-  <Story name="Directions">
+export const Directions = {
+  render: () => (
     <div className={styles["story-container"]}>
       <StoryDescription description="Horizontal">
         <Flex>
@@ -83,13 +53,13 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
         </Flex>
       </StoryDescription>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Horizontal spacing between items
+  name: "Directions"
+};
 
-<Canvas>
-  <Story name="Horizontal spacing between items">
+export const HorizontalSpacingBetweenItems = {
+  render: () => (
     <div className={styles["story-container"]}>
       <StoryDescription description="No spacing between items">
         <Flex gap={Flex.gaps.NONE}>
@@ -134,14 +104,19 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
         </Flex>
       </StoryDescription>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Vertical spacing between items
+  name: "Horizontal spacing between items"
+};
 
-<Canvas>
-  <Story name="Vertical spacing between items">
-    <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_AROUND}>
+export const VerticalSpacingBetweenItems = {
+  render: () => (
+    <Flex
+      style={{
+        width: "100%"
+      }}
+      justify={Flex.justify.SPACE_AROUND}
+    >
       <StoryDescription description="No spacing between items" vertical>
         <Flex gap={Flex.gaps.NONE} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
@@ -185,105 +160,173 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
         </Flex>
       </StoryDescription>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Horizontal positions
+  name: "Vertical spacing between items"
+};
 
-<Canvas>
-  <Story name="Horizontal positions">
-    <div className={styles["story-container"]} style={{ width: "100%" }}>
+export const HorizontalPositions = {
+  render: () => (
+    <div
+      className={styles["story-container"]}
+      style={{
+        width: "100%"
+      }}
+    >
       <StoryDescription description="Start position">
-        <Flex justify={Flex.justify.START} style={{ width: "100%" }}>
+        <Flex
+          justify={Flex.justify.START}
+          style={{
+            width: "100%"
+          }}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position">
-        <Flex justify={Flex.justify.CENTER} style={{ width: "100%" }}>
+        <Flex
+          justify={Flex.justify.CENTER}
+          style={{
+            width: "100%"
+          }}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position">
-        <Flex justify={Flex.justify.END} style={{ width: "100%" }}>
+        <Flex
+          justify={Flex.justify.END}
+          style={{
+            width: "100%"
+          }}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position">
-        <Flex justify={Flex.justify.SPACE_BETWEEN} style={{ width: "100%" }}>
+        <Flex
+          justify={Flex.justify.SPACE_BETWEEN}
+          style={{
+            width: "100%"
+          }}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position">
-        <Flex justify={Flex.justify.SPACE_AROUND} style={{ width: "100%" }}>
+        <Flex
+          justify={Flex.justify.SPACE_AROUND}
+          style={{
+            width: "100%"
+          }}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Vertical positions
+  name: "Horizontal positions"
+};
 
-<Canvas>
-  <Story name="Vertical positions">
-    <Flex style={{ width: "100%" }} justify={Flex.justify.SPACE_AROUND}>
+export const VerticalPositions = {
+  render: () => (
+    <Flex
+      style={{
+        width: "100%"
+      }}
+      justify={Flex.justify.SPACE_AROUND}
+    >
       <StoryDescription description="Start position" vertical>
-        <Flex justify={Flex.justify.START} style={{ height: "300px" }} direction={Flex.directions.COLUMN}>
+        <Flex
+          justify={Flex.justify.START}
+          style={{
+            height: "300px"
+          }}
+          direction={Flex.directions.COLUMN}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
-        <Flex justify={Flex.justify.CENTER} style={{ height: "300px" }} direction={Flex.directions.COLUMN}>
+        <Flex
+          justify={Flex.justify.CENTER}
+          style={{
+            height: "300px"
+          }}
+          direction={Flex.directions.COLUMN}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position" vertical>
-        <Flex justify={Flex.justify.END} style={{ height: "300px" }} direction={Flex.directions.COLUMN}>
+        <Flex
+          justify={Flex.justify.END}
+          style={{
+            height: "300px"
+          }}
+          direction={Flex.directions.COLUMN}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position" vertical>
-        <Flex justify={Flex.justify.SPACE_BETWEEN} style={{ height: "300px" }} direction={Flex.directions.COLUMN}>
+        <Flex
+          justify={Flex.justify.SPACE_BETWEEN}
+          style={{
+            height: "300px"
+          }}
+          direction={Flex.directions.COLUMN}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position" vertical>
-        <Flex justify={Flex.justify.SPACE_AROUND} style={{ height: "300px" }} direction={Flex.directions.COLUMN}>
+        <Flex
+          justify={Flex.justify.SPACE_AROUND}
+          style={{
+            height: "300px"
+          }}
+          direction={Flex.directions.COLUMN}
+        >
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Support multi lines layout
+  name: "Vertical positions"
+};
 
-You can display a layout that includes multiple lines using the flex component wrap mode.
-This mode allows the layout to break into multiple lines if all the component children cannot fit into one only.
-
-<Canvas>
-  <Story name="Support multi lines layout">
-    <Flex wrap style={{ width: "300px" }} gap={Flex.gaps.SMALL}>
+export const SupportMultiLinesLayout = {
+  render: () => (
+    <Flex
+      wrap
+      style={{
+        width: "300px"
+      }}
+      gap={Flex.gaps.SMALL}
+    >
       <Chips className={styles["flex-chip"]} label="Chip 1" />
       <Chips className={styles["flex-chip"]} label="Chip 2" />
       <Chips className={styles["flex-chip"]} label="Chip 3" />
@@ -292,17 +335,13 @@ This mode allows the layout to break into multiple lines if all the component ch
       <Chips className={styles["flex-chip"]} label="Chip 6" />
       <Chips className={styles["flex-chip"]} label="Chip 7" />
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-## Use cases and examples
+  name: "Support multi lines layout"
+};
 
-### Flex as toolbar container
-
-You can use flex component for create responsive toolbars
-
-<Canvas>
-  <Story name="Flex as toolbar container">
+export const FlexAsToolbarContainer = {
+  render: () => (
     <Flex>
       <Button leftIcon={Add}>Add</Button>
       <Button kind={Button.kinds.TERTIARY} leftIcon={Search}>
@@ -318,9 +357,7 @@ You can use flex component for create responsive toolbars
         Sort
       </Button>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-## Related components
-
-<RelatedComponents componentsNames={[MENU, TABS, LIST]} />
+  name: "Flex as toolbar container"
+};

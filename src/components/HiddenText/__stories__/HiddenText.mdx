@@ -1,15 +1,13 @@
-import HiddenText from "../HiddenText";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate, Tip } from "vibe-storybook-components";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { Tip } from "vibe-storybook-components";
 import {
   CLICKABLE,
   HEADING,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
+import * as HiddenTextStories from "./HiddenText.stories";
 
-<Meta title="Accessibility/HiddenText" component={HiddenText} />
-
-export const hiddenTextTemplate = createComponentTemplate(HiddenText);
+<Meta of={HiddenTextStories} />
 
 # HiddenText
 
@@ -24,9 +22,7 @@ export const hiddenTextTemplate = createComponentTemplate(HiddenText);
 Hidden text helps us to create a text which is accessible to screen reader users but not to users who see the screen.
 
 <Canvas>
-  <Story name="Overview" args={{ text: "Hello hidden text" }}>
-    {hiddenTextTemplate.bind({})}
-  </Story>
+  <Story of={HiddenTextStories.Overview} />
 </Canvas>
 
 ## Props

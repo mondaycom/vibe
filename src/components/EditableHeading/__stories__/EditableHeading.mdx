@@ -1,14 +1,13 @@
 import EditableHeading from "../EditableHeading";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { useState } from "react";
-import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
 import {
-  TEXT,
+  EDITABLE_TEXT,
   HEADING,
-  EDITABLE_TEXT
+  TEXT
 } from "../../../storybook/components/related-components/component-description-map";
+import * as EditableHeadingStories from "./EditableHeading.stories";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
@@ -16,12 +15,7 @@ export const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onChange"]
 });
 
-<Meta
-  title="Inputs/EditableHeading"
-  component={EditableHeading}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+<Meta of={EditableHeadingStories} />
 
 export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
@@ -39,16 +33,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 Editable Heading component is based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component, allowing users to dynamically edit its content.
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={{
-      value: "This heading is an editable heading",
-      type: EditableHeading.types.H1
-    }}
-    play={overviewPlaySuite}
-  >
-    {editableHeadingTemplate.bind({})}
-  </Story>
+  <Story of={EditableHeadingStories.Overview} />
 </Canvas>
 
 ## Props
@@ -69,11 +54,7 @@ Editable Heading component is based on the <Link href="/?path=/docs/text-heading
 ### Heading types
 
 <Canvas>
-  <Story name="Types">
-    <EditableHeading type={EditableHeading.types.H1} value="H1 Header" />
-    <EditableHeading type={EditableHeading.types.H2} value="H2 Header" />
-    <EditableHeading type={EditableHeading.types.H3} value="H3 Header" />
-  </Story>
+  <Story of={EditableHeadingStories.Types} />
 </Canvas>
 
 ## Related components
