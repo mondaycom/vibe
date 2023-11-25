@@ -283,7 +283,7 @@ export const TransitionAnimation = {
           ...exampleSteps.thirdStep
         }
       ]);
-    }, [setSteps]);
+    }, [exampleSteps.firstStep, exampleSteps.secondStep, exampleSteps.thirdStep]);
 
     const [numActions, setNumActions] = useState(0);
 

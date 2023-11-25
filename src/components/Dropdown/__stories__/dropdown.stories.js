@@ -553,7 +553,7 @@ export const DropdownWithLabels = {
   render: () => {
     const labelRenderer = useCallback(({ label, color }) => {
       return <Label text={label} color={color} isAnimationDisabled />;
-    });
+    }, []);
 
     const options = useMemo(
       () => [
@@ -580,7 +580,6 @@ export const DropdownWithLabels = {
         placeholder="Placeholder text here"
         options={options}
         defaultValue={[options[0]]}
-        placeholder="Placeholder text here"
         className="dropdown-stories-styles_big-spacing"
         optionRenderer={labelRenderer}
         valueRenderer={labelRenderer}

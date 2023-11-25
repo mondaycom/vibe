@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useState } from "@storybook/addons";
 import Counter from "../Counter";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import Avatar from "../../Avatar/Avatar";
 import Divider from "../../Divider/Divider";
-import { AddUpdate, Notifications, Update } from "../../Icon/Icons";
+import { AddUpdate, Update } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
 import { createComponentTemplate } from "vibe-storybook-components";
 import "./counter.stories.scss";

@@ -15,6 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onClose"] // List the component's actions here
 });
 
+// eslint-disable-next-line no-unused-vars
 const modalTemplate = ({ onClose, ...modalProps }) => {
   // For some reason storybook replace onClose with mock function as part of the template props so in purpose not pass it forward
   // Control if modal is display or hidden

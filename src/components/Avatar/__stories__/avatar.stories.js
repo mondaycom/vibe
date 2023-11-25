@@ -146,7 +146,7 @@ export const ClickableAvatar = {
   render: () => {
     const [count, setCount] = useState(0);
 
-    const incrementCount = useCallback(e => {
+    const incrementCount = useCallback(() => {
       setCount(prevState => prevState + 1);
     }, []);
 

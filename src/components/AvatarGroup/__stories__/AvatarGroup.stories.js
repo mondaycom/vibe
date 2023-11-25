@@ -240,25 +240,25 @@ export const HoverVsClickable = {
       setLastClickedAvatarId(avatarId);
     }, []);
 
-    const avatarsProps = [
-      {
-        type: Avatar.types.IMG,
-        src: person1,
-        ariaLabel: "Hadas Fahri"
-      },
-      {
-        type: Avatar.types.IMG,
-        src: person2,
-        ariaLabel: "Sergey Roytman"
-      },
-      {
-        type: Avatar.types.IMG,
-        src: person3,
-        ariaLabel: "Yossi Saadi"
-      }
-    ];
-
     const getDummyAvatarsProps = useCallback(multiplier => {
+      const avatarsProps = [
+        {
+          type: Avatar.types.IMG,
+          src: person1,
+          ariaLabel: "Hadas Fahri"
+        },
+        {
+          type: Avatar.types.IMG,
+          src: person2,
+          ariaLabel: "Sergey Roytman"
+        },
+        {
+          type: Avatar.types.IMG,
+          src: person3,
+          ariaLabel: "Yossi Saadi"
+        }
+      ];
+
       let result = [];
 
       for (let i = 0; i <= multiplier; ++i) {
@@ -290,7 +290,7 @@ export const HoverVsClickable = {
                 <Avatar {...avatarProps} onClick={avatarOnClick} id={index} />
               ))}
             </AvatarGroup>
-            <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id:{lastClickedAvatarId}</div>
+            <div className={styles.lastClickedAvatarIdText}>{`Last clicked avatar's id: ${lastClickedAvatarId}`}</div>
           </Flex>
         </StoryDescription>
       </Flex>

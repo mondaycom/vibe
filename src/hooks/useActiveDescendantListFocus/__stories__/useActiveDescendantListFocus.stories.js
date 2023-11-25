@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useCallback, useRef } from "@storybook/addons";
 import cx from "classnames";
 import { Flex, Search } from "../../../components";
