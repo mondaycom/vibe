@@ -1,11 +1,13 @@
 import TabList from "../TabList.tsx";
 import Tab from "../../Tab/Tab";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import classes from "./tab-list.stories.module.scss";
+import styles from "./tab-list.stories.module.scss";
 
-<Meta title="Navigation/Tabs/TabList" component={TabList} />
+export default {
+  title: "Navigation/Tabs/TabList",
+  component: TabList
+};
 
-export const tabListTemplate = args => (
+const tabListTemplate = args => (
   <TabList {...args}>
     <Tab>First</Tab>
     <Tab>Second</Tab>
@@ -14,47 +16,31 @@ export const tabListTemplate = args => (
   </TabList>
 );
 
-# TabList
+export const Overview = {
+  render: tabListTemplate.bind({}),
+  name: "Overview"
+};
 
-- [Overview](#overview)
-- [Props](#props)
-- [Variants](#variants)
-- [Feedback](#feedback)
-
-## Overview
-
-TabList is a container of all the tabs headers inside the tabs component
-
-<Canvas>
-  <Story name="Overview">{tabListTemplate.bind({})}</Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Variants
-
-### Default - compact tabs
-
-<Canvas>
-  <Story name="Default">
+export const Default = {
+  render: () => (
     <TabList>
       <Tab>First</Tab>
       <Tab>Second</Tab>
       <Tab>Third</Tab>
       <Tab disabled>Disabled</Tab>
     </TabList>
-  </Story>
-</Canvas>
+  ),
 
-### Stretched
+  name: "Default"
+};
 
-The width of the list is responsive to the screen's width.
-
-<Canvas>
-  <Story name="Stretched">
-    <div style={{ width: "100%" }}>
+export const Stretched = {
+  render: () => (
+    <div
+      style={{
+        width: "100%"
+      }}
+    >
       <TabList tabType="stretched">
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -62,14 +48,14 @@ The width of the list is responsive to the screen's width.
         <Tab disabled>Disabled</Tab>
       </TabList>
     </div>
-  </Story>
-</Canvas>
+  ),
 
-### Sizes
+  name: "Stretched"
+};
 
-<Canvas>
-  <Story name="Sizes">
-    <div className={classes.tabsSizesContainer}>
+export const Sizes = {
+  render: () => (
+    <div className={styles.tabsSizesContainer}>
       <>
         Small
         <TabList size="sm">
@@ -98,5 +84,7 @@ The width of the list is responsive to the screen's width.
         </TabList>
       </>
     </div>
-  </Story>
-</Canvas>
+  ),
+
+  name: "Sizes"
+};

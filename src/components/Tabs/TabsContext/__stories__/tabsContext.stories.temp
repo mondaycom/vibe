@@ -7,6 +7,7 @@ import TabPanel from "../../TabPanel/TabPanel";
 import { TabPanels } from "../../../index";
 import "./tabsContext.stories.scss";
 
+// TODO does it needed to be converted to a story?
 export const DefaultStory = () => (
   <TabsContext>
     <TabList>
