@@ -1,4 +1,5 @@
 // eslint-disable-next-line default-param-last
+
 export const generateItems = (defaultItemSize = 30, itemsCount, layout) => {
   const items = [];
   const isVertical = layout !== "horizontal";

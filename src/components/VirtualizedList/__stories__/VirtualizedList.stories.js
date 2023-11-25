@@ -1,14 +1,15 @@
+import { useCallback } from "@storybook/addons";
 import VirtualizedList from "../VirtualizedList";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { generateItems } from "./virtualizedList.components";
-import { useCallback } from "react";
+import { generateItems } from "./virtualizedList.stories.helpers";
 import { Flex } from "../../";
 import styles from "./virtualizedList.module.scss";
-import { UsageGuidelines, Tip } from "vibe-storybook-components";
 
-<Meta title="Navigation/VirtualizedList" component={VirtualizedList} />
+export default {
+  title: "Navigation/VirtualizedList",
+  component: VirtualizedList
+};
 
-export const virtualizedListTemplate = args => {
+const virtualizedListTemplate = args => {
   const itemRenderer = useCallback((item, index, style) => {
     const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
@@ -70,34 +71,7 @@ export const virtualizedListTemplate = args => {
   );
 };
 
-# VirtualizedList
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Feedback](#feedback)
-
-## Overview
-
-VirtualizedList is a component which only renders visible list items, it is a logic component and doesn't change and look and feel
-
-The VirtualizedList can be Vertical or Horizontal
-
-Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
-
-<Canvas>
-  <Story name="Overview">{virtualizedListTemplate.bind({})}</Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines guidelines={["Use this when you expect to have many items in your list"]} />
-
-<Tip title="Are your list items not rendered correctly?">
-  {" "}
-  Please make sure you inject the style parameter of the itemRenderer function to the item element's wrapper style.
-</Tip>
+export const Overview = {
+  render: virtualizedListTemplate.bind({}),
+  name: "Overview"
+};
