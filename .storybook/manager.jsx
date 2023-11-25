@@ -9,7 +9,7 @@ window.STORYBOOK_REACT_GA_OPTIONS = {};
 
 addons.setConfig({
   theme: theme
-  // TODO sidebar tags not working (at least without additional efforts) in storybook 7
+  // TODO storybook 7 migration: sidebar tags not working (at least without additional efforts) in storybook 7
   // sidebar: {
   //   renderLabel: ({ name, parameters = {} }) => {
   //     const statusRegex = /\[([^)]+)]/gi;

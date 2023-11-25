@@ -168,6 +168,7 @@ export const WarningMessage = {
   name: "Warning message"
 };
 
+// TODO storybook 7 migration: toast isn't opening at the top of the page, but inside of the story instead
 export const FeedbackLoop = {
   render: () => {
     const [toastOpen, setToastOpen] = useState(false);

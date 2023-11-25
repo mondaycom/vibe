@@ -191,26 +191,38 @@ export const TipseenWithCustomMedia = {
   name: "Tipseen with custom media"
 };
 
-export const FloatingTipseen = {
-  // You do not have to use containerSelector, in current use this is for story only
-  render: () => {
-    return (
-      <Tipseen
-        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-        floating
-        content={
-          <>
-            <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
-            <TipseenContent title="This is a Floating Tipseen">
-              Popover message will appear here lorem ipsum dolor samet…
-            </TipseenContent>
-          </>
-        }
-        containerSelector="#story--popover-tipseen--floating-tipseen"
-      />
-    );
-  },
+// TODO storybook 7 migration: story is broken
+// export const FloatingTipseen = {
+//   // You do not have to use containerSelector, in current use this is for story only
+//   render: () => {
+//     return (
+//       <Tipseen
+//         closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+//         floating
+//         content={
+//           <>
+//             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+//             <TipseenContent title="This is a Floating Tipseen">
+//               Popover message will appear here lorem ipsum dolor samet…
+//             </TipseenContent>
+//           </>
+//         }
+//         containerSelector="#story--popover-tipseen--floating-tipseen"
+//       />
+//     );
+//   },
+//
+//   name: "Floating Tipseen",
+//   height: "500px"
+// };
 
-  name: "Floating Tipseen",
-  height: "500px"
-};
+// Story was after "Tipseen with custom media" story
+// ### Floating Tipseen
+//
+// Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
+//
+//     In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
+//
+// <Canvas>
+//     <Story of={TipseenStories.FloatingTipseen} />
+// </Canvas>

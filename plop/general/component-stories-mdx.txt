@@ -4,6 +4,8 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import styles from "./{{properCase componentName}}.stories.module.scss";
 
+// TODO storybook 7 migration: change plop template for Storybook 7 MDX2 format
+
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: {{properCase componentName}},
   enumPropNamesArray: [], // List enum props here

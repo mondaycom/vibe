@@ -33,7 +33,7 @@ const config: StorybookConfig = {
     autodocs: false
   },
   features: {
-    // interactionsDebugger: true // TODO from storybook 6 - not sure it'll work here, need to test
+    // interactionsDebugger: true // TODO storybook 7 migration: from storybook 6 - not sure it'll work here, need to test
   }
 };
 export default config;
