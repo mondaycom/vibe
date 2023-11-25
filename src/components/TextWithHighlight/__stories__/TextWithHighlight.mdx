@@ -1,15 +1,12 @@
-import TextWithHighlight from "../TextWithHighlight";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import {
   EDITABLE_HEADING,
   HEADING,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
+import * as TextWithHighlightStories from "./TextWithHighlight.stories";
 
-<Meta title="Text/TextWithHighlight" component={TextWithHighlight} />
-
-export const textWithHighlightTemplate = createComponentTemplate(TextWithHighlight);
+<Meta of={TextWithHighlightStories} />
 
 # TextWithHighlight
 
@@ -24,9 +21,7 @@ export const textWithHighlightTemplate = createComponentTemplate(TextWithHighlig
 Component for displaying highlighted text
 
 <Canvas>
-  <Story name="Overview" args={{ text: "Hello world, hello world again", highlightTerm: "Hello again" }}>
-    {textWithHighlightTemplate.bind({})}
-  </Story>
+  <Story of={TextWithHighlightStories.Overview} />
 </Canvas>
 
 ## Props

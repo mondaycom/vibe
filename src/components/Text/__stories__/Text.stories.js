@@ -1,74 +1,39 @@
 import cx from "classnames";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Text from "../Text";
-import { Link, Tip, createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, Link } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
-import Button from "../../Button/Button";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
 import { textOverflowSuite } from "../__tests__/text.interactions";
-import {
-  EDITABLE_HEADING,
-  HEADING,
-  LINK
-} from "../../../storybook/components/related-components/component-description-map";
 import styles from "./Text.stories.module.scss";
 
-export const metaSettings = createStoryMetaSettingsDecorator({
+const metaSettings = createStoryMetaSettingsDecorator({
   component: Text,
   enumPropNamesArray: ["types", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta title="Text/Text" component={Text} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+export default {
+  title: "Text/Text",
+  component: Text,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
 
-export const textTemplate = createComponentTemplate(Text);
+const textTemplate = createComponentTemplate(Text);
 
-# Text
+export const Overview = {
+  render: textTemplate.bind({}),
+  name: "Overview",
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Related components](#related-components)
-- [Feedback](#feedback)
+  args: {
+    children: "Hi, I'm a text!"
+  }
+};
 
-## Overview
-
-The text component serves as a wrapper for applying typography styles to the text it contains.
-
-<Canvas>
-  <Story name="Overview" args={{ children: "Hi, I'm a text!" }}>
-    {textTemplate.bind({})}
-  </Story>
-</Canvas>
-
-<Tip>
-  Check out our
-  <Link href="/?path=/docs/text-heading--overview" size={Link.sizes.SMALL}>
-    Heading
-  </Link>
-  component for text headlines.
-</Tip>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines guidelines={["Use it to display text formed from a single sentence, or multiple sentences."]} />
-
-## Variants
-
-### Sizes and weights
-
-Text component comes in two sizes: text1 (16px) and text2 (14px), and in three weights: bold (700), medium (600) and normal (400)
-
-<Canvas>
-  <Story name="Sizes and weights">
+export const SizesAndWeights = {
+  render: () => (
     <Flex
       gap={Flex.gaps.SMALL}
       direction={Flex.directions.COLUMN}
@@ -94,15 +59,13 @@ Text component comes in two sizes: text1 (16px) and text2 (14px), and in three w
         This is text2 normal
       </Text>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Colors
+  name: "Sizes and weights"
+};
 
-Text component comes in four colors: primary, secondary, on-primary and on-inverted
-
-<Canvas>
-  <Story name="Colors">
+export const Colors = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Text color={Text.colors.PRIMARY}>Primary text</Text>
       <Text color={Text.colors.SECONDARY}>Secondary text</Text>
@@ -123,7 +86,9 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
       <Text
         element="div"
         className={cx(styles.smallRectangle)}
-        style={{ backgroundColor: "black" }}
+        style={{
+          backgroundColor: "black"
+        }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
       >
@@ -132,32 +97,31 @@ Text component comes in four colors: primary, secondary, on-primary and on-inver
       <Text
         element="div"
         className={cx(styles.smallRectangle)}
-        style={{ backgroundColor: "whitesmoke" }}
+        style={{
+          backgroundColor: "whitesmoke"
+        }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
       >
         Fixed dark
       </Text>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Overflow
+  name: "Colors"
+};
 
-Our Text component supports overflow state.
-When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
-
-We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
-
-<Canvas>
-  <Story name="Overflow" play={textOverflowSuite}>
+export const Overflow = {
+  render: () => (
     <Flex
       direction={Flex.directions.COLUMN}
       id={OVERFLOW_TEXT_CONTAINER_ID}
       justify={Flex.justify.START}
       align={Flex.align.INITIAL}
       gap={Flex.gaps.SMALL}
-      style={{ width: "480px" }}
+      style={{
+        width: "480px"
+      }}
     >
       <Text
         ellipsis
@@ -174,20 +138,14 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
         text with ellipsis which displayed after two full lines of content
       </Text>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
+  name: "Overflow",
+  play: textOverflowSuite
+};
 
-### Paragraph
-
-To use the Text component for a paragraph, utilize the element prop with value of `"p"`.
-This changes the text wrapper element to `p`, enabling the creation of paragraph-style text without ellipsis by default.
-The paragraph will receive default top and bottom margins based on browser settings for `p` elements.
-Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
-
-<Canvas>
-  <Story name="Paragraph">
+export const Paragraph = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN}>
       <Text element="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -204,15 +162,13 @@ Customize ellipsis behavior using the "ellipsis" prop or override default margin
         laborum.
       </Text>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-### Links
+  name: "Paragraph"
+};
 
-A Text component with a link skin can be used to create a link within running text that redirects to an external webpage, as demonstrated in the following example.
-
-<Canvas>
-  <Story name="Links inside running text">
+export const LinksInsideRunningText = {
+  render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Text align={Text.align.CENTER}>
         This is the story of a
@@ -247,7 +203,9 @@ A Text component with a link skin can be used to create a link within running te
         element="div"
         ellipsis={false}
         className={cx(styles.mediumRectangle)}
-        style={{ backgroundColor: "black" }}
+        style={{
+          backgroundColor: "black"
+        }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
       >
@@ -261,7 +219,9 @@ A Text component with a link skin can be used to create a link within running te
         element="div"
         ellipsis={false}
         className={cx(styles.mediumRectangle)}
-        style={{ backgroundColor: "whitesmoke" }}
+        style={{
+          backgroundColor: "whitesmoke"
+        }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
       >
@@ -272,77 +232,7 @@ A Text component with a link skin can be used to create a link within running te
         inside running text with fixed dark color
       </Text>
     </Flex>
-  </Story>
-</Canvas>
+  ),
 
-<Tip>
-  If you need to place a link outside of the textual flow, please use our
-  <Link href="/?path=/docs/navigation-link--overview" size={Link.sizes.SMALL}>
-    Link
-  </Link>
-  component.
-</Tip>
-
-## Do’s and Don’ts
-
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component: (
-          <Text type={Text.types.TEXT1} element="span">
-            The quick brown fox jumps over the{" "}
-            <Text type={Text.types.TEXT1} weight={Text.weights.BOLD} element="span">
-              lazy dog
-            </Text>
-          </Text>
-        ),
-        description: "You can combine two font weights in one sentence to create an emphasis."
-      },
-      negative: {
-        component: (
-          <Text type={Text.types.TEXT2} element="span">
-            The quick brown fox jumps over the{" "}
-            <Text type={Text.types.TEXT1} element="span">
-              lazy dog
-            </Text>
-          </Text>
-        ),
-        description: "Don't use more then one font size in a sentence."
-      }
-    },
-    {
-      positive: {
-        component: (
-          <Flex
-            style={{ width: "70%" }}
-            direction={Flex.directions.COLUMN}
-            justify={Flex.justify.CENTER}
-            align={Flex.align.CENTER}
-            gap={Flex.gaps.SMALL}
-          >
-            <Text maxLines={3}>
-              monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
-              and streamline sales activities from start to finish. Explore monday sales CRM templates
-            </Text>
-            <Button kind={Button.kinds.TERTIARY}>Read more</Button>
-          </Flex>
-        ),
-        description: "If ellipses are used in a paragraph, always use a CTA to reveal more information."
-      },
-      negative: {
-        component: (
-          <Text maxLines={3} style={{ width: "70%" }}>
-            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
-            streamline sales activities from start to finish. Explore monday sales CRM templates
-          </Text>
-        ),
-        description: "Don't use ellipsis without providing a way for the user to read the full text."
-      }
-    }
-  ]}
-/>
-
-## Related components
-
-<RelatedComponents componentsNames={[HEADING, EDITABLE_HEADING, LINK]} />
+  name: "Links inside running text"
+};

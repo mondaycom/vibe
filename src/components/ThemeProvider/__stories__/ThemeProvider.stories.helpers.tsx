@@ -1,10 +1,16 @@
 import React from "react";
+import { useState } from "@storybook/addons";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme4, productTheme2, productTheme3 } from "./product-themes";
-import styles from "./ThemeProvider.stories.templates.module.scss";
+import ColorsDescription from "../../../storybook/stand-alone-documentation/colors/colors-description/colors-description";
+import { ThemeColor } from "../ThemeProviderConstants";
+import { Tip, UsageGuidelines } from "vibe-storybook-components";
+import styles from "./ThemeProvider.stories.module.scss";
+
+export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
 
 export const ThemeProviderTemplateOverview = (args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
@@ -84,7 +90,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
     { value: productTheme3, label: "Product 3" },
     { value: productTheme4, label: "Product 4" }
   ];
-  const [selectedTheme, setSelectedTheme] = React.useState(null);
+  const [selectedTheme, setSelectedTheme] = useState(null);
 
   return (
     <ThemeProvider theme={selectedTheme?.value}>
@@ -168,3 +174,30 @@ export const ThemeProviderNegativeExampleTemplate = () => {
     </ThemeProvider>
   );
 };
+
+export const TipDev = () => (
+  <Tip title="Dev tip">
+    Use <code>ThemeProvider.systemThemes</code> and <code>ThemeProvider.colors</code> enums to unleash the power of
+    auto-completion
+  </Tip>
+);
+
+export const UsageGuidelinesThemeProvider = () => (
+  <UsageGuidelines
+    guidelines={[
+      <>
+        Control themes in your application by setting theme classes (e.g. <code>.light-app-theme</code>) on your{" "}
+        <code>body</code> and render everything else inside it
+      </>,
+      <>
+        In most common case ThemeProvider should be rendered only once on the root level of the application - below the{" "}
+        <code>body</code>
+      </>,
+      <>
+        {`ThemeProvider is populating theme name <code>className</code> to it's child, so don't put `}
+        <code>{"<Fragment>"}</code> (<code>{"<>"}</code>) inside - {` it's not accepting `}
+        <code>className</code> prop
+      </>
+    ]}
+  />
+);
