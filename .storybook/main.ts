@@ -23,7 +23,7 @@ const getAddons = () => {
 };
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.js"],
   addons: getAddons(),
   framework: {
     name: "@storybook/react-webpack5",
@@ -33,8 +33,7 @@ const config: StorybookConfig = {
     autodocs: false
   },
   features: {
-    legacyMdx1: true // 👈 Enables MDX v1 support
-    // interactionsDebugger: true // from storybook 6 - not sure it'll work here, also probably requires "@storybook/addon-interactions
+    // interactionsDebugger: true // TODO from storybook 6 - not sure it'll work here, need to test
   }
 };
 export default config;
