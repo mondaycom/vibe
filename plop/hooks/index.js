@@ -16,7 +16,7 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.stories.mdx",
+        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.mdx",
         templateFile: "plop/hooks/hook-story.txt"
       },
       {

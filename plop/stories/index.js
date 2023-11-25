@@ -19,7 +19,7 @@ module.exports = plop => {
     actions: [
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.mdx",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
         templateFile: "plop/general/component-stories-mdx.txt"
       },
       {
