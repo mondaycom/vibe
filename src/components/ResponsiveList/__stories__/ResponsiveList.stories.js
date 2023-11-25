@@ -1,4 +1,3 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { ResizableBox } from "react-resizable";
 import {
   Activity,
@@ -22,9 +21,12 @@ import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import "./ResponsiveList.stories.scss";
 
-<Meta title="Layout/ResponsiveList" component={ResponsiveList} />
+export default {
+  title: "Layout/ResponsiveList",
+  component: ResponsiveList
+};
 
-export const ContainerForDemonstration = ({ children }) => {
+const ContainerForDemonstration = ({ children }) => {
   return (
     <div style={{ width: "100%" }}>
       <div style={{ width: "80%" }}>
@@ -48,7 +50,7 @@ export const ContainerForDemonstration = ({ children }) => {
   );
 };
 
-export const componentTemplate = responseListProps => {
+const componentTemplate = responseListProps => {
   const secondaryContent = (
     <Menu>
       <MenuItem icon={Alert} title="Watch out" />
@@ -109,33 +111,8 @@ export const componentTemplate = responseListProps => {
   );
 };
 
-# ResponsiveList
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Feedback](#feedback)
-
-## Overview
-
-ResponsiveList is a helper component, it is in charge of "moving" elements when there container is overflowing. It moves them to a list at the end of the container.
-(the blue handle is a resize handler - not part of the component)
-
-<Canvas>
-  <Story name="Overview" args={{}}>
-    {componentTemplate.bind({})}
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable story="Overview" />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Use this component when you want to handle different screen sizes",
-    "Make sure to limit the parent size so the list can 'decide' when to collapse"
-  ]}
-/>
+export const Overview = {
+  render: componentTemplate.bind({}),
+  name: "Overview",
+  args: {}
+};

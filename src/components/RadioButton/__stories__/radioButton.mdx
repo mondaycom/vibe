@@ -1,15 +1,12 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
 import { CHECKBOX, DROPDOWN, TOGGLE } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Link, createComponentTemplate } from "vibe-storybook-components";
-import { clickRadioButton, controlRadioButton } from "./interactions";
-import { controlledRadioButton } from "./radioButton.stories";
-import "./radioButton.stories.scss";
+import { TipDropdown } from "./radioButton.stories.helpers";
+import * as RadioButtonStories from "./radioButton.stories";
 
-<Meta title="Inputs/RadioButton" component={RadioButton} />
-
-export const radioButtonTemplate = createComponentTemplate(RadioButton);
+<Meta of={RadioButtonStories} />
 
 # RadioButton
 
@@ -27,9 +24,7 @@ export const radioButtonTemplate = createComponentTemplate(RadioButton);
 A radio represents an item in a single selection list.
 
 <Canvas>
-  <Story name="Overview" args={{ text: "Selection" }}>
-    {radioButtonTemplate.bind({})}
-  </Story>
+  <Story of={RadioButtonStories.Overview} />
 </Canvas>
 
 ## Props
@@ -47,13 +42,7 @@ A radio represents an item in a single selection list.
   ]}
 />
 
-<Tip>
-  When there’s limited space or no default selection, consider using a select
-  <Link href="/?path=/docs/inputs-dropdown--overview" size={Link.sizes.SMALL}>
-    Dropdown
-  </Link>
-  instead.
-</Tip>
+<TipDropdown />
 
 ## Variants
 
@@ -62,12 +51,7 @@ A radio represents an item in a single selection list.
 Radio buttons have 3 states: regular, selected, and disabled.
 
 <Canvas>
-  <Story name="States">
-    <RadioButton text="Regular" />
-    <RadioButton text="Selected" checked />
-    <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
-    <RadioButton text="Disabled" checked disabled />
-  </Story>
+  <Story of={RadioButtonStories.States} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -94,9 +78,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
         description: (
           <>
             Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use{" "}
-            <Link href="/?path=/docs/inputs-checkbox--overview">
-              checkboxes
-            </Link>
+            <Link href="/?path=/docs/inputs-checkbox--overview">checkboxes</Link>
             instead.
           </>
         )
@@ -141,22 +123,13 @@ Radio buttons have 3 states: regular, selected, and disabled.
 The user needs to select only one option.
 
 <Canvas>
-  <Story name="Radio button in items list" play={clickRadioButton}>
-    <div className="monday-storybook-radio-buttons_wrapper-column">
-      <div>Inbox view options</div>
-      <RadioButton text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
-      <RadioButton text="I was mentioned" name="radio-buttons-group-4" />
-      <RadioButton text="All updates" name="radio-buttons-group-4" />
-    </div>
-  </Story>
+  <Story of={RadioButtonStories.RadioButtonInItemsList} />
 </Canvas>
 
 Controlled externally.
 
 <Canvas>
-  <Story name="Controlled Radio buttons" play={controlRadioButton}>
-    {controlledRadioButton.bind({})}
-  </Story>
+  <Story of={RadioButtonStories.ControlledRadioButtons} />
 </Canvas>
 
 ## Related components
