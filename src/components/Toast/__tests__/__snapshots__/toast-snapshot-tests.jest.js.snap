@@ -17,10 +17,10 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -58,10 +58,10 @@ exports[`Toast renders correctly when open is true 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -136,10 +136,10 @@ exports[`Toast renders correctly with button 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -233,10 +233,10 @@ exports[`Toast renders correctly with button and link 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -348,10 +348,10 @@ exports[`Toast renders correctly with link 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -447,10 +447,10 @@ exports[`Toast renders correctly with negative type 1`] = `
       className="icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24px"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24px"
+      width="20"
     >
       <path
         clipRule="evenodd"
