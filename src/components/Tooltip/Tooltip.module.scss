@@ -3,6 +3,7 @@
 $tooltip-z-index: 9999999999999999;
 
 .tooltip {
+  --tooltip-max-width: 240px;
   position: relative;
   display: inline-block;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
