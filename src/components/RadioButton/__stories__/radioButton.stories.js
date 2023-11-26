@@ -2,7 +2,7 @@ import React from "react";
 import { useCallback, useState } from "@storybook/addons";
 import { createComponentTemplate } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
-import { clickRadioButton, controlRadioButton } from "./radioButton.stories.interactions";
+import { clickRadioButtonPlaySuite, controlRadioButtonPlaySuite } from "./radioButton.stories.interactions";
 import "./radioButton.stories.scss";
 import Button from "../../Button/Button";
 
@@ -38,7 +38,7 @@ export const RadioButtonInItemsList = {
   ),
 
   name: "Radio button in items list",
-  play: clickRadioButton
+  play: clickRadioButtonPlaySuite
 };
 
 export const ControlledRadioButtons = {
@@ -62,5 +62,5 @@ export const ControlledRadioButtons = {
     );
   },
   name: "Controlled Radio buttons",
-  play: controlRadioButton
+  play: controlRadioButtonPlaySuite
 };
