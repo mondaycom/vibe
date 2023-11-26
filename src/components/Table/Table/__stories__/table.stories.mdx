@@ -283,7 +283,7 @@ Table with both vertical and horizontal scroll
 
 <Canvas>
   <Story name="Scroll">
-    <div style={{ height: 220, width: 800 }}>
+    <div style={{ height: 220, width: "100%" }}>
       <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
         <TableHeader>
           {scrollTableColumns.map((headerCell, index) => (
