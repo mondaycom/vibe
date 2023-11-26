@@ -1,5 +1,51 @@
 # Changelog
 
+## 2.63.3 (2023-11-26)
+
+#### Bug Fixes
+* [#1768](https://github.com/mondaycom/monday-ui-react-core/pull/1768) fix(Toast): description icon should be 20px ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1769](https://github.com/mondaycom/monday-ui-react-core/pull/1769) docs(Table): Scroll story should have same length as other stories ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1770](https://github.com/mondaycom/monday-ui-react-core/pull/1770) chore: supress <Dialog> console.error if container not found, add TODO ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1764](https://github.com/mondaycom/monday-ui-react-core/pull/1764) Update icons - monday-ui-style 0.1.203 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 2.63.2 (2023-11-23)
+
+#### Bug Fixes
+* [#1760](https://github.com/mondaycom/monday-ui-react-core/pull/1760) fix(Button): include entire content for width placeholder ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1762](https://github.com/mondaycom/monday-ui-react-core/pull/1762) test(Chromatic): wait for font loading before taking a snapshot ([@talkor](https://github.com/talkor))
+
+## 2.63.1 (2023-11-21)
+
+#### Documentation
+* [#1757](https://github.com/mondaycom/monday-ui-react-core/pull/1757) docs: Typography migration guide ([@talkor](https://github.com/talkor))
+
+## 2.63.0 (2023-11-20)
+
+#### New Features
+* [#1552](https://github.com/mondaycom/monday-ui-react-core/pull/1552) feat(TableRow): add highlighted styling for TableRow ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.62.0 (2023-11-19)
+
+#### Bug Fixes
+* [#1756](https://github.com/mondaycom/monday-ui-react-core/pull/1756) fix: <Dropdown> disabled option - fix keyboard focused style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1745](https://github.com/mondaycom/monday-ui-react-core/pull/1745) Editable text ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1754](https://github.com/mondaycom/monday-ui-react-core/pull/1754) docs: Fix overview links - scroll instead of openning new page ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1750](https://github.com/mondaycom/monday-ui-react-core/pull/1750) docs: related components fix description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1737](https://github.com/mondaycom/monday-ui-react-core/pull/1737) docs: Components catalog ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1751](https://github.com/mondaycom/monday-ui-react-core/pull/1751) docs: fix typo ([@talkor](https://github.com/talkor))
+
 ## 2.61.0 (2023-11-15)
 
 #### New Features

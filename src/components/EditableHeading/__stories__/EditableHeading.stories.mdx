@@ -1,14 +1,14 @@
 import EditableHeading from "../EditableHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { useState } from "react";
+import { createComponentTemplate, Tip, Link } from "vibe-storybook-components";
 import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
 import {
   TEXT,
   HEADING,
   EDITABLE_TEXT
 } from "../../../storybook/components/related-components/component-description-map";
+import styles from "./EditableHeading.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
@@ -36,7 +36,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
 ## Overview
 
-Editable Heading component is based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component, allowing users to dynamically edit its content.
+Editable Heading allows users to seamlessly and dynamically edit in-line content. Its default state is a read-view, based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading component</Link>, and it becomes editable after clicking on it.
 
 <Canvas>
   <Story
@@ -59,20 +59,88 @@ Editable Heading component is based on the <Link href="/?path=/docs/text-heading
 
 <UsageGuidelines
   guidelines={[
-    "Use when you want to allow the user to edit the heading text",
-    "This component grows relative to its content, and its maximum width is 100% of its container "
+    "Use when you want to allow the user to edit an existing heading text",
+    "This component grows relative to its content, and its maximum width is 100% of its container"
   ]}
 />
+
+<Tip title="Am I using the right component?">
+  This component is used for editing text size 18px and up. For editing smaller text sizes, consider using{" "}
+  <Link href="/?path=/docs/inputs-editabletext--overview" withoutSpacing target={Link.targets.PARENT} size="small">
+    EditableText
+  </Link>
+</Tip>
 
 ## Variants
 
 ### Heading types
 
+Editable heading can be used with any of the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading component</Link> sizes and weights.
+
 <Canvas>
   <Story name="Types">
-    <EditableHeading type={EditableHeading.types.H1} value="H1 Header" />
-    <EditableHeading type={EditableHeading.types.H2} value="H2 Header" />
-    <EditableHeading type={EditableHeading.types.H3} value="H3 Header" />
+    <div className={styles.typesContainer}>
+      <div className={styles.typeContainer}>
+        <EditableHeading
+          type={EditableHeading.types.H1}
+          weight={EditableHeading.weights.LIGHT}
+          value="H1 Light"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H1}
+          weight={EditableHeading.weights.NORMAL}
+          value="H1 Normal"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H1}
+          weight={EditableHeading.weights.BOLD}
+          value="H1 Bold"
+          className={styles.editableHeading}
+        />
+      </div>
+      <div className={styles.typeContainer}>
+        <EditableHeading
+          type={EditableHeading.types.H2}
+          weight={EditableHeading.weights.LIGHT}
+          value="H2 Light"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H2}
+          weight={EditableHeading.weights.NORMAL}
+          value="H2 Normal"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H2}
+          weight={EditableHeading.weights.BOLD}
+          value="H2 Bold"
+          className={styles.editableHeading}
+        />
+      </div>
+      <div className={styles.typeContainer}>
+        <EditableHeading
+          type={EditableHeading.types.H3}
+          weight={EditableHeading.weights.LIGHT}
+          value="H3 Light"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H3}
+          weight={EditableHeading.weights.NORMAL}
+          value="H3 Normal"
+          className={styles.editableHeading}
+        />
+        <EditableHeading
+          type={EditableHeading.types.H3}
+          weight={EditableHeading.weights.BOLD}
+          value="H3 Bold"
+          className={styles.editableHeading}
+        />
+      </div>
+    </div>
   </Story>
 </Canvas>
 

@@ -84,7 +84,10 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
       ...general,
       backgroundColor: "transparent",
       color: getCSSVar("disabled-text-color"),
-      cursor: "not-allowed"
+      cursor: "not-allowed",
+      ...(isFocused && {
+        backgroundColor: getCSSVar("primary-background-hover-color")
+      })
     };
   }
   if (isSelected) {

@@ -1,13 +1,15 @@
 import EditableText from "../EditableText";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate, Link } from "vibe-storybook-components";
 import { overviewPlaySuite } from "../__tests__/EditableText-interactions";
 import {
   TEXT,
   HEADING,
   EDITABLE_HEADING
 } from "../../../storybook/components/related-components/component-description-map";
+import styles from "./EditableText.stories.module.scss";
+import Flex from "../../Flex/Flex";
 
 export const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableText,
@@ -35,7 +37,7 @@ export const EditableTextTemplate = createComponentTemplate(EditableText);
 
 ## Overview
 
-Editable Text component is based on the <Link href="/?path=/docs/text-text--overview" withoutSpacing>Text</Link> component, allowing users to dynamically edit its content.
+Editable text allows users to seamlessly and dynamically edit in-line content. Its default state is a read-view, based on the <Link href="/?path=/docs/text-text--overview" withoutSpacing>Text component</Link>, and it becomes editable after clicking on it.
 
 <Canvas>
   <Story
@@ -58,19 +60,69 @@ Editable Text component is based on the <Link href="/?path=/docs/text-text--over
 
 <UsageGuidelines
   guidelines={[
-    "Use when you want to allow the user to edit the text",
-    "This component grows relative to its content, and its maximum width is 100% of its container "
+    "Use when you want to allow the user to edit an existing text",
+    "This component grows relative to its content, and its maximum width is 100% of its container"
   ]}
 />
+
+<Tip title="Am I using the right component?">
+  This component is used for editing existing text. To allow users to fill empty text fields, for example in a form,
+  consider using{" "}
+  <Link href="/?path=/docs/inputs-textfield--overview" withoutSpacing target={Link.targets.PARENT} size="small">
+    TextField
+  </Link>
+</Tip>
 
 ## Variants
 
 ### Text types
 
+Editable text can be used with any of the <Link href="/?path=/docs/text-text--overview" withoutSpacing>Text component</Link> sizes and weights.
+
 <Canvas>
   <Story name="Types">
-    <EditableText type={EditableText.types.TEXT1} value="Text1" />
-    <EditableText type={EditableText.types.TEXT2} value="Text2" />
+    <div className={styles.typesContainer}>
+      <div className={styles.typeContainer}>
+        <EditableText
+          type={EditableText.types.TEXT1}
+          weight={EditableText.weights.NORMAL}
+          value="Text1 Normal"
+          className={styles.editableText}
+        />
+        <EditableText
+          type={EditableText.types.TEXT1}
+          weight={EditableText.weights.MEDIUM}
+          value="Text1 Medium"
+          className={styles.editableText}
+        />
+        <EditableText
+          type={EditableText.types.TEXT1}
+          weight={EditableText.weights.BOLD}
+          value="Text1 Bold"
+          className={styles.editableText}
+        />
+      </div>
+      <div className={styles.typeContainer}>
+        <EditableText
+          type={EditableText.types.TEXT2}
+          weight={EditableText.weights.NORMAL}
+          value="Text2 Normal"
+          className={styles.editableText}
+        />
+        <EditableText
+          type={EditableText.types.TEXT2}
+          weight={EditableText.weights.MEDIUM}
+          value="Text2 Medium"
+          className={styles.editableText}
+        />
+        <EditableText
+          type={EditableText.types.TEXT2}
+          weight={EditableText.weights.BOLD}
+          value="Text2 Bold"
+          className={styles.editableText}
+        />
+      </div>
+    </div>
   </Story>
 </Canvas>
 

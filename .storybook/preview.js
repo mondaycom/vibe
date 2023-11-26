@@ -23,6 +23,7 @@ import {
   withMemoryStats
 } from "vibe-storybook-components";
 import "vibe-storybook-components/index.css";
+import isChromatic from "chromatic/isChromatic";
 
 addParameters({
   controls: {
@@ -79,6 +80,7 @@ addParameters({
         "Welcome",
         "Catalog",
         "Change Log",
+        "Typography Migration Guide",
         "Foundations",
         "Buttons",
         "Inputs",
@@ -120,3 +122,9 @@ export const decorators = [
   },
   withMemoryStats
 ];
+
+const fontLoader = async () => ({
+  fonts: await document.fonts.ready
+});
+
+export const loaders = isChromatic() && document.fonts ? [fontLoader] : [];
