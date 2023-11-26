@@ -10,6 +10,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
+import Flex from "../../Flex/Flex";
 import styles from "./ModalHeader.module.scss";
 
 export interface ModalHeaderProps extends VibeComponentProps {
@@ -93,14 +94,21 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       {children ? (
         children
       ) : (
-        <Heading id={id} maxLines={2} className={titleClassName}>
+        <Flex align={Flex.align.CENTER}>
           {icon && (
-            <span className={cx(styles.icon, iconClassName)}>
-              <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
-            </span>
+            <Icon
+              className={cx(styles.icon, iconClassName)}
+              icon={icon}
+              iconType={Icon.type.SVG}
+              iconSize={iconSize}
+              ignoreFocusStyle
+              clickable={false}
+            />
           )}
-          {title}
-        </Heading>
+          <Heading id={id} maxLines={2} className={titleClassName}>
+            {title}
+          </Heading>
+        </Flex>
       )}
       {description && (
         <Text type={Text.types.TEXT2} maxLines={2} className={cx(styles.description, descriptionClassName)}>
