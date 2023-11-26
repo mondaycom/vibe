@@ -6,12 +6,14 @@ import {
   getByTestId,
   getByRole,
   interactionSuite,
-  typeText
+  typeText,
+  delay
 } from "../../../tests/interactions-utils";
 
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { resetFocus } from "../../../__tests__/interactions-helper";
 
+const CHANGES_DELAY = 200;
 const text = "This heading is an editable heading";
 
 function getComponent(canvas: Canvas) {
@@ -26,8 +28,10 @@ function getInput(canvas: Canvas) {
 }
 
 async function changeModes(canvas: Canvas) {
+  await delay(CHANGES_DELAY); // needed the tests would run correctly on page refresh
   const compponent = getComponent(canvas);
   clickElement(compponent);
+  await delay(CHANGES_DELAY);
 
   const input = getInput(canvas);
   expect(input).toHaveAttribute("value", text);
@@ -40,6 +44,7 @@ async function changeModes(canvas: Canvas) {
 async function editAndChangeToValidText(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
+  await delay(CHANGES_DELAY);
 
   const input = getInput(canvas);
   await clearText(input);
@@ -54,6 +59,7 @@ async function editAndChangeToValidText(canvas: Canvas) {
 async function clearInput(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
+  await delay(CHANGES_DELAY);
 
   const input = getInput(canvas);
   await clearText(input);
@@ -66,9 +72,11 @@ async function clearInput(canvas: Canvas) {
 async function cancelEditing(canvas: Canvas) {
   const compponent = getComponent(canvas);
   clickElement(compponent);
+  await delay(CHANGES_DELAY);
 
   const input = getInput(canvas);
   await clearText(input);
+  await delay(CHANGES_DELAY);
 
   const textToChange = "test";
   await typeText(input, textToChange);
