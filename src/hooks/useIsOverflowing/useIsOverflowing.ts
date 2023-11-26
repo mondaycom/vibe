@@ -22,14 +22,14 @@ export default function useIsOverflowing({
 }: {
   ref: RefObject<HTMLElement>;
   ignoreHeightOverflow?: boolean;
-  tolerance: number;
+  tolerance?: number;
 }) {
   const [isOverflowing, setIsOverflowing] = useState<boolean>(() =>
     checkOverflow(ref?.current, ignoreHeightOverflow, tolerance)
   );
   const callback = useCallback(() => {
-    setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow));
-  }, [ignoreHeightOverflow, ref]);
+    setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow, tolerance));
+  }, [ignoreHeightOverflow, ref, tolerance]);
 
   useResizeObserver({
     ref,
