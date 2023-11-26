@@ -265,7 +265,7 @@ export const Scroll = {
     <div
       style={{
         height: 220,
-        width: 800
+        width: "100%"
       }}
     >
       <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
