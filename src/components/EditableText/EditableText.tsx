@@ -7,6 +7,7 @@ import { camelCase } from "lodash-es";
 import EditableTypography, { EditableTypographyImplementationProps } from "../EditableTypography/EditableTypography";
 import { TextType, TextWeight } from "../Text/TextConstants";
 import Text from "../Text/Text";
+import cx from "classnames";
 
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**
@@ -36,6 +37,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
   ) => {
     return (
       <EditableTypography
+        className={styles.editableText}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_TEXT, id)}
         renderTypography={({ value, className, ...clickableProps }) => (
@@ -43,7 +45,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
             {value}
           </Text>
         )}
-        typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
+        typographyClassName={cx(getStyle(styles, camelCase(type + "-" + weight)), styles.typography)}
         {...editableTypographyProps}
       />
     );
