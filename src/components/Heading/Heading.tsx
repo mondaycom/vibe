@@ -25,7 +25,7 @@ const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   align?: typeof TypographyAlign;
 } = forwardRef(({ className, type = HeadingType.H1, weight = HeadingWeight.NORMAL, ...typographyProps }, ref) => {
   return (
-    <TypographyContext.Provider value={{ ignoreHeightOverflow: true }}>
+    <TypographyContext.Provider value={{ overflowTolerance: 4 }}>
       <Typography
         element={type}
         ref={ref}

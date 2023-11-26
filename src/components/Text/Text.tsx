@@ -6,7 +6,6 @@ import VibeComponent from "../../types/VibeComponent";
 import { TextType, TextWeight } from "./TextConstants";
 import Typography, { TypographyProps } from "../Typography/Typography";
 import { TypographyAlign, TypographyColor } from "../Typography/TypographyConstants";
-import { TypographyContext } from "../Typography/utils/TypographyContext";
 import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
@@ -36,17 +35,15 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
-      <TypographyContext.Provider value={{ ignoreHeightOverflow: false }}>
-        <Typography
-          ref={ref}
-          className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
-          ellipsis={overrideEllipsis}
-          element={element}
-          {...typographyProps}
-        >
-          {children}
-        </Typography>
-      </TypographyContext.Provider>
+      <Typography
+        ref={ref}
+        className={cx(styles.text, getStyle(styles, camelCase(type + "-" + weight)), className)}
+        ellipsis={overrideEllipsis}
+        element={element}
+        {...typographyProps}
+      >
+        {children}
+      </Typography>
     );
   }
 );
