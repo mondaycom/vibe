@@ -12,7 +12,7 @@ export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponen
       iconType={icon ? Icon.type.ICON_FONT : Icon.type.SVG}
       clickable={false}
       icon={icon || defaultIconMap[type]}
-      iconSize="24px"
+      iconSize={20}
       ignoreFocusStyle
     />
   ) : null;
