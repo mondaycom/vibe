@@ -5,7 +5,7 @@ import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme4, productTheme2, productTheme3 } from "./product-themes";
-import ColorsDescription from "../../../storybook/stand-alone-documentation/colors/colors-description/colors-description";
+import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
 import { ThemeColor } from "../ThemeProviderConstants";
 import { Tip, UsageGuidelines } from "vibe-storybook-components";
 import styles from "./ThemeProvider.stories.module.scss";
