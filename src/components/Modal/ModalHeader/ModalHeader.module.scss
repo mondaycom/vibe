@@ -5,6 +5,7 @@
 
   .icon {
     margin-right: var(--spacing-small);
+    flex-shrink: 0;
   }
 
   .description {
