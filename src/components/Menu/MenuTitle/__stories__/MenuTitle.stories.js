@@ -17,7 +17,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const menuTitleTemplate = createComponentTemplate(MenuTitle);
+const menuTitleTemplate = createComponentTemplate(MenuTitle);
 
 export const Overview = {
   render: menuTitleTemplate.bind({}),

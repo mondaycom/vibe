@@ -23,7 +23,16 @@ export const Overview = {
 };
 
 export const States = {
-  render: () => <Checkbox label="Regular" />,
+  render: () => (
+    <>
+      <Checkbox label="Regular" />
+      <Checkbox label="Selected" checked />
+      <Checkbox label="Indeterminate" indeterminate />
+      <Checkbox label="Disabled" disabled />
+      <Checkbox label="Disabled checked" disabled checked />
+      <Checkbox label="Disabled indeterminate" disabled indeterminate />
+    </>
+  ),
   name: "States"
 };
 

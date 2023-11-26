@@ -47,6 +47,11 @@ export const Disabled = {
 };
 
 export const TurnOnOffAnAutomation = {
-  render: () => <h5>Board automations</h5>,
+  render: () => (
+    <>
+      <h5>Board automations</h5>
+      <Toggle />
+    </>
+  ),
   name: "Turn on/ off an automation"
 };

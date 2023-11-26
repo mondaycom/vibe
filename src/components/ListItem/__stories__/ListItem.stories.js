@@ -22,7 +22,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const listItemTemplate = createComponentTemplate(ListItem);
+const listItemTemplate = createComponentTemplate(ListItem);
 
 export const Overview = {
   render: listItemTemplate.bind({}),

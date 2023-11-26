@@ -173,7 +173,7 @@ export const AttentionBoxInsideADialogCombobox = {
           <div className="monday-storybook-attention-box_inline-container">
             <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
             <span className="monday-storybook-attention-box_name">
-              May Kishon<span>(UX/UI Product Designer)</span>
+              May Kishon <span>(UX/UI Product Designer)</span>
             </span>
           </div>
           <div className="monday-storybook-attention-box_inline-container">

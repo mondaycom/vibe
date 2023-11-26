@@ -26,15 +26,21 @@ export const Overview = {
   }
 };
 
-export const States = {
+export const Kinds = {
   render: () => (
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" />
-      Fill
-    </div>
+    <>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" />
+        Fill
+      </div>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" kind={Label.kinds.LINE} />
+        Outline
+      </div>
+    </>
   ),
 
-  name: "States",
+  name: "Kinds",
 
   parameters: {
     chromatic: {
@@ -45,10 +51,24 @@ export const States = {
 
 export const Colors = {
   render: () => (
-    <div className="monday-storybook-label_group">
-      <Label text="New" />
-      <Label text="New" kind={Label.kinds.LINE} />
-    </div>
+    <>
+      <div className="monday-storybook-label_group">
+        <Label text="New" />
+        <Label text="New" kind={Label.kinds.LINE} />
+      </div>
+      <div className="monday-storybook-label_group">
+        <Label text="New" color={Label.colors.NEGATIVE} />
+        <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
+      </div>
+      <div className="monday-storybook-label_group">
+        <Label text="New" color={Label.colors.POSITIVE} />
+        <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
+      </div>
+      <div className="monday-storybook-label_group">
+        <Label text="New" color={Label.colors.DARK} />
+        <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
+      </div>
+    </>
   ),
 
   name: "Colors",
@@ -62,9 +82,14 @@ export const Colors = {
 
 export const Clickable = {
   render: () => (
-    <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-      <Label text="New" onClick={NOOP} />
-    </div>
+    <>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" onClick={NOOP} />
+      </div>
+      <div className="monday-storybook-label_group monday-storybook-label_states-gap">
+        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
+      </div>
+    </>
   ),
 
   name: "Clickable",

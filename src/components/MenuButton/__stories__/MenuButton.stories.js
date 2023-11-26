@@ -40,12 +40,38 @@ export const Overview = {
 
 export const Sizes = {
   render: () => (
-    <MenuButton size={MenuButton.sizes.XXS}>
-      <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-      </Menu>
-    </MenuButton>
+    <>
+      <MenuButton size={MenuButton.sizes.XXS}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
+      <MenuButton size={MenuButton.sizes.XS}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
+      <MenuButton size={MenuButton.sizes.SMALL}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
+      <MenuButton size={MenuButton.sizes.MEDIUM}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
+      <MenuButton size={MenuButton.sizes.LARGE}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+        </Menu>
+      </MenuButton>
+    </>
   ),
 
   name: "Sizes"

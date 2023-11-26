@@ -19,7 +19,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const buttonTemplate = createComponentTemplate(Button);
+const buttonTemplate = createComponentTemplate(Button);
 
 export const Overview = {
   render: buttonTemplate.bind({}),

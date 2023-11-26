@@ -21,7 +21,17 @@ export const Overview = {
 };
 
 export const Types = {
-  render: () => <EditableHeading type={EditableHeading.types.h1} value="H1 Header" />,
+  render: () => (
+    <>
+      {" "}
+      <EditableHeading type={EditableHeading.types.h1} value="H1 Header" />
+      <EditableHeading type={EditableHeading.types.h2} value="H2 Header" />
+      <EditableHeading type={EditableHeading.types.h3} value="H3 Header" />
+      <EditableHeading type={EditableHeading.types.h4} value="H4 Header" />
+      <EditableHeading type={EditableHeading.types.h5} value="H5 Header" />
+      <EditableHeading type={EditableHeading.types.h6} value="H6 Header" />
+    </>
+  ),
   name: "Types"
 };
 
@@ -31,11 +41,23 @@ export const Placeholder = {
 };
 
 export const TextHighlight = {
-  render: () => <EditableHeading type={EditableHeading.types.h1} value="H1 Header" highlightTerm="head" />,
+  render: () => (
+    <>
+      <EditableHeading type={EditableHeading.types.h1} value="H1 Header" highlightTerm="head" />
+      <EditableHeading type={EditableHeading.types.h2} value="H2 Header" highlightTerm="head" />
+      <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" />
+    </>
+  ),
   name: "Text Highlight"
 };
 
 export const Colors = {
-  render: () => <EditableHeading type={EditableHeading.types.h1} value="H1 Header" customColor="blue" />,
+  render: () => (
+    <>
+      <EditableHeading type={EditableHeading.types.h1} value="H1 Header" customColor="blue" />
+      <EditableHeading type={EditableHeading.types.h2} value="H2 Header" customColor="red" />
+      <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" customColor="#AA33FF" />
+    </>
+  ),
   name: "Colors"
 };

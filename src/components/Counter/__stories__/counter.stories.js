@@ -1,9 +1,9 @@
+import { createComponentTemplate } from "vibe-storybook-components";
 import Counter from "../Counter";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";
 import { AddUpdate, Update } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
-import { createComponentTemplate } from "vibe-storybook-components";
 import "./counter.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -43,10 +43,16 @@ export const Overview = {
 
 export const Sizes = {
   render: () => (
-    <div className="storybook-counter_column">
-      <Counter count={5} />
-      Big
-    </div>
+    <>
+      <div className="storybook-counter_column">
+        <Counter count={5} />
+        Big
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} size={Counter.sizes.SMALL} />
+        Small
+      </div>
+    </>
   ),
 
   name: "Sizes"
@@ -54,10 +60,24 @@ export const Sizes = {
 
 export const Colors = {
   render: () => (
-    <div className="storybook-counter_column">
-      <Counter count={5} />
-      Primary
-    </div>
+    <>
+      <div className="storybook-counter_column">
+        <Counter count={5} />
+        Primary
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.NEGATIVE} />
+        Negative or notification
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.DARK} />
+        Dark
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.LIGHT} />
+        Light
+      </div>
+    </>
   ),
 
   name: "Colors"
@@ -65,10 +85,24 @@ export const Colors = {
 
 export const Outline = {
   render: () => (
-    <div className="storybook-counter_column">
-      <Counter count={5} kind={Counter.kinds.LINE} />
-      Primary
-    </div>
+    <>
+      <div className="storybook-counter_column">
+        <Counter count={5} kind={Counter.kinds.LINE} />
+        Primary
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
+        Negative or notification
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
+        Dark
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={5} color={Counter.colors.LIGHT} kind={Counter.kinds.LINE} />
+        Light
+      </div>
+    </>
   ),
 
   name: "Outline"
@@ -76,10 +110,20 @@ export const Outline = {
 
 export const Limits = {
   render: () => (
-    <div className="storybook-counter_column">
-      <Counter count={10} maxDigits={1} />
-      One digit limit
-    </div>
+    <>
+      <div className="storybook-counter_column">
+        <Counter count={10} maxDigits={1} />
+        One digit limit
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={100} maxDigits={2} />
+        Two digits limit
+      </div>
+      <div className="storybook-counter_column">
+        <Counter count={1000} />
+        Three digits limit
+      </div>
+    </>
   ),
 
   name: "Limits"
@@ -136,11 +180,18 @@ export const Limits = {
 
 export const CounterOnInboxFilters = {
   render: () => (
-    <div className="storybook-counter_wrapper">
-      <span className="a">UX Writing & microcopy Re...</span>
-      <span className="a">Mobile Data- Iteration Plan...</span>
-      <span className="a">Q Plans.</span>
-    </div>
+    <>
+      <div className="storybook-counter_wrapper">
+        <span className="a">UX Writing & microcopy Re...</span>
+        <span className="a"> Mobile Data- Iteration Plan...</span>
+        <span className="a">Q Plans.</span>
+      </div>
+      <div className="storybook-counter_wrapper">
+        <Counter count={195} color={Counter.colors.DARK} />
+        <Counter count={141} color={Counter.colors.DARK} />
+        <Counter count={99} color={Counter.colors.DARK} />
+      </div>
+    </>
   ),
 
   name: "Counter on inbox filters"

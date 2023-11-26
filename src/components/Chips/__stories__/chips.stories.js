@@ -45,17 +45,35 @@ export const ChipsWithReadOnlyState = {
 };
 
 export const ChipsWithIcons = {
-  render: () => <Chips label="Chip with left icon" leftIcon={Email} />,
+  render: () => (
+    <>
+      <Chips label="Chip with left icon" leftIcon={Email} />
+      <Chips label="Chip with right icon" rightIcon={Email} />
+    </>
+  ),
   name: "Chips with icons"
 };
 
 export const ChipsWithAvatars = {
-  render: () => <Chips label="Chip with left avatar" leftAvatar={person1} />,
+  render: () => (
+    <>
+      <Chips label="Chip with left avatar" leftAvatar={person1} />
+      <Chips label="Chip with right avatar" rightAvatar={person1} />
+    </>
+  ),
   name: "Chips with avatars"
 };
 
 export const Themes = {
-  render: () => <Chips label="This is a long chip" />,
+  render: () => (
+    <>
+      <Chips label="This is a long chip" />
+      <Chips label="Chip positive" color={Chips.colors.POSITIVE} />
+      <Chips label="Chip negative" color={Chips.colors.NEGATIVE} />
+      <Chips label="Chip warning" color={Chips.colors.WARNING} />
+      <Chips label="Disabled" disabled />
+    </>
+  ),
   name: "Themes"
 };
 
@@ -190,7 +208,7 @@ export const ChipsInAPersonPickerComboBox = {
         <div className="monday-storybook-chips_inline-container" key="cont-1">
           <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
           <span className="monday-storybook-chips_name">
-            May Kishon<span>(UX/UI Product Designer)</span>
+            May Kishon <span>(UX/UI Product Designer)</span>
           </span>
         </div>
         <div className="monday-storybook-chips_inline-container" key="cont-2">
@@ -201,19 +219,19 @@ export const ChipsInAPersonPickerComboBox = {
             type={Avatar.types.TEXT}
           />
           <span className="monday-storybook-chips_name">
-            Liron Cohen<span>(Customer Experience)</span>
+            Liron Cohen <span>(Customer Experience)</span>
           </span>
         </div>
         <div className="monday-storybook-chips_inline-container" key="cont-3">
           <Avatar size={Avatar.sizes.SMALL} text="AL" type={Avatar.types.TEXT} />
           <span className="monday-storybook-chips_name">
-            Amanda Lawrence<span>(Customer Experience Designer)</span>
+            Amanda Lawrence <span>(Customer Experience Designer)</span>
           </span>
         </div>
         <div className="monday-storybook-chips_inline-container" key="cont-4">
           <Avatar size={Avatar.sizes.SMALL} text="DY" type={Avatar.types.TEXT} backgroundColor={Avatar.colors.PEACH} />
           <span className="monday-storybook-chips_name">
-            Dor Yehuda<span>(Customer Experience Designer)</span>
+            Dor Yehuda <span>(Customer Experience Designer)</span>
           </span>
         </div>
       </div>

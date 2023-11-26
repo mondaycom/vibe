@@ -4,7 +4,8 @@ import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
-import { guest, home, person1, person2, person3 } from "./assets";
+import { guest, home, minus, owner, person1, person2, person3 } from "./assets";
+import { WhatsNew } from "../../Icon/Icons";
 import { useCallback, useState } from "@storybook/addons";
 import "./avatar.stories.scss";
 
@@ -36,25 +37,53 @@ export const Overview = {
 };
 
 export const Size = {
-  render: () => <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />,
+  render: () => (
+    <>
+      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
+      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
+      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
+    </>
+  ),
 
   name: "Size"
 };
 
 export const Disable = {
-  render: () => <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} disabled />,
+  render: () => (
+    <>
+      <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} disabled />
+      <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} disabled />
+      <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} disabled />
+    </>
+  ),
   name: "Disable"
 };
 
 export const AvatarWithText = {
   render: () => (
-    <Avatar
-      size={Avatar.sizes.SMALL}
-      type={Avatar.types.TEXT}
-      text="RM"
-      backgroundColor={Avatar.colors.LIPSTICK}
-      ariaLabel="Ron Meir"
-    />
+    <>
+      <Avatar
+        size={Avatar.sizes.SMALL}
+        type={Avatar.types.TEXT}
+        text="RM"
+        backgroundColor={Avatar.colors.LIPSTICK}
+        ariaLabel="Ron Meir"
+      />
+      <Avatar
+        size={Avatar.sizes.MEDIUM}
+        type={Avatar.types.TEXT}
+        text="RM"
+        backgroundColor={Avatar.colors.LIPSTICK}
+        ariaLabel="Ron Meir"
+      />
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.TEXT}
+        text="RM"
+        backgroundColor={Avatar.colors.DONE_GREEN}
+        ariaLabel="Ron Meir"
+      />
+    </>
   ),
 
   name: "Avatar with text"
@@ -62,14 +91,32 @@ export const AvatarWithText = {
 
 export const SquareAvatar = {
   render: () => (
-    <Avatar
-      size={Avatar.sizes.SMALL}
-      type={Avatar.types.TEXT}
-      text="R"
-      backgroundColor={Avatar.colors.BRIGHT_BLUE}
-      square
-      ariaLabel="Ron"
-    />
+    <>
+      <Avatar
+        size={Avatar.sizes.SMALL}
+        type={Avatar.types.TEXT}
+        text="R"
+        backgroundColor={Avatar.colors.BRIGHT_BLUE}
+        square
+        ariaLabel="Ron"
+      />
+      <Avatar
+        size={Avatar.sizes.MEDIUM}
+        type={Avatar.types.ICON}
+        icon={WhatsNew}
+        backgroundColor={Avatar.colors.AQUAMARINE}
+        square
+        ariaLabel="Present"
+      />
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.TEXT}
+        text="RM"
+        backgroundColor={Avatar.colors.WORKING_ORANGE}
+        square
+        ariaLabel="Ron Meir"
+      />
+    </>
   ),
 
   name: "Square avatar"
@@ -77,15 +124,22 @@ export const SquareAvatar = {
 
 export const AvatarWithRightBadge = {
   render: () => (
-    <Avatar
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
-      src={person1}
-      bottomRightBadgeProps={{
-        src: guest
-      }}
-      ariaLabel="Hadas Fahri"
-    />
+    <>
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.IMG}
+        src={person1}
+        bottomRightBadgeProps={{ src: guest }}
+        ariaLabel="Hadas Fahri"
+      />
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.IMG}
+        src={person1}
+        bottomRightBadgeProps={{ src: owner }}
+        ariaLabel="Hadas Fahri"
+      />
+    </>
   ),
 
   name: "Avatar with right badge"
@@ -93,15 +147,23 @@ export const AvatarWithRightBadge = {
 
 export const AvatarWithLeftBadge = {
   render: () => (
-    <Avatar
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
-      src={person1}
-      bottomLeftBadgeProps={{
-        src: home
-      }}
-      ariaLabel="Hadas Fahri"
-    />
+    <>
+      {" "}
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.IMG}
+        src={person1}
+        bottomLeftBadgeProps={{ src: home }}
+        ariaLabel="Hadas Fahri"
+      />
+      <Avatar
+        size={Avatar.sizes.LARGE}
+        type={Avatar.types.IMG}
+        src={person1}
+        bottomLeftBadgeProps={{ src: minus }}
+        ariaLabel="Hadas Fahri"
+      />
+    </>
   ),
 
   name: "Avatar with left badge"

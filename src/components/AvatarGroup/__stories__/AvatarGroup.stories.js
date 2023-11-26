@@ -15,6 +15,13 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["type", "size"] // List enum props here
 });
 
+export default {
+  title: "Media/Avatar/AvatarGroup",
+  component: AvatarGroup,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
+
 const avatarGroupTemplate = ({ persons, ...args }) => {
   return (
     <AvatarGroup size={Avatar.sizes.LARGE} max={3} {...args}>
@@ -33,13 +40,6 @@ const avatarGroupTemplate = ({ persons, ...args }) => {
       <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
     </AvatarGroup>
   );
-};
-
-export default {
-  title: "Media/Avatar/AvatarGroup",
-  component: AvatarGroup,
-  argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
 };
 
 export const Overview = {

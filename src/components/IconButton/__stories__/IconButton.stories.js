@@ -4,7 +4,7 @@ import Text from "../../Text/Text";
 import Flex from "../../Flex/Flex";
 import Button from "../../Button/Button";
 import person1 from "./assets/person1.png";
-import { Add, Bolt, Doc, Drag, Filter, Item, Robot, Time } from "../../Icon/Icons";
+import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "../../Icon/Icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Icon from "../../Icon/Icon";
 import Heading from "../../LegacyHeading/LegacyHeading";
@@ -187,59 +187,62 @@ export const IconButtonAsToolbarButton = {
 
 export const IconButtonAsCloseButton = {
   render: () => (
-    <Flex
-      style={{
-        width: "100%"
-      }}
-    >
+    <>
       <Flex
-        className={styles.recycleBin}
         style={{
           width: "100%"
         }}
-        justify={Flex.justify.START}
-        gap={Flex.gaps.LARGE}
       >
         <Flex
-          direction={Flex.directions.COLUMN}
-          className={styles.recycleBinTitleContainer}
-          justify={Flex.justify.CENTER}
+          className={styles.recycleBin}
+          style={{
+            width: "100%"
+          }}
+          justify={Flex.justify.START}
+          gap={Flex.gaps.LARGE}
         >
-          <Icon icon={Item} iconSize={40} />
-          <Heading
-            className={styles.recycleBinTitle}
-            type={Heading.types.h5}
-            value="Item"
-            id="monday-recycle-bin-title"
-          />
-        </Flex>
-        <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
-        <Flex
-          direction={Flex.directions.COLUMN}
-          className={styles.recycleBinContent}
-          align={Flex.justify.START}
-          ariaLabelledby="monday-recycle-bin-title"
-        >
-          <Flex gap={Flex.gaps.XS}>
-            <Link withoutSpacing>Hadas Farhi</Link>
-            <span>deleted the item</span>
+          <Flex
+            direction={Flex.directions.COLUMN}
+            className={styles.recycleBinTitleContainer}
+            justify={Flex.justify.CENTER}
+          >
+            <Icon icon={Item} iconSize={40} />
+            <Heading
+              className={styles.recycleBinTitle}
+              type={Heading.types.h5}
+              value="Item"
+              id="monday-recycle-bin-title"
+            />
+          </Flex>
+          <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+          <Flex
+            direction={Flex.directions.COLUMN}
+            className={styles.recycleBinContent}
+            align={Flex.justify.START}
+            ariaLabelledby="monday-recycle-bin-title"
+          >
+            <Flex gap={Flex.gaps.XS}>
+              <Link withoutSpacing>Hadas Farhi</Link>
+              <span>deleted the item</span>
+              <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
+                Hello World
+              </Text>
+              <span>from the board</span>
+            </Flex>
             <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
-              Hello World
+              Tasks
             </Text>
-            <span>from the board</span>
+            <Flex gap={Flex.gaps.XS} className={styles.recycleBinSubNote}>
+              <Icon icon={Time} />
+              <span className={styles.recycleBinTimeStamp}>13m</span>
+              <span>(Available for restore in the next 1M)</span>
+            </Flex>
           </Flex>
-          <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
-            Tasks
-          </Text>
-          <Flex gap={Flex.gaps.XS} className={styles.recycleBinSubNote}>
-            <Icon icon={Time} />
-            <span className={styles.recycleBinTimeStamp}>13m</span>
-            <span>(Available for restore in the next 1M)</span>
-          </Flex>
+          <Button className={styles.recycleBinRestoreButton}>Restore</Button>
         </Flex>
-        <Button className={styles.recycleBinRestoreButton}>Restore</Button>
       </Flex>
-    </Flex>
+      <IconButton icon={CloseSmall} size={IconButton.sizes.SMALL} ariaLabel="Remove from Recycle bin" />
+    </>
   ),
 
   name: "Icon button as close button"

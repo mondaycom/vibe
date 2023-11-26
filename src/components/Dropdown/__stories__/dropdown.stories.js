@@ -66,7 +66,11 @@ export const Overview = {
 
 export const Sizes = {
   render: () => (
-    <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
+    <>
+      <Dropdown placeholder="Small" size={Dropdown.sizes.SMALL} className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Medium" size={Dropdown.sizes.MEDIUM} className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="Large" size={Dropdown.sizes.LARGE} className="dropdown-stories-styles_spacing" />
+    </>
   ),
 
   name: "Sizes"
@@ -147,7 +151,12 @@ export const Readonly = {
 };
 
 export const Rtl = {
-  render: () => <Dropdown placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />,
+  render: () => (
+    <>
+      <Dropdown placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />
+      <Dropdown placeholder="מימין לשמאל" className="dropdown-stories-styles_spacing" rtl />
+    </>
+  ),
 
   name: "RTL"
 };

@@ -56,15 +56,37 @@ export const Overview = {
 
 export const Types = {
   render: () => (
-    <SplitButton
-      children="Primary"
-      secondaryDialogContent={
-        <SplitButtonMenu id="split-menu">
-          <MenuItem icon={Check} title="Hey" />
-          <MenuItem icon={Announcement} title="There" />
-        </SplitButtonMenu>
-      }
-    />
+    <>
+      <SplitButton
+        children="Primary"
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+      <SplitButton
+        children="Secondary"
+        kind={SplitButton.kinds.SECONDARY}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+      <SplitButton
+        children="Tertiary"
+        kind={SplitButton.kinds.TERTIARY}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+    </>
   ),
 
   name: "Types"
@@ -72,16 +94,38 @@ export const Types = {
 
 export const Sizes = {
   render: () => (
-    <SplitButton
-      children="Small"
-      size={SplitButton.sizes.SMALL}
-      secondaryDialogContent={
-        <SplitButtonMenu id="split-menu">
-          <MenuItem icon={Check} title="Hey" />
-          <MenuItem icon={Announcement} title="There" />
-        </SplitButtonMenu>
-      }
-    />
+    <>
+      <SplitButton
+        children="Small"
+        size={SplitButton.sizes.SMALL}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+      <SplitButton
+        children="Medium"
+        size={SplitButton.sizes.MEDIUM}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+      <SplitButton
+        children="Large"
+        size={SplitButton.sizes.LARGE}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      />
+    </>
   ),
 
   name: "Sizes"
@@ -89,17 +133,30 @@ export const Sizes = {
 
 export const SplitButtonWithIcons = {
   render: () => (
-    <SplitButton
-      leftIcon={Add}
-      secondaryDialogContent={
-        <SplitButtonMenu id="split-menu">
-          <MenuItem icon={Check} title="Hey" />
-          <MenuItem icon={Announcement} title="There" />
-        </SplitButtonMenu>
-      }
-    >
-      Left icon
-    </SplitButton>
+    <>
+      <SplitButton
+        leftIcon={Add}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      >
+        Left icon
+      </SplitButton>
+      <SplitButton
+        rightIcon={Add}
+        secondaryDialogContent={
+          <SplitButtonMenu id="split-menu">
+            <MenuItem icon={Check} title="Hey" />
+            <MenuItem icon={Announcement} title="There" />
+          </SplitButtonMenu>
+        }
+      >
+        Right icon
+      </SplitButton>
+    </>
   ),
 
   name: "Split button with icons"

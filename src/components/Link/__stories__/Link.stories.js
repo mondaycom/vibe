@@ -35,12 +35,22 @@ export const States = {
 };
 
 export const RightToLeft = {
-  render: () => <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />,
+  render: () => (
+    <>
+      <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
+      <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={Info} />
+    </>
+  ),
   name: "Right to left"
 };
 
 export const WithIcons = {
-  render: () => <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />,
+  render: () => (
+    <>
+      <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
+      <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
+    </>
+  ),
   name: "With icons"
 };
 

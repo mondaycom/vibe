@@ -23,7 +23,14 @@ export const Overview = {
 };
 
 export const States = {
-  render: () => <RadioButton text="Regular" />,
+  render: () => (
+    <>
+      <RadioButton text="Regular" />
+      <RadioButton text="Selected" checked />
+      <RadioButton text="Disabled" disabled disabledReason="Disabled reason" />
+      <RadioButton text="Disabled" checked disabled />
+    </>
+  ),
   name: "States"
 };
 
