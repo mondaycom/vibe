@@ -51,7 +51,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const [isEditing, setIsEditing] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
 
