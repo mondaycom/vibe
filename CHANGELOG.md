@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.63.3 (2023-11-26)
+
+#### Bug Fixes
+* [#1768](https://github.com/mondaycom/monday-ui-react-core/pull/1768) fix(Toast): description icon should be 20px ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1769](https://github.com/mondaycom/monday-ui-react-core/pull/1769) docs(Table): Scroll story should have same length as other stories ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1770](https://github.com/mondaycom/monday-ui-react-core/pull/1770) chore: supress <Dialog> console.error if container not found, add TODO ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#1764](https://github.com/mondaycom/monday-ui-react-core/pull/1764) Update icons - monday-ui-style 0.1.203 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.63.2 (2023-11-23)
 
 #### Bug Fixes

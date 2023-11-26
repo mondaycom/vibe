@@ -3,17 +3,11 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import {
-  EDITABLE_TEXT,
-  HEADING,
-  TEXT
+    EDITABLE_TEXT,
+    HEADING,
+    TEXT
 } from "../../../storybook/components/related-components/component-description-map";
 import * as EditableHeadingStories from "./EditableHeading.stories";
-
-export const metaSettings = createStoryMetaSettingsDecorator({
-  component: EditableHeading,
-  enumPropNamesArray: ["weight", "type"],
-  actionPropsArray: ["onChange"]
-});
 
 <Meta of={EditableHeadingStories} />
 
@@ -30,7 +24,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 
 ## Overview
 
-Editable Heading component is based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading</Link> component, allowing users to dynamically edit its content.
+Editable Heading allows users to seamlessly and dynamically edit in-line content. Its default state is a read-view, based on the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading component</Link>, and it becomes editable after clicking on it.
 
 <Canvas>
   <Story of={EditableHeadingStories.Overview} />
@@ -44,14 +38,23 @@ Editable Heading component is based on the <Link href="/?path=/docs/text-heading
 
 <UsageGuidelines
   guidelines={[
-    "Use when you want to allow the user to edit the heading text",
-    "This component grows relative to its content, and its maximum width is 100% of its container "
+    "Use when you want to allow the user to edit an existing heading text",
+    "This component grows relative to its content, and its maximum width is 100% of its container"
   ]}
 />
+
+<Tip title="Am I using the right component?">
+  This component is used for editing text size 18px and up. For editing smaller text sizes, consider using{" "}
+  <Link href="/?path=/docs/inputs-editabletext--overview" withoutSpacing target={Link.targets.PARENT} size="small">
+    EditableText
+  </Link>
+</Tip>
 
 ## Variants
 
 ### Heading types
+
+Editable heading can be used with any of the <Link href="/?path=/docs/text-heading--overview" withoutSpacing>Heading component</Link> sizes and weights.
 
 <Canvas>
   <Story of={EditableHeadingStories.Types} />
