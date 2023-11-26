@@ -11,7 +11,7 @@ export const SingleRule = {
 
     return (
       <div>
-        {`media query - "screen and (max-width: 1023px) and (min-width: 768px)" is matching:{" "}`}
+        {`media query - "screen and (max-width: 1023px) and (min-width: 768px)" is matching: `}
         {mediaQueryIsMatching ? "true" : "false"}
       </div>
     );
@@ -30,10 +30,10 @@ export const MultipleRules = {
     return (
       <div>
         <div>
-          {`media query - "screen and (max-width: 1280px) and (min-width: 768px)" is matching:{" "}`}
+          {`media query - "screen and (max-width: 1280px) and (min-width: 768px)" is matching: `}
           {screenSizeMediaQuery ? "true" : "false"}
         </div>
-        <div>media query - prefers-color-scheme: dark is matching:{preferDarkColorScheme ? "true" : "false"}</div>
+        <div>media query - prefers-color-scheme: dark is matching: {preferDarkColorScheme ? "true" : "false"}</div>
       </div>
     );
   },

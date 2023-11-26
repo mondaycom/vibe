@@ -28,7 +28,7 @@ export const Overview = {
         <Button onClick={blur} className={styles.controlButton}>
           Blur
         </Button>
-        <div className={styles.focusLabel}>Is focused:{isFocused?.toString()}</div>
+        <div className={styles.focusLabel}>Is focused: {isFocused?.toString()}</div>
       </Flex>
     );
   },

@@ -12,7 +12,7 @@ export const Overview = {
     return (
       <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
         <Toggle onChange={onChange} isSelected={isChecked} />
-        <code>isChecked:{isChecked.toString()}</code>
+        <code>isChecked: {isChecked.toString()}</code>
       </Flex>
     );
   },
@@ -29,7 +29,7 @@ export const Disabled = {
     return (
       <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
         <Toggle onChange={onChange} isSelected={isChecked} />
-        <code>isChecked:{isChecked.toString()}</code>
+        <code>isChecked: {isChecked.toString()}</code>
       </Flex>
     );
   },
@@ -48,8 +48,8 @@ export const Default = {
     return (
       <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
         <Toggle onChange={onChange} isSelected={isChecked} />
-        <code>isChecked:{isChecked.toString()}</code>
-        <code>defaultChecked:{defaultChecked.toString()}</code>
+        <code>isChecked {isChecked.toString()}</code>
+        <code>defaultChecked: {defaultChecked.toString()}</code>
       </Flex>
     );
   },

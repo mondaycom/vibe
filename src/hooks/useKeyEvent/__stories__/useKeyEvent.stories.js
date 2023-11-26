@@ -15,7 +15,7 @@ export const Overview = {
       callback: e => setKeyName(e.key)
     });
 
-    return <div>Last pressed digit:{keyName}</div>;
+    return <div>Last pressed digit: {keyName}</div>;
   },
 
   name: "Overview"
