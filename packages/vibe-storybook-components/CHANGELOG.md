@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.2 (2023-11-26)
+
+#### Bug Fixes
+* [#129](https://github.com/mondaycom/vibe-storybook-components/pull/129) fix: <Frame> make className, noBorder, noGutter props not required ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 0.14.1 (2023-11-24)
 
 #### Bug Fixes
