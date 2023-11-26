@@ -1,4 +1,5 @@
 import { useCallback, useState } from "@storybook/addons";
+import { Tip } from "vibe-storybook-components";
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
@@ -191,38 +192,32 @@ export const TipseenWithCustomMedia = {
   name: "Tipseen with custom media"
 };
 
-// TODO storybook 7 migration: story is broken
-// export const FloatingTipseen = {
-//   // You do not have to use containerSelector, in current use this is for story only
-//   render: () => {
-//     return (
-//       <Tipseen
-//         closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-//         floating
-//         content={
-//           <>
-//             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
-//             <TipseenContent title="This is a Floating Tipseen">
-//               Popover message will appear here lorem ipsum dolor samet…
-//             </TipseenContent>
-//           </>
-//         }
-//         containerSelector="#story--popover-tipseen--floating-tipseen"
-//       />
-//     );
-//   },
-//
-//   name: "Floating Tipseen",
-//   height: "500px"
-// };
+// TODO storybook 7 migration: story is broken - issues with positioning on new storybook layout
+export const FloatingTipseen = {
+  // You do not have to use containerSelector, in current use this is for story only
+  render: () => {
+    return (
+      <Tip emoji={"🔨"} title={"Story is under maintenance"} type={Tip.types.WARNING}>
+        We will fix the story as soon as possible! Sorry for the inconvenience.
+      </Tip>
+    );
+    // return (
+    //   <Tipseen
+    //     closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+    //     floating
+    //     content={
+    //       <>
+    //         <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+    //         <TipseenContent title="This is a Floating Tipseen">
+    //           Popover message will appear here lorem ipsum dolor samet…
+    //         </TipseenContent>
+    //       </>
+    //     }
+    //     containerSelector="#story--popover-tipseen--floating-tipseen"
+    //   />
+    // );
+  },
 
-// Story was after "Tipseen with custom media" story
-// ### Floating Tipseen
-//
-// Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
-//
-//     In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
-//
-// <Canvas>
-//     <Story of={TipseenStories.FloatingTipseen} />
-// </Canvas>
+  name: "Floating Tipseen",
+  height: "500px"
+};
