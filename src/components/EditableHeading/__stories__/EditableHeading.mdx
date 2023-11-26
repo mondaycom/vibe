@@ -1,12 +1,12 @@
 import EditableHeading from "../EditableHeading";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import {
-    EDITABLE_TEXT,
-    HEADING,
-    TEXT
+  EDITABLE_TEXT,
+  HEADING,
+  TEXT
 } from "../../../storybook/components/related-components/component-description-map";
+import { TipEditableText } from "./EditableHeading.stories.helpers";
 import * as EditableHeadingStories from "./EditableHeading.stories";
 
 <Meta of={EditableHeadingStories} />
@@ -43,12 +43,7 @@ Editable Heading allows users to seamlessly and dynamically edit in-line content
   ]}
 />
 
-<Tip title="Am I using the right component?">
-  This component is used for editing text size 18px and up. For editing smaller text sizes, consider using{" "}
-  <Link href="/?path=/docs/inputs-editabletext--overview" withoutSpacing target={Link.targets.PARENT} size="small">
-    EditableText
-  </Link>
-</Tip>
+<TipEditableText />
 
 ## Variants
 
