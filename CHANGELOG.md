@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.64.0 (2023-11-27)
+
+#### Bug Fixes
+* [#1759](https://github.com/mondaycom/monday-ui-react-core/pull/1759) EditableText/EditableHeading fixed and update docs ([@talkor](https://github.com/talkor))
+
+#### New Features
+* [#1765](https://github.com/mondaycom/monday-ui-react-core/pull/1765) <Table/> - Add row size variations ([@kapusj](https://github.com/kapusj))
+
 ## 2.63.3 (2023-11-26)
 
 #### Bug Fixes
