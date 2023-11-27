@@ -1,16 +1,16 @@
-import {ArgsTable, Canvas, Meta, Story} from "@storybook/blocks";
+import { Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import {Board, Folder, Group, Workspace} from "../../Icon/Icons";
+import { Board, Folder, Group, Workspace } from "../../Icon/Icons";
 import person3 from "./assets/person3.png";
 import {
-    BUTTON_GROUP,
-    MULTI_STEP_INDICATOR,
-    TABS
+  BUTTON_GROUP,
+  MULTI_STEP_INDICATOR,
+  TABS
 } from "../../../storybook/components/related-components/component-description-map";
-import {TipCheckYourself} from "./breadcrumbsBar.stories.helpers";
+import { TipCheckYourself } from "./breadcrumbsBar.stories.helpers";
 import * as BreadcrumbsBarStories from "./breadcrumbsBar.stories";
 
 <Meta of={BreadcrumbsBarStories} />
@@ -36,7 +36,7 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
 
 ## Props
 
-<ArgsTable story="Overview" />
+<Controls />
 
 ## Usage
 

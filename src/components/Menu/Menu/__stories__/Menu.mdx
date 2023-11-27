@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import {
   COMBOBOX,
   DROPDOWN,
@@ -9,9 +9,9 @@ import {
   ComponentRuleDefaultWidth,
   ComponentRuleLargeWidth,
   ComponentRuleSimpleActions,
-  ComponentRuleWithSearch
+  ComponentRuleWithSearch,
+  TipCombobox
 } from "./Menu.stories.helpers";
-import { TipCombobox } from "./Menu.stories.helpers";
 import * as MenuStories from "./Menu.stories";
 
 <Meta of={MenuStories} />
@@ -37,7 +37,7 @@ A menu is a navigable contextual list of items that can be selected.
 
 ## Props
 
-<ArgsTable story="Overview" />
+<Controls />
 
 ## Usage
 
