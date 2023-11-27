@@ -94,7 +94,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
       {children ? (
         children
       ) : (
-        <Flex align={Flex.align.CENTER}>
+        <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
           {icon && (
             <Icon
               className={cx(styles.icon, iconClassName)}
@@ -105,7 +105,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
               clickable={false}
             />
           )}
-          <Heading id={id} maxLines={2} className={titleClassName}>
+          <Heading id={id} maxLines={2}>
             {title}
           </Heading>
         </Flex>
