@@ -198,13 +198,33 @@ Table
 The table is available in 2 different row heights: medium (40px) and large (48 px). Medium size is the default size.
 
 <Canvas>
-  <Story name="Table Size Variants">
+  <Story name="Table Size Variants" decorators={[(Story) => (<span style={{display: "flex", "align-items": "start", width: "100%"}}> <Story /></span>)]}>
     {() => {
-      const columns = emailColumns.slice(0, 2);
-      const data = emailTableData.slice(0, 2);
+      const columns = [
+        {
+          id: "sentOn",
+          title: "Sent on",
+          loadingStateType: "medium-text"
+        },
+        {
+          id: "subject",
+          title: "Subject",
+          loadingStateType: "long-text"
+        }
+      ]
+      const data = [
+        {
+          sentOn: "2020-01-01",
+          subject: "Lorem ipsum dolor",
+        },
+        {
+          sentOn: "2022-02-02",
+          subject: "This is the subject",
+        }
+      ];
       return (
         <>
-          <Table size={RowSizes.MEDIUM} errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
+          <Table style={{"margin-right": "15%"}} size={RowSizes.MEDIUM} errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
             <TableHeader>
               {columns.map((headerCell, index) => (
                 <TableHeaderCell
