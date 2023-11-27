@@ -35,8 +35,8 @@ Snapshot Diff:
 +         data-testid="modal-header"
 +       >
 +         <div
-+           class="container directionRow justifyStart alignCenter"
-+           style="gap: 0px;"
++           class="container directionRow justifyStart alignStart"
++           style="gap: 8px;"
 +         >
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
@@ -106,8 +106,8 @@ Snapshot Diff:
 +         data-testid="modal-header"
 +       >
 +         <div
-+           class="container directionRow justifyStart alignCenter"
-+           style="gap: 0px;"
++           class="container directionRow justifyStart alignStart"
++           style="gap: 8px;"
 +         >
 +           <h1
 +             class="typography primary start multiLineEllipsis heading h1Normal"
@@ -198,8 +198,8 @@ exports[`Modal with base props 1`] = `
       data-testid="modal-header_modal-id-title"
     >
       <div
-        class="container directionRow justifyStart alignCenter"
-        style="gap: 0px;"
+        class="container directionRow justifyStart alignStart"
+        style="gap: 8px;"
       >
         <h1
           class="typography primary start multiLineEllipsis heading h1Normal"
