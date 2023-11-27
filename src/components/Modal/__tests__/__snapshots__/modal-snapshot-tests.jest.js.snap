@@ -51,7 +51,6 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
-+               aria-pressed="false"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -117,7 +116,6 @@ Snapshot Diff:
 +               aria-busy="false"
 +               aria-disabled="false"
 +               aria-label="close"
-+               aria-pressed="false"
 +               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
 +               data-testid="icon-button"
 +               style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -205,7 +203,6 @@ exports[`Modal with base props 1`] = `
             aria-busy="false"
             aria-disabled="false"
             aria-label="Close"
-            aria-pressed="false"
             class="button sizeMedium kindTertiary colorPrimary noSidePadding"
             data-testid="icon-button"
             style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -285,9 +282,9 @@ Snapshot Diff:
               aria-disabled="false"
 -             aria-label="Close"
 +             aria-label="closeButtonAriaLabel"
-              aria-pressed="false"
               class="button sizeMedium kindTertiary colorPrimary noSidePadding"
               data-testid="icon-button"
+              style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
 `;
 
 exports[`Modal with custom width 1`] = `
