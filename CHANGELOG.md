@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.64.1 (2023-11-27)
+
+#### Bug Fixes
+* [#1774](https://github.com/mondaycom/monday-ui-react-core/pull/1774) fix(BreadcrumbItem): add hover style when using link variation ([@talkor](https://github.com/talkor))
+
 ## 2.64.0 (2023-11-27)
 
 #### Bug Fixes
