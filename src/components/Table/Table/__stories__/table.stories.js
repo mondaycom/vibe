@@ -7,6 +7,7 @@ import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBod
 import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
+import { RowSizes } from "../TableConsts";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import {
   emailColumns,
@@ -173,6 +174,96 @@ export const Overview = {
   ),
 
   name: "Overview"
+};
+
+export const Sizes = {
+  render: () => {
+    const columns = [
+      {
+        id: "sentOn",
+        title: "Sent on",
+        loadingStateType: "medium-text"
+      },
+      {
+        id: "subject",
+        title: "Subject",
+        loadingStateType: "long-text"
+      }
+    ];
+    const data = [
+      {
+        sentOn: "2020-01-01",
+        subject: "Lorem ipsum dolor"
+      },
+      {
+        sentOn: "2022-02-02",
+        subject: "This is the subject"
+      }
+    ];
+    return (
+      <>
+        <Table
+          style={{ "margin-right": "15%" }}
+          size={RowSizes.MEDIUM}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={columns}
+        >
+          <TableHeader>
+            {columns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
+              />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {data.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Table
+          size={RowSizes.LARGE}
+          errorState={<TableErrorState />}
+          emptyState={<TableEmptyState />}
+          columns={columns}
+        >
+          <TableHeader>
+            {columns.map((headerCell, index) => (
+              <TableHeaderCell
+                key={index}
+                title={headerCell.title}
+                icon={headerCell.icon}
+                infoContent={headerCell.infoContent}
+              />
+            ))}
+          </TableHeader>
+          <TableBody>
+            {data.map(rowItem => (
+              <TableRow key={rowItem.id}>
+                <TableCell>{rowItem.sentOn}</TableCell>
+                <TableCell>{rowItem.subject}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </>
+    );
+  },
+  decorators: [
+    Story => (
+      <span style={{ display: "flex", "align-items": "start", width: "100%" }}>
+        <Story />
+      </span>
+    )
+  ],
+  name: "Sizes"
 };
 
 export const TableHeaderFunctionality = {
