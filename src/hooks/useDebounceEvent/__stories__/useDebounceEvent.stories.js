@@ -41,7 +41,7 @@ export const PassingAnOnChangeHandler = {
     return (
       <>
         <input type="text" value={inputValue} onChange={onEventChanged} />
-        {<span>Input has {length}characters</span>}
+        {<span>Input has {length} characters</span>}
       </>
     );
   },

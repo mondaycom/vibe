@@ -324,52 +324,23 @@ export const WithOptionRenderer = {
   render: () => {
     const options = useMemo(
       () => [
-        {
-          id: "1",
-          label: "Option 1"
-        },
-        {
-          id: "2",
-          label: "Option 2"
-        },
-        {
-          id: "3",
-          label: "Option 3"
-        },
-        {
-          id: "4",
-          label: "Option 4"
-        },
-        {
-          id: "5",
-          label: "Option 5"
-        },
-        {
-          id: "6",
-          label: "Option 6"
-        },
-        {
-          id: "7",
-          label: "Option 7"
-        },
-        {
-          id: "8",
-          label: "Option 8"
-        },
-        {
-          id: "9",
-          label: "Option 9"
-        }
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" },
+        { id: "4", label: "Option 4" },
+        { id: "5", label: "Option 5" },
+        { id: "6", label: "Option 6" },
+        { id: "7", label: "Option 7" },
+        { id: "8", label: "Option 8" },
+        { id: "9", label: "Option 9" }
       ],
       []
     );
-
     const optionRenderer = option => (
       <div>
-        <Icon icon={Person} />I can render anything with{option.label}
+        <Icon icon={Person} /> I can render anything with {option.label}
       </div>
     );
-
     return (
       <DialogContentContainer>
         <Combobox
