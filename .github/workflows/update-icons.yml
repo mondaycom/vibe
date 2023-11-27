@@ -1,7 +1,8 @@
 name: Update monday-ui-style
-on:
-  schedule:
-    - cron: "*/10 * * * *"
+on: workflow_dispatch
+# cron schedule disabled for now
+#  schedule:
+#    - cron: "*/10 * * * *"
 
 jobs:
   get-version:
