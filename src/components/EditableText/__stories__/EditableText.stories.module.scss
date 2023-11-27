@@ -7,10 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: var(--sb-spacing-large);
+    gap: var(--sb-spacing-xl);
 
     .editableText {
-      width: 120px;
+      width: 150px;
     }
   }
 }
