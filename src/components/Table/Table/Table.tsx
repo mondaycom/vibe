@@ -7,6 +7,7 @@ import { ITableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
+import { RowSizes } from "./TableConsts";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -32,6 +33,7 @@ interface ITableProps extends VibeComponentProps {
     | ReactElement<ITableHeaderProps>
     | ReactElement<ITableBodyProps>
     | Array<ReactElement<ITableHeaderProps> | ReactElement<ITableBodyProps>>;
+  size?: RowSizes;
 }
 
 interface ITableContext {
@@ -44,15 +46,33 @@ interface ITableContext {
 export const TableContext = React.createContext<ITableContext>(null);
 
 const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, columns, errorState, emptyState, dataState, style, children }, ref) => {
+  (
+    {
+      id,
+      className,
+      "data-testid": dataTestId,
+      columns,
+      errorState,
+      emptyState,
+      dataState,
+      style,
+      children,
+      size = RowSizes.MEDIUM
+    },
+    ref
+  ) => {
     const classNames = cx(styles.table, className);
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
 
     /**
-     * The `--table-grid-template-columns` variable will be available under each <Table /> scope
-     * and will be consumed in the stylesheets of its children (<TableHeader />, <TableRow />)
+     * The `--table-grid-template-columns` and `--table-row-size` variables will be available under each <Table /> scope
+     * and will be consumed in the stylesheets of its children (<TableHeader />, <TableRow />, <TableHeaderCell />)
      */
-    const calculatedStyle = { "--table-grid-template-columns": gridTemplateColumns, ...style } as React.CSSProperties;
+    const calculatedStyle = {
+      "--table-grid-template-columns": gridTemplateColumns,
+      "--table-row-size": size == RowSizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
+      ...style
+    } as React.CSSProperties;
 
     const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
 

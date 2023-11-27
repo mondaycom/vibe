@@ -1,7 +1,7 @@
 @import "../../../styles/states";
 
 .tableRow {
-  height: 40px;
+  height: var(--table-row-size);
   display: grid;
   grid-template-columns: var(--table-grid-template-columns);
 
