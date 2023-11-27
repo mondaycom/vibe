@@ -32,8 +32,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: false
   },
-  features: {
-    // interactionsDebugger: true // TODO storybook 7 migration: from storybook 6 - not sure it'll work here, need to test
-  }
+  features: {}
 };
 export default config;
