@@ -23,7 +23,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
     </span>
     <div>
       <div
-        class=" css-quv8ei-control"
+        class=" css-11nd28h-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -196,7 +196,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
     </span>
     <div>
       <div
-        class=" css-quv8ei-control"
+        class=" css-11nd28h-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -274,7 +274,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
   >
     <div>
       <div
-        class=" css-veeint-control"
+        class=" css-118upmw-control"
       >
         <div
           class=" css-18qqyiw-Component"
@@ -352,7 +352,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
   >
     <div>
       <div
-        class=" css-veeint-control"
+        class=" css-118upmw-control"
       >
         <div
           class=" css-18qqyiw-Component"
@@ -430,7 +430,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
   >
     <div>
       <div
-        class=" css-veeint-control"
+        class=" css-118upmw-control"
       >
         <div
           class=" css-18qqyiw-Component"
@@ -508,7 +508,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
   >
     <div>
       <div
-        class=" css-132xx32-control"
+        class=" css-13ywfe7-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -586,7 +586,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
   >
     <div>
       <div
-        class=" css-ng27sg-control"
+        class=" css-1qrvste-control"
       >
         <div
           class=" css-rxqqti-Component"
@@ -664,7 +664,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
   >
     <div>
       <div
-        class=" css-132xx32-control"
+        class=" css-13ywfe7-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -757,7 +757,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
     </span>
     <div>
       <div
-        class=" css-quv8ei-control"
+        class=" css-11nd28h-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -864,7 +864,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
     </span>
     <div>
       <div
-        class=" css-quv8ei-control"
+        class=" css-11nd28h-control"
       >
         <div
           class=" css-1ht1nal-Component"
@@ -1153,7 +1153,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 >
   <div>
     <div
-      className=" css-ai89z2-control"
+      className=" css-1i7lmxf-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1269,7 +1269,7 @@ exports[`Dropdown renders correctly when readOnly 1`] = `
 >
   <div>
     <div
-      className=" css-uninrv-control"
+      className=" css-xe3jfm-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1341,7 +1341,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1458,7 +1458,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1575,7 +1575,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
 >
   <div>
     <div
-      className=" css-uqdx2p-control"
+      className=" css-1jhcivv-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -1910,7 +1910,7 @@ exports[`Dropdown renders correctly with className 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2027,7 +2027,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2176,7 +2176,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2293,7 +2293,7 @@ exports[`Dropdown renders correctly with id 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2410,7 +2410,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
 >
   <div>
     <div
-      className=" css-uqdx2p-control"
+      className=" css-1jhcivv-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2646,7 +2646,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
 >
   <div>
     <div
-      className=" css-uqdx2p-control"
+      className=" css-1jhcivv-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -2876,7 +2876,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3011,7 +3011,7 @@ exports[`Dropdown renders correctly with multi and disabled 1`] = `
 >
   <div>
     <div
-      className=" css-ai89z2-control"
+      className=" css-1i7lmxf-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3176,7 +3176,7 @@ exports[`Dropdown renders correctly with multi and readonly 1`] = `
 >
   <div>
     <div
-      className=" css-uninrv-control"
+      className=" css-xe3jfm-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3297,7 +3297,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3414,7 +3414,7 @@ exports[`Dropdown renders correctly with options 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3531,7 +3531,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3648,7 +3648,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3774,7 +3774,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -3891,7 +3891,7 @@ exports[`Dropdown renders correctly with value 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -4040,7 +4040,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
 >
   <div>
     <div
-      className=" css-132xx32-control"
+      className=" css-13ywfe7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
