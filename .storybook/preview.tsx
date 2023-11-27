@@ -28,6 +28,10 @@ import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/story
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 
+const fontLoader = async () => ({
+  fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
+});
+
 const preview: Preview = {
   parameters: {
     docs: {
@@ -118,13 +122,8 @@ const preview: Preview = {
         ]
       }
     }
-  }
+  },
+  loaders: isChromatic() && document.fonts ? [fontLoader] : []
 };
-
-const fontLoader = async () => ({
-  fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
-});
-
-export const loaders = isChromatic() && document.fonts ? [fontLoader] : [];
 
 export default preview;
