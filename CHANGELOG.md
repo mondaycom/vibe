@@ -1,3 +1,7 @@
+0.1.203 / 2023-11-23
+====================
+  * Add fixed-light-color and fixed-dark-color tokens ([#259](https://github.com/mondaycom/monday-ui-style/issues/259))
+
 0.1.202 / 2023-10-26
 ====================
   * feat(mixins): export mixins ([#256](https://github.com/mondaycom/monday-ui-style/issues/256))
@@ -299,7 +303,3 @@
 0.1.158 / 2023-05-21
 ====================
   * Icon request - Erase ([#201](https://github.com/mondaycom/monday-ui-style/issues/201))
-
-0.1.157 / 2023-05-18
-====================
-  * text-color-on-brand token ([#200](https://github.com/mondaycom/monday-ui-style/issues/200))
