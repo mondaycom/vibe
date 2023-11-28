@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.64.2 (2023-11-28)
+
+#### Bug Fixes
+* [#1776](https://github.com/mondaycom/monday-ui-react-core/pull/1776) fix: <Dropdown> Control - use --primary-color on focus-within instead of default color from react-select ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1772](https://github.com/mondaycom/monday-ui-react-core/pull/1772) fix(ModalHeader): extract icon from Heading to allow tooltip to work ([@talkor](https://github.com/talkor))
+* [#1777](https://github.com/mondaycom/monday-ui-react-core/pull/1777) fix(Button): remove aria-pressed ([@talkor](https://github.com/talkor))
+* [#1771](https://github.com/mondaycom/monday-ui-react-core/pull/1771) fix: typography vertical overflow tolerance ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1782](https://github.com/mondaycom/monday-ui-react-core/pull/1782) docs: RelatedComponents - add <ColorPicker> component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1783](https://github.com/mondaycom/monday-ui-react-core/pull/1783) docs: Catalog fix multi words search ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1778](https://github.com/mondaycom/monday-ui-react-core/pull/1778) docs: change spacing of layout in stories ([@talkor](https://github.com/talkor))
+
 ## 2.64.1 (2023-11-27)
 
 #### Bug Fixes
