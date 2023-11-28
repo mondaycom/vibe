@@ -48,6 +48,7 @@ import { DialogDescription } from "./descriptions/dialog";
 import { AccordionDescription } from "./descriptions/accordion-description/accordion-description";
 import { ExpandCollapseDescription } from "./descriptions/expand-collapse-description/expand-collapse-description";
 import { TextDescription } from "./descriptions/text-description";
+import { VirtualizedListDescription } from "./descriptions/virtualized-list-description/virtualized-list-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -94,6 +95,7 @@ export const DIALOG = "dialog";
 export const TEXT = "text";
 export const ACCORDION = "accordion";
 export const EXPAND_COLLAPSE = "expand-collapse";
+export const VIRTUALIZED_LIST = "virtualized-list";
 
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
@@ -146,7 +148,8 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [DIALOG, <DialogDescription />],
   [TEXT, <TextDescription />],
   [ACCORDION, <AccordionDescription />],
-  [EXPAND_COLLAPSE, <ExpandCollapseDescription />]
+  [EXPAND_COLLAPSE, <ExpandCollapseDescription />],
+  [VIRTUALIZED_LIST, <VirtualizedListDescription />]
 ];
 
 // General description names (not related to specific components)
