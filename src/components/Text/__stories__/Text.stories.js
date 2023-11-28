@@ -119,12 +119,11 @@ export const Overflow = {
       justify={Flex.justify.START}
       align={Flex.align.INITIAL}
       gap={Flex.gaps.SMALL}
-      style={{
-        width: "480px"
-      }}
+      style={{ width: "480px" }}
     >
       <Text
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        /**for testing purposes**/
         tooltipProps={{
           containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
         }}

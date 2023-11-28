@@ -118,16 +118,12 @@ export const Overflow = {
       direction={Flex.directions.COLUMN}
       gap={Flex.gaps.MEDIUM}
       align={Flex.align.STRETCH}
-      style={{
-        width: "480px"
-      }}
+      style={{ width: "480px" }}
     >
-      <Heading type={Heading.types.H2} ellipsis={false}>
-        Heading without overflow
-      </Heading>
+      <Heading type={Heading.types.H2}>Heading without overflow</Heading>
       <Heading
         type={Heading.types.H2}
-        ellipsis
+        /**for testing purposes**/
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         tooltipProps={{
           containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
@@ -136,10 +132,9 @@ export const Overflow = {
         Heading with ellipsis and tooltip when hovering
       </Heading>
       <div>
-        <Heading type={Heading.types.H2} ellipsis withoutTooltip maxLines={2}>
-          Heading with two lines overflow heading without tooltip heading with two lines overflow heading without
-          tooltip heading with two lines overflow heading without tooltip heading with two lines overflow heading
-          without tooltip
+        <Heading type={Heading.types.H2} maxLines={2}>
+          Heading with two lines overflow and a tooltip. Heading with two lines overflow and a tooltip. Heading with two
+          lines overflow and a tooltip.
         </Heading>
       </div>
     </Flex>
