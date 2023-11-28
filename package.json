@@ -150,7 +150,6 @@
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-storyshots": "^7.5.3",
     "@storybook/addon-styling-webpack": "^0.0.5",
     "@storybook/addon-themes": "^7.5.3",
     "@storybook/addon-toolbars": "^7.5.3",
