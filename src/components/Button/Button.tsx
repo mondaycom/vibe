@@ -260,7 +260,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-pressed": active,
         "aria-describedby": ariaDescribedBy
       };
       return props;
@@ -285,8 +284,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      ariaDescribedBy,
-      active
+      ariaDescribedBy
     ]);
 
     const leftIconSize = useMemo(() => {

@@ -11,7 +11,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
       data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
@@ -26,7 +25,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
       onBlur={[Function]}
@@ -53,7 +51,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
       data-testid="tipseen-content-dismiss"
       onBlur={[Function]}
@@ -68,7 +65,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
       onBlur={[Function]}
@@ -95,7 +91,6 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
       onBlur={[Function]}
@@ -174,7 +169,6 @@ Array [
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
-              aria-pressed={false}
               className="tipseenCloseButton dark button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}
@@ -264,7 +258,6 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
             aria-busy={false}
             aria-disabled={false}
             aria-label="Close"
-            aria-pressed={false}
             className="tipseenCloseButton button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
             data-testid="icon-button"
             onBlur={[Function]}
@@ -471,7 +464,6 @@ Array [
               aria-busy={false}
               aria-disabled={false}
               aria-label="Close"
-              aria-pressed={false}
               className="tipseenCloseButton button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
               data-testid="icon-button"
               onBlur={[Function]}

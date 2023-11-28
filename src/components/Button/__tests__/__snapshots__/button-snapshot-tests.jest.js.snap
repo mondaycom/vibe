@@ -9,7 +9,6 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
   aria-haspopup={false}
   aria-label="text"
   aria-labelledby="id"
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -32,7 +31,6 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
   aria-haspopup={true}
   aria-label="text"
   aria-labelledby="id"
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -50,7 +48,6 @@ exports[`Button renders correctly renders Button color- brand 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorBrand"
   data-testid="button"
   onBlur={[Function]}
@@ -68,7 +65,6 @@ exports[`Button renders correctly renders Button color- fixed-light 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorFixedLight"
   data-testid="button"
   onBlur={[Function]}
@@ -86,7 +82,6 @@ exports[`Button renders correctly renders Button color- negative 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorNegative"
   data-testid="button"
   onBlur={[Function]}
@@ -104,7 +99,6 @@ exports[`Button renders correctly renders Button color- on-inverted-background 1
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorOnInvertedBackground"
   data-testid="button"
   onBlur={[Function]}
@@ -122,7 +116,6 @@ exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorOnPrimaryColor"
   data-testid="button"
   onBlur={[Function]}
@@ -140,7 +133,6 @@ exports[`Button renders correctly renders Button color- positive 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPositive"
   data-testid="button"
   onBlur={[Function]}
@@ -158,7 +150,6 @@ exports[`Button renders correctly renders Button color- primary 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -176,7 +167,6 @@ exports[`Button renders correctly renders Button kind- primary 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -194,7 +184,6 @@ exports[`Button renders correctly renders Button kind- secondary 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindSecondary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -212,7 +201,6 @@ exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindTertiary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -230,7 +218,6 @@ exports[`Button renders correctly renders Button size- large 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeLarge kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -248,7 +235,6 @@ exports[`Button renders correctly renders Button size- medium 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -266,7 +252,6 @@ exports[`Button renders correctly renders Button size- small 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeSmall kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -284,7 +269,6 @@ exports[`Button renders correctly renders correctly with callbacks 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="test button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -302,7 +286,6 @@ exports[`Button renders correctly renders correctly with className 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="test button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -320,7 +303,6 @@ exports[`Button renders correctly renders correctly with empty props 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -338,7 +320,6 @@ exports[`Button renders correctly renders correctly with id 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button_test"
   id="test"
@@ -357,7 +338,6 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -392,7 +372,6 @@ exports[`Button renders correctly renders correctly with props change ui 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={true}
   className="button sizeMedium kindPrimary colorPrimary colorPrimaryActive undefined marginRight marginLeft rightFlat leftFlat noSidePadding"
   data-testid="button"
   onBlur={[Function]}
@@ -410,7 +389,6 @@ exports[`Button renders correctly renders correctly with rightIcon 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}

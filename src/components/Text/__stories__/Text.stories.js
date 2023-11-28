@@ -124,7 +124,6 @@ export const Overflow = {
       }}
     >
       <Text
-        ellipsis
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         tooltipProps={{
           containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
@@ -133,7 +132,7 @@ export const Overflow = {
         This is an example of text with overflow and a Tooltip to help or provide information about specific components
         when a user hovers over them.
       </Text>
-      <Text ellipsis maxLines={2}>
+      <Text maxLines={2}>
         This is an example of text with ellipsis which displayed after two full lines of content this is an example of
         text with ellipsis which displayed after two full lines of content
       </Text>
