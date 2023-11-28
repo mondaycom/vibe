@@ -10,6 +10,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Heading.module.scss";
 import { TypographyContext } from "../Typography/utils/TypographyContext";
 
+const OVERFLOW_TOLERANCE_IN_PX = 4;
 export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
   weight?: HeadingWeight;
@@ -25,7 +26,7 @@ const Heading: VibeComponent<HeadingProps, HTMLElement> & {
   align?: typeof TypographyAlign;
 } = forwardRef(({ className, type = HeadingType.H1, weight = HeadingWeight.NORMAL, ...typographyProps }, ref) => {
   return (
-    <TypographyContext.Provider value={{ ignoreHeightOverflow: true }}>
+    <TypographyContext.Provider value={{ overflowTolerance: OVERFLOW_TOLERANCE_IN_PX }}>
       <Typography
         element={type}
         ref={ref}

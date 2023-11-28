@@ -180,12 +180,9 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
       align={Flex.align.STRETCH}
       style={{ width: "480px" }}
     >
-      <Heading type={Heading.types.H2} ellipsis={false}>
-        Heading without overflow
-      </Heading>
+      <Heading type={Heading.types.H2}>Heading without overflow</Heading>
       <Heading
         type={Heading.types.H2}
-        ellipsis
         /**for testing purposes**/
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         tooltipProps={{
@@ -195,10 +192,9 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
         Heading with ellipsis and tooltip when hovering
       </Heading>
       <div>
-        <Heading type={Heading.types.H2} ellipsis withoutTooltip maxLines={2}>
-          Heading with two lines overflow heading without tooltip heading with two lines overflow heading without
-          tooltip heading with two lines overflow heading without tooltip heading with two lines overflow heading
-          without tooltip
+        <Heading type={Heading.types.H2} maxLines={2}>
+          Heading with two lines overflow and a tooltip. Heading with two lines overflow and a tooltip. Heading with two
+          lines overflow and a tooltip.
         </Heading>
       </div>
     </Flex>

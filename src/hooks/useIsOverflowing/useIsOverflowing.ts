@@ -2,29 +2,34 @@
 import { RefObject, useCallback, useState } from "react";
 import useResizeObserver from "../useResizeObserver";
 
-function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean) {
+function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, tolerance = 0) {
   if (!element) {
     return false;
   }
   const curOverflow = element.style.overflow;
   if (!curOverflow || curOverflow === "visible") element.style.overflow = "hidden";
   const isOverflowing =
-    element.clientWidth < element.scrollWidth || (!ignoreHeightOverflow && element.clientHeight < element.scrollHeight);
+    element.clientWidth < element.scrollWidth ||
+    (!ignoreHeightOverflow && element.clientHeight + tolerance < element.scrollHeight);
   element.style.overflow = curOverflow;
   return isOverflowing;
 }
 
 export default function useIsOverflowing({
   ref,
-  ignoreHeightOverflow = false
+  ignoreHeightOverflow = false,
+  tolerance
 }: {
   ref: RefObject<HTMLElement>;
   ignoreHeightOverflow?: boolean;
+  tolerance?: number;
 }) {
-  const [isOverflowing, setIsOverflowing] = useState<boolean>(() => checkOverflow(ref?.current, ignoreHeightOverflow));
+  const [isOverflowing, setIsOverflowing] = useState<boolean>(() =>
+    checkOverflow(ref?.current, ignoreHeightOverflow, tolerance)
+  );
   const callback = useCallback(() => {
-    setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow));
-  }, [ignoreHeightOverflow, ref]);
+    setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow, tolerance));
+  }, [ignoreHeightOverflow, ref, tolerance]);
 
   useResizeObserver({
     ref,
