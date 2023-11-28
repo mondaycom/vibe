@@ -19,7 +19,7 @@ export const TipOtherComponents = () => (
   <Tip>
     As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either
     of these, considers putting your content in a
-    <Link href="/?path=/docs/popover-tipseen--overview" size={Link.sizes.SMALL} withoutSpacing>
+    <Link href="/?path=/docs/popover-tipseen--overview" size={Link.sizes.SMALL}>
       Tipseen
     </Link>
     or
