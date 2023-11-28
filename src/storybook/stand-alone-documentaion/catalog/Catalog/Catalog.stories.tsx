@@ -12,7 +12,9 @@ const RELATED_COMPONENT_NAMES = Array.from(DESCRIPTION_COMPONENTS_WITHOUT_GENERA
 
 export const Catalog = () => {
   const [query, setQuery] = useState("");
-  const componentsToDisplay = RELATED_COMPONENT_NAMES.filter(name => name.includes(query.toLowerCase()));
+  const componentsToDisplay = RELATED_COMPONENT_NAMES.filter(name =>
+    name.replaceAll("-", "").includes(query.toLowerCase())
+  );
 
   return (
     <div className={styles.container}>
