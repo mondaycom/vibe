@@ -44,7 +44,7 @@ import { ListDescription } from "./descriptions/list-description";
 import { FlexDescription } from "./descriptions/flex-description";
 import { DividerDescription } from "./descriptions/divider";
 import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
-import { DialogDescription } from "./descriptions/dialog";
+import { DialogDescription } from "./descriptions/dialog-description/dialog-description";
 import { AccordionDescription } from "./descriptions/accordion-description/accordion-description";
 import { ExpandCollapseDescription } from "./descriptions/expand-collapse-description/expand-collapse-description";
 import { TextDescription } from "./descriptions/text-description";
