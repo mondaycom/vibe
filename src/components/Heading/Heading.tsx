@@ -11,6 +11,7 @@ import styles from "./Heading.module.scss";
 import { TypographyContext } from "../Typography/utils/TypographyContext";
 
 const OVERFLOW_TOLERANCE_IN_PX = 4;
+
 export interface HeadingProps extends TypographyProps {
   type?: HeadingType;
   weight?: HeadingWeight;
