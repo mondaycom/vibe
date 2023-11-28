@@ -158,7 +158,6 @@
     "@storybook/blocks": "^7.5.3",
     "@storybook/jest": "^0.2.3",
     "@storybook/manager-api": "^7.5.3",
-    "@storybook/mdx1-csf": "^1.0.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.5.3",
     "@storybook/react-webpack5": "^7.5.3",
