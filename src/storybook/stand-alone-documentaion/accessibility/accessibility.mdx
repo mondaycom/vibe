@@ -14,6 +14,7 @@ import {
   navigationTabs
 } from "./assets";
 import { TipChecklistLink, TipColorContrast, TipTabNavigation } from "./accessibility.stories.helpers";
+import styles from "./accessibility.stories.module.scss";
 
 <Meta title="Foundations/Accessibility" />
 
@@ -49,7 +50,7 @@ Applies to text in the page, including placeholder text, hover text and text sho
 The visual presentation of text and images should have a contrast ratio of at least 4.5:1 with the background
 
 <Frame noBorder noGutter>
-  <img src={colorContrastText} alt="example for text color contrast" />
+  <img src={colorContrastText} alt="example for text color contrast" className={styles.image} />
 </Frame>
 
 Except for:
@@ -71,7 +72,7 @@ Except for:
 The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color
 
 <Frame noBorder noGutter>
-  <img src={colorContrastImage} alt="example for non text color contrast" />
+  <img src={colorContrastImage} alt="example for non text color contrast" className={styles.image} />
 </Frame>
 
 UI Components - Visual information required to identify active UI components and states, including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br />
@@ -84,7 +85,7 @@ Graphical Objects - Parts of graphics required to understand the content
 People with vision impairments or difficulties reading rely on text alternatives for most of the visual content.
 
 <Frame noBorder noGutter>
-  <img src={imageryAlt} alt="example for an accessible image" />
+  <img src={imageryAlt} alt="example for an accessible image" className={styles.image} />
 </Frame>
 
 Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud, and rendered in a tactile form.
@@ -103,7 +104,7 @@ Are all images that convey important information and communicate information vis
 </UnstyledList>
 
 <Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
-  <img src={imageryDescriptive} alt="example for an accessible information within image src" />
+  <img src={imageryDescriptive} alt="example for an accessible information within image src" className={styles.image} />
 </Frame>
 
 ### Decorative Images
@@ -118,7 +119,7 @@ Such as borders, empty states, background ambience images:
 </UnstyledList>
 
 <Frame noBorder noGutter>
-  <img src={imageryDecorative} alt="example decorative image" role="presentation" />
+  <img src={imageryDecorative} alt="example decorative image" role="presentation" className={styles.image} />
 </Frame>
 
 ## Hierarchy and focus
@@ -130,7 +131,7 @@ The reading order must be logical and intuitive.<br />
 We arrange the order of the elements within the HTML so that the reading order follows the same order as the visual presentation of the screen.
 
 <Frame noBorder noGutter>
-  <img src={hierarchyOrder} alt="example decorative image" role="presentation" />
+  <img src={hierarchyOrder} alt="example decorative image" role="presentation" className={styles.image} />
 </Frame>
 
 ### Semantic Markup
@@ -164,7 +165,7 @@ Elements that show content on mouse hover needs to be added to the tab-order and
 In your design, annotate the tab-order and number the tab stops.
 
 <Frame noBorder noGutter>
-  <img src={navigationTabs} alt="example for keyboard navigation" role="presentation" />
+  <img src={navigationTabs} alt="example for keyboard navigation" role="presentation" className={styles.image} />
 </Frame>
 
 ### Focus Management
@@ -183,7 +184,12 @@ Provide a visible focus indicator to mark currently focused active elements.<br 
 As keyboard users tab through the page, they can see where they are.
 
 <Frame noBorder noGutter>
-  <img src={navigationFocus} alt="example for an accessible navigational focus" role="presentation" />
+  <img
+    src={navigationFocus}
+    alt="example for an accessible navigational focus"
+    role="presentation"
+    className={styles.image}
+  />
 </Frame>
 
 ## Assistive Technology
