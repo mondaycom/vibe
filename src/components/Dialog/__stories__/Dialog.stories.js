@@ -9,8 +9,35 @@ import {
   CONTEXT_MENU_DIALOG,
   HIDE_TRIGGERS_CONTAINER
 } from "../__tests__/DialogDataTestIds";
-import useSwitch from "../../../hooks/useSwitch";
+import { useCallback, useEffect, useState } from "@storybook/addons";
 import "./Dialog.stories.scss";
+
+// TODO storybook 7 migration: temp fix for the storybook 7 hooks issue
+// import useSwitch from "../../../hooks/useSwitch";
+function useSwitch({ isChecked, defaultChecked, onChange, isDisabled } = {}) {
+  // if isChecked is empty, set defaultChecked value (default false value)
+  const overrideCheckedInitial = isChecked ?? !!defaultChecked;
+  const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);
+
+  const overrideOnChange = useCallback(() => {
+    if (isDisabled) {
+      return;
+    }
+    const newChecked = !overrideChecked;
+    if (isChecked === undefined) {
+      setOverrideChecked(newChecked);
+    }
+    onChange && onChange(newChecked);
+  }, [isChecked, isDisabled, onChange, overrideChecked]);
+
+  useEffect(() => {
+    if (isChecked !== undefined) {
+      setOverrideChecked(isChecked);
+    }
+  }, [isChecked]);
+
+  return { isChecked: overrideChecked, onChange: overrideOnChange };
+}
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
