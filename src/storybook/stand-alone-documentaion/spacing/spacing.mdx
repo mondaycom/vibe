@@ -3,7 +3,8 @@ import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
 import { ComponentNameDecorator } from "../../components";
 import { Frame } from "vibe-storybook-components";
 import { menuExample, tipseenExample, toolbarExample } from "./assets";
-import { COLORS, TYPOGRAPHY, SHADOW } from "../../components/related-components/component-description-map";
+import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
+import { TipApplyingSpacing } from "./spacing.stories.helpers";
 import "./spacing.scss";
 
 <Meta title="Foundations/Spacing" />
@@ -27,10 +28,7 @@ Using the right sizes will create consistency and hierarchy in user interface.
 
 <SpacingSizes />
 
-<Tip title="Applying spacing">
-  Elements with more spacing around them perceived as more important because they get more focus on the page, while
-  small spacing makes components look stacked and not stand out.
-</Tip>
+<TipApplyingSpacing />
 
 ## Usage and examples
 

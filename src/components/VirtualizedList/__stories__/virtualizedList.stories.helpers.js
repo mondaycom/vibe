@@ -1,5 +1,7 @@
 // eslint-disable-next-line default-param-last
 
+import { Tip } from "vibe-storybook-components";
+
 export const generateItems = (defaultItemSize = 30, itemsCount, layout) => {
   const items = [];
   const isVertical = layout !== "horizontal";
@@ -9,3 +11,10 @@ export const generateItems = (defaultItemSize = 30, itemsCount, layout) => {
   }
   return items;
 };
+
+export const TipItemRenderer = () => (
+  <Tip title="Are your list items not rendered correctly?">
+    Please make sure you inject the style parameter of the <code>itemRenderer</code> function to the item element's
+    wrapper style.
+  </Tip>
+);

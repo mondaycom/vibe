@@ -1,7 +1,8 @@
 import { Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
-import { TEXT, HEADING, EDITABLE_HEADING } from "../../components/related-components/component-description-map";
+import { EDITABLE_HEADING, HEADING, TEXT } from "../../components/related-components/component-description-map";
 import { migrationTable } from "./assets";
+import { TipNextEndpoint, TipUseComponent } from "./typograpghy.stories.helpers";
 
 <Meta title="Typography Migration Guide" />
 
@@ -58,10 +59,7 @@ import { Text } from "monday-ui-react-core";
 import { Heading } from "monday-ui-react-core/next";
 ```
 
-<Tip emoji="⚠️" title="Notice">
-  Heading is imported from <code>/next</code> since there's a legacy component with the same name. This component will
-  replace the legacy component in the next major version.
-</Tip>
+<TipNextEndpoint />
 
 ## How to use
 
@@ -81,10 +79,7 @@ Each of these components can get the variants as a prop. You also get out-of-the
 
 For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--page#type-styles" withoutSpacing target={Link.targets.PARENT}>Type Styles table</Link>.
 
-<Tip title="Notice">
-  No need to define classes for text element and use typography CSS variables anymore, these components cover all the
-  possible variants.
-</Tip>
+<TipUseComponent />
 
 ## How to migrate
 

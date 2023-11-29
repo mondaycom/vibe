@@ -1,5 +1,6 @@
 import { Canvas, Controls, Meta, Story } from "@storybook/blocks";
-import { Tip, UsageGuidelines } from "vibe-storybook-components";
+import { UsageGuidelines } from "vibe-storybook-components";
+import { TipItemRenderer } from "./virtualizedList.stories.helpers";
 import * as VirtualizedListStories from "./VirtualizedList.stories";
 
 <Meta of={VirtualizedListStories} />
@@ -31,7 +32,4 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
 
 <UsageGuidelines guidelines={["Use this when you expect to have many items in your list"]} />
 
-<Tip title="Are your list items not rendered correctly?">
-  Please make sure you inject the style parameter of the <code>itemRenderer</code> function to the item element's
-  wrapper style.
-</Tip>
+<TipItemRenderer />

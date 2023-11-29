@@ -1,12 +1,12 @@
 import { Canvas, Meta, Story } from "@storybook/blocks";
 import { ComponentNameDecorator } from "../../components";
-import { Tip } from "vibe-storybook-components";
 import {
-  DROPDOWN,
+  DIALOG,
   DIALOG_CONTENT_CONTAINER,
-  DIALOG
+  DROPDOWN
 } from "../../components/related-components/component-description-map";
 import * as DropdownInModalsStories from "./dropdown-in-modals.stories";
+import { TipKnowIssue } from "./dropdown-in-modals.stories.helpers";
 
 <Meta of={DropdownInModalsStories} />
 
@@ -41,10 +41,7 @@ To handle straightforward scenarios of displaying dropdowns inside a container w
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
 **This solution will work for single select dropdown inside Vibe's Modal or DialogContentContainer cases, it will not work for Vibe's Dialog.**
 
-<Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
-  This solution have a serious issue - it doesn't properly support options-scrolling on popovers when lacking of screen
-  space. We recommend checking using other options instead of this one.
-</Tip>
+<TipKnowIssue />
 
 Please note that this solution is intended for the most basic use cases and may not function optimally if your
 overflow container has one parent or more with conflicting overflow definitions.
@@ -59,10 +56,7 @@ The <code>insideOverflowContainer</code> prop will not function as expected for 
 The reason is that Vibe dialogs use CSS transform to position the dialog next to the attached element.
 For this specific case, use the 'insideOverflowWithTransformContainer' prop to ensure proper display and functionality.
 
-<Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">
-  This solution have a serious issue - it doesn't properly support options-scrolling on popovers when lacking of screen
-  space. We recommend checking using other options instead of this one.
-</Tip>
+<TipKnowIssue />
 
 <Canvas>
   <Story of={DropdownInModalsStories.InsideOverflowWithTransformContainer} />

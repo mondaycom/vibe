@@ -21,3 +21,9 @@ export const TipColorContrast = () => (
     </div>
   </Tip>
 );
+
+export const TipTabNavigation = () => (
+  <Tip title="We got you covered with tab navigation">
+    Use this keyboard navigation infra in any UI that requires it.
+  </Tip>
+);

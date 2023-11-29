@@ -1,10 +1,11 @@
 import { Canvas, Controls, Meta, Story } from "@storybook/blocks";
-import { Tip, UsageGuidelines } from "vibe-storybook-components";
+import { UsageGuidelines } from "vibe-storybook-components";
 import {
   DIALOG_CONTENT_CONTAINER,
   DIVIDER,
   FLEX
 } from "../../../storybook/components/related-components/component-description-map";
+import { TipBenefits } from "./Box.stories.helpers";
 import * as BoxStories from "./Box.stories";
 
 <Meta of={BoxStories} />
@@ -45,7 +46,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
   ]}
 />
 
-<Tip title="Benefits of the Box component">Easily add Vibe styles without adding css</Tip>
+<TipBenefits />
 
 ## Utility props
 

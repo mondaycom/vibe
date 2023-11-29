@@ -1,10 +1,9 @@
 import { Meta } from "@storybook/blocks";
-import { Frame, Link, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
+import { Frame, UnstyledList, UnstyledListItem } from "vibe-storybook-components";
 import { PrinciplesAccesability } from "./principles/principlesAccesability";
 import { ComponentNameDecorator } from "../../components";
 import { COLORS, HIDDEN_TEXT, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import {
-  accessibilityCheckList,
   colorContrastImage,
   colorContrastText,
   hierarchyOrder,
@@ -14,7 +13,7 @@ import {
   navigationFocus,
   navigationTabs
 } from "./assets";
-import {TipChecklistLink, TipColorContrast} from "./accessibility.stories.helpers";
+import { TipChecklistLink, TipColorContrast, TipTabNavigation } from "./accessibility.stories.helpers";
 
 <Meta title="Foundations/Accessibility" />
 
@@ -176,7 +175,7 @@ Dynamic components such as dialogs, not initially in the tab order have to recei
 When dynamic components are closed, focus shifts back to the point where interaction started.<br />
 Receiving focus or interacting with an input element must not result in a substantial change to the page like invoking a dialog or sending focus somewhere else on the page.
 
-<Tip title="We got you covered with tab navigation">Use this keyboard navigation infra in any UI that requires it.</Tip>
+<TipTabNavigation />
 
 ### Focus Visible
 
