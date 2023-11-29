@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import @componentName@ from "../@componentName@";
 import { TipOtherComponent } from "./@componentName@.stories.helpers";
 import * as @componentName@Stories from "./@componentName@.stories";
@@ -24,7 +24,7 @@ Please write here the component description
 
 ## Props
 
-<Controls />
+<PropsTable />
 
 ## Usage
 

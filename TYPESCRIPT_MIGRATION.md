@@ -59,7 +59,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & { colorShapes?: COLOR_SHAPE
 
 ```diff
 - <ArgsTable of={ColorPicker} />
-+ <Controls />
++ <PropsTable />
 ```
 
 ### Publish files

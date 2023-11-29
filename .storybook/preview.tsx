@@ -24,7 +24,7 @@ import {
   RelatedComponent,
   MultipleStoryElementsWrapper
 } from "vibe-storybook-components";
-import { ComponentNameDecorator, RelatedComponentsDecorator } from "../src/storybook";
+import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 
@@ -34,6 +34,9 @@ const fontLoader = async () => ({
 
 const preview: Preview = {
   parameters: {
+    controls: {
+      sort: "alpha"
+    },
     docs: {
       story: {
         inline: true
@@ -48,6 +51,8 @@ const preview: Preview = {
       ),
       page: DocsPage,
       components: {
+        Controls: PropsTable,
+        PropsTable,
         h1: ComponentNameDecorator,
         ComponentName: ComponentNameDecorator,
         h2: SectionName,
