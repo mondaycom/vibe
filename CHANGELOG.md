@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.65.0 (2023-11-29)
+
+#### Bug Fixes
+* [#1785](https://github.com/mondaycom/monday-ui-react-core/pull/1785) fix: replace deprecated text-fixed-color tokens with identical color tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1788](https://github.com/mondaycom/monday-ui-react-core/pull/1788) Support className in TableRow ([@uri-shmueli](https://github.com/uri-shmueli))
+
+#### Documentation
+* [#1784](https://github.com/mondaycom/monday-ui-react-core/pull/1784) docs: RelatedComponents - add <VirtualizedList> component description example ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1786](https://github.com/mondaycom/monday-ui-react-core/pull/1786) docs: RelatedComponents - fix <Dialog> description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1775](https://github.com/mondaycom/monday-ui-react-core/pull/1775) infra: disable cron for update monday-ui-style version workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.64.2 (2023-11-28)
 
 #### Bug Fixes
