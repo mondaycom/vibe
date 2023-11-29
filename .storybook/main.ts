@@ -8,7 +8,6 @@ const getAddons = () => {
     "@storybook/addon-essentials",
     "@storybook/addon-themes",
     "@storybook/preset-scss",
-    "@storybook/addon-styling-webpack",
     {
       name: "@storybook/addon-styling-webpack",
       options: storybookAddonStylingWebpackOptions
