@@ -25,12 +25,13 @@ import {
 } from "./table.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Table
+  component: Table,
+  ignoreControlsPropNamesArray: ["children", "errorState", "emptyState"]
 });
 
 export default {
   title: "Data display/Table",
-  component: metaSettings.component,
+  component: Table,
   subcomponents: {
     TableHeader,
     TableHeaderCell,
@@ -43,50 +44,52 @@ export default {
   decorators: metaSettings.decorators
 };
 
+const tableTemplate = args => <Table {...args}></Table>;
+
 export const Overview = {
-  render: () => (
-    <Table
-      errorState={<TableErrorState />}
-      emptyState={<TableEmptyState />}
-      columns={[
-        {
-          id: "sentOn",
-          title: "Sent on",
-          width: 150,
-          loadingStateType: "medium-text"
-        },
-        {
-          id: "subject",
-          title: "Subject",
-          loadingStateType: "long-text"
-        },
-        {
-          id: "sentBy",
-          title: "Sent by",
+  render: tableTemplate.bind({}),
+  args: {
+    errorState: <TableErrorState />,
+    emptyState: <TableEmptyState />,
+    columns: [
+      {
+        id: "sentOn",
+        title: "Sent on",
+        width: 150,
+        loadingStateType: "medium-text"
+      },
+      {
+        id: "subject",
+        title: "Subject",
+        loadingStateType: "long-text"
+      },
+      {
+        id: "sentBy",
+        title: "Sent by",
 
-          width: {
-            min: 120,
-            max: 200
-          },
+        width: {
+          min: 120,
+          max: 200
+        },
 
-          infoContent: "This is the sender",
-          loadingStateType: "circle"
-        },
-        {
-          id: "status",
-          title: "Status",
-          width: 150,
-          infoContent: "Info content for the status column",
-          loadingStateType: "medium-text"
-        },
-        {
-          id: "emailsSent",
-          title: "Emails sent",
-          width: 150,
-          loadingStateType: "medium-text"
-        }
-      ]}
-    >
+        infoContent: "This is the sender",
+        loadingStateType: "circle"
+      },
+      {
+        id: "status",
+        title: "Status",
+        width: 150,
+        infoContent: "Info content for the status column",
+        loadingStateType: "medium-text"
+      },
+      {
+        id: "emailsSent",
+        title: "Emails sent",
+        width: 150,
+        loadingStateType: "medium-text"
+      }
+    ],
+    children: [
       <TableHeader>
         {[
           {
@@ -128,7 +131,7 @@ export const Overview = {
         ].map((headerCell, index) => (
           <TableHeaderCell key={index} title={headerCell.title} />
         ))}
-      </TableHeader>
+      </TableHeader>,
       <TableBody>
         {[
           {
@@ -170,9 +173,8 @@ export const Overview = {
           </TableRow>
         ))}
       </TableBody>
-    </Table>
-  ),
-
+    ]
+  },
   name: "Overview"
 };
 
