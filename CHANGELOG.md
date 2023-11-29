@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.66.0 (2023-11-29)
+
+#### New Features
+* [#1787](https://github.com/mondaycom/monday-ui-react-core/pull/1787) feat(Toggle): add data-testid prop ([@talkor](https://github.com/talkor))
+
 ## 2.65.0 (2023-11-29)
 
 #### Bug Fixes
