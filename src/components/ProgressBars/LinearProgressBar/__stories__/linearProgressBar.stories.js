@@ -13,15 +13,15 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["size", "barStyle"]
 });
 
-const lineProgressBarTemplate = args => {
-  return <LinearProgressBar className="linear-progress-bar_small-wrapper" {...args} />;
-};
-
 export default {
   title: "Feedback/LinearProgressBar",
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
+};
+
+const lineProgressBarTemplate = args => {
+  return <LinearProgressBar className="linear-progress-bar_small-wrapper" {...args} />;
 };
 
 export const Overview = {
