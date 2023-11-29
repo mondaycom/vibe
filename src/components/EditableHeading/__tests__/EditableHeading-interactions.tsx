@@ -15,10 +15,7 @@ import { resetFocus } from "../../../__tests__/interactions-helper";
 const text = "This heading is an editable heading";
 
 function getComponent(canvas: Canvas) {
-  return getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
-}
-function getHeading(canvas: Canvas) {
-  return getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
+  return getByTestId(canvas, ComponentDefaultTestId.EDITABLE_HEADING);
 }
 
 function getInput(canvas: Canvas) {
@@ -33,7 +30,7 @@ async function changeModes(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const heading = getHeading(canvas);
+  const heading = getComponent(canvas);
   expect(heading).toHaveTextContent(text);
 }
 
@@ -47,7 +44,7 @@ async function editAndChangeToValidText(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const heading = getHeading(canvas);
+  const heading = getComponent(canvas);
   expect(heading).toHaveTextContent(text);
 }
 
@@ -59,7 +56,7 @@ async function clearInput(canvas: Canvas) {
   await clearText(input);
 
   await resetFocus();
-  const heading = getHeading(canvas);
+  const heading = getComponent(canvas);
   expect(heading).toHaveTextContent(text);
 }
 
@@ -76,7 +73,7 @@ async function cancelEditing(canvas: Canvas) {
 
   await typeText(input, "{Escape}");
 
-  const heading = getHeading(canvas);
+  const heading = getComponent(canvas);
   expect(heading).toHaveTextContent(text);
 }
 
