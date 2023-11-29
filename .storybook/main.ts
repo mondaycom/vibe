@@ -21,9 +21,8 @@ const getAddons = () => {
 
   return addons;
 };
-
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.js"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: getAddons(),
   framework: {
     name: "@storybook/react-webpack5",

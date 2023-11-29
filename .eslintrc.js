@@ -100,7 +100,7 @@ module.exports = {
       }
     },
     {
-      files: ["*.stories.js", "*.stories.helpers.js"],
+      files: ["*.stories.@(js|jsx|ts|tsx)", "*.stories.helpers.@(js|jsx|ts|tsx)"],
       rules: {
         ...commonRules,
         "react-hooks/rules-of-hooks": "off",
