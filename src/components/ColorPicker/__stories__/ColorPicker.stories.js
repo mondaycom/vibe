@@ -3,6 +3,7 @@ import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
 import Check from "../../Icon/Icons/components/Check";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions.js";
+import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ColorPicker,
@@ -18,63 +19,44 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const colorPickerTemplate = args => <ColorPicker {...args} />;
+const colorPickerTemplate = createComponentTemplate(ColorPicker);
 
+// TODO storybook 7 migration: gets broken on click - hook issue
 export const Overview = {
   render: colorPickerTemplate.bind({}),
   name: "Overview"
 };
 
-export const colorPickerWithIndicatorTemplate = args => (
-  <ColorPicker ColorIndicatorIcon={TextColorIndicator} {...args} />
-);
-
 export const WithIndicator = {
-  render: colorPickerWithIndicatorTemplate.bind({}),
+  render: () => <ColorPicker ColorIndicatorIcon={TextColorIndicator} />,
   name: "With Indicator"
 };
 
-export const colorPickerTextIndicatorTemplate = args => (
-  <ColorPicker ColorIndicatorIcon={TextColorIndicator} shouldRenderIndicatorWithoutBackground value="peach" {...args} />
-);
-
 export const TextIndication = {
-  render: colorPickerTextIndicatorTemplate.bind({}),
+  render: () => (
+    <ColorPicker ColorIndicatorIcon={TextColorIndicator} shouldRenderIndicatorWithoutBackground value="peach" />
+  ),
   name: "Text Indication"
 };
 
-export const colorPickerSelectedTemplate = args => (
-  <ColorPicker ColorIndicatorIcon={TextColorIndicator} colorStyle={ColorPicker.COLOR_STYLES.SELECTED} {...args} />
-);
-
 export const Selected = {
-  render: colorPickerSelectedTemplate.bind({}),
+  render: () => <ColorPicker ColorIndicatorIcon={TextColorIndicator} colorStyle={ColorPicker.COLOR_STYLES.SELECTED} />,
   name: "Selected"
 };
 
-export const colorPickerNoColorTemplate = args => <ColorPicker noColorText="Clear color" {...args} />;
-
 export const NoColor = {
-  render: colorPickerNoColorTemplate.bind({}),
+  render: () => <ColorPicker noColorText="Clear color" />,
   name: "No color",
   play: noColorInteractionSuite
 };
 
-export const colorPickerSelectedIconTemplate = args => (
-  <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" {...args} />
-);
-
 export const SelectedIcon = {
-  render: colorPickerSelectedIconTemplate.bind({}),
+  render: () => <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" />,
   name: "Selected icon",
   play: multiSelectionInteractionSuite
 };
 
-export const colorPickerCircleShapeTemplate = args => (
-  <ColorPicker colorShape={ColorPicker.colorShapes.CIRCLE} {...args} />
-);
-
 export const Shapes = {
-  render: colorPickerCircleShapeTemplate.bind({}),
+  render: () => <ColorPicker colorShape={ColorPicker.colorShapes.CIRCLE} />,
   name: "Shapes"
 };
