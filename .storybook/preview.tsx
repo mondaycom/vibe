@@ -38,9 +38,6 @@ const preview: Preview = {
       sort: "alpha"
     },
     docs: {
-      story: {
-        inline: true
-      },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
@@ -97,6 +94,15 @@ const preview: Preview = {
     }
   },
   decorators: [
+    // Should always be the first decorator (stories hooks issues otherwise)
+    (Story, { className }: { className: string }) => {
+      return (
+        <MultipleStoryElementsWrapper className={className}>
+          <Story />
+        </MultipleStoryElementsWrapper>
+      );
+    },
+    withMemoryStats,
     withThemeByClassName({
       themes: {
         Light: "light-app-theme",
@@ -104,15 +110,7 @@ const preview: Preview = {
         Black: "black-app-theme"
       },
       defaultTheme: "Light"
-    }) as any,
-    withMemoryStats,
-    (Story, { className }) => {
-      return (
-        <MultipleStoryElementsWrapper className={className}>
-          <Story />
-        </MultipleStoryElementsWrapper>
-      );
-    }
+    })
   ],
   globalTypes: {
     memoryStats: {
