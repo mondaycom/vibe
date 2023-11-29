@@ -1,8 +1,7 @@
 import { Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import Chips from "../Chips";
 import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import { Link } from "vibe-storybook-components";
-import "./chips.stories.scss";
+import { TipLabel } from "./chips.stories.helpers";
 import * as ChipsStories from "./chips.stories";
 
 <Meta of={ChipsStories} />
@@ -40,12 +39,7 @@ Chips are compact elements that represent an input, attribute, or action. They m
   ]}
 />
 
-<Tip>
-  <span>Chips will always show up in context of a field. If you just need to add information, use</span>
-  <Link href="/?path=/docs/data-display-label--overview" size={Link.sizes.SMALL}>
-    Label.
-  </Link>
-</Tip>
+<TipLabel />
 
 ## Variants
 
