@@ -6,6 +6,8 @@ import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
 import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
+import Loader from "../Loader/Loader";
+import Flex from "../Flex/Flex";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
@@ -21,6 +23,7 @@ interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
   /** If true, Toast is open (visible) */
   open?: boolean;
+  loading?: boolean;
   type?: ToastType;
   /** Possible to override the default icon */
   icon?: string | React.FC<IconSubComponentProps> | null;
@@ -41,6 +44,7 @@ interface ToastProps extends VibeComponentProps {
 
 const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof ToastActionType } = ({
   open = false,
+  loading = false,
   autoHideDuration = null,
   type = ToastType.NORMAL,
   icon,
@@ -134,18 +138,18 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         aria-live="polite"
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <div
-          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-          className={cx(styles.content, {
-            [styles.contentNoIcon]: !iconElement
-          })}
-        >
-          {children}
-          {toastLinks}
-        </div>
-        {(toastButtons || deprecatedAction) && (
-          <div className={cx(styles.action)}>{toastButtons || deprecatedAction}</div>
-        )}
+        <Flex align={Flex.align.CENTER} gap={Flex.gaps.LARGE} className={styles.content}>
+          <Flex
+            gap={Flex.gaps.MEDIUM}
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
+            className={styles.textContent}
+          >
+            {children}
+            {toastLinks}
+          </Flex>
+          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+          {loading && <Loader size={Loader.sizes.XS} />}
+        </Flex>
         {closeable && (
           <IconButton
             className={cx(styles.closeButton)}
