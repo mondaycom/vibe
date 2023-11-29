@@ -22,7 +22,7 @@ export const ListDescription = () => {
     <RelatedComponent
       component={component}
       title="List"
-      href="/?path=/docs/navigation-list-list--overview"
+      href="/?path=/docs/navigation-list-list--docs"
       description="Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text."
     />
   );

@@ -3,7 +3,7 @@ import { Link, Tip } from "vibe-storybook-components";
 export const TipDialogContentContainer = () => (
   <Tip>
     For setting the dialog UI appearance, use
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-dialogcontentcontainer--overview">
+    <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-dialogcontentcontainer--docs">
       DialogContentContainer
     </Link>
     component.
@@ -23,7 +23,7 @@ export const TipDevTipPopperJs = () => (
 export const TipModal = () => (
   <Tip title="Wishing to position your popover in the center of the page?">
     Exactly for this purpose, we created the
-    <Link href="/?path=/docs/feedback-modal--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/feedback-modal--docs" size={Link.sizes.SMALL}>
       Modal
     </Link>
     component! Check it out.
@@ -33,7 +33,7 @@ export const TipModal = () => (
 export const TipDevTipTechnicalPattern = () => (
   <Tip title="Dev tip">
     If you wish to implement a
-    <Link href="/?path=/docs/inputs-dropdown--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/inputs-dropdown--docs" size={Link.sizes.SMALL}>
       Dropdown
     </Link>
     inside a Dialog container and need help displaying the Dropdowns popovers correctly, read more about our Dropdown in

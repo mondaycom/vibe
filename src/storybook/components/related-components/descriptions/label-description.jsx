@@ -7,7 +7,7 @@ export const LabelDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      href="/?path=/docs/data-display-label--overview"
+      href="/?path=/docs/data-display-label--docs"
       title="Label"
       description="Offers content classification."
     />

@@ -32,7 +32,7 @@ export const ColorPickerDescription = () => {
     <RelatedComponent
       component={component}
       title="ColorPicker"
-      href="/?path=/docs/pickers-colorpicker--overview"
+      href="/?path=/docs/pickers-colorpicker--docs"
       description="ColorPicker is our component for selecting our content colors."
     />
   );

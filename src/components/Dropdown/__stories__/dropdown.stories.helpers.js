@@ -3,10 +3,10 @@ import { Link, Tip } from "vibe-storybook-components";
 export const TipDevTipPopover = () => (
   <Tip title="Dev tip">
     For more details about dropdowns APIs for displaying correctly inside
-    <Link href="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/components-dialog-dialog--docs" size={Link.sizes.SMALL}>
       Dialogs,
     </Link>
-    <Link href="/?path=/docs/feedback-modal--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/feedback-modal--docs" size={Link.sizes.SMALL}>
       Modals
     </Link>
     and other popovers click{" "}

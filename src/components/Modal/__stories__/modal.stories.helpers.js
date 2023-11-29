@@ -138,7 +138,7 @@ export const TipAlertDialog = () => (
 export const TipDialog = () => (
   <Tip>
     For creating a popover positioned next to other components, like customized menus, check out our
-    <Link href="/?path=/docs/components-dialog-dialog--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/components-dialog-dialog--docs" size={Link.sizes.SMALL}>
       Dialog
     </Link>
     component.

@@ -18,7 +18,7 @@ export const SpinnerDescription = () => {
     <RelatedComponent
       component={component}
       title="Spinner"
-      href="/?path=/docs/feedback-loader--overview"
+      href="/?path=/docs/feedback-loader--docs"
       description="Displays information related to an element over it."
     />
   );

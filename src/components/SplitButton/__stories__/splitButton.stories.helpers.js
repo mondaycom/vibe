@@ -7,7 +7,7 @@ import React from "react";
 export const TipMenu = () => (
   <Tip>
     If the actions in the menu are not related to each other, consider using a
-    <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL}>
+    <Link href="/?path=/docs/navigation-menu--docs" size={Link.sizes.SMALL}>
       Menu
     </Link>
     component.
