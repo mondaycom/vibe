@@ -194,7 +194,7 @@ export const UsageGuidelinesThemeProvider = () => (
         <code>body</code>
       </>,
       <>
-        {`ThemeProvider is populating theme name <code>className</code> to it's child, so don't put `}
+        ThemeProvider is populating theme name <code>className</code> to {"it's child, so don't put "}
         <code>{"<Fragment>"}</code> (<code>{"<>"}</code>) inside - {` it's not accepting `}
         <code>className</code> prop
       </>
