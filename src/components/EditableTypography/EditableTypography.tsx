@@ -116,7 +116,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
       const { width } = typographyRef.current.getBoundingClientRect();
       setInputWidth(width);
-    }, [inputValue]);
+    }, [inputValue, isEditing]);
 
     return (
       <LazyMotion features={domAnimation}>
