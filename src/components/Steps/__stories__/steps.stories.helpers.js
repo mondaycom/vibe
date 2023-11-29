@@ -19,33 +19,6 @@ export const modifiers = [
   }
 ];
 
-export const NavigableStepsTemplate = args => {
-  const [activeStepIndex, setActiveStepIndex] = useState(2);
-  const stepPrev = useCallback(() => {
-    setActiveStepIndex(prevState => prevState - 1);
-  }, []);
-  const stepNext = useCallback(() => {
-    setActiveStepIndex(prevState => prevState + 1);
-  }, []);
-  const onChangeActiveStep = useCallback((_e, stepIndex) => {
-    setActiveStepIndex(stepIndex);
-  }, []);
-
-  return (
-    <Steps
-      activeStepIndex={activeStepIndex}
-      backButtonProps={{
-        onClick: stepPrev
-      }}
-      nextButtonProps={{
-        onClick: stepNext
-      }}
-      {...args}
-      onChangeActiveStep={onChangeActiveStep}
-    />
-  );
-};
-
 export const StepsNumbersDoTemplate = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
   const stepPrev = useCallback(() => {

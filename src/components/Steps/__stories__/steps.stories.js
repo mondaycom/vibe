@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
-import { modifiers, NavigableStepsTemplate } from "./steps.stories.helpers";
+import { modifiers } from "./steps.stories.helpers";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import "./steps.stories.scss";
 
@@ -21,6 +21,33 @@ export default {
   component: Steps,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
+};
+
+export const NavigableStepsTemplate = args => {
+  const [activeStepIndex, setActiveStepIndex] = useState(2);
+  const stepPrev = useCallback(() => {
+    setActiveStepIndex(prevState => prevState - 1);
+  }, []);
+  const stepNext = useCallback(() => {
+    setActiveStepIndex(prevState => prevState + 1);
+  }, []);
+  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+    setActiveStepIndex(stepIndex);
+  }, []);
+
+  return (
+    <Steps
+      activeStepIndex={activeStepIndex}
+      backButtonProps={{
+        onClick: stepPrev
+      }}
+      nextButtonProps={{
+        onClick: stepNext
+      }}
+      {...args}
+      onChangeActiveStep={onChangeActiveStep}
+    />
+  );
 };
 
 export const Overview = {
