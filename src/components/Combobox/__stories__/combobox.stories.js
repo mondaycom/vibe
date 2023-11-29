@@ -1,4 +1,4 @@
-import { useMemo, useState } from "@storybook/addons";
+import { useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import Combobox from "../Combobox";
 import person1 from "./assets/person1.png";

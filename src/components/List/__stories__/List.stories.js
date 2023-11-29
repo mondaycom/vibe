@@ -2,7 +2,7 @@ import List from "../List";
 import Board from "../../Icon/Icons/components/Board";
 import Team from "../../Icon/Icons/components/Team";
 import ThumbsUp from "../../Icon/Icons/components/ThumbsUp";
-import { useCallback } from "@storybook/addons";
+import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";

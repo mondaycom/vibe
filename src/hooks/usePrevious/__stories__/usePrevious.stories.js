@@ -1,4 +1,4 @@
-import { useState } from "@storybook/addons";
+import { useState } from "react";
 import usePrevious from "../index";
 import { Button, Counter, Flex } from "../../../components";
 import styles from "./usePrevious.stories.module.scss";

@@ -1,4 +1,4 @@
-import { useCallback } from "@storybook/addons";
+import { useCallback } from "react";
 import useTimeout from "..";
 
 export default {

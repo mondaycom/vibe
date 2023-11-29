@@ -2,7 +2,7 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 import Loader from "../Loader";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Button, DialogContentContainer, Flex, Search } from "../..";
-import { useCallback, useState } from "@storybook/addons";
+import { useCallback, useState } from "react";
 import "./Loader.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

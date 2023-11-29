@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "@storybook/addons";
+import { useCallback, useMemo, useState } from "react";
 import VirtualizedGrid from "../VirtualizedGrid";
 import Button from "../../Button/Button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";

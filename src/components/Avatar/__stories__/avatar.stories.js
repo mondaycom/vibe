@@ -6,7 +6,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "../..";
 import { guest, home, minus, owner, person1, person2, person3 } from "./assets";
 import { WhatsNew } from "../../Icon/Icons";
-import { useCallback, useState } from "@storybook/addons";
+import { useCallback, useState } from "react";
 import "./avatar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

@@ -1,4 +1,4 @@
-import { useCallback } from "@storybook/addons";
+import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";

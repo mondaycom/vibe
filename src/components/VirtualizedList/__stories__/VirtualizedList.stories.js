@@ -1,4 +1,4 @@
-import { useCallback } from "@storybook/addons";
+import { useCallback } from "react";
 import VirtualizedList from "../VirtualizedList";
 import { generateItems } from "./virtualizedList.stories.helpers";
 import { Flex } from "../../";

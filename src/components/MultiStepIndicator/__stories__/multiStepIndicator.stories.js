@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "@storybook/addons";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { StepStatus } from "../MultiStepConstants";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";

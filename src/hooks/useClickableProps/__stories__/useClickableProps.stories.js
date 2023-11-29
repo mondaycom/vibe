@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "@storybook/addons";
+import { useCallback, useRef } from "react";
 import useClickableProps from "../useClickableProps";
 import "./useClickableProps.stories.scss";
 

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "@storybook/addons";
+import { useCallback, useState } from "react";
 import { Tip } from "vibe-storybook-components";
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";

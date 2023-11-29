@@ -1,4 +1,4 @@
-import { useState } from "@storybook/addons";
+import { useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import ExpandCollapse from "../ExpandCollapse";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

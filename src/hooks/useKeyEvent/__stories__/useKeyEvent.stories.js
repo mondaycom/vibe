@@ -1,4 +1,4 @@
-import { useState } from "@storybook/addons";
+import { useState } from "react";
 import useKeyEvent from "..";
 import "../../__stories__/general-hooks-stories.scss";
 

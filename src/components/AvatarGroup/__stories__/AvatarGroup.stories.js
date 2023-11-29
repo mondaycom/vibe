@@ -1,4 +1,4 @@
-import { useCallback, useState } from "@storybook/addons";
+import { useCallback, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1, person2, person3 } from "./assets";

@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "@storybook/addons";
+import { useCallback, useRef, useState } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalFooter from "../ModalFooter/ModalFooter";

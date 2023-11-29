@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "@storybook/addons";
+import React, { useState } from "react";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import SearchComponent from "../../Search/Search";
 import * as AllIcons from "../Icons";

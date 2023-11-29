@@ -1,5 +1,5 @@
 import LinearProgressBar from "../LinearProgressBar";
-import { useMemo } from "@storybook/addons";
+import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import colors from "../../../../constants/colors.json";
 import { Info } from "../../../Icon/Icons";
