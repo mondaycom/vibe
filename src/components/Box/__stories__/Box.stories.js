@@ -39,14 +39,16 @@ export default {
   decorators: metaSettings.decorators
 };
 
+const boxTemplate = args => (
+  <div className={styles.boxWrapper}>
+    <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}>
+      Box composite component
+    </Box>
+  </div>
+);
+
 export const Overview = {
-  render: () => (
-    <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
-        Box composite component
-      </Box>
-    </div>
-  ),
+  render: boxTemplate.bind({}),
 
   name: "Overview"
 };
