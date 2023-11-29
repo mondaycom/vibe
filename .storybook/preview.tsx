@@ -94,7 +94,6 @@ const preview: Preview = {
     }
   },
   decorators: [
-    // Should always be the first decorator (stories hooks issues otherwise)
     (Story, { className }: { className: string }) => {
       return (
         <MultipleStoryElementsWrapper className={className}>
@@ -103,6 +102,7 @@ const preview: Preview = {
       );
     },
     withMemoryStats,
+    // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
     withThemeByClassName({
       themes: {
         Light: "light-app-theme",
