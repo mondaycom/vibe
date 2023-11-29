@@ -9,7 +9,7 @@ export default {
   title: "Hooks/useIsOverflowing"
 };
 
-// TODO storybook 7 migration - story is broken - hook usage is not supported
+// TODO Storybook 7 migration: story is under maintenance - hooks issue
 export const Overview = {
   render: () => {
     return (

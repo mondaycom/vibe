@@ -192,7 +192,7 @@ export const TipseenWithCustomMedia = {
   name: "Tipseen with custom media"
 };
 
-// TODO storybook 7 migration: story is broken - issues with positioning on new storybook layout
+// TODO storybook 7 migration: story is under maintenance - issues with positioning on new storybook layout
 export const FloatingTipseen = {
   // You do not have to use containerSelector, in current use this is for story only
   render: () => {
