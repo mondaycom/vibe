@@ -1,9 +1,13 @@
 import Avatar from "../Avatar";
 import { Canvas, Meta, Story } from "@storybook/blocks";
-import {AVATAR_GROUP, LABEL, TOOLTIP} from "../../../storybook/components/related-components/component-description-map";
-import {ComponentRules, createComponentTemplate} from "vibe-storybook-components";
-import {femaleIcon, maleIcon, person1, person2, person3} from "./assets";
-import {TipMultipleAvatarsTogether} from "./avatar.stories.helpers";
+import {
+  AVATAR_GROUP,
+  LABEL,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import { ComponentRules, createComponentTemplate } from "vibe-storybook-components";
+import { femaleIcon, maleIcon, person1, person2, person3 } from "./assets";
+import { TipMultipleAvatarsTogether } from "./avatar.stories.helpers";
 import * as AvatarStories from "./avatar.stories";
 
 <Meta of={AvatarStories} />
@@ -171,7 +175,7 @@ Use to fire actions on avatar click event.
 
 ### Multiple avatars
 
-To group multiple Avatars together, use the <Link href="/?path=/docs/media-avatar-avatargroup--docs">`<AvatarGroup/>`</Link> component
+To group multiple Avatars together, use the <Link href="/?path=/docs/media-avatar-avatargroup--docs">AvatarGroup</Link> component.
 
 <Canvas>
   <Story of={AvatarStories.MultipleAvatars} />
