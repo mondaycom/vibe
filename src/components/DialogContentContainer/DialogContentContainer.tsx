@@ -9,6 +9,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
 interface DialogContentContainerProps extends VibeComponentProps {
+  // TODO hide from storybook controls, cause looks bad
   children?: React.ReactNode;
   ariaLabelledby?: string;
   ariaDescribedby?: string;
