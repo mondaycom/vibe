@@ -6,6 +6,7 @@ import { MockToggle } from "./MockToggle";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { VibeComponent, VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 interface ToggleProps extends VibeComponentProps {
   /**
@@ -53,7 +54,8 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       ariaControls,
       areLabelsHidden = false,
       onOverrideText = "On",
-      offOverrideText = "Off"
+      offOverrideText = "Off",
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -76,6 +78,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         ariaControls={ariaControls}
         inputClassName={inputClassName}
         ref={ref}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}
