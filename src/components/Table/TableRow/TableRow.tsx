@@ -4,6 +4,7 @@ import { ITableCellProps } from "../TableCell/TableCell";
 import { useMergeRefs } from "../../../hooks";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
+import cx from "classnames";
 import styles from "./TableRow.module.scss";
 
 export interface ITableRowProps extends VibeComponentProps {
@@ -16,7 +17,7 @@ export interface ITableRowProps extends VibeComponentProps {
 }
 
 const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
-  ({ highlighted, children, style, id, "data-testid": dataTestId }, ref) => {
+  ({ highlighted, children, style, id, className, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [componentRef, ref] });
 
@@ -28,7 +29,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
         ref={mergedRef}
         role="row"
         aria-selected={highlighted || false}
-        className={styles.tableRow}
+        className={cx(styles.tableRow, className)}
         style={style}
       >
         {children}
