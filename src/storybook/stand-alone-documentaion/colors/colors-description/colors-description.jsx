@@ -5,7 +5,7 @@ import { colorsHashMap } from "../../../../utils/colors-vars-map";
 const colorsWithBorder = new Set([
   "text-color-on-inverted",
   "text-color-on-primary",
-  "text-color-fixed-light",
+  "fixed-light-color",
   "text-color-on-brand",
   "primary-background-color",
   "secondary-background-color"

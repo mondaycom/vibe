@@ -36,8 +36,8 @@ export const colorsMap = [
   },
   { color: "--text-color-on-inverted", description: "Inverted text color (opposite of primary text color)" },
   { color: "--text-color-on-primary", description: "Use for text on primary color" },
-  { color: "--text-color-fixed-light", description: "Use for text that should remain light in all themes" },
-  { color: "--text-color-fixed-dark", description: "Use for text that should remain dark in all themes" },
+  { color: "--fixed-light-color", description: "Use as color that should remain light in all themes" },
+  { color: "--fixed-dark-color", description: "Use as color that should remain dark in all themes" },
   // states
   {
     color: "--positive-color",

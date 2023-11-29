@@ -190,7 +190,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.colorFixedLight {
-  background: var(--text-color-fixed-light);
+  background: var(--fixed-light-color);
 }
 
 .kindPrimary.colorFixedLightActive,
@@ -203,7 +203,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindPrimary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .kindPrimary.button.disabled {
@@ -298,8 +298,8 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorFixedLight {
-  border-color: var(--text-color-fixed-light);
-  color: var(--text-color-fixed-light);
+  border-color: var(--fixed-light-color);
+  color: var(--fixed-light-color);
 }
 
 .kindSecondary.colorFixedLightActive,
@@ -311,7 +311,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindSecondary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .kindSecondary.disabled {
@@ -391,7 +391,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorFixedLight {
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .kindTertiary.colorFixedLightActive,
@@ -403,7 +403,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindTertiary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .kindTertiary.colorOnInvertedBackground {

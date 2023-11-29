@@ -20,7 +20,9 @@ const colorKeys = [
   "private-color",
   "shareable-color",
   "inverted-color-background",
-  "icon-color"
+  "icon-color",
+  "fixed-light-color",
+  "fixed-dark-color"
 ];
 
 export const SemanticColors = () => <ColorsDescription colorNames={colorKeys} />;

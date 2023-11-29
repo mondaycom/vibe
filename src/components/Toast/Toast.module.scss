@@ -16,7 +16,7 @@
   display: flex;
   min-width: 200px;
   border-radius: var(--border-radius-small);
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .icon {
@@ -59,16 +59,16 @@
 
 .typeWarning {
   background-color: var(--warning-color);
-  color: var(--text-color-fixed-dark);
+  color: var(--fixed-dark-color);
 
   .closeButton {
-    color: var(--text-color-fixed-dark);
+    color: var(--fixed-dark-color);
   }
 
   .actionButton,
   .actionLink {
-    color: var(--text-color-fixed-dark);
-    border-color: var(--text-color-fixed-dark);
+    color: var(--fixed-dark-color);
+    border-color: var(--fixed-dark-color);
   }
 }
 
