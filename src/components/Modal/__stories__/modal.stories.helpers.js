@@ -148,9 +148,8 @@ export const TipDialog = () => (
 export const TipDevDropdownInsideModal = () => (
   <Tip title="Dev tip">
     {`If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
-    correctly, read more about our dropdown in popovers technical pattern `}
+    correctly, read more about our dropdown in popovers technical pattern`}
     <Link
-      withoutSpacing
       href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
       size={Link.sizes.SMALL}
     >
