@@ -1,14 +1,15 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
+import {ArgsTable, Canvas, Meta, Story} from "@storybook/addon-docs";
+import {createStoryMetaSettingsDecorator} from "src/storybook/functions/createStoryMetaSettingsDecorator";
 import {
-  menuItemIconsTemplate,
-  menuItemOverflowTemplate,
-  menuItemStatesTemplate,
-  menuItemTemplate,
-  menuItemTooltipTemplate,
-  menuItemLabelTemplate,
-  menuItemWithLabelDoTemplate,
-  menuItemWithLabelDontTemplate
+    menuItemIconsTemplate,
+    menuItemLabelTemplate,
+    menuItemOverflowTemplate,
+    menuItemStatesTemplate,
+    menuItemSubMenuTemplate,
+    menuItemTemplate,
+    menuItemTooltipTemplate,
+    menuItemWithLabelDontTemplate,
+    menuItemWithLabelDoTemplate
 } from "./MenuItem.stories";
 import MenuItem from "../MenuItem";
 
@@ -69,6 +70,14 @@ Use menu item for drawing one options that displayed inside a menu.
   <Story name="Label" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
     {menuItemLabelTemplate.bind({})}
   </Story>
+</Canvas>
+
+### Menu item with sub menu
+
+<Canvas>
+    <Story name="Sub menu">
+        {menuItemSubMenuTemplate.bind({})}
+    </Story>
 </Canvas>
 
 ### Overflow

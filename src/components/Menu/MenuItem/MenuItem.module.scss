@@ -37,6 +37,24 @@
   color: var(--icon-color);
 }
 
+.subMenuIconWrapper .divider {
+  height: 19px;
+}
+
+.subMenuIconWrapper .subMenuSplitButtonIcon {
+  width: 34px;
+  height: 30px;
+}
+
+.iconButton {
+  width: 18px;
+  height: 18px;
+}
+
+.item.splitButton {
+  padding: 0 0 0 8px;
+}
+
 .item.disabled {
   cursor: not-allowed;
   color: var(--disabled-text-color);

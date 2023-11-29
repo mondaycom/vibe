@@ -1,13 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
-import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, {
+  ForwardedRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
 import Text from "../../Text/Text";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
-import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
@@ -21,6 +29,10 @@ import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstan
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import styles from "./MenuItem.module.scss";
 import Label from "../../Label/Label";
+import { DropdownChevronRight } from "../../Icon/Icons";
+import { IconButton } from "../../index";
+import Divider from "../../Divider/Divider";
+import { DirectionType } from "../../Divider/DividerConstants";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -59,6 +71,7 @@ export interface MenuItemProps extends VibeComponentProps {
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
+  isSplitButton?: boolean;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -102,17 +115,21 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseEnter,
       onMouseLeave,
       shouldScrollMenu,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      isSplitButton = false
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
-    const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const hasChildren = !!children;
+    const [isMouseOverSplitButton, setIsMouseOverSplitButton] = useState(false);
+    const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
+    const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
+    const isSubMenuOpen =
+      !!children && isActive && hasOpenSubMenu && (isSplitButton ? shouldSplitButtonSubMenuOpen : true);
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
-
     let menuChild;
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
       menuChild = submenuChild;
@@ -136,7 +153,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
       isOpen: isSubMenuOpen
     });
-
     useEffect(() => {
       if (isActive && shouldScrollMenu && referenceElement) {
         if (referenceElement.scrollIntoViewIfNeeded) {
@@ -204,7 +220,25 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
-      return (
+      return isSplitButton ? (
+        <div className={styles.subMenuIconWrapper}>
+          <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
+          <div
+            onMouseEnter={() => setIsMouseOverSplitButton(true)}
+            onMouseLeave={() => {
+              setIsMouseOverSplitButton(false);
+            }}
+          >
+            <IconButton
+              icon={DropdownChevronRight}
+              className={styles.subMenuSplitButtonIcon}
+              kind={IconButton.kinds.TERTIARY}
+              size={null}
+              iconClassName={styles.iconButton}
+            />
+          </div>
+        </div>
+      ) : (
         <div className={styles.subMenuIconWrapper}>
           <Icon
             clickable={false}
@@ -284,7 +318,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           [styles.disabled]: disabled,
           [styles.focused]: isActive,
           [styles.selected]: selected,
-          [styles.initialSelected]: isInitialSelectedState
+          [styles.initialSelected]: isInitialSelectedState,
+          [styles.splitButton]: isSplitButton
         })}
         ref={mergedRef}
         onClick={onClickCallback}
@@ -315,16 +350,21 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           ref={popperElementRef}
         >
           {menuChild && shouldShowSubMenu && (
-            <DialogContentContainer>
-              {React.cloneElement(menuChild, {
-                ...menuChild?.props,
-                isVisible: shouldShowSubMenu,
-                isSubMenu: true,
-                onClose: closeSubMenu,
-                ref: childRef,
-                useDocumentEventListeners
-              })}
-            </DialogContentContainer>
+            <span
+              onMouseEnter={() => setIsMouseOverSplitButtonSubMenu(true)}
+              onMouseLeave={() => setIsMouseOverSplitButtonSubMenu(false)}
+            >
+              <DialogContentContainer>
+                {React.cloneElement(menuChild, {
+                  ...menuChild?.props,
+                  isVisible: shouldShowSubMenu,
+                  isSubMenu: true,
+                  onClose: closeSubMenu,
+                  ref: childRef,
+                  useDocumentEventListeners
+                })}
+              </DialogContentContainer>
+            </span>
           )}
         </div>
       </Text>
