@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
-import { IconSubComponentProps } from "../../components/Icon/Icon";
+import { IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
