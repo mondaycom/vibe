@@ -14,7 +14,7 @@ export default function useDebounceEvent({
   initialStateValue = "",
   trim
 }: {
-  onChange?: (value: string) => void;
+  onChange: (value: string) => void;
   initialStateValue?: string;
   delay?: number;
   trim?: boolean;

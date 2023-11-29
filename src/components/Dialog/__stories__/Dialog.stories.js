@@ -12,7 +12,7 @@ import {
 import { useCallback, useEffect, useState } from "@storybook/addons";
 import "./Dialog.stories.scss";
 
-// TODO storybook 7 migration: temp solution for the hooks issue - replace with the import in the future
+// TODO storybook 7 migration: temp fix for the storybook 7 hooks issue
 // import useSwitch from "../../../hooks/useSwitch";
 function useSwitch({ isChecked, defaultChecked, onChange, isDisabled } = {}) {
   // if isChecked is empty, set defaultChecked value (default false value)
