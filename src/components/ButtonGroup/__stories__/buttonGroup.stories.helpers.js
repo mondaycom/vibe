@@ -7,5 +7,6 @@ export const TipCheckYourself = () => (
     <Link href="/?path=/docs/buttons-button--overview" size={Link.sizes.SMALL}>
       Button
     </Link>
+    {`component with "Flat" props.`}
   </Tip>
 );
