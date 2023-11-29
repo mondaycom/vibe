@@ -14,7 +14,7 @@ export const generateItems = (defaultItemSize = 30, itemsCount, layout) => {
 
 export const TipItemRenderer = () => (
   <Tip title="Are your list items not rendered correctly?">
-    Please make sure you inject the style parameter of the <code>itemRenderer</code> function to the item element's
+    Please make sure you inject the style parameter of the <code>itemRenderer</code> function to the item {"element's"}
     wrapper style.
   </Tip>
 );
