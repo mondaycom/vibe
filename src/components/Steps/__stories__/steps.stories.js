@@ -23,7 +23,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-export const NavigableStepsTemplate = args => {
+const NavigableStepsTemplate = args => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
   const stepPrev = useCallback(() => {
     setActiveStepIndex(prevState => prevState - 1);

@@ -11,7 +11,7 @@ export default {
   component: Menu
 };
 
-export const menuTemplate = args => (
+const menuTemplate = args => (
   <Menu {...args}>
     <MenuItem title="Menu item 1" />
     <MenuItem title="Menu item 2" disabled />
