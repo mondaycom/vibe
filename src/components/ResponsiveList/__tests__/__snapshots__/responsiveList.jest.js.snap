@@ -10,12 +10,14 @@ exports[`renders correctly with empty props 1`] = `
     className="responsiveList dummy"
   >
     <button
+      active={false}
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup="true"
       aria-label="More Actions"
       className="wrapper listMenuButton size32"
       data-testid="menu-button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
