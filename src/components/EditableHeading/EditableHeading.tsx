@@ -38,11 +38,7 @@ const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
       <EditableTypography
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
-        renderTypography={({ value, className, ...clickableProps }) => (
-          <Heading type={type} weight={weight} className={className} {...clickableProps}>
-            {value}
-          </Heading>
-        )}
+        component={Heading}
         typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
         {...editableTypographyProps}
       />
