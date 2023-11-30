@@ -21,7 +21,6 @@ export default {
 
 const colorPickerTemplate = createComponentTemplate(ColorPicker);
 
-// TODO storybook 7 migration: gets broken on click - hook issue
 export const Overview = {
   render: colorPickerTemplate.bind({}),
   name: "Overview"
