@@ -115,21 +115,14 @@ A toast notification is a message object that presents timely information, inclu
   </Story>
 </Canvas>
 
-### Toast with loading state
+### Toast with loading
 
 <Canvas>
-  <Story name="Toast with loading">
+  <Story name="Toast with loading" parameters={{ chromatic: { pauseAnimationAtEnd: true } }}>
     {() => {
       return (
-        <Toast
-          open
-          loading
-          hideIcon
-          autoHideDuration={5000}
-          type={Toast.types.POSITIVE}
-          className="monday-storybook-toast_wrapper"
-        >
-          Deleting 1 selected item
+        <Toast open loading className="monday-storybook-toast_wrapper">
+          General message toast
         </Toast>
       );
     }}

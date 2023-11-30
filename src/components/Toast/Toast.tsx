@@ -144,7 +144,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
             className={styles.textContent}
           >
-            {children}
+            <span>{children}</span>
             {toastLinks}
           </Flex>
           {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
