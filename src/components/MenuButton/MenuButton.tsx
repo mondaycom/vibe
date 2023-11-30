@@ -113,6 +113,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Specifies whether to render the component before or after the text
    */
   componentPosition?: (typeof MenuButtonComponentPosition)[keyof typeof MenuButtonComponentPosition];
+  /**
+   * Element to be used as the trigger element for the Menu - default is button
+   */
+  triggerElement?: React.ElementType;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -159,6 +163,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       hideWhenReferenceHidden = false,
       dialogContainerSelector,
       active,
+      triggerElement: TriggerElement = "button",
       "data-testid": dataTestId
     },
     ref
@@ -305,12 +310,11 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           useDerivedStateFromProps={true}
           onDialogDidShow={onDialogDidShow}
           onDialogDidHide={onDialogDidHide}
-          referenceWrapperClassName={styles.referenceIcon}
           zIndex={zIndex}
           isOpen={isOpen}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
         >
-          <button
+          <TriggerElement
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
             ref={mergedRef}
@@ -321,6 +325,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
               [styles.disabled]: disabled,
               [styles.text]: text
             })}
+            active={isActive}
+            disabled={disabled}
             aria-haspopup="true"
             aria-expanded={isOpen}
             aria-label={!text && ariaLabel}
@@ -330,7 +336,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             {componentPosition === MenuButton.componentPositions.START && icon}
             {text && <span className={styles.innerText}>{text}</span>}
             {componentPosition === MenuButton.componentPositions.END && icon}
-          </button>
+          </TriggerElement>
         </Dialog>
       </Tooltip>
     );
