@@ -108,7 +108,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const AnimatedTypography = motion(TypographyComponent);
     const isOverflowing = useIsOverflowing({ ref: typographyRef, ignoreHeightOverflow: true });
-    const shouldAnimate = useMemo(() => isOverflowing && isEditing !== null, [isEditing, isOverflowing]);
+    const shouldAnimate = useMemo(() => isOverflowing && !isEditing, [isEditing, isOverflowing]);
 
     useLayoutEffect(() => {
       if (!typographyRef.current) {
