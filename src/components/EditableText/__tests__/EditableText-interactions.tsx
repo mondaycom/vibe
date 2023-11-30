@@ -17,10 +17,7 @@ const CHANGES_DELAY = 200;
 const text = "This text is an editable text";
 
 function getComponent(canvas: Canvas) {
-  return getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
-}
-function gettext(canvas: Canvas) {
-  return getByTestId(canvas, ComponentDefaultTestId.CLICKABLE);
+  return getByTestId(canvas, ComponentDefaultTestId.EDITABLE_TEXT);
 }
 
 function getInput(canvas: Canvas) {
@@ -37,7 +34,7 @@ async function changeModes(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const textElement = gettext(canvas);
+  const textElement = getComponent(canvas);
   expect(textElement).toHaveTextContent(text);
 }
 
@@ -52,7 +49,7 @@ async function editAndChangeToValidText(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const textElement = gettext(canvas);
+  const textElement = getComponent(canvas);
   expect(textElement).toHaveTextContent(text);
 }
 
@@ -65,7 +62,7 @@ async function clearInput(canvas: Canvas) {
   await clearText(input);
 
   await resetFocus();
-  const textElement = gettext(canvas);
+  const textElement = getComponent(canvas);
   expect(textElement).toHaveTextContent(text);
 }
 
@@ -83,7 +80,7 @@ async function cancelEditing(canvas: Canvas) {
 
   await typeText(input, "{Escape}");
 
-  const textElement = gettext(canvas);
+  const textElement = getComponent(canvas);
   expect(textElement).toHaveTextContent(text);
 }
 
