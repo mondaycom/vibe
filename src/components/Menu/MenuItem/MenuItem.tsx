@@ -124,11 +124,12 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const isActive = activeItemIndex === index;
     const hasChildren = !!children;
     const [isMouseOverSplitButton, setIsMouseOverSplitButton] = useState(false);
-    const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
-    const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
-    const isSubMenuOpen =
-      !!children && isActive && hasOpenSubMenu && (isSplitButton ? shouldSplitButtonSubMenuOpen : true);
-    const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
+    //const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
+    //const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
+    // const isSubMenuOpen =
+    //   !!children && isActive && hasOpenSubMenu && (isSplitButton ? shouldSplitButtonSubMenuOpen : true);
+    const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
+    const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen; // && (isSplitButton ? shouldSplitButtonSubMenuOpen : true);
     const submenuChild: MenuChild = children && React.Children.only(children);
     let menuChild;
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
@@ -170,7 +171,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       isActive,
       setActiveItemIndex,
       index,
-      hasChildren
+      hasChildren,
+      isMouseOverSplitButton: isSplitButton && isMouseOverSplitButton
     });
 
     const { onClickCallback } = useMenuItemKeyboardEvents({
@@ -180,7 +182,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       index,
       setActiveItemIndex,
       hasChildren,
-      shouldShowSubMenu,
+      shouldShowSubMenu: isSplitButton ? isMouseOverSplitButton : isMouseEnter,
       setSubMenuIsOpenByIndex,
       menuRef,
       isMouseEnter,
@@ -234,6 +236,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
               className={styles.subMenuSplitButtonIcon}
               kind={IconButton.kinds.TERTIARY}
               size={null}
+              tabIndex={-1}
               iconClassName={styles.iconButton}
             />
           </div>
@@ -351,8 +354,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         >
           {menuChild && shouldShowSubMenu && (
             <span
-              onMouseEnter={() => setIsMouseOverSplitButtonSubMenu(true)}
-              onMouseLeave={() => setIsMouseOverSplitButtonSubMenu(false)}
+            // onMouseEnter={() => setIsMouseOverSplitButtonSubMenu(true)}
+            // onMouseLeave={() => setIsMouseOverSplitButtonSubMenu(false)}
             >
               <DialogContentContainer>
                 {React.cloneElement(menuChild, {

@@ -9,7 +9,8 @@ export default function useMenuItemMouseEvents({
   isActive,
   setActiveItemIndex,
   index,
-  hasChildren
+  hasChildren,
+  isMouseOverSplitButton
 }: {
   ref: React.RefObject<HTMLElement>;
   resetOpenSubMenuIndex: () => void;
@@ -18,13 +19,14 @@ export default function useMenuItemMouseEvents({
   setActiveItemIndex: (index: number) => void;
   index: number;
   hasChildren: boolean;
+  isMouseOverSplitButton: boolean;
 }) {
   const isMouseEnter = useIsMouseEnter({ ref });
 
   const prevIsMouseEnter = usePrevious(isMouseEnter);
 
   useLayoutEffect(() => {
-    if (!isMouseEnter) return;
+    if (!isMouseEnter && !isMouseOverSplitButton) return;
     if (isMouseEnter === prevIsMouseEnter) return;
 
     if (!setSubMenuIsOpenByIndex || !resetOpenSubMenuIndex) {
@@ -42,7 +44,7 @@ export default function useMenuItemMouseEvents({
     }
 
     if (isActive && hasChildren) {
-      setSubMenuIsOpenByIndex(index, !!isMouseEnter);
+      setSubMenuIsOpenByIndex(index, isMouseEnter || isMouseOverSplitButton);
     }
   }, [
     resetOpenSubMenuIndex,
@@ -52,7 +54,8 @@ export default function useMenuItemMouseEvents({
     isActive,
     setActiveItemIndex,
     index,
-    hasChildren
+    hasChildren,
+    isMouseOverSplitButton
   ]);
 
   return isMouseEnter;

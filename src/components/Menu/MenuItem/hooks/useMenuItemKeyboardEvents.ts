@@ -12,6 +12,7 @@ export default function useMenuItemKeyboardEvents({
   index,
   setActiveItemIndex,
   hasChildren,
+  shouldShowSubMenu,
   setSubMenuIsOpenByIndex,
   menuRef,
   isMouseEnter,
@@ -39,9 +40,10 @@ export default function useMenuItemKeyboardEvents({
         return;
       }
 
-      if (isActive && hasChildren) {
+      if (isActive && hasChildren && shouldShowSubMenu) {
         setActiveItemIndex(index);
         setSubMenuIsOpenByIndex(index, true);
+        return;
       }
 
       const isKeyEvent = event instanceof KeyboardEvent;
@@ -59,7 +61,7 @@ export default function useMenuItemKeyboardEvents({
         clickCallback();
       }
 
-      if (!isKeyEvent && onClick && !disabled && isMouseEnter) {
+      if (!isKeyEvent && onClick && !disabled && shouldShowSubMenu) {
         if (!isActive) {
           setActiveItemIndex(index);
           if (hasChildren) {
@@ -67,12 +69,14 @@ export default function useMenuItemKeyboardEvents({
           }
         }
 
-        // wait for background of menu item to change before trigger click
-        requestAnimationFrame(() => {
+        if (!hasChildren) {
+          // wait for background of menu item to change before trigger click
           requestAnimationFrame(() => {
-            clickCallback();
+            requestAnimationFrame(() => {
+              clickCallback();
+            });
           });
-        });
+        }
       }
     },
     [
@@ -82,6 +86,7 @@ export default function useMenuItemKeyboardEvents({
       index,
       setActiveItemIndex,
       hasChildren,
+      shouldShowSubMenu,
       setSubMenuIsOpenByIndex,
       isMouseEnter,
       closeMenu
