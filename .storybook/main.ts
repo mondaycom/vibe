@@ -5,7 +5,12 @@ const getAddons = () => {
   const addons = [
     "@storybook/addon-links",
     "@storybook/addon-a11y",
-    "@storybook/addon-essentials",
+    {
+      name: "@storybook/addon-essentials",
+      options: {
+        backgrounds: false
+      }
+    },
     "@storybook/addon-themes",
     "@storybook/preset-scss",
     {
