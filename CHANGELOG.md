@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.67.0 (2023-11-30)
+
+#### New Features
+* [#1758](https://github.com/mondaycom/monday-ui-react-core/pull/1758) Editable typography animation and a11y ([@talkor](https://github.com/talkor))
+
 ## 2.66.0 (2023-11-29)
 
 #### New Features
