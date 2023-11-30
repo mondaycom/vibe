@@ -27,35 +27,56 @@ export const Overview = {
 };
 
 export const WithIndicator = {
-  render: () => <ColorPicker ColorIndicatorIcon={TextColorIndicator} />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator
+  },
   name: "With Indicator"
 };
 
 export const TextIndication = {
-  render: () => (
-    <ColorPicker ColorIndicatorIcon={TextColorIndicator} shouldRenderIndicatorWithoutBackground value="peach" />
-  ),
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator,
+    value: "peach",
+    shouldRenderIndicatorWithoutBackground: true
+  },
   name: "Text Indication"
 };
 
 export const Selected = {
-  render: () => <ColorPicker ColorIndicatorIcon={TextColorIndicator} colorStyle={ColorPicker.COLOR_STYLES.SELECTED} />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    ColorIndicatorIcon: TextColorIndicator,
+    colorStyle: ColorPicker.COLOR_STYLES.SELECTED
+  },
   name: "Selected"
 };
 
 export const NoColor = {
-  render: () => <ColorPicker noColorText="Clear color" />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    noColorText: "Clear color"
+  },
   name: "No color",
   play: noColorInteractionSuite
 };
 
 export const SelectedIcon = {
-  render: () => <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    isMultiselect: true,
+    SelectedIndicatorIcon: Check,
+    value: "peach"
+  },
   name: "Selected icon",
   play: multiSelectionInteractionSuite
 };
 
 export const Shapes = {
-  render: () => <ColorPicker colorShape={ColorPicker.colorShapes.CIRCLE} />,
+  render: colorPickerTemplate.bind({}),
+  args: {
+    colorShape: ColorPicker.colorShapes.CIRCLE
+  },
   name: "Shapes"
 };
