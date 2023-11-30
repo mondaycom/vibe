@@ -134,7 +134,7 @@ export const SuccessState = {
   name: "Success state"
 };
 
-export const OnColorState = {
+export const OnColorStates = {
   render: () => (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
@@ -167,7 +167,7 @@ export const OnColorState = {
     </>
   ),
 
-  name: "On color state"
+  name: "On color states"
 };
 
 export const AdjacentButtons = {
