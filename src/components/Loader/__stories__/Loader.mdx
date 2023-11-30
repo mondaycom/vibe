@@ -1,0 +1,126 @@
+import Loader from "../Loader";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
+import { Flex } from "../..";
+import {
+  BUTTON,
+  LINEAR_PROGRESS_BAR,
+  SKELETON
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipSkeleton } from "./Loader.stories.helpers";
+import * as LoaderStories from "./Loader.stories";
+import "./Loader.stories.scss";
+
+<Meta of={LoaderStories} />
+
+# Loader
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Circular loader indicates to user waiting state.
+
+<Canvas>
+  <Story of={LoaderStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this loader to load small parts of the system, not the whole pages.",
+    "Use sizes of loader in context to its position. The bigger the loading area gets, the bigger loader should be used.",
+    "Always place loader in context to the loading content."
+  ]}
+/>
+
+<TipSkeleton />
+
+## Variants
+
+### Size variants
+
+<Canvas>
+  <Story of={LoaderStories.SizeVariants} />
+</Canvas>
+
+### Color variants
+
+<Canvas>
+  <Story of={LoaderStories.ColorVariants} />
+</Canvas>
+
+### Custom colors
+
+If there is a need for color customization, css `color` attribute of a parent component can be used.
+
+<Canvas>
+  <Story of={LoaderStories.CustomColors} />
+</Canvas>
+
+### Visual variants
+
+<Canvas>
+  <Story of={LoaderStories.VisualVariants} />
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Flex direction={Flex.directions.ROW}>
+            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
+            <Loader size={Loader.sizes.SMALL} hasBackground />
+          </Flex>
+        ),
+        description: "Place loader in context to the loading content and keep its size proportional to the content."
+      },
+      negative: {
+        component: (
+          <Flex direction={Flex.directions.ROW}>
+            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
+            <Loader size={Loader.sizes.LARGE} hasBackground />
+          </Flex>
+        ),
+        description: "Don’t leave the size visually unmaintained."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Loader in text field
+
+Use loader in search field while filtering results.
+
+<Canvas>
+  <Story of={LoaderStories.LoaderInTextField} />
+</Canvas>
+
+### Loader in button
+
+Indicate the loading status in button if content or an action is loading.
+
+<Canvas>
+  <Story of={LoaderStories.LoaderInButton} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[SKELETON, LINEAR_PROGRESS_BAR, BUTTON]} />

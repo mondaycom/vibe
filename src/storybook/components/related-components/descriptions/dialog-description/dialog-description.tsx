@@ -43,7 +43,7 @@ export const DialogDescription = () => {
     <RelatedComponent
       component={component}
       title="Dialog"
-      href="/?path=/docs/components-dialog-dialog--overview"
+      href="/?path=/docs/components-dialog-dialog--docs"
       description="The dialog component's purpose is to position a popup component nearby another element, such as any kind of a button."
     />
   );

@@ -27,8 +27,24 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.mdx",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
         templateFile: "plop/general/component-stories-mdx.txt"
+      },
+      {
+        type: "modify",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
+        pattern: /@componentName@/g,
+        template: "{{properCase componentName}}"
+      },
+      {
+        type: "add",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.js",
+        templateFile: "plop/general/component-stories-js.txt"
+      },
+      {
+        type: "add",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.helpers.js",
+        templateFile: "plop/general/component-stories-helpers-js.txt"
       },
       {
         type: "add",

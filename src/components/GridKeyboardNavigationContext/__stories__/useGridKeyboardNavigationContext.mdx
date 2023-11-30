@@ -1,0 +1,85 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import * as UseGridKeyboardNavigationContextStories from "./useGridKeyboardNavigationContext.stories";
+
+<Meta of={UseGridKeyboardNavigationContextStories} />
+
+# useGridKeyboardNavigationContext
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+A hook used to specify a connection between multiple navigable components, which are navigable between each other.
+
+<Canvas>
+  <Story of={UseGridKeyboardNavigationContextStories.Overview} />
+</Canvas>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook when you want to add keyboard navigation between multiple grid-like components.",
+    "Each of the components should use `useGridKeyboardNavigation`.",
+    "The components should be wrapped with a single `GridKeyboardNavigationContext`."
+  ]}
+/>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument
+    name="positions"
+    type="Array[ { topElement: React.MutableRefObject, bottomElement: React.MutableRefObject } | { leftElement: React.MutableRefObject, rightElement: React.MutableRefObject } ]"
+    description="An array of relations between pairs of elements"
+    required
+  />
+  <FunctionArgument
+    name="wrapperRef"
+    type="React.MutableRefObject"
+    description={
+      <>
+        A React ref for an element which contains all the elements which are listed on the <code>positions</code>{" "}
+        argument.
+      </>
+    }
+    required
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="result"
+    type="Object"
+    description={
+      <>
+        A <code>GridKeyboardNavigationContext</code> which should be provided to wrap all the elements from{" "}
+        <code>positions</code>
+      </>
+    }
+  />
+</FunctionArguments>
+
+## Variants
+
+### Disabled Elements
+
+Disabled components can be skipped by adding a `disabled` (or `data-disabled`) to the referenced element.
+
+<Canvas>
+  <Story of={UseGridKeyboardNavigationContextStories.DisabledElements} />
+</Canvas>
+
+### Multiple Depths
+
+The hook can be used inside multiple depths, in more complex layout requirements.
+
+<Canvas>
+  <Story of={UseGridKeyboardNavigationContextStories.MultipleDepths} />
+</Canvas>

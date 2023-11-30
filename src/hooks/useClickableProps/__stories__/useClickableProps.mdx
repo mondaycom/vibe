@@ -1,0 +1,256 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import { TipClickable } from "./useClickableProps.stories.helpers";
+import * as UseClickablePropsStories from "./useClickableProps.stories";
+
+<Meta of={UseClickablePropsStories} />
+
+# useClickableProps
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Return props for making an element or component clickable by mouse and keyboard with screen reader support.
+
+<Canvas>
+  <Story of={UseClickablePropsStories.Overview} />
+</Canvas>
+
+<TipClickable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook instead of Clickable component wrapper when you want to customize clickable styles by yourself."
+  ]}
+/>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument
+    name="onClick"
+    type="(event: React.MouseEvent | React.KeyboardEvent) => void"
+    description={<>Click callback.</>}
+  />
+  <FunctionArgument
+    name="onMouseDown"
+    type="(event: React.MouseEvent) => void"
+    description={<>Mouse down callback.</>}
+  />
+  <FunctionArgument name="disabled" type="boolean" description={<>Whether element is disabled or not.</>} />
+  <FunctionArgument name="id" type="string" description={<>Id of the element.</>} />
+  <FunctionArgument name="dataTestId" type="string" description={<>Id of the element for test purposes.</>} />
+  <FunctionArgument
+    name="role"
+    type="string"
+    description={
+      <>
+        Provide semantic meaning to content.
+        <Link size={Link.sizes.SMALL} href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles"}>
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="tabIndex"
+    type="number"
+    description={
+      <>
+        Specifies the tab order of the element. Default value is 0.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="ariaLabel"
+    type="string"
+    description={
+      <>
+        Defines a string value that labels an interactive element for assistive technologies.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="ariaHidden"
+    type="boolean"
+    description={
+      <>
+        HTML attribute for hiding content from screen readers and other assistive technologies.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="ariaHasPopup"
+    type="boolean"
+    description={
+      <>
+        Indicates the availability and type of interactive popup element that can be triggered by the element on which
+        the attribute is set.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="ariaExpanded"
+    type="boolean"
+    description={
+      <>
+        Indicate if a control is expanded or collapsed, and whether or not its child elements are displayed or hidden.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="ref"
+    type="(node: HTMLElement) => void"
+    description={
+      <>
+        A React
+        <Link size={Link.sizes.SMALL} href="https://react.dev/reference/react/useRef">
+          ref
+        </Link>
+        object for the clickable element.
+      </>
+    }
+  />
+  <FunctionArgument
+    name="onClick"
+    type="(event: React.MouseEvent | React.KeyboardEvent) => void"
+    description={<>Click callback.</>}
+  />
+  <FunctionArgument
+    name="onMouseDown"
+    type="(event: React.MouseEvent) => void"
+    description={<>Mouse down callback.</>}
+  />
+  <FunctionArgument name="onKeyDown" type="(event: React.MouseEvent) => void" description={<>Key down callback.</>} />
+  <FunctionArgument name="id" type="string" description={<>Id of the element.</>} />
+  <FunctionArgument name="data-testid" type="string" description={<>Id of the element for test purposes.</>} />
+  <FunctionArgument
+    name="role"
+    type="string"
+    description={
+      <>
+        Provide semantic meaning to content.
+        <Link size={Link.sizes.SMALL} href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles"}>
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="tabIndex"
+    type="number"
+    description={
+      <>
+        Specifies the tab order of an element.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="aria-label"
+    type="string"
+    description={
+      <>
+        Defines a string value that labels an interactive element.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="aria-hidden"
+    type="boolean"
+    description={
+      <>
+        Used to hide non-interactive content from the accessibility API.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="aria-hasPopup"
+    type="boolean"
+    description={
+      <>
+        Indicates the availability and type of interactive popup element that can be triggered by the element on which
+        the attribute is set.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+  <FunctionArgument
+    name="aria-expanded"
+    type="boolean"
+    description={
+      <>
+        Indicate if a control is expanded or collapsed, and whether or not its child elements are displayed or hidden.
+        <Link
+          size={Link.sizes.SMALL}
+          href={"https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded"}
+        >
+          More details.
+        </Link>
+      </>
+    }
+  />
+</FunctionArguments>

@@ -1,0 +1,48 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseTimeoutStories from "./useTimeout.stories";
+
+<Meta of={UseTimeoutStories} />
+
+# useTimeout
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this hook when you need to perform an action with timeout, this hook will cancel the timeout when the component unmounts.
+
+<Canvas>
+  <Story of={UseTimeoutStories.Overview} />
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="time" type="number" description="The time (in ms) to wait before execution." default="0" />
+    <FunctionArgument
+      name="callback"
+      type="(value: string) => void"
+      description="Callback function to execute when provided time has passed."
+      required
+    />
+    <FunctionArgument
+      name="ignoreZeroTime"
+      type="boolean"
+      description="If time provided is 0 (defer) ignore the callback."
+      default="false"
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Array">
+    <FunctionArgument type="() => void" description="Cancels the timeout." />
+  </FunctionArgument>
+</FunctionArguments>

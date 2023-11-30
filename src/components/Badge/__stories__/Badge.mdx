@@ -1,0 +1,133 @@
+import Badge from "../Badge";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import person from "./assets/person.png";
+import { WhatsNew } from "../../Icon/Icons";
+import Link from "../../Link/Link";
+import Button from "../../Button/Button";
+import Avatar from "../../Avatar/Avatar";
+import { BUTTON, COUNTER, LINK } from "../../../storybook/components/related-components/component-description-map";
+import Indicator from "../Indicator/Indicator";
+import * as BadgeStories from "./Badge.stories";
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Badge component is responsible for layout an indicator/counter on a child component
+
+<Canvas>
+  <Story of={BadgeStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### States
+
+Badge can be of type Indicator or type Counter
+
+<Canvas>
+  <Story of={BadgeStories.States} />
+</Canvas>
+
+### Button
+
+When using Badge on a Button element, use alignment of RECTANGULAR in order to attach it to the element
+
+<Canvas>
+  <Story of={BadgeStories.ButtonStory} />
+</Canvas>
+
+### Avatar
+
+When using Badge on an Avatar element, use alignment of CIRCULAR in order to attach it to the element
+
+<Canvas>
+  <Story of={BadgeStories.AvatarStory} />
+</Canvas>
+
+### Inline elements
+
+When using Badge on an inline element, use alignment of OUTSIDE in order to attach it to the element
+
+<Canvas>
+  <Story of={BadgeStories.InlineElements} />
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Badge alignment={Badge.alignments.OUTSIDE}>
+            <Link text="Read more" />
+          </Badge>
+        ),
+        description: "When using the badge on an inline component, apply OUTSIDE alignment to it"
+      },
+      negative: {
+        component: (
+          <Badge>
+            <Link text="Read more" />
+          </Badge>
+        ),
+        description: "Do not leave the indicator inside the element boundaries"
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Badge>
+            <Button leftIcon={WhatsNew}>What's new</Button>
+          </Badge>
+        ),
+        description: "Choose a color that does not blend with the one of the child component"
+      },
+      negative: {
+        component: (
+          <Badge color={Indicator.colors.PRIMARY}>
+            <Button leftIcon={WhatsNew}>What's new</Button>
+          </Badge>
+        ),
+        description: "Do not use a color that blends with the child component"
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Badge alignment={Badge.alignments.CIRCULAR}>
+            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          </Badge>
+        ),
+        description: "When using Indicator badge, anchor it at the top-right edge"
+      },
+      negative: {
+        component: (
+          <Badge alignment={Badge.alignments.CIRCULAR} anchor={Badge.anchors.TOP_START}>
+            <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          </Badge>
+        ),
+        description: "Do not place it on any other edge"
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[LINK, BUTTON, COUNTER]} />

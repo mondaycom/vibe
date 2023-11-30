@@ -10,7 +10,7 @@ export const HiddenTextDescription = () => {
     <RelatedComponent
       component={component}
       title="HiddenText"
-      href="/?path=/docs/accessibility-hiddentext--overview"
+      href="/?path=/docs/accessibility-hiddentext--docs"
       description="Hidden text helps us to create a text which is accessible to screen reader users but not to users who see the screen."
     />
   );

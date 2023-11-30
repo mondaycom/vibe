@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseSetFocusStories from "./useSetFocus.stories";
+
+<Meta of={UseSetFocusStories} />
+
+# useSetFocus
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Hook for controlling focus on specific component e.g. Input.
+
+<Canvas>
+  <Story of={UseSetFocusStories.Overview} />
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="ref"
+      type="React.MutableRefObject"
+      description={
+        <>
+          A React
+          <Link href="https://react.dev/reference/react/useRef">ref</Link>
+          object.
+        </>
+      }
+      required
+    />
+    <FunctionArgument
+      name="focusCallback"
+      type="() => void"
+      description="Callback function to execute on the ref's element focus event."
+    />
+    <FunctionArgument
+      name="blurCallback"
+      type="() => void"
+      description="Callback function to execute on the ref's element blur event."
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="isFocused" type="bool" description="Is the element focused or not." />
+    <FunctionArgument name="focus" type="() => void" description="Function for focusing the element." />
+    <FunctionArgument name="blur" type="() => void" description="Function for blurring the element." />
+  </FunctionArgument>
+</FunctionArguments>

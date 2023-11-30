@@ -12,7 +12,7 @@ const OLD_TEXT_FIELD_SIZES = {
   l: BASE_SIZES.LARGE
 };
 
-export type TextFieldSize = typeof BASE_SIZES[keyof typeof BASE_SIZES] | keyof typeof OLD_TEXT_FIELD_SIZES;
+export type TextFieldSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES] | keyof typeof OLD_TEXT_FIELD_SIZES;
 
 // Support old sizes (backward compatible)
 export const getActualSize = (size: TextFieldSize): keyof typeof SIZE_MAPPER => {

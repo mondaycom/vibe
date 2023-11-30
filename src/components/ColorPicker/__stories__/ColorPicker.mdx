@@ -1,0 +1,67 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import * as ColorPickerStories from "./ColorPicker.stories";
+
+<Meta of={ColorPickerStories} />
+
+# ColorPicker
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+ColorPicker is our component for selecting our content colors
+
+<Canvas>
+  <Story of={ColorPickerStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### With Indicator
+
+<Canvas>
+  <Story of={ColorPickerStories.WithIndicator} />
+</Canvas>
+
+### Text Indication
+
+<Canvas>
+  <Story of={ColorPickerStories.TextIndication} />
+</Canvas>
+
+### Selected
+
+<Canvas>
+  <Story of={ColorPickerStories.Selected} />
+</Canvas>
+
+### No color
+
+Ability to revert to initial color
+
+<Canvas>
+  <Story of={ColorPickerStories.NoColor} />
+</Canvas>
+
+### Selected icon
+
+Selected colors indication, when using multi-selection
+
+<Canvas>
+  <Story of={ColorPickerStories.SelectedIcon} />
+</Canvas>
+
+### Shapes
+
+The `ColorPicker` supports multiple shapes
+
+<Canvas>
+  <Story of={ColorPickerStories.Shapes} />
+</Canvas>

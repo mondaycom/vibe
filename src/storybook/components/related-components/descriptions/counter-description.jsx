@@ -8,7 +8,7 @@ export const CounterDescription = () => {
     <RelatedComponent
       component={component}
       title="Counter"
-      href="/?path=/docs/feedback-counter--overview"
+      href="/?path=/docs/feedback-counter--docs"
       description="Show the count of some adjacent data. "
     />
   );

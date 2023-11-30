@@ -18,7 +18,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
    * @deprecated - use className instead
    */
   classname?: string;
-  kind?: typeof MenuItemButton.kinds[keyof typeof MenuItemButton.kinds];
+  kind?: (typeof MenuItemButton.kinds)[keyof typeof MenuItemButton.kinds];
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
   index?: number;

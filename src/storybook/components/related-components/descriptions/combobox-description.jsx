@@ -29,7 +29,7 @@ export const ComboboxDescription = () => {
     <RelatedComponent
       component={component}
       title="Combobox"
-      href="/?path=/docs/inputs-combobox--overview"
+      href="/?path=/docs/inputs-combobox--docs"
       description="Combobox allowing users to filter longer lists to only the selections matching a query."
     />
   );

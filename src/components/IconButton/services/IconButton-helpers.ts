@@ -8,7 +8,7 @@ const sizesMap = {
   [SIZES.LARGE]: 48
 } as const;
 
-export type Size = typeof SIZES[keyof typeof SIZES];
+export type Size = (typeof SIZES)[keyof typeof SIZES];
 
 export function getWidthHeight(size: Size) {
   return {

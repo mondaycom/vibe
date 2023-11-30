@@ -1,0 +1,48 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Link, UsageGuidelines } from "vibe-storybook-components";
+import * as UseHoverStories from "./useHover.stories";
+
+<Meta of={UseHoverStories} />
+
+# useHover
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Detect whether the mouse is hovering an element by returning its <code>isHovered</code> state.
+
+<Canvas>
+  <Story of={UseHoverStories.Overview} />
+</Canvas>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook to get element hovered state",
+    "Please assign the returned ref as the reference of the element"
+  ]}
+/>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="ref"
+    type="React.MutableRefObject"
+    description={
+      <>
+        A React
+        <Link size={Link.sizes.MEDIUM} href="https://react.dev/reference/react/useRef">
+          ref
+        </Link>
+        object to assign to the element which hover state needs to be tracked.
+      </>
+    }
+  />
+  <FunctionArgument name="isHovered" type="boolean" description="Whether the element is hovered or not." />
+</FunctionArguments>

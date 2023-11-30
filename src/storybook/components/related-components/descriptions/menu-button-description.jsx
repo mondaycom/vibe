@@ -26,7 +26,7 @@ export const MenuButtonDescription = () => {
     <RelatedComponent
       component={component}
       title="MenuButton"
-      href="/?path=/docs/buttons-menubutton--overview"
+      href="/?path=/docs/buttons-menubutton--docs"
       description="A component to open content next to another component"
     />
   );
