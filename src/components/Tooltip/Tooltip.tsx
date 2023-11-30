@@ -111,6 +111,10 @@ interface TooltipBaseProps extends VibeComponentProps {
    * set the state of the tooltip - open/close - controlled component
    */
   open?: boolean;
+  /**
+   * Classname to be added to the content container
+   */
+  wrapperClassName?: string;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -149,7 +153,8 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     showOnDialogEnter: false,
     referenceWrapperClassName: "",
     addKeyboardHideShowTriggersByDefault: false,
-    open: false
+    open: false,
+    wrapperClassName: ""
   };
   constructor(props: TooltipProps) {
     super(props);
@@ -243,7 +248,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   render() {
     const {
       withoutDialog,
-      moveBy,
       justify,
       children,
       forceRenderWithoutChildren,
@@ -251,11 +255,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       theme,
       paddingSize,
       tip,
-      showTrigger,
-      hideTrigger,
-      showOnDialogEnter,
-      addKeyboardHideShowTriggersByDefault,
-      open,
       arrowClassName,
       id,
       "data-testid": dataTestId
@@ -273,12 +272,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     const dialogProps = {
       ...this.props,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TOOLTIP, id),
-      open,
       startingEdge: justify,
       tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
-      moveBy,
       tooltipClassName: cx(
         styles.arrow,
         getStyle(styles, theme),
@@ -289,10 +286,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
-      showTrigger,
-      hideTrigger,
-      showOnDialogEnter,
-      addKeyboardHideShowTriggersByDefault
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
