@@ -1,9 +1,11 @@
+import { useCallback, useEffect, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Counter from "../Counter";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";
-import { AddUpdate, Update } from "../../Icon/Icons";
+import { AddUpdate, Update, Notifications } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
+import Avatar from "../../Avatar/Avatar";
 import "./counter.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -129,54 +131,44 @@ export const Limits = {
   name: "Limits"
 };
 
-// TODO storybook 7 migration: story isn't working in storybook 7
-// export const NotificationCounter = {
-//   render: () => {
-//     const maxCount = 10;
-//     const initialCount = 4;
-//     const [count, setCount] = useState(4);
-//
-//     const changeCountCallback = useCallback(() => {
-//       const newCount = count === maxCount ? initialCount : count + 1;
-//       setCount(newCount);
-//     }, [count, setCount]);
-//
-//     useEffect(() => {
-//       setCount(initialCount);
-//     }, [initialCount, setCount]);
-//
-//     useEffect(() => {
-//       const interval = setInterval(changeCountCallback, 1000);
-//
-//       return () => {
-//         clearInterval(interval);
-//       };
-//     }, [changeCountCallback]);
-//
-//     return (
-//       <div className="storybook-counter_position">
-//         <Avatar type={Avatar.types.ICON} icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
-//         <Counter
-//           count={count}
-//           maxDigits={1}
-//           color={Counter.colors.NEGATIVE}
-//           className="storybook-counter_counter-position-top"
-//         />
-//       </div>
-//     );
-//   },
-//
-//   name: "Notification counter"
-// };
+export const NotificationCounter = {
+  render: () => {
+    const maxCount = 10;
+    const initialCount = 4;
+    const [count, setCount] = useState(4);
 
-// First story in Use cases and examples
-// ### Notification counter
-//
-// Used on the notification icon to indicate the number of new notifications.
-//
-// <Canvas>
-//     <Story of={CounterStories.NotificationCounter} />
-// </Canvas>
+    const changeCountCallback = useCallback(() => {
+      const newCount = count === maxCount ? initialCount : count + 1;
+      setCount(newCount);
+    }, [count, setCount]);
+
+    useEffect(() => {
+      setCount(initialCount);
+    }, [initialCount, setCount]);
+
+    useEffect(() => {
+      const interval = setInterval(changeCountCallback, 1000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }, [changeCountCallback]);
+
+    return (
+      <div className="storybook-counter_position">
+        <Avatar type={Avatar.types.ICON} icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
+        <Counter
+          count={count}
+          maxDigits={1}
+          color={Counter.colors.NEGATIVE}
+          className="storybook-counter_counter-position-top"
+        />
+      </div>
+    );
+  },
+
+  name: "Notification counter"
+};
 
 export const CounterOnInboxFilters = {
   render: () => (
