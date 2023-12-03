@@ -47,7 +47,9 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
     </div>
   </div>
 </div>
@@ -102,7 +104,9 @@ exports[`Toast renders correctly when open is true 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
     </div>
   </div>
   <button
@@ -193,7 +197,9 @@ exports[`Toast renders correctly with button 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
     </div>
     <button
       aria-busy={false}
@@ -298,7 +304,9 @@ exports[`Toast renders correctly with button and link 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
       <a
         aria-describedby=""
         aria-label=""
@@ -421,7 +429,9 @@ exports[`Toast renders correctly with link 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
       <a
         aria-describedby=""
         aria-label=""
@@ -530,7 +540,9 @@ exports[`Toast renders correctly with loading 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
     </div>
     <div
       className="loaderContainer"
@@ -648,7 +660,9 @@ exports[`Toast renders correctly with negative type 1`] = `
         }
       }
     >
-      Something Happened
+      <span>
+        Something Happened
+      </span>
     </div>
   </div>
   <button
