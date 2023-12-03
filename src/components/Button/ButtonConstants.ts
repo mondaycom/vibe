@@ -23,7 +23,7 @@ export const OLD_BUTTON_SIZES = {
   lg: SIZES.LARGE
 } as const;
 
-export type Size = typeof SIZES[keyof typeof SIZES] | keyof typeof OLD_BUTTON_SIZES;
+export type Size = (typeof SIZES)[keyof typeof SIZES] | keyof typeof OLD_BUTTON_SIZES;
 
 // Support old sizes (backward compatible)
 export const getActualSize = (size?: Size) => {

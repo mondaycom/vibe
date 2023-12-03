@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import {
+  EDITABLE_HEADING,
+  HEADING,
+  TEXT_FIELD
+} from "../../../storybook/components/related-components/component-description-map";
+import * as TextWithHighlightStories from "./TextWithHighlight.stories";
+
+<Meta of={TextWithHighlightStories} />
+
+# TextWithHighlight
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Component for displaying highlighted text
+
+<Canvas>
+  <Story of={TextWithHighlightStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "By using this component, you can display text with highlighted sub strings according to a given term and lines limit."
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[HEADING, TEXT_FIELD, EDITABLE_HEADING]} />

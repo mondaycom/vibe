@@ -1,0 +1,32 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments, UsageGuidelines } from "vibe-storybook-components";
+import * as UseAfterFirstRenderStories from "./useAfterFirstRender.stories";
+
+<Meta of={UseAfterFirstRenderStories} />
+
+# useAfterFirstRender
+
+- [Overview](#overview)
+- [Returns](#returns)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this hook to track whether the page has been rendered at least once.
+
+<Canvas>
+  <Story of={UseAfterFirstRenderStories.Overview} />
+</Canvas>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument type="boolean" description="Whether the first render happened or not." />
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["Use this hook when you want to wait for the page to load at least once before doing something."]}
+/>

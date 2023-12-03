@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import { generateItems } from "../../../../../components/VirtualizedList/__stories__/virtualizedList.components";
 import VirtualizedList from "../../../../../components/VirtualizedList/VirtualizedList";
+import { generateItems } from "../../../../../components/VirtualizedGrid/__stories__/VirtualizedGrid.stories.helpers";
 import styles from "./virtualizedList.module.scss";
 
 export const VirtualizedListDescription = () => {
@@ -35,7 +35,7 @@ export const VirtualizedListDescription = () => {
     <RelatedComponent
       component={component}
       title="VirtualizedList"
-      href="/?path=/docs/navigation-virtualizedlist--overview"
+      href="/?path=/docs/navigation-virtualizedlist--docs"
       description="VirtualizedList is a component which only renders visible list items, it is a logic component and doesn't change and look and feel."
     />
   );

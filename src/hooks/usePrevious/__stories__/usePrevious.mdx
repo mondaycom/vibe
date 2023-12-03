@@ -1,0 +1,32 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UsePreviousStories from "./usePrevious.stories";
+
+<Meta of={UsePreviousStories} />
+
+# usePrevious
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Hook for keeping previous state value.
+
+<Canvas>
+  <Story of={UsePreviousStories.Overview} />
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="value" type="any" description={<>State value to keep track of.</>} required />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="value" type="any" description={<>Previous value of the argument.</>} />
+</FunctionArguments>

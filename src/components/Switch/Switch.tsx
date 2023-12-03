@@ -21,6 +21,7 @@ interface SwitchProps extends VibeComponentProps {
   wrapperClassName?: string;
 }
 
+// TODO no story
 export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
   (
     {

@@ -24,7 +24,7 @@ const OLD_COUNTER_SIZES = {
 } as const;
 
 // Support old sizes (backward compatible)
-type Size = keyof typeof OLD_COUNTER_SIZES | typeof SIZES[keyof typeof SIZES];
+type Size = keyof typeof OLD_COUNTER_SIZES | (typeof SIZES)[keyof typeof SIZES];
 
 export const getActualSize = (size: Size) => {
   if (size in OLD_COUNTER_SIZES) {

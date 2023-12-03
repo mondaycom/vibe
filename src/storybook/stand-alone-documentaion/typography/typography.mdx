@@ -1,0 +1,244 @@
+import { Meta } from "@storybook/blocks";
+import { Frame } from "vibe-storybook-components";
+import Heading from "../../../components/Heading/Heading";
+import Text from "../../../components/Text/Text";
+import TextColors from "../colors/text-colors/text-colors";
+import { EDITABLE_HEADING, HEADING, TEXT } from "../../components/related-components/component-description-map";
+import { typographyExample1, typographyExample2, typographyExample3, typographyExample4 } from "./assets";
+import ExamplesTable from "./examples-table/examples-table";
+import { TipHowToUseFonts } from "./typograpghy.stories.helpers";
+import styles from "./typography.module.scss";
+
+<Meta title="Foundations/Typography" />
+
+<ComponentName withFoundationBackground>Typography</ComponentName>
+
+- [Overview](#overview)
+- [Fonts](#fonts)
+- [Type styles](#type-styles)
+- [Text colors](#text-colors)
+- [Usage and examples](#usage-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+
+Like in other UI in mondays interface, typography works by principle of accessibility before aesthetics.
+Therefore, the text should be readable and help the user understand what’s important by well contrasted size and colors hierarchy.
+
+## Fonts
+
+We are using two fonts for our UI hierarchy: Poppins and Figtree.
+We are using Poppins font for our main titles (heading), and Figtree for text, labels and paragraphs.
+We don't import the font within our CSS in order to give full control of the fonts which you wish to bring to your client, the following code snippet is what we recommend in order to include our recommended fonts.
+
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+```
+
+More ever this is how we are building our css variable for our main font families
+
+```css
+--font-family: Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
+--title-font-family: Poppins, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
+```
+
+<TipHowToUseFonts />
+
+## Type styles
+
+We use two key type styles: heading and text
+
+<Frame>
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    H1 - 32px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
+            H1 bold
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h1, bold);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
+            H1 normal
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h1, normal);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>
+            H1 light
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h1, light);"
+      }
+    ]}
+  />
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    H2 - 24px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Heading type={Heading.types.H2} weight={Heading.weights.BOLD}>
+            H2 bold
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h2, bold);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+            H2 normal
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h2, normal);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H2} weight={Heading.weights.LIGHT}>
+            H2 light
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h2, light);"
+      }
+    ]}
+  />
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    H3 - 18px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Heading type={Heading.types.H3} weight={Heading.weights.BOLD}>
+            H3 bold
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h3, bold);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H3} weight={Heading.weights.NORMAL}>
+            H3 normal
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h3, normal);"
+      },
+      {
+        name: (
+          <Heading type={Heading.types.H3} weight={Heading.weights.LIGHT}>
+            H3 light
+          </Heading>
+        ),
+        sass: "@include vibe-heading(h3, light);"
+      }
+    ]}
+  />
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    Text1 - 16px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+            Text1 bold
+          </Text>
+        ),
+        sass: "@include vibe-text(text1, bold);"
+      },
+      {
+        name: (
+          <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
+            Text1 medium
+          </Text>
+        ),
+        sass: "@include vibe-text(text1, bold);"
+      },
+      {
+        name: (
+          <Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+            Text1 normal
+          </Text>
+        ),
+        sass: "@include vibe-text(text1, bold);"
+      }
+    ]}
+  />
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    Text2 - 14px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
+            Text2 bold
+          </Text>
+        ),
+        sass: "@include vibe-text(text2, bold);"
+      },
+      {
+        name: (
+          <Text type={Text.types.TEXT2} weight={Text.weights.MEDIUM}>
+            Text2 medium
+          </Text>
+        ),
+        sass: "@include vibe-text(text2, bold);"
+      },
+      {
+        name: (
+          <Text type={Text.types.TEXT2} weight={Text.weights.NORMAL}>
+            Text2 normal
+          </Text>
+        ),
+        sass: "@include vibe-text(text2, bold);"
+      }
+    ]}
+  />
+</Frame>
+
+## Text colors
+
+<TextColors />
+
+## Usage and examples
+
+<UsageGuidelines
+  guidelines={[
+    "Avoid using text size smaller than 14px.",
+    "Don't underline words. For typographic emphasis use bold text.",
+    "Don't use 2 different sizes of text in the same line."
+  ]}
+/>
+
+<Frame className={styles.usageImageFrame}>
+  <img src={typographyExample1} className={styles.bigImage} alt="" role="presentation" />
+</Frame>
+
+<Frame className={styles.usageImageFrame}>
+  <img src={typographyExample2} className={styles.smallImage} alt="" role="presentation" />
+</Frame>
+
+<Frame className={styles.usageImageFrame}>
+  <img src={typographyExample3} className={styles.smallImage} alt="" role="presentation" />
+</Frame>
+
+<Frame className={styles.usageImageFrame}>
+  <img src={typographyExample4} className={styles.smallImage} alt="" role="presentation" />
+</Frame>
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_HEADING]} />

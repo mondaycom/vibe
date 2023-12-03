@@ -1,0 +1,18 @@
+import { useRef } from "react";
+import {{camelCase hookName}} from "../index";
+import "../../__stories__/general-hooks-stories.scss";
+import styles from "./{{camelCase hookName}}.stories.module.scss";
+
+export default {
+  title: "Hooks/{{camelCase hookName}}"
+};
+
+export const Overview = {
+  render: () => {
+    const ref = useRef(null);
+    const { result } = {{camelCase hookName}}({ ref });
+    return <div className={styles.container}>Random hook result = {result}</div>;
+  },
+
+  name: "Overview"
+};

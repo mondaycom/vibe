@@ -1,33 +1,22 @@
-import { useRef } from "react"
-import { Story, Canvas, Meta } from "@storybook/addon-docs";
-import {{camelCase hookName}} from "../index";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
-import styles from "./{{camelCase hookName}}.stories.module.scss"
+import { Canvas, Meta } from "@storybook/addon-docs";
+import * as {{properCase hookName}}Stories from "./{{camelCase hookName}}.stories";
 
-<Meta title="Hooks/{{camelCase hookName}}"/>
+<Meta of={@properCase_hookName@Stories} />
 
 # {{camelCase hookName}}
+
 - [Overview](#overview)
 - [Arguments](#arguments)
 - [Returns](#returns)
+- [Usage](#usage)
 - [Feedback](#feedback)
 
 ## Overview
+
 Please write here the component description
 
-<Canvas>
-  <Story name="Overview">
-    {() => {
-      const ref = useRef(null);
-      const { result } = {{camelCase hookName}}({ ref });
-      return (
-        <div className={styles.container}>
-          Random hook result = {result}
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
+<Canvas of={@properCase_hookName@Stories.Overview} />
 
 ## Arguments
 
@@ -46,3 +35,7 @@ Please write here the component description
     <FunctionArgument name="result" type="any" description="Hook return value." />
   </FunctionArgument>
 </FunctionArguments>
+
+## Usage
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />

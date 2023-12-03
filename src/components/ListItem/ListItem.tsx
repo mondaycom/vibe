@@ -56,7 +56,7 @@ export interface ListItemProps extends VibeComponentProps {
   /**
    * The size of the list item
    */
-  size?: typeof SIZES[keyof typeof SIZES];
+  size?: (typeof SIZES)[keyof typeof SIZES];
   /**
    Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
    */

@@ -95,6 +95,7 @@ describe("useDebounceEvent", () => {
     const additionalDelay = 200;
 
     beforeEach(() => {
+      // @ts-ignore
       jest.useFakeTimers("modern");
 
       hookResult = renderHook(() =>
