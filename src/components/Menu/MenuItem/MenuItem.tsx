@@ -71,7 +71,7 @@ export interface MenuItemProps extends VibeComponentProps {
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
-  isSplitButton?: boolean;
+  splitButton?: boolean;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -116,7 +116,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
-      isSplitButton = false
+      splitButton = false
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
@@ -127,7 +127,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
     const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
     const isSubMenuOpen =
-      !!children && isActive && hasOpenSubMenu && (isSplitButton ? shouldSplitButtonSubMenuOpen : true);
+      !!children && isActive && hasOpenSubMenu && (splitButton ? shouldSplitButtonSubMenuOpen : true);
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
     let menuChild;
@@ -220,7 +220,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
-      return isSplitButton ? (
+      return splitButton ? (
         <div className={styles.subMenuIconWrapper}>
           <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
           <div
@@ -235,6 +235,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
               kind={IconButton.kinds.TERTIARY}
               size={null}
               iconClassName={styles.iconButton}
+              onClick={() => {}}
+              tabIndex={-1}
             />
           </div>
         </div>
@@ -319,7 +321,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           [styles.focused]: isActive,
           [styles.selected]: selected,
           [styles.initialSelected]: isInitialSelectedState,
-          [styles.splitButton]: isSplitButton
+          [styles.splitButton]: splitButton
         })}
         ref={mergedRef}
         onClick={onClickCallback}

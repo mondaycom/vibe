@@ -37,14 +37,14 @@ export const menuItemLabelTemplate = args => (
 export const menuItemSubMenuTemplate = args => {
   return (
     <Menu>
-      <MenuItem title="Opens on item hover">
+      <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
         <Menu tabIndex={0} id="sub-menu">
-          <MenuItem title="Sub menu item 1" />
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(123456)} />
           <MenuItem title="Sub menu item 2" />
           <MenuItem title="Sub menu item 3" />
         </Menu>
       </MenuItem>
-      <MenuItem title="Opens on icon hover" isSplitButton={true}>
+      <MenuItem title="Opens on icon hover" splitButton={true} onClick={() => console.log(1234)}>
         <Menu tabIndex={0} id="sub-menu">
           <MenuItem title="Sub menu item 1" />
           <MenuItem title="Sub menu item 2" />
