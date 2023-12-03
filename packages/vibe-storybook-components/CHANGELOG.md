@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.1 (2023-12-03)
+
+#### Bug Fixes
+* [#131](https://github.com/mondaycom/vibe-storybook-components/pull/131) fix: export component ([@talkor](https://github.com/talkor))
+
 ## 0.15.0 (2023-12-03)
 
 #### New Features
