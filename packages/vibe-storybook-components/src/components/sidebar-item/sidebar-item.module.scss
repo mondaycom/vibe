@@ -1,6 +1,7 @@
 .sidebarItem {
   flex: 1;
   min-width: 0;
+  margin-right: var(--sb-spacing-medium);
 
   .name {
     text-overflow: ellipsis;
