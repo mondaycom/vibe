@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.0 (2023-12-03)
+
+#### New Features
+* [#127](https://github.com/mondaycom/vibe-storybook-components/pull/127) feat: add storybook-link component ([@talkor](https://github.com/talkor))
+
 ## 0.14.3 (2023-12-03)
 
 #### Bug Fixes
