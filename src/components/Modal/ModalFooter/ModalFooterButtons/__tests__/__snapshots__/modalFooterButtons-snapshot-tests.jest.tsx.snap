@@ -15,7 +15,6 @@ exports[`ModalFooterButtons should render correctly 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="button sizeMedium kindTertiary colorPrimary"
       data-testid="button"
       onBlur={[Function]}
@@ -30,7 +29,6 @@ exports[`ModalFooterButtons should render correctly 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      aria-pressed={false}
       className="button sizeMedium kindPrimary colorPrimary"
       data-testid="button"
       onBlur={[Function]}

@@ -1,0 +1,60 @@
+import { Story, Canvas, Meta } from "@storybook/blocks";
+import * as UseEventListenerStories from "./useEventListener.stories";
+
+<Meta of={UseEventListenerStories} />
+
+# useEventListener
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Feedback](#feedback)
+
+## Overview
+
+Attaches a listener to any DOM event on a specific element, firing a provided callback when the event is triggered.
+
+<Canvas>
+  <Story of={UseEventListenerStories.Overview} />
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="ref"
+      type="React.MutableRefObject"
+      description={
+        <>
+          A React
+          <Link href="https://react.dev/reference/react/useRef">ref</Link>
+          object.
+        </>
+      }
+    />
+    <FunctionArgument
+      name="callback"
+      type="(event: Event) => void"
+      description="Callback function to execute when the event is fired."
+      required
+    />
+    <FunctionArgument
+      name="eventName"
+      type="string"
+      description={
+        <>
+          The event to listen to. See
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/Events">a full list</Link>
+          for more info.
+        </>
+      }
+      required
+    />
+    <FunctionArgument
+      name="capture"
+      type="boolean"
+      description="Whether to capture the event before bubbling up or not."
+      default="false"
+    />
+  </FunctionArgument>
+</FunctionArguments>

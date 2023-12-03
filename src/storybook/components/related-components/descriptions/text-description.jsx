@@ -14,7 +14,7 @@ export const TextDescription = () => {
     <RelatedComponent
       component={component}
       title="Text"
-      href="/?path=/docs/text-text--overview"
+      href="/?path=/docs/text-text--docs"
       description="The text component serves as a wrapper for applying typography styles to the text it contains."
     />
   );

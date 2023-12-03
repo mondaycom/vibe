@@ -36,7 +36,7 @@ export interface MenuProps extends VibeComponentProps {
    * @deprecated - use className instead
    */
   classname?: string;
-  size?: typeof SIZES[keyof typeof SIZES];
+  size?: (typeof SIZES)[keyof typeof SIZES];
   tabIndex?: number;
   ariaLabel?: string;
   ariaDescribedBy?: string;

@@ -1,0 +1,121 @@
+import Tooltip from "../Tooltip";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Bolt } from "../../Icon/Icons";
+import Icon from "../../Icon/Icon";
+import Button from "../../Button/Button";
+import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
+import "./tooltip.stories.scss";
+import * as TooltipStories from "./tooltip.stories";
+import { TipOtherComponents } from "./tooltip.stories.helpers";
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Themes](#themes)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Tooltips show contextual help or information about specific components when a user hovers on them.
+
+<Canvas>
+  <Story of={TooltipStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Should never contain critical information that a user would absolutely need to proceed.",
+    "Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times."
+  ]}
+/>
+
+<TipOtherComponents />
+
+## Variants
+
+### Positions
+
+Tooltip’s arrow can appear from top, bottom, left or right.
+
+<Canvas>
+  <Story of={TooltipStories.Positions} />
+</Canvas>
+
+### Themes
+
+Tooltip’s arrow can have various themes.
+
+<Canvas>
+  <Story of={TooltipStories.Themes} />
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Tooltip shouldShowOnMount content="Open quick search  + B">
+            <div className="monday-storybook-tooltip_icon-box">
+              <Icon icon={Bolt} iconSize="32" />
+            </div>
+          </Tooltip>
+        ),
+        description: "Use tooltips for adding alternative textual purpose for buttons which do not include any text."
+      },
+      negative: {
+        component: (
+          <Tooltip shouldShowOnMount content="Open quick search  + B">
+            <Button>Quick search</Button>
+          </Tooltip>
+        ),
+        description: "Don't use a tooltip to display information already written on the button text."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Icon tooltip
+
+An icon tooltip is used to clarify the action or name of an interactive icon button. Provide tooltips for all unlabelled icons.
+
+<Canvas>
+  <Story of={TooltipStories.IconTooltip} />
+</Canvas>
+
+### Definition tooltip
+
+The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
+
+<Canvas>
+  <Story of={TooltipStories.DefinitionTooltip} />
+</Canvas>
+
+### Immediate tooltips
+
+Immediately show when another is shown. The two left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
+
+<Canvas>
+  <Story of={TooltipStories.ImmediateTooltips} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[CHIP, LABEL, TIPSEEN]} />

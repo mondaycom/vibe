@@ -102,7 +102,7 @@ interface VirtualizedGridProps extends VibeComponentProps {
   /**
    * class name to add to the component scrollable container
    */
-  scrollableClassName: string;
+  scrollableClassName?: string;
 }
 
 const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(

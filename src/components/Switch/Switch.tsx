@@ -21,6 +21,7 @@ interface SwitchProps extends VibeComponentProps {
   wrapperClassName?: string;
 }
 
+// TODO no story
 export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
   (
     {
@@ -37,7 +38,8 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
       ariaControls,
       defaultChecked,
       children: originalChildren,
-      wrapperClassName
+      wrapperClassName,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -74,6 +76,7 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           aria-checked={overrideChecked}
+          data-testid={dataTestId}
         />
         {children}
       </label>

@@ -19,6 +19,7 @@ export function getNextWeekFirstDayElement(pivotElement: HTMLElement) {
 
 describe("DatePicker", () => {
   beforeEach(() => {
+    // @ts-ignore
     jest.useFakeTimers("modern");
   });
   afterEach(() => {

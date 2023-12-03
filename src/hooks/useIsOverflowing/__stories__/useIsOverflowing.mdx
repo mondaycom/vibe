@@ -1,0 +1,51 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments, Link } from "vibe-storybook-components";
+import { TipTooltip } from "./useIsOverflowing.stories.helpers";
+import * as UseIsOverflowingStories from "./useIsOverflowing.stories";
+
+<Meta of={UseIsOverflowingStories} />
+
+# useIsOverflowing
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this hook, when there is a chance that content won't fit into the container, to track if overflow occurs.
+
+<Canvas>
+  <Story of={UseIsOverflowingStories.Overview} />
+</Canvas>
+
+## Usage
+
+<UsageGuidelines guidelines={["Use this when content might not fit into it's container."]} />
+
+<TipTooltip />
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument
+    name="ref"
+    type="React.MutableRefObject"
+    description={
+      <>
+        A React
+        <Link size={Link.sizes.MEDIUM} href="https://react.dev/reference/react/useRef">
+          ref
+        </Link>
+        object for the container of likely to overflow content.
+      </>
+    }
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="isOverflowing" type="bool" description={<>Is content overflow the container.</>} />
+</FunctionArguments>

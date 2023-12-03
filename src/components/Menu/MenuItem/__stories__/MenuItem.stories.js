@@ -5,34 +5,71 @@ import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
-import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
+import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 
-export const menuItemTemplate = args => (
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: MenuItem,
+  enumPropNamesArray: ["tooltipPosition"],
+  iconPropNamesArray: ["icon"]
+});
+
+export default {
+  title: "Navigation/Menu/MenuItem",
+  component: MenuItem,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
+
+const menuItemTemplate = args => (
   <Menu>
     <MenuItem {...args} />
   </Menu>
 );
 
-export const menuItemStatesTemplate = args => (
-  <Menu>
-    <MenuItem title="Regular menu item" />
-    <MenuItem title="Selected menu item" selected />
-    <MenuItem title="Disabled menu item" disabled />
-  </Menu>
-);
+export const Overview = {
+  render: menuItemTemplate.bind({}),
+  name: "Overview",
 
-export const menuItemIconsTemplate = args => (
-  <Menu>
-    <MenuItem title="SVG icon" icon={Activity} />
-    <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
-  </Menu>
-);
+  args: {
+    title: "Menu item"
+  }
+};
 
-export const menuItemLabelTemplate = args => (
-  <Menu>
-    <MenuItem title="Menu item" label="New" />
-  </Menu>
-);
+export const States = {
+  render: () => (
+    <Menu>
+      <MenuItem title="Regular menu item" />
+      <MenuItem title="Selected menu item" selected />
+      <MenuItem title="Disabled menu item" disabled />
+    </Menu>
+  ),
+  name: "States"
+};
+
+export const Icons = {
+  render: () => (
+    <Menu>
+      <MenuItem title="SVG icon" icon={Activity} />
+      <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
+    </Menu>
+  ),
+  name: "Icons"
+};
+
+export const Label = {
+  render: () => (
+    <Menu>
+      <MenuItem title="Menu item" label="New" />
+    </Menu>
+  ),
+  name: "Label",
+
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
+};
 
 export const menuItemSubMenuTemplate = args => {
   return (
@@ -55,8 +92,8 @@ export const menuItemSubMenuTemplate = args => {
   );
 };
 
-export const menuItemOverflowTemplate = args => {
-  return (
+export const Overflow = {
+  render: () => (
     <Menu>
       <MenuItem title="short text" />
       <MenuItem title="long text - bla bla bla bla bla bla bla bla bla bla bla" />
@@ -68,11 +105,12 @@ export const menuItemOverflowTemplate = args => {
         </Menu>
       </MenuItem>
     </Menu>
-  );
+  ),
+  name: "Overflow"
 };
 
-export const menuItemTooltipTemplate = args => {
-  return (
+export const TooltipStory = {
+  render: () => (
     <Menu>
       <MenuItem title="Menu item with tooltip" tooltipContent="I am tooltip" />
       <MenuItem title="Disabled menu item with tooltip" disabled={true} disableReason="I am a disabled tooltip" />
@@ -90,25 +128,6 @@ export const menuItemTooltipTemplate = args => {
         iconType={Icon.type.SVG}
       />
     </Menu>
-  );
+  ),
+  name: "Tooltip"
 };
-
-export const menuItemWithLabelDoTemplate = args => (
-  <DialogContentContainer>
-    <Menu>
-      <MenuItem title="Menu item 1" label="New" />
-      <MenuItem title="Menu item 2" />
-      <MenuItem title="Menu item 3" />
-    </Menu>
-  </DialogContentContainer>
-);
-
-export const menuItemWithLabelDontTemplate = args => (
-  <DialogContentContainer>
-    <Menu>
-      <MenuItem title="Menu Item 1" label="Long menu item label" />
-      <MenuItem title="Menu Item 2" />
-      <MenuItem title="Menu Item 3" />
-    </Menu>
-  </DialogContentContainer>
-);

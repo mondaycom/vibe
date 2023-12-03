@@ -1,6 +1,6 @@
 module.exports = plop => {
-  plop.setGenerator("Hook Story", {
-    description: "New hook story",
+  plop.setGenerator("Hook", {
+    description: "New hook",
     prompts: [
       {
         type: "input",
@@ -16,13 +16,24 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.stories.mdx",
+        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.mdx",
         templateFile: "plop/hooks/hook-story.txt"
+      },
+      {
+        type: "modify",
+        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.mdx",
+        pattern: /@properCase_hookName@/g,
+        template: "{{properCase hookName}}"
+      },
+      {
+        type: "add",
+        path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.stories.js",
+        templateFile: "plop/hooks/hook-story-js.txt"
       },
       {
         type: "add",
         path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.stories.module.scss",
-        templateFile: "plop/hooks/hook-story-style.txt"
+        templateFile: "plop/hooks/hook-story-scss.txt"
       },
       {
         type: "append",

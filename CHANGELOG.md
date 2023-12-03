@@ -1,5 +1,43 @@
 # Changelog
 
+## 2.67.0 (2023-11-30)
+
+#### New Features
+* [#1758](https://github.com/mondaycom/monday-ui-react-core/pull/1758) Editable typography animation and a11y ([@talkor](https://github.com/talkor))
+
+## 2.66.0 (2023-11-29)
+
+#### New Features
+* [#1787](https://github.com/mondaycom/monday-ui-react-core/pull/1787) feat(Toggle): add data-testid prop ([@talkor](https://github.com/talkor))
+
+## 2.65.0 (2023-11-29)
+
+#### Bug Fixes
+* [#1785](https://github.com/mondaycom/monday-ui-react-core/pull/1785) fix: replace deprecated text-fixed-color tokens with identical color tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1788](https://github.com/mondaycom/monday-ui-react-core/pull/1788) Support className in TableRow ([@uri-shmueli](https://github.com/uri-shmueli))
+
+#### Documentation
+* [#1784](https://github.com/mondaycom/monday-ui-react-core/pull/1784) docs: RelatedComponents - add <VirtualizedList> component description example ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1786](https://github.com/mondaycom/monday-ui-react-core/pull/1786) docs: RelatedComponents - fix <Dialog> description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1775](https://github.com/mondaycom/monday-ui-react-core/pull/1775) infra: disable cron for update monday-ui-style version workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.64.2 (2023-11-28)
+
+#### Bug Fixes
+* [#1776](https://github.com/mondaycom/monday-ui-react-core/pull/1776) fix: <Dropdown> Control - use --primary-color on focus-within instead of default color from react-select ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1772](https://github.com/mondaycom/monday-ui-react-core/pull/1772) fix(ModalHeader): extract icon from Heading to allow tooltip to work ([@talkor](https://github.com/talkor))
+* [#1777](https://github.com/mondaycom/monday-ui-react-core/pull/1777) fix(Button): remove aria-pressed ([@talkor](https://github.com/talkor))
+* [#1771](https://github.com/mondaycom/monday-ui-react-core/pull/1771) fix: typography vertical overflow tolerance ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1782](https://github.com/mondaycom/monday-ui-react-core/pull/1782) docs: RelatedComponents - add <ColorPicker> component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1783](https://github.com/mondaycom/monday-ui-react-core/pull/1783) docs: Catalog fix multi words search ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1778](https://github.com/mondaycom/monday-ui-react-core/pull/1778) docs: change spacing of layout in stories ([@talkor](https://github.com/talkor))
+
 ## 2.64.1 (2023-11-27)
 
 #### Bug Fixes

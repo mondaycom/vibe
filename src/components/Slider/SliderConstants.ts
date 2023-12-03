@@ -20,7 +20,7 @@ export enum SliderColor {
   NEGATIVE = "negative",
   POSITIVE = "positive"
 }
-export type SliderSize = typeof Slider.sizes[keyof typeof Slider.sizes];
+export type SliderSize = (typeof Slider.sizes)[keyof typeof Slider.sizes];
 
 export type SliderContextSelection = {
   max: number;

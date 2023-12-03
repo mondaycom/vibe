@@ -27,7 +27,7 @@ export interface SearchProps extends VibeComponentProps {
   setRef?: () => void;
   autoComplete?: string;
   /* BASE_SIZES is exposed on the component itself */
-  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
   /* TYPES is exposed on the component itself */
   type?: SearchType;
   validation?:

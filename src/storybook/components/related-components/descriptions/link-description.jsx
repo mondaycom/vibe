@@ -11,7 +11,7 @@ export const LinkDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      href="/?path=/docs/navigation-link--overview"
+      href="/?path=/docs/navigation-link--docs"
       title="Link"
       description="Actionable text component with connection to another web pages."
     />
