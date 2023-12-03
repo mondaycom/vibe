@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.3 (2023-12-03)
+
+#### Bug Fixes
+* [#130](https://github.com/mondaycom/vibe-storybook-components/pull/130) fix(SidebarItem): add margin to the right ([@talkor](https://github.com/talkor))
+
 ## 0.14.2 (2023-11-26)
 
 #### Bug Fixes
