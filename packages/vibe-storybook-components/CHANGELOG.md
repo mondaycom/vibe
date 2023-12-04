@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.16.0 (2023-12-04)
+
+#### New Features
+* [#132](https://github.com/mondaycom/vibe-storybook-components/pull/132) feat(StorybookLink): add size prop ([@talkor](https://github.com/talkor))
+
 ## 0.15.1 (2023-12-03)
 
 #### Bug Fixes
