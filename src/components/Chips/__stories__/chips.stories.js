@@ -91,6 +91,23 @@ export const Clickable = {
   name: "Clickable"
 };
 
+export const CustomLabel = {
+  render: () => {
+    return (
+      <Chips
+        readOnly
+        label={
+          <>
+            This is mandatory <span className={styles.required}>*</span>
+          </>
+        }
+      />
+    );
+  },
+
+  name: "Custom label"
+};
+
 export const ChipsPalette = {
   render: () => (
     <Flex
