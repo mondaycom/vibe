@@ -1,4 +1,4 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 import { Announcement, Check } from "../../Icon/Icons";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import { MenuItem } from "../../index";
@@ -6,10 +6,10 @@ import React from "react";
 
 export const TipMenu = () => (
   <Tip>
-    If the actions in the menu are not related to each other, consider using a
-    <Link href="/?path=/docs/navigation-menu--docs" size={Link.sizes.SMALL}>
+    If the actions in the menu are not related to each other, consider using a{" "}
+    <StorybookLink page="Navigation/Menu" size="small">
       Menu
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );

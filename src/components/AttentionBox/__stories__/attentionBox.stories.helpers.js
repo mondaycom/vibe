@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
-    If the information about a component isn’t critical for the user, use a
-    <Link href="/?path=/docs/popover-tooltip--docs" size={Link.sizes.SMALL}>
+    If the information about a component isn’t critical for the user, use a{" "}
+    <StorybookLink page="Popover/Tooltip" size="small">
       Tooltip
-    </Link>
+    </StorybookLink>
     instead.
   </Tip>
 );

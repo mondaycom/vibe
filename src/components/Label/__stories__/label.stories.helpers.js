@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
-    Need to count or indicate numbers? Use the
-    <Link href="/?path=/docs/feedback-counter--docs" size={Link.sizes.SMALL}>
+    Need to count or indicate numbers? Use the{" "}
+    <StorybookLink page="Feedback/Counter" size="small">
       Counter
-    </Link>
+    </StorybookLink>{" "}
     component instead.
   </Tip>
 );

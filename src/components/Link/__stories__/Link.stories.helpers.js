@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipButton = () => (
   <Tip>
     If you need an action that does not have context with text{" "}
-    <Link href="/?path=/docs/inputs-combobox--docs" size={Link.sizes.SMALL} withoutSpacing>
+    <StorybookLink page="Inputs/Combobox" size="small">
       Button
-    </Link>
+    </StorybookLink>
     .
   </Tip>
 );

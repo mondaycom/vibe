@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipAlertBanner = () => (
   <Tip title="Check yourself">
-    Need to inform the user about a system’s action? Use an
-    <Link href="/?path=/docs/feedback-alertbanner--docs" size={Link.sizes.SMALL}>
+    Need to inform the user about a system’s action? Use an{" "}
+    <StorybookLink href="/?path=/docs/feedback-alertbanner--docs" size="small">
       AlertBanner
-    </Link>
+    </StorybookLink>{" "}
     instead.
   </Tip>
 );

@@ -7,7 +7,7 @@ import { DEFAULT_DIALOG_SHOW_TRIGGER } from "../../SplitButton/SplitButtonConsta
 import ModalFooterButtons from "../ModalFooter/ModalFooterButtons/ModalFooterButtons";
 import styles from "./Modal.stories.module.scss";
 import cx from "classnames";
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 // internal custom hook to help with writing tests and stories.
 export const useHelperOpenModalButton = ({
@@ -137,10 +137,10 @@ export const TipAlertDialog = () => (
 
 export const TipDialog = () => (
   <Tip>
-    For creating a popover positioned next to other components, like customized menus, check out our
-    <Link href="/?path=/docs/components-dialog-dialog--docs" size={Link.sizes.SMALL}>
+    For creating a popover positioned next to other components, like customized menus, check out our{" "}
+    <StorybookLink page="Components/Dialog/Dialog" size="small">
       Dialog
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );
@@ -148,12 +148,9 @@ export const TipDialog = () => (
 export const TipDevDropdownInsideModal = () => (
   <Tip title="Dev tip">
     {`If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
-    correctly, read more about our dropdown in popovers technical pattern`}
-    <Link
-      href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
-      size={Link.sizes.SMALL}
-    >
+    correctly, read more about our dropdown in popovers technical pattern `}
+    <StorybookLink page="Technical patterns/Dropdowns inside pop overs modal with damaged dropdown" size="small">
       here.
-    </Link>
+    </StorybookLink>
   </Tip>
 );

@@ -1,10 +1,10 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipLabel = () => (
   <Tip>
-    Chips will always show up in context of a field. If you just need to add information, use
-    <Link href="/?path=/docs/data-display-label--docs" size={Link.sizes.SMALL}>
+    Chips will always show up in context of a field. If you just need to add information, use{" "}
+    <StorybookLink page="Data display/Label" size="small">
       Label.
-    </Link>
+    </StorybookLink>
   </Tip>
 );

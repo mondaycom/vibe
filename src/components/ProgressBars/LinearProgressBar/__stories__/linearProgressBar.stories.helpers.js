@@ -1,13 +1,13 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import LinearProgressBar from "../LinearProgressBar";
 
 export const TipMultiStepIndicator = () => (
   <Tip>
-    If you need to lead a user through a progress, use the
-    <Link href="/?path=/docs/navigation-multistepindicator--docs" size={Link.sizes.SMALL}>
+    If you need to lead a user through a progress, use the{" "}
+    <StorybookLink page="Navigation/MultiStepIndicator" size="small">
       MultiStepIndicator
-    </Link>
+    </StorybookLink>{" "}
     instead.
   </Tip>
 );
