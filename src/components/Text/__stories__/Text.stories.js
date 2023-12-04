@@ -170,7 +170,7 @@ export const LinksInsideRunningText = {
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Text align={Text.align.CENTER}>
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size="small">
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>
         inside running text.
@@ -181,7 +181,7 @@ export const LinksInsideRunningText = {
         color={Text.colors.ON_PRIMARY}
       >
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size="small">
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>
         inside running text on a primary color
@@ -192,7 +192,7 @@ export const LinksInsideRunningText = {
         color={Text.colors.ON_INVERTED}
       >
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size="small">
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>
         inside running text on an inverted color
@@ -208,7 +208,7 @@ export const LinksInsideRunningText = {
         color={Text.colors.FIXED_LIGHT}
       >
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size="small">
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>
         inside running text with fixed light color
@@ -224,7 +224,7 @@ export const LinksInsideRunningText = {
         color={Text.colors.FIXED_DARK}
       >
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size="small">
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
         </StorybookLink>
         inside running text with fixed dark color

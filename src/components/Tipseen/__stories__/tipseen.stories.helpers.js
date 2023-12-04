@@ -18,11 +18,11 @@ export const modifiers = [
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     If you need to provide additional information about a component, use the{" "}
-    <StorybookLink page="Popover/Tooltip" size="small">
+    <StorybookLink page="Popover/Tooltip" size={StorybookLink.sizes.SMALL}>
       Tooltip
     </StorybookLink>{" "}
     or{" "}
-    <StorybookLink href="Feedback/AttentionBox" size="small">
+    <StorybookLink page="Feedback/AttentionBox" size={StorybookLink.sizes.SMALL}>
       Attention box.
     </StorybookLink>
   </Tip>

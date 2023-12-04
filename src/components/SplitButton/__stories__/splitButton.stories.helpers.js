@@ -7,7 +7,7 @@ import React from "react";
 export const TipMenu = () => (
   <Tip>
     If the actions in the menu are not related to each other, consider using a{" "}
-    <StorybookLink page="Navigation/Menu" size="small">
+    <StorybookLink page="Navigation/Menu" size={StorybookLink.sizes.SMALL}>
       Menu
     </StorybookLink>{" "}
     component.

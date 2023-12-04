@@ -138,7 +138,7 @@ export const TipAlertDialog = () => (
 export const TipDialog = () => (
   <Tip>
     For creating a popover positioned next to other components, like customized menus, check out our{" "}
-    <StorybookLink page="Components/Dialog/Dialog" size="small">
+    <StorybookLink page="Components/Dialog/Dialog" size={StorybookLink.sizes.SMALL}>
       Dialog
     </StorybookLink>{" "}
     component.
@@ -149,7 +149,11 @@ export const TipDevDropdownInsideModal = () => (
   <Tip title="Dev tip">
     {`If you wish to implement a dropdown inside a Modal container and need help displaying the dropdown's popovers
     correctly, read more about our dropdown in popovers technical pattern `}
-    <StorybookLink page="Technical patterns/Dropdowns inside pop overs modal with damaged dropdown" size="small">
+    <StorybookLink
+      page="Technical patterns/Dropdowns inside pop overs"
+      story="Modal with damaged dropdown"
+      size={StorybookLink.sizes.SMALL}
+    >
       here.
     </StorybookLink>
   </Tip>

@@ -59,11 +59,11 @@ export const thirdSteps: Step[] = [
 export const TipNotWhatYouAreLookingFor = () => (
   <Tip title="Not what you were looking for?">
     In order to navigate between content without a linear progress, use the{" "}
-    <StorybookLink page="Navigation/Tabs" size="small">
+    <StorybookLink page="Navigation/Tabs" size={StorybookLink.sizes.SMALL}>
       Tabs
     </StorybookLink>{" "}
     or{" "}
-    <StorybookLink page="Buttons/ButtonGroup" size="small">
+    <StorybookLink page="Buttons/ButtonGroup" size={StorybookLink.sizes.SMALL}>
       Button group
     </StorybookLink>{" "}
     component.

@@ -23,7 +23,7 @@ export const TipDevTipPopperJs = () => (
 export const TipModal = () => (
   <Tip title="Wishing to position your popover in the center of the page?">
     Exactly for this purpose, we created the{" "}
-    <StorybookLink page="Feedback/Modal" size="small">
+    <StorybookLink page="Feedback/Modal" size={StorybookLink.sizes.SMALL}>
       Modal
     </StorybookLink>{" "}
     component! Check it out.
@@ -33,12 +33,12 @@ export const TipModal = () => (
 export const TipDevTipTechnicalPattern = () => (
   <Tip title="Dev tip">
     If you wish to implement a{" "}
-    <StorybookLink page="Inputs/Dropdown" size="small">
+    <StorybookLink page="Inputs/Dropdown" size={StorybookLink.sizes.SMALL}>
       Dropdown
     </StorybookLink>{" "}
     inside a Dialog container and need help displaying the Dropdowns popovers correctly, read more about our Dropdown in
     popovers technical pattern{" "}
-    <StorybookLink page="/?path=/docs/Technical patterns/Display dropdowns inside pop-overs" size="small">
+    <StorybookLink page="Technical patterns/Display dropdowns inside pop-overs" size={StorybookLink.sizes.SMALL}>
       here
     </StorybookLink>
     .
