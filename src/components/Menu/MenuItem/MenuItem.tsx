@@ -72,6 +72,7 @@ export interface MenuItemProps extends VibeComponentProps {
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
   splitButton?: boolean;
+  subMenuButtonRef?: React.RefObject<HTMLElement>;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -116,7 +117,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
-      splitButton = false
+      splitButton = false,
+      subMenuButtonRef
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
@@ -126,8 +128,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const [isMouseOverSplitButton, setIsMouseOverSplitButton] = useState(false);
     const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
     const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
-    const isSubMenuOpen =
-      !!children && isActive && hasOpenSubMenu && (splitButton ? shouldSplitButtonSubMenuOpen : true);
+    const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
     let menuChild;
@@ -224,19 +225,20 @@ const MenuItem: VibeComponent<MenuItemProps> & {
         <div className={styles.subMenuIconWrapper}>
           <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
           <div
-            onMouseEnter={() => setIsMouseOverSplitButton(true)}
-            onMouseLeave={() => {
-              setIsMouseOverSplitButton(false);
-            }}
+          // onMouseEnter={() => setIsMouseOverSplitButton(true)}
+          // onMouseLeave={() => {
+          //   setIsMouseOverSplitButton(false);
+          // }}
           >
             <IconButton
               icon={DropdownChevronRight}
               className={styles.subMenuSplitButtonIcon}
-              kind={IconButton.kinds.TERTIARY}
+              kind={IconButton.kinds.PRIMARY}
               size={null}
               iconClassName={styles.iconButton}
               onClick={() => {}}
-              tabIndex={-1}
+              // tabIndex={-1}
+              ref={subMenuButtonRef}
             />
           </div>
         </div>
@@ -352,21 +354,21 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           ref={popperElementRef}
         >
           {menuChild && shouldShowSubMenu && (
-            <span
-              onMouseEnter={() => setIsMouseOverSplitButtonSubMenu(true)}
-              onMouseLeave={() => setIsMouseOverSplitButtonSubMenu(false)}
-            >
-              <DialogContentContainer>
-                {React.cloneElement(menuChild, {
-                  ...menuChild?.props,
-                  isVisible: shouldShowSubMenu,
-                  isSubMenu: true,
-                  onClose: closeSubMenu,
-                  ref: childRef,
-                  useDocumentEventListeners
-                })}
-              </DialogContentContainer>
-            </span>
+            // <span
+            //   onMouseEnter={() => setIsMouseOverSplitButtonSubMenu(true)}
+            //   onMouseLeave={() => setIsMouseOverSplitButtonSubMenu(false)}
+            // >
+            <DialogContentContainer>
+              {React.cloneElement(menuChild, {
+                ...menuChild?.props,
+                isVisible: shouldShowSubMenu,
+                isSubMenu: true,
+                onClose: closeSubMenu,
+                ref: childRef,
+                useDocumentEventListeners
+              })}
+            </DialogContentContainer>
+            // </span>
           )}
         </div>
       </Text>

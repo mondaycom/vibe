@@ -71,8 +71,8 @@ export const Label = {
   }
 };
 
-export const menuItemSubMenuTemplate = args => {
-  return (
+export const SubMenu = {
+  render: () => (
     <Menu>
       <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
         <Menu tabIndex={0} id="sub-menu">
@@ -89,7 +89,8 @@ export const menuItemSubMenuTemplate = args => {
         </Menu>
       </MenuItem>
     </Menu>
-  );
+  ),
+  name: "Sub menu"
 };
 
 export const Overflow = {
