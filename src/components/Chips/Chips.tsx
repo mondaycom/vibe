@@ -20,7 +20,7 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 const CHIPS_AVATAR_SIZE = 20;
 
 interface ChipsProps extends VibeComponentProps {
-  label?: string;
+  label?: ElementContent;
   disabled?: boolean;
   readOnly?: boolean;
   /**
@@ -141,7 +141,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     );
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
-    const overrideAriaLabel = ariaLabel || label;
+    const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
