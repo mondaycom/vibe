@@ -5,7 +5,7 @@ import { LinkSize, LinkTarget } from './LinkConstants';
 import { withStaticProps } from '../../types';
 import styles from './link.module.scss';
 
-type LinkProps = {
+export type LinkProps = {
   className?: string;
   children: string;
   href: string;
