@@ -9,7 +9,9 @@ export default function useMenuItemMouseEvents({
   isActive,
   setActiveItemIndex,
   index,
-  hasChildren
+  hasChildren,
+  subMenuButtonRef,
+  splitButton = false
 }: {
   ref: React.RefObject<HTMLElement>;
   resetOpenSubMenuIndex: () => void;
@@ -18,10 +20,44 @@ export default function useMenuItemMouseEvents({
   setActiveItemIndex: (index: number) => void;
   index: number;
   hasChildren: boolean;
+  subMenuButtonRef?: React.RefObject<HTMLElement>;
+  splitButton?: boolean;
 }) {
   const isMouseEnter = useIsMouseEnter({ ref });
-
+  const isMouseEnterOnIconButton = useIsMouseEnter({ ref: subMenuButtonRef });
   const prevIsMouseEnter = usePrevious(isMouseEnter);
+  const prevIsMouseEnterOnIconButton = usePrevious(isMouseEnterOnIconButton);
+
+  useLayoutEffect(() => {
+    if (!isMouseEnterOnIconButton) return;
+
+    if (isMouseEnterOnIconButton === prevIsMouseEnterOnIconButton) return;
+
+    // if (!setSubMenuIsOpenByIndex || !resetOpenSubMenuIndex) {
+    //   console.error("MenuItem must be a first level child of a menu");
+    //   return;
+    // }
+
+    if (isActive) {
+      setSubMenuIsOpenByIndex(index, true);
+    } else {
+      resetOpenSubMenuIndex();
+    }
+    // } else {
+    // resetOpenSubMenuIndex();
+    // }
+  }, [
+    setSubMenuIsOpenByIndex,
+    subMenuButtonRef,
+    index,
+    hasChildren,
+    splitButton,
+    isMouseEnterOnIconButton,
+    prevIsMouseEnterOnIconButton,
+    isActive,
+    resetOpenSubMenuIndex,
+    setActiveItemIndex
+  ]);
 
   useLayoutEffect(() => {
     if (!isMouseEnter) return;
@@ -32,7 +68,7 @@ export default function useMenuItemMouseEvents({
       return;
     }
 
-    if (!isActive) {
+    if (!isActive && !splitButton) {
       setActiveItemIndex(index);
       if (hasChildren) {
         setSubMenuIsOpenByIndex(index, true);
@@ -44,6 +80,12 @@ export default function useMenuItemMouseEvents({
     if (isActive && hasChildren) {
       setSubMenuIsOpenByIndex(index, !!isMouseEnter);
     }
+
+    if (!isActive && splitButton) {
+      setActiveItemIndex(index);
+    } else {
+      // setActiveItemIndex(-1);
+    }
   }, [
     resetOpenSubMenuIndex,
     prevIsMouseEnter,
@@ -52,7 +94,8 @@ export default function useMenuItemMouseEvents({
     isActive,
     setActiveItemIndex,
     index,
-    hasChildren
+    hasChildren,
+    splitButton
   ]);
 
   return isMouseEnter;

@@ -33,6 +33,9 @@ import { DropdownChevronRight } from "../../Icon/Icons";
 import { IconButton } from "../../index";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
+import useMouseLeave from "../Menu/hooks/useMouseLeave";
+import usePrevious from "../../../hooks/usePrevious";
+import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -73,6 +76,7 @@ export interface MenuItemProps extends VibeComponentProps {
   children?: MenuChild | MenuChild[];
   splitButton?: boolean;
   subMenuButtonRef?: React.RefObject<HTMLElement>;
+  isUnderSubMenu: boolean;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -118,7 +122,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       shouldScrollMenu,
       "data-testid": dataTestId,
       splitButton = false,
-      subMenuButtonRef
+      subMenuButtonRef,
+      isUnderSubMenu
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
@@ -144,10 +149,12 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const titleRef = useRef();
     const childRef = useRef<HTMLElement>();
     const referenceElementRef = useRef(null);
+    const buttonRefElement = useRef(null);
     const popperElementRef = useRef(null);
     const popperElement = popperElementRef.current;
     const referenceElement = referenceElementRef.current;
     const childElement = childRef.current;
+    const buttonRef = useMergeRefs({ refs: [buttonRefElement, subMenuButtonRef] });
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
@@ -166,13 +173,17 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
     const isMouseEnter = useMenuItemMouseEvents({
       ref: referenceElementRef,
+      subMenuButtonRef: buttonRefElement,
       resetOpenSubMenuIndex,
       setSubMenuIsOpenByIndex,
       isActive,
       setActiveItemIndex,
       index,
-      hasChildren
+      hasChildren,
+      splitButton
     });
+    // console.log(buttonRef);
+    // console.log({ subMenuButtonRef, splitButton });
 
     const { onClickCallback } = useMenuItemKeyboardEvents({
       onClick,
@@ -188,6 +199,22 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       closeMenu,
       useDocumentEventListeners
     });
+
+    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
+
+    const isMouseOnItem = useIsMouseEnter({ ref: referenceElementRef });
+    const isMouseOnButton = useIsMouseEnter({ ref: buttonRefElement });
+    const prevIsMouseOnButton = usePrevious(isMouseOnButton);
+
+    // console.log(index, isUnderSubMenu);
+    // if (!isMouseOnButton && prevIsMouseOnButton && isMouseOnItem && !isUnderSubMenu) {
+    //   console.log("ok");
+    //   // setSubMenuIsOpenByIndex(index, false);
+    // }
+    if (isMouseOnItem && prevIsMouseOnButton === !!buttonRefElement.current) {
+      console.log("ok");
+      // setSubMenuIsOpenByIndex(index, false);
+    }
 
     useLayoutEffect(() => {
       if (useDocumentEventListeners) return;
@@ -216,8 +243,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
-    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
-
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
@@ -238,7 +263,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
               iconClassName={styles.iconButton}
               onClick={() => {}}
               // tabIndex={-1}
-              ref={subMenuButtonRef}
+              ref={buttonRefElement}
             />
           </div>
         </div>

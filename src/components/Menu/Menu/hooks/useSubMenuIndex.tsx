@@ -6,6 +6,7 @@ export default function useSubMenuIndex() {
 
   const setSubMenuIsOpenByIndex = useCallback(
     (index: number, isOpen: boolean) => {
+      // console.log({ index, isOpen });
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
     },

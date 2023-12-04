@@ -147,13 +147,13 @@ const Menu: VibeComponent<MenuProps> & {
       activeItemIndex,
       setActiveItemIndex: onSetActiveItemIndexCallback,
       isVisible,
-      ref: subMenuButtonRef,
+      ref,
       useDocumentEventListeners
     });
     useMouseLeave({
       resetOpenSubMenuIndex,
       hasOpenSubMenu,
-      ref: subMenuButtonRef,
+      ref,
       setActiveItemIndex: onSetActiveItemIndexCallback
     });
     useFocusOnMount({
