@@ -172,7 +172,7 @@ export const LinksInsideRunningText = {
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </StorybookLink>
+        </StorybookLink>{" "}
         inside running text.
       </Text>
       <Text
@@ -183,7 +183,7 @@ export const LinksInsideRunningText = {
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </StorybookLink>
+        </StorybookLink>{" "}
         inside running text on a primary color
       </Text>
       <Text
@@ -194,7 +194,7 @@ export const LinksInsideRunningText = {
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </StorybookLink>
+        </StorybookLink>{" "}
         inside running text on an inverted color
       </Text>
       <Text
@@ -210,7 +210,7 @@ export const LinksInsideRunningText = {
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </StorybookLink>
+        </StorybookLink>{" "}
         inside running text with fixed light color
       </Text>
       <Text
@@ -226,7 +226,7 @@ export const LinksInsideRunningText = {
         This is the story of a{" "}
         <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </StorybookLink>
+        </StorybookLink>{" "}
         inside running text with fixed dark color
       </Text>
     </Flex>
