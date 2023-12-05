@@ -104,6 +104,7 @@ export const TipseenWithAWizard = {
         <Tipseen
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
+          onClose={() => console.log("closing")}
           content={
             <TipseenWizard
               title="This is a title"

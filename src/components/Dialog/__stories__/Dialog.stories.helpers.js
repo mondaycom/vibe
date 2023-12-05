@@ -2,10 +2,10 @@ import { Link, StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipDialogContentContainer = () => (
   <Tip>
-    For setting the dialog UI appearance, use
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-dialogcontentcontainer--docs">
+    For setting the dialog UI appearance, use{" "}
+    <StorybookLink size={StorybookLink.sizes.SMALL} href="Popover/DialogContentContainer">
       DialogContentContainer
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );
@@ -38,7 +38,7 @@ export const TipDevTipTechnicalPattern = () => (
     </StorybookLink>{" "}
     inside a Dialog container and need help displaying the Dropdowns popovers correctly, read more about our Dropdown in
     popovers technical pattern{" "}
-    <StorybookLink page="Technical patterns/Display dropdowns inside pop-overs" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Technical Patterns/Dropdowns inside pop-overs" size={StorybookLink.sizes.SMALL}>
       here
     </StorybookLink>
     .

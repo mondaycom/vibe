@@ -5,7 +5,7 @@ export const TipIconButton = () => (
     If you need to use icon as button with no text, check out{" "}
     <StorybookLink page="Buttons/IconButton" size={StorybookLink.sizes.SMALL}>
       IconButton
-    </StorybookLink>
+    </StorybookLink>{" "}
     component
   </Tip>
 );

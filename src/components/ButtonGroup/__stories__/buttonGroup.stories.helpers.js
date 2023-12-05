@@ -7,6 +7,6 @@ export const TipCheckYourself = () => (
     <StorybookLink page="Docs/Buttons/Button" size={StorybookLink.sizes.SMALL}>
       Button
     </StorybookLink>
-    {`component with "Flat" props.`}
+    {` component with "Flat" props.`}
   </Tip>
 );

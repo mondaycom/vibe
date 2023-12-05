@@ -5,7 +5,7 @@ export const TipAmIUsingTheRightComponent = () => (
     For settings that are immediately applied, consider using a{" "}
     <StorybookLink page="Inputs/Toggle" size={StorybookLink.sizes.SMALL}>
       toggle switch
-    </StorybookLink>
+    </StorybookLink>{" "}
     instead.
   </Tip>
 );

@@ -3,7 +3,7 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     To display icons that do not have actions associated with them, use the{" "}
-    <StorybookLink page="Components/Icon" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Media/Icon" size={StorybookLink.sizes.SMALL}>
       Icon component
     </StorybookLink>
     .
