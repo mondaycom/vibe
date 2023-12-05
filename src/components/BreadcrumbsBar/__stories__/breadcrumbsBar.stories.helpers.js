@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
-    If you are taking users through a multistep process, use the
-    <Link href="/?path=/docs/navigation-multistepindicator--docs" size={Link.sizes.SMALL}>
+    If you are taking users through a multistep process, use the{" "}
+    <StorybookLink page="Navigation/MultiStepIndicator" size={StorybookLink.sizes.SMALL}>
       MultiStepIndicator
-    </Link>
+    </StorybookLink>
     component instead.
   </Tip>
 );

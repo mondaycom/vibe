@@ -1,10 +1,10 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipSkeleton = () => (
   <Tip>
-    While loading content consider using
-    <Link href="/?path=/docs/feedback-skeleton--docs" size={Link.sizes.SMALL}>
+    While loading content consider using{" "}
+    <StorybookLink page="Feedback/Skeleton" size={StorybookLink.sizes.SMALL}>
       Skeleton loading
-    </Link>
+    </StorybookLink>
   </Tip>
 );

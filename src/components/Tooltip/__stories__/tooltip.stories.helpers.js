@@ -1,4 +1,4 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const modifiers = [
   {
@@ -18,13 +18,13 @@ export const modifiers = [
 export const TipOtherComponents = () => (
   <Tip>
     As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either
-    of these, considers putting your content in a
-    <Link href="/?path=/docs/popover-tipseen--docs" size={Link.sizes.SMALL}>
+    of these, considers putting your content in a{" "}
+    <StorybookLink page="Popover/Tipseen" size={StorybookLink.sizes.SMALL}>
       Tipseen
-    </Link>
-    or
-    <Link href="/?path=/docs/feedback-attentionbox--docs" size={Link.sizes.SMALL}>
+    </StorybookLink>{" "}
+    or{" "}
+    <StorybookLink page="Feedback/AttentionBox" size={StorybookLink.sizes.SMALL}>
       Attention box.
-    </Link>
+    </StorybookLink>
   </Tip>
 );

@@ -1,22 +1,22 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipDevTipPopover = () => (
   <Tip title="Dev tip">
     For more details about dropdowns APIs for displaying correctly inside
-    <Link href="/?path=/docs/components-dialog-dialog--docs" size={Link.sizes.SMALL}>
+    <StorybookLink page="Components/Dialog/Dialog" size={StorybookLink.sizes.SMALL}>
       Dialogs,
-    </Link>
-    <Link href="/?path=/docs/feedback-modal--docs" size={Link.sizes.SMALL}>
+    </StorybookLink>
+    <StorybookLink page="Feedback/Modal" size={StorybookLink.sizes.SMALL}>
       Modals
-    </Link>
+    </StorybookLink>
     and other popovers click{" "}
-    <Link
-      href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
-      size={Link.sizes.SMALL}
-      withoutSpacing
+    <StorybookLink
+      page="Technical patterns/Dropdowns inside pop overs"
+      story="Modal with damaged dropdown"
+      size={StorybookLink.sizes.SMALL}
     >
       here
-    </Link>
+    </StorybookLink>
     .
   </Tip>
 );

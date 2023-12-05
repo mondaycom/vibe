@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipAmIUsingTheRightComponent = () => (
   <Tip title="Am I using the right component?">
-    For settings that are immediately applied, consider using a
-    <Link href="/?path=/docs/inputs-toggle--docs" size={Link.sizes.SMALL}>
+    For settings that are immediately applied, consider using a{" "}
+    <StorybookLink page="Inputs/Toggle" size={StorybookLink.sizes.SMALL}>
       toggle switch
-    </Link>
+    </StorybookLink>
     instead.
   </Tip>
 );

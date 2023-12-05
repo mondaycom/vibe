@@ -1,4 +1,4 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const modifiers = [
   {
@@ -17,13 +17,13 @@ export const modifiers = [
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
-    If you need to provide additional information about a component, use the
-    <Link href="/?path=/docs/popover-tooltip--docs" size={Link.sizes.SMALL}>
+    If you need to provide additional information about a component, use the{" "}
+    <StorybookLink page="Popover/Tooltip" size={StorybookLink.sizes.SMALL}>
       Tooltip
-    </Link>
-    or
-    <Link href="/?path=/docs/feedback-attentionbox--docs" size={Link.sizes.SMALL}>
+    </StorybookLink>{" "}
+    or{" "}
+    <StorybookLink page="Feedback/AttentionBox" size={StorybookLink.sizes.SMALL}>
       Attention box.
-    </Link>
+    </StorybookLink>
   </Tip>
 );

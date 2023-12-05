@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipMultiStepIndicator = () => (
   <Tip title="Not what you were looking for?">
-    If you need to visualize progress use
-    <Link href="/?path=/docs/navigation-multistepindicator--docs" size={Link.sizes.SMALL}>
+    If you need to visualize progress use{" "}
+    <StorybookLink page="Navigation/MultiStepIndicator" size={StorybookLink.sizes.SMALL}>
       MultiStepIndicator
-    </Link>
+    </StorybookLink>{" "}
     component instead
   </Tip>
 );

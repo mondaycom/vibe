@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
-    For implementing a menu inside a dialog, please use our
-    <Link href="/?path=/docs/navigation-menu--docs" size={Link.sizes.SMALL}>
+    For implementing a menu inside a dialog, please use our{" "}
+    <StorybookLink page="Navigation/Menu" size={StorybookLink.sizes.SMALL}>
       Menu
-    </Link>
+    </StorybookLink>
     component
   </Tip>
 );
