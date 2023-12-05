@@ -1,13 +1,14 @@
 import { FC, useEffect, useState } from 'react';
-import Link, { LinkProps } from '../link/link';
+import Link from '../link/link';
 import { hrefTo } from '@storybook/addon-links';
 import { LinkSize } from '../link/LinkConstants';
 import { withStaticProps } from '../../types';
 
-interface StorybookLinkProps extends LinkProps {
+interface StorybookLinkProps {
   page: string;
   children: string;
   story?: string;
+  size?: LinkSize;
 }
 
 const StorybookLink: FC<StorybookLinkProps> & { sizes?: typeof LinkSize } = ({ page, story = '', children, size }) => {
