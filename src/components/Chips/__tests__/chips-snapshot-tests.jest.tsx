@@ -59,4 +59,21 @@ describe("Chips renders correctly", () => {
     const tree = renderer.create(<Chips rightRenderer={<div>custom renderer</div>} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("renders correctly with right custom renderer", () => {
+    const tree = renderer
+      .create(
+        <Chips
+          readOnly
+          ariaLabel={"This is mandatory"}
+          label={
+            <>
+              This is mandatory <span>*</span>
+            </>
+          }
+        />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
