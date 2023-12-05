@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.68.0 (2023-12-05)
+
+#### New Features
+* [#1798](https://github.com/mondaycom/monday-ui-react-core/pull/1798) feat(Chips): allow label to accept custom Element ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1790](https://github.com/mondaycom/monday-ui-react-core/pull/1790) feat(Toast): add loading prop  ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1796](https://github.com/mondaycom/monday-ui-react-core/pull/1796) docs(Tipseen): fix floating variation story ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1795](https://github.com/mondaycom/monday-ui-react-core/pull/1795) fix: re-enable sidebar tags ([@talkor](https://github.com/talkor))
+* [#1763](https://github.com/mondaycom/monday-ui-react-core/pull/1763) docs: Storybook 7 migrate ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.67.0 (2023-11-30)
 
 #### New Features
