@@ -5,7 +5,7 @@ export const TipMultipleAvatarsTogether = () => (
     If you want to stack multiple avatars together, check out{" "}
     <StorybookLink page="Media/Avatar/AvatarGroup" size={StorybookLink.sizes.SMALL}>
       AvatarGroup
-    </StorybookLink>
+    </StorybookLink>{" "}
     component
   </Tip>
 );

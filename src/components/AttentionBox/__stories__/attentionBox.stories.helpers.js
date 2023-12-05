@@ -5,7 +5,7 @@ export const TipCheckYourself = () => (
     If the information about a component isn’t critical for the user, use a{" "}
     <StorybookLink page="Popover/Tooltip" size={StorybookLink.sizes.SMALL}>
       Tooltip
-    </StorybookLink>
+    </StorybookLink>{" "}
     instead.
   </Tip>
 );
