@@ -405,6 +405,30 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
 </div>
 `;
 
+exports[`Chips renders correctly renders correctly with right custom renderer 2`] = `
+<div
+  aria-label="This is mandatory"
+  className="chips noAnimation"
+  data-testid="chip"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "var(--primary-selected-color)",
+    }
+  }
+>
+  <div
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    This is mandatory 
+    <span>
+      *
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   aria-label=""
