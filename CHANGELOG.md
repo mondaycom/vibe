@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.69.1 (2023-12-06)
+
+#### Bug Fixes
+* [#1802](https://github.com/mondaycom/monday-ui-react-core/pull/1802) fix: changed toggle typography ([@shaharzil](https://github.com/shaharzil))
+
 ## 2.69.0 (2023-12-06)
 
 #### New Features
