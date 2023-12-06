@@ -175,7 +175,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       menuRef,
       isMouseEnter,
       closeMenu,
-      useDocumentEventListeners
+      useDocumentEventListeners,
+      splitButton
     });
 
     const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
