@@ -27,4 +27,27 @@ describe("EditableText", () => {
     const input = screen.queryByRole("input");
     expect(input).not.toBeInTheDocument();
   });
+
+  describe("event handling", () => {
+    describe("onClick", () => {
+      const onClick = jest.fn();
+      it("should call onClick when clicking on an editable component", () => {
+        render(<EditableText value="Editable test" onClick={onClick} />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+
+      it("should call onClick when clicking on 'readOnly' component", () => {
+        render(<EditableText value="Editable test" readOnly onClick={onClick} />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component);
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+    });
+  });
 });
