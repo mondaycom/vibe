@@ -33,19 +33,11 @@ export default function useMenuItemMouseEvents({
 
     if (isMouseEnterOnIconButton === prevIsMouseEnterOnIconButton) return;
 
-    // if (!setSubMenuIsOpenByIndex || !resetOpenSubMenuIndex) {
-    //   console.error("MenuItem must be a first level child of a menu");
-    //   return;
-    // }
-
     if (isActive) {
       setSubMenuIsOpenByIndex(index, true);
     } else {
       resetOpenSubMenuIndex();
     }
-    // } else {
-    // resetOpenSubMenuIndex();
-    // }
   }, [
     setSubMenuIsOpenByIndex,
     subMenuButtonRef,
@@ -56,7 +48,8 @@ export default function useMenuItemMouseEvents({
     prevIsMouseEnterOnIconButton,
     isActive,
     resetOpenSubMenuIndex,
-    setActiveItemIndex
+    setActiveItemIndex,
+    isMouseEnter
   ]);
 
   useLayoutEffect(() => {
@@ -67,6 +60,8 @@ export default function useMenuItemMouseEvents({
       console.error("MenuItem must be a first level child of a menu");
       return;
     }
+
+    resetOpenSubMenuIndex();
 
     if (!isActive && !splitButton) {
       setActiveItemIndex(index);
