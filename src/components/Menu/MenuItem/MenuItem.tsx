@@ -220,7 +220,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             size={null}
             iconClassName={styles.iconButton}
             onClick={() => {}}
-            // tabIndex={-1}
+            tabIndex={-1}
             ref={buttonRefElement}
             active={shouldShowSubMenu}
           />
