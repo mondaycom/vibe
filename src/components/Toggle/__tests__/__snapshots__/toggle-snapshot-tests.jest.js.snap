@@ -15,7 +15,8 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
     type="checkbox"
   />
   <span
-    className="text disabled"
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
   >
     Off
   </span>
@@ -25,7 +26,8 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text disabled"
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
   >
     On
   </span>
@@ -69,7 +71,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -79,7 +82,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -101,7 +105,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -111,7 +116,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -133,7 +139,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -143,7 +150,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -165,7 +173,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -175,7 +184,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -198,7 +208,8 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -208,7 +219,8 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -230,7 +242,8 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -240,7 +253,8 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -262,7 +276,8 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     TestOff
   </span>
@@ -272,7 +287,8 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -294,7 +310,8 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -304,7 +321,8 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     TestOn
   </span>
