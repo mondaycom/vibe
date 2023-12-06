@@ -1,15 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import cx from "classnames";
-import React, {
-  ForwardedRef,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import { isFunction } from "lodash-es";
@@ -33,9 +24,6 @@ import { DropdownChevronRight } from "../../Icon/Icons";
 import { IconButton } from "../../index";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
-import useMouseLeave from "../Menu/hooks/useMouseLeave";
-import usePrevious from "../../../hooks/usePrevious";
-import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -75,8 +63,6 @@ export interface MenuItemProps extends VibeComponentProps {
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
   splitButton?: boolean;
-  subMenuButtonRef?: React.RefObject<HTMLElement>;
-  isUnderSubMenu: boolean;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -121,18 +107,13 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
-      splitButton = false,
-      subMenuButtonRef,
-      isUnderSubMenu
+      splitButton = false
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const hasChildren = !!children;
-    const [isMouseOverSplitButton, setIsMouseOverSplitButton] = useState(false);
-    const [isMouseOverSplitButtonSubMenu, setIsMouseOverSplitButtonSubMenu] = useState(false);
-    const shouldSplitButtonSubMenuOpen = isMouseOverSplitButton || isMouseOverSplitButtonSubMenu;
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
@@ -154,7 +135,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const popperElement = popperElementRef.current;
     const referenceElement = referenceElementRef.current;
     const childElement = childRef.current;
-    const buttonRef = useMergeRefs({ refs: [buttonRefElement, subMenuButtonRef] });
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
@@ -182,8 +162,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       hasChildren,
       splitButton
     });
-    // console.log(buttonRef);
-    // console.log({ subMenuButtonRef, splitButton });
 
     const { onClickCallback } = useMenuItemKeyboardEvents({
       onClick,
@@ -201,20 +179,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     });
 
     const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
-
-    const isMouseOnItem = useIsMouseEnter({ ref: referenceElementRef });
-    const isMouseOnButton = useIsMouseEnter({ ref: buttonRefElement });
-    const prevIsMouseOnButton = usePrevious(isMouseOnButton);
-
-    // console.log(index, isUnderSubMenu);
-    // if (!isMouseOnButton && prevIsMouseOnButton && isMouseOnItem && !isUnderSubMenu) {
-    //   console.log("ok");
-    //   // setSubMenuIsOpenByIndex(index, false);
-    // }
-    if (isMouseOnItem && prevIsMouseOnButton === !!buttonRefElement.current) {
-      console.log("ok");
-      // setSubMenuIsOpenByIndex(index, false);
-    }
 
     useLayoutEffect(() => {
       if (useDocumentEventListeners) return;
@@ -249,23 +213,17 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       return splitButton ? (
         <div className={styles.subMenuIconWrapper}>
           <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
-          <div
-          // onMouseEnter={() => setIsMouseOverSplitButton(true)}
-          // onMouseLeave={() => {
-          //   setIsMouseOverSplitButton(false);
-          // }}
-          >
-            <IconButton
-              icon={DropdownChevronRight}
-              className={styles.subMenuSplitButtonIcon}
-              kind={IconButton.kinds.PRIMARY}
-              size={null}
-              iconClassName={styles.iconButton}
-              onClick={() => {}}
-              // tabIndex={-1}
-              ref={buttonRefElement}
-            />
-          </div>
+          <IconButton
+            icon={DropdownChevronRight}
+            className={styles.subMenuSplitButtonIcon}
+            kind={IconButton.kinds.PRIMARY}
+            size={null}
+            iconClassName={styles.iconButton}
+            onClick={() => {}}
+            // tabIndex={-1}
+            ref={buttonRefElement}
+            active={shouldShowSubMenu}
+          />
         </div>
       ) : (
         <div className={styles.subMenuIconWrapper}>
