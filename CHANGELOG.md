@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.69.0 (2023-12-06)
+
+#### New Features
+* [#1801](https://github.com/mondaycom/monday-ui-react-core/pull/1801) feat(EditableTypography): add onClick event ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1800](https://github.com/mondaycom/monday-ui-react-core/pull/1800) Internal links fixes ([@talkor](https://github.com/talkor))
+* [#1797](https://github.com/mondaycom/monday-ui-react-core/pull/1797) docs: replace internal links with StorybookLink ([@talkor](https://github.com/talkor))
+
 ## 2.68.0 (2023-12-05)
 
 #### New Features
