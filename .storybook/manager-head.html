@@ -38,6 +38,11 @@
   .os-content button:hover svg {
     color: #5034ff;
   }
+
+  /* https://github.com/storybookjs/storybook/issues/25094 */
+  div[data-radix-scroll-area-viewport] > div {
+    display: block !important;
+  }
 </style>
 
 <script>
