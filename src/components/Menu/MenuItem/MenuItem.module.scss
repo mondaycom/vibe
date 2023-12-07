@@ -41,7 +41,7 @@
   height: 19px;
 }
 
-.subMenuIconWrapper .subMenuSplitButtonIcon {
+.subMenuIconWrapper .splitMenuItemIconButton {
   width: 34px;
   height: 30px;
   --primary-background-hover-color: rgba(103, 104, 121, 0.1);
@@ -58,7 +58,7 @@
   color: var(--icon-color);
 }
 
-.item.splitButton {
+.item.splitMenuItem {
   padding: 0 0 0 var(--spacing-small);
 }
 

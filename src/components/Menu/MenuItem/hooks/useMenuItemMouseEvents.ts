@@ -11,7 +11,7 @@ export default function useMenuItemMouseEvents({
   index,
   hasChildren,
   subMenuButtonRef,
-  splitButton = false
+  splitMenuItem = false
 }: {
   ref: React.RefObject<HTMLElement>;
   resetOpenSubMenuIndex: () => void;
@@ -21,7 +21,7 @@ export default function useMenuItemMouseEvents({
   index: number;
   hasChildren: boolean;
   subMenuButtonRef?: React.RefObject<HTMLElement>;
-  splitButton?: boolean;
+  splitMenuItem?: boolean;
 }) {
   const isMouseEnter = useIsMouseEnter({ ref });
   const isMouseEnterOnIconButton = useIsMouseEnter({ ref: subMenuButtonRef });
@@ -43,7 +43,7 @@ export default function useMenuItemMouseEvents({
     subMenuButtonRef,
     index,
     hasChildren,
-    splitButton,
+    splitMenuItem,
     isMouseEnterOnIconButton,
     prevIsMouseEnterOnIconButton,
     isActive,
@@ -63,7 +63,7 @@ export default function useMenuItemMouseEvents({
 
     resetOpenSubMenuIndex();
 
-    if (!isActive && !splitButton) {
+    if (!isActive && !splitMenuItem) {
       setActiveItemIndex(index);
       if (hasChildren) {
         setSubMenuIsOpenByIndex(index, true);
@@ -76,10 +76,8 @@ export default function useMenuItemMouseEvents({
       setSubMenuIsOpenByIndex(index, !!isMouseEnter);
     }
 
-    if (!isActive && splitButton) {
+    if (!isActive && splitMenuItem) {
       setActiveItemIndex(index);
-    } else {
-      // setActiveItemIndex(-1);
     }
   }, [
     resetOpenSubMenuIndex,
@@ -90,7 +88,7 @@ export default function useMenuItemMouseEvents({
     setActiveItemIndex,
     index,
     hasChildren,
-    splitButton
+    splitMenuItem
   ]);
 
   return isMouseEnter;

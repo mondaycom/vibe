@@ -18,7 +18,7 @@ export default function useMenuItemKeyboardEvents({
   isMouseEnter,
   closeMenu,
   useDocumentEventListeners,
-  splitButton
+  splitMenuItem
 }: {
   onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
   disabled: boolean;
@@ -32,7 +32,7 @@ export default function useMenuItemKeyboardEvents({
   isMouseEnter: boolean;
   closeMenu: (option: CloseMenuOption) => void;
   useDocumentEventListeners: boolean;
-  splitButton?: boolean;
+  splitMenuItem?: boolean;
 }) {
   const onClickCallback = useCallback(
     (event: React.MouseEvent | React.KeyboardEvent) => {
@@ -46,13 +46,13 @@ export default function useMenuItemKeyboardEvents({
 
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
-        if (!splitButton) {
+        if (!splitMenuItem) {
           setSubMenuIsOpenByIndex(index, true);
           return;
         }
       }
 
-      if (isKeyEvent && splitButton) {
+      if (isKeyEvent && splitMenuItem) {
         setSubMenuIsOpenByIndex(index, true);
       }
 
@@ -79,7 +79,7 @@ export default function useMenuItemKeyboardEvents({
           }
         }
 
-        if (splitButton ? splitButton : !hasChildren) {
+        if (splitMenuItem || !hasChildren) {
           // wait for background of menu item to change before trigger click
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -95,7 +95,7 @@ export default function useMenuItemKeyboardEvents({
       setActiveItemIndex,
       setSubMenuIsOpenByIndex,
       hasChildren,
-      splitButton,
+      splitMenuItem,
       shouldShowSubMenu,
       onClick,
       disabled,

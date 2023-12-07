@@ -74,18 +74,60 @@ export const Label = {
 export const SubMenu = {
   render: () => (
     <Menu>
-      <MenuItem title="Opens on item hover" onClick={() => alert("clicked on menu item")}>
+      <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
         <Menu tabIndex={0} id="sub-menu">
-          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on menu item in submenu")} />
-          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on menu item in submenu")} />
-          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(0)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(0)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(0)} />
         </Menu>
       </MenuItem>
-      <MenuItem title="Opens on icon hover" splitButton={true} onClick={() => alert("clicked on menu item")}>
+      <MenuItem title="Opens on icon hover" splitMenuItem={true} onClick={() => console.log(1234)}>
         <Menu tabIndex={0} id="sub-menu">
-          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on menu item in submenu")} />
-          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on menu item in submenu")} />
-          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(1)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(1)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(1)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on icon hover2" splitMenuItem={true} onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu2">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(2)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(2)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(2)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on icon hover2" splitMenuItem={true} onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu2">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(3)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(3)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(3)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(4)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(4)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(4)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(5)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(5)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(5)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on icon hover2" splitMenuItem={true} onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu2">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(6)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(6)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(6)} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on icon hover2" splitMenuItem={true} onClick={() => console.log(1234)}>
+        <Menu tabIndex={0} id="sub-menu2">
+          <MenuItem title="Sub menu item 1" onClick={() => console.log(7)} />
+          <MenuItem title="Sub menu item 2" onClick={() => console.log(7)} />
+          <MenuItem title="Sub menu item 3" onClick={() => console.log(7)} />
         </Menu>
       </MenuItem>
     </Menu>
