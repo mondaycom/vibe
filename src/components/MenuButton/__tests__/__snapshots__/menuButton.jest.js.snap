@@ -2,14 +2,12 @@
 
 exports[`MenuButton renders correctly with .dummy-class-name 1`] = `
 <button
-  active={false}
   aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
   className="wrapper dummy-class-name size32"
   data-testid="menu-button"
-  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -38,14 +36,12 @@ exports[`MenuButton renders correctly with .dummy-class-name 1`] = `
 
 exports[`MenuButton renders correctly with Bolt Icon 1`] = `
 <button
-  active={false}
   aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label={false}
   className="wrapper size32 text"
   data-testid="menu-button"
-  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -98,14 +94,12 @@ exports[`MenuButton renders correctly with Button triggerElement 1`] = `
 
 exports[`MenuButton renders correctly with a default Menu icon at the end 1`] = `
 <button
-  active={false}
   aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label={false}
   className="wrapper size32 text"
   data-testid="menu-button"
-  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -139,14 +133,12 @@ exports[`MenuButton renders correctly with a default Menu icon at the end 1`] = 
 
 exports[`MenuButton renders correctly with empty props 1`] = `
 <button
-  active={false}
   aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
   className="wrapper size32"
   data-testid="menu-button"
-  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -175,14 +167,12 @@ exports[`MenuButton renders correctly with empty props 1`] = `
 
 exports[`MenuButton renders correctly with size Large 1`] = `
 <button
-  active={false}
   aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
   className="wrapper size48"
   data-testid="menu-button"
-  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -221,14 +211,12 @@ exports[`MenuButton renders correctly with tooltip content 1`] = `
   onMouseLeave={[Function]}
 >
   <button
-    active={false}
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup="true"
     aria-label="Menu"
     className="wrapper size32"
     data-testid="menu-button"
-    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
