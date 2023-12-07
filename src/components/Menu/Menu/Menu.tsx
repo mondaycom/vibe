@@ -81,7 +81,7 @@ const Menu: VibeComponent<MenuProps> & {
   ) => {
     const overrideId = useMenuId(id);
     const ref = useRef<HTMLElement>(null);
-    const subMenuButtonRef = useRef<HTMLElement>(null);
+    const splitMenuItemIconButtonRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
@@ -225,7 +225,7 @@ const Menu: VibeComponent<MenuProps> & {
                   getNextSelectableIndex,
                   getPreviousSelectableIndex,
                   isUnderSubMenu: isSubMenu,
-                  subMenuButtonRef
+                  splitMenuItemIconButtonRef
                 })
               : null;
           })}

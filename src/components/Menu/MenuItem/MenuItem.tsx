@@ -130,7 +130,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const titleRef = useRef();
     const childRef = useRef<HTMLElement>();
     const referenceElementRef = useRef(null);
-    const buttonRefElement = useRef(null);
+    const iconButtonElementRef = useRef(null);
     const popperElementRef = useRef(null);
     const popperElement = popperElementRef.current;
     const referenceElement = referenceElementRef.current;
@@ -153,7 +153,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
     const isMouseEnter = useMenuItemMouseEvents({
       ref: referenceElementRef,
-      subMenuButtonRef: buttonRefElement,
+      splitMenuItemIconButtonRef: iconButtonElementRef,
       resetOpenSubMenuIndex,
       setSubMenuIsOpenByIndex,
       isActive,
@@ -222,7 +222,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconClassName={styles.iconButton}
             onClick={() => {}}
             tabIndex={-1}
-            ref={buttonRefElement}
+            ref={iconButtonElementRef}
             active={shouldShowSubMenu}
           />
         </div>
