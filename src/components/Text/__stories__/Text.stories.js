@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Text from "../Text";
-import { createComponentTemplate, Link } from "vibe-storybook-components";
+import { createComponentTemplate, StorybookLink } from "vibe-storybook-components";
 import Flex from "../../Flex/Flex";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/text-tests-constants";
 import { textOverflowSuite } from "../__tests__/text.interactions";
@@ -169,10 +169,10 @@ export const LinksInsideRunningText = {
   render: () => (
     <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.SMALL}>
       <Text align={Text.align.CENTER}>
-        This is the story of a
-        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+        This is the story of a{" "}
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </Link>
+        </StorybookLink>{" "}
         inside running text.
       </Text>
       <Text
@@ -180,10 +180,10 @@ export const LinksInsideRunningText = {
         align={Text.align.CENTER}
         color={Text.colors.ON_PRIMARY}
       >
-        This is the story of a
-        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+        This is the story of a{" "}
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </Link>
+        </StorybookLink>{" "}
         inside running text on a primary color
       </Text>
       <Text
@@ -191,10 +191,10 @@ export const LinksInsideRunningText = {
         align={Text.align.CENTER}
         color={Text.colors.ON_INVERTED}
       >
-        This is the story of a
-        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+        This is the story of a{" "}
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </Link>
+        </StorybookLink>{" "}
         inside running text on an inverted color
       </Text>
       <Text
@@ -207,10 +207,10 @@ export const LinksInsideRunningText = {
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
       >
-        This is the story of a
-        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+        This is the story of a{" "}
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </Link>
+        </StorybookLink>{" "}
         inside running text with fixed light color
       </Text>
       <Text
@@ -223,10 +223,10 @@ export const LinksInsideRunningText = {
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
       >
-        This is the story of a
-        <Link href="/?path=/docs/foundations-typography--page" size={Link.sizes.SMALL}>
+        This is the story of a{" "}
+        <StorybookLink page="Foundations/Typography" size={StorybookLink.sizes.SMALL}>
           link
-        </Link>
+        </StorybookLink>{" "}
         inside running text with fixed dark color
       </Text>
     </Flex>

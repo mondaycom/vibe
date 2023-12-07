@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipTextField = () => (
   <Tip title="Am I using the right component?">
     This component is used for editing existing text. To allow users to fill empty text fields, for example in a form,
-    consider using
-    <Link href="/?path=/docs/inputs-textfield--docs" target={Link.targets.PARENT} size="small">
+    consider using{" "}
+    <StorybookLink page="Inputs/TextField" size={StorybookLink.sizes.SMALL}>
       TextField
-    </Link>
+    </StorybookLink>
   </Tip>
 );

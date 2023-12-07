@@ -1,4 +1,4 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 import { DialogContentContainer, Menu, MenuItem, Search } from "../../../index";
 import { Calendar, Filter, Wand } from "../../../Icon/Icons";
 import styles from "./Menu.stories.module.scss";
@@ -6,10 +6,10 @@ import React from "react";
 
 export const TipCombobox = () => (
   <Tip>
-    Need to place a search field to filter results? Use the
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/inputs-combobox--docs">
+    Need to place a search field to filter results? Use the{" "}
+    <StorybookLink size={StorybookLink.sizes.SMALL} page="Inputs/Combobox">
       Combobox
-    </Link>
+    </StorybookLink>{" "}
     component instead
   </Tip>
 );

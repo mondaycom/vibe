@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { Tip } from "vibe-storybook-components";
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
@@ -192,32 +191,25 @@ export const TipseenWithCustomMedia = {
   name: "Tipseen with custom media"
 };
 
-// TODO storybook 7 migration: story is under maintenance - issues with positioning on new storybook layout
 export const FloatingTipseen = {
   // You do not have to use containerSelector, in current use this is for story only
   render: () => {
     return (
-      <Tip emoji={"🔨"} title={"Story is under maintenance"} type={Tip.types.WARNING}>
-        We will fix the story as soon as possible! Sorry for the inconvenience.
-      </Tip>
+      <Tipseen
+        closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+        floating
+        content={
+          <>
+            <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+            <TipseenContent title="This is a Floating Tipseen">
+              Popover message will appear here lorem ipsum dolor samet…
+            </TipseenContent>
+          </>
+        }
+        containerSelector="#story--popover-tipseen--floating-tipseen"
+      />
     );
-    // return (
-    //   <Tipseen
-    //     closeButtonTheme={Tipseen.closeButtonThemes.DARK}
-    //     floating
-    //     content={
-    //       <>
-    //         <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
-    //         <TipseenContent title="This is a Floating Tipseen">
-    //           Popover message will appear here lorem ipsum dolor samet…
-    //         </TipseenContent>
-    //       </>
-    //     }
-    //     containerSelector="#story--popover-tipseen--floating-tipseen"
-    //   />
-    // );
   },
 
-  name: "Floating Tipseen",
-  height: "500px"
+  name: "Floating Tipseen"
 };

@@ -1,21 +1,21 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipHeading = () => (
   <Tip>
-    Check out our
-    <Link href="/?path=/docs/text-heading--docs" size={Link.sizes.SMALL}>
+    Check out our{" "}
+    <StorybookLink page="Text/Heading" size={StorybookLink.sizes.SMALL}>
       Heading
-    </Link>
+    </StorybookLink>{" "}
     component for text headlines.
   </Tip>
 );
 
 export const TipLink = () => (
   <Tip>
-    If you need to place a link outside of the textual flow, please use our
-    <Link href="/?path=/docs/navigation-link--docs" size={Link.sizes.SMALL}>
+    If you need to place a link outside of the textual flow, please use our{" "}
+    <StorybookLink page="Navigation/Link" size={StorybookLink.sizes.SMALL}>
       Link
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );

@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { Link, StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipDialogContentContainer = () => (
   <Tip>
-    For setting the dialog UI appearance, use
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-dialogcontentcontainer--docs">
+    For setting the dialog UI appearance, use{" "}
+    <StorybookLink size={StorybookLink.sizes.SMALL} href="Popover/DialogContentContainer">
       DialogContentContainer
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );
@@ -22,29 +22,25 @@ export const TipDevTipPopperJs = () => (
 
 export const TipModal = () => (
   <Tip title="Wishing to position your popover in the center of the page?">
-    Exactly for this purpose, we created the
-    <Link href="/?path=/docs/feedback-modal--docs" size={Link.sizes.SMALL}>
+    Exactly for this purpose, we created the{" "}
+    <StorybookLink page="Feedback/Modal" size={StorybookLink.sizes.SMALL}>
       Modal
-    </Link>
+    </StorybookLink>{" "}
     component! Check it out.
   </Tip>
 );
 
 export const TipDevTipTechnicalPattern = () => (
   <Tip title="Dev tip">
-    If you wish to implement a
-    <Link href="/?path=/docs/inputs-dropdown--docs" size={Link.sizes.SMALL}>
+    If you wish to implement a{" "}
+    <StorybookLink page="Inputs/Dropdown" size={StorybookLink.sizes.SMALL}>
       Dropdown
-    </Link>
+    </StorybookLink>{" "}
     inside a Dialog container and need help displaying the Dropdowns popovers correctly, read more about our Dropdown in
-    popovers technical pattern
-    <Link
-      href="/?path=/docs/technical-patterns-dropdowns-inside-pop-overs--modal-with-damaged-dropdown"
-      size={Link.sizes.SMALL}
-      withoutSpacing
-    >
+    popovers technical pattern{" "}
+    <StorybookLink page="Technical Patterns/Dropdowns inside pop-overs" size={StorybookLink.sizes.SMALL}>
       here
-    </Link>
+    </StorybookLink>
     .
   </Tip>
 );

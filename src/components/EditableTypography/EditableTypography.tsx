@@ -16,6 +16,8 @@ export interface EditableTypographyImplementationProps {
   value: string;
   /** Will be called whenever the current value changes to a non-empty value */
   onChange?: (value: string) => void;
+  /** Will be called whenever the component gets clicked */
+  onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   /** Disables editing mode - component will be just a typography element */
   readOnly?: boolean;
   /** Shown in edit mode when the text value is empty */
@@ -39,6 +41,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       "data-testid": dataTestId,
       value,
       onChange,
+      onClick,
       readOnly = false,
       ariaLabel = "",
       placeholder,
@@ -56,6 +59,11 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
+
+    function onTypographyClick(event: React.KeyboardEvent | React.MouseEvent) {
+      onClick?.(event);
+      toggleEditMode(event);
+    }
 
     function toggleEditMode(event: React.KeyboardEvent | React.MouseEvent) {
       if (readOnly || isEditing) {
@@ -127,7 +135,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           data-testid={dataTestId}
           className={cx(styles.editableTypography, className)}
           role={isEditing ? null : "button"}
-          onClick={toggleEditMode}
+          onClick={onTypographyClick}
           onKeyDown={toggleKeyboardEditMode}
         >
           {isEditing && (

@@ -20,8 +20,8 @@ import { TipNextEndpoint, TipUseComponent } from "./typograpghy.stories.helpers"
 
 ## Overview
 
-A new typography change was introduced in `v2.24.0+`, including two new components: <Link href="/?path=/docs/text-text--docs" withoutSpacing target={Link.targets.PARENT}> Text </Link> and <Link href="/?path=/docs/text-heading--docs" withoutSpacing target={Link.targets.PARENT}>
-Heading</Link>.
+A new typography change was introduced in `v2.24.0+`, including two new components: <StorybookLink page="Text/Text"> Text </StorybookLink> and <StorybookLink page="Text/Heading">
+Heading</StorybookLink>.
 
 ## Why?
 
@@ -33,21 +33,14 @@ This change allows designers crating more accurate and refined designs, while en
 <UsageGuidelines
   guidelines={[
     <>
-      Use the
-      <Link href="/?path=/docs/text-text--docs" target={Link.targets.PARENT}>
-        Text
-      </Link>
-      component for paragraphs, labels, and texts up to 16px. It includes 2 variants: <code>Text1</code> and{" "}
-      <code>Text2</code>. Each variant has a fixed size and three different weights.
+      Use the <StorybookLink page="Text/Text">Text</StorybookLink> component for paragraphs, labels, and texts up to
+      16px. It includes 2 variants: <code>Text1</code> and <code>Text2</code>. Each variant has a fixed size and three
+      different weights.
     </>,
     <>
-      Use the
-      <Link href="/?path=/docs/text-heading--docs" target={Link.targets.TOP}>
-        Heading
-      </Link>
-      component the for titles and text from 18px and up. It includes 3 variants: <code>H1</code>, <code>H2</code> and{" "}
-      <code>H3</code>. Each of these variant is mapped to an <code>h1</code>, <code>h2</code>, <code>h3</code> element
-      accordingly.
+      Use the <StorybookLink page="Text/Heading">Heading</StorybookLink> component the for titles and text from 18px and
+      up. It includes 3 variants: <code>H1</code>, <code>H2</code> and <code>H3</code>. Each of these variant is mapped
+      to an <code>h1</code>, <code>h2</code>, <code>h3</code> element accordingly.
     </>
   ]}
 />
@@ -77,7 +70,7 @@ Each of these components can get the variants as a prop. You also get out-of-the
 </Heading>
 ```
 
-For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--page#type-styles" withoutSpacing target={Link.targets.PARENT}>Type Styles table</Link>.
+For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--docs#type-styles" withoutSpacing target={Link.targets.PARENT}>Type Styles table</Link>.
 
 <TipUseComponent />
 
@@ -89,7 +82,7 @@ For every new usage, <strong>use the new components</strong>. For existing usage
 
 ### What if I can't use a component?
 
-We highly suggest using the new components, but if it is still needed, SCSS mixins and CSS custom properties (CSS Variables) are still available. Read the <Link href="/?path=/docs/foundations-typography--page" withoutSpacing target={Link.targets.PARENT}>Typography Foundation</Link> docs for more information.
+We highly suggest using the new components, but if it is still needed, SCSS mixins and CSS custom properties (CSS Variables) are still available. Read the <StorybookLink page="Foundations/Typography">Typography Foundation</StorybookLink> docs for more information.
 
 ### What if I need a variant that doesn't exist?
 
@@ -97,8 +90,8 @@ Contact the design system team for support.
 
 ## More information
 
-Learn more about the components APIs and functionality in the <Link href="/?path=/docs/text-text--docs" withoutSpacing target={Link.targets.PARENT}> Text </Link> and <Link href="/?path=/docs/text-heading--docs" withoutSpacing target={Link.targets.PARENT}>
-Heading</Link> pages.
+Learn more about the components APIs and functionality in the <StorybookLink page="Text/Text"> Text </StorybookLink> and <StorybookLink page="Text/Heading">
+Heading</StorybookLink> pages.
 
 ## Related components
 

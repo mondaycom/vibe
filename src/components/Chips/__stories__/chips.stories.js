@@ -1,6 +1,7 @@
 import { chunk as _chunk } from "lodash-es";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
+import Text from "../../Text/Text";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import Search from "../../Search/Search";
@@ -10,7 +11,7 @@ import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
 import rotem from "./assets/rotem.png";
 import { NOOP } from "../../../utils/function-utils";
-import "./chips.stories.scss";
+import styles from "./chips.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
@@ -175,18 +176,18 @@ export const OnColor = {
 
 export const ColorfulChipsForDifferentContent = {
   render: () => (
-    <DialogContentContainer className="monday-storybook-chips_search-bar">
-      <div className="monday-storybook-chips_item">
+    <DialogContentContainer className={styles.searchBar}>
+      <div className={styles.item}>
         <Chips label="January" color={Chips.colors.POSITIVE} />
       </div>
       <Search />
-      <div className="monday-storybook-chips_item">
+      <div className={styles.item}>
         <Chips label="August" readOnly color={Chips.colors.LIPSTICK} />
       </div>
-      <div className="monday-storybook-chips_item">
+      <div className={styles.item}>
         <Chips label="April" readOnly color={Chips.colors.BUBBLE} />
       </div>
-      <div className="monday-storybook-chips_item">
+      <div className={styles.item}>
         <Chips label="March" readOnly color={Chips.colors.EGG_YOLK} />
       </div>
     </DialogContentContainer>
@@ -197,43 +198,45 @@ export const ColorfulChipsForDifferentContent = {
 
 export const ChipsInAPersonPickerComboBox = {
   render: () => (
-    <DialogContentContainer className="monday-storybook-chips_search-bar">
+    <DialogContentContainer className={styles.searchBar}>
       <Search placeholder="Search names, positions, or a team" />
-      <div className="monday-storybook-chips_inline-container">
+      <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER}>
         <Chips label="Esther Schanler" leftAvatar={person1} />
         <Chips label="Rotem Dekel" leftAvatar={rotem} />
-      </div>
-      <div className="monday-storybook-chips_lable">Suggested people</div>
-      <div className="monday-storybook-chips_search">
-        <div className="monday-storybook-chips_inline-container" key="cont-1">
+      </Flex>
+      <Text type={Text.types.TEXT2} className={styles.lable}>
+        Suggested people
+      </Text>
+      <div className={styles.search}>
+        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-1">
           <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-          <span className="monday-storybook-chips_name">
+          <Text type={Text.types.TEXT2} className={styles.name}>
             May Kishon <span>(UX/UI Product Designer)</span>
-          </span>
-        </div>
-        <div className="monday-storybook-chips_inline-container" key="cont-2">
+          </Text>
+        </Flex>
+        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-2">
           <Avatar
             size={Avatar.sizes.SMALL}
             backgroundColor={Avatar.colors.DARK_PURPLE}
             text="LC"
             type={Avatar.types.TEXT}
           />
-          <span className="monday-storybook-chips_name">
+          <Text type={Text.types.TEXT2} className={styles.name}>
             Liron Cohen <span>(Customer Experience)</span>
-          </span>
-        </div>
-        <div className="monday-storybook-chips_inline-container" key="cont-3">
+          </Text>
+        </Flex>
+        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-3">
           <Avatar size={Avatar.sizes.SMALL} text="AL" type={Avatar.types.TEXT} />
-          <span className="monday-storybook-chips_name">
+          <Text type={Text.types.TEXT2} className={styles.name}>
             Amanda Lawrence <span>(Customer Experience Designer)</span>
-          </span>
-        </div>
-        <div className="monday-storybook-chips_inline-container" key="cont-4">
+          </Text>
+        </Flex>
+        <Flex align={Flex.align.CENTER} justify={Flex.justify.CENTER} key="cont-4">
           <Avatar size={Avatar.sizes.SMALL} text="DY" type={Avatar.types.TEXT} backgroundColor={Avatar.colors.PEACH} />
-          <span className="monday-storybook-chips_name">
+          <Text type={Text.types.TEXT2} className={styles.name}>
             Dor Yehuda <span>(Customer Experience Designer)</span>
-          </span>
-        </div>
+          </Text>
+        </Flex>
       </div>
     </DialogContentContainer>
   ),

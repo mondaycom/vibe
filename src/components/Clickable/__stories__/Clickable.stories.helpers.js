@@ -1,12 +1,12 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipHookSolution = () => (
   <Tip title="Check out our hook solution for this use case">
-    {`If you'd like to set clickable functionality on a specific element inside your React component instead of using a 
-    wrapper, please, take a look on our`}
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/hooks-useclickableprops--docs">
+    {`If you'd like to set clickable functionality on a specific element inside your React component instead of using a
+    wrapper, please, take a look on our `}
+    <StorybookLink size={StorybookLink.sizes.SMALL} page="Hooks/useClickableProps">
       useClickableProps
-    </Link>
+    </StorybookLink>{" "}
     hook.
   </Tip>
 );

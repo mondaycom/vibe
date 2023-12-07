@@ -84,6 +84,19 @@ export const ToastWithLink = {
   name: "Toast with link"
 };
 
+export const ToastWithLoading = {
+  render: () => {
+    return (
+      <Toast open loading className="monday-storybook-toast_wrapper">
+        General message toast
+      </Toast>
+    );
+  },
+
+  name: "Toast with loading",
+  parameters: { chromatic: { pauseAnimationAtEnd: true } }
+};
+
 export const SuccessMessage = {
   render: () => {
     const actions = useMemo(

@@ -22,7 +22,8 @@ import {
   UsageGuidelines,
   withMemoryStats,
   RelatedComponent,
-  MultipleStoryElementsWrapper
+  MultipleStoryElementsWrapper,
+  StorybookLink
 } from "vibe-storybook-components";
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
@@ -67,6 +68,7 @@ const preview: Preview = {
         RelatedComponent,
         RelatedComponents: RelatedComponentsDecorator,
         Frame,
+        StorybookLink,
         Tip,
         UnstyledList,
         UnstyledListItem
