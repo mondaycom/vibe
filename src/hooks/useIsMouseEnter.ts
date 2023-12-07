@@ -1,6 +1,7 @@
 import { useCallback, useState, RefObject } from "react";
 import useEventListener from "./useEventListener";
 
+// TODO rename function
 export default function useMergeRefs({ ref }: { ref: RefObject<HTMLElement> }) {
   const [isHovered, setIsHover] = useState<boolean>(false);
 
