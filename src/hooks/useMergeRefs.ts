@@ -8,6 +8,11 @@ import { LegacyRef, MutableRefObject, useMemo } from "react";
  * });
  */
 
+/**
+ * Returns a single ref callback that merges multiple ref callbacks
+ * @deprecated - use `useMergeRef` hook instead
+ * @param refs
+ */
 export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<MutableRefObject<T> | LegacyRef<T>> }) {
   return useMemo(() => {
     if (refs.every(ref => ref === null)) return null;
