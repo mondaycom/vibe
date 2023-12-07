@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.69.2 (2023-12-07)
+
+#### Documentation
+* [#1803](https://github.com/mondaycom/monday-ui-react-core/pull/1803) docs: fix broken docs links ([@shaharzil](https://github.com/shaharzil))
+
 ## 2.69.1 (2023-12-06)
 
 #### Bug Fixes

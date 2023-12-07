@@ -17,7 +17,7 @@ export const ColorsDescription = () => {
     <RelatedComponent
       component={component}
       title="Colors"
-      href="/?path=/docs/foundations-colors--page"
+      href="/?path=/docs/foundations-colors--docs"
       description="Ensure accessible text, and distinguish UI elements and surfaces from one another."
     />
   );
