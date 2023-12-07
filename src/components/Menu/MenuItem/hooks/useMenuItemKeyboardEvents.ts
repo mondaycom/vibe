@@ -42,6 +42,8 @@ export default function useMenuItemKeyboardEvents({
         return;
       }
 
+      const isKeyEvent = event instanceof KeyboardEvent;
+
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
         if (!splitButton) {
@@ -50,9 +52,11 @@ export default function useMenuItemKeyboardEvents({
         }
       }
 
-      if (shouldShowSubMenu) return;
+      if (isKeyEvent && splitButton) {
+        setSubMenuIsOpenByIndex(index, true);
+      }
 
-      const isKeyEvent = event instanceof KeyboardEvent;
+      if (shouldShowSubMenu) return;
 
       const clickCallback = () => {
         event.preventDefault();
@@ -86,16 +90,17 @@ export default function useMenuItemKeyboardEvents({
       }
     },
     [
+      isActive,
+      isMouseEnter,
+      setActiveItemIndex,
+      setSubMenuIsOpenByIndex,
+      hasChildren,
+      splitButton,
+      shouldShowSubMenu,
       onClick,
       disabled,
-      isActive,
       index,
-      setActiveItemIndex,
-      hasChildren,
-      setSubMenuIsOpenByIndex,
-      isMouseEnter,
-      closeMenu,
-      shouldShowSubMenu
+      closeMenu
     ]
   );
 

@@ -217,7 +217,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           <IconButton
             icon={DropdownChevronRight}
             className={styles.subMenuSplitButtonIcon}
-            kind={IconButton.kinds.PRIMARY}
+            kind={IconButton.kinds.TERTIARY}
             size={null}
             iconClassName={styles.iconButton}
             onClick={() => {}}

@@ -44,11 +44,18 @@
 .subMenuIconWrapper .subMenuSplitButtonIcon {
   width: 34px;
   height: 30px;
+  --primary-background-hover-color: rgba(103, 104, 121, 0.1);
+
+  &:hover,
+  &:active {
+    background-color: var(--primary-background-hover-color);
+  }
 }
 
 .iconButton {
   width: 18px;
   height: 18px;
+  color: var(--icon-color);
 }
 
 .item.splitButton {
