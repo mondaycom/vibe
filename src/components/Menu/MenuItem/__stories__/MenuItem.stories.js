@@ -74,46 +74,18 @@ export const Label = {
 export const SubMenu = {
   render: () => (
     <Menu>
-      <MenuItem title="Opens on item hover" onClick={() => console.log(1234)}>
+      <MenuItem title="Opens on item hover" onClick={() => alert("clicked on menu item")}>
         <Menu tabIndex={0} id="sub-menu">
-          <MenuItem title="Sub menu item 1" onClick={() => console.log(123456)} />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
+          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on menu item in submenu")} />
         </Menu>
       </MenuItem>
-      <MenuItem title="Opens on icon hover" splitButton={true} onClick={() => console.log(1234)}>
+      <MenuItem title="Opens on icon hover" splitButton={true} onClick={() => alert("clicked on menu item")}>
         <Menu tabIndex={0} id="sub-menu">
-          <MenuItem title="Sub menu item 1" />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
-        </Menu>
-      </MenuItem>
-      <MenuItem title="Opens on icon hover2" splitButton={true} onClick={() => console.log(1234)}>
-        <Menu tabIndex={0} id="sub-menu2">
-          <MenuItem title="Sub menu item 1" />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
-        </Menu>
-      </MenuItem>
-      <MenuItem title="Opens on icon hover2" splitButton={true} onClick={() => console.log(1234)}>
-        <Menu tabIndex={0} id="sub-menu2">
-          <MenuItem title="Sub menu item 1" />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
-        </Menu>
-      </MenuItem>
-      <MenuItem title="Opens on icon hover2" splitButton={true} onClick={() => console.log(1234)}>
-        <Menu tabIndex={0} id="sub-menu2">
-          <MenuItem title="Sub menu item 1" />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
-        </Menu>
-      </MenuItem>
-      <MenuItem title="Opens on icon hover2" splitButton={true} onClick={() => console.log(1234)}>
-        <Menu tabIndex={0} id="sub-menu2">
-          <MenuItem title="Sub menu item 1" />
-          <MenuItem title="Sub menu item 2" />
-          <MenuItem title="Sub menu item 3" />
+          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on menu item in submenu")} />
+          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on menu item in submenu")} />
         </Menu>
       </MenuItem>
     </Menu>
