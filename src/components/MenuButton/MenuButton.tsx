@@ -285,6 +285,14 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+    // Trigger element props, which are only relevant for "button" element, but might be needed for other elements e.g. Button
+    const triggerElementProps =
+      TriggerElement === "button"
+        ? {}
+        : {
+            active: isActive,
+            disabled: disabled
+          };
 
     return (
       <Tooltip
@@ -325,13 +333,12 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
               [styles.disabled]: disabled,
               [styles.text]: text
             })}
-            active={isActive}
-            disabled={disabled}
             aria-haspopup="true"
             aria-expanded={isOpen}
             aria-label={!text && ariaLabel}
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
+            {...triggerElementProps}
           >
             {componentPosition === MenuButton.componentPositions.START && icon}
             {text && <span className={styles.innerText}>{text}</span>}
