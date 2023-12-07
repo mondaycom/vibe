@@ -14,7 +14,7 @@ export const ShadowDescription = () => {
     <RelatedComponent
       component={component}
       title="Shadow"
-      href="/?path=/docs/foundations-shadow--page"
+      href="/?path=/docs/foundations-shadow--docs"
       description="Shadows used to create the scenes of hierarchy and elevation withing the UI and layout."
     />
   );

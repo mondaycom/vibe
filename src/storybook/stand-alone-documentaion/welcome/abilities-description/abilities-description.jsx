@@ -11,7 +11,7 @@ export const AbilitiesDescription = () => (
     >
       Instructions and welcome to the monday.com OS design system
     </AbilityDescription>
-    <AbilityDescription title="Foundations" imageSrc={foundations} linkHref="/?path=/docs/foundations-colors--page">
+    <AbilityDescription title="Foundations" imageSrc={foundations} linkHref="/?path=/docs/foundations-colors--docs">
       All information about colors, typography, spacing, and icons
     </AbilityDescription>
     <AbilityDescription title="Components" imageSrc={components} linkHref="/?path=/docs/buttons">
