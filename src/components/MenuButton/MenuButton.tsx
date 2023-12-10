@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
+import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
@@ -11,7 +12,7 @@ import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } fr
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
 import { AnimationType, DialogOffset, DialogPosition } from "../../constants";
 import { HideShowEvent } from "../Dialog/consts/dialog-show-hide-event";
-import { isForwardedRef, NOOP } from "../../utils/function-utils";
+import { NOOP } from "../../utils/function-utils";
 import { DialogSize } from "../DialogContentContainer/DialogContentContainerConstants";
 import { Menu } from "../Icon/Icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -295,7 +296,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         : {
             active: isActive,
             disabled: disabled,
-            ref: isForwardedRef(TriggerElement) ? mergedRef : undefined
+            ref: isForwardRef(TriggerElement) ? mergedRef : undefined
           };
 
     return (

@@ -48,13 +48,4 @@ export function convertToArray<T>(input: T | Array<T>): Array<T> {
   return isArray(input) ? input : [input];
 }
 
-/**
- * Checks if React component is wrapped with forwardRef function
- * @param elementType
- */
-export const isForwardedRef = (elementType: ElementType): elementType is ForwardRefExoticComponent<unknown> => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (elementType as any).$$typeof === Symbol.for("react.forward_ref");
-};
-
 export function NOOP() {}
