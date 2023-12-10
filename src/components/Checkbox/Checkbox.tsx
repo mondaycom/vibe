@@ -74,10 +74,11 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
     },
     ref
   ) => {
-    const iconContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
+    const iconContainerRef = useRef<HTMLDivElement>(null);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;
       if (!input) return;

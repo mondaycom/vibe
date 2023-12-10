@@ -51,7 +51,7 @@ export interface MenuProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
 }
 
-const Menu: VibeComponent<MenuProps, HTMLUListElement> & {
+const Menu: VibeComponent<MenuProps> & {
   isMenu?: boolean;
   supportFocusOnMount?: boolean;
   sizes?: typeof SIZES;
@@ -79,9 +79,10 @@ const Menu: VibeComponent<MenuProps, HTMLUListElement> & {
     },
     forwardedRef
   ) => {
-    const overrideId = useMenuId(id);
-    const ref = useRef<HTMLUListElement>(null);
+    const ref = useRef(null);
     const mergedRef = useMergeRef(ref, forwardedRef);
+
+    const overrideId = useMenuId(id);
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);

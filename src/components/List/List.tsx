@@ -69,12 +69,13 @@ const List: VibeComponent<ListProps> & {
     },
     ref
   ) => {
-    const overrideId = useListId(id);
     const componentRef = useRef(null);
-    const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRef(ref, componentRef);
-    const Component = component;
     const childrenRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
+
+    const overrideId = useListId(id);
+    const [focusIndex, setFocusIndex] = useState(0);
+    const Component = component;
 
     const updateFocusedItem = useCallback(
       (id: string) => {

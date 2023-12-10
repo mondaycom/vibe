@@ -49,6 +49,9 @@ const Label: VibeComponent<LabelProps> & {
     },
     ref
   ) => {
+    const labelRef = useRef<HTMLSpanElement>(null);
+    const mergedRef = useMergeRef(ref, labelRef);
+
     const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
     const isClickable = Boolean(onClick);
 
@@ -76,9 +79,6 @@ const Label: VibeComponent<LabelProps> & {
       },
       [onClick]
     );
-
-    const labelRef = useRef<HTMLSpanElement>(null);
-    const mergedRef = useMergeRef(ref, labelRef);
 
     const clickableProps = useClickableProps(
       {

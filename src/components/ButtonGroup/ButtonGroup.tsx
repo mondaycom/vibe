@@ -77,11 +77,12 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
     },
     ref
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const inputRef = useRef();
+    const mergedRef = useMergeRef(ref, inputRef);
+
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
-    const mergedRef = useMergeRef(ref, inputRef);
 
     const onClick = useCallback(
       (option: ButtonGroupOption) => {

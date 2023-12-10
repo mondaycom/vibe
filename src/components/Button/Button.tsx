@@ -144,9 +144,12 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     },
     ref
   ) => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const mergedRef = useMergeRef(ref, buttonRef);
+
     const { loading } = useButtonLoading({ isLoading });
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
@@ -235,8 +238,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       disabled,
       insetFocus
     ]);
-
-    const mergedRef = useMergeRef(ref, buttonRef);
 
     const buttonProps = useMemo(() => {
       const props: Record<string, unknown> = {

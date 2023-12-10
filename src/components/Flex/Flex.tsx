@@ -52,6 +52,7 @@ const Flex: VibeComponent<FlexProps> & {
   ) => {
     const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRef(ref, componentRef);
+
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
     const onClickProps = useMemo(() => {
       if (onClick) return { elementType, ariaLabelledby };

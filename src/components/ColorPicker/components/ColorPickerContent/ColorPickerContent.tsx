@@ -82,14 +82,14 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     },
     ref
   ) => {
+    const gridRef = useRef(null);
+    const mergedRef = useMergeRef(ref, gridRef);
+    const colorsRef = useRef(null);
+    const buttonRef = useRef(null);
+
     const onClearButton = useCallback(() => {
       onValueChange(null);
     }, [onValueChange]);
-
-    const colorsRef = useRef(null);
-    const buttonRef = useRef(null);
-    const gridRef = useRef(null);
-    const mergedRef = useMergeRef(ref, gridRef);
 
     const colorsToRender = useMemo(() => {
       if (forceUseRawColorList) {

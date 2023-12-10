@@ -152,8 +152,9 @@ const Combobox: React.FC<ComboboxProps> & {
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
-    const [filterValue, setFilterValue] = useState(defaultFilterValue);
     const mergedRef = useMergeRef(ref, componentRef);
+
+    const [filterValue, setFilterValue] = useState(defaultFilterValue);
     const onChangeCallback = useCallback(
       (value: string) => {
         if (onFilterChanged) {

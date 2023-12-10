@@ -171,8 +171,10 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+
     const [isOpen, setIsOpen] = useState(open);
     const isActive = active ?? isOpen;
+
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         if (event && event.key === "Escape") {

@@ -140,6 +140,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
     );
     const inputRef = useRef(null);
+    const mergedRef = useMergeRef(ref, inputRef, setRef);
 
     const onChangeCallback = useCallback(
       (value: string) => {
@@ -190,7 +191,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
-    const mergedRef = useMergeRef(ref, inputRef, setRef);
+
     useEffect(() => {
       if (inputRef.current && autoFocus) {
         const animationFrame = requestAnimationFrame(() => inputRef.current.focus());

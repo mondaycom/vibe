@@ -115,9 +115,10 @@ const IconButton: VibeComponent<IconButtonProps> & {
     },
     ref
   ) => {
-    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+
+    const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const overrideTooltipContent = useMemo(
       () => tooltipProps?.content || tooltipContent,
       [tooltipProps?.content, tooltipContent]

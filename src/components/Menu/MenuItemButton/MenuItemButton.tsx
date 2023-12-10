@@ -68,8 +68,8 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
 }) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
-  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const mergedRef = useMergeRef(ref, referenceElementRef);
+  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
 
   const shouldShowTooltip = disabled && disableReason;
   const tooltipContent = disableReason;
