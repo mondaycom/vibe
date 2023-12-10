@@ -7,7 +7,6 @@ import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBod
 import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
-import { RowSizes } from "../TableConsts";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import {
   emailColumns,
