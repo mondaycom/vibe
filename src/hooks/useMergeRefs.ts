@@ -8,10 +8,10 @@ import { LegacyRef, MutableRefObject, useMemo } from "react";
  * });
  */
 
-// TODO refactor usages and replace with the useMergeRef hook, maybe replace the hook itself with the useMergeRef hook
+// TODO deprecate / replace with useMergeRef in next major version
 /**
  * Returns a single ref callback that merges multiple ref callbacks
- * @deprecated - use `useMergeRef` hook instead
+ * @deprecated - for internal usage - use `useMergeRef` hook instead
  * @param refs
  */
 export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<MutableRefObject<T> | LegacyRef<T>> }) {

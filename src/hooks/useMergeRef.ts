@@ -10,7 +10,7 @@ import { ForwardedRef, MutableRefObject, RefObject, useEffect, useRef } from "re
  */
 
 /**
- * Returns a single ref callback that merges multiple ref callbacks - replacement for `useMergeRefs` hook
+ * Returns a single ref callback that merges multiple ref callbacks - internal replacement for `useMergeRefs` hook
  * @param refs
  */
 function useMergeRef<T>(...refs: (RefObject<T> | ForwardedRef<T> | null)[]): RefObject<T> {
