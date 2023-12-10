@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.69.3 (2023-12-10)
+
+#### Bug Fixes
+* [#1808](https://github.com/mondaycom/monday-ui-react-core/pull/1808) fix(Table): table does not render empty state if children are empty array ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1807](https://github.com/mondaycom/monday-ui-react-core/pull/1807) docs: useIsOverflowing.stories.js - remove maintenance warning ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1804](https://github.com/mondaycom/monday-ui-react-core/pull/1804) docs: fix storybook's sidebar overflow ([@talkor](https://github.com/talkor))
+
 ## 2.69.2 (2023-12-07)
 
 #### Documentation
