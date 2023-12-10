@@ -7,7 +7,6 @@ import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBod
 import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
-import { RowSizes } from "../TableConsts";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import {
   emailColumns,
@@ -208,7 +207,7 @@ export const Sizes = {
       <>
         <Table
           style={{ marginRight: "15%" }}
-          size={RowSizes.MEDIUM}
+          size={Table.sizes.MEDIUM}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -233,7 +232,7 @@ export const Sizes = {
           </TableBody>
         </Table>
         <Table
-          size={RowSizes.LARGE}
+          size={Table.sizes.LARGE}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
