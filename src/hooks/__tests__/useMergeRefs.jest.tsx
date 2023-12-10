@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef, useEffect, RefObject, createRef } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
-import useMergeRef from "../useMergeRef";
+import useMergeRefs from "../useMergeRefs";
 
 describe("useMergeRefs", () => {
   let Component: React.ElementType;
@@ -10,7 +10,7 @@ describe("useMergeRefs", () => {
     beforeEach(() => {
       Component = forwardRef((props, ref) => {
         internalRef = useRef(null);
-        const mergedRef = useMergeRef(ref, internalRef);
+        const mergedRef = useMergeRefs({ refs: [ref, internalRef] });
         return (
           <div {...props} ref={mergedRef}>
             Lorem ipsum dolor sit amet
@@ -69,7 +69,7 @@ describe("useMergeRefs", () => {
       Component = forwardRef((props, ref) => {
         internalRef = useRef();
 
-        const mergedRef = useMergeRef(ref, internalRef);
+        const mergedRef = useMergeRefs({ refs: [ref, internalRef] });
 
         useEffect(() => {
           internalRef.current.addEventListener("click", innerRefCallbackStub);
