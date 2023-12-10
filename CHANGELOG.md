@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.69.4 (2023-12-10)
+
+#### Bug Fixes
+* [#1809](https://github.com/mondaycom/monday-ui-react-core/pull/1809) fix: export Table.sizes enum ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.69.3 (2023-12-10)
 
 #### Bug Fixes
