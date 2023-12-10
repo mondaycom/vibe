@@ -46,7 +46,7 @@ interface ITableContext {
 export const TableContext = React.createContext<ITableContext>(null);
 
 const Table: VibeComponent<ITableProps, HTMLDivElement> & {
-  rowSizes?: typeof RowSizes;
+  sizes?: typeof RowSizes;
 } = forwardRef(
   (
     {
@@ -59,7 +59,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       dataState,
       style,
       children,
-      size = Table.rowSizes.MEDIUM
+      size = Table.sizes.MEDIUM
     },
     ref
   ) => {
@@ -72,7 +72,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
      */
     const calculatedStyle = {
       "--table-grid-template-columns": gridTemplateColumns,
-      "--table-row-size": size == Table.rowSizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
+      "--table-row-size": size == Table.sizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
       ...style
     } as React.CSSProperties;
 
@@ -88,4 +88,4 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
   }
 );
 
-export default withStaticProps(Table, { rowSizes: RowSizes });
+export default withStaticProps(Table, { sizes: RowSizes });

@@ -207,7 +207,7 @@ export const Sizes = {
       <>
         <Table
           style={{ marginRight: "15%" }}
-          size={Table.rowSizes.MEDIUM}
+          size={Table.sizes.MEDIUM}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -232,7 +232,7 @@ export const Sizes = {
           </TableBody>
         </Table>
         <Table
-          size={Table.rowSizes.LARGE}
+          size={Table.sizes.LARGE}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
