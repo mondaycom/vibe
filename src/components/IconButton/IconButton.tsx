@@ -1,7 +1,7 @@
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
@@ -117,7 +117,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const overrideTooltipContent = useMemo(
       () => tooltipProps?.content || tooltipContent,
       [tooltipProps?.content, tooltipContent]

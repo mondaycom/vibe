@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
@@ -149,7 +149,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const [hoverRef, isHovered] = useHover();
     const { isFocused } = useSetFocus({ ref: componentRef });
 
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
+    const mergedRef = useMergeRef(ref, componentRef, hoverRef);
 
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,

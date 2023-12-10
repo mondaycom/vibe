@@ -6,7 +6,7 @@ import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -76,7 +76,7 @@ const Checkbox: React.FC<CheckBoxProps> = forwardRef(
   ) => {
     const iconContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-    const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
+    const mergedInputRef = useMergeRef(ref, inputRef);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;

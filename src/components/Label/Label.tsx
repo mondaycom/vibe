@@ -1,6 +1,6 @@
 import { camelCase } from "lodash-es";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
+import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -8,9 +8,9 @@ import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelColor, LabelKind } from "./LabelConstants";
 import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
-import styles from "./Label.module.scss";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
+import styles from "./Label.module.scss";
 
 interface LabelProps extends VibeComponentProps {
   /**
@@ -78,7 +78,7 @@ const Label: VibeComponent<LabelProps> & {
     );
 
     const labelRef = useRef<HTMLSpanElement>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, labelRef] });
+    const mergedRef = useMergeRef(ref, labelRef);
 
     const clickableProps = useClickableProps(
       {

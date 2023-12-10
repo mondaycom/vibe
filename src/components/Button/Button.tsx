@@ -3,7 +3,7 @@ import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, use
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
@@ -236,7 +236,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       insetFocus
     ]);
 
-    const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
+    const mergedRef = useMergeRef(ref, buttonRef);
 
     const buttonProps = useMemo(() => {
       const props: Record<string, unknown> = {

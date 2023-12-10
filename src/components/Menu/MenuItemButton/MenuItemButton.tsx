@@ -4,7 +4,7 @@ import React, { FC, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 import { DialogPosition } from "../../../constants/positions";
@@ -69,7 +69,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
+  const mergedRef = useMergeRef(ref, referenceElementRef);
 
   const shouldShowTooltip = disabled && disableReason;
   const tooltipContent = disableReason;

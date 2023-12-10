@@ -9,7 +9,7 @@ import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -199,7 +199,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
-    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
+    const mergedRef = useMergeRef(ref, referenceElementRef);
 
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;

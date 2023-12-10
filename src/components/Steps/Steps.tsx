@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
 import { StepsType } from "./StepsConstants";
 import { ButtonProps } from "../Button/Button";
@@ -48,7 +48,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     return (
       <div
         ref={mergedRef}

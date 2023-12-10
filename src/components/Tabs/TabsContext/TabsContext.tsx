@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef, useState } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
@@ -16,7 +16,7 @@ type TabsChild = ReactElement & {
 const TabsContext: FC<TabsContextProps> = forwardRef(
   ({ className, id, activeTabId = 0, children, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const [previousActiveTabIdState, setPreviousActiveTabIdState] = useState(activeTabId);
     const [activeTabIdState, setActiveTabIdState] = useState(activeTabId);

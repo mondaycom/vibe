@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
 import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from "./FlexConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
@@ -51,7 +51,7 @@ const Flex: VibeComponent<FlexProps> & {
     ref
   ) => {
     const componentRef = useRef<HTMLElement>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
     const onClickProps = useMemo(() => {
       if (onClick) return { elementType, ariaLabelledby };

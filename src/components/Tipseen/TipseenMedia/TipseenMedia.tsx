@@ -1,6 +1,6 @@
 import React, { forwardRef, PropsWithChildren, ReactNode, useRef } from "react";
 import cx from "classnames";
-import { useMergeRefs } from "../../../hooks";
+import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import VibeComponent from "../../../types/VibeComponent";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -14,7 +14,7 @@ export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps>
 const TipseenMedia: VibeComponent<TipseenMediaProps, HTMLElement> = forwardRef(
   ({ className, id, "data-testid": dataTestId, children }, ref) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     return (
       <div

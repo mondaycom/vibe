@@ -17,7 +17,7 @@ import {
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
-import { useMergeRefs } from "../../../../hooks";
+import useMergeRef from "../../../../hooks/useMergeRef";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   value: ColorPickerValue;
@@ -89,7 +89,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
     const colorsRef = useRef(null);
     const buttonRef = useRef(null);
     const gridRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, gridRef] });
+    const mergedRef = useMergeRef(ref, gridRef);
 
     const colorsToRender = useMemo(() => {
       if (forceUseRawColorList) {

@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
@@ -81,7 +81,7 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
     const inputRef = useRef();
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
-    const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
+    const mergedRef = useMergeRef(ref, inputRef);
 
     const onClick = useCallback(
       (option: ButtonGroupOption) => {

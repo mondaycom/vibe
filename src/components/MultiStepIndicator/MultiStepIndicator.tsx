@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
@@ -56,7 +56,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
     ref
   ) => {
     const componentRef = useRef<HTMLInputElement>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;
 
     const renderHorizontalStepIndicator = useCallback(

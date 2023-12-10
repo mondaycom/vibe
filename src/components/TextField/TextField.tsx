@@ -16,7 +16,7 @@ import {
   TextFieldTextType
 } from "./TextFieldConstants";
 import { BASE_SIZES } from "../../constants/sizes";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../../components/Clickable/Clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
@@ -190,7 +190,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
-    const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
+    const mergedRef = useMergeRef(ref, inputRef, setRef);
     useEffect(() => {
       if (inputRef.current && autoFocus) {
         const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
