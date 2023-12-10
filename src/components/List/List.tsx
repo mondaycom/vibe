@@ -76,10 +76,13 @@ const List: VibeComponent<ListProps> & {
     const Component = component;
     const childrenRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
 
-    const updateFocusedItem = useCallback((id: string) => {
-      setFocusIndex(getListItemIndexById(childrenRefs, id));
-      componentRef?.current?.setAttribute("aria-activedescendant", id);
-    }, []);
+    const updateFocusedItem = useCallback(
+      (id: string) => {
+        setFocusIndex(getListItemIndexById(childrenRefs, id));
+        mergedRef?.current?.setAttribute("aria-activedescendant", id);
+      },
+      [mergedRef]
+    );
 
     const onUpDownArrows = useCallback(
       (event: KeyboardEvent) => {
