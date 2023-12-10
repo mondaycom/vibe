@@ -1,16 +1,15 @@
 import cx from "classnames";
-import React, { useRef, forwardRef, useMemo, useCallback } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import React, { forwardRef, useCallback, useMemo } from "react";
 import Check from "../../components/Icon/Icons/components/Check";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import { Size, MultiStepType, StepStatus, TextPlacement } from "./MultiStepConstants";
+import { MultiStepType, Size, StepStatus, TextPlacement } from "./MultiStepConstants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import styles from "./MultiStepIndicator.module.scss";
-import { withStaticProps, VibeComponentProps, VibeComponent, SubIcon } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { IconType } from "../Icon/IconConstants";
+import styles from "./MultiStepIndicator.module.scss";
 
 export type Step = {
   titleText: string;
@@ -31,7 +30,7 @@ interface MultiStepIndicatorProps extends VibeComponentProps {
   size?: Size;
 }
 
-const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
+const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElement> & {
   types?: typeof MultiStepType;
   stepStatuses?: typeof StepStatus;
   textPlacements?: typeof TextPlacement;
@@ -55,8 +54,6 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
     },
     ref
   ) => {
-    const componentRef = useRef<HTMLInputElement>(null);
-    const mergedRef = useMergeRef(ref, componentRef);
     const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;
 
     const renderHorizontalStepIndicator = useCallback(
@@ -135,7 +132,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps> & {
 
     return (
       <ol
-        ref={mergedRef}
+        ref={ref}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MULTI_STEP_INDICATOR, id)}
         className={cx(styles.wrapper, className)}
