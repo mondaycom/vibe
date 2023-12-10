@@ -1,8 +1,8 @@
 import { useCallback, useState, RefObject } from "react";
 import useEventListener from "./useEventListener";
 
-// TODO rename function
-export default function useMergeRefs({ ref }: { ref: RefObject<HTMLElement> }) {
+// TODO can be replaced with useIsMouseOver
+export default function useIsMouseEnter({ ref }: { ref: RefObject<HTMLElement> }) {
   const [isHovered, setIsHover] = useState<boolean>(false);
 
   const setHovered = useCallback(
