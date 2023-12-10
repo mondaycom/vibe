@@ -194,10 +194,12 @@ export const Sizes = {
     ];
     const data = [
       {
+        id: 1,
         sentOn: "2020-01-01",
         subject: "Lorem ipsum dolor"
       },
       {
+        id: 2,
         sentOn: "2022-02-02",
         subject: "This is the subject"
       }
@@ -205,7 +207,7 @@ export const Sizes = {
     return (
       <>
         <Table
-          style={{ "margin-right": "15%" }}
+          style={{ marginRight: "15%" }}
           size={RowSizes.MEDIUM}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
@@ -260,7 +262,7 @@ export const Sizes = {
   },
   decorators: [
     Story => (
-      <span style={{ display: "flex", "align-items": "start", width: "100%" }}>
+      <span style={{ display: "flex", alignItems: "start", width: "100%" }}>
         <Story />
       </span>
     )
