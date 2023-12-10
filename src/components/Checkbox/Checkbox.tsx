@@ -7,7 +7,7 @@ import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponentProps } from "../../types";
+import { VibeComponent, VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Text from "../Text/Text";
@@ -50,7 +50,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const Checkbox: React.FC<CheckBoxProps> = forwardRef(
+const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
   (
     {
       className,
