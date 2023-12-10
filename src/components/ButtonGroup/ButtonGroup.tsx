@@ -1,6 +1,6 @@
 import { camelCase } from "lodash-es";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
@@ -10,7 +10,7 @@ import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -50,7 +50,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipMoveBy?: MoveBy;
 }
 
-const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {
+const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
   sizes?: typeof SIZES;
   kinds?: typeof ButtonType;
 } = forwardRef(
