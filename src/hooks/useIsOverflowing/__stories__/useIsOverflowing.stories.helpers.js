@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipTooltip = () => (
   <Tip title={"What to do when overflow is detected?"}>
-    You might want to use
-    <Link size={Link.sizes.SMALL} href="/?path=/docs/popover-tooltip--docs">
+    You might want to use{" "}
+    <StorybookLink size={StorybookLink.sizes.SMALL} page="Popover/Tooltip">
       Tooltip
-    </Link>
+    </StorybookLink>{" "}
     to display all the content.
   </Tip>
 );

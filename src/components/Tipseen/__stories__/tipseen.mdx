@@ -86,7 +86,7 @@ Use Floating Tipseen in case where the guidance is not relevant to a specific UI
 In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
 
 <Canvas>
-  <Story of={TipseenStories.FloatingTipseen} />
+  <Story of={TipseenStories.FloatingTipseen} height={"500px"} />
 </Canvas>
 
 ## Do’s and Don’ts
@@ -135,11 +135,9 @@ In this case, the Tipseen position will be the right corner of the screen and wi
         ),
         description: (
           <>
-            Don’t use tipseen to provide additional information on a familiar UI. Use a
-            <Link href="/?path=/docs/popover-tooltip--docs">Tooltip</Link>
-            or
-            <Link href="/?path=/docs/feedback-attentionbox--docs">Attention box</Link>
-            instead.
+            Don’t use tipseen to provide additional information on a familiar UI. Use a{" "}
+            <StorybookLink page="Popover/Tooltip">Tooltip</StorybookLink> or{" "}
+            <StorybookLink page="Feedback/AttentionBox">Attention box</StorybookLink> instead.
           </>
         )
       }

@@ -1,15 +1,15 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipOtherComponents = () => (
   <Tip>
-    When there are fewer than five items, consider using
-    <Link href="/?path=/docs/inputs-radiobutton--docs" size={Link.sizes.SMALL}>
+    When there are fewer than five items, consider using{" "}
+    <StorybookLink page="Inputs/RadioButton" size={StorybookLink.sizes.SMALL}>
       Radio buttons
-    </Link>
-    (if only one item can be selected) or
-    <Link href="/?path=/docs/inputs-checkbox--docs" size={Link.sizes.SMALL}>
+    </StorybookLink>{" "}
+    (if only one item can be selected) or{" "}
+    <StorybookLink page="Inputs/Checkbox" size={StorybookLink.sizes.SMALL}>
       Checkboxes
-    </Link>
+    </StorybookLink>{" "}
     (if multiple items can be selected).
   </Tip>
 );

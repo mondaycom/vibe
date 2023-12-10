@@ -32,4 +32,4 @@ Please go over the checklist and make sure all conditions are met.
 #### Accessibility
 
 - [ ] Component is accessible.
-- [ ] Component is compatible with [Vibe Accessibility Guidelines](https://style.monday.com/?path=/docs/foundations-accessibility--page)
+- [ ] Component is compatible with [Vibe Accessibility Guidelines](https://style.monday.com/?path=/docs/foundations-accessibility--docs)

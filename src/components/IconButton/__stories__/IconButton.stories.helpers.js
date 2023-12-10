@@ -1,21 +1,21 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     To display icons that do not have actions associated with them, use the{" "}
-    <Link href="/?path=/docs/components-icon--docs" size={Link.sizes.SMALL} withoutSpacing>
+    <StorybookLink page="Media/Icon" size={StorybookLink.sizes.SMALL}>
       Icon component
-    </Link>
+    </StorybookLink>
     .
   </Tip>
 );
 
 export const TipMenuButton = () => (
   <Tip>
-    If you need to use an icon as a button that opens dialog or menu next to it, check out
-    <Link href="/?path=/docs/buttons-menubutton--docs" size={Link.sizes.SMALL}>
+    If you need to use an icon as a button that opens dialog or menu next to it, check out{" "}
+    <StorybookLink page="Buttons/MenuButton" size={StorybookLink.sizes.SMALL}>
       Menu button
-    </Link>
+    </StorybookLink>{" "}
     component.
   </Tip>
 );

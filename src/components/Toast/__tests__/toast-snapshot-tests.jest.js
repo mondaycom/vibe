@@ -86,4 +86,15 @@ describe("Toast renders correctly", () => {
     const tree = renderer.create(<Toast hideIcon>Something Happened</Toast>).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with loading", () => {
+    const tree = renderer
+      .create(
+        <Toast open loading>
+          Something Happened
+        </Toast>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

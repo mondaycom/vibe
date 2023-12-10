@@ -1,11 +1,11 @@
-import { Link, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "vibe-storybook-components";
 
 export const TipEditableHeading = () => (
   <Tip title="Heading components are not editable">
-    Check out our
-    <Link href="/?path=/docs/inputs-editableheading--docs" size={Link.sizes.SMALL}>
+    Check out our{" "}
+    <StorybookLink page="Inputs/EditableHeading" size={StorybookLink.sizes.SMALL}>
       EditableHeading
-    </Link>
+    </StorybookLink>{" "}
     component if you would like to allow users to edit the title text.
   </Tip>
 );
