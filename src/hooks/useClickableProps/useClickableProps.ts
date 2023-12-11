@@ -1,6 +1,6 @@
 import { useKeyboardButtonPressedFunc } from "../useKeyboardButtonPressedFunc";
 import React, { useRef } from "react";
-import useMergeRefs from "../useMergeRefs";
+import useMergeRef from "../useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { ClickableProps } from "../../components/Clickable/Clickable";
@@ -32,7 +32,7 @@ export default function useClickableProps(
   const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
   const componentRef = useRef<HTMLElement | null>(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  const mergedRef = useMergeRef(ref, componentRef);
   // Remove when ariaHasPopup is no longer a string
   const overrideAriaHasPopup = ariaHasPopup === undefined ? undefined : !!ariaHasPopup;
 

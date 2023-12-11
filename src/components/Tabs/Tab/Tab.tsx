@@ -2,7 +2,7 @@
 import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon, { IconSubComponentProps } from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
@@ -52,7 +52,7 @@ const Tab: FC<TabProps> = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     function renderIconAndChildren() {
       if (!icon) return children;

@@ -9,7 +9,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
@@ -69,12 +69,13 @@ const List: VibeComponent<ListProps> & {
     },
     ref
   ) => {
-    const overrideId = useListId(id);
     const componentRef = useRef(null);
-    const [focusIndex, setFocusIndex] = useState(0);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const Component = component;
+    const mergedRef = useMergeRef(ref, componentRef);
     const childrenRefs: React.MutableRefObject<HTMLElement[]> = useRef([]);
+
+    const overrideId = useListId(id);
+    const [focusIndex, setFocusIndex] = useState(0);
+    const Component = component;
 
     const updateFocusedItem = useCallback((id: string) => {
       setFocusIndex(getListItemIndexById(childrenRefs, id));

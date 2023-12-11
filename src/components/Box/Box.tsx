@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import {
   BACKGROUND_COLORS,
   BackgroundColor,
@@ -126,7 +126,7 @@ const Box: VibeComponent<BoxProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     return React.createElement(
       elementType,
       {

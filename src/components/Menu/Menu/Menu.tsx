@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
@@ -79,9 +79,10 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
+    const ref = useRef(null);
+    const mergedRef = useMergeRef(ref, forwardedRef);
+
     const overrideId = useMenuId(id);
-    const ref = useRef<HTMLElement>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);

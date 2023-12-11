@@ -1,11 +1,12 @@
 import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
+import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
@@ -113,6 +114,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Specifies whether to render the component before or after the text
    */
   componentPosition?: (typeof MenuButtonComponentPosition)[keyof typeof MenuButtonComponentPosition];
+  /**
+   * Element to be used as the trigger element for the Menu - default is button
+   */
+  triggerElement?: React.ElementType;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -159,14 +164,17 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       hideWhenReferenceHidden = false,
       dialogContainerSelector,
       active,
+      triggerElement: TriggerElement = "button",
       "data-testid": dataTestId
     },
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
+
     const [isOpen, setIsOpen] = useState(open);
     const isActive = active ?? isOpen;
+
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         if (event && event.key === "Escape") {
@@ -281,6 +289,18 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
 
+    // Trigger element props, which are only relevant for "button" element, but might be needed for other elements e.g. Button
+    const triggerElementProps =
+      TriggerElement === "button"
+        ? {
+            ref: mergedRef
+          }
+        : {
+            active: isActive,
+            disabled: disabled,
+            ref: isForwardRef(TriggerElement) ? mergedRef : undefined
+          };
+
     return (
       <Tooltip
         content={overrideTooltipContent}
@@ -305,15 +325,13 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           useDerivedStateFromProps={true}
           onDialogDidShow={onDialogDidShow}
           onDialogDidHide={onDialogDidHide}
-          referenceWrapperClassName={styles.referenceIcon}
           zIndex={zIndex}
           isOpen={isOpen}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
         >
-          <button
+          <TriggerElement
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-            ref={mergedRef}
             type="button"
             className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
               [styles.active]: isActive,
@@ -326,11 +344,12 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             aria-label={!text && ariaLabel}
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
+            {...triggerElementProps}
           >
             {componentPosition === MenuButton.componentPositions.START && icon}
             {text && <span className={styles.innerText}>{text}</span>}
             {componentPosition === MenuButton.componentPositions.END && icon}
-          </button>
+          </TriggerElement>
         </Dialog>
       </Tooltip>
     );

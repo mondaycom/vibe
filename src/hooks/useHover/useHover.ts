@@ -1,9 +1,9 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 // Standard hook implementation https://usehooks.com/useHover/
-export default function useHover(): [MutableRefObject<HTMLElement>, boolean] {
+export default function useHover<T extends HTMLElement = HTMLElement>(): [MutableRefObject<T>, boolean] {
   const [value, setValue] = useState<boolean>(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
   const handleMouseOver = (): void => setValue(true);
   const handleMouseOut = (): void => setValue(false);
   useEffect(

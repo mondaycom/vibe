@@ -1,8 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
-import { ElementContent } from "../../../types/ElementContent";
-import { VibeComponentProps } from "../../../types";
+import { VibeComponentProps, ElementContent } from "../../../types";
 
 interface AccordionItemProps extends VibeComponentProps {
   /**
@@ -49,7 +48,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
   ) => {
     // Change onClick param name to onClickCallback in 1.0.0
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const onClickCallback = useCallback(() => {
       onClickAccordionCallback && onClickAccordionCallback();

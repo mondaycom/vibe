@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useMemo, useRef } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { TabPanelsAnimationDirection } from "./TabPanelsConstants";
 import { TabPanelProps } from "../TabPanel/TabPanel";
@@ -34,7 +34,7 @@ const TabPanels: FC<TabPanelsProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;

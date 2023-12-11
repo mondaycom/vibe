@@ -1,15 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import cx from "classnames";
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import cx from "classnames";
+import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
-import { isFunction } from "lodash-es";
 import Text from "../../Text/Text";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -19,8 +19,8 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
-import styles from "./MenuItem.module.scss";
 import Label from "../../Label/Label";
+import styles from "./MenuItem.module.scss";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -130,6 +130,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const popperElement = popperElementRef.current;
     const referenceElement = referenceElementRef.current;
     const childElement = childRef.current;
+    const mergedRef = useMergeRef(ref, referenceElementRef);
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
@@ -198,8 +199,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       },
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
-
-    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
