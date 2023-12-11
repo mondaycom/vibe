@@ -2,10 +2,9 @@
 import React from "react";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
-import { Activity, Bolt, Settings } from "../../../Icon/Icons";
+import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
-import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -70,6 +69,28 @@ export const Label = {
       pauseAnimationAtEnd: true
     }
   }
+};
+
+export const SubMenu = {
+  render: () => (
+    <Menu>
+      <MenuItem title="Opens on item hover">
+        <Menu tabIndex={0} id="sub-menu">
+          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on sub menu item 1")} />
+          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on sub menu item 2")} />
+          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on sub menu item 3")} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Opens on icon hover" splitMenuItem={true} onClick={() => alert("clicked on menu item")}>
+        <Menu tabIndex={0} id="sub-menu">
+          <MenuItem title="Sub menu item 1" onClick={() => alert("clicked on sub menu item 1")} />
+          <MenuItem title="Sub menu item 2" onClick={() => alert("clicked on sub menu item 2")} />
+          <MenuItem title="Sub menu item 3" onClick={() => alert("clicked on sub menu item 3")} />
+        </Menu>
+      </MenuItem>
+    </Menu>
+  ),
+  name: "Sub menu"
 };
 
 export const Overflow = {

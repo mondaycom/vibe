@@ -83,6 +83,7 @@ const Menu: VibeComponent<MenuProps> & {
     const mergedRef = useMergeRef(ref, forwardedRef);
 
     const overrideId = useMenuId(id);
+    const splitMenuItemIconButtonRef = useRef<HTMLElement>(null);
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
@@ -150,7 +151,12 @@ const Menu: VibeComponent<MenuProps> & {
       ref,
       useDocumentEventListeners
     });
-    useMouseLeave({ resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex: onSetActiveItemIndexCallback });
+    useMouseLeave({
+      resetOpenSubMenuIndex,
+      hasOpenSubMenu,
+      ref,
+      setActiveItemIndex: onSetActiveItemIndexCallback
+    });
     useFocusOnMount({
       focusItemIndexOnMount,
       focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
@@ -219,7 +225,8 @@ const Menu: VibeComponent<MenuProps> & {
                   shouldScrollMenu,
                   getNextSelectableIndex,
                   getPreviousSelectableIndex,
-                  isUnderSubMenu: isSubMenu
+                  isUnderSubMenu: isSubMenu,
+                  splitMenuItemIconButtonRef
                 })
               : null;
           })}
