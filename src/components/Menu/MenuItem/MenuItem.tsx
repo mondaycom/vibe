@@ -230,7 +230,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             kind={IconButton.kinds.TERTIARY}
             size={null} // Customizing size via className
             iconClassName={styles.iconButton}
-            onClick={() => {}}
             tabIndex={-1}
             ref={iconButtonElementRef}
             active={shouldShowSubMenu}
