@@ -1,4 +1,4 @@
-import { ForwardedRef, MutableRefObject, RefObject, useEffect, useRef } from "react";
+import { ForwardedRef, MutableRefObject, RefObject, useLayoutEffect, useRef } from "react";
 
 /*
  * Example usage:
@@ -16,7 +16,7 @@ import { ForwardedRef, MutableRefObject, RefObject, useEffect, useRef } from "re
 function useMergeRef<T>(...refs: (RefObject<T> | ForwardedRef<T> | null)[]): RefObject<T> {
   const mergedRef = useRef<T>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     refs.forEach(ref => {
       if (!ref) return;
 
