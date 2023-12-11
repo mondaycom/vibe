@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.71.0 (2023-12-11)
+
+#### New Features
+* [#1789](https://github.com/mondaycom/monday-ui-react-core/pull/1789) Yulia/extract add button and menu to mf/split menu item ([@YuliaGold](https://github.com/YuliaGold))
+
 ## 2.70.0 (2023-12-11)
 
 #### New Features
