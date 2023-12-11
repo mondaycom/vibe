@@ -5,6 +5,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { Button, Menu, MenuItem } from "../../index";
 import { DropdownChevronDown, Favorite, Moon, Sun } from "../../Icon/Icons";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
+import React, { useRef } from "react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
@@ -150,21 +151,25 @@ export const Disabled = {
 };
 
 export const CustomTriggerElement = {
-  render: () => (
-    <MenuButton
-      triggerElement={props => (
-        <Button kind={Button.kinds.SECONDARY} {...props} className={""}>
-          Button
-        </Button>
-      )}
-    >
-      <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
-        <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
-        <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
-      </Menu>
-    </MenuButton>
-  ),
+  render: () => {
+    const ref = useRef(null);
+
+    return (
+      <MenuButton
+        triggerElement={props => (
+          <Button kind={Button.kinds.SECONDARY} {...props} className={""} ref={ref}>
+            Button
+          </Button>
+        )}
+      >
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        </Menu>
+      </MenuButton>
+    );
+  },
 
   name: "Custom Trigger Element"
 };

@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement, useMemo, useRef } from "react";
 import { BASE_SIZES } from "../../constants";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
@@ -151,7 +151,7 @@ const Slider: React.FC<SliderProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const infixOptions = useMemo(
       () => ({ prefix, postfix, indicateSelection, selectionIndicatorWidth }),
       [prefix, postfix, indicateSelection, selectionIndicatorWidth]

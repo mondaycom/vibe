@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { FC, forwardRef, ReactElement, useCallback, useRef, useState } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Icon from "../Icon/Icon";
 import Heading from "../LegacyHeading/LegacyHeading";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
@@ -67,7 +67,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const [isOpen, setIsOpen] = useState(defaultOpenState);
     const isExpanded = open === undefined ? isOpen : open;

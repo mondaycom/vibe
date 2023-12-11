@@ -1,6 +1,6 @@
 import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabPanel.module.scss";
@@ -12,7 +12,7 @@ export interface TabPanelProps extends VibeComponentProps {
 
 const TabPanel: FC<TabPanelProps> = forwardRef(({ className, id, children, index, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  const mergedRef = useMergeRef(ref, componentRef);
 
   return (
     <div

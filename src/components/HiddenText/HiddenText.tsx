@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";
@@ -12,7 +12,7 @@ interface HiddenTextProps extends VibeComponentProps {
 const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(
   ({ text, className = "", id = "hiddenText", "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     return (
       <span

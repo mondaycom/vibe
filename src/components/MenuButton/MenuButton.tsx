@@ -1,11 +1,12 @@
 import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { camelCase } from "lodash-es";
+import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MenuButtonComponentPosition, MenuButtonSize } from "./MenuButtonConstants";
@@ -169,9 +170,11 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
+
     const [isOpen, setIsOpen] = useState(open);
     const isActive = active ?? isOpen;
+
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         if (event && event.key === "Escape") {
@@ -285,13 +288,17 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
     // Trigger element props, which are only relevant for "button" element, but might be needed for other elements e.g. Button
     const triggerElementProps =
       TriggerElement === "button"
-        ? {}
+        ? {
+            ref: mergedRef
+          }
         : {
             active: isActive,
-            disabled: disabled
+            disabled: disabled,
+            ref: isForwardRef(TriggerElement) ? mergedRef : undefined
           };
 
     return (
@@ -325,7 +332,6 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           <TriggerElement
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-            ref={mergedRef}
             type="button"
             className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
               [styles.active]: isActive,

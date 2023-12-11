@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { VibeComponent, VibeComponentProps } from "../../../types";
 import { ITableCellProps } from "../TableCell/TableCell";
-import { useMergeRefs } from "../../../hooks";
+import useMergeRef from "../../../hooks/useMergeRef";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import cx from "classnames";
@@ -19,7 +19,7 @@ export interface ITableRowProps extends VibeComponentProps {
 const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
   ({ highlighted, children, style, id, className, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [componentRef, ref] });
+    const mergedRef = useMergeRef(componentRef, ref);
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events

@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import Text from "../Text/Text";
 import styles from "./ListTitle.module.scss";
@@ -13,7 +13,7 @@ export interface ListTitleProps extends VibeComponentProps {
 const ListTitle: React.FC<ListTitleProps> = forwardRef(
   ({ className, id, children, tabIndex, "data-testid": dataTestId }, ref) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     return (
       <Text

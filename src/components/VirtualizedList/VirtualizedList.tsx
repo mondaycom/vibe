@@ -23,7 +23,7 @@ import {
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import {
   easeInOutQuint,
   getMaxOffset,
@@ -191,8 +191,8 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       scrollOffsetFinal: 0,
       animationStartTime: 0
     });
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
+    const mergedListRef = useMergeRef(virtualListRef, listRef);
 
     const animationData = animationDataRef.current;
     if (!animationData.initialized) {

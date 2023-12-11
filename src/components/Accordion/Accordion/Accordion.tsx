@@ -1,8 +1,8 @@
 import cx from "classnames";
 import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
-import styles from "./Accordion.module.scss";
+import useMergeRef from "../../../hooks/useMergeRef";
 import { VibeComponent, VibeComponentProps } from "../../../types";
+import styles from "./Accordion.module.scss";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -48,7 +48,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const [expandedItems, setExpandedItems] = useState(defaultIndex);
 

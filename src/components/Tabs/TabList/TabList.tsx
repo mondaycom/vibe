@@ -2,7 +2,7 @@ import cx from "classnames";
 import { camelCase } from "lodash-es";
 import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
@@ -34,7 +34,7 @@ const TabList: FC<TabListProps> = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
 

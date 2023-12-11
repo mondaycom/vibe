@@ -1,7 +1,7 @@
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, { forwardRef, RefObject, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor, ElementColor, getElementColor } from "../../utils/colors-vars-map";
@@ -10,12 +10,12 @@ import IconButton from "../IconButton/IconButton";
 import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType } from "../Avatar/AvatarConstants";
-import { SubIcon, VibeComponent, VibeComponentProps, ElementContent, withStaticProps } from "../../types";
+import { ElementContent, SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import useHover from "../../hooks/useHover/useHover";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
-import styles from "./Chips.module.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import styles from "./Chips.module.scss";
 
 const CHIPS_AVATAR_SIZE = 20;
 
@@ -98,10 +98,10 @@ interface ChipsProps extends VibeComponentProps {
   closeButtonAriaLabel?: string;
 }
 
-const Chips: VibeComponent<ChipsProps, HTMLElement> & {
+const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
   colors?: typeof ElementAllowedColor;
   avatarTypes?: typeof AvatarType;
-} = forwardRef<HTMLElement, ChipsProps>(
+} = forwardRef<HTMLDivElement, ChipsProps>(
   (
     {
       className,
@@ -146,10 +146,10 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
-    const [hoverRef, isHovered] = useHover();
+    const [hoverRef, isHovered] = useHover<HTMLDivElement>();
     const { isFocused } = useSetFocus({ ref: componentRef });
 
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef, hoverRef] });
+    const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef, hoverRef);
 
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
@@ -212,6 +212,7 @@ const Chips: VibeComponent<ChipsProps, HTMLElement> & {
     const wrapperProps = hasClickableWrapper
       ? {
           ...clickableProps,
+          ref: clickableProps.ref as RefObject<HTMLDivElement>,
           className: clickableClassName,
           style: backgroundColorStyle
         }

@@ -1,16 +1,16 @@
-import { camelCase } from "lodash-es";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "lodash-es";
+import cx from "classnames";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { BASE_SIZES, DialogPosition, SIZES } from "../../constants";
 import { ButtonType, Size } from "../Button/ButtonConstants";
-import { SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
 import { MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -48,9 +48,10 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
   tooltipMoveBy?: MoveBy;
+  children?: React.ReactNode;
 }
 
-const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.PropsWithChildren<unknown>> & {
+const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
   sizes?: typeof SIZES;
   kinds?: typeof ButtonType;
 } = forwardRef(
@@ -77,11 +78,12 @@ const ButtonGroup: React.ForwardRefExoticComponent<ButtonGroupProps & React.Prop
     },
     ref
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const inputRef = useRef();
+    const mergedRef = useMergeRef(ref, inputRef);
+
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
-    const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
 
     const onClick = useCallback(
       (option: ButtonGroupOption) => {

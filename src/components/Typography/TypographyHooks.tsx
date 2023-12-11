@@ -4,11 +4,11 @@ import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./Typography.module.scss";
 
-export function useEllipsisClass(ref: (node: HTMLElement) => void, ellipsis: boolean, maxLines: number) {
+export function useEllipsisClass(ref: MutableRefObject<HTMLElement>, ellipsis: boolean, maxLines: number) {
   let ellipsisClass;
   const overrideRef = (node: HTMLElement) => {
     node?.style.setProperty("--text-clamp-lines", maxLines.toString());
-    ref(node);
+    ref.current = node;
   };
 
   // If component contains ellipsis return the fit ellipsis class

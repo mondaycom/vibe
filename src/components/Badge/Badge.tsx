@@ -1,18 +1,18 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
-import { useMergeRefs } from "../../hooks";
+import { camelCase } from "lodash-es";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import styles from "./Badge.module.scss";
 import { BadgeAlignments, BadgeAnchor, BadgeType } from "./BadgeConstants";
 import Indicator, { IndicatorProps } from "./Indicator/Indicator";
 import Counter, { CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { IndicatorColor } from "./Indicator/IndicatorConstants";
 import { CounterColor } from "../Counter/CounterConstants";
-import { camelCase } from "lodash-es";
+import styles from "./Badge.module.scss";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   anchor?: BadgeAnchor;
@@ -49,7 +49,7 @@ const Badge: VibeComponent<BadgeProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const badgeClassNames = cx(
       styles.badge,
       getStyle(styles, camelCase(anchor as unknown as string)),

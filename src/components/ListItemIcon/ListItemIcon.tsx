@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Icon from "../Icon/Icon";
 import { LIST_ITEM_ICON_SIZE, ListItemIconMargin } from "./ListItemIconConstants";
 import { ListItemComponentType } from "../ListItem/ListItemConstants";
@@ -29,7 +29,7 @@ const ListItemIcon: VibeComponent<ListItemIconProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     return (
       <Component

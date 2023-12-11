@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { CSSProperties, forwardRef, Ref } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
@@ -104,7 +104,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       externalTabIndex: overrideExternalTabIndex
     });
 
-    const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
+    const mergedRef = useMergeRef(ref, iconRef);
 
     if (!icon) {
       return null;
