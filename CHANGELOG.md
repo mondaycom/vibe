@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.70.0 (2023-12-11)
+
+#### New Features
+* [#1793](https://github.com/mondaycom/monday-ui-react-core/pull/1793) Sergeyro/feature/menu button custom trigger ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.69.4 (2023-12-10)
 
 #### Bug Fixes
