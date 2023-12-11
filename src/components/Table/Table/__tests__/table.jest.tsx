@@ -113,6 +113,23 @@ describe("Table", () => {
       expect(tableBodyElement.textContent).toBe("Empty State");
     });
 
+    it("Should render empty state in case <TableBody /> has empty array children", () => {
+      const { getByRole } = render(
+        <Table {...tableBoilerplate}>
+          <TableBody>
+            {[].map(item => (
+              <TableRow key={item.id}>
+                <TableCell>Table Cell</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      );
+
+      const tableBodyElement = getByRole("rowgroup");
+      expect(tableBodyElement.textContent).toBe("Empty State");
+    });
+
     it("Should render table rows instead of empty state", () => {
       const { getByRole } = render(
         <Table {...tableBoilerplate}>
