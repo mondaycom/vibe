@@ -191,8 +191,6 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       isMouseEnterIconButton
     });
 
-    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
-
     useLayoutEffect(() => {
       if (useDocumentEventListeners) return;
 
