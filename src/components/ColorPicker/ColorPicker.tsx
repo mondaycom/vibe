@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import { BaseSizes } from "../../constants";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { ColorStyle } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
@@ -84,7 +84,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const onChange = useCallback(onSave, [onSave]);
 

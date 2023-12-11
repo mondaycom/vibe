@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import { RefObject, useLayoutEffect } from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
 
@@ -13,7 +13,7 @@ export default function useMenuItemMouseEvents({
   splitMenuItemIconButtonRef,
   splitMenuItem = false
 }: {
-  ref: React.RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement>;
   resetOpenSubMenuIndex: () => void;
   setSubMenuIsOpenByIndex: (index: number, isOpen: boolean) => void;
   isActive: boolean;

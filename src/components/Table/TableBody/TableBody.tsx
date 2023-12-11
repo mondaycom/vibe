@@ -42,7 +42,13 @@ const TableBody: VibeComponent<ITableBodyProps, HTMLDivElement> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_BODY, id)}
         role="rowgroup"
       >
-        {isLoading ? skeletonRender : isError ? errorState : children || emptyState}
+        {isLoading
+          ? skeletonRender
+          : isError
+          ? errorState
+          : !children || (Array.isArray(children) && children.length === 0)
+          ? emptyState
+          : children}
       </div>
     );
   }

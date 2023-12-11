@@ -1,13 +1,13 @@
 import React, { forwardRef, ReactElement } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
-import styles from "./Table.module.scss";
+import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { ITableHeaderProps } from "../TableHeader/TableHeader";
 import { ITableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowSizes } from "./TableConsts";
+import styles from "./Table.module.scss";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
@@ -45,7 +45,9 @@ interface ITableContext {
 
 export const TableContext = React.createContext<ITableContext>(null);
 
-const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
+const Table: VibeComponent<ITableProps, HTMLDivElement> & {
+  sizes?: typeof RowSizes;
+} = forwardRef(
   (
     {
       id,
@@ -57,7 +59,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
       dataState,
       style,
       children,
-      size = RowSizes.MEDIUM
+      size = Table.sizes.MEDIUM
     },
     ref
   ) => {
@@ -70,7 +72,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
      */
     const calculatedStyle = {
       "--table-grid-template-columns": gridTemplateColumns,
-      "--table-row-size": size == RowSizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
+      "--table-row-size": size == Table.sizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
       ...style
     } as React.CSSProperties;
 
@@ -86,4 +88,4 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> = forwardRef(
   }
 );
 
-export default Table;
+export default withStaticProps(Table, { sizes: RowSizes });

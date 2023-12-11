@@ -7,7 +7,8 @@ import Text from "../Text/Text";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps, VibeComponentProps, VibeComponent, ElementContent } from "../../types";
-import { useKeyEvent, useMergeRefs } from "../../hooks";
+import { useKeyEvent } from "../../hooks";
+import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType } from "./ListItemConstants";
 import styles from "./ListItem.module.scss";
@@ -85,7 +86,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
     ) => {
       const { updateFocusedItem } = useContext(ListContext);
       const componentRef = useRef(null);
-      const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+      const mergedRef = useMergeRef(ref, componentRef);
 
       useEffect(() => {
         if (selected) {

@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef } from "react";
 import TextField from "../TextField/TextField";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { SearchDefaultIconNames, SearchType } from "./SearchConstants";
 import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import SearchIcon from "../Icon/Icons/components/Search";
@@ -82,7 +82,7 @@ const Search: VibeComponent<SearchProps, unknown> & {
     },
     ref
   ) => {
-    const mergedRef = useMergeRefs({ refs: [ref, setRef] });
+    const mergedRef = useMergeRef(ref, setRef);
     return (
       <TextField
         id={id}

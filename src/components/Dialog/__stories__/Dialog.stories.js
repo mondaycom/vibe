@@ -475,7 +475,14 @@ export const HideTriggers = {
   },
 
   name: "Hide triggers",
-  play: closeTriggersInteractionSuite
+
+  play: closeTriggersInteractionSuite,
+
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
 };
 
 export const ControlledDialog = {

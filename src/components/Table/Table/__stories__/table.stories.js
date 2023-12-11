@@ -7,7 +7,6 @@ import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBod
 import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
-import { RowSizes } from "../TableConsts";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook";
 import {
   emailColumns,
@@ -194,10 +193,12 @@ export const Sizes = {
     ];
     const data = [
       {
+        id: 1,
         sentOn: "2020-01-01",
         subject: "Lorem ipsum dolor"
       },
       {
+        id: 2,
         sentOn: "2022-02-02",
         subject: "This is the subject"
       }
@@ -205,8 +206,8 @@ export const Sizes = {
     return (
       <>
         <Table
-          style={{ "margin-right": "15%" }}
-          size={RowSizes.MEDIUM}
+          style={{ marginRight: "15%" }}
+          size={Table.sizes.MEDIUM}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -231,7 +232,7 @@ export const Sizes = {
           </TableBody>
         </Table>
         <Table
-          size={RowSizes.LARGE}
+          size={Table.sizes.LARGE}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
           columns={columns}
@@ -260,7 +261,7 @@ export const Sizes = {
   },
   decorators: [
     Story => (
-      <span style={{ display: "flex", "align-items": "start", width: "100%" }}>
+      <span style={{ display: "flex", alignItems: "start", width: "100%" }}>
         <Story />
       </span>
     )

@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { DialogSize, DialogType } from "./DialogContentContainerConstants";
 import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -36,7 +36,7 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     return (
       <div

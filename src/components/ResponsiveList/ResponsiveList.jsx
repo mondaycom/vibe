@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import MenuButton from "../MenuButton/MenuButton";
 import useElementsOverflowingIndex from "../../hooks/useElementsOverflowingIndex";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -31,7 +31,7 @@ const ResponsiveList = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     const index = useElementsOverflowingIndex({
       ref: componentRef,
       children,

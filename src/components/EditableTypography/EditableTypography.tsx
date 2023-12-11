@@ -1,6 +1,6 @@
 import React, { ComponentType, forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { useMergeRefs } from "../../hooks";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import styles from "./EditableTypography.module.scss";
@@ -51,7 +51,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const [isEditing, setIsEditing] = useState(false);
     const [inputValue, setInputValue] = useState(value);

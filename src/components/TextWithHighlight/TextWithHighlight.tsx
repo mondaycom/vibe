@@ -3,7 +3,7 @@ import cx from "classnames";
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { DialogPosition } from "../../constants";
 import styles from "./TextWithHighlight.module.scss";
@@ -67,7 +67,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const textWithHighlights = useMemo(() => {
       if (!text || !highlightTerm || limit === 0) return text;

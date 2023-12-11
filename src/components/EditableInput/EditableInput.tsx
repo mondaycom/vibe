@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import autosize from "autosize";
 import useStyle from "../../hooks/useStyle";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import {
   isArrowDownEvent,
   isArrowLeftEvent,
@@ -93,7 +93,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
 
     // Refs
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     // Callbacks
     const autosizeIfNeeded = useCallback(() => {
