@@ -1,7 +1,7 @@
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -48,6 +48,7 @@ interface ButtonGroupProps extends VibeComponentProps {
   tooltipShowDelay?: number;
   tooltipContainerSelector?: string;
   tooltipMoveBy?: MoveBy;
+  children?: React.ReactNode;
 }
 
 const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
