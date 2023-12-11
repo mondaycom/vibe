@@ -13,7 +13,7 @@ import "./dropdown.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
-  enumPropNamesArray: ["size"],
+  enumPropNamesArray: ["size", "menuPosition", "menuPlacement"],
   actionPropsArray: [
     "onMenuOpen",
     "onMenuClose",
