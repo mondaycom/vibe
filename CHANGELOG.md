@@ -1,3 +1,7 @@
+0.1.204 / 2023-11-28
+====================
+  * Remove deprecated text-color-fixed-light and text-color-fixed-dark ([#260](https://github.com/mondaycom/monday-ui-style/issues/260))
+
 0.1.203 / 2023-11-23
 ====================
   * Add fixed-light-color and fixed-dark-color tokens ([#259](https://github.com/mondaycom/monday-ui-style/issues/259))
@@ -299,7 +303,3 @@
 0.1.159 / 2023-05-22
 ====================
   * change from const color to currentColor ([#202](https://github.com/mondaycom/monday-ui-style/issues/202))
-
-0.1.158 / 2023-05-21
-====================
-  * Icon request - Erase ([#201](https://github.com/mondaycom/monday-ui-style/issues/201))
