@@ -24,6 +24,7 @@ import { DropdownChevronRight } from "../../Icon/Icons";
 import { IconButton } from "../../index";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
+import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -62,6 +63,11 @@ export interface MenuItemProps extends VibeComponentProps {
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
+  /**
+   * Type of menu item with sub menu, which has two click/hover options-
+   *    1. click on the main menu item will trigger onClick
+   *    2. click/hover on icon button will open the sub menu
+   */
   splitMenuItem?: boolean;
 }
 
@@ -136,6 +142,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const referenceElement = referenceElementRef.current;
     const childElement = childRef.current;
 
+    const isMouseEnterMenuItem = useIsMouseEnter({ ref: referenceElementRef });
+    const isMouseEnterIconButton = useIsMouseEnter({ ref: iconButtonElementRef });
+
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
     const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
@@ -176,7 +185,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       isMouseEnter,
       closeMenu,
       useDocumentEventListeners,
-      splitMenuItem
+      splitMenuItem,
+      isMouseEnterMenuItem,
+      isMouseEnterIconButton
     });
 
     const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });

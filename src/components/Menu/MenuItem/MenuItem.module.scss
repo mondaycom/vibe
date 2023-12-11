@@ -44,12 +44,8 @@
 .subMenuIconWrapper .splitMenuItemIconButton {
   width: 34px;
   height: 30px;
-  --primary-background-hover-color: rgba(103, 104, 121, 0.1);
-
-  &:hover,
-  &:active {
-    background-color: var(--primary-background-hover-color);
-  }
+  --primary-background-hover-color: rgba(103, 104, 121, 0.1); // TODO Temp override for Tal changes - remove once token is changed
+  --primary-selected-color: rgba(103, 104, 121, 0.1); // Override for IconButton active color
 }
 
 .iconButton {
