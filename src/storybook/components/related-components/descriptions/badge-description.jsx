@@ -7,7 +7,7 @@ export const BadgeDescription = () => {
   const component = useMemo(
     () => (
       <Badge>
-        <Button>What's new</Button>
+        <Button>{"What's new"}</Button>
       </Badge>
     ),
     []
