@@ -45,6 +45,7 @@ function onwarn(message) {
     console.error("Circular dependency detected: ", message, "Build failed, exiting...");
     process.exit(1);
   }
+  console.warn(message);
 }
 
 function generateCssModulesMockName(name) {
