@@ -50,6 +50,7 @@ import { ExpandCollapseDescription } from "./descriptions/expand-collapse-descri
 import { TextDescription } from "./descriptions/text-description";
 import { VirtualizedListDescription } from "./descriptions/virtualized-list-description/virtualized-list-description";
 import { ColorPickerDescription } from "./descriptions/color-picker-description";
+import { BadgeDescription } from "./descriptions/badge-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -69,6 +70,7 @@ export const MENU = "menu";
 export const ATTENTION_BOX = "attention-box";
 export const ALERT_BANNER = "alert-banner";
 export const TOAST = "toast";
+export const BADGE = "badge";
 export const MULTI_STEP_INDICATOR = "wizard";
 export const TIPSEEN = "tipseen";
 export const TEXT_FIELD = "text-field";
@@ -120,6 +122,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [ATTENTION_BOX, <AttentionBoxDescription />],
   [ALERT_BANNER, <AlertBannerDescription />],
   [TOAST, <ToastDescription />],
+  [BADGE, <BadgeDescription />],
   [BUTTON, <ButtonDescription />],
   [TABS, <TabsDescription />],
   [BREADCRUBMS, <BreadcrumbsDescription />],
