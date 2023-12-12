@@ -112,9 +112,9 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   open?: boolean;
   /**
-   * Classname to be added to the content container
+   * Overwrites z-index of the tooltip
    */
-  wrapperClassName?: string;
+  zIndex?: number;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -153,8 +153,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     showOnDialogEnter: false,
     referenceWrapperClassName: "",
     addKeyboardHideShowTriggersByDefault: false,
-    open: false,
-    wrapperClassName: ""
+    open: false
   };
   constructor(props: TooltipProps) {
     super(props);
@@ -285,7 +284,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       animationType: AnimationType.EXPAND,
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
-      getDynamicShowDelay: this.getShowDelay,
+      getDynamicShowDelay: this.getShowDelay
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
