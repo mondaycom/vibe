@@ -106,7 +106,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               iconLabel={iconLabel}
             />
           )}
-          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.BOLD} className={styles.title}>
+          <Text type={Text.types.TEXT1} element="h5" weight={Text.weights.MEDIUM} className={styles.title}>
             {title}
           </Text>
         </Flex>
