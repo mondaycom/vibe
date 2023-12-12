@@ -21,7 +21,7 @@ import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import { DropdownChevronRight } from "../../Icon/Icons";
-import { IconButton } from "../../index";
+import IconButton from "../../IconButton/IconButton";
 import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
