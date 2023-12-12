@@ -18,7 +18,7 @@ export const BadgeDescription = () => {
       component={component}
       title="Badge"
       href="/?path=/docs/feedback-badge--docs"
-      description="When you want to have a indicator/counter on a child component"
+      description="Used to place an indicator / counter on a child component"
     />
   );
 };
