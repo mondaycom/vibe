@@ -181,6 +181,34 @@ export const WarningMessage = {
   name: "Warning message"
 };
 
+export const DarkMessage = {
+  render: () => {
+    const actions = useMemo(
+      () => [
+        {
+          type: Toast.actionTypes.BUTTON,
+          content: "Button"
+        }
+      ],
+      []
+    );
+
+    return (
+      <Toast
+        open
+        actions={actions}
+        type={Toast.types.DARK}
+        autoHideDuration={5000}
+        className="monday-storybook-toast_wrapper"
+      >
+        Dark message toast
+      </Toast>
+    );
+  },
+
+  name: "Dark message"
+};
+
 // TODO storybook 7 migration: toast isn't opening at the top of the page, but inside of the story instead
 export const FeedbackLoop = {
   render: () => {
