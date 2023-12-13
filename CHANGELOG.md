@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.72.0 (2023-12-13)
+
+#### New Features
+* [#1815](https://github.com/mondaycom/monday-ui-react-core/pull/1815) feat: <TipseenImage> add tipseenMediaClassName ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1806](https://github.com/mondaycom/monday-ui-react-core/pull/1806) docs(badge): add badge description on catelog page ([@Hossein-Mirazimi](https://github.com/Hossein-Mirazimi))
+* [#1811](https://github.com/mondaycom/monday-ui-react-core/pull/1811) docs(Dropdown): fix menuPosition & menuPlacement props in argsTable controls ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1813](https://github.com/mondaycom/monday-ui-react-core/pull/1813) build(Rollup): fail build if circular dependency detected ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1812](https://github.com/mondaycom/monday-ui-react-core/pull/1812) chore(MenuItem): fix circular dependency with IconButton's import ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.71.0 (2023-12-11)
 
 #### New Features
