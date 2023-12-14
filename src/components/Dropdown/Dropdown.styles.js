@@ -35,7 +35,7 @@ const getIndicatorBoxSize = size => {
 
 const getColor = () => {
   const color = getCSSVar("primary-text-color");
-  const backgroundColor = getCSSVar("primary-background-color");
+  const backgroundColor = getCSSVar("secondary-background-color");
   return { color, backgroundColor };
 };
 
