@@ -92,7 +92,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           justify={Flex.justify.START}
           align={Flex.align.CENTER}
           className={styles.titleContainer}
-          gap={Flex.gaps.SMALL}
+          gap={Flex.gaps.XS}
         >
           {!withoutIcon && (
             <Icon
@@ -102,7 +102,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
               clickable={false}
               icon={overrideIcon}
               ignoreFocusStyle
-              iconSize="24"
+              iconSize="20"
               iconLabel={iconLabel}
             />
           )}
