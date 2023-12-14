@@ -51,6 +51,7 @@ import { TextDescription } from "./descriptions/text-description";
 import { VirtualizedListDescription } from "./descriptions/virtualized-list-description/virtualized-list-description";
 import { ColorPickerDescription } from "./descriptions/color-picker-description";
 import { BadgeDescription } from "./descriptions/badge-description";
+import { IconDescription } from "./descriptions/icon-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -86,6 +87,7 @@ export const LINEAR_PROGRESS_BAR = "linear-progress-bar";
 export const HEADING = "heading";
 export const EDITABLE_HEADING = "editable-heading";
 export const EDITABLE_TEXT = "editable-text";
+export const ICON = "icon";
 export const ICON_BUTTON = "icon-button";
 export const MENU_BUTTON = "menu-button";
 export const CLICKABLE = "clickable";
@@ -134,6 +136,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [COMBOBOX, <ComboboxDescription />],
   [AVATAR, <AvatarDescription />],
   [AVATAR_GROUP, <AvatarGroupDescription />],
+  [ICON, <IconDescription />],
   [ICONS, <IconsDescription />],
   [STEPS, <StepsDescription />],
   [SPINNER, <SpinnerDescription />],
