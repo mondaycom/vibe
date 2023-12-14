@@ -1,3 +1,7 @@
+0.1.205 / 2023-12-11
+====================
+  * fix(icons): replace DoubleCheck icon ([#263](https://github.com/mondaycom/monday-ui-style/issues/263))
+
 0.1.204 / 2023-11-28
 ====================
   * Remove deprecated text-color-fixed-light and text-color-fixed-dark ([#260](https://github.com/mondaycom/monday-ui-style/issues/260))
@@ -299,7 +303,3 @@
     * fix tests
     * wip
     * wip
-
-0.1.159 / 2023-05-22
-====================
-  * change from const color to currentColor ([#202](https://github.com/mondaycom/monday-ui-style/issues/202))
