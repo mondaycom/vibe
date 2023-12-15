@@ -61,6 +61,21 @@
   }
 }
 
+.typeDark {
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
+
+  .closeButton {
+    color: var(--text-color-on-inverted);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-on-inverted);
+    border-color: var(--text-color-on-inverted);
+  }
+}
+
 // Animation
 .enterActive {
   animation-iteration-count: 1;

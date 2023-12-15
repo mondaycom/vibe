@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.73.0 (2023-12-14)
+
+#### New Features
+* [#1816](https://github.com/mondaycom/monday-ui-react-core/pull/1816) feat: Add Toast dark variation ([@shaharzil](https://github.com/shaharzil))
+* [#1791](https://github.com/mondaycom/monday-ui-react-core/pull/1791) style(Tooltip): Explicitly expose zIndex prop in component ([@lukasz-dudzinski](https://github.com/lukasz-dudzinski))
+
+#### Documentation
+* [#1820](https://github.com/mondaycom/monday-ui-react-core/pull/1820) docs: remove release section from readme ([@shaharzil](https://github.com/shaharzil))
+* [#1818](https://github.com/mondaycom/monday-ui-react-core/pull/1818) docs(icon): add icon description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
 ## 2.72.0 (2023-12-13)
 
 #### New Features
