@@ -42,7 +42,7 @@ export const VirtualizedGridDescription = () => {
       component={component}
       title="VirtualizedGrid"
       href="/?path=/docs/navigation-virtualizedgrid--docs"
-      description="VirtualizedList is a component which only renders visible grid items, it is a logic component and doesn't change and look and feel."
+      description="VirtualizedGrid is a component which only renders visible grid items, it is a logic component and doesn't change and look and feel."
     />
   );
 };
