@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.73.1 (2023-12-17)
+
+#### Bug Fixes
+* [#1821](https://github.com/mondaycom/monday-ui-react-core/pull/1821) fix: add background color to form components ([@talkor](https://github.com/talkor))
+* [#1814](https://github.com/mondaycom/monday-ui-react-core/pull/1814) fix(AttentionBox): fix layout and typography ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1824](https://github.com/mondaycom/monday-ui-react-core/pull/1824) docs(Chips): remove colors which we don't want devs to use from docs ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1825](https://github.com/mondaycom/monday-ui-react-core/pull/1825) docs: virtualized-list-description - fix import ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1819](https://github.com/mondaycom/monday-ui-react-core/pull/1819) docs(slider): add slider description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1822](https://github.com/mondaycom/monday-ui-react-core/pull/1822) chore: update monday-ui-style ([@talkor](https://github.com/talkor))
+
 ## 2.73.0 (2023-12-14)
 
 #### New Features
