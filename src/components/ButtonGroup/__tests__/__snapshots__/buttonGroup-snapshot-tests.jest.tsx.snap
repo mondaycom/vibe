@@ -21,6 +21,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -35,6 +36,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -49,6 +51,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -63,6 +66,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -92,6 +96,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -106,6 +111,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -120,6 +126,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -134,6 +141,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -163,6 +171,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -177,6 +186,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -191,6 +201,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -205,6 +216,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -234,6 +246,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -248,6 +261,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -262,6 +276,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -276,6 +291,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -305,6 +321,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -319,6 +336,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -333,6 +351,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -347,6 +366,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -376,6 +396,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -390,6 +411,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -404,6 +426,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -418,6 +441,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta
@@ -447,6 +471,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Alpha
@@ -461,6 +486,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Beta
@@ -475,6 +501,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Gamma
@@ -489,6 +516,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Delta

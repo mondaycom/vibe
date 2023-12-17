@@ -59,6 +59,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
         "width": "16px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -120,6 +121,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
         "width": "16px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -232,6 +234,7 @@ exports[`Chips renders correctly renders correctly with left custom renderer 1`]
         "width": "16px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -382,6 +385,7 @@ exports[`Chips renders correctly renders correctly with right custom renderer 1`
         "width": "16px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -505,6 +509,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
         "width": "16px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg

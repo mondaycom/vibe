@@ -86,6 +86,7 @@ exports[`MenuButton renders correctly with Button triggerElement 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
   type="button"
 >
   Button

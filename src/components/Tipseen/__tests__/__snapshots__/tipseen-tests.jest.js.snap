@@ -18,6 +18,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Dismiss
@@ -32,6 +33,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss - d
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Submit
@@ -58,6 +60,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Dismiss
@@ -72,6 +75,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Submit
@@ -98,6 +102,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Submit
@@ -185,6 +190,7 @@ Array [
                   "width": "24px",
                 }
               }
+              tabIndex={0}
               type="button"
             >
               <svg
@@ -274,6 +280,7 @@ exports[`Snapshot tests Tipseen tests renders correctly with floating variation 
                 "width": "24px",
               }
             }
+            tabIndex={0}
             type="button"
           >
             <svg
@@ -480,6 +487,7 @@ Array [
                   "width": "24px",
                 }
               }
+              tabIndex={0}
               type="button"
             >
               <svg

@@ -139,8 +139,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       blurOnMouseUp,
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
-      insetFocus,
-      tabIndex
+      insetFocus
     },
     ref
   ) => {
@@ -251,7 +250,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
-        tabIndex,
+        tabIndex: disabled ? -1 : 0,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
@@ -275,7 +274,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       id,
       onFocus,
       onBlur,
-      tabIndex,
       overrideDataTestId,
       onMouseDownClicked,
       disabled,

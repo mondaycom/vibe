@@ -129,6 +129,7 @@ exports[`Toast renders correctly when open is true 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -211,6 +212,7 @@ exports[`Toast renders correctly with button 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Undo 5
@@ -236,6 +238,7 @@ exports[`Toast renders correctly with button 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -336,6 +339,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       onFocus={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
+      tabIndex={0}
       type="button"
     >
       Undo 5
@@ -361,6 +365,7 @@ exports[`Toast renders correctly with button and link 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -472,6 +477,7 @@ exports[`Toast renders correctly with link 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -592,6 +598,7 @@ exports[`Toast renders correctly with loading 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg
@@ -685,6 +692,7 @@ exports[`Toast renders correctly with negative type 1`] = `
         "width": "32px",
       }
     }
+    tabIndex={0}
     type="button"
   >
     <svg

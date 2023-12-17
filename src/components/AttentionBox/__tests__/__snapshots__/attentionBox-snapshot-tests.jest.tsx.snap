@@ -386,6 +386,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
           "width": "32px",
         }
       }
+      tabIndex={0}
       type="button"
     >
       <svg
