@@ -39,6 +39,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;
 
+  // TODO: make finish button as default in next major
   const showFinishButton = useMemo(() => {
     if (!onFinish) {
       return;
