@@ -29,6 +29,7 @@
   border-color: var(--ui-border-color);
   border-radius: 50%;
   transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
+  background-color: var(--secondary-background-color);
 }
 
 input:checked + .control {

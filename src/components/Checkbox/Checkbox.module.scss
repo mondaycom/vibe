@@ -34,6 +34,7 @@ $checkbox-size: 16px;
   transition: transform var(--motion-productive-short) var(--motion-timing-enter);
   position: relative;
   overflow: hidden;
+  background-color: var(--secondary-background-color);
 }
 
 .checkbox:after {
