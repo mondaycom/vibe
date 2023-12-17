@@ -51,6 +51,7 @@ import { TextDescription } from "./descriptions/text-description";
 import { VirtualizedListDescription } from "./descriptions/virtualized-list-description/virtualized-list-description";
 import { ColorPickerDescription } from "./descriptions/color-picker-description";
 import { BadgeDescription } from "./descriptions/badge-description";
+import { SliderDescription } from "./descriptions/slider-description";
 import { IconDescription } from "./descriptions/icon-description";
 
 export const SPLIT_BUTTON = "split-button";
@@ -102,6 +103,7 @@ export const ACCORDION = "accordion";
 export const EXPAND_COLLAPSE = "expand-collapse";
 export const VIRTUALIZED_LIST = "virtualized-list";
 export const COLOR_PICKER = "color-picker";
+export const SLIDER = "slider";
 
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
@@ -141,6 +143,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [STEPS, <StepsDescription />],
   [SPINNER, <SpinnerDescription />],
   [SKELETON, <SkeletonDescription />],
+  [SLIDER, <SliderDescription />],
   [ICON_BUTTON, <IconButtonDescription />],
   [MENU_BUTTON, <MenuButtonDescription />],
   [LINEAR_PROGRESS_BAR, <LinearProgressBarDescription />],
