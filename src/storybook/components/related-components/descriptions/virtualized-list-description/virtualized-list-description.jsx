@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import VirtualizedList from "../../../../../components/VirtualizedList/VirtualizedList";
-import { generateItems } from "../../../../../components/VirtualizedGrid/__stories__/VirtualizedGrid.stories.helpers";
+import { generateItems } from "../../../../../components/VirtualizedList/__stories__/virtualizedList.stories.helpers";
 import styles from "./virtualizedList.module.scss";
 
 export const VirtualizedListDescription = () => {
