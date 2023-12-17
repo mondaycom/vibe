@@ -52,6 +52,7 @@ interface ChipsProps extends VibeComponentProps {
   iconClassName?: string;
   /** ClassName for left or right avatar */
   avatarClassName?: string;
+  // TODO Vibe 3.0: filter ElementAllowedColor.DARK_INDIGO, ElementAllowedColor.BLACKISH from colors which are valid for Chips
   color?: ElementColor;
   /** Size for font icon */
   iconSize?: number | string;
