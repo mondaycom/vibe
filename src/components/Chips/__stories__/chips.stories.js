@@ -92,30 +92,37 @@ export const Clickable = {
 };
 
 export const ChipsPalette = {
-  render: () => (
-    <Flex
-      style={{
-        width: "100%",
-        height: 300
-      }}
-      align={Flex.align.STRETCH}
-    >
-      {_chunk(Object.keys(Chips.colors), 7).map(colorChunk => {
-        return (
-          <Flex
-            direction={Flex.directions.COLUMN}
-            key={colorChunk}
-            justify={Flex.justify.SPACE_BETWEEN}
-            align={Flex.align.STRETCH}
-          >
-            {colorChunk.map(colorName => (
-              <Chips label={colorName} key={colorName} color={Chips.colors[colorName]} readOnly allowTextSelection />
-            ))}
-          </Flex>
-        );
-      })}
-    </Flex>
-  ),
+  render: () => {
+    const excludedColors = [Chips.colors.DARK_INDIGO, Chips.colors.BLACKISH];
+    const allowedColorsChunks = _chunk(
+      Object.keys(Chips.colors).filter(k => !excludedColors.includes(Chips.colors[k])),
+      7
+    );
+    return (
+      <Flex
+        style={{
+          width: "100%",
+          height: 300
+        }}
+        align={Flex.align.STRETCH}
+      >
+        {allowedColorsChunks.map(colorChunk => {
+          return (
+            <Flex
+              direction={Flex.directions.COLUMN}
+              key={colorChunk}
+              justify={Flex.justify.SPACE_BETWEEN}
+              align={Flex.align.STRETCH}
+            >
+              {colorChunk.map(colorName => (
+                <Chips label={colorName} key={colorName} color={Chips.colors[colorName]} readOnly allowTextSelection />
+              ))}
+            </Flex>
+          );
+        })}
+      </Flex>
+    );
+  },
 
   name: "Chips palette"
 };
