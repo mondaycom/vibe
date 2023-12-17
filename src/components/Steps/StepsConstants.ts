@@ -1,5 +1,6 @@
-export const NEXT_DESCRIPTION = "Next";
-export const BACK_DESCRIPTION = "Back";
+export const NEXT_TEXT = "Next";
+export const BACK_TEXT = "Back";
+export const FINISH_TEXT = "Finish";
 
 export enum StepsType {
   NUMBERS = "numbers",

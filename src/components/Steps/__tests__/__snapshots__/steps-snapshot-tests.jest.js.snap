@@ -44,7 +44,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -122,7 +122,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon backward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -160,7 +160,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -172,7 +172,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled forward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -215,7 +215,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled backward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -253,7 +253,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="command forward button sizeMedium kindTertiary colorPrimary"
+      className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -265,7 +265,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon icon forward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -311,7 +311,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon backward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -349,7 +349,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -361,7 +361,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled forward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -407,7 +407,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled backward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -445,7 +445,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="command forward button sizeMedium kindTertiary colorPrimary"
+      className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -457,7 +457,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon icon forward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -511,7 +511,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -555,7 +555,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon backward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -580,7 +580,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -592,7 +592,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled forward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -635,7 +635,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled backward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -660,7 +660,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="command forward button sizeMedium kindTertiary colorPrimary"
+      className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -672,7 +672,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon icon forward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -718,7 +718,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon backward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -743,7 +743,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="command forward button sizeMedium kindTertiary colorPrimary disabled"
+      className="command button sizeMedium kindTertiary colorPrimary disabled"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -755,7 +755,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled forward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -801,7 +801,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled backward"
+        className="icon icon disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -826,7 +826,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="command forward button sizeMedium kindTertiary colorPrimary"
+      className="command button sizeMedium kindTertiary colorPrimary"
       data-testid="steps-forward-command"
       onBlur={[Function]}
       onClick={[Function]}
@@ -838,7 +838,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon icon forward"
+        className="icon icon"
         data-testid="icon"
         fill="currentColor"
         height="16"

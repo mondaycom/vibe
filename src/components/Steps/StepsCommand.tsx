@@ -5,7 +5,7 @@ import NavigationChevronLeft from "../../components/Icon/Icons/components/Naviga
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import { BACK_DESCRIPTION, NEXT_DESCRIPTION } from "./StepsConstants";
+import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
@@ -32,7 +32,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
     if (buttonChildren) return buttonChildren;
-    return isNext ? NEXT_DESCRIPTION : BACK_DESCRIPTION;
+    return isNext ? NEXT_TEXT : BACK_TEXT;
   }, [isNext, buttonChildren]);
   const buttonBaseColor = isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined;
   const newStepIndex = isNext ? activeStepIndex + 1 : activeStepIndex - 1;
@@ -45,7 +45,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
     <Button
-      className={cx(styles.command, { [styles.forward]: isNext, [styles.backward]: !isNext })}
+      className={cx(styles.command, { [styles.backward]: !isNext })}
       data-testid={
         isNext ? ComponentDefaultTestId.STEPS_FORWARD_COMMAND : ComponentDefaultTestId.STEPS_BACKWARD_COMMAND
       }
@@ -62,9 +62,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
           clickable={false}
           className={cx(styles.icon, {
             [styles.disabled]: isDisabled,
-            [styles.onPrimary]: isOnPrimary,
-            [styles.forward]: isNext,
-            [styles.backward]: !isNext
+            [styles.onPrimary]: isOnPrimary
           })}
         />
       )}

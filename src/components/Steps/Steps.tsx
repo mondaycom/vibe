@@ -26,6 +26,8 @@ export interface StepsProps extends VibeComponentProps {
   areButtonsIconsHidden?: boolean;
   backButtonProps?: ButtonProps;
   nextButtonProps?: ButtonProps;
+  finishButtonProps?: ButtonProps;
+  onFinish?: (e: React.MouseEvent) => void;
 }
 
 const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
@@ -38,11 +40,13 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
       activeStepIndex = 0,
       type = StepsType.GALLERY,
       onChangeActiveStep = NOOP,
+      onFinish,
       isOnPrimary = false,
       areNavigationButtonsHidden = false,
       isContentOnTop = false,
       backButtonProps = {},
       nextButtonProps = {},
+      finishButtonProps = {},
       areButtonsIconsHidden = false
     },
     ref
@@ -66,7 +70,9 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           isOnPrimary={isOnPrimary}
           backButtonProps={backButtonProps}
           nextButtonProps={nextButtonProps}
+          finishButtonProps={finishButtonProps}
           areButtonsIconsHidden={areButtonsIconsHidden}
+          onFinish={onFinish}
           className={cx({
             [styles.contentOnTop]: isContentOnTop,
             [styles.contentOnBottom]: !isContentOnTop

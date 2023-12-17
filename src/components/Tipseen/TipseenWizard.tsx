@@ -5,15 +5,18 @@ import Button from "../../components/Button/Button";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 
+const FINISH_TEXT = "Got it";
+
 interface TipseenWizardProps extends StepsProps {
   title?: string;
   /**
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
+  onFinish?: (e: React.MouseEvent) => void;
 }
 
-const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, titleClassName, className, ...stepsProps }) => {
+const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, onFinish, titleClassName, className, ...stepsProps }) => {
   const overrideStepsProps = stepsProps as StepsProps;
   const nextButtonProps = useMemo(
     () => ({
@@ -25,6 +28,14 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, titleClassName, clas
   const backButtonProps = useMemo(
     () => ({
       size: Button.sizes.SMALL
+    }),
+    []
+  );
+  const finishButtonProps = useMemo(
+    () => ({
+      kind: Button.kinds.PRIMARY,
+      size: Button.sizes.SMALL,
+      children: FINISH_TEXT
     }),
     []
   );
@@ -42,6 +53,8 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, titleClassName, clas
         areButtonsIconsHidden
         backButtonProps={backButtonProps}
         nextButtonProps={nextButtonProps}
+        finishButtonProps={finishButtonProps}
+        onFinish={onFinish}
         {...overrideStepsProps}
       />
     </TipseenBasicContent>
