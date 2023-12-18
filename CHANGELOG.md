@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.73.2 (2023-12-18)
+
+#### Bug Fixes
+* [#1829](https://github.com/mondaycom/monday-ui-react-core/pull/1829) fix: update Feedback and DoubleCheck icons after monday-ui-style update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.73.1 (2023-12-17)
 
 #### Bug Fixes
