@@ -4,9 +4,9 @@ export interface ModalProps extends React.SVGAttributes<SVGElement> {
   size?: string | number;
 }
 
-const Modal: React.FC<ModalProps> = ({ size = "20" }) => {
+const Modal: React.FC<ModalProps> = ({ size }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size || "20"} height={size || "20"} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Icon / Platform / Modal">
         <path
           id="Vector"
