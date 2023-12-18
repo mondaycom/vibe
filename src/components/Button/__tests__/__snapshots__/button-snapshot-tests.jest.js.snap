@@ -16,7 +16,6 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -39,7 +38,6 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -57,7 +55,6 @@ exports[`Button renders correctly renders Button color- brand 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -75,7 +72,6 @@ exports[`Button renders correctly renders Button color- fixed-light 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -93,7 +89,6 @@ exports[`Button renders correctly renders Button color- negative 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -111,7 +106,6 @@ exports[`Button renders correctly renders Button color- on-inverted-background 1
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -129,7 +123,6 @@ exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -147,7 +140,6 @@ exports[`Button renders correctly renders Button color- positive 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -165,7 +157,6 @@ exports[`Button renders correctly renders Button color- primary 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -183,7 +174,6 @@ exports[`Button renders correctly renders Button kind- primary 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -201,7 +191,6 @@ exports[`Button renders correctly renders Button kind- secondary 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -219,7 +208,6 @@ exports[`Button renders correctly renders Button kind- tertiary 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -237,7 +225,6 @@ exports[`Button renders correctly renders Button size- large 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -255,7 +242,6 @@ exports[`Button renders correctly renders Button size- medium 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -273,7 +259,6 @@ exports[`Button renders correctly renders Button size- small 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -291,7 +276,6 @@ exports[`Button renders correctly renders correctly with callbacks 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -309,7 +293,6 @@ exports[`Button renders correctly renders correctly with className 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -327,7 +310,6 @@ exports[`Button renders correctly renders correctly with empty props 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -346,7 +328,6 @@ exports[`Button renders correctly renders correctly with id 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -364,7 +345,6 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -399,7 +379,6 @@ exports[`Button renders correctly renders correctly with props change ui 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button
@@ -417,7 +396,6 @@ exports[`Button renders correctly renders correctly with rightIcon 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseUp={[Function]}
-  tabIndex={0}
   type="button"
 >
   Button

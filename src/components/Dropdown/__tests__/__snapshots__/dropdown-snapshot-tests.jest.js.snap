@@ -1628,7 +1628,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     "width": "16px",
                   }
                 }
-                tabIndex={0}
                 type="button"
               >
                 <svg
@@ -1689,7 +1688,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                     "width": "16px",
                   }
                 }
-                tabIndex={0}
                 type="button"
               >
                 <svg
@@ -1753,7 +1751,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                       "width": "16px",
                     }
                   }
-                  tabIndex={0}
                   type="button"
                 >
                   <svg
@@ -2489,7 +2486,6 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                       "width": "16px",
                     }
                   }
-                  tabIndex={0}
                   type="button"
                 >
                   <svg
@@ -2719,7 +2715,6 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                       "width": "16px",
                     }
                   }
-                  tabIndex={0}
                   type="button"
                 >
                   <svg

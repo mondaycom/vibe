@@ -20,7 +20,6 @@ exports[`IconButton renders correctly with 1`] = `
       "width": "40px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -63,7 +62,6 @@ exports[`IconButton renders correctly with active 1`] = `
       "width": "40px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -117,7 +115,6 @@ exports[`IconButton renders correctly with aria label 1`] = `
         "width": "40px",
       }
     }
-    tabIndex={0}
     type="button"
   >
     <svg
@@ -204,7 +201,6 @@ exports[`IconButton renders correctly with empty props 1`] = `
       "width": "40px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -248,7 +244,6 @@ exports[`IconButton renders correctly with id 1`] = `
       "width": "40px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -291,7 +286,6 @@ exports[`IconButton renders correctly with size - large 1`] = `
       "width": "48px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -334,7 +328,6 @@ exports[`IconButton renders correctly with size - medium 1`] = `
       "width": "40px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -377,7 +370,6 @@ exports[`IconButton renders correctly with size - small 1`] = `
       "width": "32px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -420,7 +412,6 @@ exports[`IconButton renders correctly with size - xs 1`] = `
       "width": "24px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
@@ -463,7 +454,6 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
       "width": "16px",
     }
   }
-  tabIndex={0}
   type="button"
 >
   <svg
