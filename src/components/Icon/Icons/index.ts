@@ -234,5 +234,6 @@ export {default as Widgets} from './components/Widgets';
 export {default as Work} from './components/Work';
 export {default as Workflow} from './components/Workflow';
 export {default as Workspace} from './components/Workspace';
+export {default as Modal} from './components/Modal';
 /* tslint:enable */
 /* eslint-enable */

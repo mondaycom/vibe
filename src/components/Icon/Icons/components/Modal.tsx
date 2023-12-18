@@ -20,4 +20,6 @@ const Modal: React.FC<ModalProps> = ({ size = "20" }) => {
   );
 };
 
+Modal.displayName = "Modal";
+
 export default Modal;
