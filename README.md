@@ -15,7 +15,7 @@
 Install the component library
 
 ```
-$ npm install monday-ui-react-core
+npm install monday-ui-react-core
 ```
 
 ## Usage
