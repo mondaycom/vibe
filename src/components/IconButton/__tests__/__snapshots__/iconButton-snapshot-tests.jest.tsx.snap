@@ -158,6 +158,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
