@@ -71,6 +71,10 @@ interface BoxProps extends VibeComponentProps {
   paddingStart?: ValueOf<PaddingStart>;
   backgroundColor?: ValueOf<BackgroundColor>;
   textColor?: ValueOf<Color>;
+  /**
+   * TODO: make default in next major version
+   */
+  scrollable?: boolean;
 }
 
 const Box: VibeComponent<BoxProps> & {
@@ -121,7 +125,8 @@ const Box: VibeComponent<BoxProps> & {
       paddingBottom,
       paddingStart,
       textColor,
-      backgroundColor
+      backgroundColor,
+      scrollable
     },
     ref
   ) => {
@@ -134,7 +139,7 @@ const Box: VibeComponent<BoxProps> & {
         className: cx(
           styles.box,
           className,
-          { [DISABLED.DISABLED]: disabled },
+          { [DISABLED.DISABLED]: disabled, [styles.scrollable]: scrollable },
           border,
           borderColor,
           rounded,
