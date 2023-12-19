@@ -13,7 +13,7 @@ interface TipseenWizardProps extends StepsProps {
    * Classname for overriding TipseenTitle styles
    */
   titleClassName?: string;
-  onFinish?: (e: React.MouseEvent) => void;
+  onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, onFinish, titleClassName, className, ...stepsProps }) => {

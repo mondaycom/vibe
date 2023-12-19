@@ -27,7 +27,7 @@ export interface StepsProps extends VibeComponentProps {
   backButtonProps?: ButtonProps;
   nextButtonProps?: ButtonProps;
   finishButtonProps?: ButtonProps;
-  onFinish?: (e: React.MouseEvent) => void;
+  onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardRef(
