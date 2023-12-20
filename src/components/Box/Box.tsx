@@ -44,12 +44,12 @@ import {
   Shadow,
   DISABLED
 } from "./BoxConstants";
-import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 
 interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
-  children?: ReactElement | ReactElement[];
+  children?: ElementContent;
   disabled?: boolean;
   border?: ValueOf<Border>;
   borderColor?: ValueOf<BorderColor>;
