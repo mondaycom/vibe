@@ -18,7 +18,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export interface DialogProps extends VibeComponentProps {
   /**
-   * A Classname to be added to <spam> element which wraps the children
+   * A Classname to be added to <span> element which wraps the children
    */
   referenceWrapperClassName?: string;
   /**
