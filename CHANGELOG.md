@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.74.0 (2023-12-20)
+
+#### Bug Fixes
+* [#1827](https://github.com/mondaycom/monday-ui-react-core/pull/1827) fix: Remove fucos for disabled button ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1836](https://github.com/mondaycom/monday-ui-react-core/pull/1836) feat(Box): add a scrollable prop ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1830](https://github.com/mondaycom/monday-ui-react-core/pull/1830) docs(README): fix npm link ([@Yaronglp](https://github.com/Yaronglp))
+* [#1835](https://github.com/mondaycom/monday-ui-react-core/pull/1835) docs: RelatedComponents - fix icons-description.jsx href ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1834](https://github.com/mondaycom/monday-ui-react-core/pull/1834) fix: align <SplitButton> options in Catalog with overview example ([@neerajkumarc](https://github.com/neerajkumarc))
+
 ## 2.73.2 (2023-12-18)
 
 #### Bug Fixes
