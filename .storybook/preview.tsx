@@ -1,4 +1,6 @@
 import React from "react";
+import * as VibeComponents from "../src/components/index";
+import * as VibeIcons from "../src/components/Icon/Icons/index";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
@@ -93,6 +95,10 @@ const preview: Preview = {
           "Hooks"
         ]
       }
+    },
+    playground: {
+      playgroundStoryId: "playground",
+      components: { ...VibeComponents, VibeIcons }
     }
   },
   decorators: [
