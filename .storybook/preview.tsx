@@ -1,5 +1,6 @@
 import React from "react";
 import * as VibeComponents from "../src/components/index";
+import * as VibeComponentsNext from "../src/next";
 import * as VibeIcons from "../src/components/Icon/Icons/index";
 import { Preview } from "@storybook/react";
 import isChromatic from "chromatic/isChromatic";
@@ -98,7 +99,7 @@ const preview: Preview = {
     },
     playground: {
       playgroundStoryId: "playground",
-      components: { ...VibeComponents, VibeIcons }
+      components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext }
     }
   },
   decorators: [
