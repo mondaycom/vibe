@@ -12,7 +12,7 @@ export const Playground = {
   <div>
     <VibeNext.Heading>Online Playground</VibeNext.Heading>
     <VibeNext.Heading type="h3" color="secondary">
-      Prototype with actual components.
+      Prototype with actual components
     </VibeNext.Heading>
   </div>
   <div>
