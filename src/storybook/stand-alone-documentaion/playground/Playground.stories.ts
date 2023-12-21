@@ -8,7 +8,7 @@ export default {
 export const Playground = {
   args: {
     code: {
-      jsx: `<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      jsx: `<div className="container">
   <div>
     <VibeNext.Heading>Online Playground</VibeNext.Heading>
     <VibeNext.Heading type="h3" color="secondary">
@@ -26,7 +26,12 @@ export const Playground = {
   <div>
     <Button onClick={() => alert("isn't that nice?")}>Click me</Button>
   </div>
-</div>`
+</div>`,
+      css: `.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}`
     }
   }
 };
