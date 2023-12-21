@@ -3,6 +3,7 @@ import { SIZES } from "../../../constants/sizes";
 import React, {
   forwardRef,
   ReactElement,
+  ReactNode,
   useCallback,
   useEffect,
   useLayoutEffect,
