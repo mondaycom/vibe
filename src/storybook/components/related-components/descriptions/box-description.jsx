@@ -23,7 +23,7 @@ export const BoxDescription = () => {
       component={component}
       title="Box"
       href="/?path=/docs/layout-box--docs"
-      description="Box component serves as a wrapper component"
+      description="Box component serves as a wrapper component."
     />
   );
 };
