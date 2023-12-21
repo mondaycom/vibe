@@ -8,5 +8,6 @@ export enum ProgressBarStyle {
   SECONDARY = "secondary",
   POSITIVE = "positive",
   NEGATIVE = "negative",
+  WARNING= "warning",
   NONE = "none"
 }
