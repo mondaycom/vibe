@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.74.3 (2023-12-21)
+
+#### Internal Changes
+* [#1842](https://github.com/mondaycom/monday-ui-react-core/pull/1842) type: change menu children type ([@idoyana](https://github.com/idoyana))
+
 ## 2.74.2 (2023-12-20)
 
 #### Documentation
