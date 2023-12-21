@@ -48,7 +48,7 @@ export interface MenuProps extends VibeComponentProps {
   useDocumentEventListeners?: boolean;
   focusItemIndexOnMount?: number;
   shouldScrollMenu?: boolean;
-  children?: ReactElement | ReactElement[];
+  children?: ReactNode;
 }
 
 const Menu: VibeComponent<MenuProps> & {
