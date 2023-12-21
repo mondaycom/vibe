@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.74.4 (2023-12-21)
+
+#### Bug Fixes
+* [#1839](https://github.com/mondaycom/monday-ui-react-core/pull/1839) fix: change Box/Menu children types to ElementContent ([@talkor](https://github.com/talkor))
+
 ## 2.74.3 (2023-12-21)
 
 #### Internal Changes
