@@ -1,0 +1,35 @@
+.command {
+  display: flex;
+  align-items: center;
+}
+
+.backward {
+  &.command {
+    margin-right: var(--spacing-small);
+    flex-direction: row-reverse;
+  }
+  &.icon {
+    margin-right: 12px;
+  }
+}
+
+.forward {
+  &.command {
+    margin-left: var(--spacing-small);
+  }
+  &.icon {
+    margin-left: 12px;
+  }
+}
+
+.icon {
+  color: var(--icon-color);
+  width: 15.5px;
+  height: 15.5px;
+  &.disabled {
+    color: var(--disabled-text-color);
+  }
+  &.onPrimary {
+    color: var(--text-color-on-primary);
+  }
+}

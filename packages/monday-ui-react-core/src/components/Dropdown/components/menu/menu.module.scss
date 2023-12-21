@@ -1,0 +1,25 @@
+.dropdownMenuWrapper {
+  animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
+
+  &.withoutAnimation {
+    animation: none;
+  }
+}
+
+.dropdownMenuWrapperFixedPosition {
+  /* When inside a scrollable area, we want the menu to appear above the scrollable container (we set the specific position by js) */
+  position: fixed !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    z-index: -10000;
+    transform: translateY(var(--dropdown-menu-fadinY, -75px));
+  }
+  100% {
+    opacity: 1;
+    z-index: 999;
+    transform: translateY(0px);
+  }
+}

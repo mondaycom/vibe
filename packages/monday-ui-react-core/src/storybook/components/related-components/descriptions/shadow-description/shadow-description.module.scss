@@ -1,0 +1,19 @@
+@mixin shadow-box {
+  width: 40px;
+  height: 40px;
+  background-color: var(--sb-primary-background-color);
+  margin: 0 var(--sb-spacing-small);
+}
+
+.small-shadow {
+  box-shadow: var(--box-shadow-small);
+  @include shadow-box;
+}
+.medium-shadow {
+  box-shadow: var(--box-shadow-medium);
+  @include shadow-box;
+}
+.large-shadow {
+  box-shadow: var(--box-shadow-large);
+  @include shadow-box;
+}

@@ -1,0 +1,81 @@
+@use "../Clickable/Clickable.module" as clickable;
+@import "../../styles/typography";
+@import "../../styles/states";
+@import "../../styles/keyframes";
+
+.chips {
+  display: inline-flex;
+  overflow: hidden;
+  height: 24px;
+  border-radius: 4px;
+  padding: 0 8px;
+  align-items: center;
+  justify-content: center;
+  margin: var(--chips-margin, #{0 var(--spacing-xs)});
+  user-select: none;
+  @include smoothing-text;
+  color: var(--primary-text-color);
+  animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
+  &.border {
+    border: 1px solid var(--primary-background-color);
+  }
+  &.withUserSelect {
+    user-select: text;
+    cursor: text;
+  }
+
+  .label {
+    @include ellipsis();
+  }
+
+  &.noAnimation {
+    animation: none;
+  }
+
+  &.withClose {
+    padding-right: var(--spacing-xs);
+  }
+
+  .icon,
+  .avatar,
+  .customRenderer {
+    min-width: 18px;
+    &.left {
+      margin-right: var(--spacing-xs);
+    }
+    &.right {
+      margin-left: var(--spacing-xs);
+    }
+    &.close {
+      margin-left: var(--spacing-xs);
+      color: var(--primary-text-color);
+    }
+  }
+
+  &.disabled {
+    .icon {
+      color: var(--disabled-text-color);
+    }
+    .label {
+      color: var(--disabled-text-color);
+    }
+  }
+
+  &.defaultCursor {
+    cursor: default;
+  }
+
+  &.clickable {
+    @include clickable.clickable;
+    &.disabled {
+      @include clickable.clickable-disabled;
+    }
+    &.disableTextSelection {
+      @include clickable.clickable-disable-text-selection;
+    }
+  }
+}
+
+@include keyframe(chips-pop-in-emphasized) {
+  @include pop-in-emphasized();
+}

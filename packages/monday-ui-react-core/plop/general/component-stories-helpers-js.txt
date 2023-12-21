@@ -1,0 +1,11 @@
+import { Link, Tip } from "vibe-storybook-components";
+
+export const TipOtherComponent = () => (
+  <Tip title="Not what you were looking for?">
+    If you need other functionality, try using
+    <Link href="#" size={Link.sizes.SMALL}>
+      OtherComponent
+    </Link>
+    instead.
+  </Tip>
+);

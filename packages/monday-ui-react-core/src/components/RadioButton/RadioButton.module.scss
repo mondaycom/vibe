@@ -1,0 +1,96 @@
+.radioButton {
+  display: grid;
+  grid-template-columns: 1.5em auto;
+  grid-gap: 0.5em;
+  cursor: pointer;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  border: 0.1em solid;
+  box-sizing: border-box;
+  border-color: var(--ui-border-color);
+  border-radius: 50%;
+  transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
+  background-color: var(--secondary-background-color);
+}
+
+input:checked + .control {
+  border-color: var(--primary-color);
+  border-width: 0.3em;
+}
+
+input:checked + .labelAnimation {
+  animation-name: radioCheckedAnimation;
+  animation-duration: var(--motion-productive-medium);
+  animation-timing-function: var(--motion-timing-enter);
+  animation-fill-mode: forwards;
+}
+
+input:disabled + .control {
+  border: 0.5em solid;
+  border-color: var(--disabled-background-color);
+  border-radius: 50%;
+}
+
+input:checked:disabled + .control {
+  border: 0.3em solid;
+  border-color: var(--disabled-background-color);
+  background-color: var(--secondary-text-color);
+}
+
+.radioButton.disabled {
+  cursor: not-allowed;
+}
+
+.radioButton.disabled .label {
+  color: var(--disabled-text-color);
+}
+
+.inputContainer input:focus-visible + .control {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+  border-radius: 50%;
+}
+
+.radioButton:hover .inputContainer input:enabled:checked + .control {
+  border-color: var(--primary-hover-color);
+}
+
+.radioButton:hover .inputContainer input:enabled:not(:checked) + .control,
+.radioButton:focus-within .inputContainer input:enabled:not(:checked) + .control {
+  border-color: var(--primary-text-color);
+}
+
+@keyframes radioCheckedAnimation {
+  0% {
+    height: 1em;
+    width: 1em;
+  }
+  50% {
+    height: 0.8em;
+    width: 0.8em;
+  }
+  100% {
+    height: 1em;
+    width: 1em;
+  }
+}

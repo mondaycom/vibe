@@ -1,0 +1,1371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField renders correctly when disabled 1`] = `
+<div
+  aria-busy={false}
+  className="textField disabled"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={true}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly when loading 1`] = `
+<div
+  aria-busy={true}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="loaderContainer"
+      >
+        <div
+          className="loader"
+        >
+          <div
+            className="loaderContainer"
+            data-testid="loader"
+            role="alert"
+            title="loading"
+          >
+            <svg
+              aria-hidden={true}
+              className="circleLoaderSpinner loaderSvg"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                className="circleLoaderSpinnerPath"
+                cx="25"
+                cy="25"
+                fill="none"
+                r="20"
+                strokeWidth="5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly when readonly 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={true}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly when required 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={true}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with another type 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="password"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with className 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="testClassName input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with className 2`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="testClassName input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with date type 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="date"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with date-time type 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="datetime-local"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with icon 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input inputHasIcon"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      >
+        <span
+          aria-hidden={true}
+          aria-label=""
+          className="icon icon noFocusStyle fa fa-star"
+          data-testid="icon"
+          onClick={[Function]}
+          role="img"
+        />
+      </div>
+      <div
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with iconsNames 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with id 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_testId"
+        disabled={false}
+        id="testId"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_testId"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with labelIconName 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with large size 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeLarge"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with placeholder 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label="placeholder"
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder="placeholder"
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with role 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role="button"
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with secondaryIconName 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input inputHasIcon"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerHasIcon iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerHasIcon disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      >
+        <span
+          aria-hidden={true}
+          aria-label=""
+          className="icon icon noFocusStyle fa fa-star"
+          data-testid="icon"
+          onClick={[Function]}
+          role="img"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with showCharCount 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+    <div
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      data-testid="text"
+    >
+      <span
+        aria-label="Input char count"
+        className="counter"
+      >
+        0
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with validation 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall inputErrorValidation"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={true}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+    <div
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      data-testid="text"
+    >
+      <span
+        className="subTextContainerStatus"
+      >
+        error
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with value 1`] = `
+<div
+  aria-busy={false}
+  className="textField"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value="value"
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with wrapperClassName 1`] = `
+<div
+  aria-busy={false}
+  className="textField testClassName"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="inputWrapper wrapperSizeSmall"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input"
+        data-testid="text-field_input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+        value=""
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="clickable"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+      <div
+        className="clickable iconContainer iconContainerActive disableTextSelection"
+        data-testid="text-field-secondary-button_input"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="button"
+        tabIndex={-1}
+      />
+    </div>
+  </div>
+</div>
+`;

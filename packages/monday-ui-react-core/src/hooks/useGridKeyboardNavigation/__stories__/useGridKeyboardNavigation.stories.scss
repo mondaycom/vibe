@@ -1,0 +1,30 @@
+@import "~vibe-storybook-components/dist/mixins";
+
+.use-grid-keyboard-nav-comp-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  outline: none;
+  text-align: center;
+}
+
+.use-grid-keyboard-nav-item {
+  width: 60px;
+  margin: 6px;
+
+  &.active-item {
+    @include sb-focus-style-css();
+  }
+}
+
+.use-grid-keyboard-nav-controls {
+  display: flex;
+
+  & :not(:first-child) {
+    margin-left: var(--sb-spacing-medium);
+  }
+
+  input {
+    width: 60px;
+  }
+}

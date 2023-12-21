@@ -1,0 +1,27 @@
+.tableCellSkeletonWrapper {
+  height: 100%;
+
+  &.longText {
+    padding-inline-end: var(--spacing-large);
+  }
+
+  &.mediumText {
+    padding-inline-end: var(--spacing-xxxl);
+  }
+
+  .tableCellSkeleton {
+    height: 100%;
+
+    &.circle,
+    &.rectangle {
+      @supports (aspect-ratio: 1 / 1) {
+        width: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      @supports not (aspect-ratio: 1 / 1) {
+        width: 21px;
+      }
+    }
+  }
+}

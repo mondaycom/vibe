@@ -1,0 +1,9 @@
+@import "../../../../styles/typography";
+@import "../../../../styles/states";
+
+.comboboxCategory {
+  color: var(--placeholder-color);
+  display: flex;
+  align-items: center;
+  padding-top: var(--spacing-small);
+}

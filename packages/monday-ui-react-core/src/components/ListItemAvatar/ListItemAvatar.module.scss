@@ -1,0 +1,13 @@
+@import "../../styles/typography";
+
+.listItemAvatar {
+  display: flex;
+  align-items: center;
+  color: var(--primary-text-color);
+}
+
+.avatar {
+  width: 22px;
+  height: 22px;
+  margin-right: var(--spacing-small);
+}

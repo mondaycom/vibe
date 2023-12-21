@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle renders correctly renders correctly when disabled 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={true}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle selected disabled"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly when labels are hidden 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <div
+    aria-hidden="true"
+    className="toggle selected"
+    data-testid="toggle"
+  />
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly when selection defined by default selected (off)  1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={false}
+    checked={false}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle dummy-class-name notSelected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly when selection defined by default selected (on)  1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle dummy-class-name selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly when selection defined by isSelected (off) 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={false}
+    checked={false}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle dummy-class-name notSelected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly when selection defined by isSelected (on) 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle dummy-class-name selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    aria-controls="aria controls"
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly with empty props 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly with not default offOverrideText 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    TestOff
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly with not default onOverrideText 1`] = `
+<label
+  className="wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="hidden-switch toggleInput"
+    data-testid="toggle"
+    disabled={false}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="toggle selected"
+    data-testid="toggle"
+  />
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
+  >
+    TestOn
+  </span>
+</label>
+`;

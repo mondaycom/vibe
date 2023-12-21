@@ -1,0 +1,17 @@
+.bannerLink {
+  text-decoration: underline;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.bannerLinkTextColorOnPrimary {
+  color: var(--text-color-on-primary);
+}
+
+.bannerLinkTextColorOnInverted {
+  color: var(--text-color-on-inverted);
+}
+
+.marginLeft {
+  margin-left: var(--spacing-small);
+}

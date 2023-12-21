@@ -1,0 +1,33 @@
+.card-shadow-example {
+  border: 1px solid;
+  border-color: var(--sb-layout-border-color);
+  height: 317px;
+  width: 296px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sb-spacing-medium);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--box-shadow-medium);
+  }
+
+  &-title {
+    margin-top: var(--sb-spacing-medium);
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+  }
+
+  &-description {
+    margin-top: var(--sb-spacing-small);
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &-button {
+    margin-top: var(--sb-spacing-large);
+  }
+}

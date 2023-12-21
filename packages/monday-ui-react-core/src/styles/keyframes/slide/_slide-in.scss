@@ -1,0 +1,8 @@
+@mixin slide-in($main-translateY: -115px) {
+  0% {
+    transform: translateY($main-translateY);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

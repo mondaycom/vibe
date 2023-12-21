@@ -1,0 +1,70 @@
+.container,
+.overlay {
+  position: fixed;
+  inset: 0;
+}
+
+.container {
+  --monday-modal-z-index: 10000;
+  z-index: var(--monday-modal-z-index);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container[aria-hidden="true"] {
+  display: none;
+
+  .overlay {
+    background-color: transparent;
+    animation: overlay-fade-out 70ms var(--motion-timing-enter);
+  }
+}
+
+.overlay {
+  background-color: rgba(41, 47, 76, 0.7);
+  animation: overlay-fade-in 70ms var(--motion-timing-enter);
+}
+
+.dialog {
+  z-index: 2;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding-block: var(--spacing-large);
+  padding-inline: var(--spacing-xl);
+  border-radius: var(--border-radius-big);
+  box-shadow: var(--box-shadow-large);
+  background-color: var(--secondary-background-color);
+  max-height: 90vh;
+  max-width: 90vw;
+
+  &.default {
+    width: 520px;
+  }
+
+  &.full {
+    width: 100vw;
+  }
+
+  &.spacing {
+    gap: var(--spacing-medium);
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

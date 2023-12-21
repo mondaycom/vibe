@@ -1,0 +1,37 @@
+@import "../../../styles/typography";
+
+.title {
+  @include smoothing-text;
+  padding-block: 1px;
+}
+
+.titleCaption {
+  color: var(--icon-color);
+  margin: var(--spacing-small) 0;
+}
+
+.titleCaptionCenter {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.titleCaptionBottom,
+.titleCaptionTop {
+  padding-left: var(--spacing-small);
+}
+
+.titleCaptionBottom {
+  padding-bottom: var(--spacing-small);
+}
+
+.titleCaptionCenter::before,
+.titleCaptionCenter::after {
+  content: "";
+  flex-grow: 1;
+  background-color: var(--ui-border-color);
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+  margin: 0 var(--spacing-small);
+}

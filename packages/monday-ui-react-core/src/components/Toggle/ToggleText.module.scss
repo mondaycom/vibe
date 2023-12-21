@@ -1,0 +1,11 @@
+.text {
+  color: var(--primary-text-color);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.disabled {
+  color: var(--disabled-text-color);
+}

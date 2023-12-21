@@ -1,0 +1,22 @@
+.monday-storybook-colors-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_color-block {
+    height: 48px;
+    width: 48px;
+
+    &:first-child {
+      background-color: var(--sb-primary-color);
+    }
+
+    &:nth-child(2) {
+      background-color: var(--sb-primary-hover-color);
+    }
+
+    &:last-child {
+      background-color: var(--sb-primary-selected-color);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="textWithHighlightWrapper withEllipsis"
+  data-testid="text-with-highlight"
+>
+  
+</div>
+`;

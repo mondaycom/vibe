@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { CHIP, ICONS, LABEL } from "../../../storybook/components/related-components/component-description-map";
+import * as DividerStories from "./Divider.stories";
+
+<Meta of={DividerStories} />
+
+# Divider
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+Divider create separation between two UI elements
+
+<Canvas>
+  <Story of={DividerStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### Directions
+
+<Canvas>
+  <Story of={DividerStories.Directions} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[LABEL, ICONS, CHIP]} />

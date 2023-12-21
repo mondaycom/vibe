@@ -1,0 +1,8 @@
+.vibe-storybook-component-name {
+  color: var(--sb-text-color-fixed-dark);
+  background-image: url("./assets/component-background.png");
+
+  &--foundation {
+    background-image: url("./assets/foundation-background.png");
+  }
+}

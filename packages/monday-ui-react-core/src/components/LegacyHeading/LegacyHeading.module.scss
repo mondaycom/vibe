@@ -1,0 +1,70 @@
+@import "../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
+
+@include create-title-classes;
+@include create-text-classes;
+
+.headingComponent {
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-small);
+  min-width: 0;
+  @include heading-padding();
+}
+
+.headingComponent.multiLineEllipsis {
+  @include line-clamp(var(--heading-clamp-lines));
+}
+
+/* This is needed to support ellipsis in the middle of the word */
+
+.headingComponent.singleLineEllipsis {
+  @include ellipsis();
+}
+
+.headingComponent.suggestEditOnHover:hover {
+  cursor: text;
+  border: 1px solid;
+  border-color: var(--ui-border-color);
+}
+
+/* Override tags styles */
+
+.elementTypeH1 {
+  @include vibe-heading("h1", "normal");
+}
+
+.elementTypeH2.sizeLarge,
+.elementTypeH1.sizeSmall,
+.elementTypeH1.sizeMedium {
+  @include vibe-heading("h2", "normal");
+}
+
+.elementTypeH3.sizeLarge {
+  @include vibe-heading("h2", "light");
+}
+
+.elementTypeH2.sizeSmall,
+.elementTypeH2.sizeMedium,
+.elementTypeH3.sizeSmall,
+.elementTypeH3.sizeMedium,
+.elementTypeH4 {
+  @include vibe-heading("h3", "normal");
+}
+
+.elementTypeH5,
+.elementTypeP {
+  @include vibe-text("text1", "normal");
+}
+
+.elementTypeH6 {
+  @include vibe-text("text2", "normal");
+}
+
+.elementTypeSmall {
+  @include font-caption();
+}
+
+.elementTypeLink {
+  text-decoration: none;
+  color: var(--link-color);
+}

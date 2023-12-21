@@ -1,0 +1,11 @@
+.breadcrumbsBar ol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.breadcrumbsBar ol .separatorIcon {
+  color: var(--secondary-text-color);
+  flex-shrink: 0;
+}

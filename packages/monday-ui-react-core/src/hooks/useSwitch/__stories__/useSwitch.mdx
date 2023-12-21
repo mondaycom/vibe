@@ -1,0 +1,75 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import * as UseSwitchStories from "./useSwitch.stories";
+
+<Meta of={UseSwitchStories} />
+
+# useSwitch
+
+- [Overview](#overview)
+- [Variants](#variants)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Hook for controlling boolean state on components, e.g. Toggle, by exposing state and a handler
+
+<Canvas>
+  <Story of={UseSwitchStories.Overview} />
+</Canvas>
+
+## Variants
+
+### Disabled
+
+Hook can have argument of `isDisabled` to not allow trigger `onChange` (or the custom passed `onChange`) and change returned `isChecked` value.
+
+<Canvas>
+  <Story of={UseSwitchStories.Disabled} />
+</Canvas>
+
+### Default (initial) value
+
+Hook can have argument of `defaultChecked` to control the **_initial_** value returned from it.
+
+<Canvas>
+  <Story of={UseSwitchStories.Default} />
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="isChecked" type="boolean" description="Value to override the hook state." />
+    <FunctionArgument
+      name="defaultChecked"
+      type="boolean"
+      description="Value to override the hook initial state (init hook with 'true' instead of 'false')."
+    />
+    <FunctionArgument
+      name="onChange"
+      type="(value: boolean) => void"
+      description="Callback function to execute when hook 'change' triggered."
+    />
+    <FunctionArgument
+      name="isDisabled"
+      type="boolean"
+      description="Value that, if passed as 'true', prevents hook from trigger 'change' lifecycle."
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="isChecked" type="boolean" description="Returned value of current state." />
+    <FunctionArgument
+      name="onChange"
+      type="() => void"
+      description="Returned handler function to trigger the hook 'change' lifecycle."
+    />
+  </FunctionArgument>
+</FunctionArguments>

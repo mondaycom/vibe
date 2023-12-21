@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with disabled 1`] = `
+<div
+  aria-disabled={true}
+  className="typography primary start singleLineEllipsis text text2Normal listItem small disabled"
+  data-testid="list-item"
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  role="option"
+  tabIndex={0}
+/>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-disabled={false}
+  className="typography primary start singleLineEllipsis text text2Normal listItem small"
+  data-testid="list-item"
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  role="option"
+  tabIndex={0}
+/>
+`;
+
+exports[`renders correctly with selected 1`] = `
+<div
+  aria-disabled={false}
+  aria-selected={true}
+  className="typography primary start singleLineEllipsis text text2Normal listItem small selected"
+  data-testid="list-item"
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  role="option"
+  tabIndex={0}
+/>
+`;
+
+exports[`renders correctly with selected and disabled 1`] = `
+<div
+  aria-disabled={true}
+  aria-selected={true}
+  className="typography primary start singleLineEllipsis text text2Normal listItem small disabled"
+  data-testid="list-item"
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  role="option"
+  tabIndex={0}
+/>
+`;
+
+exports[`renders correctly with size 1`] = `
+<div
+  aria-disabled={false}
+  className="typography primary start singleLineEllipsis text text2Normal listItem large"
+  data-testid="list-item"
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  role="option"
+  tabIndex={0}
+/>
+`;

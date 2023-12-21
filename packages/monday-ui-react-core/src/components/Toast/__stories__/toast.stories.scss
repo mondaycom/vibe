@@ -1,0 +1,29 @@
+.monday-storybook-toast {
+  &_wrapper {
+    position: static;
+    transform: translate(0, 0);
+    // overriding margin for storybook wrapper
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  &_negative_rule {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  &_toast-line-wrapper {
+    position: static;
+    left: 0;
+    right: 0;
+    margin: 0;
+    transform: translate(0, 0);
+  }
+
+  &_box {
+    width: 390px;
+    // overriding margin for storybook wrapper
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}

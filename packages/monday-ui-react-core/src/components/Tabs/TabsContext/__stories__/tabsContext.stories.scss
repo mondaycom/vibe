@@ -1,0 +1,14 @@
+.tabs-context--wrapper {
+  height: 95vh;
+
+  .tab-panels--wrapper {
+    height: 80%;
+
+    .tab-panel--wrapper {
+      height: 100%;
+
+      padding: 8px;
+      background-color: var(--sb-primary-background-hover-color);
+    }
+  }
+}

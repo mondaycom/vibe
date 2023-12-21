@@ -1,0 +1,10 @@
+.monday-storybook-button {
+  &_icons {
+    display: flex;
+  }
+
+  &_on-color-button {
+    background: var(--sb-primary-color);
+    padding: 16px;
+  }
+}

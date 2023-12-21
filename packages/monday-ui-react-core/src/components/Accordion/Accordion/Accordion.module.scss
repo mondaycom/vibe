@@ -1,0 +1,18 @@
+.accordion {
+  height: fit-content;
+  border: 1px solid var(--ui-border-color);
+  box-sizing: border-box;
+  border-radius: var(--border-radius-small);
+}
+
+.accordion .accordionItemExpandCollapse {
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: var(--ui-border-color);
+}
+
+.accordion .accordionItemExpandCollapseLast {
+  border-bottom: none;
+}

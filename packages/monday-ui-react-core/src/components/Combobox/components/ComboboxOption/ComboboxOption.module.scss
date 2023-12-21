@@ -1,0 +1,48 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../../styles/states";
+$icon-margin: 4px;
+
+.comboboxOption {
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.comboboxOption.disabled {
+  cursor: not-allowed;
+  @include disabled;
+}
+
+.comboboxOption.selected {
+  background-color: var(--primary-selected-color);
+}
+
+.comboboxOption:hover:not(.disabled):not(.selected),
+.comboboxOption.active {
+  color: var(--primary-text-color);
+  background-color: var(--primary-background-hover-color);
+  position: relative;
+}
+
+.comboboxOption.activeOutline {
+  @include focus-style-css-inset();
+  background-color: var(--secondary-background-color);
+}
+
+.comboboxOption .optionLabel {
+  flex: 1 1 auto;
+  @include ellipsis();
+}
+
+.comboboxOption .optionIcon {
+  flex: 0 0 auto;
+}
+
+.comboboxOption .optionIcon.left {
+  margin-right: $icon-margin;
+}

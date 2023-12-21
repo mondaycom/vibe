@@ -1,0 +1,24 @@
+@import "../../../styles/typography";
+
+.tabPanelsWrapper .tabPanel {
+  display: none;
+}
+
+.tabPanelsWrapper .tabPanel.animationDirectionRtl {
+  transform: translateX(8px);
+}
+
+.tabPanelsWrapper .tabPanel.animationDirectionLtr {
+  transform: translateX(-8px);
+}
+
+.tabPanelsWrapper .tabPanel.active {
+  display: block;
+  animation: panelSlideIn var(--motion-productive-long) forwards var(--motion-timing-enter);
+}
+
+@keyframes panelSlideIn {
+  100% {
+    transform: translateX(0%);
+  }
+}

@@ -1,0 +1,41 @@
+.monday-storybook-loader {
+  &_color-variants {
+    &_on-primary {
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+
+      &--color {
+        &-black {
+          background: var(--sb-primary-text-color);
+        }
+
+        &-negative {
+          background: var(--sb-negative-color);
+        }
+
+        &-positive {
+          background: var(--sb-positive-color);
+        }
+
+        &-primary {
+          background: var(--sb-primary-color);
+        }
+      }
+    }
+  }
+
+  &_size-variants {
+    &_container {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &_dos-and-donts {
+    &_heading {
+      font-size: 32px !important;
+      margin-right: var(--sb-spacing-small) !important;
+    }
+  }
+}

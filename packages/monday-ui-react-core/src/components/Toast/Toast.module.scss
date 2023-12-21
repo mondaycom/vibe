@@ -1,0 +1,103 @@
+@import "../../styles/keyframes";
+
+.toast {
+  box-shadow: var(--box-shadow-medium);
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+  margin: var(--spacing-medium);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--spacing-small);
+  align-items: center;
+  display: flex;
+  min-width: 200px;
+  border-radius: var(--border-radius-small);
+  color: var(--fixed-light-color);
+}
+
+.icon {
+  display: flex;
+  margin-left: var(--spacing-small);
+}
+
+.content {
+  margin: 0 var(--spacing-small);
+  flex: 1;
+}
+
+.textContent {
+  display: inline-flex;
+  flex-grow: 1;
+}
+
+.typeNormal {
+  background-color: var(--primary-color);
+}
+
+.typePositive {
+  background-color: var(--positive-color);
+}
+
+.typeNegative {
+  background-color: var(--negative-color);
+}
+
+.typeWarning {
+  background-color: var(--warning-color);
+  color: var(--fixed-dark-color);
+
+  .closeButton {
+    color: var(--fixed-dark-color);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--fixed-dark-color);
+    border-color: var(--fixed-dark-color);
+  }
+}
+
+.typeDark {
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
+
+  .closeButton {
+    color: var(--text-color-on-inverted);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-on-inverted);
+    border-color: var(--text-color-on-inverted);
+  }
+}
+
+// Animation
+.enterActive {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: var(--motion-expressive-long);
+  animation-name: toast-slide-in-elastic;
+}
+.exitActive {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: var(--motion-productive-long);
+  animation-name: toast-slide-out;
+}
+
+.closeButton {
+  margin-left: var(--spacing-small);
+}
+
+@include keyframe(toast-slide-in-elastic) {
+  @include slide-in-elastic();
+}
+
+@include keyframe(toast-slide-out) {
+  @include slide-out();
+}

@@ -1,0 +1,26 @@
+@import "../../../styles/typography";
+
+.monday-storybook-tabs {
+  &_spacing {
+    padding-right: 30px;
+    padding-top: 20px;
+  }
+
+  &_bg-color {
+    width: 480px;
+    height: 111px;
+    margin-left: 40px;
+    background-color: var(--sb-disabled-background-color);
+    padding: 16px;
+  }
+
+  &_wrapper {
+    margin-left: 40px;
+  }
+
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+}

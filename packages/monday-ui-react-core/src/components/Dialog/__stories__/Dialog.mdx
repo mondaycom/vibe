@@ -1,0 +1,121 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import { AttentionBox, AttentionBoxLink } from "../../../components";
+import {
+  DIALOG_CONTENT_CONTAINER,
+  MENU,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
+import {
+  TipDevTipPopperJs,
+  TipDevTipTechnicalPattern,
+  TipDialogContentContainer,
+  TipModal
+} from "./Dialog.stories.helpers";
+import * as DialogStories from "./Dialog.stories";
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The dialog component's purpose is to position a popup component nearby another element, such as any kind of a button.
+Please be aware that the dialog component is not responsible for the appearance features of the popup, such as its background color or size.
+
+<Canvas>
+  <Story of={DialogStories.Overview} />
+</Canvas>
+
+<TipDialogContentContainer />
+
+## Props
+
+<PropsTable />
+
+<TipDevTipPopperJs />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Dialog can appear from top, bottom, left and right to an element",
+    "Usually, the dialog will be positioned next to the triggered element.",
+    <>
+      The Dialog component is mainly used to create customized menus that cannot be developed using the{" "}
+      <StorybookLink page="Navigation/Menu/Menu">Menu</StorybookLink> and{" "}
+      <StorybookLink page="Buttons/MenuButton">MenuButton</StorybookLink> components.
+    </>
+  ]}
+/>
+
+<AttentionBox title="Trying to implement your own customize menu?">
+  <>
+    Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such
+    as our <AttentionBoxLink href="/?path=/docs/navigation-menu-menu--docs" text="Menu component" />, because creating
+    an over-complicated UI can hurt user experience.
+  </>
+</AttentionBox>
+<br />
+<TipModal />
+
+## Variants
+
+### Positions
+
+<Canvas>
+  <Story of={DialogStories.Positions} />
+</Canvas>
+
+### Dialog show triggers
+
+We can choose what will be the related element's trigger which will be responsible for the dialog appearance
+
+<Canvas>
+  <Story of={DialogStories.ShowTriggers} />
+</Canvas>
+
+### Dialog hide triggers
+
+We can set the triggers which will be responsible for hide the dialog
+
+<Canvas>
+  <Story of={DialogStories.HideTriggers} />
+</Canvas>
+
+### Controlled Dialog
+
+Manage the open and close state of the dialog. Note that `isOpen` is used and `showTrigger` is set to `[]` to disable the default triggers.
+
+<Canvas>
+  <Story of={DialogStories.ControlledDialog} />
+</Canvas>
+
+### Dialog with tooltip
+
+Dialog has a <code>tooltip</code> prop which adds an arrow pointing toward the center of the reference element.
+
+<Canvas>
+  <Story of={DialogStories.DialogWithTooltip} />
+</Canvas>
+
+### Dialog prevent container scroll
+
+Prevent containerSelector scroll when dialog open
+
+<Canvas>
+  <Story of={DialogStories.DisableScrollWhenDialogOpen} />
+</Canvas>
+
+<TipDevTipTechnicalPattern />
+
+## Related components
+
+<RelatedComponents componentsNames={[MENU, TOOLTIP, DIALOG_CONTENT_CONTAINER]} />

@@ -1,0 +1,12 @@
+.tableHeader {
+  display: grid;
+  grid-template-columns: var(--table-grid-template-columns);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: inherit;
+
+  > * {
+    background-color: inherit;
+  }
+}

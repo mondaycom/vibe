@@ -1,0 +1,7 @@
+@import "../../styles/typography";
+
+.listTitle {
+  @include smoothing-text;
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-small);
+  border-radius: var(--border-radius-small);
+}

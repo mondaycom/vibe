@@ -1,0 +1,20 @@
+.modalDialogBadExample {
+  &.wrapper {
+    position: sticky !important;
+    transform: none !important;
+    bottom: 50% !important;
+  }
+
+  &.content {
+    margin-bottom: var(--sb-spacing-large);
+    margin-inline: var(--sb-spacing-large);
+  }
+
+  &.heading {
+    padding: 0;
+  }
+
+  &.footer {
+    width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+@import "~monday-ui-style/dist/mixins";
+
+.hidden-switch {
+  @include hidden-element();
+}

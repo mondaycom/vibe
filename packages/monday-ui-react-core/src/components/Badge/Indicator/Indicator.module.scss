@@ -1,0 +1,15 @@
+$indicator-size: 8px;
+
+.indicator {
+  width: $indicator-size;
+  height: $indicator-size;
+  border-radius: 50%;
+
+  &.primary {
+    background-color: var(--primary-color);
+  }
+
+  &.notification {
+    background-color: var(--negative-color);
+  }
+}

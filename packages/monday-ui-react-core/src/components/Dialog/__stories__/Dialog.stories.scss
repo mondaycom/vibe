@@ -1,0 +1,24 @@
+.monday-storybook-dialog {
+  &--story-padding {
+    padding-inline: var(--sb-spacing-small);
+    padding-block: 80px;
+  }
+
+  &--story-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 56px;
+  }
+
+  &_content-example {
+    padding: var(--sb-spacing-small);
+    width: 150px;
+  }
+
+  &_hide-triggers-story {
+    padding-inline: var(--sb-spacing-small);
+    .hide-triggers-button {
+      margin-block: 48px;
+    }
+  }
+}

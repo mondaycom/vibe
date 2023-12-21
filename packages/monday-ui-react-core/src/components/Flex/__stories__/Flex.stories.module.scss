@@ -1,0 +1,13 @@
+.multi-lines-story-search {
+  width: 200px;
+}
+
+.flex-chip {
+  margin: 0;
+}
+
+.story-container {
+  & > * {
+    margin-bottom: var(--sb-spacing-large);
+  }
+}

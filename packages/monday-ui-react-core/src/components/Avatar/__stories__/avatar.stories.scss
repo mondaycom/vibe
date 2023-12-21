@@ -1,0 +1,41 @@
+.monday-storybook-avatar {
+  &_multiple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    .multiple-avatar {
+      margin: -8px;
+    }
+  }
+
+  &_multiple-reverse {
+    display: flex;
+    align-items: flex-start;
+
+    .multiple-reverse-avatar {
+      margin: -5px;
+      &:first-child {
+        z-index: 2;
+      }
+      &:nth-child(2) {
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.text-formatted--large {
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.text-formatted--medium {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.text-formatted--small {
+  font-size: 10px;
+  font-weight: bold;
+}

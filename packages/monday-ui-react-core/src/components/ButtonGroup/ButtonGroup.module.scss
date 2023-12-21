@@ -1,0 +1,65 @@
+@import "../../styles/typography";
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.subTextContainer {
+  @include font-caption();
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsContainer .button {
+  border: 1px solid;
+  background-color: var(--primary-background-color);
+  border-color: var(--ui-border-color);
+}
+
+.buttonsContainer .button.activeButton {
+  z-index: 20;
+  background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
+}
+
+.buttonsContainer .button.activeButton:hover {
+  background-color: var(--primary-selected-color);
+}
+
+.optionText:not(.disabled) {
+  color: var(--primary-text-color);
+}
+
+.optionText:not(.disabled).selected {
+  z-index: 10;
+  color: var(--primary-text-color);
+}
+
+.kindTertiary .button {
+  border-color: transparent;
+}
+
+.kindTertiary .button:first-child {
+  border-color: transparent;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+}
+
+.button.disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+}
+
+.button.buttonDisabled {
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+  cursor: not-allowed;
+}

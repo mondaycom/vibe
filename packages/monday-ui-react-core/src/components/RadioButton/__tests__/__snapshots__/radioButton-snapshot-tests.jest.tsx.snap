@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton renders correctly when checked 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      checked={true}
+      className="input"
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when default checked 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={true}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when disabled 1`] = `
+<label
+  className="radioButton disabled"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={true}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when unchecked 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      checked={false}
+      className="input"
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with componentClassName 1`] = `
+<label
+  className="radioButton test-classname"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with empty props 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with name 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name="radiosName"
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with text 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  <span
+    className="typography primary start singleLineEllipsis text text2Normal"
+    data-testid="radio-button-label"
+  >
+    test text
+  </span>
+</label>
+`;
+
+exports[`RadioButton renders correctly with value 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value="optionValue"
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;

@@ -1,0 +1,168 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/typography";
+@import "../../styles/states";
+$checkbox-size: 16px;
+
+@mixin hover-selected {
+  background-color: var(--primary-hover-color);
+  border-color: transparent;
+}
+
+@mixin hover-unselected {
+  border-color: var(--secondary-text-color);
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: min-content;
+}
+
+.checkbox {
+  cursor: pointer;
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: $checkbox-size;
+  width: $checkbox-size;
+  border: 1px solid;
+  border-color: var(--ui-border-color);
+  border-radius: 2px;
+  transition: transform var(--motion-productive-short) var(--motion-timing-enter);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--secondary-background-color);
+}
+
+.checkbox:after {
+  content: " ";
+  background-color: transparent;
+  position: absolute;
+  height: $checkbox-size;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.checkbox:hover {
+  @include hover-unselected;
+}
+
+.icon {
+  width: 100%;
+  color: var(--text-color-on-primary);
+  visibility: hidden;
+}
+
+.label {
+  @include smoothing-text;
+  cursor: pointer;
+  user-select: none;
+  margin-inline-start: var(--spacing-small);
+}
+
+/* Since it is not possible to change the design of the checkbox according to the requirements using css, */
+/* we hide the checkbox and draw a new one instead. */
+/* In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected */
+.input {
+  @include hidden-element();
+}
+
+/* For any active attribute in the hidden checkbox, we will change the appearance of the checkbox we drew in its place. */
+
+.input:focus + .checkbox {
+  @include hover-unselected;
+}
+
+.input:focus:checked + .checkbox {
+  @include hover-selected;
+}
+
+.input:focus-visible + .checkbox {
+  outline: none;
+  border: 1px solid;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+  border-radius: 2px;
+}
+
+.input:checked:focus + .checkbox:after,
+.input:indeterminate:focus + .checkbox:after {
+  background-color: var(--primary-hover-color);
+}
+
+.input:checked + .checkbox,
+.input:indeterminate + .checkbox {
+  animation: checkboxGrowAnimation var(--motion-productive-short);
+}
+
+.input:checked + .checkbox,
+.input:indeterminate + .checkbox {
+  background-color: var(--primary-color);
+  border-color: transparent;
+}
+
+.input:checked + .checkbox:hover,
+.input:indeterminate + .checkbox:hover {
+  @include hover-selected;
+}
+
+.input:checked + .checkbox:hover:after,
+.input:indeterminate + .checkbox:hover:after {
+  background-color: var(--primary-hover-color);
+}
+
+.input:checked + .checkbox:after,
+.input:indeterminate + .checkbox:after {
+  content: " ";
+  background-color: var(--primary-color);
+  height: $checkbox-size;
+  transform: scaleX(0);
+  transition: transform var(--motion-productive-long);
+  transform-origin: right;
+  left: 0;
+}
+
+.input:checked + .checkbox > .icon,
+.input:indeterminate + .checkbox > .icon {
+  visibility: visible;
+}
+
+.input:checked:disabled + .checkbox:after,
+.input:indeterminate:disabled + .checkbox:after {
+  background-color: var(--disabled-background-color);
+}
+
+.input:disabled + .checkbox,
+.input:disabled + .checkbox:hover {
+  background-color: var(--disabled-background-color);
+  border-color: var(--ui-border-color);
+}
+
+.input:disabled + .checkbox .icon,
+.input:disabled + .checkbox:hover .icon {
+  color: var(--disabled-text-color);
+}
+
+.input:disabled + .checkbox,
+.input:disabled + .checkbox:hover {
+  cursor: not-allowed;
+}
+
+.input:disabled ~ .label {
+  cursor: not-allowed;
+  color: var(--disabled-text-color);
+}
+
+@keyframes checkboxGrowAnimation {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,19 @@
+.monday-storybook-welcome-contributor {
+  &_visual-element {
+    position: relative;
+    width: 100%;
+    height: 182px;
+    border-radius: var(--sb-border-radius-small);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &_image {
+    position: absolute;
+    bottom: 0;
+    width: 271px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+}

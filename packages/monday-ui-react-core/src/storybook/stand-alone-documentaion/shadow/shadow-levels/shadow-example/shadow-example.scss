@@ -1,0 +1,40 @@
+@mixin shadow-example-text {
+  font-size: var(--sb-small-text-font-size);
+  line-height: 22px;
+}
+.monday-storybook-shadow-example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_example {
+    width: 81px;
+    height: 81px;
+
+    &--xs {
+      box-shadow: var(--box-shadow-xs);
+    }
+
+    &--small {
+      box-shadow: var(--box-shadow-small);
+    }
+
+    &--medium {
+      box-shadow: var(--box-shadow-medium);
+    }
+
+    &--large {
+      box-shadow: var(--box-shadow-large);
+    }
+  }
+
+  &_title {
+    @include shadow-example-text;
+    font-weight: 500;
+    margin: var(--sb-spacing-small) 0;
+  }
+
+  &_code {
+    @include shadow-example-text;
+  }
+}

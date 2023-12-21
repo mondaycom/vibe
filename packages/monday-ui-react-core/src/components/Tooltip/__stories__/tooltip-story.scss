@@ -1,0 +1,17 @@
+.tooltip-empty-element {
+  &.bottom {
+    margin: 0 auto 48px 0;
+  }
+  &.right {
+    width: 1px;
+    height: 2px;
+    margin: 20px auto 0 0;
+  }
+  width: 89px;
+  height: 2px;
+  margin: 48px auto 0 0;
+}
+.width-20 {
+  width: 20%;
+  height: 80px;
+}

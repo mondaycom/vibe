@@ -1,0 +1,22 @@
+@import "../../../styles/typography";
+
+.menu {
+  margin: unset;
+  padding: unset;
+}
+
+.menu:focus {
+  outline: none;
+}
+
+.small {
+  width: 200px;
+}
+
+.medium {
+  width: 220px;
+}
+
+.large {
+  width: 240px;
+}

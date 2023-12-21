@@ -1,0 +1,70 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import @componentName@ from "../@componentName@";
+import { TipOtherComponent } from "./@componentName@.stories.helpers";
+import * as @componentName@Stories from "./@componentName@.stories";
+
+<Meta of={@componentName@Stories} />
+
+# @componentName@
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Please write here the component description
+
+<Canvas of={@componentName@Stories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
+
+<TipOtherComponent />
+
+## Variants
+
+### Story title 1
+
+Description of story 1
+
+<Canvas of={@componentName@Stories.Story1} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <@componentName@ />,
+        description: "Best practice description."
+      },
+      negative: {
+        component: <@componentName@ />,
+        description: "Bad practice description."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Story title 2
+
+Description of story 2
+
+<Canvas of={@componentName@Stories.Story2} />
+
+## Related components
+
+<RelatedComponents componentsNames={[]} />

@@ -1,0 +1,21 @@
+.row {
+  margin-bottom: var(--sb-spacing-xxl);
+}
+
+.video {
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
+.easingInformationBox {
+  max-width: 330px;
+
+  p {
+    margin-top: 0;
+    margin-bottom: var(--sb-spacing-small);
+
+    &:not(:last-child) {
+      margin-top: var(--sb-spacing-xxl);
+    }
+  }
+}

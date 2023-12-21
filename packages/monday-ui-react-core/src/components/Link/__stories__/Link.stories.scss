@@ -1,0 +1,15 @@
+.monday-storybook-link {
+  &_inline-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 40px;
+    width: max-content;
+    padding-top: 20px;
+  }
+
+  &_text {
+    font-size: 14px;
+    padding: 0 8px 2px 0;
+  }
+}

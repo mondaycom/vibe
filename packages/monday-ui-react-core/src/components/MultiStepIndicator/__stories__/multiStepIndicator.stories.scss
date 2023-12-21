@@ -1,0 +1,65 @@
+@import "../../../styles/typography";
+
+.monday-storybook-multiStepIndicator {
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &_row-wrapper {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+
+  &_title {
+    width: 140px;
+  }
+
+  &_size {
+    width: 700px;
+  }
+
+  &_big-size {
+    width: 100%;
+  }
+
+  &_small-size {
+    padding: 0;
+  }
+
+  &_spacing {
+    width: 400px;
+    height: 80px;
+    padding-bottom: 10px;
+    background-color: var(--sb-primary-background-color);
+    box-shadow: var(--box-shadow-medium);
+  }
+
+  &_box-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  &_line {
+    margin-left: -40px;
+    &_divider {
+      width: 120px;
+    }
+  }
+
+  &_overflow {
+    figure {
+      overflow: hidden;
+    }
+  }
+}
+
+.multi_step_indicator_compact {
+  width: 400px;
+}

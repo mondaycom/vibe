@@ -1,0 +1,27 @@
+.dialogContentContainer:focus {
+  outline: none;
+}
+
+.sizeSmall {
+  padding: var(--spacing-small);
+}
+
+.sizeMedium {
+  padding: var(--spacing-small);
+}
+
+.sizeLarge {
+  padding: var(--spacing-large);
+}
+
+.typePopover {
+  box-shadow: var(--box-shadow-medium);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--secondary-background-color);
+}
+
+.typeModal {
+  box-shadow: var(--box-shadow-large);
+  border-radius: var(--border-radius-big);
+  background-color: var(--primary-background-color);
+}

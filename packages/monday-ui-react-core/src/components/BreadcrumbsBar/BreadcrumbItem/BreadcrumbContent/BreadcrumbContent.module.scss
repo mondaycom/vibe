@@ -1,0 +1,62 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../../styles/states";
+
+.breadcrumbContent {
+  @include vibe-text(text2, normal);
+  color: var(--secondary-text-color);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+a.breadcrumbContent:hover {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+}
+
+.breadcrumbContent .breadcrumbText {
+  color: inherit;
+  margin: 0 4px;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.breadcrumbContent .breadcrumbIcon {
+  height: 14px;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.breadcrumbContent:focus {
+  outline: none;
+}
+
+.breadcrumbContent.clickable {
+  cursor: pointer;
+}
+
+.breadcrumbContent.clickable:hover,
+.breadcrumbContent:focus-within {
+  background-color: var(--primary-background-hover-color);
+  border-radius: 4px;
+}
+
+.breadcrumbContent.current {
+  color: var(--primary-text-color);
+  font-weight: 500;
+}
+
+.breadcrumbContent.disabled {
+  @include disabled;
+  pointer-events: none;
+}
+
+.breadcrumbContent.notClickable {
+  pointer-events: none;
+}

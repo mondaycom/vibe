@@ -1,0 +1,100 @@
+@import "../../../styles/typography";
+
+.monday-storybook-attention-box {
+  &--fixed-width {
+    width: 430px;
+  }
+
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  &_title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    display: block;
+  }
+
+  &_text {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 4px 0 10px;
+  }
+
+  &_row-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 52px;
+    align-content: flex-start;
+  }
+
+  &_inline-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_search-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px;
+    width: 380px;
+  }
+
+  &_box {
+    width: 340px;
+  }
+
+  &_search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  &_lable {
+    font-size: 14px;
+    padding-left: 5px;
+    margin-top: 4px;
+  }
+
+  &_inline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &_name {
+    font-size: 14px;
+
+    span {
+      color: var(--sb-secondary-text-color);
+    }
+  }
+
+  &_icon {
+    margin: 0 5px 0 8px;
+  }
+
+  &_info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_att-box {
+    width: 430px;
+    margin-top: 10px;
+  }
+}

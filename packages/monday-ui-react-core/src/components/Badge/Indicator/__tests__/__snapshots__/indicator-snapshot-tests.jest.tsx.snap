@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indicator renders correctly with a custom color 1`] = `
+<div
+  className="indicator primary"
+  data-testid="indicator"
+/>
+`;
+
+exports[`Indicator renders correctly with empty props 1`] = `
+<div
+  className="indicator notification"
+  data-testid="indicator"
+/>
+`;

@@ -1,0 +1,5 @@
+@import "~vibe-storybook-components/dist/mixins";
+
+.monday-storybook-intro {
+  @include sb-title-appearance;
+}

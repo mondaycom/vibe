@@ -1,0 +1,26 @@
+.base {
+  display: flex;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.disabled {
+  * {
+    pointer-events: none;
+  }
+  cursor: not-allowed !important;
+  opacity: var(--disabled-component-opacity);
+}
+
+.small {
+  padding: 0 var(--spacing-small);
+}
+
+.medium {
+  padding: 0 12px;
+}
+
+.large {
+  padding: 0 12px;
+}

@@ -1,0 +1,16 @@
+.divider-description {
+  &-container {
+    display: flex;
+    align-items: center;
+    height: 200px;
+  }
+
+  &-text {
+    margin-right: var(--sb-spacing-large);
+    align-self: center;
+  }
+
+  &-horizontal {
+    margin: 0 auto !important;
+  }
+}

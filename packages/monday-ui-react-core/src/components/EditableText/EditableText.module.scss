@@ -1,0 +1,10 @@
+@import "../../styles/typography";
+@import "~monday-ui-style/dist/mixins";
+
+@include create-text-classes;
+
+.editableText {
+  .typography {
+    min-width: 56px;
+  }
+}

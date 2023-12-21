@@ -1,0 +1,21 @@
+@import "~monday-ui-style/dist/mixins";
+
+$principles-cell-min-width: $grid-auto-fit-cell-width-medium;
+$principles-column-gap: var(--sb-spacing-large);
+$principles-row-gap: var(--sb-spacing-xxxl);
+$principles-grid-cell-array-calc: calc(25% - #{$principles-column-gap});
+
+.monday-storybook-principles {
+  margin-top: var(--sb-spacing-between-section-items);
+
+  @include grid-auto-fit(
+    $grid-column-gap: $principles-column-gap,
+    $grid-row-gap: $principles-row-gap,
+    $grid-cell-min-width: $principles-cell-min-width,
+    $grid-cell-array-calc: $principles-grid-cell-array-calc
+  );
+
+  * img {
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsContext renders correctly with activeTabId 1`] = `
+<div
+  data-testid="tabs-context"
+>
+  <div
+    className="tabsWrapper compact"
+    data-testid="tab-list"
+  >
+    <ul
+      className="tabsList"
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={false}
+        className="tabWrapper tabListTabWrapper"
+        data-testid="tab"
+        role="tab"
+      >
+        <a
+          className="tabInner tabListTabInner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tabWrapper tabListTabWrapper active"
+        data-testid="tab"
+        role="tab"
+      >
+        <a
+          className="tabInner tabListTabInner"
+          onClick={[Function]}
+        >
+          Second
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tabPanelsWrapper"
+    data-testid="tab-panels"
+  >
+    <div
+      className="tabPanelWrapper tabPanel non-active"
+      data-testid="tab-panel"
+      role="tabpanel"
+    >
+      First slide
+    </div>
+    <div
+      className="tabPanelWrapper tabPanel active animationDirectionRtl"
+      data-testid="tab-panel"
+      role="tabpanel"
+    >
+      Second slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with className 1`] = `
+<div
+  className="test"
+  data-testid="tabs-context"
+>
+  <div
+    className="tabsWrapper compact"
+    data-testid="tab-list"
+  >
+    <ul
+      className="tabsList"
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tabWrapper tabListTabWrapper active"
+        data-testid="tab"
+        role="tab"
+      >
+        <a
+          className="tabInner tabListTabInner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tabPanelsWrapper"
+    data-testid="tab-panels"
+  >
+    <div
+      className="tabPanelWrapper tabPanel active animationDirectionRtl"
+      data-testid="tab-panel"
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with empty props 1`] = `
+<div
+  data-testid="tabs-context"
+>
+  <div
+    className="tabsWrapper compact"
+    data-testid="tab-list"
+  >
+    <ul
+      className="tabsList"
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tabWrapper tabListTabWrapper active"
+        data-testid="tab"
+        role="tab"
+      >
+        <a
+          className="tabInner tabListTabInner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tabPanelsWrapper"
+    data-testid="tab-panels"
+  >
+    <div
+      className="tabPanelWrapper tabPanel active animationDirectionRtl"
+      data-testid="tab-panel"
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with id 1`] = `
+<div
+  data-testid="tabs-context_test"
+  id="test"
+>
+  <div
+    className="tabsWrapper compact"
+    data-testid="tab-list"
+  >
+    <ul
+      className="tabsList"
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tabWrapper tabListTabWrapper active"
+        data-testid="tab"
+        role="tab"
+      >
+        <a
+          className="tabInner tabListTabInner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tabPanelsWrapper"
+    data-testid="tab-panels"
+  >
+    <div
+      className="tabPanelWrapper tabPanel active animationDirectionRtl"
+      data-testid="tab-panel"
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;

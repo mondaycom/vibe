@@ -1,0 +1,47 @@
+@import "../../styles/typography";
+
+.tipseenWrapper {
+  min-width: 100px;
+  min-height: 40px;
+  --tooltip-padding: 0;
+  --tooltip-border-radius: var(--border-radius-medium);
+
+  &WithoutCustomWidth {
+    --tooltip-max-width: 320px;
+  }
+
+  &.floating {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: var(--spacing-medium);
+    margin-right: var(--spacing-medium);
+  }
+
+  .tipseen {
+    &Header {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &Title {
+      padding: var(--spacing-medium) var(--spacing-medium) 0 var(--spacing-medium);
+    }
+
+    &Content {
+      margin: 0;
+      @include smoothing-text;
+    }
+
+    &CloseButton {
+      position: absolute;
+      top: var(--spacing-xs);
+      right: var(--spacing-xs);
+      z-index: 2;
+
+      &.dark {
+        color: var(--color-asphalt);
+      }
+    }
+  }
+}

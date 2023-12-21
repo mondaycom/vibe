@@ -1,0 +1,53 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../styles/typography";
+
+.recycleBin {
+  border: 1px solid var(--sb-ui-border-color);
+  border-radius: var(--sb-border-radius-small);
+  @include vibe-text(text1, normal);
+  height: 94px;
+
+  &TitleContainer {
+    border-inline-end: 1px solid var(--sb-ui-border-color);
+    width: 96px;
+    height: 100%;
+    color: var(--sb-icon-color);
+  }
+
+  &Title {
+    margin: 0;
+  }
+
+  &Content {
+    flex-grow: 1;
+  }
+
+  &SubNote {
+    @include label-text;
+  }
+
+  &TimeStamp {
+    font-weight: 500;
+  }
+
+  &RestoreButton {
+    margin-inline-end: var(--sb-spacing-large);
+  }
+}
+
+.dashboard {
+  border: 1px solid var(--sb-layout-border-color);
+  border-radius: var(--sb-border-radius-medium);
+
+  &Header {
+    padding-inline-start: var(--sb-spacing-small);
+    height: 49px;
+    width: 100%;
+    border-bottom: 1px solid var(--sb-layout-border-color);
+  }
+  &Content {
+    height: 200px;
+    width: 100%;
+    background-color: var(--sb-primary-background-hover-color);
+  }
+}

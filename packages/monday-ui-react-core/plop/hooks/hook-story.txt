@@ -1,0 +1,41 @@
+import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
+import { Canvas, Meta } from "@storybook/addon-docs";
+import * as {{properCase hookName}}Stories from "./{{camelCase hookName}}.stories";
+
+<Meta of={@properCase_hookName@Stories} />
+
+# {{camelCase hookName}}
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+
+Please write here the component description
+
+<Canvas of={@properCase_hookName@Stories.Overview} />
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="value" type="any" description="Example of required argument." required />
+    <FunctionArgument name="value" type="number" description="Example of non-required number argument." />
+    <FunctionArgument name="value" type="string" description="Example of non-required string argument." />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="result" type="any" description="Hook return value." />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />

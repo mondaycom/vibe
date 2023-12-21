@@ -1,0 +1,48 @@
+.storybook-counter {
+  &_column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 90px;
+    gap: 30px;
+    width: 100px;
+    margin-right: 160px;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 28px;
+    height: 105px;
+    gap: 16px;
+  }
+
+  &_icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &_usage-link-line {
+    display: flex;
+  }
+
+  &_position {
+    position: relative;
+  }
+
+  &_counter-position-top {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+
+  &_counter-position-bot {
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+  }
+}

@@ -1,0 +1,7 @@
+@import "~monday-ui-style/dist/mixins";
+
+.container {
+  flex-grow: 1;
+  overflow: auto;
+  @include scroller();
+}

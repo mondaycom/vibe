@@ -1,0 +1,42 @@
+@import "~monday-ui-style/dist/mixins";
+
+.toggle {
+  @include reset-button();
+  transition: background-color var(--motion-productive-medium) var(--motion-timing-transition);
+  margin: 0 var(--spacing-small);
+  position: relative;
+  height: 24px;
+  width: 41px;
+  cursor: pointer;
+  border-radius: 100px !important;
+
+  &::after {
+    background-color: var(--primary-background-color);
+    content: " ";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: calc(50% - 18px / 2);
+    transition: left var(--motion-productive-medium) var(--motion-timing-transition);
+  }
+
+  &.selected {
+    background-color: var(--primary-color);
+    &::after {
+      left: 20px;
+    }
+  }
+
+  &.notSelected {
+    background-color: var(--ui-border-color);
+    &::after {
+      left: 3px;
+    }
+  }
+
+  &.disabled {
+    opacity: var(--disabled-component-opacity);
+    cursor: not-allowed;
+  }
+}

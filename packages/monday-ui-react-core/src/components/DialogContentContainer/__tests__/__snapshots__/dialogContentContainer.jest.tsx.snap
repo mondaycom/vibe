@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with data-testid 1`] = `
+<div
+  aria-describedby=""
+  aria-labelledby=""
+  className="dialogContentContainer typePopover sizeMedium"
+  data-testid="test"
+  role="dialog"
+/>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-describedby=""
+  aria-labelledby=""
+  className="dialogContentContainer typePopover sizeMedium"
+  data-testid="dialog-content-container"
+  role="dialog"
+/>
+`;

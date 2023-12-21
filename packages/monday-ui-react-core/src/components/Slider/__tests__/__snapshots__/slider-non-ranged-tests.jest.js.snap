@@ -1,0 +1,378 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a. Non-ranged Slider: basic renderer 1`] = `
+<div
+  class="slider"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 0%; width: 20%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-label="my-slider"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
+        aria-valuetext="20%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 20%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 01. show Tooltip when hover Thumb 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
++       <span
++         class="monday-style-dialog-content-wrapper contentWrapper"
++         data-popper-reference-hidden="false"
++         data-testid="tooltip"
++         style="position: absolute; left: 0px; top: 0px;"
++       >
++         <div
++           class="contentComponent top edgeCenter hasTooltip"
++         >
++           <div
++             class="tooltip dark paddingSizeUndefined"
++           >
++             20%
++           </div>
++           <div
++             class="arrow arrow dark paddingSizeUndefined"
++             data-placement="top"
++             style="position: absolute;"
++           />
++         </div>
++       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 02. hide Tooltip when unhover Thumb 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
+-       <span
+-         class="monday-style-dialog-content-wrapper contentWrapper"
+-         data-popper-reference-hidden="false"
+-         data-testid="tooltip"
+-         style="position: absolute; left: 0px; top: 0px;"
+-       >
+-         <div
+-           class="contentComponent top edgeCenter hasTooltip"
+-         >
+-           <div
+-             class="tooltip dark paddingSizeUndefined"
+-           >
+-             20%
+-           </div>
+-           <div
+-             class="arrow arrow dark paddingSizeUndefined"
+-             data-placement="top"
+-             style="position: absolute;"
+-           />
+-         </div>
+-       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 03. activate Thumb by Tab key press  1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
++       <span
++         class="monday-style-dialog-content-wrapper contentWrapper"
++         data-popper-reference-hidden="false"
++         data-testid="tooltip"
++         style="position: absolute; left: 0px; top: 0px;"
++       >
++         <div
++           class="contentComponent top edgeCenter hasTooltip"
++         >
++           <div
++             class="tooltip dark paddingSizeUndefined"
++           >
++             20%
++           </div>
++           <div
++             class="arrow arrow dark paddingSizeUndefined"
++             data-placement="top"
++             style="position: absolute;"
++           />
++         </div>
++       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 04. de-activate Thumb by Tab key press, when Thumb focused  1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
+-       <span
+-         class="monday-style-dialog-content-wrapper contentWrapper"
+-         data-popper-reference-hidden="false"
+-         data-testid="tooltip"
+-         style="position: absolute; left: 0px; top: 0px;"
+-       >
+-         <div
+-           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
+-         >
+-           <div
+-             class="tooltip dark paddingSizeUndefined"
+-           >
+-             20%
+-           </div>
+-           <div
+-             class="arrow arrow dark paddingSizeUndefined"
+-             data-placement="top"
+-             style="position: absolute;"
+-           />
+-         </div>
+-       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 01. decrease value by Left/Down keys press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="filledTrack"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 18%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="18"
++         aria-valuetext="18%"
+          class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 18%;"
+          tabindex="0"
+        >
+          <label
+            class="label"
+          >
+-           20%
++           18%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 02. increase value by Right/Up keys press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="filledTrack"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 22%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="22"
++         aria-valuetext="22%"
+          class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 22%;"
+          tabindex="0"
+        >
+          <label
+            class="label"
+          >
+-           20%
++           22%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 03. decrease value (step 10%) by PageDown key press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="filledTrack"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 10%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="10"
++         aria-valuetext="10%"
+          class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 10%;"
+          tabindex="0"
+        >
+          <label
+            class="label"
+          >
+-           20%
++           10%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 04. increase value (step 10%) by PageUp key pres 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="filledTrack"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 40%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="40"
++         aria-valuetext="40%"
+          class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 40%;"
+          tabindex="0"
+        >
+          <label
+            class="label"
+          >
+-           20%
++           40%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 05. change value by keys press in Step and Label mode 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="filledTrack"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 40%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="40"
++         aria-valuetext="40%"
+          class="thumb small notDisabledThumb"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 40%;"
+          tabindex="0"
+        >
+          <label
+            class="label"
+          >
+-           20%
++           40%
+          </label>
+        </div>
+      </div>
+@@ --- --- @@
+      <div
+        data-testid="mock-text-field-comp"
+      >
+-       {"value":"20%","className":"selectionIndicator"}
++       {"value":"40%","className":"selectionIndicator"}
+      </div>
+    </div>
+  </div>
+`;

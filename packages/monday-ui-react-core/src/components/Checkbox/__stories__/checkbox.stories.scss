@@ -1,0 +1,53 @@
+@import "~vibe-storybook-components/dist/mixins";
+
+.monday-storybook-checkbox {
+  &_border {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--sb-ui-border-color);
+    padding: 0 8px;
+    height: 38px;
+    margin-right: 3px;
+    &:nth-child(2) {
+      margin-left: 11px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  &_wrapper {
+    padding: 14px 16px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &_inline-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_minus-margin {
+    margin-right: -8px;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    span {
+      @include sb-content-text;
+    }
+  }
+
+  &_list-item {
+    display: inline-block;
+    width: 100%;
+  }
+
+  &_link {
+    display: initial;
+  }
+}

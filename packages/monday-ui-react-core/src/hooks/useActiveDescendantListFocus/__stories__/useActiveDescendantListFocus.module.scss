@@ -1,0 +1,5 @@
+@import "../../../styles/states";
+
+.visualFocus {
+  @include focus-style-css;
+}

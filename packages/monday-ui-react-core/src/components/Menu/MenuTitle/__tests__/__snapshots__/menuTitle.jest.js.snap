@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with caption 1`] = `
+<div
+  className="typography secondary start singleLineEllipsis text text2Normal title"
+  data-testid="menu-title"
+>
+  <label
+    className="titleCaption titleCaptionBottom"
+    data-testid="menu-title-caption"
+  >
+    my title
+  </label>
+</div>
+`;
+
+exports[`renders correctly with custom class name 1`] = `
+<div
+  className="typography secondary start singleLineEllipsis text text2Normal title dummy-class-name"
+  data-testid="menu-title"
+/>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="typography secondary start singleLineEllipsis text text2Normal title"
+  data-testid="menu-title"
+/>
+`;

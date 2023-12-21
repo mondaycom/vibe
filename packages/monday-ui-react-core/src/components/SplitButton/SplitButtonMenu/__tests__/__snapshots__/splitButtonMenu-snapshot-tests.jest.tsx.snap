@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplitButtonMenu renders correctly 1`] = `
+<ul
+  aria-label="Menu"
+  className="menu medium"
+  data-testid="menu_menu"
+  id="menu"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+  role="menu"
+  tabIndex={0}
+>
+  <li
+    aria-current={true}
+    className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
+    data-testid="menu-item_0"
+    id="menu-item-0"
+    onClick={[Function]}
+    role="menuitem"
+    tabIndex={-1}
+  >
+    <div
+      className="title"
+    >
+      Test 1
+    </div>
+    
+    <div
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+          "visibility": "hidden",
+        }
+      }
+    />
+  </li>
+  <li
+    aria-current={false}
+    className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
+    data-testid="menu-item_1"
+    id="menu-item-1"
+    onClick={[Function]}
+    role="menuitem"
+    tabIndex={-1}
+  >
+    <div
+      className="title"
+    >
+      Test 2
+    </div>
+    
+    <div
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+          "visibility": "hidden",
+        }
+      }
+    />
+  </li>
+</ul>
+`;

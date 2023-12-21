@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabPanels renders correctly with animation from left to right 1`] = `
+<div
+  className="tabPanelsWrapper"
+  data-testid="tab-panels"
+>
+  <div
+    className="tabPanelWrapper tabPanel active animationDirectionLtr"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    First
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Second
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Third
+  </div>
+</div>
+`;
+
+exports[`TabPanels renders correctly with animation from right to left 1`] = `
+<div
+  className="tabPanelsWrapper"
+  data-testid="tab-panels"
+>
+  <div
+    className="tabPanelWrapper tabPanel active animationDirectionRtl"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    First
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Second
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Third
+  </div>
+</div>
+`;
+
+exports[`TabPanels renders correctly with empty props 1`] = `
+<div
+  className="tabPanelsWrapper"
+  data-testid="tab-panels"
+>
+  <div
+    className="tabPanelWrapper tabPanel active animationDirectionRtl first"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    First
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Second
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Third
+  </div>
+</div>
+`;
+
+exports[`TabPanels renders correctly with the given active tab panel 1`] = `
+<div
+  className="tabPanelsWrapper"
+  data-testid="tab-panels"
+>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    First
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel active animationDirectionRtl"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Second
+  </div>
+  <div
+    className="tabPanelWrapper tabPanel non-active"
+    data-testid="tab-panel"
+    role="tabpanel"
+  >
+    Third
+  </div>
+</div>
+`;

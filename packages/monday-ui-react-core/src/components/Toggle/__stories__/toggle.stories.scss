@@ -1,0 +1,15 @@
+.monday-storybook-toggle {
+  &_column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: flex-start;
+  }
+
+  &_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 25px;
+  }
+}

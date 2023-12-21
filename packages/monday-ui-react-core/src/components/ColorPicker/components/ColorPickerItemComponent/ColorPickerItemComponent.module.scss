@@ -1,0 +1,105 @@
+.itemWrapper {
+  --border-radius-multiplier: 1;
+}
+
+.itemWrapper.circle {
+  --border-radius-multiplier: 99999;
+}
+
+/* stylelint-disable scss/operator-no-unspaced */
+
+@mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width, $border-radius: 7px) {
+  content: " ";
+  position: absolute;
+  border-radius: calc($border-radius * var(--border-radius-multiplier, 1));
+  inset: $inset;
+  border: $border-width solid;
+  border-color: var(--#{$border-color-var-name});
+  pointer-events: none;
+}
+
+.itemWrapper {
+  margin: 4px;
+  display: flex;
+  list-style-type: none;
+  position: relative;
+}
+
+.itemWrapper .feedbackIndicator {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.itemWrapper:focus,
+.itemWrapper:focus-visible,
+.itemWrapper.active {
+  outline: none;
+}
+
+.itemWrapper:focus .feedbackIndicator:before,
+.itemWrapper:focus-visible .feedbackIndicator:before,
+.itemWrapper.active .feedbackIndicator:before {
+  @include absolute-border(4px, primary-selected-color);
+}
+
+.itemWrapper:focus .feedbackIndicator:after,
+.itemWrapper:focus-visible .feedbackIndicator:after,
+.itemWrapper.active .feedbackIndicator:after {
+  @include absolute-border(1px, primary-color);
+}
+
+/* active elements have no "hover feedback" */
+
+.itemWrapper:hover:not(.active):not(.selectedColor) .feedbackIndicator {
+  @include absolute-border(4px, primary-background-hover-color, -4px, 8px);
+}
+
+.itemWrapper .colorItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: calc(4px * var(--border-radius-multiplier, 1));
+  cursor: pointer;
+}
+
+.itemWrapper .colorItem .colorIndicatorWrapper {
+  margin-top: 3px;
+}
+
+.itemWrapper .colorItem.colorItemSizeSmall {
+  width: 24px;
+  height: 24px;
+}
+
+.itemWrapper .colorItem.colorItemSizeMedium {
+  width: 32px;
+  height: 32px;
+}
+
+.itemWrapper .colorItem.colorItemSizeLarge {
+  width: 40px;
+  height: 40px;
+}
+
+.itemWrapper.selectedColor {
+  position: relative;
+}
+
+.itemWrapper.selectedColor:before {
+  @include absolute-border(2px, primary-color, -4px);
+}
+
+.itemWrapper.selectedColor .feedbackIndicator:before {
+  /* hide the outer border from the "active" feedback indicator */
+  display: none;
+}
+
+.itemWrapper .colorItemTextMode:hover {
+  background-color: var(--primary-background-hover-color) !important;
+}
+
+.itemWrapper .colorIconWhite {
+  color: var(--color-snow_white);
+}

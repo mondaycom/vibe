@@ -1,0 +1,12 @@
+@mixin pop-in-from-trigger() {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,21 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../../styles/typography";
+
+.global-settings-general-component {
+  margin-top: var(--sb-spacing-between-section-items);
+  .global-settings-list {
+    .global-settings-list-header {
+      @include vibe-text(text1, bold);
+      color: var(--sb-primary-text-color);
+    }
+    .global-settings-list-item {
+      @include font-input();
+      color: var(--sb-secondary-text-color);
+    }
+  }
+  .global-settings-general-component-value {
+    margin-top: var(--sb-spacing-medium);
+    @include font-input();
+    color: var(--sb-secondary-text-color);
+  }
+}

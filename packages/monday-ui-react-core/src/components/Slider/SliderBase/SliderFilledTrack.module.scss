@@ -1,0 +1,17 @@
+.filledTrack {
+  position: absolute;
+  border-radius: inherit;
+  background-color: var(--primary-color);
+  height: inherit;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.positive {
+  background-color: var(--positive-color);
+}
+
+.negative {
+  background-color: var(--negative-color);
+}

@@ -1,0 +1,26 @@
+@import "~monday-ui-style/dist/mixins";
+
+.rounded-corner-component {
+  @include vibe-text(text1, bold);
+  color: var(--sb-primary-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--sb-negative-color);
+  background-color: var(--sb-primary-background-color);
+  margin: 0 var(--sb-spacing-medium) var(--sb-spacing-large);
+
+  &--small {
+    border-radius: var(--sb-border-radius-small);
+  }
+
+  &--medium {
+    border-radius: var(--sb-border-radius-medium);
+  }
+
+  &--big {
+    border-radius: var(--sb-border-radius-big);
+  }
+}

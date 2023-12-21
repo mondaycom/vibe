@@ -1,0 +1,28 @@
+@import "../../styles/typography";
+
+.responsiveListRoot {
+  position: relative;
+}
+
+.responsiveList {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.responsiveList .listMenuButton {
+  flex-shrink: 0;
+}
+
+.dummy {
+  width: 100%;
+  position: absolute;
+  visibility: hidden;
+}
+
+.menuButtonDialog {
+  display: flex;
+}
+
+.menuWrapperFlex {
+  display: flex;
+}

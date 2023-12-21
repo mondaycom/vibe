@@ -1,0 +1,41 @@
+.tableHeaderCell {
+  height: var(--table-row-size);
+  padding: var(--spacing-small);
+  padding-inline-start: var(--spacing-medium);
+  color: var(--secondary-text-color);
+  box-sizing: border-box;
+  text-align: initial;
+  border-bottom: 1px solid var(--layout-border-color);
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+
+  &:hover {
+    background-color: var(--allgrey-background-color);
+  }
+
+  .tableHeaderCellContent {
+    min-width: 0;
+
+    .icon {
+      min-width: var(--spacing-medium);
+    }
+
+    .infoTooltip {
+      display: inline-flex;
+    }
+  }
+
+  .tableHeaderCellSort {
+    padding-inline-start: var(--spacing-small);
+
+    .sort {
+      color: var(--icon-color);
+
+      &.asc,
+      &.desc {
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}

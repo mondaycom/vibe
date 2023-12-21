@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly with ariaDescribedby 1`] = `
+<a
+  aria-describedby="aria described by"
+  aria-label=""
+  aria-labelledby=""
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with ariaLabelDescription 1`] = `
+<a
+  aria-describedby=""
+  aria-label="arialabel link"
+  aria-labelledby=""
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with ariaLabeledBy 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby="aria label link"
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with className 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="link testClassName"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with icon 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    aria-hidden={true}
+    className="icon iconStart fa fa fa-star"
+    data-testid="icon"
+    onClick={[Function]}
+    role="img"
+  />
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with id 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="link"
+  data-testid="link_TestId"
+  href=""
+  id="TestId"
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with right icon 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    
+  </span>
+  <span
+    aria-hidden={true}
+    className="icon iconEnd fa fa fa-star"
+    data-testid="icon"
+    onClick={[Function]}
+    role="img"
+  />
+</a>
+`;
+
+exports[`Link renders correctly with text 1`] = `
+<a
+  aria-describedby=""
+  aria-label=""
+  aria-labelledby=""
+  className="link"
+  data-testid="link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="text"
+  >
+    Link
+  </span>
+</a>
+`;

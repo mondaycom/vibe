@@ -1,0 +1,11 @@
+.monday-storybook-principle {
+  &_visual-element {
+    background-color: var(--sb-color-purple);
+    border-radius: var(--sb-border-radius-small);
+    width: 100%;
+    height: 174px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

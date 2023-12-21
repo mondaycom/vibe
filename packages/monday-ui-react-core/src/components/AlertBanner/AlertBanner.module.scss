@@ -1,0 +1,69 @@
+.alertBanner {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.positive {
+  background-color: var(--positive-color);
+}
+
+.negative {
+  background-color: var(--negative-color);
+}
+
+.dark {
+  background-color: var(--inverted-color-background);
+}
+
+.warning {
+  background-color: var(--warning-color);
+  color: var(--fixed-dark-color);
+
+  .closeBtn {
+    color: var(--fixed-dark-color);
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--spacing-medium);
+}
+
+.closeButtonWrapper {
+  flex: 0 0 40px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+.ellipsis {
+  flex: 0 1 auto;
+}
+
+.contentItem {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.contentItemText {
+  flex: 0 1 auto;
+  min-width: 0;
+}

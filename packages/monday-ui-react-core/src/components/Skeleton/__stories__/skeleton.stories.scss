@@ -1,0 +1,93 @@
+.monday-storybook-skeleton {
+  &_row-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+  }
+
+  &_column-box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &_rules-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+  }
+
+  &_aside {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &_article {
+    display: flex;
+    gap: 14px;
+  }
+
+  &_text {
+    line-height: 1.5;
+  }
+
+  &_main {
+    width: 730px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_box {
+    border: 1px solid;
+    border-color: var(--sb-ui-border-color);
+  }
+
+  &_header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &_btn-group {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &_btn {
+    flex-shrink: 1;
+    flex-grow: 1;
+    border-bottom: none;
+    border-right: none;
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+  &_text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 0 25px 0;
+  }
+
+  &_btn-group-skeleton {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 160px;
+    gap: 320px;
+  }
+
+  &_row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+  }
+}

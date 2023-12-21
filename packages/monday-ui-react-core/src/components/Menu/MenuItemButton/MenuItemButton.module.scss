@@ -1,0 +1,17 @@
+.itemButton {
+  margin: unset;
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-xs) 0;
+  align-items: center;
+}
+
+.itemButton .buttonComponent {
+  width: 100%;
+}
+
+.itemButton .buttonComponent .content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,50 @@
+.loaderContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .circleLoaderSpinnerBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50%;
+    margin-left: -50%;
+    stroke: var(--primary-background-hover-color);
+  }
+
+  .circleLoaderSpinner {
+    animation: rotate 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50%;
+    margin-left: -50%;
+    stroke: currentColor;
+    stroke-linecap: round;
+
+    .circleLoaderSpinnerPath {
+      animation: dash 1s infinite;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+}

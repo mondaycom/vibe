@@ -1,0 +1,11 @@
+@import "~monday-ui-style/dist/mixins";
+
+.monday-storybook-use-clickable-props {
+  @include focus-style;
+  cursor: pointer;
+
+  background-color: var(--sb-primary-selected-color);
+  padding: var(--sb-spacing-small);
+  border-radius: var(--sb-border-radius-small);
+  width: 40%;
+}

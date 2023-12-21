@@ -1,0 +1,75 @@
+import { DeprecatedWarning, Link } from "vibe-storybook-components";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import * as LegacyEditableHeadingStories from "./LegacyEditableHeading.stories";
+
+<Meta of={LegacyEditableHeadingStories} />
+
+# LegacyEditableHeading
+
+<DeprecatedWarning
+  alternativeName="EditableHeading"
+  alternativeLink="/?path=/docs/inputs-editableheading--docs"
+  additionalContent={
+    <>
+      For more information see the{" "}
+      <StorybookLink page="Typography Migration Guide" size={StorybookLink.sizes.SMALL}>
+        Typography Migration Guide
+      </StorybookLink>
+      .
+    </>
+  }
+/>
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+An extension of Heading component, it allows built in editing capabilities
+
+<Canvas>
+  <Story of={LegacyEditableHeadingStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use when the title (Heading) is editable and you want to inline edit it",
+    "Always provide a meaningful placeholder",
+    "The component takes 100% of width and height of its container"
+  ]}
+/>
+
+## Variants
+
+### Heading types
+
+<Canvas>
+  <Story of={LegacyEditableHeadingStories.Types} />
+</Canvas>
+
+### Placeholder
+
+<Canvas>
+  <Story of={LegacyEditableHeadingStories.Placeholder} />
+</Canvas>
+
+### With text highlight
+
+<Canvas>
+  <Story of={LegacyEditableHeadingStories.TextHighlight} />
+</Canvas>
+
+### With text colors
+
+<Canvas>
+  <Story of={LegacyEditableHeadingStories.Colors} />
+</Canvas>

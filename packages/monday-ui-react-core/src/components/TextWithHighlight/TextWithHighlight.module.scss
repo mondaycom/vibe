@@ -1,0 +1,17 @@
+@import "../../styles/typography";
+
+.textWithHighlightWrapper {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.textWithHighlightWrapper em.highlightText {
+  background-color: var(--primary-selected-color);
+  color: var(--primary-text-color);
+  border-radius: 2px;
+}
+
+.textWithHighlightWrapper.withEllipsis {
+  @include line-clamp(var(--heading-clamp-lines));
+}

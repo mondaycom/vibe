@@ -1,0 +1,9 @@
+@import "../../styles/states";
+@import "../../styles/typography";
+
+.list {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  @include scroller();
+}

@@ -1,0 +1,158 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Tip } from "vibe-storybook-components";
+import Text from "../Text";
+import Flex from "../../Flex/Flex";
+import Button from "../../Button/Button";
+import {
+  EDITABLE_HEADING,
+  HEADING,
+  LINK
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipHeading, TipLink } from "./Text.stories.helpers";
+import * as TextStories from "./Text.stories";
+
+<Meta of={TextStories} />
+
+# Text
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+The text component serves as a wrapper for applying typography styles to the text it contains.
+
+<Canvas>
+  <Story of={TextStories.Overview} />
+</Canvas>
+
+<TipHeading />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines guidelines={["Use it to display text formed from a single sentence, or multiple sentences."]} />
+
+## Variants
+
+### Sizes and weights
+
+Text component comes in two sizes: text1 (16px) and text2 (14px), and in three weights: bold (700), medium (600) and normal (400)
+
+<Canvas>
+  <Story of={TextStories.SizesAndWeights} />
+</Canvas>
+
+### Colors
+
+Text component comes in four colors: primary, secondary, on-primary and on-inverted
+
+<Canvas>
+  <Story of={TextStories.Colors} />
+</Canvas>
+
+### Overflow
+
+Our Text component supports overflow state.
+When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
+
+We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
+
+<Canvas>
+  <Story of={TextStories.Overflow} />
+</Canvas>
+
+<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
+
+### Paragraph
+
+To use the Text component for a paragraph, utilize the element prop with value of `"p"`.
+This changes the text wrapper element to `p`, enabling the creation of paragraph-style text without ellipsis by default.
+The paragraph will receive default top and bottom margins based on browser settings for `p` elements.
+Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
+
+<Canvas>
+  <Story of={TextStories.Paragraph} />
+</Canvas>
+
+### Links
+
+A Text component with a link skin can be used to create a link within running text that redirects to an external webpage, as demonstrated in the following example.
+
+<Canvas>
+  <Story of={TextStories.LinksInsideRunningText} />
+</Canvas>
+
+<TipLink />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Text type={Text.types.TEXT1} element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type={Text.types.TEXT1} weight={Text.weights.BOLD} element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "You can combine two font weights in one sentence to create an emphasis."
+      },
+      negative: {
+        component: (
+          <Text type={Text.types.TEXT2} element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type={Text.types.TEXT1} element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "Don't use more then one font size in a sentence."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Flex
+            style={{ width: "70%" }}
+            direction={Flex.directions.COLUMN}
+            justify={Flex.justify.CENTER}
+            align={Flex.align.CENTER}
+            gap={Flex.gaps.SMALL}
+          >
+            <Text maxLines={3}>
+              monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
+              and streamline sales activities from start to finish. Explore monday sales CRM templates
+            </Text>
+            <Button kind={Button.kinds.TERTIARY}>Read more</Button>
+          </Flex>
+        ),
+        description: "If ellipses are used in a paragraph, always use a CTA to reveal more information."
+      },
+      negative: {
+        component: (
+          <Text maxLines={3} style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use ellipsis without providing a way for the user to read the full text."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={[HEADING, EDITABLE_HEADING, LINK]} />

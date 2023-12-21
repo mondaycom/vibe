@@ -1,0 +1,38 @@
+.leftpane-workspaces {
+  &-section {
+    padding: var(--sb-spacing-medium);
+    width: 254px;
+    font-size: 14px;
+    background-color: var(--sb-dark-background-color);
+  }
+  &-title {
+    color: var(--sb-secondary-text-color);
+    margin-left: var(--sb-spacing-small);
+  }
+
+  &-description {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin-right: var(--sb-spacing-small);
+    }
+  }
+
+  &-options {
+    margin-left: var(--sb-spacing-small);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--sb-spacing-small);
+    margin-bottom: var(--sb-spacing-medium);
+    border: 1px solid;
+    border-radius: var(--sb-border-radius-small);
+    border-color: var(--sb-secondary-text-color);
+    padding: var(--sb-spacing-small);
+
+    &-icon {
+      justify-self: flex-end;
+    }
+  }
+}

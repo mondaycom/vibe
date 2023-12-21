@@ -1,0 +1,21 @@
+@import "../../styles/typography";
+
+.editableInputWrapper {
+  background-color: var(--primary-background-color);
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  max-height: 100%;
+  margin: auto 0;
+  @include heading-padding();
+  outline: none;
+  border: 1px solid;
+  border-radius: var(--border-radius-small);
+  border-color: var(--primary-color);
+  vertical-align: top;
+  text-align: left;
+}
+
+.editableInputWrapper.noResize {
+  resize: none;
+}

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-level={3}
+  className="typography primary start singleLineEllipsis text text1Medium listTitle"
+  data-testid="list-title"
+  role="heading"
+>
+  Title
+</div>
+`;

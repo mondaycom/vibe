@@ -1,0 +1,53 @@
+@import "~monday-ui-style/dist/mixins";
+
+.icon-story-inline-style {
+  display: flex;
+  align-items: center;
+  .icon-story-link {
+    margin-left: 4px;
+  }
+}
+
+.main-icon-story {
+  color: var(--sb-icon-color);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon-story-component {
+  width: Max(250px, 20%);
+  color: var(--sb-icon-color);
+  align-items: center;
+  justify-content: flex-start;
+  &:last-of-type {
+    justify-self: flex-start;
+  }
+}
+
+.icon-story-name {
+  width: calc(100% - 30px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon-story-description {
+  margin: var(--sb-spacing-large) 0;
+  @include vibe-text(text1, medium);
+}
+
+.icon-story-custom-icon {
+  width: 20px;
+  height: 16px;
+  color: var(--sb-primary-text-color);
+  border-radius: 4px;
+}
+
+.single-icon-wrapper {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+.icon-story-search-component {
+  width: 50% !important;
+}

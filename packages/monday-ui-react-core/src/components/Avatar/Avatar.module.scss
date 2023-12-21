@@ -1,0 +1,118 @@
+@import "~monday-ui-style/dist/mixins";
+@import "./AvatarConstants";
+
+.avatar {
+  position: relative;
+}
+
+.large {
+  height: $avatar-size-large;
+  width: $avatar-size-large;
+}
+
+.medium {
+  height: $avatar-size-medium;
+  width: $avatar-size-medium;
+}
+
+.small {
+  height: $avatar-size-small;
+  width: $avatar-size-small;
+}
+
+.clickableWrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.circle {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 1px solid;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color-on-primary);
+}
+
+.circle:focus {
+  outline: none;
+  @include focus-style(50%);
+}
+
+.circleImg {
+  border-color: var(--primary-background-color);
+}
+
+.circleText {
+  border-color: var(--layout-border-color);
+}
+
+.disabled:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.7;
+  background: var(--primary-background-color);
+}
+
+.square {
+  border-radius: var(--border-radius-small);
+}
+
+.square:focus {
+  outline: none;
+  @include focus-style(var(--border-radius-small));
+}
+
+.withoutBorder {
+  border: none;
+}
+
+.badges {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 110%;
+  width: 110%;
+}
+
+.badges .badge {
+  display: flex;
+}
+
+.badges .badgeTopLeft {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: start;
+}
+
+.badges .badgeTopRight {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+}
+
+.badges .badgeBottomLeft {
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: start;
+  align-self: end;
+}
+
+.badges .badgeBottomRight {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+  align-self: end;
+}

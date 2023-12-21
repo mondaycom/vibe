@@ -1,0 +1,16 @@
+.usageImageFrame {
+  display: flex;
+  justify-content: center;
+
+  &:first-of-type {
+    margin-bottom: var(--sb-spacing-between-section-items);
+  }
+
+  .bigImage {
+    width: 100%;
+  }
+
+  .smallImage {
+    max-width: 70%;
+  }
+}

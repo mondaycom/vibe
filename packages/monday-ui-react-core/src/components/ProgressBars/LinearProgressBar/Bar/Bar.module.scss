@@ -1,0 +1,42 @@
+.bar {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--border-radius-small);
+}
+
+.typePrimaryPrimary {
+  background-color: var(--primary-color);
+}
+
+.typePrimarySecondary {
+  background-color: var(--inverted-color-background);
+}
+
+.typePrimaryPositive {
+  background-color: var(--positive-color);
+}
+
+.typePrimaryNegative {
+  background-color: var(--negative-color);
+}
+
+.typeSecondaryPrimary {
+  background-color: var(--primary-selected-color);
+}
+
+.typeSecondarySecondary {
+  background-color: var(--ui-border-color);
+}
+
+.typeSecondaryPositive {
+  background-color: var(--positive-color-selected);
+}
+
+.typeSecondaryNegative {
+  background-color: var(--negative-color-selected);
+}
+
+.animate {
+  transition: width var(--motion-productive-medium) var(--motion-timing-transition);
+}

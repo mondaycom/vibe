@@ -1,0 +1,92 @@
+.linear-progress-bar {
+  &_small-wrapper {
+    width: 400px;
+  }
+
+  &_big-wrapper {
+    width: 600px;
+  }
+
+  &_inline-wrapper {
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+    padding: 14px 0 4px;
+  }
+
+  &_dialog-wrapper {
+    width: 254px;
+    height: 124px;
+    padding: 20px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_box {
+    width: 200px;
+    padding: 0 20px 10px;
+  }
+
+  &_icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  &_row-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0;
+  }
+
+  &_title {
+    width: 80px;
+  }
+
+  &_img {
+    width: 80px;
+    height: 80px;
+    background-image: url("./assets/Logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &_box-wrapper {
+    display: flex;
+    width: 410px;
+    flex-direction: column;
+    border: 1px solid;
+    border-color: var(--sb-layout-border-color);
+    padding: 16px;
+  }
+
+  &_aside {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding-left: 10px;
+  }
+
+  &_row {
+    display: flex;
+  }
+
+  &_breadcrumbs {
+    margin: -12px -46px -20px;
+  }
+
+  &_block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &_column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}

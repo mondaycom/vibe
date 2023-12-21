@@ -1,0 +1,32 @@
+.monday-storybook-steps {
+  &_inline-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+  }
+
+  &_spacing {
+    margin-left: 90px;
+  }
+
+  &_container {
+    width: 10px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  &_block {
+    margin: 0 auto;
+    width: 270px;
+  }
+
+  &_padding {
+    padding: 15px 103px 20px;
+  }
+
+  &_color {
+    padding: var(--sb-spacing-small);
+    background-color: var(--sb-primary-color);
+  }
+}

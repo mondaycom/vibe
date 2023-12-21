@@ -1,0 +1,24 @@
+.monday-storybook-spacing {
+  &_image {
+    &-container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    &--menu {
+      height: 334px;
+      width: 470px;
+    }
+
+    &--toolbar {
+      height: 179px;
+      width: 527px;
+    }
+
+    &--tipseen {
+      height: 306px;
+      width: 439px;
+    }
+  }
+}

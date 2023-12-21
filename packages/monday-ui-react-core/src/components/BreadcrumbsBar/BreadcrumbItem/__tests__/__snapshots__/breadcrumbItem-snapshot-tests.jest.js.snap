@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper disabled"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent disabled notClickable"
+        tabIndex={-1}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsItem renders correctly  with className 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper test"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsItem renders correctly  with current item 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-current="page"
+        aria-disabled="true"
+        className="breadcrumbContent current notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsItem renders correctly  with empty props 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsItem renders correctly  with icon 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <svg
+          className="breadcrumbIcon"
+          clickable={false}
+          fill="currentColor"
+          height={14}
+          viewBox="0 0 20 20"
+          width={14}
+        >
+          <path
+            clipRule="evenodd"
+            d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"
+            fill="currentColor"
+            fillRule="evenodd"
+          />
+        </svg>
+        <span
+          className="breadcrumbText"
+        >
+          
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsItem renders correctly  with text 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          item
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;

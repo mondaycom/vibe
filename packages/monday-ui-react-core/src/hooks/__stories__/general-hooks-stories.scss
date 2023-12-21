@@ -1,0 +1,12 @@
+.hooks-reference-element {
+  width: 150px;
+  color: var(--primary-text-color);
+  border: 1px solid var(--ui-border-color);
+  background: var(--secondary-background-color);
+  height: 50px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}

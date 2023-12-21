@@ -1,0 +1,120 @@
+import Heading from "../LegacyHeading";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { DeprecatedWarning, Link } from "vibe-storybook-components";
+import {
+  EDITABLE_HEADING,
+  HEADING,
+  TEXT_FIELD
+} from "../../../storybook/components/related-components/component-description-map";
+import { TipEditableHeading } from "./LegacyHeading.stories.helpers";
+import * as LegacyHeadingStories from "./LegacyHeading.stories";
+
+<Meta of={LegacyHeadingStories} />
+
+# Legacy Heading
+
+<DeprecatedWarning
+  alternativeName="Heading"
+  alternativeLink="/?path=/docs/text-heading--docs"
+  additionalContent={
+    <>
+      For more information see the{" "}
+      <StorybookLink page="Typography Migration Guide" size={StorybookLink.sizes.SMALL}>
+        Typography Migration Guide
+      </StorybookLink>
+      .
+    </>
+  }
+/>
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Heading components are used to title any page sections or sub-sections in top-level page sections.
+
+<Canvas>
+  <Story of={LegacyHeadingStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Never include more than one H1 title per web page.",
+    "Heading always should be linked to content (by design and by implementation by passing the heading id to the content's aria-labelledBy attribute)."
+  ]}
+/>
+
+<TipEditableHeading />
+
+## Variants
+
+### Sizes
+
+<Canvas>
+  <Story of={LegacyHeadingStories.Sizes} />
+</Canvas>
+
+### Overflow
+
+Our heading component support overflow state.
+When the heading text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
+
+<Canvas>
+  <Story of={LegacyHeadingStories.Overflow} />
+</Canvas>
+
+### With text highlight
+
+Our heading component support text highlight.
+
+<Canvas>
+  <Story of={LegacyHeadingStories.TextHighlight} />
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Heading value="Hello world" />,
+        description: "Always capitalize the first letter of the first word in the heading."
+      },
+      negative: {
+        component: <Heading value="Hello World" />,
+        description: "Please avoid capitalizing the first letter of each word in the heading."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Not editable header of a page
+
+<Canvas>
+  <Story of={LegacyHeadingStories.NotEditableHeaderOfAPage} />
+</Canvas>
+
+### Empty state title
+
+<Canvas>
+  <Story of={LegacyHeadingStories.EmptyStateTitle} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[HEADING, EDITABLE_HEADING, TEXT_FIELD]} />

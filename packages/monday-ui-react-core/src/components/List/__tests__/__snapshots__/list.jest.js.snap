@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly with empty props 1`] = `
+<ul
+  className="list"
+  data-testid="list"
+  id="list-1"
+  role="listbox"
+  tabIndex={-1}
+>
+  Something
+</ul>
+`;
+
+exports[`List renders correctly with list items 1`] = `
+<ul
+  className="list"
+  data-testid="list"
+  id="list-2"
+  role="listbox"
+  tabIndex={-1}
+>
+  <li
+    aria-disabled={false}
+    className="typography primary start singleLineEllipsis text text2Normal listItem small"
+    data-testid="list-2-item-0"
+    id="list-2-item-0"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    role="option"
+    tabIndex={0}
+  >
+    1
+  </li>
+  <li
+    aria-disabled={false}
+    className="typography primary start singleLineEllipsis text text2Normal listItem small"
+    data-testid="list-2-item-1"
+    id="list-2-item-1"
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    role="option"
+    tabIndex={-1}
+  >
+    2
+  </li>
+</ul>
+`;
+
+exports[`List renders correctly without props 1`] = `
+<ul
+  className="list"
+  data-testid="list"
+  id="list-0"
+  role="listbox"
+  tabIndex={-1}
+/>
+`;

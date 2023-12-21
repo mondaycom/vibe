@@ -1,0 +1,25 @@
+$arrow-size: 12px;
+
+.arrow {
+  width: $arrow-size;
+  height: $arrow-size;
+  position: absolute;
+  border-radius: 2px;
+  background-color: var(--secondary-background-color);
+}
+
+.arrow[data-placement*="bottom"] {
+  top: 1px;
+}
+
+.arrow[data-placement*="top"] {
+  bottom: 1px;
+}
+
+.arrow[data-placement*="left"] {
+  right: 1px;
+}
+
+.arrow[data-placement*="right"] {
+  left: 1px;
+}

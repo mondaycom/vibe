@@ -1,0 +1,22 @@
+@import "~monday-ui-style/dist/mixins";
+
+.labelComponentWrapper {
+  @include vibe-text(text2, normal);
+  display: flex;
+  padding-bottom: var(--spacing-xs);
+  align-items: center;
+}
+
+.labelComponentIcon {
+  margin: 0 var(--spacing-small) 0 var(--spacing-xs);
+  line-height: 24px;
+  color: var(--secondary-text-color);
+}
+
+.labelComponentText {
+  color: var(--primary-text-color);
+  padding-block: 2px;
+}
+.requiredAsterisk {
+  color: var(--negative-color);
+}

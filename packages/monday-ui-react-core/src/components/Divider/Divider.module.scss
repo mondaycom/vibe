@@ -1,0 +1,19 @@
+.divider {
+  background-color: var(--layout-border-color);
+}
+
+.divider.withoutMargin {
+  margin: 0;
+}
+
+.horizontal {
+  height: 1px;
+  width: 100%;
+  margin: var(--spacing-small) 0;
+}
+
+.vertical {
+  height: 100%;
+  width: 1px;
+  margin: 0 var(--spacing-xs);
+}

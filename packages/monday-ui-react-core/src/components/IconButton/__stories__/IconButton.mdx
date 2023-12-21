@@ -1,0 +1,141 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import IconButton from "../IconButton";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { Add, Bolt, Broom, HighlightColorBucket, Pin, Show } from "../../Icon/Icons";
+import { BUTTON, ICON, MENU_BUTTON } from "../../../storybook/components/related-components/component-description-map";
+import { TipCheckYourself, TipMenuButton } from "./IconButton.stories.helpers";
+import * as IconButtonStories from "./IconButton.stories";
+
+<Meta of={IconButtonStories} />
+
+# IconButton
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Icon button is a square button contains only icon with no visible text labels used mostly in control bars.
+
+<Canvas>
+  <Story of={IconButtonStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Icon button will always appear with a <StorybookLink page="Popover/Tooltip">tooltip</StorybookLink> while
+      hovering, defining the icon’s meaning.
+    </>,
+    "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
+    "Use icon button when you want to display an active state of a button.",
+    "Use a Primary icon button when it's the most important action to take.",
+    "Use icon button only when the icons is clear and understandable.",
+    "Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### Kinds
+
+There can be more than one button in a screen, but to create the hierarchy of actions we need to use button kinds.
+
+<Canvas>
+  <Story of={IconButtonStories.Kinds} />
+</Canvas>
+
+<TipMenuButton />
+
+### Sizes
+
+<Canvas>
+  <Story of={IconButtonStories.Sizes} />
+</Canvas>
+
+### Active
+
+<Canvas>
+  <Story of={IconButtonStories.Active} />
+</Canvas>
+
+### Disabled
+
+Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
+
+<Canvas>
+  <Story of={IconButtonStories.Disabled} />
+</Canvas>
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <DialogContentContainer>
+            <IconButton icon={Pin} ariaLabel="Pin to top" />
+            <IconButton icon={Show} ariaLabel="Show all" />
+            <IconButton icon={HighlightColorBucket} ariaLabel="Show color" />
+            <IconButton icon={Broom} ariaLabel="Clear style" />
+          </DialogContentContainer>
+        ),
+        description:
+          "Use Icon button when action is lower priority than a regular action or there’s no space available to place a button."
+      },
+      negative: {
+        component: <IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
+        description: (
+          <>
+            Don’t use Icon button as the main action on the page. Instead, use the{" "}
+            <StorybookLink page="Buttons/Button">Button component</StorybookLink> with an icon.
+          </>
+        )
+      }
+    },
+    {
+      positive: {
+        component: <IconButton icon={Bolt} ariaLabel="Quick Search" />,
+        description: "Always provide ariaLabel or tooltipContent"
+      },
+      negative: {
+        component: <IconButton icon={Bolt} />,
+        description: "Don’t use icon button without adding a tooltip while hovering."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Icon button as toolbar button
+
+<Canvas>
+  <Story of={IconButtonStories.IconButtonAsToolbarButton} />
+</Canvas>
+
+### Icon button as close button
+
+<Canvas>
+  <Story of={IconButtonStories.IconButtonAsCloseButton} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[BUTTON, MENU_BUTTON, ICON]} />

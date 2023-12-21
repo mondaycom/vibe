@@ -1,0 +1,20 @@
+.tooltip-reference-container {
+  background-color: var(--sb-disabled-background-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease-in;
+  &:hover {
+    background-color: var(--sb-primary-background-hover-color);
+  }
+  .tooltip-reference-dot {
+    background-color: var(--sb-inverted-color-background);
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+    border-radius: 50%;
+  }
+}

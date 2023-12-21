@@ -1,0 +1,84 @@
+@import "../../styles/typography";
+@import "../../styles/states";
+
+.combobox {
+  @include smoothing-text;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: var(--spacing-small);
+}
+
+.combobox.stickyCategory .comboboxCategory {
+  z-index: 10;
+  background-color: var(--secondary-background-color);
+}
+
+/* Relative to Search height */
+
+.combobox.stickyCategory.sizeSmall .comboboxCategory {
+  top: 32px;
+}
+
+.combobox.stickyCategory.sizeMedium .comboboxCategory {
+  top: 40px;
+}
+
+.combobox.stickyCategory.sizeLarge .comboboxCategory {
+  top: 48px;
+}
+
+.combobox.empty {
+  max-height: 200px;
+}
+
+.comboboxSearchWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+}
+
+.comboboxSearch {
+  flex: 0 0 auto;
+}
+
+.comboboxNoResults {
+  margin-top: var(--spacing-small);
+  flex: 1 1 auto;
+  height: calc(100% - 20px);
+  overflow: hidden;
+  position: relative;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comboboxNoResults .comboboxMessageWrapper {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comboboxNoResults .comboboxMessageWrapper .comboboxMessage {
+  @include ellipsis();
+}
+
+.comboboxNoResults .addNewButton {
+  flex: 0 0 auto;
+  width: 100% !important;
+  margin-bottom: 8px;
+}
+
+.comboboxNoResults .addNewButton .buttonLabel {
+  @include ellipsis();
+}
+
+.comboboxList {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0 4px;
+  overflow: hidden;
+}
