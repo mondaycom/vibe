@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {
