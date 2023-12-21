@@ -1,0 +1,11 @@
+node_modules
+.vscode
+.idea
+npm-debug.log
+build-storybook.log
+./build-storybook.log
+/storybook-static
+dist
+/build
+coverage
+.scannerwork

@@ -1,0 +1,38 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "prettier:fix": "lerna run prettier:fix",
+    "synckpack-lint": "syncpack lint",
+    "synckpack-mismatches": "syncpack list-mismatches",
+    "synckpack-mismatches:fix": "syncpack fix-mismatches",
+    "synckpack-semver": "syncpack lint-semver-ranges",
+    "synckpack-semver:fix": "syncpack set-semver-ranges"
+  },
+  "devDependencies": {
+    "lerna": "^7.4.2",
+    "syncpack": "^11.2.1",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.15",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "prettier": "^3.1.0"
+  }
+}

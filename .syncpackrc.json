@@ -1,0 +1,72 @@
+{
+  "dependencyTypes": ["dev", "prod"],
+  "semverGroups": [
+    {
+      "label": "Ignore caret ranges for specific dependencies - should be an exception",
+      "packages": ["**"],
+      "dependencyTypes": ["dev", "prod"],
+      "dependencies": ["browserslist-config-monday"],
+      "isIgnored": true
+    },
+    {
+      "label": "Ignore caret ranges for specific dependencies - just for the safety, should be gradually removed",
+      "packages": ["**"],
+      "dependencyTypes": ["dev", "prod"],
+      "dependencies": ["@popperjs/core", "react-dates", "plop", "postcss", "postcss-value-parser"],
+      "isIgnored": true
+    },
+    {
+      "label": "Use caret ranges",
+      "packages": ["**"],
+      "dependencyTypes": ["dev", "prod"],
+      "dependencies": ["**"],
+      "range": "^"
+    }
+  ],
+  "versionGroups": [
+    {
+      "label": "Ignore dependencies, which have different versions between packages - should be an exception",
+      "packages": ["**"],
+      "dependencyTypes": ["dev", "prod"],
+      "dependencies": ["jest", "ts-jest"],
+      "isIgnored": true
+    },
+    {
+      "label": "Ignore dependencies, which have different versions between packages - just for the safety, should be gradually removed",
+      "packages": ["**"],
+      "dependencyTypes": ["dev", "prod"],
+      "dependencies": [
+        "@babel/core",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-react-jsx",
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "@rollup/plugin-commonjs",
+        "@rollup/plugin-node-resolve",
+        "autoprefixer",
+        "babel-loader",
+        "chalk",
+        "css-loader",
+        "execa",
+        "mini-css-extract-plugin",
+        "postcss",
+        "postcss-loader",
+        "postcss-scss",
+        "rollup",
+        "rollup-plugin-typescript2",
+        "sass",
+        "sass-loader",
+        "style-loader",
+        "stylelint",
+        "ts-loader",
+        "typescript",
+        "typescript-plugin-css-modules",
+        "@babel/preset-typescript",
+        "plop",
+        "@testing-library/jest-dom",
+        "@testing-library/react"
+      ],
+      "isIgnored": true
+    }
+  ]
+}
