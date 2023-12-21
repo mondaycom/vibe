@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.74.2 (2023-12-20)
+
+#### Documentation
+* [#1837](https://github.com/mondaycom/monday-ui-react-core/pull/1837) docs: add playground addon for vibe's storybook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.74.1 (2023-12-20)
+
+#### Bug Fixes
+* [#1838](https://github.com/mondaycom/monday-ui-react-core/pull/1838) Split button alignment fix ([@talkor](https://github.com/talkor))
+
 ## 2.74.0 (2023-12-20)
 
 #### Bug Fixes
