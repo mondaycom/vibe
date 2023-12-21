@@ -21,7 +21,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { CloseMenuOption, MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -48,7 +48,7 @@ export interface MenuProps extends VibeComponentProps {
   useDocumentEventListeners?: boolean;
   focusItemIndexOnMount?: number;
   shouldScrollMenu?: boolean;
-  children?: ReactElement | ReactElement[];
+  children?: ElementContent;
 }
 
 const Menu: VibeComponent<MenuProps> & {
