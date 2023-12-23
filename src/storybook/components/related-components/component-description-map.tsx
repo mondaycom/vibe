@@ -54,6 +54,7 @@ import { BadgeDescription } from "./descriptions/badge-description";
 import { SliderDescription } from "./descriptions/slider-description";
 import { IconDescription } from "./descriptions/icon-description";
 import { BoxDescription } from "./descriptions/box-description";
+import { TableDescription } from "./descriptions/table-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -106,6 +107,7 @@ export const VIRTUALIZED_LIST = "virtualized-list";
 export const COLOR_PICKER = "color-picker";
 export const SLIDER = "slider";
 export const BOX = "box";
+export const TABLE = "table";
 
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
@@ -164,7 +166,8 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [EXPAND_COLLAPSE, <ExpandCollapseDescription />],
   [VIRTUALIZED_LIST, <VirtualizedListDescription />],
   [COLOR_PICKER, <ColorPickerDescription />],
-  [BOX, <BoxDescription />]
+  [BOX, <BoxDescription />],
+  [TABLE, <TableDescription />]
 ];
 
 // General description names (not related to specific components)
