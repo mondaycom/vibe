@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.75.0 (2023-12-24)
+
+#### New Features
+* [#1845](https://github.com/mondaycom/monday-ui-react-core/pull/1845) feat: add warning color LinearProgressBar ([@rongabbay](https://github.com/rongabbay))
+
+#### Documentation
+* [#1840](https://github.com/mondaycom/monday-ui-react-core/pull/1840) docs(box): add box description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1844](https://github.com/mondaycom/monday-ui-react-core/pull/1844) infra: monorepo-prerelease.yml workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.74.4 (2023-12-21)
 
 #### Bug Fixes
