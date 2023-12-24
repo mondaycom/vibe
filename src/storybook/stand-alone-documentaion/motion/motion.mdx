@@ -1,0 +1,146 @@
+import { Meta } from "@storybook/blocks";
+import { ComponentNameDecorator } from "../../components";
+import { AnimationOverviews } from "./animation-overviews/animation-overviews";
+import { DurationProductiveTokens } from "./duration-productive-tokens/duration-productive-tokens";
+import { DurationExpressiveTokens } from "./duration-expressive-tokens/duration-expressive-tokens";
+import { DurationTokenTable } from "./duration-token-table/duration-token-table";
+import { EasingOverviews } from "./easing-overviews/easing-overviews";
+import { EasingTokenTable } from "./easing-token-table/easing-token-table";
+import { AnimationTypes } from "./animation-types/animation-types";
+import {
+  ConsistencyDo,
+  ConsistencyDont,
+  DontDelayDo,
+  DontDelayDont,
+  EasingDo,
+  EasingDont,
+  SimplicityDo,
+  SimplicityDont
+} from "./assets";
+
+<Meta title="Foundations/Motion" />
+
+<ComponentNameDecorator withFoundationBackground>Motion</ComponentNameDecorator>
+
+- [Overview](#overview)
+- [Implementation](#implementation---duration-and-ease)
+- [Do's and dont's](do's-and-don'ts)
+
+## Overview
+
+Animation is a powerful tool for communication and is an integral part of the visual language of a product. It helps make the user interface easier to understand and navigate, intuitive to use, and more interactive to work with. Here are the four main processes that help bridge the gap between the virtual world we build and the physical world we know:
+
+<AnimationOverviews />
+
+## Implementation - Duration and Ease
+
+### Duration - how long a transition lasts
+
+Every move should feel smooth and contribute to the feeling that our platform is responsive, efficient, and fast.
+When elements change their state or position, the duration of the animation should be slow enough to give users the chance to notice the change, but quick enough to not keep them waiting.
+
+The style and size of the motion determine the duration. There are two styles; Productive motion and Expressive motion. The Productive motion duration range is between 70 - 150 ms, while Expressive motion scopes between 250 to 400 ms.
+
+#### Productive motion
+
+Use Productive motion for moments when the user needs to focus on completing tasks.
+
+<DurationProductiveTokens />
+
+#### Expressive motion
+
+Use expressive motion when the movement itself is crucial in conveying the meaning of the action.
+
+<DurationExpressiveTokens />
+
+#### Summary on duration
+
+<DurationTokenTable />
+
+### Ease - acceleration over time
+
+Since linear movements appear unnatural to a human eye, objects should always move with some acceleration or deceleration — just like all live objects in the physical world.
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <video height="190px" src={EasingDo} controls loop />,
+        description: "Using ease to make movement feel natural."
+      },
+      negative: {
+        component: <video height="190px" src={EasingDont} controls loop />,
+        description: "Linear motion feels mechanical and unnatural."
+      }
+    }
+  ]}
+/>
+
+<EasingOverviews />
+
+#### Summary on easing
+
+<EasingTokenTable />
+
+## Do's and don'ts
+
+### Consistency
+
+Similar elements must have similar moves. Implement easing curves and timing with a consistent rhythm to ensure motion is predictable and familiar to the user.
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <video height="190px" src={ConsistencyDo} controls loop />,
+        description: "Using ease to make movement feel natural."
+      },
+      negative: {
+        component: <video height="190px" src={ConsistencyDont} controls loop />,
+        description: "Linear motion feels mechanical and unnatural."
+      }
+    }
+  ]}
+/>
+
+### Simplicity
+
+Simple movements make it easier for the user to follow along and convey a clear message. Keep it simple and clever.
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <video height="190px" src={SimplicityDo} controls loop />,
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        component: <video height="190px" src={SimplicityDont} controls loop />,
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    }
+  ]}
+/>
+
+### Don’t delay the user
+
+The user should never get the feeling that they are waiting for the animation to end.
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <video height="190px" src={DontDelayDo} controls loop />,
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        component: <video height="190px" src={DontDelayDont} controls loop />,
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    }
+  ]}
+/>
+
+## Animation Types
+
+<AnimationTypes />

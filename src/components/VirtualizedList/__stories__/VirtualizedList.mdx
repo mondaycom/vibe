@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { UsageGuidelines } from "vibe-storybook-components";
+import { TipItemRenderer } from "./virtualizedList.stories.helpers";
+import * as VirtualizedListStories from "./VirtualizedList.stories";
+
+<Meta of={VirtualizedListStories} />
+
+# VirtualizedList
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+
+VirtualizedList is a component which only renders visible list items, it is a logic component and doesn't change and look and feel
+
+The VirtualizedList can be Vertical or Horizontal
+
+Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
+
+<Canvas>
+  <Story of={VirtualizedListStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines guidelines={["Use this when you expect to have many items in your list"]} />
+
+<TipItemRenderer />

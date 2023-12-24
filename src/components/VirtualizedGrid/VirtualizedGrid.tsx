@@ -18,7 +18,7 @@ import {
 } from "../../services/virtualized-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "src/types/VibeComponentProps";
 import { VibeComponent } from "../../types";
 import { NOOP } from "../../utils/function-utils";
@@ -102,7 +102,7 @@ interface VirtualizedGridProps extends VibeComponentProps {
   /**
    * class name to add to the component scrollable container
    */
-  scrollableClassName: string;
+  scrollableClassName?: string;
 }
 
 const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
@@ -144,7 +144,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       scrollOffsetFinal: 0,
       animationStartTime: 0
     });
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
 
     const animationData = animationDataRef.current;
 

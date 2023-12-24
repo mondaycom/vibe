@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
@@ -21,7 +21,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
+import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } from "../../../types";
 import { CloseMenuOption, MenuChild } from "./MenuConstants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -36,7 +36,7 @@ export interface MenuProps extends VibeComponentProps {
    * @deprecated - use className instead
    */
   classname?: string;
-  size?: typeof SIZES[keyof typeof SIZES];
+  size?: (typeof SIZES)[keyof typeof SIZES];
   tabIndex?: number;
   ariaLabel?: string;
   ariaDescribedBy?: string;
@@ -48,7 +48,7 @@ export interface MenuProps extends VibeComponentProps {
   useDocumentEventListeners?: boolean;
   focusItemIndexOnMount?: number;
   shouldScrollMenu?: boolean;
-  children?: ReactElement | ReactElement[];
+  children?: ElementContent;
 }
 
 const Menu: VibeComponent<MenuProps> & {
@@ -79,9 +79,11 @@ const Menu: VibeComponent<MenuProps> & {
     },
     forwardedRef
   ) => {
+    const ref = useRef(null);
+    const mergedRef = useMergeRef(ref, forwardedRef);
+
     const overrideId = useMenuId(id);
-    const ref = useRef<HTMLElement>(null);
-    const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
+    const splitMenuItemIconButtonRef = useRef<HTMLElement>(null);
 
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
@@ -149,7 +151,12 @@ const Menu: VibeComponent<MenuProps> & {
       ref,
       useDocumentEventListeners
     });
-    useMouseLeave({ resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex: onSetActiveItemIndexCallback });
+    useMouseLeave({
+      resetOpenSubMenuIndex,
+      hasOpenSubMenu,
+      ref,
+      setActiveItemIndex: onSetActiveItemIndexCallback
+    });
     useFocusOnMount({
       focusItemIndexOnMount,
       focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
@@ -218,7 +225,8 @@ const Menu: VibeComponent<MenuProps> & {
                   shouldScrollMenu,
                   getNextSelectableIndex,
                   getPreviousSelectableIndex,
-                  isUnderSubMenu: isSubMenu
+                  isUnderSubMenu: isSubMenu,
+                  splitMenuItemIconButtonRef
                 })
               : null;
           })}

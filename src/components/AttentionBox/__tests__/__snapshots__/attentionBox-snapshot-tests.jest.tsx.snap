@@ -10,7 +10,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -19,10 +19,10 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -32,7 +32,7 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -66,7 +66,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -75,10 +75,10 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -88,7 +88,7 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -122,7 +122,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -131,10 +131,10 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -144,7 +144,7 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -178,7 +178,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -187,10 +187,10 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -200,7 +200,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -281,12 +281,12 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -320,7 +320,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -329,10 +329,10 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       className="icon icon noFocusStyle"
       data-testid="icon"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -342,7 +342,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title
@@ -370,7 +370,6 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       aria-busy={false}
       aria-disabled={false}
       aria-label="Close"
-      aria-pressed={false}
       className="closeIcon button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="icon-button"
       onBlur={[Function]}
@@ -450,7 +449,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
     className="container directionRow justifyStart alignCenter titleContainer"
     style={
       Object {
-        "gap": "8px",
+        "gap": "4px",
       }
     }
   >
@@ -462,7 +461,7 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      className="typography primary start singleLineEllipsis text text1Bold title"
+      className="typography primary start singleLineEllipsis text text1Medium title"
       data-testid="text"
     >
       Title

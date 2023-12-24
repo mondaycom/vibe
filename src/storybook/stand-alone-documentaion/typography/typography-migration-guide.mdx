@@ -1,0 +1,98 @@
+import { Meta } from "@storybook/blocks";
+import { Link } from "vibe-storybook-components";
+import { EDITABLE_HEADING, HEADING, TEXT } from "../../components/related-components/component-description-map";
+import { migrationTable } from "./assets";
+import { TipNextEndpoint, TipUseComponent } from "./typograpghy.stories.helpers";
+
+<Meta title="Typography Migration Guide" />
+
+<ComponentName withFoundationBackground>Typography Migration Guide</ComponentName>
+
+- [Overview](#overview)
+- [Why](#why)
+- [When to use](#when-to-use)
+- [How to import](#how-to-import)
+- [How to use](#how-to-use)
+- [How to migrate](#how-to-migrate)
+- [More information](#more-information)
+- [Related Components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+A new typography change was introduced in `v2.24.0+`, including two new components: <StorybookLink page="Text/Text"> Text </StorybookLink> and <StorybookLink page="Text/Heading">
+Heading</StorybookLink>.
+
+## Why?
+
+In order to produce a unified language, Vibe now uses a well defined set of typography variants and weights.
+This change allows designers crating more accurate and refined designs, while enhancing the developer experience, making implementation easier and more intuitive.
+
+## When to use
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <StorybookLink page="Text/Text">Text</StorybookLink> component for paragraphs, labels, and texts up to
+      16px. It includes 2 variants: <code>Text1</code> and <code>Text2</code>. Each variant has a fixed size and three
+      different weights.
+    </>,
+    <>
+      Use the <StorybookLink page="Text/Heading">Heading</StorybookLink> component the for titles and text from 18px and
+      up. It includes 3 variants: <code>H1</code>, <code>H2</code> and <code>H3</code>. Each of these variant is mapped
+      to an <code>h1</code>, <code>h2</code>, <code>h3</code> element accordingly.
+    </>
+  ]}
+/>
+
+## How to import
+
+```js
+import { Text } from "monday-ui-react-core";
+import { Heading } from "monday-ui-react-core/next";
+```
+
+<TipNextEndpoint />
+
+## How to use
+
+Each of these components can get the variants as a prop. You also get out-of-the-box built-in colors and an "ellipsis" with a Tooltip for a long text that breaks the line. For example:
+
+```jsx
+<Text type={Text.types.TEXT1} weight={Text.weights.NORMAL}>
+  This is text1 normal
+</Text>
+```
+
+```jsx
+<Heading type={Heading.types.H2} weight={Heading.weights.NORMAL}>
+  Normal H2 title
+</Heading>
+```
+
+For a more detailed breakdown of the variants see the <Link href="/?path=/docs/foundations-typography--docs#type-styles" withoutSpacing target={Link.targets.PARENT}>Type Styles table</Link>.
+
+<TipUseComponent />
+
+## How to migrate
+
+For every new usage, <strong>use the new components</strong>. For existing usages, <strong>refactor gradually</strong> according to the migration table below:
+
+<img src={migrationTable} alt="Migration table" />
+
+### What if I can't use a component?
+
+We highly suggest using the new components, but if it is still needed, SCSS mixins and CSS custom properties (CSS Variables) are still available. Read the <StorybookLink page="Foundations/Typography">Typography Foundation</StorybookLink> docs for more information.
+
+### What if I need a variant that doesn't exist?
+
+Contact the design system team for support.
+
+## More information
+
+Learn more about the components APIs and functionality in the <StorybookLink page="Text/Text"> Text </StorybookLink> and <StorybookLink page="Text/Heading">
+Heading</StorybookLink> pages.
+
+## Related components
+
+<RelatedComponents componentsNames={[TEXT, HEADING, EDITABLE_HEADING]} />

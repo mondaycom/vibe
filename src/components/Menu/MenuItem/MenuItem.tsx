@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import cx from "classnames";
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import cx from "classnames";
+import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
-import { isFunction } from "lodash-es";
 import Text from "../../Text/Text";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
-import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
-import useMergeRefs from "../../../hooks/useMergeRefs";
+import useMergeRef from "../../../hooks/useMergeRef";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -19,8 +18,13 @@ import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../
 import { IconType } from "../../Icon/IconConstants";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY, TooltipPosition } from "./MenuItemConstants";
 import { CloseMenuOption, MenuChild } from "../Menu/MenuConstants";
-import styles from "./MenuItem.module.scss";
 import Label from "../../Label/Label";
+import styles from "./MenuItem.module.scss";
+import { DropdownChevronRight } from "../../Icon/Icons";
+import IconButton from "../../IconButton/IconButton";
+import Divider from "../../Divider/Divider";
+import { DirectionType } from "../../Divider/DividerConstants";
+import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
 export interface MenuItemProps extends VibeComponentProps {
   title?: string;
@@ -59,6 +63,12 @@ export interface MenuItemProps extends VibeComponentProps {
   closeMenu?: (option: CloseMenuOption) => void;
   menuRef?: React.RefObject<HTMLElement>;
   children?: MenuChild | MenuChild[];
+  /**
+   * Type of menu item with sub menu, which has two click/hover options-
+   *    1. click on the main menu item will trigger onClick
+   *    2. click/hover on icon button will open the sub menu
+   */
+  splitMenuItem?: boolean;
 }
 
 const MenuItem: VibeComponent<MenuItemProps> & {
@@ -102,17 +112,17 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseEnter,
       onMouseLeave,
       shouldScrollMenu,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      splitMenuItem = false
     },
     ref: ForwardedRef<HTMLElement>
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
-    const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
     const hasChildren = !!children;
+    const isSubMenuOpen = hasChildren && isActive && hasOpenSubMenu;
     const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
     const submenuChild: MenuChild = children && React.Children.only(children);
-
     let menuChild;
     if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
       menuChild = submenuChild;
@@ -126,17 +136,21 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const titleRef = useRef();
     const childRef = useRef<HTMLElement>();
     const referenceElementRef = useRef(null);
+    const iconButtonElementRef = useRef(null);
     const popperElementRef = useRef(null);
     const popperElement = popperElementRef.current;
     const referenceElement = referenceElementRef.current;
     const childElement = childRef.current;
+    const mergedRef = useMergeRef(ref, referenceElementRef);
+
+    const isMouseEnterMenuItem = useIsMouseEnter({ ref: referenceElementRef });
+    const isMouseEnterIconButton = useIsMouseEnter({ ref: iconButtonElementRef });
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
     const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
       isOpen: isSubMenuOpen
     });
-
     useEffect(() => {
       if (isActive && shouldScrollMenu && referenceElement) {
         if (referenceElement.scrollIntoViewIfNeeded) {
@@ -149,12 +163,14 @@ const MenuItem: VibeComponent<MenuItemProps> & {
 
     const isMouseEnter = useMenuItemMouseEvents({
       ref: referenceElementRef,
+      splitMenuItemIconButtonRef: iconButtonElementRef,
       resetOpenSubMenuIndex,
       setSubMenuIsOpenByIndex,
       isActive,
       setActiveItemIndex,
       index,
-      hasChildren
+      hasChildren,
+      splitMenuItem
     });
 
     const { onClickCallback } = useMenuItemKeyboardEvents({
@@ -169,7 +185,10 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       menuRef,
       isMouseEnter,
       closeMenu,
-      useDocumentEventListeners
+      useDocumentEventListeners,
+      splitMenuItem,
+      isMouseEnterMenuItem,
+      isMouseEnterIconButton
     });
 
     useLayoutEffect(() => {
@@ -199,12 +218,24 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
-    const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
-
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
-      return (
+      return splitMenuItem ? (
+        <div className={styles.subMenuIconWrapper}>
+          <Divider direction={DirectionType.VERTICAL} className={styles.divider} />
+          <IconButton
+            icon={DropdownChevronRight}
+            className={styles.splitMenuItemIconButton}
+            kind={IconButton.kinds.TERTIARY}
+            size={null} // Customizing size via className
+            iconClassName={styles.iconButton}
+            tabIndex={-1}
+            ref={iconButtonElementRef}
+            active={shouldShowSubMenu}
+          />
+        </div>
+      ) : (
         <div className={styles.subMenuIconWrapper}>
           <Icon
             clickable={false}
@@ -284,7 +315,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           [styles.disabled]: disabled,
           [styles.focused]: isActive,
           [styles.selected]: selected,
-          [styles.initialSelected]: isInitialSelectedState
+          [styles.initialSelected]: isInitialSelectedState,
+          [styles.splitMenuItem]: splitMenuItem
         })}
         ref={mergedRef}
         onClick={onClickCallback}

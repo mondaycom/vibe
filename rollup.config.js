@@ -40,11 +40,20 @@ function generateCssModulesScopedName(name, filename, css) {
   return `${name}_${getShortSha(content + replaceDotWithUnderscore(loadPackageJsonResult.version))}`;
 }
 
+function onwarn(message) {
+  if (message.code === "CIRCULAR_DEPENDENCY") {
+    console.error("Circular dependency detected: ", message, "Build failed, exiting...");
+    process.exit(1);
+  }
+  console.warn(message);
+}
+
 function generateCssModulesMockName(name) {
   return name;
 }
 
 export default {
+  onwarn,
   output: {
     dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames_esm") : path.join(DIST_PATH, "esm"),
     indent: false,

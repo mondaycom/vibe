@@ -22,7 +22,7 @@ export const TabsDescription = () => {
     <RelatedComponent
       component={component}
       title="Tabs"
-      href="/?path=/docs/navigation-tabs-tabs--overview"
+      href="/?path=/docs/navigation-tabs-tabs--docs"
       description="Allow users to navigate between related views of content."
     />
   );

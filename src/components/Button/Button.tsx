@@ -3,7 +3,7 @@ import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, use
 import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { SIZES } from "../../constants";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
@@ -144,9 +144,12 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     },
     ref
   ) => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const mergedRef = useMergeRef(ref, buttonRef);
+
     const { loading } = useButtonLoading({ isLoading });
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
@@ -236,8 +239,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       insetFocus
     ]);
 
-    const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
-
     const buttonProps = useMemo(() => {
       const props: Record<string, unknown> = {
         ref: mergedRef,
@@ -250,7 +251,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
-        tabIndex,
+        tabIndex: disabled ? -1 : tabIndex,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
@@ -260,7 +261,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-pressed": active,
         "aria-describedby": ariaDescribedBy
       };
       return props;
@@ -285,8 +285,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      ariaDescribedBy,
-      active
+      ariaDescribedBy
     ]);
 
     const leftIconSize = useMemo(() => {

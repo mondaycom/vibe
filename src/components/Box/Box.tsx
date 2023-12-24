@@ -1,6 +1,6 @@
-import React, { forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import {
   BACKGROUND_COLORS,
   BackgroundColor,
@@ -44,12 +44,12 @@ import {
   Shadow,
   DISABLED
 } from "./BoxConstants";
-import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 
 interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
-  children?: ReactElement | ReactElement[];
+  children?: ElementContent;
   disabled?: boolean;
   border?: ValueOf<Border>;
   borderColor?: ValueOf<BorderColor>;
@@ -71,6 +71,10 @@ interface BoxProps extends VibeComponentProps {
   paddingStart?: ValueOf<PaddingStart>;
   backgroundColor?: ValueOf<BackgroundColor>;
   textColor?: ValueOf<Color>;
+  /**
+   * TODO: make default in next major version
+   */
+  scrollable?: boolean;
 }
 
 const Box: VibeComponent<BoxProps> & {
@@ -121,12 +125,13 @@ const Box: VibeComponent<BoxProps> & {
       paddingBottom,
       paddingStart,
       textColor,
-      backgroundColor
+      backgroundColor,
+      scrollable
     },
     ref
   ) => {
     const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedRef = useMergeRef(ref, componentRef);
     return React.createElement(
       elementType,
       {
@@ -134,7 +139,7 @@ const Box: VibeComponent<BoxProps> & {
         className: cx(
           styles.box,
           className,
-          { [DISABLED.DISABLED]: disabled },
+          { [DISABLED.DISABLED]: disabled, [styles.scrollable]: scrollable },
           border,
           borderColor,
           rounded,

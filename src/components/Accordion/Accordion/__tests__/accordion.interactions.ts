@@ -4,7 +4,7 @@ import { Screen } from "@testing-library/react";
 import { resetFocus } from "../../../../__tests__/interactions-helper";
 import { delay, interactionSuite } from "../../../../tests/interactions-utils";
 
-const CHANGES_DELAY = 1;
+const CHANGES_DELAY = 100;
 
 function getAccordionHeadingByText(canvas: Screen, title: string) {
   return canvas.getByText(title)?.closest("button");
@@ -28,6 +28,7 @@ async function openAndCheckAccordionItem(canvas: Screen, title: string) {
   const before = getOpenedAccordionItem(canvas);
   const elHeading = getAccordionHeadingByText(canvas, title);
   userEvent.click(elHeading);
+  await delay(CHANGES_DELAY);
   const elPanel = canvas.getByRole("region");
   await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
   await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
@@ -37,6 +38,7 @@ async function openAndCheckAccordionItem(canvas: Screen, title: string) {
 async function closeAndCheckMultiAccordionItem(canvas: Screen, expectedOpenedPanels: number) {
   const before = getOpenedAccordionItems(canvas);
   userEvent.click(before.elHeadings[0]);
+  await delay(CHANGES_DELAY);
   const after = getOpenedAccordionItems(canvas);
   await expect(after.elPanels.length).toBe(expectedOpenedPanels);
   await expect(before.elHeadings[0].getAttribute("aria-expanded")).toBe("false");
@@ -45,6 +47,7 @@ async function closeAndCheckMultiAccordionItem(canvas: Screen, expectedOpenedPan
 async function openAndCheckMultiAccordionItem(canvas: Screen, title: string, expectedOpenedPanels: number) {
   const elHeading = getAccordionHeadingByText(canvas, title);
   userEvent.click(elHeading);
+  await delay(CHANGES_DELAY);
   const after = getOpenedAccordionItems(canvas);
   await expect(after.elPanels.length).toBe(expectedOpenedPanels);
   await expect(after.elHeadings[0].getAttribute("aria-expanded")).toBe("true");

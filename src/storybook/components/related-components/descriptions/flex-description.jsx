@@ -16,7 +16,7 @@ export const FlexDescription = () => {
     <RelatedComponent
       component={component}
       title="Flex"
-      href="/?path=/docs/layout-flex--overview"
+      href="/?path=/docs/layout-flex--docs"
       description="Position group of sub-elements in one dimension, horizontal or vertical"
     />
   );

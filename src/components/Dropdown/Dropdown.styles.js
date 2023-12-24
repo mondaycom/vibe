@@ -35,7 +35,7 @@ const getIndicatorBoxSize = size => {
 
 const getColor = () => {
   const color = getCSSVar("primary-text-color");
-  const backgroundColor = getCSSVar("primary-background-color");
+  const backgroundColor = getCSSVar("secondary-background-color");
   return { color, backgroundColor };
 };
 
@@ -150,6 +150,9 @@ const control =
       minHeight: "30px",
       border: "0 solid transparent",
       borderRadius: getCSSVar("border-radius-small"),
+      ":focus-within": {
+        boxShadow: `0 0 0 1px ${getCSSVar("primary-color")}`
+      },
       ...(!isDisabled && {
         ":hover": {
           borderColor: "transparent",

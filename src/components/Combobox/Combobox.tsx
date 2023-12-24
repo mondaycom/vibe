@@ -5,7 +5,7 @@ import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react
 import { isFunction, noop as NOOP } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
 import Button from "../Button/Button";
@@ -43,7 +43,7 @@ export interface ComboboxProps extends VibeComponentProps {
    * Divider between categories sections
    */
   withCategoriesDivider?: boolean;
-  size?: typeof BASE_SIZES[keyof typeof BASE_SIZES];
+  size?: (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
   optionLineHeight?: number;
   optionsListHeight?: number;
   autoFocus?: boolean;
@@ -152,8 +152,9 @@ const Combobox: React.FC<ComboboxProps> & {
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
+    const mergedRef = useMergeRef(ref, componentRef);
+
     const [filterValue, setFilterValue] = useState(defaultFilterValue);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const onChangeCallback = useCallback(
       (value: string) => {
         if (onFilterChanged) {

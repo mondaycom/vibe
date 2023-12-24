@@ -9,12 +9,13 @@ interface TipseenImageProps {
   // Better be required, but it might be a breaking change
   alt?: string;
   className?: string;
+  tipseenMediaClassName?: string;
 }
 
-const TipseenImage: FC<TipseenImageProps> = ({ src, alt, className }) => {
+const TipseenImage: FC<TipseenImageProps> = ({ src, alt, className, tipseenMediaClassName }) => {
   return (
     // TODO future breaking change where we remove the TipseenMedia component and we remove TipseenImage?
-    <TipseenMedia>
+    <TipseenMedia className={tipseenMediaClassName}>
       <img src={src} alt={alt} className={cx(styles.tipseenImage, className)} />
     </TipseenMedia>
   );

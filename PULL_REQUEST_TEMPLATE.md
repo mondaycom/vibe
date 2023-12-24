@@ -21,7 +21,7 @@ Please go over the checklist and make sure all conditions are met.
 
 #### Storybook
 
-- [ ] Stories were added to `/src/components/NewComponent/__stories__/NewComponent.stories.mdx` file.
+- [ ] Stories were added to `/src/components/NewComponent/__stories__/NewComponent.mdx` file.
 - [ ] Stories include all flows of using the component.
 - [ ] Stories implemented using [vibe-storybook-components](https://github.com/mondaycom/vibe-storybook-components) components and tokens.
 
@@ -32,4 +32,4 @@ Please go over the checklist and make sure all conditions are met.
 #### Accessibility
 
 - [ ] Component is accessible.
-- [ ] Component is compatible with [Vibe Accessibility Guidelines](https://style.monday.com/?path=/docs/foundations-accessibility--page)
+- [ ] Component is compatible with [Vibe Accessibility Guidelines](https://style.monday.com/?path=/docs/foundations-accessibility--docs)

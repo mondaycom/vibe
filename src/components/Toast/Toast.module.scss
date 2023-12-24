@@ -16,33 +16,22 @@
   display: flex;
   min-width: 200px;
   border-radius: var(--border-radius-small);
-  color: var(--text-color-fixed-light);
+  color: var(--fixed-light-color);
 }
 
 .icon {
   display: flex;
-  padding-left: var(--spacing-small);
-  padding-right: var(--spacing-small);
+  margin-left: var(--spacing-small);
 }
 
 .content {
+  margin: 0 var(--spacing-small);
+  flex: 1;
+}
+
+.textContent {
   display: inline-flex;
   flex-grow: 1;
-}
-
-.contentNoIcon {
-  padding-left: var(--spacing-small);
-}
-
-.action {
-  margin-left: var(--spacing-medium);
-  display: flex;
-}
-
-// Could have been put to ToastButton and ToastLink, but would be a breaking change
-.actionButton,
-.actionLink {
-  margin-left: var(--spacing-small);
 }
 
 .typeNormal {
@@ -59,16 +48,31 @@
 
 .typeWarning {
   background-color: var(--warning-color);
-  color: var(--text-color-fixed-dark);
+  color: var(--fixed-dark-color);
 
   .closeButton {
-    color: var(--text-color-fixed-dark);
+    color: var(--fixed-dark-color);
   }
 
   .actionButton,
   .actionLink {
-    color: var(--text-color-fixed-dark);
-    border-color: var(--text-color-fixed-dark);
+    color: var(--fixed-dark-color);
+    border-color: var(--fixed-dark-color);
+  }
+}
+
+.typeDark {
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
+
+  .closeButton {
+    color: var(--text-color-on-inverted);
+  }
+
+  .actionButton,
+  .actionLink {
+    color: var(--text-color-on-inverted);
+    border-color: var(--text-color-on-inverted);
   }
 }
 

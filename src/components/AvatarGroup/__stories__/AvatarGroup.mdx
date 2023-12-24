@@ -1,0 +1,127 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import { UsageGuidelines } from "vibe-storybook-components";
+import { AVATAR, COUNTER, BADGE } from "../../../storybook/components/related-components/component-description-map";
+import * as AvatarGroupStories from "./AvatarGroup.stories";
+
+<Meta of={AvatarGroupStories} />
+
+# AvatarGroup
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this component if you need to stack avatars as a group.
+
+<Canvas>
+  <Story of={AvatarGroupStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use <StorybookLink page="Popover/Tooltip">tooltip</StorybookLink> component while hovering on the counter when you
+      need only to display the content
+    </>,
+    <>
+      If clickable and navigable list is required on counter, use{" "}
+      <StorybookLink page="Navigation/Menu/Menu">Menu</StorybookLink> component
+    </>
+  ]}
+/>
+
+## Variants
+
+### Size
+
+As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
+
+<Canvas>
+  <Story of={AvatarGroupStories.Size} />
+</Canvas>
+
+### Color variants
+
+You can use Light or Dark counter color to maintain visual hierarchy.
+
+<Canvas>
+  <Story of={AvatarGroupStories.ColorVariants} />
+</Canvas>
+
+### Custom counter
+
+You can pass `counterProps` to specify counter params.
+
+<Canvas>
+  <Story of={AvatarGroupStories.CustomCounter} />
+</Canvas>
+
+### Grid tooltip
+
+When tooltip text for additional avatars is not passed, extra avatars will be displayed in a grid mode.
+
+<Canvas>
+  <Story of={AvatarGroupStories.GridTooltip} />
+</Canvas>
+
+### Max amount to display
+
+Choose the maximum amount of avatars you want to display.
+
+<Canvas>
+  <Story of={AvatarGroupStories.MaxAmountToDisplay} />
+</Canvas>
+
+### Hover vs Clickable
+
+If avatars are clickable, they will be displayed via <StorybookLink page="Navigation/Menu/Menu">Menu</StorybookLink> and user will be able to navigate each additional item.
+Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
+
+<Canvas>
+  <Story of={AvatarGroupStories.HoverVsClickable} />
+</Canvas>
+
+### Virtualized list
+
+Should be used only to display large amount of avatars in default counter tooltip
+
+<Canvas>
+  <Story of={AvatarGroupStories.VirtualizedList} />
+</Canvas>
+
+### Counter custom tooltip content
+
+Counter tooltip props can be specified in order to render tooltip with custom content.
+
+<Canvas>
+  <Story of={AvatarGroupStories.CounterCustomTooltipContent} />
+</Canvas>
+
+## Use cases and examples
+
+### Last seen users
+
+<Canvas>
+  <Story of={AvatarGroupStories.LastSeenUsers} />
+</Canvas>
+
+### Displaying teams
+
+<Canvas>
+  <Story of={AvatarGroupStories.DisplayingTeams} />
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[AVATAR, BADGE, COUNTER]} />

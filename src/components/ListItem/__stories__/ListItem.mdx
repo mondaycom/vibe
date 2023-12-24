@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import * as ListItemStories from "./ListItem.stories";
+
+<Meta of={ListItemStories} />
+
+# ListItem
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+
+An item of a List component
+
+<Canvas>
+  <Story of={ListItemStories.Overview} />
+</Canvas>
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "List item can include an ListItemIcon or text.",
+    "List item icon should always be displayed before the item's text (left or right depending on the item's text language)"
+  ]}
+/>
+
+## Variants
+
+### States
+
+<Canvas>
+  <Story of={ListItemStories.States} />
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story of={ListItemStories.Sizes} />
+</Canvas>
+
+### List item with an icon
+
+<Canvas>
+  <Story of={ListItemStories.WithIcon} />
+</Canvas>
+
+### List item with an avatar
+
+<Canvas>
+  <Story of={ListItemStories.WithAvatar} />
+</Canvas>

@@ -4,7 +4,9 @@
   margin-block-start: var(--spacing-medium);
 
   .icon {
-    margin-right: var(--spacing-small);
+    margin-top: var(--spacing-xs);
+    flex-shrink: 0;
+    color: var(--primary-text-color);
   }
 
   .description {

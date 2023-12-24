@@ -1,5 +1,183 @@
 # Changelog
 
+## 2.75.0 (2023-12-24)
+
+#### New Features
+* [#1845](https://github.com/mondaycom/monday-ui-react-core/pull/1845) feat: add warning color LinearProgressBar ([@rongabbay](https://github.com/rongabbay))
+
+#### Documentation
+* [#1840](https://github.com/mondaycom/monday-ui-react-core/pull/1840) docs(box): add box description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1844](https://github.com/mondaycom/monday-ui-react-core/pull/1844) infra: monorepo-prerelease.yml workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.74.4 (2023-12-21)
+
+#### Bug Fixes
+* [#1839](https://github.com/mondaycom/monday-ui-react-core/pull/1839) fix: change Box/Menu children types to ElementContent ([@talkor](https://github.com/talkor))
+
+## 2.74.3 (2023-12-21)
+
+#### Internal Changes
+* [#1842](https://github.com/mondaycom/monday-ui-react-core/pull/1842) type: change menu children type ([@idoyana](https://github.com/idoyana))
+
+## 2.74.2 (2023-12-20)
+
+#### Documentation
+* [#1837](https://github.com/mondaycom/monday-ui-react-core/pull/1837) docs: add playground addon for vibe's storybook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.74.1 (2023-12-20)
+
+#### Bug Fixes
+* [#1838](https://github.com/mondaycom/monday-ui-react-core/pull/1838) Split button alignment fix ([@talkor](https://github.com/talkor))
+
+## 2.74.0 (2023-12-20)
+
+#### Bug Fixes
+* [#1827](https://github.com/mondaycom/monday-ui-react-core/pull/1827) fix: Remove fucos for disabled button ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1836](https://github.com/mondaycom/monday-ui-react-core/pull/1836) feat(Box): add a scrollable prop ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1830](https://github.com/mondaycom/monday-ui-react-core/pull/1830) docs(README): fix npm link ([@Yaronglp](https://github.com/Yaronglp))
+* [#1835](https://github.com/mondaycom/monday-ui-react-core/pull/1835) docs: RelatedComponents - fix icons-description.jsx href ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1834](https://github.com/mondaycom/monday-ui-react-core/pull/1834) fix: align <SplitButton> options in Catalog with overview example ([@neerajkumarc](https://github.com/neerajkumarc))
+
+## 2.73.2 (2023-12-18)
+
+#### Bug Fixes
+* [#1829](https://github.com/mondaycom/monday-ui-react-core/pull/1829) fix: update Feedback and DoubleCheck icons after monday-ui-style update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.73.1 (2023-12-17)
+
+#### Bug Fixes
+* [#1821](https://github.com/mondaycom/monday-ui-react-core/pull/1821) fix: add background color to form components ([@talkor](https://github.com/talkor))
+* [#1814](https://github.com/mondaycom/monday-ui-react-core/pull/1814) fix(AttentionBox): fix layout and typography ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1824](https://github.com/mondaycom/monday-ui-react-core/pull/1824) docs(Chips): remove colors which we don't want devs to use from docs ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1825](https://github.com/mondaycom/monday-ui-react-core/pull/1825) docs: virtualized-list-description - fix import ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1819](https://github.com/mondaycom/monday-ui-react-core/pull/1819) docs(slider): add slider description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1822](https://github.com/mondaycom/monday-ui-react-core/pull/1822) chore: update monday-ui-style ([@talkor](https://github.com/talkor))
+
+## 2.73.0 (2023-12-14)
+
+#### New Features
+* [#1816](https://github.com/mondaycom/monday-ui-react-core/pull/1816) feat: Add Toast dark variation ([@shaharzil](https://github.com/shaharzil))
+* [#1791](https://github.com/mondaycom/monday-ui-react-core/pull/1791) style(Tooltip): Explicitly expose zIndex prop in component ([@lukasz-dudzinski](https://github.com/lukasz-dudzinski))
+
+#### Documentation
+* [#1820](https://github.com/mondaycom/monday-ui-react-core/pull/1820) docs: remove release section from readme ([@shaharzil](https://github.com/shaharzil))
+* [#1818](https://github.com/mondaycom/monday-ui-react-core/pull/1818) docs(icon): add icon description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+## 2.72.0 (2023-12-13)
+
+#### New Features
+* [#1815](https://github.com/mondaycom/monday-ui-react-core/pull/1815) feat: <TipseenImage> add tipseenMediaClassName ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1806](https://github.com/mondaycom/monday-ui-react-core/pull/1806) docs(badge): add badge description on catelog page ([@Hossein-Mirazimi](https://github.com/Hossein-Mirazimi))
+* [#1811](https://github.com/mondaycom/monday-ui-react-core/pull/1811) docs(Dropdown): fix menuPosition & menuPlacement props in argsTable controls ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1813](https://github.com/mondaycom/monday-ui-react-core/pull/1813) build(Rollup): fail build if circular dependency detected ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1812](https://github.com/mondaycom/monday-ui-react-core/pull/1812) chore(MenuItem): fix circular dependency with IconButton's import ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.71.0 (2023-12-11)
+
+#### New Features
+* [#1789](https://github.com/mondaycom/monday-ui-react-core/pull/1789) Yulia/extract add button and menu to mf/split menu item ([@YuliaGold](https://github.com/YuliaGold))
+
+## 2.70.0 (2023-12-11)
+
+#### New Features
+* [#1793](https://github.com/mondaycom/monday-ui-react-core/pull/1793) Sergeyro/feature/menu button custom trigger ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.69.4 (2023-12-10)
+
+#### Bug Fixes
+* [#1809](https://github.com/mondaycom/monday-ui-react-core/pull/1809) fix: export Table.sizes enum ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.69.3 (2023-12-10)
+
+#### Bug Fixes
+* [#1808](https://github.com/mondaycom/monday-ui-react-core/pull/1808) fix(Table): table does not render empty state if children are empty array ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1807](https://github.com/mondaycom/monday-ui-react-core/pull/1807) docs: useIsOverflowing.stories.js - remove maintenance warning ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1804](https://github.com/mondaycom/monday-ui-react-core/pull/1804) docs: fix storybook's sidebar overflow ([@talkor](https://github.com/talkor))
+
+## 2.69.2 (2023-12-07)
+
+#### Documentation
+* [#1803](https://github.com/mondaycom/monday-ui-react-core/pull/1803) docs: fix broken docs links ([@shaharzil](https://github.com/shaharzil))
+
+## 2.69.1 (2023-12-06)
+
+#### Bug Fixes
+* [#1802](https://github.com/mondaycom/monday-ui-react-core/pull/1802) fix: changed toggle typography ([@shaharzil](https://github.com/shaharzil))
+
+## 2.69.0 (2023-12-06)
+
+#### New Features
+* [#1801](https://github.com/mondaycom/monday-ui-react-core/pull/1801) feat(EditableTypography): add onClick event ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1800](https://github.com/mondaycom/monday-ui-react-core/pull/1800) Internal links fixes ([@talkor](https://github.com/talkor))
+* [#1797](https://github.com/mondaycom/monday-ui-react-core/pull/1797) docs: replace internal links with StorybookLink ([@talkor](https://github.com/talkor))
+
+## 2.68.0 (2023-12-05)
+
+#### New Features
+* [#1798](https://github.com/mondaycom/monday-ui-react-core/pull/1798) feat(Chips): allow label to accept custom Element ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1790](https://github.com/mondaycom/monday-ui-react-core/pull/1790) feat(Toast): add loading prop  ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1796](https://github.com/mondaycom/monday-ui-react-core/pull/1796) docs(Tipseen): fix floating variation story ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1795](https://github.com/mondaycom/monday-ui-react-core/pull/1795) fix: re-enable sidebar tags ([@talkor](https://github.com/talkor))
+* [#1763](https://github.com/mondaycom/monday-ui-react-core/pull/1763) docs: Storybook 7 migrate ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.67.0 (2023-11-30)
+
+#### New Features
+* [#1758](https://github.com/mondaycom/monday-ui-react-core/pull/1758) Editable typography animation and a11y ([@talkor](https://github.com/talkor))
+
+## 2.66.0 (2023-11-29)
+
+#### New Features
+* [#1787](https://github.com/mondaycom/monday-ui-react-core/pull/1787) feat(Toggle): add data-testid prop ([@talkor](https://github.com/talkor))
+
+## 2.65.0 (2023-11-29)
+
+#### Bug Fixes
+* [#1785](https://github.com/mondaycom/monday-ui-react-core/pull/1785) fix: replace deprecated text-fixed-color tokens with identical color tokens ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#1788](https://github.com/mondaycom/monday-ui-react-core/pull/1788) Support className in TableRow ([@uri-shmueli](https://github.com/uri-shmueli))
+
+#### Documentation
+* [#1784](https://github.com/mondaycom/monday-ui-react-core/pull/1784) docs: RelatedComponents - add <VirtualizedList> component description example ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1786](https://github.com/mondaycom/monday-ui-react-core/pull/1786) docs: RelatedComponents - fix <Dialog> description ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1775](https://github.com/mondaycom/monday-ui-react-core/pull/1775) infra: disable cron for update monday-ui-style version workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.64.2 (2023-11-28)
+
+#### Bug Fixes
+* [#1776](https://github.com/mondaycom/monday-ui-react-core/pull/1776) fix: <Dropdown> Control - use --primary-color on focus-within instead of default color from react-select ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1772](https://github.com/mondaycom/monday-ui-react-core/pull/1772) fix(ModalHeader): extract icon from Heading to allow tooltip to work ([@talkor](https://github.com/talkor))
+* [#1777](https://github.com/mondaycom/monday-ui-react-core/pull/1777) fix(Button): remove aria-pressed ([@talkor](https://github.com/talkor))
+* [#1771](https://github.com/mondaycom/monday-ui-react-core/pull/1771) fix: typography vertical overflow tolerance ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1782](https://github.com/mondaycom/monday-ui-react-core/pull/1782) docs: RelatedComponents - add <ColorPicker> component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1783](https://github.com/mondaycom/monday-ui-react-core/pull/1783) docs: Catalog fix multi words search ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1778](https://github.com/mondaycom/monday-ui-react-core/pull/1778) docs: change spacing of layout in stories ([@talkor](https://github.com/talkor))
+
 ## 2.64.1 (2023-11-27)
 
 #### Bug Fixes

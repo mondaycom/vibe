@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../Clickable/Clickable";
 import Text from "../Text/Text";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -78,7 +78,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const inputRef = useRef<HTMLInputElement | null>();
-    const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
+    const mergedRef = useMergeRef(ref, inputRef);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onChildClick = useCallback(() => {
       if (disabled || !retainChildClick) return;

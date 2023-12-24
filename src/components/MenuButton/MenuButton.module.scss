@@ -66,14 +66,6 @@
   @include vibe-heading(h2, normal);
 }
 
-.referenceIcon {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .disabled {
   border-color: var(--disabled-background-color);
   color: var(--disabled-text-color);

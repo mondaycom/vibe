@@ -17,7 +17,10 @@ export default function useMenuItemKeyboardEvents({
   menuRef,
   isMouseEnter,
   closeMenu,
-  useDocumentEventListeners
+  useDocumentEventListeners,
+  splitMenuItem,
+  isMouseEnterMenuItem,
+  isMouseEnterIconButton
 }: {
   onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
   disabled: boolean;
@@ -31,6 +34,9 @@ export default function useMenuItemKeyboardEvents({
   isMouseEnter: boolean;
   closeMenu: (option: CloseMenuOption) => void;
   useDocumentEventListeners: boolean;
+  splitMenuItem?: boolean;
+  isMouseEnterMenuItem?: boolean;
+  isMouseEnterIconButton?: boolean;
 }) {
   const onClickCallback = useCallback(
     (event: React.MouseEvent | React.KeyboardEvent) => {
@@ -40,15 +46,21 @@ export default function useMenuItemKeyboardEvents({
         return;
       }
 
+      const isKeyEvent = event instanceof KeyboardEvent;
+
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
+        if (!splitMenuItem) {
+          setSubMenuIsOpenByIndex(index, true);
+          return;
+        }
+      }
+
+      if (isKeyEvent && splitMenuItem) {
         setSubMenuIsOpenByIndex(index, true);
-        return;
       }
 
       if (shouldShowSubMenu) return;
-
-      const isKeyEvent = event instanceof KeyboardEvent;
 
       const clickCallback = () => {
         event.preventDefault();
@@ -71,7 +83,7 @@ export default function useMenuItemKeyboardEvents({
           }
         }
 
-        if (!hasChildren) {
+        if ((splitMenuItem && isMouseEnterMenuItem && !isMouseEnterIconButton) || !hasChildren) {
           // wait for background of menu item to change before trigger click
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -82,16 +94,19 @@ export default function useMenuItemKeyboardEvents({
       }
     },
     [
+      isActive,
+      isMouseEnter,
+      setActiveItemIndex,
+      setSubMenuIsOpenByIndex,
+      hasChildren,
+      splitMenuItem,
+      shouldShowSubMenu,
       onClick,
       disabled,
-      isActive,
       index,
-      setActiveItemIndex,
-      hasChildren,
-      shouldShowSubMenu,
-      setSubMenuIsOpenByIndex,
-      isMouseEnter,
-      closeMenu
+      closeMenu,
+      isMouseEnterMenuItem,
+      isMouseEnterIconButton
     ]
   );
 

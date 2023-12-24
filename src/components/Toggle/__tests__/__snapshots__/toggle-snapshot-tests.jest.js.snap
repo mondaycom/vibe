@@ -8,13 +8,15 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={true}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text disabled"
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
   >
     Off
   </span>
@@ -24,7 +26,8 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text disabled"
+    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    data-testid="text"
   >
     On
   </span>
@@ -39,6 +42,7 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -60,13 +64,15 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     aria-checked={false}
     checked={false}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -76,7 +82,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -91,13 +98,15 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -107,7 +116,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -122,13 +132,15 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     aria-checked={false}
     checked={false}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -138,7 +150,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -153,13 +166,15 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -169,7 +184,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -185,13 +201,15 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     aria-controls="aria controls"
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -201,7 +219,8 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -216,13 +235,15 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -232,7 +253,8 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -247,13 +269,15 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     TestOff
   </span>
@@ -263,7 +287,8 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     On
   </span>
@@ -278,13 +303,15 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
     aria-checked={true}
     checked={true}
     className="hidden-switch toggleInput"
+    data-testid="toggle"
     disabled={false}
     onChange={[Function]}
     role="switch"
     type="checkbox"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     Off
   </span>
@@ -294,7 +321,8 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
     data-testid="toggle"
   />
   <span
-    className="text"
+    className="typography primary start singleLineEllipsis text text2Normal text"
+    data-testid="text"
   >
     TestOn
   </span>

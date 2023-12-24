@@ -10,7 +10,6 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   <button
     aria-busy={false}
     aria-disabled={true}
-    aria-pressed={false}
     className="buttonComponent button sizeSmall kindPrimary colorPrimary disabled"
     data-testid="button"
     onBlur={[Function]}
@@ -18,6 +17,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
     onFocus={[Function]}
     onMouseDown={[Function]}
     onMouseUp={[Function]}
+    tabIndex={-1}
     type="button"
   >
     <div
@@ -39,7 +39,6 @@ exports[`Snapshots renders correctly when selected 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-pressed={false}
     className="buttonComponent button sizeSmall kindPrimary colorPrimary"
     data-testid="button"
     onBlur={[Function]}
@@ -68,7 +67,6 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-pressed={false}
     className="buttonComponent button sizeSmall kindPrimary colorPrimary"
     data-testid="button"
     onBlur={[Function]}
@@ -95,7 +93,6 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-pressed={false}
     className="buttonComponent button sizeSmall kindPrimary colorPrimary"
     data-testid="button"
     onBlur={[Function]}
@@ -122,7 +119,6 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    aria-pressed={false}
     className="buttonComponent button sizeSmall kindPrimary colorPrimary"
     data-testid="button"
     onBlur={[Function]}

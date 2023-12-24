@@ -194,7 +194,7 @@ export const expectActiveElementToHavePartialText = (text: string) => {
   expect(document.activeElement).toHaveTextContent(text);
 };
 
-export const pressNavigationKey = async (command = NavigationCommandType.TAB, waitForDebounceMs = 0) => {
+export const pressNavigationKey = async (command = NavigationCommandType.TAB, waitForDebounceMs = 0): Promise<any> => {
   const promise = command === NavigationCommandType.TAB ? userEvent.tab() : userEvent.keyboard(command);
   const result = await promise;
   await delay(waitForDebounceMs);

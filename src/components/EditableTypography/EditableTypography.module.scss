@@ -3,8 +3,11 @@
 .editableTypography {
   display: inline-flex;
   min-width: 0;
+  max-width: 100%;
   // Shifts the component to align the text with the container
   margin-left: -6px;
+  overflow: hidden;
+  position: relative;
 
   .input {
     display: inline-block;
@@ -14,6 +17,7 @@
     outline: none;
     border: 1px solid var(--primary-color);
     border-radius: var(--border-radius-small);
+    color: var(--primary-text-color);
 
     &:focus,
     &:active {
@@ -21,13 +25,21 @@
     }
   }
 
-  .typograpy {
+  .typography {
     border: 1px solid transparent;
     padding: 0 var(--spacing-xs);
     border-radius: var(--border-radius-small);
 
     &:hover:not(.disabled) {
       border-color: var(--ui-border-color);
+    }
+
+    &.hidden {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      visibility: hidden;
+      white-space: pre;
     }
   }
 }

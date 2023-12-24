@@ -24,7 +24,7 @@ export const StepsDescription = () => {
     <RelatedComponent
       component={component}
       title="Steps"
-      href="/?path=/docs/data-display-steps--overview"
+      href="/?path=/docs/data-display-steps--docs"
       description="Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation."
     />
   );

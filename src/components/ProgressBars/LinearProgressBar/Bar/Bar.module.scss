@@ -21,6 +21,10 @@
   background-color: var(--negative-color);
 }
 
+.typePrimaryWarning {
+  background-color: var(--warning-color);
+}
+
 .typeSecondaryPrimary {
   background-color: var(--primary-selected-color);
 }
@@ -35,6 +39,10 @@
 
 .typeSecondaryNegative {
   background-color: var(--negative-color-selected);
+}
+
+.typeSecondaryWarning {
+  background-color: var(--warning-color-selected);
 }
 
 .animate {

@@ -22,4 +22,4 @@ export enum Sizes {
   LARGE = "large"
 }
 
-export type SIZES_VALUES = typeof SIZES[keyof typeof SIZES];
+export type SIZES_VALUES = (typeof SIZES)[keyof typeof SIZES];

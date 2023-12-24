@@ -1,0 +1,42 @@
+import { createComponentTemplate } from "vibe-storybook-components";
+import {{properCase componentName}} from "../{{properCase componentName}}";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import styles from "./{{properCase componentName}}.stories.module.scss";
+
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: {{properCase componentName}},
+  enumPropNamesArray: [], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+export default {
+  title: "{{properCase componentName}}",
+  component: {{properCase componentName}},
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+};
+
+const {{camelCase componentName}}Template = createComponentTemplate({{properCase componentName}});
+
+export const Overview = {
+  render: {{camelCase componentName}}Template.bind({}),
+  name: "Overview",
+  args: {
+    customProp: "Overview"
+  }
+};
+
+export const Story1 = {
+  render: () => {
+    return <{{properCase componentName}} customProp={"Story 1"} />;
+  },
+  name: "Story 1"
+};
+
+export const Story2 = {
+  render: () => {
+    return <{{properCase componentName}} customProp={"Story 2"} />;
+  },
+  name: "Story 2"
+};

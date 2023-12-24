@@ -16,7 +16,7 @@ export const DropdownDescription = () => {
   return (
     <RelatedComponent
       component={component}
-      href="/?path=/docs/inputs-dropdown--overview"
+      href="/?path=/docs/inputs-dropdown--docs"
       title="Dropdown"
       description="Dropdown present a list of options from which a user can select one or several."
     />
