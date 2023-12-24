@@ -1,7 +1,10 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.esm.json",
   "include": ["src/**/*", "types/**/*"],
   "compilerOptions": {
-    "module": "ESNext"
+    "module": "ESNext",
+    "rootDirs": ["./src", "./.storybook"],
+    "declarationDir": "dist/types",
+    "baseUrl": "."
   }
 }

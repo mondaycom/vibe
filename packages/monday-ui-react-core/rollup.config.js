@@ -12,9 +12,9 @@ import * as fs from "fs";
 import ejs from "ejs";
 
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
-const ROOT_PATH = path.join(__dirname);
-const SRC_PATH = path.join(ROOT_PATH, "src");
-const DIST_PATH = path.join(ROOT_PATH, "dist");
+const PACKAGE_ROOT = path.join(__dirname);
+const SRC_PATH = path.join(PACKAGE_ROOT, "src");
+const DIST_PATH = path.join(PACKAGE_ROOT, "dist");
 const injectStyle = fs.readFileSync("./rollup/styleInject.ejs", "utf8");
 
 const shouldMockModularClassnames = process.env.mock_classnames === "on";
@@ -59,7 +59,9 @@ export default {
     indent: false,
     strict: false,
     exports: "named",
+    format: "es",
     preserveModules: true,
+    preserveModulesRoot: ".",
     sourcemap: true
   },
   input: {
@@ -76,7 +78,7 @@ export default {
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
     typescript({
-      tsconfig: path.join(ROOT_PATH, "tsconfig.esm.json")
+      tsconfig: path.join(PACKAGE_ROOT, "tsconfig.esm.json")
     }),
     babel({
       babelHelpers: "bundled",
