@@ -294,7 +294,7 @@ const Dropdown = forwardRef(
     const closeMenuOnScroll = useCallback(
       event => {
         const scrolledElement = event.target;
-        if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapperFixedPosition)) {
+        if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapper)) {
           return false;
         }
         return customCloseMenuOnScroll || insideOverflowContainer || insideOverflowWithTransformContainer;
