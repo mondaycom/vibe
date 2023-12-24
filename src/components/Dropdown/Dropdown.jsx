@@ -2,7 +2,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { components, createFilter } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
@@ -17,8 +17,8 @@ import MultiValueContainer from "./components/MultiValueContainer/MultiValueCont
 import {
   ADD_AUTO_HEIGHT_COMPONENTS,
   defaultCustomStyles,
-  DROPDOWN_ID,
   DROPDOWN_CHIP_COLORS,
+  DROPDOWN_ID,
   DROPDOWN_MENU_PLACEMENT,
   DROPDOWN_MENU_POSITION
 } from "./DropdownConstants";
@@ -613,6 +613,11 @@ Dropdown.propTypes = {
    Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
    */
   closeMenuOnSelect: PropTypes.bool,
+  /**
+   * If menu should be closed on scroll - helpful for some tricky use cases
+   * @default false, but true when insideOverflowContainer or insideOverflowWithTransformContainer are true
+   */
+  closeMenuOnScroll: PropTypes.bool,
   /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
