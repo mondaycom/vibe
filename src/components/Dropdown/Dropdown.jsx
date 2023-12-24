@@ -293,14 +293,11 @@ const Dropdown = forwardRef(
 
     const closeMenuOnScroll = useCallback(
       event => {
-        if (customCloseMenuOnScroll) {
-          return true;
-        }
         const scrolledElement = event.target;
         if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapperFixedPosition)) {
           return false;
         }
-        return insideOverflowContainer || insideOverflowWithTransformContainer;
+        return customCloseMenuOnScroll || insideOverflowContainer || insideOverflowWithTransformContainer;
       },
       [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll]
     );
