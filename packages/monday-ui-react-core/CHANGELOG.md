@@ -1,5 +1,54 @@
 # Changelog
 
+## 2.75.0 (2023-12-24)
+
+#### New Features
+* [#1845](https://github.com/mondaycom/monday-ui-react-core/pull/1845) feat: add warning color LinearProgressBar ([@rongabbay](https://github.com/rongabbay))
+
+#### Documentation
+* [#1840](https://github.com/mondaycom/monday-ui-react-core/pull/1840) docs(box): add box description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
+
+#### Internal Changes
+* [#1844](https://github.com/mondaycom/monday-ui-react-core/pull/1844) infra: monorepo-prerelease.yml workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 2.74.4 (2023-12-21)
+
+#### Bug Fixes
+* [#1839](https://github.com/mondaycom/monday-ui-react-core/pull/1839) fix: change Box/Menu children types to ElementContent ([@talkor](https://github.com/talkor))
+
+## 2.74.3 (2023-12-21)
+
+#### Internal Changes
+* [#1842](https://github.com/mondaycom/monday-ui-react-core/pull/1842) type: change menu children type ([@idoyana](https://github.com/idoyana))
+
+## 2.74.2 (2023-12-20)
+
+#### Documentation
+* [#1837](https://github.com/mondaycom/monday-ui-react-core/pull/1837) docs: add playground addon for vibe's storybook ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.74.1 (2023-12-20)
+
+#### Bug Fixes
+* [#1838](https://github.com/mondaycom/monday-ui-react-core/pull/1838) Split button alignment fix ([@talkor](https://github.com/talkor))
+
+## 2.74.0 (2023-12-20)
+
+#### Bug Fixes
+* [#1827](https://github.com/mondaycom/monday-ui-react-core/pull/1827) fix: Remove fucos for disabled button ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1836](https://github.com/mondaycom/monday-ui-react-core/pull/1836) feat(Box): add a scrollable prop ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1830](https://github.com/mondaycom/monday-ui-react-core/pull/1830) docs(README): fix npm link ([@Yaronglp](https://github.com/Yaronglp))
+* [#1835](https://github.com/mondaycom/monday-ui-react-core/pull/1835) docs: RelatedComponents - fix icons-description.jsx href ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1834](https://github.com/mondaycom/monday-ui-react-core/pull/1834) fix: align <SplitButton> options in Catalog with overview example ([@neerajkumarc](https://github.com/neerajkumarc))
+
+## 2.73.2 (2023-12-18)
+
+#### Bug Fixes
+* [#1829](https://github.com/mondaycom/monday-ui-react-core/pull/1829) fix: update Feedback and DoubleCheck icons after monday-ui-style update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.73.1 (2023-12-17)
 
 #### Bug Fixes
