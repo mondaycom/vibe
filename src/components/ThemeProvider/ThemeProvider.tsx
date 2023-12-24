@@ -1,7 +1,13 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
+import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
-import { generateRandomAlphaString, generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
+import {
+  addThemeClassNameToBody,
+  generateRandomAlphaString,
+  generateThemeCssOverride,
+  getBodyThemeClassName,
+  shouldGenerateTheme
+} from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
@@ -17,17 +23,36 @@ export interface ThemeProviderProps {
    * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
    */
   themeClassSpecifier?: string;
+  systemTheme?: SystemTheme;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier }) => {
+} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
     [customThemeClassSpecifier]
   );
+
+  useLayoutEffect(() => {
+    console.log("### Body theme effect");
+    if (!systemTheme) {
+      console.log("### System theme is null - exit");
+      return;
+    }
+
+    const bodyAppThemeClassName = getBodyThemeClassName();
+    console.log("### bodyAppThemeClassName", bodyAppThemeClassName);
+    if (bodyAppThemeClassName) {
+      console.log("### bodyAppThemeClassName is not null - exit");
+      return;
+    }
+
+    console.log("### addThemeClassNameToBody - ", systemTheme);
+    addThemeClassNameToBody(systemTheme);
+  }, [systemTheme]);
 
   useEffect(() => {
     if (!shouldGenerateTheme(theme)) {

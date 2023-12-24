@@ -54,3 +54,20 @@ export const generateRandomAlphaString = (length = 6) => {
 
   return result;
 };
+
+const APP_THEME_SUFFIX = "-app-theme";
+
+export const getBodyThemeClassName = () => {
+  const classList = document.body.classList;
+  let bodyAppThemeClassName: string = null;
+  classList.forEach(className => {
+    if (className.endsWith(APP_THEME_SUFFIX)) {
+      bodyAppThemeClassName = className;
+    }
+  });
+  return bodyAppThemeClassName;
+};
+
+export const addThemeClassNameToBody = (theme: SystemTheme) => {
+  document.body.classList.add(`${theme}${APP_THEME_SUFFIX}`);
+};

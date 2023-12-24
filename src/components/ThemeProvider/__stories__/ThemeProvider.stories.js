@@ -44,7 +44,8 @@ export const Overview = {
           [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
         }
       }
-    }
+    },
+    systemTheme: "light"
   }
 };
 
