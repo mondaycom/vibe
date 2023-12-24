@@ -76,6 +76,7 @@ const Dropdown = forwardRef(
       onClear,
       onInputChange,
       closeMenuOnSelect = !multi,
+      closeMenuOnScroll: customCloseMenuOnScroll,
       withMandatoryDefaultOptions,
       isOptionSelected,
       insideOverflowContainer,
@@ -292,13 +293,16 @@ const Dropdown = forwardRef(
 
     const closeMenuOnScroll = useCallback(
       event => {
+        if (customCloseMenuOnScroll) {
+          return true;
+        }
         const scrolledElement = event.target;
         if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapperFixedPosition)) {
           return false;
         }
         return insideOverflowContainer || insideOverflowWithTransformContainer;
       },
-      [insideOverflowContainer, insideOverflowWithTransformContainer]
+      [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll]
     );
 
     return (
@@ -405,6 +409,7 @@ Dropdown.defaultProps = {
   id: DROPDOWN_ID,
   autoFocus: false,
   closeMenuOnSelect: undefined,
+  closeMenuOnScroll: false,
   ref: undefined,
   withMandatoryDefaultOptions: false,
   insideOverflowContainer: false,
