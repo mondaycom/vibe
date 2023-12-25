@@ -21,10 +21,11 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
       onMouseDown={onMouseDown}
       data-testid={getTestId(ComponentDefaultTestId.DROPDOWN_OPTION_CONTENT)}
     >
-      {data?.leftAvatar && (
+      {data?.leftRenderer}
+      {!data?.leftRenderer && data?.leftAvatar && (
         <Avatar withoutBorder square={data.square} src={data.leftAvatar} type={Avatar.types.IMG} customSize={20} />
       )}
-      {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
+      {!data?.leftRenderer && data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
       {children}
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} clickable={false} />}
       {data?.rightAvatar && (
