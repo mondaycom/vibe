@@ -119,7 +119,7 @@ interface TooltipBaseProps extends VibeComponentProps {
   /**
    * Limit tooltip to 240px
    */
-  maxWidth?: boolean;
+  withMaxWidth?: boolean;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -175,7 +175,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style, maxWidth } = this.props;
+    const { theme, content, paddingSize, className, style, withMaxWidth } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -199,7 +199,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
           getStyle(styles, camelCase("padding-size-" + paddingSize)),
-          { [styles.maxWidth]: maxWidth },
+          { [styles.withMaxWidth]: withMaxWidth },
           className
         )}
       >
