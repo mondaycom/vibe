@@ -6,6 +6,7 @@ import {
   generateRandomAlphaString,
   generateThemeCssOverride,
   getBodyThemeClassName,
+  removeThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
@@ -52,6 +53,10 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 
     console.log("### addThemeClassNameToBody - ", systemTheme);
     addThemeClassNameToBody(systemTheme);
+
+    return () => {
+      removeThemeClassNameFromBody(systemTheme);
+    };
   }, [systemTheme]);
 
   useEffect(() => {

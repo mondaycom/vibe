@@ -71,3 +71,7 @@ export const getBodyThemeClassName = () => {
 export const addThemeClassNameToBody = (theme: SystemTheme) => {
   document.body.classList.add(`${theme}${APP_THEME_SUFFIX}`);
 };
+
+export const removeThemeClassNameFromBody = (theme: SystemTheme) => {
+  document.body.classList.remove(`${theme}${APP_THEME_SUFFIX}`);
+};
