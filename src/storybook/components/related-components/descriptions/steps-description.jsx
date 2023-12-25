@@ -3,7 +3,6 @@ import { RelatedComponent } from "vibe-storybook-components";
 import Steps from "../../../../components/Steps/Steps";
 
 export const StepsDescription = () => {
-
   const [activeStepIndex, setActiveStepIndex] = useState(2);
 
   const stepPrev = useCallback(() => {
@@ -19,7 +18,6 @@ export const StepsDescription = () => {
   }, []);
 
   const component = useMemo(() => {
-
     const style = {
       marginLeft: "-10px"
     };
@@ -47,7 +45,6 @@ export const StepsDescription = () => {
         />
       </div>
     );
-
   }, [activeStepIndex, stepPrev, stepNext, onChangeActiveStep]);
 
   return (
@@ -58,5 +55,4 @@ export const StepsDescription = () => {
       description="Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation."
     />
   );
-
 };

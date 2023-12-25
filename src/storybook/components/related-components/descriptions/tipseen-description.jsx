@@ -52,7 +52,16 @@ export const TipseenDescription = () => {
           modifiers={modifiers}
           width={280}
           position={Tipseen.positions.RIGHT}
-          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={activeStepIndex} backButtonProps={{ onClick: stepPrev }} nextButtonProps={{ onClick: stepNext }} onChangeActiveStep={onChangeActiveStep} />}
+          content={
+            <TipseenWizard
+              title="This is a title"
+              steps={content}
+              activeStepIndex={activeStepIndex}
+              backButtonProps={{ onClick: stepPrev }}
+              nextButtonProps={{ onClick: stepNext }}
+              onChangeActiveStep={onChangeActiveStep}
+            />
+          }
         >
           <div />
         </Tipseen>
