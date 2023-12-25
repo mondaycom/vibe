@@ -10,6 +10,7 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png";
 import rotem from "./assets/rotem.png";
+import guest from "./assets/guest.svg";
 import { NOOP } from "../../../utils/function-utils";
 import styles from "./chips.stories.module.scss";
 
@@ -63,6 +64,44 @@ export const ChipsWithAvatars = {
     </>
   ),
   name: "Chips with avatars"
+};
+
+export const ChipsWithCustomRenders = {
+  render: () => (
+    <>
+      <Chips
+        label="Chip with left renderer"
+        leftRenderer={
+          <Avatar
+            customSize={20}
+            type={Avatar.types.IMG}
+            src={person1}
+            withoutBorder
+            bottomRightBadgeProps={{
+              src: guest,
+              size: "small"
+            }}
+          />
+        }
+      />
+      <Chips
+        label="Chip with right renderer"
+        rightRenderer={
+          <Avatar
+            customSize={20}
+            type={Avatar.types.IMG}
+            src={person1}
+            withoutBorder
+            bottomRightBadgeProps={{
+              src: guest,
+              size: "small"
+            }}
+          />
+        }
+      />
+    </>
+  ),
+  name: "Chips with custom renders"
 };
 
 export const Themes = {
