@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
@@ -8,6 +9,9 @@ import {
   ThemeProviderTemplateOverview,
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories.helpers";
+import Flex from "../../Flex/Flex";
+import Toggle from "../../Toggle/Toggle";
+import Button from "../../Button/Button";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
@@ -44,8 +48,7 @@ export const Overview = {
           [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
         }
       }
-    },
-    systemTheme: "light"
+    }
   }
 };
 
@@ -72,4 +75,41 @@ export const ProductTheming = {
 export const CustomClassSelector = {
   render: ThemeProviderCustomClassTemplate.bind({}),
   name: "Custom class selector"
+};
+
+export const WithSystemTheme = {
+  render: () => {
+    const [shouldRender, setShouldRender] = useState(false);
+
+    return (
+      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+        <Toggle isSelected={shouldRender} onChange={setShouldRender} name={"Render ThemeProvider"} />
+        {shouldRender && (
+          <ThemeProvider
+            theme={{
+              name: "with-system-theme",
+              colors: {
+                [ThemeProvider.systemThemes.LIGHT]: {
+                  [ThemeProvider.colors.primaryColor]: "green",
+                  [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+                },
+                [ThemeProvider.systemThemes.DARK]: {
+                  [ThemeProvider.colors.primaryColor]: "salmon",
+                  [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
+                },
+                [ThemeProvider.systemThemes.BLACK]: {
+                  [ThemeProvider.colors.primaryColor]: "slateblue",
+                  [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
+                }
+              }
+            }}
+            systemTheme={ThemeProvider.systemThemes.DARK}
+          >
+            <Button>Themed</Button>
+          </ThemeProvider>
+        )}
+      </Flex>
+    );
+  },
+  name: "With systemTheme"
 };
