@@ -71,7 +71,7 @@ export default {
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "next/next.ts")
   },
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [/node_modules\/(.*)/],
   plugins: [
     commonjs(),
     nodeResolve({
