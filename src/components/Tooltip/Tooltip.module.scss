@@ -11,6 +11,10 @@ $tooltip-z-index: 9999999999999999;
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
   word-break: break-word;
+
+  &.withMaxWidth {
+    --tooltip-max-width: 240px;
+  }
 }
 
 .tooltip.paddingSizeMd {
