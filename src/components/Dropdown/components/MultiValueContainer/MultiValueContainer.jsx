@@ -74,6 +74,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             }}
             readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
             allowTextSelection={readOnly}
+            leftRenderer={option.leftRenderer}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}
