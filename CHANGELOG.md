@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.76.0 (2023-12-25)
+
+#### Bug Fixes
+* [#1841](https://github.com/mondaycom/monday-ui-react-core/pull/1841) chore(playground-addon): support next components and add an initial code example ([@shlomitc](https://github.com/shlomitc))
+
+#### New Features
+* [#1773](https://github.com/mondaycom/monday-ui-react-core/pull/1773) feat(Tooltip): add a max width prop ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1848](https://github.com/mondaycom/monday-ui-react-core/pull/1848) monorepo-prerelease.yml - fix - run build in monorepo root ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.75.0 (2023-12-24)
 
 #### New Features
