@@ -20,7 +20,7 @@ const StorybookLink: FC<StorybookLinkProps> & { sizes?: typeof LinkSize } = ({ p
       const href = await hrefTo(page, story);
       setUrl(href);
     }
-  }, []);
+  }, [page, story]);
 
   return (
     <Link href={url} target={Link.targets.TOP} withoutSpacing size={size}>
