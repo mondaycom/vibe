@@ -20,7 +20,8 @@ const RelatedComponent: React.FC<RelatedComponentProps> & { linkTargets?: typeof
   href,
   linkTarget,
 }) => {
-  const overrideLinkTarget = linkTarget || useContext(RelatedComponentsContext).linkTarget;
+  const contextLinkTarget = useContext(RelatedComponentsContext)?.linkTarget;
+  const overrideLinkTarget = linkTarget || contextLinkTarget;
   return (
     <InformationBox
       component={<div className={styles.relatedComponentComponent}>{component}</div>}

@@ -24,7 +24,7 @@ const GithubContributorsList: FC<GithubContributorsListProps> = ({
   const [contributorsJson, setContributorsJson] = useState<GithubContributorResponse[]>([]);
   useEffect(() => {
     fetchAllContributors(organizationName, packageName).then(contributors => setContributorsJson(contributors));
-  }, []);
+  }, [organizationName, packageName]);
 
   const contributors = useMemo(() => {
     const developerContributors = contributorsJson
@@ -42,7 +42,7 @@ const GithubContributorsList: FC<GithubContributorsListProps> = ({
       );
     const contributorsData = staticContributors.concat(developerContributors);
     return <ContributorsList contributorsData={contributorsData} showContributionAmount={showContributionAmount} />;
-  }, [contributorsJson]);
+  }, [contributorsJson, excludedContributorsIds, showContributionAmount, staticContributors]);
 
   return (
     <Paragraph>
