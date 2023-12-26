@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.78.0 (2023-12-26)
+
+#### New Features
+* [#1853](https://github.com/mondaycom/monday-ui-react-core/pull/1853) feat: <Dropdown> leftRenderer prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#1856](https://github.com/mondaycom/monday-ui-react-core/pull/1856) Fix Dropdown prop duplication ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1855](https://github.com/mondaycom/monday-ui-react-core/pull/1855) Explanatory comment - Dropdown closeMenuOnScroll ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.77.0 (2023-12-26)
 
 #### New Features
