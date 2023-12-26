@@ -15,7 +15,7 @@ import {
   UnstyledListItem,
   UsageGuidelines
 } from "vibe-storybook-components";
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { withThemeByClassName } from "@storybook/addon-themes";
 import { ComponentNameDecorator, RelatedComponentsDecorator } from "../storybook/components";
 import { DocsContainer, DocsPage, Unstyled } from "@storybook/blocks";
 import "vibe-storybook-components/index.css";
