@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.77.0 (2023-12-26)
+
+#### New Features
+* [#1847](https://github.com/mondaycom/monday-ui-react-core/pull/1847) feat: <Dropdown> closeMenuOnScroll prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Documentation
+* [#1851](https://github.com/mondaycom/monday-ui-react-core/pull/1851) docs: Related components: fix < Steps />, < Tipseen /> - make examples clickable ([@PraveenShinde3](https://github.com/PraveenShinde3))
+
 ## 2.76.0 (2023-12-25)
 
 #### Bug Fixes
