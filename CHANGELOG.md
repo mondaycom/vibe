@@ -1,3 +1,7 @@
+0.1.206 / 2023-12-14
+====================
+  * fix(icons): change feedback svg ([#264](https://github.com/mondaycom/monday-ui-style/issues/264))
+
 0.1.205 / 2023-12-11
 ====================
   * fix(icons): replace DoubleCheck icon ([#263](https://github.com/mondaycom/monday-ui-style/issues/263))
@@ -290,16 +294,3 @@
     * wip
     * fixes
     * fixes
-
-0.1.160 / 2023-06-14
-====================
-  * New typography tokens  ([#203](https://github.com/mondaycom/monday-ui-style/issues/203))
-    * add new tokens for typography
-    * fix recommendation to use
-    * undo automatic linter
-    * fix variables
-    * code review notes and classes layer
-    * fix classes creation
-    * fix tests
-    * wip
-    * wip
