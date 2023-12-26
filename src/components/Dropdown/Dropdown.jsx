@@ -622,11 +622,6 @@ Dropdown.propTypes = {
    */
   closeMenuOnScroll: PropTypes.bool,
   /**
-   * If menu should be closed on scroll - helpful for some tricky use cases
-   * @default false, but true when insideOverflowContainer or insideOverflowWithTransformContainer are true
-   */
-  closeMenuOnScroll: PropTypes.bool,
-  /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
   onOptionRemove: PropTypes.func,
