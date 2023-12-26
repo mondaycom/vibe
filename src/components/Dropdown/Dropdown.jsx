@@ -615,6 +615,7 @@ Dropdown.propTypes = {
    Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
    */
   closeMenuOnSelect: PropTypes.bool,
+  // Won't be needed once we upgrade to react-select ^5.5 https://github.com/JedWatson/react-select/issues/4088#issuecomment-1276835389
   /**
    * If menu should be closed on scroll - helpful for some tricky use cases
    * @default false, but true when insideOverflowContainer or insideOverflowWithTransformContainer are true
