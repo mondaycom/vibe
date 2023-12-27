@@ -78,7 +78,7 @@
     "link-local": "npm link && npm start",
     "plop": "plop",
     "add-ref-to-icons": "node ./scripts/add-forward-ref-icons.js",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,scss}\"",
     "eslint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "eslint-fix": "npm run eslint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
