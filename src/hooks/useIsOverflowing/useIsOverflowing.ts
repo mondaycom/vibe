@@ -18,14 +18,14 @@ function checkOverflow(element: HTMLElement, ignoreHeightOverflow: boolean, tole
 export default function useIsOverflowing({
   ref,
   ignoreHeightOverflow = false,
-  tolerance
+  tolerance,
 }: {
   ref: RefObject<HTMLElement>;
   ignoreHeightOverflow?: boolean;
   tolerance?: number;
 }) {
   const [isOverflowing, setIsOverflowing] = useState<boolean>(() =>
-    checkOverflow(ref?.current, ignoreHeightOverflow, tolerance)
+    checkOverflow(ref?.current, ignoreHeightOverflow, tolerance),
   );
   const callback = useCallback(() => {
     setIsOverflowing(checkOverflow(ref?.current, ignoreHeightOverflow, tolerance));
@@ -34,7 +34,7 @@ export default function useIsOverflowing({
   useResizeObserver({
     ref,
     callback,
-    debounceTime: 0
+    debounceTime: 0,
   });
 
   return isOverflowing;

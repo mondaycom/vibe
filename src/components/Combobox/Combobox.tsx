@@ -146,9 +146,9 @@ const Combobox: React.FC<ComboboxProps> & {
       maxOptionsWithoutScroll,
       defaultFilter: defaultFilterValue = "",
       searchInputAriaLabel = "Search for content",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
@@ -162,14 +162,14 @@ const Combobox: React.FC<ComboboxProps> & {
         }
         setFilterValue(value);
       },
-      [setFilterValue, onFilterChanged]
+      [setFilterValue, onFilterChanged],
     );
 
     const onOptionHoverCB = useCallback(
       (event: React.MouseEvent, index: number, option: IComboboxOption) => {
         onOptionHover(event, index, option);
       },
-      [onOptionHover]
+      [onOptionHover],
     );
 
     const filteredOptions: IComboboxOption[] = useMemo(() => {
@@ -185,7 +185,7 @@ const Combobox: React.FC<ComboboxProps> & {
       (index: number) => {
         return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
       },
-      [filteredOptions]
+      [filteredOptions],
     );
 
     const onAddNewCallback = useCallback(() => {
@@ -231,7 +231,7 @@ const Combobox: React.FC<ComboboxProps> & {
           setActiveCategoryLabel(categoryData?.category?.label);
         }
       },
-      [activeCategoryLabel]
+      [activeCategoryLabel],
     );
 
     const { items, itemsMap, selectableItems } = useItemsData({
@@ -239,7 +239,7 @@ const Combobox: React.FC<ComboboxProps> & {
       options: filteredOptions,
       filterValue,
       withCategoriesDivider,
-      optionLineHeight
+      optionLineHeight,
     });
 
     const overrideOnClick = useCallback(
@@ -253,20 +253,20 @@ const Combobox: React.FC<ComboboxProps> & {
           onChangeCallback("");
         }
       },
-      [onClick, selectableItems, isChildSelectable, clearFilterOnSelection, onChangeCallback]
+      [onClick, selectableItems, isChildSelectable, clearFilterOnSelection, onChangeCallback],
     );
 
     const {
       visualFocusItemIndex,
       visualFocusItemId,
-      onOptionClick: overrideOnOptionClick
+      onOptionClick: overrideOnOptionClick,
     } = useKeyboardNavigation({
       getOptionId,
       defaultVisualFocusFirstIndex,
       onClick: overrideOnClick,
       isChildSelectable,
       options: selectableItems,
-      inputRef
+      inputRef,
     });
 
     return (
@@ -275,7 +275,7 @@ const Combobox: React.FC<ComboboxProps> & {
         ref={mergedRef}
         className={cx(styles.combobox, className, getStyle(styles, camelCase("size-" + size)), {
           [styles.empty]: !hasResults,
-          [styles.stickyCategory]: stickyCategories
+          [styles.stickyCategory]: stickyCategories,
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
@@ -321,7 +321,7 @@ const Combobox: React.FC<ComboboxProps> & {
         {hasFilter && !hasResults && !loading && renderNoResults()}
       </Text>
     );
-  }
+  },
 );
 
 // Locate loading next to search icon
@@ -330,5 +330,5 @@ const Combobox: React.FC<ComboboxProps> & {
 
 export default withStaticProps(Combobox, {
   sizes: BASE_SIZES,
-  iconTypes: ComboboxOption.iconTypes
+  iconTypes: ComboboxOption.iconTypes,
 });

@@ -46,14 +46,14 @@ const Badge: VibeComponent<BadgeProps> & {
       children,
       ...badgeProps
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const badgeClassNames = cx(
       styles.badge,
       getStyle(styles, camelCase(anchor as unknown as string)),
-      getStyle(styles, alignment)
+      getStyle(styles, alignment),
     );
 
     const color =
@@ -73,7 +73,7 @@ const Badge: VibeComponent<BadgeProps> & {
         </div>
       </div>
     );
-  }
+  },
 );
 
 Badge.types = BadgeType;

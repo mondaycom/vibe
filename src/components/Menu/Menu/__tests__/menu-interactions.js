@@ -7,7 +7,7 @@ import {
   waitForElementVisible,
   interactionSuite,
   expectActiveElementToHavePartialText,
-  pressNavigationKey
+  pressNavigationKey,
 } from "../../../../tests/interactions-utils";
 import { NavigationCommand } from "../../../../tests/constants";
 import { expect } from "@storybook/jest";
@@ -16,7 +16,7 @@ const TWO_DEPTHS_MENU_TEXTS = {
   TOP_MENU_SUB_MENU_ITEM: "With Sub menu",
   SUB_MENU_ITEM: "Sub Sub menu",
   SUB_SUB_MENU_ITEM: "Sub sub item",
-  TOP_MENU_NON_SUB_MENU_ITEM: "Another item"
+  TOP_MENU_NON_SUB_MENU_ITEM: "Another item",
 };
 
 const showSubSubMenusOnHover = async canvas => {
@@ -30,7 +30,7 @@ const showSubSubMenusOnHover = async canvas => {
 
   // validate showing sub sub item
   const optionToSelect = await waitForElementVisible(() =>
-    within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)
+    within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM),
   );
   await clickElement(optionToSelect);
   expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
@@ -53,7 +53,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NavigationCommand.DOWN_ARROW);
   await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
-    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM}$`))
+    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM}$`)),
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
@@ -62,7 +62,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NavigationCommand.DOWN_ARROW);
   await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
-    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM}$`))
+    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM}$`)),
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
@@ -81,7 +81,7 @@ export const menuWithTwoDepthsSuite = interactionSuite({
   tests: [showSubSubMenusOnHover, showSubSubMenusWithKeyboard],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 function getMenuElement(canvas) {

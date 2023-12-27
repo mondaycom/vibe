@@ -33,12 +33,12 @@ export const useA11yDialog = ({ id, alertDialog }: { id: string; alertDialog: bo
         tabIndex: -1,
         "aria-modal": true,
         "aria-hidden": true,
-        "aria-labelledby": titleId
+        "aria-labelledby": titleId,
       },
       dialog: { role: "document" },
       // Using a paragraph with accessibility mapping can be useful to work
       // around SEO concerns of having multiple <h1> per page.
-      title: { id: titleId }
-    }
+      title: { id: titleId },
+    },
   ];
 };

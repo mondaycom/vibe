@@ -54,14 +54,14 @@ export function SliderProvider({
   value,
   valueFormatter,
   valueText,
-  infixOptions
+  infixOptions,
 }: SliderProviderProps) {
   const shapeTestId = createTestIdHelper(dataTestId);
   const { actualValue, actualValueText, getSelectedValue, setSelectedValue } = useSliderValues(
     defaultValue,
     value,
     valueFormatter,
-    valueText
+    valueText,
   );
 
   const [active, setActive] = useState<number>(null);
@@ -70,7 +70,7 @@ export function SliderProvider({
 
   const uiContextValue: SliderContextUI = useMemo(
     () => ({ active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue }),
-    [active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue]
+    [active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue],
   );
 
   const selectionContextValue: SliderContextSelection = useMemo(
@@ -80,9 +80,9 @@ export function SliderProvider({
       ranged,
       step,
       value: actualValue,
-      valueText: actualValueText
+      valueText: actualValueText,
     }),
-    [max, min, ranged, step, actualValue, actualValueText]
+    [max, min, ranged, step, actualValue, actualValueText],
   );
 
   const actionsContextValue: SliderContextActions = useSliderActionsContextValue(
@@ -98,7 +98,7 @@ export function SliderProvider({
     setFocused,
     setDragging,
     setSelectedValue,
-    step
+    step,
   );
 
   return (

@@ -3,7 +3,7 @@
 const {
   createFoldersIfNotExist,
   buildComponentsTypesIndexFile,
-  buildStorybookComponentsIndexFile
+  buildStorybookComponentsIndexFile,
 } = require("./build-utils");
 
 createFoldersIfNotExist();

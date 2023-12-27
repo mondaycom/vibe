@@ -8,7 +8,7 @@ const colorsWithBorder = new Set([
   "fixed-light-color",
   "text-color-on-brand",
   "primary-background-color",
-  "secondary-background-color"
+  "secondary-background-color",
 ]);
 
 export const ColorsDescription = ({ colorNames }) => {
@@ -22,7 +22,7 @@ export const ColorsDescription = ({ colorNames }) => {
           withBorder={colorsWithBorder.has(color)}
         />
       )),
-    [colorNames]
+    [colorNames],
   );
   return <Frame>{descriptions}</Frame>;
 };

@@ -26,7 +26,7 @@ export const getScrollableParent = _memoize(
     }
     return document.body;
   },
-  (node: HTMLElement) => node.outerHTML
+  (node: HTMLElement) => node.outerHTML,
 );
 
 const isNodeVerticallyScrollable = (node: HTMLElement): boolean => {

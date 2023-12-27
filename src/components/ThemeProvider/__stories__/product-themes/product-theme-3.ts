@@ -19,8 +19,8 @@ export const productTheme3: Theme = {
         "brand-selected-hover-color": "#a7ddbe",
         "text-color-on-primary": "#ffffff",
         "text-color-on-brand": "#ffffff",
-        "primary-selected-color": "var(--disabled-background-color)"
-      }
+        "primary-selected-color": "var(--disabled-background-color)",
+      },
     },
     dark: {
       "primary-color": "#00854d",
@@ -38,8 +38,8 @@ export const productTheme3: Theme = {
         "brand-selected-hover-color": "#30324e",
         "text-color-on-primary": "#323338",
         "text-color-on-brand": "#ffffff",
-        "primary-selected-color": "var(--disabled-background-color)"
-      }
+        "primary-selected-color": "var(--disabled-background-color)",
+      },
     },
     black: {
       "primary-color": "#00854d",
@@ -57,8 +57,8 @@ export const productTheme3: Theme = {
         "brand-selected-hover-color": "#30324e",
         "text-color-on-primary": "#323338",
         "text-color-on-brand": "#ffffff",
-        "primary-selected-color": "var(--disabled-background-color)"
-      }
-    }
-  }
+        "primary-selected-color": "var(--disabled-background-color)",
+      },
+    },
+  },
 };

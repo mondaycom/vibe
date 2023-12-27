@@ -8,7 +8,7 @@ import "./Search.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,
   enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["secondaryIconName", "iconName"]
+  iconPropNamesArray: ["secondaryIconName", "iconName"],
 });
 
 const searchTemplate = createComponentTemplate(Search);
@@ -17,7 +17,7 @@ export default {
   title: "Inputs/Search",
   component: Search,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -26,8 +26,8 @@ export const Overview = {
 
   args: {
     placeholder: "Placeholder text here",
-    wrapperClassName: "monday-storybook-search_size"
-  }
+    wrapperClassName: "monday-storybook-search_size",
+  },
 };
 
 export const Sizes = {
@@ -39,7 +39,7 @@ export const Sizes = {
     </div>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const FilterInCombobox = {
@@ -47,24 +47,24 @@ export const FilterInCombobox = {
     const option = [
       {
         id: "1",
-        label: "Cheese Cake"
+        label: "Cheese Cake",
       },
       {
         id: "2",
-        label: "Muffin"
+        label: "Muffin",
       },
       {
         id: "3",
-        label: "Cookie"
+        label: "Cookie",
       },
       {
         id: "4",
-        label: "Cup cake"
+        label: "Cup cake",
       },
       {
         id: "5",
-        label: "Banana lottie"
-      }
+        label: "Banana lottie",
+      },
     ];
 
     return (
@@ -79,5 +79,5 @@ export const FilterInCombobox = {
     );
   },
 
-  name: "Filter in combobox"
+  name: "Filter in combobox",
 };

@@ -156,7 +156,7 @@ describe("Modal tests", () => {
       const TEST_TITLE = "test title";
       const component = renderComponent({
         openOnStart: true,
-        content: <ModalHeader title={TEST_TITLE} />
+        content: <ModalHeader title={TEST_TITLE} />,
       });
       const title = component.queryByText(TEST_TITLE);
       expect(title).toBeInTheDocument();
@@ -166,7 +166,7 @@ describe("Modal tests", () => {
       const TEST_TITLE = "test title";
       const component = renderComponent({
         openOnStart: true,
-        content: <ModalHeader title={TEST_TITLE} />
+        content: <ModalHeader title={TEST_TITLE} />,
       });
       const title = component.queryByText(TEST_TITLE);
       expect(title).toBeInTheDocument();

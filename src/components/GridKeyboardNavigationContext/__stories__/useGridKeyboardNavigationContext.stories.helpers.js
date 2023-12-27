@@ -23,7 +23,7 @@ export const DummyNavigableGrid = forwardRef(
       itemsCount,
       getItemByIndex,
       onItemClicked: ON_CLICK,
-      disabledIndexes
+      disabledIndexes,
     });
     const onClickByIndex = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
     return (
@@ -47,7 +47,7 @@ export const DummyNavigableGrid = forwardRef(
         ))}
       </div>
     );
-  }
+  },
 );
 
 export const LayoutWithInnerKeyboardNavigation = forwardRef(({ id, itemPrefix }, ref) => {
@@ -57,9 +57,9 @@ export const LayoutWithInnerKeyboardNavigation = forwardRef(({ id, itemPrefix },
   const keyboardContext = useGridKeyboardNavigationContext(
     [
       { leftElement: leftElRef, rightElement: rightElRef },
-      { topElement: leftElRef, bottomElement: bottomElRef }
+      { topElement: leftElRef, bottomElement: bottomElRef },
     ],
-    ref
+    ref,
   );
   const innerPrefix = itemPrefix || "";
   return (

@@ -119,10 +119,10 @@ const publishedTSComponents = {
   useSwitch: "hooks/useSwitch",
   useClickableProps: "hooks/useClickableProps/useClickableProps",
   useHover: "hooks/useHover/useHover",
-  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex"
+  useElementsOverflowingIndex: "hooks/useElementsOverflowingIndex",
 };
 
 // eslint-disable-next-line no-undef
 module.exports = {
-  publishedTSComponents
+  publishedTSComponents,
 };

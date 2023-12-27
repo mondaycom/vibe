@@ -8,7 +8,7 @@ const MOCK_OPTIONS = [
   { value: "purple", label: "Purple" },
   { value: "red", label: "Red", isFixed: true },
   { value: "orange", label: "Orange" },
-  { value: "yellow", label: "Yellow" }
+  { value: "yellow", label: "Yellow" },
 ];
 
 const CHIP_TESTID = "value-container-chip";
@@ -53,13 +53,13 @@ export default class DropdownDriver {
       (acc, element) => ({
         values: [...acc.values, element.id],
         labels: [...acc.labels, element.textContent],
-        html: [...acc.html, element]
+        html: [...acc.html, element],
       }),
       {
         values: [],
         labels: [],
-        html: []
-      }
+        html: [],
+      },
     );
   }
 

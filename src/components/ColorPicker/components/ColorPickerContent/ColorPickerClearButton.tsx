@@ -18,7 +18,7 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
       itemsCount: 1,
       numberOfItemsInLine: 1,
       onItemClicked: onClick,
-      getItemByIndex: NOOP //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
+      getItemByIndex: NOOP, //hack - we don't really have a grid, it's just for keyboard navigation outside the clear button
     });
 
     return (
@@ -33,5 +33,5 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
         {text || "Clear"}
       </Button>
     );
-  }
+  },
 );

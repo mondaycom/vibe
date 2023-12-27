@@ -9,29 +9,29 @@ module.exports = api => {
     [
       "@babel/plugin-proposal-class-properties",
       {
-        loose: true
-      }
+        loose: true,
+      },
     ],
     [
       "@babel/plugin-proposal-private-methods",
       {
-        loose: true
-      }
+        loose: true,
+      },
     ],
     [
       "@babel/plugin-proposal-private-property-in-object",
       {
-        loose: true
-      }
+        loose: true,
+      },
     ],
-    "transform-react-remove-prop-types"
+    "transform-react-remove-prop-types",
   ].filter(Boolean);
 
   return {
     env: {
       test: {
-        plugins: ["@babel/plugin-transform-runtime"]
-      }
+        plugins: ["@babel/plugin-transform-runtime"],
+      },
     },
     presets: [
       [
@@ -40,20 +40,20 @@ module.exports = api => {
           modules: env === "test" ? "commonjs" : false,
           targets: TESTING_STORYBOOK
             ? {
-                node: "current"
+                node: "current",
               }
             : {
                 chrome: "66",
                 ie: "11",
                 firefox: "51",
                 edge: "18",
-                node: "current"
-              }
-        }
+                node: "current",
+              },
+        },
       ],
       "@babel/preset-typescript",
-      "@babel/preset-react"
+      "@babel/preset-react",
     ],
-    plugins
+    plugins,
   };
 };

@@ -51,7 +51,7 @@ const TableBody: VibeComponent<ITableBodyProps, HTMLDivElement> = forwardRef(
           : children}
       </div>
     );
-  }
+  },
 );
 
 export default TableBody;

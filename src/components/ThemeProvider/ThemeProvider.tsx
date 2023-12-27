@@ -26,7 +26,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
-    [customThemeClassSpecifier]
+    [customThemeClassSpecifier],
   );
 
   useEffect(() => {
@@ -63,11 +63,11 @@ const ThemeProvider: FC<ThemeProviderProps> & {
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(theme?.name, themeClassSpecifier, children?.props?.className)
+    className: cx(theme?.name, themeClassSpecifier, children?.props?.className),
   });
 };
 
 export default withStaticProps(ThemeProvider, {
   systemThemes: SystemTheme,
-  colors: ThemeColor
+  colors: ThemeColor,
 });

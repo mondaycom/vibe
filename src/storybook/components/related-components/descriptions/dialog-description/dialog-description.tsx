@@ -15,9 +15,9 @@ export const DialogDescription = () => {
         {
           name: "preventOverflow",
           options: {
-            mainAxis: false
-          }
-        }
+            mainAxis: false,
+          },
+        },
       ];
     return (
       <div className={styles.container}>

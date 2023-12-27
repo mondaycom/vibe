@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
   enumPropNamesArray: ["type", "iconType"],
   iconPropNamesArray: ["icon"],
-  actionPropsArray: ["onClose"]
+  actionPropsArray: ["onClose"],
 });
 
 const attentionBoxTemplate = createComponentTemplate(AttentionBox);
@@ -26,10 +26,10 @@ export default {
   title: "Feedback/AttentionBox",
   component: AttentionBox,
   subcomponents: {
-    AttentionBoxLink
+    AttentionBoxLink,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -40,8 +40,8 @@ export const Overview = {
     onClose: () => null,
     title: "Attention box title",
     text: "Studies show that 100% of people who celebrate birthdays, will eventually die.",
-    className: "monday-storybook-attention-box_box"
-  }
+    className: "monday-storybook-attention-box_box",
+  },
 };
 
 export const States = {
@@ -92,7 +92,7 @@ export const States = {
     </Flex>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const AttentionBoxWithLink = {
@@ -102,7 +102,7 @@ export const AttentionBoxWithLink = {
       <AttentionBox compact icon={Info} className="monday-storybook-attention-box--fixed-width">
         <Flex
           style={{
-            width: "100%"
+            width: "100%",
           }}
           justify={Flex.justify.SPACE_BETWEEN}
           gap={Flex.gaps.XS}
@@ -114,7 +114,7 @@ export const AttentionBoxWithLink = {
     );
   },
 
-  name: "Attention box with link"
+  name: "Attention box with link",
 };
 
 export const Dismissable = {
@@ -140,7 +140,7 @@ export const Dismissable = {
     );
   },
 
-  name: "Dismissable "
+  name: "Dismissable ",
 };
 
 export const NaturalAttentionBox = {
@@ -158,7 +158,7 @@ export const NaturalAttentionBox = {
     </div>
   ),
 
-  name: "Natural attention box"
+  name: "Natural attention box",
 };
 
 export const AttentionBoxInsideADialogCombobox = {
@@ -186,5 +186,5 @@ export const AttentionBoxInsideADialogCombobox = {
     );
   },
 
-  name: "Attention box inside a dialog/combobox"
+  name: "Attention box inside a dialog/combobox",
 };

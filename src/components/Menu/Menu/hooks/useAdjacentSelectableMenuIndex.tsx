@@ -13,7 +13,7 @@ export const useAdjacentSelectableMenuIndex = ({ children }: { children: ReactEl
       }
       return null;
     },
-    [children]
+    [children],
   );
 
   const getPreviousSelectableIndex = useCallback(
@@ -27,7 +27,7 @@ export const useAdjacentSelectableMenuIndex = ({ children }: { children: ReactEl
       }
       return null;
     },
-    [children]
+    [children],
   );
 
   return { getNextSelectableIndex, getPreviousSelectableIndex };

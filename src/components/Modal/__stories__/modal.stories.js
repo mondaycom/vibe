@@ -12,7 +12,7 @@ import { Upgrade } from "../../Icon/Icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
   enumPropNamesArray: ["width"], // List enum props here
-  actionPropsArray: ["onClose"] // List the component's actions here
+  actionPropsArray: ["onClose"], // List the component's actions here
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -60,15 +60,15 @@ export default {
   subcomponents: {
     ModalHeader,
     ModalContent,
-    ModalFooter
+    ModalFooter,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
   render: modalTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const WidthVariantsNormal = {
@@ -88,7 +88,7 @@ export const WidthVariantsNormal = {
       const openModalButton = useHelperOpenModalButton({
         title: "Default",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -115,7 +115,7 @@ export const WidthVariantsNormal = {
       );
     },
 
-  name: "Width variants - Normal"
+  name: "Width variants - Normal",
 };
 
 export const WidthVariantsFull = {
@@ -135,7 +135,7 @@ export const WidthVariantsFull = {
       const openModalButton = useHelperOpenModalButton({
         title: "Full size",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -162,7 +162,7 @@ export const WidthVariantsFull = {
       );
     },
 
-  name: "Width variants - Full"
+  name: "Width variants - Full",
 };
 
 export const WidthVariantsCustom = {
@@ -182,7 +182,7 @@ export const WidthVariantsCustom = {
       const openModalButton = useHelperOpenModalButton({
         title: "Custom size (i.e. 720px)",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -209,7 +209,7 @@ export const WidthVariantsCustom = {
       );
     },
 
-  name: "Width variants - custom"
+  name: "Width variants - custom",
 };
 
 export const ModalWithIcon = {
@@ -229,7 +229,7 @@ export const ModalWithIcon = {
       const openModalButton = useHelperOpenModalButton({
         title: "Header with icon",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -259,7 +259,7 @@ export const ModalWithIcon = {
       );
     },
 
-  name: "Modal with icon"
+  name: "Modal with icon",
 };
 
 export const AlertModal = {
@@ -279,7 +279,7 @@ export const AlertModal = {
       const openModalButton = useHelperOpenModalButton({
         title: "Alert dialog",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -306,7 +306,7 @@ export const AlertModal = {
       );
     },
 
-  name: "Alert Modal"
+  name: "Alert Modal",
 };
 
 export const ModalWithEditableTitle = {
@@ -326,7 +326,7 @@ export const ModalWithEditableTitle = {
       const openModalButton = useHelperOpenModalButton({
         title: "Open modal",
         setShow,
-        openModalButtonRef
+        openModalButtonRef,
       });
 
       return (
@@ -357,5 +357,5 @@ export const ModalWithEditableTitle = {
       );
     },
 
-  name: "Modal with editable title"
+  name: "Modal with editable title",
 };

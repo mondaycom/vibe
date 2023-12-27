@@ -58,9 +58,9 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
       compact = true,
       rtl,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
@@ -78,7 +78,7 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
       return formatNumber(Number(value), {
         local,
         precision: decimalPrecision,
-        isCompact: compact
+        isCompact: compact,
       });
     }, [value, decimalPrecision, local, compact]);
 
@@ -98,12 +98,12 @@ const FormattedNumber: VibeComponent<FormattedNumberProps, HTMLDivElement> & {
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );
-  }
+  },
 );
 
 Object.assign(FormattedNumber, {
   formatNumber: formatNumber,
-  localFallBack: formatNumberConsts.DEFAULT_LOCAL
+  localFallBack: formatNumberConsts.DEFAULT_LOCAL,
 });
 
 export default FormattedNumber;

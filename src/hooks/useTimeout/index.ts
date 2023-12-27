@@ -4,7 +4,7 @@ import { noop } from "lodash-es";
 export default function useTimeout({
   time = 0,
   callback,
-  ignoreZeroTime = false
+  ignoreZeroTime = false,
 }: {
   callback: () => void;
   time?: number;

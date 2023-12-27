@@ -22,9 +22,9 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
       icon: Icon,
       role = "img",
       "aria-hidden": ariaHidden,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    iconRef
+    iconRef,
   ) => {
     const isIconFunction = typeof Icon === "function";
     const iconClassName = isIconFunction ? "" : Icon;
@@ -44,6 +44,6 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         {isIconFunction && <Icon />}
       </span>
     );
-  }
+  },
 );
 export default FontIcon;

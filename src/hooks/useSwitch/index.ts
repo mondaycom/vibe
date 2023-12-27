@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 enum SwitchRole {
   CHECKBOX = "checkbox",
-  BUTTON = "button"
+  BUTTON = "button",
 }
 
 export interface UseSwitchProps {

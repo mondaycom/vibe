@@ -9,7 +9,7 @@ jest.mock("react-transition-group", () => {
   return {
     CSSTransition: FakeCSSTransition,
     Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
+    SwitchTransition: FakeSwitchTransition,
   };
 });
 
@@ -21,7 +21,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip shouldShowOnMount content="test" arrowPosition={Tooltip.arrowPositions.END}>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -32,7 +32,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip shouldShowOnMount content="test" theme={Tooltip.themes.Error}>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip shouldShowOnMount content="test" position={Tooltip.positions.LEFT}>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip shouldShowOnMount content="test" justify={Tooltip.justifyTypes.END}>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -65,7 +65,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip shouldShowOnMount withoutDialog content="test">
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -76,7 +76,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip tip={false} content="test" shouldShowOnMount>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -87,7 +87,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip hideWhenReferenceHidden content="test" shouldShowOnMount>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -98,7 +98,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip style={{ width: "200px" }} content="test" shouldShowOnMount>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -109,7 +109,7 @@ describe("Tooltip renders correctly", () => {
       .create(
         <Tooltip data-testid="test" content="test" shouldShowOnMount>
           <div />
-        </Tooltip>
+        </Tooltip>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

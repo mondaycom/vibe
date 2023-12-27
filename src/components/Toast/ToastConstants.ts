@@ -8,12 +8,12 @@ export enum ToastType {
   POSITIVE = "positive",
   NEGATIVE = "negative",
   WARNING = "warning",
-  DARK = "dark"
+  DARK = "dark",
 }
 
 export enum ToastActionType {
   LINK = "link",
-  BUTTON = "button"
+  BUTTON = "button",
 }
 
 export const defaultIconMap = {
@@ -21,7 +21,7 @@ export const defaultIconMap = {
   [ToastType.POSITIVE]: Check,
   [ToastType.NEGATIVE]: Alert,
   [ToastType.WARNING]: Warning,
-  [ToastType.DARK]: Info
+  [ToastType.DARK]: Info,
 };
 
 export type ToastAction = {

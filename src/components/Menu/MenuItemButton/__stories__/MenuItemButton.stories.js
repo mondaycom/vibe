@@ -8,7 +8,7 @@ import { Invite } from "../../../Icon/Icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItemButton,
   enumPropNamesArray: ["kind", "tooltipPosition"],
-  iconPropNamesArray: ["leftIcon", "rightIcon"]
+  iconPropNamesArray: ["leftIcon", "rightIcon"],
 });
 
 const menuItemButtonTemplate = createComponentTemplate(MenuItemButton);
@@ -17,7 +17,7 @@ export default {
   title: "Navigation/Menu/MenuItemButton",
   component: MenuItemButton,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -25,8 +25,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: "Menu item children"
-  }
+    children: "Menu item children",
+  },
 };
 
 export const States = {
@@ -39,9 +39,9 @@ export const States = {
     </Menu>,
     <Menu key="Tertiary">
       <MenuItemButton kind={MenuItemButton.kinds.TERTIARY}>Tertiary</MenuItemButton>
-    </Menu>
+    </Menu>,
   ],
-  name: "States"
+  name: "States",
 };
 
 export const Disabled = {
@@ -60,9 +60,9 @@ export const Disabled = {
       <MenuItemButton kind={MenuItemButton.kinds.TERTIARY} disabled disableReason="Disabled reason">
         Tertiary
       </MenuItemButton>
-    </Menu>
+    </Menu>,
   ],
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const Icons = {
@@ -72,7 +72,7 @@ export const Icons = {
     </Menu>,
     <Menu key="right">
       <MenuItemButton rightIcon={Invite}>Right icon</MenuItemButton>
-    </Menu>
+    </Menu>,
   ],
-  name: "Icons"
+  name: "Icons",
 };

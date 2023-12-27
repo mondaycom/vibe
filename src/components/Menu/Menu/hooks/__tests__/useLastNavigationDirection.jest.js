@@ -24,7 +24,7 @@ describe("useLastNavigationDirection", () => {
     { key: "ArrowUp", direction: NavDirections.UP },
     { key: "ArrowLeft", direction: NavDirections.LEFT },
     { key: "ArrowRight", direction: NavDirections.RIGHT },
-    { key: "ArrowDown", direction: NavDirections.DOWN }
+    { key: "ArrowDown", direction: NavDirections.DOWN },
   ].forEach(({ key, direction }) => {
     it(`should return direction "${direction}" when pressing the key "${key}"`, () => {
       const { result } = renderHookForTest();

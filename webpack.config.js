@@ -27,11 +27,11 @@ module.exports = () => {
 
               // eslint-disable-next-line no-underscore-dangle
               window._lastElementInsertedByStyleLoader = true;
-            }
-          }
+            },
+          },
         }
       : {
-          loader: MiniCssExtractPlugin.loader
+          loader: MiniCssExtractPlugin.loader,
         },
     {
       loader: "css-loader",
@@ -41,18 +41,18 @@ module.exports = () => {
           auto: true,
           localIdentName: "[path][name]__[local]--[hash:base64:5]",
           localIdentContext: path.resolve(__dirname, "src"),
-          exportGlobals: false
-        }
-      }
+          exportGlobals: false,
+        },
+      },
     },
     {
       loader: "postcss-loader",
       options: {
         postcssOptions: {
-          plugins: [[autoprefixer()]]
-        }
-      }
-    }
+          plugins: [[autoprefixer()]],
+        },
+      },
+    },
   ];
   const devtool = "source-map";
   const publishedComponents = getPublishedComponents();
@@ -61,14 +61,14 @@ module.exports = () => {
     main: [path.join(__dirname, "/src/style-imports"), path.join(__dirname, "/src/index.js")],
     interactionTests: path.join(__dirname, "/src/tests/interactions-utils"),
     testIds: path.join(__dirname, "/src/tests/test-ids-utils"),
-    ...publishedComponents
+    ...publishedComponents,
   };
 
   return {
     devtool,
     resolve: {
       modules: [__dirname, "node_modules"],
-      extensions: [".ts", ".tsx", ".js", ".jsx"]
+      extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
     module: {
       rules: [
@@ -79,15 +79,15 @@ module.exports = () => {
             {
               loader: "ts-loader",
               options: {
-                onlyCompileBundledFiles: true
-              }
-            }
-          ]
+                onlyCompileBundledFiles: true,
+              },
+            },
+          ],
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules\/(?!monday-ui-style)(.*)/,
-          use: ["babel-loader"]
+          use: ["babel-loader"],
         },
         {
           test: /\.scss$/,
@@ -98,22 +98,22 @@ module.exports = () => {
               loader: "sass-loader",
               options: {
                 sassOptions: {
-                  includePaths: [path.resolve("./src")]
-                }
-              }
-            }
-          ]
+                  includePaths: [path.resolve("./src")],
+                },
+              },
+            },
+          ],
         },
         {
           test: /\.css$/,
           include: [path.resolve(__dirname, "node_modules/")], // only include 3rd party libraries
-          use: styleLoaders
-        }
-      ]
+          use: styleLoaders,
+        },
+      ],
     },
     externals: {
       react: "react",
-      "react-dom": "react-dom"
+      "react-dom": "react-dom",
     },
     entry,
     output: {
@@ -121,10 +121,10 @@ module.exports = () => {
       filename: "[name].js",
       library: "monday-style",
       libraryTarget: "umd",
-      globalObject: "this"
+      globalObject: "this",
     },
     optimization: {
-      minimizer: [new TerserJSPlugin({})]
+      minimizer: [new TerserJSPlugin({})],
     },
     plugins: [
       ANALYZE_BUNDLE ? new BundleAnalyzerPlugin() : undefined,
@@ -132,21 +132,21 @@ module.exports = () => {
         patterns: [
           {
             from: "src/constants/colors.json",
-            to: "assets/"
+            to: "assets/",
           },
           {
             from: "node_modules/monday-ui-style/dist/index.min.css",
-            to: "tokens/tokens.css"
-          }
-        ]
+            to: "tokens/tokens.css",
+          },
+        ],
       }),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // all options are optional
         filename: "[name].css",
         chunkFilename: "[name].css",
-        ignoreOrder: false // Enable to remove warnings about conflicting order
-      })
-    ].filter(Boolean)
+        ignoreOrder: false, // Enable to remove warnings about conflicting order
+      }),
+    ].filter(Boolean),
   };
 };

@@ -10,7 +10,7 @@ import {
   isArrowUpEvent,
   isEnterEvent,
   isEscapeEvent,
-  isTabEvent
+  isTabEvent,
 } from "../../utils/dom-event-utils";
 import VibeComponent from "../../types/VibeComponent";
 import { VibeComponentProps, withStaticProps } from "../../types";
@@ -84,9 +84,9 @@ const EditableInput: VibeComponent<EditableInputProps> & {
       textareaSubmitOnEnter = false,
       onArrowKeyDown,
       ariaLabel,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     // State
     const [valueState, setValueState] = useState(value || "");
@@ -116,7 +116,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
           onFocus(event);
         }
       },
-      [onFocus]
+      [onFocus],
     );
 
     const onBlurCallback = useCallback(
@@ -143,7 +143,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
           onBlur(enrichedEvent);
         }
       },
-      [ignoreBlurClass, valueState, onFinishEditing, onBlur, onIgnoreBlurEvent]
+      [ignoreBlurClass, valueState, onFinishEditing, onBlur, onIgnoreBlurEvent],
     );
 
     const onChangeCallback = useCallback(
@@ -157,7 +157,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
           onError && onError();
         }
       },
-      [isValidValue, onChange, onError, onSuccess]
+      [isValidValue, onChange, onError, onSuccess],
     );
 
     const select = useCallback(() => {
@@ -207,8 +207,8 @@ const EditableInput: VibeComponent<EditableInputProps> & {
         textareaSubmitOnEnter,
         onFinishEditing,
         onCancelEditing,
-        onArrowKeyDown
-      ]
+        onArrowKeyDown,
+      ],
     );
     // Callbacks END
 
@@ -235,7 +235,7 @@ const EditableInput: VibeComponent<EditableInputProps> & {
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_INPUT, id)}
         style={style}
         className={cx(styles.editableInputWrapper, className, {
-          [styles.noResize]: autoSize
+          [styles.noResize]: autoSize,
         })}
         onChange={onChangeCallback}
         onKeyDown={onKeyDownCallback}
@@ -254,9 +254,9 @@ const EditableInput: VibeComponent<EditableInputProps> & {
         disabled={disabled}
       />
     );
-  }
+  },
 );
 
 export default withStaticProps(EditableInput, {
-  inputTypes: InputType
+  inputTypes: InputType,
 });

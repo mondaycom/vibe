@@ -16,7 +16,7 @@ export default function useIconProps({
   ignoreFocusStyle,
   isDecorationOnly,
   iconLabel,
-  externalTabIndex
+  externalTabIndex,
 }: {
   onClick?: (event: UIEvent) => void;
   className?: string;
@@ -35,7 +35,7 @@ export default function useIconProps({
       }
       onClick(event);
     },
-    [iconRef, onClick]
+    [iconRef, onClick],
   );
 
   const onMouseDown = useCallback((event: MouseEvent) => {
@@ -45,14 +45,14 @@ export default function useIconProps({
   const computedClassName = useMemo(() => {
     return cx(styles.icon, className, {
       [styles.clickable]: clickable,
-      [styles.noFocusStyle]: ignoreFocusStyle
+      [styles.noFocusStyle]: ignoreFocusStyle,
     });
   }, [clickable, className, ignoreFocusStyle]);
 
   useEventListener({
     eventName: "mousedown",
     callback: onMouseDown,
-    ref: iconRef
+    ref: iconRef,
   });
 
   useKeyEvent({
@@ -62,7 +62,7 @@ export default function useIconProps({
     ignoreDocumentFallback: true,
     capture: true,
     stopPropagation: true,
-    preventDefault: true
+    preventDefault: true,
   });
 
   const onClickCallback = useCallback(
@@ -70,13 +70,13 @@ export default function useIconProps({
       const callback = onClick || NOOP;
       callback(event);
     },
-    [onClick]
+    [onClick],
   );
 
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
     isClickable: clickable,
     label: iconLabel,
-    isDecorationOnly
+    isDecorationOnly,
   });
 
   screenReaderAccessProps.tabIndex = externalTabIndex ?? screenReaderAccessProps.tabIndex;
@@ -86,6 +86,6 @@ export default function useIconProps({
     onClickCallback,
     computedClassName,
     onEnterCallback,
-    iconRef
+    iconRef,
   };
 }

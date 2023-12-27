@@ -98,18 +98,18 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
       ariaLabel = "",
       id,
       fullWidth = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const wrapperClassName = useMemo(() => {
       return cx(
         styles.wrapper,
         {
           [getStyle(styles, size.toString())]: size,
-          [styles.fullWidth]: fullWidth
+          [styles.fullWidth]: fullWidth,
         },
-        className
+        className,
       );
     }, [size, fullWidth, className]);
 
@@ -190,7 +190,7 @@ const LinearProgressBar: VibeComponent<LinearProgressBarProps, HTMLDivElement> &
         {renderPercentage}
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(LinearProgressBar, {
@@ -198,5 +198,5 @@ export default withStaticProps(LinearProgressBar, {
   barStyles: ProgressBarStyle,
   types: ProgressBarType,
   barTypes: ProgressBarType,
-  sizes: SIZES
+  sizes: SIZES,
 });

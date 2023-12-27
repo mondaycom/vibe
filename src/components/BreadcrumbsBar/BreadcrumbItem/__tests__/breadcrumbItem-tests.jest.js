@@ -10,7 +10,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByRole } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" link="https://www.google.com" />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
 
     const link = getByRole("link");
@@ -24,7 +24,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
 
     const item = getByText("Workspace");
@@ -40,7 +40,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
 
     const item = getByText("Workspace");
@@ -56,7 +56,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
 
     const item = getByText("Workspace");
@@ -73,7 +73,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
 
     const item = getByText("Workspace");
@@ -88,7 +88,7 @@ describe("BreadcrumbsItem tests", () => {
     const { getByText } = render(
       <BreadcrumbsBar>
         <BreadcrumbItem text="Workspace" onClick={onClickMock} />
-      </BreadcrumbsBar>
+      </BreadcrumbsBar>,
     );
     const item = getByText("Workspace");
     fireEvent.click(item);

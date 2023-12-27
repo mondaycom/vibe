@@ -5,7 +5,7 @@ const hiddenTextTemplate = createComponentTemplate(HiddenText);
 
 export default {
   title: "Accessibility/HiddenText",
-  component: HiddenText
+  component: HiddenText,
 };
 
 export const Overview = {
@@ -13,6 +13,6 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    text: "Hello hidden text"
-  }
+    text: "Hello hidden text",
+  },
 };

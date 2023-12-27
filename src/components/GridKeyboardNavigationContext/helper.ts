@@ -22,7 +22,7 @@ function throwIfCausingCircularDependency(directionMaps: DirectionMaps, newPosit
 
   function throwMessage(directionFrom: string, directionTo: string) {
     throw new Error(
-      `Circular positioning detected: the ${directionFrom} element is already positioned to the ${directionTo} of the ${directionTo} element. This probably means the layout isn't ordered correctly.`
+      `Circular positioning detected: the ${directionFrom} element is already positioned to the ${directionTo} of the ${directionTo} element. This probably means the layout isn't ordered correctly.`,
     );
   }
 }
@@ -32,7 +32,7 @@ export const getDirectionMaps = (positions: Position[]) => {
     [NavDirections.RIGHT]: new Map(),
     [NavDirections.LEFT]: new Map(),
     [NavDirections.UP]: new Map(),
-    [NavDirections.DOWN]: new Map()
+    [NavDirections.DOWN]: new Map(),
   };
   positions.forEach(position => {
     throwIfCausingCircularDependency(directionMaps, position);
@@ -67,7 +67,7 @@ export const getOppositeDirection = (direction: NavDirections) => {
 
 export const getOutmostElementInDirection = (
   directionMaps: DirectionMaps,
-  direction: NavDirections
+  direction: NavDirections,
 ): GridElementRef => {
   const directionMap = directionMaps[direction];
   const firstEntry = [...directionMap][0]; // start with any element
@@ -86,7 +86,7 @@ export const getOutmostElementInDirection = (
 
 export const getNextElementToFocusInDirection = (
   directionMap: DirectionMap,
-  elementRef: GridElementRef
+  elementRef: GridElementRef,
 ): null | GridElementRef => {
   const next = directionMap.get(elementRef);
   if (!next) {

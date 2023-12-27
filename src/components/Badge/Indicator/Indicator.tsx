@@ -14,7 +14,7 @@ const Indicator: React.FC<IndicatorProps> & { colors?: typeof IndicatorColor } =
   color = IndicatorColor.NOTIFICATION,
   className,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }: IndicatorProps) => {
   return (
     <div

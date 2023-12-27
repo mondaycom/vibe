@@ -18,7 +18,7 @@ export interface AlertBannerTextProps extends VibeComponentProps {
 const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, id, "data-testid": dataTestId }) => {
   const componentRef = useRef(null);
   const classNames = cx(styles.bannerText, {
-    [styles.marginLeft]: marginLeft
+    [styles.marginLeft]: marginLeft,
   });
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
@@ -43,7 +43,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
 
 Object.assign(AlertBannerText, {
   isAlertBannerItem: true,
-  isAlertBannerText: true
+  isAlertBannerText: true,
 });
 
 export default AlertBannerText;

@@ -8,7 +8,7 @@ import "./breadcrumbsBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbsBar,
-  enumPropNamesArray: ["type"]
+  enumPropNamesArray: ["type"],
 });
 
 const breadcrumbsBarTemplate = args => {
@@ -23,7 +23,7 @@ export default {
   title: "Navigation/BreadcrumbsBar/BreadcrumbsBar",
   component: BreadcrumbsBar,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -34,22 +34,22 @@ export const Overview = {
     items: [
       {
         text: "Workspace",
-        icon: Workspace
+        icon: Workspace,
       },
       {
         text: "Folder",
-        icon: Folder
+        icon: Folder,
       },
       {
         text: "Board",
-        icon: Board
+        icon: Board,
       },
       {
         text: "Group",
-        icon: Group
-      }
-    ]
-  }
+        icon: Group,
+      },
+    ],
+  },
 };
 
 export const TextOnly = {
@@ -62,7 +62,7 @@ export const TextOnly = {
     </BreadcrumbsBar>
   ),
 
-  name: "Text only"
+  name: "Text only",
 };
 
 export const WithIcons = {
@@ -75,7 +75,7 @@ export const WithIcons = {
     </BreadcrumbsBar>
   ),
 
-  name: "With icons"
+  name: "With icons",
 };
 
 export const NavigatableBreadcrumbs = {
@@ -92,5 +92,5 @@ export const NavigatableBreadcrumbs = {
     </div>
   ),
 
-  name: "Navigatable breadcrumbs"
+  name: "Navigatable breadcrumbs",
 };

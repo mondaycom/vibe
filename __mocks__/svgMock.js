@@ -17,5 +17,5 @@ const reactPreset = require("babel-preset-react");
 module.exports = {
   process(src, filename) {
     return "";
-  }
+  },
 };

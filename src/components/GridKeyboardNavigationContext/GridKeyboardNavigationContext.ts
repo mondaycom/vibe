@@ -5,7 +5,7 @@ import {
   getDirectionMaps,
   getNextElementToFocusInDirection,
   getOppositeDirection,
-  getOutmostElementInDirection
+  getOutmostElementInDirection,
 } from "./helper";
 import { NavDirections } from "../../hooks/useFullKeyboardListeners";
 import { GridElementRef, GridKeyboardNavigationContextType, Position } from "./GridKeyboardNavigationContextConstants";
@@ -21,7 +21,7 @@ export const GridKeyboardNavigationContext = React.createContext<GridKeyboardNav
 export const useGridKeyboardNavigationContext = (
   positions: Position[],
   wrapperRef: GridElementRef,
-  options: { disabled: boolean } = { disabled: false }
+  options: { disabled: boolean } = { disabled: false },
 ) => {
   const directionMaps = useMemo(() => getDirectionMaps(positions), [positions]);
   const upperContext = useContext(GridKeyboardNavigationContext);
@@ -50,7 +50,7 @@ export const useGridKeyboardNavigationContext = (
       // nothing on that direction - try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
-    [directionMaps, upperContext, wrapperRef, options.disabled]
+    [directionMaps, upperContext, wrapperRef, options.disabled],
   );
   return { onOutboundNavigation };
 };

@@ -17,7 +17,7 @@ describe("TabsContext renders correctly", () => {
           <TabPanels>
             <TabPanel>First slide</TabPanel>
           </TabPanels>
-        </TabsContext>
+        </TabsContext>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe("TabsContext renders correctly", () => {
           <TabPanels>
             <TabPanel>First slide</TabPanel>
           </TabPanels>
-        </TabsContext>
+        </TabsContext>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe("TabsContext renders correctly", () => {
           <TabPanels>
             <TabPanel>First slide</TabPanel>
           </TabPanels>
-        </TabsContext>
+        </TabsContext>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -67,7 +67,7 @@ describe("TabsContext renders correctly", () => {
             <TabPanel>First slide</TabPanel>
             <TabPanel>Second slide</TabPanel>
           </TabPanels>
-        </TabsContext>
+        </TabsContext>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

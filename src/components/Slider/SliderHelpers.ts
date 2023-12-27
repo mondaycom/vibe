@@ -55,7 +55,7 @@ export function ensureDefaultValue(
   defaultValue: number | number[],
   min: number,
   max: number,
-  ranged: boolean
+  ranged: boolean,
 ): number | number[] {
   if (ranged && !Array.isArray(defaultValue)) {
     return [min, max];
@@ -72,7 +72,7 @@ export function ensureDefaultValue(
 export function ensureValueText(
   valueText: string,
   value: number | number[],
-  formatter: (value: number) => string
+  formatter: (value: number) => string,
 ): string | string[] {
   if (!Array.isArray(value)) {
     return _ensureSingleValueText(valueText, value, formatter);

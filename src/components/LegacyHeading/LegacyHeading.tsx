@@ -47,10 +47,10 @@ const LegacyHeading: React.FC<HeadingProps> & {
   highlightTerm = null,
   suggestEditOnHover = false,
   nonEllipsisTooltip = null,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
-    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString())
+    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines.toString()),
   );
   const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx(
@@ -61,8 +61,8 @@ const LegacyHeading: React.FC<HeadingProps> & {
     {
       [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
       [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
-      [styles.suggestEditOnHover]: suggestEditOnHover
-    }
+      [styles.suggestEditOnHover]: suggestEditOnHover,
+    },
   );
   const Element = React.createElement(
     type,
@@ -72,7 +72,7 @@ const LegacyHeading: React.FC<HeadingProps> & {
       id,
       "data-testid": dataTestId || getTestId(ComponentDefaultTestId.HEADING, id),
       ref: setRef,
-      style: finalStyle
+      style: finalStyle,
     },
     highlightTerm ? (
       <TextWithHighlight
@@ -85,7 +85,7 @@ const LegacyHeading: React.FC<HeadingProps> & {
       />
     ) : (
       value
-    )
+    ),
   );
 
   const isOverflowing = useIsOverflowing({ ref: ellipsis ? componentRef : null, ignoreHeightOverflow: true });
@@ -112,5 +112,5 @@ const LegacyHeading: React.FC<HeadingProps> & {
 
 export default withStaticProps(LegacyHeading, {
   types: HeadingTypes,
-  sizes: Sizes
+  sizes: Sizes,
 });

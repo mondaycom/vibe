@@ -89,9 +89,9 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       style,
       useCurrentColor = false,
       customColor,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
@@ -101,7 +101,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
-      externalTabIndex: overrideExternalTabIndex
+      externalTabIndex: overrideExternalTabIndex,
     });
 
     const mergedRef = useMergeRef(ref, iconRef);
@@ -125,7 +125,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         onClick,
         className: computedClassName,
         style,
-        "data-testid": overrideDataTestId
+        "data-testid": overrideDataTestId,
       });
     }
     if (iconType === IconType.SRC) {
@@ -153,9 +153,9 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         data-testid={overrideDataTestId}
       />
     );
-  }
+  },
 );
 
 export default withStaticProps(Icon, {
-  type: IconType
+  type: IconType,
 });

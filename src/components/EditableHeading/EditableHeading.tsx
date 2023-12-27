@@ -32,7 +32,7 @@ const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
       "data-testid": dataTestId,
       ...editableTypographyProps
     },
-    ref
+    ref,
   ) => {
     return (
       <EditableTypography
@@ -43,10 +43,10 @@ const EditableHeading: VibeComponent<EditableHeadingProps, HTMLElement> & {
         {...editableTypographyProps}
       />
     );
-  }
+  },
 );
 
 export default withStaticProps(EditableHeading, {
   types: HeadingType,
-  weights: HeadingWeight
+  weights: HeadingWeight,
 });

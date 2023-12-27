@@ -7,7 +7,7 @@ async function renderModalFooter(props) {
   const { asFragment } = render(
     <ModalFooter id="modal-title-id" title={"Default title"} {...props}>
       <div>footer content</div>
-    </ModalFooter>
+    </ModalFooter>,
   );
   return asFragment().firstChild;
 }

@@ -20,7 +20,7 @@ export default function useMenuItemKeyboardEvents({
   useDocumentEventListeners,
   splitMenuItem,
   isMouseEnterMenuItem,
-  isMouseEnterIconButton
+  isMouseEnterIconButton,
 }: {
   onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
   disabled: boolean;
@@ -106,14 +106,14 @@ export default function useMenuItemKeyboardEvents({
       index,
       closeMenu,
       isMouseEnterMenuItem,
-      isMouseEnterIconButton
-    ]
+      isMouseEnterIconButton,
+    ],
   );
 
   useKeyEvent({
     keys: KEYS,
     callback: onClickCallback,
-    ref: useDocumentEventListeners ? undefined : menuRef
+    ref: useDocumentEventListeners ? undefined : menuRef,
   });
 
   return { onClickCallback };

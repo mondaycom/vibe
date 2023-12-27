@@ -5,7 +5,7 @@ import {
   clickElement,
   typeText,
   getFirstByClassName,
-  interactionSuite
+  interactionSuite,
 } from "../../../tests/interactions-utils";
 import { expect } from "@storybook/jest";
 
@@ -48,7 +48,7 @@ export const overviewPlaySuite = interactionSuite({
     const optionElement = await canvas.queryByText("Option 1");
     expect(optionElement).toBeNull(); //expect not to exist
   },
-  tests: [selectAndClearTest, hideDropdownWhenPressingEscape]
+  tests: [selectAndClearTest, hideDropdownWhenPressingEscape],
 });
 
 const openMultiValueDialog = async canvas => {
@@ -62,5 +62,5 @@ const openMultiValueDialog = async canvas => {
 };
 
 export const multiInteractionTests = interactionSuite({
-  tests: [openMultiValueDialog]
+  tests: [openMultiValueDialog],
 });

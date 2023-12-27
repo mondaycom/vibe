@@ -15,12 +15,12 @@ export function createEventHandler(handler: (event: UIEvent) => void) {
       },
       stopPropagation() {
         console.error(
-          "stopPropagation is now the default behavior for events. You can use continuePropagation() to revert this behavior."
+          "stopPropagation is now the default behavior for events. You can use continuePropagation() to revert this behavior.",
         );
       },
       continuePropagation() {
         shouldStopPropagation = false;
-      }
+      },
     };
 
     handler(event);

@@ -20,7 +20,7 @@ export function useTooltipContentTabNavigation({
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
   isKeyboardTooltipVisible,
-  setIsKeyboardTooltipVisible
+  setIsKeyboardTooltipVisible,
 }: {
   counterContainerRef: RefObject<HTMLDivElement>;
   tooltipContentContainerRef: RefObject<HTMLElement>;
@@ -43,13 +43,13 @@ export function useTooltipContentTabNavigation({
   // Open tooltip manually when keyboard focusing on counter
   useListenFocusTriggers({
     ref: counterContainerRef,
-    onFocusByKeyboard: showKeyboardTooltip
+    onFocusByKeyboard: showKeyboardTooltip,
   });
 
   useEventListener({
     eventName: "blur",
     ref: tooltipContentContainerRef,
-    callback: hideKeyboardTooltip
+    callback: hideKeyboardTooltip,
   });
 
   //Move focus to content by keyboard
@@ -60,7 +60,7 @@ export function useTooltipContentTabNavigation({
     preventDefault: true,
     callback: useCallback(() => {
       if (isKeyboardTooltipVisible) tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
-    }, [isKeyboardTooltipVisible, tooltipContentContainerRef])
+    }, [isKeyboardTooltipVisible, tooltipContentContainerRef]),
   });
 
   // Close tooltip by keyboard
@@ -68,7 +68,7 @@ export function useTooltipContentTabNavigation({
     keys: TAB,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
-    callback: hideKeyboardTooltip
+    callback: hideKeyboardTooltip,
   });
   useKeyEvent({
     keys: TAB,
@@ -79,7 +79,7 @@ export function useTooltipContentTabNavigation({
       // the browser will move the focus to the next element in the focus order.
       focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
-    }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+    }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]),
   });
   useKeyEvent({
     keys: TAB,
@@ -90,7 +90,7 @@ export function useTooltipContentTabNavigation({
       // the browser will move the focus to the next element in the focus order.
       focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
-    }, [focusPrevPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+    }, [focusPrevPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]),
   });
   useKeyEvent({
     keys: ESC,
@@ -98,19 +98,19 @@ export function useTooltipContentTabNavigation({
     callback: useCallback(() => {
       counterContainerRef?.current && counterContainerRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
-    }, [counterContainerRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+    }, [counterContainerRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]),
   });
   useKeyEvent({
     keys: ESC,
     ref: counterContainerRef,
-    callback: hideKeyboardTooltip
+    callback: hideKeyboardTooltip,
   });
 
   // Close tooltip when moving focus to next element
   useEventListener({
     eventName: "focus",
     ref: focusNextPlaceholderRef,
-    callback: hideKeyboardTooltip
+    callback: hideKeyboardTooltip,
   });
 }
 
@@ -119,7 +119,7 @@ export const avatarRenderer = (
   index: number,
   style: CSSProperties,
   type: AvatarType,
-  displayAsGrid: boolean
+  displayAsGrid: boolean,
 ) => {
   const avatarProps = item.value;
   const overrideStyle: CSSProperties = { ...style, width: displayAsGrid ? undefined : "100%" };

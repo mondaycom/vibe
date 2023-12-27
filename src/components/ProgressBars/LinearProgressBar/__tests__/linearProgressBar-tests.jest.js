@@ -66,7 +66,7 @@ describe("ProgressBars Tests", () => {
     const multiValues = [
       { value: 10, color: "rgb(255, 0, 0)" },
       { value: 20, color: "rgb(0, 255, 0)" },
-      { value: 30, color: "rgb(0, 0, 255)" }
+      { value: 30, color: "rgb(0, 0, 255)" },
     ];
     let multiBarsComponent;
 

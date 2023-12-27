@@ -146,15 +146,15 @@ const Slider: React.FC<SliderProps> & {
       indicateSelection = false,
       prefix,
       postfix,
-      selectionIndicatorWidth = "60px"
+      selectionIndicatorWidth = "60px",
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const infixOptions = useMemo(
       () => ({ prefix, postfix, indicateSelection, selectionIndicatorWidth }),
-      [prefix, postfix, indicateSelection, selectionIndicatorWidth]
+      [prefix, postfix, indicateSelection, selectionIndicatorWidth],
     );
     return (
       <SliderProvider
@@ -188,10 +188,10 @@ const Slider: React.FC<SliderProps> & {
         </div>
       </SliderProvider>
     );
-  }
+  },
 );
 
 export default withStaticProps(Slider, {
   sizes: BASE_SIZES,
-  colors: SliderColor
+  colors: SliderColor,
 });

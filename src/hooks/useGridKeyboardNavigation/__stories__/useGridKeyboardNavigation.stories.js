@@ -11,7 +11,7 @@ const PADDING_PX = 24;
 const ON_CLICK = action("item selected");
 
 export default {
-  title: "Hooks/useGridKeyboardNavigation"
+  title: "Hooks/useGridKeyboardNavigation",
 };
 
 export const Overview = {
@@ -32,7 +32,7 @@ export const Overview = {
       itemsCount,
       getItemByIndex,
       onItemClicked: ON_CLICK,
-      disabledIndexes
+      disabledIndexes,
     });
 
     const onClickByIndex = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
@@ -42,7 +42,7 @@ export const Overview = {
         <div
           className="use-grid-keyboard-nav-comp-wrapper"
           style={{
-            width
+            width,
           }}
           ref={ref}
           tabIndex={-1}
@@ -54,7 +54,7 @@ export const Overview = {
               onClick={onClickByIndex(index)}
               kind={Button.kinds.SECONDARY}
               className={cx("use-grid-keyboard-nav-item", {
-                "active-item": index === activeIndex
+                "active-item": index === activeIndex,
               })}
             >
               {item}
@@ -80,5 +80,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

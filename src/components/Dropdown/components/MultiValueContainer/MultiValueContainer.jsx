@@ -19,7 +19,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     inputValue,
     selectProps: customProps = {},
     withMandatoryDefaultOptions,
-    readOnly
+    readOnly,
   } = selectProps;
   const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector } = customProps;
   const clickHandler = children[1];
@@ -29,7 +29,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
     isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"],
-    { [classes["multiselect-chip-disabled"]]: isDisabled }
+    { [classes["multiselect-chip-disabled"]]: isDisabled },
   );
 
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
@@ -38,7 +38,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     chipClassName,
     chipWrapperClassName,
     selectedOptionsCount: selectedOptions.length,
-    isCounterShown
+    isCounterShown,
   });
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
     option => {
       onSelectedDelete(option.value, { action: "remove-value", removedValue: option });
     },
-    [onSelectedDelete]
+    [onSelectedDelete],
   );
 
   const renderOptions = useCallback(
@@ -81,7 +81,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           />
         ) : null;
       }),
-    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete]
+    [selectedOptions, chipClassName, isDisabled, readOnly, withMandatoryDefaultOptions, onDelete],
   );
 
   return (

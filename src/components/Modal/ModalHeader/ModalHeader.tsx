@@ -84,7 +84,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   hideCloseButton,
   closeButtonAriaLabel = "close",
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   return (
     <div
@@ -131,7 +131,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
 };
 
 Object.assign(ModalHeader, {
-  displayName: "ModalHeader"
+  displayName: "ModalHeader",
 });
 
 export default ModalHeader;

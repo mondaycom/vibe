@@ -26,7 +26,7 @@ const TooltipLineWrapper = ({ justify = "center", position = "top", theme = "dar
             className={cx("tooltip-empty-element", {
               bottom: isBottom,
               left: position === "left",
-              right: position === "right"
+              right: position === "right",
             })}
           />
         </Tooltip>

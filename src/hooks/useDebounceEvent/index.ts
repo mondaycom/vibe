@@ -12,7 +12,7 @@ export default function useDebounceEvent({
   delay = 0,
   onChange,
   initialStateValue = "",
-  trim
+  trim,
 }: {
   onChange: (value: string) => void;
   initialStateValue?: string;
@@ -45,7 +45,7 @@ export default function useDebounceEvent({
       setValue(finalValue);
       debounceCallback(finalValue);
     },
-    [debounceCallback, setValue, trim]
+    [debounceCallback, setValue, trim],
   );
 
   const clearValue = useCallback(() => {

@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["anchor", "alignment", "type"],
   iconPropNamesArray: [],
   actionPropsArray: [],
-  ignoreControlsPropNamesArray: ["children"]
+  ignoreControlsPropNamesArray: ["children"],
 });
 
 const badgeTemplate = createComponentTemplate(Badge);
@@ -22,7 +22,7 @@ export default {
   title: "Feedback/Badge",
   component: Badge,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -30,8 +30,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: <Button leftIcon={WhatsNew}>{"What's new"}</Button>
-  }
+    children: <Button leftIcon={WhatsNew}>{"What's new"}</Button>,
+  },
 };
 
 export const States = {
@@ -39,7 +39,7 @@ export const States = {
     <Flex
       gap={Flex.gaps.LARGE}
       style={{
-        flex: 1
+        flex: 1,
       }}
       justify={Flex.justify.START}
       align={Flex.align.START}
@@ -57,7 +57,7 @@ export const States = {
     </Flex>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const ButtonStory = {
@@ -67,7 +67,7 @@ export const ButtonStory = {
     </Badge>
   ),
 
-  name: "Button"
+  name: "Button",
 };
 
 export const AvatarStory = {
@@ -77,7 +77,7 @@ export const AvatarStory = {
     </Badge>
   ),
 
-  name: "Avatar"
+  name: "Avatar",
 };
 
 export const InlineElements = {
@@ -95,5 +95,5 @@ export const InlineElements = {
     </Flex>
   ),
 
-  name: "Inline elements"
+  name: "Inline elements",
 };

@@ -4,5 +4,5 @@ export enum Placement {
   RIGHT_END = "right-end",
   LEFT = "left",
   LEFT_START = "left-start",
-  LEFT_END = "left-end"
+  LEFT_END = "left-end",
 }

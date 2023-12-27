@@ -9,14 +9,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Button,
   enumPropNamesArray: ["kind", "size", "color", "type"],
   iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"],
-  actionPropsArray: ["onClick"]
+  actionPropsArray: ["onClick"],
 });
 
 export default {
   title: "Buttons/Button",
   component: Button,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const buttonTemplate = createComponentTemplate(Button);
@@ -25,8 +25,8 @@ export const Overview = {
   render: buttonTemplate.bind({}),
   name: "Overview",
   args: {
-    children: "Button"
-  }
+    children: "Button",
+  },
 };
 
 export const ButtonKinds = {
@@ -38,7 +38,7 @@ export const ButtonKinds = {
     </>
   ),
 
-  name: "Button kinds"
+  name: "Button kinds",
 };
 
 export const Sizes = {
@@ -50,7 +50,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Disabled = {
@@ -66,7 +66,7 @@ export const Disabled = {
     </>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const States = {
@@ -77,7 +77,7 @@ export const States = {
     </>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const PositiveAndNegative = {
@@ -88,7 +88,7 @@ export const PositiveAndNegative = {
     </>
   ),
 
-  name: "Positive and Negative"
+  name: "Positive and Negative",
 };
 
 export const Icons = {
@@ -99,7 +99,7 @@ export const Icons = {
     </>
   ),
 
-  name: "Icons"
+  name: "Icons",
 };
 
 export const LoadingState = {
@@ -115,7 +115,7 @@ export const LoadingState = {
     );
   },
 
-  name: "Loading state"
+  name: "Loading state",
 };
 
 export const SuccessState = {
@@ -131,7 +131,7 @@ export const SuccessState = {
     );
   },
 
-  name: "Success state"
+  name: "Success state",
 };
 
 export const OnColorStates = {
@@ -167,7 +167,7 @@ export const OnColorStates = {
     </>
   ),
 
-  name: "On color states"
+  name: "On color states",
 };
 
 export const AdjacentButtons = {
@@ -182,5 +182,5 @@ export const AdjacentButtons = {
     </div>
   ),
 
-  name: "Adjacent buttons"
+  name: "Adjacent buttons",
 };

@@ -19,7 +19,7 @@ const AlertBannerButton: FC<AlertBannerButtonProps> = ({
 
   const classNames = cx({
     [styles.marginLeft]: marginLeft,
-    [styles.darkBackground]: isDarkBackground
+    [styles.darkBackground]: isDarkBackground,
   });
 
   return (
@@ -39,7 +39,7 @@ const AlertBannerButton: FC<AlertBannerButtonProps> = ({
 };
 
 Object.assign(AlertBannerButton, {
-  isAlertBannerItem: true
+  isAlertBannerItem: true,
 });
 
 export default AlertBannerButton;

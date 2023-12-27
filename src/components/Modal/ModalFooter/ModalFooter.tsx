@@ -12,7 +12,7 @@ const ModalFooter: FC<ModalFooterProps> = ({ className, children }) => {
 };
 
 Object.assign(ModalFooter, {
-  displayName: "ModalFooter"
+  displayName: "ModalFooter",
 });
 
 export default ModalFooter;

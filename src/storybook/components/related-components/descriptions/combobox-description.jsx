@@ -7,12 +7,12 @@ export const ComboboxDescription = () => {
   const component = useMemo(() => {
     const style = {
       width: "80%",
-      height: "150px"
+      height: "150px",
     };
     const option = [
       { id: "1", label: "Option 1" },
       { id: "2", label: "Option 2" },
-      { id: "3", label: "Option 3" }
+      { id: "3", label: "Option 3" },
     ];
     return (
       <DialogContentContainer style={style}>

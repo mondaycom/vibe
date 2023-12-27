@@ -5,7 +5,7 @@ import TextField from "../../../../components/TextField/TextField";
 export const TextFieldDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "80%"
+      width: "80%",
     };
     return (
       <div style={style}>

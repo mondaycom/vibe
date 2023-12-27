@@ -10,7 +10,7 @@ export const BadgeDescription = () => {
         <Button>{"What's new"}</Button>
       </Badge>
     ),
-    []
+    [],
   );
 
   return (

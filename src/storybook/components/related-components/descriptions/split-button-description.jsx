@@ -19,7 +19,7 @@ export const SplitButtonDescription = () => {
         Button
       </SplitButton>
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

@@ -123,7 +123,7 @@ describe("useGridKeyboardNavigation", () => {
       numberOfItemsInLine: 3,
       focusItemIndexOnMount: 0,
       focusOnMount: true,
-      disabledIndexes
+      disabledIndexes,
     });
 
     act(() => {
@@ -205,7 +205,7 @@ describe("useGridKeyboardNavigation", () => {
     onItemClicked = jest.fn(),
     focusOnMount = false,
     focusItemIndexOnMount = undefined,
-    disabledIndexes = []
+    disabledIndexes = [],
   }) {
     const itemsCount = items.length;
     const getItemByIndex = index => items[index];
@@ -223,8 +223,8 @@ describe("useGridKeyboardNavigation", () => {
         focusOnMount,
         numberOfItemsInLine,
         focusItemIndexOnMount,
-        disabledIndexes
-      })
+        disabledIndexes,
+      }),
     );
   }
 });

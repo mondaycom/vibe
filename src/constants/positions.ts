@@ -2,7 +2,7 @@ export enum BasePosition {
   START = "Start",
   CENTER = "Center",
   END = "End",
-  STRETCH = "Stretch"
+  STRETCH = "Stretch",
 }
 
 export enum DialogPosition {
@@ -17,5 +17,5 @@ export enum DialogPosition {
   TOP_END = "top-end",
   BOTTOM = "bottom",
   BOTTOM_START = "bottom-start",
-  BOTTOM_END = "bottom-end"
+  BOTTOM_END = "bottom-end",
 }

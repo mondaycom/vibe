@@ -33,7 +33,7 @@ describe("RadioButton tests", () => {
         />
         <RadioButton name={radiosName} value={option2Value} text={option2Text} onSelect={onChangeMock2} />
         <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3} />
-      </form>
+      </form>,
     );
   });
 

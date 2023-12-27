@@ -19,7 +19,7 @@ export function getTableRowLayoutStyles(columns: ITableColumn[], style: React.CS
   return {
     ...style,
     display: "grid",
-    gridTemplateColumns: columns.map(cell => generateWidth(cell.width)).join(" ")
+    gridTemplateColumns: columns.map(cell => generateWidth(cell.width)).join(" "),
   };
 }
 
@@ -63,7 +63,7 @@ export function getSkeletonType(loadingStateType: TableLoadingStateType): Skelet
 
 export function getLoadingTypeForCell(
   loadingStateType: TableLoadingStateType,
-  rowIndex: number
+  rowIndex: number,
 ): TableLoadingStateType {
   return loadingStateType === "long-text"
     ? (["long-text", "medium-text"] as TableLoadingStateType[])[rowIndex % 2]

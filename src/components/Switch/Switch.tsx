@@ -39,24 +39,24 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
       defaultChecked,
       children: originalChildren,
       wrapperClassName,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const { onChange: overrideOnChange, isChecked: overrideChecked } = useSwitch({
       isDisabled: disabled,
       isChecked: checked,
       defaultChecked,
-      onChange
+      onChange,
     });
 
     const children = useMemo(
       () =>
         React.cloneElement(originalChildren, {
           ...originalChildren?.props,
-          checked: overrideChecked
+          checked: overrideChecked,
         }),
-      [originalChildren, overrideChecked]
+      [originalChildren, overrideChecked],
     );
 
     return (
@@ -81,5 +81,5 @@ export const Switch: VibeComponent<SwitchProps, HTMLInputElement> = forwardRef(
         {children}
       </label>
     );
-  }
+  },
 );

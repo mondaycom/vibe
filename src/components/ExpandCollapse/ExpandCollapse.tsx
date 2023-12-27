@@ -62,9 +62,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
       headerClassName,
       contentClassName,
       componentClassName,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -95,16 +95,16 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             styles.expandCollapse,
             {
               [styles.hideBorder]: hideBorder,
-              [styles.showBorder]: !hideBorder
+              [styles.showBorder]: !hideBorder,
             },
-            componentClassName
+            componentClassName,
           )}
         >
           <button
             type="button"
             className={cx(styles.header, styles.section, headerClassName, {
               [styles.headerOpen]: isExpanded,
-              [styles.hideBorderBottom]: hideBorder
+              [styles.hideBorderBottom]: hideBorder,
             })}
             onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
@@ -116,7 +116,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
             <Icon
               className={cx(styles.iconComponent, {
                 [styles.animateIconOpen]: isExpanded,
-                [styles.animateIconClose]: !isExpanded
+                [styles.animateIconClose]: !isExpanded,
               })}
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
@@ -127,7 +127,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           {isExpanded && (
             <div
               className={cx(styles.content, styles.section, contentClassName, {
-                [styles.animateExpandCollapseContent]: isExpanded
+                [styles.animateExpandCollapseContent]: isExpanded,
               })}
               id={`${id}-controls`}
               role="region"
@@ -138,7 +138,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         </div>
       </div>
     );
-  }
+  },
 );
 
 export default ExpandCollapse;

@@ -5,7 +5,7 @@ import TooltipLineWrapper from "../../../../components/Tooltip/__stories__/Toolt
 export const TooltipDescription = () => {
   const component = useMemo(() => {
     const style = {
-      marginTop: "40px"
+      marginTop: "40px",
     };
     return (
       <div style={style}>

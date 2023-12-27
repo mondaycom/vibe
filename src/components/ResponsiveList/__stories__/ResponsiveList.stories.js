@@ -10,7 +10,7 @@ import {
   Moon,
   Search as SearchIcon,
   Sun,
-  Open
+  Open,
 } from "../../Icon/Icons";
 import ResponsiveList from "../ResponsiveList";
 import Menu from "../../Menu/Menu/Menu";
@@ -23,7 +23,7 @@ import "./ResponsiveList.stories.scss";
 
 export default {
   title: "Layout/ResponsiveList",
-  component: ResponsiveList
+  component: ResponsiveList,
 };
 
 const ContainerForDemonstration = ({ children }) => {
@@ -114,5 +114,5 @@ const componentTemplate = responseListProps => {
 export const Overview = {
   render: componentTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };

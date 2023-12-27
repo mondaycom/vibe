@@ -9,7 +9,7 @@ const checkboxTemplate = createComponentTemplate(Checkbox);
 export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -18,8 +18,8 @@ export const Overview = {
 
   args: {
     label: "Option",
-    defaultChecked: true
-  }
+    defaultChecked: true,
+  },
 };
 
 export const States = {
@@ -33,7 +33,7 @@ export const States = {
       <Checkbox label="Disabled indeterminate" disabled indeterminate />
     </>
   ),
-  name: "States"
+  name: "States",
 };
 
 export const SingleCheckbox = {
@@ -56,5 +56,5 @@ export const SingleCheckbox = {
     />
   ),
 
-  name: "Single checkbox"
+  name: "Single checkbox",
 };

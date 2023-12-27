@@ -8,7 +8,7 @@ export const BoxDescription = () => {
       <div
         style={{
           width: "80%",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
@@ -16,7 +16,7 @@ export const BoxDescription = () => {
         </Box>
       </div>
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

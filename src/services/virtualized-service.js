@@ -75,7 +75,7 @@ export const getOnItemsRenderedData = (
   visibleStartIndex,
   visibleStopIndex,
   listSize,
-  currentOffsetTop
+  currentOffsetTop,
 ) => {
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
   const secondVisibleItem = items[visibleStartIndex + 1] || EMPTY_OBJECT;
@@ -96,6 +96,6 @@ export const getOnItemsRenderedData = (
     lastItemId,
     centerItemId,
     firstItemOffsetEnd,
-    currentOffsetTop
+    currentOffsetTop,
   };
 };

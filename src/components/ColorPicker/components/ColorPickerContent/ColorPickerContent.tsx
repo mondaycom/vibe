@@ -7,12 +7,12 @@ import {
   ColorShapes,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   ColorPickerValue,
-  ColorPickerArrayValueOnly
+  ColorPickerArrayValueOnly,
 } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
   GridKeyboardNavigationContext,
-  useGridKeyboardNavigationContext
+  useGridKeyboardNavigationContext,
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
@@ -78,9 +78,9 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       forceUseRawColorList,
       showColorNameTooltip,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const gridRef = useRef(null);
     const mergedRef = useMergeRef(ref, gridRef);
@@ -115,7 +115,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
         }
         onValueChange(colors);
       },
-      [isMultiselect, onValueChange, value]
+      [isMultiselect, onValueChange, value],
     );
 
     const positions = useMemo(() => [{ topElement: colorsRef, bottomElement: buttonRef }], []);
@@ -149,7 +149,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
         </GridKeyboardNavigationContext.Provider>
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(ColorPickerContent, {
@@ -158,5 +158,5 @@ export default withStaticProps(ColorPickerContent, {
   sizes: BaseSizes,
   colorStyles: ColorStyle,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes
+  colorShapes: ColorShapes,
 });

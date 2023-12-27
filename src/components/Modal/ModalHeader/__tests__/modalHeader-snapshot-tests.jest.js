@@ -41,7 +41,7 @@ describe("ModalHeader", () => {
       className: "className",
       descriptionClassName: "descriptionClassName",
       iconClassName: "iconClassName",
-      titleClassName: "titleClassName"
+      titleClassName: "titleClassName",
     };
     const currentRender = await renderModalHeader(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();

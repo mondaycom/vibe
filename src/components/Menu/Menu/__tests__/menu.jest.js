@@ -35,7 +35,7 @@ describe("Snapshots", () => {
           <MenuItem title="item 1" />
           <Divider />
           <MenuItem title="item 2" />
-        </Menu>
+        </Menu>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -58,7 +58,7 @@ const renderComponent = ({ ...props } = {}) => {
       <MenuItem title={menuItem1Name} onClick={menuItem1OnClickMock} id={menuItem1Id} />
       <Divider />
       <MenuItem title={menuItem2Name} onClick={menuItem2OnClickMock} id={menuItem2Id} />
-    </Menu>
+    </Menu>,
   );
 };
 

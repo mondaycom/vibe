@@ -5,7 +5,7 @@ import "./clickable.stories.scss";
 
 export default {
   title: "Accessibility/Clickable",
-  component: Clickable
+  component: Clickable,
 };
 
 const clickableTemplate = args => {
@@ -18,7 +18,7 @@ const clickableTemplate = args => {
 
 export const Overview = {
   render: clickableTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const States = {
@@ -43,5 +43,5 @@ export const States = {
   ),
 
   name: "States",
-  play: statesPlaySuite
+  play: statesPlaySuite,
 };

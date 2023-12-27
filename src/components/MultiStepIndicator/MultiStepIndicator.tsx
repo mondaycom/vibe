@@ -50,9 +50,9 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
       textPlacement = TextPlacement.HORIZONTAL,
       id,
       size,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const finalSize = textPlacement === TextPlacement.VERTICAL ? Size.REGULAR : size;
 
@@ -74,7 +74,7 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
             {index !== steps.length - 1 && (
               <Divider
                 classname={cx(styles.divider, dividerComponentClassName, {
-                  [styles.compact]: finalSize === Size.COMPACT
+                  [styles.compact]: finalSize === Size.COMPACT,
                 })}
               />
             )}
@@ -90,8 +90,8 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
         fulfilledStepIconType,
         dividerComponentClassName,
         steps.length,
-        finalSize
-      ]
+        finalSize,
+      ],
     );
 
     const renderVerticalStepIndicator = useCallback(
@@ -121,13 +121,13 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
         fulfilledStepIcon,
         fulfilledStepIconType,
         dividerComponentClassName,
-        steps.length
-      ]
+        steps.length,
+      ],
     );
 
     const stepRenderer = useMemo(
       () => (textPlacement === TextPlacement.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
-      [textPlacement, renderVerticalStepIndicator, renderHorizontalStepIndicator]
+      [textPlacement, renderVerticalStepIndicator, renderHorizontalStepIndicator],
     );
 
     return (
@@ -140,12 +140,12 @@ const MultiStepIndicator: VibeComponent<MultiStepIndicatorProps, HTMLOListElemen
         {steps.map(stepRenderer)}
       </ol>
     );
-  }
+  },
 );
 
 export default withStaticProps(MultiStepIndicator, {
   types: MultiStepType,
   stepStatuses: StepStatus,
   textPlacements: TextPlacement,
-  sizes: Size
+  sizes: Size,
 });

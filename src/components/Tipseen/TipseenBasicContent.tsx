@@ -19,7 +19,7 @@ const TipseenBasicContent: FC<TipseenBasicContentProps> = ({
   titleClassName,
   className,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   return (
     <div

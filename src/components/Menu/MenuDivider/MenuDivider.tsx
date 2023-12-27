@@ -18,7 +18,7 @@ const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
   classname,
   className,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
@@ -30,7 +30,7 @@ const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
 };
 
 Object.assign(MenuDivider, {
-  isMenuChild: true
+  isMenuChild: true,
 });
 
 export default MenuDivider;

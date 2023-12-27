@@ -7,13 +7,13 @@ import "./Slider.stories.scss";
 
 const argTypes = createStoryMetaSettingsDecorator({
   component: Slider,
-  enumPropNamesArray: ["color", "size"]
+  enumPropNamesArray: ["color", "size"],
 });
 
 export default {
   title: "Inputs/Slider",
   component: Slider,
-  argTypes: argTypes
+  argTypes: argTypes,
 };
 
 const sliderTemplate = createComponentTemplate(Slider);
@@ -21,7 +21,7 @@ const sliderTemplate = createComponentTemplate(Slider);
 export const Overview = {
   render: sliderTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const Sizes = {
@@ -32,7 +32,7 @@ export const Sizes = {
       <Slider size={Slider.sizes.LARGE} defaultValue={35} />
     </>
   ),
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Ranged = {
@@ -44,7 +44,7 @@ export const Ranged = {
     </>
   ),
 
-  name: "Ranged"
+  name: "Ranged",
   // TODO storybook 7 migration: interactive test isn't working correctly
   // play: rangedSliderMouseEventsPlaySuite
 };
@@ -58,7 +58,7 @@ export const Colors = {
     </>
   ),
 
-  name: "Colors"
+  name: "Colors",
 };
 
 export const Disabled = {
@@ -76,7 +76,7 @@ export const Disabled = {
     </>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const WithLabels = {
@@ -90,7 +90,7 @@ export const WithLabels = {
     </>
   ),
   name: "WithLabels",
-  decorators: [VerticalStories]
+  decorators: [VerticalStories],
 };
 
 export const ShowValue = {
@@ -107,7 +107,7 @@ export const ShowValue = {
     </>
   ),
 
-  name: "ShowValue"
+  name: "ShowValue",
   // TODO storybook 7 migration: interactive test isn't working correctly
   // play: nonRangedSliderMouseEventsPlaySuite
 };
@@ -138,7 +138,7 @@ export const LimitsSteps = {
   ),
 
   name: "Limits, Steps",
-  decorators: [VerticalStories]
+  decorators: [VerticalStories],
 };
 
 export const Customisation = {
@@ -190,5 +190,5 @@ export const Customisation = {
   ),
 
   name: "Customisation",
-  decorators: [VerticalStories]
+  decorators: [VerticalStories],
 };

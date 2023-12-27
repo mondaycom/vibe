@@ -4,7 +4,7 @@ export const SKELETON_CUSTOM_SIZE = "custom";
 export enum SkeletonType {
   CIRCLE = "circle",
   RECTANGLE = "rectangle",
-  TEXT = "text"
+  TEXT = "text",
 }
 
 export enum TextSkeletonSize {
@@ -15,14 +15,14 @@ export enum TextSkeletonSize {
   H5 = "h5",
   H6 = "h6",
   P = "p",
-  SMALL = "small"
+  SMALL = "small",
 }
 
 export const SKELETON_SIZES = {
   CUSTOM: SKELETON_CUSTOM_SIZE,
   CIRCLE: {},
   RECTANGLE: {},
-  TEXT: TextSkeletonSize
+  TEXT: TextSkeletonSize,
 };
 
 export type SkeletonSizeType = TextSkeletonSize | typeof SKELETON_CUSTOM_SIZE;

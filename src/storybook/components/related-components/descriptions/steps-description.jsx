@@ -19,7 +19,7 @@ export const StepsDescription = () => {
 
   const component = useMemo(() => {
     const style = {
-      marginLeft: "-10px"
+      marginLeft: "-10px",
     };
 
     const steps = [
@@ -27,7 +27,7 @@ export const StepsDescription = () => {
       <div key="step-2" />,
       <div key="step-3" />,
       <div key="step-4" />,
-      <div key="step-5" />
+      <div key="step-5" />,
     ];
 
     return (
@@ -37,10 +37,10 @@ export const StepsDescription = () => {
           activeStepIndex={activeStepIndex}
           onChangeActiveStep={onChangeActiveStep}
           backButtonProps={{
-            onClick: stepPrev
+            onClick: stepPrev,
           }}
           nextButtonProps={{
-            onClick: stepNext
+            onClick: stepNext,
           }}
         />
       </div>

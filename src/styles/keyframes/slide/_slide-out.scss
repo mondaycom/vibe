@@ -1,4 +1,4 @@
-@mixin slide-out($main-translateY:-65px) {
+@mixin slide-out($main-translateY: -65px) {
   0% {
     transform: translateY(0);
   }

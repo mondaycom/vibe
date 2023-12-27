@@ -46,9 +46,9 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       ariaLabel = "",
       placeholder,
       typographyClassName,
-      component: TypographyComponent
+      component: TypographyComponent,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -166,7 +166,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         </div>
       </LazyMotion>
     );
-  }
+  },
 );
 
 export default EditableTypography;

@@ -8,7 +8,7 @@ import "./skeleton.stories.scss";
 
 export default {
   title: "Feedback/Skeleton",
-  component: Skeleton
+  component: Skeleton,
 };
 
 const skeletonTemplate = args => {
@@ -43,8 +43,8 @@ export const Overview = {
     typeCircle: Skeleton.types.CIRCLE,
     smallSize: Skeleton.sizes.TEXT.SMALL,
     sizeH4: Skeleton.sizes.TEXT.H4,
-    sizeH1: Skeleton.sizes.TEXT.H1
-  }
+    sizeH1: Skeleton.sizes.TEXT.H1,
+  },
 };
 
 export const Shapes = {
@@ -65,7 +65,7 @@ export const Shapes = {
     </div>
   ),
 
-  name: "Shapes"
+  name: "Shapes",
 };
 
 export const Text = {
@@ -86,7 +86,7 @@ export const Text = {
     </div>
   ),
 
-  name: "Text"
+  name: "Text",
 };
 
 export const UpdateInTheSystem = {
@@ -164,5 +164,5 @@ export const UpdateInTheSystem = {
     );
   },
 
-  name: "Update in the system"
+  name: "Update in the system",
 };

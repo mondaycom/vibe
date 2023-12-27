@@ -6,21 +6,21 @@ import {
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
   ThemeProviderTemplateOverview,
-  ThemeProviderThemingScopeTemplate
+  ThemeProviderThemingScopeTemplate,
 } from "./ThemeProvider.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
   enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: [], // List the component's actions here
 });
 
 export default {
   title: "Components/ThemeProvider [alpha]",
   component: ThemeProvider,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -33,42 +33,42 @@ export const Overview = {
       colors: {
         [ThemeProvider.systemThemes.LIGHT]: {
           [ThemeProvider.colors.primaryColor]: "green",
-          [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+          [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
         },
         [ThemeProvider.systemThemes.DARK]: {
           [ThemeProvider.colors.primaryColor]: "salmon",
-          [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
+          [ThemeProvider.colors.primaryHoverColor]: "darksalmon",
         },
         [ThemeProvider.systemThemes.BLACK]: {
           [ThemeProvider.colors.primaryColor]: "slateblue",
-          [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
-        }
-      }
-    }
-  }
+          [ThemeProvider.colors.primaryHoverColor]: "darkslateblue",
+        },
+      },
+    },
+  },
 };
 
 export const ColorsEligibleForTheming = {
   render: () => <ColorsEligibleForThemingTemplate />,
-  name: "Colors eligible for theming"
+  name: "Colors eligible for theming",
 };
 
 export const ThemingScope = {
   render: ThemeProviderThemingScopeTemplate.bind({}),
-  name: "Theming scope"
+  name: "Theming scope",
 };
 
 export const FoldedTheming = {
   render: ThemeProviderFoldedThemingTemplate.bind({}),
-  name: "Folded theming"
+  name: "Folded theming",
 };
 
 export const ProductTheming = {
   render: ThemeProviderProductThemingTemplate.bind({}),
-  name: "Product theming"
+  name: "Product theming",
 };
 
 export const CustomClassSelector = {
   render: ThemeProviderCustomClassTemplate.bind({}),
-  name: "Custom class selector"
+  name: "Custom class selector",
 };

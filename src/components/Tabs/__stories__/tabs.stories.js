@@ -14,8 +14,8 @@ export default {
     TabPanel,
     TabPanels,
     TabList,
-    TabsContext
-  }
+    TabsContext,
+  },
 };
 
 const tabsTemplate = ({ tabPanelClassName, ...otherArgs }) => {
@@ -40,8 +40,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    tabPanelClassName: "monday-storybook-tabs_bg-color"
-  }
+    tabPanelClassName: "monday-storybook-tabs_bg-color",
+  },
 };
 
 export const Default = {
@@ -62,14 +62,14 @@ export const Default = {
     </TabsContext>
   ),
 
-  name: "Default"
+  name: "Default",
 };
 
 export const Stretched = {
   render: () => (
     <div
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <TabList tabType="stretched">
@@ -81,7 +81,7 @@ export const Stretched = {
     </div>
   ),
 
-  name: "Stretched"
+  name: "Stretched",
 };
 
 export const Motion = {
@@ -118,7 +118,7 @@ export const Motion = {
     </div>
   ),
 
-  name: "Motion"
+  name: "Motion",
 };
 
 export const BoardViewsTabs = {
@@ -130,7 +130,7 @@ export const BoardViewsTabs = {
     </TabList>
   ),
 
-  name: "Board views tabs"
+  name: "Board views tabs",
 };
 
 export const AdminSectionTabs = {
@@ -153,5 +153,5 @@ export const AdminSectionTabs = {
     </TabsContext>
   ),
 
-  name: "Admin section tabs"
+  name: "Admin section tabs",
 };

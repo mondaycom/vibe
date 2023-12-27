@@ -14,7 +14,7 @@ const renderSplitButtonMenu = () => {
     <SplitButtonMenu id={id}>
       <MenuItem title="Test 1" />
       <MenuItem title="Test 2" />
-    </SplitButtonMenu>
+    </SplitButtonMenu>,
   );
 };
 

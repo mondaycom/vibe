@@ -30,7 +30,7 @@ const useDisableScroll = (scrollableQuerySelector: string) => {
 
   return {
     disableScroll,
-    enableScroll
+    enableScroll,
   };
 };
 

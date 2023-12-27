@@ -11,7 +11,7 @@ import "./tipseen.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen,
-  enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"]
+  enumPropNamesArray: ["position", "animationType", "justify", "closeButtonTheme"],
 });
 
 export default {
@@ -21,10 +21,10 @@ export default {
     TipseenMedia,
     TipseenImage,
     TipseenContent,
-    TipseenWizard
+    TipseenWizard,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const tipseenTemplate = ({ isDismissHidden, title, children, position, ...otherArgs }) => {
@@ -54,8 +54,8 @@ export const Overview = {
     title: "Title",
     children: "Popover message will appear here loremipsum dolor samet…",
     position: Tipseen.positions.RIGHT,
-    isDismissHidden: false
-  }
+    isDismissHidden: false,
+  },
 };
 
 export const Default = {
@@ -78,7 +78,7 @@ export const Default = {
       );
     },
 
-  name: "Default"
+  name: "Default",
 };
 
 export const TipseenWithAWizard = {
@@ -91,7 +91,7 @@ export const TipseenWithAWizard = {
         <div>Popover message №2 will appear here</div>,
         <div>Popover message №3 will appear here</div>,
         <div>Popover message №4 will appear here</div>,
-        <div>Popover message №5 will appear here</div>
+        <div>Popover message №5 will appear here</div>,
       ];
 
       const [activeStepIndex, setActiveStepIndex] = useState(2);
@@ -118,7 +118,7 @@ export const TipseenWithAWizard = {
       );
     },
 
-  name: "Tipseen with a wizard"
+  name: "Tipseen with a wizard",
 };
 
 export const TipseenWithImage = {
@@ -131,7 +131,7 @@ export const TipseenWithImage = {
         <div>Popover message will appear here lorem ipsum dolor samet…</div>,
         <div>Popover message will appear here lorem ipsum dolor samet…</div>,
         <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
       ];
 
       return (
@@ -151,7 +151,7 @@ export const TipseenWithImage = {
       );
     },
 
-  name: "Tipseen with image"
+  name: "Tipseen with image",
 };
 
 export const TipseenWithCustomMedia = {
@@ -173,7 +173,7 @@ export const TipseenWithCustomMedia = {
                   loop
                   src={video}
                   style={{
-                    width: "100%"
+                    width: "100%",
                   }}
                 />
               </TipseenMedia>
@@ -188,7 +188,7 @@ export const TipseenWithCustomMedia = {
       );
     },
 
-  name: "Tipseen with custom media"
+  name: "Tipseen with custom media",
 };
 
 export const FloatingTipseen = {
@@ -211,5 +211,5 @@ export const FloatingTipseen = {
     );
   },
 
-  name: "Floating Tipseen"
+  name: "Floating Tipseen",
 };

@@ -46,9 +46,9 @@ const Flex: VibeComponent<FlexProps> & {
       ariaLabelledby,
       ariaLabel,
       tabIndex,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -73,8 +73,8 @@ const Flex: VibeComponent<FlexProps> & {
           getStyle(styles, `align${align}`),
           className,
           {
-            [styles.wrap]: wrap
-          }
+            [styles.wrap]: wrap,
+          },
         )}
         tabIndex={tabIndex}
         onClick={onClick}
@@ -84,12 +84,12 @@ const Flex: VibeComponent<FlexProps> & {
         {children}
       </Element>
     );
-  }
+  },
 );
 
 export default withStaticProps(Flex, {
   justify: FlexJustify,
   align: FlexAlign,
   gaps: FlexGap,
-  directions: FlexDirection
+  directions: FlexDirection,
 });

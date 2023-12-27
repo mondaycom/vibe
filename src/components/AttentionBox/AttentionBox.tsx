@@ -59,7 +59,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
   compact = false,
   id,
   "data-testid": dataTestId,
-  closeButtonAriaLabel = "Close"
+  closeButtonAriaLabel = "Close",
 }) => {
   const iconLabel = useMemo(() => {
     if (type === AttentionBoxType.DANGER) {
@@ -129,7 +129,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           className={cx(styles.text, {
             [styles.compact]: compact,
             [styles.dismissible]: !!onClose,
-            [styles.paragraph]: !compact
+            [styles.paragraph]: !compact,
           })}
         >
           {text || children}
@@ -141,7 +141,7 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
           color={IconButton.colors.ON_PRIMARY_COLOR}
           className={styles.closeIcon}
           wrapperClassName={cx(styles.closeIconWrapper, {
-            [styles.closeIconCompact]: compact
+            [styles.closeIconCompact]: compact,
           })}
           ariaLabel={closeButtonAriaLabel}
           hideTooltip
@@ -155,5 +155,5 @@ const AttentionBox: React.FC<AttentionBoxProps> & {
 
 export default withStaticProps(AttentionBox, {
   types: AttentionBoxType,
-  iconTypes: IconType
+  iconTypes: IconType,
 });

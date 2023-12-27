@@ -19,7 +19,7 @@ export const StepsDot: FC<StepsDotProps> = ({
   ariaCurrent = StepsDotAriaCurrent.STEP,
   ariaLabel,
   isOnPrimary,
-  className
+  className,
 }) => {
   return (
     <button
@@ -30,9 +30,9 @@ export const StepsDot: FC<StepsDotProps> = ({
         styles.dot,
         {
           [styles.isActive]: isActive,
-          [styles.onPrimary]: isOnPrimary
+          [styles.onPrimary]: isOnPrimary,
         },
-        className
+        className,
       )}
       onClick={onClick}
     />

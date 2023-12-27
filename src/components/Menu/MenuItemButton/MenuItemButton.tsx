@@ -64,7 +64,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
   closeMenu,
   useDocumentEventListeners,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
@@ -83,7 +83,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
     isActive,
     setActiveItemIndex,
     index,
-    hasChildren: false
+    hasChildren: false,
   });
 
   const { onClickCallback } = useMenuItemKeyboardEvents({
@@ -98,7 +98,7 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
     menuRef,
     isMouseEnter,
     closeMenu,
-    useDocumentEventListeners
+    useDocumentEventListeners,
   });
 
   return (
@@ -137,10 +137,10 @@ const MenuItemButton: FC<MenuItemButtonProps> & {
 
 Object.assign(MenuItemButton, {
   isSelectable: true,
-  isMenuChild: true
+  isMenuChild: true,
 });
 
 export default withStaticProps(MenuItemButton, {
   kinds: Button.kinds,
-  tooltipPositions: DialogPosition
+  tooltipPositions: DialogPosition,
 });

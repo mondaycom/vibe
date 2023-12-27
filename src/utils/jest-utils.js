@@ -4,13 +4,13 @@ const preDefinedOptions = {
   contextLines: 3,
   stablePatchmarks: true,
   aAnnotation: "Default Render",
-  bAnnotation: "Current Render"
+  bAnnotation: "Current Render",
 };
 
 function defineCustomOptions({ props }) {
   if (props) {
     return {
-      bAnnotation: `Current Render: ${JSON.stringify(props)}`
+      bAnnotation: `Current Render: ${JSON.stringify(props)}`,
     };
   }
   return {};

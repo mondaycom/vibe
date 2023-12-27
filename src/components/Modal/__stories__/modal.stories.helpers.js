@@ -15,7 +15,7 @@ export const useHelperOpenModalButton = ({
   setShow,
   openModalButtonRef,
   color = undefined,
-  testId = undefined
+  testId = undefined,
 }) => {
   return (
     <Button onClick={() => setShow(true)} ref={openModalButtonRef} color={color} data-testid={testId}>
@@ -47,7 +47,7 @@ export const ModalExampleWrapper = ({
     title: buttonTitle || modalTitle,
     setShow,
     openModalButtonRef,
-    color: openModalColor
+    color: openModalColor,
   });
   const footer = hideFooter ? null : (
     <ModalFooterButtons

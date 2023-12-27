@@ -4,7 +4,7 @@ import { KeyboardEventCallback } from "../types/events";
 export function useKeyboard({
   isDisabled,
   onKeyDown,
-  onKeyUp
+  onKeyUp,
 }: {
   isDisabled: boolean;
   onKeyDown: KeyboardEventCallback;
@@ -15,7 +15,7 @@ export function useKeyboard({
       ? {}
       : {
           onKeyDown: createEventHandler(onKeyDown),
-          onKeyUp: createEventHandler(onKeyUp)
-        }
+          onKeyUp: createEventHandler(onKeyUp),
+        },
   };
 }

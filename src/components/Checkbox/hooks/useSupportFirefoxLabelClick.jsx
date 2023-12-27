@@ -21,7 +21,7 @@ export function useSupportFirefoxLabelClick({ inputRef }) {
           shiftKey: true,
           // After dispatch this event we will want it to be captured by all the relevant event listeners which registered to this checkbox input.
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         });
 
         customEventCreated.current = true;
@@ -30,7 +30,7 @@ export function useSupportFirefoxLabelClick({ inputRef }) {
         customEventCreated.current = false;
       }
     },
-    [customEventCreated, inputRef]
+    [customEventCreated, inputRef],
   );
 
   return { onClickCapture };

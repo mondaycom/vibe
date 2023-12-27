@@ -3,7 +3,7 @@ export enum FlexAlign {
   CENTER = "Center",
   END = "End",
   STRETCH = "Stretch",
-  INITIAL = "Initial"
+  INITIAL = "Initial",
 }
 
 export enum FlexJustify {
@@ -13,7 +13,7 @@ export enum FlexJustify {
   STRETCH = "Stretch",
   SPACE_AROUND = "SpaceAround",
   SPACE_BETWEEN = "SpaceBetween",
-  INITIAL = "Initial"
+  INITIAL = "Initial",
 }
 
 export enum FlexGap {
@@ -21,10 +21,10 @@ export enum FlexGap {
   SMALL = 8,
   MEDIUM = 16,
   LARGE = 24,
-  NONE = 0
+  NONE = 0,
 }
 
 export enum FlexDirection {
   ROW = "Row",
-  COLUMN = "Column"
+  COLUMN = "Column",
 }

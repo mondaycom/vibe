@@ -46,9 +46,9 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       isUnderSubMenu = false,
       disabled = false,
       useDocumentEventListeners = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -58,7 +58,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
     if (!child) {
       console.error(
         "MenuGridItem can accept only a single element as first level child, this element is not valid: ",
-        child
+        child,
       );
     }
 
@@ -69,7 +69,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
           setActiveItemIndex(index);
         }
       },
-      [index, setActiveItemIndex, setSubMenuIsOpenByIndex]
+      [index, setActiveItemIndex, setSubMenuIsOpenByIndex],
     );
     const { focusWithinProps } = useFocusWithin({ onFocusWithinChange });
 
@@ -78,7 +78,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       childRef,
       activeItemIndex,
       index,
-      useDocumentEventListeners
+      useDocumentEventListeners,
     });
 
     const keyboardContext = useMenuGridItemNavContext({
@@ -88,7 +88,7 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
       getNextSelectableIndex,
       activeItemIndex,
       isUnderSubMenu,
-      closeMenu
+      closeMenu,
     });
 
     return (
@@ -105,17 +105,17 @@ const MenuGridItem: VibeComponent<MenuGridItemProps> & {
           {React.cloneElement(child, {
             ...child?.props,
             disabled,
-            ref: childRef
+            ref: childRef,
           })}
         </GridKeyboardNavigationContext.Provider>
       </section>
     );
-  }
+  },
 );
 
 Object.assign(MenuGridItem, {
   isMenuChild: true,
-  isSelectable: true
+  isSelectable: true,
 });
 
 export default MenuGridItem;

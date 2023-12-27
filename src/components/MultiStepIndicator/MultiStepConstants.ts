@@ -2,21 +2,21 @@ export enum MultiStepType {
   PRIMARY = "primary",
   SUCCESS = "success",
   DANGER = "danger",
-  DARK = "dark"
+  DARK = "dark",
 }
 
 export enum StepStatus {
   PENDING = "pending",
   ACTIVE = "active",
-  FULFILLED = "fulfilled"
+  FULFILLED = "fulfilled",
 }
 
 export enum TextPlacement {
   HORIZONTAL = "horizontal",
-  VERTICAL = "vertical"
+  VERTICAL = "vertical",
 }
 
 export enum Size {
   REGULAR = "regular",
-  COMPACT = "compact"
+  COMPACT = "compact",
 }

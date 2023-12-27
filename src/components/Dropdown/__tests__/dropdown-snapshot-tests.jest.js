@@ -11,7 +11,7 @@ const mockOptions = [
   { value: "purple", label: "Purple" },
   { value: "red", label: "Red", isFixed: true },
   { value: "orange", label: "Orange" },
-  { value: "yellow", label: "Yellow" }
+  { value: "yellow", label: "Yellow" },
 ];
 
 describe("Dropdown renders correctly", () => {
@@ -94,8 +94,8 @@ describe("Dropdown renders correctly", () => {
       {
         value: "ocean",
         label: "Ocean",
-        leftAvatar: person1
-      }
+        leftAvatar: person1,
+      },
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={[options[0]]} multi multiline />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -106,18 +106,18 @@ describe("Dropdown renders correctly", () => {
       {
         value: "primary",
         label: "Primary",
-        chipColor: Dropdown.chipColors.PRIMARY
+        chipColor: Dropdown.chipColors.PRIMARY,
       },
       {
         value: "positive",
         label: "Positive",
-        chipColor: Dropdown.chipColors.POSITIVE
+        chipColor: Dropdown.chipColors.POSITIVE,
       },
       {
         value: "negative",
         label: "Negative",
-        chipColor: Dropdown.chipColors.NEGATIVE
-      }
+        chipColor: Dropdown.chipColors.NEGATIVE,
+      },
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={options} multi multiline />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -128,8 +128,8 @@ describe("Dropdown renders correctly", () => {
       {
         value: "ocean",
         label: "Ocean",
-        leftIcon: Email
-      }
+        leftIcon: Email,
+      },
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={[options[0]]} multi multiline />).toJSON();
     expect(tree).toMatchSnapshot();

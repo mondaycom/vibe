@@ -16,7 +16,7 @@ describe("Accordion renders correctly", () => {
           <AccordionItem />
           <AccordionItem />
           <AccordionItem />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -29,7 +29,7 @@ describe("Accordion renders correctly", () => {
           <AccordionItem />
           <AccordionItem />
           <AccordionItem />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe("Accordion renders correctly", () => {
           <AccordionItem />
           <AccordionItem />
           <AccordionItem />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe("Accordion renders correctly", () => {
       .create(
         <Accordion>
           <AccordionItem title={<div>custom title</div>} />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -5,61 +5,61 @@ module.exports = plop => {
       {
         type: "input",
         name: "componentName",
-        message: "What is the name of your component? (use spaces if multi word)"
-      }
+        message: "What is the name of your component? (use spaces if multi word)",
+      },
     ],
     actions: [
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/{{properCase componentName}}.tsx",
-        templateFile: "plop/component/component-ts.txt"
+        templateFile: "plop/component/component-ts.txt",
       },
       {
         type: "append",
         path: "src/tests/constants.ts",
         pattern: /(\/\/ plop_marker:default-data-testid-declarations)/g,
-        template: '  {{constantCase componentName}} = "{{dashCase componentName}}",'
+        template: '  {{constantCase componentName}} = "{{dashCase componentName}}",',
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/{{properCase componentName}}.module.scss",
-        templateFile: "plop/component/component-scss.txt"
+        templateFile: "plop/component/component-scss.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
-        templateFile: "plop/general/component-stories-mdx.txt"
+        templateFile: "plop/general/component-stories-mdx.txt",
       },
       {
         type: "modify",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.mdx",
         pattern: /@componentName@/g,
-        template: "{{properCase componentName}}"
+        template: "{{properCase componentName}}",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.js",
-        templateFile: "plop/general/component-stories-js.txt"
+        templateFile: "plop/general/component-stories-js.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.helpers.js",
-        templateFile: "plop/general/component-stories-helpers-js.txt"
+        templateFile: "plop/general/component-stories-helpers-js.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.module.scss",
-        templateFile: "plop/general/component-stories-scss.txt"
+        templateFile: "plop/general/component-stories-scss.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
-        templateFile: "plop/general/component-snapshot-tests-jest.txt"
+        templateFile: "plop/general/component-snapshot-tests-jest.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-tests.jest.js",
-        templateFile: "plop/general/component-tests-jest.txt"
+        templateFile: "plop/general/component-tests-jest.txt",
       },
       {
         type: "append",
@@ -67,15 +67,15 @@ module.exports = plop => {
         pattern: /(\n$)/gm,
         separator: "",
         template:
-          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";\n'
+          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";\n',
       },
       {
         type: "append",
         path: "webpack/published-ts-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
         template:
-          '  {{properCase componentName}}: "components/{{properCase componentName}}/{{properCase componentName}}",'
-      }
-    ]
+          '  {{properCase componentName}}: "components/{{properCase componentName}}/{{properCase componentName}}",',
+      },
+    ],
   });
 };

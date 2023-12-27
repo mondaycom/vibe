@@ -27,7 +27,7 @@ describe("Button renders correctly", () => {
       .create(
         <Button onMouseDown={NOOP} onClick={NOOP} onBlur={NOOP} onFocus={NOOP} className="test">
           Button
-        </Button>
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -68,7 +68,7 @@ describe("Button renders correctly", () => {
       .create(
         <Button noSidePadding rightFlat leftFlat marginLeft marginRight active>
           Button
-        </Button>
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -80,7 +80,7 @@ describe("Button renders correctly", () => {
         .create(
           <Button ariaLabel="text" ariaControls="area" ariaExpanded={false} ariaLabeledBy="id" ariaHasPopup={false}>
             Button
-          </Button>
+          </Button>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -91,7 +91,7 @@ describe("Button renders correctly", () => {
         .create(
           <Button ariaLabel="text" ariaControls="area" ariaExpanded={true} ariaLabeledBy="id" ariaHasPopup={true}>
             Button
-          </Button>
+          </Button>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();

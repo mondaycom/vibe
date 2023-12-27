@@ -36,7 +36,7 @@ export const useGridContextMultipleDepthsPlaySuite = interactionSuite({
   tests: [multiGridLayoutKeyboardNavigation],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 async function assertElementWithTextToBeActive(text) {

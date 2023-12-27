@@ -8,36 +8,36 @@ const CONTRIBUTERS = [
     fullName: "Orr Gottlieb",
     email: "orr@monday.com",
     title: "Team Lead",
-    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-1"
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-1",
   },
   {
     imgSrc: Meirav,
     fullName: "Meirav Ron",
     email: "meiravro@monday.com",
     title: "Design Lead",
-    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2"
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2",
   },
   {
     imgSrc: Hadas,
     fullName: "Hadas Farhi",
     email: "hadasfa@monday.com",
     title: "Developer",
-    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-3"
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-3",
   },
   {
     imgSrc: Sergey,
     fullName: "Sergey Roytman",
     email: "sergeyro@monday.com",
     title: "Developer",
-    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-4"
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-4",
   },
   {
     imgSrc: Yael,
     fullName: "Yael Rosen-Karen",
     email: "yaelro@monday.com",
     title: "Product Designer",
-    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2"
-  }
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2",
+  },
 ];
 
 export const Contributors = () => (

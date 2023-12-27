@@ -13,7 +13,7 @@ import {
   TextFieldAriaLabel,
   TextFieldFeedbackState,
   TextFieldSize,
-  TextFieldTextType
+  TextFieldTextType,
 } from "./TextFieldConstants";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -131,13 +131,13 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       secondaryDataTestId,
       tabIndex,
       underline = false,
-      name
+      name,
     },
-    ref
+    ref,
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties(
       [dataTestId, backwardCompatibilityDataTestId],
-      getTestId(ComponentDefaultTestId.TEXT_FIELD, id)
+      getTestId(ComponentDefaultTestId.TEXT_FIELD, id),
     );
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef, setRef);
@@ -146,14 +146,14 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       (value: string) => {
         onChange(value, { target: inputRef.current });
       },
-      [onChange]
+      [onChange],
     );
 
     const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
       delay: debounceRate,
       onChange: onChangeCallback,
       initialStateValue: value,
-      trim
+      trim,
     });
 
     const currentStateIconName = useMemo(() => {
@@ -205,7 +205,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       <div
         className={cx(styles.textField, wrapperClassName, {
           [styles.disabled]: disabled,
-          [styles.onlyUnderline]: underline
+          [styles.onlyUnderline]: underline,
         })}
         role={role}
         aria-busy={loading}
@@ -223,7 +223,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={cx(className, styles.input, {
-                [styles.inputHasIcon]: !!hasIcon
+                [styles.inputHasIcon]: !!hasIcon,
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
@@ -252,7 +252,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             {loading && (
               <div
                 className={cx(styles.loaderContainer, {
-                  [styles.loaderContainerHasIcon]: hasIcon
+                  [styles.loaderContainerHasIcon]: hasIcon,
                 })}
               >
                 <div className={cx(styles.loader)}>
@@ -264,7 +264,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
                 [styles.iconContainerActive]: isPrimary,
-                [styles.iconContainerClickable]: isIconContainerClickable
+                [styles.iconContainerClickable]: isIconContainerClickable,
               })}
               onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
@@ -283,7 +283,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               className={cx(styles.iconContainer, {
                 [styles.iconContainerHasIcon]: hasIcon,
                 [styles.iconContainerActive]: isSecondary,
-                [styles.iconContainerClickable]: isIconContainerClickable
+                [styles.iconContainerClickable]: isIconContainerClickable,
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
@@ -315,11 +315,11 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
         </div>
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(TextField, {
   sizes: BASE_SIZES,
   feedbacks: TextFieldFeedbackState,
-  types: TextFieldTextType
+  types: TextFieldTextType,
 });

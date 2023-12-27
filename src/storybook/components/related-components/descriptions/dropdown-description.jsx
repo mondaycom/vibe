@@ -5,7 +5,7 @@ import Dropdown from "../../../../components/Dropdown/Dropdown";
 export const DropdownDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "60%"
+      width: "60%",
     };
     return (
       <div style={style}>

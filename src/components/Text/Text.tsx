@@ -31,7 +31,7 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
       children,
       ...typographyProps
     },
-    ref
+    ref,
   ) => {
     const overrideEllipsis = ellipsis ?? element !== "p";
     return (
@@ -45,12 +45,12 @@ const Text: VibeComponent<TextProps, HTMLElement> & {
         {children}
       </Typography>
     );
-  }
+  },
 );
 
 export default withStaticProps(Text, {
   types: TextType,
   weights: TextWeight,
   colors: TypographyColor,
-  align: TypographyAlign
+  align: TypographyAlign,
 });

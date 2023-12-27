@@ -91,12 +91,12 @@ export const accordionSingleActivePlaySuite = interactionSuite({
   tests: [openCloseAccordionSingleActiveTests, closeAlreadyOpenSingleActiveTests],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 export const accordionMultiActivePlaySuite = interactionSuite({
   tests: [closeAlreadyActiveMultiActiveTests, openAccordionItemsMultiActiveTests],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });

@@ -8,7 +8,7 @@ import styles from "./Menu.stories.module.scss";
 
 export default {
   title: "Navigation/Menu/Menu",
-  component: Menu
+  component: Menu,
 };
 
 const menuTemplate = args => (
@@ -22,7 +22,7 @@ const menuTemplate = args => (
 export const Overview = {
   render: menuTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const Sizes = {
@@ -53,13 +53,13 @@ export const Sizes = {
         <MenuItem title="Menu item 2" disabled />
         <MenuItem title="Menu item 3" />
       </Menu>
-    </DialogContentContainer>
+    </DialogContentContainer>,
   ],
   name: "Sizes",
 
   args: {
-    size: Menu.sizes.SMALL
-  }
+    size: Menu.sizes.SMALL,
+  },
 };
 
 export const MenuWithIcons = {
@@ -72,7 +72,7 @@ export const MenuWithIcons = {
       </Menu>
     </DialogContentContainer>
   ),
-  name: "Menu with icons"
+  name: "Menu with icons",
 };
 
 export const MenuWithSubMenu = {
@@ -91,7 +91,7 @@ export const MenuWithSubMenu = {
       </Menu>
     </DialogContentContainer>
   ),
-  name: "Menu with sub menu"
+  name: "Menu with sub menu",
 };
 
 export const MenuWithGridItemsAndSubMenu = {
@@ -125,7 +125,7 @@ export const MenuWithGridItemsAndSubMenu = {
       </DialogContentContainer>
     </div>
   ),
-  name: "Menu with grid items and sub menu"
+  name: "Menu with grid items and sub menu",
 };
 
 export const MenuWith2DepthSubMenu = {
@@ -151,5 +151,5 @@ export const MenuWith2DepthSubMenu = {
     </DialogContentContainer>
   ),
   name: "Menu with 2-depth sub menu",
-  play: menuWithTwoDepthsSuite
+  play: menuWithTwoDepthsSuite,
 };

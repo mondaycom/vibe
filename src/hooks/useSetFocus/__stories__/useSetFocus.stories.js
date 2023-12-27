@@ -4,7 +4,7 @@ import useSetFocus from "../../useSetFocus/index";
 import styles from "./useSetFocus.stories.module.scss";
 
 export default {
-  title: "Hooks/useSetFocus"
+  title: "Hooks/useSetFocus",
 };
 
 export const Overview = {
@@ -16,7 +16,7 @@ export const Overview = {
     const { isFocused, focus, blur } = useSetFocus({
       ref,
       focusCallback,
-      blurCallback
+      blurCallback,
     });
 
     return (
@@ -33,5 +33,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

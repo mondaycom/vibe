@@ -42,8 +42,8 @@ describe("useFocusGridItemByActiveStatus", () => {
         activeItemIndex: 1,
         wrapperRef,
         childRef,
-        useDocumentEventListeners: true
-      })
+        useDocumentEventListeners: true,
+      }),
     );
 
     expect(element.blur).not.toHaveBeenCalled();
@@ -82,7 +82,7 @@ describe("useFocusGridItemByActiveStatus", () => {
 
   function mockLastNavigationDirection(currentDirectionValue) {
     useLastNavigationDirectionModule.useLastNavigationDirection.mockReturnValue({
-      lastNavigationDirectionRef: { current: currentDirectionValue }
+      lastNavigationDirectionRef: { current: currentDirectionValue },
     });
   }
 });

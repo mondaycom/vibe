@@ -6,7 +6,7 @@ export const useFocusGridItemByActiveStatus = ({
   childRef,
   index,
   activeItemIndex,
-  useDocumentEventListeners = false
+  useDocumentEventListeners = false,
 }: {
   wrapperRef: React.RefObject<HTMLElement>;
   childRef: React.RefObject<HTMLElement>;

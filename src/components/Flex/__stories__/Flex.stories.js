@@ -9,7 +9,7 @@ import styles from "./Flex.stories.module.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Flex,
   enumPropNamesArray: ["justify", "align"],
-  actionPropsArray: ["onClick"]
+  actionPropsArray: ["onClick"],
 });
 
 const flexTemplate = args => {
@@ -26,13 +26,13 @@ export default {
   title: "Layout/Flex",
   component: Flex,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
   render: flexTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const Directions = {
@@ -55,7 +55,7 @@ export const Directions = {
     </div>
   ),
 
-  name: "Directions"
+  name: "Directions",
 };
 
 export const HorizontalSpacingBetweenItems = {
@@ -106,14 +106,14 @@ export const HorizontalSpacingBetweenItems = {
     </div>
   ),
 
-  name: "Horizontal spacing between items"
+  name: "Horizontal spacing between items",
 };
 
 export const VerticalSpacingBetweenItems = {
   render: () => (
     <Flex
       style={{
-        width: "100%"
+        width: "100%",
       }}
       justify={Flex.justify.SPACE_AROUND}
     >
@@ -162,7 +162,7 @@ export const VerticalSpacingBetweenItems = {
     </Flex>
   ),
 
-  name: "Vertical spacing between items"
+  name: "Vertical spacing between items",
 };
 
 export const HorizontalPositions = {
@@ -170,14 +170,14 @@ export const HorizontalPositions = {
     <div
       className={styles["story-container"]}
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <StoryDescription description="Start position">
         <Flex
           justify={Flex.justify.START}
           style={{
-            width: "100%"
+            width: "100%",
           }}
         >
           <Button>Primary</Button>
@@ -189,7 +189,7 @@ export const HorizontalPositions = {
         <Flex
           justify={Flex.justify.CENTER}
           style={{
-            width: "100%"
+            width: "100%",
           }}
         >
           <Button>Primary</Button>
@@ -201,7 +201,7 @@ export const HorizontalPositions = {
         <Flex
           justify={Flex.justify.END}
           style={{
-            width: "100%"
+            width: "100%",
           }}
         >
           <Button>Primary</Button>
@@ -213,7 +213,7 @@ export const HorizontalPositions = {
         <Flex
           justify={Flex.justify.SPACE_BETWEEN}
           style={{
-            width: "100%"
+            width: "100%",
           }}
         >
           <Button>Primary</Button>
@@ -225,7 +225,7 @@ export const HorizontalPositions = {
         <Flex
           justify={Flex.justify.SPACE_AROUND}
           style={{
-            width: "100%"
+            width: "100%",
           }}
         >
           <Button>Primary</Button>
@@ -236,14 +236,14 @@ export const HorizontalPositions = {
     </div>
   ),
 
-  name: "Horizontal positions"
+  name: "Horizontal positions",
 };
 
 export const VerticalPositions = {
   render: () => (
     <Flex
       style={{
-        width: "100%"
+        width: "100%",
       }}
       justify={Flex.justify.SPACE_AROUND}
     >
@@ -251,7 +251,7 @@ export const VerticalPositions = {
         <Flex
           justify={Flex.justify.START}
           style={{
-            height: "300px"
+            height: "300px",
           }}
           direction={Flex.directions.COLUMN}
         >
@@ -264,7 +264,7 @@ export const VerticalPositions = {
         <Flex
           justify={Flex.justify.CENTER}
           style={{
-            height: "300px"
+            height: "300px",
           }}
           direction={Flex.directions.COLUMN}
         >
@@ -277,7 +277,7 @@ export const VerticalPositions = {
         <Flex
           justify={Flex.justify.END}
           style={{
-            height: "300px"
+            height: "300px",
           }}
           direction={Flex.directions.COLUMN}
         >
@@ -290,7 +290,7 @@ export const VerticalPositions = {
         <Flex
           justify={Flex.justify.SPACE_BETWEEN}
           style={{
-            height: "300px"
+            height: "300px",
           }}
           direction={Flex.directions.COLUMN}
         >
@@ -303,7 +303,7 @@ export const VerticalPositions = {
         <Flex
           justify={Flex.justify.SPACE_AROUND}
           style={{
-            height: "300px"
+            height: "300px",
           }}
           direction={Flex.directions.COLUMN}
         >
@@ -315,7 +315,7 @@ export const VerticalPositions = {
     </Flex>
   ),
 
-  name: "Vertical positions"
+  name: "Vertical positions",
 };
 
 export const SupportMultiLinesLayout = {
@@ -323,7 +323,7 @@ export const SupportMultiLinesLayout = {
     <Flex
       wrap
       style={{
-        width: "300px"
+        width: "300px",
       }}
       gap={Flex.gaps.SMALL}
     >
@@ -337,7 +337,7 @@ export const SupportMultiLinesLayout = {
     </Flex>
   ),
 
-  name: "Support multi lines layout"
+  name: "Support multi lines layout",
 };
 
 export const FlexAsToolbarContainer = {
@@ -359,5 +359,5 @@ export const FlexAsToolbarContainer = {
     </Flex>
   ),
 
-  name: "Flex as toolbar container"
+  name: "Flex as toolbar container",
 };

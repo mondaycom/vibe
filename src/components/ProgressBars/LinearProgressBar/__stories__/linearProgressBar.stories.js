@@ -10,14 +10,14 @@ import "./linearProgressBar.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: LinearProgressBar,
-  enumPropNamesArray: ["size", "barStyle"]
+  enumPropNamesArray: ["size", "barStyle"],
 });
 
 export default {
   title: "Feedback/LinearProgressBar",
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const lineProgressBarTemplate = args => {
@@ -30,8 +30,8 @@ export const Overview = {
 
   args: {
     value: 20,
-    size: LinearProgressBar.sizes.LARGE
-  }
+    size: LinearProgressBar.sizes.LARGE,
+  },
 };
 
 export const Regular = {
@@ -57,7 +57,7 @@ export const Regular = {
     </div>
   ),
 
-  name: "Regular"
+  name: "Regular",
 };
 
 export const WithSecondaryValue = {
@@ -71,7 +71,7 @@ export const WithSecondaryValue = {
     />
   ),
 
-  name: "With secondary value"
+  name: "With secondary value",
 };
 
 export const MultiProgressBar = {
@@ -80,18 +80,18 @@ export const MultiProgressBar = {
       () => [
         {
           value: 25,
-          color: colors.primary
+          color: colors.primary,
         },
         {
           value: 75,
-          color: colors.yellow
+          color: colors.yellow,
         },
         {
           value: 100,
-          color: colors.grass_green
-        }
+          color: colors.grass_green,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -106,7 +106,7 @@ export const MultiProgressBar = {
     );
   },
 
-  name: "Multi progress bar"
+  name: "Multi progress bar",
 };
 
 export const ProgressBarAsACounter = {
@@ -124,7 +124,7 @@ export const ProgressBarAsACounter = {
     </div>
   ),
 
-  name: "Progress bar as a counter"
+  name: "Progress bar as a counter",
 };
 
 export const ProgressBarAsLoadingIndicator = {
@@ -148,5 +148,5 @@ export const ProgressBarAsLoadingIndicator = {
     </div>
   ),
 
-  name: "Progress bar as loading indicator"
+  name: "Progress bar as loading indicator",
 };

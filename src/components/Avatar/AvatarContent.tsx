@@ -33,11 +33,11 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
   size = AvatarSize.LARGE,
   textClassName = "",
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const className = cx(
     getStyle(styles, camelCase("content_" + type)),
-    getStyle(styles, camelCase("content_" + type + "--" + size))
+    getStyle(styles, camelCase("content_" + type + "--" + size)),
   );
   switch (type) {
     case AvatarType.IMG:
@@ -83,5 +83,5 @@ export const AvatarContent: React.FC<AvatarContentProps> & {
 
 Object.assign(AvatarContent, {
   types: AvatarType,
-  sizes: AvatarSize
+  sizes: AvatarSize,
 });

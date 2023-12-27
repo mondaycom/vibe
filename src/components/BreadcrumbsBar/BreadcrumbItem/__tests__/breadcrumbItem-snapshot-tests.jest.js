@@ -10,7 +10,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem icon={Board} />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -32,7 +32,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem isCurrent />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem disabled />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem className="test" />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -65,7 +65,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem text="item" />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

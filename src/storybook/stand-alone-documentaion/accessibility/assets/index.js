@@ -25,5 +25,5 @@ export {
   principleClarity,
   principleDelight,
   principleIntuative,
-  principleSpeed
+  principleSpeed,
 };

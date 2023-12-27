@@ -6,7 +6,7 @@ import styles from "./DateNavigationItem.module.scss";
 
 const ICONS = {
   prev: MoveArrowLeft,
-  next: MoveArrowRight
+  next: MoveArrowRight,
 };
 
 interface DateNavigationItemProps {

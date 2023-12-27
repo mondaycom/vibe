@@ -5,7 +5,7 @@ export default function useEventListener({
   eventName,
   callback,
   ref,
-  capture = false
+  capture = false,
 }: {
   eventName: keyof HTMLElementEventMap | string;
   callback: GenericEventCallback;

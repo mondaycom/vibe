@@ -67,7 +67,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
     size = HeadingSizes.LARGE,
     displayPlaceholderInTextMode = true,
     suggestEditOnHover = true,
-    type = Heading.types.h1
+    type = Heading.types.h1,
   } = props;
 
   const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
@@ -88,7 +88,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       setIsEditing(true);
       onStartEditing && onStartEditing(event);
     },
-    [isEditing, disabled, setIsEditing, onStartEditing]
+    [isEditing, disabled, setIsEditing, onStartEditing],
   );
 
   const onFinishEditingCallback = useCallback(
@@ -97,7 +97,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       setValueState(newValue);
       onFinishEditing?.(newValue, event);
     },
-    [onFinishEditing, setIsEditing, setValueState]
+    [onFinishEditing, setIsEditing, setValueState],
   );
 
   const onCancelEditingCallback = useCallback(
@@ -105,14 +105,14 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       setIsEditing(false);
       onCancelEditing?.(event);
     },
-    [onCancelEditing, setIsEditing]
+    [onCancelEditing, setIsEditing],
   );
 
   const onIgnoreBlurEventCallback = useCallback(
     (value: string) => {
       onIgnoreBlurEvent?.(value);
     },
-    [onIgnoreBlurEvent]
+    [onIgnoreBlurEvent],
   );
 
   const clearErrorState = useCallback(() => {
@@ -167,7 +167,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       nonEllipsisTooltip: props.tooltip,
       size: size as Sizes,
       highlightTerm,
-      className: cx(styles.headingComponent, props.headingClassName)
+      className: cx(styles.headingComponent, props.headingClassName),
     };
 
     if (contentRenderer) {
@@ -185,7 +185,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       className: cx(
         getStyle(headingStyles, camelCase("element-type-" + type)),
         getStyle(headingStyles, camelCase("size-" + size)),
-        inputClassName
+        inputClassName,
       ),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
@@ -211,7 +211,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
-      ariaLabel: props.inputAriaLabel
+      ariaLabel: props.inputAriaLabel,
     };
   };
 
@@ -228,7 +228,7 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       ref={ref}
       style={style}
       className={cx(styles.editableHeadingWrapper, className, {
-        [styles.insetFocus]: insetFocus
+        [styles.insetFocus]: insetFocus,
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
@@ -243,5 +243,5 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
 
 export default withStaticProps(LegacyEditableHeading, {
   types: HeadingTypes,
-  sizes: HeadingSizes
+  sizes: HeadingSizes,
 });

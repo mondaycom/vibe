@@ -20,12 +20,12 @@ import {
   TableEmptyState,
   TableErrorState,
   virtualizedScrollTableColumns,
-  virtualizedScrollTableData
+  virtualizedScrollTableData,
 } from "./table.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
-  ignoreControlsPropNamesArray: ["children", "errorState", "emptyState"]
+  ignoreControlsPropNamesArray: ["children", "errorState", "emptyState"],
 });
 
 export default {
@@ -37,10 +37,10 @@ export default {
     TableBody,
     TableRow,
     TableCell,
-    TableVirtualizedBody
+    TableVirtualizedBody,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const tableTemplate = args => <Table {...args}></Table>;
@@ -55,12 +55,12 @@ export const Overview = {
         id: "sentOn",
         title: "Sent on",
         width: 150,
-        loadingStateType: "medium-text"
+        loadingStateType: "medium-text",
       },
       {
         id: "subject",
         title: "Subject",
-        loadingStateType: "long-text"
+        loadingStateType: "long-text",
       },
       {
         id: "sentBy",
@@ -68,25 +68,25 @@ export const Overview = {
 
         width: {
           min: 120,
-          max: 200
+          max: 200,
         },
 
         infoContent: "This is the sender",
-        loadingStateType: "circle"
+        loadingStateType: "circle",
       },
       {
         id: "status",
         title: "Status",
         width: 150,
         infoContent: "Info content for the status column",
-        loadingStateType: "medium-text"
+        loadingStateType: "medium-text",
       },
       {
         id: "emailsSent",
         title: "Emails sent",
         width: 150,
-        loadingStateType: "medium-text"
-      }
+        loadingStateType: "medium-text",
+      },
     ],
     children: [
       <TableHeader>
@@ -95,12 +95,12 @@ export const Overview = {
             id: "sentOn",
             title: "Sent on",
             width: 150,
-            loadingStateType: "medium-text"
+            loadingStateType: "medium-text",
           },
           {
             id: "subject",
             title: "Subject",
-            loadingStateType: "long-text"
+            loadingStateType: "long-text",
           },
           {
             id: "sentBy",
@@ -108,25 +108,25 @@ export const Overview = {
 
             width: {
               min: 120,
-              max: 200
+              max: 200,
             },
 
             infoContent: "This is the sender",
-            loadingStateType: "circle"
+            loadingStateType: "circle",
           },
           {
             id: "status",
             title: "Status",
             width: 150,
             infoContent: "Info content for the status column",
-            loadingStateType: "medium-text"
+            loadingStateType: "medium-text",
           },
           {
             id: "emailsSent",
             title: "Emails sent",
             width: 150,
-            loadingStateType: "medium-text"
-          }
+            loadingStateType: "medium-text",
+          },
         ].map((headerCell, index) => (
           <TableHeaderCell key={index} title={headerCell.title} />
         ))}
@@ -139,7 +139,7 @@ export const Overview = {
             sentBy: "John Doe",
             subject: "Lorem ipsum dolor",
             status: "Sent",
-            emailsSent: 100
+            emailsSent: 100,
           },
           {
             id: "3",
@@ -148,7 +148,7 @@ export const Overview = {
             subject:
               "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
             status: "Sent",
-            emailsSent: 999
+            emailsSent: 999,
           },
           {
             id: "2",
@@ -156,8 +156,8 @@ export const Overview = {
             sentBy: "Other Name",
             subject: "This is the subject",
             status: "Sent",
-            emailsSent: 99
-          }
+            emailsSent: 99,
+          },
         ].map(rowItem => (
           <TableRow key={rowItem.id}>
             <TableCell>{rowItem.sentOn}</TableCell>
@@ -171,10 +171,10 @@ export const Overview = {
             <TableCell>{rowItem.emailsSent}</TableCell>
           </TableRow>
         ))}
-      </TableBody>
-    ]
+      </TableBody>,
+    ],
   },
-  name: "Overview"
+  name: "Overview",
 };
 
 export const Sizes = {
@@ -183,25 +183,25 @@ export const Sizes = {
       {
         id: "sentOn",
         title: "Sent on",
-        loadingStateType: "medium-text"
+        loadingStateType: "medium-text",
       },
       {
         id: "subject",
         title: "Subject",
-        loadingStateType: "long-text"
-      }
+        loadingStateType: "long-text",
+      },
     ];
     const data = [
       {
         id: 1,
         sentOn: "2020-01-01",
-        subject: "Lorem ipsum dolor"
+        subject: "Lorem ipsum dolor",
       },
       {
         id: 2,
         sentOn: "2022-02-02",
-        subject: "This is the subject"
-      }
+        subject: "This is the subject",
+      },
     ];
     return (
       <>
@@ -264,9 +264,9 @@ export const Sizes = {
       <span style={{ display: "flex", alignItems: "start", width: "100%" }}>
         <Story />
       </span>
-    )
+    ),
   ],
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const TableHeaderFunctionality = {
@@ -276,7 +276,7 @@ export const TableHeaderFunctionality = {
 
     const onSort = (columnId, sortState) => {
       setSorting({
-        [columnId]: sortState
+        [columnId]: sortState,
       });
 
       setTableData(sort(columnId, sortState, tableData));
@@ -315,14 +315,14 @@ export const TableHeaderFunctionality = {
     );
   },
 
-  name: "Table Header Functionality"
+  name: "Table Header Functionality",
 };
 
 export const Loading = {
   render: () => (
     <Table
       dataState={{
-        isLoading: true
+        isLoading: true,
       }}
       errorState={<TableErrorState />}
       emptyState={<TableEmptyState />}
@@ -351,7 +351,7 @@ export const Loading = {
     </Table>
   ),
 
-  name: "Loading"
+  name: "Loading",
 };
 
 export const Scroll = {
@@ -359,7 +359,7 @@ export const Scroll = {
     <div
       style={{
         height: 220,
-        width: "100%"
+        width: "100%",
       }}
     >
       <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
@@ -394,7 +394,7 @@ export const Scroll = {
     </div>
   ),
 
-  name: "Scroll"
+  name: "Scroll",
 };
 
 export const VirtualizedScroll = {
@@ -414,7 +414,7 @@ export const VirtualizedScroll = {
         emptyState={<TableEmptyState />}
         columns={virtualizedScrollTableColumns}
         style={{
-          height: 250
+          height: 250,
         }}
       >
         <TableHeader>
@@ -427,7 +427,7 @@ export const VirtualizedScroll = {
     );
   },
 
-  name: "Virtualized Scroll"
+  name: "Virtualized Scroll",
 };
 
 export const HighlightedRow = {
@@ -462,5 +462,5 @@ export const HighlightedRow = {
     );
   },
 
-  name: "Highlighted row"
+  name: "Highlighted row",
 };

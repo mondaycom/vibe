@@ -11,5 +11,5 @@ async function isTooltipAppearOnHover(canvas: Screen) {
 }
 
 export const textOverflowSuite = interactionSuite({
-  tests: [isTooltipAppearOnHover]
+  tests: [isTooltipAppearOnHover],
 });

@@ -39,7 +39,7 @@ const SliderRail: VibeComponent<SliderRailProps, unknown> = forwardRef<unknown, 
         {children}
       </div>
     );
-  }
+  },
 );
 
 export default SliderRail;

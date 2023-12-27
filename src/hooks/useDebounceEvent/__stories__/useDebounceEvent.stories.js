@@ -3,31 +3,31 @@ import useDebounceEvent from "..";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useDebounceEvent"
+  title: "Hooks/useDebounceEvent",
 };
 
 export const Overview = {
   render: () => {
     const { inputValue, onEventChanged } = useDebounceEvent({
-      delay: 100
+      delay: 100,
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
   },
 
-  name: "Overview"
+  name: "Overview",
 };
 
 export const PassingAnInitialValue = {
   render: () => {
     const { inputValue, onEventChanged } = useDebounceEvent({
-      initialStateValue: "bla bla bla"
+      initialStateValue: "bla bla bla",
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
   },
 
-  name: "Passing an initial value"
+  name: "Passing an initial value",
 };
 
 export const PassingAnOnChangeHandler = {
@@ -35,7 +35,7 @@ export const PassingAnOnChangeHandler = {
     const [length, setLength] = useState(0);
 
     const { inputValue, onEventChanged } = useDebounceEvent({
-      onChange: value => setLength(value.length)
+      onChange: value => setLength(value.length),
     });
 
     return (
@@ -46,17 +46,17 @@ export const PassingAnOnChangeHandler = {
     );
   },
 
-  name: "Passing an `onChange` handler"
+  name: "Passing an `onChange` handler",
 };
 
 export const WithTrim = {
   render: () => {
     const { inputValue, onEventChanged } = useDebounceEvent({
-      trim: true
+      trim: true,
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
   },
 
-  name: "With trim"
+  name: "With trim",
 };

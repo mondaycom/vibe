@@ -4,7 +4,7 @@ import {
   useSupportPressItemKeyboardNavigation,
   useSetDefaultItemOnFocusEvent,
   useKeepFocusOnItemWhenListChanged,
-  useCleanVisualFocusOnBlur
+  useCleanVisualFocusOnBlur,
 } from "./useActiveDescendantListFocusHooks";
 
 enum Role {
@@ -13,7 +13,7 @@ enum Role {
   COMPOSITE = "composite",
   GROUP = "group",
   TEXTBOX = "textbox",
-  MENU = "menu"
+  MENU = "menu",
 }
 
 function useActiveDescendantListFocus({
@@ -26,7 +26,7 @@ function useActiveDescendantListFocus({
   isHorizontalList = false,
   isIgnoreSpaceAsItemSelection = false,
   useDocumentEventListeners = false,
-  ignoreDocumentFallback = false
+  ignoreDocumentFallback = false,
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsIds: string[];
@@ -52,7 +52,7 @@ function useActiveDescendantListFocus({
     return {
       ref: focusedElementRef,
       preventDefault: true,
-      stopPropagation: true
+      stopPropagation: true,
     };
   }, [useDocumentEventListeners, focusedElementRef, ignoreDocumentFallback]);
 
@@ -62,7 +62,7 @@ function useActiveDescendantListFocus({
     visualFocusItemIndex,
     setVisualFocusItemIndex,
     itemsCount,
-    defaultVisualFocusItemIndex
+    defaultVisualFocusItemIndex,
   });
 
   const setVisualFocusItemId = useCallback(
@@ -73,7 +73,7 @@ function useActiveDescendantListFocus({
         setVisualFocusItemIndex(itemIndex);
       }
     },
-    [itemsIds, triggeredByKeyboard, visualFocusItemIndex]
+    [itemsIds, triggeredByKeyboard, visualFocusItemIndex],
   );
 
   useSupportArrowsKeyboardNavigation({
@@ -84,7 +84,7 @@ function useActiveDescendantListFocus({
     triggeredByKeyboard,
     isHorizontalList,
     isItemSelectable,
-    listenerOptions
+    listenerOptions,
   });
 
   useSupportPressItemKeyboardNavigation({
@@ -95,14 +95,14 @@ function useActiveDescendantListFocus({
     onItemClick,
     isItemSelectable,
     listenerOptions,
-    isIgnoreSpaceAsItemSelection
+    isIgnoreSpaceAsItemSelection,
   });
 
   useKeepFocusOnItemWhenListChanged({
     visualFocusItemIndex,
     itemsIds,
     isItemSelectable,
-    setVisualFocusItemIndex
+    setVisualFocusItemIndex,
   });
 
   useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
@@ -111,20 +111,20 @@ function useActiveDescendantListFocus({
   // we keep it for backward compatibility
   const backwardCompatibilityCreateOnClickCallback = useCallback(
     (itemIndex: number) => (event: React.KeyboardEvent | React.MouseEvent) => onItemClick(event, itemIndex),
-    [onItemClick]
+    [onItemClick],
   );
   return {
     visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
     focusedElementProps: {
       "aria-activedescendant": triggeredByKeyboard.current ? visualFocusItemId : undefined,
-      role: focusedElementRole
+      role: focusedElementRole,
     },
     // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
     // we keep it for backward compatibility
     onItemClickCallback: onItemClick,
     createOnItemClickCallback: backwardCompatibilityCreateOnClickCallback,
-    setVisualFocusItemId
+    setVisualFocusItemId,
   };
 }
 

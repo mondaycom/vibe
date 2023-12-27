@@ -23,28 +23,28 @@ export const TipseenDescription = () => {
       width: "95%",
       margin: "0 -10px",
       display: "flex",
-      alignItems: "flex-start"
+      alignItems: "flex-start",
     };
     const content = [
       <div key="tipseen-key-1">Popover message will appear here loremipsum dolor samet…</div>,
       <div key="tipseen-key-2">Popover message will appear here loremipsum dolor samet…</div>,
       <div key="tipseen-key-3">Popover message will appear here loremipsum dolor samet…</div>,
       <div key="tipseen-key-4">Popover message will appear here loremipsum dolor samet…</div>,
-      <div key="tipseen-key-5">Popover message will appear here loremipsum dolor samet…</div>
+      <div key="tipseen-key-5">Popover message will appear here loremipsum dolor samet…</div>,
     ];
     const modifiers = [
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false
-        }
+          mainAxis: false,
+        },
       },
       {
         name: "flip",
         options: {
-          fallbackPlacements: []
-        }
-      }
+          fallbackPlacements: [],
+        },
+      },
     ];
     return (
       <div style={style}>

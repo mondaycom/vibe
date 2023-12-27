@@ -4,7 +4,7 @@ import Checkbox from "../Checkbox";
 
 jest.mock("../../../utils/user-agent-utils", () => {
   return {
-    isFirefox: jest.fn()
+    isFirefox: jest.fn(),
   };
 });
 
@@ -19,7 +19,7 @@ function createCheckboxesVariables() {
     option2Text: "Option 2",
     checkbox3Name: "checkbox3",
     option3Value: "3",
-    option3Text: "Option 3"
+    option3Text: "Option 3",
   };
 }
 
@@ -54,7 +54,7 @@ function renderCheckboxes({
   checkbox3Name,
   option3Text,
   option3Value,
-  onChangeMock3
+  onChangeMock3,
 }: RenderHelper) {
   render(
     <form name={formName}>
@@ -67,7 +67,7 @@ function renderCheckboxes({
       />
       <Checkbox name={checkbox2Name} value={option2Value} label={option2Text} onChange={onChangeMock2} />
       <Checkbox name={checkbox3Name} value={option3Value} label={option3Text} onChange={onChangeMock3} />
-    </form>
+    </form>,
   );
 }
 
@@ -75,7 +75,7 @@ function testUnselectFirstOption(
   option1Text: string,
   option2Text: string,
   option3Text: string,
-  clickOptions?: Record<string, unknown>
+  clickOptions?: Record<string, unknown>,
 ) {
   const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
   const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
@@ -98,7 +98,7 @@ describe("Checkbox tests", () => {
       option2Text,
       checkbox3Name,
       option3Value,
-      option3Text
+      option3Text,
     } = createCheckboxesVariables();
 
     let onChangeMock1: jest.MockedFunction<MockedFunction>,
@@ -122,7 +122,7 @@ describe("Checkbox tests", () => {
         option1Value,
         checkbox1Name,
         checkbox2Name,
-        checkbox3Name
+        checkbox3Name,
       });
     });
 
@@ -190,13 +190,13 @@ describe("Checkbox tests", () => {
       option2Text,
       checkbox3Name,
       option3Value,
-      option3Text
+      option3Text,
     } = createCheckboxesVariables();
 
     beforeAll(() => {
       jest.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn().mockImplementation(() => true)
+          isFirefox: jest.fn().mockImplementation(() => true),
         };
       });
     });
@@ -204,7 +204,7 @@ describe("Checkbox tests", () => {
     afterAll(() => {
       jest.mock("../../../utils/user-agent-utils", () => {
         return {
-          isFirefox: jest.fn()
+          isFirefox: jest.fn(),
         };
       });
     });
@@ -230,7 +230,7 @@ describe("Checkbox tests", () => {
         option1Value,
         checkbox1Name,
         checkbox2Name,
-        checkbox3Name
+        checkbox3Name,
       });
     });
 

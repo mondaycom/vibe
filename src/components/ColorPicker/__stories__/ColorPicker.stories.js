@@ -9,29 +9,29 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: ColorPicker,
   enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
   iconPropNamesArray: ["ColorIndicatorIcon", "SelectedIndicatorIcon", "NoColorIcon"],
-  actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }]
+  actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }],
 });
 
 export default {
   title: "Pickers/ColorPicker",
   component: ColorPicker,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const colorPickerTemplate = createComponentTemplate(ColorPicker);
 
 export const Overview = {
   render: colorPickerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const WithIndicator = {
   render: colorPickerTemplate.bind({}),
   args: {
-    ColorIndicatorIcon: TextColorIndicator
+    ColorIndicatorIcon: TextColorIndicator,
   },
-  name: "With Indicator"
+  name: "With Indicator",
 };
 
 export const TextIndication = {
@@ -39,27 +39,27 @@ export const TextIndication = {
   args: {
     ColorIndicatorIcon: TextColorIndicator,
     value: "peach",
-    shouldRenderIndicatorWithoutBackground: true
+    shouldRenderIndicatorWithoutBackground: true,
   },
-  name: "Text Indication"
+  name: "Text Indication",
 };
 
 export const Selected = {
   render: colorPickerTemplate.bind({}),
   args: {
     ColorIndicatorIcon: TextColorIndicator,
-    colorStyle: ColorPicker.COLOR_STYLES.SELECTED
+    colorStyle: ColorPicker.COLOR_STYLES.SELECTED,
   },
-  name: "Selected"
+  name: "Selected",
 };
 
 export const NoColor = {
   render: colorPickerTemplate.bind({}),
   args: {
-    noColorText: "Clear color"
+    noColorText: "Clear color",
   },
   name: "No color",
-  play: noColorInteractionSuite
+  play: noColorInteractionSuite,
 };
 
 export const SelectedIcon = {
@@ -67,16 +67,16 @@ export const SelectedIcon = {
   args: {
     isMultiselect: true,
     SelectedIndicatorIcon: Check,
-    value: "peach"
+    value: "peach",
   },
   name: "Selected icon",
-  play: multiSelectionInteractionSuite
+  play: multiSelectionInteractionSuite,
 };
 
 export const Shapes = {
   render: colorPickerTemplate.bind({}),
   args: {
-    colorShape: ColorPicker.colorShapes.CIRCLE
+    colorShape: ColorPicker.colorShapes.CIRCLE,
   },
-  name: "Shapes"
+  name: "Shapes",
 };

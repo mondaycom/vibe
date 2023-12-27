@@ -38,7 +38,7 @@ describe("Text renders correctly", () => {
       .create(
         <Heading>
           <div>text</div>
-        </Heading>
+        </Heading>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

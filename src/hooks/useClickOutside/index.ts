@@ -5,7 +5,7 @@ import { GenericEventCallback } from "../../types/events";
 export default function useClickOutside({
   ref,
   callback,
-  eventName = "click"
+  eventName = "click",
 }: {
   ref: RefObject<HTMLElement>;
   callback: GenericEventCallback;
@@ -20,7 +20,7 @@ export default function useClickOutside({
       callback(event);
     },
 
-    [ref, callback]
+    [ref, callback],
   );
 
   const documentRef = useRef(document.body);
@@ -29,13 +29,13 @@ export default function useClickOutside({
     eventName,
     ref: documentRef,
     callback: onClickOutsideListener,
-    capture: true
+    capture: true,
   });
 
   useEventListener({
     eventName: "touchend",
     ref: documentRef,
     callback: onClickOutsideListener,
-    capture: true
+    capture: true,
   });
 }

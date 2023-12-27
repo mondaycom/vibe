@@ -140,9 +140,9 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus,
-      tabIndex
+      tabIndex,
     },
-    ref
+    ref,
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, buttonRef);
@@ -180,7 +180,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           onClick(event);
         }
       },
-      [onClick, disabled, loading, success]
+      [onClick, disabled, loading, success],
     );
 
     const onMouseDownClicked = useCallback(
@@ -194,7 +194,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           onMouseDown(event);
         }
       },
-      [onMouseDown, disabled, loading, success]
+      [onMouseDown, disabled, loading, success],
     );
 
     const classNames = useMemo(() => {
@@ -217,8 +217,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           [styles.preventClickAnimation]: preventClickAnimation,
           [styles.noSidePadding]: noSidePadding,
           [styles.disabled]: disabled,
-          [styles.insetFocusStyle]: insetFocus
-        }
+          [styles.insetFocusStyle]: insetFocus,
+        },
       );
     }, [
       success,
@@ -236,7 +236,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       preventClickAnimation,
       noSidePadding,
       disabled,
-      insetFocus
+      insetFocus,
     ]);
 
     const buttonProps = useMemo(() => {
@@ -261,7 +261,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-describedby": ariaDescribedBy
+        "aria-describedby": ariaDescribedBy,
       };
       return props;
     }, [
@@ -285,7 +285,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      ariaDescribedBy
+      ariaDescribedBy,
     ]);
 
     const leftIconSize = useMemo(() => {
@@ -313,7 +313,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               icon={leftIcon}
               iconSize={leftIconSize}
               className={cx({
-                [styles.leftIcon]: !!children
+                [styles.leftIcon]: !!children,
               })}
               ignoreFocusStyle
             />
@@ -326,14 +326,14 @@ const Button: VibeComponent<ButtonProps, unknown> & {
               icon={rightIcon}
               iconSize={rightIconSize}
               className={cx({
-                [styles.rightIcon]: !!children
+                [styles.rightIcon]: !!children,
               })}
               ignoreFocusStyle
             />
           ) : null}
         </>
       ),
-      [children, leftIcon, leftIconSize, rightIcon, rightIconSize]
+      [children, leftIcon, leftIconSize, rightIcon, rightIconSize],
     );
 
     if (loading) {
@@ -360,7 +360,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
                 icon={successIcon}
                 iconSize={successIconSize}
                 className={cx({
-                  [styles.leftIcon]: !!successText
+                  [styles.leftIcon]: !!successText,
                 })}
                 ignoreFocusStyle
               />
@@ -379,7 +379,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         {buttonContent}
       </button>
     );
-  }
+  },
 );
 
 Button.defaultProps = {
@@ -417,7 +417,7 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
-  insetFocus: false
+  insetFocus: false,
 };
 
 export default withStaticProps(Button, {
@@ -425,5 +425,5 @@ export default withStaticProps(Button, {
   colors: ButtonColor,
   kinds: ButtonType,
   types: ButtonInputType,
-  inputTags: ButtonInputType
+  inputTags: ButtonInputType,
 });

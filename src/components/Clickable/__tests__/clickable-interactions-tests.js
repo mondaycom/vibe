@@ -18,5 +18,5 @@ export const statesPlaySuite = interactionSuite({
   tests: [states_onClickTabFocusElementTest],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });

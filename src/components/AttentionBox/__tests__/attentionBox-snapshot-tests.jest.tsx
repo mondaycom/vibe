@@ -59,7 +59,7 @@ describe("AttentionBox renders correctly", () => {
           <span>
             renderer with components <div>and sub components</div>
           </span>
-        </AttentionBox>
+        </AttentionBox>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

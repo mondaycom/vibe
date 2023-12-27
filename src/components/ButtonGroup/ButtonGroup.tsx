@@ -74,9 +74,9 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       tooltipContainerSelector,
       tooltipMoveBy,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const inputRef = useRef();
     const mergedRef = useMergeRef(ref, inputRef);
@@ -95,7 +95,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
           }
         }
       },
-      [onSelect, disabled, name]
+      [onSelect, disabled, name],
     );
 
     const selectedOption = useMemo(() => {
@@ -127,7 +127,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
             className={cx(styles.button, styles.optionText, {
               [styles.selected]: isSelected,
               [styles.disabled]: disabled,
-              [styles.buttonDisabled]: option.disabled
+              [styles.buttonDisabled]: option.disabled,
             })}
             activeButtonClassName={styles.activeButton}
           >
@@ -145,7 +145,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
       tooltipHideDelay,
       tooltipShowDelay,
       tooltipContainerSelector,
-      tooltipMoveBy
+      tooltipMoveBy,
     ]);
 
     // Effects
@@ -159,7 +159,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
     return (
       <div
         className={cx(styles.buttonGroup, overrideClassName, getStyle(styles, camelCase("kind-" + kind)), {
-          [styles.disabled]: disabled
+          [styles.disabled]: disabled,
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
@@ -173,7 +173,7 @@ const ButtonGroup: VibeComponent<ButtonGroupProps, HTMLDivElement> & {
         )}
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(ButtonGroup, { sizes: Button.sizes, kinds: Button.kinds });

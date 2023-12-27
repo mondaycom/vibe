@@ -43,9 +43,9 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
       isContentOnTop = false,
       backButtonProps = {},
       nextButtonProps = {},
-      areButtonsIconsHidden = false
+      areButtonsIconsHidden = false,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -69,15 +69,15 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsType } = forwardR
           areButtonsIconsHidden={areButtonsIconsHidden}
           className={cx({
             [styles.contentOnTop]: isContentOnTop,
-            [styles.contentOnBottom]: !isContentOnTop
+            [styles.contentOnBottom]: !isContentOnTop,
           })}
         />
         {!isContentOnTop && steps[activeStepIndex]}
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(Steps, {
-  types: StepsType
+  types: StepsType,
 });

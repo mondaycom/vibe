@@ -11,7 +11,7 @@ export const useMenuGridItemNavContext = ({
   getNextSelectableIndex,
   activeItemIndex,
   isUnderSubMenu,
-  closeMenu
+  closeMenu,
 }: {
   wrapperRef?: GridElementRef;
   setActiveItemIndex?: (index: number) => void;
@@ -42,7 +42,7 @@ export const useMenuGridItemNavContext = ({
               closeMenu({});
             }
         }
-      }
+      },
     }),
     [
       innerKeyboardContext,
@@ -51,8 +51,8 @@ export const useMenuGridItemNavContext = ({
       activeItemIndex,
       getNextSelectableIndex,
       isUnderSubMenu,
-      closeMenu
-    ]
+      closeMenu,
+    ],
   );
 
   return keyboardContext;

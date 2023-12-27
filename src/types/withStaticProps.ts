@@ -7,5 +7,5 @@ type Required<T> = {
 
 export const withStaticProps = <T, P, S>(
   forwarded: (VibeComponent<T, P> & Partial<S>) | (React.FC<T> & Partial<S>),
-  staticProps: Required<S>
+  staticProps: Required<S>,
 ) => Object.assign(forwarded, staticProps);

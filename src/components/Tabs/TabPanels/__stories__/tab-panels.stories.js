@@ -4,14 +4,14 @@ import TabPanels from "../TabPanels";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: TabPanels,
-  enumPropNamesArray: ["animationDirection"]
+  enumPropNamesArray: ["animationDirection"],
 });
 
 export default {
   title: "Navigation/Tabs/TabPanels",
   component: TabPanels,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const tabPanelsTemplate = args => (
@@ -26,6 +26,6 @@ export const Overview = {
   render: tabPanelsTemplate.bind({}),
   name: "Overview",
   args: {
-    activeTabId: 1
-  }
+    activeTabId: 1,
+  },
 };

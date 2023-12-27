@@ -21,7 +21,7 @@ const ClickableWrapper: VibeComponent<ClickableWrapperProps, HTMLElement> = forw
         {children}
       </Clickable>
     );
-  }
+  },
 );
 
 export default ClickableWrapper;

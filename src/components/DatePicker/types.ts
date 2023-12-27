@@ -4,12 +4,12 @@ export type Moment = moment.Moment;
 
 export enum FocusInput {
   startDate = "startDate",
-  endDate = "endDate"
+  endDate = "endDate",
 }
 
 export enum Direction {
   next = "next",
-  prev = "prev"
+  prev = "prev",
 }
 
 export interface RangeDate {

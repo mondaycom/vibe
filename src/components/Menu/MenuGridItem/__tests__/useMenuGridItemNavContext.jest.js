@@ -85,7 +85,7 @@ describe("useMenuGridItemNavContext", () => {
       activeItemIndex = 0,
       isUnderSubMenu = false,
       closeMenu = jest.fn(),
-      mockedInnerUseContext = { onOutboundNavigation: jest.fn() }
+      mockedInnerUseContext = { onOutboundNavigation: jest.fn() },
     }) {
       jest
         .spyOn(GridKeyboardNavigationContextModule, "useGridKeyboardNavigationContext")
@@ -99,8 +99,8 @@ describe("useMenuGridItemNavContext", () => {
           getPreviousSelectableIndex,
           activeItemIndex,
           isUnderSubMenu,
-          closeMenu
-        })
+          closeMenu,
+        }),
       );
     }
   });

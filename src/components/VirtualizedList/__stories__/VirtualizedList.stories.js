@@ -6,7 +6,7 @@ import styles from "./virtualizedList.module.scss";
 
 export default {
   title: "Navigation/VirtualizedList",
-  component: VirtualizedList
+  component: VirtualizedList,
 };
 
 const virtualizedListTemplate = args => {
@@ -18,7 +18,7 @@ const virtualizedListTemplate = args => {
           className={styles.virtualizedListItem}
           style={{
             backgroundColor,
-            height: item.height
+            height: item.height,
           }}
         >
           {item.value}
@@ -34,7 +34,7 @@ const virtualizedListTemplate = args => {
           height: 300,
           overflow: "hidden",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <div style={{ width: 200, height: "100%" }}>
@@ -53,7 +53,7 @@ const virtualizedListTemplate = args => {
           height: 300,
           overflow: "hidden",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <div style={{ height: "100%", width: "100%" }}>
@@ -73,5 +73,5 @@ const virtualizedListTemplate = args => {
 
 export const Overview = {
   render: virtualizedListTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };

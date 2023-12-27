@@ -9,7 +9,7 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem className="test" />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem id="test" />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem title="Test title" />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -42,7 +42,7 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem>Test Children</AccordionItem>
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -53,7 +53,7 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem iconSize={36} />
-        </Accordion>
+        </Accordion>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

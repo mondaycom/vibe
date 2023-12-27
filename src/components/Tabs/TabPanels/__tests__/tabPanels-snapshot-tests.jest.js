@@ -11,7 +11,7 @@ describe("TabPanels renders correctly", () => {
           <TabPanel className="first">First</TabPanel>
           <TabPanel>Second</TabPanel>
           <TabPanel>Third</TabPanel>
-        </TabPanels>
+        </TabPanels>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("TabPanels renders correctly", () => {
           <TabPanel>First</TabPanel>
           <TabPanel>Second</TabPanel>
           <TabPanel>Third</TabPanel>
-        </TabPanels>
+        </TabPanels>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe("TabPanels renders correctly", () => {
           <TabPanel>First</TabPanel>
           <TabPanel>Second</TabPanel>
           <TabPanel>Third</TabPanel>
-        </TabPanels>
+        </TabPanels>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -50,7 +50,7 @@ describe("TabPanels renders correctly", () => {
           <TabPanel>First</TabPanel>
           <TabPanel>Second</TabPanel>
           <TabPanel>Third</TabPanel>
-        </TabPanels>
+        </TabPanels>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

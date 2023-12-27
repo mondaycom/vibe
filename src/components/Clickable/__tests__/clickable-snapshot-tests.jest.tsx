@@ -17,7 +17,7 @@ it("renders correctly with props", () => {
         enableTextSelection
       >
         Children text
-      </Clickable>
+      </Clickable>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

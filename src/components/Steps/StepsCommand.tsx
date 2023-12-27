@@ -27,7 +27,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   stepsCount,
   isIconHidden = false,
   isOnPrimary = false,
-  buttonProps = {}
+  buttonProps = {},
 }) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
@@ -38,7 +38,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   const newStepIndex = isNext ? activeStepIndex + 1 : activeStepIndex - 1;
   const onClick = useCallback(
     (e: React.MouseEvent) => onChangeActiveStep(e, newStepIndex),
-    [newStepIndex, onChangeActiveStep]
+    [newStepIndex, onChangeActiveStep],
   );
   const isDisabled = (isNext && activeStepIndex === stepsCount - 1) || (!isNext && activeStepIndex === 0);
 
@@ -64,7 +64,7 @@ export const StepsCommand: FC<StepsCommandProps> = ({
             [styles.disabled]: isDisabled,
             [styles.onPrimary]: isOnPrimary,
             [styles.forward]: isNext,
-            [styles.backward]: !isNext
+            [styles.backward]: !isNext,
           })}
         />
       )}

@@ -8,7 +8,7 @@ import "./multiStepIndicator.stories.scss";
 
 export default {
   title: "Navigation/MultiStepIndicator",
-  component: MultiStepIndicator
+  component: MultiStepIndicator,
 };
 
 const multiStepIndicatorTemplate = createComponentTemplate(MultiStepIndicator);
@@ -23,22 +23,22 @@ export const Overview = {
         key: "FULFILLED",
         status: MultiStepIndicator.stepStatuses.FULFILLED,
         titleText: "Everything you can do with Monday",
-        subtitleText: "Subtitle"
+        subtitleText: "Subtitle",
       },
       {
         key: "PENDING",
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "Everything you can do with Monday",
-        subtitleText: "Subtitle"
+        subtitleText: "Subtitle",
       },
       {
         key: "PENDING-2",
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "Everything you can do with Monday",
-        subtitleText: "Subtitle"
-      }
-    ]
-  }
+        subtitleText: "Subtitle",
+      },
+    ],
+  },
 };
 
 export const Placements = {
@@ -49,22 +49,22 @@ export const Placements = {
           key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
-          subtitleText: "Fulfilled subtitle"
+          subtitleText: "Fulfilled subtitle",
         },
         {
           key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
-          subtitleText: "Active subtitle"
+          subtitleText: "Active subtitle",
         },
         {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
-          subtitleText: "Pending subtitle"
-        }
+          subtitleText: "Pending subtitle",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -85,7 +85,7 @@ export const Placements = {
     );
   },
 
-  name: "Placements"
+  name: "Placements",
 };
 
 export const Types = {
@@ -96,22 +96,22 @@ export const Types = {
           key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
-          subtitleText: "Fulfilled subtitle"
+          subtitleText: "Fulfilled subtitle",
         },
         {
           key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
-          subtitleText: "Active subtitle"
+          subtitleText: "Active subtitle",
         },
         {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
-          subtitleText: "Pending subtitle"
-        }
+          subtitleText: "Pending subtitle",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -136,7 +136,7 @@ export const Types = {
     );
   },
 
-  name: "Types"
+  name: "Types",
 };
 
 export const Sizes = {
@@ -147,22 +147,22 @@ export const Sizes = {
           key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
-          subtitleText: "Fulfilled subtitle"
+          subtitleText: "Fulfilled subtitle",
         },
         {
           key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
-          subtitleText: "Active subtitle"
+          subtitleText: "Active subtitle",
         },
         {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending",
-          subtitleText: "Pending subtitle"
-        }
+          subtitleText: "Pending subtitle",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -181,7 +181,7 @@ export const Sizes = {
     );
   },
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const FulfilledIcons = {
@@ -192,22 +192,22 @@ export const FulfilledIcons = {
           key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
-          subtitleText: "Fulfilled subtitle"
+          subtitleText: "Fulfilled subtitle",
         },
         {
           key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
-          subtitleText: "Active subtitle"
+          subtitleText: "Active subtitle",
         },
         {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
-          subtitleText: "Pending subtitle"
-        }
+          subtitleText: "Pending subtitle",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -228,7 +228,7 @@ export const FulfilledIcons = {
     );
   },
 
-  name: "Fulfilled Icons"
+  name: "Fulfilled Icons",
 };
 
 export const TransitionAnimation = {
@@ -239,49 +239,49 @@ export const TransitionAnimation = {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "First step title",
-          subtitleText: "First subtitle"
+          subtitleText: "First subtitle",
         },
 
         secondStep: {
           key: "PENDING-2",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Second step title",
-          subtitleText: "Second subtitle"
+          subtitleText: "Second subtitle",
         },
 
         thirdStep: {
           key: "PENDING-3",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Third step title",
-          subtitleText: "Third subtitle"
-        }
+          subtitleText: "Third subtitle",
+        },
       }),
-      []
+      [],
     );
 
     const [steps, setSteps] = useState([
       {
-        ...exampleSteps.firstStep
+        ...exampleSteps.firstStep,
       },
       {
-        ...exampleSteps.secondStep
+        ...exampleSteps.secondStep,
       },
       {
-        ...exampleSteps.thirdStep
-      }
+        ...exampleSteps.thirdStep,
+      },
     ]);
 
     const clearSteps = useCallback(() => {
       setSteps([
         {
-          ...exampleSteps.firstStep
+          ...exampleSteps.firstStep,
         },
         {
-          ...exampleSteps.secondStep
+          ...exampleSteps.secondStep,
         },
         {
-          ...exampleSteps.thirdStep
-        }
+          ...exampleSteps.thirdStep,
+        },
       ]);
     }, [exampleSteps.firstStep, exampleSteps.secondStep, exampleSteps.thirdStep]);
 
@@ -297,9 +297,9 @@ export const TransitionAnimation = {
       () => ({
         [StepStatus.PENDING]: StepStatus.ACTIVE,
         [StepStatus.ACTIVE]: StepStatus.FULFILLED,
-        [StepStatus.FULFILLED]: StepStatus.PENDING
+        [StepStatus.FULFILLED]: StepStatus.PENDING,
       }),
-      []
+      [],
     );
 
     const performIndicatorStateTransition = useCallback(() => {
@@ -313,30 +313,30 @@ export const TransitionAnimation = {
 
       const copySteps = {
         firstStep: {
-          ...steps[0]
+          ...steps[0],
         },
 
         secondStep: {
-          ...steps[1]
+          ...steps[1],
         },
 
         thirdStep: {
-          ...steps[2]
-        }
+          ...steps[2],
+        },
       };
 
       copySteps[stepKey].status = STEP_TRANSITIONS[copySteps[stepKey].status];
 
       setSteps([
         {
-          ...copySteps.firstStep
+          ...copySteps.firstStep,
         },
         {
-          ...copySteps.secondStep
+          ...copySteps.secondStep,
         },
         {
-          ...copySteps.thirdStep
-        }
+          ...copySteps.thirdStep,
+        },
       ]);
 
       setNumActions(numActions + 1);
@@ -353,7 +353,7 @@ export const TransitionAnimation = {
     return <MultiStepIndicator steps={steps} />;
   },
 
-  name: "Transition Animation"
+  name: "Transition Animation",
 };
 
 export const MultiStepWizard = {
@@ -364,22 +364,22 @@ export const MultiStepWizard = {
           key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Step 1",
-          subtitleText: "Learn how to use monday CRM"
+          subtitleText: "Learn how to use monday CRM",
         },
         {
           key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Step 2",
-          subtitleText: "Integrate your email"
+          subtitleText: "Integrate your email",
         },
         {
           key: "PENDING-3",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Step 3",
-          subtitleText: "Import your data"
-        }
+          subtitleText: "Import your data",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -391,5 +391,5 @@ export const MultiStepWizard = {
     );
   },
 
-  name: "Multi step wizard"
+  name: "Multi step wizard",
 };

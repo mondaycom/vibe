@@ -18,7 +18,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   children,
   type = BreadcrumbsBar.types.INDICATION,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => (
   <nav
     aria-label="Breadcrumb"
@@ -34,15 +34,15 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
                 index > 0 && <NavigationChevronRight className={styles.separatorIcon} size="14" aria-hidden="true" />,
                 React.cloneElement(child, {
                   ...child?.props,
-                  isClickable: type !== BreadcrumbsBar.types.INDICATION
-                })
+                  isClickable: type !== BreadcrumbsBar.types.INDICATION,
+                }),
               ]
-            : null
+            : null,
         )}
     </ol>
   </nav>
 );
 
 export default withStaticProps(BreadcrumbsBar, {
-  types: BreadcrumbsBarType
+  types: BreadcrumbsBarType,
 });

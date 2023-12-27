@@ -13,7 +13,7 @@ describe("Toast tests", () => {
     const onCloseMock = jest.fn();
     const toast = renderComponent({
       open: true,
-      onClose: onCloseMock
+      onClose: onCloseMock,
     });
     const closeButton = toast.getByTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON);
 
@@ -29,7 +29,7 @@ describe("Toast tests", () => {
     renderComponent({
       onClose: onCloseMock,
       autoHideDuration: 1000,
-      open: true
+      open: true,
     });
     jest.useFakeTimers();
     expect(onCloseMock.mock.calls.length).toHaveBeenCalledTimes;
@@ -39,7 +39,7 @@ describe("Toast tests", () => {
     const onClickMock = jest.fn();
     renderComponent({
       open: true,
-      actions: [{ type: Toast.actionTypes.BUTTON, key: 1, content: "Button", onClick: onClickMock }]
+      actions: [{ type: Toast.actionTypes.BUTTON, key: 1, content: "Button", onClick: onClickMock }],
     });
     expect(onClickMock.mock.calls.length).toHaveBeenCalledTimes;
   });

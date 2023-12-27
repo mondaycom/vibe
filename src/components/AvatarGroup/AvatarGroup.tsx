@@ -56,7 +56,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   counterProps,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
-  removePadding = false
+  removePadding = false,
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     if (!children) {
@@ -71,10 +71,10 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
           className: cx(styles.avatarContainer, avatarClassName),
-          onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
+          onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props),
         });
       }),
-      counterTooltipAvatars: childrenArray.slice(max)
+      counterTooltipAvatars: childrenArray.slice(max),
     };
   }, [avatarClassName, children, max, size, type]);
 

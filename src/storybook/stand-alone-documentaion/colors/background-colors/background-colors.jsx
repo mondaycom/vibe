@@ -6,7 +6,7 @@ const colorKeys = [
   "primary-background-hover-color",
   "inverted-color-background",
   "grey-background-color",
-  "allgrey-background-color"
+  "allgrey-background-color",
 ];
 
 export const BackgroundColors = () => <ColorsDescription colorNames={colorKeys} />;

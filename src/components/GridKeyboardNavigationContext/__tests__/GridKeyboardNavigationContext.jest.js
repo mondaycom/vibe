@@ -71,7 +71,7 @@ describe("GridKeyboardNavigationContext", () => {
     it("should not focus any other element when the is no last direction of keyboard navigation, after the wrapper element is focused", () => {
       const positions = [
         { leftElement: ref2, rightElement: ref4 },
-        { topElement: ref1, rightElement: ref3 }
+        { topElement: ref1, rightElement: ref3 },
       ];
 
       renderHookForTest(positions);

@@ -4,7 +4,7 @@
 export enum SystemTheme {
   LIGHT = "light",
   DARK = "dark",
-  BLACK = "black"
+  BLACK = "black",
 }
 
 /**
@@ -21,7 +21,7 @@ export enum ThemeColor {
   brandHoverColor = "brand-hover-color",
   brandSelectedColor = "brand-selected-color",
   brandSelectedHoverColor = "brand-selected-hover-color",
-  textColorOnBrand = "text-color-on-brand"
+  textColorOnBrand = "text-color-on-brand",
 }
 
 export type Theme = {
@@ -49,7 +49,7 @@ type ThemeCustomClassValue = {
 export const SystemThemeClassMap: SystemThemeClassMapType = {
   [SystemTheme.LIGHT]: "light-app-theme",
   [SystemTheme.DARK]: "dark-app-theme",
-  [SystemTheme.BLACK]: "black-app-theme"
+  [SystemTheme.BLACK]: "black-app-theme",
 };
 
 type SystemThemeClassMapType = {

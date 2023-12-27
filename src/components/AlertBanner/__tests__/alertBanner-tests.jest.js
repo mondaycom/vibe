@@ -21,7 +21,7 @@ describe("<AlertBanner />", () => {
         <AlertBanner onClose={onCloseStub}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerButton onClick={NOOP}>Lorem Ipsum Salura</AlertBannerButton>
-        </AlertBanner>
+        </AlertBanner>,
       );
     });
 

@@ -7,7 +7,7 @@ import "./alertBanner.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
-  enumPropNamesArray: ["backgroundColor"]
+  enumPropNamesArray: ["backgroundColor"],
 });
 
 const alertBannerTemplate = args => {
@@ -23,7 +23,7 @@ export default {
   title: "Feedback/AlertBanner",
   component: AlertBanner,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -33,8 +33,8 @@ export const Overview = {
   args: {
     bannerText: "Alert banner message",
     linkText: "this is a CTA",
-    className: "monday-storybook-alert-banner_big-container"
-  }
+    className: "monday-storybook-alert-banner_big-container",
+  },
 };
 
 export const Types = {
@@ -63,7 +63,7 @@ export const Types = {
     </div>
   ),
 
-  name: "Types"
+  name: "Types",
 };
 
 export const AlertBannerWithButton = {
@@ -74,7 +74,7 @@ export const AlertBannerWithButton = {
     </AlertBanner>
   ),
 
-  name: "Alert Banner with button"
+  name: "Alert Banner with button",
 };
 
 export const AlertBannerWithLink = {
@@ -85,7 +85,7 @@ export const AlertBannerWithLink = {
     </AlertBanner>
   ),
 
-  name: "Alert Banner with link"
+  name: "Alert Banner with link",
 };
 
 export const AlertBannerAsAnAnnouncement = {
@@ -99,7 +99,7 @@ export const AlertBannerAsAnAnnouncement = {
     </AlertBanner>
   ),
 
-  name: "Alert banner as an announcement"
+  name: "Alert banner as an announcement",
 };
 
 export const AlertBannerAsAnOpportunityToUpgrade = {
@@ -110,7 +110,7 @@ export const AlertBannerAsAnOpportunityToUpgrade = {
     </AlertBanner>
   ),
 
-  name: "Alert banner as an opportunity to upgrade"
+  name: "Alert banner as an opportunity to upgrade",
 };
 
 export const OverflowText = {
@@ -121,5 +121,5 @@ export const OverflowText = {
     </AlertBanner>
   ),
 
-  name: "Overflow text"
+  name: "Overflow text",
 };

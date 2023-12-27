@@ -22,7 +22,7 @@ const colorKeys = [
   "inverted-color-background",
   "icon-color",
   "fixed-light-color",
-  "fixed-dark-color"
+  "fixed-dark-color",
 ];
 
 export const SemanticColors = () => <ColorsDescription colorNames={colorKeys} />;

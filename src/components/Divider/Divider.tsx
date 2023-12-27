@@ -25,7 +25,7 @@ const Divider: React.FC<DividerProps> & {
   withoutMargin = false,
   direction = DirectionType.HORIZONTAL,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return (
@@ -33,12 +33,12 @@ const Divider: React.FC<DividerProps> & {
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
       className={cx(styles.divider, overrideClassName, getStyle(styles, direction), {
-        [styles.withoutMargin]: withoutMargin
+        [styles.withoutMargin]: withoutMargin,
       })}
     />
   );
 };
 
 export default withStaticProps(Divider, {
-  directions: DirectionType
+  directions: DirectionType,
 });

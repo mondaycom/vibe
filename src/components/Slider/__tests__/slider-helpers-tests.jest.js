@@ -18,7 +18,7 @@ describe("Check calculatePageStep helper", () => {
     [10, 0, 100, 1],
     [8, 10, 90, 2],
     [6, 0, 60, 3],
-    [10, 0, 100, 10]
+    [10, 0, 100, 10],
   ])("pageStep should be (%i) for: min=%i, max=%i, step=%i", (expected, min, max, step) => {
     expect(calculatePageStep(max, min, step)).toBe(expected);
   });

@@ -8,16 +8,16 @@ const getAddons = () => {
     {
       name: "@storybook/addon-essentials",
       options: {
-        backgrounds: false
-      }
+        backgrounds: false,
+      },
     },
     "@storybook/addon-themes",
     "@storybook/preset-scss",
     {
       name: "@storybook/addon-styling-webpack",
-      options: storybookAddonStylingWebpackOptions
+      options: storybookAddonStylingWebpackOptions,
     },
-    "storybook-addon-playground"
+    "storybook-addon-playground",
   ];
 
   if (process.env.NODE_ENV !== "production") {
@@ -31,11 +31,11 @@ const config: StorybookConfig = {
   addons: getAddons(),
   framework: {
     name: "@storybook/react-webpack5",
-    options: {}
+    options: {},
   },
   docs: {
-    autodocs: false
+    autodocs: false,
   },
-  features: {}
+  features: {},
 };
 export default config;

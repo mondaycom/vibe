@@ -5,7 +5,7 @@ import { ReactElement } from "react";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../../tests/__tests__/test-utils";
 
 jest.mock("../../utils/utils", () => ({
-  isMenuChildSelectable: jest.fn()
+  isMenuChildSelectable: jest.fn(),
 }));
 
 function renderHookWithProps(props: Partial<UseFocusOnMountProps>) {
@@ -16,8 +16,8 @@ function renderHookWithProps(props: Partial<UseFocusOnMountProps>) {
       getNextSelectableIndex: jest.fn(),
       updateActiveItemIndex: jest.fn(),
       setIsInitialFocusSet: jest.fn(),
-      ...props
-    })
+      ...props,
+    }),
   );
 }
 
@@ -37,7 +37,7 @@ describe("useFocusOnMount", () => {
     renderHookWithProps({
       focusItemIndexOnMount: -1,
       updateActiveItemIndex: mockUpdateActiveItemIndex,
-      setIsInitialFocusSet: mockSetIsInitialFocusSet
+      setIsInitialFocusSet: mockSetIsInitialFocusSet,
     });
 
     expect(mockUpdateActiveItemIndex).not.toHaveBeenCalled();
@@ -50,7 +50,7 @@ describe("useFocusOnMount", () => {
     renderHookWithProps({
       focusItemIndexOnMount: 0,
       updateActiveItemIndex: mockUpdateActiveItemIndex,
-      setIsInitialFocusSet: mockSetIsInitialFocusSet
+      setIsInitialFocusSet: mockSetIsInitialFocusSet,
     });
 
     expect(mockUpdateActiveItemIndex).toHaveBeenCalledWith(0);
@@ -64,7 +64,7 @@ describe("useFocusOnMount", () => {
       focusItemIndexOnMount: 0,
       getNextSelectableIndex: jest.fn().mockReturnValueOnce(1),
       updateActiveItemIndex: mockUpdateActiveItemIndex,
-      setIsInitialFocusSet: mockSetIsInitialFocusSet
+      setIsInitialFocusSet: mockSetIsInitialFocusSet,
     });
 
     expect(mockUpdateActiveItemIndex).toHaveBeenCalledWith(1);
@@ -78,7 +78,7 @@ describe("useFocusOnMount", () => {
       focusItemIndexOnMount: 0,
       getNextSelectableIndex: jest.fn().mockReturnValueOnce(null),
       updateActiveItemIndex: mockUpdateActiveItemIndex,
-      setIsInitialFocusSet: mockSetIsInitialFocusSet
+      setIsInitialFocusSet: mockSetIsInitialFocusSet,
     });
 
     expect(mockUpdateActiveItemIndex).not.toHaveBeenCalled();

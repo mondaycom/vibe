@@ -4,7 +4,7 @@ import { Email } from "../../../Icon/Icons";
 
 export default {
   title: "Navigation/Tabs/Tab",
-  component: Tab
+  component: Tab,
 };
 
 const tabTemplate = createComponentTemplate(Tab);
@@ -12,9 +12,9 @@ const tabTemplate = createComponentTemplate(Tab);
 export const Overview = {
   render: tabTemplate.bind({}),
   args: {
-    children: "Tab"
+    children: "Tab",
   },
-  name: "Overview"
+  name: "Overview",
 };
 
 export const States = {
@@ -26,7 +26,7 @@ export const States = {
     </>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const Icons = {
@@ -39,5 +39,5 @@ export const Icons = {
     </>
   ),
 
-  name: "Icons"
+  name: "Icons",
 };

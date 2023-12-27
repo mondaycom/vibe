@@ -70,9 +70,9 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref: React.ForwardedRef<HTMLAnchorElement>
+    ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const isStart = iconPosition === IconPosition.START;
@@ -84,7 +84,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         }
         onClick && onClick(e);
       },
-      [disableNavigation, onClick]
+      [disableNavigation, onClick],
     );
 
     return (
@@ -98,7 +98,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         target={target}
         className={cx(styles.link, overrideClassName, {
           [styles.inheritFontSize]: inheritFontSize,
-          [styles.inlineText]: inlineText
+          [styles.inlineText]: inlineText,
         })}
         aria-label={ariaLabelDescription}
         aria-describedby={ariaDescribedby}
@@ -109,7 +109,7 @@ const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
         {getIcon(!isStart, icon, cx(styles.iconEnd))}
       </a>
     );
-  }
+  },
 );
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
@@ -121,5 +121,5 @@ export default withStaticProps(Link, {
   position: IconPosition,
   target: LinkTarget,
   iconPositions: IconPosition,
-  targets: LinkTarget
+  targets: LinkTarget,
 });

@@ -26,20 +26,20 @@ import {
   withMemoryStats,
   RelatedComponent,
   MultipleStoryElementsWrapper,
-  StorybookLink
+  StorybookLink,
 } from "vibe-storybook-components";
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 
 const fontLoader = async () => ({
-  fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
+  fonts: await document.fonts.ready, // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
 });
 
 const preview: Preview = {
   parameters: {
     controls: {
-      sort: "alpha"
+      sort: "alpha",
     },
     docs: {
       container: ({ children, context }: { children: any; context: any }) => (
@@ -74,8 +74,8 @@ const preview: Preview = {
         StorybookLink,
         Tip,
         UnstyledList,
-        UnstyledListItem
-      }
+        UnstyledListItem,
+      },
     },
     options: {
       storySort: {
@@ -93,14 +93,14 @@ const preview: Preview = {
           "Pickers",
           "*",
           "Accessibility",
-          "Hooks"
-        ]
-      }
+          "Hooks",
+        ],
+      },
     },
     playground: {
       playgroundStoryId: "playground",
-      components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext }
-    }
+      components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext },
+    },
   },
   decorators: [
     (Story, { className }: { className: string }) => {
@@ -116,10 +116,10 @@ const preview: Preview = {
       themes: {
         Light: "light-app-theme",
         Dark: "dark-app-theme",
-        Black: "black-app-theme"
+        Black: "black-app-theme",
       },
-      defaultTheme: "Light"
-    })
+      defaultTheme: "Light",
+    }),
   ],
   globalTypes: {
     memoryStats: {
@@ -130,12 +130,12 @@ const preview: Preview = {
         icon: "memory",
         items: [
           { value: "no", right: "🚫", title: "Hide Memory Stat" },
-          { value: "yes", right: "✅", title: "Show Memory Stat" }
-        ]
-      }
-    }
+          { value: "yes", right: "✅", title: "Show Memory Stat" },
+        ],
+      },
+    },
   },
-  loaders: isChromatic() && document.fonts ? [fontLoader] : []
+  loaders: isChromatic() && document.fonts ? [fontLoader] : [],
 };
 
 export default preview;

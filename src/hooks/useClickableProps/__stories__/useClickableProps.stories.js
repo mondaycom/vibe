@@ -3,7 +3,7 @@ import useClickableProps from "../useClickableProps";
 import "./useClickableProps.stories.scss";
 
 export default {
-  title: "Hooks/useClickableProps"
+  title: "Hooks/useClickableProps",
 };
 
 export const Overview = {
@@ -17,9 +17,9 @@ export const Overview = {
         id: "clickable-id",
         ariaHidden: false,
         ariaHasPopup: false,
-        ariaExpanded: false
+        ariaExpanded: false,
       },
-      ref
+      ref,
     );
 
     return (
@@ -29,5 +29,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

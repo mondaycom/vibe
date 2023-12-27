@@ -12,14 +12,14 @@ import styles from "./AvatarGroup.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup,
-  enumPropNamesArray: ["type", "size"] // List enum props here
+  enumPropNamesArray: ["type", "size"], // List enum props here
 });
 
 export default {
   title: "Media/Avatar/AvatarGroup",
   component: AvatarGroup,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const avatarGroupTemplate = ({ persons, ...args }) => {
@@ -50,9 +50,9 @@ export const Overview = {
     persons: {
       person1: window.location.origin + "/" + person1,
       person2: window.location.origin + "/" + person2,
-      person3: window.location.origin + "/" + person3
-    }
-  }
+      person3: window.location.origin + "/" + person3,
+    },
+  },
 };
 
 export const Size = {
@@ -91,7 +91,7 @@ export const Size = {
     </Flex>
   ),
 
-  name: "Size"
+  name: "Size",
 };
 
 export const ColorVariants = {
@@ -103,7 +103,7 @@ export const ColorVariants = {
           type={Avatar.types.IMG}
           max={3}
           counterProps={{
-            color: Counter.colors.LIGHT
+            color: Counter.colors.LIGHT,
           }}
         >
           <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
@@ -120,7 +120,7 @@ export const ColorVariants = {
           type={Avatar.types.IMG}
           max={3}
           counterProps={{
-            color: Counter.colors.DARK
+            color: Counter.colors.DARK,
           }}
         >
           <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
@@ -134,7 +134,7 @@ export const ColorVariants = {
     </Flex>
   ),
 
-  name: "Color variants"
+  name: "Color variants",
 };
 
 export const CustomCounter = {
@@ -147,7 +147,7 @@ export const CustomCounter = {
         count: 100500,
         color: Counter.colors.DARK,
         prefix: "",
-        maxDigits: 5
+        maxDigits: 5,
       }}
     >
       <Avatar src={person1} ariaLabel="Hadas Fahri" />
@@ -156,7 +156,7 @@ export const CustomCounter = {
     </AvatarGroup>
   ),
 
-  name: "Custom counter"
+  name: "Custom counter",
 };
 
 export const GridTooltip = {
@@ -183,7 +183,7 @@ export const GridTooltip = {
     </AvatarGroup>
   ),
 
-  name: "Grid tooltip"
+  name: "Grid tooltip",
 };
 
 export const MaxAmountToDisplay = {
@@ -229,7 +229,7 @@ export const MaxAmountToDisplay = {
     );
   },
 
-  name: "Max amount to display"
+  name: "Max amount to display",
 };
 
 export const HoverVsClickable = {
@@ -245,18 +245,18 @@ export const HoverVsClickable = {
         {
           type: Avatar.types.IMG,
           src: person1,
-          ariaLabel: "Hadas Fahri"
+          ariaLabel: "Hadas Fahri",
         },
         {
           type: Avatar.types.IMG,
           src: person2,
-          ariaLabel: "Sergey Roytman"
+          ariaLabel: "Sergey Roytman",
         },
         {
           type: Avatar.types.IMG,
           src: person3,
-          ariaLabel: "Yossi Saadi"
-        }
+          ariaLabel: "Yossi Saadi",
+        },
       ];
 
       let result = [];
@@ -275,7 +275,7 @@ export const HoverVsClickable = {
             size={Avatar.sizes.LARGE}
             max={3}
             counterTooltipCustomProps={{
-              position: Tooltip.positions.BOTTOM
+              position: Tooltip.positions.BOTTOM,
             }}
           >
             {getDummyAvatarsProps(3).map(avatarProps => (
@@ -297,7 +297,7 @@ export const HoverVsClickable = {
     );
   },
 
-  name: "Hover vs Clickable"
+  name: "Hover vs Clickable",
 };
 
 export const VirtualizedList = {
@@ -305,7 +305,7 @@ export const VirtualizedList = {
     const avatars = [
       <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />,
       <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />,
-      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
+      <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />,
     ];
 
     const getDummyAvatars = multiplier => {
@@ -325,7 +325,7 @@ export const VirtualizedList = {
     );
   },
 
-  name: "Virtualized list"
+  name: "Virtualized list",
 };
 
 export const CounterCustomTooltipContent = {
@@ -335,7 +335,7 @@ export const CounterCustomTooltipContent = {
       type={Avatar.types.IMG}
       max={3}
       counterTooltipCustomProps={{
-        content: "... and plenty more employees"
+        content: "... and plenty more employees",
       }}
     >
       <Avatar src={person1} ariaLabel="Hadas Fahri" />
@@ -347,7 +347,7 @@ export const CounterCustomTooltipContent = {
     </AvatarGroup>
   ),
 
-  name: "Counter custom tooltip content"
+  name: "Counter custom tooltip content",
 };
 
 export const LastSeenUsers = {
@@ -365,7 +365,7 @@ export const LastSeenUsers = {
     </Flex>
   ),
 
-  name: "Last seen users"
+  name: "Last seen users",
 };
 
 export const DisplayingTeams = {
@@ -398,7 +398,7 @@ export const DisplayingTeams = {
               size={Avatar.sizes.MEDIUM}
               max={2}
               counterProps={{
-                ariaLabelItemsName: "teams"
+                ariaLabelItemsName: "teams",
               }}
             >
               <Avatar
@@ -426,5 +426,5 @@ export const DisplayingTeams = {
     </table>
   ),
 
-  name: "Displaying teams"
+  name: "Displaying teams",
 };

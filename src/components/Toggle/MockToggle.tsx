@@ -22,7 +22,7 @@ export const MockToggle: FC<MockToggleProps> = ({
   onOverrideText,
   className,
   selectedClassName,
-  disabled
+  disabled,
 }) => (
   <>
     {areLabelsHidden ? null : <ToggleText disabled={disabled}>{offOverrideText}</ToggleText>}
@@ -30,7 +30,7 @@ export const MockToggle: FC<MockToggleProps> = ({
       className={cx(styles.toggle, className, {
         [cx(styles.selected, selectedClassName)]: checked,
         [styles.notSelected]: !checked,
-        [styles.disabled]: disabled
+        [styles.disabled]: disabled,
       })}
       aria-hidden="true"
       data-testid={getTestId(ComponentDefaultTestId.TOGGLE)}

@@ -6,7 +6,7 @@ import { ExternalPage } from "../../../../components/Icon/Icons";
 export const LinkDescription = () => {
   const component = useMemo(
     () => <Link text="Read more" icon={ExternalPage} iconPosition={Link.iconPositions.START} />,
-    []
+    [],
   );
   return (
     <RelatedComponent

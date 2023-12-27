@@ -9,14 +9,14 @@ import "./toast.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Toast,
   enumPropNamesArray: ["type"],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 export default {
   title: "Feedback/Toast",
   component: Toast,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const toastTemplate = createComponentTemplate(Toast);
@@ -33,10 +33,10 @@ export const Overview = {
     actions: [
       {
         type: Toast.actionTypes.BUTTON,
-        content: "Button"
-      }
-    ]
-  }
+        content: "Button",
+      },
+    ],
+  },
 };
 
 export const DefaultWithButton = {
@@ -45,10 +45,10 @@ export const DefaultWithButton = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Button"
-        }
+          content: "Button",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -58,7 +58,7 @@ export const DefaultWithButton = {
     );
   },
 
-  name: "Default with button"
+  name: "Default with button",
 };
 
 export const ToastWithLink = {
@@ -68,10 +68,10 @@ export const ToastWithLink = {
         {
           type: Toast.actionTypes.LINK,
           text: "Link to action",
-          href: "https://monday.com"
-        }
+          href: "https://monday.com",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -81,7 +81,7 @@ export const ToastWithLink = {
     );
   },
 
-  name: "Toast with link"
+  name: "Toast with link",
 };
 
 export const ToastWithLoading = {
@@ -94,7 +94,7 @@ export const ToastWithLoading = {
   },
 
   name: "Toast with loading",
-  parameters: { chromatic: { pauseAnimationAtEnd: true } }
+  parameters: { chromatic: { pauseAnimationAtEnd: true } },
 };
 
 export const SuccessMessage = {
@@ -103,10 +103,10 @@ export const SuccessMessage = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Undo 5"
-        }
+          content: "Undo 5",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -122,7 +122,7 @@ export const SuccessMessage = {
     );
   },
 
-  name: "Success message"
+  name: "Success message",
 };
 
 export const ErrorMessage = {
@@ -131,10 +131,10 @@ export const ErrorMessage = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Button"
-        }
+          content: "Button",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -150,7 +150,7 @@ export const ErrorMessage = {
     );
   },
 
-  name: "Error message"
+  name: "Error message",
 };
 
 export const WarningMessage = {
@@ -159,10 +159,10 @@ export const WarningMessage = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Button"
-        }
+          content: "Button",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -178,7 +178,7 @@ export const WarningMessage = {
     );
   },
 
-  name: "Warning message"
+  name: "Warning message",
 };
 
 export const DarkMessage = {
@@ -187,10 +187,10 @@ export const DarkMessage = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Button"
-        }
+          content: "Button",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -206,7 +206,7 @@ export const DarkMessage = {
     );
   },
 
-  name: "Dark message"
+  name: "Dark message",
 };
 
 // TODO storybook 7 migration: toast isn't opening at the top of the page, but inside of the story instead
@@ -220,10 +220,10 @@ export const FeedbackLoop = {
       () => [
         {
           type: Toast.actionTypes.BUTTON,
-          content: "Undo"
-        }
+          content: "Undo",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -245,5 +245,5 @@ export const FeedbackLoop = {
     );
   },
 
-  name: "Feedback loop"
+  name: "Feedback loop",
 };

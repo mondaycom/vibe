@@ -9,7 +9,7 @@ export const StickyCategoryHeader = ({ label }: { label: string }) => {
       className={cx(
         styles.stickyCategoryHeader,
         comboboxStyles.comboboxCategory,
-        comboboxCategoryStyles.comboboxCategory
+        comboboxCategoryStyles.comboboxCategory,
       )}
       aria-hidden
     >

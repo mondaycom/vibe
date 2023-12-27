@@ -113,9 +113,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
-      splitMenuItem = false
+      splitMenuItem = false,
     },
-    ref: ForwardedRef<HTMLElement>
+    ref: ForwardedRef<HTMLElement>,
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
@@ -129,7 +129,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     } else if (submenuChild) {
       console.error(
         "menu item can accept only menu element as first level child, this element is not valid: ",
-        submenuChild
+        submenuChild,
       );
     }
 
@@ -149,7 +149,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
     const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
-      isOpen: isSubMenuOpen
+      isOpen: isSubMenuOpen,
     });
     useEffect(() => {
       if (isActive && shouldScrollMenu && referenceElement) {
@@ -170,7 +170,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       setActiveItemIndex,
       index,
       hasChildren,
-      splitMenuItem
+      splitMenuItem,
     });
 
     const { onClickCallback } = useMenuItemKeyboardEvents({
@@ -188,7 +188,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       useDocumentEventListeners,
       splitMenuItem,
       isMouseEnterMenuItem,
-      isMouseEnterIconButton
+      isMouseEnterIconButton,
     });
 
     useLayoutEffect(() => {
@@ -215,7 +215,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           closeMenu(options);
         }
       },
-      [setSubMenuIsOpenByIndex, index, closeMenu]
+      [setSubMenuIsOpenByIndex, index, closeMenu],
     );
 
     const renderSubMenuIconIfNeeded = () => {
@@ -255,9 +255,9 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             {
               backgroundColor: iconBackgroundColor,
               borderRadius: "4px",
-              opacity: disabled ? 0.4 : 1
+              opacity: disabled ? 0.4 : 1,
             },
-            { color: "var(--text-color-on-primary)" }
+            { color: "var(--text-color-on-primary)" },
           ]
         : [];
     }, [iconBackgroundColor, disabled]);
@@ -290,7 +290,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       if (!children) return {};
       return {
         "aria-haspopup": true,
-        "aria-expanded": hasOpenSubMenu
+        "aria-expanded": hasOpenSubMenu,
       };
     }, [children, hasOpenSubMenu]);
 
@@ -316,7 +316,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           [styles.focused]: isActive,
           [styles.selected]: selected,
           [styles.initialSelected]: isInitialSelectedState,
-          [styles.splitMenuItem]: splitMenuItem
+          [styles.splitMenuItem]: splitMenuItem,
         })}
         ref={mergedRef}
         onClick={onClickCallback}
@@ -354,22 +354,22 @@ const MenuItem: VibeComponent<MenuItemProps> & {
                 isSubMenu: true,
                 onClose: closeSubMenu,
                 ref: childRef,
-                useDocumentEventListeners
+                useDocumentEventListeners,
               })}
             </DialogContentContainer>
           )}
         </div>
       </Text>
     );
-  }
+  },
 );
 
 Object.assign(MenuItem, {
   isSelectable: true,
-  isMenuChild: true
+  isMenuChild: true,
 });
 
 export default withStaticProps(MenuItem, {
   iconType: Icon.type,
-  tooltipPositions: DialogPosition
+  tooltipPositions: DialogPosition,
 });

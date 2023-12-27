@@ -33,9 +33,9 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
       infoContent,
       icon,
       sortState = "none",
-      sortButtonAriaLabel = "Sort"
+      sortButtonAriaLabel = "Sort",
     },
-    ref
+    ref,
   ) => {
     return (
       <div
@@ -78,7 +78,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         )}
       </div>
     );
-  }
+  },
 );
 
 export default TableHeaderCell;

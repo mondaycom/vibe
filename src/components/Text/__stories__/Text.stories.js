@@ -11,14 +11,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Text,
   enumPropNamesArray: ["types", "weights", "colors", { propName: "align", enumName: "align" }], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: [], // List the component's actions here
 });
 
 export default {
   title: "Text/Text",
   component: Text,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const textTemplate = createComponentTemplate(Text);
@@ -28,8 +28,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: "Hi, I'm a text!"
-  }
+    children: "Hi, I'm a text!",
+  },
 };
 
 export const SizesAndWeights = {
@@ -61,7 +61,7 @@ export const SizesAndWeights = {
     </Flex>
   ),
 
-  name: "Sizes and weights"
+  name: "Sizes and weights",
 };
 
 export const Colors = {
@@ -87,7 +87,7 @@ export const Colors = {
         element="div"
         className={cx(styles.smallRectangle)}
         style={{
-          backgroundColor: "black"
+          backgroundColor: "black",
         }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
@@ -98,7 +98,7 @@ export const Colors = {
         element="div"
         className={cx(styles.smallRectangle)}
         style={{
-          backgroundColor: "whitesmoke"
+          backgroundColor: "whitesmoke",
         }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
@@ -108,7 +108,7 @@ export const Colors = {
     </Flex>
   ),
 
-  name: "Colors"
+  name: "Colors",
 };
 
 export const Overflow = {
@@ -125,7 +125,7 @@ export const Overflow = {
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         /**for testing purposes**/
         tooltipProps={{
-          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
+          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`,
         }}
       >
         This is an example of text with overflow and a Tooltip to help or provide information about specific components
@@ -139,7 +139,7 @@ export const Overflow = {
   ),
 
   name: "Overflow",
-  play: textOverflowSuite
+  play: textOverflowSuite,
 };
 
 export const Paragraph = {
@@ -162,7 +162,7 @@ export const Paragraph = {
     </Flex>
   ),
 
-  name: "Paragraph"
+  name: "Paragraph",
 };
 
 export const LinksInsideRunningText = {
@@ -202,7 +202,7 @@ export const LinksInsideRunningText = {
         ellipsis={false}
         className={cx(styles.mediumRectangle)}
         style={{
-          backgroundColor: "black"
+          backgroundColor: "black",
         }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_LIGHT}
@@ -218,7 +218,7 @@ export const LinksInsideRunningText = {
         ellipsis={false}
         className={cx(styles.mediumRectangle)}
         style={{
-          backgroundColor: "whitesmoke"
+          backgroundColor: "whitesmoke",
         }}
         align={Text.align.CENTER}
         color={Text.colors.FIXED_DARK}
@@ -232,5 +232,5 @@ export const LinksInsideRunningText = {
     </Flex>
   ),
 
-  name: "Links inside running text"
+  name: "Links inside running text",
 };

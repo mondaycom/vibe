@@ -14,7 +14,7 @@ function renderHookForTest({
   onItemClick = jest.fn(),
   defaultVisualFocusFirstIndex = false,
   isItemSelectable = () => true,
-  isHorizontal = false
+  isHorizontal = false,
 }) {
   element = document.createElement("div");
   element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
@@ -22,13 +22,13 @@ function renderHookForTest({
 
   const props = {
     focusedElementRef: {
-      current: element
+      current: element,
     },
     defaultVisualFocusFirstIndex,
     itemsIds: ITEM_IDS,
     isItemSelectable: isItemSelectable,
     onItemClick,
-    isHorizontalList: isHorizontal
+    isHorizontalList: isHorizontal,
   };
   return renderHook(argprops => useActiveDescendantListFocus({ ...props, ...argprops }));
 }
@@ -71,7 +71,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
     const onItemClick = jest.fn();
     const { result, rerender } = renderHookForTest({
       onItemClick,
-      defaultVisualFocusFirstIndex
+      defaultVisualFocusFirstIndex,
     });
     const moveForwardKey = "{arrowDown}";
     act(() => {
@@ -128,7 +128,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
 
     act(() =>
       // Trigger on click by press enter
-      userEvent.keyboard("{Enter}")
+      userEvent.keyboard("{Enter}"),
     );
 
     expect(onItemClick).toHaveBeenCalledTimes(0);
@@ -232,7 +232,7 @@ describe("useActiveDescendantListFocus", () => {
 
   const features = {
     isHorizontal: { yes: "Horizontal", no: "Vertical" },
-    defaultVisualFocusFirstIndex: { yes: "KeepOpen", no: "" }
+    defaultVisualFocusFirstIndex: { yes: "KeepOpen", no: "" },
   };
 
   const featureCombinations = combineFeatures(Object.keys(features));

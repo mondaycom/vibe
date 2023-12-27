@@ -7,14 +7,14 @@ import styles from "./EditableHeading.stories.module.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
   enumPropNamesArray: ["weight", "type"],
-  actionPropsArray: ["onChange"]
+  actionPropsArray: ["onChange"],
 });
 
 export default {
   title: "Inputs/EditableHeading",
   component: EditableHeading,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const editableHeadingTemplate = createComponentTemplate(EditableHeading);
@@ -24,9 +24,9 @@ export const Overview = {
   name: "Overview",
   args: {
     value: "This heading is an editable heading",
-    type: EditableHeading.types.H1
+    type: EditableHeading.types.H1,
   },
-  play: overviewPlaySuite
+  play: overviewPlaySuite,
 };
 
 export const Types = {
@@ -94,5 +94,5 @@ export const Types = {
       </div>
     </div>
   ),
-  name: "Types"
+  name: "Types",
 };

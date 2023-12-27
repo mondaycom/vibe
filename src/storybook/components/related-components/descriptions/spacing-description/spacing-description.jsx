@@ -11,7 +11,7 @@ export const SpacingDescription = () => {
         <div className={classes["large-spacing-visual-element"]} />
       </div>
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

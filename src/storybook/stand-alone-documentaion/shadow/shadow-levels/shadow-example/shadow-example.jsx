@@ -20,5 +20,5 @@ ShadowExample.size = {
   XS: "xs",
   SMALL: "small",
   MEDIUM: "medium",
-  LARGE: "large"
+  LARGE: "large",
 };

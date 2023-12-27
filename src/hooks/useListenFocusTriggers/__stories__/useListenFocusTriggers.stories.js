@@ -4,7 +4,7 @@ import { Button, Flex } from "../../../components";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useListenFocusTriggers"
+  title: "Hooks/useListenFocusTriggers",
 };
 
 export const Overview = {
@@ -23,7 +23,7 @@ export const Overview = {
     useListenFocusTriggers({
       ref: ref,
       onFocusByMouse: onFocusByMouse,
-      onFocusByKeyboard: onFocusByKeyboard
+      onFocusByKeyboard: onFocusByKeyboard,
     });
 
     return (
@@ -34,5 +34,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

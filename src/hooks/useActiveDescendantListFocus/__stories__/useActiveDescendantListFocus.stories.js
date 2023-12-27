@@ -10,7 +10,7 @@ import styles from "./useActiveDescendantListFocus.module.scss";
 
 export default {
   title: "Hooks/useActiveDescendantListFocus",
-  component: UseActiveDescendantListFocus
+  component: UseActiveDescendantListFocus,
 };
 
 export const Overview = {
@@ -30,7 +30,7 @@ export const Overview = {
       onItemClick,
       isItemSelectable,
       isHorizontalList: false,
-      isIgnoreSpaceAsItemSelection: true
+      isIgnoreSpaceAsItemSelection: true,
     });
 
     return (
@@ -44,7 +44,7 @@ export const Overview = {
           <li
             onClick={onItemClick}
             className={cx({
-              [styles.visualFocus]: visualFocusItemId === "id-1"
+              [styles.visualFocus]: visualFocusItemId === "id-1",
             })}
             id="id-1"
             key="id-1"
@@ -54,7 +54,7 @@ export const Overview = {
           <li
             onClick={onItemClick}
             className={cx({
-              [styles.visualFocus]: visualFocusItemId === "id-2"
+              [styles.visualFocus]: visualFocusItemId === "id-2",
             })}
             id="id-2"
             key="id-2"
@@ -64,7 +64,7 @@ export const Overview = {
           <li
             onClick={onItemClick}
             className={cx({
-              [styles.visualFocus]: visualFocusItemId === "id-3"
+              [styles.visualFocus]: visualFocusItemId === "id-3",
             })}
             id="id-3"
             key="id-3"
@@ -77,5 +77,5 @@ export const Overview = {
   },
 
   name: "Overview",
-  play: overviewInteractionSuite
+  play: overviewInteractionSuite,
 };

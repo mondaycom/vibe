@@ -7,7 +7,7 @@ import {
   SkeletonSizeType,
   SkeletonType,
   SKELETON_CUSTOM_SIZE,
-  TextSkeletonSize
+  TextSkeletonSize,
 } from "./SkeletonConstants";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
@@ -37,7 +37,7 @@ const Skeleton: FC<SkeletonProps> & {
   height,
   fullWidth = false,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const skeletonType = Object.values(SkeletonType).includes(type) ? type : SkeletonType.RECTANGLE;
 
@@ -51,7 +51,7 @@ const Skeleton: FC<SkeletonProps> & {
     >
       <div
         className={cx(styles[skeletonType], getStyle(styles, camelCase(skeletonType + "-" + skeletonSize)), className, {
-          [styles.fullWidth]: fullWidth
+          [styles.fullWidth]: fullWidth,
         })}
         style={{ width, height }}
       />
@@ -61,5 +61,5 @@ const Skeleton: FC<SkeletonProps> & {
 
 export default withStaticProps(Skeleton, {
   types: SkeletonType,
-  sizes: SKELETON_SIZES
+  sizes: SKELETON_SIZES,
 });

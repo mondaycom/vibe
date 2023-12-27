@@ -6,54 +6,54 @@ export const firstSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan options",
-    subtitleText: "Choose plan"
+    subtitleText: "Choose plan",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Seats",
-    subtitleText: "Number of users"
+    subtitleText: "Number of users",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Paying method",
-    subtitleText: "How to pay"
-  }
+    subtitleText: "How to pay",
+  },
 ];
 
 export const secondSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan options",
-    subtitleText: ""
+    subtitleText: "",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Seats",
-    subtitleText: "Number of users"
+    subtitleText: "Number of users",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Paying method",
-    subtitleText: "How to pay"
-  }
+    subtitleText: "How to pay",
+  },
 ];
 
 export const thirdSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Plan",
-    subtitleText: ""
+    subtitleText: "",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Seats",
-    subtitleText: ""
+    subtitleText: "",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Method",
-    subtitleText: ""
-  }
+    subtitleText: "",
+  },
 ];
 
 export const TipNotWhatYouAreLookingFor = () => (

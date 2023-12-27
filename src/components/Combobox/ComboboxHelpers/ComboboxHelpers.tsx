@@ -12,7 +12,7 @@ import {
   IComboboxCategoryMap,
   IComboboxItem,
   IOptionItemRendererArgs,
-  IComboboxOptionEvents
+  IComboboxOptionEvents,
 } from "../components/ComboboxConstants";
 import useActiveDescendantListFocus from "../../../hooks/useActiveDescendantListFocus";
 import { getOptionsByCategories } from "../ComboboxService";
@@ -27,7 +27,7 @@ export function useItemsData({
   options,
   filterValue,
   withCategoriesDivider,
-  optionLineHeight
+  optionLineHeight,
 }: {
   categories: IComboboxCategoryMap;
   options: IComboboxOption[];
@@ -59,8 +59,8 @@ export function useItemsData({
           className: cx({
             [comboboxItemsStyles.categoryWithOptions]: isCategoryWithOptions,
             [comboboxItemsStyles.categoryWithoutOptions]: !isCategoryWithOptions,
-            [comboboxItemsStyles.firstCategory]: isFirstCategory
-          })
+            [comboboxItemsStyles.firstCategory]: isFirstCategory,
+          }),
         });
 
         // save category object in both items array and categories map
@@ -72,7 +72,7 @@ export function useItemsData({
             height: optionLineHeight,
             option,
             index: optionIndex,
-            categoryId: categoryObject.id
+            categoryId: categoryObject.id,
           });
 
           itemsMap.set(itemObject.id, itemObject);
@@ -87,7 +87,7 @@ export function useItemsData({
         return createOptionItemObject({
           height: optionLineHeight,
           option,
-          index
+          index,
         });
       });
     }
@@ -101,7 +101,7 @@ export function useKeyboardNavigation({
   onClick,
   isChildSelectable,
   options,
-  getOptionId
+  getOptionId,
 }: {
   defaultVisualFocusFirstIndex?: boolean;
   inputRef: MutableRefObject<HTMLElement>;
@@ -112,13 +112,13 @@ export function useKeyboardNavigation({
 }) {
   const filteredOptionsIds = useMemo(
     () => options.map((option: IComboboxOption, index: number) => getOptionId(option?.id, index)),
-    [getOptionId, options]
+    [getOptionId, options],
   );
 
   const {
     visualFocusItemIndex,
     visualFocusItemId,
-    onItemClickCallback: onOptionClick
+    onItemClickCallback: onOptionClick,
   } = useActiveDescendantListFocus({
     defaultVisualFocusFirstIndex,
     focusedElementRef: inputRef,
@@ -126,7 +126,7 @@ export function useKeyboardNavigation({
     itemsIds: filteredOptionsIds,
     onItemClick: onClick,
     isItemSelectable: isChildSelectable,
-    isIgnoreSpaceAsItemSelection: true
+    isIgnoreSpaceAsItemSelection: true,
   });
 
   return { visualFocusItemIndex, visualFocusItemId, onOptionClick };
@@ -139,7 +139,7 @@ export function createCategoryItemObject({
   withDivider,
   categoryId,
   categoryData,
-  className
+  className,
 }: {
   withDivider: boolean;
   categoryId: string;
@@ -152,7 +152,7 @@ export function createCategoryItemObject({
     category: categoryData,
     id: categoryId,
     withDivider,
-    className
+    className,
   };
 }
 
@@ -164,7 +164,7 @@ export function createOptionItemObject({
   isActive,
   optionLineHeight,
   shouldScrollToSelectedItem,
-  categoryId
+  categoryId,
 }: {
   option?: IComboboxOption;
   height?: number;
@@ -186,7 +186,7 @@ export function createOptionItemObject({
     isActive,
     optionLineHeight,
     shouldScrollToSelectedItem,
-    categoryId
+    categoryId,
   };
 }
 
@@ -196,7 +196,7 @@ export function comboboxItemRenderer({
   optionEvents,
   optionRenderData,
   isVirtualized,
-  stickyCategories
+  stickyCategories,
 }: {
   item: IComboboxItem;
   style: CSSProperties;
@@ -218,7 +218,7 @@ export function comboboxItemRenderer({
       innerElement = categoryItemRenderer({
         id: otherArgs.id,
         category: otherArgs.category,
-        className: otherArgs.className
+        className: otherArgs.className,
       });
       if (stickyCategories && !isVirtualized) {
         customClassNames = styles.sticky;
@@ -229,7 +229,7 @@ export function comboboxItemRenderer({
       innerElement = optionItemRenderer({
         ...otherArgs,
         ...optionEvents,
-        ...optionRenderData
+        ...optionRenderData,
       });
       break;
     }
@@ -253,7 +253,7 @@ export function dividerItemRenderer({ id, height }: { id: string; height: number
 export function categoryItemRenderer({
   id,
   category,
-  className
+  className,
 }: {
   id: string;
   category: IComboboxCategory;
@@ -275,7 +275,7 @@ export function optionItemRenderer({
   scrollRef,
   shouldScrollToSelectedItem,
   activeItemIndex,
-  visualFocusItemIndex
+  visualFocusItemIndex,
 }: IOptionItemRendererArgs) {
   return (
     <ComboboxOption

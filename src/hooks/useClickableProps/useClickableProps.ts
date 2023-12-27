@@ -25,9 +25,9 @@ export default function useClickableProps(
     ariaLabel,
     ariaHidden,
     ariaHasPopup,
-    ariaExpanded
+    ariaExpanded,
   }: ClickableProps,
-  ref: React.ForwardedRef<HTMLElement>
+  ref: React.ForwardedRef<HTMLElement>,
 ) {
   const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
@@ -50,6 +50,6 @@ export default function useClickableProps(
     "aria-label": ariaLabel,
     "aria-hidden": ariaHidden,
     "aria-haspopup": overrideAriaHasPopup,
-    "aria-expanded": ariaExpanded
+    "aria-expanded": ariaExpanded,
   };
 }

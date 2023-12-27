@@ -22,7 +22,7 @@ describe("BreadcrumbsBar renders correctly", () => {
         <BreadcrumbsBar>
           <BreadcrumbItem text="Workspace" />
           <BreadcrumbItem text="Board" />
-        </BreadcrumbsBar>
+        </BreadcrumbsBar>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

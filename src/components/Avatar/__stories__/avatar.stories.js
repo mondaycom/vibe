@@ -12,7 +12,7 @@ import "./avatar.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Avatar,
   enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 const avatarTemplate = createComponentTemplate(Avatar);
@@ -21,7 +21,7 @@ export default {
   title: "Media/Avatar/Avatar",
   component: Avatar,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -32,8 +32,8 @@ export const Overview = {
     size: Avatar.sizes.LARGE,
     src: window.location.origin + "/" + person1,
     type: Avatar.types.IMG,
-    ariaLabel: "Hadas Fahri"
-  }
+    ariaLabel: "Hadas Fahri",
+  },
 };
 
 export const Size = {
@@ -45,7 +45,7 @@ export const Size = {
     </>
   ),
 
-  name: "Size"
+  name: "Size",
 };
 
 export const Disable = {
@@ -56,7 +56,7 @@ export const Disable = {
       <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} disabled />
     </>
   ),
-  name: "Disable"
+  name: "Disable",
 };
 
 export const AvatarWithText = {
@@ -86,7 +86,7 @@ export const AvatarWithText = {
     </>
   ),
 
-  name: "Avatar with text"
+  name: "Avatar with text",
 };
 
 export const SquareAvatar = {
@@ -119,7 +119,7 @@ export const SquareAvatar = {
     </>
   ),
 
-  name: "Square avatar"
+  name: "Square avatar",
 };
 
 export const AvatarWithRightBadge = {
@@ -142,7 +142,7 @@ export const AvatarWithRightBadge = {
     </>
   ),
 
-  name: "Avatar with right badge"
+  name: "Avatar with right badge",
 };
 
 export const AvatarWithLeftBadge = {
@@ -166,7 +166,7 @@ export const AvatarWithLeftBadge = {
     </>
   ),
 
-  name: "Avatar with left badge"
+  name: "Avatar with left badge",
 };
 
 export const AvatarWithTooltip = {
@@ -181,7 +181,7 @@ export const AvatarWithTooltip = {
           type={Avatar.types.IMG}
           src={person1}
           tooltipProps={{
-            content: "Hadas Farhi"
+            content: "Hadas Farhi",
           }}
           ariaLabel={"Hadas Fahri"}
         />
@@ -193,7 +193,7 @@ export const AvatarWithTooltip = {
           src={person1}
           tooltipProps={{
             content: <b>Hadas Farhi</b>,
-            position: Tooltip.positions.BOTTOM
+            position: Tooltip.positions.BOTTOM,
           }}
           ariaLabel={"Hadas Fahri"}
         />
@@ -201,7 +201,7 @@ export const AvatarWithTooltip = {
     </Flex>
   ),
 
-  name: "Avatar with tooltip"
+  name: "Avatar with tooltip",
 };
 
 export const ClickableAvatar = {
@@ -226,7 +226,7 @@ export const ClickableAvatar = {
     );
   },
 
-  name: "Clickable avatar"
+  name: "Clickable avatar",
 };
 
 export const MultipleAvatars = {
@@ -238,5 +238,5 @@ export const MultipleAvatars = {
     </AvatarGroup>
   ),
 
-  name: "Multiple avatars"
+  name: "Multiple avatars",
 };

@@ -29,7 +29,7 @@ const getIndicatorBoxSize = size => {
   const selectedSize = getSizeInPx(size) - 8;
   return {
     height: `${selectedSize}px`,
-    width: `${selectedSize}px`
+    width: `${selectedSize}px`,
   };
 };
 
@@ -50,18 +50,18 @@ const disabledContainerStyle = isDisabled => {
     cursor: "not-allowed",
     ":active, :focus, :hover": {
       borderColor: "transparent",
-      cursor: "not-allowed"
+      cursor: "not-allowed",
     },
     ":active, :focus": {
-      pointerEvents: "none"
-    }
+      pointerEvents: "none",
+    },
   };
 };
 
 const readOnlyContainerStyle = readOnly => {
   if (!readOnly) return {};
   return {
-    border: "hidden"
+    border: "hidden",
   };
 };
 
@@ -76,7 +76,7 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
     marginLeft: getCSSVar("spacing-small"),
     paddingLeft: getCSSVar("spacing-small"),
     paddingRight: getCSSVar("spacing-small"),
-    transition: `all 0.1s ${getCSSVar("expand-animation-timing")}`
+    transition: `all 0.1s ${getCSSVar("expand-animation-timing")}`,
   };
   if (isDisabled) {
     return {
@@ -86,8 +86,8 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
       color: getCSSVar("disabled-text-color"),
       cursor: "not-allowed",
       ...(isFocused && {
-        backgroundColor: getCSSVar("primary-background-hover-color")
-      })
+        backgroundColor: getCSSVar("primary-background-hover-color"),
+      }),
     };
   }
   if (isSelected) {
@@ -96,7 +96,7 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
       ...general,
       color: getCSSVar("primary-text-color"),
       backgroundColor: getCSSVar("primary-selected-color"),
-      cursor: "pointer"
+      cursor: "pointer",
     };
   }
   return {
@@ -107,9 +107,9 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
     ...(isFocused && {
       ":hover": {
         color: getCSSVar("primary-text-color"),
-        backgroundColor: getCSSVar("primary-background-hover-color")
-      }
-    })
+        backgroundColor: getCSSVar("primary-background-hover-color"),
+      },
+    }),
   };
 };
 
@@ -129,13 +129,13 @@ const container =
       transition: `border 0.1s ${getCSSVar("expand-animation-timing")}`,
       ":hover": {
         borderColor: getCSSVar("primary-text-color"),
-        borderRadius: getCSSVar("border-radius-small")
+        borderRadius: getCSSVar("border-radius-small"),
       },
       ":active, :focus-within": {
-        borderColor: getCSSVar("color-basic_blue")
+        borderColor: getCSSVar("color-basic_blue"),
       },
       ...disabledContainerStyle(isDisabled),
-      ...readOnlyContainerStyle(readOnly)
+      ...readOnlyContainerStyle(readOnly),
     };
   };
 
@@ -151,17 +151,17 @@ const control =
       border: "0 solid transparent",
       borderRadius: getCSSVar("border-radius-small"),
       ":focus-within": {
-        boxShadow: `0 0 0 1px ${getCSSVar("primary-color")}`
+        boxShadow: `0 0 0 1px ${getCSSVar("primary-color")}`,
       },
       ...(!isDisabled && {
         ":hover": {
           borderColor: "transparent",
-          borderRadius: getCSSVar("border-radius-small")
-        }
+          borderRadius: getCSSVar("border-radius-small"),
+        },
       }),
       cursor: readOnly ? "default" : "pointer",
       ...disabledContainerStyle(isDisabled),
-      ...readOnlyContainerStyle(readOnly)
+      ...readOnlyContainerStyle(readOnly),
     };
   };
 
@@ -171,7 +171,7 @@ const placeholder =
     ...provided,
     ...getFont(),
     color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("secondary-text-color"),
-    fontWeight: getCSSVar("font-weight-normal")
+    fontWeight: getCSSVar("font-weight-normal"),
   });
 
 const indicatorsContainer =
@@ -182,7 +182,7 @@ const indicatorsContainer =
     ...getColor(),
     borderRadius: getCSSVar("border-radius-small"),
     ...disabledContainerStyle(isDisabled),
-    ...getInnerSize(size)
+    ...getInnerSize(size),
   });
 
 const dropdownIndicator =
@@ -201,13 +201,13 @@ const dropdownIndicator =
       borderRadius: getCSSVar("border-radius-small"),
       svg: {
         transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
-        transform: menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
+        transform: menuIsOpen ? "rotate(180deg)" : "rotate(0deg)",
       },
       color: isDisabled ? getCSSVar("disabled-text-color") : getCSSVar("icon-color"),
       ":hover, :active": {
         backgroundColor: isDisabled ? undefined : getCSSVar("primary-background-hover-color"),
-        color: isDisabled ? undefined : getCSSVar("icon-color")
-      }
+        color: isDisabled ? undefined : getCSSVar("icon-color"),
+      },
     };
   };
 
@@ -222,14 +222,14 @@ const clearIndicator =
     borderRadius: getCSSVar("border-radius-small"),
     ...getIndicatorBoxSize(size),
     ":hover": {
-      backgroundColor: getCSSVar("primary-background-hover-color")
-    }
+      backgroundColor: getCSSVar("primary-background-hover-color"),
+    },
   });
 
 const menuOpenOpacity = ({ menuIsOpen }) => {
   if (menuIsOpen) {
     return {
-      opacity: 0.6
+      opacity: 0.6,
     };
   }
 };
@@ -241,7 +241,7 @@ const singleValue =
     const readOnlyProps = readOnly
       ? {
           ...readOnlyContainerStyle(readOnly),
-          cursor: "text"
+          cursor: "text",
         }
       : {};
 
@@ -254,7 +254,7 @@ const singleValue =
       ...readOnlyProps,
       display: "flex",
       alignItems: "center",
-      height: "100%"
+      height: "100%",
     };
   };
 
@@ -276,7 +276,7 @@ const input = () => provided => ({
   ...getColor(),
   display: "flex",
   alignItems: "center",
-  textIndent: "-2px"
+  textIndent: "-2px",
 });
 
 // 12px - because we have inner 4px
@@ -284,7 +284,7 @@ const getCenterContentStyle = rtl => {
   return {
     display: "flex",
     alignItems: "center",
-    [`padding${rtl ? "Right" : "Left"}`]: "12px"
+    [`padding${rtl ? "Right" : "Left"}`]: "12px",
   };
 };
 
@@ -297,7 +297,7 @@ const valueContainer =
     ...getColor(),
     ...getInnerSize(size),
     ...disabledContainerStyle(isDisabled),
-    borderRadius: getCSSVar("border-radius-small")
+    borderRadius: getCSSVar("border-radius-small"),
   });
 
 const menu =
@@ -308,7 +308,7 @@ const menu =
       ...getFont(),
       color: getCSSVar("primary-text-color"),
       backgroundColor: getCSSVar("dialog-background-color"),
-      boxShadow: getCSSVar("box-shadow-small")
+      boxShadow: getCSSVar("box-shadow-small"),
     };
 
     if (!insideOverflowContainer && !insideOverflowWithTransformContainer) return baseStyle;
@@ -331,7 +331,7 @@ const menu =
         ...baseStyle,
         top: "auto",
         translate: `0 ${translateY}`,
-        width: parentPositionData.width
+        width: parentPositionData.width,
       };
     }
     return baseStyle;
@@ -339,16 +339,16 @@ const menu =
 
 const option = () => (provided, state) => ({
   ...getFont(),
-  ...getOptionStyle(provided, state)
+  ...getOptionStyle(provided, state),
 });
 
 const indicatorSeparator = () => () => ({
-  display: "none"
+  display: "none",
 });
 
 const group = () => () => ({
   paddingBottom: 0,
-  marginTop: "4px"
+  marginTop: "4px",
 });
 
 const groupHeading = () => () => ({
@@ -358,7 +358,7 @@ const groupHeading = () => () => ({
   display: "flex",
   alignItems: "center",
   marginLeft: getCSSVar("spacing-medium"),
-  color: getCSSVar("secondary-text-color")
+  color: getCSSVar("secondary-text-color"),
 });
 
 export const getIndicatorSize = size => {
@@ -378,8 +378,8 @@ export const customTheme = theme => ({
   borderRadius: getCSSVar("border-radius-small"),
   colors: {
     ...theme.colors,
-    primary25: getCSSVar("primary-background-hover-color")
-  }
+    primary25: getCSSVar("primary-background-hover-color"),
+  },
 });
 
 export default data => ({
@@ -396,5 +396,5 @@ export default data => ({
   option: option(data),
   indicatorSeparator: indicatorSeparator(data),
   group: group(data),
-  groupHeading: groupHeading(data)
+  groupHeading: groupHeading(data),
 });

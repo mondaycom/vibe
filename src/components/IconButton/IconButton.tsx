@@ -111,9 +111,9 @@ const IconButton: VibeComponent<IconButtonProps> & {
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus = false,
-      tabIndex
+      tabIndex,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -121,7 +121,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const overrideTooltipContent = useMemo(
       () => tooltipProps?.content || tooltipContent,
-      [tooltipProps?.content, tooltipContent]
+      [tooltipProps?.content, tooltipContent],
     );
 
     const buttonAriaLabel = useMemo(() => {
@@ -148,7 +148,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       let style = {
         justifyContent: "center",
         alignItems: "center",
-        padding: 0
+        padding: 0,
       } as React.CSSProperties;
 
       if (size) {
@@ -205,11 +205,11 @@ const IconButton: VibeComponent<IconButtonProps> & {
         </Tooltip>
       </IconButtonWrapper>
     );
-  }
+  },
 );
 
 export default withStaticProps(IconButton, {
   sizes: Button.sizes,
   kinds: Button.kinds,
-  colors: Button.colors
+  colors: Button.colors,
 });

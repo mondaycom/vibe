@@ -31,31 +31,31 @@ $headingClasses: (
   "h1": (
     "bold",
     "normal",
-    "light"
+    "light",
   ),
   "h2": (
     "bold",
     "normal",
-    "light"
+    "light",
   ),
   "h3": (
     "bold",
     "normal",
-    "light"
-  )
+    "light",
+  ),
 );
 
 $textClasses: (
   "text1": (
     "bold",
     "medium",
-    "normal"
+    "normal",
   ),
   "text2": (
     "bold",
     "medium",
-    "normal"
-  )
+    "normal",
+  ),
 );
 
 @mixin smoothing-text {

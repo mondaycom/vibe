@@ -33,7 +33,7 @@ describe("Steps", () => {
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             areButtonsIconsHidden
-          />
+          />,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe("Steps", () => {
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             isContentOnTop
-          />
+          />,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe("Steps", () => {
 
     it("when viewing last step", () => {
       const tree = renderer.create(
-        <Steps type={Steps.types.GALLERY} steps={stepsContent} activeStepIndex={stepsContent.length - 1} />
+        <Steps type={Steps.types.GALLERY} steps={stepsContent} activeStepIndex={stepsContent.length - 1} />,
       );
       expect(tree).toMatchSnapshot();
     });
@@ -82,7 +82,7 @@ describe("Steps", () => {
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             areButtonsIconsHidden
-          />
+          />,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -96,7 +96,7 @@ describe("Steps", () => {
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             isContentOnTop
-          />
+          />,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -110,7 +110,7 @@ describe("Steps", () => {
             steps={stepsContent}
             activeStepIndex={stepsContent.length - 1}
             areNavigationButtonsHidden
-          />
+          />,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();

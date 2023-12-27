@@ -5,7 +5,7 @@ import { throttle } from "lodash-es";
 export default function useThrottledCallback(
   callback: (...args: Array<unknown>) => void,
   { wait, trailing = true }: { wait: number; trailing: boolean },
-  dependencies: Array<unknown>
+  dependencies: Array<unknown>,
 ) {
   const throttledFunction = useMemo(() => {
     return throttle(callback, wait, { trailing });

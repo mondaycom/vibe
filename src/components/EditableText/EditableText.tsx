@@ -33,7 +33,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
       id,
       ...editableTypographyProps
     },
-    ref
+    ref,
   ) => {
     return (
       <EditableTypography
@@ -45,10 +45,10 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
         {...editableTypographyProps}
       />
     );
-  }
+  },
 );
 
 export default withStaticProps(EditableText, {
   types: TextType,
-  weights: TextWeight
+  weights: TextWeight,
 });

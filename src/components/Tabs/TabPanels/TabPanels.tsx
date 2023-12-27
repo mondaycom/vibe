@@ -29,9 +29,9 @@ const TabPanels: FC<TabPanelsProps> & {
       children,
       // TODO Vibe 2.0 BREAKING change to true - breaking change
       renderOnlyActiveTab = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -48,8 +48,8 @@ const TabPanels: FC<TabPanelsProps> & {
             styles.tabPanel,
             [getStyle(styles, activeClass)],
             [getStyle(styles, camelCase(animationClass))],
-            child.props.className
-          )
+            child.props.className,
+          ),
         });
       }).filter(Boolean);
     }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
@@ -64,13 +64,13 @@ const TabPanels: FC<TabPanelsProps> & {
         {renderedTabs}
       </div>
     );
-  }
+  },
 );
 
 Object.assign(TabPanels, {
-  isTabPanels: true
+  isTabPanels: true,
 });
 
 export default withStaticProps(TabPanels, {
-  animationDirections: TabPanelsAnimationDirection
+  animationDirections: TabPanelsAnimationDirection,
 });

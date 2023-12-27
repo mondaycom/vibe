@@ -7,7 +7,7 @@ import {
   getByRole,
   interactionSuite,
   typeText,
-  delay
+  delay,
 } from "../../../tests/interactions-utils";
 
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -86,5 +86,5 @@ async function cancelEditing(canvas: Canvas) {
 }
 
 export const overviewPlaySuite = interactionSuite({
-  tests: [changeModes, editAndChangeToValidText, clearInput, cancelEditing]
+  tests: [changeModes, editAndChangeToValidText, clearInput, cancelEditing],
 });

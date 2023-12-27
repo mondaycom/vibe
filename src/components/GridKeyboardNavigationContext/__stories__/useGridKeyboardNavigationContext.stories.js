@@ -3,20 +3,20 @@ import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from 
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
 import {
   DummyNavigableGrid,
-  LayoutWithInnerKeyboardNavigation
+  LayoutWithInnerKeyboardNavigation,
 } from "./useGridKeyboardNavigationContext.stories.helpers";
 import { Flex } from "../..";
 import { useGridContextMultipleDepthsPlaySuite } from "../__tests__/useGridKeyboardNavigationContext.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: useGridKeyboardNavigationContext
+  component: useGridKeyboardNavigationContext,
 });
 
 export default {
   title: "Hooks/useGridKeyboardNavigationContext",
   component: useGridKeyboardNavigationContext,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -29,10 +29,10 @@ export const Overview = {
       [
         {
           leftElement: leftElRef,
-          rightElement: rightElRef
-        }
+          rightElement: rightElRef,
+        },
       ],
-      wrapperRef
+      wrapperRef,
     );
 
     return (
@@ -45,7 +45,7 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };
 
 export const DisabledElements = {
@@ -59,14 +59,14 @@ export const DisabledElements = {
       [
         {
           topElement: topElRef,
-          bottomElement: middleElRef
+          bottomElement: middleElRef,
         },
         {
           topElement: middleElRef,
-          bottomElement: bottomElRef
-        }
+          bottomElement: bottomElRef,
+        },
       ],
-      wrapperRef
+      wrapperRef,
     );
 
     return (
@@ -85,7 +85,7 @@ export const DisabledElements = {
     );
   },
 
-  name: "Disabled Elements"
+  name: "Disabled Elements",
 };
 
 export const MultipleDepths = {
@@ -98,10 +98,10 @@ export const MultipleDepths = {
       [
         {
           topElement: topElRef,
-          bottomElement: bottomElRef
-        }
+          bottomElement: bottomElRef,
+        },
       ],
-      wrapperRef
+      wrapperRef,
     );
 
     return (
@@ -115,5 +115,5 @@ export const MultipleDepths = {
   },
 
   name: "Multiple Depths",
-  play: useGridContextMultipleDepthsPlaySuite
+  play: useGridContextMultipleDepthsPlaySuite,
 };

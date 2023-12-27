@@ -7,7 +7,7 @@ export const ShadowDescription = () => {
     return [
       <div key="small" className={classes["small-shadow"]} />,
       <div key="md" className={classes["medium-shadow"]} />,
-      <div key="large" className={classes["large-shadow"]} />
+      <div key="large" className={classes["large-shadow"]} />,
     ];
   }, []);
   return (

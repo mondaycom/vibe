@@ -8,6 +8,6 @@ export function useKeyboardButtonPressedFunc(onClick: (event: React.KeyboardEven
         onClick(e);
       }
     },
-    [onClick]
+    [onClick],
   );
 }

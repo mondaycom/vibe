@@ -30,7 +30,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   nextButtonProps,
   areButtonsIconsHidden,
   isOnPrimary,
-  className
+  className,
 }) => {
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;

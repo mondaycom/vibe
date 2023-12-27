@@ -71,7 +71,7 @@ describe("Chips renders correctly", () => {
               This is mandatory <span>*</span>
             </>
           }
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

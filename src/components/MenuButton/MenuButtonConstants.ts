@@ -3,10 +3,10 @@ export enum MenuButtonSize {
   XS = "24",
   SMALL = "32",
   MEDIUM = "40",
-  LARGE = "48"
+  LARGE = "48",
 }
 
 export enum MenuButtonComponentPosition {
   START = "start",
-  END = "end"
+  END = "end",
 }

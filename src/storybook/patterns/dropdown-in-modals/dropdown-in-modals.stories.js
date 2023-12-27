@@ -10,7 +10,7 @@ import Button from "../../../components/Button/Button";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 
 export default {
-  title: "Technical Patterns/Dropdowns inside pop-overs"
+  title: "Technical Patterns/Dropdowns inside pop-overs",
 };
 
 export const ModalWithDamagedDropdown = () => {
@@ -23,64 +23,64 @@ export const ModalWithDamagedDropdown = () => {
   const options = [
     {
       value: "1",
-      label: "Option 1"
+      label: "Option 1",
     },
     {
       value: "2",
-      label: "Option 2"
+      label: "Option 2",
     },
     {
       value: "3",
-      label: "Option 3"
+      label: "Option 3",
     },
     {
       value: "4",
-      label: "Option 4"
+      label: "Option 4",
     },
     {
       value: "5",
-      label: "Option 5"
+      label: "Option 5",
     },
     {
       value: "6",
-      label: "Option 6"
+      label: "Option 6",
     },
     {
       value: "7",
-      label: "Option 7"
+      label: "Option 7",
     },
     {
       value: "8",
-      label: "Option 8"
+      label: "Option 8",
     },
     {
       value: "9",
-      label: "Option 9"
+      label: "Option 9",
     },
     {
       value: "10",
-      label: "Option 10"
+      label: "Option 10",
     },
     {
       value: "11",
-      label: "Option 11"
+      label: "Option 11",
     },
     {
       value: "12",
-      label: "Option 12"
+      label: "Option 12",
     },
     {
       value: "13",
-      label: "Option 13"
+      label: "Option 13",
     },
     {
       value: "14",
-      label: "Option 14"
+      label: "Option 14",
     },
     {
       value: "15",
-      label: "Option 15"
-    }
+      label: "Option 15",
+    },
   ];
 
   return (
@@ -107,72 +107,72 @@ export const MenuPosition = () => {
     () => [
       {
         value: "1",
-        label: "Option 1"
+        label: "Option 1",
       },
       {
         value: "2",
-        label: "Option 2"
+        label: "Option 2",
       },
       {
         value: "3",
-        label: "Option 3"
+        label: "Option 3",
       },
       {
         value: "4",
-        label: "Option 4"
+        label: "Option 4",
       },
       {
         value: "5",
-        label: "Option 5"
+        label: "Option 5",
       },
       {
         value: "6",
-        label: "Option 6"
+        label: "Option 6",
       },
       {
         value: "7",
-        label: "Option 7"
+        label: "Option 7",
       },
       {
         value: "8",
-        label: "Option 8"
+        label: "Option 8",
       },
       {
         value: "9",
-        label: "Option 9"
+        label: "Option 9",
       },
       {
         value: "10",
-        label: "Option 10"
+        label: "Option 10",
       },
       {
         value: "11",
-        label: "Option 11"
+        label: "Option 11",
       },
       {
         value: "12",
-        label: "Option 12"
+        label: "Option 12",
       },
       {
         value: "13",
-        label: "Option 13"
+        label: "Option 13",
       },
       {
         value: "14",
-        label: "Option 14"
+        label: "Option 14",
       },
       {
         value: "15",
-        label: "Option 15"
-      }
+        label: "Option 15",
+      },
     ],
-    []
+    [],
   );
 
   const dialogStyle = {
     width: "350px",
     height: "200px",
-    overflow: "auto"
+    overflow: "auto",
   };
 
   const modifiers = [
@@ -180,9 +180,9 @@ export const MenuPosition = () => {
       name: "preventOverflow",
 
       options: {
-        mainAxis: false
-      }
-    }
+        mainAxis: false,
+      },
+    },
   ];
 
   return (
@@ -238,81 +238,81 @@ export const InsideOverflowContainer = () => {
     () => [
       {
         value: "1",
-        label: "Option 1"
+        label: "Option 1",
       },
       {
         value: "2",
-        label: "Option 2"
+        label: "Option 2",
       },
       {
         value: "3",
-        label: "Option 3"
+        label: "Option 3",
       },
       {
         value: "4",
-        label: "Option 4"
+        label: "Option 4",
       },
       {
         value: "5",
-        label: "Option 5"
+        label: "Option 5",
       },
       {
         value: "6",
-        label: "Option 6"
+        label: "Option 6",
       },
       {
         value: "7",
-        label: "Option 7"
+        label: "Option 7",
       },
       {
         value: "8",
-        label: "Option 8"
+        label: "Option 8",
       },
       {
         value: "9",
-        label: "Option 9"
+        label: "Option 9",
       },
       {
         value: "10",
-        label: "Option 10"
+        label: "Option 10",
       },
       {
         value: "11",
-        label: "Option 11"
+        label: "Option 11",
       },
       {
         value: "12",
-        label: "Option 12"
+        label: "Option 12",
       },
       {
         value: "13",
-        label: "Option 13"
+        label: "Option 13",
       },
       {
         value: "14",
-        label: "Option 14"
+        label: "Option 14",
       },
       {
         value: "15",
-        label: "Option 15"
-      }
+        label: "Option 15",
+      },
     ],
-    []
+    [],
   );
 
   const modifiers = [
     {
       name: "preventOverflow",
       options: {
-        mainAxis: false
-      }
-    }
+        mainAxis: false,
+      },
+    },
   ];
 
   const dialogStyle = {
     width: "350px",
     height: "200px",
-    overflow: "auto"
+    overflow: "auto",
   };
 
   return (
@@ -355,72 +355,72 @@ export const InsideOverflowWithTransformContainer = () => {
     () => [
       {
         value: "1",
-        label: "Option 1"
+        label: "Option 1",
       },
       {
         value: "2",
-        label: "Option 2"
+        label: "Option 2",
       },
       {
         value: "3",
-        label: "Option 3"
+        label: "Option 3",
       },
       {
         value: "4",
-        label: "Option 4"
+        label: "Option 4",
       },
       {
         value: "5",
-        label: "Option 5"
+        label: "Option 5",
       },
       {
         value: "6",
-        label: "Option 6"
+        label: "Option 6",
       },
       {
         value: "7",
-        label: "Option 7"
+        label: "Option 7",
       },
       {
         value: "8",
-        label: "Option 8"
+        label: "Option 8",
       },
       {
         value: "9",
-        label: "Option 9"
+        label: "Option 9",
       },
       {
         value: "10",
-        label: "Option 10"
+        label: "Option 10",
       },
       {
         value: "11",
-        label: "Option 11"
+        label: "Option 11",
       },
       {
         value: "12",
-        label: "Option 12"
+        label: "Option 12",
       },
       {
         value: "13",
-        label: "Option 13"
+        label: "Option 13",
       },
       {
         value: "14",
-        label: "Option 14"
+        label: "Option 14",
       },
       {
         value: "15",
-        label: "Option 15"
-      }
+        label: "Option 15",
+      },
     ],
-    []
+    [],
   );
 
   const dialogStyle = {
     width: "300px",
     height: "200px",
-    overflow: "auto"
+    overflow: "auto",
   };
 
   const secondDialogContent = (

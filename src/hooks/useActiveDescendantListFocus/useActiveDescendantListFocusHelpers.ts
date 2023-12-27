@@ -17,7 +17,7 @@ export function getNextSelectableIndex({ isItemSelectable, visualFocusItemIndex,
 export function getPreviousSelectableIndex({
   isItemSelectable,
   visualFocusItemIndex,
-  itemsCount
+  itemsCount,
 }: ActiveDependentHelper) {
   for (let offset = 1; offset <= itemsCount - 1; offset++) {
     let prevIndex = visualFocusItemIndex - offset;

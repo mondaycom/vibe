@@ -1,7 +1,7 @@
 export enum TooltipArrowPosition {
   BEGIN = "begin",
   CENTER = "center",
-  END = "end"
+  END = "end",
 }
 
 // Did not convert to letter case naming for backward compatibility
@@ -12,5 +12,5 @@ export enum TooltipTheme {
   Share = "share",
   Private = "private",
   Surface = "surface",
-  Primary = "primary"
+  Primary = "primary",
 }

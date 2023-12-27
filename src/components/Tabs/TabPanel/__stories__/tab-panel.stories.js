@@ -3,7 +3,7 @@ import TabPanel from "../TabPanel";
 
 export default {
   title: "Navigation/Tabs/TabPanel",
-  component: TabPanel
+  component: TabPanel,
 };
 
 const tabPanelTemplate = createComponentTemplate(TabPanel);
@@ -13,6 +13,6 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: "Content"
-  }
+    children: "Content",
+  },
 };

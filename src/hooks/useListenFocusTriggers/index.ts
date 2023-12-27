@@ -4,7 +4,7 @@ import { RefObject, useCallback, useRef } from "react";
 export default function useListenFocusTriggers({
   ref,
   onFocusByKeyboard,
-  onFocusByMouse
+  onFocusByMouse,
 }: {
   ref: RefObject<HTMLElement>;
   onFocusByKeyboard?: (event: FocusEvent) => void;
@@ -25,7 +25,7 @@ export default function useListenFocusTriggers({
         onFocusByKeyboard?.(e);
       }
     },
-    [onFocusByKeyboard, onFocusByMouse]
+    [onFocusByKeyboard, onFocusByMouse],
   );
   const onMouseUp = useCallback(() => {
     isElementMouseDown.current = false;
@@ -34,18 +34,18 @@ export default function useListenFocusTriggers({
   useEventListener({
     eventName: "mousedown",
     ref,
-    callback: onMouseDown
+    callback: onMouseDown,
   });
 
   useEventListener({
     eventName: "focus",
     ref,
-    callback: onFocus
+    callback: onFocus,
   });
 
   useEventListener({
     eventName: "mouseup",
     ref,
-    callback: onMouseUp
+    callback: onMouseUp,
   });
 }

@@ -17,7 +17,7 @@ const COLORS_LIST = [
   "sofia_pink",
   "lipstick",
   "bubble",
-  "purple"
+  "purple",
 ];
 
 export const ColorPickerDescription = () => {

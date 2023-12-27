@@ -35,7 +35,7 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  stepNumber
+  stepNumber,
 }) => {
   return status === StepStatus.FULFILLED && !isFulfilledStepDisplayNumber ? (
     <Icon
@@ -85,7 +85,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   isVertical = false,
   id,
   size = Size.REGULAR,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -113,13 +113,13 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
-    ref: componentRef
+    ref: componentRef,
   });
 
   useKeyEvent({
     keys: KEYS,
     callback: handleClick,
-    ref: componentRef
+    ref: componentRef,
   });
 
   // Effect - triggering animation when necessary.
@@ -143,7 +143,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
       getStyle(styles, camelCase(suffix || "indicator")),
       getStyle(styles, camelCase(`type-${type}${suffix}`)),
       getStyle(styles, camelCase(`status-${status}${suffix}`)),
-      getStyle(styles, camelCase(`size-${size}${suffix}`))
+      getStyle(styles, camelCase(`size-${size}${suffix}`)),
     ];
   };
 
@@ -154,7 +154,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [styles.withAnimation]: statusChangeAnimationState,
         [styles.clickable]: onClick,
-        [styles.textPlacementVertical]: isVertical
+        [styles.textPlacementVertical]: isVertical,
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
@@ -175,7 +175,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
                 exit: styles.swapExit,
-                exitActive: styles.swapExitActive
+                exitActive: styles.swapExitActive,
               }}
               addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);

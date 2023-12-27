@@ -7,14 +7,14 @@ import styles from "./DatePicker.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
-  actionPropsArray: ["onPickDate"]
+  actionPropsArray: ["onPickDate"],
 });
 
 export default {
   title: "Pickers/DatePicker",
   component: DatePicker,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 // for Chromatic check to always have the same date UI
@@ -31,7 +31,7 @@ const DatePickerTemplate = args => {
 
 export const Overview = {
   render: DatePickerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const SingleDay = {
@@ -45,7 +45,7 @@ export const SingleDay = {
     );
   },
 
-  name: "Single Day"
+  name: "Single Day",
 };
 
 export const DateRange = {
@@ -65,7 +65,7 @@ export const DateRange = {
     );
   },
 
-  name: "Date Range"
+  name: "Date Range",
 };
 
 export const NumberOfMonths = {
@@ -79,5 +79,5 @@ export const NumberOfMonths = {
     );
   },
 
-  name: "Number Of Months"
+  name: "Number Of Months",
 };

@@ -9,7 +9,7 @@ enum Modifier {
   META = "metaKey",
   CTRL = "ctrlKey",
   SHIFT = "shiftKey",
-  CTRL_OR_META = "ctrlOrMetaKey"
+  CTRL_OR_META = "ctrlOrMetaKey",
 }
 
 const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifier) => {
@@ -50,7 +50,7 @@ export default function useKeyEvent({
   capture = false,
   preventDefault = false,
   stopPropagation = false,
-  keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
+  keyEventName = "keydown", // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
 }: UseKeyEventArgs) {
   const documentRef = useRef(document.body);
   const onKeyUpPress = useCallback(
@@ -76,7 +76,7 @@ export default function useKeyEvent({
 
       callback(event);
     },
-    [keys, modifier, withoutAnyModifier, preventDefault, stopPropagation, callback]
+    [keys, modifier, withoutAnyModifier, preventDefault, stopPropagation, callback],
   );
 
   let listenerRef;
@@ -93,7 +93,7 @@ export default function useKeyEvent({
     eventName: keyEventName,
     callback: onKeyUpPress,
     ref: listenerRef,
-    capture
+    capture,
   });
 }
 

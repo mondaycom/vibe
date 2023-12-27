@@ -7,9 +7,9 @@ const publishedJSComponents = {
   DropdownSingleValue: "components/Dropdown/components/singleValue/singleValue",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext",
   useGridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext",
-  allIcons: "components/Icon/Icons"
+  allIcons: "components/Icon/Icons",
 };
 // eslint-disable-next-line no-undef
 module.exports = {
-  publishedJSComponents
+  publishedJSComponents,
 };

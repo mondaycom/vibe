@@ -9,7 +9,7 @@ import styles from "./VirtualizedListItems.module.scss";
 
 const ITEM_CHILDREN_TYPES = {
   TITLE: "title",
-  ITEM: "item"
+  ITEM: "item",
 };
 
 const LIST_TITLE_HEIGHT = 48;
@@ -32,7 +32,7 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
             id: `list-title-${index}`,
             props: child.props,
             // avoid add spacing to the first category on the list
-            height: LIST_TITLE_HEIGHT
+            height: LIST_TITLE_HEIGHT,
           };
         } else if (childTypeDisplayName === ListItem.displayName) {
           const { id } = child.props;
@@ -40,7 +40,7 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
             type: ITEM_CHILDREN_TYPES.ITEM,
             id: id || `list-item-${index}`,
             props: child.props,
-            height: LIST_ITEM_HEIGHT
+            height: LIST_ITEM_HEIGHT,
           };
         } else {
           return undefined;
@@ -66,7 +66,7 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
 
       return <div style={style}>{element}</div>;
     },
-    []
+    [],
   );
 
   return (

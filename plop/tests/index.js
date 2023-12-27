@@ -13,21 +13,20 @@ module.exports = plop => {
           return fs.existsSync(`./src/components/${input}`)
             ? true
             : "A component with this name does not exist in our library. Please check if there is a typing error in the name of the component you wrote.";
-        }
-      }
+        },
+      },
     ],
     actions: [
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
-        templateFile: "plop/general/component-snapshot-tests-jest.txt"
+        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
+        templateFile: "plop/general/component-snapshot-tests-jest.txt",
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-tests.jest.js",
-        templateFile: "plop/general/component-tests-jest.txt"
-      }
-    ]
+        templateFile: "plop/general/component-tests-jest.txt",
+      },
+    ],
   });
 };

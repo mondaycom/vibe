@@ -7,7 +7,7 @@ export enum NavDirections {
   UP = "up",
   DOWN = "down",
   LEFT = "left",
-  RIGHT = "right"
+  RIGHT = "right",
 }
 
 export const ARROW_DOWN_KEYS = ["ArrowDown"];
@@ -24,7 +24,7 @@ export default function useFullKeyboardListeners({
   onArrowNavigation = noop,
   onEscape = noop,
   useDocumentEventListeners = false,
-  focusOnMount = false
+  focusOnMount = false,
 }: {
   ref: MutableRefObject<HTMLElement>;
   onSelectionKey: KeyboardEventCallback;
@@ -39,7 +39,7 @@ export default function useFullKeyboardListeners({
     return {
       ref,
       preventDefault: true,
-      stopPropagation: true
+      stopPropagation: true,
     };
   }, [useDocumentEventListeners, ref]);
 
@@ -51,37 +51,37 @@ export default function useFullKeyboardListeners({
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,
     callback: onArrowDown,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ARROW_UP_KEYS,
     callback: onArrowUp,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ARROW_RIGHT_KEYS,
     callback: onArrowRight,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ARROW_LEFT_KEYS,
     callback: onArrowLeft,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: SELECTION_KEYS,
     callback: onSelectionKey,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ESCAPE_KEYS,
     callback: onEscape,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useEffect(() => {

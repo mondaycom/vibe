@@ -11,7 +11,7 @@ export default class FlexLayout extends PureComponent {
         className={classNames("flex-layout", className, direction, {
           centerize,
           spaceBetween,
-          "full-width": fullWidth
+          "full-width": fullWidth,
         })}
       >
         {children}
@@ -21,5 +21,5 @@ export default class FlexLayout extends PureComponent {
 }
 FlexLayout.defaultProps = {
   direction: "row",
-  centerize: false
+  centerize: false,
 };

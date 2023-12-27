@@ -8,7 +8,7 @@ const baseProps = {
   id: "modal-id",
   show: true,
   title: "Modal Heading",
-  onClose: () => {}
+  onClose: () => {},
 };
 
 const content = <p>content</p>;
@@ -23,7 +23,7 @@ async function renderModal(props = {}) {
   const { asFragment } = render(
     <Modal {...baseProps} {...rest}>
       {content}
-    </Modal>
+    </Modal>,
   );
   return asFragment().firstChild;
 }
@@ -50,7 +50,7 @@ describe("Modal", () => {
           <ModalHeader title={"ModalHeader Heading"} />
           {content}
         </>
-      )
+      ),
     };
 
     const currentRender = await renderModal(props);
@@ -64,7 +64,7 @@ describe("Modal", () => {
           {content}
           <ModalFooter>{footerContent}</ModalFooter>
         </>
-      )
+      ),
     };
     const currentRender = await renderModal(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
@@ -114,7 +114,7 @@ describe("Modal", () => {
           <ModalContent>{content}</ModalContent>
           <ModalFooter>{footerContent}</ModalFooter>
         </>
-      )
+      ),
     };
     const currentRender = await renderModal(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();

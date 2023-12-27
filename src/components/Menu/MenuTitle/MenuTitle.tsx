@@ -29,7 +29,7 @@ const MenuTitle: FC<MenuTitleProps> & {
   caption = "",
   captionPosition = MenuTitle.positions.BOTTOM,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const renderCaptionIfNeeded = () => {
@@ -58,10 +58,10 @@ const MenuTitle: FC<MenuTitleProps> & {
 };
 
 Object.assign(MenuTitle, {
-  isMenuChild: true
+  isMenuChild: true,
 });
 
 export default withStaticProps(MenuTitle, {
   positions: MenuTitleCaptionPosition,
-  captionPositions: MenuTitleCaptionPosition
+  captionPositions: MenuTitleCaptionPosition,
 });

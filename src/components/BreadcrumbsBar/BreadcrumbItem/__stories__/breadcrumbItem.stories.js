@@ -7,7 +7,7 @@ import "./breadcrumbItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: BreadcrumbItem,
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 const breadcrumbItemTemplate = createComponentTemplate(BreadcrumbItem);
@@ -16,7 +16,7 @@ export default {
   title: "Navigation/BreadcrumbsBar/BreadcrumbItem",
   component: BreadcrumbItem,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -25,8 +25,8 @@ export const Overview = {
 
   args: {
     text: "Workspace",
-    icon: Workspace
-  }
+    icon: Workspace,
+  },
 };
 
 export const States = {
@@ -65,7 +65,7 @@ export const States = {
     </div>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const WithIcon = {
@@ -86,5 +86,5 @@ export const WithIcon = {
     </div>
   ),
 
-  name: "With icon"
+  name: "With icon",
 };

@@ -5,21 +5,21 @@ import { ContentColorCell } from "../content-color-cell/content-color-cell";
 export const ContentColorRow = ({ colorName }) => {
   const regularStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.REGULAR)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.REGULAR),
     }),
-    [colorName]
+    [colorName],
   );
   const hoverStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.HOVER)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.HOVER),
     }),
-    [colorName]
+    [colorName],
   );
   const selectedStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.SELECTED)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.SELECTED),
     }),
-    [colorName]
+    [colorName],
   );
 
   return (

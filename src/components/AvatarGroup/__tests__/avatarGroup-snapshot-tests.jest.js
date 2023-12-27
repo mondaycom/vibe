@@ -15,7 +15,7 @@ describe("AvatarGroup renders correctly", () => {
       .create(
         <AvatarGroup className="dummy-class-name">
           <Avatar text="P1" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -27,7 +27,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup max={1}>
           <Avatar text="P1" />
           <Avatar text="P2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup max={2}>
           <Avatar text="P1" />
           <Avatar text="P2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -51,7 +51,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup max={2} counterValue={13}>
           <Avatar text="P1" />
           <Avatar text="P2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup size={Avatar.sizes.LARGE} max={1}>
           <Avatar text="P1" />
           <Avatar text="P2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -75,7 +75,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup max={1}>
           <Avatar text="P1" ariaLabel="Person 1" />
           <Avatar text="P2" ariaLabel="Person 2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -87,7 +87,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup max={1}>
           <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
           <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -99,7 +99,7 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup counterTooltipCustomProps={{ content: "Custom tooltip content" }} max={1}>
           <Avatar text="P1" />
           <Avatar text="P2" />
-        </AvatarGroup>
+        </AvatarGroup>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

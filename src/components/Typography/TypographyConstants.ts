@@ -4,11 +4,11 @@ export enum TypographyColor {
   ON_PRIMARY = "onPrimary",
   ON_INVERTED = "onInverted",
   FIXED_LIGHT = "fixedLight",
-  FIXED_DARK = "fixedDark"
+  FIXED_DARK = "fixedDark",
 }
 
 export enum TypographyAlign {
   START = "start",
   CENTER = "center",
-  END = "end"
+  END = "end",
 }

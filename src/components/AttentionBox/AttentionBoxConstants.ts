@@ -3,5 +3,5 @@ export enum AttentionBoxType {
   SUCCESS = "success",
   DANGER = "danger",
   DARK = "dark",
-  WARNING = "warning"
+  WARNING = "warning",
 }

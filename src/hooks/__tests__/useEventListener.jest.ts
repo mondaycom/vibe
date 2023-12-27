@@ -14,8 +14,8 @@ describe("useEventListener", () => {
         useEventListener({
           eventName: "click",
           ref: { current: element },
-          callback: callbackStub
-        })
+          callback: callbackStub,
+        }),
       );
     });
 
@@ -50,8 +50,8 @@ describe("useEventListener", () => {
         useEventListener({
           eventName: customEventName,
           ref: { current: element },
-          callback: callbackStub
-        })
+          callback: callbackStub,
+        }),
       );
     });
 
@@ -66,8 +66,8 @@ describe("useEventListener", () => {
           element,
           new Event(customEventName, {
             bubbles: true,
-            cancelable: true
-          })
+            cancelable: true,
+          }),
         );
       });
       return expect(callbackStub.mock.calls.length).toEqual(1);
@@ -79,8 +79,8 @@ describe("useEventListener", () => {
           element,
           new Event(differentEventName, {
             bubbles: true,
-            cancelable: true
-          })
+            cancelable: true,
+          }),
         );
       });
       return expect(callbackStub.mock.calls.length).toEqual(0);

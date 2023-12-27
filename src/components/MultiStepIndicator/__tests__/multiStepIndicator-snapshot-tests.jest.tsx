@@ -7,18 +7,18 @@ const exampleSteps: Step[] = [
   {
     status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Title",
-    subtitleText: "Subtitle"
+    subtitleText: "Subtitle",
   },
   {
     status: MultiStepIndicator.stepStatuses.ACTIVE,
     titleText: "Active",
-    subtitleText: "Active Subtitle"
+    subtitleText: "Active Subtitle",
   },
   {
     status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Pending",
-    subtitleText: "Pending Subtitle"
-  }
+    subtitleText: "Pending Subtitle",
+  },
 ];
 
 describe("MultiStepIndicator renders correctly", () => {
@@ -44,7 +44,7 @@ describe("MultiStepIndicator renders correctly", () => {
 
   it("with textPlacement vertical", () => {
     const tree = renderer.create(
-      <MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+      <MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />,
     );
     expect(tree).toMatchSnapshot();
   });
@@ -75,7 +75,7 @@ describe("MultiStepIndicator renders correctly", () => {
         steps={exampleSteps}
         size={MultiStepIndicator.sizes.COMPACT}
         textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
-      />
+      />,
     );
     expect(tree).toMatchSnapshot();
   });

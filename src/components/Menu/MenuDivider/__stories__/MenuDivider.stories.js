@@ -5,21 +5,21 @@ import MenuItem from "../../MenuItem/MenuItem";
 
 export default {
   title: "Navigation/Menu/MenuDivider",
-  component: MenuDivider
+  component: MenuDivider,
 };
 
 const menuDividerTemplate = createComponentTemplate(MenuDivider);
 
 export const Overview = {
   render: menuDividerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const MenuWithDivider = {
   render: () => (
     <div
       style={{
-        width: 200
+        width: 200,
       }}
     >
       <Menu>
@@ -30,7 +30,7 @@ export const MenuWithDivider = {
     </div>
   ),
 
-  name: "Menu with divider"
+  name: "Menu with divider",
 };
 
 export const SubMenuWithDivider = {
@@ -38,7 +38,7 @@ export const SubMenuWithDivider = {
     <div
       style={{
         width: 200,
-        height: 90
+        height: 90,
       }}
     >
       <Menu>
@@ -53,5 +53,5 @@ export const SubMenuWithDivider = {
     </div>
   ),
 
-  name: "Sub menu with divider"
+  name: "Sub menu with divider",
 };

@@ -43,9 +43,9 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
       "data-testid": dataTestId = COMPONENT_ID,
       defaultIndex = [],
       className = "",
-      id
+      id,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -58,7 +58,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
       (itemIndex: number) => {
         return expandedItems.includes(itemIndex);
       },
-      [expandedItems]
+      [expandedItems],
     );
 
     const onChildClick = useCallback(
@@ -83,7 +83,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
           setExpandedItems([itemIndex]);
         }
       },
-      [isChildExpanded, expandedItems, allowMultiple]
+      [isChildExpanded, expandedItems, allowMultiple],
     );
 
     const renderChildElements = useMemo(() => {
@@ -98,8 +98,8 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
           },
           open: isChildExpanded(itemIndex),
           expandCollapseComponentClassName: cx(styles.accordionItemExpandCollapse, {
-            [styles.accordionItemExpandCollapseLast]: itemIndex === children.length - 1
-          })
+            [styles.accordionItemExpandCollapseLast]: itemIndex === children.length - 1,
+          }),
         });
       });
     }, [children, id, isChildExpanded, onChildClick]);
@@ -109,7 +109,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
         {children && renderChildElements}
       </div>
     );
-  }
+  },
 );
 
 export default Accordion;

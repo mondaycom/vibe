@@ -24,7 +24,7 @@ const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(
         {text}
       </span>
     );
-  }
+  },
 );
 
 export default HiddenText;

@@ -6,7 +6,7 @@ import AlertBannerText from "../../../../components/AlertBanner/AlertBannerText/
 export const AlertBannerDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "90%"
+      width: "90%",
     };
     return (
       <div style={style}>

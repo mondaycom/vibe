@@ -11,7 +11,7 @@ export default function useIsMouseEnter({ ref }: { ref: RefObject<HTMLElement> }
       const isEventHover = event.target === element;
       setIsHover(isEventHover);
     },
-    [setIsHover, ref]
+    [setIsHover, ref],
   );
   const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
 

@@ -37,7 +37,7 @@ export const generateThemeCssOverride = (theme: Theme, themeClassSpecifier: stri
       generateCss(
         theme.colors[systemTheme],
         "",
-        `.${SystemThemeClassMap[systemTheme]} .${themeClassSpecifier}.${theme.name}`
+        `.${SystemThemeClassMap[systemTheme]} .${themeClassSpecifier}.${theme.name}`,
       ) + "\n";
   }
 

@@ -20,7 +20,7 @@ export const MenuButtonDescription = () => {
         </Menu>
       </MenuButton>
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

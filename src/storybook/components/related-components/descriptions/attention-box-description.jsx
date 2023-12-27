@@ -5,7 +5,7 @@ import AttentionBox from "../../../../components/AttentionBox/AttentionBox";
 export const AttentionBoxDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "90%"
+      width: "90%",
     };
     return (
       <div style={style}>

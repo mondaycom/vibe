@@ -1,24 +1,24 @@
 import styles from "./Box.module.scss";
 
 export const DISABLED = Object.freeze({
-  DISABLED: styles.opacityDisabled
+  DISABLED: styles.opacityDisabled,
 });
 
 export const BORDER = Object.freeze({
-  DEFAULT: styles.border
+  DEFAULT: styles.border,
 });
 export type Border = typeof BORDER;
 
 export const BORDER_COLOR = Object.freeze({
   UI_BORDER_COLOR: styles.borderColorUiBorderColor,
-  LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor
+  LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor,
 });
 export type BorderColor = typeof BORDER_COLOR;
 
 export const ROUNDED = Object.freeze({
   SMALL: styles.roundedSmall,
   MEDIUM: styles.roundedMedium,
-  BIG: styles.roundedBig
+  BIG: styles.roundedBig,
 });
 export type Rounded = typeof ROUNDED;
 
@@ -26,7 +26,7 @@ export const SHADOW = Object.freeze({
   XS: styles.shadowXs,
   SMALL: styles.shadowSmall,
   MEDIUM: styles.shadowMedium,
-  LARGE: styles.shadowLarge
+  LARGE: styles.shadowLarge,
 });
 export type Shadow = typeof SHADOW;
 
@@ -38,7 +38,7 @@ export const MARGIN = Object.freeze({
   LARGE: styles.mLarge,
   XL: styles.mXl,
   XXL: styles.mXxl,
-  XXXL: styles.mXxxl
+  XXXL: styles.mXxxl,
 });
 export type Margin = typeof MARGIN;
 
@@ -50,7 +50,7 @@ export const MARGIN_X = Object.freeze({
   LARGE: styles.mxLarge,
   XL: styles.mxXl,
   XXL: styles.mxXxl,
-  XXXL: styles.mxXxxl
+  XXXL: styles.mxXxxl,
 });
 export type MarginX = typeof MARGIN_X;
 
@@ -62,7 +62,7 @@ export const MARGIN_Y = Object.freeze({
   LARGE: styles.myLarge,
   XL: styles.myXl,
   XXL: styles.myXxl,
-  XXXL: styles.myXxxl
+  XXXL: styles.myXxxl,
 });
 export type MarginY = typeof MARGIN_Y;
 
@@ -74,7 +74,7 @@ export const MARGIN_TOP = Object.freeze({
   LARGE: styles.mtLarge,
   XL: styles.mtXl,
   XXL: styles.mtXxl,
-  XXXL: styles.mtXxxl
+  XXXL: styles.mtXxxl,
 });
 export type MarginTop = typeof MARGIN_TOP;
 
@@ -86,7 +86,7 @@ export const MARGIN_END = Object.freeze({
   LARGE: styles.meLarge,
   XL: styles.meXl,
   XXL: styles.meXxl,
-  XXXL: styles.meXxxl
+  XXXL: styles.meXxxl,
 });
 export type MarginEnd = typeof MARGIN_END;
 
@@ -98,7 +98,7 @@ export const MARGIN_BOTTOM = Object.freeze({
   LARGE: styles.mbLarge,
   XL: styles.mbXl,
   XXL: styles.mbXxl,
-  XXXL: styles.mbXxxl
+  XXXL: styles.mbXxxl,
 });
 export type MarginBottom = typeof MARGIN_BOTTOM;
 
@@ -110,7 +110,7 @@ export const MARGIN_START = Object.freeze({
   LARGE: styles.msLarge,
   XL: styles.msXl,
   XXL: styles.msXxl,
-  XXXL: styles.msXxxl
+  XXXL: styles.msXxxl,
 });
 export type MarginStart = typeof MARGIN_START;
 
@@ -121,7 +121,7 @@ export const PADDING = Object.freeze({
   LARGE: styles.pLarge,
   XL: styles.pXl,
   XXL: styles.pXxl,
-  XXXL: styles.pXxxl
+  XXXL: styles.pXxxl,
 });
 export type Padding = typeof PADDING;
 
@@ -132,7 +132,7 @@ export const PADDING_X = Object.freeze({
   LARGE: styles.pxLarge,
   XL: styles.pxXl,
   XXL: styles.pxXxl,
-  XXXL: styles.pxXxxl
+  XXXL: styles.pxXxxl,
 });
 export type PaddingX = typeof PADDING_X;
 
@@ -143,7 +143,7 @@ export const PADDING_Y = Object.freeze({
   LARGE: styles.pyLarge,
   XL: styles.pyXl,
   XXL: styles.pyXxl,
-  XXXL: styles.pyXxxl
+  XXXL: styles.pyXxxl,
 });
 export type PaddingY = typeof PADDING_Y;
 
@@ -154,7 +154,7 @@ export const PADDING_TOP = Object.freeze({
   LARGE: styles.ptLarge,
   XL: styles.ptXl,
   XXL: styles.ptXxl,
-  XXXL: styles.ptXxxl
+  XXXL: styles.ptXxxl,
 });
 export type PaddingTop = typeof PADDING_TOP;
 
@@ -165,7 +165,7 @@ export const PADDING_END = Object.freeze({
   LARGE: styles.peLarge,
   XL: styles.peXl,
   XXL: styles.peXxl,
-  XXXL: styles.peXxxl
+  XXXL: styles.peXxxl,
 });
 export type PaddingEnd = typeof PADDING_END;
 
@@ -176,7 +176,7 @@ export const PADDING_BOTTOM = Object.freeze({
   LARGE: styles.pbLarge,
   XL: styles.pbXl,
   XXL: styles.pbXxl,
-  XXXL: styles.pbXxxl
+  XXXL: styles.pbXxxl,
 });
 export type PaddingBottom = typeof PADDING_BOTTOM;
 
@@ -187,7 +187,7 @@ export const PADDING_START = Object.freeze({
   LARGE: styles.psLarge,
   XL: styles.psXl,
   XXL: styles.psXxl,
-  XXXL: styles.psXxxl
+  XXXL: styles.psXxxl,
 });
 export type PaddingStart = typeof PADDING_START;
 
@@ -196,13 +196,13 @@ export const BACKGROUND_COLORS = Object.freeze({
   SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
   GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
   ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
-  INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground
+  INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground,
 });
 export type BackgroundColor = typeof BACKGROUND_COLORS;
 
 export const COLORS = Object.freeze({
   PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
   TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,
-  SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor
+  SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor,
 });
 export type Color = typeof COLORS;

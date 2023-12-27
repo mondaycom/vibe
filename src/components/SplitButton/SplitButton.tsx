@@ -14,7 +14,7 @@ import {
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
-  SplitButtonSecondaryContentPosition
+  SplitButtonSecondaryContentPosition,
 } from "./SplitButtonConstants";
 import { withStaticProps } from "../../types";
 import { AnimationType, DialogPosition } from "../../constants";
@@ -112,7 +112,7 @@ const SplitButton: FC<SplitButtonProps> & {
       if (disabled) return false;
       return !isInsideClass(e.target as HTMLElement, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
     },
-    [disabled]
+    [disabled],
   );
 
   const setActive = useCallback(
@@ -120,7 +120,7 @@ const SplitButton: FC<SplitButtonProps> & {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, shouldSetActive]
+    [setIsActive, shouldSetActive],
   );
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
@@ -128,7 +128,7 @@ const SplitButton: FC<SplitButtonProps> & {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, shouldSetActive]
+    [setIsActive, shouldSetActive],
   );
 
   const showDialog = useCallback(() => {
@@ -144,7 +144,7 @@ const SplitButton: FC<SplitButtonProps> & {
         secondaryButtonRef.current.focus();
       }
     },
-    [setDialogOpen, onSecondaryDialogDidHide]
+    [setDialogOpen, onSecondaryDialogDidHide],
   );
 
   // Event listeners //
@@ -173,16 +173,16 @@ const SplitButton: FC<SplitButtonProps> & {
           [styles.active]: isActive,
           [styles.splitContentOpen]: isDialogOpen,
           [styles.hovered]: isHovered,
-          [styles.disabled]: disabled
+          [styles.disabled]: disabled,
         },
-        className
+        className,
       ),
-    [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
+    [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled],
   );
 
   const dialogShowTrigger = useMemo(
     () => (disabled ? (EMPTY_ARR as HideShowEvent[]) : DEFAULT_DIALOG_SHOW_TRIGGER),
-    [disabled]
+    [disabled],
   );
 
   const dialogHideTrigger = useMemo(() => {
@@ -290,7 +290,7 @@ SplitButton.defaultProps = {
   zIndex: null,
   secondaryDialogClassName: "",
   secondaryDialogPosition: DialogPosition.BOTTOM_START,
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
+  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
 };
 
 export default withStaticProps(SplitButton, {
@@ -301,5 +301,5 @@ export default withStaticProps(SplitButton, {
   colors: Button.colors,
   kinds: Button.kinds,
   inputTags: Button.inputTags,
-  dialogPaddingSizes: DialogContentContainer.sizes
+  dialogPaddingSizes: DialogContentContainer.sizes,
 });

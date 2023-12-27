@@ -12,13 +12,13 @@ export const TOOLTIP_SHOW_DELAY = 300;
 
 export enum InfixKind {
   PREFIX = "prefix",
-  POSTFIX = "postfix"
+  POSTFIX = "postfix",
 }
 
 export enum SliderColor {
   PRIMARY = "primary",
   NEGATIVE = "negative",
-  POSITIVE = "positive"
+  POSITIVE = "positive",
 }
 export type SliderSize = (typeof Slider.sizes)[keyof typeof Slider.sizes];
 

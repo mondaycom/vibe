@@ -11,7 +11,7 @@ import YearsList from "./YearsList";
 
 const transitionOptions = {
   classNames: "slide-down",
-  timeout: { enter: 400, exit: 400 }
+  timeout: { enter: 400, exit: 400 },
 };
 
 const PAGE_SIZE = 18;
@@ -27,7 +27,7 @@ const YearPicker = ({ selectedDate, isYearBlocked, changeCurrentDate, "data-test
   const selectedYear = selectedDate ? selectedDate.format(YEAR_FORMAT) : moment().format(YEAR_FORMAT);
 
   const [yearsToDisplay, setYearsToDisplay] = useState(
-    calcNewYearsPage(parseInt(selectedYear) - BUFFER_FROM_CURRENT_YEAR, PAGE_SIZE)
+    calcNewYearsPage(parseInt(selectedYear) - BUFFER_FROM_CURRENT_YEAR, PAGE_SIZE),
   );
 
   const onYearNavigationClick = (direction: Direction) => {

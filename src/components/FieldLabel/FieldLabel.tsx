@@ -23,9 +23,9 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
       labelFor = "",
       iconClassName = "",
       labelClassName = "",
-      requiredAsterisk = false
+      requiredAsterisk = false,
     },
-    ref: ForwardedRef<HTMLLabelElement>
+    ref: ForwardedRef<HTMLLabelElement>,
   ) => {
     if (!labelText) {
       return null;
@@ -48,7 +48,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
         </label>
       </section>
     );
-  }
+  },
 );
 
 export default FieldLabel;

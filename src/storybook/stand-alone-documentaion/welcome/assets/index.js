@@ -25,5 +25,5 @@ export {
   headerBanner,
   gettingStarted,
   components,
-  foundations
+  foundations,
 };

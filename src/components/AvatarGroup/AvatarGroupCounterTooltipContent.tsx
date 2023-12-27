@@ -24,7 +24,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
   type,
   className,
   isVirtualizedList = false,
-  tooltipContentContainerRef
+  tooltipContentContainerRef,
 }) => {
   const getTooltipContent = useCallback((avatarProps: AvatarProps) => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
@@ -32,7 +32,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
 
   const { avatarItems, displayAsGrid, tooltipContainerAriaLabel } = useMemo(() => {
     const avatarItems = avatars.map(avatar => ({
-      value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) }
+      value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) },
     }));
     const displayAsGrid = !avatarItems.some(item => item.value.tooltipContent);
     const tooltipContainerAriaLabel = !displayAsGrid
@@ -43,7 +43,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
 
   const renderedItems = useMemo(
     () => avatarItems.map((item, index) => avatarRenderer(item, index, undefined, type, displayAsGrid)),
-    [avatarItems, displayAsGrid, type]
+    [avatarItems, displayAsGrid, type],
   );
 
   if (isVirtualizedList) {
@@ -68,7 +68,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),
     direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN,
     gap: displayAsGrid ? Flex.gaps.XS : Flex.gaps.SMALL,
-    wrap: displayAsGrid
+    wrap: displayAsGrid,
   };
 
   return <Flex {...flexProps}>{renderedItems}</Flex>;

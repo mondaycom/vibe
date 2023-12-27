@@ -7,14 +7,14 @@ import "./Loader.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader,
-  enumPropNamesArray: ["size", "color"]
+  enumPropNamesArray: ["size", "color"],
 });
 
 export default {
   title: "Feedback/Loader",
   component: Loader,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const loaderTemplate = createComponentTemplate(Loader);
@@ -23,8 +23,8 @@ export const Overview = {
   render: loaderTemplate.bind({}),
   name: "Overview",
   args: {
-    size: Loader.sizes.MEDIUM
-  }
+    size: Loader.sizes.MEDIUM,
+  },
 };
 
 export const SizeVariants = {
@@ -53,7 +53,7 @@ export const SizeVariants = {
     </Flex>
   ),
 
-  name: "Size variants"
+  name: "Size variants",
 };
 
 export const ColorVariants = {
@@ -87,21 +87,21 @@ export const ColorVariants = {
     </Flex>
   ),
 
-  name: "Color variants"
+  name: "Color variants",
 };
 
 export const CustomColors = {
   render: () => (
     <div
       style={{
-        color: "var(--color-dark-red)"
+        color: "var(--color-dark-red)",
       }}
     >
       <Loader size={Loader.sizes.MEDIUM} />
     </div>
   ),
 
-  name: "Custom colors"
+  name: "Custom colors",
 };
 
 export const VisualVariants = {
@@ -117,7 +117,7 @@ export const VisualVariants = {
         vertical
         align={Flex.align.START}
         headerStyle={{
-          width: "fitContent"
+          width: "fitContent",
         }}
       >
         <div align="left">
@@ -127,7 +127,7 @@ export const VisualVariants = {
     </Flex>
   ),
 
-  name: "Visual variants"
+  name: "Visual variants",
 };
 
 export const LoaderInTextField = {
@@ -137,7 +137,7 @@ export const LoaderInTextField = {
     </DialogContentContainer>
   ),
 
-  name: "Loader in text field"
+  name: "Loader in text field",
 };
 
 export const LoaderInButton = {
@@ -155,5 +155,5 @@ export const LoaderInButton = {
     );
   },
 
-  name: "Loader in button"
+  name: "Loader in button",
 };

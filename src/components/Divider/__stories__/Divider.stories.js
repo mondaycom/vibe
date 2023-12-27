@@ -4,7 +4,7 @@ import styles from "./Divider.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Divider,
-  enumPropNamesArray: ["direction"]
+  enumPropNamesArray: ["direction"],
 });
 
 const dividerTemplate = args => (
@@ -17,12 +17,12 @@ export default {
   title: "Data display/Divider",
   component: Divider,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
   render: dividerTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const Directions = {
@@ -31,13 +31,13 @@ export const Directions = {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "400px"
+        width: "400px",
       }}
     >
       <div
         className={styles["divider-description-container"]}
         style={{
-          height: 40
+          height: 40,
         }}
       >
         <span className={styles["divider-description-text"]}>Horizontal</span>
@@ -50,5 +50,5 @@ export const Directions = {
     </div>
   ),
 
-  name: "Directions"
+  name: "Directions",
 };

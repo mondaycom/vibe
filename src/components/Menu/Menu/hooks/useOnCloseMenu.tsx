@@ -4,7 +4,7 @@ import { CloseMenuOption } from "../MenuConstants";
 export default function useOnCloseMenu({
   setActiveItemIndex,
   setOpenSubMenuIndex,
-  onClose
+  onClose,
 }: {
   setActiveItemIndex: (index: number) => void;
   setOpenSubMenuIndex: (index: number) => void;
@@ -16,6 +16,6 @@ export default function useOnCloseMenu({
       setOpenSubMenuIndex(null);
       onClose && onClose(option);
     },
-    [onClose, setOpenSubMenuIndex, setActiveItemIndex]
+    [onClose, setOpenSubMenuIndex, setActiveItemIndex],
   );
 }

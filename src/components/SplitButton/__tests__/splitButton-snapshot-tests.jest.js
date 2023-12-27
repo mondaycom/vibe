@@ -45,7 +45,7 @@ describe("SplitButton renders correctly", () => {
         <SplitButton
           secondaryDialogContent={secondaryContent}
           dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -57,7 +57,7 @@ describe("SplitButton renders correctly", () => {
         <SplitButton
           secondaryDialogContent={secondaryContent}
           secondaryDialogPosition={SplitButton.secondaryPositions.BOTTOM_END}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -6,7 +6,7 @@ const option = [
   { value: 1, text: "Alpha" },
   { value: 2, text: "Beta" },
   { value: 3, text: "Gamma" },
-  { value: 4, text: "Delta" }
+  { value: 4, text: "Delta" },
 ];
 
 describe("ButtonGroup renders correctly", () => {

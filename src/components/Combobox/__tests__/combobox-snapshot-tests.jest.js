@@ -72,18 +72,18 @@ describe("Combobox renders correctly", () => {
   it("with divider", () => {
     const options = [
       { id: "1", label: "Option 1", categoryId: "cat1" },
-      { id: "2", label: "Option 2", categoryId: "cat2" }
+      { id: "2", label: "Option 2", categoryId: "cat2" },
     ];
 
     const categories = {
       cat1: {
         id: "cat1",
-        label: "cat1"
+        label: "cat1",
       },
       cat2: {
         id: "cat2",
-        label: "cat2"
-      }
+        label: "cat2",
+      },
     };
     const tree = renderer.create(<Combobox options={options} categories={categories} withCategoriesDivider />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -92,20 +92,20 @@ describe("Combobox renders correctly", () => {
   it("with divider and colored categories", () => {
     const options = [
       { id: "1", label: "Option 1", categoryId: "cat1" },
-      { id: "2", label: "Option 2", categoryId: "cat2" }
+      { id: "2", label: "Option 2", categoryId: "cat2" },
     ];
 
     const categories = {
       cat1: {
         id: "cat1",
         label: "cat1",
-        color: "red"
+        color: "red",
       },
       cat2: {
         id: "cat2",
         label: "cat2",
-        color: "blue"
-      }
+        color: "blue",
+      },
     };
     const tree = renderer.create(<Combobox options={options} categories={categories} withCategoriesDivider />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -114,7 +114,7 @@ describe("Combobox renders correctly", () => {
   it("with optionRenderer", () => {
     const options = [
       { id: "1", label: "Option 1" },
-      { id: "2", label: "Option 2" }
+      { id: "2", label: "Option 2" },
     ];
     const optionRenderer = option => <div>some render of {option.label}</div>;
     const tree = renderer.create(<Combobox options={options} optionRenderer={optionRenderer} />).toJSON();

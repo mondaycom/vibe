@@ -6,7 +6,7 @@ import {
   delay,
   getByTestId,
   interactionSuite,
-  typeText
+  typeText,
 } from "../../../tests/interactions-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { resetFocus } from "../../../__tests__/interactions-helper";
@@ -37,5 +37,5 @@ async function textSimpleText(canvas: Canvas) {
 }
 
 export const overviewPlaySuite = interactionSuite({
-  tests: [textSimpleText]
+  tests: [textSimpleText],
 });

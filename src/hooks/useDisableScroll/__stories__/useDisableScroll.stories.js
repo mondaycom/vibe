@@ -2,7 +2,7 @@
 import useDisableScroll from "..";
 
 export default {
-  title: "Hooks/useDisableScroll"
+  title: "Hooks/useDisableScroll",
 };
 
 export const Overview = {
@@ -18,7 +18,7 @@ export const Overview = {
           style={{
             height: "200px",
             width: "500px",
-            overflow: "auto"
+            overflow: "auto",
           }}
         >
           <p>Scrollable Content</p>
@@ -42,5 +42,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

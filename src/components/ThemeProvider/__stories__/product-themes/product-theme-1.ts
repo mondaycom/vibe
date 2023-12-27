@@ -11,8 +11,8 @@ export const productTheme1: Theme = {
       "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
-        "text-color-on-brand": "#ffffff"
-      }
+        "text-color-on-brand": "#ffffff",
+      },
     },
     dark: {
       "primary-color": "#007f9b",
@@ -22,8 +22,8 @@ export const productTheme1: Theme = {
       "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
-        "text-color-on-brand": "#ffffff"
-      }
+        "text-color-on-brand": "#ffffff",
+      },
     },
     black: {
       "primary-color": "#007f9b",
@@ -33,8 +33,8 @@ export const productTheme1: Theme = {
       "brand-colors": {
         "brand-color": "#007f9b",
         "brand-hover-color": "#006278",
-        "text-color-on-brand": "#ffffff"
-      }
-    }
-  }
+        "text-color-on-brand": "#ffffff",
+      },
+    },
+  },
 };

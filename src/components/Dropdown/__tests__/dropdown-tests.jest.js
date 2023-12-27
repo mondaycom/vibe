@@ -16,7 +16,7 @@ describe("Dropdown", () => {
     { value: "purple", label: "Purple" },
     { value: "red", label: "Red", isFixed: true },
     { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" }
+    { value: "yellow", label: "Yellow" },
   ];
 
   describe("extraStyles", () => {
@@ -27,7 +27,7 @@ describe("Dropdown", () => {
         .withOpenMenuOnFocus()
         .withExtraStyles(baseStyles => ({
           ...baseStyles,
-          menu: base => ({ ...base, width: expectedWidth })
+          menu: base => ({ ...base, width: expectedWidth }),
         }));
 
       component.focusInput();
@@ -37,7 +37,7 @@ describe("Dropdown", () => {
     it("Should support extending style groupd that don't have monday defaults", () => {
       const expectedZIndex = "9999999";
       const component = new DropdownDriver().withOpenMenuOnFocus().withExtraStyles(() => ({
-        noOptionsMessage: base => ({ ...base, zIndex: expectedZIndex })
+        noOptionsMessage: base => ({ ...base, zIndex: expectedZIndex }),
       }));
 
       component.focusInput();
@@ -121,7 +121,7 @@ describe("Dropdown", () => {
       expect(onChange).toBeCalledTimes(3);
       expect(onChange).toHaveBeenLastCalledWith([mockOptions[0], mockOptions[2], mockOptions[3]], {
         action: "select-option",
-        option: mockOptions[3]
+        option: mockOptions[3],
       });
       expect(component.chips.values).toEqual(["ocean", "purple", "red"]);
     });
@@ -136,7 +136,7 @@ describe("Dropdown", () => {
       expect(onChange).toBeCalledTimes(4);
       expect(onChange).toHaveBeenLastCalledWith([mockOptions[2], mockOptions[3]], {
         action: "remove-value",
-        removedValue: mockOptions[0]
+        removedValue: mockOptions[0],
       });
       expect(onOptionRemove).toBeCalledWith(mockOptions[0]);
       expect(component.chips.values).toEqual(["purple", "red"]);
@@ -150,7 +150,7 @@ describe("Dropdown", () => {
 
       expect(onChange).toBeCalledTimes(2);
       expect(onChange).toHaveBeenLastCalledWith(null, {
-        action: "clear"
+        action: "clear",
       });
       expect(onClear).toBeCalled();
       expect(component.chips.values).toEqual([]);

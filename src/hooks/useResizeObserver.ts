@@ -6,7 +6,7 @@ type ResizeCallback = ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize })
 export default function useResizeObserver({
   ref,
   callback,
-  debounceTime = 200
+  debounceTime = 200,
 }: {
   ref: RefObject<HTMLElement>;
   callback: ResizeCallback;

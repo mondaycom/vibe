@@ -15,12 +15,12 @@ const AvatarMenuItem: React.FC<AvatarMenuItemProps & { isMenuChild?: boolean; is
   ({ avatarProps, menuItemProps, ...embeddedMenuItemProps }, ref: ForwardedRef<HTMLElement>) => {
     const renderAvatar = useCallback(() => <Avatar {...avatarProps} />, [avatarProps]);
     return <MenuItem {...embeddedMenuItemProps} {...menuItemProps} icon={renderAvatar} ref={ref} />;
-  }
+  },
 );
 
 Object.assign(AvatarMenuItem, {
   isMenuChild: true,
-  isSelectable: true
+  isSelectable: true,
 });
 
 export default AvatarMenuItem;

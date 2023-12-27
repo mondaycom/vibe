@@ -9,46 +9,46 @@ excludedContributorsIds.add(19733683); // snyk-bot
 const STATIC_FOUNDING_DESIGNERS = [
   {
     name: "Evgeniy Kazinec",
-    href: "https://www.linkedin.com/in/evgeniy-kazinec/"
+    href: "https://www.linkedin.com/in/evgeniy-kazinec/",
   },
   {
     name: "Rotem Dekel",
-    href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/"
-  }
+    href: "https://www.linkedin.com/in/rotem-dekel-7a8b12133/",
+  },
 ];
 const STATIC_CONTRIBUTORS = [
   {
     name: "Devorah Friedman",
-    href: "mailto:devorahfr@monday.com"
+    href: "mailto:devorahfr@monday.com",
   },
   {
     name: "Dmitry Kogan",
-    href: "mailto:dimako@monday.com"
+    href: "mailto:dimako@monday.com",
   },
   {
     name: "Meytal Badichi",
-    href: "mailto:mailto:meytal@monday.com"
+    href: "mailto:mailto:meytal@monday.com",
   },
   {
     name: "Shay Cohen",
-    href: "mailto:shay@monday.com"
+    href: "mailto:shay@monday.com",
   },
   {
     name: "Eylon Goren",
-    href: "mailto:eylon@monday.com"
+    href: "mailto:eylon@monday.com",
   },
   {
     name: "Noa Fenko",
-    href: "mailto:noafe@monday.com"
+    href: "mailto:noafe@monday.com",
   },
   {
     name: "LeanyLabs",
-    href: "https://github.com/LeanyLabs"
+    href: "https://github.com/LeanyLabs",
   },
   {
     name: "Hadas Farhi",
-    href: "https://github.com/hadasfa"
-  }
+    href: "https://github.com/hadasfa",
+  },
 ];
 
 export const OtherContributorsList = () => {

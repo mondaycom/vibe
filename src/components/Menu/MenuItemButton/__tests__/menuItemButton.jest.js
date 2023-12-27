@@ -41,7 +41,7 @@ describe.skip("<MenuItemButton />", () => {
   it("calls onClick when clicking on the menu item", () => {
     const onClickMock = jest.fn();
     const menuItemComponent = renderComponent({
-      onClick: onClickMock
+      onClick: onClickMock,
     });
 
     const item = menuItemComponent.getByText(itemName);

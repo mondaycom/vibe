@@ -35,7 +35,7 @@ describe("Tab renders correctly", () => {
       .create(
         <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">
           Tab
-        </Tab>
+        </Tab>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe("Tab renders correctly", () => {
       .create(
         <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">
           Tab
-        </Tab>
+        </Tab>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

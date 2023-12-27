@@ -10,14 +10,14 @@ import { createStoryMetaSettingsDecorator } from "../../../../storybook/function
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItem,
   enumPropNamesArray: ["tooltipPosition"],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 export default {
   title: "Navigation/Menu/MenuItem",
   component: MenuItem,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const menuItemTemplate = args => (
@@ -31,8 +31,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    title: "Menu item"
-  }
+    title: "Menu item",
+  },
 };
 
 export const States = {
@@ -43,7 +43,7 @@ export const States = {
       <MenuItem title="Disabled menu item" disabled />
     </Menu>
   ),
-  name: "States"
+  name: "States",
 };
 
 export const Icons = {
@@ -53,7 +53,7 @@ export const Icons = {
       <MenuItem title="Font icon" icon="fa fa-star" iconType={MenuItem.iconType.ICON_FONT} />
     </Menu>
   ),
-  name: "Icons"
+  name: "Icons",
 };
 
 export const Label = {
@@ -66,9 +66,9 @@ export const Label = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const SubMenu = {
@@ -90,7 +90,7 @@ export const SubMenu = {
       </MenuItem>
     </Menu>
   ),
-  name: "Sub menu"
+  name: "Sub menu",
 };
 
 export const Overflow = {
@@ -107,7 +107,7 @@ export const Overflow = {
       </MenuItem>
     </Menu>
   ),
-  name: "Overflow"
+  name: "Overflow",
 };
 
 export const TooltipStory = {
@@ -130,5 +130,5 @@ export const TooltipStory = {
       />
     </Menu>
   ),
-  name: "Tooltip"
+  name: "Tooltip",
 };

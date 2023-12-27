@@ -15,7 +15,7 @@ const SplitButtonMenu: VibeComponent<SplitButtonMenuProps> = forwardRef(
         {children}
       </Menu>
     );
-  }
+  },
 );
 
 export default SplitButtonMenu;

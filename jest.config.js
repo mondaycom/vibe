@@ -66,8 +66,8 @@ module.exports = {
   globals: {
     extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"],
     "ts-jest": {
-      useESM: true
-    }
+      useESM: true,
+    },
   },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -83,7 +83,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
   },
 
   modulePaths: ["<rootDir>/src"],
@@ -177,14 +177,14 @@ module.exports = {
     "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx",
     "^.+\\.(tx|tsx)$": "ts-jest",
     "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$":
-      "<rootDir>/__mocks__/fileMock.js"
+      "<rootDir>/__mocks__/fileMock.js",
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "node_modules/(?!monday-ui-style)/"
+    "node_modules/(?!monday-ui-style)/",
     // "\\.pnp\\.[^\\/]+$"
-  ]
+  ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

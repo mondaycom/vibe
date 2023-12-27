@@ -9,8 +9,8 @@ const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 const FLIP_MODIFIER = {
   name: "flip",
   options: {
-    fallbackPlacements: [RIGHT_END, LEFT_START, LEFT_END]
-  }
+    fallbackPlacements: [RIGHT_END, LEFT_START, LEFT_END],
+  },
 };
 
 export default function usePopover(
@@ -18,11 +18,11 @@ export default function usePopover(
   popperElement: HTMLElement,
   {
     isOpen,
-    placement = RIGHT_START
+    placement = RIGHT_START,
   }: {
     isOpen?: boolean;
     placement?: Placement;
-  }
+  },
 ) {
   const forceUpdate = useForceUpdate();
 
@@ -45,9 +45,9 @@ export default function usePopover(
             // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;
-          }
-        }
-      ]
+          },
+        },
+      ],
     };
   }, [isOpen, placement]);
 

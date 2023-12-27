@@ -11,7 +11,7 @@ export const MEDIA_QUERY_QUERIES = {
   [MEDIUM1]: "screen and (max-width: 1279px) and (min-width: 1024px)",
   [MEDIUM2]: "screen and (max-width: 1439px) and (min-width: 1280px)",
   [LARGE]: "screen and (max-width: 1919px) and (min-width: 1440px)",
-  [XLARGE]: "screen and (min-width: 1920px)"
+  [XLARGE]: "screen and (min-width: 1920px)",
 };
 
 export const VIBE_MEDIA_QUERIES = [
@@ -20,7 +20,7 @@ export const VIBE_MEDIA_QUERIES = [
   MEDIA_QUERY_QUERIES[MEDIUM1],
   MEDIA_QUERY_QUERIES[MEDIUM2],
   MEDIA_QUERY_QUERIES[LARGE],
-  MEDIA_QUERY_QUERIES[XLARGE]
+  MEDIA_QUERY_QUERIES[XLARGE],
 ];
 
 export const MEDIA_QUERY_SIZES = {
@@ -29,5 +29,5 @@ export const MEDIA_QUERY_SIZES = {
   MEDIUM1,
   MEDIUM2,
   LARGE,
-  XLARGE
+  XLARGE,
 };

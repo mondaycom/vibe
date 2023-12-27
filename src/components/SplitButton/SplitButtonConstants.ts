@@ -13,7 +13,7 @@ export const ENTER_KEYS = [keyCodes.ENTER];
 export enum SplitButtonSecondaryContentPosition {
   BOTTOM_START = "bottom-start",
   BOTTOM_MIDDLE = "bottom",
-  BOTTOM_END = "bottom-end"
+  BOTTOM_END = "bottom-end",
 }
 
 export const SECONDARY_BUTTON_ARIA_LABEL = "additional actions";

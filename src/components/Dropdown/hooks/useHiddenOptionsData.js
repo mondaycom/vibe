@@ -6,7 +6,7 @@ export function useHiddenOptionsData({
   selectedOptionsCount,
   chipClassName,
   chipWrapperClassName,
-  isCounterShown
+  isCounterShown,
 }) {
   const [overflowIndex, setOverflowIndex] = useState(-1);
   useEffect(() => {

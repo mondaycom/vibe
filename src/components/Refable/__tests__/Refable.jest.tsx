@@ -19,7 +19,7 @@ describe("Refable", () => {
     const { getAllByTestId } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
         <span>test</span>
-      </Refable>
+      </Refable>,
     );
 
     const components = getAllByTestId("ref-component");
@@ -38,7 +38,7 @@ describe("Refable", () => {
       <Refable data-testid="ref-component" onClick={onClickCallback}>
         <span>test</span>
         <span>test</span>
-      </Refable>
+      </Refable>,
     );
 
     const components = getAllByTestId("ref-component");
@@ -60,7 +60,7 @@ describe("Refable", () => {
     const { getByTestId } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
         <InlineComponent />
-      </Refable>
+      </Refable>,
     );
 
     const component = getByTestId("ref-component");
@@ -78,7 +78,7 @@ describe("Refable", () => {
     const { container } = render(
       <Refable data-testid="ref-component" onClick={onClickCallback}>
         <InlineComponent />
-      </Refable>
+      </Refable>,
     );
 
     expect(container.innerHTML).toBe('<span data-testid="ref-component"><div>test</div></span>');

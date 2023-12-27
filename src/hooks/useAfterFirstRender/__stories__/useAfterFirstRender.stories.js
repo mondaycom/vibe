@@ -1,7 +1,7 @@
 import useAfterFirstRender from "..";
 
 export default {
-  title: "Hooks/useAfterFirstRender"
+  title: "Hooks/useAfterFirstRender",
 };
 
 export const Overview = {
@@ -10,5 +10,5 @@ export const Overview = {
     return <div className="hooks-reference-element">{isRendered ? "Rendered!" : "Not yet!"}</div>;
   },
 
-  name: "Overview"
+  name: "Overview",
 };

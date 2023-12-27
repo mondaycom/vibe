@@ -8,7 +8,7 @@ export const COMBOBOX_OPTION_ITEM = "combobox-option";
 
 export enum ComboboxOptionIconType {
   DEFAULT = "default",
-  RENDERER = "renderer"
+  RENDERER = "renderer",
 }
 
 export interface IComboboxCategoryMap {
@@ -61,7 +61,7 @@ export interface IComboboxOptionEvents {
     event: React.MouseEvent | React.KeyboardEvent,
     index: number,
     option: IComboboxOption,
-    mouseTriggered: boolean
+    mouseTriggered: boolean,
   ) => void;
   onOptionLeave: (event: React.MouseEvent, index: number, option: IComboboxOption, mouseTriggered: boolean) => void;
   onOptionEnter: (event: React.MouseEvent, index: number, option: IComboboxOption, mouseTriggered: boolean) => void;

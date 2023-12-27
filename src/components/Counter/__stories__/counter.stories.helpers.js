@@ -17,7 +17,7 @@ export const Usage = () => (
       <div className="monday-storybook-counter_usage-link-line">
         The element the counter refers to should include <StorybookLink page="Popover/Tooltip">Tooltip</StorybookLink>
         {" , where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon."}
-      </div>
+      </div>,
     ]}
   />
 );

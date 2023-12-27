@@ -6,7 +6,7 @@ export const SpinnerDescription = () => {
   const component = useMemo(() => {
     const style = {
       width: "10%",
-      height: "10%"
+      height: "10%",
     };
     return (
       <div style={style}>

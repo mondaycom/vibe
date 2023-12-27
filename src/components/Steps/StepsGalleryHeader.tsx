@@ -17,14 +17,14 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
   stepsCount,
   onChangeActiveStep,
   stepDescriptionFunc,
-  isOnPrimary
+  isOnPrimary,
 }) => {
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
   const defaultStepDescriptionFunc = useCallback((stepIndex: number) => `Step number ${stepIndex}`, []);
   const overrideStepDescriptionFunc = stepDescriptionFunc || defaultStepDescriptionFunc;
   const onClickFunctions = useMemo(
     () => stepsPlaceholders.map(stepIndex => (e: React.MouseEvent) => onChangeActiveStep(e, stepIndex)),
-    [onChangeActiveStep, stepsPlaceholders]
+    [onChangeActiveStep, stepsPlaceholders],
   );
 
   const galleryDots = useMemo(
@@ -40,9 +40,9 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
             className={styles.galleryHeaderDot}
           />
         ),
-        []
+        [],
       ),
-    [activeStepIndex, isOnPrimary, onClickFunctions, overrideStepDescriptionFunc, stepsPlaceholders]
+    [activeStepIndex, isOnPrimary, onClickFunctions, overrideStepDescriptionFunc, stepsPlaceholders],
   );
 
   return (

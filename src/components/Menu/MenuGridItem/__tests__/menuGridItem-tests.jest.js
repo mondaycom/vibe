@@ -10,7 +10,7 @@ describe("MenuGridItem", () => {
     setActiveItemIndex: NO_OP,
     getNextSelectableIndex: NO_OP,
     getPreviousSelectableIndex: NO_OP,
-    setSubMenuIsOpenByIndex: NO_OP
+    setSubMenuIsOpenByIndex: NO_OP,
   };
 
   afterEach(() => {
@@ -23,7 +23,7 @@ describe("MenuGridItem", () => {
         <button type="button" data-testid="my-div">
           Hey
         </button>
-      </MenuGridItem>
+      </MenuGridItem>,
     );
     const child = getByTestId("my-div");
 

@@ -10,7 +10,7 @@ const radioButtonTemplate = createComponentTemplate(RadioButton);
 
 export default {
   title: "Inputs/RadioButton",
-  component: RadioButton
+  component: RadioButton,
 };
 
 export const Overview = {
@@ -18,8 +18,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    text: "Selection"
-  }
+    text: "Selection",
+  },
 };
 
 export const States = {
@@ -31,7 +31,7 @@ export const States = {
       <RadioButton text="Disabled" checked disabled />
     </>
   ),
-  name: "States"
+  name: "States",
 };
 
 export const RadioButtonInItemsList = {
@@ -45,7 +45,7 @@ export const RadioButtonInItemsList = {
   ),
 
   name: "Radio button in items list",
-  play: clickRadioButtonPlaySuite
+  play: clickRadioButtonPlaySuite,
 };
 
 export const ControlledRadioButtons = {
@@ -69,5 +69,5 @@ export const ControlledRadioButtons = {
     );
   },
   name: "Controlled Radio buttons",
-  play: controlRadioButtonPlaySuite
+  play: controlRadioButtonPlaySuite,
 };

@@ -68,9 +68,9 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       hasTooltip = false,
       containerSelector,
       disableContainerScroll = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    forwardRef
+    forwardRef,
   ) => {
     const ref = useRef(null);
     const onOutSideClick = useCallback(
@@ -79,7 +79,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           return onClickOutside(event, HideShowEvent.CLICK_OUTSIDE);
         }
       },
-      [isOpen, onClickOutside]
+      [isOpen, onClickOutside],
     );
     const overrideOnContextMenu = useCallback(
       (event: React.MouseEvent) => {
@@ -87,7 +87,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           onContextMenu(event);
         }
       },
-      [isOpen, onContextMenu]
+      [isOpen, onContextMenu],
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
     useClickOutside({ callback: onOutSideClick, ref });
@@ -112,13 +112,13 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
         transitionOptions.classNames = {
           appear: styles.expandAppear,
           appearActive: styles.expandAppearActive,
-          exit: styles.expandExit
+          exit: styles.expandExit,
         };
         break;
       case AnimationType.OPACITY_AND_SLIDE:
         transitionOptions.classNames = {
           appear: styles.opacitySlideAppear,
-          appearActive: styles.opacitySlideAppearActive
+          appearActive: styles.opacitySlideAppearActive,
         };
         break;
     }
@@ -136,19 +136,19 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
           <div
             className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
-              [styles.hasTooltip]: hasTooltip
+              [styles.hasTooltip]: hasTooltip,
             })}
             ref={ref}
           >
             {React.Children.toArray(children).map((child: ReactElement) => {
               return cloneElement(child, {
                 onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
-                onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])
+                onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave]),
               });
             })}
           </div>
         </CSSTransition>
       </span>
     );
-  }
+  },
 );

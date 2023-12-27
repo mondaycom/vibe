@@ -13,5 +13,5 @@ function exposeIcons() {
 }
 
 module.exports = {
-  exposeIcons
+  exposeIcons,
 };

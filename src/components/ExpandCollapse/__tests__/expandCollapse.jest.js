@@ -21,7 +21,7 @@ describe("ExpandCollapse", () => {
       <ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
         <span>Child 2</span>
-      </ExpandCollapse>
+      </ExpandCollapse>,
     );
 
     expect(screen.getByText("Some Header")).toBeInTheDocument();
@@ -35,7 +35,7 @@ describe("ExpandCollapse", () => {
       <ExpandCollapse defaultOpenState={true} headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
         <span>Child 2</span>
-      </ExpandCollapse>
+      </ExpandCollapse>,
     );
 
     expect(screen.getByText("Some Header")).toBeInTheDocument();
@@ -49,7 +49,7 @@ describe("ExpandCollapse", () => {
       <ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
         <span>Child 2</span>
-      </ExpandCollapse>
+      </ExpandCollapse>,
     );
 
     expect(screen.getByText("Some Header")).toBeInTheDocument();

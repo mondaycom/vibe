@@ -33,7 +33,7 @@ const TableCell: VibeComponent<ITableCellProps, HTMLDivElement> = forwardRef(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default TableCell;

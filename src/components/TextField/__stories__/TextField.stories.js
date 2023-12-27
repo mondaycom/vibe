@@ -8,14 +8,14 @@ import "./TextField.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: TextField,
   enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]
+  iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"],
 });
 
 export default {
   title: "Inputs/TextField",
   component: TextField,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const textFieldTemplate = createComponentTemplate(TextField);
@@ -29,13 +29,13 @@ export const Overview = {
     iconName: Show,
 
     validation: {
-      text: "Helper text"
+      text: "Helper text",
     },
 
     wrapperClassName: "monday-storybook-text-field_size",
     showCharCount: true,
-    placeholder: "Placeholder text here"
-  }
+    placeholder: "Placeholder text here",
+  },
 };
 
 export const Sizes = {
@@ -47,7 +47,7 @@ export const Sizes = {
     </div>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const States = {
@@ -68,7 +68,7 @@ export const States = {
         <TextField
           placeholder="Success"
           validation={{
-            status: "success"
+            status: "success",
           }}
           iconName={Check}
           size={TextField.sizes.MEDIUM}
@@ -76,7 +76,7 @@ export const States = {
         <TextField
           placeholder="Error"
           validation={{
-            status: "error"
+            status: "error",
           }}
           iconName={CloseSmall}
           size={TextField.sizes.MEDIUM}
@@ -85,7 +85,7 @@ export const States = {
     </div>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const Validation = {
@@ -97,13 +97,13 @@ export const Validation = {
         size={TextField.sizes.MEDIUM}
         validation={{
           status: "error",
-          text: "Validation text"
+          text: "Validation text",
         }}
       />
     </div>
   ),
 
-  name: "Validation"
+  name: "Validation",
 };
 
 export const TextFieldInAForm = {
@@ -117,7 +117,7 @@ export const TextFieldInAForm = {
     </div>
   ),
 
-  name: "Text field in a form"
+  name: "Text field in a form",
 };
 
 export const InputFieldWithPlaceholderText = {
@@ -132,7 +132,7 @@ export const InputFieldWithPlaceholderText = {
     </div>
   ),
 
-  name: "Input field with placeholder text"
+  name: "Input field with placeholder text",
 };
 
 export const RequiredInputField = {
@@ -142,7 +142,7 @@ export const RequiredInputField = {
     </div>
   ),
 
-  name: "Required input field"
+  name: "Required input field",
 };
 
 export const InputFieldWithDate = {
@@ -152,7 +152,7 @@ export const InputFieldWithDate = {
     </div>
   ),
 
-  name: "Input field with date"
+  name: "Input field with date",
 };
 
 export const InputFieldWithDateAndTime = {
@@ -162,5 +162,5 @@ export const InputFieldWithDateAndTime = {
     </div>
   ),
 
-  name: "Input field with date and time"
+  name: "Input field with date and time",
 };

@@ -32,7 +32,7 @@ describe("DatePicker", () => {
         onPickDate={() => {
           onSaveMock();
         }}
-      />
+      />,
     );
 
     const element = container.querySelector(".CalendarDay");
@@ -49,7 +49,7 @@ describe("DatePicker", () => {
         onPickDate={date => {
           selectedDate = date as Moment;
         }}
-      />
+      />,
     );
     const today = moment();
     const element = container.querySelector(".CalendarDay__today");
@@ -71,7 +71,7 @@ describe("DatePicker", () => {
           selectedRange.startDate = range.startDate || selectedRange.startDate;
           selectedRange.endDate = range.endDate || selectedRange.endDate;
         }}
-      />
+      />,
     );
     const today = moment();
     const tomorrow = moment().add(1, "days");

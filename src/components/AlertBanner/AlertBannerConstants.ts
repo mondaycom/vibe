@@ -3,5 +3,5 @@ export enum AlertBannerBackgroundColor {
   POSITIVE = "positive",
   NEGATIVE = "negative",
   DARK = "dark",
-  WARNING = "warning"
+  WARNING = "warning",
 }

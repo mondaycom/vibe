@@ -37,7 +37,7 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
   type,
   className,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList = false
+  counterTooltipIsVirtualizedList = false,
 }) => {
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
   const tooltipContentContainerRef = useRef(null);
@@ -52,7 +52,7 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
           tooltipContentContainerRef={tooltipContentContainerRef}
         />
       ),
-    [avatars, className, counterTooltipCustomProps?.content, counterTooltipIsVirtualizedList, type]
+    [avatars, className, counterTooltipCustomProps?.content, counterTooltipIsVirtualizedList, type],
   );
 
   useTooltipContentTabNavigation({
@@ -61,7 +61,7 @@ const AvatarGroupCounterTooltipContainer: React.FC<AvatarGroupCounterTooltipCont
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
     setIsKeyboardTooltipVisible,
-    isKeyboardTooltipVisible
+    isKeyboardTooltipVisible,
   });
 
   // Tooltip props

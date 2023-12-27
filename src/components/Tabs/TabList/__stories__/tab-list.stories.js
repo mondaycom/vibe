@@ -4,7 +4,7 @@ import styles from "./tab-list.stories.module.scss";
 
 export default {
   title: "Navigation/Tabs/TabList",
-  component: TabList
+  component: TabList,
 };
 
 const tabListTemplate = args => (
@@ -18,7 +18,7 @@ const tabListTemplate = args => (
 
 export const Overview = {
   render: tabListTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const Default = {
@@ -31,14 +31,14 @@ export const Default = {
     </TabList>
   ),
 
-  name: "Default"
+  name: "Default",
 };
 
 export const Stretched = {
   render: () => (
     <div
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <TabList tabType="stretched">
@@ -50,7 +50,7 @@ export const Stretched = {
     </div>
   ),
 
-  name: "Stretched"
+  name: "Stretched",
 };
 
 export const Sizes = {
@@ -86,5 +86,5 @@ export const Sizes = {
     </div>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };

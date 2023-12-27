@@ -31,7 +31,7 @@ export default function useStyle(currentStyle: CSSProperties, additionalProps?: 
     if (isEmpty(nonEmptyObj)) return currentStyleObj;
     return {
       ...currentStyleObj,
-      ...nonEmptyObj
+      ...nonEmptyObj,
     };
   }, [currentStyleObj, additionalPropsObj]);
 }

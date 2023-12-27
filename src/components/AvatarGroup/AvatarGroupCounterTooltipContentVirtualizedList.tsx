@@ -9,7 +9,7 @@ import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scs
 const LIST_OPTIONS = Object.freeze({
   maxItemsWithoutScroll: 10,
   itemLineHeight: 34,
-  itemLineWidth: 150
+  itemLineWidth: 150,
 });
 
 export type AvatarItem = {
@@ -26,7 +26,7 @@ interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeCompo
     index: number,
     style: CSSProperties,
     type: AvatarType,
-    displayAsGrid: boolean
+    displayAsGrid: boolean,
   ) => ReactElement;
   tooltipContainerAriaLabel?: string;
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
@@ -38,13 +38,13 @@ const AvatarGroupCounterTooltipContentVirtualizedList: React.FC<
 > = ({ avatarItems = [], avatarRenderer, type, tooltipContainerAriaLabel, tooltipContentContainerRef }) => {
   const virtualizedItems: VirtualizedListItem[] = useMemo(
     () => avatarItems.map(item => ({ value: item, height: LIST_OPTIONS.itemLineHeight } as VirtualizedListItem)),
-    [avatarItems]
+    [avatarItems],
   );
 
   const minCount = Math.min(avatarItems.length, LIST_OPTIONS.maxItemsWithoutScroll);
   const virtualizedListStyle = {
     height: LIST_OPTIONS.itemLineHeight * minCount,
-    minWidth: LIST_OPTIONS.itemLineWidth
+    minWidth: LIST_OPTIONS.itemLineWidth,
   };
 
   return (

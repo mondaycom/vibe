@@ -4,7 +4,7 @@ import useFullKeyboardListeners, { NavDirections } from "../../hooks/useFullKeyb
 import useEventListener from "../../hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
-  getActiveIndexFromInboundNavigation
+  getActiveIndexFromInboundNavigation,
 } from "./gridKeyboardNavigationHelper";
 import { useLastNavigationDirection } from "../../components/Menu/Menu/hooks/useLastNavigationDirection";
 
@@ -38,7 +38,7 @@ export default function useGridKeyboardNavigation({
   getItemByIndex = (_index: number) => {},
   focusOnMount = false,
   focusItemIndexOnMount = NO_ACTIVE_INDEX,
-  disabledIndexes = []
+  disabledIndexes = [],
 }: {
   ref: MutableRefObject<HTMLElement>;
   itemsCount: number;
@@ -50,7 +50,7 @@ export default function useGridKeyboardNavigation({
   disabledIndexes?: number[];
 }) {
   const [isInitialActiveState, setIsInitialActiveState] = useState(
-    focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX
+    focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX,
   );
   const skippedInitialActiveIndexChange = useRef(false);
   const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
@@ -70,7 +70,7 @@ export default function useGridKeyboardNavigation({
       itemsCount,
       numberOfItemsInLine,
       direction,
-      disabledIndexes
+      disabledIndexes,
     });
     if (isOutbound) {
       keyboardContext?.onOutboundNavigation(ref, direction);
@@ -136,7 +136,7 @@ export default function useGridKeyboardNavigation({
 
       onItemClicked(getItemByIndex(index), index);
     },
-    [setActiveIndex, onItemClicked, getItemByIndex]
+    [setActiveIndex, onItemClicked, getItemByIndex],
   );
 
   const onKeyboardSelection = useCallback(() => {
@@ -151,7 +151,7 @@ export default function useGridKeyboardNavigation({
     onSelectionKey: onKeyboardSelection,
     onArrowNavigation,
     onEscape: blurTargetElement,
-    focusOnMount
+    focusOnMount,
   });
 
   // if the user is not using keyboard nav, the consumers should not treat the index as active
@@ -159,6 +159,6 @@ export default function useGridKeyboardNavigation({
   return {
     activeIndex: externalActiveIndex,
     onSelectionAction,
-    isInitialActiveState
+    isInitialActiveState,
   };
 }

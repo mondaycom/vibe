@@ -78,9 +78,9 @@ const Search: VibeComponent<SearchProps, unknown> & {
       activeDescendant = "",
       iconNames = SearchDefaultIconNames,
       loading = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const mergedRef = useMergeRef(ref, setRef);
     return (
@@ -115,10 +115,10 @@ const Search: VibeComponent<SearchProps, unknown> & {
         underline={type === SearchType.UNDERLINE}
       />
     );
-  }
+  },
 );
 
 export default withStaticProps(Search, {
   sizes: BASE_SIZES,
-  types: SearchType
+  types: SearchType,
 });

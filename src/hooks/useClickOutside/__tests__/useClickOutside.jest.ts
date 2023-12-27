@@ -54,7 +54,7 @@ describe("useClickOutside", () => {
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
-        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" }),
       );
       act(() => {
         fireEvent.mouseDown(document.body);
@@ -67,7 +67,7 @@ describe("useClickOutside", () => {
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
-        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" })
+        useClickOutside({ ref: { current: element }, callback: callbackStub, eventName: "contextmenu" }),
       );
 
       act(() => {

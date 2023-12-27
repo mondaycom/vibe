@@ -17,7 +17,7 @@ const ARROW_DOWN_KEY_CODE = 40;
 function validateEvent(
   event: React.KeyboardEvent,
   keyCode: React.KeyboardEvent["keyCode"] | React.KeyboardEvent["which"],
-  key?: React.KeyboardEvent["key"]
+  key?: React.KeyboardEvent["key"],
 ) {
   if (!event) return false;
   return event.keyCode === keyCode || event.which === keyCode || (key && event.key === key);

@@ -14,12 +14,12 @@ export const RelatedComponentsDecorator = ({ componentsNames, linkTarget }) => {
 
 RelatedComponentsDecorator.propTypes = {
   componentsNames: PropTypes.arrayOf(PropTypes.string),
-  linkTarget: PropTypes.string
+  linkTarget: PropTypes.string,
 };
 
 RelatedComponentsDecorator.defaultProps = {
   componentsNames: [],
-  linkTarget: undefined
+  linkTarget: undefined,
 };
 
 export default RelatedComponentsDecorator;

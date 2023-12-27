@@ -70,9 +70,9 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       value = "",
       name = "",
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
@@ -162,7 +162,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
         )}
       </label>
     );
-  }
+  },
 );
 
 export default Checkbox;

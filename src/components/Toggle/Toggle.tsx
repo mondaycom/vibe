@@ -55,9 +55,9 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       areLabelsHidden = false,
       onOverrideText = "On",
       offOverrideText = "Off",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]) as string;
     const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
@@ -90,7 +90,7 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         />
       </Switch>
     );
-  }
+  },
 );
 
 export default Toggle;

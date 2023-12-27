@@ -3,7 +3,7 @@ import {
   getOppositeDirection,
   getDirectionMaps,
   getOutmostElementInDirection,
-  getNextElementToFocusInDirection
+  getNextElementToFocusInDirection,
 } from "../helper";
 
 describe("GridKeyboardNavigationContext.helper", () => {
@@ -25,7 +25,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         [NavDirections.RIGHT]: new Map(),
         [NavDirections.LEFT]: new Map(),
         [NavDirections.UP]: new Map(),
-        [NavDirections.DOWN]: new Map()
+        [NavDirections.DOWN]: new Map(),
       };
 
       const result = getDirectionMaps(input);
@@ -39,13 +39,13 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { unexpectedKey1: ELEMENT2, unexpectedKey2: ELEMENT3 },
         { topElement: ELEMENT4 },
         { bottomElement: ELEMENT3 },
-        {}
+        {},
       ];
       const expected = {
         [NavDirections.RIGHT]: new Map(),
         [NavDirections.LEFT]: new Map(),
         [NavDirections.UP]: new Map([[ELEMENT2, ELEMENT1]]),
-        [NavDirections.DOWN]: new Map([[ELEMENT1, ELEMENT2]])
+        [NavDirections.DOWN]: new Map([[ELEMENT1, ELEMENT2]]),
       };
 
       const result = getDirectionMaps(input);
@@ -58,25 +58,25 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ];
       const expected = {
         [NavDirections.RIGHT]: new Map([
           [ELEMENT2, ELEMENT4], // ELEMENT4 is to the right of ELEMENT2...
-          [ELEMENT4, ELEMENT5]
+          [ELEMENT4, ELEMENT5],
         ]),
         [NavDirections.LEFT]: new Map([
           [ELEMENT5, ELEMENT4],
-          [ELEMENT4, ELEMENT2]
+          [ELEMENT4, ELEMENT2],
         ]),
         [NavDirections.UP]: new Map([
           [ELEMENT2, ELEMENT1],
-          [ELEMENT3, ELEMENT2]
+          [ELEMENT3, ELEMENT2],
         ]),
         [NavDirections.DOWN]: new Map([
           [ELEMENT1, ELEMENT2],
-          [ELEMENT2, ELEMENT3]
-        ])
+          [ELEMENT2, ELEMENT3],
+        ]),
       };
 
       const result = getDirectionMaps(input);
@@ -89,11 +89,11 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT1 }, // invalid
         { leftElement: ELEMENT2, rightElement: ELEMENT4 }, // valid
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 } // valid
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }, // valid
       ];
 
       expect(() => getDirectionMaps(input)).toThrowError(
-        "Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly."
+        "Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly.",
       );
     });
 
@@ -102,11 +102,11 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
         { leftElement: ELEMENT4, rightElement: ELEMENT2 }, // invalid
         { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // valid
-        { topElement: ELEMENT2, bottomElement: ELEMENT5 } // valid
+        { topElement: ELEMENT2, bottomElement: ELEMENT5 }, // valid
       ];
 
       expect(() => getDirectionMaps(input)).toThrowError(
-        "Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly."
+        "Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly.",
       );
     });
   });
@@ -116,7 +116,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
       { direction: NavDirections.LEFT, opposite: NavDirections.RIGHT },
       { direction: NavDirections.RIGHT, opposite: NavDirections.LEFT },
       { direction: NavDirections.UP, opposite: NavDirections.DOWN },
-      { direction: NavDirections.DOWN, opposite: NavDirections.UP }
+      { direction: NavDirections.DOWN, opposite: NavDirections.UP },
     ].forEach(({ direction, opposite }) => {
       it(`should return "${opposite}" as the opposite of "${direction}"`, () => {
         expect(getOppositeDirection(direction)).toBe(opposite);
@@ -135,7 +135,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.RIGHT;
       const expected = ELEMENT5;
@@ -150,7 +150,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.LEFT;
       const expected = ELEMENT2;
@@ -165,7 +165,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.UP;
       const expected = ELEMENT1;
@@ -180,7 +180,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.DOWN;
       const expected = ELEMENT3;
@@ -193,7 +193,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the left-most element when asking for the BOTTOM element, and there are no vertical relations", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.DOWN;
       const expected = ELEMENT2;
@@ -206,7 +206,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the left-most element when asking for the TOP element, and there are no vertical relations", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const direction = NavDirections.UP;
       const expected = ELEMENT2;
@@ -219,7 +219,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the top-most element when asking for the LEFT element, and there are no horizontal relations", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 }
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
       ]);
       const direction = NavDirections.LEFT;
       const expected = ELEMENT1;
@@ -232,7 +232,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the top-most element when asking for the RIGHT element, and there are no horizontal relations", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 }
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
       ]);
       const direction = NavDirections.RIGHT;
       const expected = ELEMENT1;
@@ -245,7 +245,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should skip the bottom-most element when asking for the bottom element, and the bottom-most element is not mounted", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: UNMOUNTED_ELEMENT_1 }
+        { topElement: ELEMENT2, bottomElement: UNMOUNTED_ELEMENT_1 },
       ]);
       const direction = NavDirections.DOWN;
       const expected = ELEMENT2;
@@ -258,7 +258,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should skip the two right-most elements when asking for the right element, and the two right-most elements are not mounted", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_2 },
-        { leftElement: UNMOUNTED_ELEMENT_2, rightElement: UNMOUNTED_ELEMENT_1 }
+        { leftElement: UNMOUNTED_ELEMENT_2, rightElement: UNMOUNTED_ELEMENT_1 },
       ]);
       const direction = NavDirections.RIGHT;
       const expected = ELEMENT1;
@@ -273,7 +273,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should return null if the referenced element isn't positioned on that direction", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
       ]);
       const directionMap = directionMaps[NavDirections.RIGHT];
 
@@ -322,7 +322,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_1 },
         { leftElement: UNMOUNTED_ELEMENT_1, rightElement: DISABLED_ELEMENT },
-        { leftElement: DISABLED_ELEMENT, rightElement: ELEMENT2 }
+        { leftElement: DISABLED_ELEMENT, rightElement: ELEMENT2 },
       ]);
       const directionMap = directionMaps[NavDirections.RIGHT];
 

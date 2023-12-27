@@ -10,7 +10,7 @@ function useElementsOverflowingIndex({
   children,
   paddingSize,
   resizeDebounceTime,
-  ignoreLast
+  ignoreLast,
 }: {
   ref: RefObject<HTMLElement>;
   children: ReactNode;
@@ -24,12 +24,12 @@ function useElementsOverflowingIndex({
     ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => {
       setSize(borderBoxSize.inlineSize);
     },
-    [setSize]
+    [setSize],
   );
   useResizeObserver({
     ref,
     callback: onResize,
-    debounceTime: resizeDebounceTime
+    debounceTime: resizeDebounceTime,
   });
 
   const [aggregatedChildLengths, setAggregatedChildLengths] = useState<Array<AggregatedChildResult>>([]);
@@ -44,7 +44,7 @@ function useElementsOverflowingIndex({
       } else {
         const lastSize = aggregatedChildLengths.length > 0 ? last(aggregatedChildLengths).childLength : 0;
         setIndexToSplit(
-          aggregatedChildLengths.findIndex(({ totalLength }) => totalLength > size - paddingSize - lastSize)
+          aggregatedChildLengths.findIndex(({ totalLength }) => totalLength > size - paddingSize - lastSize),
         );
       }
     } else {

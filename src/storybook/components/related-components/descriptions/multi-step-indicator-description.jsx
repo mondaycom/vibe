@@ -5,24 +5,24 @@ import MultiStepIndicator from "../../../../components/MultiStepIndicator/MultiS
 export const MultiStepIndicatorDescription = () => {
   const component = useMemo(() => {
     const style = {
-      marginLeft: "-40px"
+      marginLeft: "-40px",
     };
     const steps = [
       {
         status: MultiStepIndicator.stepStatuses.ACTIVE,
         titleText: "1st",
-        subtitleText: ""
+        subtitleText: "",
       },
       {
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "2nd",
-        subtitleText: ""
+        subtitleText: "",
       },
       {
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "3rd",
-        subtitleText: ""
-      }
+        subtitleText: "",
+      },
     ];
     return (
       <div style={style}>

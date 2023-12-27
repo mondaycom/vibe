@@ -8,7 +8,7 @@ import {
   MEDIUM1,
   MEDIUM2,
   SMALL2,
-  MEDIA_QUERY_SIZES
+  MEDIA_QUERY_SIZES,
 } from "../../utils/media-query-utils";
 
 export default function useVibeMediaQuery() {

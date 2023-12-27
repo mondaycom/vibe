@@ -42,9 +42,9 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       hideBorder = false,
       headerClassName,
       contentClassName,
-      expandCollapseComponentClassName
+      expandCollapseComponentClassName,
     },
-    ref
+    ref,
   ) => {
     // Change onClick param name to onClickCallback in 1.0.0
     const componentRef = useRef(null);
@@ -72,7 +72,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
         </ExpandCollapse>
       </div>
     );
-  }
+  },
 );
 
 export default AccordionItem;

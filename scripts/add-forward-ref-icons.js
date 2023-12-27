@@ -8,13 +8,13 @@ const endReplaceOrigin = ");";
 const endReplaceReplaced = "));";
 
 function readFiles(dirname, onFileContent, onError) {
-  fs.readdir(dirname, function(err, filenames) {
+  fs.readdir(dirname, function (err, filenames) {
     if (err) {
       onError(err);
       return;
     }
-    filenames.forEach(function(filename) {
-      fs.readFile(dirname + filename, "utf-8", function(err, content) {
+    filenames.forEach(function (filename) {
+      fs.readFile(dirname + filename, "utf-8", function (err, content) {
         if (err) {
           onError(err);
           return;
@@ -27,18 +27,18 @@ function readFiles(dirname, onFileContent, onError) {
 const dirName = "src/components/Icon/Icons/components/";
 readFiles(
   dirName,
-  function(filename, content) {
+  function (filename, content) {
     console.log("optimizing:: ", filename);
     const newContent = content
       .replace(replaceRefOrigin, replaceRefReplaced)
       .replace(startReplaceOrigin, startReplaceReplaced)
       .replace(endReplaceOrigin, endReplaceReplaced);
 
-    fs.writeFile(`${dirName}/${filename}`, newContent, "utf8", function(err) {
+    fs.writeFile(`${dirName}/${filename}`, newContent, "utf8", function (err) {
       if (err) return console.log(err);
     });
   },
-  function(err) {
+  function (err) {
     throw err;
-  }
+  },
 );

@@ -62,9 +62,9 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       disabled = false,
       style,
       dataTestId: backwardCompatabilityDataTestId,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref: React.ForwardedRef<HTMLElement>
+    ref: React.ForwardedRef<HTMLElement>,
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
     const clickableProps = useClickableProps(
@@ -81,13 +81,13 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
         ariaLabel,
         ariaHidden,
         ariaHasPopup,
-        ariaExpanded
+        ariaExpanded,
       },
-      ref
+      ref,
     );
     const overrideClassName = cx(styles.clickable, className, {
       [styles.disabled]: disabled,
-      [styles.disableTextSelection]: !enableTextSelection
+      [styles.disableTextSelection]: !enableTextSelection,
     });
 
     return React.createElement(
@@ -95,11 +95,11 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
       {
         ...clickableProps,
         className: overrideClassName,
-        style: style
+        style: style,
       },
-      children
+      children,
     );
-  }
+  },
 );
 
 export default Clickable;

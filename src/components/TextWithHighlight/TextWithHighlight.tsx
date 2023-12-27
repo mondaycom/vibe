@@ -13,7 +13,7 @@ const getTextPart = (
   key: number,
   shouldHighlight: boolean,
   wrappingTextTag: keyof JSX.IntrinsicElements = "em",
-  wrappingElementClassName: string
+  wrappingElementClassName: string,
 ) => {
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
@@ -62,9 +62,9 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       tooltipPosition,
       wrappingTextTag = "em",
       wrappingElementClassName,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -106,7 +106,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       <div
         ref={mergedRef}
         className={cx(styles.textWithHighlightWrapper, className, {
-          [styles.withEllipsis]: useEllipsis
+          [styles.withEllipsis]: useEllipsis,
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_WITH_HIGHLIGHT, id)}
@@ -124,7 +124,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       );
     }
     return Element;
-  }
+  },
 );
 
 export default TextWithHighlight;

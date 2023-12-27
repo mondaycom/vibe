@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useMemo,
   useRef,
-  useState
+  useState,
 } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
@@ -25,7 +25,7 @@ import {
   getListItemIndexById,
   getNextListItemIndex,
   getPrevListItemIndex,
-  useListId
+  useListId,
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
 
@@ -65,9 +65,9 @@ const List: VibeComponent<ListProps> & {
       "aria-controls": ariaControls,
       renderOnlyVisibleItems = false,
       style,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -103,13 +103,13 @@ const List: VibeComponent<ListProps> & {
           childrenRefs.current[overrideFocusIndex].focus();
         }
       },
-      [focusIndex, renderOnlyVisibleItems, updateFocusedItem]
+      [focusIndex, renderOnlyVisibleItems, updateFocusedItem],
     );
 
     useKeyEvent({
       keys: UP_DOWN_ARROWS,
       callback: onUpDownArrows,
-      ref: componentRef
+      ref: componentRef,
     });
 
     const overrideChildren = useMemo(() => {
@@ -129,7 +129,7 @@ const List: VibeComponent<ListProps> & {
             ref: ref => (childrenRefs.current[index] = ref),
             tabIndex: focusIndex === index ? 0 : -1,
             id,
-            component: getListItemComponentType(component)
+            component: getListItemComponentType(component),
           });
         });
       }
@@ -155,9 +155,9 @@ const List: VibeComponent<ListProps> & {
         </Component>
       </ListContext.Provider>
     );
-  }
+  },
 );
 
 export default withStaticProps(List, {
-  components: ListWrapperComponentType
+  components: ListWrapperComponentType,
 });

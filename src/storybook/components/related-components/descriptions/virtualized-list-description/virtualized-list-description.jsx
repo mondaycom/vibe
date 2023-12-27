@@ -14,7 +14,7 @@ export const VirtualizedListDescription = () => {
             className={styles.virtualizedListItem}
             style={{
               backgroundColor,
-              height: item.height
+              height: item.height,
             }}
           >
             {item.value}

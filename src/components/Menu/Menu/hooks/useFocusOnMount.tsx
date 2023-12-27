@@ -15,7 +15,7 @@ export const useFocusOnMount = ({
   focusChildOnMount,
   getNextSelectableIndex,
   updateActiveItemIndex,
-  setIsInitialFocusSet
+  setIsInitialFocusSet,
 }: UseFocusOnMountProps) => {
   useEffect(() => {
     if (focusItemIndexOnMount === -1) {

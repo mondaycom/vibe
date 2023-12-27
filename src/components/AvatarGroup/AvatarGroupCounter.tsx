@@ -38,14 +38,14 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   counterTooltipIsVirtualizedList = false,
   size = Avatar.sizes.MEDIUM,
   type,
-  counterAriaLabel
+  counterAriaLabel,
 }) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
     count: counterValue = counterTooltipAvatars.length,
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,
-    ariaLabelItemsName: counterAriaLabelItemsName = "items"
+    ariaLabelItemsName: counterAriaLabelItemsName = "items",
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -87,13 +87,13 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
                 menuItemProps={{
                   key: avatar.props?.id || String(index),
                   title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.ariaLabel,
-                  onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
+                  onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props),
                 }}
                 avatarProps={{
                   ...avatar.props,
                   customSize: AVATAR_GROUP_COUNTER_AVATAR_SIZE,
                   ariaLabel: "",
-                  tabIndex: -1
+                  tabIndex: -1,
                 }}
               />
             );

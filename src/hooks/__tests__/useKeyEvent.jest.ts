@@ -16,8 +16,8 @@ describe("useKeyEvent", () => {
           keys,
           keyEventName: "keyup",
           ref: { current: element },
-          callback: callbackStub
-        })
+          callback: callbackStub,
+        }),
       );
     });
 
@@ -29,7 +29,7 @@ describe("useKeyEvent", () => {
     it(`should call the callback with the ${keys[0]} key`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: keys[0]
+          key: keys[0],
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(1);
@@ -38,7 +38,7 @@ describe("useKeyEvent", () => {
     it(`should not call the callback with a different key`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: "Escape"
+          key: "Escape",
         });
       });
 
@@ -48,7 +48,7 @@ describe("useKeyEvent", () => {
     it("should not call on keyDown", () => {
       act(() => {
         fireEvent.keyDown(element, {
-          key: keys[0]
+          key: keys[0],
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(0);
@@ -67,8 +67,8 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub,
-          modifier: useKeyEvent.modifiers.ALT
-        })
+          modifier: useKeyEvent.modifiers.ALT,
+        }),
       );
     });
 
@@ -81,7 +81,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
-          altKey: true
+          altKey: true,
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(1);
@@ -90,7 +90,7 @@ describe("useKeyEvent", () => {
     it(`should not call the callback with the key but without modifiers`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: keys[0]
+          key: keys[0],
         });
       });
 
@@ -101,7 +101,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
-          shiftKey: true
+          shiftKey: true,
         });
       });
 
@@ -121,8 +121,8 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub,
-          modifier: useKeyEvent.modifiers.CTRL_OR_META
-        })
+          modifier: useKeyEvent.modifiers.CTRL_OR_META,
+        }),
       );
     });
 
@@ -135,7 +135,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
-          ctrlKey: true
+          ctrlKey: true,
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(1);
@@ -145,7 +145,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
-          metaKey: true
+          metaKey: true,
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(1);
@@ -154,7 +154,7 @@ describe("useKeyEvent", () => {
     it(`should not call the callback with the key but without modifiers`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: keys[0]
+          key: keys[0],
         });
       });
 
@@ -165,7 +165,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
-          shiftKey: true
+          shiftKey: true,
         });
       });
 
@@ -176,7 +176,7 @@ describe("useKeyEvent", () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: "Esc",
-          metaKey: true
+          metaKey: true,
         });
       });
 
@@ -195,7 +195,7 @@ describe("useKeyEvent", () => {
           keys,
           keyEventName: "keyup",
           ref: { current: element },
-          callback: callbackStub
+          callback: callbackStub,
         });
       });
     });
@@ -208,7 +208,7 @@ describe("useKeyEvent", () => {
     it(`should not call the callback with the ${keys[0]} key`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: keys[0]
+          key: keys[0],
         });
       });
       expect(callbackStub.mock.calls.length).toEqual(1);
@@ -217,7 +217,7 @@ describe("useKeyEvent", () => {
     it(`should call the callback with a different key - ${keys[1]}`, () => {
       act(() => {
         fireEvent.keyUp(element, {
-          key: keys[1]
+          key: keys[1],
         });
       });
 

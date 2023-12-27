@@ -4,7 +4,7 @@ import "../../__stories__/general-hooks-stories.scss";
 import styles from "./useHover.stories.module.scss";
 
 export default {
-  title: "Hooks/useHover"
+  title: "Hooks/useHover",
 };
 
 export const Overview = {
@@ -15,7 +15,7 @@ export const Overview = {
       <div
         ref={hoverRef}
         className={cx("hooks-reference-element", styles.container, {
-          [styles.isHovered]: isHovered
+          [styles.isHovered]: isHovered,
         })}
       >
         {isHovered ? "Boom!" : "Hover me"}
@@ -23,5 +23,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

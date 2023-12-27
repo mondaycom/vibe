@@ -8,15 +8,15 @@ export const modifiers = [
   {
     name: "preventOverflow",
     options: {
-      mainAxis: false // true by default
-    }
+      mainAxis: false, // true by default
+    },
   },
   {
     name: "flip",
     options: {
-      fallbackPlacements: [] // true by default
-    }
-  }
+      fallbackPlacements: [], // true by default
+    },
+  },
 ];
 
 export const StepsNumbersDoTemplate = () => {
@@ -37,10 +37,10 @@ export const StepsNumbersDoTemplate = () => {
       activeStepIndex={activeStepIndex}
       onChangeActiveStep={onChangeActiveStep}
       backButtonProps={{
-        onClick: stepPrev
+        onClick: stepPrev,
       }}
       nextButtonProps={{
-        onClick: stepNext
+        onClick: stepNext,
       }}
     />
   );
@@ -63,10 +63,10 @@ export const StepsGalleryDontTemplate = () => {
       activeStepIndex={activeStepIndex}
       onChangeActiveStep={onChangeActiveStep}
       backButtonProps={{
-        onClick: stepPrev
+        onClick: stepPrev,
       }}
       nextButtonProps={{
-        onClick: stepNext
+        onClick: stepNext,
       }}
     />
   );

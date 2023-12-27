@@ -30,7 +30,7 @@ export const Refable = React.forwardRef<
       onMouseDown: getChainedFunction("onMouseDown", child.props, rest),
       onFocus: getChainedFunction("onFocus", child.props, rest),
       // @ts-expect-error
-      ref: chainRefFunctions([child.ref, ref as MutableRefObject<any>])
+      ref: chainRefFunctions([child.ref, ref as MutableRefObject<any>]),
     });
   });
 });
@@ -38,7 +38,7 @@ export const Refable = React.forwardRef<
 function getChainedFunction(
   name: keyof React.HTMLProps<unknown>,
   childProps: React.PropsWithChildren<React.HTMLProps<unknown>>,
-  wrapperProps: React.HTMLProps<unknown>
+  wrapperProps: React.HTMLProps<unknown>,
 ) {
   return chainFunctions([childProps[name], wrapperProps[name]], true);
 }

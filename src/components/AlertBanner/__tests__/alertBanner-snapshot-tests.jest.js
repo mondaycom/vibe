@@ -22,7 +22,7 @@ describe("AlertBanner", () => {
           className="my-lorem-ipsum-banner"
         >
           <AlertBannerText text="Lorem ipsum dolor sit amet" />
-        </AlertBanner>
+        </AlertBanner>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("AlertBanner", () => {
         <AlertBanner onClose={NOOP}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
-        </AlertBanner>
+        </AlertBanner>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe("AlertBanner", () => {
         <AlertBanner onClose={NOOP}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerButton onClick={NOOP}>Lorem Ipsum Salura</AlertBannerButton>
-        </AlertBanner>
+        </AlertBanner>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -60,7 +60,7 @@ describe("AlertBanner", () => {
           <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
           <AlertBannerText text="sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerButton onClick={NOOP}>Lorem Ipsum Bailar</AlertBannerButton>
-        </AlertBanner>
+        </AlertBanner>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

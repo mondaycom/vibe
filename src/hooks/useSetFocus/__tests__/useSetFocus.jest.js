@@ -109,8 +109,8 @@ describe("useSetFocus", () => {
       useSetFocus({
         ref: { current: element },
         focusCallback: focusCallback,
-        blurCallback: blurCallback
-      })
+        blurCallback: blurCallback,
+      }),
     );
   }
 });

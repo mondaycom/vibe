@@ -7,7 +7,7 @@ import {
   isEndEvent,
   isHomeEvent,
   isPageDownEvent,
-  isPageUpEvent
+  isPageUpEvent,
 } from "../../../utils/dom-event-utils";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import { calcDimensions, calculatePageStep, getNearest, moveToPx } from "../SliderHelpers";
@@ -36,7 +36,7 @@ const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
       const newValue = moveToPx(offsetInPx, min, max, railCoords, step);
       drugThumb(newValue);
     },
-    [drugThumb, min, max, railCoords, step]
+    [drugThumb, min, max, railCoords, step],
   );
 
   const handleRailClick = useCallback(
@@ -46,7 +46,7 @@ const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
       const thumbIndex = getNearest(newValue, ranged, value);
       changeThumbValue(newValue, thumbIndex);
     },
-    [changeThumbValue, min, max, railCoords, ranged, step, value]
+    [changeThumbValue, min, max, railCoords, ranged, step, value],
   );
 
   function handleKeyDown(e: React.KeyboardEvent) {
@@ -79,7 +79,7 @@ const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
       className={cx(
         styles.base,
         { [getStyle(styles, size)]: size, [getStyle(styles, color)]: color, [styles.disabled]: disabled },
-        className
+        className,
       )}
       data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}

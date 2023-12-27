@@ -35,7 +35,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         setPreviousActiveTabIdState(activeTabIdState);
         setActiveTabIdState(tabId);
       },
-      [setPreviousActiveTabIdState, activeTabIdState, setActiveTabIdState]
+      [setPreviousActiveTabIdState, activeTabIdState, setActiveTabIdState],
     );
 
     return (
@@ -57,7 +57,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
         })}
       </div>
     );
-  }
+  },
 );
 
 export default TabsContext;

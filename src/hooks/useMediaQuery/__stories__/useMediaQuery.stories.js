@@ -2,7 +2,7 @@ import useMediaQuery from "..";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useMediaQuery"
+  title: "Hooks/useMediaQuery",
 };
 
 export const SingleRule = {
@@ -17,14 +17,14 @@ export const SingleRule = {
     );
   },
 
-  name: "Single Rule"
+  name: "Single Rule",
 };
 
 export const MultipleRules = {
   render: () => {
     const [screenSizeMediaQuery, preferDarkColorScheme] = useMediaQuery([
       "screen and (max-width: 1280px) and (min-width: 768px)",
-      "prefers-color-scheme: dark"
+      "prefers-color-scheme: dark",
     ]);
 
     return (
@@ -38,5 +38,5 @@ export const MultipleRules = {
     );
   },
 
-  name: "Multiple Rules"
+  name: "Multiple Rules",
 };

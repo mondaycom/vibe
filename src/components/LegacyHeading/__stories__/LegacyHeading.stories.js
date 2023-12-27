@@ -11,20 +11,20 @@ import styles from "./LegacyHeading.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
-  enumPropNamesArray: ["type", "size"]
+  enumPropNamesArray: ["type", "size"],
 });
 
 export default {
   title: "Text/LegacyHeading [deprecated]",
   component: Heading,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
   render: () => <Heading value="Hello world" />,
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const Sizes = {
@@ -32,7 +32,7 @@ export const Sizes = {
     <div
       style={{
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
       }}
     >
       <Heading type={Heading.types.h1} value="Hello H1" />
@@ -45,7 +45,7 @@ export const Sizes = {
     </div>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Overflow = {
@@ -54,7 +54,7 @@ export const Overflow = {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "70%"
+        width: "70%",
       }}
     >
       <Heading
@@ -80,7 +80,7 @@ export const Overflow = {
     </div>
   ),
 
-  name: "Overflow"
+  name: "Overflow",
 };
 
 export const TextHighlight = {
@@ -89,7 +89,7 @@ export const TextHighlight = {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "70%"
+        width: "70%",
       }}
     >
       <Heading
@@ -114,14 +114,14 @@ export const TextHighlight = {
     </div>
   ),
 
-  name: "Text Highlight"
+  name: "Text Highlight",
 };
 
 export const NotEditableHeaderOfAPage = {
   render: () => (
     <div
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
@@ -136,7 +136,7 @@ export const NotEditableHeaderOfAPage = {
     </div>
   ),
 
-  name: "Not editable header of a page"
+  name: "Not editable header of a page",
 };
 
 export const EmptyStateTitle = {
@@ -144,7 +144,7 @@ export const EmptyStateTitle = {
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL} aria-labelledby="empty-state-id">
       <img
         style={{
-          width: "290px"
+          width: "290px",
         }}
         src={emptyStateExample}
         alt=""
@@ -153,7 +153,7 @@ export const EmptyStateTitle = {
       <span
         style={{
           width: "50%",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         Be the first one to update about progress, mention someone or upload files to share with your team members
@@ -161,5 +161,5 @@ export const EmptyStateTitle = {
     </Flex>
   ),
 
-  name: "Empty state title"
+  name: "Empty state title",
 };

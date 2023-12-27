@@ -22,7 +22,7 @@ import { person1, person2, person3 } from "../../Avatar/__stories__/assets";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: List,
-  enumPropNamesArray: ["component"]
+  enumPropNamesArray: ["component"],
 });
 
 export default {
@@ -31,10 +31,10 @@ export default {
   subcomponents: {
     ListItem,
     ListItemIcon,
-    ListItemAvatar
+    ListItemAvatar,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const listTemplate = args => {
@@ -51,7 +51,7 @@ const listTemplate = args => {
 export const Overview = {
   render: listTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const ListWithCategories = {
@@ -66,7 +66,7 @@ export const ListWithCategories = {
     </List>
   ),
 
-  name: "List with categories"
+  name: "List with categories",
 };
 
 export const ListWithIcons = {
@@ -87,7 +87,7 @@ export const ListWithIcons = {
     </List>
   ),
 
-  name: "List with icons"
+  name: "List with icons",
 };
 
 export const ListWithAvatars = {
@@ -108,7 +108,7 @@ export const ListWithAvatars = {
     </List>
   ),
 
-  name: "List with avatars"
+  name: "List with avatars",
 };
 
 export const ListWithVirtualizationOptimization = {
@@ -117,7 +117,7 @@ export const ListWithVirtualizationOptimization = {
       align={Flex.align.START}
       gap={Flex.gaps.LARGE}
       style={{
-        width: "100%"
+        width: "100%",
       }}
       direction={Flex.directions.COLUMN}
     >
@@ -125,14 +125,14 @@ export const ListWithVirtualizationOptimization = {
         <DialogContentContainer
           style={{
             height: "162px",
-            width: "200px"
+            width: "200px",
           }}
         >
           <List
             renderOnlyVisibleItems
             style={{
               height: "100%",
-              width: "100%"
+              width: "100%",
             }}
           >
             <ListItem>List item 1</ListItem>
@@ -154,14 +154,14 @@ export const ListWithVirtualizationOptimization = {
         <DialogContentContainer
           style={{
             height: "159px",
-            width: "200px"
+            width: "200px",
           }}
         >
           <List
             renderOnlyVisibleItems
             style={{
               height: "100%",
-              width: "100%"
+              width: "100%",
             }}
           >
             <ListTitle>First category</ListTitle>
@@ -184,7 +184,7 @@ export const ListWithVirtualizationOptimization = {
     </Flex>
   ),
 
-  name: "List with virtualization optimization"
+  name: "List with virtualization optimization",
 };
 
 export const ListAsLeftpane = {
@@ -226,5 +226,5 @@ export const ListAsLeftpane = {
     </div>
   ),
 
-  name: "List as leftpane"
+  name: "List as leftpane",
 };

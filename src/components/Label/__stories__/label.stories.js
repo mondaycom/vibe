@@ -6,14 +6,14 @@ import "./label.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
-  enumPropNamesArray: ["kind", "color"]
+  enumPropNamesArray: ["kind", "color"],
 });
 
 export default {
   title: "Data display/Label",
   component: Label,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const labelTemplate = createComponentTemplate(Label);
@@ -22,8 +22,8 @@ export const Overview = {
   render: labelTemplate.bind({}),
   name: "Overview",
   args: {
-    text: "New"
-  }
+    text: "New",
+  },
 };
 
 export const Kinds = {
@@ -44,9 +44,9 @@ export const Kinds = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const Colors = {
@@ -75,9 +75,9 @@ export const Colors = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const Clickable = {
@@ -96,9 +96,9 @@ export const Clickable = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const SecondaryLabel = {
@@ -121,7 +121,7 @@ export const SecondaryLabel = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };

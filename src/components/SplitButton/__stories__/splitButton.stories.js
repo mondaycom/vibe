@@ -17,11 +17,11 @@ const metaSettings = createStoryMetaSettingsDecorator({
     "dialogPaddingSize",
     {
       propName: "secondaryDialogPosition",
-      enumName: "secondaryPositions"
-    }
+      enumName: "secondaryPositions",
+    },
   ],
   iconPropNamesArray: ["leftIcon", "rightIcon"],
-  actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"]
+  actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"],
 });
 
 export default {
@@ -29,11 +29,11 @@ export default {
   component: SplitButton,
 
   subcomponents: {
-    SplitButtonMenu
+    SplitButtonMenu,
   },
 
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const splitButtonTemplate = createComponentTemplate(SplitButton);
@@ -50,8 +50,8 @@ export const Overview = {
         <MenuItem icon={Check} title="Hey" />
         <MenuItem icon={Announcement} title="There" />
       </SplitButtonMenu>
-    )
-  }
+    ),
+  },
 };
 
 export const Types = {
@@ -89,7 +89,7 @@ export const Types = {
     </>
   ),
 
-  name: "Types"
+  name: "Types",
 };
 
 export const Sizes = {
@@ -128,7 +128,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const SplitButtonWithIcons = {
@@ -159,7 +159,7 @@ export const SplitButtonWithIcons = {
     </>
   ),
 
-  name: "Split button with icons"
+  name: "Split button with icons",
 };
 
 export const SplitButtonAsThePrimaryAction = {
@@ -176,7 +176,7 @@ export const SplitButtonAsThePrimaryAction = {
     />
   ),
 
-  name: "Split button as the primary action"
+  name: "Split button as the primary action",
 };
 
 export const SecondarySplitButton = {
@@ -198,7 +198,7 @@ export const SecondarySplitButton = {
     </>
   ),
 
-  name: "Secondary split button"
+  name: "Secondary split button",
 };
 
 export const CustomMenu = {
@@ -217,5 +217,5 @@ export const CustomMenu = {
     </SplitButton>
   ),
 
-  name: "Custom menu"
+  name: "Custom menu",
 };

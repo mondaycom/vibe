@@ -28,15 +28,15 @@ const metaSettings = createStoryMetaSettingsDecorator({
     "paddingBottom",
     "paddingStart",
     "backgroundColor",
-    "textColor"
-  ]
+    "textColor",
+  ],
 });
 
 export default {
   title: "Layout/Box",
   component: Box,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const boxTemplate = args => (
@@ -50,7 +50,7 @@ const boxTemplate = args => (
 export const Overview = {
   render: boxTemplate.bind({}),
 
-  name: "Overview"
+  name: "Overview",
 };
 
 export const BackgroundColors = {
@@ -75,7 +75,7 @@ export const BackgroundColors = {
     </div>
   ),
 
-  name: "Background colors"
+  name: "Background colors",
 };
 
 export const TextColors = {
@@ -92,7 +92,7 @@ export const TextColors = {
     </div>
   ),
 
-  name: "Text Colors"
+  name: "Text Colors",
 };
 
 export const Border = {
@@ -102,7 +102,7 @@ export const Border = {
     </div>
   ),
 
-  name: "Border"
+  name: "Border",
 };
 
 export const BorderColor = {
@@ -117,7 +117,7 @@ export const BorderColor = {
     </div>
   ),
 
-  name: "Border Color"
+  name: "Border Color",
 };
 
 export const RoundCorners = {
@@ -135,7 +135,7 @@ export const RoundCorners = {
     </div>
   ),
 
-  name: "Round Corners"
+  name: "Round Corners",
 };
 
 export const Shadow = {
@@ -148,7 +148,7 @@ export const Shadow = {
     </div>
   ),
 
-  name: "Shadow"
+  name: "Shadow",
 };
 
 export const Margin = {
@@ -225,7 +225,7 @@ export const Margin = {
     </div>
   ),
 
-  name: "Margin"
+  name: "Margin",
 };
 
 export const Padding = {
@@ -274,7 +274,7 @@ export const Padding = {
     </div>
   ),
 
-  name: "Padding"
+  name: "Padding",
 };
 
 export const Disabled = {
@@ -286,5 +286,5 @@ export const Disabled = {
     </div>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };

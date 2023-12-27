@@ -56,7 +56,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   // Backward compatibility for props naming
   dismissButtonProps = EMPTY_OBJECT,
   // Backward compatibility for props naming
-  submitButtonProps = EMPTY_OBJECT
+  submitButtonProps = EMPTY_OBJECT,
 }) => {
   const overrideHideDismiss = backwardCompatibilityForProperties([hideDismiss, isDismissHidden], true);
   const overrideHideSubmit = backwardCompatibilityForProperties([hideSubmit, isSubmitHidden], false);
@@ -68,7 +68,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   } = dismissButtonProps;
   const overrideDismissContent = backwardCompatibilityForProperties(
     [dismissButtonText, dismissContent],
-    DISMISS_BUTTON_TEXT
+    DISMISS_BUTTON_TEXT,
   );
   const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
 
@@ -76,7 +76,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   const { className: submitClassName, onClick: submitDeprecatedOnClick, ...otherSubmitButtonProps } = submitButtonProps;
   const overrideSubmitContent = backwardCompatibilityForProperties(
     [submitButtonText, submitContent],
-    SUBMIT_BUTTON_TEXT
+    SUBMIT_BUTTON_TEXT,
   );
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
 

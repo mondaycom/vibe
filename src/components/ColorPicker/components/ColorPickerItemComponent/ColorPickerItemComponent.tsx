@@ -43,9 +43,9 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
       tooltipContent,
       isActive,
       colorShape,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    _ref
+    _ref,
   ) => {
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
     const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
@@ -83,7 +83,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
           className={cx(styles.itemWrapper, {
             [styles.selectedColor]: isSelected,
             [styles.active]: isActive,
-            [styles.circle]: colorShape === ColorShapes.CIRCLE
+            [styles.circle]: colorShape === ColorShapes.CIRCLE,
           })}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
         >
@@ -92,7 +92,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
             ref={itemRef}
             ariaLabel={color}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
-              [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
+              [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground,
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
             onClick={onClick}
@@ -104,7 +104,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
                 <Icon
                   icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
                   className={cx({
-                    [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground
+                    [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground,
                   })}
                   ignoreFocusStyle
                 />
@@ -114,7 +114,7 @@ const ColorPickerItemComponent: VibeComponent<ColorPickerItemComponentProps> = f
         </li>
       </Tooltip>
     );
-  }
+  },
 );
 
 export default ColorPickerItemComponent;

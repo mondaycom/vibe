@@ -32,12 +32,12 @@ const changeSliderValueByDragThumbTest = async canvas => {
   const elThumb = await waitForElementVisible(() => within(elRail).getByRole("slider"));
   await drag(elThumb, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) },
   });
   await expect(elThumb.getAttribute("aria-valuenow")).toBe("25");
   await drag(elThumb, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.75) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.75) },
   });
   await expect(elThumb.getAttribute("aria-valuenow")).toBe("75");
 };
@@ -78,21 +78,21 @@ const changeRangedSliderValueByDragThumbTest = async canvas => {
   // move Start Thumb from 0% to 25%
   await drag(elThumbStart, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) },
   });
   await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
 
   // move End Thumb from 100% to 65%
   await drag(elThumbEnd, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.65) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.65) },
   });
   await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("65");
 
   // move Start Thumb to 95% --> switch End/Start Thumbs when crossing
   await drag(elThumbStart, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.95) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.95) },
   });
   // drag Start Thumb but after crossing it switching to End Thumb - should be checked
   await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("95");
@@ -100,7 +100,7 @@ const changeRangedSliderValueByDragThumbTest = async canvas => {
   // move Start Thumb from 75% to 5%
   await drag(elThumbStart, {
     duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.05) }
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.05) },
   });
   await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("5");
 };
@@ -109,12 +109,12 @@ export const nonRangedSliderMouseEventsPlaySuite = interactionSuite({
   tests: [changeSliderValueByClickingOnTrackTest, changeSliderValueByDragThumbTest],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 export const rangedSliderMouseEventsPlaySuite = interactionSuite({
   tests: [changeRangedSliderValueByClickingOnTrackTest, changeRangedSliderValueByDragThumbTest],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });

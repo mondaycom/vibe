@@ -16,7 +16,7 @@ export const TipMenu = () => (
 
 const DialogDefault = [
   { icon: Check, text: "Hey" },
-  { icon: Announcement, text: "There" }
+  { icon: Announcement, text: "There" },
 ];
 
 export const SplitButtonExampleDialog = ({ options = DialogDefault }) => {

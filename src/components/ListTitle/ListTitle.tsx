@@ -30,12 +30,12 @@ const ListTitle: React.FC<ListTitleProps> = forwardRef(
         {children}
       </Text>
     );
-  }
+  },
 );
 
 Object.assign(ListTitle, {
   // Used by VirtualizedListItems
-  displayName: "ListTitle"
+  displayName: "ListTitle",
 });
 
 export default ListTitle;

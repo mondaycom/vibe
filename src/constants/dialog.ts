@@ -1,7 +1,7 @@
 export enum JustifyType {
   START = "start",
   CENTER = "center",
-  END = "end"
+  END = "end",
 }
 
 export enum HideShowEvent {
@@ -16,12 +16,12 @@ export enum HideShowEvent {
   FOCUS = "focus",
   BLUR = "blur",
   CONTENT_CLICK = "onContentClick",
-  CONTEXT_MENU = "contextmenu"
+  CONTEXT_MENU = "contextmenu",
 }
 
 export enum AnimationType {
   OPACITY_AND_SLIDE = "opacity-and-slide",
-  EXPAND = "expand"
+  EXPAND = "expand",
 }
 
 export type DialogOffset = {

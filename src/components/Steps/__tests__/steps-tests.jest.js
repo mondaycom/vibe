@@ -12,7 +12,7 @@ const stepsContent = [
   </div>,
   <div key="second" data-testid="second-step">
     second
-  </div>
+  </div>,
 ];
 const renderComponent = props => {
   return render(<Steps steps={stepsContent} {...props} />);
@@ -23,7 +23,7 @@ describe("Steps tests", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
-      activeStepIndex: stepsContent.length - 1
+      activeStepIndex: stepsContent.length - 1,
     });
     const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
@@ -37,7 +37,7 @@ describe("Steps tests", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
-      activeStepIndex: 0
+      activeStepIndex: 0,
     });
     const forwardButton = steps.getByText(NEXT_DESCRIPTION);
 
@@ -52,7 +52,7 @@ describe("Steps tests", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
-      activeStepIndex: 0
+      activeStepIndex: 0,
     });
     const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
@@ -67,7 +67,7 @@ describe("Steps tests", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
       onChangeActiveStep: onClickMock,
-      activeStepIndex: stepsContent.length - 1
+      activeStepIndex: stepsContent.length - 1,
     });
     const forwardButton = steps.getByText(NEXT_DESCRIPTION);
 

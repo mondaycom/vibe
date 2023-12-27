@@ -15,7 +15,7 @@ export const AvatarGroupDescription = () => {
         <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yossi Saadi" />
       </AvatarGroup>
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

@@ -25,15 +25,15 @@ const metaSettings = createStoryMetaSettingsDecorator({
     "onOptionSelect",
     "onClear",
     "onInputChange",
-    "onKeyDown"
-  ]
+    "onKeyDown",
+  ],
 });
 
 export default {
   title: "Inputs/Dropdown",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const dropdownTemplate = props => {
@@ -41,9 +41,9 @@ const dropdownTemplate = props => {
     () => [
       { value: 1, label: "Option 1" },
       { value: 2, label: "Option 2" },
-      { value: 3, label: "Option 3" }
+      { value: 3, label: "Option 3" },
     ],
-    []
+    [],
   );
   return (
     <div style={{ height: "150px" }}>
@@ -58,10 +58,10 @@ export const Overview = {
 
   args: {
     placeholder: "Placeholder text here",
-    className: "dropdown-stories-styles_spacing"
+    className: "dropdown-stories-styles_spacing",
   },
 
-  play: overviewPlaySuite
+  play: overviewPlaySuite,
 };
 
 export const Sizes = {
@@ -73,7 +73,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Disabled = {
@@ -82,18 +82,18 @@ export const Disabled = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -110,7 +110,7 @@ export const Disabled = {
     );
   },
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const Readonly = {
@@ -119,18 +119,18 @@ export const Readonly = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -147,7 +147,7 @@ export const Readonly = {
     );
   },
 
-  name: "Readonly"
+  name: "Readonly",
 };
 
 export const Rtl = {
@@ -158,7 +158,7 @@ export const Rtl = {
     </>
   ),
 
-  name: "RTL"
+  name: "RTL",
 };
 
 export const MultiChoiceWithDifferentStates = {
@@ -167,22 +167,22 @@ export const MultiChoiceWithDifferentStates = {
       () => [
         {
           value: "Rotem",
-          label: "Rotem Dekel"
+          label: "Rotem Dekel",
         },
         {
           value: "Hadas",
-          label: "Hadas Farhi"
+          label: "Hadas Farhi",
         },
         {
           value: "Netta",
-          label: "Netta Muller"
+          label: "Netta Muller",
         },
         {
           value: "Dor",
-          label: "Dor Yehuda"
-        }
+          label: "Dor Yehuda",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -190,7 +190,7 @@ export const MultiChoiceWithDifferentStates = {
         <StoryDescription description="Single line" vertical>
           <div
             style={{
-              width: "400px"
+              width: "400px",
             }}
           >
             <Dropdown
@@ -205,7 +205,7 @@ export const MultiChoiceWithDifferentStates = {
         <StoryDescription description="Multiple lines" vertical>
           <div
             style={{
-              width: "400px"
+              width: "400px",
             }}
           >
             <Dropdown
@@ -222,12 +222,12 @@ export const MultiChoiceWithDifferentStates = {
           description="Mandatory default values"
           vertical
           headerStyle={{
-            width: 190
+            width: 190,
           }}
         >
           <div
             style={{
-              width: "400px"
+              width: "400px",
             }}
           >
             <Dropdown
@@ -244,12 +244,12 @@ export const MultiChoiceWithDifferentStates = {
           description="Hidden options list"
           vertical
           headerStyle={{
-            width: 190
+            width: 190,
           }}
         >
           <div
             style={{
-              width: "400px"
+              width: "400px",
             }}
           >
             <Dropdown
@@ -265,7 +265,7 @@ export const MultiChoiceWithDifferentStates = {
   },
 
   name: "Multi-choice with different states",
-  play: multiInteractionTests
+  play: multiInteractionTests,
 };
 
 export const DropdownWithAvatar = {
@@ -275,20 +275,20 @@ export const DropdownWithAvatar = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          leftAvatar: person1
+          leftAvatar: person1,
         },
         {
           value: "Hadas",
           label: "Hadas Farhi",
-          leftAvatar: person2
+          leftAvatar: person2,
         },
         {
           value: "Netta",
           label: "Netta Muller",
-          leftAvatar: person3
-        }
+          leftAvatar: person3,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -317,7 +317,7 @@ export const DropdownWithAvatar = {
     );
   },
 
-  name: "Dropdown with avatar"
+  name: "Dropdown with avatar",
 };
 
 export const DropdownWithIcon = {
@@ -327,15 +327,15 @@ export const DropdownWithIcon = {
         {
           value: "email",
           label: "Email",
-          leftIcon: Email
+          leftIcon: Email,
         },
         {
           value: "attach",
           label: "Attach",
-          leftIcon: Attach
-        }
+          leftIcon: Attach,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -364,7 +364,7 @@ export const DropdownWithIcon = {
     );
   },
 
-  name: "Dropdown with icon"
+  name: "Dropdown with icon",
 };
 
 export const DropdownWithChipColors = {
@@ -374,20 +374,20 @@ export const DropdownWithChipColors = {
         {
           value: "Rotem",
           label: "Rotem Dekel",
-          chipColor: Dropdown.chipColors.NEGATIVE
+          chipColor: Dropdown.chipColors.NEGATIVE,
         },
         {
           value: "Hadas",
           label: "Hadas Farhi",
-          chipColor: Dropdown.chipColors.POSITIVE
+          chipColor: Dropdown.chipColors.POSITIVE,
         },
         {
           value: "Netta",
           label: "Netta Muller",
-          chipColor: Dropdown.chipColors.PRIMARY
-        }
+          chipColor: Dropdown.chipColors.PRIMARY,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -405,7 +405,7 @@ export const DropdownWithChipColors = {
     );
   },
 
-  name: "Dropdown with chip colors"
+  name: "Dropdown with chip colors",
 };
 
 export const DropdownWithTooltipsOnItems = {
@@ -417,19 +417,19 @@ export const DropdownWithTooltipsOnItems = {
           label: "Option 1",
 
           tooltipProps: {
-            content: "Description for option 1"
-          }
+            content: "Description for option 1",
+          },
         },
         {
           value: "Option 2",
           label: "Option 2",
 
           tooltipProps: {
-            content: "Description for option 2"
-          }
-        }
+            content: "Description for option 2",
+          },
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -445,7 +445,7 @@ export const DropdownWithTooltipsOnItems = {
     );
   },
 
-  name: "Dropdown with tooltips on items"
+  name: "Dropdown with tooltips on items",
 };
 
 export const DropdownWithChips = {
@@ -459,7 +459,7 @@ export const DropdownWithChips = {
           type: Avatar.types.IMG,
           size: Avatar.sizes.SMALL,
           name: "Dor Yehuda",
-          position: "(Full Stack Developer)"
+          position: "(Full Stack Developer)",
         },
         {
           value: "No",
@@ -468,7 +468,7 @@ export const DropdownWithChips = {
           type: Avatar.types.IMG,
           size: Avatar.sizes.SMALL,
           name: "Rotem Dekel",
-          position: "(Product Designer)"
+          position: "(Product Designer)",
         },
         {
           value: "Yes",
@@ -477,10 +477,10 @@ export const DropdownWithChips = {
           type: Avatar.types.IMG,
           size: Avatar.sizes.SMALL,
           name: "Netta Muller",
-          position: "(Brand Designer)"
-        }
+          position: "(Brand Designer)",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -495,7 +495,7 @@ export const DropdownWithChips = {
     );
   },
 
-  name: "Dropdown with chips"
+  name: "Dropdown with chips",
 };
 
 export const SearchableDropdown = {
@@ -506,34 +506,34 @@ export const SearchableDropdown = {
       () => [
         {
           value: "Red",
-          label: "Red"
+          label: "Red",
         },
         {
           value: "Orange",
-          label: "Orange"
+          label: "Orange",
         },
         {
           value: "Yellow",
-          label: "Yellow"
+          label: "Yellow",
         },
         {
           value: "Green",
-          label: "Green"
+          label: "Green",
         },
         {
           value: "Blue",
-          label: "Blue"
+          label: "Blue",
         },
         {
           value: "Indigo",
-          label: "Indigo"
+          label: "Indigo",
         },
         {
           value: "Violet",
-          label: "Violet"
-        }
+          label: "Violet",
+        },
       ],
-      []
+      [],
     );
 
     const options = useMemo(() => {
@@ -555,7 +555,7 @@ export const SearchableDropdown = {
     );
   },
 
-  name: "Searchable dropdown"
+  name: "Searchable dropdown",
 };
 
 export const DropdownWithLabels = {
@@ -569,19 +569,19 @@ export const DropdownWithLabels = {
         {
           value: "success",
           label: "Success",
-          color: Label.colors.POSITIVE
+          color: Label.colors.POSITIVE,
         },
         {
           value: "failed",
           label: "Failed",
-          color: Label.colors.NEGATIVE
+          color: Label.colors.NEGATIVE,
         },
         {
           value: "in progress",
-          label: "In progress"
-        }
+          label: "In progress",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -596,7 +596,7 @@ export const DropdownWithLabels = {
     );
   },
 
-  name: "Dropdown with labels"
+  name: "Dropdown with labels",
 };
 
 export const DropdownInsideAForm = {
@@ -605,18 +605,18 @@ export const DropdownInsideAForm = {
       () => [
         {
           value: "Sometimes",
-          label: "Sometimes"
+          label: "Sometimes",
         },
         {
           value: "No",
-          label: "No"
+          label: "No",
         },
         {
           value: "Yes",
-          label: "Yes"
-        }
+          label: "Yes",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -632,7 +632,7 @@ export const DropdownInsideAForm = {
     );
   },
 
-  name: "Dropdown inside a form"
+  name: "Dropdown inside a form",
 };
 
 export const DropdownWithGroups = {
@@ -645,13 +645,13 @@ export const DropdownWithGroups = {
           options: [
             {
               value: "1",
-              label: "Option 1"
+              label: "Option 1",
             },
             {
               value: "2",
-              label: "Option 2"
-            }
-          ]
+              label: "Option 2",
+            },
+          ],
         },
         {
           label: "Group 2",
@@ -659,16 +659,16 @@ export const DropdownWithGroups = {
           options: [
             {
               value: "3",
-              label: "Option 3"
+              label: "Option 3",
             },
             {
               value: "4",
-              label: "Option 4"
-            }
-          ]
-        }
+              label: "Option 4",
+            },
+          ],
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -676,7 +676,7 @@ export const DropdownWithGroups = {
     );
   },
 
-  name: "Dropdown with groups"
+  name: "Dropdown with groups",
 };
 
 export const DropdownInsidePopover = {
@@ -685,66 +685,66 @@ export const DropdownInsidePopover = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
+          label: "Option 3",
         },
         {
           value: "4",
-          label: "Option 4"
+          label: "Option 4",
         },
         {
           value: "5",
-          label: "Option 5"
+          label: "Option 5",
         },
         {
           value: "6",
-          label: "Option 6"
+          label: "Option 6",
         },
         {
           value: "7",
-          label: "Option 7"
+          label: "Option 7",
         },
         {
           value: "8",
-          label: "Option 8"
+          label: "Option 8",
         },
         {
           value: "9",
-          label: "Option 9"
+          label: "Option 9",
         },
         {
           value: "10",
-          label: "Option 10"
+          label: "Option 10",
         },
         {
           value: "11",
-          label: "Option 11"
+          label: "Option 11",
         },
         {
           value: "12",
-          label: "Option 12"
+          label: "Option 12",
         },
         {
           value: "13",
-          label: "Option 13"
+          label: "Option 13",
         },
         {
           value: "14",
-          label: "Option 14"
+          label: "Option 14",
         },
         {
           value: "15",
-          label: "Option 15"
-        }
+          label: "Option 15",
+        },
       ],
-      []
+      [],
     );
 
     const [show, setShow] = useState(false);
@@ -756,7 +756,7 @@ export const DropdownInsidePopover = {
     const dialogStyle = {
       width: "350px",
       height: "200px",
-      overflow: "auto"
+      overflow: "auto",
     };
 
     return (
@@ -783,7 +783,7 @@ export const DropdownInsidePopover = {
     );
   },
 
-  name: "Dropdown inside popover"
+  name: "Dropdown inside popover",
 };
 
 export const DropdownWithLoading = {
@@ -794,18 +794,18 @@ export const DropdownWithLoading = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     const loadingOnInputChange = useCallback(() => {
@@ -828,7 +828,7 @@ export const DropdownWithLoading = {
     );
   },
 
-  name: "Dropdown with loading"
+  name: "Dropdown with loading",
 };
 
 export const DropdownWithRef = {
@@ -839,18 +839,18 @@ export const DropdownWithRef = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     const focusDropdownInput = useCallback(() => {
@@ -873,7 +873,7 @@ export const DropdownWithRef = {
     );
   },
 
-  name: "Dropdown with ref"
+  name: "Dropdown with ref",
 };
 
 export const DropdownValueSelection = {
@@ -882,18 +882,18 @@ export const DropdownValueSelection = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           value: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -909,5 +909,5 @@ export const DropdownValueSelection = {
     );
   },
 
-  name: "Dropdown value selection"
+  name: "Dropdown value selection",
 };

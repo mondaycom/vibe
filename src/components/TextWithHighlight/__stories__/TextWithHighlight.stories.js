@@ -3,7 +3,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 
 export default {
   title: "Text/TextWithHighlight",
-  component: TextWithHighlight
+  component: TextWithHighlight,
 };
 
 const textWithHighlightTemplate = createComponentTemplate(TextWithHighlight);
@@ -14,6 +14,6 @@ export const Overview = {
 
   args: {
     text: "Hello world, hello world again",
-    highlightTerm: "Hello again"
-  }
+    highlightTerm: "Hello again",
+  },
 };

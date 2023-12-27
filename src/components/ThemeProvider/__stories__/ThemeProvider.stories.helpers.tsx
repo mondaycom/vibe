@@ -30,17 +30,17 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
           colors: {
             [ThemeProvider.systemThemes.LIGHT]: {
               [ThemeProvider.colors.primaryColor]: "green",
-              [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
+              [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
             },
             [ThemeProvider.systemThemes.DARK]: {
               [ThemeProvider.colors.primaryColor]: "slateblue",
-              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
+              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue",
             },
             [ThemeProvider.systemThemes.BLACK]: {
               [ThemeProvider.colors.primaryColor]: "salmon",
-              [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
-            }
-          }
+              [ThemeProvider.colors.primaryHoverColor]: "darksalmon",
+            },
+          },
         }}
       >
         <Button>Themed</Button>
@@ -58,9 +58,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
             [ThemeProvider.colors.primaryColor]: "red",
-            [ThemeProvider.colors.primaryHoverColor]: "darkred"
-          }
-        }
+            [ThemeProvider.colors.primaryHoverColor]: "darkred",
+          },
+        },
       }}
     >
       <div>
@@ -70,9 +70,9 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
             colors: {
               [ThemeProvider.systemThemes.LIGHT]: {
                 [ThemeProvider.colors.primaryColor]: "green",
-                [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
-              }
-            }
+                [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
+              },
+            },
           }}
         >
           <Button>Themed</Button>
@@ -87,7 +87,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
     { value: productTheme1, label: "Product 1" },
     { value: productTheme2, label: "Product 2" },
     { value: productTheme3, label: "Product 3" },
-    { value: productTheme4, label: "Product 4" }
+    { value: productTheme4, label: "Product 4" },
   ];
   const [selectedTheme, setSelectedTheme] = useState(null);
 
@@ -123,10 +123,10 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
             [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
             "custom-class": {
               [ThemeProvider.colors.primaryColor]: "slateblue",
-              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
-            }
-          }
-        }
+              [ThemeProvider.colors.primaryHoverColor]: "darkslateblue",
+            },
+          },
+        },
       }}
     >
       <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.ROW}>
@@ -147,9 +147,9 @@ export const ThemeProviderPositiveExampleTemplate = () => {
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
             [ThemeProvider.colors.primaryColor]: "green",
-            [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
-          }
-        }
+            [ThemeProvider.colors.primaryHoverColor]: "darkgreen",
+          },
+        },
       }}
     >
       <Button>Hover me</Button>
@@ -164,9 +164,9 @@ export const ThemeProviderNegativeExampleTemplate = () => {
         name: "negative-example-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
-            [ThemeProvider.colors.primaryColor]: "green"
-          }
-        }
+            [ThemeProvider.colors.primaryColor]: "green",
+          },
+        },
       }}
     >
       <Button>Hover me</Button>
@@ -196,7 +196,7 @@ export const UsageGuidelinesThemeProvider = () => (
         ThemeProvider is populating theme name <code>className</code> to {"it's child, so don't put "}
         <code>{"<Fragment>"}</code> (<code>{"<>"}</code>) inside - {` it's not accepting `}
         <code>className</code> prop
-      </>
+      </>,
     ]}
   />
 );

@@ -2,25 +2,25 @@ import { SIZES } from "../../constants/sizes";
 
 export enum CounterType {
   FILL = "fill",
-  LINE = "line"
+  LINE = "line",
 }
 
 export enum CounterColor {
   PRIMARY = "primary",
   DARK = "dark",
   NEGATIVE = "negative",
-  LIGHT = "light"
+  LIGHT = "light",
 }
 
 export enum CounterSize {
   SMALL = "small",
-  LARGE = "large"
+  LARGE = "large",
 }
 
 const OLD_COUNTER_SIZES = {
   sm: SIZES.SMALL,
   md: SIZES.MEDIUM,
-  lg: SIZES.LARGE
+  lg: SIZES.LARGE,
 } as const;
 
 // Support old sizes (backward compatible)

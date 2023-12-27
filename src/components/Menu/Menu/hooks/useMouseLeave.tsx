@@ -6,7 +6,7 @@ export default function useMouseLeave({
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
   ref,
-  setActiveItemIndex
+  setActiveItemIndex,
 }: {
   resetOpenSubMenuIndex: () => void;
   hasOpenSubMenu: boolean;

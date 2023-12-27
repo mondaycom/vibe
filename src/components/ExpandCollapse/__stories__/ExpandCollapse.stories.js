@@ -12,14 +12,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: [],
   iconPropNamesArray: [],
   actionPropsArray: [],
-  ignoreControlsPropNamesArray: ["headerComponentRenderer"]
+  ignoreControlsPropNamesArray: ["headerComponentRenderer"],
 });
 
 export default {
   title: "Data Display/ExpandCollapse",
   component: ExpandCollapse,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const expandCollapseTemplate = createComponentTemplate(ExpandCollapse);
@@ -31,10 +31,10 @@ export const Overview = {
     title: "Expand collapse",
     children: [
       <Text maxLines={2}>Insert here any component that you want, here is a robot for you</Text>,
-      <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} clickable={false} />
+      <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={40} clickable={false} />,
     ],
-    className: styles.storybookExpandCollapse
-  }
+    className: styles.storybookExpandCollapse,
+  },
 };
 
 export const OpenByDefault = {
@@ -44,7 +44,7 @@ export const OpenByDefault = {
     </ExpandCollapse>
   ),
 
-  name: "Open by default"
+  name: "Open by default",
 };
 
 export const ControlledOpenState = {
@@ -65,7 +65,7 @@ export const ControlledOpenState = {
     );
   },
 
-  name: "Controlled open state"
+  name: "Controlled open state",
 };
 
 export const CustomHeaderRenderer = {
@@ -84,7 +84,7 @@ export const CustomHeaderRenderer = {
     );
   },
 
-  name: "Custom header renderer"
+  name: "Custom header renderer",
 };
 
 export const WithoutBorders = {
@@ -94,5 +94,5 @@ export const WithoutBorders = {
     </ExpandCollapse>
   ),
 
-  name: "Without borders"
+  name: "Without borders",
 };

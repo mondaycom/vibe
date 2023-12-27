@@ -3,7 +3,7 @@ import { NavDirections } from "../useFullKeyboardListeners";
 export function getActiveIndexFromInboundNavigation({
   direction,
   numberOfItemsInLine,
-  itemsCount
+  itemsCount,
 }: {
   direction: NavDirections;
   numberOfItemsInLine: number;
@@ -48,7 +48,7 @@ function calcRawNewIndexAfterArrowNavigation({
   activeIndex,
   itemsCount,
   numberOfItemsInLine,
-  direction
+  direction,
 }: {
   activeIndex: number;
   itemsCount: number;
@@ -96,7 +96,7 @@ export function calcActiveIndexAfterArrowNavigation({
   itemsCount,
   numberOfItemsInLine,
   direction,
-  disabledIndexes = []
+  disabledIndexes = [],
 }: {
   activeIndex: number;
   itemsCount: number;
@@ -110,7 +110,7 @@ export function calcActiveIndexAfterArrowNavigation({
       activeIndex: result.nextIndex,
       itemsCount,
       numberOfItemsInLine,
-      direction
+      direction,
     });
   }
 

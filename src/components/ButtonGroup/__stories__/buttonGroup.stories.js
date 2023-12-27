@@ -6,7 +6,7 @@ import "./buttonGroup.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ButtonGroup,
   enumPropNamesArray: ["kind", "size"],
-  actionPropsArray: ["onSelect"]
+  actionPropsArray: ["onSelect"],
 });
 
 const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
@@ -15,7 +15,7 @@ export default {
   title: "Buttons/ButtonGroup",
   component: ButtonGroup,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -26,24 +26,24 @@ export const Overview = {
     options: [
       {
         value: 1,
-        text: "Alpha"
+        text: "Alpha",
       },
       {
         value: 2,
-        text: "Beta"
+        text: "Beta",
       },
       {
         value: 3,
-        text: "Gamma"
+        text: "Gamma",
       },
       {
         value: 4,
-        text: "Delta"
-      }
+        text: "Delta",
+      },
     ],
 
-    value: 1
-  }
+    value: 1,
+  },
 };
 
 export const Default = {
@@ -54,25 +54,25 @@ export const Default = {
       options={[
         {
           value: 1,
-          text: "Alpha"
+          text: "Alpha",
         },
         {
           value: 2,
-          text: "Beta"
+          text: "Beta",
         },
         {
           value: 3,
-          text: "Gamma"
+          text: "Gamma",
         },
         {
           value: 4,
-          text: "Delta"
-        }
+          text: "Delta",
+        },
       ]}
     />
   ),
 
-  name: "Default"
+  name: "Default",
 };
 
 export const Tertiary = {
@@ -84,25 +84,25 @@ export const Tertiary = {
       options={[
         {
           value: 1,
-          text: "Alpha"
+          text: "Alpha",
         },
         {
           value: 2,
-          text: "Beta"
+          text: "Beta",
         },
         {
           value: 3,
-          text: "Gamma"
+          text: "Gamma",
         },
         {
           value: 4,
-          text: "Delta"
-        }
+          text: "Delta",
+        },
       ]}
     />
   ),
 
-  name: "Tertiary"
+  name: "Tertiary",
 };
 
 export const Disabled = {
@@ -113,25 +113,25 @@ export const Disabled = {
       options={[
         {
           value: 1,
-          text: "Alpha"
+          text: "Alpha",
         },
         {
           value: 2,
-          text: "Beta"
+          text: "Beta",
         },
         {
           value: 3,
-          text: "Gamma"
+          text: "Gamma",
         },
         {
           value: 4,
-          text: "Delta"
-        }
+          text: "Delta",
+        },
       ]}
     />
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const DisabledSingeButton = {
@@ -141,27 +141,27 @@ export const DisabledSingeButton = {
       options={[
         {
           value: 1,
-          text: "Alpha"
+          text: "Alpha",
         },
         {
           value: 2,
-          text: "Beta"
+          text: "Beta",
         },
         {
           value: 3,
-          text: "Gamma"
+          text: "Gamma",
         },
         {
           value: 4,
           text: "Delta",
           disabled: true,
-          tooltipContent: "I'm the worst variant ever"
-        }
+          tooltipContent: "I'm the worst variant ever",
+        },
       ]}
     />
   ),
 
-  name: "Disabled - Singe Button"
+  name: "Disabled - Singe Button",
 };
 
 export const Size = {
@@ -177,7 +177,7 @@ export const Size = {
             { value: 1, text: "Alpha" },
             { value: 2, text: "Beta" },
             { value: 3, text: "Gamma" },
-            { value: 4, text: "Delta" }
+            { value: 4, text: "Delta" },
           ]}
         />
       </div>
@@ -191,14 +191,14 @@ export const Size = {
             { value: 1, text: "Alpha" },
             { value: 2, text: "Beta" },
             { value: 3, text: "Gamma" },
-            { value: 4, text: "Delta" }
+            { value: 4, text: "Delta" },
           ]}
         />
       </div>
     </>
   ),
 
-  name: "Size"
+  name: "Size",
 };
 
 export const ButtonGroupInSettings = {
@@ -212,26 +212,26 @@ export const ButtonGroupInSettings = {
         options={[
           {
             value: 1,
-            text: "Sum"
+            text: "Sum",
           },
           {
             value: 2,
-            text: "Average"
+            text: "Average",
           },
           {
             value: 3,
-            text: "Median"
+            text: "Median",
           },
           {
             value: 4,
-            text: "Min"
-          }
+            text: "Min",
+          },
         ]}
       />
     </div>
   ),
 
-  name: "Button group in settings"
+  name: "Button group in settings",
 };
 
 export const ButtonGroupAsToggle = {
@@ -242,15 +242,15 @@ export const ButtonGroupAsToggle = {
       options={[
         {
           value: 1,
-          text: "Grid"
+          text: "Grid",
         },
         {
           value: 2,
-          text: "List"
-        }
+          text: "List",
+        },
       ]}
     />
   ),
 
-  name: "Button group as toggle"
+  name: "Button group as toggle",
 };

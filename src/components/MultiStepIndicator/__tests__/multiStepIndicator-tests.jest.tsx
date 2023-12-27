@@ -8,19 +8,19 @@ describe("MultiStepIndicator tests", () => {
       {
         status: MultiStepIndicator.stepStatuses.FULFILLED,
         titleText: "Title",
-        subtitleText: "Subtitle"
+        subtitleText: "Subtitle",
       },
       {
         status: MultiStepIndicator.stepStatuses.ACTIVE,
         titleText: "Active",
-        subtitleText: "Active Subtitle"
-      }
+        subtitleText: "Active Subtitle",
+      },
     ];
 
     const stepClickMock = jest.fn();
 
     const multiStepIndicatorComponent = render(
-      <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={stepClickMock} />
+      <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={stepClickMock} />,
     );
 
     const step = multiStepIndicatorComponent.getByText("Title");

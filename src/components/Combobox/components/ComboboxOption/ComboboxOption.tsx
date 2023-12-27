@@ -36,7 +36,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   onOptionHover,
   optionLineHeight,
   shouldScrollWhenActive = true,
-  optionRenderer = null
+  optionRenderer = null,
 }) => {
   const {
     id,
@@ -49,7 +49,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     disabled,
     selected,
     ariaLabel,
-    belongToCategory = false
+    belongToCategory = false,
   } = option;
   let { tooltipContent } = option;
 
@@ -73,7 +73,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   const renderIcon = (
     icon: SubIcon | ((className: string) => JSX.Element),
     iconType: ComboboxOptionIconType,
-    className: string
+    className: string,
   ) => {
     if (iconType === ComboboxOptionIconType.RENDERER) {
       return (icon as (className: string) => JSX.Element)(cx(styles.optionIcon, className));
@@ -95,7 +95,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
     (event: React.MouseEvent) => {
       onOptionClick(event, index, option, true);
     },
-    [index, option, onOptionClick]
+    [index, option, onOptionClick],
   );
 
   const onMouseLeave = useCallback(
@@ -103,7 +103,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
       if (disabled) return;
       onOptionLeave(event, index, option, true);
     },
-    [index, option, onOptionLeave, disabled]
+    [index, option, onOptionLeave, disabled],
   );
 
   const onMouseEnter = useCallback(
@@ -111,7 +111,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
       if (disabled) return;
       onOptionHover(event, index, option, true);
     },
-    [index, option, onOptionHover, disabled]
+    [index, option, onOptionHover, disabled],
   );
 
   const onKeyDown = useCallback(
@@ -120,7 +120,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
         onOptionClick(event, index, option, false);
       }
     },
-    [onOptionClick, index, option]
+    [onOptionClick, index, option],
   );
   if (!tooltipContent) {
     tooltipContent = isOptionOverflowing ? label : null;
@@ -156,7 +156,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
           [styles.disabled]: disabled,
           [styles.selected]: selected,
           [styles.active]: isActive,
-          [styles.activeOutline]: visualFocus
+          [styles.activeOutline]: visualFocus,
         })}
         style={{ height: optionLineHeight }}
       >

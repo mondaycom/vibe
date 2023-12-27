@@ -4,20 +4,20 @@ import { overviewPlaySuite } from "../__tests__/LegacyEditableHeading-interactio
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
-  enumPropNamesArray: ["size", "type"]
+  enumPropNamesArray: ["size", "type"],
 });
 
 export default {
   title: "Inputs/LegacyEditableHeading [deprecated]",
   component: EditableHeading,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
   render: () => <EditableHeading value="This heading is editable" type={EditableHeading.types.h1} />,
   name: "Overview",
-  play: overviewPlaySuite
+  play: overviewPlaySuite,
 };
 
 export const Types = {
@@ -32,12 +32,12 @@ export const Types = {
       <EditableHeading type={EditableHeading.types.h6} value="H6 Header" />
     </>
   ),
-  name: "Types"
+  name: "Types",
 };
 
 export const Placeholder = {
   render: () => <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" />,
-  name: "Placeholder"
+  name: "Placeholder",
 };
 
 export const TextHighlight = {
@@ -48,7 +48,7 @@ export const TextHighlight = {
       <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" />
     </>
   ),
-  name: "Text Highlight"
+  name: "Text Highlight",
 };
 
 export const Colors = {
@@ -59,5 +59,5 @@ export const Colors = {
       <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" customColor="#AA33FF" />
     </>
   ),
-  name: "Colors"
+  name: "Colors",
 };

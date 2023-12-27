@@ -98,9 +98,9 @@ const Tipseen: VibeComponent<TipseenProps> & {
       tooltipArrowClassName,
       modifiers = EMPTY_ARR,
       floating = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const defaultDelayOpen =
       Array.isArray(showTrigger) && Array.isArray(hideTrigger) && showTrigger.length === 0 && showDelay > 0;
@@ -131,7 +131,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
             <IconButton
               hideTooltip
               className={cx(styles.tipseenCloseButton, {
-                [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK
+                [styles.dark]: closeButtonTheme === TipseenCloseButtonTheme.DARK,
               })}
               onClick={onClose}
               size={Button.sizes.XS}
@@ -154,7 +154,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
-            [styles.floating]: floating
+            [styles.floating]: floating,
           })}
           arrowClassName={tooltipArrowClassName}
           style={width ? { width } : undefined}
@@ -181,7 +181,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
         </Tooltip>
       </TipseenWrapper>
     );
-  }
+  },
 );
 
 export default withStaticProps(Tipseen, {
@@ -189,5 +189,5 @@ export default withStaticProps(Tipseen, {
   positions: DialogPosition,
   animationTypes: AnimationType,
   justifyTypes: JustifyType,
-  hideShowTriggers: HideShowEvent
+  hideShowTriggers: HideShowEvent,
 });

@@ -1,7 +1,7 @@
 export enum SearchType {
   SQUARE = "square",
   ROUND = "round",
-  UNDERLINE = "underline"
+  UNDERLINE = "underline",
 }
 
 export const SearchDefaultIconNames: {
@@ -11,5 +11,5 @@ export const SearchDefaultIconNames: {
 } = {
   layout: "",
   primary: "Search",
-  secondary: "Clear Search"
+  secondary: "Clear Search",
 };

@@ -9,14 +9,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuGridItem,
   enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: [], // List the component's actions here
 });
 
 export default {
   title: "Navigation/Menu/MenuGridItem",
   component: MenuGridItem,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const menuGridItemTemplate = args => (
@@ -31,7 +31,7 @@ const menuGridItemTemplate = args => (
 
 export const Overview = {
   render: menuGridItemTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const WithDisabledStates = {
@@ -50,7 +50,7 @@ export const WithDisabledStates = {
       </Menu>
     </DialogContentContainer>
   ),
-  name: "With disabled states"
+  name: "With disabled states",
 };
 
 export const InsideSubMenus = {
@@ -84,5 +84,5 @@ export const InsideSubMenus = {
       </DialogContentContainer>
     </div>
   ),
-  name: "Inside sub-menus"
+  name: "Inside sub-menus",
 };

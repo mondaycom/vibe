@@ -23,7 +23,7 @@ describe("List", () => {
         <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
-        </List>
+        </List>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("List", () => {
         <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
-        </List>
+        </List>,
       );
       expect(getByRole("listbox")).toBeInTheDocument();
     });
@@ -45,7 +45,7 @@ describe("List", () => {
         <List>
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
-        </List>
+        </List>,
       );
       expect(getAllByRole("option")).toHaveLength(2);
     });
@@ -57,7 +57,7 @@ describe("List", () => {
             1
           </ListItem>
           <ListItem data-testid="list-item-2">1</ListItem>
-        </List>
+        </List>,
       );
       expect(getByTestId("list-item-1")).toHaveAttribute("aria-disabled", "true");
       expect(getByTestId("list-item-2")).toHaveAttribute("aria-disabled", "false");
@@ -70,7 +70,7 @@ describe("List", () => {
             1
           </ListItem>
           <ListItem data-testid="list-item-2">1</ListItem>
-        </List>
+        </List>,
       );
       expect(getByTestId("list-item-1")).toHaveAttribute("aria-selected", "true");
       expect(getByTestId("list-item-2")).not.toHaveAttribute("aria-selected");
@@ -83,7 +83,7 @@ describe("List", () => {
           <ListItem id="list-item-2" selected>
             2
           </ListItem>
-        </List>
+        </List>,
       );
       expect(getByRole("listbox")).toHaveAttribute("aria-activedescendant", "list-item-2");
     });
@@ -94,7 +94,7 @@ describe("List", () => {
           <ListItem>1</ListItem>
           <ListItem>2</ListItem>
           <ListItem selected>3</ListItem>
-        </List>
+        </List>,
       );
       const list = getByRole("listbox");
       expect(list).toHaveAttribute("aria-activedescendant", "list-item-2");

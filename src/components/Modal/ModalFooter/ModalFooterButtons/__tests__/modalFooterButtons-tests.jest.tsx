@@ -22,7 +22,7 @@ describe("ModalFooterButtons", () => {
         primaryButtonText: PRIMARY_BUTTON_TEXT,
         secondaryButtonText: SECONDARY_BUTTON_TEXT,
         onPrimaryButtonClick,
-        onSecondaryButtonClick
+        onSecondaryButtonClick,
       });
       fireEvent.click(modalFooterComponent.getByText(PRIMARY_BUTTON_TEXT));
       expect(onPrimaryButtonClick).toBeCalledTimes(1);
@@ -36,7 +36,7 @@ describe("ModalFooterButtons", () => {
         primaryButtonText: PRIMARY_BUTTON_TEXT,
         secondaryButtonText: SECONDARY_BUTTON_TEXT,
         onPrimaryButtonClick,
-        onSecondaryButtonClick
+        onSecondaryButtonClick,
       });
       fireEvent.click(modalFooterComponent.getByText(SECONDARY_BUTTON_TEXT));
       expect(onSecondaryButtonClick).toBeCalledTimes(1);

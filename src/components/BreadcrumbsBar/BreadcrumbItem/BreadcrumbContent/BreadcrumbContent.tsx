@@ -21,7 +21,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
   forwardRef<unknown, BreadcrumbContentProps>(
     (
       { className, isClickable, link, onClick, text, icon, isCurrent, disabled = false },
-      ref: ForwardedRef<HTMLSpanElement>
+      ref: ForwardedRef<HTMLSpanElement>,
     ) => {
       const Icon = icon;
 
@@ -31,7 +31,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             link ? (window.parent.location.href = link) : onClick();
           }
         },
-        [onClick, link]
+        [onClick, link],
       );
 
       const tabIndex = useMemo(() => (disabled ? -1 : 0), [disabled]);
@@ -43,7 +43,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
               className={cx(styles.breadcrumbContent, className, {
                 [styles.disabled]: disabled,
                 [styles.clickable]: isClickable,
-                [styles.current]: isCurrent
+                [styles.current]: isCurrent,
               })}
               href={link}
               onKeyDown={onKeyDown}
@@ -61,7 +61,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             className={cx(styles.breadcrumbContent, className, {
               [styles.disabled]: disabled,
               [styles.clickable]: isClickable,
-              [styles.current]: isCurrent
+              [styles.current]: isCurrent,
             })}
             onClick={onClick}
             onKeyDown={onKeyDown}
@@ -82,7 +82,7 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
             [styles.disabled]: disabled,
             [styles.clickable]: isClickable,
             [styles.current]: isCurrent,
-            [styles.notClickable]: !isClickable
+            [styles.notClickable]: !isClickable,
           })}
           aria-disabled="true"
           tabIndex={tabIndex}
@@ -94,5 +94,5 @@ export const BreadcrumbContent: React.ForwardRefExoticComponent<BreadcrumbConten
           </span>
         </span>
       );
-    }
+    },
   );

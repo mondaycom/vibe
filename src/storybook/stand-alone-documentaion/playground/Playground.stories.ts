@@ -2,7 +2,7 @@ import { withPlaygroundRenderer } from "storybook-addon-playground";
 
 export default {
   title: "Playground",
-  decorators: [withPlaygroundRenderer]
+  decorators: [withPlaygroundRenderer],
 };
 
 export const Playground = {
@@ -31,7 +31,7 @@ export const Playground = {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}`
-    }
-  }
+}`,
+    },
+  },
 };

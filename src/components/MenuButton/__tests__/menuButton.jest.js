@@ -13,7 +13,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton>
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton size={MenuButton.sizes.LARGE}>
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton component={Bolt} text="Hello">
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton className="dummy-class-name">
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -57,7 +57,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton tooltipContent="tooltip content">
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -68,7 +68,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton text="Hello" componentPosition={MenuButton.componentPositions.START}>
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -83,7 +83,7 @@ describe("MenuButton", () => {
               Button
             </Button>
           )}
-        ></MenuButton>
+        ></MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -95,7 +95,7 @@ describe("MenuButton", () => {
       .create(
         <MenuButton open>
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -106,7 +106,7 @@ describe("MenuButton", () => {
       const { getByLabelText } = render(
         <MenuButton ariaLabel="Menu Button">
           <div>Menu</div>
-        </MenuButton>
+        </MenuButton>,
       );
       const button = getByLabelText("Menu Button");
       act(() => {
@@ -129,7 +129,7 @@ describe("MenuButton", () => {
         const { getByLabelText } = render(
           <MenuButton ariaLabel="Menu Button" closeDialogOnContentClick={closeDialogOnContentClick}>
             <div>Menu</div>
-          </MenuButton>
+          </MenuButton>,
         );
         const button = getByLabelText("Menu Button");
         act(() => {
@@ -146,7 +146,7 @@ describe("MenuButton", () => {
         } else {
           expect(await screen.queryByText("Menu")).toBeTruthy();
         }
-      }
+      },
     );
   });
 });

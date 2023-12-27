@@ -42,5 +42,5 @@ export default withStaticProps(Heading, {
   types: HeadingType,
   weights: HeadingWeight,
   align: TypographyAlign,
-  colors: TypographyColor
+  colors: TypographyColor,
 });

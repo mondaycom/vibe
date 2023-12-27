@@ -63,9 +63,9 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       enableOutsideDays = false,
       showWeekNumber = false,
       shouldBlockRange,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
@@ -83,7 +83,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         );
       },
-      [dataTestId, isMonthYearSelection, hideNavigationKeys, id]
+      [dataTestId, isMonthYearSelection, hideNavigationKeys, id],
     );
 
     const renderDay = useCallback(
@@ -95,7 +95,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           </>
         );
       },
-      [firstDayOfWeek]
+      [firstDayOfWeek],
     );
 
     const changeCurrentDateFromMonthYearView = useCallback((date: Moment | null) => {
@@ -122,7 +122,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           onPickDate(date);
         }
       },
-      [focusedInput, onPickDate]
+      [focusedInput, onPickDate],
     );
 
     const onFocusChange = useCallback((focusedInput: FocusInput) => {
@@ -138,7 +138,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
         className={cx(styles.datepickerContainer, className, {
           [styles.withWeekNumber]: showWeekNumber,
           [styles.rangePickerMode]: range,
-          [styles.monthYearSelection]: isMonthYearSelection
+          [styles.monthYearSelection]: isMonthYearSelection,
         })}
       >
         {range ? (
@@ -186,7 +186,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
         {isMonthYearSelection && renderMonthYearSelection()}
       </div>
     );
-  }
+  },
 );
 
 export default DatePicker;

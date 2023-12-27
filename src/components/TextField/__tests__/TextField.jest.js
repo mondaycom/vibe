@@ -15,7 +15,7 @@ describe("TextField Tests", () => {
     jest.useFakeTimers("modern");
     act(() => {
       inputComponent = render(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />,
       );
     });
   });
@@ -50,7 +50,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} />,
       );
     });
 
@@ -67,7 +67,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />,
       );
     });
     expect(ref.current.classList.contains("input")).toBeTruthy();
@@ -78,7 +78,7 @@ describe("TextField Tests", () => {
     const debounceTime = 200;
     act(() => {
       inputComponent = rerender(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />,
       );
     });
 
@@ -95,7 +95,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />,
       );
     });
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
@@ -133,7 +133,7 @@ describe("TextField Tests", () => {
           id="test"
           iconName="test"
           iconsNames={iconNames}
-        />
+        />,
       );
     });
 
@@ -163,7 +163,7 @@ describe("TextField Tests", () => {
             id="char-count-test"
             showCharCount
             value={value}
-          />
+          />,
         );
       });
 
@@ -182,7 +182,7 @@ describe("TextField Tests", () => {
             id="char-count-test"
             showCharCount
             value={value}
-          />
+          />,
         );
       });
 
@@ -220,7 +220,7 @@ describe("TextField Tests", () => {
             onChange={onChangeStub}
             id="test"
             type={TextField.types.PASSWORD}
-          />
+          />,
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
@@ -230,7 +230,7 @@ describe("TextField Tests", () => {
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {
       const { container } = render(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="on" />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="on" />,
       );
       const element = container.querySelector('[autocomplete="on"]');
       expect(element).toBeTruthy();
@@ -238,7 +238,7 @@ describe("TextField Tests", () => {
 
     it("should add autocomplete attr and set it to off", () => {
       const { container } = render(
-        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="off" />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="off" />,
       );
       const element = container.querySelector('[autocomplete="off"]');
       expect(element).toBeTruthy();

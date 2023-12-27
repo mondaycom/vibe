@@ -4,15 +4,15 @@ export const modifiers = [
   {
     name: "preventOverflow",
     options: {
-      mainAxis: false
-    }
+      mainAxis: false,
+    },
   },
   {
     name: "flip",
     options: {
-      fallbackPlacements: []
-    }
-  }
+      fallbackPlacements: [],
+    },
+  },
 ];
 
 export const TipCheckYourself = () => (

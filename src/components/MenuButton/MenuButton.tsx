@@ -165,9 +165,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -185,7 +185,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           });
         }
       },
-      [componentRef, setIsOpen]
+      [componentRef, setIsOpen],
     );
 
     const onDialogDidHide = useCallback(
@@ -199,7 +199,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           }
         });
       },
-      [setIsOpen, onMenuHide, componentRef]
+      [setIsOpen, onMenuHide, componentRef],
     );
 
     const onDialogDidShow = useCallback(() => {
@@ -211,7 +211,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       const triggers = new Set([
         Dialog.hideShowTriggers.CLICK_OUTSIDE,
         Dialog.hideShowTriggers.TAB_KEY,
-        Dialog.hideShowTriggers.ESCAPE_KEY
+        Dialog.hideShowTriggers.ESCAPE_KEY,
       ]);
 
       if (closeDialogOnContentClick) {
@@ -253,9 +253,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const computedDialogOffset = useMemo(
       () => ({
         ...MOVE_BY,
-        ...dialogOffset
+        ...dialogOffset,
       }),
-      [dialogOffset]
+      [dialogOffset],
     );
 
     const onMouseUp = (event: React.MouseEvent<HTMLElement>) => {
@@ -293,12 +293,12 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const triggerElementProps =
       TriggerElement === "button"
         ? {
-            ref: mergedRef
+            ref: mergedRef,
           }
         : {
             active: isActive,
             disabled: disabled,
-            ref: isForwardRef(TriggerElement) ? mergedRef : undefined
+            ref: isForwardRef(TriggerElement) ? mergedRef : undefined,
           };
 
     return (
@@ -337,7 +337,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
               [styles.active]: isActive,
               [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
               [styles.disabled]: disabled,
-              [styles.text]: text
+              [styles.text]: text,
             })}
             aria-haspopup="true"
             aria-expanded={isOpen}
@@ -353,7 +353,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         </Dialog>
       </Tooltip>
     );
-  }
+  },
 );
 
 export default withStaticProps(MenuButton, {
@@ -361,5 +361,5 @@ export default withStaticProps(MenuButton, {
   paddingSizes: DialogContentContainer.sizes,
   dialogPositions: Dialog.positions,
   hideTriggers: Dialog.hideShowTriggers,
-  componentPositions: MenuButtonComponentPosition
+  componentPositions: MenuButtonComponentPosition,
 });

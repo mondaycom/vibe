@@ -39,7 +39,7 @@ function convertExportsToFile(exportsArray, fileName) {
 
 function buildComponentsTypesIndexFile() {
   const exportsWithTypescript = Object.entries(publishedTSComponents).map(([name, path]) =>
-    buildComponentExport(name, `./types/${path}`)
+    buildComponentExport(name, `./types/${path}`),
   );
 
   const exportsWithJavascript = Object.keys(publishedJSComponents).map(name => buildExportToComponentWithoutType(name));
@@ -55,5 +55,5 @@ function buildStorybookComponentsIndexFile() {
 module.exports = {
   createFoldersIfNotExist,
   buildComponentsTypesIndexFile,
-  buildStorybookComponentsIndexFile
+  buildStorybookComponentsIndexFile,
 };

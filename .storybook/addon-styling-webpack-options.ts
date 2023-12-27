@@ -14,11 +14,11 @@ export const storybookAddonStylingWebpackOptions = {
             // Want to add more CSS Modules options? Read more here: https://github.com/webpack-contrib/css-loader#modules
             modules: {
               auto: true,
-              localIdentName: "[name]_[local]"
-            }
-          }
-        }
-      ]
+              localIdentName: "[name]_[local]",
+            },
+          },
+        },
+      ],
     },
     {
       test: /\.s[ac]ss$/,
@@ -31,10 +31,10 @@ export const storybookAddonStylingWebpackOptions = {
             // Want to add more CSS Modules options? Read more here: https://github.com/webpack-contrib/css-loader#modules
             modules: {
               auto: true,
-              localIdentName: "[name]_[local]"
+              localIdentName: "[name]_[local]",
             },
-            importLoaders: 2
-          }
+            importLoaders: 2,
+          },
         },
         require.resolve("resolve-url-loader"),
         {
@@ -43,10 +43,10 @@ export const storybookAddonStylingWebpackOptions = {
             // Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
             implementation: require.resolve("sass"),
             sourceMap: true,
-            sassOptions: {}
-          }
-        }
-      ]
-    }
-  ]
+            sassOptions: {},
+          },
+        },
+      ],
+    },
+  ],
 };

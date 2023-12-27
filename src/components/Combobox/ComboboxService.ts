@@ -7,7 +7,7 @@ type OptionsByCategories = {
 export const getOptionsByCategories = (
   options: IComboboxOption[],
   categories: IComboboxCategoryMap,
-  filterValue: string
+  filterValue: string,
 ): OptionsByCategories => {
   const optionsByCategories = options.reduce((result: OptionsByCategories, option) => {
     const categoryId = option.categoryId;
@@ -36,5 +36,5 @@ export const getOptionsByCategories = (
 
 export const defaultFilter = (filterValue: string, options: IComboboxOption[]) =>
   options.filter(
-    ({ label }: { label: string }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase())
+    ({ label }: { label: string }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()),
   );

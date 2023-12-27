@@ -45,7 +45,7 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   isCurrent = false,
   icon,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false) as boolean;
   const componentRef = useRef<HTMLSpanElement>(null);
@@ -63,7 +63,7 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
         className={cx(styles.breadcrumbItemWrapper, className, {
-          [styles.disabled]: overrideDisabled
+          [styles.disabled]: overrideDisabled,
         })}
       >
         <BreadcrumbContent

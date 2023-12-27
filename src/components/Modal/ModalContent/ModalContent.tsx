@@ -25,7 +25,7 @@ const ModalContent: FC<ModalContentProps> = ({ className, id, "data-testid": dat
 };
 
 Object.assign(ModalContent, {
-  displayName: "ModalContent"
+  displayName: "ModalContent",
 });
 
 export default ModalContent;

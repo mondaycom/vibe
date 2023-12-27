@@ -10,7 +10,7 @@ export const overviewInteractionSuite = interactionSuite({
   tests: [keyboardNavAndFocusForVerticalList],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 async function getSearchElement(canvas) {

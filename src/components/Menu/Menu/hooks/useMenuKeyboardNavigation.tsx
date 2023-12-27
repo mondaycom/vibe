@@ -10,7 +10,7 @@ export default function useMenuKeyboardNavigation({
   setActiveItemIndex,
   isVisible,
   ref,
-  useDocumentEventListeners
+  useDocumentEventListeners,
 }: {
   hasOpenSubMenu: boolean;
   getNextSelectableIndex: (index: number) => number;
@@ -35,7 +35,7 @@ export default function useMenuKeyboardNavigation({
 
       if (newIndex || newIndex === 0) setActiveItemIndex(newIndex);
     },
-    [activeItemIndex, getNextSelectableIndex, getPreviousSelectableIndex, hasOpenSubMenu, setActiveItemIndex]
+    [activeItemIndex, getNextSelectableIndex, getPreviousSelectableIndex, hasOpenSubMenu, setActiveItemIndex],
   );
   const onArrowUp = useCallback(() => {
     onArrowKeyEvent(NavDirections.UP);
@@ -53,7 +53,7 @@ export default function useMenuKeyboardNavigation({
         setActiveItemIndex(0);
       }
     },
-    [setActiveItemIndex, activeItemIndex, isVisible]
+    [setActiveItemIndex, activeItemIndex, isVisible],
   );
 
   const listenerOptions = useMemo(() => {
@@ -62,25 +62,25 @@ export default function useMenuKeyboardNavigation({
     return {
       ref,
       preventDefault: true,
-      stopPropagation: true
+      stopPropagation: true,
     };
   }, [useDocumentEventListeners, ref]);
 
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,
     callback: onArrowDown,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ARROW_UP_KEYS,
     callback: onArrowUp,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: ENTER_KEYS,
     callback: onEnterClickCallback,
-    ...listenerOptions
+    ...listenerOptions,
   });
 }

@@ -9,12 +9,12 @@ function defineFilledTrackProps(dimension: number, offset: number, reverse: bool
   if (reverse) {
     return {
       right: `${offset}%`,
-      width: `${dimension - offset}%`
+      width: `${dimension - offset}%`,
     };
   }
   return {
     left: `${offset}%`,
-    width: `${dimension - offset}%`
+    width: `${dimension - offset}%`,
   };
 }
 
@@ -44,7 +44,7 @@ const SliderFilledTrack: FC<SliderFilledTrackProps> = ({
   dimension = 0,
   offset = 0,
   reverse = false,
-  color
+  color,
 }) => {
   const filledTrackStyle = defineFilledTrackProps(dimension, offset, reverse);
   return <div className={cx(styles.filledTrack, getStyle(styles, color), className)} style={filledTrackStyle} />;

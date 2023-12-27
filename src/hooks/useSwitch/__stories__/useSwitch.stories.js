@@ -2,7 +2,7 @@ import useSwitch from "../index";
 import { Toggle, Flex } from "../../../components";
 
 export default {
-  title: "Hooks/useSwitch"
+  title: "Hooks/useSwitch",
 };
 
 export const Overview = {
@@ -17,13 +17,13 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };
 
 export const Disabled = {
   render: () => {
     const { isChecked, onChange } = useSwitch({
-      isDisabled: true
+      isDisabled: true,
     });
 
     return (
@@ -34,7 +34,7 @@ export const Disabled = {
     );
   },
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const Default = {
@@ -42,7 +42,7 @@ export const Default = {
     const defaultChecked = true;
 
     const { isChecked, onChange } = useSwitch({
-      defaultChecked
+      defaultChecked,
     });
 
     return (
@@ -54,5 +54,5 @@ export const Default = {
     );
   },
 
-  name: "Default"
+  name: "Default",
 };

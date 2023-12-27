@@ -31,7 +31,7 @@ export const noColorInteractionSuite = interactionSuite({
   tests: [selectAndResetWithKeyboard],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 async function selectMultiColorsWithKeyboardAndMouse(canvas) {
@@ -62,7 +62,7 @@ export const multiSelectionInteractionSuite = interactionSuite({
   tests: [selectMultiColorsWithKeyboardAndMouse],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });
 
 async function clickOnColor(canvas, color) {

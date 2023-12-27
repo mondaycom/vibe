@@ -20,7 +20,7 @@ export const itemRenderer = (item, index, style) => {
             width: item.width,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           {item.value}

@@ -10,7 +10,7 @@ describe("AccordionItem tests", () => {
     render(
       <Accordion>
         <AccordionItem onClick={onClickMock} />
-      </Accordion>
+      </Accordion>,
     );
   });
 

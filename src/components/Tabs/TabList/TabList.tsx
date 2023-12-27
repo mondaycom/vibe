@@ -29,9 +29,9 @@ const TabList: FC<TabListProps> = forwardRef(
       tabType = "Compact",
       size,
       children,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -63,7 +63,7 @@ const TabList: FC<TabListProps> = forwardRef(
         setActiveTabState(tabId);
         onTabChange && onTabChange(tabId);
       },
-      [onTabChange, disabledTabIds]
+      [onTabChange, disabledTabIds],
     );
 
     const onTabClick = useCallback(
@@ -73,7 +73,7 @@ const TabList: FC<TabListProps> = forwardRef(
         if (tabCallbackFunc) tabCallbackFunc(tabId);
         onTabSelect(tabId);
       },
-      [children, disabledTabIds, onTabSelect]
+      [children, disabledTabIds, onTabSelect],
     );
 
     const getItemByIndex = useCallback((index: number): ReactElement<TabProps> => children[index], [children]);
@@ -85,7 +85,7 @@ const TabList: FC<TabListProps> = forwardRef(
       itemsCount: children?.length,
       getItemByIndex,
       onItemClicked: onTabClick,
-      disabledIndexes
+      disabledIndexes,
     });
 
     const tabsToRender = useMemo(() => {
@@ -96,7 +96,7 @@ const TabList: FC<TabListProps> = forwardRef(
           focus: focusIndex === index,
           onClick: onSelectionAction,
           className: cx(styles.tabListTabWrapper, child.props.className),
-          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
+          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
         });
       });
       return childrenToRender;
@@ -114,11 +114,11 @@ const TabList: FC<TabListProps> = forwardRef(
         </ul>
       </div>
     );
-  }
+  },
 );
 
 Object.assign(TabList, {
-  isTabList: true
+  isTabList: true,
 });
 
 export default TabList;

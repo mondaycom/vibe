@@ -23,7 +23,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast open closeable={false}>
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast open actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo 5", key: 1 }]}>
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -48,7 +48,7 @@ describe("Toast renders correctly", () => {
           actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 1 }]}
         >
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -61,11 +61,11 @@ describe("Toast renders correctly", () => {
           open
           actions={[
             { type: Toast.actionTypes.BUTTON, content: "Undo 5", key: 1 },
-            { type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 2 }
+            { type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 2 },
           ]}
         >
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -76,7 +76,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast open type={Toast.types.NEGATIVE}>
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -92,7 +92,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast open loading>
           Something Happened
-        </Toast>
+        </Toast>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

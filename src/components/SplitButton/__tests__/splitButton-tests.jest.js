@@ -39,7 +39,7 @@ const renderComponent = ({ ...props } = {}) => {
   return render(
     <SplitButton {...props} className={className} secondaryDialogContent={secondaryContent}>
       {text}
-    </SplitButton>
+    </SplitButton>,
   );
 };
 
@@ -72,7 +72,7 @@ describe("SplitButton tests", () => {
     it("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
       const onSecondaryDialogDidShow = jest.fn();
       const splitButtonComponent = renderComponent({
-        onSecondaryDialogDidShow
+        onSecondaryDialogDidShow,
       });
       const arrowButton = getSecondaryButton(splitButtonComponent);
       act(() => {
@@ -85,7 +85,7 @@ describe("SplitButton tests", () => {
     it("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
       const onSecondaryDialogDidHideMock = jest.fn();
       const splitButtonComponent = renderComponent({
-        onSecondaryDialogDidHide: onSecondaryDialogDidHideMock
+        onSecondaryDialogDidHide: onSecondaryDialogDidHideMock,
       });
       const arrowButton = getSecondaryButton(splitButtonComponent);
 
@@ -146,7 +146,7 @@ describe("SplitButton tests", () => {
   describe("with SplitButtonMenu", () => {
     it("should focus on first menu item", async () => {
       const splitButtonComponent = render(
-        <SplitButton secondaryDialogContent={menuSecondaryContent}>{text}</SplitButton>
+        <SplitButton secondaryDialogContent={menuSecondaryContent}>{text}</SplitButton>,
       );
       const arrowButton = getSecondaryButton(splitButtonComponent);
       act(() => {

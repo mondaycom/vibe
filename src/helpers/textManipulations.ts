@@ -25,7 +25,7 @@ function validatePrecision(precision: number) {
 export const formatNumberConsts = Object.freeze({
   MIN_PRECISION,
   MAX_PRECISION,
-  DEFAULT_LOCAL
+  DEFAULT_LOCAL,
 });
 
 export function formatNumber(
@@ -33,8 +33,8 @@ export function formatNumber(
   {
     local = DEFAULT_LOCAL,
     isCompact = true,
-    precision = 2
-  }: { local?: Intl.Locale["language"]; isCompact?: boolean; precision?: number } = {}
+    precision = 2,
+  }: { local?: Intl.Locale["language"]; isCompact?: boolean; precision?: number } = {},
 ) {
   if (value === undefined || value === null) return;
   const isLocalSupported = validateLocalSupported(local);
@@ -42,6 +42,6 @@ export function formatNumber(
   const selectedLocal = isLocalSupported ? local : DEFAULT_LOCAL;
   return new Intl.NumberFormat(selectedLocal, {
     ...(isCompact && { notation: "compact" }),
-    maximumFractionDigits: normalizedPrecision
+    maximumFractionDigits: normalizedPrecision,
   }).format(value);
 }

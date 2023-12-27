@@ -113,7 +113,7 @@ export enum ComponentDefaultTestId {
   TABLE_CELL = "table-cell",
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
-  TABLE_ROW = "table-row"
+  TABLE_ROW = "table-row",
 }
 
 export enum NavigationCommand {
@@ -124,5 +124,5 @@ export enum NavigationCommand {
   TAB = "#TAB#",
   ENTER = "{enter}",
   PAGE_UP = "{pageup}",
-  PAGE_DOWN = "{pagedown}"
+  PAGE_DOWN = "{pagedown}",
 }

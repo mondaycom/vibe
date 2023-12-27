@@ -20,14 +20,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,
   enumPropNamesArray: ["size"],
   iconPropNamesArray: ["searchIcon"],
-  actionPropsArray: ["onOptionHover", "onOptionLeave", "onFilterChanged"]
+  actionPropsArray: ["onOptionHover", "onOptionLeave", "onFilterChanged"],
 });
 
 export default {
   title: "Inputs/Combobox",
   component: Combobox,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const comboboxTemplate = args => {
@@ -46,22 +46,22 @@ export const Overview = {
     options: [
       {
         id: "1",
-        label: "Option 1"
+        label: "Option 1",
       },
       {
         id: "2",
-        label: "Option 2"
+        label: "Option 2",
       },
       {
         id: "3",
-        label: "Option 3"
-      }
+        label: "Option 3",
+      },
     ],
 
     onClick: () => alert("clicked"),
     placeholder: "Placeholder text here",
-    clearFilterOnSelection: true
-  }
+    clearFilterOnSelection: true,
+  },
 };
 
 export const Default = {
@@ -70,25 +70,25 @@ export const Default = {
       () => [
         {
           id: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           id: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           id: "3",
-          label: "Option 3"
-        }
+          label: "Option 3",
+        },
       ],
-      []
+      [],
     );
 
     return <Combobox placeholder="Placeholder text here" options={options} />;
   },
 
   name: "Default",
-  play: defaultPlaySuite
+  play: defaultPlaySuite,
 };
 
 export const ComboboxInsideADialog = {
@@ -97,26 +97,26 @@ export const ComboboxInsideADialog = {
       () => [
         {
           id: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           id: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           id: "3",
-          label: "Option 3"
+          label: "Option 3",
         },
         {
           id: "4",
-          label: "Option 4"
+          label: "Option 4",
         },
         {
           id: "5",
-          label: "Option 5"
-        }
+          label: "Option 5",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -126,7 +126,7 @@ export const ComboboxInsideADialog = {
     );
   },
 
-  name: "Combobox inside a dialog"
+  name: "Combobox inside a dialog",
 };
 
 export const Sizes = {
@@ -135,26 +135,26 @@ export const Sizes = {
       () => [
         {
           id: "1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           id: "2",
-          label: "Option 2"
+          label: "Option 2",
         },
         {
           id: "3",
-          label: "Option 3"
+          label: "Option 3",
         },
         {
           id: "4",
-          label: "Option 4"
+          label: "Option 4",
         },
         {
           id: "5",
-          label: "Option 5"
-        }
+          label: "Option 5",
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -172,7 +172,7 @@ export const Sizes = {
     );
   },
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const WithCategories = {
@@ -182,57 +182,57 @@ export const WithCategories = {
         {
           id: "1",
           label: "Favorites",
-          categoryId: "favorites"
+          categoryId: "favorites",
         },
         {
           id: "2",
           label: "Main workspace",
-          categoryId: "workspace"
+          categoryId: "workspace",
         },
         {
           id: "3",
           label: "Client Foundations",
-          categoryId: "workspace"
+          categoryId: "workspace",
         },
         {
           id: "4",
           label: "Design",
-          categoryId: "workspace"
+          categoryId: "workspace",
         },
         {
           id: "5",
           label: "Marketing Cluster",
-          categoryId: "workspace"
+          categoryId: "workspace",
         },
         {
           id: "6",
           label: "Mobile",
-          categoryId: "workspace"
-        }
+          categoryId: "workspace",
+        },
       ],
-      []
+      [],
     );
 
     const categories = useMemo(
       () => ({
         favorites: {
           id: "favorites",
-          label: "Favorites"
+          label: "Favorites",
         },
 
         workspace: {
           id: "Workspaces",
-          label: "Workspaces"
-        }
+          label: "Workspaces",
+        },
       }),
-      []
+      [],
     );
 
     return (
       <Flex
         gap={50}
         style={{
-          width: "100%"
+          width: "100%",
         }}
         justify={Flex.justify.START}
         align={Flex.align.START}
@@ -240,7 +240,7 @@ export const WithCategories = {
         <StoryDescription description="Regular" vertical align={Flex.align.START}>
           <DialogContentContainer
             style={{
-              height: "200px"
+              height: "200px",
             }}
           >
             <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
@@ -249,7 +249,7 @@ export const WithCategories = {
         <StoryDescription description="Sticky mode" vertical align={Flex.align.START}>
           <DialogContentContainer
             style={{
-              height: "200px"
+              height: "200px",
             }}
           >
             <Combobox stickyCategories options={options} categories={categories} placeholder="Placeholder text here" />
@@ -258,7 +258,7 @@ export const WithCategories = {
         <StoryDescription description="With divider" vertical align={Flex.align.START}>
           <DialogContentContainer
             style={{
-              height: "200px"
+              height: "200px",
             }}
           >
             <Combobox
@@ -274,7 +274,7 @@ export const WithCategories = {
     );
   },
 
-  name: "With categories"
+  name: "With categories",
 };
 
 export const WithIcons = {
@@ -284,30 +284,30 @@ export const WithIcons = {
         {
           id: "1",
           label: "Option 1",
-          leftIcon: Wand
+          leftIcon: Wand,
         },
         {
           id: "2",
           label: "Option 2",
-          leftIcon: ThumbsUp
+          leftIcon: ThumbsUp,
         },
         {
           id: "3",
           label: "Option 3",
-          leftIcon: Time
+          leftIcon: Time,
         },
         {
           id: "4",
           label: "Option 4",
-          leftIcon: Update
+          leftIcon: Update,
         },
         {
           id: "5",
           label: "Option 5",
-          leftIcon: Upgrade
-        }
+          leftIcon: Upgrade,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -317,7 +317,7 @@ export const WithIcons = {
     );
   },
 
-  name: "With icons"
+  name: "With icons",
 };
 
 export const WithOptionRenderer = {
@@ -332,9 +332,9 @@ export const WithOptionRenderer = {
         { id: "6", label: "Option 6" },
         { id: "7", label: "Option 7" },
         { id: "8", label: "Option 8" },
-        { id: "9", label: "Option 9" }
+        { id: "9", label: "Option 9" },
       ],
-      []
+      [],
     );
     const optionRenderer = option => (
       <div>
@@ -353,7 +353,7 @@ export const WithOptionRenderer = {
     );
   },
 
-  name: "With optionRenderer"
+  name: "With optionRenderer",
 };
 
 export const WithButton = {
@@ -363,30 +363,30 @@ export const WithButton = {
         {
           id: "1",
           label: "Option 1",
-          leftIcon: Wand
+          leftIcon: Wand,
         },
         {
           id: "2",
           label: "Option 2",
-          leftIcon: ThumbsUp
+          leftIcon: ThumbsUp,
         },
         {
           id: "3",
           label: "Option 3",
-          leftIcon: Time
+          leftIcon: Time,
         },
         {
           id: "4",
           label: "Option 4",
-          leftIcon: Update
+          leftIcon: Update,
         },
         {
           id: "5",
           label: "Option 5",
-          leftIcon: Upgrade
-        }
+          leftIcon: Upgrade,
+        },
       ],
-      []
+      [],
     );
 
     return (
@@ -399,7 +399,7 @@ export const WithButton = {
     );
   },
 
-  name: "With Button"
+  name: "With Button",
 };
 
 export const WithCreation = {
@@ -417,8 +417,8 @@ export const WithCreation = {
               ...options,
               {
                 id: options.length + 1,
-                label: `Option: ${options.length + 1}`
-              }
+                label: `Option: ${options.length + 1}`,
+              },
             ])
           }
         />
@@ -426,7 +426,7 @@ export const WithCreation = {
     );
   },
 
-  name: "With Creation"
+  name: "With Creation",
 };
 
 export const WithVirtualizationOptimization = {
@@ -436,127 +436,127 @@ export const WithVirtualizationOptimization = {
         {
           id: "1",
           label: "Option 1",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "2",
           label: "Option 2",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "3",
           label: "Option 3",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "4",
           label: "Option 4",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "5",
           label: "Option 5",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "6",
           label: "Option 6",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "7",
           label: "Option 7",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "8",
           label: "Option 8",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "9",
           label: "Option 9",
-          categoryId: "Group1"
+          categoryId: "Group1",
         },
         {
           id: "10",
           label: "Option 10",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "11",
           label: "Option 11",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "12",
           label: "Option 12",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "13",
           label: "Option 13",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "14",
           label: "Option 14",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "15",
           label: "Option 15",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "16",
           label: "Option 16",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "17",
           label: "Option 17",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "18",
           label: "Option 18",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "19",
           label: "Option 19",
-          categoryId: "Group2"
+          categoryId: "Group2",
         },
         {
           id: "20",
           label: "Option 20",
-          categoryId: "Group2"
-        }
+          categoryId: "Group2",
+        },
       ],
-      []
+      [],
     );
 
     const categories = useMemo(
       () => ({
         Group1: {
           id: "Group1",
-          label: "Group 1"
+          label: "Group 1",
         },
 
         Group2: {
           id: "Group2",
-          label: "Group 2"
-        }
+          label: "Group 2",
+        },
       }),
-      []
+      [],
     );
 
     return (
       <Flex
         gap={Flex.gaps.SMALL}
         style={{
-          width: "100%"
+          width: "100%",
         }}
         justify={Flex.justify.CENTER}
         align={Flex.align.START}
@@ -568,12 +568,12 @@ export const WithVirtualizationOptimization = {
           vertical
           headerStyle={{
             width: "70%",
-            textAlign: "start"
+            textAlign: "start",
           }}
         >
           <div
             style={{
-              width: "280px"
+              width: "280px",
             }}
           >
             <DialogContentContainer>
@@ -593,12 +593,12 @@ export const WithVirtualizationOptimization = {
           vertical
           headerStyle={{
             width: "70%",
-            textAlign: "start"
+            textAlign: "start",
           }}
         >
           <div
             style={{
-              width: "280px"
+              width: "280px",
             }}
           >
             <DialogContentContainer>
@@ -619,12 +619,12 @@ export const WithVirtualizationOptimization = {
           vertical
           headerStyle={{
             width: "70%",
-            textAlign: "start"
+            textAlign: "start",
           }}
         >
           <div
             style={{
-              width: "280px"
+              width: "280px",
             }}
           >
             <DialogContentContainer>
@@ -643,7 +643,7 @@ export const WithVirtualizationOptimization = {
     );
   },
 
-  name: "With virtualization optimization"
+  name: "With virtualization optimization",
 };
 
 export const LoadingState = {
@@ -657,7 +657,7 @@ export const LoadingState = {
     );
   },
 
-  name: "Loading state"
+  name: "Loading state",
 };
 
 export const ComboboxAsPersonPicker = {
@@ -670,7 +670,7 @@ export const ComboboxAsPersonPicker = {
           src: person1,
           type: Avatar.types.IMG,
           position: "(Frontend Developer)",
-          categoryId: "suggestedPeople"
+          categoryId: "suggestedPeople",
         },
         {
           id: "Rotem Dekel",
@@ -678,7 +678,7 @@ export const ComboboxAsPersonPicker = {
           src: person2,
           type: Avatar.types.IMG,
           position: "(Product Designer)",
-          categoryId: "suggestedPeople"
+          categoryId: "suggestedPeople",
         },
         {
           id: "Netta Muller",
@@ -686,27 +686,27 @@ export const ComboboxAsPersonPicker = {
           src: person3,
           type: Avatar.types.IMG,
           position: "(Brand Designer)",
-          categoryId: "suggestedPeople"
-        }
+          categoryId: "suggestedPeople",
+        },
       ],
-      []
+      [],
     );
 
     const categories = useMemo(
       () => ({
         suggestedPeople: {
           id: "suggestedPeople",
-          label: "Suggested people"
-        }
+          label: "Suggested people",
+        },
       }),
-      []
+      [],
     );
 
     return (
       <Flex
         style={{
           width: "100%",
-          height: "270px"
+          height: "270px",
         }}
         justify={Flex.justify.CENTER}
         align={Flex.align.START}
@@ -735,5 +735,5 @@ export const ComboboxAsPersonPicker = {
     );
   },
 
-  name: "Combobox as person picker"
+  name: "Combobox as person picker",
 };

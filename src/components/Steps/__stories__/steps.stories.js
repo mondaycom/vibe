@@ -11,7 +11,7 @@ import "./steps.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
   enumPropNamesArray: ["type"],
-  actionPropsArray: ["onChangeActiveStep"]
+  actionPropsArray: ["onChangeActiveStep"],
 });
 
 const steps5 = [<div />, <div />, <div />, <div />, <div />];
@@ -20,7 +20,7 @@ export default {
   title: "Data display/Steps",
   component: Steps,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const NavigableStepsTemplate = args => {
@@ -39,10 +39,10 @@ const NavigableStepsTemplate = args => {
     <Steps
       activeStepIndex={activeStepIndex}
       backButtonProps={{
-        onClick: stepPrev
+        onClick: stepPrev,
       }}
       nextButtonProps={{
-        onClick: stepNext
+        onClick: stepNext,
       }}
       {...args}
       onChangeActiveStep={onChangeActiveStep}
@@ -55,8 +55,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    steps: steps5
-  }
+    steps: steps5,
+  },
 };
 
 export const Types = {
@@ -68,7 +68,7 @@ export const Types = {
     </Flex>
   ),
 
-  name: "Types"
+  name: "Types",
 };
 
 export const OnPrimary = {
@@ -86,7 +86,7 @@ export const OnPrimary = {
     </Flex>
   ),
 
-  name: "On primary"
+  name: "On primary",
 };
 
 export const NavigableSteps = {
@@ -113,17 +113,17 @@ export const NavigableSteps = {
           activeStepIndex={activeStepIndex}
           onChangeActiveStep={onChangeActiveStep}
           backButtonProps={{
-            onClick: stepPrev
+            onClick: stepPrev,
           }}
           nextButtonProps={{
-            onClick: stepNext
+            onClick: stepNext,
           }}
         />
       </div>
     );
   },
 
-  name: "Navigable Steps"
+  name: "Navigable Steps",
 };
 
 export const StepsInsideATipseen = {
@@ -133,7 +133,7 @@ export const StepsInsideATipseen = {
       <div>Message number 2</div>,
       <div>Message number 3</div>,
       <div>Message number 4</div>,
-      <div>Message number 5</div>
+      <div>Message number 5</div>,
     ];
 
     const [activeStepIndex, setActiveStepIndex] = useState(2);
@@ -164,12 +164,12 @@ export const StepsInsideATipseen = {
               activeStepIndex={activeStepIndex}
               backButtonProps={{
                 size: Button.sizes.SMALL,
-                onClick: stepPrev
+                onClick: stepPrev,
               }}
               nextButtonProps={{
                 kind: Button.kinds.PRIMARY,
                 size: Button.sizes.SMALL,
-                onClick: stepNext
+                onClick: stepNext,
               }}
             />
           }
@@ -180,5 +180,5 @@ export const StepsInsideATipseen = {
     );
   },
 
-  name: "Steps inside a tipseen"
+  name: "Steps inside a tipseen",
 };

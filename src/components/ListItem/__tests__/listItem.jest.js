@@ -38,7 +38,7 @@ describe("BDD List Item", () => {
     const { getByText } = render(
       <ListItem data-testid="list-item" onClick={onClick}>
         {itemText}
-      </ListItem>
+      </ListItem>,
     );
     const element = getByText(itemText);
     fireEvent.click(element);
@@ -49,7 +49,7 @@ describe("BDD List Item", () => {
     const { getByText } = render(
       <ListItem data-testid="list-item" onClick={onClick}>
         {itemText}
-      </ListItem>
+      </ListItem>,
     );
     const element = getByText(itemText);
     fireEvent.keyDown(element, { key: "Enter", code: "Enter", charCode: "13" });
@@ -60,7 +60,7 @@ describe("BDD List Item", () => {
     const { getByText } = render(
       <ListItem data-testid="list-item" onClick={onClick}>
         {itemText}
-      </ListItem>
+      </ListItem>,
     );
     const element = getByText(itemText);
     fireEvent.keyDown(element, { key: " ", code: "Space", charCode: "32" });
@@ -71,7 +71,7 @@ describe("BDD List Item", () => {
     const { getByText } = render(
       <ListItem data-testid="list-item" disabled onClick={onClick}>
         {itemText}
-      </ListItem>
+      </ListItem>,
     );
     const element = getByText(itemText);
     fireEvent.click(element);

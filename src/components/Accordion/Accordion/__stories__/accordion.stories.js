@@ -43,24 +43,24 @@ export default {
   component: Accordion,
 
   subcomponents: {
-    AccordionItem
+    AccordionItem,
   },
 
   argTypes: {
     children: {
-      control: false
+      control: false,
     },
 
     defaultIndex: {
-      control: false
-    }
-  }
+      control: false,
+    },
+  },
 };
 
 export const Overview = {
   render: accordionTemplate.bind({}),
   name: "Overview",
-  args: {}
+  args: {},
 };
 
 export const MultiActive = {
@@ -85,7 +85,7 @@ export const MultiActive = {
   ),
 
   name: "Multi active",
-  play: accordionMultiActivePlaySuite
+  play: accordionMultiActivePlaySuite,
 };
 
 export const SingleActive = {
@@ -110,7 +110,7 @@ export const SingleActive = {
   ),
 
   name: "Single active",
-  play: accordionSingleActivePlaySuite
+  play: accordionSingleActivePlaySuite,
 };
 
 export const PreferencesAccordion = {
@@ -128,5 +128,5 @@ export const PreferencesAccordion = {
     </Accordion>
   ),
 
-  name: "Preferences Accordion"
+  name: "Preferences Accordion",
 };

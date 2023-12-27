@@ -9,7 +9,7 @@ import "./tooltip.stories.scss";
 
 export default {
   title: "Popover/Tooltip",
-  component: Tooltip
+  component: Tooltip,
 };
 
 const tooltipTemplate = args => {
@@ -34,14 +34,14 @@ export const Overview = {
 
   args: {
     shouldShowOnMount: true,
-    content: "I’m a tooltip"
+    content: "I’m a tooltip",
   },
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const Positions = {
@@ -100,9 +100,9 @@ export const Positions = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const Themes = {
@@ -123,7 +123,7 @@ export const Themes = {
       </div>
     )),
 
-  name: "Themes"
+  name: "Themes",
 };
 
 export const IconTooltip = {
@@ -137,7 +137,7 @@ export const IconTooltip = {
     </div>
   ),
 
-  name: "Icon tooltip"
+  name: "Icon tooltip",
 };
 
 export const DefinitionTooltip = {
@@ -152,7 +152,7 @@ export const DefinitionTooltip = {
     </div>
   ),
 
-  name: "Definition tooltip"
+  name: "Definition tooltip",
 };
 
 export const ImmediateTooltips = {
@@ -170,5 +170,5 @@ export const ImmediateTooltips = {
     </div>
   ),
 
-  name: "Immediate tooltips"
+  name: "Immediate tooltips",
 };

@@ -19,7 +19,7 @@ describe("Renders correctly", () => {
           <Heading type={Heading.types.h3} value="Hello H3" />
           <Heading type={Heading.types.h4} value="Hello H4" />
           <Heading type={Heading.types.h5} value="Hello H5" />
-        </div>
+        </div>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("Renders correctly", () => {
           value="Heading with highlight text heading with highlight text without overflow"
           ellipsis={false}
           nonEllipsisTooltip="Tooltip when no overflow"
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -16,7 +16,7 @@ export const IconsList = () => {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            margin: "16px 0"
+            margin: "16px 0",
           }}
         >
           <SearchComponent

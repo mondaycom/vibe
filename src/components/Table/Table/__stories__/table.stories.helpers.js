@@ -7,19 +7,19 @@ export const doAndDontIconsRuleColumns = [
     id: "sentOn",
     title: "Sent on",
     icon: Calendar,
-    width: 95
+    width: 95,
   },
   {
     id: "subject",
     title: "Subject",
-    icon: Doc
+    icon: Doc,
   },
   {
     id: "status",
     title: "Status",
     icon: Status,
-    width: 120
-  }
+    width: 120,
+  },
 ];
 
 export const doAndDontIconsRuleData = [
@@ -28,22 +28,22 @@ export const doAndDontIconsRuleData = [
     sentOn: "Apr 22",
     subject: "Limited time offer: AP Process",
     sentBy: "John Doe",
-    status: "In progress"
+    status: "In progress",
   },
   {
     id: "2",
     sentOn: "Apr 22",
     subject: "Action required: Update your AP",
     sentBy: "Jane Doe",
-    status: "Queued"
+    status: "Queued",
   },
   {
     id: "3",
     sentOn: "Apr 22",
     subject: "Limited time offer: AP Process",
     sentBy: "Peter Smith",
-    status: "Sent"
-  }
+    status: "Sent",
+  },
 ];
 
 export const emailTableData = [
@@ -53,7 +53,7 @@ export const emailTableData = [
     sentBy: "John Doe",
     subject: "Lorem ipsum dolor",
     status: "Sent",
-    emailsSent: 100
+    emailsSent: 100,
   },
   {
     id: "2",
@@ -61,7 +61,7 @@ export const emailTableData = [
     sentBy: "Other Name",
     subject: "This is the subject",
     status: "Sent",
-    emailsSent: 99
+    emailsSent: 99,
   },
   {
     id: "3",
@@ -70,8 +70,8 @@ export const emailTableData = [
     subject:
       "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
     status: "Sent",
-    emailsSent: 999
-  }
+    emailsSent: 999,
+  },
 ];
 
 export const emailColumns = [
@@ -79,33 +79,33 @@ export const emailColumns = [
     id: "sentOn",
     title: "Sent on",
     width: 150,
-    loadingStateType: "medium-text"
+    loadingStateType: "medium-text",
   },
   {
     id: "subject",
     title: "Subject",
-    loadingStateType: "long-text"
+    loadingStateType: "long-text",
   },
   {
     id: "sentBy",
     title: "Sent by",
     width: { min: 120, max: 200 },
     infoContent: "This is the sender",
-    loadingStateType: "circle"
+    loadingStateType: "circle",
   },
   {
     id: "status",
     title: "Status",
     width: 150,
     infoContent: "Info content for the status column",
-    loadingStateType: "medium-text"
+    loadingStateType: "medium-text",
   },
   {
     id: "emailsSent",
     title: "Emails sent",
     width: 150,
-    loadingStateType: "medium-text"
-  }
+    loadingStateType: "medium-text",
+  },
 ];
 
 export const scrollTableData = [
@@ -116,7 +116,7 @@ export const scrollTableData = [
     subject: "Lorem ipsum dolor",
     status: "In progress",
     priority: "Urgent",
-    emailsSent: 100
+    emailsSent: 100,
   },
   {
     id: "2",
@@ -125,7 +125,7 @@ export const scrollTableData = [
     subject: "Dolor sit amet",
     status: "In progress",
     priority: "High",
-    emailsSent: 50
+    emailsSent: 50,
   },
   {
     id: "3",
@@ -134,7 +134,7 @@ export const scrollTableData = [
     subject: "Consectetur adipiscing elit",
     status: "Queued",
     priority: "Normal",
-    emailsSent: 0
+    emailsSent: 0,
   },
   {
     id: "4",
@@ -143,7 +143,7 @@ export const scrollTableData = [
     subject: "Sed do eiusmod tempor incididunt",
     status: "Failed",
     priority: "Low",
-    emailsSent: 200
+    emailsSent: 200,
   },
   {
     id: "5",
@@ -152,7 +152,7 @@ export const scrollTableData = [
     subject: "Ut labore et dolore magna aliqua",
     status: "Sent",
     priority: "Urgent",
-    emailsSent: 150
+    emailsSent: 150,
   },
   {
     id: "6",
@@ -161,8 +161,8 @@ export const scrollTableData = [
     subject: "Et harum quidem rerum facilis est et expedita distinctio",
     status: "Sent",
     priority: "High",
-    emailsSent: 75
-  }
+    emailsSent: 75,
+  },
 ];
 
 export const highlightableRowColumns = [
@@ -170,26 +170,26 @@ export const highlightableRowColumns = [
     id: "sentOn",
     title: "Sent on",
     width: 150,
-    loadingStateType: "medium-text"
+    loadingStateType: "medium-text",
   },
   {
     id: "subject",
     title: "Subject",
-    loadingStateType: "long-text"
+    loadingStateType: "long-text",
   },
   {
     id: "emailsSent",
     title: "Emails sent",
     width: 150,
-    loadingStateType: "medium-text"
+    loadingStateType: "medium-text",
   },
   {
     id: "highlight",
     title: "Highlight",
     width: 150,
     infoContent: "Info content for the highlight column",
-    loadingStateType: "medium-text"
-  }
+    loadingStateType: "medium-text",
+  },
 ];
 
 export const highlightableTableData = [
@@ -197,88 +197,88 @@ export const highlightableTableData = [
     id: "1",
     sentOn: "2020-01-01",
     subject: "Lorem ipsum dolor",
-    emailsSent: 100
+    emailsSent: 100,
   },
   {
     id: "2",
     sentOn: "2022-02-02",
     subject: "This is the subject",
-    emailsSent: 99
+    emailsSent: 99,
   },
   {
     id: "3",
     sentOn: "2023-03-03",
     subject:
       "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
-    emailsSent: 999
-  }
+    emailsSent: 999,
+  },
 ];
 
 export const priorityColumnToLabelColor = {
   Urgent: LabelColor.NEGATIVE,
   High: LabelColor.DARK,
   Normal: LabelColor.PRIMARY,
-  Low: LabelColor.POSITIVE
+  Low: LabelColor.POSITIVE,
 };
 
 export const statusColumnToLabelColor = {
   Sent: LabelColor.POSITIVE,
   Queued: LabelColor.DARK,
   Failed: LabelColor.NEGATIVE,
-  "In progress": LabelColor.PRIMARY
+  "In progress": LabelColor.PRIMARY,
 };
 
 export const scrollTableColumns = [
   {
     id: "sentOn",
     title: "Sent on",
-    width: 150
+    width: 150,
   },
   {
     id: "priority",
     title: "Priority",
-    width: 150
+    width: 150,
   },
   {
     id: "subject",
     title: "Subject",
-    width: { min: 300, max: 500 }
+    width: { min: 300, max: 500 },
   },
   {
     id: "sentBy",
     title: "Sent by",
     width: 150,
-    infoContent: "This is the sender"
+    infoContent: "This is the sender",
   },
   {
     id: "status",
     title: "Status",
     width: 150,
-    infoContent: "Info content for the status column"
+    infoContent: "Info content for the status column",
   },
   {
     id: "emailsSent",
     title: "Emails sent",
-    width: 150
-  }
+    width: 150,
+  },
 ];
 
 export const virtualizedScrollTableData = [...new Array(5000)].map((_, index) => ({
   id: index,
   num: index,
-  text: `This is line number ${index}`
+  text: `This is line number ${index}`,
 }));
 
 export const virtualizedScrollTableColumns = [
   {
     id: "num",
     title: "#",
-    width: 100
+    width: 100,
   },
   {
     id: "text",
-    title: "Text"
-  }
+    title: "Text",
+  },
 ];
 
 export function sort(columnId, sortState, tableData) {

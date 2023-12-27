@@ -11,7 +11,7 @@ export default function useMenuItemMouseEvents({
   index,
   hasChildren,
   splitMenuItemIconButtonRef,
-  splitMenuItem = false
+  splitMenuItem = false,
 }: {
   ref: RefObject<HTMLElement>;
   resetOpenSubMenuIndex: () => void;
@@ -49,7 +49,7 @@ export default function useMenuItemMouseEvents({
     isActive,
     resetOpenSubMenuIndex,
     setActiveItemIndex,
-    isMouseEnter
+    isMouseEnter,
   ]);
 
   useLayoutEffect(() => {
@@ -88,7 +88,7 @@ export default function useMenuItemMouseEvents({
     setActiveItemIndex,
     index,
     hasChildren,
-    splitMenuItem
+    splitMenuItem,
   ]);
 
   return isMouseEnter;

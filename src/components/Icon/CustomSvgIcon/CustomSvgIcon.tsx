@@ -33,12 +33,12 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   replaceToCurrentColor = false,
   customColor,
   id,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
     isClickable: clickable,
     label: ariaLabel,
-    isDecorationOnly: ariaHidden
+    isDecorationOnly: ariaHidden,
   });
 
   const svgProcessor = useCallback(
@@ -47,7 +47,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       if (customColor) return modifySvgCode(svg, customColor);
       return svg;
     },
-    [replaceToCurrentColor, customColor]
+    [replaceToCurrentColor, customColor],
   );
 
   if (typeof src !== "string") return null;

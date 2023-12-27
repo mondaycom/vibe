@@ -92,7 +92,7 @@ export { default as Box } from "./Box/Box";
 export { default as Text } from "./Text/Text";
 export {
   useGridKeyboardNavigationContext,
-  GridKeyboardNavigationContext
+  GridKeyboardNavigationContext,
 } from "./GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 export { default as Badge } from "./Badge/Badge";
 export { default as Table } from "./Table/Table/Table";

@@ -39,7 +39,7 @@ const SelectionIndicator: React.FC<SelectionIndicatorProps> = ({ kind = InfixKin
         const thumbIndex = isPostfix ? 1 : 0;
         changeThumbValue(newValue, thumbIndex, true);
       }, VALUE_UPDATE_DELAY),
-    [changeThumbValue, isPostfix]
+    [changeThumbValue, isPostfix],
   );
   return <TextField onChange={handleChange} value={String(currentTextValue)} className={styles.selectionIndicator} />;
 };

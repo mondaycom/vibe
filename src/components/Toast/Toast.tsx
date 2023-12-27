@@ -57,7 +57,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
   className,
   id,
   closeButtonAriaLabel = "Close",
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const toastLinks = useMemo(() => {
     return actions
@@ -83,7 +83,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 
   const classNames = useMemo(
     () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),
-    [type, className]
+    [type, className],
   );
 
   const handleClose = useCallback(() => {
@@ -105,7 +105,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
         handleClose();
       }, duration);
     },
-    [handleClose, onClose]
+    [handleClose, onClose],
   );
 
   useEffect(() => {
@@ -170,5 +170,5 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
 
 export default withStaticProps(Toast, {
   types: ToastType,
-  actionTypes: ToastActionType
+  actionTypes: ToastActionType,
 });

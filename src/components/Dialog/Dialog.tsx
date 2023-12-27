@@ -195,7 +195,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shoudlCallbackOnMount: false,
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
-    addKeyboardHideShowTriggersByDefault: false
+    addKeyboardHideShowTriggersByDefault: false,
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -204,7 +204,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     super(props);
     this.state = {
       shouldUseDerivedStateFromProps: props.useDerivedStateFromProps,
-      isOpen: props.shouldShowOnMount
+      isOpen: props.shouldShowOnMount,
     };
 
     // Binding section.
@@ -254,7 +254,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     const { shoudlCallbackOnMount, shouldCallbackOnMount, onDialogDidShow } = this.props;
     const overrideShouldCallbackOnMount = backwardCompatibilityForProperties(
       [shouldCallbackOnMount, shoudlCallbackOnMount],
-      false
+      false,
     );
     const { isOpen } = this.state;
     document.addEventListener("keyup", this.closeDialogOnEscape);
@@ -502,7 +502,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       disableContainerScroll,
       containerSelector,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     } = this.props;
     const { preventAnimation } = this.state;
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.DIALOG, id);
@@ -543,8 +543,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
               {
                 name: "offset",
                 options: {
-                  offset: [moveBy.secondary, moveBy.main]
-                }
+                  offset: [moveBy.secondary, moveBy.main],
+                },
               },
               {
                 name: "zIndex",
@@ -555,7 +555,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     state.styles.popper.zIndex = String(zIndex);
                   }
                   return state;
-                }
+                },
               },
               {
                 name: "rotator",
@@ -575,9 +575,9 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   //   res[1]}% ${100 - res[2]}%`;
                   state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                   return state;
-                }
+                },
               },
-              ...modifiers
+              ...modifiers,
             ]}
           >
             {({ placement, style, ref, arrowProps, isReferenceHidden }) => {
@@ -626,7 +626,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
               );
             }}
           </Popper>,
-          this.getContainer()
+          this.getContainer(),
         )}
       </Manager>
     );

@@ -8,7 +8,7 @@ import { Send } from "../../Icon/Icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ListItem,
-  enumPropNamesArray: ["size", "component"]
+  enumPropNamesArray: ["size", "component"],
 });
 
 export default {
@@ -16,10 +16,10 @@ export default {
   component: ListItem,
   subcomponents: {
     ListItemIcon,
-    ListItemAvatar
+    ListItemAvatar,
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const listItemTemplate = createComponentTemplate(ListItem);
@@ -27,7 +27,7 @@ const listItemTemplate = createComponentTemplate(ListItem);
 export const Overview = {
   render: listItemTemplate.bind({}),
   name: "Overview",
-  args: { children: "List item" }
+  args: { children: "List item" },
 };
 
 export const States = {
@@ -39,7 +39,7 @@ export const States = {
     </>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const Sizes = {
@@ -51,7 +51,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const WithIcon = {
@@ -64,7 +64,7 @@ export const WithIcon = {
     </>
   ),
 
-  name: "List item with an icon"
+  name: "List item with an icon",
 };
 
 export const WithAvatar = {
@@ -75,5 +75,5 @@ export const WithAvatar = {
     </ListItem>
   ),
 
-  name: "List item with an avatar"
+  name: "List item with an avatar",
 };

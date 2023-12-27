@@ -10,7 +10,7 @@ describe("MenuGridItem renders correctly", () => {
     setActiveItemIndex: NO_OP,
     getNextSelectableIndex: NO_OP,
     getPreviousSelectableIndex: NO_OP,
-    setSubMenuIsOpenByIndex: NO_OP
+    setSubMenuIsOpenByIndex: NO_OP,
   };
 
   it("with a child", () => {
@@ -18,7 +18,7 @@ describe("MenuGridItem renders correctly", () => {
       .create(
         <MenuGridItem {...FAKE_REQUIRED_PROPS}>
           <div>Hello!</div>
-        </MenuGridItem>
+        </MenuGridItem>,
       )
       .toJSON();
 
@@ -32,7 +32,7 @@ describe("MenuGridItem renders correctly", () => {
       .create(
         <MenuGridItem disabled {...FAKE_REQUIRED_PROPS}>
           <DivWrapper />
-        </MenuGridItem>
+        </MenuGridItem>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

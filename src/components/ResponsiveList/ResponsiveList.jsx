@@ -26,9 +26,9 @@ const ResponsiveList = forwardRef(
       resizeDebounceTime,
       menuButtonAriaLabel,
       menuButtonProps,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -37,7 +37,7 @@ const ResponsiveList = forwardRef(
       children,
       paddingSize,
       resizeDebounceTime,
-      ignoreLast: true
+      ignoreLast: true,
     });
 
     const directChildren = useMemo(() => {
@@ -101,7 +101,7 @@ const ResponsiveList = forwardRef(
         </div>
       </div>
     );
-  }
+  },
 );
 
 ResponsiveList.menuButtonSizes = MenuButton.sizes;
@@ -126,7 +126,7 @@ ResponsiveList.propTypes = {
   /**
    *  we use resize observer behind the scene to update the size, debounce the amount of callbacks (each callback may cause a reflow)
    */
-  resizeDebounceTime: PropTypes.number
+  resizeDebounceTime: PropTypes.number,
 };
 ResponsiveList.defaultProps = {
   id: "",
@@ -140,7 +140,7 @@ ResponsiveList.defaultProps = {
   menuButtonSize: ResponsiveList.menuButtonSizes.SMALL,
   paddingSize: DEFAULT_MINIMAL_MARGIN,
   dialogZIndex: 9999,
-  resizeDebounceTime: 0
+  resizeDebounceTime: 0,
 };
 
 export default ResponsiveList;

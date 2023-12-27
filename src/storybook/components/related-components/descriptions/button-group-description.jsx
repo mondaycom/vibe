@@ -11,11 +11,11 @@ export const ButtonGroupDescription = () => {
         options={[
           { value: 1, text: "Alpha" },
           { value: 2, text: "Beta" },
-          { value: 3, text: "Delta" }
+          { value: 3, text: "Delta" },
         ]}
       />
     ),
-    []
+    [],
   );
   return (
     <RelatedComponent

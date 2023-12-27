@@ -54,7 +54,7 @@ describe("Avatar renders correctly", () => {
           topLeftBadgeProps={{ src: BADGE_SRC }}
           bottomRightBadgeProps={{ src: BADGE_SRC }}
           bottomLeftBadgeProps={{ src: BADGE_SRC }}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -68,7 +68,7 @@ describe("Avatar renders correctly", () => {
           topLeftBadgeProps={{ src: "not valid" }}
           bottomRightBadgeProps={{ src: "not valid" }}
           bottomLeftBadgeProps={{ src: "not valid" }}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

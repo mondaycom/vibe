@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import useTimeout from "..";
 
 export default {
-  title: "Hooks/useTimeout"
+  title: "Hooks/useTimeout",
 };
 
 export const Overview = {
@@ -13,11 +13,11 @@ export const Overview = {
 
     useTimeout({
       time: 5000,
-      callback
+      callback,
     });
 
     return <div>Alert is coming!</div>;
   },
 
-  name: "Overview"
+  name: "Overview",
 };

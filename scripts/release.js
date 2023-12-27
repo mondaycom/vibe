@@ -9,7 +9,7 @@ const boxt = require("boxt");
 const VERSION_STRATEGIES = {
   PATCH: "patch",
   MINOR: "minor",
-  MAJOR: "major"
+  MAJOR: "major",
 };
 
 const CHANGELOG_HEADERS = {
@@ -22,7 +22,7 @@ const CHANGELOG_HEADERS = {
   DEPENDENCIES: "#### Dependency Upgrades",
   COMMITTERS: "#### Committers",
   DOCUMENTATION: "#### Documentation",
-  INTERNAL_CHANGES: "#### Internal Changes"
+  INTERNAL_CHANGES: "#### Internal Changes",
 };
 
 const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
@@ -34,7 +34,7 @@ const CHANGES_THAT_BUMP_PATCH = [
   CHANGELOG_HEADERS.ICONS,
   CHANGELOG_HEADERS.DEPENDENCIES,
   CHANGELOG_HEADERS.DOCUMENTATION,
-  CHANGELOG_HEADERS.INTERNAL_CHANGES
+  CHANGELOG_HEADERS.INTERNAL_CHANGES,
 ];
 
 function release() {
@@ -57,7 +57,7 @@ function updateChangelog(newChangelogSection) {
 
   const newChangelog = currentChangelog.replace(
     CHANGELOG_HEADERS.TITLE,
-    [CHANGELOG_HEADERS.TITLE, "", newChangelogSection].join("\n")
+    [CHANGELOG_HEADERS.TITLE, "", newChangelogSection].join("\n"),
   );
 
   fs.writeFileSync(CHANGELOG_PATH, newChangelog, "utf8");
@@ -119,14 +119,14 @@ function validateGithubAuthToken() {
     console.log(
       chalk.red("Please make sure to provide the"),
       chalk.yellow.underline.bold("GITHUB_AUTH"),
-      chalk.red("environment variable:")
+      chalk.red("environment variable:"),
     );
     console.log();
     console.log(
       boxt(chalk.dim("$ GITHUB_AUTH=... npm run release"), {
         color: "white",
-        minWidth: "full"
-      })
+        minWidth: "full",
+      }),
     );
     process.exit(0);
   }

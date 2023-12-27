@@ -7,7 +7,7 @@ export const IconsDescription = () => {
   const component = useMemo(() => {
     const style = {
       display: "flex",
-      gap: "16px"
+      gap: "16px",
     };
     return (
       <div style={style}>

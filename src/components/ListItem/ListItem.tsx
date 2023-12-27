@@ -80,9 +80,9 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
         tabIndex = 0,
         children,
         "aria-current": ariaCurrent,
-        "data-testid": dataTestId
+        "data-testid": dataTestId,
       },
-      ref
+      ref,
     ) => {
       const { updateFocusedItem } = useContext(ListContext);
       const componentRef = useRef(null);
@@ -99,13 +99,13 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           if (disabled) return;
           onClick(event, id);
         },
-        [disabled, onClick, id]
+        [disabled, onClick, id],
       );
 
       useKeyEvent({
         keys: SELECTION_KEYS,
         ref: componentRef,
-        callback: componentOnClick
+        callback: componentOnClick,
       });
 
       const componentOnHover = useCallback(
@@ -113,7 +113,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           if (disabled) return;
           onHover(event, id);
         },
-        [disabled, onHover, id]
+        [disabled, onHover, id],
       );
 
       return (
@@ -123,7 +123,7 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           ref={mergedRef}
           className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
             [styles.selected]: selected && !disabled,
-            [styles.disabled]: disabled
+            [styles.disabled]: disabled,
           })}
           id={id}
           type={Text.types.TEXT2}
@@ -139,15 +139,15 @@ const ListItem: VibeComponent<ListItemProps> & { sizes?: typeof SIZES; component
           {children}
         </Text>
       );
-    }
+    },
   );
 
 Object.assign(ListItem, {
   // Used by VirtualizedListItems
-  displayName: "ListItem"
+  displayName: "ListItem",
 });
 
 export default withStaticProps(ListItem, {
   sizes: SIZES,
-  components: ListItemComponentType
+  components: ListItemComponentType,
 });

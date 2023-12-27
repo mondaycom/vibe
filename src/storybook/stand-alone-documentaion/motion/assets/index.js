@@ -49,5 +49,5 @@ export {
   TypeCss,
   TypeEmpty,
   TypeLike,
-  TypeStatus
+  TypeStatus,
 };

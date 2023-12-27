@@ -14,7 +14,7 @@ const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRender
       const element = rowRenderer(value);
       return React.cloneElement(element, { style, key: index });
     },
-    [rowRenderer]
+    [rowRenderer],
   );
 
   return (

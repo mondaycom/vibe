@@ -12,7 +12,7 @@ function _useIsStateControlledFromOutside(value: number | number[]): boolean {
 function _useSliderValue(
   defaultValue: number | number[],
   isControlled: boolean,
-  value: number | number[]
+  value: number | number[],
 ): [number | number[], (value: number | number[]) => void] {
   const initialValue = isControlled ? value : defaultValue;
   const [internalStateValue, setInternalStateValue] = useState(initialValue);
@@ -35,7 +35,7 @@ export function useSliderActionsContextValue(
   setFocused: (value: number) => void,
   setDragging: (value: number) => void,
   setSelectedValue: (value: number | number[]) => void,
-  step: number
+  step: number,
 ) {
   const _changeValueOrValues = useCallback(
     (newValueOrValues: number | number[]) => {
@@ -44,7 +44,7 @@ export function useSliderActionsContextValue(
         onChange(newValueOrValues);
       }
     },
-    [setSelectedValue, onChange]
+    [setSelectedValue, onChange],
   );
 
   const _validateValue = useCallback(
@@ -60,7 +60,7 @@ export function useSliderActionsContextValue(
       }
       return newValue as number;
     },
-    [min, max]
+    [min, max],
   );
 
   const _calculateNewValues = useCallback(
@@ -71,7 +71,7 @@ export function useSliderActionsContextValue(
       }
       return [_validateValue(thumb.index, thumb.newValue), endValue];
     },
-    [_validateValue, getSelectedValue]
+    [_validateValue, getSelectedValue],
   );
 
   const _manageRangedValues = useCallback(
@@ -85,7 +85,7 @@ export function useSliderActionsContextValue(
       switchCb(thumb.index === 0 ? 1 : 0);
       return [endValue, startValue];
     },
-    [_calculateNewValues]
+    [_calculateNewValues],
   );
 
   const _switchDraggingThumb = useCallback(
@@ -94,7 +94,7 @@ export function useSliderActionsContextValue(
       setFocused(switchTo);
       setDragging(switchTo);
     },
-    [setActive, setFocused, setDragging]
+    [setActive, setFocused, setDragging],
   );
 
   const changeThumbValue = useCallback(
@@ -108,7 +108,7 @@ export function useSliderActionsContextValue(
       const newValues = _manageRangedValues(currentThumb, switchCb);
       _changeValueOrValues(newValues);
     },
-    [_changeValueOrValues, _manageRangedValues, _validateValue, focused, ranged, setFocused]
+    [_changeValueOrValues, _manageRangedValues, _validateValue, focused, ranged, setFocused],
   );
 
   const drugThumb = useCallback(
@@ -121,7 +121,7 @@ export function useSliderActionsContextValue(
       const newValues = _manageRangedValues(currentThumb, _switchDraggingThumb);
       _changeValueOrValues(newValues);
     },
-    [_changeValueOrValues, _manageRangedValues, _switchDraggingThumb, _validateValue, getDragging, ranged]
+    [_changeValueOrValues, _manageRangedValues, _switchDraggingThumb, _validateValue, getDragging, ranged],
   );
 
   const decreaseValue = useCallback(
@@ -134,7 +134,7 @@ export function useSliderActionsContextValue(
       const newValue = currentValue - finalStep;
       changeThumbValue(newValue);
     },
-    [actualValue, changeThumbValue, focused, min, ranged, step]
+    [actualValue, changeThumbValue, focused, min, ranged, step],
   );
 
   const increaseValue = useCallback(
@@ -147,7 +147,7 @@ export function useSliderActionsContextValue(
       const newValue = currentValue + finalStep;
       changeThumbValue(newValue);
     },
-    [actualValue, changeThumbValue, focused, max, ranged, step]
+    [actualValue, changeThumbValue, focused, max, ranged, step],
   );
 
   return useMemo(
@@ -158,9 +158,9 @@ export function useSliderActionsContextValue(
       increaseValue,
       setActive,
       setDragging,
-      setFocused
+      setFocused,
     }),
-    [changeThumbValue, decreaseValue, drugThumb, increaseValue, setActive, setDragging, setFocused]
+    [changeThumbValue, decreaseValue, drugThumb, increaseValue, setActive, setDragging, setFocused],
   );
 }
 
@@ -173,7 +173,7 @@ export function useDragging(): [number, (value: number) => void, () => number] {
       setStateDragging(index);
       draggingRef.current = index;
     },
-    [setStateDragging, draggingRef]
+    [setStateDragging, draggingRef],
   );
   const getDragging = useCallback(() => draggingRef.current, [draggingRef]);
   return [dragging, setDragging, getDragging];
@@ -195,7 +195,7 @@ export function useSliderRail() {
   useResizeObserver({
     ref: railRef,
     callback: defineRailCoords,
-    debounceTime: UPDATE_SLIDER_SIZE_DEBOUNCE
+    debounceTime: UPDATE_SLIDER_SIZE_DEBOUNCE,
   });
 
   useEffect(() => {
@@ -209,7 +209,7 @@ export function useSliderValues(
   defaultValue: number | number[],
   value: number | number[],
   valueFormatter: (value: number) => string,
-  valueText: string
+  valueText: string,
 ): {
   actualValue: number | number[];
   actualValueText: string | string[];
@@ -233,7 +233,7 @@ export function useSliderValues(
       setStateSelectedValue(newValue);
       valueRef.current = newValue;
     },
-    [valueRef, setStateSelectedValue]
+    [valueRef, setStateSelectedValue],
   );
 
   const getSelectedValue = () => valueRef.current;

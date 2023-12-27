@@ -2,37 +2,37 @@ export const colorsMap = [
   { color: "--primary-color", description: "Use to emphasise main ui components" },
   {
     color: "--primary-on-secondary-color",
-    description: "Use to emphasise main ui components on secondary background color"
+    description: "Use to emphasise main ui components on secondary background color",
   },
   { color: "--primary-hover-color", description: "Use only as a hover on primary color" },
   {
     color: "--primary-hover-on-secondary-color",
-    description: "Use only as a hover on primary color on secondary background color"
+    description: "Use only as a hover on primary color on secondary background color",
   },
   { color: "--primary-selected-color", description: "Use to indicate selected state of primary items" },
   {
     color: "--primary-selected-hover-color",
-    description: "Use to indicate hover state on a primary-selected-color items"
+    description: "Use to indicate hover state on a primary-selected-color items",
   },
   {
     color: "--primary-selected-on-secondary-color",
-    description: "Use to indicate selected state of primary items on secondary background color"
+    description: "Use to indicate selected state of primary items on secondary background color",
   },
   { color: "--primary-text-color", description: "Use for default text color" },
   {
     color: "--primary-text-on-secondary-color",
-    description: "Use for default text color on secondary background color"
+    description: "Use for default text color on secondary background color",
   },
   { color: "--secondary-text-color", description: "Use when you need text with lesser importance" },
   {
     color: "--secondary-text-on-secondary-color",
-    description: "Use when you need text with lesser importance (on secondary background color)"
+    description: "Use when you need text with lesser importance (on secondary background color)",
   },
   { color: "--primary-background-hover-color", description: "Use as hover color" },
   { color: "--primary-background-hover-on-secondary-color", description: "Use as hover color on secondary color" },
   {
     color: "--inverted-color-background",
-    description: "Inverted background color (opposite of primary background color)"
+    description: "Inverted background color (opposite of primary background color)",
   },
   { color: "--text-color-on-inverted", description: "Inverted text color (opposite of primary text color)" },
   { color: "--text-color-on-primary", description: "Use for text on primary color" },
@@ -41,73 +41,73 @@ export const colorsMap = [
   // states
   {
     color: "--positive-color",
-    description: "Use to indicate a positive action/state (success, completion, approval...)"
+    description: "Use to indicate a positive action/state (success, completion, approval...)",
   },
   { color: "--positive-color-hover", description: "Use only as hover color on positive color" },
   { color: "--positive-color-selected", description: "Use only as selected indication for a positive colors" },
   {
     color: "--positive-color-selected-hover",
-    description: "Use to indicate hover state on a positive-color-selected items"
+    description: "Use to indicate hover state on a positive-color-selected items",
   },
   {
     color: "--negative-color",
-    description: "Use to indicate a negative action/state (delete, error...)"
+    description: "Use to indicate a negative action/state (delete, error...)",
   },
   { color: "--negative-color-hover", description: "Use only as hover color on negative color" },
   { color: "--negative-color-selected", description: "Use as selected indication for negative colors" },
   {
     color: "--negative-color-selected-hover",
-    description: "Use to indicate hover state on a negative-selected items"
+    description: "Use to indicate hover state on a negative-selected items",
   },
   {
     color: "--private-color",
-    description: "Use to indicate that something is private (board, icons...)"
+    description: "Use to indicate that something is private (board, icons...)",
   },
   {
     color: "--shareable-color",
-    description: "Use to indicate that something is shareable (board, dashboard...)"
+    description: "Use to indicate that something is shareable (board, dashboard...)",
   },
   {
     color: "--warning-color",
-    description: "Use to indicate a warning action/state (severity, alert, caution...)"
+    description: "Use to indicate a warning action/state (severity, alert, caution...)",
   },
   { color: "--warning-color-hover", description: "Use only as hover color on warning color" },
   { color: "--warning-color-selected", description: "Use as selected indication for warning colors" },
   {
     color: "--warning-color-selected-hover",
-    description: "Use to indicate hover state on a warning-selected items"
+    description: "Use to indicate hover state on a warning-selected items",
   },
   // borders
   { color: "--ui-border-color", description: "Border color for ui elements and components (Button, Input...)" },
   { color: "--ui-border-on-secondary-color", description: "Border color for ui elements on secondary color" },
   {
     color: "--layout-border-color",
-    description: "Border color for general layout and separators (Leftpane, Menu Divider...)"
+    description: "Border color for general layout and separators (Leftpane, Menu Divider...)",
   },
   {
     color: "--layout-border-on-secondary-color",
-    description: "Border color for general layout on secondary background color"
+    description: "Border color for general layout on secondary background color",
   },
   { color: "--placeholder-color", description: "Use for placeholder text in inputs fields" },
   {
     color: "--placeholder-on-secondary-color",
-    description: "Use for placeholder text in inputs fields on secondary background color"
+    description: "Use for placeholder text in inputs fields on secondary background color",
   },
   { color: "--icon-color", description: "Default color for icons" },
   { color: "--icon-on-secondary-color", description: "Default color for icons on secondary background color" },
   // disabled
   {
     color: "--disabled-background-color",
-    description: "Use as background for disabled elements (ui hovers or elements)"
+    description: "Use as background for disabled elements (ui hovers or elements)",
   },
   { color: "--disabled-text-color", description: "Use as text in disabled components" },
   {
     color: "--disabled-background-on-secondary-color",
-    description: "Use as background for disabled elements on secondary background"
+    description: "Use as background for disabled elements on secondary background",
   },
   {
     color: "--disabled-text-on-secondary-color",
-    description: "Use as text in disabled components on secondary background color"
+    description: "Use as text in disabled components on secondary background color",
   },
   // Link
   { color: "--link-color", description: "Use only for links" },
@@ -116,7 +116,7 @@ export const colorsMap = [
   { color: "--primary-background-color", description: "Primary background color" },
   { color: "--secondary-background-color", description: "Secondary background color" },
   { color: "--grey-background-color", description: "Grey background color" },
-  { color: "--allgrey-background-color", description: "Grey background color, stays grey in dark and black themes" }
+  { color: "--allgrey-background-color", description: "Grey background color, stays grey in dark and black themes" },
 ];
 
 export const colorsHashMap = colorsMap.reduce((map, current) => {
@@ -165,7 +165,7 @@ export const contentColors = [
   "lavender",
   "steel",
   "lilac",
-  "pecan"
+  "pecan",
 ] as const;
 
 export type CONTENT_COLORS_VALUES = (typeof contentColors)[number];
@@ -173,7 +173,7 @@ export type CONTENT_COLORS_VALUES = (typeof contentColors)[number];
 export enum ColorStyle {
   REGULAR = "regular",
   HOVER = "hover",
-  SELECTED = "selected"
+  SELECTED = "selected",
 }
 
 export enum ContentColorByName {
@@ -216,25 +216,25 @@ export enum ContentColorByName {
   LAVENDER = "lavender",
   STEEL = "steel",
   LILAC = "lilac",
-  PECAN = "pecan"
+  PECAN = "pecan",
 }
 
 export enum StateSelectedColor {
   POSITIVE = "--positive-color-selected",
   NEGATIVE = "--negative-color-selected",
   PRIMARY = "--primary-selected-color",
-  WARNING = "--warning-color-selected"
+  WARNING = "--warning-color-selected",
 }
 export enum StateSelectedHoverColor {
   POSITIVE = "--positive-color-selected-hover",
   NEGATIVE = "--negative-color-selected-hover",
-  PRIMARY = "--primary-selected-hover-color"
+  PRIMARY = "--primary-selected-hover-color",
 }
 
 export const ElementAllowedColor = {
   ...ContentColorByName,
   ...StateSelectedColor,
-  ...StateSelectedHoverColor
+  ...StateSelectedHoverColor,
 };
 
 export type ElementColor = (typeof ElementAllowedColor)[keyof typeof ElementAllowedColor] | string;
@@ -251,7 +251,7 @@ const getColorKeyByValue = (colorValue: string, colors: Record<string, string>) 
 export function getElementColor(
   colorValue: keyof typeof ElementAllowedColor | string,
   isSelectedPalette = false,
-  isSelectedHoverPalette = false
+  isSelectedHoverPalette = false,
 ): string {
   const colorKey = getColorKeyByValue(colorValue, ElementAllowedColor);
   if (!colorKey) {

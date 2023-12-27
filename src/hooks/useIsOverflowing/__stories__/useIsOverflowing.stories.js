@@ -4,7 +4,7 @@ import { EditableInput, Flex, Tooltip } from "../../../components";
 import styles from "./useIsOverflowing.stories.module.scss";
 
 export default {
-  title: "Hooks/useIsOverflowing"
+  title: "Hooks/useIsOverflowing",
 };
 
 export const Overview = {
@@ -13,7 +13,7 @@ export const Overview = {
       const ref = useRef(null);
 
       const isOverflowing = useIsOverflowing({
-        ref
+        ref,
       });
 
       return (
@@ -38,5 +38,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

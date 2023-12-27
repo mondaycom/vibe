@@ -47,9 +47,9 @@ const Tab: FC<TabProps> = forwardRef(
       iconType,
       iconSide = "left",
       children,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -82,7 +82,7 @@ const Tab: FC<TabProps> = forwardRef(
         className={cx(styles.tabWrapper, className, {
           [styles.active]: active,
           [styles.disabled]: disabled,
-          [styles.tabFocusVisibleInset]: focus
+          [styles.tabFocusVisibleInset]: focus,
         })}
         id={id}
         role="tab"
@@ -95,7 +95,7 @@ const Tab: FC<TabProps> = forwardRef(
         </a>
       </li>
     );
-  }
+  },
 );
 
 export default Tab;

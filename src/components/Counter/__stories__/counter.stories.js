@@ -10,7 +10,7 @@ import "./counter.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Counter,
-  enumPropNamesArray: ["size", "color", "kind"]
+  enumPropNamesArray: ["size", "color", "kind"],
 });
 
 const counterTemplate = createComponentTemplate(Counter);
@@ -22,16 +22,16 @@ export default {
     ...metaSettings.argTypes,
     wrapperClassName: {
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     "data-testid": {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -39,8 +39,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    count: 5
-  }
+    count: 5,
+  },
 };
 
 export const Sizes = {
@@ -57,7 +57,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Colors = {
@@ -82,7 +82,7 @@ export const Colors = {
     </>
   ),
 
-  name: "Colors"
+  name: "Colors",
 };
 
 export const Outline = {
@@ -107,7 +107,7 @@ export const Outline = {
     </>
   ),
 
-  name: "Outline"
+  name: "Outline",
 };
 
 export const Limits = {
@@ -128,7 +128,7 @@ export const Limits = {
     </>
   ),
 
-  name: "Limits"
+  name: "Limits",
 };
 
 export const NotificationCounter = {
@@ -167,7 +167,7 @@ export const NotificationCounter = {
     );
   },
 
-  name: "Notification counter"
+  name: "Notification counter",
 };
 
 export const CounterOnInboxFilters = {
@@ -186,7 +186,7 @@ export const CounterOnInboxFilters = {
     </>
   ),
 
-  name: "Counter on inbox filters"
+  name: "Counter on inbox filters",
 };
 
 export const CountTheNumberOfUpdates = {
@@ -211,5 +211,5 @@ export const CountTheNumberOfUpdates = {
     </div>
   ),
 
-  name: "Count the number of updates"
+  name: "Count the number of updates",
 };

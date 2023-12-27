@@ -19,7 +19,7 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
 }) => {
   const { textColor } = useContext(AlertBannerContext);
   const classNames = cx({
-    [styles.marginLeft]: marginLeft
+    [styles.marginLeft]: marginLeft,
   });
 
   return (
@@ -32,7 +32,7 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
         {...linkProps}
         textClassName={cx(styles.bannerLink, {
           [styles.bannerLinkTextColorOnPrimary]: textColor === TypographyColor.ON_PRIMARY,
-          [styles.bannerLinkTextColorOnInverted]: textColor === TypographyColor.ON_INVERTED
+          [styles.bannerLinkTextColorOnInverted]: textColor === TypographyColor.ON_INVERTED,
         })}
       />
     </div>
@@ -40,7 +40,7 @@ const AlertBannerLink: FC<AlertBannerLinkProps> = ({
 };
 
 Object.assign(AlertBannerLink, {
-  isAlertBannerItem: true
+  isAlertBannerItem: true,
 });
 
 export default AlertBannerLink;

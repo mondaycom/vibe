@@ -132,13 +132,13 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       showBorder = false,
       leftRenderer,
       rightRenderer,
-      closeButtonAriaLabel = "Remove"
+      closeButtonAriaLabel = "Remove",
     },
-    ref
+    ref,
   ) => {
     const overrideDataTestId = backwardCompatibilityForProperties(
       [dataTestId, backwardCompatabilityDataTestId],
-      getTestId(ComponentDefaultTestId.CHIP, id)
+      getTestId(ComponentDefaultTestId.CHIP, id),
     );
     const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
     const hasCloseButton = !readOnly && !disabled;
@@ -157,11 +157,11 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
       [styles.withClose]: hasCloseButton,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
-      [styles.border]: showBorder
+      [styles.border]: showBorder,
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
-      [styles.disableTextSelection]: !allowTextSelection
+      [styles.disableTextSelection]: !allowTextSelection,
     });
 
     const backgroundColorStyle = useMemo(() => {
@@ -183,7 +183,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           onDelete(id, e);
         }
       },
-      [id, onDelete]
+      [id, onDelete],
     );
 
     const onClickCallback = useCallback(
@@ -193,7 +193,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           onClick(e);
         }
       },
-      [onClick]
+      [onClick],
     );
 
     const clickableProps = useClickableProps(
@@ -206,16 +206,16 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
         ariaHasPopup: false,
-        ariaExpanded: false
+        ariaExpanded: false,
       },
-      mergedRef
+      mergedRef,
     );
     const wrapperProps = hasClickableWrapper
       ? {
           ...clickableProps,
           ref: clickableProps.ref as RefObject<HTMLDivElement>,
           className: clickableClassName,
-          style: backgroundColorStyle
+          style: backgroundColorStyle,
         }
       : {
           className: overrideClassName,
@@ -225,7 +225,7 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
           onClick: onClickCallback,
           onMouseDown,
           id: id,
-          "data-testid": overrideDataTestId
+          "data-testid": overrideDataTestId,
         };
 
     const leftAvatarProps = leftAvatarType === AvatarType.TEXT ? { text: leftAvatar } : { src: leftAvatar };
@@ -293,10 +293,10 @@ const Chips: VibeComponent<ChipsProps, HTMLDivElement> & {
         )}
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(Chips, {
   colors: ElementAllowedColor,
-  avatarTypes: AvatarType
+  avatarTypes: AvatarType,
 });

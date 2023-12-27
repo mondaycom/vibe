@@ -165,7 +165,7 @@ describe("c. Ranges Slider Key Events", () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode({
         indicateSelection: true,
         showValue: true,
-        step: 10
+        step: 10,
       });
       elThumbStart.focus();
       before = asFragment().firstChild;

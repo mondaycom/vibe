@@ -73,9 +73,9 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
       childrenTabIndex = "0",
       noLabelAnimation = false,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref: React.ForwardedRef<HTMLInputElement>
+    ref: React.ForwardedRef<HTMLInputElement>,
   ) => {
     const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRef(ref, inputRef);
@@ -105,7 +105,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
           className={cx(styles.radioButton, overrideClassName, {
             [styles.disabled]: disabled,
-            disabled: disabled
+            disabled: disabled,
           })}
         >
           <span className={cx(styles.inputContainer)}>
@@ -122,7 +122,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
             <span
               data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_CONTROL, id)}
               className={cx(styles.control, radioButtonClassName, {
-                [styles.labelAnimation]: !noLabelAnimation
+                [styles.labelAnimation]: !noLabelAnimation,
               })}
             />
           </span>
@@ -144,7 +144,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
         </label>
       </Tooltip>
     );
-  }
+  },
 );
 
 export default RadioButton;

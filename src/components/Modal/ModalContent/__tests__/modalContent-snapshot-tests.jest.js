@@ -13,7 +13,7 @@ describe("ModalContent renders correctly", () => {
       .create(
         <ModalContent>
           <div>children</div>
-        </ModalContent>
+        </ModalContent>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

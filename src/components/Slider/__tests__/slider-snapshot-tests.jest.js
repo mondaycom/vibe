@@ -120,7 +120,7 @@ describe("Slider Render", () => {
   it(`16. with prefix (custom) and postfix (render-props)`, async () => {
     const props = {
       prefix: <div>Custom component</div>,
-      postfix: (value, valueText) => `Render Props result: ${valueText} (${value})`
+      postfix: (value, valueText) => `Render Props result: ${valueText} (${value})`,
     };
     const currentRender = await renderSliderForSnapshots(props);
     expect(snapshotDiff(defaultRender, currentRender)).toMatchSnapshot();

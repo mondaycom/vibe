@@ -6,7 +6,7 @@ import DialogContentContainerExample from "./DialogContentContainerExample";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DialogContentContainer,
   enumPropNamesArray: ["type", "size"],
-  ignoreControlsPropNamesArray: ["children"]
+  ignoreControlsPropNamesArray: ["children"],
 });
 
 const dialogContentContainerTemplate = createComponentTemplate(DialogContentContainer);
@@ -15,7 +15,7 @@ export default {
   title: "Popover/DialogContentContainer",
   component: DialogContentContainer,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -23,8 +23,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: <DialogContentContainerExample />
-  }
+    children: <DialogContentContainerExample />,
+  },
 };
 
 export const Popover = {
@@ -34,7 +34,7 @@ export const Popover = {
     </DialogContentContainer>
   ),
 
-  name: "Popover"
+  name: "Popover",
 };
 
 export const Modal = {
@@ -44,5 +44,5 @@ export const Modal = {
     </DialogContentContainer>
   ),
 
-  name: "Modal"
+  name: "Modal",
 };

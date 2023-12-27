@@ -11,7 +11,7 @@ export function useFocusWithin({
   onFocusWithin,
   onFocusWithinChange,
   isDisabled,
-  onBlurWithin
+  onBlurWithin,
 }: {
   onFocusWithin?: (event: FocusEvent) => void;
   onBlurWithin?: (event: FocusEvent) => void;
@@ -19,7 +19,7 @@ export function useFocusWithin({
   isDisabled?: boolean;
 }): Result {
   const state = useRef({
-    isFocusWithin: false
+    isFocusWithin: false,
   }).current;
 
   const onFocus = useCallback(
@@ -36,7 +36,7 @@ export function useFocusWithin({
         state.isFocusWithin = true;
       }
     },
-    [onFocusWithin, onFocusWithinChange, state]
+    [onFocusWithin, onFocusWithinChange, state],
   );
 
   const onBlur = useCallback(
@@ -57,7 +57,7 @@ export function useFocusWithin({
         state.isFocusWithin = false;
       }
     },
-    [onBlurWithin, onFocusWithinChange, state]
+    [onBlurWithin, onFocusWithinChange, state],
   );
 
   const isDisabledReturnValue = useMemo(() => {
@@ -72,7 +72,7 @@ export function useFocusWithin({
   return {
     focusWithinProps: {
       onFocus: onFocus,
-      onBlur: onBlur
-    }
+      onBlur: onBlur,
+    },
   };
 }

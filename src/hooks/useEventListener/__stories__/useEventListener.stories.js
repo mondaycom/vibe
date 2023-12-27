@@ -3,7 +3,7 @@ import useEventListener from "..";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useEventListener"
+  title: "Hooks/useEventListener",
 };
 
 export const Overview = {
@@ -18,7 +18,7 @@ export const Overview = {
     useEventListener({
       ref,
       callback,
-      eventName: "mouseenter"
+      eventName: "mouseenter",
     });
 
     return (
@@ -28,5 +28,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

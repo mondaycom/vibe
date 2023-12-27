@@ -4,7 +4,7 @@ import { getIconScreenReaderAccessProps } from "../helpers/screenReaderAccessHel
 export default function useIconScreenReaderAccessProps({
   isClickable,
   label,
-  isDecorationOnly
+  isDecorationOnly,
 }: {
   isClickable: boolean;
   label: string;
@@ -15,9 +15,9 @@ export default function useIconScreenReaderAccessProps({
       getIconScreenReaderAccessProps({
         isClickable,
         label,
-        isDecorationOnly
+        isDecorationOnly,
       }),
-    [isClickable, label, isDecorationOnly]
+    [isClickable, label, isDecorationOnly],
   );
   return screenReaderAccessProps;
 }

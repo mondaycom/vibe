@@ -137,7 +137,7 @@ describe("c. Non-ranged Slider Key Events", () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({
         indicateSelection: true,
         showValue: true,
-        step: 10
+        step: 10,
       });
       elThumb.focus();
       // jest.advanceTimersByTime(999);

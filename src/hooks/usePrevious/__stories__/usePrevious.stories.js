@@ -4,7 +4,7 @@ import { Button, Counter, Flex } from "../../../components";
 import styles from "./usePrevious.stories.module.scss";
 
 export default {
-  title: "Hooks/usePrevious"
+  title: "Hooks/usePrevious",
 };
 
 export const Overview = {
@@ -31,5 +31,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

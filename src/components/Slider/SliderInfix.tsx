@@ -22,7 +22,7 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind
         className={cx(
           styles.infix,
           getStyle(styles, kind),
-          modificators.map(m => getStyle(styles, m))
+          modificators.map(m => getStyle(styles, m)),
         )}
         style={inlineStyle}
       >
@@ -33,5 +33,5 @@ const SliderInfix: FC<SliderInfixProps> & { kinds?: typeof InfixKind } = ({ kind
 };
 
 export default withStaticProps(SliderInfix, {
-  kinds: InfixKind
+  kinds: InfixKind,
 });

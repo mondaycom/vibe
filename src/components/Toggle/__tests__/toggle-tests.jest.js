@@ -16,7 +16,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isDefaultSelected ariaLabel="My Toggle" />
-        </form>
+        </form>,
       );
 
       const toggle = getByRole(toggleRole);
@@ -28,7 +28,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isDefaultSelected={false} ariaLabel="My Toggle" />
-        </form>
+        </form>,
       );
       const toggle = getByRole(toggleRole);
       userEvent.click(toggle);
@@ -39,7 +39,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle disabled isDefaultSelected ariaLabel="My Toggle" />
-        </form>
+        </form>,
       );
 
       const toggle = getByRole(toggleRole);
@@ -52,7 +52,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isDefaultSelected onChange={onClickMock} />
-        </form>
+        </form>,
       );
 
       const toggle = getByRole(toggleRole);
@@ -66,7 +66,7 @@ describe("Toggle tests", () => {
     const { getByRole } = render(
       <form name={formName}>
         <Toggle isSelected onChange={onClickMock} />
-      </form>
+      </form>,
     );
 
     const toggle = getByRole(toggleRole);
@@ -92,7 +92,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isSelected ariaLabel="My Toggle" />
-        </form>
+        </form>,
       );
 
       const toggle = getByRole(toggleRole);
@@ -104,7 +104,7 @@ describe("Toggle tests", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isSelected={false} ariaLabel="My Toggle" />
-        </form>
+        </form>,
       );
 
       const toggle = getByRole(toggleRole);

@@ -31,9 +31,9 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
       size = DialogSize.MEDIUM,
       children,
       style,
-      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id)
+      "data-testid": dataTestId = getTestId(ComponentDefaultTestId.DIALOG_CONTENT_CONTAINER, id),
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -50,16 +50,16 @@ const DialogContentContainer: VibeComponent<DialogContentContainerProps> & {
           styles.dialogContentContainer,
           className,
           getStyle(styles, camelCase("type--" + type)),
-          getStyle(styles, camelCase("size--" + size))
+          getStyle(styles, camelCase("size--" + size)),
         )}
       >
         {children}
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(DialogContentContainer, {
   types: DialogType,
-  sizes: DialogSize
+  sizes: DialogSize,
 });

@@ -11,7 +11,7 @@ const UseActiveDescendantListFocus = ({
   onItemClick,
   focusedElementRole,
   isHorizontalList,
-  useDocumentEventListeners
+  useDocumentEventListeners,
 }) => {
   return <div />;
 };
@@ -21,7 +21,7 @@ UseActiveDescendantListFocus.propTypes = {
    *  The reference for the component that listens to keyboard and will be naturally focus.
    */
   focusedElementRef: PropTypes.shape({
-    current: PropTypes.element
+    current: PropTypes.element,
   }).isRequired,
   /**
    * Array of all the ids of the items inside the active descendant list component
@@ -44,7 +44,7 @@ UseActiveDescendantListFocus.propTypes = {
     useActiveDescendantListFocus.roles.COMBOBOX,
     useActiveDescendantListFocus.roles.COMPOSITE,
     useActiveDescendantListFocus.roles.TEXTBOX,
-    useActiveDescendantListFocus.roles.MENU
+    useActiveDescendantListFocus.roles.MENU,
   ]),
   /**
    * Is the layout of the component option's is horizontal or vertical
@@ -53,7 +53,7 @@ UseActiveDescendantListFocus.propTypes = {
   /**
    * Press space when there is a visual focus on one of the list items will not trigger press event
    */
-  isIgnoreSpaceAsItemSelection: PropTypes.bool
+  isIgnoreSpaceAsItemSelection: PropTypes.bool,
 };
 
 UseActiveDescendantListFocus.defaultProps = {
@@ -62,7 +62,7 @@ UseActiveDescendantListFocus.defaultProps = {
   onItemClick: (_event, _itemIndex) => {},
   focusedElementRole: useActiveDescendantListFocus.roles.GROUP,
   isHorizontalList: false,
-  isIgnoreSpaceAsItemSelection: false
+  isIgnoreSpaceAsItemSelection: false,
 };
 
 export default UseActiveDescendantListFocus;

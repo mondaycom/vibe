@@ -7,14 +7,14 @@ import "./Link.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,
   enumPropNamesArray: ["iconPosition", "target"],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 export default {
   title: "Navigation/Link",
   component: Link,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const linkTemplate = createComponentTemplate(Link);
@@ -25,13 +25,13 @@ export const Overview = {
 
   args: {
     text: "Read more",
-    href: "https://www.monday.com"
-  }
+    href: "https://www.monday.com",
+  },
 };
 
 export const States = {
   render: () => <Link text="Default" href="https://www.monday.com" />,
-  name: "States"
+  name: "States",
 };
 
 export const RightToLeft = {
@@ -41,7 +41,7 @@ export const RightToLeft = {
       <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={Info} />
     </>
   ),
-  name: "Right to left"
+  name: "Right to left",
 };
 
 export const WithIcons = {
@@ -51,7 +51,7 @@ export const WithIcons = {
       <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
     </>
   ),
-  name: "With icons"
+  name: "With icons",
 };
 
 export const ReferenceLink = {
@@ -63,7 +63,7 @@ export const ReferenceLink = {
     </div>
   ),
 
-  name: "Reference link"
+  name: "Reference link",
 };
 
 export const ShorteningTexts = {
@@ -75,5 +75,5 @@ export const ShorteningTexts = {
     </div>
   ),
 
-  name: "Shortening texts"
+  name: "Shortening texts",
 };

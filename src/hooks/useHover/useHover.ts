@@ -19,7 +19,7 @@ export default function useHover<T extends HTMLElement = HTMLElement>(): [Mutabl
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [ref.current] // Recall only if ref changes
+    [ref.current], // Recall only if ref changes
   );
   return [ref, value];
 }

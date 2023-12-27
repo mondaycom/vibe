@@ -7,21 +7,21 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Toggle,
   enumPropNamesArray: [],
   iconPropNamesArray: [],
-  actionPropsArray: ["onChange"]
+  actionPropsArray: ["onChange"],
 });
 
 export default {
   title: "Inputs/Toggle",
   component: Toggle,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const toggleTemplate = createComponentTemplate(Toggle);
 
 export const Overview = {
   render: toggleTemplate.bind({}),
-  name: "Overview"
+  name: "Overview",
 };
 
 export const States = {
@@ -32,7 +32,7 @@ export const States = {
     </MultipleStoryElementsWrapper>
   ),
 
-  name: "States"
+  name: "States",
 };
 
 export const Disabled = {
@@ -43,7 +43,7 @@ export const Disabled = {
     </MultipleStoryElementsWrapper>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const TurnOnOffAnAutomation = {
@@ -53,5 +53,5 @@ export const TurnOnOffAnAutomation = {
       <Toggle />
     </>
   ),
-  name: "Turn on/ off an automation"
+  name: "Turn on/ off an automation",
 };

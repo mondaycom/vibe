@@ -11,7 +11,7 @@ export default function useCloseMenuOnKeyEvent({
   ref,
   onClose,
   isSubMenu,
-  useDocumentEventListeners
+  useDocumentEventListeners,
 }: {
   hasOpenSubMenu: boolean;
   onCloseMenu: (option: CloseMenuOption) => void;
@@ -36,12 +36,12 @@ export default function useCloseMenuOnKeyEvent({
         event.stopPropagation();
       }
     },
-    [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu]
+    [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu],
   );
 
   useKeyEvent({
     keys: KEYS,
     callback: onEscapeOrLeftArrowKey,
-    ref: useDocumentEventListeners ? undefined : ref
+    ref: useDocumentEventListeners ? undefined : ref,
   });
 }

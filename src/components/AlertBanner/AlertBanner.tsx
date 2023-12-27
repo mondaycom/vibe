@@ -44,9 +44,9 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
       closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref: ForwardedRef<HTMLDivElement>
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const classNames = useMemo(() => {
       return cx(className, styles.alertBanner, getStyle(styles, backgroundColor));
@@ -66,22 +66,22 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
         (
           child: ReactElement & {
             type: Record<string, unknown>;
-          }
+          },
         ) => {
           if (child.type.isAlertBannerItem || child.type.displayName === "MDXCreateElement") return true;
           console.error(
             "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
-            child
+            child,
           );
           return false;
-        }
+        },
       );
 
       return filteredChildren.map((child, index) => {
         return React.cloneElement(child, {
           ...child?.props,
           marginLeft: index > 0,
-          isDarkBackground
+          isDarkBackground,
         });
       });
     }, [originalChildren, isDarkBackground]);
@@ -104,20 +104,20 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
                 child: ReactElement & {
                   type: Record<string, unknown>;
                 },
-                index
+                index,
               ) => {
                 const childTypeIsAlertBannerText = child.type.isAlertBannerText;
                 return (
                   <div
                     key={index}
                     className={cx(styles.contentItem, {
-                      [styles.contentItemText]: childTypeIsAlertBannerText
+                      [styles.contentItemText]: childTypeIsAlertBannerText,
                     })}
                   >
                     {childTypeIsAlertBannerText ? <div className={cx(styles.ellipsis)}>{child}</div> : child}
                   </div>
                 );
-              }
+              },
             )}
           </div>
         </AlertBannerContext.Provider>
@@ -138,7 +138,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
         </div>
       </Text>
     );
-  }
+  },
 );
 
 export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColor });

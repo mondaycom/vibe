@@ -8,7 +8,7 @@ import { IconType } from "../Icon/IconConstants";
 const defaultIconProps = {
   clickable: false,
   iconSize: 18,
-  ignoreFocusStyle: true
+  ignoreFocusStyle: true,
 };
 
 export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], ReactElement, CSSProperties] {

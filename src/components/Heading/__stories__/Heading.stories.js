@@ -16,7 +16,7 @@ import styles from "./Heading.stories.module.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading,
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: [], // List the component's actions here
 });
 
 const textTemplate = createComponentTemplate(Heading);
@@ -25,7 +25,7 @@ export default {
   title: "Text/Heading",
   component: Heading,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -33,8 +33,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    children: "Title"
-  }
+    children: "Title",
+  },
 };
 
 export const TypesAndWeights = {
@@ -75,7 +75,7 @@ export const TypesAndWeights = {
     </Flex>
   ),
 
-  name: "Types and weights"
+  name: "Types and weights",
 };
 
 export const Colors = {
@@ -108,7 +108,7 @@ export const Colors = {
     </Flex>
   ),
 
-  name: "Colors"
+  name: "Colors",
 };
 
 export const Overflow = {
@@ -126,7 +126,7 @@ export const Overflow = {
         /**for testing purposes**/
         data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         tooltipProps={{
-          containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
+          containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`,
         }}
       >
         Heading with ellipsis and tooltip when hovering
@@ -141,14 +141,14 @@ export const Overflow = {
   ),
 
   name: "Overflow",
-  play: headingOverflowSuite
+  play: headingOverflowSuite,
 };
 
 export const BuiltInPageHeaderNotEditable = {
   render: () => (
     <div
       style={{
-        width: "100%"
+        width: "100%",
       }}
     >
       <Heading type={Heading.types.H1} id="my-work-id">
@@ -165,7 +165,7 @@ export const BuiltInPageHeaderNotEditable = {
     </div>
   ),
 
-  name: "Built-in page header (not editable)"
+  name: "Built-in page header (not editable)",
 };
 
 export const EmptyStateHeading = {
@@ -173,7 +173,7 @@ export const EmptyStateHeading = {
     <div className={styles.emptyStateContainer} aria-labelledby="empty-state-id">
       <img
         style={{
-          width: "290px"
+          width: "290px",
         }}
         src={emptyStateExample}
         alt=""
@@ -186,7 +186,7 @@ export const EmptyStateHeading = {
         type={Text.types.TEXT1}
         style={{
           width: "50%",
-          textAlign: "center"
+          textAlign: "center",
         }}
         ellipsis={false}
       >
@@ -195,5 +195,5 @@ export const EmptyStateHeading = {
     </div>
   ),
 
-  name: "Empty state heading"
+  name: "Empty state heading",
 };

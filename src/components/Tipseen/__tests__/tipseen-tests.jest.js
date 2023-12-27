@@ -14,7 +14,7 @@ jest.mock("react-transition-group", () => {
   return {
     CSSTransition: FakeCSSTransition,
     Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
+    SwitchTransition: FakeSwitchTransition,
   };
 });
 
@@ -91,7 +91,7 @@ describe("Integration Tests", () => {
       const { getByLabelText } = render(
         <Tipseen onClose={onClickMock}>
           <div />
-        </Tipseen>
+        </Tipseen>,
       );
       fireEvent.click(getByLabelText("Close"));
 
@@ -107,7 +107,7 @@ describe("Integration Tests", () => {
       const { getByText } = render(
         <TipseenContent hideDismiss={false} onDismiss={onDismissMock}>
           content
-        </TipseenContent>
+        </TipseenContent>,
       );
       const dismissButton = getByText(DISMISS_BUTTON_TEXT);
 

@@ -3,7 +3,7 @@ import useClickOutside from "..";
 import "../../__stories__/general-hooks-stories.scss";
 
 export default {
-  title: "Hooks/useClickOutside"
+  title: "Hooks/useClickOutside",
 };
 
 export const Overview = {
@@ -19,7 +19,7 @@ export const Overview = {
 
     useClickOutside({
       ref,
-      callback: onClick
+      callback: onClick,
     });
 
     return (
@@ -29,5 +29,5 @@ export const Overview = {
     );
   },
 
-  name: "Overview"
+  name: "Overview",
 };

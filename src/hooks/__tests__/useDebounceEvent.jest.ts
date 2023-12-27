@@ -14,8 +14,8 @@ describe("useDebounceEvent", () => {
       useDebounceEvent({
         delay,
         initialStateValue,
-        onChange: onChangeCallbackStub
-      })
+        onChange: onChangeCallbackStub,
+      }),
     );
   });
 
@@ -58,8 +58,8 @@ describe("useDebounceEvent", () => {
           delay: 0,
           trim: true,
           onChange: onChangeCallbackStub,
-          initialStateValue: ""
-        })
+          initialStateValue: "",
+        }),
       );
 
       const { onEventChanged } = hookRes.result.current;
@@ -102,8 +102,8 @@ describe("useDebounceEvent", () => {
         useDebounceEvent({
           delay: additionalDelay,
           initialStateValue,
-          onChange: onChangeCallbackStub
-        })
+          onChange: onChangeCallbackStub,
+        }),
       );
     });
 
@@ -171,7 +171,7 @@ function getEventObject(value: string): ChangeEvent<Partial<HTMLInputElement>> {
       dispatchEvent(): boolean {
         return false;
       },
-      removeEventListener(): void {}
-    }
+      removeEventListener(): void {},
+    },
   };
 }

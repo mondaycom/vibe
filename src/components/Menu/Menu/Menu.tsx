@@ -8,7 +8,7 @@ import React, {
   useLayoutEffect,
   useMemo,
   useRef,
-  useState
+  useState,
 } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useClickOutside from "../../../hooks/useClickOutside";
@@ -75,9 +75,9 @@ const Menu: VibeComponent<MenuProps> & {
       isSubMenu = false,
       useDocumentEventListeners = false,
       shouldScrollMenu = false,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     const ref = useRef(null);
     const mergedRef = useMergeRef(ref, forwardedRef);
@@ -95,7 +95,7 @@ const Menu: VibeComponent<MenuProps> & {
         if (child.type.isMenuChild) return true;
         console.error(
           "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
-          child
+          child,
         );
         return false;
       });
@@ -115,7 +115,7 @@ const Menu: VibeComponent<MenuProps> & {
           ref?.current?.removeAttribute("aria-activedescendant");
         }
       },
-      [children, overrideId]
+      [children, overrideId],
     );
 
     const onSetActiveItemIndexCallback = useCallback(
@@ -123,7 +123,7 @@ const Menu: VibeComponent<MenuProps> & {
         updateActiveItemIndex(index);
         setIsInitialSelectedState(false);
       },
-      [updateActiveItemIndex]
+      [updateActiveItemIndex],
     );
 
     const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
@@ -132,14 +132,14 @@ const Menu: VibeComponent<MenuProps> & {
     const onCloseMenu = useOnCloseMenu({
       setActiveItemIndex: onSetActiveItemIndexCallback,
       setOpenSubMenuIndex,
-      onClose
+      onClose,
     });
 
     useClickOutside({ ref, callback: () => onCloseMenu() });
     useCloseMenuOnKeyEvent({ hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners });
 
     const { getNextSelectableIndex, getPreviousSelectableIndex } = useAdjacentSelectableMenuIndex({
-      children: children as ReactElement[]
+      children: children as ReactElement[],
     });
     useMenuKeyboardNavigation({
       hasOpenSubMenu,
@@ -149,20 +149,20 @@ const Menu: VibeComponent<MenuProps> & {
       setActiveItemIndex: onSetActiveItemIndexCallback,
       isVisible,
       ref,
-      useDocumentEventListeners
+      useDocumentEventListeners,
     });
     useMouseLeave({
       resetOpenSubMenuIndex,
       hasOpenSubMenu,
       ref,
-      setActiveItemIndex: onSetActiveItemIndexCallback
+      setActiveItemIndex: onSetActiveItemIndexCallback,
     });
     useFocusOnMount({
       focusItemIndexOnMount,
       focusChildOnMount: children[focusItemIndexOnMount] as ReactElement,
       getNextSelectableIndex,
       updateActiveItemIndex,
-      setIsInitialFocusSet: setIsInitialSelectedState
+      setIsInitialFocusSet: setIsInitialSelectedState,
     });
 
     const onMouseMove = useCallback(() => {
@@ -188,7 +188,7 @@ const Menu: VibeComponent<MenuProps> & {
     const { focusWithinProps } = useFocusWithin({
       onBlurWithin: () => {
         onCloseMenu && onCloseMenu();
-      }
+      },
     });
 
     return (
@@ -226,20 +226,20 @@ const Menu: VibeComponent<MenuProps> & {
                   getNextSelectableIndex,
                   getPreviousSelectableIndex,
                   isUnderSubMenu: isSubMenu,
-                  splitMenuItemIconButtonRef
+                  splitMenuItemIconButtonRef,
                 })
               : null;
           })}
       </ul>
     );
-  }
+  },
 );
 
 Object.assign(Menu, {
   isMenu: true,
-  supportFocusOnMount: true
+  supportFocusOnMount: true,
 });
 
 export default withStaticProps(Menu, {
-  sizes: SIZES
+  sizes: SIZES,
 });

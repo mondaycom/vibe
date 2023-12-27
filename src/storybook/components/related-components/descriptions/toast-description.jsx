@@ -8,7 +8,7 @@ export const ToastDescription = () => {
     const style = {
       width: "100%",
       display: "flex",
-      justifyContent: "center"
+      justifyContent: "center",
     };
     return (
       <div style={style}>

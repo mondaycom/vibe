@@ -5,7 +5,7 @@ import {
   ARROW_LEFT_KEYS,
   ARROW_RIGHT_KEYS,
   ARROW_UP_KEYS,
-  NavDirections
+  NavDirections,
 } from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
@@ -32,7 +32,7 @@ export const useLastNavigationDirection = () => {
         setLastNavigationDirection(NavDirections.LEFT);
       }
     },
-    [setLastNavigationDirection]
+    [setLastNavigationDirection],
   );
 
   const onMousedownAnywhere = useCallback(() => {

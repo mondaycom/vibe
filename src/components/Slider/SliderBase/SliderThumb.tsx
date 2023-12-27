@@ -95,9 +95,9 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
           {
             [styles.dragging]: dragging === index,
             [styles.focused]: focused,
-            [styles.notDisabledThumb]: !disabled
+            [styles.notDisabledThumb]: !disabled,
           },
-          className
+          className,
         )}
         data-testid={shapeTestId(`thumb-${index}`)}
         onFocus={handleFocus}

@@ -26,7 +26,7 @@ const TipseenMedia: VibeComponent<TipseenMediaProps, HTMLElement> = forwardRef(
         {children}
       </div>
     );
-  }
+  },
 );
 
 export default TipseenMedia;

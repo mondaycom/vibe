@@ -3,7 +3,7 @@ export const BACK_DESCRIPTION = "Back";
 
 export enum StepsType {
   NUMBERS = "numbers",
-  GALLERY = "gallery"
+  GALLERY = "gallery",
 }
 
 export enum StepsDotAriaCurrent {
@@ -11,5 +11,5 @@ export enum StepsDotAriaCurrent {
   STEP = "step",
   LOCATION = "location",
   DATE = "date",
-  TIME = "time"
+  TIME = "time",
 }

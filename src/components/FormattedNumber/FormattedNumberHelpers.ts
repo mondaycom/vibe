@@ -8,11 +8,11 @@ const range =
   (min: number, max: number) => (props: Record<string, number>, propName: string, componentName: string) => {
     if (props[propName] < min || props[propName] > max) {
       return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}. ${propName} should be between ${min} to ${max}.`
+        `Invalid prop ${propName} supplied to ${componentName}. ${propName} should be between ${min} to ${max}.`,
       );
     }
   };
 
 export const customPropTypes = Object.freeze({
-  range
+  range,
 });

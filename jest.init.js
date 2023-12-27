@@ -10,8 +10,8 @@ Object.defineProperty(window, "matchMedia", {
     removeListener: jest.fn(), // Deprecated
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
-  }))
+    dispatchEvent: jest.fn(),
+  })),
 });
 
 ReactDOM.createPortal = node => node;
@@ -25,7 +25,7 @@ if (TESTING_STORYBOOK) {
     return { CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition };
   });
   jest.mock("consolidated-events", () => {
-    return { addEventListener: jest.fn()};
+    return { addEventListener: jest.fn() };
   });
 }
 

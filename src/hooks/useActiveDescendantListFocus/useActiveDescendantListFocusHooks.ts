@@ -9,7 +9,7 @@ enum ArrowDirection {
   UP = "ArrowUp",
   DOWN = "ArrowDown",
   RIGHT = "ArrowRight",
-  LEFT = "ArrowLeft"
+  LEFT = "ArrowLeft",
 }
 
 const ENTER_KEY = "Enter";
@@ -23,7 +23,7 @@ export function useSupportArrowsKeyboardNavigation({
   isHorizontalList,
   isItemSelectable,
   listenerOptions,
-  triggeredByKeyboard
+  triggeredByKeyboard,
 }: {
   itemsCount: number;
   focusedElementRef: MutableRefObject<HTMLElement>;
@@ -76,8 +76,8 @@ export function useSupportArrowsKeyboardNavigation({
       visualFocusItemIndex,
       setVisualFocusItemIndex,
       isItemSelectable,
-      itemsCount
-    ]
+      itemsCount,
+    ],
   );
   const onArrowBack = useCallback(() => {
     onArrowKeyEvent(backArrow);
@@ -90,13 +90,13 @@ export function useSupportArrowsKeyboardNavigation({
   useKeyEvent({
     keys: [nextArrow],
     callback: onArrowNext,
-    ...listenerOptions
+    ...listenerOptions,
   });
 
   useKeyEvent({
     keys: [backArrow],
     callback: onArrowBack,
-    ...listenerOptions
+    ...listenerOptions,
   });
 }
 
@@ -108,7 +108,7 @@ export function useSupportPressItemKeyboardNavigation({
   onItemClick,
   isItemSelectable,
   listenerOptions = undefined,
-  isIgnoreSpaceAsItemSelection = false
+  isIgnoreSpaceAsItemSelection = false,
 }: {
   visualFocusItemIndex: number;
   focusedElementRef: MutableRefObject<HTMLElement>;
@@ -121,7 +121,7 @@ export function useSupportPressItemKeyboardNavigation({
 }) {
   const pressKeys = useMemo(
     () => (isIgnoreSpaceAsItemSelection ? [ENTER_KEY] : [ENTER_KEY, SPACE_KEY]),
-    [isIgnoreSpaceAsItemSelection]
+    [isIgnoreSpaceAsItemSelection],
   );
 
   const baseOnClickCallback = useCallback(
@@ -131,7 +131,7 @@ export function useSupportPressItemKeyboardNavigation({
       if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
       onItemClick(event, itemIndex);
     },
-    [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, setVisualFocusItemIndex]
+    [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, setVisualFocusItemIndex],
   );
 
   const keyboardOnSelectCallback = useCallback(
@@ -142,20 +142,20 @@ export function useSupportPressItemKeyboardNavigation({
         baseOnClickCallback(event, visualFocusItemIndex);
       }
     },
-    [baseOnClickCallback, focusedElementRef, visualFocusItemIndex]
+    [baseOnClickCallback, focusedElementRef, visualFocusItemIndex],
   );
 
   useKeyEvent({
     keys: pressKeys,
     callback: keyboardOnSelectCallback,
-    ...listenerOptions
+    ...listenerOptions,
   });
 }
 
 export function useCleanVisualFocusOnBlur({
   focusedElementRef,
   visualFocusItemIndex,
-  setVisualFocusItemIndex
+  setVisualFocusItemIndex,
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
   visualFocusItemIndex: number;
@@ -181,7 +181,7 @@ export function useCleanVisualFocusOnBlur({
   useEventListener({
     eventName: "blur",
     ref: focusedElementRef,
-    callback: onBlurCallback
+    callback: onBlurCallback,
   });
 }
 
@@ -191,7 +191,7 @@ export function useSetDefaultItemOnFocusEvent({
   visualFocusItemIndex,
   setVisualFocusItemIndex,
   itemsCount,
-  defaultVisualFocusItemIndex = -1
+  defaultVisualFocusItemIndex = -1,
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
   isItemSelectable: (index: number) => boolean;
@@ -212,7 +212,7 @@ export function useSetDefaultItemOnFocusEvent({
         newVisualFocusIndex = getNextSelectableIndex({
           isItemSelectable,
           itemsCount,
-          visualFocusItemIndex: defaultVisualFocusItemIndex
+          visualFocusItemIndex: defaultVisualFocusItemIndex,
         });
       }
       setVisualFocusItemIndex(newVisualFocusIndex);
@@ -223,7 +223,7 @@ export function useSetDefaultItemOnFocusEvent({
     itemsCount,
     setVisualFocusItemIndex,
     triggeredByKeyboard,
-    visualFocusItemIndex
+    visualFocusItemIndex,
   ]);
   const onFocusByMouse = useCallback(() => {
     triggeredByKeyboard.current = false;
@@ -237,7 +237,7 @@ export function useKeepFocusOnItemWhenListChanged({
   visualFocusItemIndex,
   itemsIds,
   isItemSelectable,
-  setVisualFocusItemIndex
+  setVisualFocusItemIndex,
 }: {
   visualFocusItemIndex: number;
   itemsIds: string[];
@@ -266,7 +266,7 @@ export function useKeepFocusOnItemWhenListChanged({
         const closestSelectableIndex = getNextSelectableIndex({
           isItemSelectable,
           visualFocusItemIndex: overrideIndexAfterListChanged,
-          itemsCount: itemsIds.length
+          itemsCount: itemsIds.length,
         });
         setVisualFocusItemIndex(closestSelectableIndex);
       }

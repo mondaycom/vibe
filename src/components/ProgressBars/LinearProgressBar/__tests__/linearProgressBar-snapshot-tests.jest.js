@@ -5,7 +5,7 @@ import LinearProgressBar from "../LinearProgressBar";
 const multiValues = [
   { value: 25, color: "red" },
   { value: 75, color: "yellow" },
-  { value: 100, color: "green" }
+  { value: 100, color: "green" },
 ];
 
 describe("LinearProgressBar renders correctly", () => {

@@ -8,7 +8,7 @@ import "./Icon.stories.scss";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,
   enumPropNamesArray: [{ enumName: "type", propName: "iconType" }],
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon"],
 });
 
 const iconTemplate = createComponentTemplate(Icon);
@@ -17,7 +17,7 @@ export default {
   title: "Media/Icon",
   component: Icon,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -25,20 +25,20 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    icon: Bolt
-  }
+    icon: Bolt,
+  },
 };
 
 export const VibeIcon = {
   render: () => <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />,
 
-  name: "Vibe Icon"
+  name: "Vibe Icon",
 };
 
 export const FontIcon = {
   render: () => <Icon iconType={Icon.type.ICON_FONT} iconLabel="my font awesome start icon" icon="fa fa-star" />,
 
-  name: "Font Icon"
+  name: "Font Icon",
 };
 
 export const CustomSvg = {
@@ -52,25 +52,25 @@ export const CustomSvg = {
     />
   ),
 
-  name: "Custom SVG"
+  name: "Custom SVG",
 };
 
 export const Color = {
   render: () => (
     <div
       style={{
-        color: "var(--sb-color-sofia_pink)"
+        color: "var(--sb-color-sofia_pink)",
       }}
     >
       <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" iconSize={16} />
     </div>
   ),
 
-  name: "Color"
+  name: "Color",
 };
 
 export const IconsListStory = {
   render: IconsList.bind({}),
   name: "Icons List",
-  args: {}
+  args: {},
 };

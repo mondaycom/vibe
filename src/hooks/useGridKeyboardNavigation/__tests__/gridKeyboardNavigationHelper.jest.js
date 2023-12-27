@@ -1,7 +1,7 @@
 import { NavDirections } from "../../useFullKeyboardListeners";
 import {
   calcActiveIndexAfterArrowNavigation,
-  getActiveIndexFromInboundNavigation
+  getActiveIndexFromInboundNavigation,
 } from "../gridKeyboardNavigationHelper";
 
 describe("getActiveIndexFromInboundNavigation", () => {
@@ -325,7 +325,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
         itemsCount,
         numberOfItemsInLine,
         activeIndex,
-        disabledIndexes
+        disabledIndexes,
       });
 
       expect(result).toEqual(expectedResult);
@@ -344,7 +344,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
         itemsCount,
         numberOfItemsInLine,
         activeIndex,
-        disabledIndexes
+        disabledIndexes,
       });
 
       expect(result).toEqual(expectedResult);
@@ -363,7 +363,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
         itemsCount,
         numberOfItemsInLine,
         activeIndex,
-        disabledIndexes
+        disabledIndexes,
       });
 
       expect(result).toEqual(expectedResult);
@@ -382,7 +382,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
         itemsCount,
         numberOfItemsInLine,
         activeIndex,
-        disabledIndexes
+        disabledIndexes,
       });
 
       expect(result).toEqual(expectedResult);

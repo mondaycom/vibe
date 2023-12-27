@@ -8,7 +8,7 @@ import {
   IComboboxCategoryMap,
   IComboboxItem,
   IComboboxOption,
-  IComboboxOptionEvents
+  IComboboxOptionEvents,
 } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
@@ -48,9 +48,9 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
       itemsMap,
-      stickyCategories
+      stickyCategories,
     },
-    ref: RefObject<HTMLDivElement>
+    ref: RefObject<HTMLDivElement>,
   ) => {
     const activeCategoryId = useRef<string>();
     const style = useMemo(() => {
@@ -71,7 +71,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
           optionEvents: {
             onOptionClick,
             onOptionEnter,
-            onOptionLeave
+            onOptionLeave,
           },
           optionRenderData: {
             className: optionClassName,
@@ -80,9 +80,9 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
             visualFocusItemIndex,
             scrollRef: renderOnlyVisibleOptions ? null : ref,
             activeItemIndex,
-            shouldScrollToSelectedItem
+            shouldScrollToSelectedItem,
           },
-          isVirtualized: renderOnlyVisibleOptions
+          isVirtualized: renderOnlyVisibleOptions,
         }),
       [
         onOptionClick,
@@ -95,8 +95,8 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
         renderOnlyVisibleOptions,
         ref,
         activeItemIndex,
-        shouldScrollToSelectedItem
-      ]
+        shouldScrollToSelectedItem,
+      ],
     );
 
     const onItemsRender = useCallback(
@@ -115,7 +115,7 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
           }
         });
       },
-      [itemsMap, onActiveCategoryChanged]
+      [itemsMap, onActiveCategoryChanged],
     );
 
     let itemsElements;
@@ -148,5 +148,5 @@ export const ComboboxItems: React.FC<ComboboxItemsProps> = forwardRef(
     }
 
     return itemsElements;
-  }
+  },
 );

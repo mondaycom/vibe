@@ -23,7 +23,7 @@ const TableHeader: VibeComponent<ITableHeaderProps, HTMLDivElement> = forwardRef
         {children}
       </div>
     );
-  }
+  },
 );
 
 export default TableHeader;

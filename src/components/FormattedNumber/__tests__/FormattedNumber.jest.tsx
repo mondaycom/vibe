@@ -55,7 +55,7 @@ describe("FormattedNumber Tests", () => {
     it("should format large number without sign and limited decimal numbers", () => {
       const expectedText = "987,654,321.123";
       const { getByText } = render(
-        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={3} />
+        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={3} />,
       );
       expect(getByText(expectedText)).toBeTruthy();
     });
@@ -63,7 +63,7 @@ describe("FormattedNumber Tests", () => {
     it("should format with MIN precision for precision below MIN", () => {
       const expectedText = "987,654,321";
       const { getByText } = render(
-        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={-10} />
+        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={-10} />,
       );
       expect(getByText(expectedText)).toBeTruthy();
     });
@@ -71,7 +71,7 @@ describe("FormattedNumber Tests", () => {
     it("should format with MAX precision for precision above MAX", () => {
       const expectedText = "987,654,321.123456";
       const { getByText } = render(
-        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={50} />
+        <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={50} />,
       );
       expect(getByText(expectedText)).toBeTruthy();
     });
@@ -111,7 +111,7 @@ describe("FormattedNumber Tests", () => {
 
     it("should render rtl", () => {
       const { container } = render(
-        <FormattedNumber id="test" value={value} prefix={prefix} suffix={suffix} rtl={true} />
+        <FormattedNumber id="test" value={value} prefix={prefix} suffix={suffix} rtl={true} />,
       );
       const { childNodes } = container.firstChild;
 

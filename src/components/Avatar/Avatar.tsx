@@ -87,7 +87,7 @@ const Avatar: React.FC<AvatarProps> & {
   customSize = null,
   customBackgroundColor = null,
   onClick,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
@@ -115,28 +115,28 @@ const Avatar: React.FC<AvatarProps> & {
       badges.push(
         <div key="top-left-badge" className={cx(styles.badge, styles.badgeTopLeft)}>
           <AvatarBadge size={size} {...topLeftBadgeProps} />
-        </div>
+        </div>,
       );
     }
     if (!isNil(topRightBadgeProps)) {
       badges.push(
         <div key="top-right-badge" className={cx(styles.badge, styles.badgeTopRight)}>
           <AvatarBadge size={size} {...topRightBadgeProps} />
-        </div>
+        </div>,
       );
     }
     if (!isNil(bottomLeftBadgeProps)) {
       badges.push(
         <div key="bottom-left-badge" className={cx(styles.badge, styles.badgeBottomLeft)}>
           <AvatarBadge size={size} {...bottomLeftBadgeProps} />
-        </div>
+        </div>,
       );
     }
     if (!isNil(bottomRightBadgeProps)) {
       badges.push(
         <div key="bottom-right-bade" className={cx(styles.badge, styles.badgeBottomRight)}>
           <AvatarBadge size={size} {...bottomRightBadgeProps} />
-        </div>
+        </div>,
       );
     }
 
@@ -159,7 +159,7 @@ const Avatar: React.FC<AvatarProps> & {
         onClick(event, id);
       }
     },
-    [onClick, id]
+    [onClick, id],
   );
 
   return (
@@ -174,7 +174,7 @@ const Avatar: React.FC<AvatarProps> & {
         clickableProps={{
           onClick: clickHandler,
           tabIndex: "-1",
-          className: styles.clickableWrapper
+          className: styles.clickableWrapper,
         }}
       >
         <Tooltip
@@ -189,9 +189,9 @@ const Avatar: React.FC<AvatarProps> & {
               {
                 [styles.disabled]: overrideDisabled,
                 [styles.square]: overrideSquare,
-                [styles.withoutBorder]: withoutBorder
+                [styles.withoutBorder]: withoutBorder,
               },
-              avatarContentWrapperClassName
+              avatarContentWrapperClassName,
             )}
             aria-hidden={ariaHidden}
             tabIndex={overrideTabIndex}
@@ -219,5 +219,5 @@ export default withStaticProps(Avatar, {
   types: AvatarType,
   sizes: AvatarSize,
   colors: ElementAllowedColor,
-  backgroundColors: ElementAllowedColor
+  backgroundColors: ElementAllowedColor,
 });

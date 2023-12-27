@@ -164,7 +164,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [EXPAND_COLLAPSE, <ExpandCollapseDescription />],
   [VIRTUALIZED_LIST, <VirtualizedListDescription />],
   [COLOR_PICKER, <ColorPickerDescription />],
-  [BOX, <BoxDescription />]
+  [BOX, <BoxDescription />],
 ];
 
 // General description names (not related to specific components)
@@ -172,13 +172,13 @@ const GENERAL_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [COLORS, <ColorsDescription />],
   [TYPOGRAPHY, <TypographyDescription />],
   [SHADOW, <ShadowDescription />],
-  [SPACING, <SpacingDescription />]
+  [SPACING, <SpacingDescription />],
 ];
 
 export const DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP = new Map<string, JSX.Element>(
-  COMPONENTS_DESCRIPTIONS_ENTRIES
+  COMPONENTS_DESCRIPTIONS_ENTRIES,
 );
 export const DESCRIPTION_COMPONENTS_MAP = new Map<string, JSX.Element>([
   ...COMPONENTS_DESCRIPTIONS_ENTRIES,
-  ...GENERAL_DESCRIPTIONS_ENTRIES
+  ...GENERAL_DESCRIPTIONS_ENTRIES,
 ]);

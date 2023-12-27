@@ -6,7 +6,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 export async function testHoverTooltipTrigger(
   canvas: Screen,
   getHoverableElement: () => Promise<HTMLElement>,
-  tooltipData: { id?: string; content?: string; showDelay?: number } = {}
+  tooltipData: { id?: string; content?: string; showDelay?: number } = {},
 ) {
   /**
    // If we try to access the text element before it finishes its initial render, we will receive the instance without the tooltip events.
@@ -30,6 +30,6 @@ export async function testHoverTooltipTrigger(
       expect(tooltipElement).toBeInTheDocument();
       userEvent.unhover(hoverableElement);
     },
-    { timeout: 1000 }
+    { timeout: 1000 },
   );
 }

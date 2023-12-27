@@ -11,7 +11,7 @@ export default function useShowHideModal({
   show,
   triggerElement,
   onClose,
-  alertDialog
+  alertDialog,
 }: {
   instance: A11yDialogType;
   show: boolean;
@@ -28,13 +28,13 @@ export default function useShowHideModal({
         onClose?.();
       }
     },
-    [alertDialog, instance?.$el, onClose]
+    [alertDialog, instance?.$el, onClose],
   );
 
   useKeyEvent({
     callback: closeOnEsc,
     capture: true,
-    keys: KEYS
+    keys: KEYS,
   });
 
   // show/hide and animate the modal

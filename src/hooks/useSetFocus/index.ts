@@ -6,7 +6,7 @@ import usePrevious from "../../hooks/usePrevious";
 export default function useSetFocus({
   ref,
   focusCallback,
-  blurCallback
+  blurCallback,
 }: {
   ref: RefObject<HTMLElement>;
   focusCallback?: () => void;
@@ -48,13 +48,13 @@ export default function useSetFocus({
   useEventListener({
     eventName: "focus",
     ref,
-    callback: onFocus
+    callback: onFocus,
   });
 
   useEventListener({
     eventName: "blur",
     ref,
-    callback: onBlur
+    callback: onBlur,
   });
 
   return { isFocused, focus, blur };

@@ -19,7 +19,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -67,7 +67,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -79,7 +79,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -93,7 +93,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -106,7 +106,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -118,7 +118,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -130,7 +130,7 @@ describe("Flex renders correctly", () => {
             <div>1</div>
             <div>2</div>
             <div>3</div>
-          </Flex>
+          </Flex>,
         )
         .toJSON();
       expect(tree).toMatchSnapshot();

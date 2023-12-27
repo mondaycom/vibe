@@ -9,7 +9,7 @@ describe("Tooltip tests", () => {
     const { getByText } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
         <div>hello</div>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.mouseOver(getByText("hello"));
     await waitFor(() => screen.getByText("content"));
@@ -22,7 +22,7 @@ describe("Tooltip tests", () => {
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
         <Button data-testid={testId}>hello</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.focus(getByTestId(testId));
     expect(onTooltipShow).toHaveBeenCalledTimes(0);
@@ -34,7 +34,7 @@ describe("Tooltip tests", () => {
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow} addKeyboardHideShowTriggersByDefault>
         <Button data-testid={testId}>hello</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.focus(getByTestId(testId));
     await waitFor(() => screen.getByText("content"));
@@ -46,7 +46,7 @@ describe("Tooltip tests", () => {
     const { getByText } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
         <div>hello</div>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.mouseOver(getByText("hello"));
     await waitFor(() => screen.getByText("content"));
@@ -61,7 +61,7 @@ describe("Tooltip tests", () => {
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
         <Button data-testid={testId}>hello</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.mouseOver(getByTestId(testId));
     await waitFor(() => screen.getByText("content"));
@@ -75,7 +75,7 @@ describe("Tooltip tests", () => {
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide} addKeyboardHideShowTriggersByDefault>
         <Button data-testid={testId}>hello</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     fireEvent.mouseOver(getByTestId(testId));
     await waitFor(() => screen.getByText("content"));

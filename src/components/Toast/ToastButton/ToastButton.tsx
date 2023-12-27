@@ -10,7 +10,7 @@ const ToastButton: FC<ToastButtonProps> = ({ className, id, "data-testid": dataT
     ...Button.defaultProps,
     kind: Button.kinds.SECONDARY,
     marginLeft: false,
-    ...buttonProps
+    ...buttonProps,
   };
 
   return (

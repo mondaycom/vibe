@@ -10,5 +10,5 @@ export enum HideShowEvent {
   FOCUS = "focus",
   BLUR = "blur",
   CONTENT_CLICK = "onContentClick",
-  CONTEXT_MENU = "contextmenu"
+  CONTEXT_MENU = "contextmenu",
 }

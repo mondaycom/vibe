@@ -7,15 +7,15 @@ const DURATION_EXPRESSIVE = [
     videoSrc: DurationExpressiveShort,
     title: "Small motion - 250ms",
     description: "System alerts, notifications, attentions, and mediation.",
-    tokenDescription: "--motion-expressive-short"
+    tokenDescription: "--motion-expressive-short",
   },
   {
     videoSrc: DurationExpressiveLong,
     title: "Large motion - 400ms",
     description: "System alerts, notifications, attentions, and mediations that enter the screen with movement.",
-    tokenDescription: "--motion-expressive-long"
+    tokenDescription: "--motion-expressive-long",
   },
-  {}
+  {},
 ];
 
 export const DurationExpressiveTokens = () => {

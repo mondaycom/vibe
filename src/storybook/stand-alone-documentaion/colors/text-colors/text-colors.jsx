@@ -11,9 +11,9 @@ export const TextColors = () => {
       "text-color-on-primary",
       "disabled-text-color",
       "placeholder-color",
-      "link-color"
+      "link-color",
     ],
-    []
+    [],
   );
   return <ColorsDescription colorNames={colorKeys} />;
 };

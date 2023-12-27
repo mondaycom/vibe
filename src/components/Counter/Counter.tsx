@@ -65,7 +65,7 @@ const Counter: React.FC<CounterProps> & {
   prefix = "",
   onMouseDown = NOOP,
   noAnimation = false,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined) as string;
@@ -89,7 +89,7 @@ const Counter: React.FC<CounterProps> & {
   useEventListener({
     eventName: "animationend",
     callback: setCountChangedAnimationNotActive,
-    ref
+    ref,
   });
 
   // Custom hooks
@@ -116,9 +116,9 @@ const Counter: React.FC<CounterProps> & {
       getStyle(styles, camelCase("kind-" + kind)),
       getStyle(styles, camelCase("color-" + color)),
       {
-        [styles.withAnimation]: countChangeAnimationState
+        [styles.withAnimation]: countChangeAnimationState,
       },
-      counterClassName
+      counterClassName,
     );
   }, [size, kind, color, countChangeAnimationState, counterClassName]);
 
@@ -148,7 +148,7 @@ const Counter: React.FC<CounterProps> & {
                 enter: styles.fadeEnter,
                 enterActive: styles.fadeEnterActive,
                 exit: styles.fadeExit,
-                exitActive: styles.fadeExitActive
+                exitActive: styles.fadeExitActive,
               }}
               // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
               // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
@@ -170,5 +170,5 @@ const Counter: React.FC<CounterProps> & {
 export default withStaticProps(Counter, {
   sizes: CounterSize,
   colors: CounterColor,
-  kinds: CounterType
+  kinds: CounterType,
 });

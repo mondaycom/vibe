@@ -26,7 +26,7 @@ const ListItemIcon: VibeComponent<ListItemIconProps> & {
 } = forwardRef(
   (
     { className, id, icon, margin = ListItemIcon.margin.START, component: Component = ListItemIcon.components.DIV },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -41,10 +41,10 @@ const ListItemIcon: VibeComponent<ListItemIconProps> & {
         <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
       </Component>
     );
-  }
+  },
 );
 
 export default withStaticProps(ListItemIcon, {
   margin: ListItemIconMargin,
-  components: ListItemComponentType
+  components: ListItemComponentType,
 });

@@ -8,7 +8,7 @@ import {
   clickElement,
   typeText,
   interactionSuite,
-  pressNavigationKey
+  pressNavigationKey,
 } from "../../../tests/interactions-utils";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
@@ -29,7 +29,7 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
   await typeText(searchElement, "jjj");
   const cleanSearchButton = getByTestId(
     comboboxElement,
-    getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, "combobox-search")
+    getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, "combobox-search"),
   );
   await clickElement(cleanSearchButton);
   expect(searchElement).toHaveValue("");
@@ -83,9 +83,9 @@ export const defaultPlaySuite = interactionSuite({
   tests: [
     onNavigateBetweenOptionsByArrowsAriaUpdates,
     onTypeFilterComboboxOptionsTest,
-    onSelectExistFilterClearsFilterTest
+    onSelectExistFilterClearsFilterTest,
   ],
   afterEach: async () => {
     await resetFocus();
-  }
+  },
 });

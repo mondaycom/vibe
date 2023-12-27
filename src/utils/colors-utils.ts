@@ -7,7 +7,7 @@ const ColorUtils = {
     return `${withVar ? "var(" : ""}--color-${color}${mode !== ColorStyle.REGULAR ? `-${mode}` : ""}${
       withVar ? ")" : ""
     }`;
-  }
+  },
 };
 
 export default Object.freeze(ColorUtils);

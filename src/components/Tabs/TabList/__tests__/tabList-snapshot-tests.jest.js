@@ -9,7 +9,7 @@ describe("TabList renders correctly", () => {
       .create(
         <TabList>
           <Tab>First</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe("TabList renders correctly", () => {
       .create(
         <TabList className="test">
           <Tab>First</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe("TabList renders correctly", () => {
       .create(
         <TabList id="test">
           <Tab>First</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe("TabList renders correctly", () => {
         <TabList activeTabId={1}>
           <Tab>First</Tab>
           <Tab>Second</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe("TabList renders correctly", () => {
         <TabList size="lg">
           <Tab>First</Tab>
           <Tab>Second</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -67,7 +67,7 @@ describe("TabList renders correctly", () => {
         <TabList tabType="stretched">
           <Tab>First</Tab>
           <Tab>Second</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -80,7 +80,7 @@ describe("TabList renders correctly", () => {
           <Tab>First</Tab>
           <Tab>Second</Tab>
           <Tab>Third</Tab>
-        </TabList>
+        </TabList>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

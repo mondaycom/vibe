@@ -59,9 +59,9 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       dataState,
       style,
       children,
-      size = Table.sizes.MEDIUM
+      size = Table.sizes.MEDIUM,
     },
-    ref
+    ref,
   ) => {
     const classNames = cx(styles.table, className);
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
@@ -73,7 +73,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
     const calculatedStyle = {
       "--table-grid-template-columns": gridTemplateColumns,
       "--table-row-size": size == Table.sizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
-      ...style
+      ...style,
     } as React.CSSProperties;
 
     const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
@@ -85,7 +85,7 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
         </div>
       </TableContext.Provider>
     );
-  }
+  },
 );
 
 export default withStaticProps(Table, { sizes: RowSizes });

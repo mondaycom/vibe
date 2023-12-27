@@ -12,7 +12,7 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
         event.stopPropagation();
       }
     },
-    [readOnly]
+    [readOnly],
   );
 
   return (

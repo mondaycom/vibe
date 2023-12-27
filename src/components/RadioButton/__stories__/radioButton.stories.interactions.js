@@ -44,9 +44,9 @@ export const controlRadioButton = async canvas => {
 };
 
 export const clickRadioButtonPlaySuite = interactionSuite({
-  tests: [clickRadioButton]
+  tests: [clickRadioButton],
 });
 
 export const controlRadioButtonPlaySuite = interactionSuite({
-  tests: [controlRadioButton]
+  tests: [controlRadioButton],
 });

@@ -44,7 +44,7 @@ describe("useMergeRefs", () => {
       const state: {
         _ref: HTMLElement;
       } = {
-        _ref: undefined
+        _ref: undefined,
       };
       const propRef = (ref: HTMLElement) => {
         state._ref = ref;

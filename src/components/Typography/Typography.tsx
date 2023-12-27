@@ -58,7 +58,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       role,
       ...htmlAttributes
     },
-    ref
+    ref,
   ) => {
     const { overflowTolerance } = useContext(TypographyContext);
     const componentRef = useRef(null);
@@ -72,7 +72,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       tooltipProps,
       children,
       ignoreHeightOverflow,
-      overflowTolerance
+      overflowTolerance,
     ) as TooltipProps;
 
     return (
@@ -85,13 +85,13 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
             className: cx(styles.typography, styles[color], styles[align], ellipsisClass, className),
             ref: overrideRef,
             role,
-            ...htmlAttributes
+            ...htmlAttributes,
           },
-          children
+          children,
         )}
       </Tooltip>
     );
-  }
+  },
 );
 
 export default Typography;

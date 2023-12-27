@@ -7,14 +7,14 @@ import MenuItem from "../../MenuItem/MenuItem";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuTitle,
-  enumPropNamesArray: ["captionPosition"]
+  enumPropNamesArray: ["captionPosition"],
 });
 
 export default {
   title: "Navigation/Menu/MenuTitle",
   component: MenuTitle,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const menuTitleTemplate = createComponentTemplate(MenuTitle);
@@ -24,8 +24,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    caption: "Menu title"
-  }
+    caption: "Menu title",
+  },
 };
 
 export const CaptionPlacements = {
@@ -37,7 +37,7 @@ export const CaptionPlacements = {
     <Menu key="center">
       <MenuTitle caption="Center caption" captionPosition={MenuTitle.positions.CENTER} />
       <MenuItem title="Menu item" />
-    </Menu>
+    </Menu>,
   ],
-  name: "Caption placements"
+  name: "Caption placements",
 };

@@ -10,7 +10,7 @@ import {
   ColorShapes,
   DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   ColorPickerValue,
-  ColorPickerArrayValueOnly
+  ColorPickerArrayValueOnly,
 } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
@@ -79,9 +79,9 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       forceUseRawColorList,
       showColorNameTooltip,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -121,7 +121,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
         />
       </DialogContentContainer>
     );
-  }
+  },
 );
 
 export default withStaticProps(ColorPicker, {
@@ -130,5 +130,5 @@ export default withStaticProps(ColorPicker, {
   sizes: BaseSizes,
   colorStyles: ColorStyle,
   colorSizes: BaseSizes,
-  colorShapes: ColorShapes
+  colorShapes: ColorShapes,
 });

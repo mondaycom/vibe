@@ -30,9 +30,9 @@ const ListItemAvatar: VibeComponent<ListItemAvatarProps> & { components?: typeof
         />
       </Component>
     );
-  }
+  },
 );
 
 export default withStaticProps(ListItemAvatar, {
-  components: ListItemComponentType
+  components: ListItemComponentType,
 });

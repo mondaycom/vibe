@@ -33,7 +33,7 @@ describe("Table", () => {
   const tableBoilerplate = {
     columns: [{ id: "column-id", title: "Title", width: 20 }],
     errorState: <h1>Error State</h1>,
-    emptyState: <h1>Empty State</h1>
+    emptyState: <h1>Empty State</h1>,
   };
 
   afterEach(cleanup);
@@ -61,7 +61,7 @@ describe("Table", () => {
       const { getByRole } = render(
         <TableCell>
           <div>Content</div>
-        </TableCell>
+        </TableCell>,
       );
       const cell = getByRole("cell");
 
@@ -93,7 +93,7 @@ describe("Table", () => {
       const { getByRole } = render(
         <Table {...tableBoilerplate} dataState={{ isLoading: true }}>
           <TableBody></TableBody>
-        </Table>
+        </Table>,
       );
 
       const tableBodyElement = getByRole("rowgroup");
@@ -106,7 +106,7 @@ describe("Table", () => {
       const { getByRole } = render(
         <Table {...tableBoilerplate}>
           <TableBody></TableBody>
-        </Table>
+        </Table>,
       );
 
       const tableBodyElement = getByRole("rowgroup");
@@ -123,7 +123,7 @@ describe("Table", () => {
               </TableRow>
             ))}
           </TableBody>
-        </Table>
+        </Table>,
       );
 
       const tableBodyElement = getByRole("rowgroup");
@@ -138,7 +138,7 @@ describe("Table", () => {
               <TableCell>Table Cell</TableCell>
             </TableRow>
           </TableBody>
-        </Table>
+        </Table>,
       );
 
       const tableBodyElement = getByRole("rowgroup");
@@ -149,7 +149,7 @@ describe("Table", () => {
       const { getByRole } = render(
         <Table {...tableBoilerplate} dataState={{ isError: true }}>
           <TableBody></TableBody>
-        </Table>
+        </Table>,
       );
 
       const tableBodyElement = getByRole("rowgroup");
@@ -162,7 +162,7 @@ describe("Table", () => {
       const columns: ITableColumn[] = [
         { id: "1", title: "Fixed width", width: 20 },
         { id: "2", title: "Min and max", width: { min: 10, max: 20 } },
-        { id: "3", title: "Dynamic width" }
+        { id: "3", title: "Dynamic width" },
       ];
 
       const { getByRole } = render(<Table {...tableBoilerplate} columns={columns} />);
@@ -184,7 +184,7 @@ describe("Table", () => {
               <TableCell>Table Cell</TableCell>
             </TableRow>
           </TableBody>
-        </Table>
+        </Table>,
       );
 
       expect(traverse(baseElement)).toMatchObject([
@@ -192,16 +192,16 @@ describe("Table", () => {
           role: "table",
           children: [
             { role: "rowgroup", children: [{ role: "columnheader" }] },
-            { role: "rowgroup", children: [{ role: "row", children: [{ role: "cell" }] }] }
-          ]
-        }
+            { role: "rowgroup", children: [{ role: "row", children: [{ role: "cell" }] }] },
+          ],
+        },
       ]);
     });
 
     describe.each([
       ["asc", "ascending"],
       ["desc", "descending"],
-      ["none", null]
+      ["none", null],
     ])("Sort", (sortState: ITableHeaderCellProps["sortState"], ariaSort) => {
       it(`Should apply aria-sort to header element (${sortState}, ${ariaSort})`, () => {
         const { getByRole } = render(<TableHeaderCell title="Title" sortState={sortState} />);

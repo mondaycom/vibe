@@ -14,7 +14,7 @@ describe("Badge", () => {
       .create(
         <Badge type={Badge.types.COUNTER} count={5}>
           Child
-        </Badge>
+        </Badge>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

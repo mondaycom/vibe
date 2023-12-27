@@ -17,7 +17,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"],
-  actionPropsArray: ["onDelete", "onMouseDown", "onClick"]
+  actionPropsArray: ["onDelete", "onMouseDown", "onClick"],
 });
 
 const chipsTemplate = createComponentTemplate(Chips);
@@ -26,7 +26,7 @@ export default {
   title: "Data display/Chips",
   component: Chips,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -36,13 +36,13 @@ export const Overview = {
   args: {
     label: "This is a chip",
     onMouseDown: undefined,
-    onClick: undefined
-  }
+    onClick: undefined,
+  },
 };
 
 export const ChipsWithReadOnlyState = {
   render: () => <Chips label="Read only chip" readOnly />,
-  name: "Chips with read only state"
+  name: "Chips with read only state",
 };
 
 export const ChipsWithIcons = {
@@ -52,7 +52,7 @@ export const ChipsWithIcons = {
       <Chips label="Chip with right icon" rightIcon={Email} />
     </>
   ),
-  name: "Chips with icons"
+  name: "Chips with icons",
 };
 
 export const ChipsWithAvatars = {
@@ -62,7 +62,7 @@ export const ChipsWithAvatars = {
       <Chips label="Chip with right avatar" rightAvatar={person1} />
     </>
   ),
-  name: "Chips with avatars"
+  name: "Chips with avatars",
 };
 
 export const Themes = {
@@ -75,7 +75,7 @@ export const Themes = {
       <Chips label="Disabled" disabled />
     </>
   ),
-  name: "Themes"
+  name: "Themes",
 };
 
 export const Clickable = {
@@ -88,7 +88,7 @@ export const Clickable = {
     );
   },
 
-  name: "Clickable"
+  name: "Clickable",
 };
 
 export const ChipsPalette = {
@@ -96,13 +96,13 @@ export const ChipsPalette = {
     const excludedColors = [Chips.colors.DARK_INDIGO, Chips.colors.BLACKISH];
     const allowedColorsChunks = _chunk(
       Object.keys(Chips.colors).filter(k => !excludedColors.includes(Chips.colors[k])),
-      7
+      7,
     );
     return (
       <Flex
         style={{
           width: "100%",
-          height: 300
+          height: 300,
         }}
         align={Flex.align.STRETCH}
       >
@@ -124,14 +124,14 @@ export const ChipsPalette = {
     );
   },
 
-  name: "Chips palette"
+  name: "Chips palette",
 };
 
 export const OnColor = {
   render: () => (
     <Flex
       style={{
-        width: "100%"
+        width: "100%",
       }}
       align={Flex.align.STRETCH}
       justify={Flex.justify.START}
@@ -144,7 +144,7 @@ export const OnColor = {
           width: "124px",
           height: "64px",
           margin: "var(--sb-spacing-small)",
-          borderRadius: "var(--sb-border-radius-small)"
+          borderRadius: "var(--sb-border-radius-small)",
         }}
       >
         <Chips label="On selected" showBorder readOnly />
@@ -157,7 +157,7 @@ export const OnColor = {
           width: "124px",
           height: "64px",
           margin: "var(--sb-spacing-small)",
-          borderRadius: "var(--sb-border-radius-small)"
+          borderRadius: "var(--sb-border-radius-small)",
         }}
       >
         <Chips label="On positive" showBorder color={Chips.colors.POSITIVE} readOnly />
@@ -170,7 +170,7 @@ export const OnColor = {
           width: "124px",
           height: "64px",
           margin: "var(--sb-spacing-small)",
-          borderRadius: "var(--sb-border-radius-small)"
+          borderRadius: "var(--sb-border-radius-small)",
         }}
       >
         <Chips label="On negative" showBorder color={Chips.colors.NEGATIVE} readOnly />
@@ -178,7 +178,7 @@ export const OnColor = {
     </Flex>
   ),
 
-  name: "On color"
+  name: "On color",
 };
 
 export const ColorfulChipsForDifferentContent = {
@@ -200,7 +200,7 @@ export const ColorfulChipsForDifferentContent = {
     </DialogContentContainer>
   ),
 
-  name: "Colorful chips for different content"
+  name: "Colorful chips for different content",
 };
 
 export const ChipsInAPersonPickerComboBox = {
@@ -248,5 +248,5 @@ export const ChipsInAPersonPickerComboBox = {
     </DialogContentContainer>
   ),
 
-  name: "Chips in a person picker combo box"
+  name: "Chips in a person picker combo box",
 };

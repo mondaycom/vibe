@@ -23,9 +23,9 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, .
         styles.dropdownMenuWrapper,
         {
           [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition,
-          [styles.withoutAnimation]: withoutAnimation
+          [styles.withoutAnimation]: withoutAnimation,
         },
-        dropdownMenuWrapperClassName
+        dropdownMenuWrapperClassName,
       )}
     >
       {Renderer && Renderer(rendererProps)}

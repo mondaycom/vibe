@@ -35,7 +35,7 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
         {children}
       </div>
     );
-  }
+  },
 );
 
 export default TableRow;

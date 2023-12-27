@@ -26,7 +26,7 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
 } = forwardRef(
   (
     { svgClassName, className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId },
-    ref: ForwardedRef<HTMLDivElement>
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
@@ -67,10 +67,10 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
         </svg>
       </div>
     );
-  }
+  },
 );
 
 export default withStaticProps(Loader, {
   sizes: LoaderSizes,
-  colors: LoaderColors
+  colors: LoaderColors,
 });

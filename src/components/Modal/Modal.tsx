@@ -95,17 +95,17 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
   closeButtonAriaLabel = "Close",
   contentSpacing = false,
   zIndex = 10000,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
 }) => {
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
-    [children]
+    [children],
   );
   validateTitleProp(title, childrenArray);
 
   const [instance, attr] = useA11yDialog({
     id,
-    alertDialog
+    alertDialog,
   });
 
   const closeIfNotAlertType = useCallback(() => {
@@ -123,7 +123,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
     show,
     triggerElement,
     onClose,
-    alertDialog
+    alertDialog,
   });
 
   const header = useMemo(() => {
@@ -175,7 +175,7 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         className={cx(styles.dialog, classNames.modal, {
           [styles.default]: width === ModalWidth.DEFAULT,
           [styles.full]: width === ModalWidth.FULL_WIDTH,
-          [styles.spacing]: contentSpacing
+          [styles.spacing]: contentSpacing,
         })}
         style={{ width: customWidth ? width : null }}
       >
@@ -184,12 +184,12 @@ const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
         {footer}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 
   return ReactDOM.createPortal(dialog, document.body);
 };
 
 export default withStaticProps(Modal, {
-  width: ModalWidth
+  width: ModalWidth,
 });

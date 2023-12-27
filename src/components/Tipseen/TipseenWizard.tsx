@@ -18,15 +18,15 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, titleClassName, clas
   const nextButtonProps = useMemo(
     () => ({
       kind: Button.kinds.PRIMARY,
-      size: Button.sizes.SMALL
+      size: Button.sizes.SMALL,
     }),
-    []
+    [],
   );
   const backButtonProps = useMemo(
     () => ({
-      size: Button.sizes.SMALL
+      size: Button.sizes.SMALL,
     }),
-    []
+    [],
   );
   return (
     <TipseenBasicContent

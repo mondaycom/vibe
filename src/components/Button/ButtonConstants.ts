@@ -3,7 +3,7 @@ import { SIZES } from "../../constants/sizes";
 export enum ButtonType {
   PRIMARY = "primary",
   SECONDARY = "secondary",
-  TERTIARY = "tertiary"
+  TERTIARY = "tertiary",
 }
 
 export enum ButtonColor {
@@ -13,14 +13,14 @@ export enum ButtonColor {
   ON_PRIMARY_COLOR = "on-primary-color",
   ON_INVERTED_BACKGROUND = "on-inverted-background",
   BRAND = "brand",
-  FIXED_LIGHT = "fixed-light"
+  FIXED_LIGHT = "fixed-light",
   // FIXED_DARK = "fixed-dark"
 }
 
 export const OLD_BUTTON_SIZES = {
   sm: SIZES.SMALL,
   md: SIZES.MEDIUM,
-  lg: SIZES.LARGE
+  lg: SIZES.LARGE,
 } as const;
 
 export type Size = (typeof SIZES)[keyof typeof SIZES] | keyof typeof OLD_BUTTON_SIZES;
@@ -39,7 +39,7 @@ export const getActualSize = (size?: Size) => {
 };
 
 export const BUTTON_KIND_CLASS_NAMES = {
-  PRIMARY: ""
+  PRIMARY: "",
 };
 
 export const BUTTON_ICON_SIZE = 20;
@@ -47,5 +47,5 @@ export const BUTTON_ICON_SIZE = 20;
 export enum ButtonInputType {
   BUTTON = "button",
   SUBMIT = "submit",
-  RESET = "reset"
+  RESET = "reset",
 }

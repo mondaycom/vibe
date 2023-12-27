@@ -6,5 +6,5 @@ type AlertBannerContextType = {
 };
 
 export const AlertBannerContext = React.createContext<AlertBannerContextType>({
-  textColor: TypographyColor.ON_PRIMARY
+  textColor: TypographyColor.ON_PRIMARY,
 });

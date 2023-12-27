@@ -34,10 +34,10 @@ const commonRules = {
     "error",
     {
       required: {
-        some: ["nesting", "id"]
+        some: ["nesting", "id"],
       },
-      handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
-    }
+      handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
+    },
   ],
   "jsx-a11y/role-has-required-aria-props": "error",
   "jsx-a11y/click-events-have-key-events": "error",
@@ -51,7 +51,7 @@ const commonRules = {
   "arrow-parens": "off",
   "lodash/import-scope": [2, "member"],
   "implicit-arrow-linebreak": "off",
-  "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
+  "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
 };
 const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest"];
 const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"];
@@ -62,8 +62,8 @@ module.exports = {
       files: ["*.jest.js", "jest.setup.js", "jest.init.js"],
       env: {
         jest: true,
-        "jest/globals": true
-      }
+        "jest/globals": true,
+      },
     },
     {
       files: [
@@ -75,11 +75,11 @@ module.exports = {
         "webpack/**/*.js",
         "__mocks__/**/*.js",
         "plop/**/*.js",
-        "rollup.config.js"
+        "rollup.config.js",
       ],
       env: {
-        node: true
-      }
+        node: true,
+      },
     },
     {
       files: ["*.ts", "*.tsx"],
@@ -87,7 +87,7 @@ module.exports = {
       extends: [
         ...commonExtends,
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
       ],
       plugins: [...commonPlugins, "@typescript-eslint"],
       rules: {
@@ -96,41 +96,41 @@ module.exports = {
         "no-unused-vars": "off",
         "react/require-default-props": "off",
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
-        "@typescript-eslint/no-empty-function": "off"
-      }
+        "@typescript-eslint/no-empty-function": "off",
+      },
     },
     {
       files: ["*.stories.@(js|jsx|ts|tsx)", "*.stories.helpers.@(js|jsx|ts|tsx)"],
       rules: {
         ...commonRules,
         "react-hooks/rules-of-hooks": "off",
-        "react/jsx-key": "off"
-      }
-    }
+        "react/jsx-key": "off",
+      },
+    },
   ],
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   settings: {
     jest: {
-      version: 27
+      version: 27,
     },
     react: {
-      version: "detect"
-    }
+      version: "detect",
+    },
   },
   extends: [...commonExtends, "eslint:recommended"],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 13,
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: [...commonPlugins],
   rules: {
     ...commonRules,
-    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }]
-  }
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+  },
 };

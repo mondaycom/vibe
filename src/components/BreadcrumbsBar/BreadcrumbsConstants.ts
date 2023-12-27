@@ -1,4 +1,4 @@
 export enum BreadcrumbsBarType {
   NAVIGATION = "navigation",
-  INDICATION = "indication"
+  INDICATION = "indication",
 }

@@ -1,11 +1,11 @@
 export enum AvatarType {
   IMG = "img",
   ICON = "icon",
-  TEXT = "text"
+  TEXT = "text",
 }
 
 export enum AvatarSize {
   SMALL = "small",
   MEDIUM = "medium",
-  LARGE = "large"
+  LARGE = "large",
 }

@@ -20,7 +20,7 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
     isMonthYearSelection,
     onToggleMonthYearPicker,
     hideNavigationKeys,
-    "data-testid": dateTestId
+    "data-testid": dateTestId,
   } = props;
 
   const localedDated = moment(currentDate.valueOf());

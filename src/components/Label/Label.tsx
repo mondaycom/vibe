@@ -45,9 +45,9 @@ const Label: VibeComponent<LabelProps> & {
       isLegIncluded = false,
       id,
       "data-testid": dataTestId,
-      onClick
+      onClick,
     },
-    ref
+    ref,
   ) => {
     const labelRef = useRef<HTMLSpanElement>(null);
     const mergedRef = useMergeRef(ref, labelRef);
@@ -63,11 +63,11 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("color" + "-" + color)),
           {
             [styles.withAnimation]: !isAnimationDisabled,
-            [styles.withLeg]: isLegIncluded
+            [styles.withLeg]: isLegIncluded,
           },
-          labelClassName
+          labelClassName,
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
+      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName],
     );
 
     const onClickCallback = useCallback(
@@ -77,7 +77,7 @@ const Label: VibeComponent<LabelProps> & {
           onClick(event);
         }
       },
-      [onClick]
+      [onClick],
     );
 
     const clickableProps = useClickableProps(
@@ -86,9 +86,9 @@ const Label: VibeComponent<LabelProps> & {
         id,
         ariaHidden: false,
         ariaHasPopup: false,
-        ariaExpanded: false
+        ariaExpanded: false,
       },
-      labelRef
+      labelRef,
     );
 
     return (
@@ -104,10 +104,10 @@ const Label: VibeComponent<LabelProps> & {
         </Text>
       </span>
     );
-  }
+  },
 );
 
 export default withStaticProps(Label, {
   colors: LabelColor,
-  kinds: LabelKind
+  kinds: LabelKind,
 });

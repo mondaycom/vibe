@@ -25,7 +25,7 @@ describe("ColorPicker", () => {
           onSaveMock();
           clickedColorValue = color;
         }}
-      />
+      />,
     );
 
     const colorElementToClick = getByLabelText(colorToClick);
@@ -50,7 +50,7 @@ describe("ColorPicker", () => {
           onSaveMock();
           clickedColorValue = colors;
         }}
-      />
+      />,
     );
 
     const colorElementToClick = getByLabelText(colorToClick);
@@ -79,7 +79,7 @@ describe("ColorPicker", () => {
     const whiteListColors = contentColors.slice(0, 3);
     const restOfColors = _difference(contentColors, whiteListColors);
     const { getByLabelText, queryByLabelText } = render(
-      <ColorPicker isBlackListMode={false} colorsList={whiteListColors} />
+      <ColorPicker isBlackListMode={false} colorsList={whiteListColors} />,
     );
 
     const whiteListColorsElements = whiteListColors.map(color => getByLabelText(color));
@@ -100,7 +100,7 @@ describe("ColorPicker", () => {
   it("should render all colors if forceUseRawColorList is true, even if isBlackListMode is true", () => {
     const colorList = ["#abcdef", "#123456", "#234567"];
     const { getByLabelText } = render(
-      <ColorPicker colorsList={colorList} forceUseRawColorList={true} isBlackListMode={true} />
+      <ColorPicker colorsList={colorList} forceUseRawColorList={true} isBlackListMode={true} />,
     );
 
     const colorsElements = colorList.map(color => getByLabelText(color));
@@ -149,7 +149,7 @@ describe("ColorPicker", () => {
         colorsToRender={colorsToRender}
         tooltipContentByColor={tooltipContentByColor}
         showColorNameTooltip
-      />
+      />,
     );
 
     const component = colorPicker.getByLabelText(colorName);

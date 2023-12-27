@@ -7,7 +7,7 @@ import { Group, Board, Workspace } from "../../../../components/Icon/Icons";
 export const BreadcrumbsDescription = () => {
   const component = useMemo(() => {
     const style = {
-      marginLeft: "-40px"
+      marginLeft: "-40px",
     };
     return (
       <div style={style}>

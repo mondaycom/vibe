@@ -1,3 +1,3 @@
 module.exports = require("../webpack.config")({
-  storybook: true
+  storybook: true,
 });

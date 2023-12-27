@@ -28,7 +28,7 @@ function getElementClientCenter(element: HTMLElement) {
   const { left, top, width, height } = element.getBoundingClientRect();
   return {
     x: left + width / 2,
-    y: top + height / 2
+    y: top + height / 2,
   };
 }
 
@@ -36,7 +36,7 @@ const getCoords = ({
   toElm,
   toCoords,
   delta,
-  from
+  from,
 }: {
   toElm: HTMLElement;
   toCoords: Coordinates;
@@ -52,12 +52,12 @@ const getCoords = ({
   if (delta) {
     return {
       x: from.x + delta.x,
-      y: from.y + delta.y
+      y: from.y + delta.y,
     };
   }
   return {
     x: from.x + 10,
-    y: from.y + 0
+    y: from.y + 0,
   };
 };
 
@@ -82,7 +82,7 @@ export const interactionSuite =
     skip = false,
     tests,
     afterEach = null,
-    afterAll = null
+    afterAll = null,
   }: {
     beforeEach?: TestFunction;
     beforeAll?: TestFunction;
@@ -179,7 +179,7 @@ export const hoverElement = (element: HTMLElement) => {
 
 export const typeText = async (element: HTMLElement, text: string, waitForDebounceMs = 250) => {
   const promise = userEvent.type(element, text, {
-    delay: 50
+    delay: 50,
   });
   const result = await promise;
   await delay(waitForDebounceMs);
@@ -232,18 +232,18 @@ export async function drag(
     toCoords = undefined,
     toElm = undefined,
     steps = 20,
-    duration = 100
-  }: { delta: Coordinates; toCoords: Coordinates; toElm: HTMLElement; steps: number; duration: number }
+    duration = 100,
+  }: { delta: Coordinates; toCoords: Coordinates; toElm: HTMLElement; steps: number; duration: number },
 ) {
   const from = getElementClientCenter(element);
   const to = getCoords({ toElm, toCoords, delta, from });
   const step = {
     x: (to.x - from.x) / steps,
-    y: (to.y - from.y) / steps
+    y: (to.y - from.y) / steps,
   };
   const current = {
     clientX: from.x,
-    clientY: from.y
+    clientY: from.y,
   };
   userEvent.hover(element);
   fireEvent.pointerEnter(element, current);

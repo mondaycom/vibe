@@ -15,7 +15,7 @@ const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
 
 const calculateColorTooltip = (
   color: ColorPickerValueOnly,
-  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>
+  tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string> & Record<string, string>>,
 ) => {
   if (tooltipContentByColor && tooltipContentByColor[color]) {
     return tooltipContentByColor[color];
@@ -57,9 +57,9 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       colorShape,
       showColorNameTooltip: showColorNameTooltip,
       id,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const getItemByIndex = useCallback((index: number) => colorsToRender[index], [colorsToRender]);
 
@@ -69,7 +69,7 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
       onItemClicked: onColorClicked,
       itemsCount: colorsToRender.length,
       numberOfItemsInLine: numberOfColorsInLine,
-      getItemByIndex
+      getItemByIndex,
     });
 
     return (
@@ -94,5 +94,5 @@ export const ColorPickerColorsGrid: VibeComponent<ColorPickerColorsGridProps, HT
         })}
       </ul>
     );
-  }
+  },
 );

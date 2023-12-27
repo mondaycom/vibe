@@ -21,7 +21,7 @@ describe("Combobox tests", () => {
   describe("Without categories", () => {
     const mockOptions = [
       { value: "orange", label: "Orange" },
-      { value: "yellow", label: "Yellow" }
+      { value: "yellow", label: "Yellow" },
     ];
 
     it("should call item on click callback func when onClick", () => {
@@ -67,7 +67,7 @@ describe("Combobox tests", () => {
     it("should support default filter", async () => {
       const defaultFilter = "Orange";
       const { getByTestId, getByLabelText, getByRole } = render(
-        <Combobox options={mockOptions} defaultFilter={defaultFilter} />
+        <Combobox options={mockOptions} defaultFilter={defaultFilter} />,
       );
       const input = getByTestId("search_combobox-search");
       expect(input.value).toBe(defaultFilter);
@@ -99,12 +99,12 @@ describe("Combobox tests", () => {
       { id: "item 4", label: "item 4", categoryId: "third", value: "item 4" },
       { id: "item 5", label: "item 5", categoryId: "first", value: "item 5" },
       { id: "item 6", label: "item 6", categoryId: "second", value: "item 6" },
-      { id: "item 7", label: "item 7", categoryId: "third", value: "item 7" }
+      { id: "item 7", label: "item 7", categoryId: "third", value: "item 7" },
     ];
     const categories = {
       first: { id: "first", label: "first", color: "red" },
       second: { id: "second", label: "second", color: "blue" },
-      third: { id: "third", label: "third", color: "orange" }
+      third: { id: "third", label: "third", color: "orange" },
     };
 
     it("Should trigger the on click callback on the correct item with regular categories", () => {
@@ -120,7 +120,7 @@ describe("Combobox tests", () => {
     it("Should trigger the on click callback on the correct item with divided categories", () => {
       const onClickMock = jest.fn();
       const { getByLabelText } = render(
-        <Combobox onClick={onClickMock} options={options} categories={categories} withCategoriesDivider />
+        <Combobox onClick={onClickMock} options={options} categories={categories} withCategoriesDivider />,
       );
       clickValueCheckCallback(getByLabelText, onClickMock, "item 1", "item 1");
       clickValueCheckCallback(getByLabelText, onClickMock, "item 2", "item 2", 2);

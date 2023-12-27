@@ -11,14 +11,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuButton,
   iconPropNamesArray: ["component"],
   actionPropsArray: ["onMenuHide", "onMenuShow"],
-  ignoreControlsPropNamesArray: ["children"]
+  ignoreControlsPropNamesArray: ["children"],
 });
 
 export default {
   title: "Buttons/MenuButton",
   component: MenuButton,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const menuButtonTemplate = createComponentTemplate(MenuButton);
@@ -34,8 +34,8 @@ export const Overview = {
         <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
         <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
       </Menu>
-    )
-  }
+    ),
+  },
 };
 
 export const Sizes = {
@@ -79,7 +79,7 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const DifferentIcon = {
@@ -93,14 +93,14 @@ export const DifferentIcon = {
     </MenuButton>
   ),
 
-  name: "Different Icon"
+  name: "Different Icon",
 };
 
 export const WithText = {
   render: () => (
     <div
       style={{
-        width: 200
+        width: 200,
       }}
     >
       <MenuButton text="Open">
@@ -113,14 +113,14 @@ export const WithText = {
     </div>
   ),
 
-  name: "With Text"
+  name: "With Text",
 };
 
 export const WithTextAndIconAtTheEnd = {
   render: () => (
     <div
       style={{
-        width: 200
+        width: 200,
       }}
     >
       <MenuButton text="Open" component={DropdownChevronDown} componentPosition={MenuButton.componentPositions.END}>
@@ -133,7 +133,7 @@ export const WithTextAndIconAtTheEnd = {
     </div>
   ),
 
-  name: "With Text and Icon at the end"
+  name: "With Text and Icon at the end",
 };
 
 export const Disabled = {
@@ -147,7 +147,7 @@ export const Disabled = {
     </MenuButton>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const CustomTriggerElement = {
@@ -171,5 +171,5 @@ export const CustomTriggerElement = {
     );
   },
 
-  name: "Custom Trigger Element"
+  name: "Custom Trigger Element",
 };

@@ -3,7 +3,7 @@ import { MutableRefObject } from "react";
 
 export function chainRefFunctions(
   funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((element: HTMLElement) => void | boolean)>,
-  allowBreak = false
+  allowBreak = false,
 ) {
   return (args: HTMLElement) => {
     for (let i = 0; i < funcsOrRefs.length; i++) {

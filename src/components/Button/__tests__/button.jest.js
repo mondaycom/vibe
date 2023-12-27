@@ -20,7 +20,7 @@ describe("<Buttoon />", () => {
     buttonComponent = render(
       <Button className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
         {text}
-      </Button>
+      </Button>,
     );
   });
 
@@ -40,7 +40,7 @@ describe("<Buttoon />", () => {
         rerender(
           <Button onClick={clickActionStub} disabled>
             {text}
-          </Button>
+          </Button>,
         );
         expect(getByText(text)).toBeDisabled;
       });
@@ -50,7 +50,7 @@ describe("<Buttoon />", () => {
         rerender(
           <Button onClick={clickActionStub} disabled>
             {text}
-          </Button>
+          </Button>,
         );
         fireEvent.click(getByText(text));
         expect(clickActionStub.mock.calls.length).toEqual(0);
@@ -61,7 +61,7 @@ describe("<Buttoon />", () => {
         rerender(
           <Button onClick={clickActionStub} loading>
             {text}
-          </Button>
+          </Button>,
         );
         waitFor(() => {
           fireEvent.click(getByRole("alert"));
@@ -76,7 +76,7 @@ describe("<Buttoon />", () => {
           rerender(
             <Button onClick={clickActionStub} successText={successText}>
               {text}
-            </Button>
+            </Button>,
           );
           const element = queryByText(successText);
           expect(element).toEqual(null);
@@ -88,7 +88,7 @@ describe("<Buttoon />", () => {
           rerender(
             <Button onClick={clickActionStub} success successText={successText}>
               {text}
-            </Button>
+            </Button>,
           );
           fireEvent.click(getByText(successText));
           expect(clickActionStub.mock.calls.length).toEqual(0);
@@ -138,7 +138,7 @@ describe("<Buttoon />", () => {
       rerender(
         <Button onClick={clickActionStub} onMouseDown={onMouseDown}>
           {text}
-        </Button>
+        </Button>,
       );
       fireEvent.mouseDown(getByText(text));
       expect(onMouseDown.mock.calls.length).toEqual(1);
@@ -150,7 +150,7 @@ describe("<Buttoon />", () => {
       const { getByLabelText } = render(
         <Button ariaLabel={ariaLabel} className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
           {text}
-        </Button>
+        </Button>,
       );
       const buttonElement = getByLabelText(ariaLabel);
       fireEvent.click(buttonElement);

@@ -5,7 +5,7 @@ import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 
 export default {
   title: "Navigation/VirtualizedGrid",
-  component: VirtualizedGrid
+  component: VirtualizedGrid,
 };
 
 const virtualizedGridTemplate = args => {
@@ -70,8 +70,8 @@ export const Overview = {
       height: 300,
       overflow: "hidden",
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
     },
-    itemsCount: 100
-  }
+    itemsCount: 100,
+  },
 };

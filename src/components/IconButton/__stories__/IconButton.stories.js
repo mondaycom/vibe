@@ -15,7 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: IconButton,
   enumPropNamesArray: ["kind", "size", "color"],
   iconPropNamesArray: ["icon"],
-  actionPropsArray: ["onClick"]
+  actionPropsArray: ["onClick"],
 });
 
 const iconButtonTemplate = createComponentTemplate(IconButton);
@@ -24,7 +24,7 @@ export default {
   title: "Buttons/IconButton",
   component: IconButton,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 export const Overview = {
@@ -33,8 +33,8 @@ export const Overview = {
 
   args: {
     ariaLabel: "Add",
-    icon: Add
-  }
+    icon: Add,
+  },
 };
 
 export const Kinds = {
@@ -44,7 +44,7 @@ export const Kinds = {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
       }}
     >
       <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton" />
@@ -53,7 +53,7 @@ export const Kinds = {
     </div>
   ),
 
-  name: "Kinds"
+  name: "Kinds",
 };
 
 export const Sizes = {
@@ -63,7 +63,7 @@ export const Sizes = {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
       }}
     >
       <IconButton
@@ -104,7 +104,7 @@ export const Sizes = {
     </div>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
 };
 
 export const Active = {
@@ -114,7 +114,7 @@ export const Active = {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
       }}
     >
       <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active />
@@ -123,7 +123,7 @@ export const Active = {
     </div>
   ),
 
-  name: "Active"
+  name: "Active",
 };
 
 export const Disabled = {
@@ -133,7 +133,7 @@ export const Disabled = {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
       }}
     >
       <IconButton
@@ -160,7 +160,7 @@ export const Disabled = {
     </div>
   ),
 
-  name: "Disabled"
+  name: "Disabled",
 };
 
 export const IconButtonAsToolbarButton = {
@@ -170,7 +170,7 @@ export const IconButtonAsToolbarButton = {
       direction={Flex.directions.COLUMN}
       align={Flex.align.START}
       style={{
-        width: "50%"
+        width: "50%",
       }}
     >
       <Flex className={styles.dashboardHeader} gap={Flex.gaps.SMALL}>
@@ -182,7 +182,7 @@ export const IconButtonAsToolbarButton = {
     </Flex>
   ),
 
-  name: "Icon button as toolbar button"
+  name: "Icon button as toolbar button",
 };
 
 export const IconButtonAsCloseButton = {
@@ -190,13 +190,13 @@ export const IconButtonAsCloseButton = {
     <>
       <Flex
         style={{
-          width: "100%"
+          width: "100%",
         }}
       >
         <Flex
           className={styles.recycleBin}
           style={{
-            width: "100%"
+            width: "100%",
           }}
           justify={Flex.justify.START}
           gap={Flex.gaps.LARGE}
@@ -245,5 +245,5 @@ export const IconButtonAsCloseButton = {
     </>
   ),
 
-  name: "Icon button as close button"
+  name: "Icon button as close button",
 };

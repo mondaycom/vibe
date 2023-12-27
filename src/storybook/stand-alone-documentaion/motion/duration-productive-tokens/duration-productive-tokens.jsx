@@ -7,20 +7,20 @@ const DURATION_PRODUCIVE = [
     videoSrc: DurationProductiveShort,
     title: "Small motion - 70ms",
     description: "Use when components require minor changes, micro-Interactions, and fades.",
-    tokenDescription: "--motion-productive-small"
+    tokenDescription: "--motion-productive-small",
   },
   {
     videoSrc: DurationProductiveMedium,
     title: "Medium motion - 100ms",
     description: "Use when components require medium changes, small expansions, and notifications.",
-    tokenDescription: "--motion-productive-medium"
+    tokenDescription: "--motion-productive-medium",
   },
   {
     videoSrc: DurationProductiveLong,
     title: "Large motion - 150ms",
     description: "Use when components require major changes, expansions, and distance movement.",
-    tokenDescription: "--motion-productive-long"
-  }
+    tokenDescription: "--motion-productive-long",
+  },
 ];
 
 export const DurationProductiveTokens = () => {

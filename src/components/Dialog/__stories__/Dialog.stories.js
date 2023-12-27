@@ -7,7 +7,7 @@ import {
   CLICK_OUTSIDE_DIALOG,
   CLICK_OUTSIDE_DIALOG_BUTTON,
   CONTEXT_MENU_DIALOG,
-  HIDE_TRIGGERS_CONTAINER
+  HIDE_TRIGGERS_CONTAINER,
 } from "../__tests__/DialogDataTestIds";
 import useSwitch from "../../../hooks/useSwitch";
 import "./Dialog.stories.scss";
@@ -16,14 +16,14 @@ const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog,
   enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  actionPropsArray: [], // List the component's actions here
 });
 
 export default {
   title: "Components/Dialog/Dialog",
   component: Dialog,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
 };
 
 const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
@@ -32,9 +32,9 @@ const dialogTemplate = ({ shouldShowOnMount, position, ...dialogProps }) => {
     {
       name: "preventOverflow",
       options: {
-        mainAxis: false
-      }
-    }
+        mainAxis: false,
+      },
+    },
   ];
   return (
     <div className="monday-storybook-dialog--story-padding">
@@ -63,12 +63,12 @@ export const Overview = {
   parameters: {
     docs: {
       source: {
-        type: "code"
-      }
-    }
+        type: "code",
+      },
+    },
   },
 
-  name: "Overview"
+  name: "Overview",
 };
 
 export const Positions = {
@@ -77,28 +77,28 @@ export const Positions = {
     () => {
       // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
       const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({
-        defaultChecked: false
+        defaultChecked: false,
       });
 
       const { isChecked: checkedBottom, onChange: onChangeBottom } = useSwitch({
-        defaultChecked: false
+        defaultChecked: false,
       });
 
       const { isChecked: checkedRight, onChange: onChangeRight } = useSwitch({
-        defaultChecked: false
+        defaultChecked: false,
       });
 
       const { isChecked: checkedLeft, onChange: onChangeLeft } = useSwitch({
-        defaultChecked: false
+        defaultChecked: false,
       });
 
       const modifiers = [
         {
           name: "preventOverflow",
           options: {
-            mainAxis: false
-          }
-        }
+            mainAxis: false,
+          },
+        },
       ];
 
       return (
@@ -171,30 +171,30 @@ export const Positions = {
       );
     },
 
-  name: "Positions"
+  name: "Positions",
 };
 
 export const ShowTriggers = {
   render: () => {
     const { isChecked: clickButtonActive, onChange: onClickClickButton } = useSwitch({
-      defaultChecked: false
+      defaultChecked: false,
     });
 
     const { isChecked: hoverButtonActive, onChange: onHoverButton } = useSwitch({
-      defaultChecked: false
+      defaultChecked: false,
     });
 
     const { isChecked: focusButtonActive, onChange: onFocusButton } = useSwitch({
-      defaultChecked: false
+      defaultChecked: false,
     });
 
     const modifiers = [
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false
-        }
-      }
+          mainAxis: false,
+        },
+      },
     ];
 
     return (
@@ -272,36 +272,36 @@ export const ShowTriggers = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const HideTriggers = {
   render: () => {
     // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
     const { isChecked: clickButtonActive, onChange: switchClickButtonActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     const { isChecked: clickOutsideButtonActive, onChange: switchClickOutsideActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     const { isChecked: mouseLeaveButtonActive, onChange: switchMouseLeaveActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     const { isChecked: blurButtonActive, onChange: switchBlurButtonActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     const { isChecked: contentClickButtonActive, onChange: switchContentClickActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     const { isChecked: contextMenuButtonActive, onChange: switchContextMenuActive } = useSwitch({
-      defaultChecked: true
+      defaultChecked: true,
     });
 
     // for prevent dialog to move while scrolling
@@ -309,9 +309,9 @@ export const HideTriggers = {
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false
-        }
-      }
+          mainAxis: false,
+        },
+      },
     ];
 
     return (
@@ -344,7 +344,7 @@ export const HideTriggers = {
             active={clickOutsideButtonActive}
             onClick={switchClickOutsideActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On click outside
@@ -367,7 +367,7 @@ export const HideTriggers = {
             active={clickButtonActive}
             onClick={switchClickButtonActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On click
@@ -390,7 +390,7 @@ export const HideTriggers = {
             active={blurButtonActive}
             onClick={switchBlurButtonActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On blur
@@ -414,7 +414,7 @@ export const HideTriggers = {
             active={contentClickButtonActive}
             onClick={switchContentClickActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On content click
@@ -439,7 +439,7 @@ export const HideTriggers = {
             active={mouseLeaveButtonActive}
             onClick={switchMouseLeaveActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On mouse leave
@@ -464,7 +464,7 @@ export const HideTriggers = {
             kind={Button.kinds.SECONDARY}
             active={contextMenuButtonActive}
             style={{
-              marginBlock: "54px"
+              marginBlock: "54px",
             }}
           >
             On right click
@@ -480,15 +480,15 @@ export const HideTriggers = {
 
   parameters: {
     chromatic: {
-      pauseAnimationAtEnd: true
-    }
-  }
+      pauseAnimationAtEnd: true,
+    },
+  },
 };
 
 export const ControlledDialog = {
   render: () => {
     const { isChecked: isOpen, onChange: setIsOpen } = useSwitch({
-      defaultChecked: false
+      defaultChecked: false,
     });
 
     return (
@@ -512,7 +512,7 @@ export const ControlledDialog = {
     );
   },
 
-  name: "Controlled Dialog"
+  name: "Controlled Dialog",
 };
 
 export const DialogWithTooltip = {
@@ -522,9 +522,9 @@ export const DialogWithTooltip = {
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false
-        }
-      }
+          mainAxis: false,
+        },
+      },
     ];
 
     return (
@@ -548,14 +548,14 @@ export const DialogWithTooltip = {
     );
   },
 
-  name: "Dialog with tooltip"
+  name: "Dialog with tooltip",
 };
 
 export const DisableScrollWhenDialogOpen = {
   render: () => {
     // For maintain active state of each button according to the dialog open state (this hooks is available for your usage)
     const { isChecked: checkedTop, onChange: onChangeTop } = useSwitch({
-      defaultChecked: false
+      defaultChecked: false,
     });
 
     return (
@@ -565,12 +565,12 @@ export const DisableScrollWhenDialogOpen = {
           style={{
             height: "300px",
             width: "400px",
-            overflow: "auto"
+            overflow: "auto",
           }}
         >
           <div
             style={{
-              height: "800px"
+              height: "800px",
             }}
           >
             <Dialog
@@ -596,5 +596,5 @@ export const DisableScrollWhenDialogOpen = {
     );
   },
 
-  name: "Disable scroll when dialog open"
+  name: "Disable scroll when dialog open",
 };

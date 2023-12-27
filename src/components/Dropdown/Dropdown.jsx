@@ -20,7 +20,7 @@ import {
   DROPDOWN_CHIP_COLORS,
   DROPDOWN_ID,
   DROPDOWN_MENU_PLACEMENT,
-  DROPDOWN_MENU_POSITION
+  DROPDOWN_MENU_POSITION,
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
@@ -90,9 +90,9 @@ const Dropdown = forwardRef(
       popupsContainerSelector,
       filterOption,
       menuPosition,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
     },
-    ref
+    ref,
   ) => {
     const controlRef = useRef();
     const overrideMenuPortalTarget =
@@ -136,7 +136,7 @@ const Dropdown = forwardRef(
         rtl,
         insideOverflowContainer,
         controlRef,
-        insideOverflowWithTransformContainer
+        insideOverflowWithTransformContainer,
       });
 
       // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -150,7 +150,7 @@ const Dropdown = forwardRef(
             const provided = baseStyles[stylesGroup] ? baseStyles[stylesGroup](defaultStyles, state) : defaultStyles;
 
             return stylesFn(provided, state);
-          }
+          },
         };
       }, {});
 
@@ -160,7 +160,7 @@ const Dropdown = forwardRef(
             const original = mergedStyles[component];
             mergedStyles[component] = (provided, state) => ({
               ...original(provided, state),
-              height: "auto"
+              height: "auto",
             });
           });
         }
@@ -168,7 +168,7 @@ const Dropdown = forwardRef(
         const originalValueContainer = mergedStyles.valueContainer;
         mergedStyles.valueContainer = (provided, state) => ({
           ...originalValueContainer(provided, state),
-          paddingLeft: 6
+          paddingLeft: 6,
         });
       }
 
@@ -179,7 +179,7 @@ const Dropdown = forwardRef(
       props => (
         <MenuComponent {...props} Renderer={menuRenderer} dropdownMenuWrapperClassName={dropdownMenuWrapperClassName} />
       ),
-      [dropdownMenuWrapperClassName, menuRenderer]
+      [dropdownMenuWrapperClassName, menuRenderer],
     );
 
     const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
@@ -188,7 +188,7 @@ const Dropdown = forwardRef(
       props => (
         <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
       ),
-      [finalOptionRenderer, optionWrapperClassName]
+      [finalOptionRenderer, optionWrapperClassName],
     );
 
     const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
@@ -203,7 +203,7 @@ const Dropdown = forwardRef(
           singleValueWrapperClassName={singleValueWrapperClassName}
         />
       ),
-      [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName]
+      [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName],
     );
 
     const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -230,7 +230,7 @@ const Dropdown = forwardRef(
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector
+        popupsContainerSelector,
       }),
       [
         selectedOptions,
@@ -239,8 +239,8 @@ const Dropdown = forwardRef(
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
-        popupsContainerSelector
-      ]
+        popupsContainerSelector,
+      ],
     );
     const onChange = (option, event) => {
       if (customOnChange) {
@@ -280,15 +280,15 @@ const Dropdown = forwardRef(
       ...(asyncOptions && {
         loadOptions: asyncOptions,
         cacheOptions,
-        ...(defaultOptions && { defaultOptions })
-      })
+        ...(defaultOptions && { defaultOptions }),
+      }),
     };
 
     const additions = {
       ...(!asyncOptions && { options }),
       ...(multi && {
-        isMulti: true
-      })
+        isMulti: true,
+      }),
     };
 
     const closeMenuOnScroll = useCallback(
@@ -299,7 +299,7 @@ const Dropdown = forwardRef(
         }
         return customCloseMenuOnScroll || insideOverflowContainer || insideOverflowWithTransformContainer;
       },
-      [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll]
+      [insideOverflowContainer, insideOverflowWithTransformContainer, customCloseMenuOnScroll],
     );
 
     return (
@@ -316,9 +316,9 @@ const Dropdown = forwardRef(
           SingleValue,
           ...(multi && {
             MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-            ValueContainer: MultiValueContainer
+            ValueContainer: MultiValueContainer,
           }),
-          ...(isVirtualized && { MenuList: WindowedMenuList })
+          ...(isVirtualized && { MenuList: WindowedMenuList }),
         }}
         // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
         closeMenuOnScroll={closeMenuOnScroll}
@@ -367,7 +367,7 @@ const Dropdown = forwardRef(
         {...additions}
       />
     );
-  }
+  },
 );
 
 Object.assign(Dropdown, {
@@ -377,7 +377,7 @@ Object.assign(Dropdown, {
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,
-  createFilter: createFilter
+  createFilter: createFilter,
 });
 
 Dropdown.defaultProps = {
@@ -417,7 +417,7 @@ Dropdown.defaultProps = {
   isLoading: false,
   loadingMessage: undefined,
   ariaLabel: undefined,
-  filterOption: undefined
+  filterOption: undefined,
 };
 
 Dropdown.propTypes = {
@@ -527,13 +527,13 @@ Dropdown.propTypes = {
     PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
-      })
+        value: PropTypes.string.isRequired,
+      }),
     ),
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired
-    })
+      value: PropTypes.string.isRequired,
+    }),
   ]),
   /**
    * The component's value.
@@ -543,13 +543,13 @@ Dropdown.propTypes = {
     PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
-      })
+        value: PropTypes.string.isRequired,
+      }),
     ),
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired
-    })
+      value: PropTypes.string.isRequired,
+    }),
   ]),
   /**
    * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
@@ -562,8 +562,8 @@ Dropdown.propTypes = {
     PropTypes.func, // callback
     PropTypes.shape({
       then: PropTypes.func.isRequired,
-      catch: PropTypes.func.isRequired
-    }) // Promise
+      catch: PropTypes.func.isRequired,
+    }), // Promise
   ]),
   /**
    * If set to true, fetched async options will be cached
@@ -669,7 +669,7 @@ Dropdown.propTypes = {
    * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
    * createFilter function is available at Dropdown.createFilter
    */
-  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  filterOption: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 export default Dropdown;

@@ -9,7 +9,7 @@ export default function useSubMenuIndex() {
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
     },
-    [setOpenSubMenuIndex]
+    [setOpenSubMenuIndex],
   );
 
   const resetOpenSubMenuIndex = useCallback(() => {

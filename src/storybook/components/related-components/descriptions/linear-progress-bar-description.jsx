@@ -5,7 +5,7 @@ import LinearProgressBar from "../../../../components/ProgressBars/LinearProgres
 export const LinearProgressBarDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "80%"
+      width: "80%",
     };
     return (
       <div style={style}>
