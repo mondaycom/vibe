@@ -6,14 +6,6 @@ import TipseenWizard from "../../../../components/Tipseen/TipseenWizard";
 export const TipseenDescription = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
 
-  const stepPrev = useCallback(() => {
-    setActiveStepIndex(prevState => prevState - 1);
-  }, []);
-
-  const stepNext = useCallback(() => {
-    setActiveStepIndex(prevState => prevState + 1);
-  }, []);
-
   const onChangeActiveStep = useCallback((_e, stepIndex) => {
     setActiveStepIndex(stepIndex);
   }, []);
@@ -57,9 +49,8 @@ export const TipseenDescription = () => {
               title="This is a title"
               steps={content}
               activeStepIndex={activeStepIndex}
-              backButtonProps={{ onClick: stepPrev }}
-              nextButtonProps={{ onClick: stepNext }}
               onChangeActiveStep={onChangeActiveStep}
+              onFinish={() => {}}
             />
           }
         >
@@ -67,7 +58,7 @@ export const TipseenDescription = () => {
         </Tipseen>
       </div>
     );
-  }, [activeStepIndex, stepPrev, stepNext, onChangeActiveStep]);
+  }, [activeStepIndex, onChangeActiveStep]);
   return (
     <RelatedComponent
       component={component}
