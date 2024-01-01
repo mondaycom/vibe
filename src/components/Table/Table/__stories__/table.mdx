@@ -7,6 +7,8 @@ import TableRow from "../../TableRow/TableRow";
 import TableCell from "../../TableCell/TableCell";
 import Label from "../../../Label/Label";
 import {
+  doAndDontBordersRuleColumns,
+  doAndDontBordersRuleData,
   doAndDontIconsRuleColumns,
   doAndDontIconsRuleData,
   statusColumnToLabelColor,
@@ -19,6 +21,7 @@ import {
   SKELETON
 } from "../../../../storybook/components/related-components/component-description-map";
 import * as TableStories from "./table.stories";
+import styles from "./table.stories.module.scss";
 
 <Meta of={TableStories} />
 
@@ -170,6 +173,65 @@ A highlighted row allows adding additional information for the entire row, using
           </div>
         ),
         description: "Don't use icons if not applied to all columns titles."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <div style={{ width: "95%" }}>
+            <Table
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontBordersRuleColumns}
+              withoutBorder
+            >
+              <TableHeader>
+                {doAndDontBordersRuleColumns.map(cell => (
+                  <TableHeaderCell key={cell.id} {...cell} />
+                ))}
+              </TableHeader>
+              <TableBody>
+                {doAndDontBordersRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>{rowItem.emailsSent}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ),
+        description: "If there’s a need, remove only the outer border."
+      },
+      negative: {
+        component: (
+          <div style={{ width: "95%" }}>
+            <Table
+              className={styles.withoutBottomBorder}
+              errorState={<TableErrorState />}
+              emptyState={<TableEmptyState />}
+              columns={doAndDontBordersRuleColumns}
+              withoutBorder
+            >
+              <TableHeader>
+                {doAndDontBordersRuleColumns.map(cell => (
+                  <TableHeaderCell key={cell.id} {...cell} icon={cell.id === "subject" ? cell.icon : undefined} />
+                ))}
+              </TableHeader>
+              <TableBody>
+                {doAndDontBordersRuleData.map(rowItem => (
+                  <TableRow key={rowItem.id}>
+                    <TableCell>{rowItem.sentOn}</TableCell>
+                    <TableCell>{rowItem.subject}</TableCell>
+                    <TableCell>{rowItem.emailsSent}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ),
+        description: "Don't remove border between the rows."
       }
     }
   ]}
