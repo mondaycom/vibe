@@ -34,6 +34,7 @@ interface ITableProps extends VibeComponentProps {
     | ReactElement<ITableBodyProps>
     | Array<ReactElement<ITableHeaderProps> | ReactElement<ITableBodyProps>>;
   size?: RowSizes;
+  withoutBorder?: boolean;
 }
 
 interface ITableContext {
@@ -59,11 +60,12 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
       dataState,
       style,
       children,
-      size = Table.sizes.MEDIUM
+      size = Table.sizes.MEDIUM,
+      withoutBorder
     },
     ref
   ) => {
-    const classNames = cx(styles.table, className);
+    const classNames = cx(styles.table, { [styles.border]: !withoutBorder }, className);
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
 
     /**
