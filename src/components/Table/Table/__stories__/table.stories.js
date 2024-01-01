@@ -396,7 +396,7 @@ export const Borders = {
       </Flex>
     )
   ],
-  name: "Sizes"
+  name: "Borders"
 };
 
 export const TableHeaderFunctionality = {
