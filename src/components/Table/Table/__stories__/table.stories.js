@@ -265,7 +265,7 @@ export const Sizes = {
   },
   decorators: [
     Story => (
-      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_AROUND} style={{ flex: 1 }}>
+      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_BETWEEN} style={{ flex: 1 }}>
         <Story />
       </Flex>
     )
