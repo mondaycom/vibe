@@ -184,11 +184,13 @@ export const Sizes = {
       {
         id: "sentOn",
         title: "Sent on",
+        width: 180,
         loadingStateType: "medium-text"
       },
       {
         id: "subject",
         title: "Subject",
+        width: 200,
         loadingStateType: "long-text"
       }
     ];
@@ -207,7 +209,7 @@ export const Sizes = {
     return (
       <>
         <Table
-          style={{ marginRight: "15%" }}
+          style={{ width: "auto" }}
           size={Table.sizes.MEDIUM}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
@@ -233,6 +235,7 @@ export const Sizes = {
           </TableBody>
         </Table>
         <Table
+          style={{ width: "auto" }}
           size={Table.sizes.LARGE}
           errorState={<TableErrorState />}
           emptyState={<TableEmptyState />}
@@ -262,9 +265,9 @@ export const Sizes = {
   },
   decorators: [
     Story => (
-      <span style={{ display: "flex", alignItems: "start", width: "100%" }}>
+      <Flex align={Flex.align.START} justify={Flex.justify.SPACE_AROUND} style={{ flex: 1 }}>
         <Story />
-      </span>
+      </Flex>
     )
   ],
   name: "Sizes"
@@ -338,7 +341,7 @@ export const Borders = {
       }
     ];
     return (
-      <Flex direction={Flex.directions.COLUMN} gap={40}>
+      <>
         <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
           <TableHeader>
             {columns.map((headerCell, index) => (
@@ -383,14 +386,14 @@ export const Borders = {
             ))}
           </TableBody>
         </Table>
-      </Flex>
+      </>
     );
   },
   decorators: [
     Story => (
-      <span style={{ display: "flex", alignItems: "start", width: "100%" }}>
+      <Flex direction={Flex.directions.COLUMN} gap={40}>
         <Story />
-      </span>
+      </Flex>
     )
   ],
   name: "Sizes"
