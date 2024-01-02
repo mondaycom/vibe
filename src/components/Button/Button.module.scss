@@ -74,7 +74,9 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .button:active:not(.preventClickAnimation) {
-  transform: scale(0.95) translate3d(0, 0, 0);
+  --button-scale-factor: 0.95;
+  transform: scale(var(--button-scale-factor)) translate3d(0, 0, 0);
+  margin: calc(1% * (1 - var(--button-scale-factor)));
 }
 
 .button .leftIcon {

@@ -9,7 +9,7 @@ function renderComponent(props) {
   return render(<Button {...props}>{text}</Button>);
 }
 
-describe("<Buttoon />", () => {
+describe("<Button />", () => {
   let clickActionStub;
   let onMouseDownStub;
   let buttonComponent;
