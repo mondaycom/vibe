@@ -1,0 +1,6 @@
+.withoutBottomBorder [role="rowgroup"] {
+  [role="row"] > [role="cell"],
+  > [role="columnheader"] {
+    border-bottom: none;
+  }
+}

@@ -46,6 +46,47 @@ export const doAndDontIconsRuleData = [
   }
 ];
 
+export const doAndDontBordersRuleColumns = [
+  {
+    id: "sentOn",
+    title: "Sent on",
+    width: 150,
+    loadingStateType: "medium-text"
+  },
+  {
+    id: "subject",
+    title: "Subject",
+    loadingStateType: "long-text"
+  },
+  {
+    id: "emailsSent",
+    title: "Emails sent",
+    width: 150,
+    loadingStateType: "medium-text"
+  }
+];
+
+export const doAndDontBordersRuleData = [
+  {
+    id: "1",
+    sentOn: "2020-01-01",
+    subject: "Lorem ipsum dolor",
+    emailsSent: 100
+  },
+  {
+    id: "2",
+    sentOn: "2022-02-02",
+    subject: "This is the subject",
+    emailsSent: 99
+  },
+  {
+    id: "3",
+    sentOn: "2023-03-03",
+    subject: "This is another subject",
+    emailsSent: 999
+  }
+];
+
 export const emailTableData = [
   {
     id: "1",
