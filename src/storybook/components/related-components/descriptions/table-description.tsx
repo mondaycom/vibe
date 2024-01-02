@@ -87,7 +87,7 @@ export const TableDescription = () => {
       component={component}
       title="Table"
       href="/?path=/docs/data-display-table--docs"
-      description="Table component."
+      description="Tables are used to organize data, making it easier to understand."
     />
   );
 };
