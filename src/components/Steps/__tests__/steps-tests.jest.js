@@ -2,7 +2,7 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Steps from "../Steps";
-import { NEXT_DESCRIPTION, BACK_DESCRIPTION } from "../StepsConstants";
+import { NEXT_TEXT, BACK_TEXT } from "../StepsConstants";
 
 jest.useFakeTimers();
 
@@ -25,7 +25,7 @@ describe("Steps tests", () => {
       onChangeActiveStep: onClickMock,
       activeStepIndex: stepsContent.length - 1
     });
-    const backwardButton = steps.getByText(BACK_DESCRIPTION);
+    const backwardButton = steps.getByText(BACK_TEXT);
 
     act(() => {
       fireEvent.click(backwardButton);
@@ -39,7 +39,7 @@ describe("Steps tests", () => {
       onChangeActiveStep: onClickMock,
       activeStepIndex: 0
     });
-    const forwardButton = steps.getByText(NEXT_DESCRIPTION);
+    const forwardButton = steps.getByText(NEXT_TEXT);
 
     act(() => {
       fireEvent.click(forwardButton);
@@ -54,7 +54,7 @@ describe("Steps tests", () => {
       onChangeActiveStep: onClickMock,
       activeStepIndex: 0
     });
-    const backwardButton = steps.getByText(BACK_DESCRIPTION);
+    const backwardButton = steps.getByText(BACK_TEXT);
 
     act(() => {
       fireEvent.click(backwardButton);
@@ -69,7 +69,7 @@ describe("Steps tests", () => {
       onChangeActiveStep: onClickMock,
       activeStepIndex: stepsContent.length - 1
     });
-    const forwardButton = steps.getByText(NEXT_DESCRIPTION);
+    const forwardButton = steps.getByText(NEXT_TEXT);
 
     act(() => {
       fireEvent.click(forwardButton);

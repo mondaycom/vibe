@@ -1,24 +1,10 @@
 .command {
   display: flex;
   align-items: center;
-}
+  gap: 12px;
 
-.backward {
-  &.command {
-    margin-right: var(--spacing-small);
+  &.backward {
     flex-direction: row-reverse;
-  }
-  &.icon {
-    margin-right: 12px;
-  }
-}
-
-.forward {
-  &.command {
-    margin-left: var(--spacing-small);
-  }
-  &.icon {
-    margin-left: 12px;
   }
 }
 

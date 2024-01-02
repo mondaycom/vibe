@@ -1,9 +1,15 @@
-import { useMemo } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import Tipseen from "../../../../components/Tipseen/Tipseen";
 import TipseenWizard from "../../../../components/Tipseen/TipseenWizard";
 
 export const TipseenDescription = () => {
+  const [activeStepIndex, setActiveStepIndex] = useState(2);
+
+  const onChangeActiveStep = useCallback((_e, stepIndex) => {
+    setActiveStepIndex(stepIndex);
+  }, []);
+
   const component = useMemo(() => {
     const style = {
       width: "95%",
@@ -38,13 +44,21 @@ export const TipseenDescription = () => {
           modifiers={modifiers}
           width={280}
           position={Tipseen.positions.RIGHT}
-          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />}
+          content={
+            <TipseenWizard
+              title="This is a title"
+              steps={content}
+              activeStepIndex={activeStepIndex}
+              onChangeActiveStep={onChangeActiveStep}
+              onFinish={() => {}}
+            />
+          }
         >
           <div />
         </Tipseen>
       </div>
     );
-  }, []);
+  }, [activeStepIndex, onChangeActiveStep]);
   return (
     <RelatedComponent
       component={component}

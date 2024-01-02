@@ -42,6 +42,7 @@ export const StepsNumbersDoTemplate = () => {
       nextButtonProps={{
         onClick: stepNext
       }}
+      onFinish={() => {}}
     />
   );
 };
@@ -68,6 +69,7 @@ export const StepsGalleryDontTemplate = () => {
       nextButtonProps={{
         onClick: stepNext
       }}
+      onFinish={() => {}}
     />
   );
 };
