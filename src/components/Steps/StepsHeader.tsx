@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
 import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
-import { StepsType } from "./StepsConstants";
+import { StepsType, FINISH_TEXT } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
-import { ButtonProps } from "../Button/Button";
+import Button, { ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
@@ -16,8 +16,10 @@ export interface StepsHeaderProps extends VibeComponentProps {
   areNavigationButtonsHidden: boolean;
   backButtonProps: ButtonProps;
   nextButtonProps: ButtonProps;
+  finishButtonProps: ButtonProps;
   areButtonsIconsHidden: boolean;
   isOnPrimary: boolean;
+  onFinish?: (e: React.MouseEvent) => void;
 }
 
 export const StepsHeader: FC<StepsHeaderProps> = ({
@@ -28,12 +30,22 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   areNavigationButtonsHidden,
   backButtonProps,
   nextButtonProps,
+  finishButtonProps,
   areButtonsIconsHidden,
   isOnPrimary,
+  onFinish,
   className
 }) => {
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === StepsType.GALLERY ? StepsGalleryHeader : StepsNumbersHeader;
+
+  // TODO: make finish button as default in next major
+  const showFinishButton = useMemo(() => {
+    if (!onFinish) {
+      return;
+    }
+    return activeStepIndex === stepsCount - 1;
+  }, [activeStepIndex, onFinish, stepsCount]);
 
   return (
     <div className={cx(styles.header, className)}>
@@ -55,15 +67,27 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
         isOnPrimary={isOnPrimary}
       />
       {areNavigationButtonsHidden ? null : (
-        <StepsCommand
-          isNext
-          isIconHidden={areButtonsIconsHidden}
-          activeStepIndex={activeStepIndex}
-          onChangeActiveStep={onChangeActiveStep}
-          stepsCount={stepsCount}
-          buttonProps={nextButtonProps}
-          isOnPrimary={isOnPrimary}
-        />
+        <>
+          {showFinishButton ? (
+            <Button
+              onClick={onFinish}
+              color={isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined}
+              {...finishButtonProps}
+            >
+              {finishButtonProps?.children || FINISH_TEXT}
+            </Button>
+          ) : (
+            <StepsCommand
+              isNext
+              isIconHidden={areButtonsIconsHidden}
+              activeStepIndex={activeStepIndex}
+              onChangeActiveStep={onChangeActiveStep}
+              stepsCount={stepsCount}
+              buttonProps={nextButtonProps}
+              isOnPrimary={isOnPrimary}
+            />
+          )}
+        </>
       )}
     </div>
   );

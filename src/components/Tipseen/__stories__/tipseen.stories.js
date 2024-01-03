@@ -110,6 +110,7 @@ export const TipseenWithAWizard = {
               steps={content}
               activeStepIndex={activeStepIndex}
               onChangeActiveStep={onChangeActiveStep}
+              onFinish={() => {}}
             />
           }
         >
