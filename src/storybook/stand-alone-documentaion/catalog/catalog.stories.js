@@ -6,5 +6,10 @@ export default {
 
 export const Catalog = {
   render: () => <CatalogTemplate />,
-  name: "Catalog"
+  name: "Catalog",
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
 };
