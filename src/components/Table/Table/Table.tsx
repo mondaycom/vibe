@@ -11,11 +11,13 @@ import styles from "./Table.module.scss";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
+type Width = number | `${number}%` | `${number}px` | `${number}fr`;
+
 export interface ITableColumn {
   id: string;
   title: string;
   infoContent?: string;
-  width?: number | { min: number; max: number };
+  width?: Width | { min: Width; max: Width };
   icon?: SubIcon;
   loadingStateType?: TableLoadingStateType;
 }
