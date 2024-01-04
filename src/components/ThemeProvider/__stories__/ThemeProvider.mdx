@@ -1,5 +1,6 @@
 import { Canvas, Meta, Story } from "@storybook/blocks";
 import {
+  DescriptionWithLinkMondaySdkIntegration,
   ThemeProviderNegativeExampleTemplate,
   ThemeProviderPositiveExampleTemplate,
   TipDev,
@@ -91,6 +92,12 @@ you can pass it as a prop to <code>ThemeProvider</code>.
 It will set the <code>systemTheme</code> on <code>body</code> tag and will apply the corresponding theme.
 
 <Canvas of={ThemeProviderStories.WithSystemTheme} />
+
+### Integration with monday.com SDK in external applications
+
+<DescriptionWithLinkMondaySdkIntegration />
+
+<Story of={ThemeProviderStories.MondaySdkIntegration} />
 
 ## Do’s and Don’ts
 
