@@ -229,10 +229,11 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             className={styles.splitMenuItemIconButton}
             kind={IconButton.kinds.TERTIARY}
             size={null} // Customizing size via className
-            iconClassName={styles.iconButton}
+            iconClassName={cx(styles.iconButton, { [styles.disabled]: disabled })}
             tabIndex={-1}
             ref={iconButtonElementRef}
             active={shouldShowSubMenu}
+            disabled={disabled}
           />
         </div>
       ) : (
