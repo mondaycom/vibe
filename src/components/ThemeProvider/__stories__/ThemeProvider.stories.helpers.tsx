@@ -186,16 +186,17 @@ export const UsageGuidelinesThemeProvider = () => (
     guidelines={[
       <>
         Control themes in your application by setting theme classes (e.g. <code>.light-app-theme</code>) on your{" "}
-        <code>body</code> and render everything else inside it
+        <code>body</code> and render everything else inside it. Or use <code>systemTheme</code> prop to make
+        ThemeProvider set the theme class on the <code>body</code> for you.
       </>,
       <>
         In most common case ThemeProvider should be rendered only once on the root level of the application - below the{" "}
-        <code>body</code>
+        <code>body</code>.
       </>,
       <>
         ThemeProvider is populating theme name <code>className</code> to {"it's child, so don't put "}
         <code>{"<Fragment>"}</code> (<code>{"<>"}</code>) inside - {` it's not accepting `}
-        <code>className</code> prop
+        <code>className</code> prop.
       </>
     ]}
   />
