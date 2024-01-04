@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.79.0 (2024-01-04)
+
+#### Bug Fixes
+* [#1833](https://github.com/mondaycom/monday-ui-react-core/pull/1833) fix: trigger scaling for menuButton only while clicking ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1867](https://github.com/mondaycom/monday-ui-react-core/pull/1867) feat(Label): add a disabled state to submenu button ([@talkor](https://github.com/talkor))
+* [#1871](https://github.com/mondaycom/monday-ui-react-core/pull/1871) feat(Table): add option to supply %, fr, px as width for table ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1861](https://github.com/mondaycom/monday-ui-react-core/pull/1861) feat(Table): add no border variant ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1826](https://github.com/mondaycom/monday-ui-react-core/pull/1826) feat: add a Finish button to Steps ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1865](https://github.com/mondaycom/monday-ui-react-core/pull/1865) docs: fix <Menu> link in catalog ([@neerajkumarc](https://github.com/neerajkumarc))
+* [#1846](https://github.com/mondaycom/monday-ui-react-core/pull/1846) docs: RelatedComponents - table-description.tsx ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1859](https://github.com/mondaycom/monday-ui-react-core/pull/1859) docs: remove unneeded callbacks ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1860](https://github.com/mondaycom/monday-ui-react-core/pull/1860) test(DatePicker): make tests more deterministic ([@talkor](https://github.com/talkor))
+* [#1858](https://github.com/mondaycom/monday-ui-react-core/pull/1858) ci: check-pr-semantic-title.yml workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.78.0 (2023-12-26)
 
 #### New Features
