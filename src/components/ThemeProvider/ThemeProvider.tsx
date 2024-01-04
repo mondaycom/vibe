@@ -92,10 +92,8 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return null;
   }
 
-  // Pass the theme name as a class to the children - to scope the effect of the theme
-  return React.cloneElement(children, {
-    className: cx(themeConfig?.name, themeClassSpecifier, children?.props?.className)
-  });
+  // Pass the theme name as a class to the div wrapping children - to scope the effect of the theme
+  return <div className={cx(themeConfig?.name, themeClassSpecifier)}>{children}</div>;
 };
 
 export default withStaticProps(ThemeProvider, {
