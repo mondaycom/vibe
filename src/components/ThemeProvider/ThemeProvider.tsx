@@ -24,6 +24,9 @@ export interface ThemeProviderProps {
    * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
    */
   themeClassSpecifier?: string;
+  /**
+   * The system theme to apply to the body element on mount, if there is no theme class name on the body element already
+   */
   systemTheme?: SystemTheme;
 }
 
@@ -37,24 +40,22 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     [customThemeClassSpecifier]
   );
 
+  // Add the systemTheme class name to the body on mount
   useLayoutEffect(() => {
-    console.log("### Body theme effect");
     if (!systemTheme) {
-      console.log("### System theme is null - exit");
       return;
     }
 
     const bodyAppThemeClassName = getBodyThemeClassName();
-    console.log("### bodyAppThemeClassName", bodyAppThemeClassName);
     if (bodyAppThemeClassName) {
-      console.log("### bodyAppThemeClassName is not null - exit");
+      // If there is already a theme class name on the body, we don't want to override it
       return;
     }
 
-    console.log("### addThemeClassNameToBody - ", systemTheme);
     addThemeClassNameToBody(systemTheme);
 
     return () => {
+      // Cleanup the theme class name from the body on ThemeProvider unmount
       removeThemeClassNameFromBody(systemTheme);
     };
   }, [systemTheme]);
