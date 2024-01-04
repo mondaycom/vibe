@@ -68,10 +68,10 @@ export const getBodyThemeClassName = () => {
   return bodyAppThemeClassName;
 };
 
-export const addThemeClassNameToBody = (theme: SystemTheme) => {
-  document.body.classList.add(`${theme}${APP_THEME_SUFFIX}`);
+export const addThemeClassNameToBody = (systemTheme: SystemTheme) => {
+  document.body.classList.add(`${systemTheme}${APP_THEME_SUFFIX}`);
 };
 
-export const removeThemeClassNameFromBody = (theme: SystemTheme) => {
-  document.body.classList.remove(`${theme}${APP_THEME_SUFFIX}`);
+export const removeThemeClassNameFromBody = (systemTheme: SystemTheme) => {
+  document.body.classList.remove(`${systemTheme}${APP_THEME_SUFFIX}`);
 };
