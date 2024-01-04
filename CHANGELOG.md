@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.79.1 (2024-01-04)
+
+#### Bug Fixes
+* [#1866](https://github.com/mondaycom/monday-ui-react-core/pull/1866) fix(Label): change padding according to design ([@talkor](https://github.com/talkor))
+
 ## 2.79.0 (2024-01-04)
 
 #### Bug Fixes
