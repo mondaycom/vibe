@@ -32,7 +32,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    theme: {
+    themeConfig: {
       name: "overview-theme",
       colors: {
         [ThemeProvider.systemThemes.LIGHT]: {
@@ -90,7 +90,7 @@ export const WithSystemTheme = {
         />
         {shouldRenderThemeProvider && (
           <ThemeProvider
-            theme={{
+            themeConfig={{
               name: "with-system-theme",
               colors: {
                 [ThemeProvider.systemThemes.LIGHT]: {

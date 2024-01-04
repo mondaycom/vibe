@@ -13,15 +13,15 @@ import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
   /**
-   * The theme to apply, consists of name - name of css class that will be added to the children, which should be unique - and the object of colors overrides for each system theme.
+   * The theme config to apply, consists of name - name of css class that will be added to the children, which should be unique - and the object of colors overrides for each system theme.
    */
-  theme?: Theme;
+  themeConfig?: Theme;
   /**
    * The children to render with the theme
    */
   children: ReactElement;
   /**
-   * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
+   * String which adds up to theme name selector to make it more specific (in case if themeConfig.name is colliding with some other class name)
    */
   themeClassSpecifier?: string;
   /**
@@ -33,7 +33,7 @@ export interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
+} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
@@ -61,18 +61,18 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   }, [systemTheme]);
 
   useEffect(() => {
-    if (!shouldGenerateTheme(theme)) {
+    if (!shouldGenerateTheme(themeConfig)) {
       return;
     }
-    if (document.getElementById(theme.name)) {
+    if (document.getElementById(themeConfig.name)) {
       setStylesLoaded(true);
       return;
     }
 
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
-    styleElement.id = theme.name;
-    const themeCssOverride = generateThemeCssOverride(theme, themeClassSpecifier);
+    styleElement.id = themeConfig.name;
+    const themeCssOverride = generateThemeCssOverride(themeConfig, themeClassSpecifier);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -85,16 +85,16 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [themeClassSpecifier, theme]);
+  }, [themeClassSpecifier, themeConfig]);
 
-  if (!stylesLoaded && shouldGenerateTheme(theme)) {
+  if (!stylesLoaded && shouldGenerateTheme(themeConfig)) {
     // Waiting for styles to load before children render
     return null;
   }
 
   // Pass the theme name as a class to the children - to scope the effect of the theme
   return React.cloneElement(children, {
-    className: cx(theme?.name, themeClassSpecifier, children?.props?.className)
+    className: cx(themeConfig?.name, themeClassSpecifier, children?.props?.className)
   });
 };
 

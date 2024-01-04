@@ -22,22 +22,22 @@ const generateCss = (object: ThemeColorTokenValueMap, stack: string, parentSelec
   return stack;
 };
 
-export const shouldGenerateTheme = (theme: Theme) => {
-  return !!theme?.colors && !!theme?.name;
+export const shouldGenerateTheme = (themeConfig: Theme) => {
+  return !!themeConfig?.colors && !!themeConfig?.name;
 };
 
-export const generateThemeCssOverride = (theme: Theme, themeClassSpecifier: string) => {
-  if (!shouldGenerateTheme(theme)) {
+export const generateThemeCssOverride = (themeConfig: Theme, themeClassSpecifier: string) => {
+  if (!shouldGenerateTheme(themeConfig)) {
     return null;
   }
 
   let css = "";
-  for (const systemTheme of Object.keys(theme.colors) as SystemTheme[]) {
+  for (const systemTheme of Object.keys(themeConfig.colors) as SystemTheme[]) {
     css +=
       generateCss(
-        theme.colors[systemTheme],
+        themeConfig.colors[systemTheme],
         "",
-        `.${SystemThemeClassMap[systemTheme]} .${themeClassSpecifier}.${theme.name}`
+        `.${SystemThemeClassMap[systemTheme]} .${themeClassSpecifier}.${themeConfig.name}`
       ) + "\n";
   }
 

@@ -13,7 +13,7 @@ describe("ThemeProvider tests", () => {
       name: THEME_NAME
     };
     const { getByTestId } = render(
-      <ThemeProvider theme={theme} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
+      <ThemeProvider themeConfig={theme} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
         <Flex data-testid={"container"}>
           <Button data-testid={"button"} />
         </Flex>
@@ -30,7 +30,7 @@ describe("ThemeProvider tests", () => {
   it("renders children correctly with empty theme", () => {
     const theme = null;
     const { getByTestId } = render(
-      <ThemeProvider theme={theme} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
+      <ThemeProvider themeConfig={theme} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
         <Flex data-testid={"container"}>
           <Button data-testid={"button"} />
         </Flex>

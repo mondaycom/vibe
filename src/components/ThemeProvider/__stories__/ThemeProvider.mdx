@@ -22,7 +22,7 @@ import * as ThemeProviderStories from "./ThemeProvider.stories";
 
 ## Overview
 
-This component helps to customize the colors of library's components by overriding a specific css variables with a values provided within theme object.
+This component helps to customize the colors of library's components by overriding a specific css variables with a values provided within <code>themeConfig</code> object.
 There are 2 levels of theming: **system theme** and **product theme**.
 System theme is a one of a 3 predefined themes: <code>light</code>(<code>.light-app-theme</code>), <code>dark</code>(<code>.dark-app-theme</code>) and <code>black</code>(<code>.black-app-theme</code>).
 Product theme is a custom theme that can be provided by a user, there you can specify the values of specific color tokens for each of the system themes.
@@ -53,7 +53,7 @@ There are 3 system themes <code>light</code>, <code>dark</code> and <code>black<
 
 ### Theming scope
 
-Only components wrapped with ThemeProvider will be affected by the theme.
+Only components wrapped with ThemeProvider will be affected by the <code>themeConfig</code>.
 
 <Canvas>
   <Story of={ThemeProviderStories.ThemingScope} />

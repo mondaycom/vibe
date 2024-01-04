@@ -25,7 +25,7 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
   return (
     <>
       <ThemeProvider
-        theme={{
+        themeConfig={{
           name: "theming-scope-theme",
           colors: {
             [ThemeProvider.systemThemes.LIGHT]: {
@@ -53,7 +53,7 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
 export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "outer-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -65,7 +65,7 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
     >
       <div>
         <ThemeProvider
-          theme={{
+          themeConfig={{
             name: "inner-theme",
             colors: {
               [ThemeProvider.systemThemes.LIGHT]: {
@@ -92,7 +92,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
   const [selectedTheme, setSelectedTheme] = useState(null);
 
   return (
-    <ThemeProvider theme={selectedTheme?.value}>
+    <ThemeProvider themeConfig={selectedTheme?.value}>
       <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
         <Dropdown
           // @ts-ignore
@@ -115,7 +115,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "theme-with-custom-class-selector",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -142,7 +142,7 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
 export const ThemeProviderPositiveExampleTemplate = () => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "positive-example-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -160,7 +160,7 @@ export const ThemeProviderPositiveExampleTemplate = () => {
 export const ThemeProviderNegativeExampleTemplate = () => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "negative-example-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
