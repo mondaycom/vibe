@@ -79,12 +79,16 @@ export const CustomClassSelector = {
 
 export const WithSystemTheme = {
   render: () => {
-    const [shouldRender, setShouldRender] = useState(false);
+    const [shouldRenderThemeProvider, setShouldRenderThemeProvider] = useState(false);
 
     return (
       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-        <Toggle isSelected={shouldRender} onChange={setShouldRender} name={"Render ThemeProvider"} />
-        {shouldRender && (
+        <Toggle
+          isSelected={shouldRenderThemeProvider}
+          onChange={setShouldRenderThemeProvider}
+          name={"Render ThemeProvider"}
+        />
+        {shouldRenderThemeProvider && (
           <ThemeProvider
             theme={{
               name: "with-system-theme",
@@ -92,14 +96,6 @@ export const WithSystemTheme = {
                 [ThemeProvider.systemThemes.LIGHT]: {
                   [ThemeProvider.colors.primaryColor]: "green",
                   [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
-                },
-                [ThemeProvider.systemThemes.DARK]: {
-                  [ThemeProvider.colors.primaryColor]: "salmon",
-                  [ThemeProvider.colors.primaryHoverColor]: "darksalmon"
-                },
-                [ThemeProvider.systemThemes.BLACK]: {
-                  [ThemeProvider.colors.primaryColor]: "slateblue",
-                  [ThemeProvider.colors.primaryHoverColor]: "darkslateblue"
                 }
               }
             }}
