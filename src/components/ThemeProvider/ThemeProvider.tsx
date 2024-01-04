@@ -28,12 +28,16 @@ export interface ThemeProviderProps {
    * The system theme to apply to the body element on mount, if there is no theme class name on the body element already
    */
   systemTheme?: SystemTheme;
+  /**
+   * ClassName to add to the wrapping div
+   */
+  className?: string;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
+} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
@@ -93,7 +97,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
   }
 
   // Pass the theme name as a class to the div wrapping children - to scope the effect of the theme
-  return <div className={cx(themeConfig?.name, themeClassSpecifier)}>{children}</div>;
+  return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
 export default withStaticProps(ThemeProvider, {
