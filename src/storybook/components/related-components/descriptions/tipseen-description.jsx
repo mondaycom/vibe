@@ -64,7 +64,7 @@ export const TipseenDescription = () => {
       component={component}
       title="Tipseen"
       href="/?path=/docs/popover-tipseen--docs"
-      description="Displays information related to an element over it."
+      description="Tipseen is a virtual unboxing experience that helps users get started with the system."
     />
   );
 };

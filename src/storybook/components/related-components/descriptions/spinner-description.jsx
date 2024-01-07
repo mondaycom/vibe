@@ -19,7 +19,7 @@ export const SpinnerDescription = () => {
       component={component}
       title="Spinner"
       href="/?path=/docs/feedback-loader--docs"
-      description="Displays information related to an element over it."
+      description="Circular loader indicates to user waiting state."
     />
   );
 };

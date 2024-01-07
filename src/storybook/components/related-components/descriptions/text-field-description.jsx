@@ -18,7 +18,7 @@ export const TextFieldDescription = () => {
       component={component}
       title="TextField"
       href="/?path=/docs/inputs-textfield--docs"
-      description="Allows users take actions with a single click."
+      description="A text field users can type into."
     />
   );
 };

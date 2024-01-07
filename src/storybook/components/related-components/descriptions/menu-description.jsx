@@ -24,7 +24,7 @@ export const MenuDescription = () => {
       component={component}
       title="Menu"
       href="/?path=/docs/navigation-menu-menu--docs"
-      description="Displays information related to an element over it."
+      description="A menu is a navigable contextual list of items that can be selected."
     />
   );
 };
