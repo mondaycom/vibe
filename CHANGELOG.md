@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.79.2 (2024-01-07)
+
+#### Bug Fixes
+* [#1874](https://github.com/mondaycom/monday-ui-react-core/pull/1874) fix(MenuItemButton): fix type for kind ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.79.1 (2024-01-04)
 
 #### Bug Fixes
