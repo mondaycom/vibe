@@ -1,29 +1,9 @@
 .monday-storybook-tooltip {
   &_box {
-    padding: 20px 50px;
     display: flex;
     gap: 16px;
-  }
-
-  &_icon-wrapper {
-    display: flex;
-    padding: 6px;
-    gap: 8px;
-    align-items: center;
-    background-color: var(--sb-disabled-background-color);
-    cursor: pointer;
-    &:hover {
-      background-color: var(--sb-primary-background-hover-color);
-    }
-  }
-
-  &_icon-box {
-    background-color: var(--sb-color-winter);
-    width: 54px;
-    height: 54px;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    flex: 1;
   }
 
   &_top {

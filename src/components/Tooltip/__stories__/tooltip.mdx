@@ -1,7 +1,7 @@
 import Tooltip from "../Tooltip";
 import { Canvas, Meta, Story } from "@storybook/blocks";
 import { Bolt } from "../../Icon/Icons";
-import Icon from "../../Icon/Icon";
+import IconButton from "../../IconButton/IconButton";
 import Button from "../../Button/Button";
 import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
 import "./tooltip.stories.scss";
@@ -71,9 +71,7 @@ Tooltip’s arrow can have various themes.
       positive: {
         component: (
           <Tooltip shouldShowOnMount content="Open quick search  + B">
-            <div className="monday-storybook-tooltip_icon-box">
-              <Icon icon={Bolt} iconSize="32" />
-            </div>
+            <IconButton icon={Bolt} iconSize="32" kind={IconButton.kinds.SECONDARY} />
           </Tooltip>
         ),
         description: "Use tooltips for adding alternative textual purpose for buttons which do not include any text."
@@ -110,7 +108,7 @@ The definition tooltip provides additional help or defines an item or term. It m
 
 ### Immediate tooltips
 
-Immediately show when another is shown. The two left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
+Immediately show when another one is shown. The two left tooltips use the `immediateShowDelay` show prop with a `0` value, and the right one doesn't, therefore it has a show delay regardelss of the other two.
 
 <Canvas>
   <Story of={TooltipStories.ImmediateTooltips} />

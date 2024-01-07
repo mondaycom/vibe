@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import TooltipLineWrapper from "../../../../components/Tooltip/__stories__/TooltipLineWrapper";
+import Tooltip from "../../../../components/Tooltip/Tooltip";
 
 export const TooltipDescription = () => {
   const component = useMemo(() => {
@@ -9,7 +9,9 @@ export const TooltipDescription = () => {
     };
     return (
       <div style={style}>
-        <TooltipLineWrapper justify="end" />
+        <Tooltip content="Text" shouldShowOnMount>
+          <div />
+        </Tooltip>
       </div>
     );
   }, []);

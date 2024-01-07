@@ -1,8 +1,9 @@
 import Tooltip from "../Tooltip";
 import { capitalize } from "lodash-es";
-import TooltipReference from "./TooltipReference";
-import { Hide, Subitems } from "../../Icon/Icons";
-import Icon from "../../Icon/Icon";
+import { Hide, Info, Bolt, Subitems } from "../../Icon/Icons";
+import ListItem from "../../ListItem/ListItem";
+import ListItemIcon from "../../ListItemIcon/ListItemIcon";
+import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./tooltip.stories.helpers";
 import { TooltipTheme } from "../TooltipConstants";
 import "./tooltip.stories.scss";
@@ -31,12 +32,10 @@ const tooltipTemplate = args => {
 export const Overview = {
   render: tooltipTemplate.bind({}),
   name: "Overview",
-
   args: {
     shouldShowOnMount: true,
-    content: "I’m a tooltip"
+    content: "I'm a tooltip"
   },
-
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
@@ -95,9 +94,6 @@ export const Positions = {
         </>
       );
     },
-
-  name: "Positions",
-
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
@@ -105,70 +101,52 @@ export const Positions = {
   }
 };
 
-export const Themes = {
-  render: () =>
-    Object.values(TooltipTheme).map(theme => (
-      <div className="monday-storybook-tooltip_top" key={theme}>
-        <Tooltip
-          modifiers={modifiers}
-          content={capitalize(theme)}
-          shouldShowOnMount
-          position={Tooltip.positions.BOTTOM}
-          animationType="expand"
-          theme={theme}
-          maxWidth
-        >
-          <div />
-        </Tooltip>
-      </div>
-    )),
-
-  name: "Themes"
-};
-
-export const IconTooltip = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Hidden columns" maxWidth>
-        <div className="monday-storybook-tooltip_icon-wrapper">
-          <Icon icon={Hide} />
-        </div>
+export const Themes = () =>
+  Object.values(TooltipTheme).map(theme => (
+    <div className="monday-storybook-tooltip_top" key={theme}>
+      <Tooltip
+        modifiers={modifiers}
+        content={capitalize(theme)}
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={theme}
+        maxWidth
+      >
+        <div />
       </Tooltip>
     </div>
-  ),
+  ));
 
-  name: "Icon tooltip"
-};
+export const IconTooltip = () => (
+  <div className="monday-storybook-tooltip_box">
+    <Tooltip content="Hidden columns" maxWidth>
+      <IconButton icon={Hide} kind={IconButton.kinds.SECONDARY} />
+    </Tooltip>
+  </div>
+);
 
-export const DefinitionTooltip = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Item name: Bottom sheets" maxWidth>
-        <div className="monday-storybook-tooltip_icon-wrapper">
-          <Icon icon={Subitems} />
-          <span>Subitem</span>
-        </div>
-      </Tooltip>
-    </div>
-  ),
+export const DefinitionTooltip = () => (
+  <div className="monday-storybook-tooltip_box">
+    <Tooltip content="Item name: Bottom sheets" maxWidth>
+      <ListItem>
+        <ListItemIcon icon={Subitems} />
+        <span>Subitem</span>
+      </ListItem>
+    </Tooltip>
+  </div>
+);
 
-  name: "Definition tooltip"
-};
-
-export const ImmediateTooltips = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
-        <TooltipReference />
-      </Tooltip>
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
-        <TooltipReference />
-      </Tooltip>
-      <Tooltip content="I'm a tooltip" maxWidth>
-        <TooltipReference />
-      </Tooltip>
-    </div>
-  ),
-
-  name: "Immediate tooltips"
-};
+export const ImmediateTooltips = () => (
+  <div className="monday-storybook-tooltip_box">
+    <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
+      <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} />
+    </Tooltip>
+    <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
+      <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} />
+    </Tooltip>
+    <Tooltip content="I'm a tooltip" maxWidth>
+      <IconButton icon={Info} kind={IconButton.kinds.SECONDARY} />
+    </Tooltip>
+  </div>
+);
