@@ -4,6 +4,7 @@ import React, { FC, useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
+import { ButtonType } from "../../Button/ButtonConstants";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
@@ -18,7 +19,7 @@ interface MenuItemButtonProps extends VibeComponentProps {
    * @deprecated - use className instead
    */
   classname?: string;
-  kind?: (typeof MenuItemButton.kinds)[keyof typeof MenuItemButton.kinds];
+  kind?: ButtonType;
   leftIcon?: SubIcon;
   rightIcon?: SubIcon;
   index?: number;
