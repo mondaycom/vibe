@@ -24,6 +24,8 @@ export interface EditableTypographyImplementationProps {
   placeholder?: string;
   /** ARIA Label */
   ariaLabel?: string;
+  /** Controls the mode of the component (i.e. view/edit mode) */
+  isEditMode?: boolean;
 }
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
@@ -46,19 +48,24 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       ariaLabel = "",
       placeholder,
       typographyClassName,
-      component: TypographyComponent
+      component: TypographyComponent,
+      isEditMode
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
 
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
+
+    useEffect(() => {
+      setIsEditing(isEditMode);
+    }, [isEditMode]);
 
     function onTypographyClick(event: React.KeyboardEvent | React.MouseEvent) {
       onClick?.(event);
@@ -74,7 +81,10 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }
 
     function handleInputValueChange() {
-      setIsEditing(false);
+      if (!isEditMode) {
+        setIsEditing(false);
+      }
+
       if (!inputValue || value === inputValue) {
         setInputValue(value);
         return;
@@ -163,7 +173,10 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           <AnimatedTypography
             ref={typographyRef}
             aria-hidden={isEditing}
-            className={cx(styles.typography, typographyClassName, { [styles.hidden]: isEditing })}
+            className={cx(styles.typography, typographyClassName, {
+              [styles.hidden]: isEditing,
+              [styles.disabled]: readOnly
+            })}
             tabIndex={0}
             {...typographyAnimationProps}
           >
