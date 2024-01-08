@@ -7,7 +7,7 @@ import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { useIsOverflowing } from "../../hooks";
-import { m as motion, LazyMotion, domAnimation } from "framer-motion";
+import { m as motion, LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
 import { HeadingProps } from "../Heading/Heading";
 import { TextProps } from "../Text/Text";
 
@@ -126,6 +126,12 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       setInputWidth(width);
     }, [inputValue, isEditing]);
 
+    const typographyAnimationProps = {
+      initial: { ...(shouldAnimate && { x: "-100%" }) },
+      animate: { ...(shouldAnimate && { x: 0 }) },
+      transition: { duration: 0.1 }
+    };
+
     return (
       <LazyMotion features={domAnimation}>
         <div
@@ -138,28 +144,28 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           onClick={onTypographyClick}
           onKeyDown={toggleKeyboardEditMode}
         >
-          {isEditing && (
-            <motion.input
-              ref={inputRef}
-              className={cx(styles.input, typographyClassName)}
-              value={inputValue}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
-              aria-label={ariaLabel}
-              placeholder={placeholder}
-              style={{ width: inputWidth }}
-              role="input"
-            />
-          )}
+          <AnimatePresence>
+            {isEditing && (
+              <motion.input
+                ref={inputRef}
+                className={cx(styles.input, typographyClassName)}
+                value={inputValue}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+                onBlur={handleBlur}
+                aria-label={ariaLabel}
+                placeholder={placeholder}
+                style={{ width: inputWidth }}
+                role="input"
+              />
+            )}
+          </AnimatePresence>
           <AnimatedTypography
             ref={typographyRef}
             aria-hidden={isEditing}
             className={cx(styles.typography, typographyClassName, { [styles.hidden]: isEditing })}
-            initial={shouldAnimate && { x: "-50%" }}
-            animate={shouldAnimate && { x: 0 }}
-            transition={{ duration: 0.1 }}
             tabIndex={0}
+            {...typographyAnimationProps}
           >
             {inputValue || placeholder}
           </AnimatedTypography>
