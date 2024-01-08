@@ -24,7 +24,7 @@ export interface EditableTypographyImplementationProps {
   placeholder?: string;
   /** ARIA Label */
   ariaLabel?: string;
-  /** Controles the state of the component (i.e. view/edit mode) */
+  /** Controls the state of the component (i.e. view/edit mode) */
   isEditMode?: boolean;
 }
 
