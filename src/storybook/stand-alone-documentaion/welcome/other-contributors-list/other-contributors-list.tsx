@@ -1,4 +1,5 @@
 import { GithubContributorsList, ContributorsList, Paragraph } from "vibe-storybook-components";
+import { Fragment} from "react";
 import styles from "./other-contributors-list.module.scss";
 
 const excludedContributorsIds: Set<number> = new Set();
@@ -53,7 +54,7 @@ const STATIC_CONTRIBUTORS = [
 
 export const OtherContributorsList = () => {
   return (
-    <div>
+    <>
     <Paragraph className={styles.contributorsList}>
       Special thanks to our founding designers: <ContributorsList contributorsData={STATIC_FOUNDING_DESIGNERS} />
     </Paragraph>
@@ -63,6 +64,6 @@ export const OtherContributorsList = () => {
         staticContributors={STATIC_CONTRIBUTORS}
         excludedContributorsIds={excludedContributorsIds}
       />
-    </div>
+    </>
   );
 };
