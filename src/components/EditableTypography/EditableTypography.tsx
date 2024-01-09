@@ -26,6 +26,8 @@ export interface EditableTypographyImplementationProps {
   ariaLabel?: string;
   /** Controls the mode of the component (i.e. view/edit mode) */
   isEditMode?: boolean;
+  /** Will be called when the mode of the component changes */
+  onEditModeChange?: (isEditMode: boolean) => void;
 }
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
@@ -49,7 +51,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       placeholder,
       typographyClassName,
       component: TypographyComponent,
-      isEditMode
+      isEditMode,
+      onEditModeChange
     },
     ref
   ) => {
@@ -80,11 +83,13 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       setIsEditing(true);
     }
 
-    function handleInputValueChange() {
-      if (!isEditMode) {
-        setIsEditing(false);
-      }
+    function handleEditModeChange(value: boolean) {
+      onEditModeChange?.(value);
+      setIsEditing(value);
+    }
 
+    function handleInputValueChange() {
+      handleEditModeChange(false);
       if (!inputValue || value === inputValue) {
         setInputValue(value);
         return;
@@ -101,7 +106,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
-        setIsEditing(false);
+        handleEditModeChange(false);
         setInputValue(value);
       }
     }
