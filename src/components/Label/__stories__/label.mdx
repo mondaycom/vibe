@@ -93,18 +93,18 @@ A label indicates the status of an item.
       },
       negative: {
         component: [
-          <div className="monday-storybook-label_block" key="uniqueKey1">
+          <div className="monday-storybook-label_block">
             <h5>Categories</h5>
             <div className="monday-storybook-label_inline-block">
-              <Label key="uniqueKey2" text="Featured" />
-              <Label key="uniqueKey3" text="CRM" />
-              <Label key="uniqueKey4" text="Export" />
+              <Label text="Featured" />
+              <Label text="CRM" />
+              <Label text="Export" />
             </div>
           </div>
         ],
         description: (
           <>
-            Don’t use multiple labels for one item. Instead, use{" "}
+            Don’t use multiple lables for one item. Instead, use{" "}
             <StorybookLink page="Data display/Chips">Chips.</StorybookLink>
           </>
         )
@@ -112,19 +112,17 @@ A label indicates the status of an item.
     },
     {
       positive: {
-        component: [<Label key="uniqueKey7"text="New" kind={Label.kinds.LINE} />, <Label key="uniqueKey8" text="Beta" />],
+        component: [<Label text="New" kind={Label.kinds.LINE} />, <Label text="Beta" />],
         description: "Use only the UI colors above."
       },
       negative: {
         component: [
           <Label
-            key="uniqueKey5"
             className="monday-storybook-label_bad-lable monday-storybook-label_purple"
             kind={Label.kinds.LINE}
             text="Beta"
           />,
           <Label
-            key="uniqueKey6"
             className="monday-storybook-label_bad-lable monday-storybook-label_pink"
             kind={Label.kinds.LINE}
             text="Beta"
