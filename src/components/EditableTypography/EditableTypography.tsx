@@ -84,9 +84,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }
 
     function handleEditModeChange(value: boolean) {
-      if (onEditModeChange) {
-        onEditModeChange(value);
-      }
+      onEditModeChange?.(value);
       setIsEditing(value);
     }
 
