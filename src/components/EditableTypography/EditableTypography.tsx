@@ -83,7 +83,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       setIsEditing(true);
     }
 
-    function onModeChange(value: boolean) {
+    function handleEditModeChange(value: boolean) {
       if (onEditModeChange) {
         onEditModeChange(value);
       }
@@ -91,7 +91,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }
 
     function handleInputValueChange() {
-      onModeChange(false);
+      handleEditModeChange(false);
       if (!inputValue || value === inputValue) {
         setInputValue(value);
         return;
@@ -108,7 +108,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
-        onModeChange(false);
+        handleEditModeChange(false);
         setInputValue(value);
       }
     }
