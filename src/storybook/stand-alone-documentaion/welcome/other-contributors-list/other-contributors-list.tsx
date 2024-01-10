@@ -1,5 +1,4 @@
 import { GithubContributorsList, ContributorsList, Paragraph } from "vibe-storybook-components";
-import { Fragment} from "react";
 import styles from "./other-contributors-list.module.scss";
 
 const excludedContributorsIds: Set<number> = new Set();
