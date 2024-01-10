@@ -3,7 +3,7 @@
 @import "../../components/Avatar/AvatarConstants";
 
 .counterContainer {
-  background: var(--primary-background-hover-color);
+  background: var(--ui-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +49,7 @@
   }
   &.light {
     color: var(--primary-text-color);
-    background-color: var(--primary-background-hover-color);
+    background-color: var(--ui-background-color);
   }
 }
 
