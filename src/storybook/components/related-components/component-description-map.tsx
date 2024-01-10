@@ -55,7 +55,7 @@ import { SliderDescription } from "./descriptions/slider-description";
 import { IconDescription } from "./descriptions/icon-description";
 import { BoxDescription } from "./descriptions/box-description";
 import { TableDescription } from "./descriptions/table-description";
-import { VirtualizedGridDescription } from "./descriptions/virtualized-grid-description";
+import { VirtualizedGridDescription } from "./descriptions/virtualized-grid-description/virtualized-grid-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -105,7 +105,7 @@ export const TEXT = "text";
 export const ACCORDION = "accordion";
 export const EXPAND_COLLAPSE = "expand-collapse";
 export const VIRTUALIZED_LIST = "virtualized-list";
-export const VIRTUALIZED_GRID ="virtualized-grid";
+export const VIRTUALIZED_GRID = "virtualized-grid";
 export const COLOR_PICKER = "color-picker";
 export const SLIDER = "slider";
 export const BOX = "box";
@@ -167,7 +167,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
   [ACCORDION, <AccordionDescription />],
   [EXPAND_COLLAPSE, <ExpandCollapseDescription />],
   [VIRTUALIZED_LIST, <VirtualizedListDescription />],
-  [VIRTUALIZED_GRID,<VirtualizedGridDescription/>],
+  [VIRTUALIZED_GRID, <VirtualizedGridDescription />],
   [COLOR_PICKER, <ColorPickerDescription />],
   [BOX, <BoxDescription />],
   [TABLE, <TableDescription />]
