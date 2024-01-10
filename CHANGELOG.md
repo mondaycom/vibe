@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.80.1 (2024-01-09)
+
+#### Bug Fixes
+* [#1883](https://github.com/mondaycom/monday-ui-react-core/pull/1883) feat(EditableTypography): expose mode change event ([@talkor](https://github.com/talkor))
+
+## 2.80.0 (2024-01-08)
+
+#### New Features
+* [#1876](https://github.com/mondaycom/monday-ui-react-core/pull/1876) feat(EditableText): add isEditMode prop ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1875](https://github.com/mondaycom/monday-ui-react-core/pull/1875) docs: change sidebar organization ([@talkor](https://github.com/talkor))
+
 ## 2.79.2 (2024-01-07)
 
 #### Bug Fixes
