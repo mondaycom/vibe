@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { ElementType, forwardRef, useEffect, useLayoutEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -6,10 +6,6 @@ import VibeComponent from "../../types/VibeComponent";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { useIsOverflowing } from "../../hooks";
-import { m as motion, LazyMotion, domAnimation } from "framer-motion";
-import { HeadingProps } from "../Heading/Heading";
-import { TextProps } from "../Text/Text";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -30,7 +26,7 @@ export interface EditableTypographyImplementationProps {
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /** A typography component that is being rendered in view mode */
-  component: ComponentType<HeadingProps | TextProps>;
+  component: ElementType;
   /** Controls the style of the typography component in view mode */
   typographyClassName: string;
 }
@@ -124,10 +120,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [isEditing]);
 
-    const AnimatedTypography = motion(TypographyComponent);
-    const isOverflowing = useIsOverflowing({ ref: typographyRef, ignoreHeightOverflow: true });
-    const shouldAnimate = useMemo(() => isOverflowing && !isEditing, [isEditing, isOverflowing]);
-
     useLayoutEffect(() => {
       if (!typographyRef.current) {
         return;
@@ -137,47 +129,42 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }, [inputValue, isEditing]);
 
     return (
-      <LazyMotion features={domAnimation}>
-        <div
-          ref={mergedRef}
-          id={id}
-          aria-label={ariaLabel}
-          data-testid={dataTestId}
-          className={cx(styles.editableTypography, className)}
-          role={isEditing ? null : "button"}
-          onClick={onTypographyClick}
-          onKeyDown={toggleKeyboardEditMode}
+      <div
+        ref={mergedRef}
+        id={id}
+        aria-label={ariaLabel}
+        data-testid={dataTestId}
+        className={cx(styles.editableTypography, className)}
+        role={isEditing ? null : "button"}
+        onClick={onTypographyClick}
+        onKeyDown={toggleKeyboardEditMode}
+      >
+        {isEditing && (
+          <input
+            ref={inputRef}
+            className={cx(styles.input, typographyClassName)}
+            value={inputValue}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            aria-label={ariaLabel}
+            placeholder={placeholder}
+            style={{ width: inputWidth }}
+            role="input"
+          />
+        )}
+        <TypographyComponent
+          ref={typographyRef}
+          aria-hidden={isEditing}
+          className={cx(styles.typography, typographyClassName, {
+            [styles.hidden]: isEditing,
+            [styles.disabled]: readOnly
+          })}
+          tabIndex={0}
         >
-          {isEditing && (
-            <motion.input
-              ref={inputRef}
-              className={cx(styles.input, typographyClassName)}
-              value={inputValue}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
-              aria-label={ariaLabel}
-              placeholder={placeholder}
-              style={{ width: inputWidth }}
-              role="input"
-            />
-          )}
-          <AnimatedTypography
-            ref={typographyRef}
-            aria-hidden={isEditing}
-            className={cx(styles.typography, typographyClassName, {
-              [styles.hidden]: isEditing,
-              [styles.disabled]: readOnly
-            })}
-            initial={shouldAnimate && { x: "-50%" }}
-            animate={shouldAnimate && { x: 0 }}
-            transition={{ duration: 0.1 }}
-            tabIndex={0}
-          >
-            {inputValue || placeholder}
-          </AnimatedTypography>
-        </div>
-      </LazyMotion>
+          {inputValue || placeholder}
+        </TypographyComponent>
+      </div>
     );
   }
 );
