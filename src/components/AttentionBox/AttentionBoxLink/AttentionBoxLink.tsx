@@ -1,15 +1,25 @@
 import { FC } from "react";
 import styles from "./AttentionBoxLink.module.scss";
+import Link, { LinkProps } from "../../Link/Link";
+import cx from "classnames";
 
-interface AttentionBoxLinkProps {
-  href: string;
-  text: string;
-}
-const AttentionBoxLink: FC<AttentionBoxLinkProps> = ({ href, text }) => {
+const AttentionBoxLink: FC<LinkProps> = ({
+  href,
+  text,
+  // TODO: use Link's target default in next major
+  // For backward compatibility - using _self as default
+  target = Link.target.SELF,
+  className,
+  ...linkProps
+}) => {
   return (
-    <a className={styles.attentionBoxLink} href={href}>
-      {text}
-    </a>
+    <Link
+      className={cx(styles.attentionBoxLink, styles.link, className)}
+      href={href}
+      text={text}
+      target={target}
+      {...linkProps}
+    />
   );
 };
 

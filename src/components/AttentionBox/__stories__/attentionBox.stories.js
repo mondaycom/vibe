@@ -12,6 +12,8 @@ import Flex from "../../Flex/Flex";
 import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import "./attentionBox.stories.scss";
+import Heading from "../../Heading/Heading";
+import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
@@ -50,7 +52,7 @@ export const States = {
       <StoryDescription description="Primary">
         <AttentionBox
           title="Enabling SSO Login"
-          text="Will cause all yout team lose access to the account until using the correct SSO source."
+          text="Will cause all your team lose access to the account until using the correct SSO source."
           className="monday-storybook-attention-box_box"
           icon={Info}
         />
@@ -96,25 +98,17 @@ export const States = {
 };
 
 export const AttentionBoxWithLink = {
-  /**Class name for setting a constant width to the attention box*/
   render: () => {
     return (
-      <AttentionBox compact icon={Info} className="monday-storybook-attention-box--fixed-width">
-        <Flex
-          style={{
-            width: "100%"
-          }}
-          justify={Flex.justify.SPACE_BETWEEN}
-          gap={Flex.gaps.XS}
-        >
+      /** Classname for setting a constant width to the attention box */
+      <AttentionBox compact className="monday-storybook-attention-box--fixed-width">
+        <Flex justify={Flex.justify.SPACE_BETWEEN} gap={Flex.gaps.XS}>
           Get your monday.com notifications
           <AttentionBoxLink href="" text="Learn more" />
         </Flex>
       </AttentionBox>
     );
-  },
-
-  name: "Attention box with link"
+  }
 };
 
 export const Dismissable = {
