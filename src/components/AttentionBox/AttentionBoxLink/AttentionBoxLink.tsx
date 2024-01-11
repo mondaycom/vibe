@@ -13,13 +13,7 @@ const AttentionBoxLink: FC<LinkProps> = ({
   ...linkProps
 }) => {
   return (
-    <Link
-      className={cx(styles.attentionBoxLink, styles.link, className)}
-      href={href}
-      text={text}
-      target={target}
-      {...linkProps}
-    />
+    <Link className={cx(styles.attentionBoxLink, className)} href={href} text={text} target={target} {...linkProps} />
   );
 };
 
