@@ -12,8 +12,6 @@ import Flex from "../../Flex/Flex";
 import Favorite from "../../Icon/Icons/components/Favorite";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
 import "./attentionBox.stories.scss";
-import Heading from "../../Heading/Heading";
-import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AttentionBox,
