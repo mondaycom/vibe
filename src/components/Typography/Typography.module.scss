@@ -2,6 +2,7 @@
 @import "../../styles/states";
 
 .typography {
+  // TODO: use anchor tags in Link component
   a {
     text-decoration: none;
     color: var(--link-color);
