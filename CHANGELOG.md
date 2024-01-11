@@ -1,3 +1,8 @@
+
+0.1.207 / 2023-12-26
+====================
+  * Prettify everything ([#265](https://github.com/mondaycom/monday-ui-style/issues/265))
+
 0.1.206 / 2023-12-14
 ====================
   * fix(icons): change feedback svg ([#264](https://github.com/mondaycom/monday-ui-style/issues/264))
@@ -275,22 +280,3 @@
 0.1.163 / 2023-06-28
 ====================
   * fix some typography issues ([#208](https://github.com/mondaycom/monday-ui-style/issues/208))
-
-0.1.162 / 2023-06-20
-====================
-  * replace switcher icon according to designers request ([#205](https://github.com/mondaycom/monday-ui-style/issues/205))
-
-0.1.161 / 2023-06-18
-====================
-  * New names and fixes in typography tokens ([#204](https://github.com/mondaycom/monday-ui-style/issues/204))
-    * add new tokens for typography
-    * fix recommendation to use
-    * undo automatic linter
-    * fix variables
-    * code review notes and classes layer
-    * fix classes creation
-    * fix tests
-    * wip
-    * wip
-    * fixes
-    * fixes
