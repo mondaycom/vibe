@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.80.2 (2024-01-14)
+
+#### Bug Fixes
+* [#1891](https://github.com/mondaycom/monday-ui-react-core/pull/1891) fix(TableVirtualizedBody): take height of header into consideration ([@talkor](https://github.com/talkor))
+* [#1887](https://github.com/mondaycom/monday-ui-react-core/pull/1887) fix: replace primary-background-hover color in non-hover ([@talkor](https://github.com/talkor))
+* [#1882](https://github.com/mondaycom/monday-ui-react-core/pull/1882) fix(TableCellSkeleton): circle and rectangle loading types are broken (have width 0) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1892](https://github.com/mondaycom/monday-ui-react-core/pull/1892) docs: add virtualized grid description and component ([@Suraj-Bhandarkar-S](https://github.com/Suraj-Bhandarkar-S))
+* [#1880](https://github.com/mondaycom/monday-ui-react-core/pull/1880) docs: fix typo in Label and and warning in OtherContributorsList ([@Suraj-Bhandarkar-S](https://github.com/Suraj-Bhandarkar-S))
+* [#1884](https://github.com/mondaycom/monday-ui-react-core/pull/1884) docs: fix font weights in typography examples' mixin ([@prathamnagpure](https://github.com/prathamnagpure))
+
+#### Internal Changes
+* [#1885](https://github.com/mondaycom/monday-ui-react-core/pull/1885) chore(EditableTypography): remove animation ([@talkor](https://github.com/talkor))
+
 ## 2.80.1 (2024-01-09)
 
 #### Bug Fixes
