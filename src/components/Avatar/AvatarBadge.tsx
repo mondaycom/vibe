@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { ElementType, ReactElement } from "react";
+import React, { ElementType } from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
