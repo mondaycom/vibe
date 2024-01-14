@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React from "react";
+import React, { ElementType, ReactElement } from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -10,6 +10,7 @@ import styles from "./AvatarBadge.module.scss";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   src?: string;
+  component?: ElementType;
   ariaLabel?: string;
   tabIndex?: string | number;
   className?: string;
@@ -20,6 +21,7 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   sizes?: typeof AvatarSize;
 } = ({
   src,
+  component: SVGComponent,
   ariaLabel,
   tabIndex = 0,
   className,
@@ -28,6 +30,10 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   "data-testid": dataTestId,
   ...otherProps
 }) => {
+  if (SVGComponent) {
+    return <SVGComponent />;
+  }
+
   return src ? (
     <CustomSvgIcon
       src={src}
