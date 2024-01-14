@@ -2,6 +2,7 @@ import React, { ComponentProps, CSSProperties, FC, useCallback } from "react";
 import { VibeComponentProps } from "../../../types";
 import VirtualizedList, { VirtualizedListItem } from "../../VirtualizedList/VirtualizedList";
 import TableBody from "../TableBody/TableBody";
+import styles from "./TableVirtualizedBody.module.scss";
 
 export interface ITableVirtualizedBodyProps extends VibeComponentProps {
   items: ComponentProps<typeof VirtualizedList>["items"];
@@ -18,7 +19,7 @@ const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRender
   );
 
   return (
-    <TableBody>
+    <TableBody className={styles.tableBody}>
       <VirtualizedList items={items} itemRenderer={itemRenderer} getItemHeight={() => 40} layout="vertical" />
     </TableBody>
   );
