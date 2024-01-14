@@ -30,18 +30,29 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   "data-testid": dataTestId,
   ...otherProps
 }) => {
+  const classNames = cx(getStyle(styles, camelCase("badge--" + size)), className);
+  const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
+
   if (SVGComponent) {
-    return <SVGComponent />;
+    return (
+      <SVGComponent
+        ariaLabel={ariaLabel}
+        className={classNames}
+        clickable={tabIndex === -1}
+        {...otherProps}
+        data-testid={testId}
+      />
+    );
   }
 
   return src ? (
     <CustomSvgIcon
       src={src}
       ariaLabel={ariaLabel}
-      className={cx(getStyle(styles, camelCase("badge--" + size)), className)}
+      className={classNames}
       clickable={tabIndex === -1}
       {...otherProps}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id)}
+      data-testid={testId}
     />
   ) : null;
 };
