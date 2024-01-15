@@ -12,6 +12,9 @@ import { SubIcon } from "../../types";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   src?: string;
+  /**
+   * Use to provide SVG Components
+   */
   icon?: SubIcon;
   ariaLabel?: string;
   tabIndex?: string | number;
