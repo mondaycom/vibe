@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.81.0 (2024-01-15)
+
+#### New Features
+* [#1890](https://github.com/mondaycom/monday-ui-react-core/pull/1890) feat(AttentionBoxLink): use link component ([@talkor](https://github.com/talkor))
+
 ## 2.80.2 (2024-01-14)
 
 #### Bug Fixes
