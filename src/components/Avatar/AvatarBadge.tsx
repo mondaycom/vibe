@@ -2,15 +2,17 @@ import { camelCase } from "lodash-es";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { ElementType } from "react";
+import React from "react";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AvatarSize } from "./AvatarConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./AvatarBadge.module.scss";
+import Icon from "../Icon/Icon";
+import { SubIcon } from "../../types";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   src?: string;
-  component?: ElementType;
+  icon?: SubIcon;
   ariaLabel?: string;
   tabIndex?: string | number;
   className?: string;
@@ -21,7 +23,7 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   sizes?: typeof AvatarSize;
 } = ({
   src,
-  component: SVGComponent,
+  icon,
   ariaLabel,
   tabIndex = 0,
   className,
@@ -33,10 +35,11 @@ export const AvatarBadge: React.FC<AvatarBadgeProps> & {
   const classNames = cx(getStyle(styles, camelCase("badge--" + size)), className);
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
 
-  if (SVGComponent) {
+  if (icon) {
     return (
-      <SVGComponent
-        ariaLabel={ariaLabel}
+      <Icon
+        icon={icon}
+        iconLabel={ariaLabel}
         className={classNames}
         clickable={tabIndex === -1}
         {...otherProps}
