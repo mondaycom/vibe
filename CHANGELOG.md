@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.82.0 (2024-01-16)
+
+#### New Features
+* [#1893](https://github.com/mondaycom/monday-ui-react-core/pull/1893) feat(AvatarBadge): add an icon prop ([@talkor](https://github.com/talkor))
+
 ## 2.81.0 (2024-01-15)
 
 #### New Features
