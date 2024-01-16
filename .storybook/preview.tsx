@@ -31,7 +31,7 @@ import {
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
-import introCode from "./playground-helpers";
+import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
