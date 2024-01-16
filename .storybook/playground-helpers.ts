@@ -6,22 +6,21 @@ export const jsx = `<div className="container">
     </VibeNext.Heading>
   </div>
   <div>
-    <Text>
-      Can't see the code editor?
-      <br />
-      Click on the <VibeIcons.Settings /> button on the left panel and select
-      the <b>"Change Addons Orientation"</b>{" "}
-    </Text>
+    <Text type={Text.types.TEXT2}>Can't see the code editor?</Text>
+    <Text type={Text.types.TEXT2} element="span">Click on the <VibeIcons.Settings /> button on the left panel and select the</Text>
+    <Text type={Text.types.TEXT2} element="span" weight={Text.weights.BOLD}>"Change Addons Orientation"</Text>
   </div>
-  <div>
-    <Button onClick={() => alert("isn't that nice?")}>Click me</Button>
-  </div>
+  <Button onClick={() => alert("isn't that nice?")} className="action-button">Click me</Button>
 </div>`;
 
 export const css = `.container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--spacing-medium);
+}
+
+.action-button {
+  align-self: flex-start;
 }`;
 
 export default { jsx, css };
