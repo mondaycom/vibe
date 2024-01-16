@@ -5,4 +5,8 @@ export default {
   decorators: [withPlaygroundRenderer]
 };
 
-export const Playground = {};
+export const Playground = {
+  parameters: {
+    chromatic: { disable: true }
+  }
+};
