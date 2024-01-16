@@ -1,6 +1,7 @@
 const publishedTSComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  TextArea: "components/TextArea/TextArea",
   EditableText: "components/EditableText/EditableText",
   Badge: "components/Badge/Badge",
   Text: "components/Text/Text",

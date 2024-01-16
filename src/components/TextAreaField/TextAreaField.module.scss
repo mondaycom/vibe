@@ -1,0 +1,152 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/typography";
+
+.textAreaField {
+  position: relative;
+  box-sizing: border-box;
+  @include font-input;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+.textAreaField * {
+  box-sizing: border-box;
+}
+
+.textAreaField .labelWrapper {
+  width: 100%;
+}
+
+.textAreaField .subTextContainer {
+  display: flex;
+  @include smoothing-text;
+  padding-block: 1px;
+}
+
+.textAreaField .subTextContainer .counter {
+  margin-left: auto;
+}
+
+.textAreaField.disabled .icon {
+  cursor: not-allowed;
+}
+
+.textAreaField.disabled .textAreaInputWrapper {
+  cursor: not-allowed;
+}
+
+.textAreaField.disabled .textAreaInputWrapper .textAreaInput {
+  user-select: none;
+  border: none;
+  pointer-events: none;
+  background-color: var(--disabled-background-color);
+  cursor: not-allowed;
+}
+
+.textAreaField.disabled .textAreaInputWrapper .textAreaInput::placeholder {
+  color: var(--disabled-text-color);
+}
+
+.textAreaField .textAreaInputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput {
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  background-color: var(--secondary-background-color);
+  border: 1px solid;
+  border-color: var(--ui-border-color);
+  border-radius: var(--border-radius-small);
+  transition: border-color var(--motion-productive-medium) ease-in;
+  padding: var(--spacing-small) var(--spacing-medium);
+  color: var(--primary-text-color);
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput.inputHover {
+  border-color: var(--primary-text-color);
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput:focus,
+.textAreaField .textAreaInputWrapper .textAreaInput:active,
+.textAreaField .textAreaInputWrapper .textAreaInput.inputActive {
+  border-color: var(--primary-color);
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput::placeholder {
+  color: var(--secondary-text-color);
+  font-weight: 400;
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput.inputHasIcon {
+  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-medium);
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput.round {
+  border-radius: 50px;
+}
+
+.textAreaField .textAreaInputWrapper .textAreaInput.square {
+  border-radius: 0;
+}
+
+.textAreaField .textAreaInputWrapper.inputErrorValidation:hover .textAreaInput {
+  border-color: var(--negative-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputErrorValidation .textAreaInput {
+  border-color: var(--negative-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputErrorValidation .textAreaInput:focus,
+.textAreaField .textAreaInputWrapper.inputErrorValidation .textAreaInput:active {
+  border-color: var(--negative-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus {
+  color: var(--negative-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputSuccessValidation:hover .textAreaInput {
+  border-color: var(--positive-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputSuccessValidation .textAreaInput {
+  border-color: var(--positive-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputSuccessValidation .textAreaInput:focus,
+.textAreaField .textAreaInputWrapper.inputSuccessValidation .textAreaInput:active {
+  border-color: var(--positive-color);
+}
+
+.textAreaField .textAreaInputWrapper.inputSuccessValidation + .subTextContainer .subTextContainerStatus {
+  color: var(--positive-color);
+}
+
+.textAreaField .textAreaInputWrapper:hover .textAreaInput {
+  border-color: var(--primary-text-color);
+}
+
+.textAreaField .textAreaInputWrapper .loaderContainer {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textAreaField .textAreaInputWrapper .loaderContainer .loader {
+  width: 16px;
+  height: 16px;
+}
+
+.textAreaField .textAreaInputWrapper .loaderContainer .loader .loaderSvg {
+  color: var(--secondary-text-color);
+}

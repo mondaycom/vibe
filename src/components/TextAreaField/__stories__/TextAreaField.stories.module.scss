@@ -1,0 +1,17 @@
+.mondayStorybookTextAreaField {
+  &Wrapper {
+    display: flex;
+  }
+
+  &ColumnWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 32px;
+    margin-right: 32px;
+  }
+
+  &Spacing {
+    padding-top: 32px
+  }
+}

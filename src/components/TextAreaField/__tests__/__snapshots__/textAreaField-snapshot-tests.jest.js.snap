@@ -1,0 +1,696 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextAreaField renders correctly when disabled 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField disabled"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={true}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly when loading 1`] = `
+<div
+  aria-busy={true}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+      <div
+        className="loaderContainer"
+      >
+        <div
+          className="loader"
+        >
+          <div
+            className="loaderContainer"
+            data-testid="loader"
+            role="alert"
+            title="loading"
+          >
+            <svg
+              aria-hidden={true}
+              className="circleLoaderSpinner loaderSvg"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                className="circleLoaderSpinnerPath"
+                cx="25"
+                cy="25"
+                fill="none"
+                r="20"
+                strokeWidth="5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly when readonly 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={true}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly when required 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={true}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with className 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="testClassName textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with className 2`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="testClassName textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with iconsNames 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with id 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_testId-wrapper"
+  id="testId"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_testId"
+        disabled={false}
+        id="testId"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with labelIconName 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with min and max length 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={100}
+        minLength={10}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with placeholder 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label="placeholder"
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder="placeholder"
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with showCharCount 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+    <div
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      data-testid="text"
+    >
+      <span
+        aria-label="Input char count"
+        className="counter"
+      >
+        0
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with validation 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper inputErrorValidation"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={true}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+    <div
+      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      data-testid="text"
+    >
+      <span
+        className="subTextContainerStatus"
+      >
+        error
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with value 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value="value"
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextAreaField renders correctly with wrapperClassName 1`] = `
+<div
+  aria-busy={false}
+  className="textAreaField testClassName"
+  data-testid="text-area_input-wrapper"
+  id="input"
+  role=""
+>
+  <div
+    className="labelWrapper"
+  >
+    <div
+      className="textAreaInputWrapper"
+    >
+      <textarea
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        autoComplete="off"
+        className="textAreaInput"
+        cols={0}
+        data-testid="text-area_input"
+        disabled={false}
+        id="input"
+        maxLength={0}
+        minLength={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onWheel={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        rows={0}
+        value=""
+        wrap="hard"
+      />
+    </div>
+  </div>
+</div>
+`;
