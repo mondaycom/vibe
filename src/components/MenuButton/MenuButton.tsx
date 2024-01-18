@@ -4,7 +4,7 @@ import { camelCase } from "lodash-es";
 import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
@@ -102,6 +102,10 @@ interface MenuButtonProps extends VibeComponentProps {
    */
   tooltipReferenceClassName?: string;
   /**
+   * Tooltip Element Wrapper ClassName
+   */
+  tooltipProps?: TooltipProps;
+  /**
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
   hideWhenReferenceHidden?: boolean;
@@ -154,6 +158,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       disabled = false,
       text,
       tooltipContent,
+      tooltipProps,
       // Backward compatibility for props naming
       disabledReason,
       tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
@@ -309,6 +314,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
+        {...tooltipProps}
       >
         <Dialog
           wrapperClassName={dialogClassName}
