@@ -75,6 +75,7 @@
     "storybook": "storybook dev -p 7008",
     "build-storybook": "npm run build:storybook-exports && storybook build",
     "deploy-storybook": "storybook-to-ghpages",
+    "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
     "plop": "plop",
     "add-ref-to-icons": "node ./scripts/add-forward-ref-icons.js",
