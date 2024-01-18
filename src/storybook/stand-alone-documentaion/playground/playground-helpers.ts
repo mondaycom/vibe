@@ -1,17 +1,38 @@
-export const jsx = `<div className="container">
-  <div>
-    <VibeNext.Heading>Online Playground</VibeNext.Heading>
-    <VibeNext.Heading type="h3" color="secondary">
-      Prototype with actual components
-    </VibeNext.Heading>
-  </div>
-  <div>
-    <Text type={Text.types.TEXT2}>Can't see the code editor?</Text>
-    <Text type={Text.types.TEXT2} element="span">Click on the <VibeIcons.Settings /> button on the left panel and select the</Text>
-    <Text type={Text.types.TEXT2} element="span" weight={Text.weights.BOLD}>"Change Addons Orientation"</Text>
-  </div>
-  <Button onClick={() => alert("isn't that nice?")} className="action-button">Click me</Button>
-</div>`;
+export const jsx = `() => {
+  const [timesClicked, setTimesClicked] = React.useState<boolean>(0);
+
+  function onButtonClick(): void {
+    if (timesClicked === 0) {
+      alert("isn't that nice?");
+    }
+    setTimesClicked(prev => prev + 1);
+  }
+
+  return (
+    <Flex direction={Flex.directions.COLUMN} align={Flex.align.START} gap={Flex.gaps.MEDIUM}>
+      <div>
+        <VibeNext.Heading>Online Playground</VibeNext.Heading>
+        <VibeNext.Heading type={VibeNext.Heading.types.H3} color={VibeNext.Heading.colors.SECONDARY}>
+          Prototype with actual components
+        </VibeNext.Heading>
+      </div>
+      <div>
+        <Text>Can't see the code editor?</Text>
+        <Text element="span">
+          Click on the <VibeIcons.Settings /> button on the left panel and
+          select the{" "}
+        </Text>
+        <Text element="span" weight={Text.weights.BOLD}>
+          "Change Addons Orientation"
+        </Text>
+      </div>
+      <Button onClick={onButtonClick}>
+        Click me
+      </Button>
+      <Text>Button has been clicked {timesClicked} times</Text>
+    </Flex>
+  );
+}`;
 
 export const css = `.container {
   display: flex;
