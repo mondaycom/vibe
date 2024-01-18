@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.83.0 (2024-01-18)
+
+#### New Features
+* [#1901](https://github.com/mondaycom/monday-ui-react-core/pull/1901) feat: add tooltip props ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1900](https://github.com/mondaycom/monday-ui-react-core/pull/1900) chore(chromatic): add a command to run chromatic locally ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.82.1 (2024-01-18)
 
 #### Documentation
