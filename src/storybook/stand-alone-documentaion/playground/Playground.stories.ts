@@ -1,8 +1,8 @@
-import { withPlaygroundRenderer } from "storybook-addon-playground";
+import { withPlayground } from "storybook-addon-playground";
 
 export default {
   title: "Playground",
-  decorators: [withPlaygroundRenderer]
+  decorators: [withPlayground]
 };
 
 export const Playground = {
