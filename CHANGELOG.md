@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.82.1 (2024-01-18)
+
+#### Documentation
+* [#1899](https://github.com/mondaycom/monday-ui-react-core/pull/1899) chore: update Playground addon ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1895](https://github.com/mondaycom/monday-ui-react-core/pull/1895) chore: update Playground addon ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.82.0 (2024-01-16)
 
 #### New Features
