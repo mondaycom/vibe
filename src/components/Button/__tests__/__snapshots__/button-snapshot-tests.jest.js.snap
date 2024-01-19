@@ -9,6 +9,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
   aria-haspopup={false}
   aria-label="text"
   aria-labelledby="id"
+  aria-pressed={false}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}
@@ -31,6 +32,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
   aria-haspopup={true}
   aria-label="text"
   aria-labelledby="id"
+  aria-pressed={true}
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="button"
   onBlur={[Function]}

@@ -78,7 +78,14 @@ describe("Button renders correctly", () => {
     it("renders correctly with a11y props (false)", () => {
       const tree = renderer
         .create(
-          <Button ariaLabel="text" ariaControls="area" ariaExpanded={false} ariaLabeledBy="id" ariaHasPopup={false}>
+          <Button
+            ariaLabel="text"
+            ariaControls="area"
+            ariaExpanded={false}
+            ariaLabeledBy="id"
+            ariaPressed={false}
+            ariaHasPopup={false}
+          >
             Button
           </Button>
         )
@@ -89,7 +96,14 @@ describe("Button renders correctly", () => {
     it("renders correctly with a11y props (true)", () => {
       const tree = renderer
         .create(
-          <Button ariaLabel="text" ariaControls="area" ariaExpanded={true} ariaLabeledBy="id" ariaHasPopup={true}>
+          <Button
+            ariaLabel="text"
+            ariaControls="area"
+            ariaExpanded={true}
+            ariaLabeledBy="id"
+            ariaPressed={true}
+            ariaHasPopup={true}
+          >
             Button
           </Button>
         )

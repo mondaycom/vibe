@@ -76,6 +76,16 @@ describe("IconButton renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with aria pressed true", () => {
+    const tree = renderer.create(<IconButton ariaPressed={true} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with aria pressed false", () => {
+    const tree = renderer.create(<IconButton ariaPressed={false} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with active", () => {
     const tree = renderer.create(<IconButton active />).toJSON();
     expect(tree).toMatchSnapshot();

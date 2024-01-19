@@ -40,6 +40,10 @@ export interface IconButtonProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
+   * a11y property to be added, used for screen reader to know if a button is pressed
+   */
+  ariaPressed?: boolean;
+  /**
    * a11y property to be added, used for screen reader to know if the button is expanded
    */
   ariaExpanded?: boolean;
@@ -100,6 +104,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       tooltipProps = {} as TooltipProps,
       tooltipContent,
       ariaLabel,
+      ariaPressed,
       ariaExpanded,
       hideTooltip = false,
       kind = IconButton.kinds.TERTIARY,
@@ -182,6 +187,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             color={color}
             kind={kind}
             ariaLabel={buttonAriaLabel}
+            ariaPressed={ariaPressed}
             ariaExpanded={ariaExpanded}
             ref={mergedRef}
             id={id}

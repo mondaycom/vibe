@@ -64,6 +64,8 @@ export interface ButtonProps extends VibeComponentProps {
   ariaLabeledBy?: string;
   /** aria label to provide important when providing only Icon */
   ariaLabel?: string;
+  /** aria for if the button is pressed */
+  ariaPressed?: boolean;
   /** aria for a button popup */
   ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /** aria to be set if the popup is open */
@@ -124,6 +126,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       type,
       onMouseDown,
       ariaLabel,
+      ariaPressed,
       rightFlat,
       leftFlat,
       preventClickAnimation,
@@ -258,6 +261,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-busy": loading,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
+        "aria-pressed": ariaPressed,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
@@ -282,6 +286,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       loading,
       ariaLabeledBy,
       ariaLabel,
+      ariaPressed,
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
@@ -417,6 +422,7 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
+  ariaPressed: undefined,
   insetFocus: false
 };
 
