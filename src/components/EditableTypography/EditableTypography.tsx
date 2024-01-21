@@ -6,6 +6,7 @@ import VibeComponent from "../../types/VibeComponent";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
+import { TooltipProps } from "../Tooltip/Tooltip";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -24,6 +25,8 @@ export interface EditableTypographyImplementationProps {
   isEditMode?: boolean;
   /** Will be called when the mode of the component changes */
   onEditModeChange?: (isEditMode: boolean) => void;
+  /** Override Tooltip props when needed */
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
@@ -48,7 +51,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       typographyClassName,
       component: TypographyComponent,
       isEditMode,
-      onEditModeChange
+      onEditModeChange,
+      tooltipProps
     },
     ref
   ) => {
@@ -166,6 +170,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             [styles.disabled]: readOnly
           })}
           tabIndex={0}
+          {...tooltipProps}
         >
           {inputValue || placeholder}
         </TypographyComponent>
