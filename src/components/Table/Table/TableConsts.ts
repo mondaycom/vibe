@@ -9,5 +9,3 @@ export const RowHeights = {
   [RowSizes.MEDIUM]: 40,
   [RowSizes.LARGE]: 48
 };
-
-export type RowSize = typeof RowSizes;
