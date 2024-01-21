@@ -15,9 +15,9 @@ import { themeProviderSystemThemeSuite } from "../__tests__/themeProvider.intera
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  enumPropNamesArray: [],
+  iconPropNamesArray: [],
+  actionPropsArray: []
 });
 
 export default {
@@ -94,12 +94,6 @@ export const WithSystemTheme = {
       }
     };
 
-    const ToggleButton = ({ className }) => (
-      <Button onClick={onToggleButtonClick} className={className} data-testid={"system-theme-toggle-button"}>
-        Themed
-      </Button>
-    );
-
     return (
       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
         <ThemeProvider
@@ -114,10 +108,13 @@ export const WithSystemTheme = {
           }}
           systemTheme={systemTheme}
         >
-          <ToggleButton />
+          <Button onClick={onToggleButtonClick} data-testid={"system-theme-toggle-button"}>
+            Themed
+          </Button>
         </ThemeProvider>
       </Flex>
     );
   },
-  name: "With systemTheme"
+  name: "With systemTheme",
+  play: themeProviderSystemThemeSuite
 };
