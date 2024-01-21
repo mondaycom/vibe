@@ -48,7 +48,7 @@ export interface MenuItemProps extends VibeComponentProps {
   tooltipContent?: string;
   tooltipPosition?: TooltipPosition;
   tooltipShowDelay?: number;
-  tooltipProps?: TooltipProps;
+  tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
   /**
