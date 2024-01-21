@@ -57,7 +57,7 @@ export const generateRandomAlphaString = (length = 6) => {
 
 const APP_THEME_SUFFIX = "-app-theme";
 
-export const getBodyThemeClassName = () => {
+export const getBodySystemThemeClassName = () => {
   const classList = document.body.classList;
   let bodyAppThemeClassName: string = null;
   classList.forEach(className => {
@@ -68,10 +68,10 @@ export const getBodyThemeClassName = () => {
   return bodyAppThemeClassName;
 };
 
-export const addThemeClassNameToBody = (theme: SystemTheme) => {
-  document.body.classList.add(`${theme}${APP_THEME_SUFFIX}`);
+export const addSystemThemeClassNameToBody = (systemTheme: SystemTheme) => {
+  document.body.classList.add(`${systemTheme}${APP_THEME_SUFFIX}`);
 };
 
-export const removeThemeClassNameFromBody = (theme: SystemTheme) => {
-  document.body.classList.remove(`${theme}${APP_THEME_SUFFIX}`);
+export const removeSystemThemeClassNameFromBody = (systemTheme: SystemTheme) => {
+  document.body.classList.remove(`${systemTheme}${APP_THEME_SUFFIX}`);
 };
