@@ -204,7 +204,8 @@ export const UsageGuidelinesThemeProvider = () => (
 
 export const DescriptionWithLinkMondaySdkIntegration = () => (
   <>
-    When developing an external application for monday.com (iframe). You can use <code><ThemeProvider/></code> in combination with the{" "}
+    When developing an external application for monday.com (iframe). You can use <code>ThemeProvider</code> in
+    combination with the{" "}
     <Link
       href="https://developer.monday.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
       withoutSpacing
@@ -227,9 +228,7 @@ const useGetContext = () => {
   
   useEffect(() => {
     monday.listen("context", (res) => {
-      setContext((previousContext) =>
-        isMatch(previousContext, res.data) ? previousContext : res.data
-      );
+      setContext(res.data);
     });
   }, []);
   
