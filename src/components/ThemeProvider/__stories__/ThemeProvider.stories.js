@@ -10,8 +10,8 @@ import {
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories.helpers";
 import Flex from "../../Flex/Flex";
-import Toggle from "../../Toggle/Toggle";
 import Button from "../../Button/Button";
+import { themeProviderSystemThemeSuite } from "../__tests__/themeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
@@ -79,31 +79,43 @@ export const CustomClassSelector = {
 
 export const WithSystemTheme = {
   render: () => {
-    const [shouldRenderThemeProvider, setShouldRenderThemeProvider] = useState(false);
+    const [systemTheme, setSystemTheme] = useState(null);
+
+    const onToggleButtonClick = () => {
+      switch (systemTheme) {
+        case ThemeProvider.systemThemes.LIGHT:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+          break;
+        case ThemeProvider.systemThemes.DARK:
+          setSystemTheme(ThemeProvider.systemThemes.LIGHT);
+          break;
+        default:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+      }
+    };
+
+    const ToggleButton = ({ className }) => (
+      <Button onClick={onToggleButtonClick} className={className} data-testid={"system-theme-toggle-button"}>
+        Themed
+      </Button>
+    );
 
     return (
       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-        <Toggle
-          isSelected={shouldRenderThemeProvider}
-          onChange={setShouldRenderThemeProvider}
-          name={"Render ThemeProvider"}
-        />
-        {shouldRenderThemeProvider && (
-          <ThemeProvider
-            theme={{
-              name: "with-system-theme",
-              colors: {
-                [ThemeProvider.systemThemes.DARK]: {
-                  [ThemeProvider.colors.primaryColor]: "green",
-                  [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
-                }
+        <ThemeProvider
+          theme={{
+            name: "with-system-theme",
+            colors: {
+              [ThemeProvider.systemThemes.DARK]: {
+                [ThemeProvider.colors.primaryColor]: "var(--positive-color)",
+                [ThemeProvider.colors.primaryHoverColor]: "var(--positive-color-hover)"
               }
-            }}
-            systemTheme={ThemeProvider.systemThemes.DARK}
-          >
-            <Button>Themed</Button>
-          </ThemeProvider>
-        )}
+            }
+          }}
+          systemTheme={systemTheme}
+        >
+          <ToggleButton />
+        </ThemeProvider>
       </Flex>
     );
   },
