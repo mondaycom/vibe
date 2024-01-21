@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.84.0 (2024-01-21)
+
+#### Bug Fixes
+* [#1909](https://github.com/mondaycom/monday-ui-react-core/pull/1909) fix(TableVirtualized): support row height ([@talkor](https://github.com/talkor))
+
+#### New Features
+* [#1908](https://github.com/mondaycom/monday-ui-react-core/pull/1908) feat(TableVirtualizedBody): pass onScroll event ([@talkor](https://github.com/talkor))
+* [#1907](https://github.com/mondaycom/monday-ui-react-core/pull/1907) feat: add tooltip props to components ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1905](https://github.com/mondaycom/monday-ui-react-core/pull/1905) docs: Realated components fixes - editable text and menu button titles ([@shaharzil](https://github.com/shaharzil))
+
+#### Internal Changes
+* [#1903](https://github.com/mondaycom/monday-ui-react-core/pull/1903) chore: add codeowners ([@talkor](https://github.com/talkor))
+
+#### New Icons
+* [#1906](https://github.com/mondaycom/monday-ui-react-core/pull/1906) feat(Icons): add Translation icon ([@talkor](https://github.com/talkor))
+
 ## 2.83.0 (2024-01-18)
 
 #### New Features
