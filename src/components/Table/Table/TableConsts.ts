@@ -5,9 +5,9 @@ export enum RowSizes {
   LARGE = "large"
 }
 
-export enum RowHeights {
-  medium = 40,
-  large = 48
-}
+export const RowHeights = {
+  [RowSizes.MEDIUM]: 40,
+  [RowSizes.LARGE]: 48
+};
 
 export type RowSize = typeof RowSizes;
