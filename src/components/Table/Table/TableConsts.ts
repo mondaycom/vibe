@@ -5,4 +5,9 @@ export enum RowSizes {
   LARGE = "large"
 }
 
-export type RowSize = typeof RowSizes | number;
+export enum RowHeights {
+  medium = 40,
+  large = 48
+}
+
+export type RowSize = typeof RowSizes;
