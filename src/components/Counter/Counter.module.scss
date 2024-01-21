@@ -46,7 +46,7 @@
 
 .kindFill.colorLight {
   color: var(--primary-text-color);
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ui-background-color);
 }
 
 .kindLine {
@@ -67,7 +67,7 @@
 
 .kindLine.colorLight {
   color: var(--primary-text-color);
-  box-shadow: 0 0 0 1px var(--primary-background-hover-color) inset !important;
+  box-shadow: 0 0 0 1px var(--ui-background-color) inset !important;
 }
 
 // Animations

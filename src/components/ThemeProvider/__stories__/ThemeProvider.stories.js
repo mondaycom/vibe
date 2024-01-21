@@ -21,7 +21,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/ThemeProvider [alpha]",
+  title: "Theming/ThemeProvider [alpha]",
   component: ThemeProvider,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

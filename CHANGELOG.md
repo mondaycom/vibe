@@ -1,5 +1,89 @@
 # Changelog
 
+## 2.83.0 (2024-01-18)
+
+#### New Features
+* [#1901](https://github.com/mondaycom/monday-ui-react-core/pull/1901) feat: add tooltip props ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1900](https://github.com/mondaycom/monday-ui-react-core/pull/1900) chore(chromatic): add a command to run chromatic locally ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.82.1 (2024-01-18)
+
+#### Documentation
+* [#1899](https://github.com/mondaycom/monday-ui-react-core/pull/1899) chore: update Playground addon ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Internal Changes
+* [#1895](https://github.com/mondaycom/monday-ui-react-core/pull/1895) chore: update Playground addon ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.82.0 (2024-01-16)
+
+#### New Features
+* [#1893](https://github.com/mondaycom/monday-ui-react-core/pull/1893) feat(AvatarBadge): add an icon prop ([@talkor](https://github.com/talkor))
+
+## 2.81.0 (2024-01-15)
+
+#### New Features
+* [#1890](https://github.com/mondaycom/monday-ui-react-core/pull/1890) feat(AttentionBoxLink): use link component ([@talkor](https://github.com/talkor))
+
+## 2.80.2 (2024-01-14)
+
+#### Bug Fixes
+* [#1891](https://github.com/mondaycom/monday-ui-react-core/pull/1891) fix(TableVirtualizedBody): take height of header into consideration ([@talkor](https://github.com/talkor))
+* [#1887](https://github.com/mondaycom/monday-ui-react-core/pull/1887) fix: replace primary-background-hover color in non-hover ([@talkor](https://github.com/talkor))
+* [#1882](https://github.com/mondaycom/monday-ui-react-core/pull/1882) fix(TableCellSkeleton): circle and rectangle loading types are broken (have width 0) ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### Documentation
+* [#1892](https://github.com/mondaycom/monday-ui-react-core/pull/1892) docs: add virtualized grid description and component ([@Suraj-Bhandarkar-S](https://github.com/Suraj-Bhandarkar-S))
+* [#1880](https://github.com/mondaycom/monday-ui-react-core/pull/1880) docs: fix typo in Label and and warning in OtherContributorsList ([@Suraj-Bhandarkar-S](https://github.com/Suraj-Bhandarkar-S))
+* [#1884](https://github.com/mondaycom/monday-ui-react-core/pull/1884) docs: fix font weights in typography examples' mixin ([@prathamnagpure](https://github.com/prathamnagpure))
+
+#### Internal Changes
+* [#1885](https://github.com/mondaycom/monday-ui-react-core/pull/1885) chore(EditableTypography): remove animation ([@talkor](https://github.com/talkor))
+
+## 2.80.1 (2024-01-09)
+
+#### Bug Fixes
+* [#1883](https://github.com/mondaycom/monday-ui-react-core/pull/1883) feat(EditableTypography): expose mode change event ([@talkor](https://github.com/talkor))
+
+## 2.80.0 (2024-01-08)
+
+#### New Features
+* [#1876](https://github.com/mondaycom/monday-ui-react-core/pull/1876) feat(EditableText): add isEditMode prop ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1875](https://github.com/mondaycom/monday-ui-react-core/pull/1875) docs: change sidebar organization ([@talkor](https://github.com/talkor))
+
+## 2.79.2 (2024-01-07)
+
+#### Bug Fixes
+* [#1874](https://github.com/mondaycom/monday-ui-react-core/pull/1874) fix(MenuItemButton): fix type for kind ([@YossiSaadi](https://github.com/YossiSaadi))
+
+## 2.79.1 (2024-01-04)
+
+#### Bug Fixes
+* [#1866](https://github.com/mondaycom/monday-ui-react-core/pull/1866) fix(Label): change padding according to design ([@talkor](https://github.com/talkor))
+
+## 2.79.0 (2024-01-04)
+
+#### Bug Fixes
+* [#1833](https://github.com/mondaycom/monday-ui-react-core/pull/1833) fix: trigger scaling for menuButton only while clicking ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1867](https://github.com/mondaycom/monday-ui-react-core/pull/1867) feat(Label): add a disabled state to submenu button ([@talkor](https://github.com/talkor))
+* [#1871](https://github.com/mondaycom/monday-ui-react-core/pull/1871) feat(Table): add option to supply %, fr, px as width for table ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1861](https://github.com/mondaycom/monday-ui-react-core/pull/1861) feat(Table): add no border variant ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1826](https://github.com/mondaycom/monday-ui-react-core/pull/1826) feat: add a Finish button to Steps ([@talkor](https://github.com/talkor))
+
+#### Documentation
+* [#1865](https://github.com/mondaycom/monday-ui-react-core/pull/1865) docs: fix <Menu> link in catalog ([@neerajkumarc](https://github.com/neerajkumarc))
+* [#1846](https://github.com/mondaycom/monday-ui-react-core/pull/1846) docs: RelatedComponents - table-description.tsx ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1859](https://github.com/mondaycom/monday-ui-react-core/pull/1859) docs: remove unneeded callbacks ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1860](https://github.com/mondaycom/monday-ui-react-core/pull/1860) test(DatePicker): make tests more deterministic ([@talkor](https://github.com/talkor))
+* [#1858](https://github.com/mondaycom/monday-ui-react-core/pull/1858) ci: check-pr-semantic-title.yml workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.78.0 (2023-12-26)
 
 #### New Features
