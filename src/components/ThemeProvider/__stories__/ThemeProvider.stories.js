@@ -93,7 +93,7 @@ export const WithSystemTheme = {
             theme={{
               name: "with-system-theme",
               colors: {
-                [ThemeProvider.systemThemes.LIGHT]: {
+                [ThemeProvider.systemThemes.DARK]: {
                   [ThemeProvider.colors.primaryColor]: "green",
                   [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
                 }
