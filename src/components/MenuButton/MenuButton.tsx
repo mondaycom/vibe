@@ -101,7 +101,7 @@ interface MenuButtonProps extends VibeComponentProps {
    * Tooltip Element Wrapper ClassName
    */
   tooltipReferenceClassName?: string;
-  tooltipProps?: TooltipProps;
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
