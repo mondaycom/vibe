@@ -222,7 +222,7 @@ import mondaySdk from "monday-sdk-js";
 
 const monday = mondaySdk();
 
-export const useGetContext = () => {
+const useGetContext = () => {
   const [context, setContext] = useState({});
   
   useEffect(() => {
