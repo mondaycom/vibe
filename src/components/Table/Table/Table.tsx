@@ -6,7 +6,7 @@ import { ITableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { RowSizes } from "./TableConsts";
+import { RowHeights, RowSizes } from "./TableConsts";
 import styles from "./Table.module.scss";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
@@ -44,6 +44,7 @@ interface ITableContext {
   dataState?: ITableProps["dataState"];
   emptyState: ITableProps["emptyState"];
   errorState: ITableProps["errorState"];
+  size: ITableProps["size"];
 }
 
 export const TableContext = React.createContext<ITableContext>(null);
@@ -76,14 +77,14 @@ const Table: VibeComponent<ITableProps, HTMLDivElement> & {
      */
     const calculatedStyle = {
       "--table-grid-template-columns": gridTemplateColumns,
-      "--table-row-size": size == Table.sizes.MEDIUM ? "var(--row-size-medium)" : "var(--row-size-large)",
+      "--table-row-size": `${RowHeights[size]}px`,
       ...style
     } as React.CSSProperties;
 
     const testId = dataTestId || getTestId(ComponentDefaultTestId.TABLE, id);
 
     return (
-      <TableContext.Provider value={{ columns, emptyState, errorState, dataState }}>
+      <TableContext.Provider value={{ columns, emptyState, errorState, dataState, size }}>
         <div ref={ref} id={id} className={classNames} data-testid={testId} role="table" style={calculatedStyle}>
           {children}
         </div>
