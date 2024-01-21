@@ -204,7 +204,7 @@ export const UsageGuidelinesThemeProvider = () => (
 
 export const DescriptionWithLinkMondaySdkIntegration = () => (
   <>
-    In case you are developing an external application for monday.com. You can use ThemeProvider in combination with the{" "}
+    When developing an external application for monday.com (iframe). You can use <code><ThemeProvider/></code> in combination with the{" "}
     <Link
       href="https://developer.monday.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
       withoutSpacing
