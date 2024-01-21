@@ -5,7 +5,7 @@ import {
   addSystemThemeClassNameToBody,
   generateRandomAlphaString,
   generateThemeCssOverride,
-  getBodySystemThemeClassName,
+  isAnySystemThemeClassNameOnBody,
   removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
@@ -46,8 +46,7 @@ const ThemeProvider: FC<ThemeProviderProps> & {
       return;
     }
 
-    const bodyAppSystemThemeClassName = getBodySystemThemeClassName();
-    if (bodyAppSystemThemeClassName) {
+    if (isAnySystemThemeClassNameOnBody()) {
       // If there is already a systemTheme class name on the body, we don't want to override it
       return;
     }
