@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.84.1 (2024-01-21)
+
+#### Bug Fixes
+* [#1910](https://github.com/mondaycom/monday-ui-react-core/pull/1910) fix(EditableTypography): don't spread tooltipProps ([@talkor](https://github.com/talkor))
+
 ## 2.84.0 (2024-01-21)
 
 #### Bug Fixes
