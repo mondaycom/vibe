@@ -179,8 +179,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
+        setIsOpen(false);
         if (event && event.key === "Escape") {
-          setIsOpen(false);
           const button = componentRef.current;
           window.requestAnimationFrame(() => {
             button.focus();
