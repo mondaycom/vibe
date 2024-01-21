@@ -170,7 +170,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
             [styles.disabled]: readOnly
           })}
           tabIndex={0}
-          {...tooltipProps}
+          tooltipProps={tooltipProps}
         >
           {inputValue || placeholder}
         </TypographyComponent>
