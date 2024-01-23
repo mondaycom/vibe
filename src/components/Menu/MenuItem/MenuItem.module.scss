@@ -103,3 +103,10 @@
   flex-grow: 1;
   padding-block: 1px;
 }
+
+.hiddenTitle {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
