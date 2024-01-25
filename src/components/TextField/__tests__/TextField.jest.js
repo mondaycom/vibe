@@ -226,6 +226,17 @@ describe("TextField Tests", () => {
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
       expect(input.type).toBe(TextField.types.PASSWORD);
     });
+
+    it("type should be tel", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        inputComponent = rerender(
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.TEL} />
+        );
+      });
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      expect(input.type).toBe(TextField.types.TEL);
+    });
   });
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {
