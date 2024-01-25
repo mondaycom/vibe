@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.86.0 (2024-01-25)
+
+#### Bug Fixes
+* [#1919](https://github.com/mondaycom/monday-ui-react-core/pull/1919) fix: fix animation for menu with editable typography ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1918](https://github.com/mondaycom/monday-ui-react-core/pull/1918) feat: add tel TextFieldTextType ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#1917](https://github.com/mondaycom/monday-ui-react-core/pull/1917) feat: add URL TextFieldTextType ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#1916](https://github.com/mondaycom/monday-ui-react-core/pull/1916) feat: add email TextFieldTextType ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
 ## 2.85.0 (2024-01-25)
 
 #### New Features
