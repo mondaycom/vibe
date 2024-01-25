@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.85.0 (2024-01-25)
+
+#### New Features
+* [#1915](https://github.com/mondaycom/monday-ui-react-core/pull/1915) feat(TabList): add opt-out for default padding ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.84.1 (2024-01-21)
 
 #### Bug Fixes
