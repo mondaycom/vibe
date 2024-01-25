@@ -227,6 +227,17 @@ describe("TextField Tests", () => {
       expect(input.type).toBe(TextField.types.PASSWORD);
     });
 
+    it("type should be tel", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        inputComponent = rerender(
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.TEL} />
+        );
+      });
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      expect(input.type).toBe(TextField.types.TEL);
+    });
+
     it("type should be url", () => {
       const { rerender } = inputComponent;
       act(() => {
