@@ -47,6 +47,10 @@ interface MenuButtonProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   zIndex?: number;
   ariaLabel?: string;
+  // TODO: remove in next major version
+  /**
+   * @deprecated use closeMenuOnItemClick instead
+   */
   closeDialogOnContentClick?: boolean;
   /*
     Class name to provide the element which wraps the popover/modal/dialog
@@ -119,6 +123,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Element to be used as the trigger element for the Menu - default is button
    */
   triggerElement?: React.ElementType;
+  /**
+   * Close the menu when an item is clicked
+   */
+  closeMenuOnItemClick?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -144,6 +152,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       zIndex = null,
       ariaLabel = "Menu",
       closeDialogOnContentClick = false,
+      closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
@@ -179,15 +188,19 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
-        setIsOpen(false);
-        if (event && event.key === "Escape") {
+        const isEscapeClicked = event && event.key === "Escape";
+        if (closeMenuOnItemClick || isEscapeClicked) {
+          setIsOpen(false);
+        }
+
+        if (isEscapeClicked) {
           const button = componentRef.current;
           window.requestAnimationFrame(() => {
             button.focus();
           });
         }
       },
-      [componentRef, setIsOpen]
+      [closeMenuOnItemClick]
     );
 
     const onDialogDidHide = useCallback(
