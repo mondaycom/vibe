@@ -2,6 +2,10 @@
 
 .tabsWrapper {
   padding-bottom: 20px;
+
+  &.noPadding {
+    padding-bottom: 0;
+  }
 }
 
 .tabsWrapper .tabsList {
