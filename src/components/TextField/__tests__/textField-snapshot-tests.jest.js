@@ -109,4 +109,9 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField type={TextField.types.DATE_TIME} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with url type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.URL} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
