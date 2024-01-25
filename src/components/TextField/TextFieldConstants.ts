@@ -29,6 +29,7 @@ export enum TextFieldTextType {
   DATE = "date",
   DATE_TIME = "datetime-local",
   NUMBER = "number",
+  URL = "url",
   EMAIL = "email"
 }
 
