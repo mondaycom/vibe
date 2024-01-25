@@ -29,7 +29,8 @@ export enum TextFieldTextType {
   DATE = "date",
   DATE_TIME = "datetime-local",
   NUMBER = "number",
-  URL = "url"
+  URL = "url",
+  EMAIL = "email"
 }
 
 export enum TextFieldFeedbackState {
