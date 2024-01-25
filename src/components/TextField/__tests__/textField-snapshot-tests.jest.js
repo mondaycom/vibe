@@ -114,4 +114,14 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField type={TextField.types.TEL} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with url type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.URL} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with email type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.EMAIL} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
