@@ -1,4 +1,4 @@
-import React, { ElementType, forwardRef, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -129,7 +129,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [isEditing]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       if (!typographyRef.current) {
         return;
       }
