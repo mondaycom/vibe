@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
@@ -14,7 +14,7 @@ export interface TableCellSkeletonProps extends VibeComponentProps {
   short?: boolean;
 }
 
-const TableCellSkeleton: FC<TableCellSkeletonProps> = ({ type = "long-text" }) => {
+const TableCellSkeleton: React.FC<TableCellSkeletonProps> = ({ type = "long-text" }) => {
   const isText = ["long-text", "medium-text"].includes(type);
   return (
     <TableCell>
@@ -22,7 +22,7 @@ const TableCellSkeleton: FC<TableCellSkeletonProps> = ({ type = "long-text" }) =
         type={getSkeletonType(type)}
         wrapperClassName={cx(styles.tableCellSkeletonWrapper, getStyle(styles, camelCase(type)))}
         className={cx(styles.tableCellSkeleton, { [getStyle(styles, camelCase(type))]: !isText })}
-        fullWidth={isText}
+        fullWidth
       />
     </TableCell>
   );

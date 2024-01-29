@@ -16,8 +16,8 @@ describe("<MenuItem />", () => {
   });
 
   it("should be able to render menu item text", async () => {
-    const { getByText } = render(<MenuItem title={title} />);
-    const menuItemElement = getByText(title);
+    const { getAllByText } = render(<MenuItem title={title} />);
+    const menuItemElement = getAllByText(title);
     await waitFor(() => expect(menuItemElement).toBeTruthy());
   });
 

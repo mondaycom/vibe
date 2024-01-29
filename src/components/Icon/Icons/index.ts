@@ -219,6 +219,7 @@ export {default as TextSmall} from './components/TextSmall';
 export {default as ThumbsUp} from './components/ThumbsUp';
 export {default as Time} from './components/Time';
 export {default as Timeline} from './components/Timeline';
+export {default as Translation} from './components/Translation';
 export {default as TurnInto} from './components/TurnInto';
 export {default as Underline} from './components/Underline';
 export {default as Undo} from './components/Undo';

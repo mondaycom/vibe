@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Source } from "@storybook/blocks";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   ColorsEligibleForThemingTemplate,
+  MondaySdkIntegrationSourceCode,
   ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
@@ -10,18 +12,18 @@ import {
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories.helpers";
 import Flex from "../../Flex/Flex";
-import Toggle from "../../Toggle/Toggle";
 import Button from "../../Button/Button";
+import { themeProviderSystemThemeSuite } from "../__tests__/themeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  enumPropNamesArray: [],
+  iconPropNamesArray: [],
+  actionPropsArray: []
 });
 
 export default {
-  title: "Components/ThemeProvider [alpha]",
+  title: "Theming/ThemeProvider [alpha]",
   component: ThemeProvider,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -79,33 +81,49 @@ export const CustomClassSelector = {
 
 export const WithSystemTheme = {
   render: () => {
-    const [shouldRenderThemeProvider, setShouldRenderThemeProvider] = useState(false);
+    const [systemTheme, setSystemTheme] = useState(null);
+
+    const onToggleButtonClick = () => {
+      switch (systemTheme) {
+        case ThemeProvider.systemThemes.LIGHT:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+          break;
+        case ThemeProvider.systemThemes.DARK:
+          setSystemTheme(ThemeProvider.systemThemes.LIGHT);
+          break;
+        default:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+      }
+    };
 
     return (
       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-        <Toggle
-          isSelected={shouldRenderThemeProvider}
-          onChange={setShouldRenderThemeProvider}
-          name={"Render ThemeProvider"}
-        />
-        {shouldRenderThemeProvider && (
-          <ThemeProvider
-            themeConfig={{
-              name: "with-system-theme",
-              colors: {
-                [ThemeProvider.systemThemes.LIGHT]: {
-                  [ThemeProvider.colors.primaryColor]: "green",
-                  [ThemeProvider.colors.primaryHoverColor]: "darkgreen"
-                }
+        <ThemeProvider
+          themeConfig={{
+            name: "with-system-theme",
+            colors: {
+              [ThemeProvider.systemThemes.DARK]: {
+                [ThemeProvider.colors.primaryColor]: "var(--positive-color)",
+                [ThemeProvider.colors.primaryHoverColor]: "var(--positive-color-hover)"
               }
-            }}
-            systemTheme={ThemeProvider.systemThemes.DARK}
-          >
-            <Button>Themed</Button>
-          </ThemeProvider>
-        )}
+            }
+          }}
+          systemTheme={systemTheme}
+        >
+          <Button onClick={onToggleButtonClick} data-testid={"system-theme-toggle-button"}>
+            Themed
+          </Button>
+        </ThemeProvider>
       </Flex>
     );
   },
-  name: "With systemTheme"
+  name: "With systemTheme",
+  play: themeProviderSystemThemeSuite
+};
+
+export const MondaySdkIntegration = {
+  render: () => {
+    return <Source code={MondaySdkIntegrationSourceCode}></Source>;
+  },
+  name: "monday.com SDK integration"
 };

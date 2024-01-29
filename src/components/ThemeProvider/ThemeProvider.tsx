@@ -2,16 +2,21 @@ import cx from "classnames";
 import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import {
-  addThemeClassNameToBody,
+  addSystemThemeClassNameToBody,
   generateRandomAlphaString,
   generateThemeCssOverride,
-  getBodyThemeClassName,
-  removeThemeClassNameFromBody,
+  isAnySystemThemeClassNameOnBody,
+  removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 export interface ThemeProviderProps {
+  /**
+   * @deprecated use themeConfig instead
+   */
+  theme?: Theme;
   /**
    * The theme config to apply, consists of a "name" - the name of css class that will be added to the children, which should be unique, and the object of colors overrides for each system theme.
    */
@@ -37,12 +42,22 @@ export interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ themeConfig, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
+} = ({ themeConfig, theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
+  const overrideThemeConfig = backwardCompatibilityForProperties([themeConfig, theme]);
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
     [customThemeClassSpecifier]
   );
+
+  useEffect(() => {
+    if (theme) {
+      console.warn(
+        "vibe ThemeProvider: theme prop is deprecated and will be removed soon, please use themeConfig prop instead - ",
+        theme
+      );
+    }
+  }, [theme]);
 
   // Add the systemTheme class name to the body on mount
   useLayoutEffect(() => {
@@ -50,33 +65,32 @@ const ThemeProvider: FC<ThemeProviderProps> & {
       return;
     }
 
-    const bodyAppThemeClassName = getBodyThemeClassName();
-    if (bodyAppThemeClassName) {
-      // If there is already a theme class name on the body, we don't want to override it
+    if (isAnySystemThemeClassNameOnBody()) {
+      // If there is already a systemTheme class name on the body, we don't want to override it
       return;
     }
 
-    addThemeClassNameToBody(systemTheme);
+    addSystemThemeClassNameToBody(systemTheme);
 
     return () => {
-      // Cleanup the theme class name from the body on ThemeProvider unmount
-      removeThemeClassNameFromBody(systemTheme);
+      // Cleanup the systemTheme class name from the body on ThemeProvider unmount
+      removeSystemThemeClassNameFromBody(systemTheme);
     };
   }, [systemTheme]);
 
   useEffect(() => {
-    if (!shouldGenerateTheme(themeConfig)) {
+    if (!shouldGenerateTheme(overrideThemeConfig)) {
       return;
     }
-    if (document.getElementById(themeConfig.name)) {
+    if (document.getElementById(overrideThemeConfig.name)) {
       setStylesLoaded(true);
       return;
     }
 
     const styleElement = document.createElement("style");
     styleElement.type = "text/css";
-    styleElement.id = themeConfig.name;
-    const themeCssOverride = generateThemeCssOverride(themeConfig, themeClassSpecifier);
+    styleElement.id = overrideThemeConfig.name;
+    const themeCssOverride = generateThemeCssOverride(overrideThemeConfig, themeClassSpecifier);
 
     try {
       styleElement.appendChild(document.createTextNode(themeCssOverride));
@@ -89,15 +103,15 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, [themeClassSpecifier, themeConfig]);
+  }, [themeClassSpecifier, overrideThemeConfig]);
 
-  if (!stylesLoaded && shouldGenerateTheme(themeConfig)) {
+  if (!stylesLoaded && shouldGenerateTheme(overrideThemeConfig)) {
     // Waiting for styles to load before children render
     return null;
   }
 
   // Pass the theme name as a class to the div wrapping children - to scope the effect of the theme
-  return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
+  return <div className={cx(overrideThemeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
 export default withStaticProps(ThemeProvider, {

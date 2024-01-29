@@ -14,6 +14,13 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   >
     my item
   </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
+  >
+    my item
+  </div>
   
   <div
     style={
@@ -42,6 +49,13 @@ exports[`Snapshots renders correctly when selected 1`] = `
   >
     my item
   </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
+  >
+    my item
+  </div>
   
   <div
     style={
@@ -67,6 +81,13 @@ exports[`Snapshots renders correctly with a label 1`] = `
 >
   <div
     className="title"
+  >
+    my item
+  </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
   >
     my item
   </div>
@@ -113,6 +134,13 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   >
     
   </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
+  >
+    
+  </div>
   
   <div
     style={
@@ -138,6 +166,13 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 >
   <div
     className="title"
+  >
+    
+  </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
   >
     
   </div>
@@ -191,6 +226,13 @@ exports[`Snapshots renders correctly with title and SVG icon 1`] = `
   >
     my item
   </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
+  >
+    my item
+  </div>
   
   <div
     style={
@@ -228,6 +270,13 @@ exports[`Snapshots renders correctly with title and font icon 1`] = `
   </div>
   <div
     className="title"
+  >
+    my item
+  </div>
+  <div
+    aria-hidden={true}
+    className="hiddenTitle"
+    tabIndex={-1}
   >
     my item
   </div>

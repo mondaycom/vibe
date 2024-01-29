@@ -57,21 +57,33 @@ export const generateRandomAlphaString = (length = 6) => {
 
 const APP_THEME_SUFFIX = "-app-theme";
 
-export const getBodyThemeClassName = () => {
+const isAppThemeClassName = (className: string) => {
+  return className.endsWith(APP_THEME_SUFFIX);
+};
+
+export const addAppThemeSuffix = (systemTheme: SystemTheme) => {
+  return `${systemTheme}${APP_THEME_SUFFIX}`;
+};
+
+export const getBodySystemThemeClassName = () => {
   const classList = document.body.classList;
-  let bodyAppThemeClassName: string = null;
-  classList.forEach(className => {
-    if (className.endsWith(APP_THEME_SUFFIX)) {
-      bodyAppThemeClassName = className;
+  for (const className of Array.from(classList)) {
+    if (isAppThemeClassName(className)) {
+      return className;
     }
-  });
-  return bodyAppThemeClassName;
+  }
+  return null;
 };
 
-export const addThemeClassNameToBody = (systemTheme: SystemTheme) => {
-  document.body.classList.add(`${systemTheme}${APP_THEME_SUFFIX}`);
+export const isAnySystemThemeClassNameOnBody = () => {
+  const bodySystemThemeClassName = getBodySystemThemeClassName();
+  return !!bodySystemThemeClassName;
 };
 
-export const removeThemeClassNameFromBody = (systemTheme: SystemTheme) => {
-  document.body.classList.remove(`${systemTheme}${APP_THEME_SUFFIX}`);
+export const addSystemThemeClassNameToBody = (systemTheme: SystemTheme) => {
+  document.body.classList.add(addAppThemeSuffix(systemTheme));
+};
+
+export const removeSystemThemeClassNameFromBody = (systemTheme: SystemTheme) => {
+  document.body.classList.remove(addAppThemeSuffix(systemTheme));
 };
