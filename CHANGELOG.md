@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.87.0 (2024-01-29)
+
+#### New Features
+* [#1869](https://github.com/mondaycom/monday-ui-react-core/pull/1869) feat!: <ThemeProvider> add wrapping div (!), rename theme prop to themeConfig ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1852](https://github.com/mondaycom/monday-ui-react-core/pull/1852) feat: <ThemeProvider> add systemTheme prop - adds className to body ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 2.86.2 (2024-01-29)
 
 #### Bug Fixes
