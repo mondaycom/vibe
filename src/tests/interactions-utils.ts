@@ -1,5 +1,5 @@
 import { fireEvent, queries, userEvent, within } from "@storybook/testing-library";
-import { BoundFunctions, Screen, waitFor } from "@testing-library/react";
+import { BoundFunctions, Screen, SelectorMatcherOptions, waitFor } from "@testing-library/react";
 import { NavigationCommand as NavigationCommandType } from "./constants";
 import { expect } from "@storybook/jest";
 
@@ -145,8 +145,8 @@ export const getFirstByClassName = (className: string) => {
   return document.getElementsByClassName(className)[0];
 };
 
-export const getByRole = (rootElement: HTMLElement | BoundFunctions<typeof queries>, role: string) => {
-  return getWithin(rootElement).getByRole(role);
+export const getByRole = (rootElement: HTMLElement | BoundFunctions<typeof queries>, role: string, options = {}) => {
+  return getWithin(rootElement).getByRole(role, options);
 };
 
 export const getAllByRole = (rootElement: HTMLElement | BoundFunctions<typeof queries>, role: string) => {
@@ -161,8 +161,12 @@ export const getAllByLabelText = (rootElement: HTMLElement, text: string) => {
   return getWithin(rootElement).getAllByLabelText(text);
 };
 
-export const getByText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
-  return getWithin(rootElement).getByText(text);
+export const getByText = (
+  rootElement: HTMLElement | BoundFunctions<typeof queries>,
+  text: string,
+  options: SelectorMatcherOptions = {}
+) => {
+  return getWithin(rootElement).getByText(text, options);
 };
 
 export const getAllByText = (rootElement: HTMLElement | BoundFunctions<typeof queries>, text: string) => {
