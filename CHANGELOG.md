@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.86.2 (2024-01-29)
+
+#### Bug Fixes
+* [#1914](https://github.com/mondaycom/monday-ui-react-core/pull/1914) fix(MenuItem): tooltip should on all item and not only on title ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.86.1 (2024-01-29)
 
 #### Bug Fixes
