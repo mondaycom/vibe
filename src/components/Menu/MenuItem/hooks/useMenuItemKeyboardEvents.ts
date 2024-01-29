@@ -50,7 +50,7 @@ export default function useMenuItemKeyboardEvents({
 
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
-        if (!splitMenuItem) {
+        if (!splitMenuItem || isMouseEnterIconButton) {
           setSubMenuIsOpenByIndex(index, true);
           return;
         }
