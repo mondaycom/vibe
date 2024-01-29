@@ -33,6 +33,10 @@ export interface ThemeProviderProps {
    * The system theme to apply to the body element on mount, if there is no theme class name on the body element already
    */
   systemTheme?: SystemTheme;
+  /**
+   * ClassName to add to the wrapping div
+   */
+  className?: string;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
@@ -106,10 +110,8 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     return null;
   }
 
-  // Pass the theme name as a class to the children - to scope the effect of the theme
-  return React.cloneElement(children, {
-    className: cx(overrideThemeConfig?.name, themeClassSpecifier, children?.props?.className)
-  });
+  // Pass the theme name as a class to the div wrapping children - to scope the effect of the theme
+  return <div className={cx(overrideThemeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
 export default withStaticProps(ThemeProvider, {

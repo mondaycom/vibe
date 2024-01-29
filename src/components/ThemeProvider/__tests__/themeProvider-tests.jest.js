@@ -23,7 +23,7 @@ describe("ThemeProvider tests", () => {
     const container = getByTestId("container");
     const button = getByTestId("button");
     expect(container).toBeInTheDocument();
-    expect(container).toHaveClass(themeConfig.name);
+    expect(container.parentElement).toHaveClass(themeConfig.name);
     expect(button).toBeInTheDocument();
   });
 
