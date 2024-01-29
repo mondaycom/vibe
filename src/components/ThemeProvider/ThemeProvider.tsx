@@ -1,7 +1,14 @@
 import cx from "classnames";
-import React, { FC, ReactElement, useEffect, useMemo, useState } from "react";
+import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
-import { generateRandomAlphaString, generateThemeCssOverride, shouldGenerateTheme } from "./ThemeProviderUtils";
+import {
+  addSystemThemeClassNameToBody,
+  generateRandomAlphaString,
+  generateThemeCssOverride,
+  isAnySystemThemeClassNameOnBody,
+  removeSystemThemeClassNameFromBody,
+  shouldGenerateTheme
+} from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
@@ -17,17 +24,40 @@ export interface ThemeProviderProps {
    * String which adds up to theme name selector to make it more specific (in case if theme.name is colliding with some other class name)
    */
   themeClassSpecifier?: string;
+  /**
+   * The system theme to apply to the body element on mount, if there is no theme class name on the body element already
+   */
+  systemTheme?: SystemTheme;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier }) => {
+} = ({ theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
     () => customThemeClassSpecifier || generateRandomAlphaString(),
     [customThemeClassSpecifier]
   );
+
+  // Add the systemTheme class name to the body on mount
+  useLayoutEffect(() => {
+    if (!systemTheme) {
+      return;
+    }
+
+    if (isAnySystemThemeClassNameOnBody()) {
+      // If there is already a systemTheme class name on the body, we don't want to override it
+      return;
+    }
+
+    addSystemThemeClassNameToBody(systemTheme);
+
+    return () => {
+      // Cleanup the systemTheme class name from the body on ThemeProvider unmount
+      removeSystemThemeClassNameFromBody(systemTheme);
+    };
+  }, [systemTheme]);
 
   useEffect(() => {
     if (!shouldGenerateTheme(theme)) {

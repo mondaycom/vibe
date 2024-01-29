@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
@@ -8,12 +9,15 @@ import {
   ThemeProviderTemplateOverview,
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories.helpers";
+import Flex from "../../Flex/Flex";
+import Button from "../../Button/Button";
+import { themeProviderSystemThemeSuite } from "../__tests__/themeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider,
-  enumPropNamesArray: [], // List enum props here
-  iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [] // List the component's actions here
+  enumPropNamesArray: [],
+  iconPropNamesArray: [],
+  actionPropsArray: []
 });
 
 export default {
@@ -71,4 +75,46 @@ export const ProductTheming = {
 export const CustomClassSelector = {
   render: ThemeProviderCustomClassTemplate.bind({}),
   name: "Custom class selector"
+};
+
+export const WithSystemTheme = {
+  render: () => {
+    const [systemTheme, setSystemTheme] = useState(null);
+
+    const onToggleButtonClick = () => {
+      switch (systemTheme) {
+        case ThemeProvider.systemThemes.LIGHT:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+          break;
+        case ThemeProvider.systemThemes.DARK:
+          setSystemTheme(ThemeProvider.systemThemes.LIGHT);
+          break;
+        default:
+          setSystemTheme(ThemeProvider.systemThemes.DARK);
+      }
+    };
+
+    return (
+      <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+        <ThemeProvider
+          theme={{
+            name: "with-system-theme",
+            colors: {
+              [ThemeProvider.systemThemes.DARK]: {
+                [ThemeProvider.colors.primaryColor]: "var(--positive-color)",
+                [ThemeProvider.colors.primaryHoverColor]: "var(--positive-color-hover)"
+              }
+            }
+          }}
+          systemTheme={systemTheme}
+        >
+          <Button onClick={onToggleButtonClick} data-testid={"system-theme-toggle-button"}>
+            Themed
+          </Button>
+        </ThemeProvider>
+      </Flex>
+    );
+  },
+  name: "With systemTheme",
+  play: themeProviderSystemThemeSuite
 };
