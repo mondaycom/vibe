@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
@@ -192,6 +192,10 @@ export const UsageGuidelinesThemeProvider = () => (
       <>
         In most common case ThemeProvider should be rendered only once on the root level of the application - below the{" "}
         <code>body</code>.
+      </>,
+      <>
+        ThemeProvider is populating theme name <code>className</code> to the new added <code>div</code> container which
+        wraps the children.
       </>
     ]}
   />
