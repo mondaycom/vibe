@@ -106,7 +106,7 @@ export const WithSystemTheme = {
               }
             }
           }}
-          systemTheme={ThemeProvider.systemThemes.DARK}
+          systemTheme={systemTheme}
         >
           <Button onClick={onToggleButtonClick} data-testid={"system-theme-toggle-button"}>
             Themed

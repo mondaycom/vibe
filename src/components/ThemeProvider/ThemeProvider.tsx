@@ -2,11 +2,11 @@ import cx from "classnames";
 import React, { FC, ReactElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { SystemTheme, Theme, ThemeColor } from "./ThemeProviderConstants";
 import {
-  addThemeClassNameToBody,
+  addSystemThemeClassNameToBody,
   generateRandomAlphaString,
   generateThemeCssOverride,
-  getBodyThemeClassName,
-  removeThemeClassNameFromBody,
+  getBodySystemThemeClassName,
+  removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
 import { withStaticProps } from "../../types";
@@ -46,17 +46,17 @@ const ThemeProvider: FC<ThemeProviderProps> & {
       return;
     }
 
-    const bodyAppThemeClassName = getBodyThemeClassName();
-    if (bodyAppThemeClassName) {
+    const bodyAppSystemThemeClassName = getBodySystemThemeClassName();
+    if (bodyAppSystemThemeClassName) {
       // If there is already a theme class name on the body, we don't want to override it
       return;
     }
 
-    addThemeClassNameToBody(systemTheme);
+    addSystemThemeClassNameToBody(systemTheme);
 
     return () => {
       // Cleanup the theme class name from the body on ThemeProvider unmount
-      removeThemeClassNameFromBody(systemTheme);
+      removeSystemThemeClassNameFromBody(systemTheme);
     };
   }, [systemTheme]);
 
