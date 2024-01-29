@@ -13,7 +13,7 @@ import { withStaticProps } from "../../types";
 
 export interface ThemeProviderProps {
   /**
-   * The theme config to apply, consists of name - name of css class that will be added to the children, which should be unique - and the object of colors overrides for each system theme.
+   * The theme config to apply, consists of a "name" - the name of css class that will be added to the children, which should be unique, and the object of colors overrides for each system theme.
    */
   themeConfig?: Theme;
   /**
