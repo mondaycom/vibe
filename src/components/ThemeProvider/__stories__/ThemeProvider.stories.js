@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Source } from "@storybook/blocks";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   ColorsEligibleForThemingTemplate,
+  MondaySdkIntegrationSourceCode,
   ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
@@ -32,7 +34,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    theme: {
+    themeConfig: {
       name: "overview-theme",
       colors: {
         [ThemeProvider.systemThemes.LIGHT]: {
@@ -97,7 +99,7 @@ export const WithSystemTheme = {
     return (
       <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
         <ThemeProvider
-          theme={{
+          themeConfig={{
             name: "with-system-theme",
             colors: {
               [ThemeProvider.systemThemes.DARK]: {
@@ -117,4 +119,11 @@ export const WithSystemTheme = {
   },
   name: "With systemTheme",
   play: themeProviderSystemThemeSuite
+};
+
+export const MondaySdkIntegration = {
+  render: () => {
+    return <Source code={MondaySdkIntegrationSourceCode}></Source>;
+  },
+  name: "monday.com SDK integration"
 };

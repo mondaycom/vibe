@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ThemeProvider, { ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
 import Dropdown from "../../Dropdown/Dropdown";
@@ -6,7 +6,7 @@ import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
 import { ThemeColor } from "../ThemeProviderConstants";
-import { Tip, UsageGuidelines } from "vibe-storybook-components";
+import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
 import styles from "./ThemeProvider.stories.module.scss";
 
 export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
@@ -25,7 +25,7 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
   return (
     <>
       <ThemeProvider
-        theme={{
+        themeConfig={{
           name: "theming-scope-theme",
           colors: {
             [ThemeProvider.systemThemes.LIGHT]: {
@@ -53,7 +53,7 @@ export const ThemeProviderThemingScopeTemplate = (_args: JSX.IntrinsicAttributes
 export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "outer-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -65,7 +65,7 @@ export const ThemeProviderFoldedThemingTemplate = (_args: JSX.IntrinsicAttribute
     >
       <div>
         <ThemeProvider
-          theme={{
+          themeConfig={{
             name: "inner-theme",
             colors: {
               [ThemeProvider.systemThemes.LIGHT]: {
@@ -92,7 +92,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
   const [selectedTheme, setSelectedTheme] = useState(null);
 
   return (
-    <ThemeProvider theme={selectedTheme?.value}>
+    <ThemeProvider themeConfig={selectedTheme?.value}>
       <Flex gap={Flex.gaps.LARGE} align={Flex.align.START} wrap className={styles.productThemingContainer}>
         <Dropdown
           // @ts-ignore
@@ -115,7 +115,7 @@ export const ThemeProviderProductThemingTemplate = (_args: JSX.IntrinsicAttribut
 export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes & ThemeProviderProps) => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "theme-with-custom-class-selector",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -142,7 +142,7 @@ export const ThemeProviderCustomClassTemplate = (_args: JSX.IntrinsicAttributes 
 export const ThemeProviderPositiveExampleTemplate = () => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "positive-example-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -160,7 +160,7 @@ export const ThemeProviderPositiveExampleTemplate = () => {
 export const ThemeProviderNegativeExampleTemplate = () => {
   return (
     <ThemeProvider
-      theme={{
+      themeConfig={{
         name: "negative-example-theme",
         colors: {
           [ThemeProvider.systemThemes.LIGHT]: {
@@ -186,17 +186,61 @@ export const UsageGuidelinesThemeProvider = () => (
     guidelines={[
       <>
         Control themes in your application by setting theme classes (e.g. <code>.light-app-theme</code>) on your{" "}
-        <code>body</code> and render everything else inside it
+        <code>body</code> and render everything else inside it. Or use <code>systemTheme</code> prop to make
+        ThemeProvider set the theme class on the <code>body</code> for you.
       </>,
       <>
         In most common case ThemeProvider should be rendered only once on the root level of the application - below the{" "}
-        <code>body</code>
+        <code>body</code>.
       </>,
       <>
-        ThemeProvider is populating theme name <code>className</code> to {"it's child, so don't put "}
-        <code>{"<Fragment>"}</code> (<code>{"<>"}</code>) inside - {` it's not accepting `}
-        <code>className</code> prop
+        ThemeProvider is populating theme name <code>className</code> to the new added <code>div</code> container which
+        wraps the children.
       </>
     ]}
   />
 );
+
+export const DescriptionWithLinkMondaySdkIntegration = () => (
+  <>
+    When developing an external application for monday.com (iframe). You can use <code>ThemeProvider</code> in
+    combination with the{" "}
+    <Link
+      href="https://developer.monday.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
+      withoutSpacing
+    >
+      monday.com SDK
+    </Link>
+    , to apply monday.com <b>system</b> and <b>product</b> themes to your application. This will allow your application
+    to be consistent with the monday.com UI.
+  </>
+);
+
+export const MondaySdkIntegrationSourceCode = `
+import { ThemeProvider } from "monday-ui-react-core";
+import mondaySdk from "monday-sdk-js";
+
+const monday = mondaySdk();
+
+const useGetContext = () => {
+  const [context, setContext] = useState({});
+  
+  useEffect(() => {
+    monday.listen("context", (res) => {
+      setContext(res.data);
+    });
+  }, []);
+  
+  return context;
+};
+
+const AppWrapper = () => {
+  const context = useGetContext();
+
+  return (
+    <ThemeProvider themeConfig={context.themeConfig} systemTheme={context.theme}>
+      <App />
+    </ThemeProvider>
+  );
+};
+`;
