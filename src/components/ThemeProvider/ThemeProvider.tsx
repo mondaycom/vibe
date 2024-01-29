@@ -42,7 +42,7 @@ export interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> & {
   systemThemes?: typeof SystemTheme;
   colors?: typeof ThemeColor;
-} = ({ themeConfig, theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme }) => {
+} = ({ themeConfig, theme, children, themeClassSpecifier: customThemeClassSpecifier, systemTheme, className }) => {
   const overrideThemeConfig = backwardCompatibilityForProperties([themeConfig, theme]);
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const themeClassSpecifier = useMemo(
