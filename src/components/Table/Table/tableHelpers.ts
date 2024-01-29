@@ -5,11 +5,13 @@ import { ITableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "../../Icon/Icons";
 import { SkeletonType } from "../../Skeleton/SkeletonConstants";
 
-function generateWidth(width: ITableColumn["width"]) {
+export function generateWidth(width: ITableColumn["width"]): string {
   if (typeof width === "number") {
     return `${width}px`;
+  } else if (typeof width === "string") {
+    return /%|px|fr$/.test(width) ? width : `${width}px`;
   } else if (width?.min && width?.max) {
-    return `minmax(${width.min}px, ${width.max}px)`;
+    return `minmax(${generateWidth(width.min)}, ${generateWidth(width.max)})`;
   } else {
     return "minmax(112px, 1fr)";
   }

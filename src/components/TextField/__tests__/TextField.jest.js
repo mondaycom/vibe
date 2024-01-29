@@ -226,6 +226,39 @@ describe("TextField Tests", () => {
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
       expect(input.type).toBe(TextField.types.PASSWORD);
     });
+
+    it("type should be tel", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        inputComponent = rerender(
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.TEL} />
+        );
+      });
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      expect(input.type).toBe(TextField.types.TEL);
+    });
+
+    it("type should be url", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        inputComponent = rerender(
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.URL} />
+        );
+      });
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      expect(input.type).toBe(TextField.types.URL);
+    });
+
+    it("type should be email", () => {
+      const { rerender } = inputComponent;
+      act(() => {
+        inputComponent = rerender(
+          <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" type={TextField.types.EMAIL} />
+        );
+      });
+      const input = screen.getByPlaceholderText(defaultPlaceHolder);
+      expect(input.type).toBe(TextField.types.EMAIL);
+    });
   });
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {

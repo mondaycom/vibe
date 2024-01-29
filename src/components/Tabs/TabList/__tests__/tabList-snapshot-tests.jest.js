@@ -73,10 +73,10 @@ describe("TabList renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("stretched tab list", () => {
+  it("with noPadding", () => {
     const tree = renderer
       .create(
-        <TabList tabType="stretched">
+        <TabList noPadding>
           <Tab>First</Tab>
           <Tab>Second</Tab>
           <Tab>Third</Tab>
