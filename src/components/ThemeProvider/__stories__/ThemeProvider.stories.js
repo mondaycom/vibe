@@ -32,7 +32,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
-    theme: {
+    themeConfig: {
       name: "overview-theme",
       colors: {
         [ThemeProvider.systemThemes.LIGHT]: {

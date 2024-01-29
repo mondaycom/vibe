@@ -46,6 +46,15 @@ const ThemeProvider: FC<ThemeProviderProps> & {
     [customThemeClassSpecifier]
   );
 
+  useEffect(() => {
+    if (theme) {
+      console.warn(
+        "vibe ThemeProvider: theme prop is deprecated and will be removed soon, please use themeConfig prop instead - ",
+        theme
+      );
+    }
+  }, [theme]);
+
   // Add the systemTheme class name to the body on mount
   useLayoutEffect(() => {
     if (!systemTheme) {
