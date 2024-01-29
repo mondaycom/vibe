@@ -1,0 +1,65 @@
+name: "\U0001F41E Bug report"
+description: Create a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before You Start...**
+
+        Thank you for taking the time to report a bug!
+        Please make sure to fill as much details as possible to help us better understand the bug.
+        If you have a question, suggestion, feature request, or need for help, please ask on [GitHub Discussions](https://github.com/mondaycom/monday-ui-react-core/discussions).
+        Thanks!
+  - type: input
+    id: version
+    attributes:
+      label: Vibe version
+      placeholder: e.g. 2.84.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear description of what you expect to happen
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        e.g. 
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See '....'
+    validations:
+      required: true
+  - type: input
+    id: reproduction-example-link
+    attributes:
+      label: Reproduction example link
+      description: |
+        Please provide a simple minimal example that reproduces the bug. Use this [StackBlitz](https://stackblitz.com/edit/vibe-bug-report) or anything similar
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Please run and copy the output of `npx envinfo --system --npmPackages monday-ui-react-core,react --binaries --browsers`
+      render: shell
+      placeholder: Operating System, Browsers, React version
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context, Screenshots
+      description: Add any other context. If applicable, add screenshots or a video to further explain the bug
