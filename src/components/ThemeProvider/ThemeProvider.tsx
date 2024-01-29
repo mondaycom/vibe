@@ -5,7 +5,7 @@ import {
   addSystemThemeClassNameToBody,
   generateRandomAlphaString,
   generateThemeCssOverride,
-  getBodySystemThemeClassName,
+  isAnySystemThemeClassNameOnBody,
   removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
@@ -61,16 +61,15 @@ const ThemeProvider: FC<ThemeProviderProps> & {
       return;
     }
 
-    const bodyAppSystemThemeClassName = getBodySystemThemeClassName();
-    if (bodyAppSystemThemeClassName) {
-      // If there is already a theme class name on the body, we don't want to override it
+    if (isAnySystemThemeClassNameOnBody()) {
+      // If there is already a systemTheme class name on the body, we don't want to override it
       return;
     }
 
     addSystemThemeClassNameToBody(systemTheme);
 
     return () => {
-      // Cleanup the theme class name from the body on ThemeProvider unmount
+      // Cleanup the systemTheme class name from the body on ThemeProvider unmount
       removeSystemThemeClassNameFromBody(systemTheme);
     };
   }, [systemTheme]);
