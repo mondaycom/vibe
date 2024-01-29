@@ -28,7 +28,10 @@ export enum TextFieldTextType {
   SEARCH = "search",
   DATE = "date",
   DATE_TIME = "datetime-local",
-  NUMBER = "number"
+  NUMBER = "number",
+  TEL = "tel",
+  URL = "url",
+  EMAIL = "email"
 }
 
 export enum TextFieldFeedbackState {

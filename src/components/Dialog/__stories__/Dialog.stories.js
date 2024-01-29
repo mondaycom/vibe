@@ -20,7 +20,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Dialog/Dialog",
+  title: "Popover/Dialog",
   component: Dialog,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

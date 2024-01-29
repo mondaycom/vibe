@@ -1,4 +1,4 @@
-import React, { ComponentType, forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -6,10 +6,7 @@ import VibeComponent from "../../types/VibeComponent";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { useIsOverflowing } from "../../hooks";
-import { m as motion, LazyMotion, domAnimation } from "framer-motion";
-import { HeadingProps } from "../Heading/Heading";
-import { TextProps } from "../Text/Text";
+import { TooltipProps } from "../Tooltip/Tooltip";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -24,11 +21,17 @@ export interface EditableTypographyImplementationProps {
   placeholder?: string;
   /** ARIA Label */
   ariaLabel?: string;
+  /** Controls the mode of the component (i.e. view/edit mode) */
+  isEditMode?: boolean;
+  /** Will be called when the mode of the component changes */
+  onEditModeChange?: (isEditMode: boolean) => void;
+  /** Override Tooltip props when needed */
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /** A typography component that is being rendered in view mode */
-  component: ComponentType<HeadingProps | TextProps>;
+  component: ElementType;
   /** Controls the style of the typography component in view mode */
   typographyClassName: string;
 }
@@ -46,19 +49,26 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       ariaLabel = "",
       placeholder,
       typographyClassName,
-      component: TypographyComponent
+      component: TypographyComponent,
+      isEditMode,
+      onEditModeChange,
+      tooltipProps
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(isEditMode || false);
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
 
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
+
+    useEffect(() => {
+      setIsEditing(isEditMode);
+    }, [isEditMode]);
 
     function onTypographyClick(event: React.KeyboardEvent | React.MouseEvent) {
       onClick?.(event);
@@ -73,8 +83,13 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       setIsEditing(true);
     }
 
+    function handleEditModeChange(value: boolean) {
+      onEditModeChange?.(value);
+      setIsEditing(value);
+    }
+
     function handleInputValueChange() {
-      setIsEditing(false);
+      handleEditModeChange(false);
       if (!inputValue || value === inputValue) {
         setInputValue(value);
         return;
@@ -91,7 +106,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         handleInputValueChange();
       }
       if (event.key === keyCodes.ESCAPE) {
-        setIsEditing(false);
+        handleEditModeChange(false);
         setInputValue(value);
       }
     }
@@ -114,11 +129,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       }
     }, [isEditing]);
 
-    const AnimatedTypography = motion(TypographyComponent);
-    const isOverflowing = useIsOverflowing({ ref: typographyRef, ignoreHeightOverflow: true });
-    const shouldAnimate = useMemo(() => isOverflowing && !isEditing, [isEditing, isOverflowing]);
-
-    useLayoutEffect(() => {
+    useEffect(() => {
       if (!typographyRef.current) {
         return;
       }
@@ -127,44 +138,43 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     }, [inputValue, isEditing]);
 
     return (
-      <LazyMotion features={domAnimation}>
-        <div
-          ref={mergedRef}
-          id={id}
-          aria-label={ariaLabel}
-          data-testid={dataTestId}
-          className={cx(styles.editableTypography, className)}
-          role={isEditing ? null : "button"}
-          onClick={onTypographyClick}
-          onKeyDown={toggleKeyboardEditMode}
+      <div
+        ref={mergedRef}
+        id={id}
+        aria-label={ariaLabel}
+        data-testid={dataTestId}
+        className={cx(styles.editableTypography, className)}
+        role={isEditing ? null : "button"}
+        onClick={onTypographyClick}
+        onKeyDown={toggleKeyboardEditMode}
+      >
+        {isEditing && (
+          <input
+            ref={inputRef}
+            className={cx(styles.input, typographyClassName)}
+            value={inputValue}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            aria-label={ariaLabel}
+            placeholder={placeholder}
+            style={{ width: inputWidth }}
+            role="input"
+          />
+        )}
+        <TypographyComponent
+          ref={typographyRef}
+          aria-hidden={isEditing}
+          className={cx(styles.typography, typographyClassName, {
+            [styles.hidden]: isEditing,
+            [styles.disabled]: readOnly
+          })}
+          tabIndex={0}
+          tooltipProps={tooltipProps}
         >
-          {isEditing && (
-            <motion.input
-              ref={inputRef}
-              className={cx(styles.input, typographyClassName)}
-              value={inputValue}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
-              aria-label={ariaLabel}
-              placeholder={placeholder}
-              style={{ width: inputWidth }}
-              role="input"
-            />
-          )}
-          <AnimatedTypography
-            ref={typographyRef}
-            aria-hidden={isEditing}
-            className={cx(styles.typography, typographyClassName, { [styles.hidden]: isEditing })}
-            initial={shouldAnimate && { x: "-50%" }}
-            animate={shouldAnimate && { x: 0 }}
-            transition={{ duration: 0.1 }}
-            tabIndex={0}
-          >
-            {inputValue || placeholder}
-          </AnimatedTypography>
-        </div>
-      </LazyMotion>
+          {inputValue || placeholder}
+        </TypographyComponent>
+      </div>
     );
   }
 );

@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-small);
-  padding: 1px var(--spacing-small);
+  padding: 2px var(--spacing-small);
   position: relative;
 }
 
@@ -84,7 +84,7 @@
 
 .kindLine {
   border: 1px solid currentColor;
-  padding: 0 var(--spacing-small);
+  padding: 1px var(--spacing-small);
 
   .legWrapper {
     left: -1px;

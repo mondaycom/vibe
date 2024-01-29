@@ -23,6 +23,11 @@ export const Overview = {
   name: "Overview",
   args: {
     text: "New"
+  },
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
   }
 };
 
