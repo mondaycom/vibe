@@ -6,7 +6,7 @@ import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
 import { ThemeColor } from "../ThemeProviderConstants";
-import { Tip, UsageGuidelines } from "vibe-storybook-components";
+import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
 import styles from "./ThemeProvider.stories.module.scss";
 
 export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
@@ -201,3 +201,47 @@ export const UsageGuidelinesThemeProvider = () => (
     ]}
   />
 );
+
+export const DescriptionWithLinkMondaySdkIntegration = () => (
+  <>
+    When developing an external application for monday.com (iframe). You can use <code>ThemeProvider</code> in
+    combination with the{" "}
+    <Link
+      href="https://developer.monday.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
+      withoutSpacing
+    >
+      monday.com SDK
+    </Link>
+    , to apply monday.com <b>system</b> and <b>product</b> themes to your application. This will allow your application
+    to be consistent with the monday.com UI.
+  </>
+);
+
+export const MondaySdkIntegrationSourceCode = `
+import { ThemeProvider } from "monday-ui-react-core";
+import mondaySdk from "monday-sdk-js";
+
+const monday = mondaySdk();
+
+const useGetContext = () => {
+  const [context, setContext] = useState({});
+  
+  useEffect(() => {
+    monday.listen("context", (res) => {
+      setContext(res.data);
+    });
+  }, []);
+  
+  return context;
+};
+
+const AppWrapper = () => {
+  const context = useGetContext();
+
+  return (
+    <ThemeProvider themeConfig={context.themeConfig} systemTheme={context.theme}>
+      <App />
+    </ThemeProvider>
+  );
+};
+`;

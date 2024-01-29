@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Source } from "@storybook/blocks";
 import ThemeProvider from "../ThemeProvider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import {
   ColorsEligibleForThemingTemplate,
+  MondaySdkIntegrationSourceCode,
   ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
@@ -117,4 +119,11 @@ export const WithSystemTheme = {
   },
   name: "With systemTheme",
   play: themeProviderSystemThemeSuite
+};
+
+export const MondaySdkIntegration = {
+  render: () => {
+    return <Source code={MondaySdkIntegrationSourceCode}></Source>;
+  },
+  name: "monday.com SDK integration"
 };
