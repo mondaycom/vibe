@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.86.1 (2024-01-29)
+
+#### Bug Fixes
+* [#1904](https://github.com/mondaycom/monday-ui-react-core/pull/1904) fix(MenuItem): split menu items does not open sub-menu when navigating directly between two split menus ([@YuliaGold](https://github.com/YuliaGold))
+* [#1912](https://github.com/mondaycom/monday-ui-react-core/pull/1912) fix(MenuButton): fix dialog close behavior ([@talkor](https://github.com/talkor))
+
+#### Internal Changes
+* [#1913](https://github.com/mondaycom/monday-ui-react-core/pull/1913) chore: add issue template form ([@talkor](https://github.com/talkor))
+
 ## 2.86.0 (2024-01-25)
 
 #### Bug Fixes
