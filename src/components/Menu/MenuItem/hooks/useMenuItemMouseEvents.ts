@@ -40,16 +40,11 @@ export default function useMenuItemMouseEvents({
     }
   }, [
     setSubMenuIsOpenByIndex,
-    splitMenuItemIconButtonRef,
     index,
-    hasChildren,
-    splitMenuItem,
     isMouseEnterOnIconButton,
     prevIsMouseEnterOnIconButton,
     isActive,
-    resetOpenSubMenuIndex,
-    setActiveItemIndex,
-    isMouseEnter
+    resetOpenSubMenuIndex
   ]);
 
   useLayoutEffect(() => {
@@ -78,11 +73,16 @@ export default function useMenuItemMouseEvents({
 
     if (!isActive && splitMenuItem) {
       setActiveItemIndex(index);
+
+      if (isMouseEnterOnIconButton) {
+        setSubMenuIsOpenByIndex(index, true);
+      }
     }
   }, [
     resetOpenSubMenuIndex,
     prevIsMouseEnter,
     isMouseEnter,
+    isMouseEnterOnIconButton,
     setSubMenuIsOpenByIndex,
     isActive,
     setActiveItemIndex,

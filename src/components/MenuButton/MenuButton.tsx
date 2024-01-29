@@ -4,7 +4,7 @@ import { camelCase } from "lodash-es";
 import { isForwardRef } from "react-is";
 import Dialog, { DialogEvent } from "../Dialog/Dialog";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRef from "../../hooks/useMergeRef";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
@@ -47,6 +47,10 @@ interface MenuButtonProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   zIndex?: number;
   ariaLabel?: string;
+  // TODO: remove in next major version
+  /**
+   * @deprecated use closeMenuOnItemClick instead
+   */
   closeDialogOnContentClick?: boolean;
   /*
     Class name to provide the element which wraps the popover/modal/dialog
@@ -101,6 +105,7 @@ interface MenuButtonProps extends VibeComponentProps {
    * Tooltip Element Wrapper ClassName
    */
   tooltipReferenceClassName?: string;
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
@@ -118,6 +123,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Element to be used as the trigger element for the Menu - default is button
    */
   triggerElement?: React.ElementType;
+  /**
+   * Close the menu when an item is clicked
+   */
+  closeMenuOnItemClick?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -143,6 +152,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       zIndex = null,
       ariaLabel = "Menu",
       closeDialogOnContentClick = false,
+      closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
@@ -154,6 +164,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       disabled = false,
       text,
       tooltipContent,
+      tooltipProps,
       // Backward compatibility for props naming
       disabledReason,
       tooltipTriggers = [MenuButton.hideTriggers.MOUSE_LEAVE],
@@ -177,15 +188,19 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
 
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
-        if (event && event.key === "Escape") {
+        const isEscapeClicked = event && event.key === "Escape";
+        if (closeMenuOnItemClick || isEscapeClicked) {
           setIsOpen(false);
+        }
+
+        if (isEscapeClicked) {
           const button = componentRef.current;
           window.requestAnimationFrame(() => {
             button.focus();
           });
         }
       },
-      [componentRef, setIsOpen]
+      [closeMenuOnItemClick]
     );
 
     const onDialogDidHide = useCallback(
@@ -309,6 +324,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         hideTrigger={tooltipTriggers}
         referenceWrapperClassName={tooltipReferenceClassName}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
+        {...tooltipProps}
       >
         <Dialog
           wrapperClassName={dialogClassName}

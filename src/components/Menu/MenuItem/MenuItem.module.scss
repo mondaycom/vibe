@@ -44,14 +44,20 @@
 .subMenuIconWrapper .splitMenuItemIconButton {
   width: 34px;
   height: 30px;
-  --primary-background-hover-color: rgba(103, 104, 121, 0.1); // TODO Temp override for Tal changes - remove once token is changed
-  --primary-selected-color: rgba(103, 104, 121, 0.1); // Override for IconButton active color
+
+  // TODO Temp override for Tal changes - remove once token is changed
+  --primary-background-hover-color: rgba(103, 104, 121, 0.1);
+  // Override for IconButton active color
+  --primary-selected-color: rgba(103, 104, 121, 0.1);
 }
 
 .iconButton {
   width: 18px;
   height: 18px;
-  color: var(--icon-color);
+
+  &:not(.disabled) {
+    color: var(--icon-color);
+  }
 }
 
 .item.splitMenuItem {
@@ -96,4 +102,11 @@
   text-overflow: ellipsis;
   flex-grow: 1;
   padding-block: 1px;
+}
+
+.hiddenTitle {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
 }

@@ -1,5 +1,5 @@
 /**
- * System themes: dark, light, black, hacker
+ * System themes: dark, light, black
  */
 export enum SystemTheme {
   LIGHT = "light",

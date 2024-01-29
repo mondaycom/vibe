@@ -5,7 +5,7 @@ import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { DialogPosition } from "../../../constants/positions";
 import Text from "../../Text/Text";
-import Tooltip from "../../../components/Tooltip/Tooltip";
+import Tooltip, { TooltipProps } from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 import useMergeRef from "../../../hooks/useMergeRef";
@@ -48,6 +48,7 @@ export interface MenuItemProps extends VibeComponentProps {
   tooltipContent?: string;
   tooltipPosition?: TooltipPosition;
   tooltipShowDelay?: number;
+  tooltipProps?: Partial<TooltipProps>;
   onMouseLeave?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
   /**
@@ -108,6 +109,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       tooltipContent,
       tooltipPosition = MenuItem.tooltipPositions.RIGHT,
       tooltipShowDelay = 300,
+      tooltipProps,
       isInitialSelectedState,
       onMouseEnter,
       onMouseLeave,
@@ -229,10 +231,11 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             className={styles.splitMenuItemIconButton}
             kind={IconButton.kinds.TERTIARY}
             size={null} // Customizing size via className
-            iconClassName={styles.iconButton}
+            iconClassName={cx(styles.iconButton, { [styles.disabled]: disabled })}
             tabIndex={-1}
             ref={iconButtonElementRef}
             active={shouldShowSubMenu}
+            disabled={disabled}
           />
         </div>
       ) : (
@@ -331,10 +334,13 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
-          // Tooltip should be on a whole MenuItem, but it's a breaking change - should be fixed in the next major and then this can be removed
-          moveBy={icon && tooltipPosition === Tooltip.positions.LEFT ? { main: 30 } : undefined}
+          {...tooltipProps}
         >
           <div ref={titleRef} className={styles.title}>
+            {title}
+          </div>
+          {/* Tooltip should be on a whole MenuItem, but it's a breaking change (tooltip adds span) - should be fixed in the next major and then this div be removed */}
+          <div className={styles.hiddenTitle} aria-hidden tabIndex={-1}>
             {title}
           </div>
         </Tooltip>

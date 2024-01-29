@@ -4,8 +4,10 @@ node_modules
 npm-debug.log
 build-storybook.log
 ./build-storybook.log
+chromatic.log
 /storybook-static
 dist
 /build
 coverage
 .scannerwork
+*.env
