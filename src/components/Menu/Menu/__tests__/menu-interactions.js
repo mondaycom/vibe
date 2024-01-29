@@ -19,35 +19,37 @@ const TWO_DEPTHS_MENU_TEXTS = {
   TOP_MENU_NON_SUB_MENU_ITEM: "Another item"
 };
 
-const hiddenElementAttr = "[aria-hidden]";
+const HIDDEN_ELEMENT_SELECTOR = "[aria-hidden]";
 
 const showSubSubMenusOnHover = async canvas => {
   const menuElement = getMenuElement(canvas);
 
   const topMenuItem = getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM, {
-    ignore: hiddenElementAttr
+    ignore: HIDDEN_ELEMENT_SELECTOR
   });
   await userEvent.hover(topMenuItem);
 
-  const innerMenuItem = getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, { ignore: hiddenElementAttr });
+  const innerMenuItem = getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, {
+    ignore: HIDDEN_ELEMENT_SELECTOR
+  });
   await userEvent.hover(innerMenuItem);
 
   // validate showing sub sub item
   const optionToSelect = await waitForElementVisible(() =>
-    within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: hiddenElementAttr })
+    within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   );
   await clickElement(optionToSelect);
   expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close the sub-menus on hovering the top-level menu
   await userEvent.hover(
-    getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_NON_SUB_MENU_ITEM, { ignore: hiddenElementAttr })
+    getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_NON_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   );
   expect(
-    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, { ignore: hiddenElementAttr })
+    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   ).not.toBeInTheDocument();
   expect(
-    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: hiddenElementAttr })
+    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   ).not.toBeInTheDocument();
 };
 
@@ -56,7 +58,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
 
   //set the initial focus, to make the keyboard events work
   const topMenuItem = getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM, {
-    ignore: hiddenElementAttr
+    ignore: HIDDEN_ELEMENT_SELECTOR
   });
   await userEvent.click(topMenuItem);
 
@@ -66,7 +68,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
     within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM}$`), {
-      ignore: hiddenElementAttr
+      ignore: HIDDEN_ELEMENT_SELECTOR
     })
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
@@ -77,7 +79,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NavigationCommand.RIGHT_ARROW);
   await waitForElementVisible(() =>
     within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM}$`), {
-      ignore: hiddenElementAttr
+      ignore: HIDDEN_ELEMENT_SELECTOR
     })
   );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
@@ -85,7 +87,7 @@ const showSubSubMenusWithKeyboard = async canvas => {
   //close sub-sub-menu - using left arrow
   await pressNavigationKey(NavigationCommand.LEFT_ARROW);
   expect(
-    canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: hiddenElementAttr })
+    canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   ).not.toBeInTheDocument();
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
