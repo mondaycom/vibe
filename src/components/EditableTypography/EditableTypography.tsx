@@ -69,8 +69,6 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
 
-    const shouldShowPlaceholderWhenEmpty = clearable && placeholder;
-
     useEffect(() => {
       setIsEditing(isEditMode);
     }, [isEditMode]);
@@ -95,6 +93,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     function handleInputValueChange() {
       handleEditModeChange(false);
+
+      const shouldShowPlaceholderWhenEmpty = clearable && placeholder;
       if ((!inputValue && !shouldShowPlaceholderWhenEmpty) || value === inputValue) {
         setInputValue(value);
         return;
