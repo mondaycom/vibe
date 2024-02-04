@@ -34,6 +34,8 @@ interface EditableTypographyProps extends VibeComponentProps, EditableTypography
   component: ElementType;
   /** Controls the style of the typography component in view mode */
   typographyClassName: string;
+  /** Shows placeholder when empty, if provided */
+  clearable?: boolean;
 }
 
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
@@ -48,6 +50,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       readOnly = false,
       ariaLabel = "",
       placeholder,
+      clearable,
       typographyClassName,
       component: TypographyComponent,
       isEditMode,
@@ -65,6 +68,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
+
+    const shouldShowPlaceholderWhenEmpty = clearable && placeholder;
 
     useEffect(() => {
       setIsEditing(isEditMode);
@@ -90,7 +95,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
 
     function handleInputValueChange() {
       handleEditModeChange(false);
-      if (!inputValue || value === inputValue) {
+      if ((!inputValue && !shouldShowPlaceholderWhenEmpty) || value === inputValue) {
         setInputValue(value);
         return;
       }
@@ -167,7 +172,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           aria-hidden={isEditing}
           className={cx(styles.typography, typographyClassName, {
             [styles.hidden]: isEditing,
-            [styles.disabled]: readOnly
+            [styles.disabled]: readOnly,
+            [styles.placeholder]: !inputValue && placeholder
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}

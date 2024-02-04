@@ -1,7 +1,8 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen } from "@testing-library/react";
+import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import EditableText from "../EditableText";
+import { within } from "@storybook/testing-library";
 
 describe("EditableText", () => {
   afterEach(() => {
@@ -48,6 +49,31 @@ describe("EditableText", () => {
 
         expect(onClick).toHaveBeenCalledTimes(1);
       });
+    });
+  });
+
+  describe("with placeholder", () => {
+    it("should show a placeholder if provided and input is empty", async () => {
+      const placeholderText = "Placeholder text";
+      const value = "Editable test";
+      render(<EditableText value={value} placeholder={placeholderText} />);
+
+      const component = screen.getByRole("button");
+      fireEvent.click(component);
+
+      const input = screen.getByRole("input");
+      fireEvent.change(input, {
+        target: { value: "" }
+      });
+
+      expect(input).toHaveValue("");
+      expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
+
+      await waitFor(() => {
+        fireEvent.keyDown(input, { key: "Enter" });
+      });
+
+      expect(within(screen.getByRole("button")).getByText(placeholderText)).toBeInTheDocument();
     });
   });
 });
