@@ -15,6 +15,7 @@ import { VibeComponentProps } from "../../types";
 import * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import LayerContext from "../LayerProvider/LayerContext";
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -126,6 +127,7 @@ export interface DialogProps extends VibeComponentProps {
    * callback to be called when click on the content is being triggered
    */
   onContentClick?: (event: React.MouseEvent) => void;
+  // TODO: remove in next major
   /**
    * z-index to add to the dialog
    */
@@ -199,6 +201,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
+  static contextType = LayerContext;
+  context!: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
     super(props);
@@ -282,10 +286,11 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
 
     const containerElement = document.querySelector(containerSelector);
     if (!containerElement) {
-      // TODO add env check - if not jest env - trashing the logs - https://monday.monday.com/boards/3532714909/pulses/5570955392
-      // console.error(
-      //   `Dialog: Container element with selector "${containerSelector}" was not found. Dialog may not be correctly positioned.`
-      // );
+      const { layerRef } = this.context;
+      if (layerRef?.current) {
+        // Use Vibe layers mechanism if containerElement was not provided, otherwise fallback to document.body
+        return layerRef.current;
+      }
       return document.body;
     }
     return containerElement;
