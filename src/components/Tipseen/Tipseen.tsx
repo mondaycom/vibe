@@ -176,6 +176,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           forceRenderWithoutChildren={floating}
+          dialogClassName={styles.tipseenDialog}
         >
           {children}
         </Tooltip>

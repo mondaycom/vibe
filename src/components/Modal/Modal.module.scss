@@ -5,7 +5,8 @@
 }
 
 .container {
-  --monday-modal-z-index: 10000;
+  --monday-modal-z-index: var(--layer-modal);
+  // TODO: use --modal-layer in next major
   z-index: var(--monday-modal-z-index);
   display: flex;
   justify-content: center;

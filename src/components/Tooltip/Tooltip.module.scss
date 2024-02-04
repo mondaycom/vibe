@@ -1,6 +1,8 @@
 @import "../../styles/typography";
 
-$tooltip-z-index: 9999999999999999;
+.tooltipDialog {
+  z-index: var(--layer-tooltip);
+}
 
 .tooltip {
   position: relative;

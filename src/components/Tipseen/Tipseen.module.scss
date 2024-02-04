@@ -1,5 +1,9 @@
 @import "../../styles/typography";
 
+.tipseenDialog {
+  z-index: var(--layer-popover);
+}
+
 .tipseenWrapper {
   min-width: 100px;
   min-height: 40px;

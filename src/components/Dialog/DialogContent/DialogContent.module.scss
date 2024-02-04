@@ -1,6 +1,7 @@
 @import "~monday-ui-style/dist/mixins";
 
 .contentWrapper {
+  z-index: var(--layer-popover);
   outline: 0;
 
   &.top,
