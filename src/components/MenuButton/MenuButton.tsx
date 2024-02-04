@@ -317,33 +317,33 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
           };
 
     return (
-      <Tooltip
-        content={overrideTooltipContent}
-        position={tooltipPosition}
-        showTrigger={TOOLTIP_SHOW_TRIGGER}
-        hideTrigger={tooltipTriggers}
-        referenceWrapperClassName={tooltipReferenceClassName}
+      <Dialog
+        wrapperClassName={dialogClassName}
+        position={dialogPosition}
+        containerSelector={dialogContainerSelector}
+        startingEdge={startingEdge}
+        animationType={AnimationType.EXPAND}
+        content={content}
+        moveBy={computedDialogOffset}
+        showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
+        hideTrigger={hideTrigger}
+        showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
+        hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
+        useDerivedStateFromProps={true}
+        onDialogDidShow={onDialogDidShow}
+        onDialogDidHide={onDialogDidHide}
+        zIndex={zIndex}
+        isOpen={isOpen}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
-        {...tooltipProps}
       >
-        <Dialog
-          wrapperClassName={dialogClassName}
-          position={dialogPosition}
-          containerSelector={dialogContainerSelector}
-          startingEdge={startingEdge}
-          animationType={AnimationType.EXPAND}
-          content={content}
-          moveBy={computedDialogOffset}
-          showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
-          hideTrigger={hideTrigger}
-          showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
-          hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
-          useDerivedStateFromProps={true}
-          onDialogDidShow={onDialogDidShow}
-          onDialogDidHide={onDialogDidHide}
-          zIndex={zIndex}
-          isOpen={isOpen}
+        <Tooltip
+          content={overrideTooltipContent}
+          position={tooltipPosition}
+          showTrigger={TOOLTIP_SHOW_TRIGGER}
+          hideTrigger={tooltipTriggers}
+          referenceWrapperClassName={tooltipReferenceClassName}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          {...tooltipProps}
         >
           <TriggerElement
             id={id}
@@ -366,8 +366,8 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             {text && <span className={styles.innerText}>{text}</span>}
             {componentPosition === MenuButton.componentPositions.END && icon}
           </TriggerElement>
-        </Dialog>
-      </Tooltip>
+        </Tooltip>
+      </Dialog>
     );
   }
 );
