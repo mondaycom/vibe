@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
+import React, { cloneElement, FC, ReactElement, useCallback, useMemo, forwardRef, useRef, ForwardedRef } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -12,6 +12,8 @@ import { withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
+import LayerProvider from "../LayerProvider/LayerProvider";
+import useMergeRef from "../../hooks/useMergeRef";
 
 interface ModalProps {
   /**
@@ -72,123 +74,135 @@ interface ModalProps {
    *  Dialog content
    */
   children?: ReactElement | ReactElement[];
+  // TODO: remove next major
   /**
    * z-index attribute of the container
    */
   zIndex?: number;
 }
 
-const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = ({
-  classNames = { container: "", overlay: "", modal: "" },
-  id,
-  show,
-  title = "",
-  description = "",
-  onClose = NOOP,
-  alertDialog = false,
-  children,
-  triggerElement,
-  width = ModalWidth.DEFAULT,
-  // TODO remove hideCloseButton on the next breaking changes
-  // eslint-disable-next-line
-  hideCloseButton = false,
-  closeButtonAriaLabel = "Close",
-  contentSpacing = false,
-  zIndex = 10000,
-  "data-testid": dataTestId
-}) => {
-  const childrenArray: ReactElement[] = useMemo(
-    () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
-    [children]
-  );
-  validateTitleProp(title, childrenArray);
-
-  const [instance, attr] = useA11yDialog({
-    id,
-    alertDialog
-  });
-
-  const closeIfNotAlertType = useCallback(() => {
-    if (!alertDialog) {
-      onClose?.();
-    }
-  }, [alertDialog, onClose]);
-
-  // lock body scroll when modal is open
-  useBodyScrollLock({ instance });
-
-  // show/hide and animate the modal
-  useShowHideModal({
-    instance,
-    show,
-    triggerElement,
-    onClose,
-    alertDialog
-  });
-
-  const header = useMemo(() => {
-    const { id } = attr.title;
-    const header = childrenArray.find(isModalHeader);
-    if (header) {
-      return cloneElement(header, { id, closeModal: onClose });
-    }
-    return (
-      <ModalHeader
-        title={title}
-        description={description}
-        closeModal={onClose}
-        id={id}
-        closeButtonAriaLabel={closeButtonAriaLabel}
-      />
+const Modal: FC<ModalProps> & { width?: typeof ModalWidth } = forwardRef(
+  (
+    {
+      classNames = { container: "", overlay: "", modal: "" },
+      id,
+      show,
+      title = "",
+      description = "",
+      onClose = NOOP,
+      alertDialog = false,
+      children,
+      triggerElement,
+      width = ModalWidth.DEFAULT,
+      // TODO remove hideCloseButton on the next breaking changes
+      // eslint-disable-next-line
+      hideCloseButton = false,
+      closeButtonAriaLabel = "Close",
+      contentSpacing = false,
+      zIndex = 10000,
+      "data-testid": dataTestId
+    },
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRef(ref, componentRef);
+    const childrenArray: ReactElement[] = useMemo(
+      () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
+      [children]
     );
-  }, [attr.title, childrenArray, title, description, onClose, closeButtonAriaLabel]);
+    validateTitleProp(title, childrenArray);
 
-  const content = useMemo(() => {
-    return (
-      childrenArray.find(isModalContent) || (
-        <ModalContent>{childrenArray.filter(child => !isModalHeader(child) && !isModalFooter(child))}</ModalContent>
-      )
-    );
-  }, [childrenArray]);
+    const [instance, attr] = useA11yDialog({
+      id,
+      alertDialog
+    });
 
-  const footer = useMemo(() => {
-    return childrenArray.find(isModalFooter) || null;
-  }, [childrenArray]);
+    const closeIfNotAlertType = useCallback(() => {
+      if (!alertDialog) {
+        onClose?.();
+      }
+    }, [alertDialog, onClose]);
 
-  const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
+    // lock body scroll when modal is open
+    useBodyScrollLock({ instance });
 
-  const dialog = ReactDOM.createPortal(
-    <div
-      {...attr.container}
-      className={cx(styles.container, classNames.container)}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-      style={{ "--monday-modal-z-index": zIndex }}
-    >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+    // show/hide and animate the modal
+    useShowHideModal({
+      instance,
+      show,
+      triggerElement,
+      onClose,
+      alertDialog
+    });
+
+    const header = useMemo(() => {
+      const { id } = attr.title;
+      const header = childrenArray.find(isModalHeader);
+      if (header) {
+        return cloneElement(header, { id, closeModal: onClose });
+      }
+      return (
+        <ModalHeader
+          title={title}
+          description={description}
+          closeModal={onClose}
+          id={id}
+          closeButtonAriaLabel={closeButtonAriaLabel}
+        />
+      );
+    }, [attr.title, childrenArray, title, description, onClose, closeButtonAriaLabel]);
+
+    const content = useMemo(() => {
+      return (
+        childrenArray.find(isModalContent) || (
+          <ModalContent>{childrenArray.filter(child => !isModalHeader(child) && !isModalFooter(child))}</ModalContent>
+        )
+      );
+    }, [childrenArray]);
+
+    const footer = useMemo(() => {
+      return childrenArray.find(isModalFooter) || null;
+    }, [childrenArray]);
+
+    const customWidth = width !== ModalWidth.DEFAULT && width !== ModalWidth.FULL_WIDTH;
+
+    const dialog = ReactDOM.createPortal(
       <div
-        onClick={closeIfNotAlertType}
-        className={cx(styles.overlay, classNames.overlay)}
-        data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
-      />
-      <div
-        {...attr.dialog}
-        className={cx(styles.dialog, classNames.modal, {
-          [styles.default]: width === ModalWidth.DEFAULT,
-          [styles.full]: width === ModalWidth.FULL_WIDTH,
-          [styles.spacing]: contentSpacing
-        })}
-        style={{ width: customWidth ? width : null }}
+        {...attr.container}
+        className={cx(styles.container, classNames.container)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+        // TODO: remove in next major
+        style={{ "--monday-modal-z-index": zIndex }}
       >
-        {header}
-        {content}
-        {footer}
-      </div>
-    </div>,
-    document.body
-  );
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <div
+          onClick={closeIfNotAlertType}
+          className={cx(styles.overlay, classNames.overlay)}
+          data-testid={ComponentDefaultTestId.MODAL_OVERLAY}
+        />
+        <LayerProvider>
+          <div
+            {...attr.dialog}
+            className={cx(styles.dialog, classNames.modal, {
+              [styles.default]: width === ModalWidth.DEFAULT,
+              [styles.full]: width === ModalWidth.FULL_WIDTH,
+              [styles.spacing]: contentSpacing
+            })}
+            style={{ width: customWidth ? width : null }}
+            ref={mergedRef}
+          >
+            {header}
+            {content}
+            {footer}
+          </div>
+        </LayerProvider>
+      </div>,
+      document.body
+    );
 
-  return ReactDOM.createPortal(dialog, document.body);
-};
+    return ReactDOM.createPortal(dialog, document.body);
+  }
+);
 
 export default withStaticProps(Modal, {
   width: ModalWidth
