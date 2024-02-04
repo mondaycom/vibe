@@ -127,6 +127,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Close the menu when an item is clicked
    */
   closeMenuOnItemClick?: boolean;
+  /**
+   * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
+   */
+  showTooltipOnlyOnTriggerElement?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -176,6 +180,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
+      showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId
     },
     ref
@@ -316,7 +321,31 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref: isForwardRef(TriggerElement) ? mergedRef : undefined
           };
 
-    return (
+    const TriggerElementNode = (
+      <TriggerElement
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
+        type="button"
+        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
+          [styles.active]: isActive,
+          [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
+          [styles.disabled]: disabled,
+          [styles.text]: text
+        })}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        aria-label={!text && ariaLabel}
+        onMouseUp={onMouseUp}
+        aria-disabled={disabled}
+        {...triggerElementProps}
+      >
+        {componentPosition === MenuButton.componentPositions.START && icon}
+        {text && <span className={styles.innerText}>{text}</span>}
+        {componentPosition === MenuButton.componentPositions.END && icon}
+      </TriggerElement>
+    );
+
+    const DialogNode = (dialogChildren: React.ReactElement) => (
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
@@ -336,39 +365,28 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         isOpen={isOpen}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
       >
-        <Tooltip
-          content={overrideTooltipContent}
-          position={tooltipPosition}
-          showTrigger={TOOLTIP_SHOW_TRIGGER}
-          hideTrigger={tooltipTriggers}
-          referenceWrapperClassName={tooltipReferenceClassName}
-          hideWhenReferenceHidden={hideWhenReferenceHidden}
-          {...tooltipProps}
-        >
-          <TriggerElement
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-            type="button"
-            className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
-              [styles.active]: isActive,
-              [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
-              [styles.disabled]: disabled,
-              [styles.text]: text
-            })}
-            aria-haspopup="true"
-            aria-expanded={isOpen}
-            aria-label={!text && ariaLabel}
-            onMouseUp={onMouseUp}
-            aria-disabled={disabled}
-            {...triggerElementProps}
-          >
-            {componentPosition === MenuButton.componentPositions.START && icon}
-            {text && <span className={styles.innerText}>{text}</span>}
-            {componentPosition === MenuButton.componentPositions.END && icon}
-          </TriggerElement>
-        </Tooltip>
+        {dialogChildren}
       </Dialog>
     );
+
+    const TooltipNode = (tooltipChildren: React.ReactElement) => (
+      <Tooltip
+        content={overrideTooltipContent}
+        position={tooltipPosition}
+        showTrigger={TOOLTIP_SHOW_TRIGGER}
+        hideTrigger={tooltipTriggers}
+        referenceWrapperClassName={tooltipReferenceClassName}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
+        {...tooltipProps}
+      >
+        {tooltipChildren}
+      </Tooltip>
+    );
+
+    if (showTooltipOnlyOnTriggerElement) {
+      return DialogNode(TooltipNode(TriggerElementNode));
+    }
+    return TooltipNode(DialogNode(TriggerElementNode));
   }
 );
 
