@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.89.0 (2024-02-05)
+
+#### Bug Fixes
+* [#1927](https://github.com/mondaycom/monday-ui-react-core/pull/1927) fix(Dropdown): prevent shrink of ChildrenContent ([@talkor](https://github.com/talkor))
+* [#1922](https://github.com/mondaycom/monday-ui-react-core/pull/1922) fix(MenuButton): tooltip should only appear on trigger element hover, not on dialog hover ([@YossiSaadi](https://github.com/YossiSaadi))
+
+#### New Features
+* [#1928](https://github.com/mondaycom/monday-ui-react-core/pull/1928) feat(Label): support ellipsis ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.88.0 (2024-02-05)
 
 #### Bug Fixes
