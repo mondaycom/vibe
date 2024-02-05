@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.88.0 (2024-02-05)
+
+#### Bug Fixes
+* [#1925](https://github.com/mondaycom/monday-ui-react-core/pull/1925) fix(Avatar): changed medium avatar size ([@shaharzil](https://github.com/shaharzil))
+
+#### New Features
+* [#1921](https://github.com/mondaycom/monday-ui-react-core/pull/1921) feat(EditableText): show placeholder when empty ([@talkor](https://github.com/talkor))
+* [#1926](https://github.com/mondaycom/monday-ui-react-core/pull/1926) feat(Dropdown): add withReadOnlyStyle prop ([@talkor](https://github.com/talkor))
+* [#1924](https://github.com/mondaycom/monday-ui-react-core/pull/1924) feat(TextField): add withReadOnlyStyle prop ([@talkor](https://github.com/talkor))
+
 ## 2.87.0 (2024-01-29)
 
 #### New Features
