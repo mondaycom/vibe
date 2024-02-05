@@ -321,7 +321,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref: isForwardRef(TriggerElement) ? mergedRef : undefined
           };
 
-    const TriggerElementNode = (
+    const triggerElementNode = (
       <TriggerElement
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
@@ -345,7 +345,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       </TriggerElement>
     );
 
-    const DialogNode = (dialogChildren: React.ReactElement) => (
+    const dialogNode = (dialogChildren: React.ReactElement) => (
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
@@ -369,7 +369,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       </Dialog>
     );
 
-    const TooltipNode = (tooltipChildren: React.ReactElement) => (
+    const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
         content={overrideTooltipContent}
         position={tooltipPosition}
@@ -384,9 +384,9 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     );
 
     if (showTooltipOnlyOnTriggerElement) {
-      return DialogNode(TooltipNode(TriggerElementNode));
+      return dialogNode(tooltipNode(triggerElementNode));
     }
-    return TooltipNode(DialogNode(TriggerElementNode));
+    return tooltipNode(dialogNode(triggerElementNode));
   }
 );
 
