@@ -65,6 +65,16 @@ const readOnlyContainerStyle = readOnly => {
   };
 };
 
+// TODO: unite backgroundColor style with `readOnlyContainerStyle` in next major [breaking]
+const readOnlyStyle = isReadOnly => {
+  if (!isReadOnly) {
+    return {};
+  }
+  return {
+    backgroundColor: getCSSVar("allgrey-background-color")
+  };
+};
+
 const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   delete provided[":active"];
   delete provided.width;
@@ -237,10 +247,11 @@ const menuOpenOpacity = ({ menuIsOpen }) => {
 const singleValue =
   () =>
   (provided, { isDisabled, selectProps }) => {
-    const { readOnly } = selectProps;
+    const { readOnly, withReadOnlyStyle } = selectProps;
     const readOnlyProps = readOnly
       ? {
           ...readOnlyContainerStyle(readOnly),
+          ...readOnlyStyle(withReadOnlyStyle),
           cursor: "text"
         }
       : {};
@@ -290,13 +301,14 @@ const getCenterContentStyle = rtl => {
 
 const valueContainer =
   ({ size, rtl }) =>
-  (provided, { isDisabled }) => ({
+  (provided, { isDisabled, selectProps: { withReadOnlyStyle, readOnly } }) => ({
     ...provided,
     ...getCenterContentStyle(rtl),
     ...getFont(),
     ...getColor(),
     ...getInnerSize(size),
     ...disabledContainerStyle(isDisabled),
+    ...readOnlyStyle(withReadOnlyStyle && readOnly),
     borderRadius: getCSSVar("border-radius-small")
   });
 

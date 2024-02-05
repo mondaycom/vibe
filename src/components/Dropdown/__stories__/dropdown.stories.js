@@ -55,12 +55,16 @@ const dropdownTemplate = props => {
 export const Overview = {
   render: dropdownTemplate.bind({}),
   name: "Overview",
-
   args: {
     placeholder: "Placeholder text here",
     className: "dropdown-stories-styles_spacing"
   },
-
+  parameters: {
+    controls: {
+      // TODO: remove exclusion when prop is removed in next major
+      exclude: ["withReadOnlyStyle"]
+    }
+  },
   play: overviewPlaySuite
 };
 

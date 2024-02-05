@@ -37,6 +37,7 @@ const Dropdown = forwardRef(
       placeholder,
       disabled,
       readOnly,
+      withReadOnlyStyle,
       onMenuOpen,
       onMenuClose,
       onFocus,
@@ -329,6 +330,7 @@ const Dropdown = forwardRef(
         isClearable={!readOnly && clearable}
         isSearchable={!readOnly && searchable}
         readOnly={readOnly}
+        withReadOnlyStyle={withReadOnlyStyle}
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
