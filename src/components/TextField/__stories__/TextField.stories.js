@@ -34,9 +34,7 @@ export const Overview = {
 
     wrapperClassName: "monday-storybook-text-field_size",
     showCharCount: true,
-    placeholder: "Placeholder text here",
-    readonly: true,
-    withReadOnlyStyle: true
+    placeholder: "Placeholder text here"
   },
   parameters: {
     controls: {
