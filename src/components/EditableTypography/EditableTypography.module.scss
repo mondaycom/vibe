@@ -42,5 +42,9 @@
       visibility: hidden;
       white-space: pre;
     }
+
+    &.placeholder {
+      color: var(--secondary-text-color);
+    }
   }
 }

@@ -42,6 +42,7 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_TEXT, id)}
         component={Text}
         typographyClassName={cx(getStyle(styles, camelCase(type + "-" + weight)), styles.typography)}
+        clearable
         {...editableTypographyProps}
       />
     );
