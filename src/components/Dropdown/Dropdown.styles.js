@@ -65,7 +65,7 @@ const readOnlyContainerStyle = readOnly => {
   };
 };
 
-// TODO: unite backgroundColor style with `readOnlyContainerStyle`
+// TODO: unite backgroundColor style with `readOnlyContainerStyle` in next major [breaking]
 const readOnlyStyle = isReadOnly => {
   if (!isReadOnly) {
     return {};
