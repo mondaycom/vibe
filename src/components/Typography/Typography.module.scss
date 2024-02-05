@@ -59,6 +59,14 @@
   }
 }
 
+.inherit {
+  color: inherit;
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
 .start {
   text-align: start;
 }

@@ -99,7 +99,9 @@ const Label: VibeComponent<LabelProps> & {
         ref={mergedRef}
       >
         <Text element="span" type={Text.types.TEXT2} className={classNames} color={Text.colors.ON_INVERTED}>
-          <span>{text}</span>
+          <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+            {text}
+          </Text>
           <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
         </Text>
       </span>
