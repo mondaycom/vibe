@@ -24,7 +24,14 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
       {data?.leftRenderer || (
         <>
           {data?.leftAvatar && (
-            <Avatar withoutBorder square={data.square} src={data.leftAvatar} type={Avatar.types.IMG} customSize={20} />
+            <Avatar
+              className={styles.avatar}
+              withoutBorder
+              square={data.square}
+              src={data.leftAvatar}
+              type={Avatar.types.IMG}
+              customSize={20}
+            />
           )}
           {data?.leftIcon && <Icon iconSize={18} icon={data.leftIcon} clickable={false} />}
         </>
