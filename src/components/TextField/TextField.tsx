@@ -81,6 +81,10 @@ interface TextFieldProps extends VibeComponentProps {
   tabIndex?: number;
   name?: string;
   underline?: boolean;
+  /**
+   * Apply new style for read only, use along with `readonly` prop
+   */
+  withReadOnlyStyle?: boolean;
 }
 
 const TextField: VibeComponent<TextFieldProps, unknown> & {
@@ -131,7 +135,8 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       secondaryDataTestId,
       tabIndex,
       underline = false,
-      name
+      name,
+      withReadOnlyStyle
     },
     ref
   ) => {
@@ -223,7 +228,10 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
               className={cx(className, styles.input, {
-                [styles.inputHasIcon]: !!hasIcon
+                [styles.inputHasIcon]: !!hasIcon,
+                [styles.readOnly]: readonly,
+                // TODO: use `readonly` prop next major instead of withReadOnlyStyle
+                [styles.withReadOnlyStyle]: withReadOnlyStyle
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
