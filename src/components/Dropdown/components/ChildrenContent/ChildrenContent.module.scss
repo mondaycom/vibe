@@ -2,4 +2,8 @@
   display: flex;
   gap: var(--spacing-xs);
   align-items: center;
+
+  .avatar {
+    flex-shrink: 0;
+  }
 }
