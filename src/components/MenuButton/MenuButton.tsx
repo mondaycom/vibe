@@ -127,6 +127,10 @@ interface MenuButtonProps extends VibeComponentProps {
    * Close the menu when an item is clicked
    */
   closeMenuOnItemClick?: boolean;
+  /**
+   * Whether tooltip should appear only when the trigger element is hovered and not the menu dialog
+   */
+  showTooltipOnlyOnTriggerElement?: boolean;
 }
 
 const MenuButton: VibeComponent<MenuButtonProps> & {
@@ -176,6 +180,7 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
       dialogContainerSelector,
       active,
       triggerElement: TriggerElement = "button",
+      showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId
     },
     ref
@@ -316,7 +321,55 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
             ref: isForwardRef(TriggerElement) ? mergedRef : undefined
           };
 
-    return (
+    const triggerElementNode = (
+      <TriggerElement
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
+        type="button"
+        className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
+          [styles.active]: isActive,
+          [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
+          [styles.disabled]: disabled,
+          [styles.text]: text
+        })}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        aria-label={!text && ariaLabel}
+        onMouseUp={onMouseUp}
+        aria-disabled={disabled}
+        {...triggerElementProps}
+      >
+        {componentPosition === MenuButton.componentPositions.START && icon}
+        {text && <span className={styles.innerText}>{text}</span>}
+        {componentPosition === MenuButton.componentPositions.END && icon}
+      </TriggerElement>
+    );
+
+    const dialogNode = (dialogChildren: React.ReactElement) => (
+      <Dialog
+        wrapperClassName={dialogClassName}
+        position={dialogPosition}
+        containerSelector={dialogContainerSelector}
+        startingEdge={startingEdge}
+        animationType={AnimationType.EXPAND}
+        content={content}
+        moveBy={computedDialogOffset}
+        showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
+        hideTrigger={hideTrigger}
+        showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
+        hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
+        useDerivedStateFromProps={true}
+        onDialogDidShow={onDialogDidShow}
+        onDialogDidHide={onDialogDidHide}
+        zIndex={zIndex}
+        isOpen={isOpen}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
+      >
+        {dialogChildren}
+      </Dialog>
+    );
+
+    const tooltipNode = (tooltipChildren: React.ReactElement) => (
       <Tooltip
         content={overrideTooltipContent}
         position={tooltipPosition}
@@ -326,49 +379,14 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
         hideWhenReferenceHidden={hideWhenReferenceHidden}
         {...tooltipProps}
       >
-        <Dialog
-          wrapperClassName={dialogClassName}
-          position={dialogPosition}
-          containerSelector={dialogContainerSelector}
-          startingEdge={startingEdge}
-          animationType={AnimationType.EXPAND}
-          content={content}
-          moveBy={computedDialogOffset}
-          showTrigger={disabled ? EMPTY_ARRAY : DIALOG_SHOW_TRIGGER}
-          hideTrigger={hideTrigger}
-          showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
-          hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
-          useDerivedStateFromProps={true}
-          onDialogDidShow={onDialogDidShow}
-          onDialogDidHide={onDialogDidHide}
-          zIndex={zIndex}
-          isOpen={isOpen}
-          hideWhenReferenceHidden={hideWhenReferenceHidden}
-        >
-          <TriggerElement
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-            type="button"
-            className={cx(styles.wrapper, overrideClassName, getStyle(styles, camelCase(`size-${size}`)), {
-              [styles.active]: isActive,
-              [getStyle(styles, openDialogComponentClassName)]: isOpen && openDialogComponentClassName,
-              [styles.disabled]: disabled,
-              [styles.text]: text
-            })}
-            aria-haspopup="true"
-            aria-expanded={isOpen}
-            aria-label={!text && ariaLabel}
-            onMouseUp={onMouseUp}
-            aria-disabled={disabled}
-            {...triggerElementProps}
-          >
-            {componentPosition === MenuButton.componentPositions.START && icon}
-            {text && <span className={styles.innerText}>{text}</span>}
-            {componentPosition === MenuButton.componentPositions.END && icon}
-          </TriggerElement>
-        </Dialog>
+        {tooltipChildren}
       </Tooltip>
     );
+
+    if (showTooltipOnlyOnTriggerElement) {
+      return dialogNode(tooltipNode(triggerElementNode));
+    }
+    return tooltipNode(dialogNode(triggerElementNode));
   }
 );
 
