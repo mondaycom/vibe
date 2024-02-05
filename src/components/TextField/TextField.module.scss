@@ -69,6 +69,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--primary-text-color);
+
+  &.readOnly.withReadOnlyStyle {
+    background-color: var(--allgrey-background-color);
+    border: none;
+  }
 }
 
 .textField .inputWrapper .input.inputHover {

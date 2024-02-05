@@ -34,7 +34,15 @@ export const Overview = {
 
     wrapperClassName: "monday-storybook-text-field_size",
     showCharCount: true,
-    placeholder: "Placeholder text here"
+    placeholder: "Placeholder text here",
+    readonly: true,
+    withReadOnlyStyle: true
+  },
+  parameters: {
+    controls: {
+      // TODO: remove exclusion when prop is removed in next major
+      exclude: ["withReadOnlyStyle"]
+    }
   }
 };
 
