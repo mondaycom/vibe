@@ -83,7 +83,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
         return;
       }
       event.preventDefault();
-      setIsEditing(true);
+      handleEditModeChange(true);
     }
 
     function handleEditModeChange(value: boolean) {
