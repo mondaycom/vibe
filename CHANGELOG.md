@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.90.0 (2024-02-06)
+
+#### Bug Fixes
+* [#1930](https://github.com/mondaycom/monday-ui-react-core/pull/1930) fix(MenuButton): fix component type ([@talkor](https://github.com/talkor))
+
+#### New Features
+* [#1931](https://github.com/mondaycom/monday-ui-react-core/pull/1931) feat(EditableTypography): send onEditModeChange when entering edit mode ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.89.0 (2024-02-05)
 
 #### Bug Fixes
