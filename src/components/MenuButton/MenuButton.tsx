@@ -41,7 +41,7 @@ interface MenuButtonProps extends VibeComponentProps {
   /**
    * Receives React Component
    */
-  component?: () => JSX.Element;
+  component?: (() => JSX.Element) | JSX.Element;
   size?: MenuButtonSize;
   open?: boolean;
   onClick?: (event: React.MouseEvent) => void;
