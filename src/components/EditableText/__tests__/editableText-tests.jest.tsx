@@ -50,6 +50,31 @@ describe("EditableText", () => {
         expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
+
+    describe("onBlur", () => {
+      const onBlur = jest.fn();
+      it("should call onBlur when blurring an editable component", () => {
+        render(<EditableText value="Editable test with blur" onBlur={onBlur} />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component); // enter editing state
+
+        const input = screen.getByRole("input");
+        fireEvent.blur(input); // focus out
+
+        expect(onBlur).toHaveBeenCalledTimes(1);
+      });
+
+      it("should not call onBlur when blurring (removing focus) from a 'readOnly' component", () => {
+        render(<EditableText value="Editable test with blur" onBlur={onBlur} readOnly />);
+
+        const component = screen.getByRole("button");
+        fireEvent.click(component); // enter editing state
+        fireEvent.blur(component); // focus out
+
+        expect(onBlur).toHaveBeenCalledTimes(0);
+      });
+    });
   });
 
   describe("with placeholder", () => {

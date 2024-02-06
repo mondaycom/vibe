@@ -1,4 +1,5 @@
 import React, { ElementType, forwardRef, useEffect, useRef, useState } from "react";
+import { isFunction } from "lodash-es";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import VibeComponentProps from "../../types/VibeComponentProps";
@@ -15,6 +16,8 @@ export interface EditableTypographyImplementationProps {
   onChange?: (value: string) => void;
   /** Will be called whenever the component gets clicked */
   onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
+  /** Will be called when the component is blurred */
+  onBlur?: (event: React.FocusEvent) => void;
   /** Disables editing mode - component will be just a typography element */
   readOnly?: boolean;
   /** Shown in edit mode when the text value is empty */
@@ -46,6 +49,7 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       "data-testid": dataTestId,
       value,
       onChange,
+      onBlur,
       onClick,
       readOnly = false,
       ariaLabel = "",
@@ -102,7 +106,10 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       onChange?.(inputValue);
     }
 
-    function handleBlur() {
+    function handleBlur(e: React.FocusEvent<HTMLInputElement>) {
+      if (isFunction(onBlur) && !readOnly) {
+        onBlur(e);
+      }
       handleInputValueChange();
     }
 
