@@ -25,13 +25,15 @@ const TableVirtualizedBody: FC<ITableVirtualizedBodyProps> = ({ items, rowRender
 
   return (
     <TableBody className={styles.tableBody}>
-      <VirtualizedList
-        items={items}
-        itemRenderer={itemRenderer}
-        getItemHeight={() => RowHeights[size]}
-        layout="vertical"
-        onScroll={onScroll}
-      />
+      {items?.length && (
+        <VirtualizedList
+          items={items}
+          itemRenderer={itemRenderer}
+          getItemHeight={() => RowHeights[size]}
+          layout="vertical"
+          onScroll={onScroll}
+        />
+      )}
     </TableBody>
   );
 };
