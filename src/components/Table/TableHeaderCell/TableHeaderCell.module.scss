@@ -31,10 +31,16 @@
 
     .sort {
       color: var(--icon-color);
+      transition: opacity 0.1s;
 
       &.asc,
       &.desc {
         color: var(--primary-text-color);
+      }
+
+      &:not(.show):not(:focus):not(:focus-visible) {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }
