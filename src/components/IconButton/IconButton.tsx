@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useMemo, useRef } from "react";
+import React, { AriaAttributes, forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -43,6 +43,10 @@ export interface IconButtonProps extends VibeComponentProps {
    * a11y property to be added, used for screen reader to know if the button is expanded
    */
   ariaExpanded?: boolean;
+  /**
+   * a11y property to be added, used for screen reader to know if the button is hidden
+   */
+  "aria-hidden"?: AriaAttributes["aria-hidden"];
   /**
    * Size of the icon
    */
@@ -101,6 +105,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
       tooltipContent,
       ariaLabel,
       ariaExpanded,
+      "aria-hidden": ariaHidden,
       hideTooltip = false,
       kind = IconButton.kinds.TERTIARY,
       active,
@@ -183,6 +188,7 @@ const IconButton: VibeComponent<IconButtonProps> & {
             kind={kind}
             ariaLabel={buttonAriaLabel}
             ariaExpanded={ariaExpanded}
+            aria-hidden={ariaHidden}
             ref={mergedRef}
             id={id}
             data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
