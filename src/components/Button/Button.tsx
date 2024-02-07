@@ -71,6 +71,7 @@ export interface ButtonProps extends VibeComponentProps {
   /** aria controls - receives id for the controlled region */
   ariaControls?: string;
   "aria-describedby"?: AriaAttributes["aria-describedby"];
+  "aria-hidden"?: AriaAttributes["aria-hidden"];
   /** On Button Focus callback */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
@@ -136,6 +137,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaExpanded,
       ariaControls,
       "aria-describedby": ariaDescribedBy,
+      "aria-hidden": ariaHidden,
       blurOnMouseUp,
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
@@ -261,7 +263,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-describedby": ariaDescribedBy
+        "aria-describedby": ariaDescribedBy,
+        "aria-hidden": ariaHidden
       };
       return props;
     }, [
@@ -285,7 +288,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      ariaDescribedBy
+      ariaDescribedBy,
+      ariaHidden
     ]);
 
     const leftIconSize = useMemo(() => {
