@@ -198,10 +198,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
 
     useEffect(() => {
-      if (inputRef.current && autoFocus) {
-        const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
-        return () => cancelAnimationFrame(animationFrame);
+      if (!inputRef?.current || !autoFocus) {
+        return;
       }
+
+      const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
+      return () => cancelAnimationFrame(animationFrame);
     }, [inputRef, autoFocus]);
 
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
