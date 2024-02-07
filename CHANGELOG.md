@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.90.3 (2024-02-07)
+
+#### Bug Fixes
+* [#1934](https://github.com/mondaycom/monday-ui-react-core/pull/1934) fix(TableVirtualizedBody): handle empty state when no items or items is an empty array ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.90.2 (2024-02-07)
 
 #### Bug Fixes
