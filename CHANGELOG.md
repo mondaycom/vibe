@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.90.1 (2024-02-07)
+
+#### Bug Fixes
+* [#1932](https://github.com/mondaycom/monday-ui-react-core/pull/1932) fix(EditableTypography): should call onChange with empty string when placeholder is used ([@YossiSaadi](https://github.com/YossiSaadi))
+
 ## 2.90.0 (2024-02-06)
 
 #### Bug Fixes
