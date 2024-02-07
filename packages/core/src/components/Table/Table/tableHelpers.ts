@@ -48,9 +48,11 @@ export function getNextSortState(sortState: ITableHeaderCellProps["sortState"]):
 export function getAriaSort(sortState: ITableHeaderCellProps["sortState"]): AriaAttributes["aria-sort"] {
   if (sortState === "asc") {
     return "ascending";
-  } else if (sortState === "desc") {
+  }
+  if (sortState === "desc") {
     return "descending";
   }
+  return "none";
 }
 
 export function getSkeletonType(loadingStateType: TableLoadingStateType): SkeletonType {
