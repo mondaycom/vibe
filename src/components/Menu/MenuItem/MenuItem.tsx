@@ -1,5 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, {
+  AriaAttributes,
+  ForwardedRef,
+  ReactElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef
+} from "react";
 import cx from "classnames";
 import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
@@ -70,9 +80,15 @@ export interface MenuItemProps extends VibeComponentProps {
    *    2. click/hover on icon button will open the sub menu
    */
   splitMenuItem?: boolean;
+  "aria-label"?: AriaAttributes["aria-label"];
 }
 
-const MenuItem: VibeComponent<MenuItemProps> & {
+interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
+  title: ReactElement;
+  "aria-label": AriaAttributes["aria-label"];
+}
+
+const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
   tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
@@ -115,6 +131,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
+      "aria-label": ariaLabel,
       splitMenuItem = false
     },
     ref: ForwardedRef<HTMLElement>
@@ -220,6 +237,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
+    // if "title" is a component ariaLabel is mandatory
+    const iconLabel = ariaLabel || (title as string);
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
@@ -243,7 +262,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           <Icon
             clickable={false}
             icon={DropdownChevronRight}
-            iconLabel={title}
+            iconLabel={iconLabel}
             className={styles.subMenuIcon}
             ignoreFocusStyle
             iconSize={18}
@@ -279,7 +298,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconType={finalIconType}
             clickable={false}
             icon={icon}
-            iconLabel={title}
+            iconLabel={iconLabel}
             className={styles.icon}
             ignoreFocusStyle
             style={iconStyle}
