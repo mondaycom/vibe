@@ -9,7 +9,7 @@ export const AbilitiesDescription = () => (
       imageSrc={gettingStarted}
       linkHref="https://github.com/mondaycom/monday-ui-react-core#readme"
     >
-      Instructions on how to use the Ikigai design system
+      Instructions on how to use the Ikigai Design System
     </AbilityDescription>
     <AbilityDescription title="Foundations" imageSrc={foundations} linkHref="/?path=/docs/foundations-colors--docs">
       All information about colors, typography, spacing, and icons
