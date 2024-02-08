@@ -40,13 +40,14 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const ariaSort = getAriaSort(sortState);
+    const isSortActive = onSortClicked && ariaSort !== "none";
     const shouldShowSortIcon = ariaSort !== "none" || isHovered;
 
     return (
       <div
         ref={ref}
         id={id}
-        className={cx(styles.tableHeaderCell, className)}
+        className={cx(styles.tableHeaderCell, { [styles.sortActive]: isSortActive }, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_HEADER_CELL, id)}
         role="columnheader"
         onMouseEnter={() => setIsHovered(true)}
