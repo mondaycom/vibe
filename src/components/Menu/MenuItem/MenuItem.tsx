@@ -85,7 +85,7 @@ export interface MenuItemProps extends VibeComponentProps {
 
 interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
   title: ReactElement;
-  "aria-label": AriaAttributes["aria-label"];
+  "aria-label": NonNullable<AriaAttributes["aria-label"]>;
 }
 
 const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
@@ -238,7 +238,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
     );
 
     // if "title" is a component ariaLabel is mandatory
-    const iconLabel = ariaLabel || (title as string);
+    const iconLabel = ariaLabel ?? (title as string);
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
