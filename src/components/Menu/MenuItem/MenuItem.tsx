@@ -1,5 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, {
+  AriaAttributes,
+  ForwardedRef,
+  ReactElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef
+} from "react";
 import cx from "classnames";
 import { isFunction } from "lodash-es";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
@@ -26,8 +36,7 @@ import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
-export interface MenuItemProps extends VibeComponentProps {
-  title?: string;
+export interface MenuItemBaseProps extends VibeComponentProps {
   label?: string;
   icon?: SubIcon;
   iconType?: IconType;
@@ -72,7 +81,17 @@ export interface MenuItemProps extends VibeComponentProps {
   splitMenuItem?: boolean;
 }
 
-const MenuItem: VibeComponent<MenuItemProps> & {
+interface MenuItemWithChildrenProps {
+  title: ReactElement;
+  "aria-label": AriaAttributes["aria-label"];
+}
+
+interface MenuItemWithTitleProps {
+  title?: string;
+  "aria-label"?: AriaAttributes["aria-label"];
+}
+
+const MenuItem: VibeComponent<MenuItemBaseProps & (MenuItemWithTitleProps | MenuItemWithChildrenProps)> & {
   iconType?: typeof Icon.type;
   tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
@@ -115,6 +134,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       onMouseLeave,
       shouldScrollMenu,
       "data-testid": dataTestId,
+      "aria-label": ariaLabel,
       splitMenuItem = false
     },
     ref: ForwardedRef<HTMLElement>
@@ -220,6 +240,8 @@ const MenuItem: VibeComponent<MenuItemProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
+    const iconLabel = typeof title === "string" ? title : ariaLabel;
+
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
@@ -243,7 +265,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
           <Icon
             clickable={false}
             icon={DropdownChevronRight}
-            iconLabel={title}
+            iconLabel={iconLabel}
             className={styles.subMenuIcon}
             ignoreFocusStyle
             iconSize={18}
@@ -279,7 +301,7 @@ const MenuItem: VibeComponent<MenuItemProps> & {
             iconType={finalIconType}
             clickable={false}
             icon={icon}
-            iconLabel={title}
+            iconLabel={iconLabel}
             className={styles.icon}
             ignoreFocusStyle
             style={iconStyle}
