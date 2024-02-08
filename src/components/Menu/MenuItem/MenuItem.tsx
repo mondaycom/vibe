@@ -36,7 +36,8 @@ import Divider from "../../Divider/Divider";
 import { DirectionType } from "../../Divider/DividerConstants";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
-export interface MenuItemBaseProps extends VibeComponentProps {
+export interface MenuItemProps extends VibeComponentProps {
+  title?: string;
   label?: string;
   icon?: SubIcon;
   iconType?: IconType;
@@ -79,19 +80,15 @@ export interface MenuItemBaseProps extends VibeComponentProps {
    *    2. click/hover on icon button will open the sub menu
    */
   splitMenuItem?: boolean;
+  "aria-label"?: AriaAttributes["aria-label"];
 }
 
-interface MenuItemWithChildrenProps {
+interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
   title: ReactElement;
   "aria-label": AriaAttributes["aria-label"];
 }
 
-interface MenuItemWithTitleProps {
-  title?: string;
-  "aria-label"?: AriaAttributes["aria-label"];
-}
-
-const MenuItem: VibeComponent<MenuItemBaseProps & (MenuItemWithTitleProps | MenuItemWithChildrenProps)> & {
+const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
   iconType?: typeof Icon.type;
   tooltipPositions?: typeof DialogPosition;
   isSelectable?: boolean;
