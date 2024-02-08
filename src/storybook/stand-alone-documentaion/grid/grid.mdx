@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import * as GridStories from "./Grid.stories";
+
+<Meta title="Foundations/Grid" />
+
+## Note
+
+Below guide is deprecated, the grid library mentioned here is no longer maintained and has a bug that requires additional setup.
+
+### Setup
+
+#### Install grid library
+
+```bash
+npm install react-awesome-styled-grid
+```
+
+#### Implement required fix
+
+```bash
+npm install -D patch-package
+```
+
+Make necessary changes inside two files:
+
+`/node_modules/react-awesome-styled-grid/lib/react-awesome-styled-grid.cjs.js`
+`/node_modules/react-awesome-styled-grid/lib/react-awesome-styled-grid.es.js`
+
+```text
+-  void 0 === i && (i = global);
++  void 0 === i && (i = window);
+```
+
+Apply patch:
+
+```text
+npx patch-package react-awesome-styled-grid
+```
+
+Update `package.json`:
+
+```text
+"scripts": {
+ ...
+ "postinstall": "patch-package"
+}
+```
+
+## Basic usage
+
+<Canvas>
+  <Story of={GridStories.JustifyContent} />
+</Canvas>
+
+We use [React Awesome Styled Grid](https://awesome-styled-grid.netlify.app/usage)
+
+This grid system is based on [Google Material Design](https://material.io/design/layout/responsive-layout-grid.html).
+
+Number of columns: **xs**: 4, **sm**: 8, **md**: 8, **lg**: 12, **xl**: 12
+
+Breakpoints size: **xs**: 1rem, **sm**: 48rem, **md**: 64rem, **lg**: 90rem, **xl**: 120rem
+
+> for a custom configuration, [see this section](/custom)
+
+```js
+import { Container, Row, Col } from "react-awesome-styled-grid";
+
+const MyCoolComponent = () => (
+  <Container>
+    <Row>
+      <Col xs={4} md={2}>
+        Col A
+      </Col>
+      <Col xs={4} md={6}>
+        Col B
+      </Col>
+    </Row>
+  </Container>
+);
+```
