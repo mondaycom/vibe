@@ -237,8 +237,8 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
       [setSubMenuIsOpenByIndex, index, closeMenu]
     );
 
-    const iconLabel = typeof title === "string" ? title : ariaLabel;
-
+    // if "title" is a component ariaLabel is mandatory
+    const iconLabel = ariaLabel || (title as string);
     const renderSubMenuIconIfNeeded = () => {
       if (!hasChildren) return null;
 
