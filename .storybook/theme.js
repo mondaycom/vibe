@@ -4,7 +4,7 @@ import logo from "./assets/origami-logo.png";
 export default create({
   base: "light",
   brandImage: logo,
-  brandUrl: "https://www.ikigailabs.io",
+  brandUrl: "./",
   barSelectedColor: "#5034ff",
   brandTitle: "Origami Design System",
 
