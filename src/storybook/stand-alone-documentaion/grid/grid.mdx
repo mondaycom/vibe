@@ -3,49 +3,6 @@ import * as GridStories from "./Grid.stories";
 
 <Meta title="Foundations/Grid" />
 
-## Note
-
-Below guide is deprecated, the grid library mentioned here is no longer maintained and has a bug that requires additional setup.
-
-### Setup
-
-#### Install grid library
-
-```bash
-npm install react-awesome-styled-grid
-```
-
-#### Implement required fix
-
-```bash
-npm install -D patch-package
-```
-
-Make necessary changes inside two files:
-
-`/node_modules/react-awesome-styled-grid/lib/react-awesome-styled-grid.cjs.js`
-`/node_modules/react-awesome-styled-grid/lib/react-awesome-styled-grid.es.js`
-
-```text
--  void 0 === i && (i = global);
-+  void 0 === i && (i = window);
-```
-
-Apply patch:
-
-```text
-npx patch-package react-awesome-styled-grid
-```
-
-Update `package.json`:
-
-```text
-"scripts": {
- ...
- "postinstall": "patch-package"
-}
-```
-
 ## Basic usage
 
 <Canvas>
