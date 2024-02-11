@@ -172,6 +172,7 @@ export {default as Pause} from './components/Pause';
 export {default as Person} from './components/Person';
 export {default as PersonRound} from './components/PersonRound';
 export {default as Pin} from './components/Pin';
+export {default as Placeholder} from './components/Placeholder';
 export {default as Play} from './components/Play';
 export {default as Print} from './components/Print';
 export {default as PushNotification} from './components/PushNotification';
