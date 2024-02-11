@@ -1,3 +1,8 @@
+
+0.1.209 / 2024-01-21
+====================
+  * feat(Icons): add Translation icon ([#268](https://github.com/mondaycom/monday-ui-style/issues/268))
+
 0.1.208 / 2024-01-11
 ====================
   * feat(colors): add ui-background-color token ([#267](https://github.com/mondaycom/monday-ui-style/issues/267))
@@ -270,15 +275,3 @@
 0.1.166 / 2023-07-03
 ====================
   * Add Work icon tags ([#211](https://github.com/mondaycom/monday-ui-style/issues/211))
-
-0.1.165 / 2023-06-29
-====================
-  * Featured icon - new tag ([#209](https://github.com/mondaycom/monday-ui-style/issues/209))
-
-0.1.164 / 2023-06-28
-====================
-  * Origin/feature/sergeyro/enrich some icons tags ([#207](https://github.com/mondaycom/monday-ui-style/issues/207))
-    * Add Switcher tags
-    * fix
-    * Night: fix tags
-    * More icons tags
