@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.91.0 (2024-02-11)
+
+#### Bug Fixes
+* [#1939](https://github.com/mondaycom/monday-ui-react-core/pull/1939) fix(MenuItem): change condition of ariaLabel ([@talkor](https://github.com/talkor))
+
+#### New Features
+* [#1940](https://github.com/mondaycom/monday-ui-react-core/pull/1940) feat(Badge): remove border on OUTSIDE alignment, remove translate on OUTSIDE alignment ([@YossiSaadi](https://github.com/YossiSaadi))
+* [#1938](https://github.com/mondaycom/monday-ui-react-core/pull/1938) feat(MenuItem): be able to provide a component to title ([@talkor](https://github.com/talkor))
+
+#### New Icons
+* [#1941](https://github.com/mondaycom/monday-ui-react-core/pull/1941) Update icons - monday-ui-style 0.1.210 ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 2.90.3 (2024-02-07)
 
 #### Bug Fixes
