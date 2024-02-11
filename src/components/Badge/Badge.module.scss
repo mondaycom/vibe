@@ -6,9 +6,12 @@ $embeddedPosition: 15%;
   .badge {
     z-index: 1;
     position: absolute;
-    border: 2px solid;
     border-radius: 16px;
-    border-color: var(--primary-background-color);
+
+    &:not(.outside) {
+      border: 2px solid;
+      border-color: var(--primary-background-color);
+    }
 
     &.topEnd {
       &.rectangular {
@@ -19,8 +22,8 @@ $embeddedPosition: 15%;
 
       &.outside {
         top: 0;
-        right: 0;
-        translate: 100% -50%;
+        right: -2px;
+        translate: 100% 0;
       }
 
       &.circular {
@@ -39,8 +42,8 @@ $embeddedPosition: 15%;
 
       &.outside {
         top: 0;
-        left: 0;
-        translate: -100% -50%;
+        left: -2px;
+        translate: -100% 0;
       }
 
       &.circular {
@@ -59,8 +62,8 @@ $embeddedPosition: 15%;
 
       &.outside {
         bottom: 0;
-        right: 0;
-        translate: 100% -50%;
+        right: -2px;
+        translate: 100% 0;
       }
 
       &.circular {
@@ -79,8 +82,8 @@ $embeddedPosition: 15%;
 
       &.outside {
         bottom: 0;
-        left: 0;
-        translate: -100% -50%;
+        left: -2px;
+        translate: -100% 0;
       }
 
       &.circular {
