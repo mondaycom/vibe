@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.92.0 (2024-02-12)
+
+
+### Features
+
+* **core:** prettier ([34969a0](https://github.com/mondaycom/monday-ui-react-core/commit/34969a0d3b3e6176e4b5298e816454cafb5a0af5))
+
+
+
+
+
 ## 2.91.1 (2024-02-12)
 
 **Note:** Version bump only for package monday-ui-react-core
