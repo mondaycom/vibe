@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from "@storybook/blocks";
 import * as GridStories from "./Grid.stories";
 
-<Meta title="Foundations/Grid" />
+<Meta title="Layout/Grid" />
 
 ## Basic usage
 
@@ -20,18 +20,24 @@ Breakpoints size: **xs**: 1rem, **sm**: 48rem, **md**: 64rem, **lg**: 90rem, **x
 > for a custom configuration, [see this section](/custom)
 
 ```js
-import { Container, Row, Col } from "react-awesome-styled-grid";
+import { GridCol, GridContainer, GridRow } from "../Grid";
 
-const MyCoolComponent = () => (
-  <Container>
-    <Row>
-      <Col xs={4} md={2}>
-        Col A
-      </Col>
-      <Col xs={4} md={6}>
-        Col B
-      </Col>
-    </Row>
-  </Container>
-);
+const JustifyContent = {
+  render: () => {
+    return (
+      <GridContainer>
+        <GridRow>
+          <GridCol xs={4} md={2}>
+            Col A
+          </GridCol>
+          <GridCol xs={4} md={6}>
+            Col B
+          </GridCol>
+        </GridRow>
+      </GridContainer>
+    );
+  },
+
+  name: "justifyContent"
+};
 ```
