@@ -16,4 +16,4 @@ runs:
         run: yarn
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{inputs.npm_token}}
