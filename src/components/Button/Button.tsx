@@ -71,6 +71,9 @@ export interface ButtonProps extends VibeComponentProps {
   /** aria controls - receives id for the controlled region */
   ariaControls?: string;
   "aria-describedby"?: AriaAttributes["aria-describedby"];
+  /**
+   * aria to be used for screen reader to know if the button is hidden
+   */
   "aria-hidden"?: AriaAttributes["aria-hidden"];
   /** On Button Focus callback */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
