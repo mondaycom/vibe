@@ -9,6 +9,6 @@ async function isTooltipAppearOnHover(canvas: Screen) {
   await testHoverTooltipTrigger(canvas, getText);
 }
 
-export const headingOverflowSuite = interactionSuite({
+export const headingOverflowSuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [isTooltipAppearOnHover]
 });

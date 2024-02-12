@@ -36,6 +36,6 @@ async function textSimpleText(canvas: Canvas) {
   expect(editableHeading).toHaveTextContent(text);
 }
 
-export const overviewPlaySuite = interactionSuite({
+export const overviewPlaySuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [textSimpleText]
 });

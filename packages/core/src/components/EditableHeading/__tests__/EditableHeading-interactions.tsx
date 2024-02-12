@@ -85,6 +85,6 @@ async function cancelEditing(canvas: Canvas) {
   expect(heading).toHaveTextContent(text);
 }
 
-export const overviewPlaySuite = interactionSuite({
+export const overviewPlaySuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [changeModes, editAndChangeToValidText, clearInput, cancelEditing]
 });

@@ -39,6 +39,6 @@ async function checkSystemTheme(canvas: Screen) {
   expect(colorAfterToggle).toBe(POSITIVE_COLOR);
 }
 
-export const themeProviderSystemThemeSuite = interactionSuite({
+export const themeProviderSystemThemeSuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [checkSystemTheme]
 });
