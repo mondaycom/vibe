@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        secrets: inherit
       - uses: ./.github/workflows/setup
       - name: Test
         run: yarn lerna run test
