@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
@@ -18,55 +18,39 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-      - name: Install
-        run: yarn
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          npm_token: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run lint
 
   stylelint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-      - name: Install
-        run: yarn
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          npm_token: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run stylelint
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-      - name: Install
-        run: yarn
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          npm_token: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run build
 
   build-storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-      - name: Install
-        run: yarn
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          npm_token: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run build-storybook
