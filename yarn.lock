@@ -4751,7 +4751,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-test-renderer@^16.9.12":
+"@types/react-test-renderer@^16.9.0":
   version "16.9.12"
   resolved "https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-16.9.12.tgz#821724ed252c8b45a1f35eb8ecb9f31acdad2933"
   integrity sha512-RJ4jeg32v2h1izOZ3gES/zQhQOwi6BEnZW890pmAuf3yVSfDm0wOR42YiWFiuSJJRyRykNaXEzis74+y3Ac9HQ==
