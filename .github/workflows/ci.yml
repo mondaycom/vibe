@@ -5,8 +5,21 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: "Test"
+            command: "test"
+          - name: "Lint"
+            command: "lint"
+          - name: "Stylelint"
+            command: "stylelint"
+          - name: "Build"
+            command: "build"
+          - name: "Build Storybook"
+            command: "build-storybook"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -14,53 +27,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
-      - name: Test
-        run: yarn lerna run test
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Test
-        run: yarn lerna run lint
-
-  stylelint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Test
-        run: yarn lerna run stylelint
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Test
-        run: yarn lerna run build
-
-  build-storybook:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Test
-        run: yarn lerna run build-storybook
+      - name: ${{matrix.name}}
+        shell: bash
+        run: yarn lerna run ${{matrix.command}} --since=origin/master
