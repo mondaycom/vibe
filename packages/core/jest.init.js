@@ -25,7 +25,7 @@ if (TESTING_STORYBOOK) {
     return { CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition };
   });
   jest.mock("consolidated-events", () => {
-    return { addEventListener: jest.fn()};
+    return { addEventListener: jest.fn() };
   });
 }
 
