@@ -87,14 +87,14 @@ const openAccordionItemsMultiActiveTests = async (canvas: Screen) => {
   await openAndCheckMultiAccordionItem(canvas, "Integration", 2);
 };
 
-export const accordionSingleActivePlaySuite = interactionSuite({
+export const accordionSingleActivePlaySuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [openCloseAccordionSingleActiveTests, closeAlreadyOpenSingleActiveTests],
   afterEach: async () => {
     await resetFocus();
   }
 });
 
-export const accordionMultiActivePlaySuite = interactionSuite({
+export const accordionMultiActivePlaySuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [closeAlreadyActiveMultiActiveTests, openAccordionItemsMultiActiveTests],
   afterEach: async () => {
     await resetFocus();

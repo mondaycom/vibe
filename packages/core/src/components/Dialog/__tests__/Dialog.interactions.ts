@@ -17,7 +17,7 @@ const isDialogHiddenAfterContextMenu = createTestIfDialogHiddenAfterTrigger(CONT
   fireEvent.contextMenu(getDialogContainer())
 );
 
-export const closeTriggersInteractionSuite = interactionSuite({
+export const closeTriggersInteractionSuite: ReturnType<typeof interactionSuite> = interactionSuite({
   tests: [isDialogHiddenAfterClickOutside, isDialogHiddenAfterContextMenu],
   beforeAll: async canvas => {
     // From some reason we have an issue with rendering the dialogs according to the container selector in the initial mount, after clicking
