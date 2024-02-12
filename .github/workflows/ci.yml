@@ -8,80 +8,69 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup
-        secrets:
-          npm_token: ${{ secrets.npm_token }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run test
 
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: ".nvmrc"
-  #     - name: Install
-  #       run: |
-  #         npm ci
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Test
+        run: yarn lerna run lint
 
-  #     - name: Test
-  #       if: success()
-  #       run: |
-  #         npm run eslint
+  stylelint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Test
+        run: yarn lerna run stylelint
 
-  # stylelint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: ".nvmrc"
-  #     - name: Install
-  #       run: |
-  #         npm ci
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Test
+        run: yarn lerna run build
 
-  #     - name: Test
-  #       if: success()
-  #       run: |
-  #         npm run stylelint
-
-  # build-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: ".nvmrc"
-  #     - name: Install
-  #       run: |
-  #         npm ci
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  #     - name: Test
-  #       if: success()
-  #       run: |
-  #         npm run build
-
-  # build-storybook-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: ".nvmrc"
-  #     - name: Install
-  #       run: |
-  #         npm ci
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  #     - name: Test
-  #       if: success()
-  #       run: |
-  #         npm run build-storybook
+  build-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Test
+        run: yarn lerna run build-storybook
