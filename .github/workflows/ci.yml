@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./setup
+      - uses: ./.github/setup
         with:
           npm_token: ${{secrets.npm_token}}
       - name: Test
