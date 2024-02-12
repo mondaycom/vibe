@@ -9,8 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: ["Test", "Lint", "Stylelint", "Build", "Build Storybook"]
-        command: ["test", "lint", "stylelint", "build", "build-storybook"]
+        include:
+          - name: "Test"
+            command: "test"
+          - name: "Lint"
+            command: "lint"
+          - name: "Stylelint"
+            command: "stylelint"
+          - name: "Build"
+            command: "build"
+          - name: "Build Storybook"
+            command: "build-storybook"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -18,6 +27,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
-      - name: ${{matrix.step_name}}
+      - name: ${{matrix.name}}
         shell: bash
-        run: yarn lerna run ${{matrix.step_command}} --since=master
+        run: yarn lerna run ${{matrix.command}} --since=master
