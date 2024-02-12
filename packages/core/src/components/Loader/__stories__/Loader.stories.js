@@ -108,7 +108,7 @@ export const VisualVariants = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
       <StoryDescription description="Casual" vertical align={Flex.align.START}>
-        <div align="left">
+        <div>
           <Loader size={Loader.sizes.MEDIUM} />
         </div>
       </StoryDescription>
@@ -120,7 +120,7 @@ export const VisualVariants = {
           width: "fitContent"
         }}
       >
-        <div align="left">
+        <div>
           <Loader size={Loader.sizes.MEDIUM} hasBackground />
         </div>
       </StoryDescription>
