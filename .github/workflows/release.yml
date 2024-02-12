@@ -9,6 +9,8 @@ jobs:
       NODE_AUTH_TOKEN: ${{secrets.npm_token}}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
@@ -31,7 +33,7 @@ jobs:
       - name: Setup .npmrc for publish
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish to npm
-        run: yarn lerna publish from-package
+        run: yarn lerna publish from-package -y
       - name: Remove .npmrc
         if: success() || failure()
         run: rm .npmrc
