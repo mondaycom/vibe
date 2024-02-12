@@ -29,4 +29,4 @@ jobs:
           npm_token: ${{secrets.npm_token}}
       - name: ${{matrix.name}}
         shell: bash
-        run: yarn lerna run ${{matrix.command}} --since=master
+        run: yarn lerna run ${{matrix.command}} --since=origin/master
