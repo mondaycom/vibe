@@ -11,6 +11,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## 2.91.1 (2024-02-12)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
 # Changelog
 
 ## 2.91.0 (2024-02-11)
