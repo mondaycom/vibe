@@ -5,22 +5,33 @@ on: workflow_dispatch
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn lerna run lint --since
-      - run: yarn lerna run build --since
-      - run: yarn lerna run test --since
+      - name: Install
+        run: yarn
+      - name: Lint
+        run: yarn lerna run lint --since
+      - name: Build
+        run: yarn lerna run build --since
+      - name: Test
+        run: yarn lerna run test --since
       - name: Set up git credentials
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
-      - run: yarn lerna version --conventional-commits -y
+      - name: Generate new versions
+        run: yarn lerna version --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
-      - run: yarn lerna publish from-package
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Setup .npmrc for publish
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      - name: Publish to npm
+        run: yarn lerna publish from-package
+      - name: Remove .npmrc
+        if: success() || failure()
+        run: rm .npmrc
