@@ -5,9 +5,9 @@ npm-debug.log
 build-storybook.log
 ./build-storybook.log
 chromatic.log
-/storybook-static
+*/storybook-static
 dist
-/build
+*/build
 coverage
 .scannerwork
 *.env
