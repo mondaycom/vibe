@@ -1,6 +1,6 @@
 # .github/workflows/chromatic.yml
 
-name: 'Chromatic'
+name: "Chromatic"
 
 on: push
 
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:

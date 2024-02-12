@@ -1,0 +1,20 @@
+name: CI/CD setup
+
+on:
+  workflow_call:
+    secrets:
+      npm_token:
+        required: true
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
