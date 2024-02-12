@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - users: ./github/workflows/setup.yml
+      - uses: ./.github/workflows/setup.yml
         secrets:
           npm_token: ${{secrets.npm_token}}
       - name: Test
