@@ -9,17 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - name: "Test"
-            command: "test"
-          - name: "Lint"
-            command: "lint"
-          - name: "Stylelint"
-            command: "stylelint"
-          - name: "Build"
-            command: "build"
-          - name: "Build Storybook"
-            command: "build-storybook"
+        name: ["Test", "Lint", "Stylelint", "Build", "Build Storybook"]
+        command: ["test", "lint", "stylelint", "build", "build-storybook"]
     steps:
       - uses: actions/checkout@v4
         with:
