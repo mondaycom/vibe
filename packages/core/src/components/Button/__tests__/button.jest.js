@@ -1,33 +1,30 @@
 import React from "react";
 import { render, fireEvent, cleanup, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Button from "../Button";
 
 const text = "Click Me!";
-const className = "test-class";
 
-function renderComponent(props) {
-  return render(<Button {...props}>{text}</Button>);
-}
-
-describe("<Buttoon />", () => {
-  let clickActionStub;
-  let onMouseDownStub;
-  let buttonComponent;
-
-  beforeEach(() => {
-    clickActionStub = jest.fn();
-    onMouseDownStub = jest.fn();
-    buttonComponent = render(
-      <Button className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
-        {text}
-      </Button>
-    );
-  });
-
+describe("<Button />", () => {
   afterEach(() => {
     cleanup();
   });
+
   describe("click", () => {
+    let clickActionStub;
+    let onMouseDownStub;
+    let buttonComponent;
+
+    beforeEach(() => {
+      clickActionStub = jest.fn();
+      onMouseDownStub = jest.fn();
+      buttonComponent = render(
+        <Button onClick={clickActionStub} onMouseDown={onMouseDownStub}>
+          {text}
+        </Button>
+      );
+    });
+
     it("should call the click callback when clicked", () => {
       const { getByText } = buttonComponent;
       fireEvent.click(getByText(text));
@@ -99,8 +96,7 @@ describe("<Buttoon />", () => {
 
   it("should call on blur", () => {
     const onBlur = jest.fn();
-    cleanup();
-    const { getByText } = renderComponent({ onBlur });
+    const { getByText } = render(<Button onBlur={onBlur}>{text}</Button>);
     const button = getByText(text);
     fireEvent.blur(button);
     expect(onBlur.mock.calls.length).toEqual(1);
@@ -108,8 +104,11 @@ describe("<Buttoon />", () => {
 
   it("should call do blur on mouseup", () => {
     const onBlur = jest.fn();
-    cleanup();
-    const { getByText } = renderComponent({ onBlur, blurOnMouseUp: false });
+    const { getByText } = render(
+      <Button onBlur={onBlur} blurOnMouseUp={false}>
+        {text}
+      </Button>
+    );
     const button = getByText(text);
     fireEvent.focus(button);
     fireEvent.mouseUp(button);
@@ -118,25 +117,24 @@ describe("<Buttoon />", () => {
 
   it("should call on focus", () => {
     const onFocus = jest.fn();
-    cleanup();
-    const { getByText } = renderComponent({ onFocus });
+    const { getByText } = render(<Button onFocus={onFocus}>{text}</Button>);
     const button = getByText(text);
     fireEvent.focus(button);
     expect(onFocus.mock.calls.length).toEqual(1);
   });
 
   describe("mouse down", () => {
+    const onClick = jest.fn();
     it("should call the click callback when clicked", () => {
-      const { getByText } = buttonComponent;
+      const { getByText } = render(<Button onClick={onClick}>{text}</Button>);
       fireEvent.mouseDown(getByText(text));
-      expect(clickActionStub.mock.calls.length).toEqual(0);
+      expect(onClick.mock.calls.length).toEqual(0);
     });
 
     it("should call mouse down callback", () => {
-      const { getByText, rerender } = buttonComponent;
       const onMouseDown = jest.fn();
-      rerender(
-        <Button onClick={clickActionStub} onMouseDown={onMouseDown}>
+      const { getByText } = render(
+        <Button onClick={onClick} onMouseDown={onMouseDown}>
           {text}
         </Button>
       );
@@ -144,17 +142,31 @@ describe("<Buttoon />", () => {
       expect(onMouseDown.mock.calls.length).toEqual(1);
     });
   });
+
   describe("a11y", () => {
     it("Aria label should be connected to the button", () => {
       const ariaLabel = "Icon Name";
+      const onClick = jest.fn();
       const { getByLabelText } = render(
-        <Button ariaLabel={ariaLabel} className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
+        <Button ariaLabel={ariaLabel} onClick={onClick}>
           {text}
         </Button>
       );
       const buttonElement = getByLabelText(ariaLabel);
       fireEvent.click(buttonElement);
-      expect(clickActionStub.mock.calls.length).toEqual(1);
+      expect(onClick.mock.calls.length).toEqual(1);
+    });
+
+    it("should apply aria-hidden attribute to button", () => {
+      const { getByRole } = render(<Button aria-hidden>{text}</Button>);
+      const buttonElement = getByRole("button", { hidden: true });
+      expect(buttonElement).toHaveAttribute("aria-hidden", "true");
+    });
+
+    it("should not apply aria-hidden attribute to button", () => {
+      const { getByRole } = render(<Button>{text}</Button>);
+      const buttonElement = getByRole("button");
+      expect(buttonElement).not.toHaveAttribute("aria-hidden");
     });
   });
 });
