@@ -15,5 +15,9 @@ jobs:
       - run: yarn lerna run lint --since
       - run: yarn lerna run build --since
       - run: yarn lerna run test --since
+      - name: Set up git credentials
+        run: |
+          git config --global user.name 'ci'
+          git config --global user.email 'deploy@monday.com'
       - run: yarn lerna version --conventional-commits -y
       - run: yarn lerna publish from-package
