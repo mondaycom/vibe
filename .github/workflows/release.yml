@@ -20,4 +20,7 @@ jobs:
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
       - run: yarn lerna version --conventional-commits -y
+      - run: yarn config set registry https://registry.npmjs.org/
       - run: yarn lerna publish from-package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
