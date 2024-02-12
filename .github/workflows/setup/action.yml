@@ -1,14 +1,13 @@
-name: CI/CD setup
+name: "CI/CD setup"
+description: "Setup the CI/CD environment"
 
-on:
-  workflow_call:
-    secrets:
-      npm_token:
-        required: true
+inputs:
+  npm_token:
+    description: "NPM token secret"
+    required: true
 
-jobs:
-  install:
-    runs-on: ubuntu-latest
+runs:
+    using: "composite"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -16,5 +15,6 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install
         run: yarn
+        shell: bash
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

@@ -8,8 +8,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup.yml
-        secrets:
+      - uses: ./setup
+        with:
           npm_token: ${{secrets.npm_token}}
       - name: Test
         run: yarn lerna run test
