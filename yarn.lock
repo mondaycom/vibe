@@ -4751,6 +4751,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-test-renderer@^16.9.12":
+  version "16.9.12"
+  resolved "https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-16.9.12.tgz#821724ed252c8b45a1f35eb8ecb9f31acdad2933"
+  integrity sha512-RJ4jeg32v2h1izOZ3gES/zQhQOwi6BEnZW890pmAuf3yVSfDm0wOR42YiWFiuSJJRyRykNaXEzis74+y3Ac9HQ==
+  dependencies:
+    "@types/react" "^16"
+
 "@types/react-transition-group@^4.4.5":
   version "4.4.10"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.10.tgz#6ee71127bdab1f18f11ad8fb3322c6da27c327ac"
