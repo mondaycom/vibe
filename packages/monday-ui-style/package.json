@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-style",
-  "version": "0.0.6",
+  "version": "0.1.210",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/monday-ui-style.git"
+    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
   },
   "keywords": [
     "CSS",
@@ -32,12 +32,12 @@
     "stylelint-config/"
   ],
   "bugs": {
-    "url": "https://github.com/mondaycom/monday-ui-style/issues"
+    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
   },
-  "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
+  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
-    "node-sass": "^4.14.1",
+    "sass": "^1.70.0",
     "prettier": "^2.0.5"
   }
 }
