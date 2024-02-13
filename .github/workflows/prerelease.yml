@@ -3,13 +3,15 @@
 name: Prerelease
 
 on:
-  - push
-  - workflow_dispatch
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   prerelease:
     if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,7 +35,7 @@ jobs:
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid prerelease -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
-        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+        run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
       - run: npm whoami
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
