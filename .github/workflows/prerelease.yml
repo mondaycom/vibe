@@ -30,6 +30,10 @@ jobs:
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-git-tag-version --preid $BRANCH -y
         env:
           BRANCH: ${{ github.ref_name }}
+      - run: yarn config set registry https://registry.npmjs.org/
+      - name: Setup .npmrc for publish
+        id: setup-npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish new versions
         run: yarn lerna publish --dist-tag $BRANCH -y
         env:
