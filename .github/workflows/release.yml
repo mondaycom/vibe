@@ -3,7 +3,34 @@ name: Release new version
 on: workflow_dispatch
 
 jobs:
+  prerequisites:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: "Test"
+            command: "test"
+          - name: "Lint"
+            command: "lint"
+          - name: "Stylelint"
+            command: "stylelint"
+          - name: "Build"
+            command: "build"
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{secrets.npm_token}}
+      - name: Run ${{matrix.name}}
+        shell: bash
+        run: yarn lerna run ${{matrix.command}} --since
   release:
+    needs: prerequisites
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -11,29 +38,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - name: Run Setup
+        uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-          registry-url: https://registry.npmjs.org/
-      - name: Install
-        run: yarn
-      - name: Lint
-        run: yarn lerna run lint --since
-      - name: Build
-        run: yarn lerna run build --since
-      - name: Test
-        run: yarn lerna run test --since
-      - name: Set up git credentials
-        run: |
-          git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'
+          npm_token: ${{secrets.npm_token}}
+      - uses: ./.github/actions/git-creds
       - name: Generate new versions
         run: yarn lerna version --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
+        id: setup-npmrc
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish to npm
         run: yarn lerna publish from-package -y
       - name: Remove .npmrc
-        if: success() || failure()
+        if: steps.setup-npmrc.outcome == 'success'
         run: rm .npmrc
