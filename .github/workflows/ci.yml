@@ -20,13 +20,15 @@ jobs:
             command: "build"
           - name: "Build Storybook"
             command: "build-storybook"
+    name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: ./.github/actions/setup
+      - name: Run Setup
+        uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
-      - name: ${{matrix.name}}
+      - name: Run ${{matrix.name}}
         shell: bash
         run: yarn lerna run ${{matrix.command}} --since=origin/master
