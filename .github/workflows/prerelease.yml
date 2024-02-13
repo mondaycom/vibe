@@ -27,7 +27,7 @@ jobs:
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
       - name: Generate new versions
-        run: yarn lerna version --no-git-tag-version --preid $BRANCH -y
+        run: yarn lerna version --conventional-commits --conventional-prerelease --no-git-tag-version --preid $BRANCH -y
         env:
           BRANCH: ${{ github.ref_name }}
       - name: Publish new versions
