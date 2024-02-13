@@ -8,6 +8,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - name: "Test"
@@ -18,8 +19,6 @@ jobs:
             command: "stylelint"
           - name: "Build"
             command: "build"
-          - name: "Build Storybook"
-            command: "build-storybook"
     name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
@@ -32,3 +31,17 @@ jobs:
       - name: Run ${{matrix.name}}
         shell: bash
         run: yarn lerna run ${{matrix.command}} --since=origin/master
+
+  build-storybook:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{secrets.npm_token}}
+      - name: Build Storybook
+        run: yarn lerna run build-storybook --since=origin/master
