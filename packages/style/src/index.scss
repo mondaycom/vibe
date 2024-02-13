@@ -1,0 +1,18 @@
+// MONDAY VIBE DESIGN SYSTEM : DESIGN TOKENS
+// - This partial Imports all of VIBE's Token scope.
+// - It include:
+//   - global functions.
+//   - Core Tokens  and Core Maps.
+//   - Theme based Tokens and maps.
+// - Custom properties are generated per each scope from a unified scope related settings map.
+// - CSS Output is custom properties definitions for global :root and themes scopes.
+// - Currently we do not include themes within this refactor scope.
+
+// Dependencies
+@import "functions";
+@import "internal-mixins";
+@import "config";
+
+// Output
+@import "core";
+@import "themes";

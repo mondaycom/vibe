@@ -1,6 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
@@ -153,7 +153,11 @@ describe("SplitButton tests", () => {
         arrowButton.focus();
         userEvent.keyboard(ENTER_KEY);
       });
-      const menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
+      let menu;
+      await waitFor(async () => {
+        menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
+        expect(menu).toBeTruthy();
+      });
       expect(menu).toHaveAttribute("aria-activedescendant", `${splitMenuId}-item-0`);
       const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}_0`;
       expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();

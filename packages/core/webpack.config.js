@@ -106,7 +106,7 @@ module.exports = () => {
         },
         {
           test: /\.css$/,
-          include: [path.resolve(__dirname, "../../node_modules/")], // only include 3rd party libraries
+          include: [path.resolve(__dirname, "../../node_modules/"), path.resolve(__dirname, "../style")], // only include 3rd party libraries and the style package
           use: styleLoaders
         }
       ]

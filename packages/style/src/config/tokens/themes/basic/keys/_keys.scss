@@ -1,0 +1,78 @@
+//  BASIC THEME  TOKENS: SEMANTIC KEYS COLORS
+// - This partial defines Basic Theme's Semantic Keys color tokens
+// FIGMA REFERENCE: COLOR KEYS
+
+// - Theme keys should hold registration values (colors, content colors, other keys)
+//   - In some case there are unique hex values assignments
+//   - They should be transformed into Registration colors.
+//    - We replaced them with nearest registration or key colors.
+// - When several key has the same value and have a connection
+// - We either use $token or var(--token) depending on connection logic and value type.
+
+// Fixed colors
+$fixed-light-color: $color-snow_white;
+$fixed-dark-color: $color-mud_black;
+
+// Text colors
+$primary-color: $color-basic_blue;
+$primary-hover-color: $color-dark_blue;
+$primary-selected-color: $color-highlight_blue;
+$primary-selected-hover-color: $color-sky_blue;
+$primary-text-color: $color-mud_black;
+
+$text-color-on-primary: $color-snow_white;
+$text-color-on-inverted: $color-snow_white;
+
+$secondary-text-color: $color-asphalt;
+$placeholder-color: $color-asphalt;
+$icon-color: $color-asphalt;
+
+$link-color: $color-link_color;
+
+// Background colors
+$primary-background-color: $color-snow_white;
+$primary-background-hover-color: $color-ui_grey;
+$secondary-background-color: $color-snow_white;
+$grey-background-color: $color-riverstone_gray;
+$allgrey-background-color: $color-riverstone_gray;
+// - contrast hook
+$inverted-color-background: $color-mud_black;
+
+// System Semantics (state, status)
+$disabled-text-color: rgba($primary-text-color, var(--disabled-component-opacity));
+$disabled-background-color: $color-ui_grey-muted;
+
+$positive-color: $color-success;
+$positive-color-hover: $color-success-hover;
+$positive-color-selected: $color-success-highlight;
+$positive-color-selected-hover: $color-olive_green;
+$negative-color: $color-error;
+$negative-color-hover: $color-error-hover;
+$negative-color-selected: $color-error-highlight;
+$negative-color-selected-hover: $color-pinky_red;
+$private-color: $color-bazooka;
+$shareable-color: $color-purple;
+$warning-color: $color-egg_yolk;
+$warning-color-hover: $color-desert;
+$warning-color-selected: $color-summer_sun;
+$warning-color-selected-hover: $color-yellow_sand;
+
+// UI elements
+// - Borders
+$ui-border-color: $color-wolf_gray;
+$layout-border-color: #d0d4e4; // Todo: TBD, should be - var(--color-ui_grey)
+
+// - Backgrounds
+$ui-background-color: $color-ui_grey;
+
+// - Shadows
+$shadow-xs-opacity: $opacity-10;
+$shadow-small-opacity: $opacity-20;
+$shadow-medium-opacity: $shadow-small-opacity;
+$shadow-large-opacity: $opacity-30;
+$shadow-color: $color-black;
+
+$box-shadow-xs: $shadow-size-xs rgba($shadow-color, $shadow-xs-opacity);
+$box-shadow-small: $shadow-size-small rgba($shadow-color, $shadow-small-opacity);
+$box-shadow-medium: $shadow-size-medium rgba($shadow-color, $shadow-medium-opacity);
+$box-shadow-large: $shadow-size-large rgba($shadow-color, $shadow-large-opacity);

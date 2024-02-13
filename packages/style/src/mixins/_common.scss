@@ -1,0 +1,67 @@
+$expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
+
+// Grid auto fit sizes
+$grid-auto-fit-cell-width-small: 120px;
+$grid-auto-fit-cell-width-medium: 180px;
+$grid-auto-fit-cell-width-large: 240px;
+$grid-auto-fit-cell-width-xl: 300px;
+
+@mixin hidden-element() {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+// Grid auto fit
+// - This mixin defines a grid with auto fit repeat cells using min-max funtion.
+// -- This allows grid to accommodate container width without media queries.
+// -- it uses a repeat grid function with auto fix and minmax.
+// -- grid adaptation is due to the min value along with auto-fit and 1fr max value.
+
+// @params:
+// - $grid-gap: null , defines grid "gap" attribute.
+// - $grid-column-gap: null,  defines grid "column-gap" attribute.
+// - $grid-row-gap: null,  defines grid "row-gap" attribute.
+// - $grid-cell-min-width: {mandatory}, defined min value in for grid-template-columns
+// - $grid-cell-array-calc: {mandatory}, defined max num of items using calc
+
+@mixin grid-auto-fit(
+  $grid-gap: null,
+  $grid-column-gap: null,
+  $grid-row-gap: null,
+  $grid-cell-min-width,
+  $grid-cell-array-calc: null,
+  $important: false
+) {
+  display: grid;
+  @if $important {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)
+    ) !important;
+    gap: $grid-gap !important;
+    column-gap: $grid-column-gap !important;
+    row-gap: $grid-row-gap !important;
+  } @else {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)
+    );
+    gap: $grid-gap;
+    column-gap: $grid-column-gap;
+    row-gap: $grid-row-gap;
+  }
+}
+
+@mixin scroller($width: 4px, $height: 6px, $color: var(--ui-border-color)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 4px;
+  }
+}
