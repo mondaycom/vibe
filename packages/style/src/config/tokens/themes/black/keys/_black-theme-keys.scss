@@ -1,0 +1,72 @@
+//  BLACK THEME  TOKENS: SEMANTIC KEYS COLORS
+// - This partial defines Black Theme's Semantic Keys color tokens
+
+// - Theme keys should hold registration values (colors, content colors, other keys)
+//   - In some case there are unique hex values assignments
+//   - They should be transformed into Registration colors.
+//     - We add some annotation to their scope when found.
+// - When several key has the same value and have a connection
+// - We either use $theme-dark token or var(--token) depending on connection logic and value type.
+
+// Fixed colors
+$theme-black-fixed-light-color: $color-snow_white;
+$theme-black-fixed-dark-color: $color-vanta;
+
+// Text colors
+$theme-black-primary-color: $primary-color;
+$theme-black-primary-hover-color: $primary-hover-color;
+$theme-black-primary-selected-color: $color-ocean_blue;
+$theme-black-primary-selected-hover-color: $color-deep_blue;
+$theme-black-primary-text-color: $color-smog;
+
+$theme-black-text-color-on-primary: $text-color-on-primary;
+$theme-black-text-color-on-inverted: $color-vanta;
+
+$theme-black-secondary-text-color: $color-mouse;
+$theme-black-placeholder-color: $color-mouse;
+$theme-black-icon-color: $color-mouse;
+$theme-black-link-color: $color-arctic_blue;
+
+// Background colors
+$theme-black-primary-background-color: $color-vanta;
+$theme-black-primary-background-hover-color: $color-dust;
+$theme-black-secondary-background-color: $color-night;
+$theme-black-grey-background-color: $color-vanta;
+$theme-black-allgrey-background-color: $color-night;
+// - contrast hook
+$theme-black-inverted-color-background: $color-smog;
+
+// System Semantics (state, status)
+$theme-black-disabled-text-color: rgba($theme-black-primary-text-color, var(--disabled-component-opacity));
+$theme-black-disabled-background-color: $color-dust-muted;
+
+$theme-black-positive-color: $positive-color;
+$theme-black-positive-color-hover: $positive-color-hover;
+$theme-black-positive-color-selected: $color-forest_green;
+$theme-black-positive-color-selected-hover: $color-darker_green;
+$theme-black-negative-color: $negative-color;
+$theme-black-negative-color-hover: $negative-color-hover;
+$theme-black-negative-color-selected: $color-maroon_red;
+$theme-black-negative-color-selected-hover: $color-amber_red;
+$theme-black-private-color: $private-color;
+$theme-black-shareable-color: $shareable-color;
+$theme-black-warning-color: $color-egg_yolk; // warning-colors
+$theme-black-warning-color-hover: $color-desert;
+$theme-black-warning-color-selected: $color-brass;
+$theme-black-warning-color-selected-hover: $color-aztec_gold;
+
+// UI elements
+// - Borders
+$theme-black-ui-border-color: $color-smoke;
+$theme-black-layout-border-color: $color-dust;
+
+// - Backgrounds
+$theme-black-ui-background-color: $color-dust;
+
+// - Shadows
+$theme-black-box-shadow-color: $color-black;
+
+$theme-black-box-shadow-xs: $shadow-size-xs $theme-black-box-shadow-color;
+$theme-black-box-shadow-small: $shadow-size-small $theme-black-box-shadow-color;
+$theme-black-box-shadow-medium: $shadow-size-medium $theme-black-box-shadow-color;
+$theme-black-box-shadow-large: $shadow-size-large $theme-black-box-shadow-color;

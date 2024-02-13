@@ -1,0 +1,33 @@
+// UTILITIES: Value Maps
+// - Maps for the utility mixin.
+// - imported using "common.scss" partial.
+
+$utility-spacing-vars: (
+  0: 0,
+  xs: var(--spacing-xs),
+  small: var(--spacing-small),
+  medium: var(--spacing-medium),
+  large: var(--spacing-large),
+  xl: var(--spacing-xl),
+  xxl: var(--spacing-xxl),
+  xxxl: var(--spacing-xxxl)
+);
+
+$utility-border-colors-vars: (
+  uiBorderColor: var(--ui-border-color),
+  layoutBorderColor: var(--layout-border-color)
+);
+
+$utility-colors-vars: (
+  primaryTextColor: var(--primary-text-color),
+  textColorOnInverted: var(--text-color-on-inverted),
+  secondaryTextColor: var(--secondary-text-color)
+);
+
+$utility-background-colors-vars: (
+  primaryBackgroundColor: var(--primary-background-color),
+  secondaryBackgroundColor: var(--secondary-background-color),
+  greyBackgroundColor: var(--grey-background-color),
+  allgreyBackgroundColor: var(--allgrey-background-color),
+  invertedColorBackground: var(--inverted-color-background)
+);

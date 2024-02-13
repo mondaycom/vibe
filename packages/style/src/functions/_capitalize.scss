@@ -1,0 +1,11 @@
+// MIXINS: Capitalize
+// - Helper function
+
+// Modules imports
+@use "sass:string";
+
+// @arguments: $string
+// @return capitalize string
+@function capitalize($string) {
+  @return to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
+}

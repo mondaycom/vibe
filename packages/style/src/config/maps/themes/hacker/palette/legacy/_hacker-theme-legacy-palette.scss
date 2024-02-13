@@ -1,0 +1,7 @@
+// BASIC THEME LEGACY COLOR MAP: This partial defines the basic theme's legacy color map.
+// - Map include legacy color scope tokens.
+
+$theme-hacker-legacy-palette: (
+  color-success: $theme-hacker-success,
+  color-error: $theme-hacker-error
+);

@@ -1,0 +1,12 @@
+// GLOBAL SCOPE LOADER: CORE
+// This partial loads Core scope related Partials.
+// - This partials Generates Core custom properties using a mixin and a settings map.
+//   - Mixin is "generate-custom-properties".
+//   - Map is "$core-settings-map" which is a map collected from all other core scope maps.
+// - Core properties are Global and Generic and goes under :root
+
+@import "core/core-settings";
+
+:root {
+  @include generate-custom-properties($core-settings-map);
+}

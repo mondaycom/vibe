@@ -1,0 +1,48 @@
+@mixin disabled {
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+@mixin reset-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  appearance: none;
+
+  @include focus-style;
+}
+
+@mixin focus-style($focus-radius: 4px) {
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+    z-index: 11;
+    border-radius: $focus-radius;
+    box-shadow: 0 0 0 3px hsl(209deg 100% 50% / 50%), 0 0 0 1px var(--primary-hover-color) inset;
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}

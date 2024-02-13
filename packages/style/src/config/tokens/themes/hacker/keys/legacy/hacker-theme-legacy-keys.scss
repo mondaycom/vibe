@@ -1,0 +1,54 @@
+//  HACKER THEME TOKENS: LEGACY KEYS
+// - This partial defines Hacker Theme's legacy keys tokens
+// - Legacy keys are colors that are not part of the theme's keys
+// - Legacy keys are currently presented as custom properties
+// - Due to separation between Registration and Semantic candidates sort order between group is important
+//   - Some Semantic candidates are aliases or Registration colors (as it should be)
+// - Legacy keys might be in use within themes.
+// - Per now they cannot be deprecated.
+// - We define a token as a legacy key when:
+//   - It has a legacy registration color as value.(value duplication)
+//   - It has name that indicates a certain role
+//   - It is abstract and not tied to a specific use. (such as some legacy tokens)
+//   - Some other token is using them and it makes a sense (connection is clear)
+// - This way we eliminate duplication for hard coded value declaration.
+
+// # Not in Vibe UI definitions
+
+@use "sass:color";
+
+$theme-hacker-primary-on-secondary-color: $color-pink-plastic;
+$theme-hacker-primary-hover-on-secondary-color: #{color.adjust($color-pink-plastic, $lightness: -6%)};
+$theme-hacker-primary-selected-color-rgb: extract-rgb($color-viola-vivid);
+$theme-hacker-primary-selected-on-secondary-color: $color-viola-vivid;
+$theme-hacker-primary-text-on-secondary-color: $color-snow;
+
+$theme-hacker-primary-background-color-rgb: extract-rgb($color-night-sky);
+$theme-hacker-primary-background-hover-on-secondary-color: $color-silver;
+$theme-hacker-secondary-background-color-rgb: extract-rgb($color-graphite);
+
+$theme-hacker-secondary-text-on-secondary-color: $color-jaco_gray; // todo:fix, legacy color
+$theme-hacker-link-on-secondary-color: $color-liliac;
+
+$theme-hacker-modal-background-color: $color-night-sky;
+$theme-hacker-dark-background-color: $color-parisian-night;
+$theme-hacker-dark-background-on-secondary-color: $color-shadow-mountain;
+$theme-hacker-dialog-background-color: $color-graphite;
+
+$theme-hacker-label-background-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+$theme-hacker-label-background-on-secondary-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+
+$theme-hacker-icon-on-secondary-color: $color-wolf_gray;
+$theme-hacker-placeholder-color-with-opacity: $color-wolf_gray-with-opacity;
+$theme-hacker-placeholder-on-secondary-color: $color-wolf_gray;
+
+// States
+$theme-hacker-disabled-text-on-secondary-color: $theme-hacker-disabled-text-color;
+$theme-hacker-disabled-background-on-secondary-color: $theme-hacker-disabled-background-color;
+
+// borders
+$theme-hacker-ui-border-on-secondary-color: $color-fog;
+$theme-hacker-layout-border-on-secondary-color: $color-blue-manhattan;
+
+// legacy shadow
+$theme-hacker-box-shadow-mediun: var(--box-shadow-medium);
