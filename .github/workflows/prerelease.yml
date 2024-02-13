@@ -20,7 +20,7 @@ jobs:
       - uses: ./.github/actions/git-creds
       - name: Check if there are changed packages
         id: changed-packages
-        run: |-
+        run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
           [[ $changed_packages = "[]" ]] && exit 1 || echo "Continuing to prerelease"
       #          echo ::set-output name=has_changes::$([[ $changed_packages = "[]" ]] && echo "false" || echo "true")
