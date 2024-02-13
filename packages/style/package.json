@@ -4,10 +4,7 @@
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
-    "auto:bump-patch": "node scripts/autobump_patch.js",
-    "auto:bump-minor": "node scripts/autobump_minor.js",
-    "auto:bump-major": "node scripts/autobump_major.js",
-    "test": "npm run build && npm run test:without-build",
+    "test": "yarn build && yarn test:without-build && yarn validate-icons",
     "test:without-build": "jest",
     "validate-icons": "node scripts/validate-meta.js && node scripts/icons/validate-icons-colors.js",
     "generate-meta": "node scripts/generate-meta.js",
@@ -16,13 +13,11 @@
     "copy-public-functions": "scripts/copy-public-folder.sh functions",
     "copy-files": "cp -r src/files/ dist/",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
-    "build": "npm run compile-styles && npm run css-minify && npm run copy-files && npm run copy-public-mixins && npm run copy-public-functions",
+    "build": "yarn compile-styles && yarn css-minify && yarn copy-files && yarn copy-public-mixins && yarn copy-public-functions",
     "plop": "plop",
-    "changelog": "./scripts/changelog.js",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\"",
-    "pre-release": "./scripts/prerelease.js",
     "storybook": "storybook dev -p 7006",
     "build-storybook": "storybook build"
   },
@@ -33,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/monday-ui-style.git"
+    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
   },
   "keywords": [
     "CSS",
@@ -47,9 +42,9 @@
     "stylelint-config/"
   ],
   "bugs": {
-    "url": "https://github.com/mondaycom/monday-ui-style/issues"
+    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
   },
-  "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
+  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
     "postcss": "8.4.31",
     "postcss-scss": "^4.0.9",
@@ -85,7 +80,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.63.6",
+    "sass": "^1.70.0",
     "storybook": "^7.5.0",
     "stylelint-config-recommended-scss": "^6.0.0",
     "vibe-storybook-components": "^0.9.4"

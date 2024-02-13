@@ -29,7 +29,7 @@ import {
   StorybookLink
 } from "vibe-storybook-components";
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
-import "monday-ui-style/dist/index.min.css";
+import "../../style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
 
