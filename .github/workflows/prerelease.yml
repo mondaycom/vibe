@@ -33,7 +33,7 @@ jobs:
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid prerelease -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
-        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ../.npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - run: npm whoami
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
