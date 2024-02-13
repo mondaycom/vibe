@@ -10,8 +10,6 @@ jobs:
   prerelease:
     if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
-    env:
-      BRANCH: ${{ github.ref_name//_ }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,6 +25,8 @@ jobs:
           [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to prerelease"
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
+      - name: Generate prerelease prefix
+        run: echo "BRANCH=${GITHUB_HEAD_REF//_}" >> $GITHUB_OUTPUT
       - name: Generate new versions
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
       - run: yarn config set registry https://registry.npmjs.org/
