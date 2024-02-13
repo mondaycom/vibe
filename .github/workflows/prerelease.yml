@@ -21,44 +21,46 @@ jobs:
       - name: Check if there are changed packages
         id: changed-packages
         run: |
-          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && exit 1 || echo "Continuing to prerelease"
-      #          echo ::set-output name=has_changes::$([[ $changed_packages = "[]" ]] && echo "false" || echo "true")
-      - name: Build all affected packages
-        run: yarn lerna run build --since=origin/master
-      - name: Generate new versions
-        run: yarn lerna version --no-git-tag-version --preid $BRANCH -y
-        env:
-          BRANCH: ${{ github.ref_name }}
-      - name: Publish new versions
-        run: yarn lerna publish --dist-tag $BRANCH -y
-        env:
-          BRANCH: ${{ github.ref_name }}
-      - name: Get current PR id
-        uses: 8BitJonny/gh-get-current-pr@2.2.0
-        id: PR
-        if: success()
-      - name: Create comment with prerelease version details
-        if: success()
-        uses: peter-evans/create-or-update-comment@v1
-        env:
-          BRANCH: ${{ github.ref_name }}
-        with:
-          issue-number: ${{ steps.PR.outputs.number }}
-          body: |
-            A new prerelease version of this PR has been published! 🎉
+          yarn -s lerna ls --since=origin/master --json --loglevel=error
 
-            To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:
-            ```
-            npm i <package_name>@${{ env.BRANCH }}
-            ```
+#         changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
+#          [[ $changed_packages = "[]" ]] && exit 1 || echo "Continuing to prerelease"
+#          echo ::set-output name=has_changes::$([[ $changed_packages = "[]" ]] && echo "false" || echo "true")
+# - name: Build all affected packages
+#   run: yarn lerna run build --since=origin/master
+# - name: Generate new versions
+#   run: yarn lerna version --no-git-tag-version --preid $BRANCH -y
+#   env:
+#     BRANCH: ${{ github.ref_name }}
+# - name: Publish new versions
+#   run: yarn lerna publish --dist-tag $BRANCH -y
+#   env:
+#     BRANCH: ${{ github.ref_name }}
+# - name: Get current PR id
+#   uses: 8BitJonny/gh-get-current-pr@2.2.0
+#   id: PR
+#   if: success()
+# - name: Create comment with prerelease version details
+#   if: success()
+#   uses: peter-evans/create-or-update-comment@v1
+#   env:
+#     BRANCH: ${{ github.ref_name }}
+#   with:
+#     issue-number: ${{ steps.PR.outputs.number }}
+#     body: |
+#       A new prerelease version of this PR has been published! 🎉
 
-            Or:
-            ```
-            yarn add <package_name>@${{ env.BRANCH }}
-            ```
+#       To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:
+#       ```
+#       npm i <package_name>@${{ env.BRANCH }}
+#       ```
 
-            For example:
-            ```
-            yarn add monday-ui-react-core@${{ env.BRANCH }}
-            ```
+#       Or:
+#       ```
+#       yarn add <package_name>@${{ env.BRANCH }}
+#       ```
+
+#       For example:
+#       ```
+#       yarn add monday-ui-react-core@${{ env.BRANCH }}
+#       ```
