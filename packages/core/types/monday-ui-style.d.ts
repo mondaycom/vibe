@@ -1,1 +1,1 @@
-declare module "../../style/src/Icons/iconsMetaData";
+declare module "monday-ui-style/src/Icons/iconsMetaData";
