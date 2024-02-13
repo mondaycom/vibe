@@ -17,8 +17,6 @@ jobs:
             command: "lint"
           - name: "Stylelint"
             command: "stylelint"
-          - name: "Build"
-            command: "build"
     name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
@@ -43,5 +41,8 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
+      - name: Run Build
+        shell: bash
+        run: yarn lerna run build --since=origin/master
       - name: Build Storybook
         run: yarn lerna run build-storybook --since=origin/master
