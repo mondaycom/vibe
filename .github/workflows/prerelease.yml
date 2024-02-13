@@ -25,7 +25,6 @@ jobs:
         run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
           [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to prerelease"
-      #          echo ::set-output name=has_changes::$([[ $changed_packages = "[]" ]] && echo "false" || echo "true")
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
       - name: Generate new versions
@@ -33,6 +32,7 @@ jobs:
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+      - run: npm whoami
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag $BRANCH -y
       - name: Get current PR id
