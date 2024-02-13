@@ -26,17 +26,26 @@ jobs:
       - name: Run Tests
         shell: bash
         run: yarn lerna run test --since
+      - name: Run Build
+        shell: bash
+        run: lerna run build --since=origin/master
       - name: Run prerelease
         shell: bash
         id: prerelease
         run: |
-          lerna publish --canary --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --yes
-          echo "prerelease_version=$id" >> "$GITHUB_OUTPUT"
+          if lerna publish --canary --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --yes
+            echo "prerelease_version=$id" >> "$GITHUB_OUTPUT"
+            echo "is_released=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_released=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping prerelease. Nothing to prerelease as Lerna didn't detect any changes."
+          fi
         env:
           id: ${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
           tag: ${{ github.run_id }}-${{ github.run_attempt }}
       - name: Create comment with prerelease version details
         uses: peter-evans/create-or-update-comment@v1
+        if: steps.prerelease.outputs.is_released == 'true'
         env:
           version: ${{ steps.prerelease.outputs.prerelease_version }}
         with:
