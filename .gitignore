@@ -6,6 +6,7 @@ build-storybook.log
 ./build-storybook.log
 chromatic.log
 */storybook-static
+static_storybook
 dist
 */build
 coverage

@@ -1,0 +1,16 @@
+// CONFIG: CORE TOKENS
+// This partial loads Core config tokens
+// - loading order is important
+// -- please verify token dependency when adding.
+// -- we put tokens without dependencies first.
+
+@import "core/core-motion";
+@import "core/core-border";
+@import "core/core-opacity";
+@import "core/core-spacing";
+@import "core/core-radius";
+@import "core/core-shadows";
+@import "core/core-common";
+@import "core/core-typography";
+@import "core/core-fonts-deprecated";
+@import "core/core-typography-deprecated";
