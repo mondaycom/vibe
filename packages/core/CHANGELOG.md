@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.92.1 (2024-02-13)
+
+
+### Bug Fixes
+
+* fix rollup build ([#1954](https://github.com/mondaycom/monday-ui-react-core/issues/1954)) ([3c17759](https://github.com/mondaycom/monday-ui-react-core/commit/3c17759053b0324bc816bb581a69b0fe4ae83278))
+
+
+
+
+
 # 2.92.0 (2024-02-12)
 
 
