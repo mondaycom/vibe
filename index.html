@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/links-0/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-controls-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-actions-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-viewport-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-toolbars-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-measure-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-outline-7/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/themes-8/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/playground-9/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-10/manager-bundle.js" rel="modulepreload" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500&display=swap" rel="stylesheet" />
+<meta property="og:description" content="Vibe design system by monday.com" />
+<meta property="og:title" content="Vibe Design System" />
+<meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
+<title>Vibe Design System</title>
+<script src="https://use.fontawesome.com/660238b999.js"></script>
+<style>
+  body {
+    font-family: "Roboto", sans-serif;
+    background: #f0f3ff !important;
+    font-size: 14px;
+  }
+
+  #storybook-explorer-menu svg {
+    color: #5034ff;
+  }
+  #storybook-explorer-menu button[aria-expanded="true"],
+  #storybook-explorer-menu button:focus,
+  #storybook-explorer-menu a[data-selected]:hover {
+    background-color: rgba(80, 52, 255, 0.1);
+  }
+
+  #storybook-explorer-menu a[data-selected="true"],
+  #storybook-explorer-menu a[data-selected="true"]:hover {
+    background-color: #5034ff;
+    color: #f0f3ff;
+  }
+
+  #storybook-explorer-menu a[data-selected="true"] svg {
+    color: #f0f3ff;
+  }
+
+  .os-content button:hover {
+    background-color: rgba(80, 52, 255, 0.1);
+    color: #5034ff;
+  }
+
+  .os-content button:hover svg {
+    color: #5034ff;
+  }
+
+  /* https://github.com/storybookjs/storybook/issues/25094 */
+  div[data-radix-scroll-area-viewport] > div {
+    display: block !important;
+  }
+</style>
+
+<script>
+  //workaround to increase the left panel width just enough to show even the longer story names
+  //based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
+  const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 244; // original default is 230
+  let storybookConfig = JSON.parse(localStorage.getItem("storybook-layout"));
+
+  // we only resize the left panel if it is set to a value lower than DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+  if (
+    typeof storybookConfig === "object" &&
+    storybookConfig !== null &&
+    storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+  ) {
+    storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH;
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
+    document.location.reload();
+  } else if (storybookConfig === null) {
+    storybookConfig = { resizerNav: { x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH, y: 0 } };
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
+    document.location.reload();
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBP2ER8YL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-0CBP2ER8YL");
+</script>
+ 
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+    <link href="./sb-addons/storybook-10/manager-bundle.css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": false
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": false
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.js';
+
+      
+      import './sb-addons/links-0/manager-bundle.js';
+      
+      import './sb-addons/a11y-1/manager-bundle.js';
+      
+      import './sb-addons/essentials-controls-2/manager-bundle.js';
+      
+      import './sb-addons/essentials-actions-3/manager-bundle.js';
+      
+      import './sb-addons/essentials-viewport-4/manager-bundle.js';
+      
+      import './sb-addons/essentials-toolbars-5/manager-bundle.js';
+      
+      import './sb-addons/essentials-measure-6/manager-bundle.js';
+      
+      import './sb-addons/essentials-outline-7/manager-bundle.js';
+      
+      import './sb-addons/themes-8/manager-bundle.js';
+      
+      import './sb-addons/playground-9/manager-bundle.js';
+      
+      import './sb-addons/storybook-10/manager-bundle.js';
+      
+    </script>
+
+    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
+  </body>
+</html>
