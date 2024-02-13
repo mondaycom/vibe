@@ -27,12 +27,13 @@ jobs:
         run: yarn lerna run build --since=origin/master
       - name: Generate prerelease prefix
         run: echo "BRANCH=${GITHUB_HEAD_REF//_}" >> $GITHUB_ENV
+      - run: echo $GITHUB_HEAD_REF
       - run: echo ${GITHUB_HEAD_REF//_}
       - name: Generate new versions
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid prerelease -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
-        run: npm set "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ../.npmrc
       - run: npm whoami
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
