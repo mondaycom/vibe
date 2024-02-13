@@ -60,6 +60,7 @@ export default {
     strict: false,
     exports: "named",
     preserveModules: true,
+    preserveModulesRoot: ".",
     sourcemap: true
   },
   input: {
