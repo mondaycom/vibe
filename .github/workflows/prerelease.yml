@@ -32,12 +32,13 @@ jobs:
         shell: bash
         id: prerelease
         run: |
-          if [ lerna publish --canary --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --yes ]; then
-            echo "prerelease_version=$id" >> "$GITHUB_OUTPUT"
-            echo "is_released=true" >> "$GITHUB_OUTPUT"
-          else
+          LERNA_RESULT=$(lerna publish --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --conventional-prerelease --yes)
+          if [[ "$LERNA_RESULT" == "" ]]; then
             echo "is_released=false" >> "$GITHUB_OUTPUT"
             echo "Skipping prerelease. Nothing to prerelease as Lerna didn't detect any changes."
+          else
+            echo "prerelease_version=$id" >> "$GITHUB_OUTPUT"
+            echo "is_released=true" >> "$GITHUB_OUTPUT"
           fi
         env:
           id: ${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
