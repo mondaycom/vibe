@@ -28,7 +28,7 @@ jobs:
           npm_token: ${{secrets.npm_token}}
       - name: Run ${{matrix.name}}
         shell: bash
-        run: yarn lerna run ${{matrix.command}} --since
+        run: yarn lerna run ${{matrix.command}} --since --include-filtered-dependencies
   release:
     needs: prerequisites
     runs-on: ubuntu-latest
