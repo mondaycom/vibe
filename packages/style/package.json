@@ -8,7 +8,7 @@
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile-styles": "node-sass --output-style expanded --precision 6 ./src/index.scss dist/index.css",
+    "compile-styles": "sass --style=expanded --precision 6 ./src/index.scss dist/index.css",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
     "build": "yarn compile-styles && yarn css-minify"
   },
