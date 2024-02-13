@@ -8,7 +8,6 @@ on:
 
 jobs:
   prerelease:
-    if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -16,6 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Skip if commit message does not contain [prerelease]
+        run: |
+          [[ $(git show -s --format=%s) == *"[prerelease]"* ]] && echo "No prerelease needed" && exit 0 || echo "Continuing to prerelease"
       - uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
@@ -24,7 +26,7 @@ jobs:
         id: changed-packages
         run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to prerelease"
+          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 0 || echo "Continuing to prerelease"
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
       - name: Generate prerelease prefix
