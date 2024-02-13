@@ -3,78 +3,49 @@
 name: Prerelease
 
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches:
+      - "*"
+      - "!master"
 
 jobs:
   prerelease:
-    if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
+    if: "contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v3
+      - name: Run Setup
+        uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-          registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: npm ci
-      - name: Set up git credentials
+          npm_token: ${{secrets.npm_token}}
+      - uses: ./.github/actions/git-creds
+      - name: Run Tests
+        shell: bash
+        run: yarn lerna run test --since
+      - name: Run prerelease
+        shell: bash
+        id: prerelease
         run: |
-          git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'
-      - name: "Wait for tests to succeed"
-        uses: fountainhead/action-wait-for-check@v1.1.0
-        if: success()
-        id: wait-for-tests
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "test"
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          timeoutSeconds: 1200
-          intervalSeconds: 20
-      - name: "Tests failed - exit"
-        if: steps.wait-for-tests.outputs.conclusion != 'success'
-        run: |
-          echo "::error::test check failed - prerelease cancelled"
-          exit 1
-      - name: Create Updated version
-        id: create-update-version
-        if: success()
+          lerna publish --canary --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --yes
+          echo "prerelease_version=$id" >> "$GITHUB_OUTPUT"
         env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          npm run pre-release
-          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
-      - name: Publish the new version to npm
-        if: success()
-        run: npm run build && npm publish --tag prerelease
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        if: success()
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
-          automatic_release_tag: prerelease
-      - name: Get current PR id
-        uses: 8BitJonny/gh-get-current-pr@2.2.0
-        id: PR
-        if: success()
+          id: ${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          tag: ${{ github.run_id }}-${{ github.run_attempt }}
       - name: Create comment with prerelease version details
-        if: success()
         uses: peter-evans/create-or-update-comment@v1
+        env:
+          version: ${{ steps.prerelease.outputs.prerelease_version }}
         with:
-          issue-number: ${{ steps.PR.outputs.number }}
+          issue-number: ${{ github.event.number }}
           body: |
-            A new prerelease version of this PR has been published: `${{ steps.create-update-version.outputs.package_version }}`
+            A new prerelease version of this PR has been published: `${{ env.version }}`
 
             ```
             // To install this prerelease version using npm, please run the following command in your terminal:
-            npm i monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}
+            npm i monday-ui-react-core@${{ env.version }}
             // If you prefer using Yarn, you can use the following command instead:
-            yarn add monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}
+            yarn add monday-ui-react-core@${{ env.version }}
             ```
