@@ -32,7 +32,7 @@ jobs:
         shell: bash
         id: prerelease
         run: |
-          LERNA_RESULT=$(lerna publish --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --conventional-prerelease --yes)
+          LERNA_RESULT=$(lerna publish prerelease --preid ${{ env.id }} --dist-tag ${{ env.tag }} --no-git-tag-version --no-commit-hooks --conventional-prerelease --yes)
           if [[ "$LERNA_RESULT" == "" ]]; then
             echo "is_released=false" >> "$GITHUB_OUTPUT"
             echo "Skipping prerelease. Nothing to prerelease as Lerna didn't detect any changes."
