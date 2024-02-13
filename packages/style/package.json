@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-style",
-  "version": "0.1.210",
+  "version": "0.1.211",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
@@ -62,11 +62,11 @@
     "@storybook/addon-themes": "^7.5.0",
     "@storybook/blocks": "^7.5.0",
     "@storybook/manager-api": "^7.5.0",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.5.0",
     "@storybook/react-webpack5": "^7.5.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.0",
-    "@storybook/preset-scss": "^1.0.3",
     "@types/jest": "^27.4.1",
     "changelog": "^1.4.2",
     "chromatic": "^6.20.0",
