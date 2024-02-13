@@ -35,7 +35,7 @@ jobs:
         id: setup-npmrc
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish new versions
-        run: yarn lerna publish --no-git-tag-version --no-push --dist-tag $BRANCH -y
+        run: yarn lerna publish from-package --no-git-tag-version --no-push --dist-tag $BRANCH -y
         env:
           BRANCH: ${{ github.ref_name }}
       - name: Get current PR id
