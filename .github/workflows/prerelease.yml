@@ -10,6 +10,8 @@ jobs:
   prerelease:
     if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
+    env:
+      BRANCH: ${{ github.ref_name//_ }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,15 +30,11 @@ jobs:
         run: yarn lerna run build --since=origin/master
       - name: Generate new versions
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
-        env:
-          BRANCH: ${{ github.ref_name }}
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}"
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag $BRANCH -y
-        env:
-          BRANCH: ${{ github.ref_name }}
       - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
