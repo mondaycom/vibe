@@ -28,13 +28,13 @@ jobs:
       - name: Generate prerelease prefix
         run: echo "BRANCH=${GITHUB_HEAD_REF//_}" >> $GITHUB_OUTPUT
       - name: Generate new versions
-        run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
+        run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid ${{ env.BRANCH }} -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}"
       - run: npm whoami
       - name: Publish new versions
-        run: yarn lerna publish from-package --dist-tag $BRANCH -y
+        run: yarn lerna publish from-package --dist-tag ${{ env.BRANCH }} -y
       - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
