@@ -26,11 +26,11 @@ jobs:
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
       - name: Generate prerelease prefix
-        run: echo "BRANCH=${GITHUB_HEAD_REF//_}" >> $GITHUB_ENV
-      - run: echo $GITHUB_HEAD_REF
-      - run: echo ${GITHUB_HEAD_REF//_}
+        run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          echo "BRANCH=${branch//_}" >> $GITHUB_ENV
       - name: Generate new versions
-        run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid prerelease -y
+        run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
@@ -38,7 +38,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - run: npm whoami
       - name: Publish new versions
-        run: yarn lerna publish from-package --dist-tag prerelease -y
+        run: yarn lerna publish from-package --dist-tag $BRANCH -y
       - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
@@ -55,15 +55,15 @@ jobs:
 
             To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:
             ```
-            npm i <package_name>@prerelease
+            npm i <package_name>@$BRANCH
             ```
 
             Or:
             ```
-            yarn add <package_name>@prerelease
+            yarn add <package_name>@$BRANCH
             ```
 
             For example:
             ```
-            yarn add monday-ui-react-core@prerelease
+            yarn add monday-ui-react-core@$BRANCH
             ```
