@@ -55,15 +55,15 @@ jobs:
 
             To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:
             ```
-            npm i <package_name>@$BRANCH
+            npm i <package_name>@${{ env.BRANCH }}
             ```
 
             Or:
             ```
-            yarn add <package_name>@$BRANCH
+            yarn add <package_name>@${{ env.BRANCH }}
             ```
 
             For example:
             ```
-            yarn add monday-ui-react-core@$BRANCH
+            yarn add monday-ui-react-core@${{ env.BRANCH }}
             ```
