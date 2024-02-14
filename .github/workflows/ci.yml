@@ -43,6 +43,6 @@ jobs:
           npm_token: ${{secrets.npm_token}}
       - name: Run Build
         shell: bash
-        run: yarn lerna run build --since=origin/master --include-filtered-dependencies
+        run: yarn lerna run build --since=origin/master --include-dependencies
       - name: Build Storybook
         run: yarn lerna run build-storybook --since=origin/master
