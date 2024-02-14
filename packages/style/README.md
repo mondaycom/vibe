@@ -67,7 +67,7 @@ In some rare occasions when you want to preserve a color within the icon please 
 
 ## New icon request
 
-If you want us to create a non existing monday.com style icon open a PR with please see the [guidelines](ICON_REQUEST.md)
+To create a non existing monday.com style icon open a PR with please see the [guidelines](ICON_REQUEST.md)
 
 ## Stylelint rules
 
