@@ -1,1 +1,1 @@
-lerna run build --scope=$1 --include-filtered-dependencies
+lerna run build --scope=$1 --include-dependencies
