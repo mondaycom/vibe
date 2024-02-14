@@ -27,7 +27,7 @@ jobs:
           npm_token: ${{secrets.npm_token}}
       - name: Run ${{matrix.name}}
         shell: bash
-        run: yarn lerna run ${{matrix.command}} --since --include-filtered-dependencies
+        run: yarn lerna run ${{matrix.command}} --since
   release:
     needs: prerequisites
     runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
       - uses: ./.github/actions/git-creds
       - name: Run Build
         shell: bash
-        run: yarn lerna run build --since
+        run: yarn lerna run build --since --include-dependencies
       - name: Generate new versions
         run: yarn lerna version --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
