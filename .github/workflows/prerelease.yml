@@ -3,21 +3,17 @@
 name: Prerelease
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  - push
+  - workflow_dispatch
 
 jobs:
   prerelease:
+    if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Skip if commit message does not contain [prerelease]
-        run: |
-          [[ $(git show -s --format=%s) == *"[prerelease]"* ]] && echo "No prerelease needed" && exit 0 || echo "Continuing to prerelease"
       - uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
@@ -37,7 +33,7 @@ jobs:
         run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid prerelease -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
-        run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
+        run: npm set "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}"
       - run: npm whoami
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
