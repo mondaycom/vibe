@@ -64,7 +64,7 @@
     "test:update": "yarn test -- -u",
     "test:coverage": "yarn test -- --coverage",
     "start": "yarn build:react-icons && yarn build:commonjs -- --watch",
-    "build": "echo yo",
+    "build": "yarn build:react-icons && yarn build:storybook-exports && yarn build:commonjs && yarn build:esm && yarn build:esm:mock-classnames && yarn build:types",
     "build:exports": "./scripts/build-exports.js",
     "build:types": "./scripts/build-types.js",
     "build:storybook-exports": "./scripts/build-storybook-exports.js",
