@@ -16,6 +16,7 @@ jobs:
             command: "stylelint"
     env:
       NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    name: ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v4
         with:
