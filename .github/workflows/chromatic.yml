@@ -11,6 +11,7 @@ jobs:
         run: yarn
       - name: Check if there are changed packages
         id: changed-packages
+        continue-on-error: true
         run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
           [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to Chromatic"
