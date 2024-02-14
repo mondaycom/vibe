@@ -43,7 +43,7 @@ jobs:
       - uses: ./.github/actions/git-creds
       - name: Run Build
         shell: bash
-        run: yarn lerna run build
+        run: yarn lerna run build --since
       - name: Generate new versions
         run: yarn lerna version --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
