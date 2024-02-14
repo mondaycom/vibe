@@ -9,6 +9,11 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn
+      - name: Check if there are changed packages
+        id: changed-packages
+        run: |
+          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
+          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 0 || echo "Continuing to Chromatic"
       - name: Run Build
         shell: bash
         run: yarn lerna run build --since=origin/master --include-filtered-dependencies
