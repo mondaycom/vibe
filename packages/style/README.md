@@ -31,7 +31,7 @@ import "monday-ui-style/dist/index.min.css";
 import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ```
 
-**Mixins and functions**: We export multiple scss mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.
+**Mixins and functions**: We export multiple SCSS mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.
 
 ```scss
 @import "~monday-ui-style/dist/mixins";
