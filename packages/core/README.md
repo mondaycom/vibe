@@ -1,1 +1,1 @@
-# Vibe Design System - core
+# Vibe Design System - Core

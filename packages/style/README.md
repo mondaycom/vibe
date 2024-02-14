@@ -8,7 +8,7 @@ Although we use React in our product this library will try to stay framework agn
 ## Installation
 
 ```
-npm install monday-ui-style --save
+npm install monday-ui-style
 ```
 
 ## Usage
