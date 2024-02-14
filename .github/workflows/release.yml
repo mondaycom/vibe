@@ -14,8 +14,6 @@ jobs:
             command: "lint"
           - name: "Stylelint"
             command: "stylelint"
-          - name: "Build"
-            command: "build"
     env:
       NODE_AUTH_TOKEN: ${{secrets.npm_token}}
     steps:
@@ -43,6 +41,9 @@ jobs:
         with:
           npm_token: ${{secrets.npm_token}}
       - uses: ./.github/actions/git-creds
+      - name: Run Build
+        shell: bash
+        run: yarn lerna run build --since=origin/master --include-filtered-dependencies
       - name: Generate new versions
         run: yarn lerna version --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
