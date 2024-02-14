@@ -196,7 +196,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       },
       [onMouseDown, disabled, loading, success]
     );
-    // trigger prerelease
+
     const classNames = useMemo(() => {
       const calculatedColor = success ? ButtonColor.POSITIVE : color;
       return cx(
