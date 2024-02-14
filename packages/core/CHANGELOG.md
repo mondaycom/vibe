@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.92.4](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.3...monday-ui-react-core@2.92.4) (2024-02-14)
+
+
+### Bug Fixes
+
+* remove redundant class ([c4bf0bb](https://github.com/mondaycom/monday-ui-react-core/commit/c4bf0bb6d34f5c3d75801b765677966ad5f3983a))
+
+
+
+
+
 ## [2.92.3](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.1...monday-ui-react-core@2.92.3) (2024-02-14)
 
 **Note:** Version bump only for package monday-ui-react-core
