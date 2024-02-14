@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.213 (2024-02-14)
+
+
+### Bug Fixes
+
+* docs ([#1960](https://github.com/mondaycom/monday-ui-react-core/issues/1960)) ([ed0d787](https://github.com/mondaycom/monday-ui-react-core/commit/ed0d7872462e83b72557c8dbc8ff0c48b3d23752))
+
+
+
+
+
 ## 0.1.212 (2024-02-14)
 
 **Note:** Version bump only for package monday-ui-style
