@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.215](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.214...monday-ui-style@0.1.215) (2024-02-14)
+
+
+### Bug Fixes
+
+* fix build in release ([#1965](https://github.com/mondaycom/monday-ui-react-core/issues/1965)) ([8177d9a](https://github.com/mondaycom/monday-ui-react-core/commit/8177d9a799c4fb469316f4cdeefc15250eea4c61))
+
+
+
+
+
 ## [0.1.214](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.213...monday-ui-style@0.1.214) (2024-02-14)
 
 
