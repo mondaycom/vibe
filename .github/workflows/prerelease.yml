@@ -22,7 +22,7 @@ jobs:
         id: changed-packages
         run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 0 || echo "Continuing to prerelease"
+          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to prerelease"
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master
       - name: Generate prerelease prefix

@@ -11,14 +11,17 @@ jobs:
         run: yarn
       - name: Check if there are changed packages
         id: changed-packages
+        continue-on-error: true
         run: |
           changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 0 || echo "Continuing to Chromatic"
+          [[ $changed_packages = "[]" ]] && echo "HAS_CHANGES=false" >> $GITHUB_ENV || echo "HAS_CHANGES=true" >> $GITHUB_ENV
       - name: Run Build
+        if: ${{ env.HAS_CHANGES == 'true' }}
         shell: bash
         run: yarn lerna run build --since=origin/master --include-filtered-dependencies
       - name: Publish to Chromatic
         uses: chromaui/action@v1
+        if: ${{ env.HAS_CHANGES == 'true' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, if you are project maintainer refer to the manage page to obtain it.
