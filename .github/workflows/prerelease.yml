@@ -32,10 +32,16 @@ jobs:
         run: |
           preid=${{ github.ref_name }}
           normalized_pre_id=$(echo "$preid" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
-          echo "$preid"
-          echo "$normalized_pre_id"
+
+          # Capture the full output, including JSON and yarn logs
+          full_output=$(yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid "$normalized_pre_id" -y)
+
+          # Use awk to extract only the JSON portion from the full output
+          json_output=$(echo "$full_output" | awk '/^\[/{p=1} p; /\]/{p=0}' )
+
+          # Echo only the JSON portion to $GITHUB_OUTPUT
           echo 'new_versions<<EOF' >> $GITHUB_OUTPUT
-          yarn -s lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid $normalized_pre_id -y --loglevel error >> $GITHUB_OUTPUT
+          echo "$json_output" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
