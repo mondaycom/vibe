@@ -66,7 +66,7 @@ jobs:
           echo "A new prerelease version of this PR has been published! 🎉" >> $GITHUB_OUTPUT
           echo "To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:" >> $GITHUB_OUTPUT
 
-          echo "$json_data" | jq -r '.packages[] | "\nTo update `\(.name)`:\n```\nyarn add \(.name)@\(.newVersion)\n```\nOr with npm:\n```\nnpm i \(.name)@\(.newVersion)\n```\n"' >> $GITHUB_OUTPUT
+          echo "$json_data" | jq -r '.[] | "\nTo update `\(.name)`:\n```\nyarn add \(.name)@\(.newVersion)\n```\nOr with npm:\n```\nnpm i \(.name)@\(.newVersion)\n```\n"' >> $GITHUB_OUTPUT
 
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: Create comment with prerelease version details
