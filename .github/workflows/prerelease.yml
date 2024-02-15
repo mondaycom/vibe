@@ -29,7 +29,10 @@ jobs:
         run: yarn lerna run test --since=origin/master
       - name: Generate new versions
         id: generate-versions
-        run: echo "new_versions=$(yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid ${{ github.ref_name }} -y)" >> $GITHUB_OUTPUT
+        run: |
+          echo 'new_versions<<EOF' >> $GITHUB_OUTPUT
+          yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid ${{ github.ref_name }} -y >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
