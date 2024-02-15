@@ -33,13 +33,11 @@ jobs:
           preid=${{ github.ref_name }}
           normalized_pre_id=$(echo "$preid" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
 
-          # Capture the full output, including JSON and yarn logs
           full_output=$(yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid "$normalized_pre_id" -y)
 
-          # Use awk to extract only the JSON portion from the full output
+          # extract only the JSON portion from the full output, excluding yarn logs
           json_output=$(echo "$full_output" | awk '/^\[/{p=1} p; /\]/{p=0}' )
 
-          # Echo only the JSON portion to $GITHUB_OUTPUT
           echo 'new_versions<<EOF' >> $GITHUB_OUTPUT
           echo "$json_output" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
@@ -51,16 +49,13 @@ jobs:
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
       - name: Get current PR id
-        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        uses: 8BitJonny/gh-get-current-pr@3.0.0
         id: PR
       - name: Prepare PR comment
         id: prepare-comment
         env:
           json_data: ${{ steps.generate-versions.outputs.new_versions }}
         run: |
-          echo "##start##"
-          echo "$json_data"
-          echo "##end##"
           echo 'comment_body<<EOF' >> $GITHUB_OUTPUT
 
           echo "A new prerelease version of this PR has been published! 🎉" >> $GITHUB_OUTPUT
