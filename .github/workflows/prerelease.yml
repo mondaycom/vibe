@@ -52,6 +52,9 @@ jobs:
         env:
           json_data: ${{ steps.generate-versions.outputs.new_versions }}
         run: |
+          echo "##start##"
+          echo "$json_data"
+          echo "##end##"
           echo 'comment_body<<EOF' >> $GITHUB_OUTPUT
 
           echo "A new prerelease version of this PR has been published! 🎉" >> $GITHUB_OUTPUT
