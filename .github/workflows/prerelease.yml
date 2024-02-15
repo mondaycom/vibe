@@ -30,8 +30,12 @@ jobs:
       - name: Generate new versions
         id: generate-versions
         run: |
+          preid=${{ github.ref_name }}
+          normalized_pre_id=$(echo "$preid" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
+          echo "$preid"
+          echo "$normalized_pre_id"
           echo 'new_versions<<EOF' >> $GITHUB_OUTPUT
-          yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid ${{ github.ref_name }} -y >> $GITHUB_OUTPUT
+          yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid $normalized_pre_id -y >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
