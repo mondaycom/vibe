@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.92.8](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.7...monday-ui-react-core@2.92.8) (2024-02-18)
+
+
+### Bug Fixes
+
+* **AlertBanner:** fix children type ([#1968](https://github.com/mondaycom/monday-ui-react-core/issues/1968)) ([cf4845d](https://github.com/mondaycom/monday-ui-react-core/commit/cf4845d00e6caf85cfba45b6dd4823fdd9c19452))
+
+
+
+
+
 ## [2.92.7](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.6...monday-ui-react-core@2.92.7) (2024-02-14)
 
 
