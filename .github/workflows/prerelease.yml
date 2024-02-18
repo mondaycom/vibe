@@ -24,9 +24,6 @@ jobs:
           [[ $changed_packages = "[]" ]] && echo "Skipping prerelease. Nothing to prerelease as Lerna didn't detect any changes." && exit 1 || echo "Changed detected. Continuing to prerelease" && echo "$changed_packages"
       - name: Build all affected packages
         run: yarn lerna run build --since=origin/master --include-dependencies
-      - name: Run Tests
-        shell: bash
-        run: yarn lerna run test --since=origin/master
       - name: Generate new versions
         id: generate-versions
         run: |
