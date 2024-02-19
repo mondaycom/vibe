@@ -47,7 +47,7 @@ import {
 import { ValueOf, VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
 import styles from "./Box.module.scss";
 
-interface BoxProps extends VibeComponentProps {
+export interface BoxProps extends VibeComponentProps {
   elementType?: keyof JSX.IntrinsicElements | string;
   children?: ElementContent;
   disabled?: boolean;

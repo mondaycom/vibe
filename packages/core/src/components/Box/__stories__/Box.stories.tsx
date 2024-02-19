@@ -1,5 +1,6 @@
 import { Box } from "../../../components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
+import { type BoxProps } from "../Box";
 import styles from "./Box.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -39,7 +40,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const boxTemplate = args => (
+const boxTemplate = (args: BoxProps) => (
   <div className={styles.boxWrapper}>
     <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}>
       Box composite component
@@ -158,15 +159,6 @@ export const Margin = {
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
-          margin={Box.margins.NONE}
-        >
-          <div className={styles.boxPaddingInner}>Box.margins.NONE</div>
-        </Box>
-      </div>
-      <div className={styles.boxMarginWrapper}>
-        <Box
-          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
-          border={Box.borders.DEFAULT}
           margin={Box.margins.XS}
         >
           <div className={styles.boxPaddingInner}>Box.margins.XS</div>
@@ -231,11 +223,6 @@ export const Margin = {
 export const Padding = {
   render: () => (
     <div className={styles.boxWrapper}>
-      <div className={styles.boxPaddingWrapper}>
-        <Box border={Box.borders.DEFAULT} padding={Box.paddings.NONE}>
-          <div className={styles.boxPaddingInner}>Box.paddings.NONE</div>
-        </Box>
-      </div>
       <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.XS}>
           <div className={styles.boxPaddingInner}>Box.paddings.XS</div>
