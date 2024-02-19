@@ -30,7 +30,7 @@ jobs:
           normalized_branch_name=$(git rev-parse --abbrev-ref HEAD | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
           echo "BRANCH=$normalized_branch_name" >> $GITHUB_ENV
       - name: Generate new versions
-        run: yarn lerna version --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
+        run: yarn lerna version --exact --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
       - run: yarn config set registry https://registry.npmjs.org/
       - name: Setup .npmrc for publish
         run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
