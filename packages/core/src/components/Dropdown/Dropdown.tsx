@@ -89,7 +89,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * The dropdown options
    */
-  options?: Record<string, string>[];
+  options?: any;
   /**
    * Text to display when there are no options
    */
