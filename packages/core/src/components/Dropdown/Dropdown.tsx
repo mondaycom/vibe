@@ -93,7 +93,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Text to display when there are no options
    */
-  noOptionsMessage: ((obj: { inputValue: string }) => React.ReactNode) | ((obj: { inputValue: string }) => void);
+  noOptionsMessage?: any;
   /**
    * If set to true, the menu will open when focused
    */
@@ -122,27 +122,27 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement: any;
+  menuPlacement?: any;
 
   //  enum() PropTypes.oneOf(Object.values(DROPDOWN_MENU_PLACEMENT)),
   /**
    * The CSS position value of the menu, when "fixed" extra layout management might be required
    * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
    */
-  menuPosition: any;
+  menuPosition?: any;
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
-  rtl: boolean;
+  rtl?: boolean;
   /**
    * Set default selected value
    */
-  defaultValue: any;
+  defaultValue?: any;
   /**
    * The component's value.
    * When passed, makes this a [controlled](https://reactjs.org/docs/forms.html#controlled-components) component.
    */
-  value: any;
+  value?: any;
   /**
    * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
@@ -150,120 +150,120 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * If provided Dropdown will work in async mode. Can be either promise or callback
    */
-  asyncOptions: any;
+  asyncOptions?: any;
   /**
    * If set to true, fetched async options will be cached
    */
-  cacheOptions: boolean;
+  cacheOptions?: boolean;
   /**
    * If set, `asyncOptions` will be invoked with its value on mount and the resolved results will be loaded
    */
-  defaultOptions: boolean | Record<string, string>[];
+  defaultOptions?: boolean | Record<string, string>[];
   /**
    * If set to true, the menu will use virtualization. Virtualized async works only with
    */
-  isVirtualized: boolean;
+  isVirtualized?: boolean;
   /**
    * Whether the menu should use a portal, and where it should attach
    */
-  menuPortalTarget: HTMLElement;
+  menuPortalTarget?: HTMLElement;
   /**
    * Custom function to override existing styles (similar to `react-select`'s `style` prop), for example: `base => ({...base, color: 'red'})`, where `base` is the component's default styles
    */
-  extraStyles: (...args: unknown[]) => unknown;
+  extraStyles?: (...args: unknown[]) => unknown;
   /**
    * Maximum height of the menu before scrolling
    */
-  maxMenuHeight: number;
+  maxMenuHeight?: number;
   /**
    * Tab index for keyboard navigation purposes
    */
-  tabIndex: number;
+  tabIndex?: number;
   /**
    * ID for the select container
    */
-  id: any;
+  id?: any;
   /**
    * focusAuto when component mount
    */
-  autoFocus: boolean;
+  autoFocus?: boolean;
   /**
    * If set to true, the dropdown will be in multi-select mode.
    * When in multi-select mode, the selected value will be an array,
    * and it will be displayed as our [`<Chips>`](/?path=/docs/components-chips--sandbox) component.
    */
-  multi: boolean;
+  multi?: boolean;
   /**
    * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
    */
-  multiline: boolean;
+  multiline?: boolean;
   /**
   Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
   */
-  closeMenuOnSelect: boolean;
+  closeMenuOnSelect?: boolean;
   // Won't be needed once we upgrade to react-select ^5.5 https://github.com/JedWatson/react-select/issues/4088#issuecomment-1276835389
   /**
    * If menu should be closed on scroll - helpful for some tricky use cases
    * @default false, but true when insideOverflowContainer or insideOverflowWithTransformContainer are true
    */
-  closeMenuOnScroll: ((event: React.FocusEvent) => boolean) | boolean;
+  closeMenuOnScroll?: ((event: React.FocusEvent) => boolean) | boolean;
   /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
-  onOptionRemove: (...args: unknown[]) => unknown;
+  onOptionRemove?: (...args: unknown[]) => unknown;
   /**
   Pass Ref for reference of the actual dropdown component
   */
-  ref: React.ForwardedRef<HTMLDivElement>;
+  ref?: React.ForwardedRef<HTMLDivElement>;
   /**
   The options set by default will be set as mandatory and the user will not be able to cancel their selection
   */
-  withMandatoryDefaultOptions: boolean;
+  withMandatoryDefaultOptions?: boolean;
   /**
    * Override the built-in logic to detect whether an option is selected.
    */
-  isOptionSelected: (option: unknown, selectValue: any) => boolean;
+  isOptionSelected?: (option: unknown, selectValue: any) => boolean;
   /**
    * For display the drop down menu in overflow hidden/scroll container.
    */
-  insideOverflowContainer: boolean;
+  insideOverflowContainer?: boolean;
   /**
    * For display the drop down menu in overflow hidden/scroll container which contains transform css function usage.
    */
-  insideOverflowWithTransformContainer: boolean;
+  insideOverflowWithTransformContainer?: boolean;
   /**
    * When content is passed, the dropdown will include a tooltip on the dropdown's value.
    */
-  tooltipContent: string;
+  tooltipContent?: string;
   /**
    * Display the drop down with loading state.
    */
-  isLoading: boolean;
+  isLoading?: boolean;
   /**
    * Overrides the built-in logic of loading message design
    */
-  loadingMessage: (obj: { inputValue: string }) => React.ReactNode;
+  loadingMessage?: (obj: { inputValue: string }) => React.ReactNode;
   /**
    * aria-label attribute for dropdown
    */
-  ariaLabel: string;
+  ariaLabel?: string;
   /**
    * Overrides the built-in logic of tab selecting value (default: true)
    */
-  tabSelectsValue: boolean;
+  tabSelectsValue?: boolean;
   /**
    * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
    * createFilter function is available at Dropdown.createFilter
    */
-  filterOption: (option: any, inputValue: string) => boolean;
+  filterOption?: (option: any, inputValue: string) => boolean;
 
   withReadOnlyStyle?: boolean;
   OptionRenderer?: (option: IComboboxOption) => JSX.Element;
   menuIsOpen?: boolean;
-  onOptionSelect: (...args: unknown[]) => void;
-  onClear: (...args: unknown[]) => void;
-  popupsContainerSelector: string;
-  selectProps: Record<string, string>;
+  onOptionSelect?: (...args: unknown[]) => void;
+  onClear?: (...args: unknown[]) => void;
+  popupsContainerSelector?: string;
+  selectProps?: Record<string, string>;
 }
 
 const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardRef(
@@ -528,7 +528,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       }
     };
 
-    const DropDownComponent = asyncOptions ? AsyncSelect : Select;
+    const DropDownComponent: any = asyncOptions ? AsyncSelect : Select;
 
     const asyncAdditions = {
       ...(asyncOptions && {
