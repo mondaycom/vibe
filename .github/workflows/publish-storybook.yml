@@ -18,7 +18,9 @@ jobs:
       - name: Build & deploy Storybooks to GitHub Pages
         run: |
           yarn
+          yarn lerna run build --since=origin/master --include-dependencies
           yarn lerna run --scope monday-ui-react-core build-storybook
+          yarn lerna run --scope monday-ui-style build-storybook
           cd packages/core/static_storybook
           echo "style.monday.com" > ./CNAME
         env:
