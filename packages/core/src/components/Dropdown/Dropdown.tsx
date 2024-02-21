@@ -18,11 +18,12 @@ import {
   ADD_AUTO_HEIGHT_COMPONENTS,
   defaultCustomStyles,
   DROPDOWN_CHIP_COLORS,
-  DROPDOWN_ID,
+  DROPDOWN_MENU,
   DROPDOWN_MENU_ID,
   DROPDOWN_MENU_ARIA_LABEL,
   DROPDOWN_MENU_PLACEMENT,
-  DROPDOWN_MENU_POSITION
+  DROPDOWN_MENU_POSITION,
+  DropdownDefaultValue
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
@@ -89,11 +90,11 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * The dropdown options
    */
-  options?: any;
+  options?: DropdownDefaultValue[];
   /**
    * Text to display when there are no options
    */
-  noOptionsMessage?: any;
+  noOptionsMessage?: (() => string) | typeof NOOP;
   /**
    * If set to true, the menu will open when focused
    */
@@ -122,7 +123,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
    */
-  menuPlacement?: any;
+  menuPlacement?: DROPDOWN_MENU_PLACEMENT;
 
   //  enum() PropTypes.oneOf(Object.values(DROPDOWN_MENU_PLACEMENT)),
   /**
@@ -398,7 +399,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
 
       if (multi) {
         if (multiline) {
-          ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
+          Object.values(ADD_AUTO_HEIGHT_COMPONENTS).forEach(component => {
             const original = mergedStyles[component];
             mergedStyles[component] = (provided: any, state: any) => ({
               ...original(provided, state),
@@ -662,7 +663,7 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: 0,
   onOptionRemove: undefined,
-  id: DROPDOWN_ID,
+  id: DROPDOWN_MENU.ID,
   menuId: DROPDOWN_MENU_ID,
   menuAriaLabel: DROPDOWN_MENU_ARIA_LABEL,
   autoFocus: false,
