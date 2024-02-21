@@ -192,6 +192,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
         if (onMouseDown) {
           onMouseDown(event);
+          onClick(event);
         }
       },
       [onMouseDown, disabled, loading, success]
