@@ -1,13 +1,12 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BaseSizes, SIZES } from "../../constants/sizes";
-import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import Select, { MenuProps, OptionsType, components, createFilter } from "react-select";
+import { BaseSizes, SIZES, SIZES_VALUES } from "../../constants/sizes";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import Select, { InputProps, MenuProps, OptionProps, SingleValueProps, components, createFilter } from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
-import PropTypes from "prop-types";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
@@ -32,11 +31,35 @@ import styles from "./Dropdown.module.scss";
 import { VibeComponent, VibeComponentProps } from "src/types";
 import { IComboboxOption } from "../Combobox/components/ComboboxConstants";
 import { Option } from "react-select/src/filters";
+import { HtmlAttributes } from "csstype";
+import { RefObject } from "preact";
+
+interface CustomSingleValueProps extends SingleValueProps<DropdownDefaultValue> {
+  Renderer: React.ComponentType;
+  readOnly: boolean;
+  selectedOption: DropdownDefaultValue;
+  singleVueWrapperClassName?: string;
+}
 
 interface CustomMenuProps extends MenuProps<Option, boolean> {
   Renderer: React.ComponentType;
   dropdownMenuWrapperClassName: string;
 }
+
+interface CustomOptionProps extends OptionProps<Option, boolean> {
+  Renderer: React.ComponentType;
+  optionWrapperClassName?: string;
+}
+
+type SelectEvent = {
+  action: "select-option" | "clear";
+  option?: DropdownDefaultValue;
+};
+
+type DropdownState = {
+  isDisabled: boolean;
+  selectProps: { withReadOnlyStyle: boolean; readOnly: boolean };
+};
 
 export interface DropdownComponentProps extends VibeComponentProps {
   /**
@@ -229,7 +252,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Override the built-in logic to detect whether an option is selected.
    */
-  isOptionSelected?: (option: unknown, selectValue: any) => boolean;
+  isOptionSelected?: (option: DropdownDefaultValue, selectValue: DropdownDefaultValue["value"]) => boolean;
   /**
    * For display the drop down menu in overflow hidden/scroll container.
    */
@@ -365,10 +388,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       if (Array.isArray(selectedOptions)) {
         return selectedOptions.reduce(
           (acc, option) => ({ ...acc, [option.value as DropdownDefaultValue["label"]]: option }),
-          {}
+          {} as DropdownDefaultValue
         );
       }
-      return {};
+      return {} as DropdownDefaultValue;
     }, [selectedOptions]);
 
     const overrideAriaLabel = useMemo(() => {
@@ -383,13 +406,15 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
 
     const inlineStyles = useMemo(() => {
       // We first want to get the default stylized groups (e.g. "container", "menu").
-      const baseStyles: any = generateBaseStyles({
+      const baseStyles = generateBaseStyles({
         size,
         rtl,
         insideOverflowContainer,
         controlRef,
         insideOverflowWithTransformContainer
       });
+
+      type BaseStyles = typeof baseStyles;
 
       // Then we want to run the consumer's root-level custom styles with our "base" override groups.
       const customStyles = extraStyles(baseStyles);
@@ -398,19 +423,20 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
         return {
           ...accumulator,
-          [stylesGroup]: (defaultStyles: any, state: any) => {
-            const provided = baseStyles[stylesGroup] ? baseStyles[stylesGroup](defaultStyles, state) : defaultStyles;
+          [stylesGroup]: (defaultStyles: BaseStyles, state: DropdownState) => {
+            const providedFn = baseStyles[stylesGroup as keyof BaseStyles];
+            const provided = providedFn ? providedFn(defaultStyles, state) : defaultStyles;
 
             return stylesFn(provided, state);
           }
         };
-      }, {} as any);
+      }, {} as BaseStyles);
 
       if (multi) {
         if (multiline) {
           Object.values(ADD_AUTO_HEIGHT_COMPONENTS).forEach(component => {
             const original = mergedStyles[component];
-            mergedStyles[component] = (provided: any, state: any) => ({
+            mergedStyles[component] = (provided: BaseStyles, state: DropdownState) => ({
               ...original(provided, state),
               height: "auto"
             });
@@ -418,7 +444,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
         }
 
         const originalValueContainer = mergedStyles.valueContainer;
-        mergedStyles.valueContainer = (provided: any, state: any) => ({
+        mergedStyles.valueContainer = (provided: BaseStyles, state: DropdownState) => ({
           ...originalValueContainer(provided, state),
           paddingLeft: 6
         });
@@ -441,24 +467,26 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
     );
 
     const DropdownIndicator = useCallback(
-      (props: { size: string }) => <DropdownIndicatorComponent {...props} size={size} />,
+      (props: React.HTMLAttributes<HTMLElement> & { size?: SIZES_VALUES }) => (
+        <DropdownIndicatorComponent {...props} size={size} />
+      ),
       [size]
     );
 
     const Option = useCallback(
-      (props: any) => (
+      (props: CustomOptionProps) => (
         <OptionComponent {...props} Renderer={finalOptionRenderer} optionWrapperClassName={optionWrapperClassName} />
       ),
       [finalOptionRenderer, optionWrapperClassName]
     );
 
     const Input = useCallback(
-      (props: any) => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
+      (props: InputProps) => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
       [menuId]
     );
 
     const SingleValue = useCallback(
-      (props: any) => (
+      (props: CustomSingleValueProps) => (
         <SingleValueComponent
           {...props}
           readOnly={readOnly}
@@ -470,16 +498,22 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       [finalValueRenderer, readOnly, selectedOptions, singleValueWrapperClassName]
     );
 
-    const ClearIndicator = useCallback((props: any) => <ClearIndicatorComponent {...props} size={size} />, [size]);
+    const ClearIndicator = useCallback(
+      (props: React.HTMLAttributes<HTMLElement> & { size?: SIZES_VALUES }) => (
+        <ClearIndicatorComponent {...props} size={size} />
+      ),
+      [size]
+    );
 
     const onOptionRemove = useMemo(() => {
-      return function (optionValue: any, e: any) {
+      return function (optionValue: number, e: React.MouseEvent | React.KeyboardEvent) {
         if (customOnOptionRemove) {
-          customOnOptionRemove((selectedOptionsMap as DropdownDefaultValue[])[optionValue]);
+          customOnOptionRemove((selectedOptionsMap as unknown as DropdownDefaultValue[])[optionValue]);
         }
-        const newSelectedOptions = (selectedOptions as DropdownDefaultValue[]).filter(
-          option => option.value !== optionValue
-        );
+        const newSelectedOptions = Array.isArray(selectedOptions)
+          ? selectedOptions.filter(option => option.value !== optionValue)
+          : selectedOptions;
+
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
@@ -508,7 +542,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
         popupsContainerSelector
       ]
     );
-    const onChange = (option: any, event: any) => {
+    const onChange = (option: DropdownDefaultValue, event: SelectEvent) => {
       if (customOnChange) {
         customOnChange(option, event);
       }
@@ -540,7 +574,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       }
     };
 
-    const DropDownComponent: any = asyncOptions ? AsyncSelect : Select;
+    const DropDownComponent: React.ElementType = asyncOptions ? AsyncSelect : Select;
 
     const asyncAdditions = {
       ...(asyncOptions && {
@@ -558,7 +592,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
     };
 
     const closeMenuOnScroll = useCallback(
-      (event: any) => {
+      (event: React.FocusEvent) => {
         const scrolledElement = event.target;
         if (scrolledElement?.parentElement?.classList.contains(menuStyles.dropdownMenuWrapper)) {
           return false;
@@ -581,15 +615,15 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
           Control,
           SingleValue,
           ...(multi && {
-            MultiValue: NOOP as any, // We need it for react-select to behave nice with "multi"
+            MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
             ValueContainer: MultiValueContainer
           }),
           ...(isVirtualized && { MenuList: WindowedMenuList })
         }}
         // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
-        closeMenuOnScroll={closeMenuOnScroll as any}
+        closeMenuOnScroll={closeMenuOnScroll}
         size={size}
-        noOptionsMessage={noOptionsMessage as any}
+        noOptionsMessage={noOptionsMessage}
         placeholder={placeholder}
         isDisabled={disabled}
         isClearable={!readOnly && clearable}
@@ -627,7 +661,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
-        ref={ref as any}
+        ref={ref as React.RefObject<any>}
         withMandatoryDefaultOptions={withMandatoryDefaultOptions}
         isOptionSelected={isOptionSelected}
         isLoading={isLoading}

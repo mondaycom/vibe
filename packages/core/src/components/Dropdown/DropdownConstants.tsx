@@ -32,4 +32,5 @@ export enum DROPDOWN_MENU_PLACEMENT {
 export type DropdownDefaultValue = {
   label: string;
   value: string | number | Theme;
+  isMandatory?: boolean;
 };
