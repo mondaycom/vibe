@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { SIZES } from "../../constants/sizes";
+import { BaseSizes, SIZES } from "../../constants/sizes";
 import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import Select, { components, createFilter } from "react-select";
 import AsyncSelect from "react-select/async";
@@ -130,7 +130,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
    * The CSS position value of the menu, when "fixed" extra layout management might be required
    * Fixed position can be used to solve the issue of positioning Dropdown inside overflow container like Modal or Dialog
    */
-  menuPosition?: any;
+  menuPosition?: DROPDOWN_MENU_POSITION;
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
@@ -138,20 +138,20 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Set default selected value
    */
-  defaultValue?: any;
+  defaultValue?: DropdownDefaultValue[];
   /**
    * The component's value.
    * When passed, makes this a [controlled](https://reactjs.org/docs/forms.html#controlled-components) component.
    */
-  value?: any;
+  value?: DropdownDefaultValue[];
   /**
    * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
-  size?: any;
+  size?: BaseSizes;
   /**
    * If provided Dropdown will work in async mode. Can be either promise or callback
    */
-  asyncOptions?: any;
+  asyncOptions?: (inputValue: string) => Promise<DropdownDefaultValue[]>;
   /**
    * If set to true, fetched async options will be cached
    */
@@ -183,7 +183,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * ID for the select container
    */
-  id?: any;
+  id?: DROPDOWN_MENU.ID;
   /**
    * focusAuto when component mount
    */
@@ -256,7 +256,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
    * Overrides the build-in search filter logic - https://react-select.com/advanced#custom-filter-logic
    * createFilter function is available at Dropdown.createFilter
    */
-  filterOption?: (option: any, inputValue: string) => boolean;
+  filterOption?: (option: unknown, inputValue: string) => boolean;
 
   withReadOnlyStyle?: boolean;
   OptionRenderer?: (option: IComboboxOption) => JSX.Element;
@@ -344,7 +344,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
       if (defaultValue) {
         return Array.isArray(defaultValue)
           ? defaultValue.map(df => ({ ...df, isMandatory: true }))
-          : { ...defaultValue, isMandatory: true };
+          : { ...(defaultValue as DropdownDefaultValue), isMandatory: true };
       }
 
       return defaultValue;
@@ -357,7 +357,10 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
     const selectedOptions = customValue ?? selected;
     const selectedOptionsMap = useMemo(() => {
       if (Array.isArray(selectedOptions)) {
-        return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
+        return selectedOptions.reduce(
+          (acc, option) => ({ ...acc, [option.value as DropdownDefaultValue["label"]]: option }),
+          {}
+        );
       }
       return {};
     }, [selectedOptions]);
@@ -454,7 +457,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
           {...props}
           readOnly={readOnly}
           Renderer={finalValueRenderer}
-          selectedOption={selectedOptions[0]}
+          selectedOption={(selectedOptions as DropdownDefaultValue[])[0]}
           singleValueWrapperClassName={singleValueWrapperClassName}
         />
       ),
@@ -466,9 +469,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
     const onOptionRemove = useMemo(() => {
       return function (optionValue: any, e: any) {
         if (customOnOptionRemove) {
-          customOnOptionRemove(selectedOptionsMap[optionValue]);
+          customOnOptionRemove((selectedOptionsMap as DropdownDefaultValue[])[optionValue]);
         }
-        const newSelectedOptions = selectedOptions.filter((option: any) => option.value !== optionValue);
+        const newSelectedOptions = (selectedOptions as DropdownDefaultValue[]).filter(
+          option => option.value !== optionValue
+        );
         if (customOnChange) {
           customOnChange(newSelectedOptions, e);
         }
@@ -511,7 +516,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
           }
 
           if (!isControlled) {
-            setSelected([...selectedOptions, selectedOption]);
+            setSelected([...(selectedOptions as DropdownDefaultValue[]), selectedOption]);
           }
           break;
         }
@@ -659,7 +664,7 @@ Dropdown.defaultProps = {
   menuPosition: DROPDOWN_MENU_POSITION.ABSOLUTE,
   noOptionsMessage: NOOP,
   clearable: true,
-  size: SIZES.MEDIUM,
+  size: BaseSizes.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: 0,
   onOptionRemove: undefined,
