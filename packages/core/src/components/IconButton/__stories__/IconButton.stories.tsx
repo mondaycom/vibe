@@ -28,7 +28,7 @@ export default {
 };
 
 export const Overview = {
-  render: iconButtonTemplate.bind(IconButton),
+  render: iconButtonTemplate.bind({}),
   name: "Overview",
 
   args: {
