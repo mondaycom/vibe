@@ -20,7 +20,7 @@ import { AlertBannerContext } from "./AlertBannerContext";
 // TODO: [breaking] type it to adopt a structure of a text and one (optional) cta (either link/button)
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 
-interface AlertBannerProps extends VibeComponentProps {
+export interface AlertBannerProps extends VibeComponentProps {
   /**
    * Set external styling to the progress bar.
    */

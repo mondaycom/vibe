@@ -52,13 +52,13 @@ export const States = {
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Disabled</span>
-        <BreadcrumbsBar>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
           <BreadcrumbItem text="Workspace" icon={Workspace} disabled />
         </BreadcrumbsBar>
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Current</span>
-        <BreadcrumbsBar>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
           <BreadcrumbItem text="Workspace" icon={Workspace} isCurrent />
         </BreadcrumbsBar>
       </div>
@@ -73,13 +73,13 @@ export const WithIcon = {
     <div className="monday-storybook-breadcrumb-item_column-wrapper">
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>With Icon</span>
-        <BreadcrumbsBar>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
           <BreadcrumbItem text="Workspace" icon={Workspace} />
         </BreadcrumbsBar>
       </div>
       <div className="monday-storybook-breadcrumb-item_row-wrapper">
         <span>Without Icon</span>
-        <BreadcrumbsBar>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
           <BreadcrumbItem text="Workspace" />
         </BreadcrumbsBar>
       </div>

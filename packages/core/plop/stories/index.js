@@ -30,12 +30,12 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.js",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.tsx",
         templateFile: "plop/general/component-stories-js.txt"
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.helpers.js",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.helpers.tsx",
         templateFile: "plop/general/component-stories-helpers-js.txt"
       },
       {

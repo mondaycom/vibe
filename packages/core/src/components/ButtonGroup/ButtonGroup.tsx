@@ -27,7 +27,7 @@ type ButtonGroupOption = {
   tooltipContent?: string;
 };
 
-interface ButtonGroupProps extends VibeComponentProps {
+export interface ButtonGroupProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

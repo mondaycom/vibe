@@ -8,7 +8,7 @@ import { VibeComponent, VibeComponentProps } from "../../../types";
 import { CloseMenuOption } from "../Menu/MenuConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
-interface MenuGridItemProps extends VibeComponentProps {
+export interface MenuGridItemProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
   /** if true, keyboard navigation will skip on this item. Also, this prop will be passed on to the child **/
   disabled?: boolean;
