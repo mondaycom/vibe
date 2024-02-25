@@ -16,7 +16,7 @@ import Text from "../Text/Text";
 import Flex from "../Flex/Flex";
 import styles from "./AttentionBox.module.scss";
 
-interface AttentionBoxProps extends VibeComponentProps {
+export interface AttentionBoxProps extends VibeComponentProps {
   className?: string;
   /**
    * @deprecated - use className instead

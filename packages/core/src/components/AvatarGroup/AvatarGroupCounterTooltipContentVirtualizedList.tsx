@@ -16,7 +16,7 @@ export type AvatarItem = {
   value: AvatarProps & { tooltipContent: ElementContent };
 };
 
-interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
+export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
    * Array of Avatar components
    */

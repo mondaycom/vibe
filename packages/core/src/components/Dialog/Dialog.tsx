@@ -158,7 +158,7 @@ export interface DialogProps extends VibeComponentProps {
   disableContainerScroll?: boolean | string;
 }
 
-interface DialogState {
+export interface DialogState {
   isOpen?: boolean;
   shouldUseDerivedStateFromProps?: boolean;
   preventAnimation?: boolean;

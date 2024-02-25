@@ -5,7 +5,7 @@ import { SubIcon, VibeComponentProps } from "../../../../types";
 import cx from "classnames";
 import styles from "./BreadcrumbContent.module.scss";
 
-interface BreadcrumbContentProps extends VibeComponentProps {
+export interface BreadcrumbContentProps extends VibeComponentProps {
   isClickable?: boolean;
   link?: string;
   onClick?: () => void;

@@ -7,7 +7,7 @@ import styles from "./TipseenWizard.module.scss";
 
 const FINISH_TEXT = "Got it";
 
-interface TipseenWizardProps extends StepsProps {
+export interface TipseenWizardProps extends StepsProps {
   title?: string;
   /**
    * Classname for overriding TipseenTitle styles

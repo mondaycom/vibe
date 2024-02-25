@@ -3,7 +3,7 @@ import Button from "../../Button/Button";
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const NOOP = () => {};
 
-interface YearsListProps {
+export interface YearsListProps {
   yearsItems: number[];
   isYearBlocked?: (year: number) => boolean;
   onSelect: (year: number) => void;

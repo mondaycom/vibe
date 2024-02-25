@@ -3,7 +3,7 @@ import { FC } from "react";
 import styles from "./TipseenImage.module.scss";
 import TipseenMedia from "./TipseenMedia/TipseenMedia";
 
-interface TipseenImageProps {
+export interface TipseenImageProps {
   // Better be required, but it might be a breaking change
   src?: string | undefined;
   // Better be required, but it might be a breaking change

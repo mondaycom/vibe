@@ -32,7 +32,7 @@ type ItemType = {
   id: string;
 };
 
-interface VirtualizedGridProps extends VibeComponentProps {
+export interface VirtualizedGridProps extends VibeComponentProps {
   /**
    * A list of items to be rendered
    * {

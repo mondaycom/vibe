@@ -30,7 +30,7 @@ export interface EditableTypographyImplementationProps {
   tooltipProps?: Partial<TooltipProps>;
 }
 
-interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
+export interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /** A typography component that is being rendered in view mode */
   component: ElementType;
   /** Controls the style of the typography component in view mode */

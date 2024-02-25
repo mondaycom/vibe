@@ -3,7 +3,7 @@ import MenuItem, { MenuItemProps } from "./MenuItem";
 import Avatar, { AvatarProps } from "../../Avatar/Avatar";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 
-interface AvatarMenuItemProps extends VibeComponentProps {
+export interface AvatarMenuItemProps extends VibeComponentProps {
   avatarProps?: AvatarProps;
   menuItemProps?: MenuItemProps;
 }
