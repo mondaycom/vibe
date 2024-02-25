@@ -1,4 +1,4 @@
-import Divider from "../Divider";
+import Divider, { type DividerProps } from "../Divider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Divider.stories.module.scss";
 
@@ -7,7 +7,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   enumPropNamesArray: ["direction"]
 });
 
-const dividerTemplate = args => (
+const dividerTemplate = (args: DividerProps) => (
   <div style={{ width: "400px", height: "40px" }}>
     <Divider {...args} />
   </div>

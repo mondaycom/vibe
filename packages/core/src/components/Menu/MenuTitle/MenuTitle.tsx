@@ -9,7 +9,7 @@ import { MenuTitleCaptionPosition } from "./MenuTitleConstants";
 import { VibeComponentProps, withStaticProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
-interface MenuTitleProps extends VibeComponentProps {
+export interface MenuTitleProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

@@ -1,4 +1,4 @@
-import Flex from "../Flex";
+import Flex, { type FlexProps } from "../Flex";
 import { Add, Filter, Person, Search, Sort } from "../../Icon/Icons";
 import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";
@@ -12,7 +12,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onClick"]
 });
 
-const flexTemplate = args => {
+const flexTemplate = (args: FlexProps) => {
   return (
     <Flex {...args}>
       <Button>Primary</Button>

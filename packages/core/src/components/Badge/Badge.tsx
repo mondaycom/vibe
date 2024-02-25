@@ -20,15 +20,15 @@ export interface BadgeBaseProps extends VibeComponentProps {
   children: React.ReactNode;
 }
 
-interface CounterBadgeProps extends CounterProps {
+export interface CounterBadgeProps extends CounterProps {
   type: BadgeType.COUNTER;
 }
 
-interface IndicatorBadgeProps extends IndicatorProps {
+export interface IndicatorBadgeProps extends IndicatorProps {
   type?: BadgeType.INDICATOR;
 }
 
-type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
+export type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
 
 const Badge: VibeComponent<BadgeProps> & {
   types?: typeof BadgeType;
