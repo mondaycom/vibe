@@ -2,8 +2,8 @@ import Icon from "../Icon";
 import Bolt from "../Icons/components/Bolt";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
-import { IconsList } from "./icon.stories.helperComponents";
-import "./Icon.stories.scss";
+import IconsList from "./IconsList";
+import "./Icon.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,
