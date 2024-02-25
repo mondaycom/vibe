@@ -1,4 +1,4 @@
-import LinearProgressBar from "../LinearProgressBar";
+import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import colors from "../../../../constants/colors.json";
@@ -20,7 +20,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const lineProgressBarTemplate = args => {
+const lineProgressBarTemplate = (args: LinearProgressBarProps) => {
   return <LinearProgressBar className="linear-progress-bar_small-wrapper" {...args} />;
 };
 

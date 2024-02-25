@@ -16,7 +16,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 
-interface DatePickerProps extends VibeComponentProps {
+export interface DatePickerProps extends VibeComponentProps {
   /** set the first day of the week to display */
   firstDayOfWeek?: DayOfWeekShape;
   /** current start date */

@@ -13,7 +13,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
-interface SkeletonProps extends VibeComponentProps {
+export interface SkeletonProps extends VibeComponentProps {
   type?: SkeletonType;
   size?: SkeletonSizeType;
   width?: number;

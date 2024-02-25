@@ -18,7 +18,7 @@ export default {
   }
 };
 
-const tabsTemplate = ({ tabPanelClassName, ...otherArgs }) => {
+const tabsTemplate = ({ tabPanelClassName, ...otherArgs }: { tabPanelClassName: string }) => {
   return (
     <TabsContext {...otherArgs}>
       <TabList>
