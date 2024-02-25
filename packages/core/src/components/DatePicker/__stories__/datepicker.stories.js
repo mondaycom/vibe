@@ -1,6 +1,6 @@
 import { useState } from "react";
 import moment from "moment";
-import DatePicker, { type DatePickerProps } from "../DatePicker";
+import DatePicker from "../DatePicker";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import styles from "./DatePicker.stories.module.scss";
@@ -20,7 +20,7 @@ export default {
 // for Chromatic check to always have the same date UI
 const MOCK_INITIAL_DATE = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
 
-const DatePickerTemplate = (args: DatePickerProps) => {
+const DatePickerTemplate = args => {
   const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
   return (
     <DialogContentContainer className={styles.datepickerDialogContentContainer}>

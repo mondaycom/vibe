@@ -322,7 +322,7 @@ export const virtualizedScrollTableColumns = [
   }
 ];
 
-export function sort(columnId, sortState, tableData) {
+export function sort(columnId: string, sortState: string, tableData: []) {
   if (sortState === "asc") {
     return [...tableData].sort((a, b) => {
       return b[columnId] > a[columnId] ? 1 : -1;
@@ -340,7 +340,7 @@ export const TableEmptyState = () => <h1 style={{ textAlign: "center" }}>Empty S
 
 export const TableErrorState = () => <h1 style={{ textAlign: "center" }}>Error State</h1>;
 
-export const TableAvatar = ({ text }) => (
+export const TableAvatar = ({ text }: { text: string }) => (
   <Avatar
     text={text
       .split(" ")

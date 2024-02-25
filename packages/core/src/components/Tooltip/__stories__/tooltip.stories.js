@@ -1,4 +1,4 @@
-import Tooltip, { type TooltipProps } from "../Tooltip";
+import Tooltip from "../Tooltip";
 import { capitalize } from "lodash-es";
 import TooltipReference from "./TooltipReference";
 import { Hide, Subitems } from "../../Icon/Icons";
@@ -12,7 +12,7 @@ export default {
   component: Tooltip
 };
 
-const tooltipTemplate = (args: TooltipProps) => {
+const tooltipTemplate = args => {
   return (
     <div className="monday-storybook-tooltip_overview">
       <Tooltip

@@ -58,7 +58,7 @@ describe("Accordion renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with custom AccordioItem title", () => {
+  it("with custom Accordion Item title", () => {
     const tree = renderer
       .create(
         <Accordion>

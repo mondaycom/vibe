@@ -1,10 +1,10 @@
-import Accordion, { type AccordionProps } from "../Accordion";
+import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import Checkbox from "../../../Checkbox/Checkbox";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "../__tests__/accordion.interactions";
 import "./accordion.stories.scss";
 
-const accordionTemplate = (args: AccordionProps) => {
+const accordionTemplate = args => {
   return (
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]} {...args}>
       <AccordionItem title="Notifications">
@@ -19,10 +19,10 @@ const accordionTemplate = (args: AccordionProps) => {
       <AccordionItem title="Profile">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
-      <AccordionItem title="Permisions">
+      <AccordionItem title="Permissions">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
-      <AccordionItem title="Seurity">
+      <AccordionItem title="Security">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
       <AccordionItem title="Connectivity">

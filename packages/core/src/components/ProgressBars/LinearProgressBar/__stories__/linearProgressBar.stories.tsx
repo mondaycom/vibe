@@ -134,7 +134,7 @@ export const ProgressBarAsLoadingIndicator = {
         <div className="linear-progress-bar_img" />
         <div className="linear-progress-bar_aside">
           <b>Frame 697.pg</b>
-          <BreadcrumbsBar className="linear-progress-bar_breadcrumbs">
+          <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION} className="linear-progress-bar_breadcrumbs">
             <BreadcrumbItem text="Hadas Test" />
             <BreadcrumbItem text="Activity 6" />
           </BreadcrumbsBar>
