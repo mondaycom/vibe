@@ -24,7 +24,7 @@ export const Overview = {
   name: "Overview",
   args: {
     value: "This text is an editable text",
-    type: EditableText.types.TEXT1
+    type: EditableText.types.TEXT2
   },
   play: overviewPlaySuite
 };
