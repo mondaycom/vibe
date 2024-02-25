@@ -172,6 +172,22 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--negative-color-hover);
 }
 
+.kindPrimary.colorInverted {
+  background: var(--inverted-color-background);
+}
+
+.kindPrimary.colorInvertedActive,
+.kindPrimary.colorInverted:hover,
+.kindPrimary.colorInverted:focus {
+  background: var(--placeholder-color);
+}
+
+.kindPrimary.button.colorInverted.disabled {
+  background: var(--inverted-color-background);
+  opacity: 0.5;
+  color: var(--layout-border-color);
+}
+
 .kindPrimary.colorOnPrimaryColor {
   background: var(--text-color-on-primary);
 }
@@ -280,6 +296,23 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--negative-color-selected);
 }
 
+.kindSecondary.colorInverted {
+  color: var(--primary-text-color);
+  border-color: var(--primary-text-color);
+}
+
+.kindSecondary.colorInvertedActive,
+.kindSecondary.colorInverted:hover,
+.kindSecondary.colorInverted:focus {
+  background: var(--primary-background-hover-color);
+}
+
+.kindSecondary.colorInverted.disabled {
+  border-color: var(--primary-text-color);
+  color: var(--primary-text-color);
+  opacity: $disabled-on-primary-color-opacity;
+}
+
 .kindSecondary.colorOnPrimaryColor {
   color: var(--text-color-on-primary);
   border-color: var(--text-color-on-primary);
@@ -372,6 +405,21 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorNegative:hover,
 .kindTertiary.colorNegative:focus {
   background: var(--negative-color-selected);
+}
+
+.kindTertiary.colorInverted {
+  color: var(--primary-text-color);
+}
+
+.kindTertiary.colorInvertedActive,
+.kindTertiary.colorInverted:hover,
+.kindTertiary.colorInverted:focus {
+  background: var(--primary-background-hover-color);
+}
+
+.kindTertiary.colorInverted.disabled {
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--primary-text-color);
 }
 
 .kindTertiary.colorOnPrimaryColor {
