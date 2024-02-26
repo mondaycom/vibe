@@ -16,7 +16,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
-export interface TooltipWithoutChildrenProps {
+interface TooltipWithoutChildrenProps {
   /**
    * When true, the tooltip would be rendered on a Dialog without children
    * Use case is currently for rendering Tipseen with floating prop
@@ -25,13 +25,13 @@ export interface TooltipWithoutChildrenProps {
   children?: ReactElement | Array<ReactElement>;
 }
 
-export interface TooltipWithChildrenProps {
+interface TooltipWithChildrenProps {
   forceRenderWithoutChildren?: boolean;
   children: ReactElement | Array<ReactElement>;
 }
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
-export interface TooltipBaseProps extends VibeComponentProps {
+interface TooltipBaseProps extends VibeComponentProps {
   content: ElementContent;
   style?: CSSProperties;
   arrowPosition?: TooltipArrowPosition;

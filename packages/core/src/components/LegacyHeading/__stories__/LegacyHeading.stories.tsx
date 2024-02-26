@@ -36,7 +36,7 @@ export const Sizes = {
       }}
     >
       <Heading type={Heading.types.h1} value="Hello H1" />
-      <Heading type={Heading.types.h1} value="Hello H1 medium" size={Heading.sizes.SMALL} />
+      <Heading type={Heading.types.h1} value="Hello H1 medium" size={Heading.sizes.MEDIUM} />
       <Heading type={Heading.types.h2} value="Hello H2" />
       <Heading type={Heading.types.h2} value="Hello H2 small" size={Heading.sizes.SMALL} />
       <Heading type={Heading.types.h3} value="Hello H3" />

@@ -322,7 +322,7 @@ export const virtualizedScrollTableColumns = [
   }
 ];
 
-export function sort(columnId: string, sortState: string, tableData: []) {
+export function sort(columnId: string, sortState: "asc" | "desc" | "none", tableData: []) {
   if (sortState === "asc") {
     return [...tableData].sort((a, b) => {
       return b[columnId] > a[columnId] ? 1 : -1;
