@@ -1,4 +1,4 @@
-import List, { type ListProps } from "../List";
+import List, { ListProps } from "../List";
 import Board from "../../Icon/Icons/components/Board";
 import Team from "../../Icon/Icons/components/Team";
 import ThumbsUp from "../../Icon/Icons/components/ThumbsUp";

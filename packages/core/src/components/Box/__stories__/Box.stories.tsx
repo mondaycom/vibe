@@ -1,6 +1,5 @@
-import { Box } from "../../../components";
+import Box, { BoxProps } from "../Box";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { type BoxProps } from "../Box";
 import styles from "./Box.stories.module.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

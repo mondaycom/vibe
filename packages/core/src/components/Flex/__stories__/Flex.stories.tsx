@@ -1,4 +1,4 @@
-import Flex, { type FlexProps } from "../Flex";
+import Flex, { FlexProps } from "../Flex";
 import { Add, Filter, Person, Search, Sort } from "../../Icon/Icons";
 import Button from "../../Button/Button";
 import Chips from "../../Chips/Chips";

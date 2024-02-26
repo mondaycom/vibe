@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import MenuItem, { type MenuItemProps } from "../MenuItem";
+import MenuItem, { MenuItemProps } from "../MenuItem";
 import Menu from "../../Menu/Menu";
 import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";

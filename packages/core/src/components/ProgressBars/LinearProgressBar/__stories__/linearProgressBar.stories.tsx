@@ -1,4 +1,4 @@
-import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgressBar";
+import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import colors from "../../../../constants/colors.json";

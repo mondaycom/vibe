@@ -1,4 +1,4 @@
-import TabList, { type TabListProps } from "../TabList";
+import TabList, { TabListProps } from "../TabList";
 import Tab from "../../Tab/Tab";
 import styles from "./tab-list.stories.module.scss";
 

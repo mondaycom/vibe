@@ -1,4 +1,4 @@
-import Divider, { type DividerProps } from "../Divider";
+import Divider, { DividerProps } from "../Divider";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import styles from "./Divider.stories.module.scss";
 
