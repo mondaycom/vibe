@@ -6,7 +6,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import { MoveBy } from "../../types/MoveBy";
 import { DialogPosition } from "../../constants/positions";
 
-interface ButtonWrapperProps extends ButtonProps {
+export interface ButtonWrapperProps extends ButtonProps {
   tooltipContent?: string;
   /**
    * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...

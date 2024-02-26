@@ -6,7 +6,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./SliderInfix.module.scss";
 
-interface SliderInfixProps extends VibeComponentProps {
+export interface SliderInfixProps extends VibeComponentProps {
   /**
    * kind (type/mode) of Infix prefix/postfix
    * Infix - additional inserted by Consumer - component/string/number etc.

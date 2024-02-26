@@ -13,7 +13,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 
-interface ModalProps {
+export interface ModalProps {
   /**
    * Id of the modal, used internally and for accessibility
    */

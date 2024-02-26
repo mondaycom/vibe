@@ -44,12 +44,12 @@ export const States = {
       justify={Flex.justify.START}
       align={Flex.align.START}
     >
-      <StoryDescription description="Indicator" vertical align={Flex.align.START}>
+      <StoryDescription description="Indicator" vertical align={StoryDescription.align.START}>
         <Badge>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>
       </StoryDescription>
-      <StoryDescription description="Counter" vertical align={Flex.align.START}>
+      <StoryDescription description="Counter" vertical align={StoryDescription.align.START}>
         <Badge type={Badge.types.COUNTER} count={100} maxDigits={2}>
           <Button leftIcon={WhatsNew}>{"What's new"}</Button>
         </Badge>

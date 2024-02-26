@@ -17,7 +17,7 @@ export type AvatarGroupCounterVisualProps = {
   ariaLabelItemsName?: string;
 };
 
-interface AvatarGroupProps extends VibeComponentProps {
+export interface AvatarGroupProps extends VibeComponentProps {
   avatarClassName?: string;
   /**
    * Array of `Avatar` components

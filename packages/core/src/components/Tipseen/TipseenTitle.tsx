@@ -6,7 +6,7 @@ import Text from "../Text/Text";
 import cx from "classnames";
 import styles from "./TipseenTitle.module.scss";
 
-interface TipseenTitleProps extends VibeComponentProps {
+export interface TipseenTitleProps extends VibeComponentProps {
   text?: string;
 }
 

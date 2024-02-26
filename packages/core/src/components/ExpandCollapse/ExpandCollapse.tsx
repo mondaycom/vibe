@@ -8,7 +8,7 @@ import { VibeComponentProps, ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 
-interface ExpandCollapseProps extends VibeComponentProps {
+export interface ExpandCollapseProps extends VibeComponentProps {
   /**
    * Component as parameter to be rendered as header
    */

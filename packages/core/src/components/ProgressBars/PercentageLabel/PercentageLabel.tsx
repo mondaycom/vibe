@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./PercentageLabel.module.scss";
 
-interface PercentageLabelProps {
+export interface PercentageLabelProps {
   /**
    * Replacement to `htmlFor` | `for` attribute.
    */

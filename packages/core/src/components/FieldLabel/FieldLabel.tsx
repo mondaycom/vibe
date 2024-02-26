@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./FieldLabel.module.scss";
 
-interface FieldLabelProps extends VibeComponentProps {
+export interface FieldLabelProps extends VibeComponentProps {
   icon?: string | React.FunctionComponent | null;
   iconLabel?: string;
   labelText?: string;

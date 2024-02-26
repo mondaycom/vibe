@@ -15,7 +15,7 @@ import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
-interface AvatarGroupCounterProps extends VibeComponentProps {
+export interface AvatarGroupCounterProps extends VibeComponentProps {
   /**
    * Array of Avatar elements
    */

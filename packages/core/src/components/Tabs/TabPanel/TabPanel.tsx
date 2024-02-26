@@ -6,7 +6,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import styles from "./TabPanel.module.scss";
 
 export interface TabPanelProps extends VibeComponentProps {
-  children?: ReactElement | ReactElement[];
+  children?: ReactElement | ReactElement[] | string;
   index?: number;
 }
 

@@ -31,7 +31,7 @@ export const Overview = {
 export const CaptionPlacements = {
   render: () => [
     <Menu key="top">
-      <MenuTitle caption="Top caption" captionPosition={MenuTitle.positions.top} />
+      <MenuTitle caption="Top caption" captionPosition={MenuTitle.positions.TOP} />
       <MenuItem title="Menu item" />
     </Menu>,
     <Menu key="center">

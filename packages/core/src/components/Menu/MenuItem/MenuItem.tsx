@@ -83,7 +83,7 @@ export interface MenuItemProps extends VibeComponentProps {
   "aria-label"?: AriaAttributes["aria-label"];
 }
 
-interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
+export interface MenuItemTitleComponentProps extends Omit<MenuItemProps, "title"> {
   title: ReactElement;
   "aria-label": NonNullable<AriaAttributes["aria-label"]>;
 }

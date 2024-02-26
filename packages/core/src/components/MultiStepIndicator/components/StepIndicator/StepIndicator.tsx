@@ -22,7 +22,7 @@ import { IconType } from "../../../Icon/IconConstants";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-interface StepCircleDisplayProps {
+export interface StepCircleDisplayProps {
   status: StepStatus;
   isFulfilledStepDisplayNumber: boolean;
   fulfilledStepIcon: SubIcon;

@@ -26,7 +26,7 @@ import styles from "./TextField.module.scss";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
 
-interface TextFieldProps extends VibeComponentProps {
+export interface TextFieldProps extends VibeComponentProps {
   placeholder?: string;
   /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete?: string;

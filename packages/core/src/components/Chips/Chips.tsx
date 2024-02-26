@@ -19,7 +19,7 @@ import styles from "./Chips.module.scss";
 
 const CHIPS_AVATAR_SIZE = 20;
 
-interface ChipsProps extends VibeComponentProps {
+export interface ChipsProps extends VibeComponentProps {
   label?: ElementContent;
   disabled?: boolean;
   readOnly?: boolean;

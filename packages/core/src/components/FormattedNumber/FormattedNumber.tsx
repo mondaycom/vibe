@@ -7,7 +7,7 @@ import VibeComponent from "../../types/VibeComponent";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./FormattedNumber.module.scss";
 
-interface FormattedNumberProps extends VibeComponentProps {
+export interface FormattedNumberProps extends VibeComponentProps {
   /**
    * A numeric value to format.
    */

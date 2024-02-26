@@ -11,7 +11,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
 
-interface LinearProgressBarProps extends VibeComponentProps {
+export interface LinearProgressBarProps extends VibeComponentProps {
   /**
    * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
    */

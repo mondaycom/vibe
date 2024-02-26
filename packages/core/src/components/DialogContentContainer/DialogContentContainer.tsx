@@ -8,7 +8,7 @@ import { withStaticProps, VibeComponentProps, VibeComponent } from "../../types"
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
-interface DialogContentContainerProps extends VibeComponentProps {
+export interface DialogContentContainerProps extends VibeComponentProps {
   children?: React.ReactNode;
   ariaLabelledby?: string;
   ariaDescribedby?: string;

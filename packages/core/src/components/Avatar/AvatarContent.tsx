@@ -8,7 +8,7 @@ import Icon from "../Icon/Icon";
 import { SubIcon, VibeComponentProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
-interface AvatarContentProps extends VibeComponentProps {
+export interface AvatarContentProps extends VibeComponentProps {
   src?: string;
   type?: AvatarType;
   size?: AvatarSize;

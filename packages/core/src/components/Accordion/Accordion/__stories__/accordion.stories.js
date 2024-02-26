@@ -19,10 +19,10 @@ const accordionTemplate = args => {
       <AccordionItem title="Profile">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
-      <AccordionItem title="Permisions">
+      <AccordionItem title="Permissions">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
-      <AccordionItem title="Seurity">
+      <AccordionItem title="Security">
         <div className="monday-storybook-accordion_small-box" />
       </AccordionItem>
       <AccordionItem title="Connectivity">

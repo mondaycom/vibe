@@ -1,4 +1,4 @@
-import TabList from "../TabList.tsx";
+import TabList, { TabListProps } from "../TabList";
 import Tab from "../../Tab/Tab";
 import styles from "./tab-list.stories.module.scss";
 
@@ -7,7 +7,7 @@ export default {
   component: TabList
 };
 
-const tabListTemplate = args => (
+const tabListTemplate = (args: TabListProps) => (
   <TabList {...args}>
     <Tab>First</Tab>
     <Tab>Second</Tab>

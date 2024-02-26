@@ -16,7 +16,7 @@ function defineChildId(index: number, props: { id: string }, accordionId: string
   return `${COMPONENT_ID}--item-${index}`;
 }
 
-interface AccordionProps extends VibeComponentProps {
+export interface AccordionProps extends VibeComponentProps {
   /**
    * List of AccordionItems
    */

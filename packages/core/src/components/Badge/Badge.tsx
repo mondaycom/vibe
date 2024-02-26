@@ -28,7 +28,7 @@ interface IndicatorBadgeProps extends IndicatorProps {
   type?: BadgeType.INDICATOR;
 }
 
-type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
+export type BadgeProps = BadgeBaseProps & (CounterBadgeProps | IndicatorBadgeProps);
 
 const Badge: VibeComponent<BadgeProps> & {
   types?: typeof BadgeType;

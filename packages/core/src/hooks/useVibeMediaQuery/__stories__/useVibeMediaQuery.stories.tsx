@@ -1,6 +1,6 @@
 import useVibeMediaQuery from "..";
 import "../../__stories__/general-hooks-stories.scss";
-import styles from "./useVibeMediaQuery.modules.scss";
+import styles from "./useVibeMediaQuery.module.scss";
 
 export default {
   title: "Hooks/useVibeMediaQuery"

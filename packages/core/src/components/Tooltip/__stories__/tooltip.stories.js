@@ -19,7 +19,7 @@ const tooltipTemplate = args => {
         // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
         // Therefore, there is no need to move this prop in your implementations.
         modifiers={modifiers}
-        maxWidth
+        withMaxWidth
         {...args}
       >
         <div />
@@ -34,7 +34,7 @@ export const Overview = {
 
   args: {
     shouldShowOnMount: true,
-    content: "I’m a tooltip"
+    content: "I'm a tooltip"
   },
 
   parameters: {
@@ -57,8 +57,8 @@ export const Positions = {
               content="Top"
               shouldShowOnMount
               position={Tooltip.positions.BOTTOM}
-              animationType="expand"
-              maxWidth
+              animationType={Tooltip.animationTypes.EXPAND}
+              withMaxWidth
             >
               <div />
             </Tooltip>
@@ -74,8 +74,8 @@ export const Positions = {
               content="Left"
               position={Tooltip.positions.RIGHT}
               shouldShowOnMount
-              animationType="expand"
-              maxWidth
+              animationType={Tooltip.animationTypes.EXPAND}
+              withMaxWidth
             >
               <div />
             </Tooltip>
@@ -86,8 +86,8 @@ export const Positions = {
               content="Right"
               position={Tooltip.positions.LEFT}
               shouldShowOnMount
-              animationType="expand"
-              maxWidth
+              animationType={Tooltip.animationTypes.EXPAND}
+              withMaxWidth
             >
               <div />
             </Tooltip>
@@ -114,9 +114,9 @@ export const Themes = {
           content={capitalize(theme)}
           shouldShowOnMount
           position={Tooltip.positions.BOTTOM}
-          animationType="expand"
+          animationType={Tooltip.animationTypes.EXPAND}
           theme={theme}
-          maxWidth
+          withMaxWidth
         >
           <div />
         </Tooltip>
@@ -129,7 +129,7 @@ export const Themes = {
 export const IconTooltip = {
   render: () => (
     <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Hidden columns" maxWidth>
+      <Tooltip content="Hidden columns" withMaxWidth>
         <div className="monday-storybook-tooltip_icon-wrapper">
           <Icon icon={Hide} />
         </div>
@@ -143,7 +143,7 @@ export const IconTooltip = {
 export const DefinitionTooltip = {
   render: () => (
     <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Item name: Bottom sheets" maxWidth>
+      <Tooltip content="Item name: Bottom sheets" withMaxWidth>
         <div className="monday-storybook-tooltip_icon-wrapper">
           <Icon icon={Subitems} />
           <span>Subitem</span>
@@ -158,13 +158,13 @@ export const DefinitionTooltip = {
 export const ImmediateTooltips = {
   render: () => (
     <div className="monday-storybook-tooltip_box">
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
+      <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
         <TooltipReference />
       </Tooltip>
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" maxWidth>
+      <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
         <TooltipReference />
       </Tooltip>
-      <Tooltip content="I'm a tooltip" maxWidth>
+      <Tooltip content="I'm a tooltip" withMaxWidth>
         <TooltipReference />
       </Tooltip>
     </div>
