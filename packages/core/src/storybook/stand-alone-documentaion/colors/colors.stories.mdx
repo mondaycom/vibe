@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/blocks";
-import { Frame } from "vibe-storybook-components";
+import { Meta, Canvas, Story } from "@storybook/blocks";
+import { Frame, Flex } from "vibe-storybook-components";
 import { TYPOGRAPHY, SHADOW, SPACING } from "../../components/related-components/component-description-map";
 import { SemanticColors } from "./semantic-colors/semantic-colors";
 import { BackgroundColors } from "./background-colors/background-colors";
@@ -30,27 +30,47 @@ The colors are designed to be clear and accessible. They come in three color the
 
 ### Semantic colors
 
-<SemanticColors />
+<Canvas>
+  <Story name="Semantic Colors">
+    <SemanticColors />
+  </Story>
+</Canvas>
 
 ### Background colors
 
-<BackgroundColors />
+<Canvas>
+  <Story name="Background Colors">
+    <BackgroundColors />
+  </Story>
+</Canvas>
 
 ### Text colors
 
-<TextColors />
+<Canvas>
+  <Story name="Text Colors">
+    <TextColors />
+  </Story>
+</Canvas>
 
 ### Border colors
 
-<BorderColors />
+<Canvas>
+  <Story name="Border Colors">
+    <BorderColors />
+  </Story>
+</Canvas>
 
 ### Content colors
 
 These colors are used only for color coding purposes like groups colors, statuses timeline bars etc..
 this gives understanding and indication of orientation and belonging.
-The board’s main strength is its simple and visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
+The board's main strength is its simple and visual appearance. That's why the status colors should appear on the board and nowhere else in the UI.
 
-<ContentColors />
+<Canvas>
+  <Story name="Content Colors">
+    <ContentColors />
+  </Story>
+</Canvas>
 
 ## Usage and examples
 
@@ -65,7 +85,3 @@ The board’s main strength is its simple and visual appearance. That’s why th
 <Frame className={styles["colors-example-frame"]}>
   <img className={styles["card-colors-example-img"]} src={cardColorsExample} alt="" />
 </Frame>
-
-## Up next
-
-<RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, SPACING]} />

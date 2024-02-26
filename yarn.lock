@@ -1048,7 +1048,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-react@^7.16.5", "@babel/preset-react@^7.22.15", "@babel/preset-react@^7.22.5":
+"@babel/preset-react@^7.16.5", "@babel/preset-react@^7.22.15":
   version "7.23.3"
   resolved "https://registry.npmjs.org/@babel/preset-react/-/preset-react-7.23.3.tgz#f73ca07e7590f977db07eb54dbe46538cc015709"
   integrity sha512-tbkHOS9axH6Ysf2OUEqoSZ6T3Fa2SrNH6WTWSPBboxKzdxNc9qOICeLXkNG0ZEwbQ1HY8liwOce4aN/Ceyuq6w==
@@ -3336,7 +3336,7 @@
     remark-slug "^6.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-essentials@^7.5.0", "@storybook/addon-essentials@^7.5.3":
+"@storybook/addon-essentials@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/addon-essentials/-/addon-essentials-7.6.14.tgz#054ff5626367c3e76f5ec8a0cf0f614af4fda138"
   integrity sha512-1CcpLvzmvXyRhxbc2FgVbchpu7EMEeAjNY2lQ8ejn4cwLuIeWvYI61Cq4swiEmcEOEzi9Uvrq9q1bua9N1fPqw==
@@ -3363,7 +3363,7 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
-"@storybook/addon-interactions@^7.5.0", "@storybook/addon-interactions@^7.5.3":
+"@storybook/addon-interactions@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/addon-interactions/-/addon-interactions-7.6.14.tgz#38f7df09a5c6049640b27fb968d95832216aa4a0"
   integrity sha512-vgZtP6JIMoZIE5JAzUW3Hw+l6I/xxTfvCbbw56ZfBFtl23LydkIg4nGJdi9/6vX61NDRUtRmNJX+/6ZrB7uK3A==
@@ -3374,7 +3374,7 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^7.5.0", "@storybook/addon-links@^7.5.3":
+"@storybook/addon-links@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/addon-links/-/addon-links-7.6.14.tgz#fc2fef6d964b8543357c00220f1666e0b91d02f7"
   integrity sha512-xzDWQEzntia9ArFQC95TEw/Tqp/cNFq0SSuQQ6d9/ryQczuSdRGFHRmEd99/92ufNgCGPaRZOB7sweiKG0bkzA==
@@ -3428,7 +3428,7 @@
   dependencies:
     "@storybook/node-logger" "^7.0.12"
 
-"@storybook/addon-themes@^7.5.0", "@storybook/addon-themes@^7.5.3":
+"@storybook/addon-themes@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/addon-themes/-/addon-themes-7.6.14.tgz#ab7adf3d8838b6928fcf1db5b0e5e7e159768bd4"
   integrity sha512-bTAjua5N3ImvOdVdChj087ZvKScxpfEwgHiOinNoaf815IFsAp2vvOBnPytiqdjC7VlWjM5Sb9b1i7cKKb9Myg==
@@ -3461,7 +3461,7 @@
   resolved "https://registry.npmjs.org/@storybook/babel-plugin-require-context-hook/-/babel-plugin-require-context-hook-1.0.1.tgz#0a4ec9816f6c7296ebc97dd8de3d2b7ae76f2e26"
   integrity sha512-WM4vjgSVi8epvGiYfru7BtC3f0tGwNs7QK3Uc4xQn4t5hHQvISnCqbNrHdDYmNW56Do+bBztE8SwP6NGUvd7ww==
 
-"@storybook/blocks@7.6.14", "@storybook/blocks@^7.5.0", "@storybook/blocks@^7.5.3":
+"@storybook/blocks@7.6.14", "@storybook/blocks@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/blocks/-/blocks-7.6.14.tgz#fafb248ecf19ce156b4108d50785904c4bd5c8aa"
   integrity sha512-DZOSEWSNptAhaeNiOG0BqidJxqi/KaAZ2ZnlygpswDDT9vOCGoc7edZEgrq/i83M55KZFD4IXVLYFdfpjRcirQ==
@@ -3844,7 +3844,7 @@
     "@types/jest" "28.1.3"
     jest-mock "^27.3.0"
 
-"@storybook/manager-api@7.6.14", "@storybook/manager-api@^7.5.0", "@storybook/manager-api@^7.5.3":
+"@storybook/manager-api@7.6.14", "@storybook/manager-api@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/manager-api/-/manager-api-7.6.14.tgz#2df38750f1b89dee98053839efb67f43a8d6bcf9"
   integrity sha512-kZbcudrpQaYgUCrnBumDBPOvaEcvFBrZjM5v3AvMenVMXTjwlAHF8mZswE/ptpDsico2iSN96nMhd97OyaAuqA==
@@ -3955,7 +3955,7 @@
   resolved "https://registry.npmjs.org/@storybook/react-dom-shim/-/react-dom-shim-7.6.14.tgz#c86225dd18532ee2db435e8f6d411116bb8a2ea7"
   integrity sha512-Ldmc2tKj1N3vNYZpI791xgTbk0XdqJDm1a09fSRM4CeBu4BI7M9IjnNS4cHNdTeqtK9MbCSzCr1nxfxNCtrtiA==
 
-"@storybook/react-webpack5@^7.5.0", "@storybook/react-webpack5@^7.5.3":
+"@storybook/react-webpack5@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/react-webpack5/-/react-webpack5-7.6.14.tgz#a4ed814951ec12434f45ee5abeae9073f578d5cc"
   integrity sha512-VvEaq3ZqV+QU2/uOuV4EVutHS0AqO3hUzVCdTRCSIynKkOr9eshq71HZnnszzN1SqkGS2tye1mXiHA0p7P++Dw==
@@ -3965,7 +3965,7 @@
     "@storybook/react" "7.6.14"
     "@types/node" "^18.0.0"
 
-"@storybook/react@7.6.14", "@storybook/react@^7.5.0", "@storybook/react@^7.5.3":
+"@storybook/react@7.6.14", "@storybook/react@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/react/-/react-7.6.14.tgz#feaf576a6b198a55d8e7384fd3fc850bdb6650f8"
   integrity sha512-esWjMgVkYaIyS4ZvEkTrHUDLu9KkTE+wyiyRBINoZLeczAw1YHI5iNqKDMOAN+pOyCyM6iEYSZasAzsJTAFWYA==
@@ -4046,7 +4046,7 @@
     "@testing-library/user-event" "^14.4.0"
     ts-dedent "^2.2.0"
 
-"@storybook/theming@7.6.14", "@storybook/theming@^7.5.0", "@storybook/theming@^7.5.3":
+"@storybook/theming@7.6.14", "@storybook/theming@^7.5.3":
   version "7.6.14"
   resolved "https://registry.npmjs.org/@storybook/theming/-/theming-7.6.14.tgz#c2ecaf2e54dd1b79171e34135572339c68104087"
   integrity sha512-jpryYjBAGLkFauSyNEoflSfYqO3srn98llNxhgxpc1P1ocmOzeDwdg7PUWDI9DCuJC+OWaXa1zzLO6uRLyEJAQ==
@@ -6913,11 +6913,6 @@ chownr@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
-
-chromatic@^6.20.0:
-  version "6.24.1"
-  resolved "https://registry.npmjs.org/chromatic/-/chromatic-6.24.1.tgz#848209706b423a78fe4876505a5dca3deb8e8b4c"
-  integrity sha512-XbpdWWHvFpEHtcq1Km71UcuQ07effB+8q8L47E1Y7HJmJ4ZCoKCuPd8liNrbnvwEAxqfBZvTcONYU/3BPz2i5w==
 
 chromatic@^7.5.3:
   version "7.6.0"
@@ -17455,7 +17450,7 @@ storybook-addon-playground@^1.2.0:
     react-live "^4.1.5"
     style-inject "^0.3.0"
 
-storybook@^7.5.0, storybook@^7.5.3:
+storybook@^7.5.3:
   version "7.6.14"
   resolved "https://registry.npmjs.org/storybook/-/storybook-7.6.14.tgz#4af87bec32098e1115b417de0a149a242c3bab01"
   integrity sha512-4WMb/Dyzl4QzAd1X1b13cJXwynI7fGbT3qGy+X169hsXn6u73tlRcuPXrTsEO9a+rNBxZiBEBJf5poYxCH2j5Q==
@@ -19036,15 +19031,6 @@ vibe-storybook-components@^0.16.1:
   version "0.16.1"
   resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-0.16.1.tgz#ca4f122b984b5437945ca16ce172b0d28c5fc457"
   integrity sha512-iNdvocoL3mPn3C5iIP0K6WW9V2MpjpGOeMWYLw0U3Thz3jh1XeJS7FLT8VaiX8FwapGi4qF6/AdOfAbN1bQE8Q==
-  dependencies:
-    "@storybook/types" "^7.5.0"
-    browserslist-config-monday "^1.0.6"
-    classnames "^2.3.2"
-
-vibe-storybook-components@^0.9.4:
-  version "0.9.5"
-  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-0.9.5.tgz#2b7bcc0e021f5e2983671d586d37ca165a37d034"
-  integrity sha512-IbOidRy86e/JS2WyhCc3q0IX0/VxGAjmxRzroM1ez09U3BfcUt36f8a+qvoQG+z7sps3Jn7cih56iUPF3ZQTIw==
   dependencies:
     "@storybook/types" "^7.5.0"
     browserslist-config-monday "^1.0.6"

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks";
+import { Canvas, Story, Meta } from "@storybook/blocks";
 import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
 import { ComponentNameDecorator } from "../../components";
 import { Frame } from "vibe-storybook-components";
@@ -26,7 +26,11 @@ This is what creates relationships and hierarchy withing the visual controls.
 
 Using the right sizes will create consistency and hierarchy in user interface.
 
-<SpacingSizes />
+<Canvas>
+  <Story name="Spacing sizes">
+    <SpacingSizes />
+  </Story>
+</Canvas>
 
 <TipApplyingSpacing />
 
