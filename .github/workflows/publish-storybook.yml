@@ -22,24 +22,13 @@ jobs:
           yarn
           yarn lerna run build --since=origin/master --include-dependencies
           yarn lerna run --scope monday-ui-react-core build-storybook
-          yarn lerna run --scope monday-ui-style build-storybook
           cd packages/core/static_storybook
           echo "style.monday.com" > ./CNAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Push style Storybook to Github Pages
-        if: success()
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
-        with:
-          folder: packages/style/storybook-static
-          branch: gh-pages
-          target-folder: style
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push core Storybook to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          clean-exclude: style/*
           folder: packages/core/static_storybook
           branch: gh-pages
         env:
