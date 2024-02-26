@@ -174,6 +174,7 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindPrimary.colorInverted {
   background: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
 }
 
 .kindPrimary.colorInvertedActive,
@@ -183,9 +184,8 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindPrimary.button.colorInverted.disabled {
-  background: var(--inverted-color-background);
-  opacity: 0.5;
-  color: var(--layout-border-color);
+  background: var(--disabled-text-color);
+  color: var(--disabled-background-color);
 }
 
 .kindPrimary.colorOnPrimaryColor {
@@ -308,9 +308,8 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindSecondary.colorInverted.disabled {
-  border-color: var(--primary-text-color);
-  color: var(--primary-text-color);
-  opacity: $disabled-on-primary-color-opacity;
+  border-color: var(--disabled-text-color);
+  color: var(--disabled-text-color);
 }
 
 .kindSecondary.colorOnPrimaryColor {
@@ -418,8 +417,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .kindTertiary.colorInverted.disabled {
-  opacity: $disabled-on-primary-color-opacity;
-  color: var(--primary-text-color);
+  color: var(--disabled-text-color);
 }
 
 .kindTertiary.colorOnPrimaryColor {
