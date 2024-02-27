@@ -52,8 +52,10 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         role="columnheader"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
         aria-sort={onSortClicked ? ariaSort : undefined}
-        tabIndex={-1}
+        tabIndex={onSortClicked ? 0 : undefined}
       >
         <Flex
           direction={Flex.directions.ROW}

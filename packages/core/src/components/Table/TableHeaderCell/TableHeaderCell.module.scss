@@ -1,3 +1,5 @@
+@import "~monday-ui-style/dist/mixins";
+
 .tableHeaderCell {
   height: var(--table-row-size);
   padding: var(--spacing-small);
@@ -9,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   background-color: inherit;
+  @include focus-style();
 
   &:hover,
   &.sortActive {
