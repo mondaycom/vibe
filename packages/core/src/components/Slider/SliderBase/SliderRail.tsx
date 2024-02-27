@@ -8,7 +8,7 @@ import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderRail.module.scss";
 
-interface SliderRailProps extends VibeComponentProps {
+export interface SliderRailProps extends VibeComponentProps {
   /**
    * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
    */

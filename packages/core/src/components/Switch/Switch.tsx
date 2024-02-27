@@ -5,7 +5,7 @@ import { VibeComponent, VibeComponentProps } from "../../types";
 import { MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
 
-interface SwitchProps extends VibeComponentProps {
+export interface SwitchProps extends VibeComponentProps {
   name?: string;
   value?: string;
   role?: string;

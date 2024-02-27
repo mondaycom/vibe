@@ -16,7 +16,7 @@ const transitionOptions = {
 
 const PAGE_SIZE = 18;
 const BUFFER_FROM_CURRENT_YEAR = 4;
-interface YearPickerProps {
+export interface YearPickerProps {
   selectedDate?: Moment;
   isYearBlocked?: (year: number) => boolean;
   changeCurrentDate: (date: Moment) => void;

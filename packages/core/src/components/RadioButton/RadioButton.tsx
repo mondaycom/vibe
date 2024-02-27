@@ -10,7 +10,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
 
-interface RadioButtonProps extends VibeComponentProps {
+export interface RadioButtonProps extends VibeComponentProps {
   /**  class to be added to wrapping component */
   className?: string;
   /**

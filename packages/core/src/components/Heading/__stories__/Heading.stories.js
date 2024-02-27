@@ -48,7 +48,7 @@ export const TypesAndWeights = {
       <Heading type={Heading.types.H1} weight={Heading.weights.BOLD}>
         Bold H1 title
       </Heading>
-      <Heading type={Heading.types.H1} weight="normal">
+      <Heading type={Heading.types.H1} weight={Heading.weights.NORMAL}>
         Normal H1 title
       </Heading>
       <Heading type={Heading.types.H1} weight={Heading.weights.LIGHT}>

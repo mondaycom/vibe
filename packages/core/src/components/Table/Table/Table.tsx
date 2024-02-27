@@ -22,7 +22,7 @@ export interface ITableColumn {
   loadingStateType?: TableLoadingStateType;
 }
 
-interface ITableProps extends VibeComponentProps {
+export interface ITableProps extends VibeComponentProps {
   columns: ITableColumn[];
   dataState?: {
     isLoading?: boolean;
@@ -39,7 +39,7 @@ interface ITableProps extends VibeComponentProps {
   withoutBorder?: boolean;
 }
 
-interface ITableContext {
+export interface ITableContext {
   columns: ITableProps["columns"];
   dataState?: ITableProps["dataState"];
   emptyState: ITableProps["emptyState"];

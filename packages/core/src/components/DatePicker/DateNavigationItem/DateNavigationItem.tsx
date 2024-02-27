@@ -9,7 +9,7 @@ const ICONS = {
   next: MoveArrowRight
 };
 
-interface DateNavigationItemProps {
+export interface DateNavigationItemProps {
   kind: keyof typeof ICONS;
   onClick?: () => void;
 }

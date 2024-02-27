@@ -9,7 +9,7 @@ function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
 }
 
-interface CustomSvgIconProps extends VibeComponentProps {
+export interface CustomSvgIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent) => void;
   src: string | object;
   ariaLabel?: string;

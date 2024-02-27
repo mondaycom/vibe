@@ -4,7 +4,7 @@ import { IComboboxCategory } from "../ComboboxConstants";
 import styles from "./ComboboxCategory.module.scss";
 import comboboxStyles from "../../Combobox.module.scss";
 
-interface ComboboxCategoryProps {
+export interface ComboboxCategoryProps {
   category: IComboboxCategory;
   className: string;
 }

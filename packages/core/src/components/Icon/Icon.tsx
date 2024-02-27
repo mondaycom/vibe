@@ -26,7 +26,7 @@ function renderIcon(Icon: SubIcon, props: IconSubComponentProps) {
   return <Icon {...props} data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)} />;
 }
 
-interface IconProps extends VibeComponentProps {
+export interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
   /**

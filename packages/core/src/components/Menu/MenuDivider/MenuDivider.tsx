@@ -6,7 +6,7 @@ import { VibeComponentProps } from "../../../types";
 import { FC } from "react";
 import styles from "./MenuDivider.module.scss";
 
-interface MenuDividerProps extends VibeComponentProps {
+export interface MenuDividerProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

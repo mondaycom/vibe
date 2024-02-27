@@ -4750,6 +4750,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-resizable@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.npmjs.org/@types/react-resizable/-/react-resizable-3.0.7.tgz#004ffcb7835ef4b06a1212e3d090f34e29d9efcd"
+  integrity sha512-V4N7/xDUME+cxKya/A73MmFrHofTupVdE45boRxeA8HL4Q5pJh3AuG0FWCEy2GB84unIMSRISyEAS/GHWum9EQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-test-renderer@>=16.9.0":
   version "18.0.7"
   resolved "https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-18.0.7.tgz#2cfe657adb3688cdf543995eceb2e062b5a68728"

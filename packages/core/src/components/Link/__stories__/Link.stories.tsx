@@ -1,4 +1,4 @@
-import Link from "../Link.tsx";
+import Link from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ExternalPage, Info, Link as IconLink } from "../../Icon/Icons";
 import { createComponentTemplate } from "vibe-storybook-components";

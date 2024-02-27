@@ -3,7 +3,7 @@ import cx from "classnames";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import styles from "./ModalFooter.module.scss";
 
-interface ModalFooterProps extends VibeComponentProps {
+export interface ModalFooterProps extends VibeComponentProps {
   children: ReactElement | ReactElement[] | string;
 }
 

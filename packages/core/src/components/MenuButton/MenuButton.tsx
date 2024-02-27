@@ -25,7 +25,7 @@ const DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK, HideShowEvent.ENTER];
 const EMPTY_ARRAY: HideShowEvent[] = [];
 const MOVE_BY = { main: 8, secondary: 0 };
 
-interface MenuButtonProps extends VibeComponentProps {
+export interface MenuButtonProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

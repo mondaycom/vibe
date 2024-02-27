@@ -17,7 +17,7 @@ export type Step = {
   status: StepStatus;
 };
 
-interface MultiStepIndicatorProps extends VibeComponentProps {
+export interface MultiStepIndicatorProps extends VibeComponentProps {
   steps?: Step[];
   type?: MultiStepType;
   stepComponentClassName?: string;

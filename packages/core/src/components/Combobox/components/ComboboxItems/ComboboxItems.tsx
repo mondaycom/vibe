@@ -12,7 +12,7 @@ import {
 } from "../ComboboxConstants";
 import styles from "./ComboboxItems.module.scss";
 
-interface ComboboxItemsProps extends IComboboxOptionEvents {
+export interface ComboboxItemsProps extends IComboboxOptionEvents {
   className?: string;
   optionClassName?: string;
   categories?: IComboboxCategoryMap;

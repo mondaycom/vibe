@@ -8,7 +8,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
+export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
   className?: string;
   type?: AvatarType;
   /**

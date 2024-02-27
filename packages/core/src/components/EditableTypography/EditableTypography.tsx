@@ -7,6 +7,7 @@ import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { TooltipProps } from "../Tooltip/Tooltip";
+import usePrevious from "../../hooks/usePrevious";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -29,7 +30,7 @@ export interface EditableTypographyImplementationProps {
   tooltipProps?: Partial<TooltipProps>;
 }
 
-interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
+export interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /** A typography component that is being rendered in view mode */
   component: ElementType;
   /** Controls the style of the typography component in view mode */
@@ -66,8 +67,16 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
     const [inputValue, setInputValue] = useState(value);
     const [inputWidth, setInputWidth] = useState(0);
 
+    const prevValue = usePrevious(value);
+
     const inputRef = useRef(null);
     const typographyRef = useRef(null);
+
+    useEffect(() => {
+      if (!isEditing && value !== prevValue && value !== inputValue) {
+        setInputValue(value);
+      }
+    }, [prevValue, isEditing, value, inputValue]);
 
     useEffect(() => {
       setIsEditing(isEditMode);

@@ -6,7 +6,7 @@ import { Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
 import Icon from "../../Icon/Icon";
 
-interface DatePickerHeaderProps {
+export interface DatePickerHeaderProps {
   currentDate: Moment;
   isMonthYearSelection: boolean;
   onToggleMonthYearPicker: () => void;

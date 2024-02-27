@@ -7,7 +7,7 @@ import { ElementContent, VibeComponent, VibeComponentProps, withStaticProps } fr
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Flex.module.scss";
 
-interface FlexProps extends VibeComponentProps {
+export interface FlexProps extends VibeComponentProps {
   style?: object;
   direction?: FlexDirection;
   elementType?: React.ElementType;

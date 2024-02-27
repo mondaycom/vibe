@@ -28,7 +28,7 @@ export default {
 };
 
 export const Overview = {
-  render: iconButtonTemplate.bind(),
+  render: iconButtonTemplate.bind({}),
   name: "Overview",
 
   args: {
@@ -218,11 +218,13 @@ export const IconButtonAsCloseButton = {
           <Flex
             direction={Flex.directions.COLUMN}
             className={styles.recycleBinContent}
-            align={Flex.justify.START}
+            align={Flex.align.START}
             ariaLabelledby="monday-recycle-bin-title"
           >
             <Flex gap={Flex.gaps.XS}>
-              <Link withoutSpacing>Hadas Farhi</Link>
+              <Link withoutSpacing href="">
+                Hadas Farhi
+              </Link>
               <span>deleted the item</span>
               <Text type={Text.types.TEXT1} element="span" weight={Text.weights.MEDIUM}>
                 Hello World

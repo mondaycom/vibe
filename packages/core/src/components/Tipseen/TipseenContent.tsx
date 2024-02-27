@@ -13,7 +13,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 
 const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
-interface TipseenContentProps extends VibeComponentProps {
+export interface TipseenContentProps extends VibeComponentProps {
   title?: string;
   /**
    * Classname for overriding TipseenTitle styles

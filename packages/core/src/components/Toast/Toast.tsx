@@ -19,7 +19,7 @@ import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import IconButton from "../IconButton/IconButton";
 
-interface ToastProps extends VibeComponentProps {
+export interface ToastProps extends VibeComponentProps {
   actions?: ToastAction[];
   /** If true, Toast is open (visible) */
   open?: boolean;

@@ -24,7 +24,7 @@ const calculateColorTooltip = (
   }
 };
 
-interface ColorPickerColorsGridProps extends VibeComponentProps {
+export interface ColorPickerColorsGridProps extends VibeComponentProps {
   onColorClicked?: (color: ColorPickerValueOnly) => void;
   colorsToRender?: ColorPickerArrayValueOnly;
   ColorIndicatorIcon?: SubIcon;

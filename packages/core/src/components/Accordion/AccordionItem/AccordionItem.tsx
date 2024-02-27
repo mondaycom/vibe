@@ -3,7 +3,7 @@ import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { VibeComponentProps, ElementContent } from "../../../types";
 
-interface AccordionItemProps extends VibeComponentProps {
+export interface AccordionItemProps extends VibeComponentProps {
   /**
    * Header title
    */
