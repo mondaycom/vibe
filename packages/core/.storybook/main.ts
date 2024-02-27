@@ -1,3 +1,4 @@
+import path from "path";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import { storybookAddonStylingWebpackOptions } from "./addon-styling-webpack-options";
 
@@ -36,6 +37,18 @@ const config: StorybookConfig = {
   docs: {
     autodocs: false
   },
-  features: {}
+  async webpackFinal(config, { configType }) {
+    if (configType === "DEVELOPMENT") {
+      if (config.resolve) {
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          "monday-ui-style/dist/index.min.css": path.resolve(__dirname, "../../style/src/index.scss"),
+          "monday-ui-style/dist": path.resolve(__dirname, "../../style/src")
+        };
+      }
+      return config;
+    }
+    return config;
+  }
 };
 export default config;

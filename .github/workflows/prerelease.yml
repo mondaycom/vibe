@@ -30,7 +30,7 @@ jobs:
           preid=${{ github.ref_name }}
           normalized_pre_id=$(echo "$preid" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
 
-          full_output=$(yarn lerna version --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid "$normalized_pre_id" -y)
+          full_output=$(yarn lerna version --exact --conventional-commits --conventional-prerelease --json --no-changelog --no-push --preid "$normalized_pre_id" -y)
 
           # extract only the JSON portion from the full output, excluding yarn logs
           json_output=$(echo "$full_output" | awk '/^\[/{p=1} p; /\]/{p=0}' )

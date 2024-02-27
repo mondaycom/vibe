@@ -6,7 +6,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./ModalContent.module.scss";
 
-interface ModalContentProps extends VibeComponentProps {
+export interface ModalContentProps extends VibeComponentProps {
   children: ReactElement | ReactElement[] | string;
 }
 

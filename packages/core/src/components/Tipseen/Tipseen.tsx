@@ -17,7 +17,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 
-interface TipseenProps extends VibeComponentProps {
+export interface TipseenProps extends VibeComponentProps {
   /**
    * Classname for overriding TipseenTitle styles
    */

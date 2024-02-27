@@ -8,7 +8,7 @@ import VibeComponentProps from "src/types/VibeComponentProps";
 import { ProgressBarStyle, ProgressBarType } from "../LinearProgressBarConstants";
 import styles from "./Bar.module.scss";
 
-interface BarProps extends VibeComponentProps {
+export interface BarProps extends VibeComponentProps {
   /**
    * Determine the progress bar style (Supported options exposed through `LinearProgressBar.styles`).
    */

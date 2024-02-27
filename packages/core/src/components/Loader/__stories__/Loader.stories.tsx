@@ -30,22 +30,22 @@ export const Overview = {
 export const SizeVariants = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-      <StoryDescription description="Xs" vertical align={Flex.align.START}>
+      <StoryDescription description="Xs" vertical align={StoryDescription.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.XS} />
         </div>
       </StoryDescription>
-      <StoryDescription description="Small" vertical align={Flex.align.START}>
+      <StoryDescription description="Small" vertical align={StoryDescription.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.SMALL} />
         </div>
       </StoryDescription>
-      <StoryDescription description="Medium" vertical align={Flex.align.START}>
+      <StoryDescription description="Medium" vertical align={StoryDescription.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.MEDIUM} />
         </div>
       </StoryDescription>
-      <StoryDescription description="Large" vertical align={Flex.align.START}>
+      <StoryDescription description="Large" vertical align={StoryDescription.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.LARGE} />
         </div>
@@ -59,16 +59,16 @@ export const SizeVariants = {
 export const ColorVariants = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-      <StoryDescription description="Primary" vertical align={Flex.align.START}>
+      <StoryDescription description="Primary" vertical align={StoryDescription.align.START}>
         <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.PRIMARY} />
       </StoryDescription>
-      <StoryDescription description="Secondary" vertical align={Flex.align.START}>
+      <StoryDescription description="Secondary" vertical align={StoryDescription.align.START}>
         <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.SECONDARY} />
       </StoryDescription>
-      <StoryDescription description="Dark" vertical align={Flex.align.START}>
+      <StoryDescription description="Dark" vertical align={StoryDescription.align.START}>
         <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.DARK} />
       </StoryDescription>
-      <StoryDescription description="OnPrimary" vertical align={Flex.align.START}>
+      <StoryDescription description="OnPrimary" vertical align={StoryDescription.align.START}>
         <Flex direction={Flex.directions.ROW}>
           <div className="monday-storybook-loader_color-variants_on-primary--color-black">
             <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />
@@ -107,7 +107,7 @@ export const CustomColors = {
 export const VisualVariants = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-      <StoryDescription description="Casual" vertical align={Flex.align.START}>
+      <StoryDescription description="Casual" vertical align={StoryDescription.align.START}>
         <div>
           <Loader size={Loader.sizes.MEDIUM} />
         </div>
@@ -115,7 +115,7 @@ export const VisualVariants = {
       <StoryDescription
         description="With background"
         vertical
-        align={Flex.align.START}
+        align={StoryDescription.align.START}
         headerStyle={{
           width: "fitContent"
         }}

@@ -17,7 +17,10 @@ import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
 import { AlertBannerContext } from "./AlertBannerContext";
 
-interface AlertBannerProps extends VibeComponentProps {
+// TODO: [breaking] type it to adopt a structure of a text and one (optional) cta (either link/button)
+type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
+
+export interface AlertBannerProps extends VibeComponentProps {
   /**
    * Set external styling to the progress bar.
    */
@@ -28,7 +31,7 @@ interface AlertBannerProps extends VibeComponentProps {
   ariaLabel?: string;
   closeButtonAriaLabel?: string;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children?: ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
+  children?: ChildrenType | ChildrenType[];
 }
 
 const AlertBanner: VibeComponent<AlertBannerProps> & {

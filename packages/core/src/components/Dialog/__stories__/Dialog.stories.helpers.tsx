@@ -3,7 +3,7 @@ import { Link, StorybookLink, Tip } from "vibe-storybook-components";
 export const TipDialogContentContainer = () => (
   <Tip>
     For setting the dialog UI appearance, use{" "}
-    <StorybookLink size={StorybookLink.sizes.SMALL} href="Popover/DialogContentContainer">
+    <StorybookLink size={StorybookLink.sizes.SMALL} page="Popover" story="DialogContentContainer">
       DialogContentContainer
     </StorybookLink>{" "}
     component.

@@ -7,7 +7,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { withStaticProps, VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
 
-interface DividerProps extends VibeComponentProps {
+export interface DividerProps extends VibeComponentProps {
   direction?: DirectionType;
   /**
    * @deprecated - use className instead

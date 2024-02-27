@@ -94,9 +94,7 @@ describe("EditableText", () => {
         await waitFor(() => {
           fireEvent.keyDown(input, { key: "Enter" });
         });
-
-        expect(within(screen.getByRole("button")).getByText(newValue)).toBeInTheDocument();
-
+        expect(within(await screen.findByRole("button")).getByText(newValue)).toBeInTheDocument();
         expect(onChange).toHaveBeenCalledTimes(1);
         expect(onChange).toHaveBeenCalledWith(newValue);
       });
@@ -197,7 +195,7 @@ describe("EditableText", () => {
         fireEvent.keyDown(input, { key: "Enter" });
       });
 
-      expect(within(screen.getByRole("button")).getByText(placeholderText)).toBeInTheDocument();
+      expect(within(await screen.findByRole("button")).getByText(placeholderText)).toBeInTheDocument();
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith("");
     });
@@ -222,8 +220,7 @@ describe("EditableText", () => {
       await waitFor(() => {
         fireEvent.keyDown(input, { key: "Enter" });
       });
-
-      expect(within(screen.getByRole("button")).getByText(newValue)).toBeInTheDocument();
+      expect(within(await screen.findByRole("button")).getByText(newValue)).toBeInTheDocument();
     });
   });
 });

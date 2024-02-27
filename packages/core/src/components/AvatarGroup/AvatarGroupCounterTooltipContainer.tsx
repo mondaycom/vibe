@@ -7,7 +7,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { AvatarType } from "../Avatar/AvatarConstants";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
-interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
+export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
   className?: string;
   type?: AvatarType;
   /**

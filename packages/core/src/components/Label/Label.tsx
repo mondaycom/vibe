@@ -12,7 +12,7 @@ import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 
-interface LabelProps extends VibeComponentProps {
+export interface LabelProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

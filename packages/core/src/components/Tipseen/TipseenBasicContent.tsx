@@ -7,7 +7,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./TipseenBasicContent.module.scss";
 
-interface TipseenBasicContentProps extends VibeComponentProps {
+export interface TipseenBasicContentProps extends VibeComponentProps {
   title?: string;
   titleClassName?: string;
   children?: ElementContent | ElementContent[];

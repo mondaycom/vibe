@@ -9,7 +9,7 @@ export default {
 
 export const Overview = {
   render: () => {
-    const ComponentWithOverflow = ({ text }) => {
+    const ComponentWithOverflow = ({ text }: { text: string }) => {
       const ref = useRef(null);
 
       const isOverflowing = useIsOverflowing({

@@ -4,7 +4,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./ToggleText.module.scss";
 import Text from "../Text/Text";
 
-interface ToggleTextProps extends VibeComponentProps {
+export interface ToggleTextProps extends VibeComponentProps {
   children: string;
   disabled: boolean;
 }

@@ -172,25 +172,27 @@ export const AvatarWithLeftBadge = {
 export const AvatarWithTooltip = {
   render: () => (
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
-      <StoryDescription description="Aria label tooltip" vertical align={Flex.align.START}>
+      <StoryDescription description="Aria label tooltip" vertical align={StoryDescription.align.START}>
         <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Hadas Fahri"} />
       </StoryDescription>
-      <StoryDescription description="Text tooltip" vertical align={Flex.align.START}>
+      <StoryDescription description="Text tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           src={person1}
+          // @ts-ignore
           tooltipProps={{
             content: "Hadas Farhi"
           }}
           ariaLabel={"Hadas Fahri"}
         />
       </StoryDescription>
-      <StoryDescription description="JSX tooltip" vertical align={Flex.align.START}>
+      <StoryDescription description="JSX tooltip" vertical align={StoryDescription.align.START}>
         <Avatar
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
           src={person1}
+          // @ts-ignore
           tooltipProps={{
             content: <b>Hadas Farhi</b>,
             position: Tooltip.positions.BOTTOM
