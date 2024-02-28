@@ -201,8 +201,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
-  static contextType = LayerContext;
-  context!: React.ContextType<typeof LayerContext>;
+  context: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
     super(props);
