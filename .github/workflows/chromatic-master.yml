@@ -1,10 +1,9 @@
-name: "Chromatic"
+name: Chromatic master
 
 on:
   push:
     branches:
-      - '*'
-      - '!master'
+      - master
 
 jobs:
   chromatic-deployment:
@@ -17,12 +16,12 @@ jobs:
         id: changed-packages
         continue-on-error: true
         run: |
-          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
+          changed_packages=$(yarn -s lerna ls --since --json --loglevel=error)
           [[ $changed_packages = "[]" ]] && echo "HAS_CHANGES=false" >> $GITHUB_ENV || echo "HAS_CHANGES=true" >> $GITHUB_ENV
       - name: Run Build
         if: ${{ env.HAS_CHANGES == 'true' }}
         shell: bash
-        run: yarn lerna run build --since=origin/master --include-filtered-dependencies
+        run: yarn lerna run build --since --include-dependencies
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         if: ${{ env.HAS_CHANGES == 'true' }}
