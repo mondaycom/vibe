@@ -1,0 +1,5 @@
+@import "~vibe-storybook-components/dist/mixins";
+
+.intro {
+  @include sb-title-appearance;
+}

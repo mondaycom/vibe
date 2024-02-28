@@ -1,0 +1,23 @@
+// DARK THEME: This partial loads DARK THEME scope related Custom properties
+// - TODO: Dark Theme experience Guidelines should be shortly described here
+// - Properties are Theme Specific and goes under a Theme Specific Class based Selectors.
+
+@import "hacker/hacker-theme-settings";
+@import "hacker/hacker-theme-legacy-settings";
+@import "hacker/hacker-theme-content-colors";
+
+.hacker_theme-app-theme {
+  @include generate-custom-properties($theme-hacker-settings);
+  @include define-hacker-theme-content-colors();
+
+  /*
+
+  LEGACY VALUES
+
+  These values are not within Vibe's UI definitions and are on a deprecation path.
+  Please stop using them and make efforts to replace theme with their Vibe corresponding keys.
+
+  */
+
+  @include generate-custom-properties($theme-hacker-legacy-settings);
+}

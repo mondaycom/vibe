@@ -11,55 +11,34 @@ jobs:
     if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[prerelease]')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-          registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: npm ci
-      - name: Set up git credentials
+          npm_token: ${{secrets.npm_token}}
+      - uses: ./.github/actions/git-creds
+      - name: Check if there are changed packages
+        id: changed-packages
         run: |
-          git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'
-      - name: "Wait for tests to succeed"
-        uses: fountainhead/action-wait-for-check@v1.1.0
-        if: success()
-        id: wait-for-tests
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "test"
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          timeoutSeconds: 1200
-          intervalSeconds: 20
-      - name: "Tests failed - exit"
-        if: steps.wait-for-tests.outputs.conclusion != 'success'
+          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
+          [[ $changed_packages = "[]" ]] && echo "No packages changed in this branch" && exit 1 || echo "Continuing to prerelease"
+      - name: Build all affected packages
+        run: yarn lerna run build --since=origin/master
+      - name: Generate prerelease prefix
         run: |
-          echo "::error::test check failed - prerelease cancelled"
-          exit 1
-      - name: Create Updated version
-        id: create-update-version
-        if: success()
+          normalized_branch_name=$(git rev-parse --abbrev-ref HEAD | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
+          echo "BRANCH=$normalized_branch_name" >> $GITHUB_ENV
+      - name: Generate new versions
+        run: yarn lerna version --exact --conventional-commits --conventional-prerelease --no-changelog --no-push --preid $BRANCH -y
+      - run: yarn config set registry https://registry.npmjs.org/
+      - name: Setup .npmrc for publish
+        run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
         env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          COMMIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          npm run pre-release
-          echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> $GITHUB_OUTPUT
-      - name: Publish the new version to npm
-        if: success()
-        run: npm run build && npm publish --tag prerelease
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        if: success()
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
-          automatic_release_tag: prerelease
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm whoami
+      - name: Publish new versions
+        run: yarn lerna publish from-package --dist-tag $BRANCH -y
       - name: Get current PR id
         uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
@@ -67,14 +46,24 @@ jobs:
       - name: Create comment with prerelease version details
         if: success()
         uses: peter-evans/create-or-update-comment@v1
+        env:
+          BRANCH: ${{ github.ref_name }}
         with:
           issue-number: ${{ steps.PR.outputs.number }}
           body: |
-            A new prerelease version of this PR has been published: `${{ steps.create-update-version.outputs.package_version }}`
+            A new prerelease version of this PR has been published! 🎉
 
+            To install this prerelease version, run the following command in your terminal with any one of the packages changed in this PR:
             ```
-            // To install this prerelease version using npm, please run the following command in your terminal:
-            npm i monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}
-            // If you prefer using Yarn, you can use the following command instead:
-            yarn add monday-ui-react-core@${{ steps.create-update-version.outputs.package_version }}
+            npm i <package_name>@${{ env.BRANCH }}
+            ```
+
+            Or:
+            ```
+            yarn add <package_name>@${{ env.BRANCH }}
+            ```
+
+            For example:
+            ```
+            yarn add monday-ui-react-core@${{ env.BRANCH }}
             ```

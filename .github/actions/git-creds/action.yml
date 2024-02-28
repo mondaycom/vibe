@@ -1,0 +1,11 @@
+name: "Git credentials setup"
+description: "Set up git credentials"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up git credentials
+      shell: bash
+      run: |
+        git config --global user.name 'ci'
+        git config --global user.email 'deploy@monday.com'

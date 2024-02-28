@@ -1,0 +1,96 @@
+$embeddedPosition: 15%;
+
+.badgeWrapper {
+  position: relative;
+
+  .badge {
+    z-index: 1;
+    position: absolute;
+    border-radius: 16px;
+
+    &:not(.outside) {
+      border: 2px solid;
+      border-color: var(--primary-background-color);
+    }
+
+    &.topEnd {
+      &.rectangular {
+        top: 0;
+        right: 0;
+        translate: 50% -50%;
+      }
+
+      &.outside {
+        top: 0;
+        right: -2px;
+        translate: 100% 0;
+      }
+
+      &.circular {
+        top: $embeddedPosition;
+        right: $embeddedPosition;
+        translate: 50% -50%;
+      }
+    }
+
+    &.topStart {
+      &.rectangular {
+        top: 0;
+        left: 0;
+        translate: -50% -50%;
+      }
+
+      &.outside {
+        top: 0;
+        left: -2px;
+        translate: -100% 0;
+      }
+
+      &.circular {
+        top: $embeddedPosition;
+        left: $embeddedPosition;
+        translate: -50% -50%;
+      }
+    }
+
+    &.bottomEnd {
+      &.rectangular {
+        bottom: 0;
+        right: 0;
+        translate: 50% 50%;
+      }
+
+      &.outside {
+        bottom: 0;
+        right: -2px;
+        translate: 100% 0;
+      }
+
+      &.circular {
+        bottom: $embeddedPosition;
+        right: $embeddedPosition;
+        translate: 50% 50%;
+      }
+    }
+
+    &.bottomStart {
+      &.rectangular {
+        bottom: 0;
+        left: 0;
+        translate: -50% 50%;
+      }
+
+      &.outside {
+        bottom: 0;
+        left: -2px;
+        translate: -100% 0;
+      }
+
+      &.circular {
+        bottom: $embeddedPosition;
+        left: $embeddedPosition;
+        translate: -50% 50%;
+      }
+    }
+  }
+}
