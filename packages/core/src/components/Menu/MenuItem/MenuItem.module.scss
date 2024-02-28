@@ -1,0 +1,112 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../styles/typography";
+@import "../../../styles/states";
+
+.item {
+  @include smoothing-text;
+  margin: unset;
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-xs) var(--spacing-small);
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.iconWrapper {
+  margin-right: var(--spacing-small);
+}
+
+.subMenuIconWrapper {
+  margin-left: var(--spacing-xs);
+}
+
+.subMenuIconWrapper,
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subMenuIconWrapper .subMenuIcon,
+.subMenuIconWrapper .icon,
+.iconWrapper .subMenuIcon,
+.iconWrapper .icon {
+  color: var(--icon-color);
+}
+
+.subMenuIconWrapper .divider {
+  height: 19px;
+}
+
+.subMenuIconWrapper .splitMenuItemIconButton {
+  width: 34px;
+  height: 30px;
+
+  // TODO Temp override for Tal changes - remove once token is changed
+  --primary-background-hover-color: rgba(103, 104, 121, 0.1);
+  // Override for IconButton active color
+  --primary-selected-color: rgba(103, 104, 121, 0.1);
+}
+
+.iconButton {
+  width: 18px;
+  height: 18px;
+
+  &:not(.disabled) {
+    color: var(--icon-color);
+  }
+}
+
+.item.splitMenuItem {
+  padding: 0 0 0 var(--spacing-small);
+}
+
+.item.disabled {
+  cursor: not-allowed;
+  color: var(--disabled-text-color);
+}
+
+.item.disabled .subMenuIcon,
+.item.disabled .icon {
+  cursor: not-allowed;
+  color: var(--disabled-text-color);
+}
+
+.item:not(.disabled).focused {
+  background-color: var(--primary-background-hover-color);
+}
+
+.item:not(.disabled).focused:not(:hover):not(.initialSelected) {
+  @include focus-style-css();
+}
+
+.item:not(.disabled).focused {
+  border-radius: var(--border-radius-small);
+}
+
+.item:not(.disabled).selected {
+  background-color: var(--primary-selected-color);
+  border-radius: var(--border-radius-small);
+}
+
+.item:not(.disabled).selected .iconWrapper .icon {
+  color: var(--primary-color);
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  padding-block: 1px;
+}
+
+.hiddenTitle {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}

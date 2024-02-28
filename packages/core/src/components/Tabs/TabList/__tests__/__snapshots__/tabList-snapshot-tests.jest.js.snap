@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabList renders correctly with activeTabId 1`] = `
+<div
+  className="tabsWrapper compact"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tabWrapper tabListTabWrapper"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with children 1`] = `
+<div
+  className="tabsWrapper compact"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with className 1`] = `
+<div
+  className="tabsWrapper test compact"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with id 1`] = `
+<div
+  className="tabsWrapper compact"
+  data-testid="tab-list_test"
+  id="test"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with noPadding 1`] = `
+<div
+  className="tabsWrapper noPadding compact"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tabWrapper tabListTabWrapper"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tabWrapper tabListTabWrapper"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with size 1`] = `
+<div
+  className="tabsWrapper compact"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList lg"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tabWrapper tabListTabWrapper"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`TabList renders correctly with tabType 1`] = `
+<div
+  className="tabsWrapper stretched"
+  data-testid="tab-list"
+>
+  <ul
+    className="tabsList"
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tabWrapper tabListTabWrapper active"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tabWrapper tabListTabWrapper"
+      data-testid="tab"
+      role="tab"
+    >
+      <a
+        className="tabInner tabListTabInner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+  </ul>
+</div>
+`;

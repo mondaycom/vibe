@@ -1,0 +1,463 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion renders correctly with allowMultiple 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+>
+  <div
+    className=""
+    id="monday-accordion--item-0"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      id="expand-collapse--monday-accordion--item-0"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
+          aria-expanded={true}
+          className="header section headerOpen"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconOpen"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          className="content section animateExpandCollapseContent"
+          id="expand-collapse--monday-accordion--item-0-controls"
+          role="region"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-1"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
+      id="expand-collapse--monday-accordion--item-1"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-1-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-2"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
+      id="expand-collapse--monday-accordion--item-2"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse accordionItemExpandCollapseLast"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-2-controls"
+          aria-expanded={true}
+          className="header section headerOpen"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconOpen"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          className="content section animateExpandCollapseContent"
+          id="expand-collapse--monday-accordion--item-2-controls"
+          role="region"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion renders correctly with children 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+>
+  <div
+    className=""
+    id="monday-accordion--item-0"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      id="expand-collapse--monday-accordion--item-0"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-1"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
+      id="expand-collapse--monday-accordion--item-1"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-1-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-2"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
+      id="expand-collapse--monday-accordion--item-2"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse accordionItemExpandCollapseLast"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-2-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion renders correctly with className 1`] = `
+<div
+  className="accordion test"
+  data-testid="monday-accordion"
+/>
+`;
+
+exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+>
+  <div
+    className=""
+    id="monday-accordion--item-0"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      id="expand-collapse--monday-accordion--item-0"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse accordionItemExpandCollapseLast"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <div>
+            custom title
+          </div>
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion renders correctly with defaultIndex prop 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+>
+  <div
+    className=""
+    id="monday-accordion--item-0"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-0"
+      id="expand-collapse--monday-accordion--item-0"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
+          aria-expanded={true}
+          className="header section headerOpen"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconOpen"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          className="content section animateExpandCollapseContent"
+          id="expand-collapse--monday-accordion--item-0-controls"
+          role="region"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-1"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-1"
+      id="expand-collapse--monday-accordion--item-1"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-1-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    id="monday-accordion--item-2"
+  >
+    <div
+      data-testid="expand-collapse_expand-collapse--monday-accordion--item-2"
+      id="expand-collapse--monday-accordion--item-2"
+    >
+      <div
+        className="expandCollapse showBorder accordionItemExpandCollapse accordionItemExpandCollapseLast"
+      >
+        <button
+          aria-controls="expand-collapse--monday-accordion--item-2-controls"
+          aria-expanded={false}
+          className="header section"
+          onClickCapture={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="icon iconComponent animateIconClose"
+            data-testid="icon"
+            fill="currentColor"
+            height="24"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="24"
+          >
+            <path
+              clipRule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion renders correctly with empty props 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+/>
+`;
+
+exports[`Accordion renders correctly with id 1`] = `
+<div
+  className="accordion"
+  data-testid="monday-accordion"
+  id="test"
+/>
+`;

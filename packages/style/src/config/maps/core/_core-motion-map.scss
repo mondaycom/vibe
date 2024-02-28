@@ -1,0 +1,17 @@
+// COR MAP: MOTION
+// This partial defines a motion related map.
+// - Map include Motion scope tokens.
+// - Map is collected into the $core-settings-map and is interpolated into custom properties.
+
+$core-motion-map: (
+  motion-productive-short: $motion-productive-short,
+  motion-productive-medium: $motion-productive-medium,
+  motion-productive-long: $motion-productive-long,
+  motion-expressive-short: $motion-expressive-short,
+  motion-expressive-long: $motion-expressive-long,
+  motion-timing-enter: $motion-timing-enter,
+  motion-timing-exit: $motion-timing-exit,
+  motion-timing-transition: $motion-timing-transition,
+  motion-timing-emphasize: $motion-timing-emphasize,
+  expand-animation-timing: $expand-animation-timing
+);

@@ -1,0 +1,12 @@
+.virtualizedGridItem {
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  width: 230px;
+  height: 100%;
+}
+
+.virtualizedGridItemChild {
+  width: inherit;
+  height: inherit;
+}

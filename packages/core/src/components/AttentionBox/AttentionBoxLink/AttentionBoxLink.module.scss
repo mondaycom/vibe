@@ -1,0 +1,7 @@
+// TODO: use just a class (without [href]) after removing anchor style from Typography
+// Using [href] to increase specificity and override `Typography a` styles
+a[href].attentionBoxLink,
+a[href].attentionBoxLink:hover {
+  color: var(--primary-text-color);
+  text-decoration: underline;
+}

@@ -1,0 +1,77 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../../styles/states";
+@import "../../../styles/typography";
+
+.tabWrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 1px;
+  padding-right: 1px;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid;
+  border-bottom-color: var(--ui-background-color);
+  color: var(--primary-text-color);
+  text-align: center;
+  height: 100%;
+}
+
+.tabWrapper:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  content: "";
+  border-bottom: solid 2px;
+  border-bottom-color: var(--primary-color);
+  transform: scaleX(0);
+  z-index: 0;
+}
+
+.tabWrapper .tabInner {
+  $margin-bottom: 1px;
+  height: calc(100% - #{$margin-bottom});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 4px 16px;
+  @include vibe-text(text1, normal);
+  user-select: none;
+  margin-bottom: $margin-bottom;
+  cursor: pointer;
+  color: var(--primary-text-color);
+}
+
+.tabWrapper .tabInner:focus {
+  outline: none;
+}
+
+.tabWrapper .tabInner .tabIcon {
+  color: var(--icon-color);
+  margin-right: var(--spacing-small);
+}
+
+.tabWrapper .tabInner .tabIcon.right {
+  margin-right: 0;
+  margin-left: var(--spacing-small);
+}
+
+.tabWrapper.tabFocusVisibleInset {
+  @include focus-style-css-inset(3px, 3px);
+  position: relative;
+}
+
+.tabWrapper.active:after {
+  transform: scaleX(1);
+  transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
+}
+
+.tabWrapper.disabled .tabInner {
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+}
+
+.tabWrapper:not(.disabled) .tabInner:hover {
+  border-radius: 4px;
+  background-color: var(--primary-background-hover-color);
+}

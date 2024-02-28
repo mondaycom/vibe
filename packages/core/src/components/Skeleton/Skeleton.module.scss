@@ -1,0 +1,88 @@
+@import "SkeletonVariables";
+
+@mixin shine-animation() {
+  overflow: hidden;
+  animation-duration: 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-name: shine;
+  animation-timing-function: steps(10, end);
+
+  @keyframes shine {
+    0% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin skeleton($radius: var(--border-radius-small)) {
+  background: var(--ui-background-color);
+  border-radius: $radius;
+  @include shine-animation;
+}
+
+.skeleton {
+  display: flex;
+}
+
+.rectangle {
+  height: $rectangle-default-size;
+  @include skeleton;
+}
+
+.circle {
+  height: $circle-default-size;
+  @include skeleton($circle-radius);
+}
+
+.text {
+  @include skeleton;
+}
+
+.textH1 {
+  height: $h1-empty-state-height;
+}
+
+.textH2 {
+  height: $h2-empty-state-height;
+}
+
+.textH3 {
+  height: $h3-empty-state-height;
+}
+
+.textH4 {
+  height: $h4-empty-state-height;
+}
+
+.textH5 {
+  height: $h5-empty-state-height;
+}
+
+.textH6 {
+  height: $h6-empty-state-height;
+}
+
+.textSmall,
+.textCustom {
+  height: $small-empty-state-height;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.skeleton:not(.fullWidth) {
+  .text {
+    width: 162px;
+  }
+  .circle {
+    width: $circle-default-size;
+  }
+  .rectangle {
+    width: $rectangle-default-size;
+  }
+}

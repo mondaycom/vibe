@@ -1,0 +1,101 @@
+@import "../../styles/typography";
+@import "../../styles/keyframes";
+
+.counter {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 30px;
+  overflow: hidden;
+  transform-origin: center;
+  @include keyframe(counter-pop-elastic) {
+    @include pop-elastic();
+  }
+}
+
+.withAnimation {
+  animation: counterPopElastic var(--motion-expressive-short);
+}
+
+.sizeSmall {
+  @include font-caption();
+  min-width: 18px;
+  line-height: 18px;
+  padding: 0 var(--spacing-small);
+}
+
+.sizeLarge {
+  @include label-text();
+  min-width: 24px;
+  padding: 2px var(--spacing-small);
+}
+
+.kindFill.colorPrimary {
+  color: var(--fixed-light-color);
+  background-color: var(--primary-color);
+}
+
+.kindFill.colorDark {
+  color: var(--text-color-on-inverted);
+  background-color: var(--inverted-color-background);
+}
+
+.kindFill.colorNegative {
+  color: var(--fixed-light-color);
+  background-color: var(--negative-color);
+}
+
+.kindFill.colorLight {
+  color: var(--primary-text-color);
+  background-color: var(--ui-background-color);
+}
+
+.kindLine {
+  box-shadow: 0 0 0 1px currentColor inset;
+}
+
+.kindLine.colorPrimary {
+  color: var(--primary-color);
+}
+
+.kindLine.colorDark {
+  color: var(--inverted-color-background);
+}
+
+.kindLine.colorNegative {
+  color: var(--negative-color);
+}
+
+.kindLine.colorLight {
+  color: var(--primary-text-color);
+  box-shadow: 0 0 0 1px var(--ui-background-color) inset !important;
+}
+
+// Animations
+/* New number enters */
+
+.fadeEnter {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.fadeEnterActive {
+  position: relative;
+  opacity: 1;
+  transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+  transform: translateY(0);
+}
+
+/* Old number exits */
+
+.fadeExit {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeExitActive {
+  position: relative;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: transform var(--motion-productive-long) var(--motion-timing-exit), opacity var(--motion-productive-short);
+}

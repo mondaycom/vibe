@@ -1,0 +1,53 @@
+@import "~monday-ui-style/dist/mixins";
+
+.chip-with-input-wrapper {
+  display: flex;
+}
+.placeholder-container {
+  margin-left: 6px;
+}
+
+.multiselect-chip-multi-line {
+  --chips-margin: 2px;
+}
+
+.multiselect-chip-single-line {
+  --chips-margin: 5px 2px;
+}
+
+.multiselect-chip-disabled {
+  background-color: var(--ui-background-color) !important;
+}
+
+.value-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.value-container-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+
+  &.without-placeholder {
+    margin-left: 6px;
+  }
+}
+
+.valueDialogContent {
+  @include scroller();
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 300px;
+  overflow-y: auto;
+
+  .chips {
+    flex-shrink: 0;
+  }
+}

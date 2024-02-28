@@ -1,0 +1,82 @@
+.attentionBox {
+  position: relative;
+  padding: 12px var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  width: fit-content;
+  max-width: 100%;
+  height: fit-content;
+
+  // Overriding on primary icon color should be with bigger specificity than the original color
+  & .closeIconWrapper .closeIcon {
+    color: var(--primary-text-color);
+  }
+
+  .icon {
+    flex-shrink: 0;
+  }
+}
+
+.title {
+  margin: 0;
+  padding-right: var(--spacing-xl);
+}
+
+.text,
+.titleContainer {
+  color: var(--primary-text-color);
+}
+
+.typePrimary {
+  color: var(--primary-text-color);
+  background-color: var(--primary-selected-color);
+}
+
+.typeDanger {
+  background-color: var(--negative-color-selected);
+}
+
+.typeSuccess {
+  background-color: var(--positive-color-selected);
+}
+
+.typeDark {
+  background-color: var(--ui-background-color);
+  color: var(--primary-text-color);
+}
+
+.typeWarning {
+  background-color: var(--warning-color-selected);
+  color: var(--primary-text-color);
+}
+
+.titleContainer {
+  margin-bottom: var(--spacing-xs);
+}
+
+.titleContainer:empty {
+  margin-bottom: 0;
+}
+
+.closeIconWrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.closeIconCompact {
+  top: calc(50% - 16px);
+}
+
+.text {
+  &.compact {
+    flex: 1;
+
+    &.dismissible {
+      padding-right: var(--spacing-xl);
+    }
+  }
+
+  &.paragraph {
+    margin: 0 var(--spacing-medium) 0 0;
+  }
+}

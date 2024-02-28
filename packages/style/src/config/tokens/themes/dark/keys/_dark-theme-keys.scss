@@ -1,0 +1,75 @@
+//  DARK THEME  TOKENS: SEMANTIC KEYS COLORS
+// - This partial defines Basic Theme's Semantic Keys color tokens
+
+// - Theme keys should hold registration values (colors, content colors, other keys)
+//   - In some case there are unique hex values assignments
+//   - They should be transformed into Registration colors.
+//     - We add some annotation to their scope when found.
+// - When several key has the same value and have a connection
+// - We either use $theme-dark token or var(--token) depending on connection logic and value type.
+
+// Fixed colors
+$theme-dark-fixed-light-color: $color-snow_white;
+$theme-dark-fixed-dark-color: $color-mud_black;
+
+// Text colors
+$theme-dark-primary-color: $primary-color;
+$theme-dark-primary-hover-color: $primary-hover-color;
+$theme-dark-primary-selected-color: $color-ocean_blue;
+$theme-dark-primary-selected-hover-color: $color-deep_blue;
+$theme-dark-primary-text-color: $color-snow;
+
+$theme-dark-text-color-on-primary: $text-color-on-primary; // todo: fix, value from basic theme
+$theme-dark-text-color-on-inverted: $color-mud_black; // todo: fix, value from basic theme
+
+$theme-dark-secondary-text-color: $color-jaco_gray; // todo: fix, value from basic legacy palette
+$theme-dark-placeholder-color: $color-wolf_gray; // todo: fix, value from basic theme
+$theme-dark-icon-color: $color-wolf_gray; // todo: fix, value from basic theme
+
+$theme-dark-link-color: $color-arctic_blue;
+
+// Background colors
+$theme-dark-primary-background-color: $color-midnight;
+$theme-dark-primary-background-hover-color: $color-silver;
+$theme-dark-secondary-background-color: $color-graphite;
+$theme-dark-grey-background-color: $color-midnight;
+$theme-dark-allgrey-background-color: $color-graphite;
+// - contrast hook
+$theme-dark-inverted-color-background: $color-snow_white; // todo: fix, value from basic theme
+
+// System Semantics (state, status)
+$theme-dark-disabled-text-color: rgba($theme-dark-primary-text-color, var(--disabled-component-opacity));
+$theme-dark-disabled-background-color: $color-silver_muted;
+
+$theme-dark-positive-color: $positive-color;
+$theme-dark-positive-color-hover: $positive-color-hover;
+$theme-dark-positive-color-selected: $color-forest_green;
+$theme-dark-positive-color-selected-hover: $color-darker_green;
+$theme-dark-negative-color: $negative-color;
+$theme-dark-negative-color-hover: $negative-color-hover;
+$theme-dark-negative-color-selected: $color-maroon_red;
+$theme-dark-negative-color-selected-hover: $color-amber_red;
+$theme-dark-private-color: $private-color;
+$theme-dark-shareable-color: $shareable-color;
+$theme-dark-warning-color: $color-egg_yolk; // warning-colors
+$theme-dark-warning-color-hover: $color-desert;
+$theme-dark-warning-color-selected: $color-brass;
+$theme-dark-warning-color-selected-hover: $color-aztec_gold;
+
+// UI elements
+// - Borders
+$theme-dark-ui-border-color: $color-fog;
+$theme-dark-layout-border-color: $color-silver;
+
+// - Backgrounds
+$theme-dark-ui-background-color: $color-silver;
+
+// DARK THEME TOKENS: SHADOWS
+
+$theme-dark-shadow-color: $color-rift; // todo: fix, not part of Vibe colors
+$theme-dark-shadow-opacity: 0.5;
+
+$theme-dark-box-shadow-xs: $shadow-size-xs rgba($theme-dark-shadow-color, $theme-dark-shadow-opacity);
+$theme-dark-box-shadow-small: $shadow-size-small rgba($theme-dark-shadow-color, $theme-dark-shadow-opacity);
+$theme-dark-box-shadow-medium: $shadow-size-medium rgba($theme-dark-shadow-color, $theme-dark-shadow-opacity);
+$theme-dark-box-shadow-large: $shadow-size-large rgba($theme-dark-shadow-color, $theme-dark-shadow-opacity);

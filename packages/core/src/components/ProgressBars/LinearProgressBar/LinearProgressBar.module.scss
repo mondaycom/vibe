@@ -1,0 +1,50 @@
+@import "~monday-ui-style/dist/mixins";
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  @include vibe-text(text2, normal);
+  line-height: 8px !important;
+
+  &.fullWidth {
+    width: 100%;
+    .container {
+      border-radius: 0;
+      .progressBar {
+        border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+
+        &.completed {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+.label {
+  padding-left: var(--spacing-xs);
+}
+
+.large {
+  height: 8px;
+  line-height: 8px;
+}
+
+.medium {
+  height: 6px;
+  line-height: 6px;
+}
+
+.small {
+  height: 4px;
+  line-height: 4px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: var(--ui-background-color);
+  border-radius: var(--border-radius-small);
+}

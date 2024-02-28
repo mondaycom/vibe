@@ -1,0 +1,25 @@
+.table {
+  background-color: var(--primary-background-color);
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+
+  &.border {
+    border: 1px solid var(--layout-border-color);
+    border-radius: var(--border-radius-small);
+  }
+
+  [role="rowgroup"] {
+    [role="row"] {
+      > [role="cell"] {
+        border-bottom: 1px solid var(--layout-border-color);
+      }
+    }
+
+    > [role="row"]:last-of-type {
+      > [role="cell"] {
+        border-bottom: none;
+      }
+    }
+  }
+}

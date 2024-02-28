@@ -1,0 +1,52 @@
+//  BASIC THEME TOKENS: LEGACY KEYS
+// - This partial defines Basic Theme's legacy keys tokens
+// - Legacy keys are colors that are not part of the theme's keys
+// - Legacy keys are currently presented as custom properties
+// - Due to separation between Registration and Semantic candidates sort order between group is important
+//   - Some Semantic candidates are aliases or Registration colors (as it should be)
+// - Legacy keys might be in use within themes.
+// - Per now they cannot be deprecated.
+// - We define a token as a legacy key when:
+//   - It has a legacy registration color as value.(value duplication)
+//   - It has name that indicates a certain role
+//   - It is abstract and not tied to a specific use. (such as some legacy tokens)
+//   - Some other token is using them and it makes a sense (connection is clear)
+// - This way we eliminate duplication for hard coded value declaration.
+
+// # Not in Vibe UI definitions
+$primary-on-secondary-color: $color-basic_blue;
+$primary-hover-on-secondary-color: $color-dark_blue;
+$primary-selected-color-rgb: $color-highlight_blue-rgb;
+$primary-selected-on-secondary-color: $color-highlight_blue;
+$primary-text-on-secondary-color: $color-mud_black;
+$text-color-on-primary-with-opacity: $color-snow_white-with-opacity;
+
+$primary-background-color-rgb: $color-snow_white-rgb;
+$primary-background-hover-on-secondary-color: $color-ui_grey;
+$secondary-background-color-rgb: $color-snow_white-rgb;
+
+$secondary-text-on-secondary-color: $color-asphalt;
+$link-on-secondary-color: $color-link_color;
+
+$modal-background-color: $color-snow_white;
+$dark-background-color: $color-riverstone_gray;
+$dark-background-on-secondary-color: $color-riverstone_gray;
+$dialog-background-color: $color-snow_white;
+
+$label-background-color: $color-highlight_blue;
+$label-background-on-secondary-color: $color-highlight_blue;
+
+$icon-on-secondary-color: $color-asphalt;
+$placeholder-color-with-opacity: $color-asphalt-with-opacity;
+$placeholder-on-secondary-color: $color-asphalt;
+
+// States
+$disabled-background-on-secondary-color: $disabled-background-color;
+$disabled-text-on-secondary-color: $disabled-text-color;
+
+// borders
+$ui-border-on-secondary-color: $color-wolf_gray;
+$layout-border-on-secondary-color: $layout-border-color;
+
+// legacy shadow
+$box-shadow-mediun: $box-shadow-medium;

@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/blocks";
+import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
+import { Frame, UsageGuidelines } from "vibe-storybook-components";
+import { menuExample, tipseenExample, toolbarExample } from "./assets";
+import { ComponentNameDecorator } from "../../components";
+import "./spacing.stories.scss";
+
+<Meta title="Foundations/Spacing" />
+
+<ComponentNameDecorator withFoundationBackground>Spacing</ComponentNameDecorator>
+
+- [Overview](#overview)
+- [Spacing sizes](#spacing-sizes)
+- [Usage and examples](#usage-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+
+Positioning UI should be with taught including the empty space between components.
+This is what creates relationships and hierarchy withing the visual controls.
+
+## Spacing sizes
+
+Using the right sizes will create consistency and hierarchy in user interface.
+
+<SpacingSizes />
+
+{/*
+
+<Tip title="Applying spacing">
+  Elements with more spacing around them perceived as more important because they get more focus on the page, while
+  small spacing makes components look stacked and not stand out.
+</Tip>
+*/}
+
+## Usage and examples
+
+<UsageGuidelines
+  guidelines={[
+    "You can double the sizes to create bigger spacings",
+    "Stay consistent with paddings and sizes across different UI components",
+    "Align all the elements to the same spacing within the components or a page"
+  ]}
+/>
+
+<Frame className="monday-ui-style-storybook-spacing_image-container">
+  <img className="monday-ui-style-storybook-spacing_image--menu" src={menuExample} alt="" />
+</Frame>
+<Frame className="monday-ui-style-storybook-spacing_image-container">
+  <img className="monday-ui-style-storybook-spacing_image--toolbar" src={toolbarExample} alt="" />
+</Frame>
+<Frame className="monday-ui-style-storybook-spacing_image-container ">
+  <img className="monday-ui-style-storybook-spacing_image--tipseen" src={tipseenExample} alt="" />
+</Frame>
