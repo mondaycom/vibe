@@ -3,6 +3,7 @@ export enum FlexAlign {
   CENTER = "Center",
   END = "End",
   STRETCH = "Stretch",
+  BASELINE = "Baseline",
   INITIAL = "Initial"
 }
 
