@@ -1,8 +1,8 @@
-import React, { FC, ReactElement, useRef, useEffect, Children } from "react";
+import React, { FC, useRef, useEffect, Children } from "react";
 import LayerContext from "./LayerContext";
 
 interface LayerProviderType {
-  children: ReactElement | ReactElement[];
+  children: JSX.Element;
 }
 
 const LayerProvider: FC<LayerProviderType> = ({ children }) => {
