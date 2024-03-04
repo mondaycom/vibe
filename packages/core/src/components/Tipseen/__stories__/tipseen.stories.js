@@ -64,17 +64,28 @@ export const Default = {
     // Therefore, there is no need to move this prop in your implementations.
     () => {
       return (
-        <Tipseen
-          modifiers={modifiers}
-          position={Tipseen.positions.RIGHT}
-          content={
-            <TipseenContent title="This is a title" hideDismiss>
-              Popover message will appear here loremipsum dolor samet…
-            </TipseenContent>
-          }
-        >
-          <div className="monday-storybook-tipseen_container" />
-        </Tipseen>
+        // <Tipseen
+        //   modifiers={modifiers}
+        //   position={Tipseen.positions.RIGHT}
+        //   content={
+        //     <TipseenContent title="This is a title" hideDismiss>
+        //       Popover message will appear here loremipsum dolor samet…
+        //     </TipseenContent>
+        //   }
+        // >
+        //   <div className="monday-storybook-tipseen_container" />
+        // </Tipseen>
+        <div className="monday-storybook-tipseen_container">
+          <Tipseen
+            modifiers={modifiers}
+            position={Tipseen.positions.RIGHT}
+            content={
+              <TipseenContent title="This is a title" hideDismiss>
+                Popover message will appear here loremipsum dolor samet…
+              </TipseenContent>
+            }
+          />
+        </div>
       );
     },
 

@@ -143,6 +143,7 @@ const Tipseen: VibeComponent<TipseenProps> & {
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
+        {/* look at element="p" but if you put a TipseenContent element inside of it, there will be a div inside of a p tag. */}
         <Text color={Text.colors.ON_PRIMARY} type={Text.types.TEXT2} element="p" className={cx(styles.tipseenContent)}>
           {content}
         </Text>

@@ -15,5 +15,10 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "monday-ui-react-core": "^2.93.0",
+    "monday-ui-style": "^0.2.0",
+    "yarn": "^1.22.21"
+  }
 }
