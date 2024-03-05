@@ -93,6 +93,7 @@ export interface DialogProps extends VibeComponentProps {
    * Classname to be added to the content container
    */
   wrapperClassName?: string;
+  layerClassName?: string;
   /**
    * Prevent Animation
    */
@@ -201,7 +202,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
-  context: React.ContextType<typeof LayerContext>;
+  context!: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
     super(props);
@@ -489,6 +490,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   render() {
     const {
       wrapperClassName,
+      layerClassName,
       content,
       startingEdge,
       children,
@@ -607,6 +609,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   animationType={animationTypeCalculated}
                   position={placement}
                   wrapperClassName={wrapperClassName}
+                  layerClassName={layerClassName}
                   startingEdge={startingEdge}
                   isOpen={this.isShown()}
                   showDelay={showDelay}
@@ -641,3 +644,5 @@ function chainOnPropsAndInstance(name: string, instance: Dialog, props: DialogPr
   // @ts-ignore
   return chainFunctions([props[name], instance[name]], true);
 }
+
+Dialog.contextType = LayerContext;

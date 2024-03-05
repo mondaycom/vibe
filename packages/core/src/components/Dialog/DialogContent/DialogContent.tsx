@@ -22,6 +22,7 @@ export interface DialogContentProps extends VibeComponentProps {
   children?: ReactElement | ReactElement[];
   position?: PopperJS.Placement;
   wrapperClassName?: string;
+  layerClassName?: string;
   isOpen?: boolean;
   // TODO breaking change convert to enum
   startingEdge?: any;
@@ -54,6 +55,7 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       children,
       position,
       wrapperClassName,
+      layerClassName,
       isOpen = false,
       startingEdge,
       animationType = "expand",
@@ -126,7 +128,12 @@ export const DialogContent: VibeComponent<DialogContentProps> = React.forwardRef
       <span
         // TODO: remove "monday-style-dialog-content-wrapper" class in next major
         // don't remove old classname - override from Monolith
-        className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
+        className={cx(
+          "monday-style-dialog-content-wrapper",
+          styles.contentWrapper,
+          wrapperClassName,
+          layerClassName || styles.dialogLayer
+        )}
         ref={forwardRef}
         data-testid={dataTestId}
         style={styleObject}

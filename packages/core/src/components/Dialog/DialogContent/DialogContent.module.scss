@@ -1,7 +1,6 @@
 @import "~monday-ui-style/dist/mixins";
 
 .contentWrapper {
-  z-index: var(--layer-popover);
   outline: 0;
 
   &.top,
@@ -38,6 +37,10 @@
   &.rightEnd {
     padding-block-start: var(--spacing-xs);
   }
+}
+
+.dialogLayer {
+  z-index: var(--layer-popover);
 }
 
 .contentWrapper[data-popper-reference-hidden="true"] {

@@ -121,10 +121,7 @@ interface TooltipBaseProps extends VibeComponentProps {
    * Limit tooltip to 240px
    */
   withMaxWidth?: boolean;
-  /**
-   * A classname for that dialog that opens the tooltip
-   * */
-  dialogClassName?: string;
+  layerClassName?: string;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -269,7 +266,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       tip,
       arrowClassName,
       id,
-      dialogClassName,
+      layerClassName,
       "data-testid": dataTestId
     } = this.props;
 
@@ -299,7 +296,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
-      wrapperClassName: dialogClassName || styles.tooltipDialog
+      layerClassName: layerClassName || styles.tooltipLayer
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
