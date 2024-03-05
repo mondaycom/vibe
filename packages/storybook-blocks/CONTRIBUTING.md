@@ -32,7 +32,7 @@ We use [Prettier](https://prettier.io/) with the default community guidelines. P
 We are using [Semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) convention for creating Pull Requests and commits messages inside the Pull Request.
 
 ### Releasing [only for maintainers]
-To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/vibe-storybook-components/actions/workflows/release.yml).
+To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/monday-ui-react-core/actions/workflows/release.yml).
 
 If you want to run it locally, you can do so with [Github's CLI](https://cli.github.com/):
 
