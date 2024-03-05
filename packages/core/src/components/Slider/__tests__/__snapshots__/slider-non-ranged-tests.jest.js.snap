@@ -48,7 +48,7 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper contentWrapper tooltipDialog"
++         class="monday-style-dialog-content-wrapper contentWrapper tooltipLayer"
 +         data-popper-reference-hidden="false"
 +         data-testid="tooltip"
 +         style="position: absolute; left: 0px; top: 0px;"
@@ -83,7 +83,7 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="monday-style-dialog-content-wrapper contentWrapper tooltipDialog"
+-         class="monday-style-dialog-content-wrapper contentWrapper tooltipLayer"
 -         data-popper-reference-hidden="false"
 -         data-testid="tooltip"
 -         style="position: absolute; left: 0px; top: 0px;"
@@ -118,7 +118,7 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper contentWrapper tooltipDialog"
++         class="monday-style-dialog-content-wrapper contentWrapper tooltipLayer"
 +         data-popper-reference-hidden="false"
 +         data-testid="tooltip"
 +         style="position: absolute; left: 0px; top: 0px;"
@@ -153,7 +153,7 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="monday-style-dialog-content-wrapper contentWrapper tooltipDialog"
+-         class="monday-style-dialog-content-wrapper contentWrapper tooltipLayer"
 -         data-popper-reference-hidden="false"
 -         data-testid="tooltip"
 -         style="position: absolute; left: 0px; top: 0px;"
