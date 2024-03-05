@@ -260,7 +260,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         tabIndex: disabledButton ? -1 : tabIndex,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
-        "aria-disabled": disabledButton,
+        "aria-disabled": disabled && disabledButton,
         "aria-busy": loading,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
