@@ -2,9 +2,10 @@ import { Canvas, Meta, Story } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
+import TipseenWizard from "../TipseenWizard";
 import Icon from "../../Icon/Icon";
 import { Board, BoardPrivate } from "../../Icon/Icons";
-import { modifiers, TipCheckYourself } from "./tipseen.stories.helpers";
+import { modifiers, TipCheckYourself, wizardContent } from "./tipseen.stories.helpers";
 import {
   ATTENTION_BOX,
   CHIP,
@@ -28,7 +29,7 @@ import { tipseenTemplate } from "./tipseen.stories";
 
 ## Overview
 
-Tipseen is a virtual unboxing experience that helps users get started with the system.
+Tipseen is a virtual unboxing experience that helps users get started with the system and discover new features.
 
 <Canvas>
   <Story of={TipseenStories.Overview} />
@@ -42,7 +43,7 @@ Tipseen is a virtual unboxing experience that helps users get started with the s
 
 <UsageGuidelines
   guidelines={[
-    "Use for onboarding screens, new features, or any guidance a user needs.",
+    "Use for onboarding screens, new features discovery, or any guidance a user needs.",
     "Use when the user is not yet familiar with the system’s UI or ready to learn about it.",
     "The tip will appear until closed by an X button or call to action button."
   ]}
@@ -52,10 +53,15 @@ Tipseen is a virtual unboxing experience that helps users get started with the s
 
 ## Variants
 
-### Default
+### Colors
+
+Tipseens come in 2 colors: inverted and primary. \
+The inverted type is the default. \
+Use the inverted color for feature discovery, or to give the user general guidance. \
+Use the primary color to bring attention to updates about your product offering.
 
 <Canvas>
-  <Story of={TipseenStories.Default} />
+  <Story of={TipseenStories.Colors} />
 </Canvas>
 
 ### Tipseen with a wizard
@@ -97,6 +103,40 @@ In this case, the Tipseen position will be the right corner of the screen and wi
     {
       positive: {
         component: (
+          <div className="monday-storybook-tipseen_column-wrapper right">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />}
+            >
+              <div className="monday-storybook-tipseen_inline-container right" />{" "}
+            </Tipseen>
+          </div>
+        ),
+        description:
+          "When using a Tipseen wizard, allow the user to complete the process and close the Tipseen by leaving the last CTA enabled."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-tipseen_column-wrapper right">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} />}
+            >
+              <div className="monday-storybook-tipseen_inline-container right" />{" "}
+            </Tipseen>
+          </div>
+        ),
+        description:
+          "Don’t finish the Tipseen wizard process with a disabled CTA."
+      }
+    },
+    {
+      positive: {
+        component: (
           <div className="monday-storybook-tipseen_box">
             <div className="monday-storybook-tipseen_column-item">
               <Icon icon={Board} iconSize="24" />
@@ -105,7 +145,8 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             <Tipseen
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT}
-              content={<TipseenContent title="Step1 of 7">Click on the “Sales” board to get started</TipseenContent>}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
             >
               <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
                 <Icon icon={Board} iconSize="24" />
@@ -127,7 +168,8 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             <Tipseen
               modifiers={modifiers}
               position={Tipseen.positions.TOP}
-              content={<TipseenContent>You still have 14 days on your Pro trial, Enjoy it!</TipseenContent>}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenContent>You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.</TipseenContent>}
             >
               <div className="monday-storybook-tipseen_inline-container" />
             </Tipseen>
@@ -140,6 +182,47 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             <StorybookLink page="Feedback/AttentionBox">Attention box</StorybookLink> instead.
           </>
         )
+      }
+    },
+        {
+      positive: {
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
+            >
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+          </div>
+        ),
+        description:
+          "Add a pointer to indicate the specific component that the tipseen comes from."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-tipseen_box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              tip={false}
+              content={<TipseenContent title="Step 1 of 5">Click on the “Sales” board to get started.</TipseenContent>}
+            >
+              <div className="monday-storybook-tipseen_column-item monday-storybook-tipseen_hovered">
+                <Icon icon={Board} iconSize="24" />
+                <span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+          </div>
+        ),
+        description:
+          "Don’t use a tipseen without a pointer, unless it’s a general tipseen for an entire screen."
       }
     }
   ]}

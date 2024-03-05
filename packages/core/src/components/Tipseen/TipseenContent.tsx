@@ -1,15 +1,22 @@
-import React, { FC } from "react";
+import React, { FC, useContext, useMemo } from "react";
 import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
 import Button from "../../components/Button/Button";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ButtonPropsBackwardCompatible, DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
+import {
+  ButtonPropsBackwardCompatible,
+  DISMISS_BUTTON_TEXT,
+  SUBMIT_BUTTON_TEXT,
+  TipseenColor
+} from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
 import { VibeComponentProps } from "../../types";
 import { ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import { TipseenContext } from "./Tipseen";
+import { ButtonColor } from "../Button/ButtonConstants";
 
 const EMPTY_OBJECT: ButtonPropsBackwardCompatible = {};
 
@@ -79,6 +86,10 @@ const TipseenContent: FC<TipseenContentProps> = ({
     SUBMIT_BUTTON_TEXT
   );
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
+  const color = useContext(TipseenContext);
+  const buttonColor = useMemo(() => {
+    return color === TipseenColor.INVERTED ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+  }, [color]);
 
   return (
     <TipseenBasicContent title={title} titleClassName={titleClassName} id={id}>
@@ -87,7 +98,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
         {overrideHideDismiss ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
+            color={buttonColor}
             className={cx(styles.dismiss, dismissClassName)}
             size={Button.sizes.SMALL}
             onClick={overrideDismissOnClick}
@@ -100,7 +111,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
         {overrideHideSubmit ? null : (
           <Button
             kind={Button.kinds.PRIMARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
+            color={buttonColor}
             size={Button.sizes.SMALL}
             className={submitClassName}
             onClick={overrideSubmitOnClick}

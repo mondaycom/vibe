@@ -222,6 +222,17 @@ $disabled-on-primary-color-opacity: 0.5;
   color: var(--fixed-light-color);
 }
 
+.kindPrimary.colorOnInvertedBackground {
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+}
+
+.kindPrimary.colorOnInvertedBackgroundActive,
+.kindPrimary.colorOnInvertedBackground:hover,
+.kindPrimary.colorOnInvertedBackground:focus {
+  background: var(--ui-background-color);
+}
+
 .kindPrimary.button.disabled {
   background: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -339,6 +350,17 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorFixedLight:focus {
   backdrop-filter: brightness(85%);
   @include focus-style-on-primary();
+}
+
+.kindSecondary.colorOnInvertedBackground {
+  border-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
+}
+
+.kindSecondary.colorOnInvertedBackgroundActive,
+.kindSecondary.colorOnInvertedBackground:hover,
+.kindSecondary.colorOnInvertedBackground:focus {
+  background: var(--icon-color);
 }
 
 .kindSecondary.colorFixedLight.disabled {

@@ -5,10 +5,12 @@ import NavigationChevronLeft from "../../components/Icon/Icons/components/Naviga
 import Icon from "../../components/Icon/Icon";
 import Button, { ButtonProps } from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
+import { BACK_TEXT, NEXT_TEXT, StepsColor } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
+import { camelCase } from "lodash-es";
+import { getStyle } from "../..//helpers/typesciptCssModulesHelper";
 
 export interface StepsCommandProps extends VibeComponentProps {
   isNext?: boolean;
@@ -17,7 +19,7 @@ export interface StepsCommandProps extends VibeComponentProps {
   stepsCount: number;
   isIconHidden?: boolean;
   buttonProps?: ButtonProps;
-  isOnPrimary?: boolean;
+  color?: StepsColor;
 }
 
 export const StepsCommand: FC<StepsCommandProps> = ({
@@ -26,15 +28,14 @@ export const StepsCommand: FC<StepsCommandProps> = ({
   activeStepIndex,
   stepsCount,
   isIconHidden = false,
-  isOnPrimary = false,
-  buttonProps = {}
+  buttonProps = {},
+  color = StepsColor.PRIMARY
 }) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
     if (buttonChildren) return buttonChildren;
     return isNext ? NEXT_TEXT : BACK_TEXT;
   }, [isNext, buttonChildren]);
-  const buttonBaseColor = isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined;
   const newStepIndex = isNext ? activeStepIndex + 1 : activeStepIndex - 1;
   const onClick = useCallback(
     (e: React.MouseEvent) => onChangeActiveStep(e, newStepIndex),
@@ -52,7 +53,8 @@ export const StepsCommand: FC<StepsCommandProps> = ({
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisabled}
-      color={buttonBaseColor}
+      // @ts-ignore
+      color={color}
       {...otherButtonProps}
     >
       {description}
@@ -60,9 +62,8 @@ export const StepsCommand: FC<StepsCommandProps> = ({
         <Icon
           icon={icon}
           clickable={false}
-          className={cx(styles.icon, {
-            [styles.disabled]: isDisabled,
-            [styles.onPrimary]: isOnPrimary
+          className={cx(styles.icon, getStyle(styles, camelCase("color-" + color)), {
+            [styles.disabled]: isDisabled
           })}
         />
       )}

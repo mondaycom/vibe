@@ -28,11 +28,19 @@
   @include active-step-dot;
 }
 
-.onPrimary.dot {
+.colorOnPrimaryColor.dot {
   background: var(--primary-hover-color);
   @include focus-style-on-primary;
 }
 
-.onPrimary.isActive {
+.colorOnPrimaryColor.dot.isActive {
   background: var(--text-color-on-primary);
+}
+
+.colorOnInvertedBackground.dot {
+  background: var(--placeholder-color);
+}
+
+.colorOnInvertedBackground.dot.isActive {
+  background: var(--text-color-on-inverted);
 }
