@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.215...monday-ui-style@0.2.0) (2024-02-28)
+
+
+### Features
+
+* **colors:** add --primary-highlighted-color token ([#1986](https://github.com/mondaycom/monday-ui-react-core/issues/1986)) ([1207a4a](https://github.com/mondaycom/monday-ui-react-core/commit/1207a4a7bac5d00b90dcd0792396e0c82df7131c))
+* **colors:** change primary-background-hover-color for all themes ([#1980](https://github.com/mondaycom/monday-ui-react-core/issues/1980)) ([2b9cbda](https://github.com/mondaycom/monday-ui-react-core/commit/2b9cbdad1e70b1542450d8c61a08228b7cb63550))
+
+
+
+
+
 ## [0.1.215](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.214...monday-ui-style@0.1.215) (2024-02-14)
 
 

@@ -15,6 +15,10 @@ export const colorsMap = [
     description: "Use this to indicate hover state on a primary-selected-color items"
   },
   {
+    color: "--primary-highlighted-color",
+    description: "Use this to indicate highlighted components of primary items"
+  },
+  {
     color: "--primary-selected-on-secondary-color",
     description: "Use this to indicate selected state of primary items on secondary background color"
   },
