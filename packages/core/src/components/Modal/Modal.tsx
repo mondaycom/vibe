@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useCallback, useMemo, forwardRef, useRef, ForwardedRef } from "react";
+import React, { cloneElement, FC, ReactElement, useCallback, useMemo, useRef } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
