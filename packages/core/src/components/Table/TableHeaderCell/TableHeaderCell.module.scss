@@ -42,7 +42,7 @@
         color: var(--primary-text-color);
       }
 
-      &:not(.show):not(:focus):not(:focus-visible) {
+      &:not(.show) {
         opacity: 0;
         pointer-events: none;
       }

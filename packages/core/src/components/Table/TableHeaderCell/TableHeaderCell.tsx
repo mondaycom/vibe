@@ -50,7 +50,7 @@ const TableHeaderCell: VibeComponent<ITableHeaderCellProps, HTMLDivElement> = fo
         className={cx(styles.tableHeaderCell, { [styles.sortActive]: isSortActive }, className)}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_HEADER_CELL, id)}
         role="columnheader"
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseOver={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onFocus={() => setIsHovered(true)}
         onBlur={() => setIsHovered(false)}
