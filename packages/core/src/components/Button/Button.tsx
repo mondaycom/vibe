@@ -222,7 +222,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           [styles.leftFlat]: leftFlat,
           [styles.preventClickAnimation]: preventClickAnimation,
           [styles.noSidePadding]: noSidePadding,
-          [styles.disabled]: disabledButton,
+          [styles.disabled]: disabled,
           [styles.insetFocusStyle]: insetFocus
         }
       );
