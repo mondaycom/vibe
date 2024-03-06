@@ -83,6 +83,6 @@
     "sass": "^1.70.0",
     "storybook": "^7.5.0",
     "stylelint-config-recommended-scss": "^6.0.0",
-    "vibe-storybook-components": "^0.9.4"
+    "vibe-storybook-components": "0.17.1"
   }
 }
