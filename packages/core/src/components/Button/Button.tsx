@@ -155,8 +155,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     const { loading } = useButtonLoading({ isLoading });
     const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
 
-    const disabledButton = disabled || ariaHidden;
-
     useEffect(() => {
       if (color !== ButtonColor.ON_PRIMARY_COLOR && color !== ButtonColor.FIXED_LIGHT) return;
       if (kind !== ButtonType.PRIMARY) return;
@@ -168,17 +166,17 @@ const Button: VibeComponent<ButtonProps, unknown> & {
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
-      if (disabledButton || !button) {
+      if (disabled || !button) {
         return;
       }
       if (blurOnMouseUp) {
         button.blur();
       }
-    }, [disabledButton, buttonRef, blurOnMouseUp]);
+    }, [disabled, buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if (disabledButton || loading || success) {
+        if (disabled || loading || success) {
           event.preventDefault();
           return;
         }
@@ -187,12 +185,12 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           onClick(event);
         }
       },
-      [onClick, disabledButton, loading, success]
+      [onClick, disabled, loading, success]
     );
 
     const onMouseDownClicked = useCallback(
       (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if (disabledButton || loading || success) {
+        if (disabled || loading || success) {
           event.preventDefault();
           return;
         }
@@ -201,7 +199,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
           onMouseDown(event);
         }
       },
-      [onMouseDown, disabledButton, loading, success]
+      [onMouseDown, disabled, loading, success]
     );
 
     const classNames = useMemo(() => {
@@ -241,7 +239,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       leftFlat,
       preventClickAnimation,
       noSidePadding,
-      disabledButton,
+      disabled,
       insetFocus
     ]);
 
@@ -257,10 +255,10 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
-        tabIndex: disabledButton ? -1 : tabIndex,
+        tabIndex: disabled || ariaHidden ? -1 : tabIndex,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
-        "aria-disabled": disabled && disabledButton,
+        "aria-disabled": disabled,
         "aria-busy": loading,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
@@ -285,7 +283,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       tabIndex,
       overrideDataTestId,
       onMouseDownClicked,
-      disabledButton,
+      disabled,
       loading,
       ariaLabeledBy,
       ariaLabel,
