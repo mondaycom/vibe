@@ -128,7 +128,7 @@ describe("<Button />", () => {
     it("should call the click callback when clicked", () => {
       const { getByText } = render(<Button onClick={onClick}>{text}</Button>);
       fireEvent.mouseDown(getByText(text));
-      expect(onClick.mock.calls.length).toEqual(0);
+      expect(onClick).not.toBeCalled();
     });
 
     it("should call mouse down callback", () => {
