@@ -26,6 +26,10 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
+      - name: Run Build
+        if: ${{matrix.name}} == 'Test'
+        shell: bash
+        run: yarn lerna run build --since=origin/master --include-dependencies
       - name: Run ${{matrix.name}}
         shell: bash
         run: yarn lerna run ${{matrix.command}} --since=origin/master
