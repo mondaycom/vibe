@@ -27,7 +27,7 @@ jobs:
         with:
           npm_token: ${{secrets.npm_token}}
       - name: Run Build
-        if: ${{matrix.name}} == 'Test'
+        if: ${{matrix.name == 'Test'}}
         shell: bash
         run: yarn lerna run build --since=origin/master --include-dependencies
       - name: Run ${{matrix.name}}
