@@ -17,6 +17,7 @@ jobs:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/build-and-upload
   ci:
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -43,7 +44,7 @@ jobs:
         run: yarn lerna run ${{matrix.command}} --since=origin/master
 
   build-storybook:
-    needs: ci
+    needs: [build, ci]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
