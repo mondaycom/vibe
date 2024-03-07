@@ -5,6 +5,17 @@ on:
     types: [opened, synchronize]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - uses: ./.github/actions/build-and-upload
   ci:
     runs-on: ubuntu-latest
     strategy:
@@ -26,6 +37,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
+      - uses: ./.github/actions/download-builds
       - name: Run ${{matrix.name}}
         shell: bash
         run: yarn lerna run ${{matrix.command}} --since=origin/master
@@ -41,8 +53,6 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{secrets.npm_token}}
-      - name: Run Build
-        shell: bash
-        run: yarn lerna run build --since=origin/master --include-dependencies
+      - uses: ./.github/actions/download-builds
       - name: Build Storybook
         run: yarn lerna run build-storybook --since=origin/master
