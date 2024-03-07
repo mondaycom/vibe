@@ -6,16 +6,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Run Setup
-        uses: ./.github/actions/setup
-        with:
-          npm_token: ${{ secrets.npm_token }}
-      - uses: ./.github/actions/build-and-upload
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
   ci:
     needs: build
     runs-on: ubuntu-latest
