@@ -4,14 +4,10 @@ description: Download build artifacts for all the packages and extract them to t
 runs:
   using: "composite"
   steps:
-    - name: Download
+    - name: Download and Extract
       id: download
       continue-on-error: true
       uses: actions/download-artifact@v4
       with:
         name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
-    - name: Extract
-      if: steps.download.outcome == 'success'
-      shell: bash
-      run: |
-        unzip ci-builds-${{ github.run_id }}-${{ github.run_attempt }}.zip -d .
+        path: packages/
