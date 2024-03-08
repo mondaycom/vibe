@@ -73,11 +73,19 @@ const Toast: FC<ToastProps> & { types?: typeof ToastType; actionTypes?: typeof T
     return actions
       ? actions
           .filter(action => action.type === ToastActionType.BUTTON)
-          .map(({ type: _type, content, ...otherProps }, index) => (
-            <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
-              {content}
-            </ToastButton>
-          ))
+          .map(({ type: _type, content, ...otherProps }, index) => {
+            return otherProps.href ? (
+              <a target="_blank" href={otherProps.href} rel="noreferrer">
+                <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
+                  {content}
+                </ToastButton>
+              </a>
+            ) : (
+              <ToastButton key={`alert-button-${index}`} className={styles.actionButton} {...otherProps}>
+                {content}
+              </ToastButton>
+            );
+          })
       : null;
   }, [actions]);
 
