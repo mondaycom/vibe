@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - name: Run Setup
+        uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
+          npm_token: ${{ secrets.npm_token }}
       - name: Build & deploy Storybooks to GitHub Pages
         run: |
-          yarn
-          yarn lerna run build --since=origin/master --include-dependencies
+          yarn lerna run build --include-dependencies
           yarn lerna run --scope monday-ui-react-core build-storybook
           cd packages/core/static_storybook
           echo "style.monday.com" > ./CNAME

@@ -11,7 +11,7 @@
 
   &:hover {
     > * {
-      background-color: var(--allgrey-background-color);
+      background-color: var(--primary-background-hover-color);
     }
 
     &[aria-selected="true"] > * {

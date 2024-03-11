@@ -17,6 +17,7 @@ $theme-black-primary-color: $primary-color;
 $theme-black-primary-hover-color: $primary-hover-color;
 $theme-black-primary-selected-color: $color-ocean_blue;
 $theme-black-primary-selected-hover-color: $color-deep_blue;
+$theme-black-primary-highlighted-color: $color-downriver;
 $theme-black-primary-text-color: $color-smog;
 
 $theme-black-text-color-on-primary: $text-color-on-primary;
@@ -29,7 +30,7 @@ $theme-black-link-color: $color-arctic_blue;
 
 // Background colors
 $theme-black-primary-background-color: $color-vanta;
-$theme-black-primary-background-hover-color: $color-dust;
+$theme-black-primary-background-hover-color: rgba($color-asphalt, 0.3);
 $theme-black-secondary-background-color: $color-night;
 $theme-black-grey-background-color: $color-vanta;
 $theme-black-allgrey-background-color: $color-night;

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.94.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.93.0...monday-ui-react-core@2.94.0) (2024-03-05)
+
+
+### Bug Fixes
+
+* **TableHeaderCell:** change hover color ([#1888](https://github.com/mondaycom/monday-ui-react-core/issues/1888)) ([c057a2e](https://github.com/mondaycom/monday-ui-react-core/commit/c057a2e83d2d3fb62c05e29ab768f44a77045fe9))
+
+
+### Features
+
+* **Flex:** new align's value - baseline ([#1989](https://github.com/mondaycom/monday-ui-react-core/issues/1989)) ([224be04](https://github.com/mondaycom/monday-ui-react-core/commit/224be042e0265740d174f995e290f3cefa36ed1b))
+
+
+
+
+
+# [2.93.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.9...monday-ui-react-core@2.93.0) (2024-02-28)
+
+
+### Features
+
+* **button:** add inverted color to button ([#1981](https://github.com/mondaycom/monday-ui-react-core/issues/1981)) ([9363000](https://github.com/mondaycom/monday-ui-react-core/commit/9363000ab926ba7c55860c00ceb4abcdeef1c04c))
+* **colors:** add --primary-highlighted-color token ([#1986](https://github.com/mondaycom/monday-ui-react-core/issues/1986)) ([1207a4a](https://github.com/mondaycom/monday-ui-react-core/commit/1207a4a7bac5d00b90dcd0792396e0c82df7131c))
+
+
+
+
+
 ## [2.92.9](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.92.8...monday-ui-react-core@2.92.9) (2024-02-19)
 
 
