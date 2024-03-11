@@ -1,0 +1,45 @@
+name: Test & Lint
+
+on:
+  workflow_call:
+    secrets:
+      npm_token:
+        required: true
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  checks:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: "Test"
+            command: "test"
+          - name: "Lint"
+            command: "lint"
+          - name: "Stylelint"
+            command: "stylelint"
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - id: determine-since-flag
+        uses: ./.github/actions/determine-lerna-since-flag
+      - uses: ./.github/actions/download-builds
+      - name: Run ${{ matrix.name }}
+        shell: bash
+        env:
+          SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+        run: yarn lerna run ${{ matrix.command }} $SINCE_FLAG
