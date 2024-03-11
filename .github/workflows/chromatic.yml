@@ -6,24 +6,27 @@ jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: yarn
-      - name: Check if there are changed packages
-        id: changed-packages
-        continue-on-error: true
-        run: |
-          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && echo "HAS_CHANGES=false" >> $GITHUB_ENV || echo "HAS_CHANGES=true" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - id: check-changed-packages
+        uses: ./.github/actions/check-changed-packages
+      - id: determine-since-flag
+        uses: ./.github/actions/determine-lerna-since-flag
       - name: Run Build
-        if: ${{ env.HAS_CHANGES == 'true' }}
+        if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}
         shell: bash
-        run: yarn lerna run build --since=origin/master --include-filtered-dependencies
+        env:
+          SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+        run: yarn lerna run build $SINCE_FLAG --include-filtered-dependencies
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        if: ${{ env.HAS_CHANGES == 'true' }}
+        if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}
+        uses: chromaui/action@v11
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, if you are project maintainer refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/core
