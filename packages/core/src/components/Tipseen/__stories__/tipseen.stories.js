@@ -52,7 +52,7 @@ export const Overview = {
 
   args: {
     title: "Title",
-    children: "Popover message will appear here loremipsum dolor samet…",
+    children: "Message for the user will appear here, to give more information about the feature.",
     position: Tipseen.positions.RIGHT,
     isDismissHidden: false,
     color: Tipseen.colors.INVERTED
@@ -73,7 +73,7 @@ export const Colors = {
               color={Tipseen.colors.INVERTED}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
-                  Popover message will appear here loremipsum dolor samet…
+                  Message for the user will appear here, to give more information about the feature.
                 </TipseenContent>
               }
             >
@@ -86,7 +86,7 @@ export const Colors = {
               position={Tipseen.positions.RIGHT}
               content={
                 <TipseenContent title="This is a title" hideDismiss>
-                  Popover message will appear here loremipsum dolor samet…
+                  Message for the user will appear here, to give more information about the feature.
                 </TipseenContent>
               }
             >
@@ -148,11 +148,11 @@ export const TipseenWithImage = {
     // Therefore, there is no need to move this prop in your implementations.
     () => {
       const content = [
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>
       ];
 
       return (
@@ -201,7 +201,7 @@ export const TipseenWithCustomMedia = {
                 />
               </TipseenMedia>
               <TipseenContent title="This is a title">
-                Popover message will appear here lorem ipsum dolor samet…
+                Message for the user will appear here, to give more information about the feature.
               </TipseenContent>
             </>
           }
@@ -226,7 +226,7 @@ export const FloatingTipseen = {
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
             <TipseenContent title="This is a Floating Tipseen">
-              Popover message will appear here lorem ipsum dolor samet…
+              Message for the user will appear here, to give more information about the feature.
             </TipseenContent>
           </>
         }
