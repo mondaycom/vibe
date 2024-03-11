@@ -233,6 +233,12 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--ui-background-color);
 }
 
+.kindPrimary.colorOnInvertedBackground.disabled {
+  background: var(--ui-background-color);
+  color: var(--primary-text-color);
+  opacity: $disabled-on-primary-color-opacity;
+}
+
 .kindPrimary.button.disabled {
   background: var(--disabled-background-color);
   color: var(--disabled-text-color);
@@ -363,6 +369,12 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--icon-color);
 }
 
+.kindPrimary.colorOnInvertedBackground.disabled {
+  border-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
+  opacity: $disabled-on-primary-color-opacity;
+}
+
 .kindSecondary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
   color: var(--fixed-light-color);
@@ -481,7 +493,13 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorOnInvertedBackgroundActive,
 .kindTertiary.colorOnInvertedBackground:hover,
 .kindTertiary.colorOnInvertedBackground:focus {
-  backdrop-filter: brightness(85%);
+  background: var(--icon-color);
+}
+
+.kindTertiary.colorOnInvertedBackground.disabled {
+  background: var(--icon-color);
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-on-inverted);
 }
 
 .kindTertiary.disabled {
