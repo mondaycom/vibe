@@ -369,7 +369,7 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--icon-color);
 }
 
-.kindPrimary.colorOnInvertedBackground.disabled {
+.kindSecondary.colorOnInvertedBackground.disabled {
   border-color: var(--text-color-on-inverted);
   color: var(--text-color-on-inverted);
   opacity: $disabled-on-primary-color-opacity;
