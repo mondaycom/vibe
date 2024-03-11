@@ -13,7 +13,7 @@ runs:
       shell: bash
       run: |
         if [[ "$GITHUB_REF" == "refs/heads/master" ]]; then
-          since_flag=""
+          since_flag="--since"
           echo "Running on master branch, checking for all changes."
         else
           since_flag="--since=origin/master"
