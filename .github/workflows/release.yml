@@ -4,30 +4,10 @@ on: workflow_dispatch
 
 jobs:
   prerequisites:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: "Test"
-            command: "test"
-          - name: "Lint"
-            command: "lint"
-          - name: "Stylelint"
-            command: "stylelint"
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-    name: ${{ matrix.name }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Run Setup
-        uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Run ${{matrix.name}}
-        shell: bash
-        run: yarn lerna run ${{matrix.command}} --since
+    uses: ./.github/workflows/test.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
   release:
     needs: prerequisites
     runs-on: ubuntu-latest
