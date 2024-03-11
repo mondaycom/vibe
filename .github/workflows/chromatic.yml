@@ -23,8 +23,7 @@ jobs:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
         run: yarn lerna run build $SINCE_FLAG --include-filtered-dependencies
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        if: ${{ env.HAS_CHANGES == 'true' }}
+        uses: chromaui/action@v11
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, if you are project maintainer refer to the manage page to obtain it.
