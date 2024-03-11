@@ -1,0 +1,11 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  pr_checks:
+    uses: ./.github/workflows/test.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
