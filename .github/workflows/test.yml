@@ -7,14 +7,7 @@ on:
         required: true
 
 jobs:
-  build:
-    name: Build
-    uses: ./.github/workflows/build-and-upload.yml
-    secrets:
-      npm_token: ${{ secrets.npm_token }}
-
   checks:
-    needs: build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

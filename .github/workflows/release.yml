@@ -3,13 +3,20 @@ name: Release new version
 on: workflow_dispatch
 
 jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
   prerequisites:
+    needs: build
     uses: ./.github/workflows/test.yml
     secrets:
       npm_token: ${{ secrets.npm_token }}
 
   release:
-    needs: prerequisites
+    needs: [build, prerequisites]
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.npm_token }}

@@ -5,7 +5,14 @@ on:
     types: [opened, synchronize]
 
 jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
   pr_checks:
+    needs: build
     uses: ./.github/workflows/test.yml
     secrets:
       npm_token: ${{ secrets.npm_token }}
