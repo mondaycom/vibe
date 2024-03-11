@@ -1,9 +1,7 @@
 # monday.com UI styles
 
-> This package includes all of the styling foundations of monday.com
+> This package includes all of the styling foundations of monday.com's Vibe Design System
 > Theme definition, colors, shadows, dimensions, icons, etc.
-
-Although we use React in our product this library will try to stay framework agnostic, we expose here the foundations of our design system so they can be used regardless the framework/environment you are using.
 
 ## Installation
 

@@ -1,7 +1,6 @@
 {
-  "include": ["storybook/**/*", "types/**/*"],
+  "include": ["src/**/*"],
   "compilerOptions": {
-    "rootDir": "./storybook",
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "target": "es6",
@@ -16,7 +15,6 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "esModuleInterop": true
   }
