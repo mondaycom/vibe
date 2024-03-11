@@ -2,10 +2,10 @@ name: Check Changed Packages
 description: Check if there are any changed packages in the monorepo
 
 inputs:
-  exit_code_on_no_changes:
-    description: Exit code to use if no changes are detected. Do not supply value in case you want to continue without exiting even if no changes found.
+  exit_on_no_changes:
+    description: Whether to exit with a non-zero code if there are no changes.
     required: false
-    default: ""
+    default: "false"
 outputs:
   has_changes:
     description: Whether there are any changes in the monorepo.
@@ -26,10 +26,10 @@ runs:
         if [[ $changed_packages = "[]" ]]; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
           echo "No packages to process as Lerna didn't detect any changes."
-          if [[ -n "${{ inputs.exit_code_on_no_changes }}" ]]; then
-            exit ${{ inputs.exit_code_on_no_changes }}
+          if [[ "${{ inputs.exit_on_no_changes }}" == "true" ]]; then
+            exit 1
           else
-            echo "Continuing because exit_code_on_no_changes is not used."
+            echo "Continuing because exit_on_no_changes is not used."
           fi
         else
           echo "has_changes=true" >> $GITHUB_OUTPUT
