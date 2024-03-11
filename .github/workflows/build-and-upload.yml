@@ -17,9 +17,13 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{ secrets.npm_token }}
+      - id: determine-since-flag
+        uses: ./.github/actions/determine-lerna-since-flag
       - name: Build
         shell: bash
-        run: yarn lerna run build --since=origin/master --include-dependencies
+        env:
+          SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+        run: yarn lerna run build $SINCE_FLAG --include-dependencies
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
