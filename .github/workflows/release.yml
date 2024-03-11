@@ -12,7 +12,7 @@ jobs:
     needs: prerequisites
     runs-on: ubuntu-latest
     env:
-      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,11 +20,9 @@ jobs:
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
-          npm_token: ${{secrets.npm_token}}
+          npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
-      - name: Run Build
-        shell: bash
-        run: yarn lerna run build --since --include-dependencies
+      - uses: ./.github/actions/download-builds
       - name: Generate new versions
         run: yarn lerna version --exact --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/
