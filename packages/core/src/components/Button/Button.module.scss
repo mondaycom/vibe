@@ -233,7 +233,7 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--ui-background-color);
 }
 
-.kindPrimary.colorOnInvertedBackground.disabled {
+.kindPrimary.button.colorOnInvertedBackground.disabled {
   background: var(--ui-background-color);
   color: var(--primary-text-color);
   opacity: $disabled-on-primary-color-opacity;
