@@ -35,7 +35,7 @@ export interface ButtonProps extends VibeComponentProps {
   size?: Size;
   /** The button's color */
   color?: ButtonColor;
-  /** The button's type */
+  /** The button's type */ //
   type?: ButtonInputType;
   /** Whether the button should be disabled or not */
   disabled?: boolean;
