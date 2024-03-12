@@ -1,12 +1,15 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { act } from "@testing-library/react-hooks";
 import IconButton, { IconButtonProps } from "../IconButton";
 
 jest.useFakeTimers();
 
-const renderComponent = (props: IconButtonProps) => {
-  return render(<IconButton {...props} />);
+const ariaLabel = "Button Icon";
+
+const renderComponent = (props: IconButtonProps = {}) => {
+  return render(<IconButton ariaLabel={ariaLabel} {...props} />);
 };
 
 describe("IconButton tests", () => {
@@ -17,8 +20,7 @@ describe("IconButton tests", () => {
   describe("click", () => {
     it("should call the callback function when clicked ", () => {
       const onClick = jest.fn();
-      const ariaLabel = "Button Icon";
-      renderComponent({ onClick, ariaLabel });
+      renderComponent({ onClick });
       const component = screen.getByLabelText(ariaLabel);
       fireEvent.click(component);
       expect(onClick.mock.calls.length).toBe(1);
@@ -26,8 +28,7 @@ describe("IconButton tests", () => {
 
     it("should not call the callback if disabled when clicked ", () => {
       const onClick = jest.fn();
-      const ariaLabel = "Button Icon";
-      renderComponent({ onClick, ariaLabel, disabled: true });
+      renderComponent({ onClick, disabled: true });
       const component = screen.getByLabelText(ariaLabel);
       fireEvent.click(component);
       expect(onClick.mock.calls.length).toBe(0);
@@ -35,11 +36,10 @@ describe("IconButton tests", () => {
   });
 
   describe("Tooltips", () => {
-    it("should display the tooltip content", () => {
+    it("should display the tooltip content", async () => {
       const tooltipContent = "My Text";
-      const ariaLabel = "Button Icon";
 
-      renderComponent({ tooltipContent, ariaLabel });
+      renderComponent({ tooltipContent });
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
@@ -54,9 +54,7 @@ describe("IconButton tests", () => {
     });
 
     it("should display the tooltip with aria label", () => {
-      const ariaLabel = "Button Icon";
-
-      renderComponent({ ariaLabel });
+      renderComponent();
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
@@ -71,10 +69,9 @@ describe("IconButton tests", () => {
     });
 
     it("should display not disabledReason if disabled is false", () => {
-      const ariaLabel = "Button Icon";
       const disabledReason = "I'm a disabled button";
 
-      renderComponent({ ariaLabel, disabledReason });
+      renderComponent({ disabledReason });
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
@@ -89,10 +86,9 @@ describe("IconButton tests", () => {
     });
 
     it("should display disabledReason if disabled is true", () => {
-      const ariaLabel = "Button Icon";
       const disabledReason = "I'm a disabled button";
 
-      renderComponent({ ariaLabel, disabledReason, disabled: true });
+      renderComponent({ disabledReason, disabled: true });
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
@@ -104,6 +100,22 @@ describe("IconButton tests", () => {
         fireEvent.mouseLeave(component);
       });
       jest.advanceTimersByTime(1000);
+    });
+  });
+
+  describe("a11y", () => {
+    describe("aria-hidden", () => {
+      it("should pass aria-hidden attribute to Button component", () => {
+        const { getByRole } = renderComponent({ "aria-hidden": true });
+        const buttonComponent = getByRole("button", { hidden: true });
+        expect(buttonComponent).toHaveAttribute("aria-hidden", "true");
+      });
+
+      it("should not have aria-hidden attribute on Button component if not specified", () => {
+        const { getByRole } = renderComponent();
+        const buttonComponent = getByRole("button");
+        expect(buttonComponent).not.toHaveAttribute("aria-hidden");
+      });
     });
   });
 });

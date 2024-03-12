@@ -27,7 +27,7 @@ Please go over the checklist and make sure all conditions are met.
 
 #### Tests
 
-- [ ] Tests are compliant with [TESTING_README.md](TESTING_README.md) instructions.
+- [ ] Tests are compliant with [TESTING_README.md](/packages/core/TESTING_README.md) instructions.
 
 #### Accessibility
 

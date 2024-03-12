@@ -3,36 +3,27 @@ name: Release new version
 on: workflow_dispatch
 
 jobs:
-  prerequisites:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: "Test"
-            command: "test"
-          - name: "Lint"
-            command: "lint"
-          - name: "Stylelint"
-            command: "stylelint"
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-    name: ${{ matrix.name }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Run Setup
-        uses: ./.github/actions/setup
-        with:
-          npm_token: ${{secrets.npm_token}}
-      - name: Run ${{matrix.name}}
-        shell: bash
-        run: yarn lerna run ${{matrix.command}} --since
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  test:
+    name: Test
+    needs: build
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
+    uses: ./.github/workflows/test.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
   release:
-    needs: prerequisites
+    name: Release
+    needs: [build, test]
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     env:
-      NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,11 +31,9 @@ jobs:
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
-          npm_token: ${{secrets.npm_token}}
+          npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
-      - name: Run Build
-        shell: bash
-        run: yarn lerna run build --since --include-dependencies
+      - uses: ./.github/actions/download-builds
       - name: Generate new versions
         run: yarn lerna version --exact --conventional-commits -y
       - run: yarn config set registry https://registry.npmjs.org/

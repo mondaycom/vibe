@@ -1,0 +1,61 @@
+import { Canvas, Story, Meta } from "@storybook/blocks";
+import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
+import { ComponentNameDecorator } from "../../components";
+import { Frame } from "vibe-storybook-components";
+import { menuExample, tipseenExample, toolbarExample } from "./assets";
+import { COLORS, SHADOW, TYPOGRAPHY } from "../../components/related-components/component-description-map";
+import { TipApplyingSpacing } from "./spacing.stories.helpers";
+import "./spacing.scss";
+
+<Meta title="Foundations/Spacing" />
+
+<ComponentNameDecorator withFoundationBackground>Spacing</ComponentNameDecorator>
+
+- [Overview](#overview)
+- [Spacing sizes](#spacing-sizes)
+- [Usage and examples](#usage-and-examples)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+
+Positioning UI should be with taught including the empty space between components.
+This is what creates relationships and hierarchy withing the visual controls.
+
+## Spacing sizes
+
+Using the right sizes will create consistency and hierarchy in user interface.
+
+<Canvas>
+  <Story name="Spacing sizes">
+    <SpacingSizes />
+  </Story>
+</Canvas>
+
+<TipApplyingSpacing />
+
+## Usage and examples
+
+<UsageGuidelines
+  guidelines={[
+    "You can double the sizes to create bigger spacings",
+    "Stay consistent with paddings and sizes across different UI components",
+    "Align all the elements to the same spacing within the components or a page"
+  ]}
+/>
+
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--menu" src={menuExample} alt="" />
+</Frame>
+
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--toolbar" src={toolbarExample} alt="" />
+</Frame>
+
+<Frame className="monday-storybook-spacing_image-container ">
+  <img className="monday-storybook-spacing_image--tipseen" src={tipseenExample} alt="" />
+</Frame>
+
+## Up next
+
+<RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, COLORS]} />

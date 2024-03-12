@@ -1,0 +1,38 @@
+name: Check Changed Packages
+description: Check if there are any changed packages in the monorepo
+
+inputs:
+  exit_on_no_changes:
+    description: Whether to exit with a non-zero code if there are no changes.
+    required: false
+    default: "false"
+outputs:
+  has_changes:
+    description: Whether there are any changes in the monorepo.
+    value: ${{ steps.check-changed-packages.outputs.has_changes }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: determine-since-flag
+      uses: ./.github/actions/determine-lerna-since-flag
+    - id: check-changed-packages
+      shell: bash
+      env:
+        SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+      run: |
+        changed_packages=$(yarn -s lerna ls $SINCE_FLAG --json --loglevel=error)
+
+        if [[ $changed_packages = "[]" ]]; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "No packages to process as Lerna didn't detect any changes."
+          if [[ "${{ inputs.exit_on_no_changes }}" == "true" ]]; then
+            exit 1
+          else
+            echo "Continuing because exit_on_no_changes is not used."
+          fi
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "Change detected:"
+          echo "$changed_packages"
+        fi

@@ -6,8 +6,17 @@ on:
       - "master"
 
 jobs:
-  prerelease:
+  build:
+    name: Build
     if: "contains(github.event.head_commit.message, '[prerelease]')"
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  prerelease:
+    name: Prerelease
+    needs: build
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,12 +27,7 @@ jobs:
         with:
           npm_token: ${{ secrets.npm_token }}
       - uses: ./.github/actions/git-creds
-      - name: Check if there are changed packages
-        run: |
-          changed_packages=$(yarn -s lerna ls --since=origin/master --json --loglevel=error)
-          [[ $changed_packages = "[]" ]] && echo "Skipping prerelease. Nothing to prerelease as Lerna didn't detect any changes." && exit 1 || echo "Changed detected. Continuing to prerelease" && echo "$changed_packages"
-      - name: Build all affected packages
-        run: yarn lerna run build --since=origin/master --include-dependencies
+      - uses: ./.github/actions/download-builds
       - name: Generate new versions
         id: generate-versions
         run: |
