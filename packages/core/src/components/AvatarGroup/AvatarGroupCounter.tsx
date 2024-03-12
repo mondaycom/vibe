@@ -46,7 +46,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,
     ariaLabelItemsName: counterAriaLabelItemsName = "items",
-    ...rest
+    noAnimation
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -63,10 +63,18 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         prefix={counterPrefix}
         maxDigits={counterMaxDigits}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
-        {...rest}
+        noAnimation={noAnimation}
       />
     );
-  }, [counterAriaLabel, counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue, rest]);
+  }, [
+    counterAriaLabel,
+    counterAriaLabelItemsName,
+    counterColor,
+    counterMaxDigits,
+    counterPrefix,
+    counterValue,
+    noAnimation
+  ]);
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
