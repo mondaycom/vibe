@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.95.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.94.0...monday-ui-react-core@2.95.0) (2024-03-12)
+
+
+### Features
+
+* **AvatarGroupCounter:** pass noAnimation prop ([#2010](https://github.com/mondaycom/monday-ui-react-core/issues/2010)) ([048b163](https://github.com/mondaycom/monday-ui-react-core/commit/048b1639fe6f648450802889624d876c181fc12f))
+* **Table:** new sort behavior ([#1935](https://github.com/mondaycom/monday-ui-react-core/issues/1935)) ([32790f4](https://github.com/mondaycom/monday-ui-react-core/commit/32790f4309daf9bd38c9eeb62e6b11cbd52baea0))
+
+
+
+
+
 # [2.94.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.93.0...monday-ui-react-core@2.94.0) (2024-03-05)
 
 
