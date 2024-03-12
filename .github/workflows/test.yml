@@ -1,3 +1,6 @@
+# Notice that for this workflow to run properly, you need to first run the build-and-upload workflow.
+# This is because the test workflow depends on the build-and-upload workflow to download the builds from a previous job in the same workflow run.
+
 name: Test & Lint
 
 on:
