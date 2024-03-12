@@ -22,6 +22,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           npm_token: ${{ secrets.npm_token }}
+      - uses: ./.github/actions/download-builds
       - name: Publish to Chromatic
         uses: chromaui/action@v11
         with:
