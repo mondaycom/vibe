@@ -29,14 +29,14 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -78,14 +78,14 @@ exports[`Steps with gallery type renders correctly when navigation buttons are h
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -123,7 +123,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -146,14 +146,14 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -174,7 +174,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -218,7 +218,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -241,14 +241,14 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       <button
         aria-current="step"
         aria-label="Step number 0"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -268,7 +268,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -314,7 +314,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -337,14 +337,14 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       <button
         aria-current={false}
         aria-label="Step number 0"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -365,7 +365,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -412,7 +412,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -435,14 +435,14 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       <button
         aria-current="step"
         aria-label="Step number 0"
-        className="dot isActive galleryHeaderDot"
+        className="dot colorPrimary isActive galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
-        className="dot galleryHeaderDot"
+        className="dot colorPrimary galleryHeaderDot"
         onClick={[Function]}
         type="button"
       />
@@ -462,7 +462,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -561,7 +561,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -599,7 +599,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -643,7 +643,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -680,7 +680,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       Next
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -726,7 +726,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Back
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -764,7 +764,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       Next
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -811,7 +811,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Back
       <svg
         aria-hidden={true}
-        className="icon icon disabled"
+        className="icon icon colorPrimary disabled"
         data-testid="icon"
         fill="currentColor"
         height="16"
@@ -848,7 +848,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       Next
       <svg
         aria-hidden={true}
-        className="icon icon"
+        className="icon icon colorPrimary"
         data-testid="icon"
         fill="currentColor"
         height="16"

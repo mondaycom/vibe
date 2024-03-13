@@ -15,6 +15,14 @@ export const modifiers = [
   }
 ];
 
+export const wizardContent = [
+  <div>Message for the user will appear here, to give more information about the feature.</div>,
+  <div>Message for the user will appear here, to give more information about the feature.</div>,
+  <div>Message for the user will appear here, to give more information about the feature.</div>,
+  <div>Message for the user will appear here, to give more information about the feature.</div>,
+  <div>Message for the user will appear here, to give more information about the feature.</div>
+];
+
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     If you need to provide additional information about a component, use the{" "}

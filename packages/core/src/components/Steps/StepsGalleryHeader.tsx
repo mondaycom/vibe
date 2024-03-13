@@ -3,13 +3,14 @@ import { range } from "lodash-es";
 import { StepsDot } from "./StepsDot";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./StepsGalleryHeader.module.scss";
+import { StepsColor } from "./StepsConstants";
 
 export interface StepsGalleryHeaderProps extends VibeComponentProps {
   activeStepIndex: number;
   stepsCount: number;
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
   stepDescriptionFunc: (stepIndex: number) => string;
-  isOnPrimary?: boolean;
+  color?: StepsColor;
 }
 
 export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
@@ -17,7 +18,7 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
   stepsCount,
   onChangeActiveStep,
   stepDescriptionFunc,
-  isOnPrimary
+  color
 }) => {
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
   const defaultStepDescriptionFunc = useCallback((stepIndex: number) => `Step number ${stepIndex}`, []);
@@ -36,13 +37,13 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
             key={`monday-style-step-dot-${stepIndex + 1}`}
             ariaLabel={overrideStepDescriptionFunc(stepIndex)}
             onClick={onClickFunctions[stepIndex]}
-            isOnPrimary={isOnPrimary}
+            color={color}
             className={styles.galleryHeaderDot}
           />
         ),
         []
       ),
-    [activeStepIndex, isOnPrimary, onClickFunctions, overrideStepDescriptionFunc, stepsPlaceholders]
+    [activeStepIndex, color, onClickFunctions, overrideStepDescriptionFunc, stepsPlaceholders]
   );
 
   return (
