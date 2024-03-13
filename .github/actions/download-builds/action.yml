@@ -1,0 +1,11 @@
+name: Download and Extract Build Artifacts
+description: Download build artifacts for all the packages and extract them to the correct location
+
+runs:
+  using: "composite"
+  steps:
+    - name: Download and Extract
+      uses: actions/download-artifact@v4
+      with:
+        name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
+        path: packages/

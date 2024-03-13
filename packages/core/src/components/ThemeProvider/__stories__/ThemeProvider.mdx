@@ -7,6 +7,7 @@ import {
   UsageGuidelinesThemeProvider
 } from "./ThemeProvider.stories.helpers";
 import * as ThemeProviderStories from "./ThemeProvider.stories";
+import { Frame } from "vibe-storybook-components";
 
 <Meta of={ThemeProviderStories} />
 
@@ -49,7 +50,9 @@ There are 3 system themes <code>light</code>, <code>dark</code> and <code>black<
 
 ### Colors eligible for theming
 
-<Story of={ThemeProviderStories.ColorsEligibleForTheming} />
+<Frame>
+  <Story of={ThemeProviderStories.ColorsEligibleForTheming} />
+</Frame>
 
 ## Use cases and examples
 

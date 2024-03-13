@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-style",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
@@ -17,13 +17,9 @@
     "plop": "plop",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\"",
-    "storybook": "storybook dev -p 7006",
-    "build-storybook": "storybook build"
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
   },
   "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": ">=16.9.0",
     "stylelint": "^14.1.0"
   },
   "repository": {
@@ -54,35 +50,15 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
-    "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@storybook/addon-essentials": "^7.5.0",
-    "@storybook/addon-interactions": "^7.5.0",
-    "@storybook/addon-links": "^7.5.0",
-    "@storybook/addon-themes": "^7.5.0",
-    "@storybook/blocks": "^7.5.0",
-    "@storybook/manager-api": "^7.5.0",
-    "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^7.5.0",
-    "@storybook/react-webpack5": "^7.5.0",
-    "@storybook/testing-library": "^0.2.2",
-    "@storybook/theming": "^7.5.0",
     "@types/jest": "^27.4.1",
-    "changelog": "^1.4.2",
-    "chromatic": "^6.20.0",
-    "classnames": "^2.3.2",
     "clean-css-cli": "^4.3.0",
     "execa": "^5.1.1",
     "jest": "^27.5.1",
     "node-plop": "^0.26.2",
     "plop": "^2.7.4",
     "prettier": "^2.0.5",
-    "prop-types": "^15.8.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
     "sass": "^1.70.0",
-    "storybook": "^7.5.0",
-    "stylelint-config-recommended-scss": "^6.0.0",
-    "vibe-storybook-components": "^0.9.4"
+    "stylelint-config-recommended-scss": "^6.0.0"
   }
 }
