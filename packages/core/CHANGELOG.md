@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.96.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.95.0...monday-ui-react-core@2.96.0) (2024-03-13)
+
+
+### Features
+
+* Add inverted variant to Tipseen and Steps ([#1995](https://github.com/mondaycom/monday-ui-react-core/issues/1995)) ([6e4bbb4](https://github.com/mondaycom/monday-ui-react-core/commit/6e4bbb42c51b36f4a15c438bee011f7edf9e88be))
+* Align vibe's colors to new a11y based colors ([#2009](https://github.com/mondaycom/monday-ui-react-core/issues/2009)) ([6c6e156](https://github.com/mondaycom/monday-ui-react-core/commit/6c6e156b875d06a17ba4697c92cfcdf7dba4d020))
+* **ModalFooterButtons:** support disable buttons and remove secondary ([#2016](https://github.com/mondaycom/monday-ui-react-core/issues/2016)) ([41d2a99](https://github.com/mondaycom/monday-ui-react-core/commit/41d2a991bc10ce1bc43627bb292459f29b31ee83))
+
+
+
+
+
 # [2.95.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.94.0...monday-ui-react-core@2.95.0) (2024-03-12)
 
 

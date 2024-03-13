@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.2.1...monday-ui-style@0.3.0) (2024-03-13)
+
+
+### Features
+
+* Align vibe's colors to new a11y based colors ([#2009](https://github.com/mondaycom/monday-ui-react-core/issues/2009)) ([6c6e156](https://github.com/mondaycom/monday-ui-react-core/commit/6c6e156b875d06a17ba4697c92cfcdf7dba4d020))
+
+
+
+
+
 ## [0.2.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.2.0...monday-ui-style@0.2.1) (2024-03-12)
 
 **Note:** Version bump only for package monday-ui-style
