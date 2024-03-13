@@ -42,5 +42,20 @@ describe("ModalFooterButtons", () => {
       expect(onSecondaryButtonClick).toBeCalledTimes(1);
       expect(onPrimaryButtonClick).not.toBeCalled();
     });
+
+    it("should not call onPrimaryButtonClick after click confirm when primary button is disabled", () => {
+      const onPrimaryButtonClick = jest.fn();
+      const onSecondaryButtonClick = jest.fn();
+      const modalFooterComponent = renderComponent({
+        primaryButtonText: PRIMARY_BUTTON_TEXT,
+        secondaryButtonText: SECONDARY_BUTTON_TEXT,
+        disablePrimaryButton: true,
+        onPrimaryButtonClick,
+        onSecondaryButtonClick
+      });
+      fireEvent.click(modalFooterComponent.getByText(PRIMARY_BUTTON_TEXT));
+      expect(onPrimaryButtonClick).not.toBeCalled();
+      expect(onSecondaryButtonClick).not.toBeCalled();
+    });
   });
 });
