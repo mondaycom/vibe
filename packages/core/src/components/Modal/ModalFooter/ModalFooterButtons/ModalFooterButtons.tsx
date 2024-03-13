@@ -11,7 +11,6 @@ export interface ModalFooterButtonsProps extends VibeComponentProps {
   primaryButtonText: string;
   secondaryButtonText?: string;
   disablePrimaryButton?: boolean;
-  disableSecondaryButton?: boolean;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick?: () => void;
 }
@@ -22,7 +21,6 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
       primaryButtonText,
       secondaryButtonText,
       disablePrimaryButton,
-      disableSecondaryButton,
       onPrimaryButtonClick,
       onSecondaryButtonClick,
       className,
@@ -41,7 +39,7 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
       >
         <Flex justify={Flex.justify.END} gap={Flex.gaps.SMALL}>
           {secondaryButtonText && (
-            <Button onClick={onSecondaryButtonClick} kind={Button.kinds.TERTIARY} disabled={disableSecondaryButton}>
+            <Button onClick={onSecondaryButtonClick} kind={Button.kinds.TERTIARY}>
               {secondaryButtonText}
             </Button>
           )}
