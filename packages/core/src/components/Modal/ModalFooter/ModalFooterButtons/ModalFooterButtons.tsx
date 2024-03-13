@@ -9,7 +9,9 @@ import ModalFooter from "../ModalFooter";
 
 export interface ModalFooterButtonsProps extends VibeComponentProps {
   primaryButtonText: string;
-  secondaryButtonText: string;
+  secondaryButtonText?: string;
+  disablePrimaryButton?: boolean;
+  disableSecondaryButton?: boolean;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick?: () => void;
 }
@@ -19,6 +21,8 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
     {
       primaryButtonText,
       secondaryButtonText,
+      disablePrimaryButton,
+      disableSecondaryButton,
       onPrimaryButtonClick,
       onSecondaryButtonClick,
       className,
@@ -36,10 +40,14 @@ const ModalFooterButtons: VibeComponent<ModalFooterButtonsProps> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_FOOTER_BUTTONS, id)}
       >
         <Flex justify={Flex.justify.END} gap={Flex.gaps.SMALL}>
-          <Button onClick={onSecondaryButtonClick} kind={Button.kinds.TERTIARY}>
-            {secondaryButtonText}
+          {secondaryButtonText && (
+            <Button onClick={onSecondaryButtonClick} kind={Button.kinds.TERTIARY} disabled={disableSecondaryButton}>
+              {secondaryButtonText}
+            </Button>
+          )}
+          <Button onClick={onPrimaryButtonClick} disabled={disablePrimaryButton}>
+            {primaryButtonText}
           </Button>
-          <Button onClick={onPrimaryButtonClick}>{primaryButtonText}</Button>
         </Flex>
       </ModalFooter>
     );
