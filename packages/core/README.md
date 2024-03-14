@@ -10,14 +10,6 @@
 | --------- | --------- | --------- | --------- | --------- | --------- |
 | last 4 versions| last 4 versions| 14+| last 2 versions| last 2 versions| last 2 versions |
 
-## Installation
-
-Install the component library
-
-```
-npm install monday-ui-react-core
-```
-
 ## Usage
 
 Components are imported from the library's root entry:
@@ -32,7 +24,7 @@ In order to load all the relevant CSS tokens, you should import the `tokens` fil
 import "monday-ui-react-core/tokens";
 ```
 
-_If your project (or it's Storybook) is importing files differently - read more [here](DEPRECATED_IMPORTS.md)._
+_If your project (or it's Storybook) is importing files differently - read more [here](./DEPRECATED_IMPORTS.md)._
 
 ### Font installation
 
@@ -81,10 +73,6 @@ npm link
 npm start
 ```
 
-## Contributing
-
-We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR
-
 ## Themes
 
-We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](THEME_README.md) file
+We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](./THEME_README.md) file
