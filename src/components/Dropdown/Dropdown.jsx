@@ -203,7 +203,7 @@ const Dropdown = forwardRef(
 
     const Input = useCallback(
       props => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
-      []
+      [menuId]
     );
 
     const SingleValue = useCallback(
@@ -348,7 +348,7 @@ const Dropdown = forwardRef(
         aria-expanded={!readOnly && menuIsOpen}
         aria-haspopup="listbox"
         aria-activedescendant
-        role={"combobox"}
+        role="combobox"
         defaultValue={defaultValue}
         value={value}
         onMenuOpen={onMenuOpen}
@@ -616,6 +616,14 @@ Dropdown.propTypes = {
    * ID for the select container
    */
   id: PropTypes.string,
+  /**
+   * ID for the menu container
+   */
+  menuId: PropTypes.string,
+  /**
+   * aria-label attribute for the menu container
+   */
+  menuAriaLabel: PropTypes.string,
   /**
    * focusAuto when component mount
    */

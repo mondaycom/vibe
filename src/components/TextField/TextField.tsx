@@ -138,7 +138,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     },
     ref
   ) => {
-    const [requiredAndEmpty, setRequiredAndEmpty] = useState(false);
+    const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
 
     const overrideDataTestId = backwardCompatibilityForProperties(
       [dataTestId, backwardCompatibilityDataTestId],
@@ -150,7 +150,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     const onBlurCallback = useCallback(
       (e: React.FocusEvent<HTMLInputElement>) => {
         if (required && !e.target.value) {
-          setRequiredAndEmpty(true);
+          setIsRequiredAndEmpty(true);
         }
         onBlur(e);
       },
@@ -159,12 +159,12 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
 
     const onChangeCallback = useCallback(
       (value: string) => {
-        if (requiredAndEmpty && value) {
-          setRequiredAndEmpty(false);
+        if (isRequiredAndEmpty && value) {
+          setIsRequiredAndEmpty(false);
         }
         onChange(value, { target: inputRef.current });
       },
-      [onChange, requiredAndEmpty]
+      [onChange, isRequiredAndEmpty]
     );
 
     const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
@@ -198,15 +198,15 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
     }, [inputRef, disabled, clearOnIconClick, onIconClick, currentStateIconName, clearValue]);
 
     const validationClass = useMemo(() => {
-      if ((!validation || !validation.status) && !requiredAndEmpty) {
+      if ((!validation || !validation.status) && !isRequiredAndEmpty) {
         return "";
       }
-      const status = requiredAndEmpty ? "error" : validation.status;
+      const status = isRequiredAndEmpty ? "error" : validation.status;
       return FEEDBACK_CLASSES[status];
-    }, [validation, requiredAndEmpty]);
+    }, [validation, isRequiredAndEmpty]);
 
     const hasIcon = iconName || secondaryIconName;
-    const shouldShowExtraText = showCharCount || (validation && validation.text) || requiredAndEmpty;
+    const shouldShowExtraText = showCharCount || (validation && validation.text) || isRequiredAndEmpty;
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
@@ -262,7 +262,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
               maxLength={maxLength}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
-              aria-invalid={(validation && validation.status === "error") || requiredAndEmpty}
+              aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               aria-required={required}
@@ -324,7 +324,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
             <Text type={Text.types.TEXT2} color={Text.colors.SECONDARY} className={cx(styles.subTextContainer)}>
               {validation && validation.text && (
                 <span className={cx(styles.subTextContainerStatus)}>
-                  {requiredAndEmpty ? requiredErrorText : validation.text}
+                  {isRequiredAndEmpty ? requiredErrorText : validation.text}
                 </span>
               )}
               {showCharCount && (

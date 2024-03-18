@@ -17,22 +17,24 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, i
   const withoutAnimation = true;
 
   return (
-    <div id={id} role="listbox" aria-label={ariaLabel}>
-      <components.Menu
-        {...props}
-        className={cx(
-          styles.dropdownMenuWrapper,
-          {
-            [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition,
-            [styles.withoutAnimation]: withoutAnimation
-          },
-          dropdownMenuWrapperClassName
-        )}
-      >
-        {Renderer && Renderer(rendererProps)}
-        {!Renderer && children}
-      </components.Menu>
-    </div>
+    <components.Menu
+      {...props}
+      className={cx(
+        styles.dropdownMenuWrapper,
+        {
+          [styles.dropdownMenuWrapperFixedPosition]: withFixedPosition,
+          [styles.withoutAnimation]: withoutAnimation
+        },
+        dropdownMenuWrapperClassName
+      )}
+      innerProps={{
+        role: "listbox",
+        "aria-label": ariaLabel
+      }}
+    >
+      {Renderer && Renderer(rendererProps)}
+      {!Renderer && children}
+    </components.Menu>
   );
 };
 

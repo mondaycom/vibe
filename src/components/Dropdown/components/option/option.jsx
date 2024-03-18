@@ -10,17 +10,23 @@ const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) 
   const rendererProps = { children, data, ...props };
   return (
     <Tooltip {...tooltipProps} position={Tooltip.positions.RIGHT}>
-      <div role="option" aria-selected={props.isSelected}>
         {Renderer ? (
-          <components.Option {...rendererProps} className={cx(styles.optionReset, optionWrapperClassName)}>
+          <components.Option {...rendererProps} className={cx(styles.optionReset, optionWrapperClassName)}
+            innerProps={{
+              role: "option",
+              "aria-selected":{props.isSelected}
+          }}>
             <Renderer {...rendererProps} {...data} /> {/* Spreading data here for a backward compatability */}
           </components.Option>
         ) : (
-          <components.Option {...rendererProps} className={cx(styles.optionReset, optionWrapperClassName)}>
+          <components.Option {...rendererProps} className={cx(styles.optionReset, optionWrapperClassName)}
+          innerProps={{
+              role: "option",
+              "aria-selected": props.isSelected
+          }}>
             <ChildrenContent data={data}>{children}</ChildrenContent>
           </components.Option>
         )}
-      </div>
     </Tooltip>
   );
 };
