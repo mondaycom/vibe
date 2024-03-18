@@ -49,7 +49,7 @@ export interface ModalProps {
    */
   width?: typeof ModalWidth | string;
   /**
-   *  Hide the modal close button
+   * @deprecated
    */
   hideCloseButton?: boolean;
   /**
