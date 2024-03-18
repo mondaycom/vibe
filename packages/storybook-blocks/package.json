@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mondaycom/vibe-storybook-components.git"
+    "url": "git@github.com:mondaycom/monday-ui-react-core.git"
   },
   "sideEffects": [
     "*.scss",
@@ -33,18 +33,16 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs && npm run copy-mixins-to-dist",
+    "build": "rollup -c --bundleConfigAsCjs && yarn copy-mixins-to-dist",
     "copy-mixins-to-dist": "scripts/copy-mixins-to-dist.sh",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "prettier:fix": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
     "test": "jest --passWithNoTests",
-    "test:update": "npm run test -- -u",
+    "test:update": "yarn test -- -u",
     "test:stories": "testing=storybook TEST_END_FILES=jest-story jest --passWithNoTests",
     "storybook": "storybook dev -p 7012",
-    "build-storybook": "storybook build",
-    "release": "./scripts/release.mjs",
-    "pre-release": "./scripts/prerelease.mjs"
+    "build-storybook": "storybook build"
   },
   "browserslist": [
     "extends browserslist-config-monday"
