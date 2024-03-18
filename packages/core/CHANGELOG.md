@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.96.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.96.0...monday-ui-react-core@2.96.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* **Combobox:** clear selected option when query changes ([#2020](https://github.com/mondaycom/monday-ui-react-core/issues/2020)) ([fe83d89](https://github.com/mondaycom/monday-ui-react-core/commit/fe83d89136c882d5d7e39b6272f6dc60b06c75c0))
+
+
+
+
+
 # [2.96.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.95.0...monday-ui-react-core@2.96.0) (2024-03-13)
 
 
