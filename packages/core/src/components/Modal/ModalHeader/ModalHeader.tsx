@@ -29,7 +29,8 @@ export interface ModalHeaderProps extends VibeComponentProps {
   /**
    * Icon to be rendered before the title
    */
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  // icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  SubIcon: string;
   /**
    * Class name for the wrapper
    */
@@ -75,7 +76,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   titleClassName,
   description = "",
   descriptionClassName,
-  icon,
+  SubIcon,
   closeModal = NOOP,
   iconSize = 24,
   iconClassName,
@@ -95,10 +96,10 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         children
       ) : (
         <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
-          {icon && (
+          {SubIcon && (
             <Icon
               className={cx(styles.icon, iconClassName)}
-              icon={icon}
+              icon={SubIcon}
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle

@@ -22,7 +22,7 @@ export interface TabProps extends VibeComponentProps {
   disabled?: boolean;
   active?: boolean;
   focus?: boolean;
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  SubIcon: string;
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
@@ -43,7 +43,7 @@ const Tab: FC<TabProps> = forwardRef(
       active = false,
       focus = false,
       onClick = NOOP,
-      icon,
+      SubIcon,
       iconType,
       iconSide = "left",
       children,
@@ -55,14 +55,14 @@ const Tab: FC<TabProps> = forwardRef(
     const mergedRef = useMergeRef(ref, componentRef);
 
     function renderIconAndChildren() {
-      if (!icon) return children;
+      if (!SubIcon) return children;
 
       const iconElement = (
         <Icon
           clickable={false}
           ariaHidden={true}
           iconType={iconType}
-          icon={icon}
+          icon={SubIcon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
           iconSize={18}
           ignoreFocusStyle
