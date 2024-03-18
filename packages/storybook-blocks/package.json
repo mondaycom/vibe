@@ -1,6 +1,6 @@
 {
   "name": "vibe-storybook-components",
-  "version": "0.16.1",
+  "version": "0.17.0",
   "description": "Collection of Vibe's Storybook components",
   "license": "MIT",
   "repository": {
@@ -103,9 +103,9 @@
     "postcss-loader": "^7.3.3",
     "prettier": "^3.0.0",
     "prop-types": "^15.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-test-renderer": "^18.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-test-renderer": "^16.14.0",
     "rollup": "^3.26.3",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-svg": "^2.0.0",
