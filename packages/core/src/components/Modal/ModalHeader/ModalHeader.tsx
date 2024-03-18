@@ -63,7 +63,7 @@ export interface ModalHeaderProps extends VibeComponentProps {
    */
   closeButtonAriaLabel?: string;
   /**
-   * Should close button be hidden or not
+   * @deprecated
    */
   hideCloseButton?: boolean;
 }
