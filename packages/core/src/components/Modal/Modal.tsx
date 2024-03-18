@@ -18,7 +18,7 @@ export interface ModalProps {
    * Id of the modal, used internally and for accessibility
    */
   id?: string;
-  "data-testid": string;
+  "data-testid"?: string;
   /**
    * Show/hide the Dialog
    */
