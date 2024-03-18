@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.97.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.96.1...monday-ui-react-core@2.97.0) (2024-03-18)
+
+
+### Features
+
+* **Modal:** make data-testid optional ([#2024](https://github.com/mondaycom/monday-ui-react-core/issues/2024)) ([590c7ce](https://github.com/mondaycom/monday-ui-react-core/commit/590c7ce2debe8281bef057d914830472b0482b3a))
+
+
+
+
+
 ## [2.96.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.96.0...monday-ui-react-core@2.96.1) (2024-03-18)
 
 
