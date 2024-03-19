@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 0.17.1 (2024-03-19)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 # Changelog
 
 ## 0.16.1 (2023-12-05)
@@ -266,4 +279,4 @@
 
 ## 0.0.1 (2023-07-20)
 
-* [Initial PR](https://github.com/mondaycom/vibe-storybook-components/pull/1) 
+* [Initial PR](https://github.com/mondaycom/vibe-storybook-components/pull/1)
