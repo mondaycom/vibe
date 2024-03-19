@@ -12,7 +12,7 @@ import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
 import Flex from "../../Flex/Flex";
 import styles from "./ModalHeader.module.scss";
-import { SubIcon } from "src/types";
+import { SubIcon } from "../../../types/SubIcon";
 
 export interface ModalHeaderProps extends VibeComponentProps {
   /**

@@ -9,7 +9,7 @@ import VibeComponentProps from "../../../types/VibeComponentProps";
 import { IconType } from "../../Icon/IconConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { SubIcon } from "src/types";
+import { SubIcon } from "../../../types/SubIcon";
 
 export interface TabProps extends VibeComponentProps {
   /**
