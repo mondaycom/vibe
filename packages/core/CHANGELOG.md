@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.98.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.0...monday-ui-react-core@2.98.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* **EditableTypography:** fix specificity issues when changing types a… ([#2028](https://github.com/mondaycom/monday-ui-react-core/issues/2028)) ([bebcdbd](https://github.com/mondaycom/monday-ui-react-core/commit/bebcdbd1dd82cc381988f7c84d6f97686357471b))
+
+
+### Features
+
+* changed proptype from `string`/`IconSubComponentProps` to `SubIcon` ([#2026](https://github.com/mondaycom/monday-ui-react-core/issues/2026)) ([f30ab8a](https://github.com/mondaycom/monday-ui-react-core/commit/f30ab8a702bff73b0fb05a67891470a3e915493f))
+
+
+
+
+
 ## [2.97.2](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.1...monday-ui-react-core@2.97.2) (2024-03-19)
 
 
