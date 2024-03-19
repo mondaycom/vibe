@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
 import CloseSmall from "../../Icon/Icons/components/CloseSmall";
-import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
 import { ElementContent } from "src/types/ElementContent";
@@ -12,6 +12,7 @@ import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
 import Flex from "../../Flex/Flex";
 import styles from "./ModalHeader.module.scss";
+import { SubIcon } from "../../../types/SubIcon";
 
 export interface ModalHeaderProps extends VibeComponentProps {
   /**
@@ -29,7 +30,8 @@ export interface ModalHeaderProps extends VibeComponentProps {
   /**
    * Icon to be rendered before the title
    */
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  // icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: SubIcon;
   /**
    * Class name for the wrapper
    */
