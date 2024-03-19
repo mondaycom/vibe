@@ -1,9 +1,0 @@
-@mixin tipseen-content-padding {
-  padding: var(--spacing-medium);
-}
-
-.tipseenBasicContent {
-  @include tipseen-content-padding;
-  display: flex;
-  flex-direction: column;
-}

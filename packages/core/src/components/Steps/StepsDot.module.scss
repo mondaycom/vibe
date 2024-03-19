@@ -1,0 +1,46 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/states";
+
+@mixin active-step-dot {
+  background: var(--primary-color);
+  transform: scale(1.3);
+}
+
+.dot {
+  @include reset-button;
+  width: 6px;
+  height: 6px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--ui-border-color);
+  @include focus-style;
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform var(--motion-productive-long) var(--motion-timing-transition),
+    background var(--motion-productive-long) var(--motion-timing-transition);
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.isActive {
+  @include active-step-dot;
+}
+
+.colorOnPrimaryColor.dot {
+  background: var(--primary-hover-color);
+  @include focus-style-on-primary;
+}
+
+.colorOnPrimaryColor.dot.isActive {
+  background: var(--text-color-on-primary);
+}
+
+.colorOnInvertedBackground.dot {
+  background: var(--placeholder-color);
+}
+
+.colorOnInvertedBackground.dot.isActive {
+  background: var(--text-color-on-inverted);
+}

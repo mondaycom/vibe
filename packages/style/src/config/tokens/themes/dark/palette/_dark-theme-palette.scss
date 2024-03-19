@@ -1,0 +1,47 @@
+//  DARK THEME TOKENS: BASE COLORS
+// - This partial defines Dark Theme's base color tokens
+// -- Please notice Dark theme is also using basic theme colors as dependency.
+// --- Only New theme related colors are defined here.
+
+// Colors
+// - Brand
+$color-ocean_blue: #133774;
+$color-deep_blue: #0d2e65;
+
+// - Semantics
+$color-forest_green: #025231;
+$color-darker_green: #194733;
+
+$color-maroon_red: #642830;
+$color-amber_red: #5a2027;
+
+$color-brass: #503e02; // Warning colors
+$color-aztec_gold: #402f00;
+
+// Natural / Gray
+$color-midnight: #181b34;
+$color-graphite: #30324e;
+$color-silver: #4b4e69;
+$color-fog: #797e93;
+$color-snow: #d5d8df;
+// - Muted
+$color-silver_muted: #3c3f59;
+$color-wolf_gray-muted: rgba($color-wolf_gray, 0.75);
+
+// Text
+$color-spacegrey: #9699a5;
+$color-arctic_blue: #69a7ef;
+
+// Shadow
+$color-rift: #090b19;
+
+// temp alias
+// - todo: fix, not part of Vibe colors, used for:
+// -- var(--label-background-color)
+// -- var(--label-background-on-secondary-color)
+$color-buster_blue: #404b69;
+// - todo: fix, not part of Vibe colors, used for:
+// -- var(--dark-background-color)
+$color-carbon_blue: #393b53;
+
+$color-tyrian_blue: #0d2753;

@@ -1,0 +1,23 @@
+@import "~monday-ui-style/dist/mixins";
+
+$spacing-grid-column-gap: var(--sb-spacing-small);
+$spacing-grid-row-gap: var(--sb-spacing-xl);
+$spacing-cell-min-width: $grid-auto-fit-cell-width-small;
+$spacing-grid-cell-array-calc: calc(12.5% - #{$spacing-grid-column-gap});
+
+.monday-storybook-spacing-sizes {
+  margin: var(--sb-spacing-between-section-items) 0;
+  flex: 1;
+
+  > * {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include grid-auto-fit(
+    $grid-column-gap: $spacing-grid-column-gap,
+    $grid-row-gap: $spacing-grid-row-gap,
+    $grid-cell-min-width: $spacing-cell-min-width,
+    $grid-cell-array-calc: $spacing-grid-cell-array-calc
+  );
+}

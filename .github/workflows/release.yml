@@ -3,40 +3,45 @@ name: Release new version
 on: workflow_dispatch
 
 jobs:
-  publish-npm:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  test:
+    name: Test
+    needs: build
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
+    uses: ./.github/workflows/test.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  release:
+    name: Release
+    needs: [build, test]
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - name: Run Setup
+        uses: ./.github/actions/setup
         with:
-          node-version-file: ".nvmrc"
-          registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: npm ci
-      - name: Set up git credentials
-        run: |
-          git config --global user.name 'ci'
-          git config --global user.email 'deploy@monday.com'
-      - name: Prepare changes
-        run: npm run release
-        env:
-          GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set package version variable
-        run: echo "package_version=$(node -e "console.log(require('./package.json').version)")" >> "$GITHUB_ENV"
-      - name: Commit and push changes
-        run: |
-          git add .
-          git commit -m "Release version ${{ env.package_version }}"
-          git push --follow-tags
-      - name: Publish the new version to npm
-        run: | # Compare the latest version and the current version and publish only if the version changed
-          if [ $(npm view monday-ui-react-core version) != ${{ env.package_version }} ]; then npm run build && npm publish; else echo ''; fi;
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          automatic_release_tag: latest
+          npm_token: ${{ secrets.npm_token }}
+      - uses: ./.github/actions/git-creds
+      - uses: ./.github/actions/download-builds
+      - name: Generate new versions
+        run: yarn lerna version --exact --conventional-commits -y
+      - run: yarn config set registry https://registry.npmjs.org/
+      - name: Setup .npmrc for publish
+        id: setup-npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      - name: Publish to npm
+        run: yarn lerna publish from-package -y
+      - name: Remove .npmrc
+        if: steps.setup-npmrc.outcome == 'success'
+        run: rm .npmrc

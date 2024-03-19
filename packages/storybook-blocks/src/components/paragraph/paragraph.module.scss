@@ -1,0 +1,5 @@
+@import "../../styles/mixins/typography";
+
+.paragraph {
+  @include sb-content-text;
+}

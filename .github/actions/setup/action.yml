@@ -1,0 +1,21 @@
+name: "CI/CD setup"
+description: "Setup the CI/CD environment"
+
+inputs:
+  npm_token:
+    description: "NPM token secret"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: ".nvmrc"
+        registry-url: https://registry.npmjs.org/
+        cache: "yarn"
+    - name: Install
+      run: yarn
+      shell: bash
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.npm_token }}

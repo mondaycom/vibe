@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders correctly fill dark 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorDark withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly fill negative 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorNegative withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly fill positive 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPositive withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly fill primary 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line dark 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorDark withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line negative 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorNegative withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line positive 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPositive withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line primary 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line with leg 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation withLeg"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    >
+      <svg
+        fill="none"
+        height="5"
+        viewBox="0 0 8 5"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0V2.76772C0 4.21783 1.77351 4.92116 2.76736 3.86519L5.45681 1.00765C6.06097 0.365738 6.90294 0.00127805 7.7843 3.35493e-06C5.30942 2.53165e-06 2.69058 1.4328e-06 0 0Z"
+          fill="#E44258"
+        />
+      </svg>
+    </span>
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line with wrapperClassName 1`] = `
+<span
+  className="test"
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly line without animation 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      Test
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;
+
+exports[`Label renders correctly with empty props 1`] = `
+<span
+  className=""
+  data-testid="label"
+>
+  <span
+    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorPrimary withAnimation"
+    data-testid="text"
+  >
+    <span
+      className="typography inherit start singleLineEllipsis text text2Normal"
+      data-testid="text"
+    >
+      
+    </span>
+    <span
+      className="legWrapper"
+    />
+  </span>
+</span>
+`;

@@ -1,0 +1,17 @@
+// CONFIG : MAIN LOADER
+// This partial loads all project's related tokens and maps
+// - Loading order is important.
+
+// Tokens
+@import "config/tokens/config-core-tokens";
+@import "config/tokens/config-basic-theme-tokens";
+@import "config/tokens/config-dark-theme-tokens";
+@import "config/tokens/config-black-theme-tokens";
+@import "config/tokens/config-hacker-theme-tokens";
+
+// Maps
+@import "config/maps/config-core-maps";
+@import "config/maps/config-basic-theme-maps";
+@import "config/maps/config-dark-theme-maps";
+@import "config/maps/config-black-theme-maps";
+@import "config/maps/config-hacker-theme-maps";

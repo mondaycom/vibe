@@ -1,0 +1,8 @@
+// MIXINS: Extract Rgb
+// @arguments $color (can be hardcoded or $color)
+// @return: comma separated RGB values
+// Use: We use "extract-rgb" when we want to return a comma separated list of rgb values from a color.
+// - We use it in some of our token assignments and their custom-properties output.
+@function extract-rgb($color) {
+  @return red($color), green($color), blue($color);
+}

@@ -1,0 +1,45 @@
+name: Build and Upload Artifacts
+
+on:
+  workflow_call:
+    secrets:
+      npm_token:
+        required: true
+    outputs:
+      has_changes:
+        description: Whether there are any changes in the monorepo.
+        value: ${{ jobs.build-and-upload.outputs.has_changes }}
+
+jobs:
+  build-and-upload:
+    name: Build and Upload
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.check-changed-packages.outputs.has_changes }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - id: check-changed-packages
+        uses: ./.github/actions/check-changed-packages
+      - id: determine-since-flag
+        if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}
+        uses: ./.github/actions/determine-lerna-since-flag
+      - name: Build
+        if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}
+        shell: bash
+        env:
+          SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+        run: yarn lerna run build $SINCE_FLAG --include-dependencies
+      - name: Upload
+        if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
+          path: "./packages/*/dist/"
+          if-no-files-found: ignore

@@ -1,0 +1,102 @@
+//  BASIC THEME TOKENS: LEGACY COLORS
+// - This partial defines Basic Theme's legacy color tokens
+// - Legacy colors are colors that are not part of the theme's keys
+// - Legacy colors are currently presented as custom properties
+// - Due to separation between Registration and Semantic candidates sort order between group is important
+//   - Some Semantic candidates are aliases or Registration colors (as it should be)
+// - We define a token as a registration key when it has an alias name that indicates a certain role.
+// - This way we eliminate duplication for hard coded value declaration.
+
+// Registrations
+// #1c1f3b is used twice without distinct connection or registration link
+// - by order: color-timeline_blue, $color-board_views_blue,
+// - currently we leave it hardcoded and do not link them to each other.
+
+// Registration Candidates
+// - Color based naming but without an alias assignment.
+// - Sort by color similarity
+$color-dark_marble: #f1f1f1;
+$color-marble: #f7f7f7;
+$color-gainsboro: #e1e1e1; // identical to $color-content-explosive-selected
+$color-extra_light_gray: #edeef0;
+$color-glitter: #d9f0ff;
+$color-ultra_light_gray: #ebebeb;
+$color-very_light_gray: #a1a1a1;
+$color-jaco_gray: #9699a6;
+$color-storm_gray: #6b6d77;
+$color-trolley-grey: #757575;
+$color-basic_light_blue: #c7e6fa;
+$color-light_blue: #61caf7;
+$color-turquoise: #66ccff;
+$color-aqua: #00d1d1;
+$color-live_blue: #009aff;
+$color-jeans: #597bfc;
+$color-burned_eggplant: #181d37;
+$color-light-pink: #ff5ac4;
+$color-dark-pink: #ff007f;
+$color-dark_red: #bb3354;
+$color-yellow: #ffcb00;
+$color-mustered: #cab641;
+$color-orange: #fdab3d;
+$color-lime-green: #9cd326;
+$color-jade: #03c875;
+$color-green-haze: #00a359;
+$color-grass-green: #037f4c; // TODO:removed when content scope is merged. manual duplication of color-grass_green.
+$color-amethyst: $color-purple;
+$color-dark-purple: #784bd1;
+
+// Semantic candidates
+// - Role based naming convention but they are not aliases
+// - Sorted by name similarity and context, A-Z,
+// - when we have similar names such as $color-blue_links : $color-blue-link with the same value,
+//   we use the first one as an alias value and the other ones as aliases.
+//   -  We use custom properties as the values assignment.
+
+$color-blue_links: #007eb5;
+$color-blue-links-alias: $color-blue_links;
+$color-public: $color-live_blue;
+$color-private: $color-bazooka;
+$color-board_views_grey: #6e6f8f;
+$color-board_views_grey_hover: #b2b3d0;
+$color-board_views_blue: #1c1f3b;
+$color-board_views_blue_secondary: #363a52;
+$color-border_light_gray: #f5f6f8;
+$color-brand-blue: #00a9ff;
+$color-brand-charcoal: #2b2c5c;
+$color-brand-gold: #ffcc00;
+$color-brand-green: #11dd80;
+$color-brand-iris: #595ad4;
+$color-brand-light-blue: #00cff4;
+$color-brand-malachite: #00cd6f;
+$color-brand-purple: #a358d0;
+$color-brand-red: #f74875;
+$color-deadline_upcoming_indication: #5d6387;
+$color-default_group_color: #579bfc;
+$color-form_btn_hover: #0083d9;
+$color-form_purple: #575c96;
+$color-highlight: #dff0ff;
+$color-green_shadow: #00c875;
+$color-green-shadow-alias: $color-green_shadow;
+$color-red_shadow: #df2f4a;
+$color-red-shadow-alias: $color-red_shadow;
+$color-like_red: #fb275d;
+$color-pulse_bg: #f0f0f0;
+$color-pulse_text_color: #333333;
+$color-placholder_gray: #d8d8d8;
+$color-placeholder_light_gray: #efefef;
+$color-excel-green: #207245;
+$color-media-blue: #2ea2e9;
+$color-pdf-red: #bb0706;
+$color-ppt-orange: #d64e2a;
+$color-word-blue: #2a5699;
+$color-zip-orange: #e4901c;
+$color-scrollbar_gray: #b2b2b2;
+$color-timeline_grid_blue: #454662;
+$color-timeline_blue: #1c1f3b;
+
+// Base Layer non UI Vibe values
+$color-snow_white-rgb: extract-rgb($color-snow_white);
+$color-snow_white-with-opacity: rgba($color-snow_white, 0.4);
+$color-wolf_gray-with-opacity: rgba($color-wolf_gray, 0.1);
+$color-asphalt-with-opacity: rgba($color-asphalt, 0.1);
+$color-highlight_blue-rgb: extract-rgb($color-highlight_blue);

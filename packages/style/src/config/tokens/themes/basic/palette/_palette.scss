@@ -1,0 +1,61 @@
+//  BASIC THEME TOKENS: BASE COLORS
+// - This partial defines Basic Theme's base color tokens
+// FIGMA REFERENCE: COLOR PRIMITIVES
+
+// Colors
+// - Brand
+$color-basic_blue: #0073ea;
+$color-dark_blue: #0060b9;
+$color-highlight_blue: #cce5ff;
+$color-sky_blue: #aed4fc;
+
+// - Semantics
+$color-basic_green: #00854d;
+$color-dark_green: #007038;
+$color-pastel_green: #bbdbc9;
+$color-olive_green: #b5cec0;
+
+$color-basic_red: #d83a52;
+$color-blood_red: #b63546;
+$color-pastel_red: #f4c3cb;
+$color-pinky_red: #ecb7bf;
+
+$color-purple: #9d50dd; // content color duplication
+$color-bazooka: #f65f7c;
+
+$color-egg_yolk: #ffcb00; // warning colors
+$color-desert: #eaaa15;
+$color-summer_sun: #fceba1;
+$color-yellow_sand: #f2d973;
+
+// Natural
+$color-black: #000000;
+$color-snow_white: #ffffff;
+
+// Natural / Gray
+$color-ui_grey: #dcdfec;
+$color-wolf_gray: #c3c6d4;
+$color-mud_black: #323338;
+$color-riverstone_gray: #f6f7fb;
+// - Muted
+$color-ui_grey-muted: #ecedf5;
+
+// Text
+$color-asphalt: #676879;
+$color-link_color: #1f76c2;
+
+// Surface
+$color-surface: #292f4c;
+
+// Semantics old aliases,
+// - Success, used as positive key alias
+$color-success: $color-basic_green;
+$color-success-hover: $color-dark_green;
+$color-success-highlight: $color-pastel_green;
+
+// - Error, used as negative key alias
+$color-error: $color-basic_red;
+$color-error-hover: $color-blood_red;
+$color-error-highlight: $color-pastel_red;
+
+$color-alice_blue: #f0f7ff;

@@ -1,0 +1,16 @@
+@mixin tipseen-content-padding {
+  padding: var(--spacing-medium);
+}
+
+.tipseenBasicContent {
+  @include tipseen-content-padding;
+  display: flex;
+  flex-direction: column;
+
+  // this is becasu the designer wanted the padding top
+  // to be 8px in case the tipseen have both content and image
+  &:not(:first-child) {
+    padding-top: var(--spacing-small);
+  }
+}
+

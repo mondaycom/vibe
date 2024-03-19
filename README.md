@@ -1,14 +1,22 @@
 # Vibe Design System
 
+> [!IMPORTANT]
+>
+> **Exciting Update**: The `monday-ui-react-core` repository is getting a new name - `vibe`!
+>
+> As this project has evolved, it now includes a comprehensive design system toolkit, including components, styles, icons, hooks, and more. It's become more than just a "core" library; it's a full-fledged design system, now with all related packages unified under one umbrella.
+>
+> The change will apply in the upcoming weeks, no additional action is required on your part. All issues, PRs, branches will remain intact. Stay tuned!
+
 [![npm](https://img.shields.io/npm/v/monday-ui-react-core)](https://www.npmjs.com/package/monday-ui-react-core)
 
-![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
+<img src="https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png" width="300px" alt="Vibe Design System, by monday.com">
 
 [monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| last 4 versions| last 4 versions| 14+| last 2 versions| last 2 versions| last 2 versions |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| last 4 versions                                                                                                                                                                                                   | last 4 versions                                                                                                                                                                                               | 14+                                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                                                     | last 2 versions                                                                                                                                                                                           |
 
 ## Installation
 
@@ -32,7 +40,7 @@ In order to load all the relevant CSS tokens, you should import the `tokens` fil
 import "monday-ui-react-core/tokens";
 ```
 
-_If your project (or it's Storybook) is importing files differently - read more [here](DEPRECATED_IMPORTS.md)._
+_If your project (or it's Storybook) is importing files differently - read more [here](packages/core/DEPRECATED_IMPORTS.md)._
 
 ### Font installation
 
@@ -83,7 +91,7 @@ npm start
 
 ## Contributing
 
-We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR
+We welcome every contributor, please read the [contribution guidelines](packages/core/CONTRIBUTING.md) before submitting a PR
 
 ## Themes
 

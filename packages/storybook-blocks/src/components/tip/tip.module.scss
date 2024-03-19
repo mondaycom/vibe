@@ -1,0 +1,42 @@
+.tip {
+  padding: var(--sb-spacing-medium);
+  border-radius: var(--sb-border-radius-medium);
+  width: 100%;
+  height: fit-content;
+  color: var(--sb-primary-text-color);
+
+  .title {
+    font-weight: 700;
+    margin-bottom: var(--sb-spacing-small);
+    display: flex;
+    gap: var(--sb-spacing-small);
+    align-items: center;
+  }
+
+  .body {
+    font-size: var(--sb-small-text-font-size);
+  }
+
+  &.primary {
+    color: var(--sb-primary-text-color);
+    background-color: var(--sb-primary-selected-color);
+  }
+
+  &.danger {
+    background-color: var(--sb-negative-color-selected);
+  }
+
+  &.success {
+    background-color: var(--sb-positive-color-selected);
+  }
+
+  &.dark {
+    background-color: var(--sb-primary-background-hover-color);
+    color: var(--sb-primary-text-color);
+  }
+
+  &.warning {
+    background-color: var(--sb-warning-color-selected);
+    color: var(--sb-primary-text-color);
+  }
+}

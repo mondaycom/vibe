@@ -1,0 +1,51 @@
+@import "../../../styles/typography";
+
+.tabsWrapper {
+  padding-bottom: 20px;
+
+  &.noPadding {
+    padding-bottom: 0;
+  }
+}
+
+.tabsWrapper .tabsList {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  font-size: 0;
+  position: relative;
+  height: 40px;
+  outline: none;
+}
+
+.tabsWrapper .tabsList.sm {
+  height: 32px;
+}
+
+.tabsWrapper .tabsList.lg {
+  height: 48px;
+}
+
+.tabsWrapper.stretched .tabsList {
+  width: 100%;
+}
+
+.tabsWrapper.stretched .tabsList .tabListTabWrapper {
+  width: 100%;
+}
+
+.tabsWrapper.stretched .tabsList .tabListTabWrapper .tabListTabInner {
+  width: 100%;
+}
+
+.tabsWrapper.disabled {
+  opacity: 0;
+  height: 0;
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
+// TODO css-modules-prerelease-1 this is not working, but do we need this? makes cursor "default" instead of "not-allowed" on disabled tab in tabsList
+//.tabsWrapper.disabled .tabsList .tabListTabWrapper .tabListTabInner {
+//  cursor: default;
+//}

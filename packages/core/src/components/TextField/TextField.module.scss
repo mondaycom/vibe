@@ -1,0 +1,353 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/typography";
+
+.textField {
+  position: relative;
+  box-sizing: border-box;
+  @include font-input;
+  width: 100%;
+}
+
+.textField * {
+  box-sizing: border-box;
+}
+
+.textField .labelWrapper {
+  width: 100%;
+}
+
+.textField .subTextContainer {
+  display: flex;
+  @include smoothing-text;
+  padding-block: 1px;
+}
+
+.textField .subTextContainer .counter {
+  margin-left: auto;
+}
+
+.textField.disabled .icon {
+  cursor: not-allowed;
+}
+
+.textField.disabled .inputWrapper {
+  cursor: not-allowed;
+}
+
+.textField.disabled .inputWrapper .input {
+  user-select: none;
+  border: none;
+  pointer-events: none;
+  background-color: var(--disabled-background-color);
+  cursor: not-allowed;
+}
+
+.textField.disabled .inputWrapper .input::placeholder {
+  color: var(--disabled-text-color);
+}
+
+.textField.disabled .inputWrapper .iconContainer.iconContainerHasIcon:hover {
+  background-color: transparent;
+}
+
+.textField .inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.textField .inputWrapper .input {
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  background-color: var(--secondary-background-color);
+  border: 1px solid;
+  border-color: var(--ui-border-color);
+  border-radius: var(--border-radius-small);
+  transition: border-color var(--motion-productive-medium) ease-in;
+  padding: var(--spacing-small) var(--spacing-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--primary-text-color);
+
+  &.readOnly.withReadOnlyStyle {
+    background-color: var(--allgrey-background-color);
+    border: none;
+  }
+}
+
+.textField .inputWrapper .input.inputHover {
+  border-color: var(--primary-text-color);
+}
+
+.textField .inputWrapper .input:focus,
+.textField .inputWrapper .input:active,
+.textField .inputWrapper .input.inputActive {
+  border-color: var(--primary-color);
+}
+
+.textField .inputWrapper .input::placeholder {
+  color: var(--secondary-text-color);
+  font-weight: 400;
+}
+
+.textField .inputWrapper .input.inputHasIcon {
+  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-medium);
+}
+
+.textField .inputWrapper .input.round {
+  border-radius: 50px;
+}
+
+.textField .inputWrapper .input.square {
+  border-radius: 0;
+}
+
+.textField .inputWrapper .input.onlyUnderline {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-xs);
+  border-radius: 0 !important;
+}
+
+.textField .inputWrapper .iconContainer {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-small);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.textField .inputWrapper .iconContainer {
+  -webkit-appearance: none;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon.iconContainerClickable {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon:not(.iconContainerClickable) {
+  pointer-events: none;
+  cursor: default;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerActive {
+  opacity: 1;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerActive .icon {
+  opacity: 1;
+  pointer-events: all;
+  transform: rotate(0) scale(1);
+}
+
+.textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.textField .inputWrapper .iconContainer .icon {
+  transform: rotate(90deg) scale(0.8);
+  color: var(--icon-color);
+  will-change: transform;
+  pointer-events: none;
+  transition: color var(--motion-productive-short) var(--motion-timing-enter),
+    transform var(--motion-productive-short) var(--motion-timing-enter);
+  font-size: 14px;
+}
+
+.textField .inputWrapper.inputErrorValidation:hover .input {
+  border-color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputErrorValidation .input {
+  border-color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputErrorValidation .input:focus,
+.textField .inputWrapper.inputErrorValidation .input:active {
+  border-color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputErrorValidation .iconContainer .icon {
+  color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputErrorValidation .iconContainer .icon:hover {
+  color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputErrorValidation + .subTextContainer .subTextContainerStatus {
+  color: var(--negative-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation:hover .input {
+  border-color: var(--positive-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation .input {
+  border-color: var(--positive-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation .input:focus,
+.textField .inputWrapper.inputSuccessValidation .input:active {
+  border-color: var(--positive-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation .iconContainer .icon {
+  color: var(--positive-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation .iconContainer .icon:hover {
+  color: var(--positive-color);
+}
+
+.textField .inputWrapper.inputSuccessValidation + .subTextContainer .subTextContainerStatus {
+  color: var(--positive-color);
+}
+
+.textField .inputWrapper.wrapperSizeSmall {
+  height: 32px;
+}
+
+.textField .inputWrapper.wrapperSizeSmall .input {
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
+}
+
+.textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
+  padding-left: var(--spacing-xs);
+}
+
+.textField .inputWrapper.wrapperSizeMedium {
+  height: 40px;
+}
+
+.textField .inputWrapper.wrapperSizeMedium .input {
+  @include vibe-text(text1, normal);
+  @include smoothing-text;
+}
+
+.textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon {
+  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--spacing-medium);
+}
+
+.textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon.onlyUnderline {
+  padding-left: 4px;
+}
+
+.textField .inputWrapper.wrapperSizeMedium .iconContainer {
+  pointer-events: none;
+  height: 32px;
+  width: 32px;
+  outline: none;
+}
+
+.textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
+  font-size: 16px;
+}
+
+.textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
+  border-color: var(--primary-text-color);
+}
+
+.textField .inputWrapper.wrapperSizeLarge {
+  height: 48px;
+}
+
+.textField .inputWrapper.wrapperSizeLarge .input {
+  @include vibe-text(text1, normal);
+  @include smoothing-text;
+}
+
+.textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon {
+  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--spacing-medium);
+}
+
+.textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon.onlyUnderline {
+  padding-left: var(--spacing-xs);
+}
+
+.textField .inputWrapper.wrapperSizeLarge .iconContainer {
+  height: 40px;
+  width: 40px;
+}
+
+.textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
+  font-size: 16px;
+}
+
+.textField .inputWrapper:hover .input {
+  border-color: var(--primary-text-color);
+}
+
+.textField .inputWrapper .loaderContainer {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textField .inputWrapper .loaderContainer.loaderContainerHasIcon {
+  right: 32px;
+}
+
+.textField .inputWrapper .loaderContainer .loader {
+  width: 16px;
+  height: 16px;
+}
+
+.textField .inputWrapper .loaderContainer .loader .loaderSvg {
+  color: var(--secondary-text-color);
+}
+
+.textField .inputWrapper .iconContainer .icon {
+  font-family: var(--font-family);
+}
+
+.textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
+  font-family: var(--font-family);
+}
+
+.textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
+  font-family: var(--font-family);
+}
+
+// TODO url is not resolving correctly in the rollup build + theming approach isn't the best, as the component ideally shoudn't know about the theme
+//input[type="date"]::-webkit-calendar-picker-indicator,
+//input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+//  background: url("./assets/Calendar.svg") no-repeat;
+//
+//  :global(.dark-app-theme) &,
+//  :global(.black-app-theme) &,
+//  :global(.hacker_theme-app-theme) & {
+//    background: url("./assets/CalendarInverted.svg") no-repeat;
+//  }
+//}
+
+// Temp solution for displaying calendar icon in dark themes
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  :global(.dark-app-theme) &,
+  :global(.black-app-theme) &,
+  :global(.hacker_theme-app-theme) & {
+    filter: invert(1);
+  }
+}

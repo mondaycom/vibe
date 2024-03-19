@@ -1,0 +1,25 @@
+.command {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &.backward {
+    flex-direction: row-reverse;
+  }
+}
+
+.icon {
+  color: var(--icon-color);
+  width: 15.5px;
+  height: 15.5px;
+  &.disabled {
+    color: var(--disabled-text-color);
+  }
+  &.colorOnPrimaryColor {
+    color: var(--text-color-on-primary);
+  }
+  &.colorOnInvertedBackground {
+    color: var(--text-color-on-inverted);
+  }
+}
+
