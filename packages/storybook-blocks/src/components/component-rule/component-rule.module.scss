@@ -1,0 +1,65 @@
+@import "../../styles/mixins/typography";
+
+.componentRule {
+  .component {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border-radius: var(--sb-border-radius-medium);
+    background: var(--sb-dark-background-on-secondary-color);
+    & > * {
+      margin-right: var(--sb-spacing-small);
+    }
+
+    & > video {
+      object-fit: contain;
+      object-position: center;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+    }
+  }
+
+  .title {
+    @include sb-content-text;
+    margin-bottom: var(--sb-spacing-small);
+    margin-top: var(--sb-spacing-medium);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--sb-border-radius-small);
+    margin-right: var(--sb-spacing-small-medium);
+    color: var(--sb-text-color-on-primary);
+  }
+
+  .description {
+    @include sb-content-text;
+    font-weight: 400;
+  }
+
+  &.recommended {
+      .icon {
+        background: var(--sb-positive-color);
+      }
+
+      .component {
+        box-shadow: inset 0 3px 0 var(--sb-positive-color);
+      }
+  }
+
+  &.notRecommended {
+      .icon {
+        background: var(--sb-negative-color);
+      }
+
+      .component {
+        box-shadow: inset 0 3px 0 var(--sb-negative-color);
+      }
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../styles/mixins/typography";
+
+.informationBoxTitle{
+  @include sb-content-text-without-color;
+  font-weight: bold;
+  margin-bottom: var(--sb-spacing-xs);
+  margin-top: var(--sb-spacing-xs);
+  display: inline;
+  &.titleLink {
+    cursor: pointer;
+  }
+}
+.link {
+  color: var(--sb-link-color);
+  text-decoration: none;
+}

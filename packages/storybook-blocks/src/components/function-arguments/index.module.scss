@@ -1,0 +1,42 @@
+.argument {
+  ul {
+    padding: 0;
+  }
+
+  .argument {
+    margin-left: 20px;
+  }
+}
+
+.argument-name,
+.argument-type,
+.default-value {
+  font-family: monaco, monospace;
+  font-size: 85%;
+}
+
+.argument-name {
+  margin-right: 5px;
+}
+
+.argument-type {
+  color: var(--sb-color-purple);
+
+  &:before,
+  &:after {
+    color: var(--sb-color-winter);
+  }
+
+  &:before {
+    content: "<";
+  }
+
+  &:after {
+    content: ">";
+  }
+}
+
+.required {
+  color: var(--sb-color-sofia_pink);
+  font-size: 80%;
+}

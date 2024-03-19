@@ -1,0 +1,15 @@
+.multipleStoryElementsWrapper {
+  display: flex;
+  align-items: center;
+  & > * {
+    margin-right: var(--sb-spacing-medium);
+  }
+}
+
+.focusTrap {
+  position: fixed;
+  top: -2000px;
+  left: -2000px;
+  width: 2px;
+  height: 2px;
+}

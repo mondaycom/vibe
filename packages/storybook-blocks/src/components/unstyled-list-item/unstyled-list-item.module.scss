@@ -1,0 +1,12 @@
+.unstyledListItem {
+  font-size: 1rem;
+  line-height: var(--sb-text-line-height);
+
+  &:not(:last-child) {
+    margin-bottom: var(--sb-spacing-small);
+  }
+
+  a {
+    color: inherit;
+  }
+}

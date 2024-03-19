@@ -1,0 +1,12 @@
+@import "../../styles/mixins/typography";
+
+.docFooter {
+  .text {
+    @include sb-content-text;
+  }
+
+  .link {
+    color: var(--sb-link-color);
+    margin-left: var(--sb-spacing-xs);
+  }
+}

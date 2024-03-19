@@ -1,0 +1,14 @@
+@import "../../styles/mixins/typography";
+
+.compsLink {
+  display: inline-flex;
+  &.small {
+    @include sb-small-text-without-color;
+  }
+  &.medium {
+    @include sb-content-text-without-color;
+  }
+  &.withSpacing {
+    margin: 0 var(--sb-spacing-xs);
+  }
+}
