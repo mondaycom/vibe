@@ -8,6 +8,8 @@ import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { TooltipProps } from "../Tooltip/Tooltip";
 import usePrevious from "../../hooks/usePrevious";
+import { TextType, TextWeight } from "../Text/TextConstants";
+import { HeadingType, HeadingWeight } from "../Heading/HeadingConstants";
 
 export interface EditableTypographyImplementationProps {
   /** Value of the text */
@@ -37,6 +39,10 @@ export interface EditableTypographyProps extends VibeComponentProps, EditableTyp
   typographyClassName: string;
   /** Shows placeholder when empty, if provided */
   clearable?: boolean;
+  /** Sets the Text/Heading type */
+  type?: TextType | HeadingType;
+  /** Sets the Text/Heading weight */
+  weight?: TextWeight | HeadingWeight;
 }
 
 const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = forwardRef(
@@ -56,7 +62,9 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
       component: TypographyComponent,
       isEditMode,
       onEditModeChange,
-      tooltipProps
+      tooltipProps,
+      type,
+      weight
     },
     ref
   ) => {
@@ -191,6 +199,8 @@ const EditableTypography: VibeComponent<EditableTypographyProps, HTMLElement> = 
           })}
           tabIndex={0}
           tooltipProps={tooltipProps}
+          weight={weight}
+          type={type}
         >
           {inputValue || placeholder}
         </TypographyComponent>
