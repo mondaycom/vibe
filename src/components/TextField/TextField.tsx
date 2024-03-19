@@ -25,7 +25,6 @@ import { VibeComponentProps, VibeComponent, withStaticProps } from "../../types"
 import styles from "./TextField.module.scss";
 
 const EMPTY_OBJECT = { primary: "", secondary: "", layout: "" };
-const DEFAULT_REQUIRED_ERROR_TEXT = "This field is required";
 
 interface TextFieldProps extends VibeComponentProps {
   placeholder?: string;
@@ -126,7 +125,7 @@ const TextField: VibeComponent<TextFieldProps, unknown> & {
       trim = false,
       role = "",
       required = false,
-      requiredErrorText = DEFAULT_REQUIRED_ERROR_TEXT,
+      requiredErrorText = "",
       loading = false,
       requiredAsterisk = false,
       dataTestId: backwardCompatibilityDataTestId,
