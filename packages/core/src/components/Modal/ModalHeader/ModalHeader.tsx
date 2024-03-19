@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import cx from "classnames";
 import IconButton from "../../IconButton/IconButton";
 import CloseSmall from "../../Icon/Icons/components/CloseSmall";
-import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
 import { ElementContent } from "src/types/ElementContent";
@@ -12,6 +12,7 @@ import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
 import Flex from "../../Flex/Flex";
 import styles from "./ModalHeader.module.scss";
+import { SubIcon } from "src/types";
 
 export interface ModalHeaderProps extends VibeComponentProps {
   /**
@@ -30,7 +31,7 @@ export interface ModalHeaderProps extends VibeComponentProps {
    * Icon to be rendered before the title
    */
   // icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
-  SubIcon: string;
+  icon?: SubIcon;
   /**
    * Class name for the wrapper
    */
@@ -76,7 +77,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({
   titleClassName,
   description = "",
   descriptionClassName,
-  SubIcon,
+  icon,
   closeModal = NOOP,
   iconSize = 24,
   iconClassName,
@@ -96,10 +97,10 @@ const ModalHeader: FC<ModalHeaderProps> = ({
         children
       ) : (
         <Flex align={Flex.align.START} gap={Flex.gaps.SMALL} className={titleClassName}>
-          {SubIcon && (
+          {icon && (
             <Icon
               className={cx(styles.icon, iconClassName)}
-              icon={SubIcon}
+              icon={icon}
               iconType={Icon.type.SVG}
               iconSize={iconSize}
               ignoreFocusStyle

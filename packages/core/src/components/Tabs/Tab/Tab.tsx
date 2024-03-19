@@ -4,11 +4,12 @@ import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { IconType } from "../../Icon/IconConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
+import { SubIcon } from "src/types";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -22,7 +23,7 @@ export interface TabProps extends VibeComponentProps {
   disabled?: boolean;
   active?: boolean;
   focus?: boolean;
-  SubIcon: string;
+  icon?: SubIcon;
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
@@ -43,7 +44,7 @@ const Tab: FC<TabProps> = forwardRef(
       active = false,
       focus = false,
       onClick = NOOP,
-      SubIcon,
+      icon,
       iconType,
       iconSide = "left",
       children,
@@ -55,14 +56,14 @@ const Tab: FC<TabProps> = forwardRef(
     const mergedRef = useMergeRef(ref, componentRef);
 
     function renderIconAndChildren() {
-      if (!SubIcon) return children;
+      if (!icon) return children;
 
       const iconElement = (
         <Icon
           clickable={false}
           ariaHidden={true}
           iconType={iconType}
-          icon={SubIcon}
+          icon={icon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
           iconSize={18}
           ignoreFocusStyle
