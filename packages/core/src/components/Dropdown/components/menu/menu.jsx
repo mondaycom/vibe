@@ -28,6 +28,7 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, i
         dropdownMenuWrapperClassName
       )}
       innerProps={{
+        id,
         role: "listbox",
         "aria-label": ariaLabel
       }}
