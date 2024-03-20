@@ -78,7 +78,7 @@ export interface MenuButtonProps extends VibeComponentProps {
    */
   onMenuShow?: () => void;
   /*
-  Callback function to be called when the menu is shown
+  Callback function to be called when the menu is hidden
  */
   onMenuHide?: () => void;
   /**
@@ -191,35 +191,36 @@ const MenuButton: VibeComponent<MenuButtonProps> & {
     const [isOpen, setIsOpen] = useState(open);
     const isActive = active ?? isOpen;
 
+    const handleMenuClose = useCallback(
+      (focusOnMenuButtonAfterClose: boolean) => {
+        onMenuHide();
+        setIsOpen(false);
+        const button = componentRef.current;
+        if (!button || !focusOnMenuButtonAfterClose) {
+          return;
+        }
+        window.requestAnimationFrame(() => {
+          button.focus();
+        });
+      },
+      [onMenuHide]
+    );
+
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
-        const isEscapeClicked = event && event.key === "Escape";
-        if (closeMenuOnItemClick || isEscapeClicked) {
-          setIsOpen(false);
-        }
-
-        if (isEscapeClicked) {
-          const button = componentRef.current;
-          window.requestAnimationFrame(() => {
-            button.focus();
-          });
+        const isEscapeKey = event?.key === "Escape";
+        if (isEscapeKey || closeMenuOnItemClick) {
+          handleMenuClose(isEscapeKey);
         }
       },
-      [closeMenuOnItemClick]
+      [closeMenuOnItemClick, handleMenuClose]
     );
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        setIsOpen(false);
-        onMenuHide();
-        const button = componentRef.current;
-        window.requestAnimationFrame(() => {
-          if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
-            button.focus();
-          }
-        });
+        handleMenuClose(hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY);
       },
-      [setIsOpen, onMenuHide, componentRef]
+      [handleMenuClose]
     );
 
     const onDialogDidShow = useCallback(() => {

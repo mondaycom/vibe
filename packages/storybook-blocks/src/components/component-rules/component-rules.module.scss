@@ -1,0 +1,20 @@
+@import '../../styles/mixins/layout';
+
+$component-rules-grid-gap: var(--sb-spacing-xxl);
+$component-rules-cell-min-width: $sb-grid-auto-fit-cell-width-xl;
+$component-rules-grid-cell-array-calc: calc(50% - #{$component-rules-grid-gap});
+
+.componentRules {
+  .pair {
+    margin-bottom: 80px;
+    @include sb-grid-auto-fit(
+      $grid-gap: $component-rules-grid-gap,
+      $grid-cell-min-width: $component-rules-cell-min-width,
+      $grid-cell-array-calc: $component-rules-grid-cell-array-calc
+    );
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

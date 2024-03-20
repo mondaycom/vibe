@@ -1,0 +1,52 @@
+@mixin sb-frame() {
+  border: var(--sb-layout-border-color) 1px solid;
+  border-radius: var(--sb-border-radius-medium);
+  border-color: var(--sb-layout-border-color);
+}
+
+// Grid auto fit
+// - This mixin defines a grid with auto fit repeat cells using min-max funtion.
+// -- This allows grid to accommodate container width without media queries.
+// -- it uses a repeat grid function with auto fix and minmax.
+// -- grid adaptation is due to the min value along with auto-fit and 1fr max value.
+
+// Grid auto fit sizes
+$sb-grid-auto-fit-cell-width-small: 120px;
+$sb-grid-auto-fit-cell-width-medium: 180px;
+$sb-grid-auto-fit-cell-width-large: 240px;
+$sb-grid-auto-fit-cell-width-xl: 300px;
+
+// @params:
+// - $grid-gap: null , defines grid "gap" attribute.
+// - $grid-column-gap: null,  defines grid "column-gap" attribute.
+// - $grid-row-gap: null,  defines grid "row-gap" attribute.
+// - $grid-cell-min-width: {mandatory}, defined min value in for grid-template-columns
+// - $grid-cell-array-calc: {mandatory}, defined max num of items using calc
+
+@mixin sb-grid-auto-fit(
+  $grid-gap: null,
+  $grid-column-gap: null,
+  $grid-row-gap: null,
+  $grid-cell-min-width,
+  $grid-cell-array-calc: null,
+  $important: false
+) {
+  display: grid;
+  @if $important {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)
+    ) !important;
+    gap: $grid-gap !important;
+    column-gap: $grid-column-gap !important;
+    row-gap: $grid-row-gap !important;
+  } @else {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr)
+    );
+    gap: $grid-gap;
+    column-gap: $grid-column-gap;
+    row-gap: $grid-row-gap;
+  }
+}

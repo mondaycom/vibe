@@ -1,0 +1,21 @@
+@import "../../styles/mixins/typography";
+
+.sectionName {
+  margin-top: var(--sb-spacing-between-sections);
+  margin-bottom: var(--sb-spacing-between-section-items);
+  @include sb-basic-text;
+  font-family: var(--sb-title-font-family);
+  font-weight: 500;
+  font-size: var(--sb-h2-font-size);
+  line-height: 33px;
+  letter-spacing: -1px;
+  text-align: left;
+  display: grid;
+
+  &:after {
+    content: "";
+    margin-top: var(--sb-spacing-small);
+    background: var(--sb-primary-text-color);
+    height: 2px;
+  }
+}
