@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.98.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.0...monday-ui-react-core@2.98.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* **MenuButton:** call `onMenuHide` on all cases where menu is closed ([#2027](https://github.com/mondaycom/monday-ui-react-core/issues/2027)) ([1c80b4c](https://github.com/mondaycom/monday-ui-react-core/commit/1c80b4cb149e303c47fa2f4efe58541d3c209859))
+
+
+
+
+
 # [2.98.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.0...monday-ui-react-core@2.98.0) (2024-03-19)
 
 
