@@ -4,6 +4,11 @@
 
 .clickable {
   @include clickable.clickable;
+
+  &:active {
+    transform: scale(0.95) translate3d(0, 0, 0);
+    transition: var(--motion-productive-short) transform;
+  }
 }
 
 .label {
