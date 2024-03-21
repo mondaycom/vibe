@@ -11,6 +11,7 @@ import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types"
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
+import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 
 export interface LabelProps extends VibeComponentProps {
   /**
@@ -27,6 +28,7 @@ export interface LabelProps extends VibeComponentProps {
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  celebration?: boolean;
 }
 
 const Label: VibeComponent<LabelProps> & {
@@ -45,7 +47,8 @@ const Label: VibeComponent<LabelProps> & {
       isLegIncluded = false,
       id,
       "data-testid": dataTestId,
-      onClick
+      onClick,
+      celebration
     },
     ref
   ) => {
@@ -62,12 +65,12 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("kind" + "-" + kind)),
           getStyle(styles, camelCase("color" + "-" + color)),
           {
-            [styles.withAnimation]: !isAnimationDisabled,
+            [styles.withAnimation]: !isAnimationDisabled && !celebration,
             [styles.withLeg]: isLegIncluded
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
+      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, celebration]
     );
 
     const onClickCallback = useCallback(
@@ -92,19 +95,27 @@ const Label: VibeComponent<LabelProps> & {
     );
 
     return (
-      <span
-        {...(isClickable && clickableProps)}
-        className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
-        ref={mergedRef}
-      >
-        <Text element="span" type={Text.types.TEXT2} className={classNames} color={Text.colors.ON_INVERTED}>
-          <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
-            {text}
+      <LabelCelebrationAnimation active={celebration && kind === "line"}>
+        <span
+          {...(isClickable && clickableProps)}
+          className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
+          ref={mergedRef}
+        >
+          <Text
+            element="span"
+            type={Text.types.TEXT2}
+            className={classNames}
+            color={Text.colors.ON_INVERTED}
+            data-celebration-text={celebration}
+          >
+            <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+              {text}
+            </Text>
+            <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
           </Text>
-          <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
-        </Text>
-      </span>
+        </span>
+      </LabelCelebrationAnimation>
     );
   }
 );
