@@ -51,6 +51,7 @@ export interface ButtonProps extends VibeComponentProps {
   successText?: string;
   /** loading boolean which switches the text to a loader */
   loading?: boolean;
+  /** className which is applied to loader container **/
   loaderClassName?: string;
   style?: React.CSSProperties;
   /** displays the active state */
@@ -348,7 +349,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       return (
         <button {...buttonProps} key={`${id}-loading`}>
           <span className={cx(styles.loader, loaderClassName)}>
-            <Loader className={cx(styles.loaderSvg)} />
+            <Loader className={styles.loaderSvg} />
             <span aria-hidden className={styles.textPlaceholder}>
               {buttonContent}
             </span>

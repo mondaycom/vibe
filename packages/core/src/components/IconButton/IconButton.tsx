@@ -12,8 +12,8 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
-import styles from "./IconButton.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
   /**
@@ -87,6 +87,7 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
   tabIndex?: number;
+  /** loading boolean which switches the text to a loader */
   loading?: boolean;
 }
 
