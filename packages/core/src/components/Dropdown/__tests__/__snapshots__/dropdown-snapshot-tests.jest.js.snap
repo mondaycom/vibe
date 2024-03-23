@@ -115,6 +115,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           aria-selected="false"
           class="optionReset css-qj04r2-option"
           role="option"
+          id="react-select-32-option-1"
+          tabindex="-1"
         >
           <div
             class="valueContainer"
@@ -127,6 +129,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           aria-selected="false"
           class="optionReset css-6ztf41-option"
           role="option"
+          id="react-select-32-option-2"
+          tabindex="-1"
         >
           <div
             class="valueContainer"
@@ -139,6 +143,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           aria-selected="false"
           class="optionReset css-6ztf41-option"
           role="option"
+          id="react-select-32-option-3"
+          tabindex="-1"
         >
           <div
             class="valueContainer"
@@ -151,6 +157,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           aria-selected="false"
           class="optionReset css-6ztf41-option"
           role="option"
+          id="react-select-32-option-4"
+          tabindex="-1"
         >
           <div
             class="valueContainer"
@@ -163,6 +171,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           aria-selected="false"
           class="optionReset css-6ztf41-option"
           role="option"
+          id="react-select-32-option-5"
+          tabindex="-1"
         >
           <div
             class="valueContainer"
@@ -964,6 +974,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-1iwu591-option"
                 role="option"
+                id="react-select-29-option-0"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -982,6 +994,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-1"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1000,6 +1014,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-2"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1018,6 +1034,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-3"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1036,6 +1054,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-4"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1054,6 +1074,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-5"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1072,6 +1094,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-6"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1090,6 +1114,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-7"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1108,6 +1134,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-8"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1126,6 +1154,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-9"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
@@ -1144,6 +1174,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
                 aria-selected="false"
                 class="optionReset css-6ztf41-option"
                 role="option"
+                id="react-select-29-option-10"
+                tabindex="-1"
               >
                 <div
                   class="valueContainer"
