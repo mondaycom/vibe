@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.98.3](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.2...monday-ui-react-core@2.98.3) (2024-03-24)
+
+
+### Bug Fixes
+
+* **MultiStepIndicator:** nest divider style ([#2036](https://github.com/mondaycom/monday-ui-react-core/issues/2036)) ([2faf7e4](https://github.com/mondaycom/monday-ui-react-core/commit/2faf7e4413894e7a0739526636585353f62105ac))
+
+
+
+
+
+## [2.98.2](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.1...monday-ui-react-core@2.98.2) (2024-03-21)
+
+
+### Bug Fixes
+
+* all elements inside an app that consumes vibe had button with active state that turns to 0.95 scale on active pseudo state ([#2031](https://github.com/mondaycom/monday-ui-react-core/issues/2031)) ([1b6e92a](https://github.com/mondaycom/monday-ui-react-core/commit/1b6e92aab423df632c5fe178a57ddc093e1626f3))
+
+
+
+
+
 ## [2.98.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.0...monday-ui-react-core@2.98.1) (2024-03-20)
 
 
