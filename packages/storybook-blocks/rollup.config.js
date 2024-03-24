@@ -21,6 +21,7 @@ export default {
     strict: false,
     exports: 'named',
     preserveModules: true,
+    preserveModulesRoot: '.',
   },
   input: path.join(SRC_PATH, 'index.ts'),
   external: [/node_modules/],
