@@ -87,7 +87,7 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
   tabIndex?: number;
-  /** loading boolean which switches the text to a loader */
+  /** Show a loader instead of the icon  */
   loading?: boolean;
 }
 
