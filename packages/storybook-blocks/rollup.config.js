@@ -23,7 +23,9 @@ export default {
     preserveModules: true,
     preserveModulesRoot: '.',
   },
-  input: path.join(SRC_PATH, 'index.ts'),
+  input: {
+    index: path.join(SRC_PATH, 'index.ts'),
+  },
   external: [/node_modules/],
   plugins: [
     svg(),
