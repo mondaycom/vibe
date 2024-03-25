@@ -67,12 +67,12 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("color" + "-" + color)),
           {
             // When celebrationAnimation is active it wins over the default animation
-            [styles.withAnimation]: !isAnimationDisabled && !celebrationAnimation,
+            [styles.withAnimation]: !isAnimationDisabled && !isCelebrationAnimation,
             [styles.withLeg]: isLegIncluded
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, celebrationAnimation]
+      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation]
     );
 
     const onClickCallback = useCallback(
@@ -113,7 +113,7 @@ const Label: VibeComponent<LabelProps> & {
             type={Text.types.TEXT2}
             className={classNames}
             color={Text.colors.ON_INVERTED}
-            data-celebration-text={celebrationAnimation}
+            data-celebration-text={isCelebrationAnimation}
           >
             <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
               {text}
@@ -130,7 +130,7 @@ const Label: VibeComponent<LabelProps> & {
       id,
       mergedRef,
       classNames,
-      celebrationAnimation,
+      isCelebrationAnimation,
       text,
       isLegIncluded
     ]);
