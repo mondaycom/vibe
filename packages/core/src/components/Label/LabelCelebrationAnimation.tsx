@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import React, { cloneElement, forwardRef, useCallback, useRef, useState } from "react";
 import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import styles from "./LabelCelebrationAnimation.module.scss";
@@ -8,25 +8,20 @@ const DEFAULT_STROKE_WIDTH = 1;
 
 export interface LabelCelebrationAnimationProps {
   children: React.ReactElement;
-  active: boolean;
+  onAnimationEnd: () => void;
 }
 
-function LabelCelebrationAnimation({ children, active: isActive }: LabelCelebrationAnimationProps) {
+function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebrationAnimationProps) {
   const wrapperRef = useRef<HTMLDivElement>();
   const childRef = useRef<HTMLDivElement>();
 
-  const [active, setActive] = useState<boolean>(isActive);
   const [path, setPath] = useState<string>();
-
-  useEffect(() => {
-    setActive(isActive);
-  }, [isActive]);
 
   const resizeObserverCallback = useCallback(
     ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
       const { blockSize: height, inlineSize: width } = borderBoxSize || {};
 
-      if (wrapperRef.current && active) {
+      if (wrapperRef.current) {
         const d = getPath({ width, height });
         setPath(d);
 
@@ -34,7 +29,7 @@ function LabelCelebrationAnimation({ children, active: isActive }: LabelCelebrat
         wrapperRef.current.style.setProperty("--container-perimeter", String(perimeter));
       }
     },
-    [active]
+    []
   );
 
   useResizeObserver({
@@ -49,23 +44,13 @@ function LabelCelebrationAnimation({ children, active: isActive }: LabelCelebrat
     })
   );
 
-  if (!active) {
-    return children;
-  }
-
   return (
     <div className={styles.celebration} ref={wrapperRef}>
       <svg className={styles.svg}>
         <path className={cx(styles.stroke, styles.base)} d={path} />
         <path className={cx(styles.stroke, styles.first)} d={path} />
         <path className={cx(styles.stroke, styles.second)} d={path} />
-        <path
-          className={cx(styles.stroke, styles.third)}
-          d={path}
-          onAnimationEnd={() => {
-            setActive(false);
-          }}
-        />
+        <path className={cx(styles.stroke, styles.third)} d={path} onAnimationEnd={onAnimationEnd} />
       </svg>
       <ChildComponentWithRef ref={childRef} />
     </div>
@@ -85,15 +70,17 @@ function getPath({
   borderRadius?: number;
   strokeWidth?: number;
 }) {
+  const offset = strokeWidth / 2;
+
   return `M ${width - strokeWidth / 2}, ${borderRadius} V ${
     height - borderRadius
-  } A ${borderRadius} ${borderRadius} 0 0 1 ${width - borderRadius} ${
-    height - strokeWidth / 2
-  } H ${borderRadius} A ${borderRadius} ${borderRadius} 0 0 1 ${strokeWidth / 2} ${
-    height - borderRadius
-  } V ${borderRadius} A ${borderRadius} ${borderRadius} 0 0 1 ${borderRadius} ${strokeWidth / 2} L ${
-    width - borderRadius
-  }, ${strokeWidth / 2} A ${borderRadius} ${borderRadius} 0 0 1 ${width - strokeWidth / 2} ${borderRadius} Z`;
+  } A ${borderRadius} ${borderRadius} 0 0 1 ${width - borderRadius} ${height - strokeWidth / 2} H ${
+    borderRadius + offset
+  } A ${borderRadius} ${borderRadius} 0 0 1 ${strokeWidth / 2} ${height - borderRadius} V ${
+    borderRadius + offset
+  } A ${borderRadius} ${borderRadius} 0 0 1 ${borderRadius} ${strokeWidth / 2} L ${width - borderRadius}, ${
+    strokeWidth / 2
+  } A ${borderRadius} ${borderRadius} 0 0 1 ${width - strokeWidth / 2} ${borderRadius} Z`;
 }
 
 function getPerimeter({
