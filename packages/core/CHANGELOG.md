@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.99.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.4...monday-ui-react-core@2.99.0) (2024-03-25)
+
+
+### Features
+
+* **IconButton:** loading state ([#2029](https://github.com/mondaycom/monday-ui-react-core/issues/2029)) ([a38dd2b](https://github.com/mondaycom/monday-ui-react-core/commit/a38dd2b3d1af515ca51859b7e2e7915b11fc1d89))
+
+
+
+
+
 ## [2.98.4](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.3...monday-ui-react-core@2.98.4) (2024-03-25)
 
 **Note:** Version bump only for package monday-ui-react-core
