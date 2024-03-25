@@ -13,11 +13,7 @@
   ],
   "main": "dist/index.js",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "node": "./dist/index.js",
-      "import": "./dist/index.js"
-    },
+    ".": "./dist/index.js",
     "./index.css": "./dist/index.css",
     "./mixins": "./dist/_mixins.scss",
     "./types": "./dist/types/published-types.d.ts",
