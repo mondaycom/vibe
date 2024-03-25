@@ -1,6 +1,6 @@
 import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   BREADCRUBMS,
   EXPAND_COLLAPSE,
@@ -26,9 +26,7 @@ import * as AccordionStories from "./accordion.stories";
 
 Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
 
-<Canvas>
-  <Story of={AccordionStories.Overview} />
-</Canvas>
+<Canvas of={AccordionStories.Overview} />
 
 ## Props
 
@@ -51,17 +49,13 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 
 Each section can be expanded without closing the others
 
-<Canvas>
-  <Story of={AccordionStories.MultiActive} />
-</Canvas>
+<Canvas of={AccordionStories.MultiActive} />
 
 ### Single active
 
 Only one section can be open at the time
 
-<Canvas>
-  <Story of={AccordionStories.SingleActive} />
-</Canvas>
+<Canvas of={AccordionStories.SingleActive} />
 
 ## Do’s and Don’ts
 
@@ -98,9 +92,7 @@ Only one section can be open at the time
 
 ### Preferences Accordion
 
-<Canvas>
-  <Story of={AccordionStories.PreferencesAccordion} />
-</Canvas>
+<Canvas of={AccordionStories.PreferencesAccordion} />
 
 ## Related components
 

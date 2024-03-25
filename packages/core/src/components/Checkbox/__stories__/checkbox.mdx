@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Checkbox from "../Checkbox";
 import { createComponentTemplate, Link } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -33,9 +33,7 @@ export const checkboxTemplate = createComponentTemplate(Checkbox);
 
 Checkboxes allow users to select one or more items from a set of options.
 
-<Canvas>
-  <Story of={CheckboxStories.Overview} />
-</Canvas>
+<Canvas of={CheckboxStories.Overview} />
 
 ## Props
 
@@ -67,9 +65,7 @@ Checkboxes allow users to select one or more items from a set of options.
 
 Has 4 states: regular, hover, selected, and disabled.
 
-<Canvas>
-  <Story of={CheckboxStories.States} />
-</Canvas>
+<Canvas of={CheckboxStories.States} />
 
 ## Do’s and Don’ts
 
@@ -179,9 +175,7 @@ Has 4 states: regular, hover, selected, and disabled.
 
 Allows the user to choose a single option. For example: accept terms of use.
 
-<Canvas>
-  <Story of={CheckboxStories.SingleCheckbox} />
-</Canvas>
+<Canvas of={CheckboxStories.SingleCheckbox} />
 
 ## Related components
 

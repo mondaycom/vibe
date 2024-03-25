@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   DescriptionWithLinkMondaySdkIntegration,
   ThemeProviderNegativeExampleTemplate,
@@ -30,9 +30,7 @@ There are 2 levels of theming: **system theme** and **product theme**.
 System theme is a one of a 3 predefined themes: <code>light</code>(<code>.light-app-theme</code>), <code>dark</code>(<code>.dark-app-theme</code>) and <code>black</code>(<code>.black-app-theme</code>).
 Product theme is a custom theme that can be provided by a user, there you can specify the values of specific color tokens for each of the system themes.
 
-<Canvas>
-  <Story of={ThemeProviderStories.Overview} />
-</Canvas>
+<Canvas of={ThemeProviderStories.Overview} />
 
 ## Props
 
@@ -60,33 +58,25 @@ There are 3 system themes <code>light</code>, <code>dark</code> and <code>black<
 
 Only components wrapped with ThemeProvider will be affected by the <code>themeConfig</code>.
 
-<Canvas>
-  <Story of={ThemeProviderStories.ThemingScope} />
-</Canvas>
+<Canvas of={ThemeProviderStories.ThemingScope} />
 
 ### Folded theming
 
 If component is wrapped with multiple ThemeProviders, the most nested one will override the values of the outer one, but if the nested ThemeProvider doesn't provide a value for a specific color token, the outer ThemeProvider will be used.
 
-<Canvas>
-  <Story of={ThemeProviderStories.FoldedTheming} />
-</Canvas>
+<Canvas of={ThemeProviderStories.FoldedTheming} />
 
 ### Product theming
 
 These are theme-definitions, which are used in monday.com products.
 
-<Canvas>
-  <Story of={ThemeProviderStories.ProductTheming} />
-</Canvas>
+<Canvas of={ThemeProviderStories.ProductTheming} />
 
 ### Custom class selector
 
 If you need to apply some of the tokens overrides only on elements under specific class you can declare theme like that:
 
-<Canvas>
-  <Story of={ThemeProviderStories.CustomClassSelector} />
-</Canvas>
+<Canvas of={ThemeProviderStories.CustomClassSelector} />
 
 ### With systemTheme
 

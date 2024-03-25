@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import Toast from "../Toast";
 import Flex from "../../Flex/Flex";
@@ -27,9 +27,7 @@ import { TipAlertBanner } from "./toast.stories.helpers";
 
 A toast notification is a message object that presents timely information, including confirmation of actions, alerts, and errors.
 
-<Canvas>
-  <Story of={ToastStories.Overview} />
-</Canvas>
+<Canvas of={ToastStories.Overview} />
 
 ## Props
 
@@ -53,49 +51,35 @@ A toast notification is a message object that presents timely information, inclu
 
 ### Default with button
 
-<Canvas>
-  <Story of={ToastStories.DefaultWithButton} />
-</Canvas>
+<Canvas of={ToastStories.DefaultWithButton} />
 
 ### Toast with link
 
-<Canvas>
-  <Story of={ToastStories.ToastWithLink} />
-</Canvas>
+<Canvas of={ToastStories.ToastWithLink} />
 
 ### Toast with loading
 
-<Canvas>
-  <Story of={ToastStories.ToastWithLoading} />
-</Canvas>
+<Canvas of={ToastStories.ToastWithLoading} />
 
 ### Success message
 
 Use to providing a feedback loop. For example: Item copied.
 
-<Canvas>
-  <Story of={ToastStories.SuccessMessage} />
-</Canvas>
+<Canvas of={ToastStories.SuccessMessage} />
 
 ### Error message
 
 Use when something was deleted, a problem has occurred, etc.
 
-<Canvas>
-  <Story of={ToastStories.ErrorMessage} />
-</Canvas>
+<Canvas of={ToastStories.ErrorMessage} />
 
 ### Warning message
 
-<Canvas>
-  <Story of={ToastStories.WarningMessage} />
-</Canvas>
+<Canvas of={ToastStories.WarningMessage} />
 
 ### Dark message
 
-<Canvas>
-  <Story of={ToastStories.DarkMessage} />
-</Canvas>
+<Canvas of={ToastStories.DarkMessage} />
 
 ## Do’s and Don’ts
 
@@ -168,9 +152,7 @@ Use when something was deleted, a problem has occurred, etc.
 
 After a user has done an action, provide feedback to close the loop. For example, when an item has been deleted, duplicated, etc.
 
-<Canvas>
-  <Story of={ToastStories.FeedbackLoop} />
-</Canvas>
+<Canvas of={ToastStories.FeedbackLoop} />
 
 ## Related components
 

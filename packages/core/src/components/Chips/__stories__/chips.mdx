@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Chips from "../Chips";
 import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { TipLabel } from "./chips.stories.helpers";
@@ -21,9 +21,7 @@ import * as ChipsStories from "./chips.stories";
 
 Chips are compact elements that represent an input, attribute, or action. They may display text, icons, or both.
 
-<Canvas>
-  <Story of={ChipsStories.Overview} />
-</Canvas>
+<Canvas of={ChipsStories.Overview} />
 
 ## Props
 
@@ -45,33 +43,23 @@ Chips are compact elements that represent an input, attribute, or action. They m
 
 ### With read only state
 
-<Canvas>
-  <Story of={ChipsStories.ChipsWithReadOnlyState} />
-</Canvas>
+<Canvas of={ChipsStories.ChipsWithReadOnlyState} />
 
 ### With icons
 
-<Canvas>
-  <Story of={ChipsStories.ChipsWithIcons} />
-</Canvas>
+<Canvas of={ChipsStories.ChipsWithIcons} />
 
 ### With avatars
 
-<Canvas>
-  <Story of={ChipsStories.ChipsWithAvatars} />
-</Canvas>
+<Canvas of={ChipsStories.ChipsWithAvatars} />
 
 ### Themes
 
-<Canvas>
-  <Story of={ChipsStories.Themes} />
-</Canvas>
+<Canvas of={ChipsStories.Themes} />
 
 ### Clickable chips
 
-<Canvas>
-  <Story of={ChipsStories.Clickable} />
-</Canvas>
+<Canvas of={ChipsStories.Clickable} />
 
 ### Color coded chips
 
@@ -82,17 +70,13 @@ e.g.
 <Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />
 ```
 
-<Canvas>
-  <Story of={ChipsStories.ChipsPalette} />
-</Canvas>
+<Canvas of={ChipsStories.ChipsPalette} />
 
 ### Chips on colored backgrounds
 
 When a chip appears on a background color identical to its color, use `showBorder` prop in order to add a distinctive white border.
 
-<Canvas>
-  <Story of={ChipsStories.OnColor} />
-</Canvas>
+<Canvas of={ChipsStories.OnColor} />
 
 ## Do’s and Don’ts
 
@@ -117,17 +101,13 @@ When a chip appears on a background color identical to its color, use `showBorde
 
 Sometimes when needed, chips can change fill color.
 
-<Canvas>
-  <Story of={ChipsStories.ColorfulChipsForDifferentContent} />
-</Canvas>
+<Canvas of={ChipsStories.ColorfulChipsForDifferentContent} />
 
 ### Chips in a person picker combo box
 
 Chips can be removable, and can be used in a multiple options selection use cases.
 
-<Canvas>
-  <Story of={ChipsStories.ChipsInAPersonPickerComboBox} />
-</Canvas>
+<Canvas of={ChipsStories.ChipsInAPersonPickerComboBox} />
 
 ## Related components
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import { TipItemRenderer } from "./virtualizedList.stories.helpers";
 import * as VirtualizedListStories from "./VirtualizedList.stories";
@@ -20,9 +20,7 @@ The VirtualizedList can be Vertical or Horizontal
 
 Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
 
-<Canvas>
-  <Story of={VirtualizedListStories.Overview} />
-</Canvas>
+<Canvas of={VirtualizedListStories.Overview} />
 
 ## Props
 

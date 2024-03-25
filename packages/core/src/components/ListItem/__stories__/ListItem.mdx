@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as ListItemStories from "./ListItem.stories";
 
 <Meta of={ListItemStories} />
@@ -15,9 +15,7 @@ import * as ListItemStories from "./ListItem.stories";
 
 An item of a List component
 
-<Canvas>
-  <Story of={ListItemStories.Overview} />
-</Canvas>
+<Canvas of={ListItemStories.Overview} />
 
 ## Props
 
@@ -36,24 +34,16 @@ An item of a List component
 
 ### States
 
-<Canvas>
-  <Story of={ListItemStories.States} />
-</Canvas>
+<Canvas of={ListItemStories.States} />
 
 ### Sizes
 
-<Canvas>
-  <Story of={ListItemStories.Sizes} />
-</Canvas>
+<Canvas of={ListItemStories.Sizes} />
 
 ### List item with an icon
 
-<Canvas>
-  <Story of={ListItemStories.WithIcon} />
-</Canvas>
+<Canvas of={ListItemStories.WithIcon} />
 
 ### List item with an avatar
 
-<Canvas>
-  <Story of={ListItemStories.WithAvatar} />
-</Canvas>
+<Canvas of={ListItemStories.WithAvatar} />

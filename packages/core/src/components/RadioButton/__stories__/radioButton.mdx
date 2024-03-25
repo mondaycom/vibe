@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import RadioButton from "../RadioButton";
 import { CHECKBOX, DROPDOWN, TOGGLE } from "../../../storybook/components/related-components/component-description-map";
@@ -23,9 +23,7 @@ import * as RadioButtonStories from "./radioButton.stories";
 
 A radio represents an item in a single selection list.
 
-<Canvas>
-  <Story of={RadioButtonStories.Overview} />
-</Canvas>
+<Canvas of={RadioButtonStories.Overview} />
 
 ## Props
 
@@ -50,9 +48,7 @@ A radio represents an item in a single selection list.
 
 Radio buttons have 3 states: regular, selected, and disabled.
 
-<Canvas>
-  <Story of={RadioButtonStories.States} />
-</Canvas>
+<Canvas of={RadioButtonStories.States} />
 
 ## Do’s and Don’ts
 
@@ -119,15 +115,11 @@ Radio buttons have 3 states: regular, selected, and disabled.
 
 The user needs to select only one option.
 
-<Canvas>
-  <Story of={RadioButtonStories.RadioButtonInItemsList} />
-</Canvas>
+<Canvas of={RadioButtonStories.RadioButtonInItemsList} />
 
 Controlled externally.
 
-<Canvas>
-  <Story of={RadioButtonStories.ControlledRadioButtons} />
-</Canvas>
+<Canvas of={RadioButtonStories.ControlledRadioButtons} />
 
 ## Related components
 
