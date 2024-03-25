@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.98.4](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.3...monday-ui-react-core@2.98.4) (2024-03-25)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
 ## [2.98.3](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.2...monday-ui-react-core@2.98.3) (2024-03-24)
 
 
