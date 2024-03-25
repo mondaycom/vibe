@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link, UsageGuidelines } from "vibe-storybook-components";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
@@ -24,9 +24,7 @@ import * as SplitButtonStories from "./splitButton.stories";
 
 A split button is a dual-function menu button that offers a default action as well as the possibility of choosing a secondary action, by selecting from a set of alternatives.
 
-<Canvas>
-  <Story of={SplitButtonStories.Overview} />
-</Canvas>
+<Canvas of={SplitButtonStories.Overview} />
 
 ## Props
 
@@ -51,23 +49,17 @@ A split button is a dual-function menu button that offers a default action as we
 
 The split button has three variants: primary, secondary, and tertiary.
 
-<Canvas>
-  <Story of={SplitButtonStories.Types} />
-</Canvas>
+<Canvas of={SplitButtonStories.Types} />
 
 ### Sizes
 
 The split button has supports multiple sizes: small, medium and large.
 
-<Canvas>
-  <Story of={SplitButtonStories.Sizes} />
-</Canvas>
+<Canvas of={SplitButtonStories.Sizes} />
 
 ### Icon usage
 
-<Canvas>
-  <Story of={SplitButtonStories.SplitButtonWithIcons} />
-</Canvas>
+<Canvas of={SplitButtonStories.SplitButtonWithIcons} />
 
 ## Do’s and Don’ts
 
@@ -170,17 +162,13 @@ The split button has supports multiple sizes: small, medium and large.
 
 Use template is the main action.
 
-<Canvas>
-  <Story of={SplitButtonStories.SplitButtonAsThePrimaryAction} />
-</Canvas>
+<Canvas of={SplitButtonStories.SplitButtonAsThePrimaryAction} />
 
 ### Secondary split button
 
 When there’s already a primary button in the view, use a secondary split button.
 
-<Canvas>
-  <Story of={SplitButtonStories.SecondarySplitButton} />
-</Canvas>
+<Canvas of={SplitButtonStories.SecondarySplitButton} />
 
 ### Custom menu
 
@@ -188,9 +176,7 @@ The split button can accept a custom Menu in case there's a need to override the
 
 Notice to always include `focusItemIndexOnMount` prop for accessibility reasons when using custom menus.
 
-<Canvas>
-  <Story of={SplitButtonStories.CustomMenu} />
-</Canvas>
+<Canvas of={SplitButtonStories.CustomMenu} />
 
 ## Related components
 

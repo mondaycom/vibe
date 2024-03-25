@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import IconButton from "../IconButton";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -24,9 +24,7 @@ import * as IconButtonStories from "./IconButton.stories";
 
 Icon button is a square button contains only icon with no visible text labels used mostly in control bars.
 
-<Canvas>
-  <Story of={IconButtonStories.Overview} />
-</Canvas>
+<Canvas of={IconButtonStories.Overview} />
 
 ## Props
 
@@ -56,31 +54,23 @@ Icon button is a square button contains only icon with no visible text labels us
 
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button kinds.
 
-<Canvas>
-  <Story of={IconButtonStories.Kinds} />
-</Canvas>
+<Canvas of={IconButtonStories.Kinds} />
 
 <TipMenuButton />
 
 ### Sizes
 
-<Canvas>
-  <Story of={IconButtonStories.Sizes} />
-</Canvas>
+<Canvas of={IconButtonStories.Sizes} />
 
 ### Active
 
-<Canvas>
-  <Story of={IconButtonStories.Active} />
-</Canvas>
+<Canvas of={IconButtonStories.Active} />
 
 ### Disabled
 
 Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
 
-<Canvas>
-  <Story of={IconButtonStories.Disabled} />
-</Canvas>
+<Canvas of={IconButtonStories.Disabled} />
 
 ## Do’s and Don’ts
 
@@ -126,15 +116,11 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
 
 ### Icon button as toolbar button
 
-<Canvas>
-  <Story of={IconButtonStories.IconButtonAsToolbarButton} />
-</Canvas>
+<Canvas of={IconButtonStories.IconButtonAsToolbarButton} />
 
 ### Icon button as close button
 
-<Canvas>
-  <Story of={IconButtonStories.IconButtonAsCloseButton} />
-</Canvas>
+<Canvas of={IconButtonStories.IconButtonAsCloseButton} />
 
 ## Related components
 

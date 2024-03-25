@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as MenuDividerStories from "./MenuDivider.stories";
 
 <Meta of={MenuDividerStories} />
@@ -15,9 +15,7 @@ import * as MenuDividerStories from "./MenuDivider.stories";
 
 Use menu divider for create separation between to menu items inside a menu
 
-<Canvas>
-  <Story of={MenuDividerStories.Overview} />
-</Canvas>
+<Canvas of={MenuDividerStories.Overview} />
 
 ## Props
 
@@ -27,12 +25,8 @@ Use menu divider for create separation between to menu items inside a menu
 
 ### Menu with divider
 
-<Canvas>
-  <Story of={MenuDividerStories.MenuWithDivider} />
-</Canvas>
+<Canvas of={MenuDividerStories.MenuWithDivider} />
 
 ### Sub menu with divider
 
-<Canvas>
-  <Story of={MenuDividerStories.SubMenuWithDivider} />
-</Canvas>
+<Canvas of={MenuDividerStories.SubMenuWithDivider} />

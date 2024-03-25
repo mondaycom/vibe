@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as BreadcrumbItemStories from "./breadcrumbItem.stories";
 
 <Meta of={BreadcrumbItemStories} />
@@ -12,9 +12,7 @@ import * as BreadcrumbItemStories from "./breadcrumbItem.stories";
 
 ## Overview
 
-<Canvas>
-  <Story of={BreadcrumbItemStories.Overview} />
-</Canvas>
+<Canvas of={BreadcrumbItemStories.Overview} />
 
 ## Props
 
@@ -24,12 +22,8 @@ import * as BreadcrumbItemStories from "./breadcrumbItem.stories";
 
 ### States
 
-<Canvas>
-  <Story of={BreadcrumbItemStories.States} />
-</Canvas>
+<Canvas of={BreadcrumbItemStories.States} />
 
 ### With icon
 
-<Canvas>
-  <Story of={BreadcrumbItemStories.WithIcon} />
-</Canvas>
+<Canvas of={BreadcrumbItemStories.WithIcon} />

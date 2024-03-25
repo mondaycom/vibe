@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   BUTTON,
   HIDDEN_TEXT,
@@ -20,9 +20,7 @@ import { TipHookSolution } from "./Clickable.stories.helpers";
 
 An accessibility helper component, this component simulates a button on non button elements
 
-<Canvas>
-  <Story of={ClickableStories.Overview} />
-</Canvas>
+<Canvas of={ClickableStories.Overview} />
 
 ## Props
 
@@ -36,9 +34,7 @@ Clickable component supports two different states: regular state and disabled st
 The state only affects the component functionality (a user cannot interact with a disabled clickable component) and not the component appearance.
 You can use the component className and style props to change the component appearance.
 
-<Canvas>
-  <Story of={ClickableStories.States} />
-</Canvas>
+<Canvas of={ClickableStories.States} />
 
 <TipHookSolution />
 

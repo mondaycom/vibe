@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as UseEventListenerStories from "./useEventListener.stories";
 
 <Meta of={UseEventListenerStories} />
@@ -13,9 +13,7 @@ import * as UseEventListenerStories from "./useEventListener.stories";
 
 Attaches a listener to any DOM event on a specific element, firing a provided callback when the event is triggered.
 
-<Canvas>
-  <Story of={UseEventListenerStories.Overview} />
-</Canvas>
+<Canvas of={UseEventListenerStories.Overview} />
 
 ## Arguments
 

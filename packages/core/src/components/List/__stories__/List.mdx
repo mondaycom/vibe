@@ -1,5 +1,5 @@
 import List from "../List";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Board from "../../Icon/Icons/components/Board";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
@@ -34,9 +34,7 @@ import * as ListStories from "./List.stories";
 
 Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text.
 
-<Canvas>
-  <Story of={ListStories.Overview} />
-</Canvas>
+<Canvas of={ListStories.Overview} />
 
 ## Props
 
@@ -58,30 +56,22 @@ Lists is a group of actionable items containing primary and supplemental actions
 
 ### List with categories
 
-<Canvas>
-  <Story of={ListStories.ListWithCategories} />
-</Canvas>
+<Canvas of={ListStories.ListWithCategories} />
 
 ### List with icons
 
-<Canvas>
-  <Story of={ListStories.ListWithIcons} />
-</Canvas>
+<Canvas of={ListStories.ListWithIcons} />
 
 ### List with avatars
 
-<Canvas>
-  <Story of={ListStories.ListWithAvatars} />
-</Canvas>
+<Canvas of={ListStories.ListWithAvatars} />
 
 ### List with virtualization optimization
 
 When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
 
-<Canvas>
-  <Story of={ListStories.ListWithVirtualizationOptimization} />
-</Canvas>
+<Canvas of={ListStories.ListWithVirtualizationOptimization} />
 
 <Tip>
   While using virtualization optimization on your list component, please be aware your list needs to contain a constant
@@ -162,9 +152,7 @@ better user experience.
 
 ### List as leftpane
 
-<Canvas>
-  <Story of={ListStories.ListAsLeftpane} />
-</Canvas>
+<Canvas of={ListStories.ListAsLeftpane} />
 
 ## Related components
 

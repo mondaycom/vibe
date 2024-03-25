@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { ComponentRules, Link, UsageGuidelines } from "vibe-storybook-components";
 import AlertBanner from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
@@ -29,9 +29,7 @@ import * as AlertBannerStories from "./alertBanner.stories";
 
 Alert banners show pressing and high-signal messages, such as system alerts. They are meant to be noticed and prompt users to take action.
 
-<Canvas>
-  <Story of={AlertBannerStories.Overview} />
-</Canvas>
+<Canvas of={AlertBannerStories.Overview} />
 
 ## Props
 
@@ -55,21 +53,15 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
 
 There are five types of alert banners: primary, positive, negative, warning and inverted.
 
-<Canvas>
-  <Story of={AlertBannerStories.Types} />
-</Canvas>
+<Canvas of={AlertBannerStories.Types} />
 
 ### Alert Banner with button
 
-<Canvas>
-  <Story of={AlertBannerStories.AlertBannerWithButton} />
-</Canvas>
+<Canvas of={AlertBannerStories.AlertBannerWithButton} />
 
 ### Alert Banner with link
 
-<Canvas>
-  <Story of={AlertBannerStories.AlertBannerWithLink} />
-</Canvas>
+<Canvas of={AlertBannerStories.AlertBannerWithLink} />
 
 ## Do’s and Don’ts
 
@@ -169,25 +161,19 @@ There are five types of alert banners: primary, positive, negative, warning and 
 
 Use when you’d like to notify about an event or cross-company announcment.
 
-<Canvas>
-  <Story of={AlertBannerStories.AlertBannerAsAnAnnouncement} />
-</Canvas>
+<Canvas of={AlertBannerStories.AlertBannerAsAnAnnouncement} />
 
 ### Alert banner as an opportunity to upgrade
 
 Use to show a trial user the number of remaining free days to use the platform.
 
-<Canvas>
-  <Story of={AlertBannerStories.AlertBannerAsAnOpportunityToUpgrade} />
-</Canvas>
+<Canvas of={AlertBannerStories.AlertBannerAsAnOpportunityToUpgrade} />
 
 ### Overflow text
 
 In case that there’s not enough space for the conent, use an ellipses (...).
 
-<Canvas>
-  <Story of={AlertBannerStories.OverflowText} />
-</Canvas>
+<Canvas of={AlertBannerStories.OverflowText} />
 
 ## Related components
 

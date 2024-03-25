@@ -1,5 +1,5 @@
 import Loader from "../Loader";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
 import { Flex } from "../..";
 import {
@@ -28,9 +28,7 @@ import "./Loader.stories.scss";
 
 Circular loader indicates to user waiting state.
 
-<Canvas>
-  <Story of={LoaderStories.Overview} />
-</Canvas>
+<Canvas of={LoaderStories.Overview} />
 
 ## Props
 
@@ -52,29 +50,21 @@ Circular loader indicates to user waiting state.
 
 ### Size variants
 
-<Canvas>
-  <Story of={LoaderStories.SizeVariants} />
-</Canvas>
+<Canvas of={LoaderStories.SizeVariants} />
 
 ### Color variants
 
-<Canvas>
-  <Story of={LoaderStories.ColorVariants} />
-</Canvas>
+<Canvas of={LoaderStories.ColorVariants} />
 
 ### Custom colors
 
 If there is a need for color customization, css `color` attribute of a parent component can be used.
 
-<Canvas>
-  <Story of={LoaderStories.CustomColors} />
-</Canvas>
+<Canvas of={LoaderStories.CustomColors} />
 
 ### Visual variants
 
-<Canvas>
-  <Story of={LoaderStories.VisualVariants} />
-</Canvas>
+<Canvas of={LoaderStories.VisualVariants} />
 
 ## Do’s and Don’ts
 
@@ -109,17 +99,13 @@ If there is a need for color customization, css `color` attribute of a parent co
 
 Use loader in search field while filtering results.
 
-<Canvas>
-  <Story of={LoaderStories.LoaderInTextField} />
-</Canvas>
+<Canvas of={LoaderStories.LoaderInTextField} />
 
 ### Loader in button
 
 Indicate the loading status in button if content or an action is loading.
 
-<Canvas>
-  <Story of={LoaderStories.LoaderInButton} />
-</Canvas>
+<Canvas of={LoaderStories.LoaderInButton} />
 
 ## Related components
 

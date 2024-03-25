@@ -1,5 +1,5 @@
 import Heading from "../LegacyHeading";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { DeprecatedWarning, Link } from "vibe-storybook-components";
 import {
   EDITABLE_HEADING,
@@ -40,9 +40,7 @@ import * as LegacyHeadingStories from "./LegacyHeading.stories";
 
 Heading components are used to title any page sections or sub-sections in top-level page sections.
 
-<Canvas>
-  <Story of={LegacyHeadingStories.Overview} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.Overview} />
 
 ## Props
 
@@ -63,26 +61,20 @@ Heading components are used to title any page sections or sub-sections in top-le
 
 ### Sizes
 
-<Canvas>
-  <Story of={LegacyHeadingStories.Sizes} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.Sizes} />
 
 ### Overflow
 
 Our heading component support overflow state.
 When the heading text is too long and the component includes an ellipsis flag, we will cut the end of the heading and display instead of it "...".
 
-<Canvas>
-  <Story of={LegacyHeadingStories.Overflow} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.Overflow} />
 
 ### With text highlight
 
 Our heading component support text highlight.
 
-<Canvas>
-  <Story of={LegacyHeadingStories.TextHighlight} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.TextHighlight} />
 
 ## Do’s and Don’ts
 
@@ -105,15 +97,11 @@ Our heading component support text highlight.
 
 ### Not editable header of a page
 
-<Canvas>
-  <Story of={LegacyHeadingStories.NotEditableHeaderOfAPage} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.NotEditableHeaderOfAPage} />
 
 ### Empty state title
 
-<Canvas>
-  <Story of={LegacyHeadingStories.EmptyStateTitle} />
-</Canvas>
+<Canvas of={LegacyHeadingStories.EmptyStateTitle} />
 
 ## Related components
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { ComponentNameDecorator } from "../../components";
 import {
   DIALOG,
@@ -18,9 +18,7 @@ Our dropdowns are implemented using the <Link href="https://react-select.com/hom
 One of the styling issues with React Select dropdowns is that the menu is not fully displayed when its container has <code>overflow: hidden</code>, <code>overflow: auto</code>, or <code>overflow: scroll</code>.
 As a result, when dropdown menus are placed inside a scrolling container or within a Vibe's dialog or modal, the dropdown menu appears damaged, as you can see in the following examples.
 
-<Canvas>
-  <Story of={DropdownInModalsStories.ModalWithDamagedDropdown} />
-</Canvas>
+<Canvas of={DropdownInModalsStories.ModalWithDamagedDropdown} />
 
 To address this problem, we need to adjust the styling of the dropdown menu to ensure it appears correctly even within these specific container.
 We implemented few methods for solving this issue.
@@ -31,9 +29,7 @@ To handle straightforward scenarios of displaying dropdowns inside a container w
 This prop overrides the dropdown menu's default settings and ensures proper display within the container.
 **This solution will work for most cases single select dropdown inside Vibe's Modal or DialogContentContainer, it will not work properly for Vibe's Dialog.**
 
-<Canvas>
-  <Story of={DropdownInModalsStories.MenuPosition} />
-</Canvas>
+<Canvas of={DropdownInModalsStories.MenuPosition} />
 
 ## Solution 2: insideOverflowContainer
 
@@ -46,9 +42,7 @@ This prop overrides the dropdown menu's default settings and ensures proper disp
 Please note that this solution is intended for the most basic use cases and may not function optimally if your
 overflow container has one parent or more with conflicting overflow definitions.
 
-<Canvas>
-  <Story of={DropdownInModalsStories.InsideOverflowContainer} />
-</Canvas>
+<Canvas of={DropdownInModalsStories.InsideOverflowContainer} />
 
 ## Solution 3: insideOverflowWithTransformContainer
 
@@ -58,9 +52,7 @@ For this specific case, use the 'insideOverflowWithTransformContainer' prop to e
 
 <TipKnowIssue />
 
-<Canvas>
-  <Story of={DropdownInModalsStories.InsideOverflowWithTransformContainer} />
-</Canvas>
+<Canvas of={DropdownInModalsStories.InsideOverflowWithTransformContainer} />
 
 ## Solution 4: popupsContainerSelector
 

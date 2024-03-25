@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
@@ -31,9 +31,7 @@ import { tipseenTemplate } from "./tipseen.stories";
 
 Tipseen is a virtual unboxing experience that helps users get started with the system and discover new features.
 
-<Canvas>
-  <Story of={TipseenStories.Overview} />
-</Canvas>
+<Canvas of={TipseenStories.Overview} />
 
 ## Props
 
@@ -60,40 +58,30 @@ The inverted type is the default. \
 Use the inverted color for feature discovery, or to give the user general guidance. \
 Use the primary color to bring attention to updates about your product offering.
 
-<Canvas>
-  <Story of={TipseenStories.Colors} />
-</Canvas>
+<Canvas of={TipseenStories.Colors} />
 
 ### Tipseen with a wizard
 
 Use Tipseen with a wizard when you want to teach something in steps.
 
-<Canvas>
-  <Story of={TipseenStories.TipseenWithAWizard} />
-</Canvas>
+<Canvas of={TipseenStories.TipseenWithAWizard} />
 
 ### Tipseen with image
 
-<Canvas>
-  <Story of={TipseenStories.TipseenWithImage} />
-</Canvas>
+<Canvas of={TipseenStories.TipseenWithImage} />
 
 ### Tipseen with custom media
 
 Wrap your custom media with `TipseenMedia` component. This use case is good for when using Lottie animations or other media that is not necessarily an image.
 
-<Canvas>
-  <Story of={TipseenStories.TipseenWithCustomMedia} />
-</Canvas>
+<Canvas of={TipseenStories.TipseenWithCustomMedia} />
 
 ### Floating Tipseen
 
 Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
 In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
 
-<Canvas>
-  <Story of={TipseenStories.FloatingTipseen} height={"500px"} />
-</Canvas>
+<Canvas of={TipseenStories.FloatingTipseen} height={"500px"} />
 
 ## Do’s and Don’ts
 

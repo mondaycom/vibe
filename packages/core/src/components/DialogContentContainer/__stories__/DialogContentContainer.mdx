@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as DialogContentContainerStories from "./DialogContentContainer.stories";
 
 <Meta of={DialogContentContainerStories} />
@@ -15,9 +15,7 @@ import * as DialogContentContainerStories from "./DialogContentContainer.stories
 
 This component is a style component, it provide the look and feel of elevation.
 
-<Canvas>
-  <Story of={DialogContentContainerStories.Overview} />
-</Canvas>
+<Canvas of={DialogContentContainerStories.Overview} />
 
 ## Props
 
@@ -31,12 +29,8 @@ This component is a style component, it provide the look and feel of elevation.
 
 ### Popover
 
-<Canvas>
-  <Story of={DialogContentContainerStories.Popover} />
-</Canvas>
+<Canvas of={DialogContentContainerStories.Popover} />
 
 ### Modal
 
-<Canvas>
-  <Story of={DialogContentContainerStories.Modal} />
-</Canvas>
+<Canvas of={DialogContentContainerStories.Modal} />

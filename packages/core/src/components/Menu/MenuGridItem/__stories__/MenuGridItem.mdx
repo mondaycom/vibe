@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { MENU, MENU_BUTTON } from "../../../../storybook/components/related-components/component-description-map";
 import { TipOtherMenuItemComponents } from "./MenuGridItem.stories.helpers";
 import * as MenuGridItemStories from "./MenuGridItem.stories";
@@ -19,9 +19,7 @@ import * as MenuGridItemStories from "./MenuGridItem.stories";
 <code>MenuGridItem</code> can be used to place a grid-like, keyboard navigable container, inside a Menu. The user will be
 able to interact and navigate into and from the grid in a natural way.
 
-<Canvas>
-  <Story of={MenuGridItemStories.Overview} />
-</Canvas>
+<Canvas of={MenuGridItemStories.Overview} />
 
 ## Props
 
@@ -62,17 +60,13 @@ Since <code>MenuGridItem</code> should be used only inside a <code>Menu</code>, 
 
 Disabled items will be "skipped" when using keyboard navigation. Try it for yourself!
 
-<Canvas>
-  <Story of={MenuGridItemStories.WithDisabledStates} />
-</Canvas>
+<Canvas of={MenuGridItemStories.WithDisabledStates} />
 
 ### Inside sub-menus
 
 Keyboard navigation is also supported in sub-menus
 
-<Canvas>
-  <Story of={MenuGridItemStories.InsideSubMenus} />
-</Canvas>
+<Canvas of={MenuGridItemStories.InsideSubMenus} />
 
 ## Related components
 

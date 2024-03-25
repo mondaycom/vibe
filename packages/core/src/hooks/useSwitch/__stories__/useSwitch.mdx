@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 import * as UseSwitchStories from "./useSwitch.stories";
 
@@ -16,9 +16,7 @@ import * as UseSwitchStories from "./useSwitch.stories";
 
 Hook for controlling boolean state on components, e.g. Toggle, by exposing state and a handler
 
-<Canvas>
-  <Story of={UseSwitchStories.Overview} />
-</Canvas>
+<Canvas of={UseSwitchStories.Overview} />
 
 ## Variants
 
@@ -26,17 +24,13 @@ Hook for controlling boolean state on components, e.g. Toggle, by exposing state
 
 Hook can have argument of `isDisabled` to not allow trigger `onChange` (or the custom passed `onChange`) and change returned `isChecked` value.
 
-<Canvas>
-  <Story of={UseSwitchStories.Disabled} />
-</Canvas>
+<Canvas of={UseSwitchStories.Disabled} />
 
 ### Default (initial) value
 
 Hook can have argument of `defaultChecked` to control the **_initial_** value returned from it.
 
-<Canvas>
-  <Story of={UseSwitchStories.Default} />
-</Canvas>
+<Canvas of={UseSwitchStories.Default} />
 
 ## Arguments
 

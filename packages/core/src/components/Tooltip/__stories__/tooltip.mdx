@@ -1,5 +1,5 @@
 import Tooltip from "../Tooltip";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Bolt } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
 import Button from "../../Button/Button";
@@ -26,9 +26,7 @@ import { TipOtherComponents } from "./tooltip.stories.helpers";
 
 Tooltips show contextual help or information about specific components when a user hovers on them.
 
-<Canvas>
-  <Story of={TooltipStories.Overview} />
-</Canvas>
+<Canvas of={TooltipStories.Overview} />
 
 ## Props
 
@@ -51,17 +49,13 @@ Tooltips show contextual help or information about specific components when a us
 
 Tooltip’s arrow can appear from top, bottom, left or right.
 
-<Canvas>
-  <Story of={TooltipStories.Positions} />
-</Canvas>
+<Canvas of={TooltipStories.Positions} />
 
 ### Themes
 
 Tooltip’s arrow can have various themes.
 
-<Canvas>
-  <Story of={TooltipStories.Themes} />
-</Canvas>
+<Canvas of={TooltipStories.Themes} />
 
 ## Do’s and Don’ts
 
@@ -96,25 +90,19 @@ Tooltip’s arrow can have various themes.
 
 An icon tooltip is used to clarify the action or name of an interactive icon button. Provide tooltips for all unlabelled icons.
 
-<Canvas>
-  <Story of={TooltipStories.IconTooltip} />
-</Canvas>
+<Canvas of={TooltipStories.IconTooltip} />
 
 ### Definition tooltip
 
 The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
 
-<Canvas>
-  <Story of={TooltipStories.DefinitionTooltip} />
-</Canvas>
+<Canvas of={TooltipStories.DefinitionTooltip} />
 
 ### Immediate tooltips
 
 Immediately show when another is shown. The two left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
 
-<Canvas>
-  <Story of={TooltipStories.ImmediateTooltips} />
-</Canvas>
+<Canvas of={TooltipStories.ImmediateTooltips} />
 
 ## Related components
 

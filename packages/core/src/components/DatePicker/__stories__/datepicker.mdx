@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   DIALOG_CONTENT_CONTAINER,
   DROPDOWN,
@@ -19,9 +19,7 @@ import * as DatepickerStories from "./datepicker.stories";
 
 A simple and reusable Datepicker component
 
-<Canvas>
-  <Story of={DatepickerStories.Overview} />
-</Canvas>
+<Canvas of={DatepickerStories.Overview} />
 
 ## Props
 
@@ -33,23 +31,17 @@ A simple and reusable Datepicker component
 
 Allows users to select a single date
 
-<Canvas>
-  <Story of={DatepickerStories.SingleDay} />
-</Canvas>
+<Canvas of={DatepickerStories.SingleDay} />
 
 ### Date range
 
 Allows users to select a date range
 
-<Canvas>
-  <Story of={DatepickerStories.DateRange} />
-</Canvas>
+<Canvas of={DatepickerStories.DateRange} />
 
 ### Number of months
 
-<Canvas>
-  <Story of={DatepickerStories.NumberOfMonths} />
-</Canvas>
+<Canvas of={DatepickerStories.NumberOfMonths} />
 
 ## Related components
 
