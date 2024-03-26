@@ -1,4 +1,5 @@
 import Label from "../Label";
+import Button from "../../Button/Button";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
@@ -144,8 +145,10 @@ export const Celebration = {
 
     return (
       <>
-        <Label text="Click to celebrate" kind={Label.kinds.LINE} onClick={() => setAnimate(true)} />
         <Label text="New" kind={Label.kinds.LINE} celebrationAnimation={animate} isAnimationDisabled />
+        <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} onClick={() => setAnimate(true)}>
+          Click to celebrate
+        </Button>
       </>
     );
   },
