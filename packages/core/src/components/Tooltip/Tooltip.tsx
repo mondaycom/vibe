@@ -13,6 +13,10 @@ import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { SubIcon } from "../../types";
+import Text from "../Text/Text";
+import Icon from "../Icon/Icon";
+import Flex from "../Flex/Flex";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -100,7 +104,7 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   showOnDialogEnter?: boolean;
   /**
-   * A Classname to be added to <spam> element which wraps the children
+   * A Classname to be added to <span> element which wraps the children
    */
   referenceWrapperClassName?: string;
   /**
@@ -115,11 +119,23 @@ interface TooltipBaseProps extends VibeComponentProps {
    * Overwrites z-index of the tooltip
    */
   zIndex?: number;
-  // TODO: make defualt next major
+  // TODO: make default next major
   /**
    * Limit tooltip to 240px
    */
   withMaxWidth?: boolean;
+  /**
+   * The title of the tooltip
+   */
+  title?: string;
+  /**
+   * The image of the tooltip
+   */
+  image?: string;
+  /**
+   * The icon of the tooltip next to the title
+   */
+  icon?: SubIcon;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -175,7 +191,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style, withMaxWidth } = this.props;
+    const { theme, content, paddingSize, className, style, withMaxWidth, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -198,12 +214,22 @@ export default class Tooltip extends PureComponent<TooltipProps> {
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
-          getStyle(styles, camelCase("padding-size-" + paddingSize)),
           { [styles.withMaxWidth]: withMaxWidth },
           className
         )}
       >
-        {contentValue}
+        {image && <img className={styles.image} src={image} alt="" />}
+        <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
+          {title && (
+            <Flex gap={Flex.gaps.XS}>
+              {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
+              <Text color={Text.colors.INHERIT} weight={Text.weights.BOLD}>
+                {title}
+              </Text>
+            </Flex>
+          )}
+          {contentValue}
+        </div>
       </div>
     );
   }

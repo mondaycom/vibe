@@ -1,11 +1,11 @@
 import Tooltip from "../Tooltip";
-import { capitalize } from "lodash-es";
-import TooltipReference from "./TooltipReference";
-import { Hide, Subitems } from "../../Icon/Icons";
-import Icon from "../../Icon/Icon";
+import { Hide, Menu, Subitems } from "../../Icon/Icons";
+import Button from "../../Button/Button";
+import Flex from "../../Flex/Flex";
+import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./tooltip.stories.helpers";
-import { TooltipTheme } from "../TooltipConstants";
 import "./tooltip.stories.scss";
+import image from "./assets/tooltip-image.svg";
 
 export default {
   title: "Popover/Tooltip",
@@ -31,73 +31,96 @@ const tooltipTemplate = args => {
 export const Overview = {
   render: tooltipTemplate.bind({}),
   name: "Overview",
-
   args: {
     shouldShowOnMount: true,
     content: "I'm a tooltip"
   },
-
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
     }
   }
 };
+
+export const TooltipWithTitle = () => (
+  <div className="monday-storybook-tooltip_title">
+    <Tooltip
+      content="Hidden columns"
+      title="Tooltip title"
+      withMaxWidth
+      shouldShowOnMount
+      position={Tooltip.positions.RIGHT}
+      modifiers={modifiers}
+    >
+      <div />
+    </Tooltip>
+  </div>
+);
+
+export const TooltipWitImage = () => (
+  <div className="monday-storybook-tooltip_image">
+    <Tooltip
+      content="Max width tooltip with a long text example"
+      title="Tooltip title"
+      withMaxWidth
+      shouldShowOnMount
+      image={image}
+      position={Tooltip.positions.RIGHT}
+      modifiers={modifiers}
+    >
+      <div />
+    </Tooltip>
+  </div>
+);
 
 export const Positions = {
-  // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-  render:
-    // Therefore, there is no need to move this prop in your implementations.
-    () => {
-      return (
-        <>
-          <div className="monday-storybook-tooltip_top">
-            <Tooltip
-              modifiers={modifiers}
-              content="Top"
-              shouldShowOnMount
-              position={Tooltip.positions.BOTTOM}
-              animationType={Tooltip.animationTypes.EXPAND}
-              withMaxWidth
-            >
-              <div />
-            </Tooltip>
-          </div>
-          <div className="monday-storybook-tooltip_bottom">
-            <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount animationType="expand" maxWidth>
-              <div />
-            </Tooltip>
-          </div>
-          <div className="monday-storybook-tooltip_right">
-            <Tooltip
-              modifiers={modifiers}
-              content="Left"
-              position={Tooltip.positions.RIGHT}
-              shouldShowOnMount
-              animationType={Tooltip.animationTypes.EXPAND}
-              withMaxWidth
-            >
-              <div />
-            </Tooltip>
-          </div>
-          <div className="monday-storybook-tooltip_left">
-            <Tooltip
-              modifiers={modifiers}
-              content="Right"
-              position={Tooltip.positions.LEFT}
-              shouldShowOnMount
-              animationType={Tooltip.animationTypes.EXPAND}
-              withMaxWidth
-            >
-              <div />
-            </Tooltip>
-          </div>
-        </>
-      );
-    },
-
+  render: () => {
+    return (
+      <div className="monday-storybook-tooltip_positions">
+        <div>
+          {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+         Therefore, there is no need to move this prop in your implementations. */}
+          <Tooltip
+            modifiers={modifiers}
+            content="Top"
+            shouldShowOnMount
+            position={Tooltip.positions.BOTTOM}
+            withMaxWidth
+          >
+            <div />
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip modifiers={modifiers} content="Bottom" shouldShowOnMount withMaxWidth>
+            <div />
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            modifiers={modifiers}
+            content="Left"
+            position={Tooltip.positions.RIGHT}
+            shouldShowOnMount
+            withMaxWidth
+          >
+            <div />
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            modifiers={modifiers}
+            content="Right"
+            position={Tooltip.positions.LEFT}
+            shouldShowOnMount
+            withMaxWidth
+          >
+            <div />
+          </Tooltip>
+        </div>
+      </div>
+    );
+  },
   name: "Positions",
-
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true
@@ -105,70 +128,30 @@ export const Positions = {
   }
 };
 
-export const Themes = {
-  render: () =>
-    Object.values(TooltipTheme).map(theme => (
-      <div className="monday-storybook-tooltip_top" key={theme}>
-        <Tooltip
-          modifiers={modifiers}
-          content={capitalize(theme)}
-          shouldShowOnMount
-          position={Tooltip.positions.BOTTOM}
-          animationType={Tooltip.animationTypes.EXPAND}
-          theme={theme}
-          withMaxWidth
-        >
-          <div />
-        </Tooltip>
-      </div>
-    )),
+export const IconTooltip = () => (
+  <Tooltip content="Hidden columns" withMaxWidth modifiers={modifiers}>
+    <IconButton kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} icon={Hide} />
+  </Tooltip>
+);
 
-  name: "Themes"
-};
+export const DefinitionTooltip = () => (
+  <Tooltip content="Item name: Bottom sheets" withMaxWidth modifiers={modifiers}>
+    <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} leftIcon={Subitems}>
+      Subitem
+    </Button>
+  </Tooltip>
+);
 
-export const IconTooltip = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Hidden columns" withMaxWidth>
-        <div className="monday-storybook-tooltip_icon-wrapper">
-          <Icon icon={Hide} />
-        </div>
-      </Tooltip>
-    </div>
-  ),
-
-  name: "Icon tooltip"
-};
-
-export const DefinitionTooltip = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip content="Item name: Bottom sheets" withMaxWidth>
-        <div className="monday-storybook-tooltip_icon-wrapper">
-          <Icon icon={Subitems} />
-          <span>Subitem</span>
-        </div>
-      </Tooltip>
-    </div>
-  ),
-
-  name: "Definition tooltip"
-};
-
-export const ImmediateTooltips = {
-  render: () => (
-    <div className="monday-storybook-tooltip_box">
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-        <TooltipReference />
-      </Tooltip>
-      <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
-        <TooltipReference />
-      </Tooltip>
-      <Tooltip content="I'm a tooltip" withMaxWidth>
-        <TooltipReference />
-      </Tooltip>
-    </div>
-  ),
-
-  name: "Immediate tooltips"
-};
+export const ImmediateTooltips = () => (
+  <Flex gap={Flex.gaps.SMALL}>
+    <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
+      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+    </Tooltip>
+    <Tooltip immediateShowDelay={0} content="I'm a tooltip" withMaxWidth>
+      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+    </Tooltip>
+    <Tooltip content="I'm a tooltip" withMaxWidth>
+      <IconButton icon={Menu} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} />
+    </Tooltip>
+  </Flex>
+);

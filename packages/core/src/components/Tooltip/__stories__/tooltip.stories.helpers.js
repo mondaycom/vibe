@@ -24,7 +24,11 @@ export const TipOtherComponents = () => (
     </StorybookLink>{" "}
     or{" "}
     <StorybookLink page="Feedback/AttentionBox" size={StorybookLink.sizes.SMALL}>
-      Attention box.
+      Attention box
+    </StorybookLink>{" "}
+    or{" "}
+    <StorybookLink page="Popover/Dialog" size={StorybookLink.sizes.SMALL}>
+      Dialog.
     </StorybookLink>
   </Tip>
 );

@@ -4,9 +4,7 @@ $tooltip-z-index: 9999999999999999;
 
 .tooltip {
   position: relative;
-  display: inline-block;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
-  padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
   box-shadow: var(--box-shadow-medium);
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
@@ -15,12 +13,30 @@ $tooltip-z-index: 9999999999999999;
   &.withMaxWidth {
     --tooltip-max-width: 240px;
   }
-}
 
-.tooltip.paddingSizeMd {
-  border-radius: var(--border-radius-medium);
-  padding: var(--spacing-medium);
-  @include font-input();
+  .image {
+    display: block;
+    position: relative;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    padding: 2px 2px 0 2px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: var(--tooltip-max-width);
+    z-index: 1;
+  }
+
+  .content {
+    display: inline-block;
+    padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
+
+    &.paddingSizeMd {
+      border-radius: var(--border-radius-medium);
+      padding: var(--spacing-medium);
+      @include font-input();
+    }
+  }
 }
 
 .tooltip a.tooltipWhiteLink {
