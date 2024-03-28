@@ -14,7 +14,6 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { SubIcon } from "../../types";
-import Text from "../Text/Text";
 import Icon from "../Icon/Icon";
 import Flex from "../Flex/Flex";
 
@@ -223,9 +222,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
           {title && (
             <Flex gap={Flex.gaps.XS}>
               {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
-              <Text color={Text.colors.INHERIT} weight={Text.weights.BOLD}>
-                {title}
-              </Text>
+              <div className={styles.title}>{title}</div>
             </Flex>
           )}
           {contentValue}

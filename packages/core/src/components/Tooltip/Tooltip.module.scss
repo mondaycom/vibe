@@ -27,6 +27,10 @@ $tooltip-z-index: 9999999999999999;
     z-index: 1;
   }
 
+  .title {
+    @include vibe-text(text2, bold);
+  }
+
   .content {
     display: inline-block;
     padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
