@@ -5,7 +5,7 @@ import Flex from "../../Flex/Flex";
 import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./tooltip.stories.helpers";
 import "./tooltip.stories.scss";
-import image from "./assets/tooltip-image.svg";
+import image from "./assets/tooltip-image.png";
 
 export default {
   title: "Popover/Tooltip",
