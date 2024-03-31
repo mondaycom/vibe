@@ -68,9 +68,13 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
-+             25%
++             <div
++               class="content paddingSizeUndefined"
++             >
++               25%
++             </div>
 +           </div>
 +           <div
 +             class="arrow arrow dark paddingSizeUndefined"
@@ -103,9 +107,13 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
-+             65%
++             <div
++               class="content paddingSizeUndefined"
++             >
++               65%
++             </div>
 +           </div>
 +           <div
 +             class="arrow arrow dark paddingSizeUndefined"
@@ -138,9 +146,13 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
--             25%
+-             <div
+-               class="content paddingSizeUndefined"
+-             >
+-               25%
+-             </div>
 -           </div>
 -           <div
 -             class="arrow arrow dark paddingSizeUndefined"
@@ -173,9 +185,13 @@ Snapshot Diff:
 +           class="contentComponent top edgeCenter hasTooltip"
 +         >
 +           <div
-+             class="tooltip dark paddingSizeUndefined"
++             class="tooltip dark"
 +           >
-+             25%
++             <div
++               class="content paddingSizeUndefined"
++             >
++               25%
++             </div>
 +           </div>
 +           <div
 +             class="arrow arrow dark paddingSizeUndefined"
@@ -219,14 +235,14 @@ Snapshot Diff:
         />
         <span
 @@ --- --- @@
-            <div
-              class="tooltip dark paddingSizeUndefined"
-            >
--             25%
-+             65%
+              <div
+                class="content paddingSizeUndefined"
+              >
+-               25%
++               65%
+              </div>
             </div>
             <div
-              class="arrow arrow dark paddingSizeUndefined"
 @@ --- --- @@
             />
           </div>
@@ -283,9 +299,13 @@ Snapshot Diff:
 -           class="contentComponent top edgeCenter hasTooltip expandAppear expandAppearActive"
 -         >
 -           <div
--             class="tooltip dark paddingSizeUndefined"
+-             class="tooltip dark"
 -           >
--             65%
+-             <div
+-               class="content paddingSizeUndefined"
+-             >
+-               65%
+-             </div>
 -           </div>
 -           <div
 -             class="arrow arrow dark paddingSizeUndefined"

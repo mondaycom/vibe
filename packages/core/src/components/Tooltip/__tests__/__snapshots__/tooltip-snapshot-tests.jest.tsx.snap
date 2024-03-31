@@ -29,11 +29,15 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -80,11 +84,15 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -131,11 +139,15 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -182,11 +194,15 @@ Array [
       className="contentComponent top edgeEnd hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -233,11 +249,15 @@ Array [
       className="contentComponent left edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -284,7 +304,7 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
@@ -293,7 +313,11 @@ Array [
           }
         }
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -340,11 +364,15 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip error paddingSizeUndefined"
+        className="tooltip error"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
       <div
         className="arrow arrow error paddingSizeUndefined"
@@ -364,9 +392,13 @@ Array [
 
 exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
-  className="tooltip dark paddingSizeUndefined"
+  className="tooltip dark"
 >
-  test
+  <div
+    className="content paddingSizeUndefined"
+  >
+    test
+  </div>
 </div>
 `;
 
@@ -399,11 +431,15 @@ Array [
       className="contentComponent top edgeCenter"
     >
       <div
-        className="tooltip dark paddingSizeUndefined"
+        className="tooltip dark"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        test
+        <div
+          className="content paddingSizeUndefined"
+        >
+          test
+        </div>
       </div>
     </div>
   </span>,
