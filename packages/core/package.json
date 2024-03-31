@@ -229,6 +229,7 @@
     "prettier": "^2.5.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-live": "^4.1.6",
     "react-markdown": "^7.1.0",
     "react-resizable": "^3.0.4",
     "react-test-renderer": "^16.14.0",
