@@ -1,6 +1,5 @@
-import { Decorator } from "@storybook/react";
-import { useRef, useState } from "react";
 import { Decorator, Parameters as StorybookParameters } from "@storybook/react";
+import { useEffect, useRef, useState } from "react";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import * as VibeComponents from "../../../components";
@@ -11,6 +10,7 @@ import { LiveProvider } from "react-live";
 import LivePreview from "../../components/live-preview/LivePreview";
 import styles from "./withLiveEdit.module.scss";
 import LiveEditor from "../../components/live-editor/LiveEditor";
+import { formatCode } from "./prettier-utils";
 
 const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
 
@@ -31,6 +31,11 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
     setCode(newVal);
     setDirty(true);
   };
+
+  useEffect(() => {
+    setCode(code => formatCode(code));
+  }, []);
+
   const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.enableLiveEdit;
 
   return (
@@ -57,7 +62,8 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
             setup={{
               lineNumbers: false,
               foldGutter: false,
-              highlightActiveLine: false
+              highlightActiveLine: false,
+              autocompletion: false
             }}
           />,
           document.getElementById(id) || document.body
