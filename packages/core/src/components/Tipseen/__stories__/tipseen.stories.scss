@@ -23,11 +23,6 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     height: 400px;
   }
 
-  &_image {
-    width: 320px;
-    height: 175px;
-  }
-
   &_inline-container {
     width: 300px;
     height: 20px;
@@ -69,7 +64,7 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
   }
 
   &_small-box {
