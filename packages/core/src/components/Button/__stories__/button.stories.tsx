@@ -26,6 +26,9 @@ export const Overview = {
   name: "Overview",
   args: {
     children: "Button"
+  },
+  parameters: {
+    liveEdit: { enableLiveEdit: false }
   }
 };
 
