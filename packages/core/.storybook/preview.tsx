@@ -45,6 +45,7 @@ const preview: Preview = {
     controls: {
       sort: "alpha"
     },
+    layout: "fullscreen",
     docs: {
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
