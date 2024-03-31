@@ -3,6 +3,7 @@
 $tooltip-z-index: 9999999999999999;
 
 .tooltip {
+  display: inline-block;
   position: relative;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
   box-shadow: var(--box-shadow-medium);
@@ -32,7 +33,6 @@ $tooltip-z-index: 9999999999999999;
   }
 
   .content {
-    display: inline-block;
     padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
 
     &.paddingSizeMd {
