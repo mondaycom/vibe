@@ -1,11 +1,11 @@
 import { MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import cx from "classnames";
 import styles from "./withGlobalStyle.module.scss";
-import { StoryFn } from "@storybook/react";
+import { Decorator } from "@storybook/react";
 
-const WithGlobalStyle = (Story: StoryFn, { className }: { className: string }) => {
+const WithGlobalStyle: Decorator = (Story, { className, viewMode }) => {
   return (
-    <MultipleStoryElementsWrapper className={cx(styles.storyWrapper, className)}>
+    <MultipleStoryElementsWrapper className={cx({ [styles.storyWrapper]: viewMode === "docs" }, className)}>
       <Story />
     </MultipleStoryElementsWrapper>
   );

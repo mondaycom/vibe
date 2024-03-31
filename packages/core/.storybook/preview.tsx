@@ -45,8 +45,10 @@ const preview: Preview = {
     controls: {
       sort: "alpha"
     },
-    layout: "fullscreen",
     docs: {
+      canvas: {
+        layout: "fullscreen"
+      },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
@@ -110,8 +112,8 @@ const preview: Preview = {
     }
   },
   decorators: [
-    withGlobalStyle,
     withLiveEdit,
+    withGlobalStyle,
     withMemoryStats,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
     withThemeByClassName({
