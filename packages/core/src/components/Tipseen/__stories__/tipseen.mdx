@@ -81,7 +81,7 @@ Wrap your custom media with `TipseenMedia` component. This use case is good for 
 Use Floating Tipseen in case where the guidance is not relevant to a specific UI element, but general.
 In this case, the Tipseen position will be the right corner of the screen and without an arrow tip.
 
-<Canvas of={TipseenStories.FloatingTipseen} height={"500px"} />
+<Canvas of={TipseenStories.FloatingTipseen} story={{ height: "500px" }} />
 
 ## Do’s and Don’ts
 
@@ -96,7 +96,9 @@ In this case, the Tipseen position will be the right corner of the screen and wi
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT}
               color={Tipseen.colors.INVERTED}
-              content={<TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />}
+              content={
+                <TipseenWizard title="This is a title" steps={wizardContent} activeStepIndex={4} onFinish={() => {}} />
+              }
             >
               <div className="monday-storybook-tipseen_inline-container right" />{" "}
             </Tipseen>
@@ -118,8 +120,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             </Tipseen>
           </div>
         ),
-        description:
-          "Don’t finish the Tipseen wizard process with a disabled CTA."
+        description: "Don’t finish the Tipseen wizard process with a disabled CTA."
       }
     },
     {
@@ -157,7 +158,11 @@ In this case, the Tipseen position will be the right corner of the screen and wi
               modifiers={modifiers}
               position={Tipseen.positions.TOP}
               color={Tipseen.colors.INVERTED}
-              content={<TipseenContent>You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.</TipseenContent>}
+              content={
+                <TipseenContent>
+                  You still have 14 days on your free trial, enjoy it! At the end you can choose your favorite plan.
+                </TipseenContent>
+              }
             >
               <div className="monday-storybook-tipseen_inline-container" />
             </Tipseen>
@@ -172,7 +177,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
         )
       }
     },
-        {
+    {
       positive: {
         component: (
           <div className="monday-storybook-tipseen_box">
@@ -189,8 +194,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             </Tipseen>
           </div>
         ),
-        description:
-          "Add a pointer to indicate the specific component that the tipseen comes from."
+        description: "Add a pointer to indicate the specific component that the tipseen comes from."
       },
       negative: {
         component: (
@@ -209,8 +213,7 @@ In this case, the Tipseen position will be the right corner of the screen and wi
             </Tipseen>
           </div>
         ),
-        description:
-          "Don’t use a tipseen without a pointer, unless it’s a general tipseen for an entire screen."
+        description: "Don’t use a tipseen without a pointer, unless it’s a general tipseen for an entire screen."
       }
     }
   ]}
