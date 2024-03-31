@@ -17,10 +17,17 @@ const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
     []
   );
 
+  const liveEditEnabledForStory = story.parameters.docs?.liveEdit?.enableLiveEdit;
+
   return (
     <>
-      <Canvas of={of} sourceState={"none"} additionalActions={[toggleCodeAction]} className={styles.canvas} />
-      <div id={story.id} className={styles.editorContainer} data-editor-open={open} />
+      <Canvas
+        of={of}
+        sourceState={liveEditEnabledForStory ? "none" : "hidden"}
+        additionalActions={liveEditEnabledForStory ? [toggleCodeAction] : []}
+        className={styles.canvas}
+      />
+      {liveEditEnabledForStory && <div id={story.id} className={styles.editorContainer} data-editor-open={open} />}
     </>
   );
 };

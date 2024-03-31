@@ -1,5 +1,6 @@
 import { Decorator } from "@storybook/react";
 import { useRef, useState } from "react";
+import { Decorator, Parameters as StorybookParameters } from "@storybook/react";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import * as VibeComponents from "../../../components";
@@ -13,7 +14,14 @@ import LiveEditor from "../../components/live-editor/LiveEditor";
 
 const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext };
 
-const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }) => {
+type Parameters = StorybookParameters & {
+  liveEdit?: {
+    scope?: Record<string, unknown>;
+    enableLiveEdit?: boolean;
+  };
+};
+
+const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters) => {
   const scope = { ...globalScope, ...parameters.liveEdit?.scope };
   const originalCode = useRef<string>(extractCodeFromSource(parameters.docs.source?.originalSource) || "");
   const [code, setCode] = useState<string>(originalCode.current);
@@ -23,6 +31,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }) => {
     setCode(newVal);
     setDirty(true);
   };
+  const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.enableLiveEdit;
 
   return (
     <>
@@ -36,7 +45,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }) => {
       ) : (
         <Story />
       )}
-      {viewMode === "docs" &&
+      {shouldAllowLiveEdit &&
         createPortal(
           <LiveEditor
             placeholder={"Insert code here"}

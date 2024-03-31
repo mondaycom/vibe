@@ -46,6 +46,9 @@ const preview: Preview = {
       sort: "alpha"
     },
     docs: {
+      liveEdit: {
+        enableLiveEdit: true
+      },
       canvas: {
         layout: "fullscreen"
       },
