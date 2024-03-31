@@ -28,6 +28,7 @@ import {
   MultipleStoryElementsWrapper,
   StorybookLink
 } from "vibe-storybook-components";
+import CanvasWrapper from "../src/storybook/components/canvas-wrapper/CanvasWrapper";
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
@@ -53,6 +54,7 @@ const preview: Preview = {
       ),
       page: DocsPage,
       components: {
+        Canvas: CanvasWrapper,
         Controls: PropsTable,
         PropsTable,
         h1: ComponentNameDecorator,
