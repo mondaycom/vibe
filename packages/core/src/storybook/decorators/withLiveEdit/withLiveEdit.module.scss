@@ -8,4 +8,6 @@
   color: var(--sb-text-color-on-primary);
   padding: var(--sb-spacing-xs);
   font-size: 10px;
+  pointer-events: none;
+  user-select: none;
 }
