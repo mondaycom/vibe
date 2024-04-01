@@ -170,3 +170,13 @@ export const InputFieldWithDateAndTime = {
 
   name: "Input field with date and time"
 };
+
+export const InputFieldWithTime = {
+  render: () => (
+    <div className="monday-storybook-text-field_size">
+      <TextField size={TextField.sizes.MEDIUM} type={TextFieldTextType.TIME} />
+    </div>
+  ),
+
+  name: "Input field with time"
+};
