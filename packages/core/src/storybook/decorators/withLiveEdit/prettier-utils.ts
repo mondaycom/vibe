@@ -12,6 +12,6 @@ export function formatCode(code: string): string {
   try {
     return format(code, options).replace(/;\s*$/, "");
   } catch (e) {
-    throw new Error(`[Playground Error]: Error formatting code: ${e}`);
+    throw new Error(`[LiveEdit Error]: Error formatting code: ${e}`);
   }
 }

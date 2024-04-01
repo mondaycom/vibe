@@ -33,7 +33,14 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
   };
 
   useEffect(() => {
-    setCode(code => formatCode(code));
+    setCode(code => {
+      try {
+        return formatCode(code);
+      } catch (e) {
+        console.error(e);
+        return originalCode.current;
+      }
+    });
   }, []);
 
   const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.enableLiveEdit;
