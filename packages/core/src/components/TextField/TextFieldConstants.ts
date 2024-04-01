@@ -31,7 +31,8 @@ export enum TextFieldTextType {
   NUMBER = "number",
   TEL = "tel",
   URL = "url",
-  EMAIL = "email"
+  EMAIL = "email",
+  TIME = "time"
 }
 
 export enum TextFieldFeedbackState {

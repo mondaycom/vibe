@@ -124,4 +124,9 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField type={TextField.types.EMAIL} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with time type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.TIME} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
