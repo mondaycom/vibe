@@ -28,7 +28,9 @@ export const Overview = {
     children: "Button"
   },
   parameters: {
-    liveEdit: { enableLiveEdit: false }
+    docs: {
+      liveEdit: { enableLiveEdit: false }
+    }
   }
 };
 
@@ -102,7 +104,12 @@ export const Icons = {
     </>
   ),
 
-  name: "Icons"
+  name: "Icons",
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Calendar } }
+    }
+  }
 };
 
 export const LoadingState = {
