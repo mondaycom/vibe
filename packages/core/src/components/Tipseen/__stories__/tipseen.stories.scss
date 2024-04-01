@@ -23,6 +23,10 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     height: 400px;
   }
 
+  &_image {
+    height: 175px;
+  }
+
   &_inline-container {
     width: 300px;
     height: 20px;
