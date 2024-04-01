@@ -29,15 +29,11 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -84,15 +80,11 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -139,15 +131,11 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -194,15 +182,11 @@ Array [
       className="contentComponent top edgeEnd hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -249,15 +233,11 @@ Array [
       className="contentComponent left edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -304,7 +284,7 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
@@ -313,11 +293,7 @@ Array [
           }
         }
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow dark paddingSizeUndefined"
@@ -364,15 +340,11 @@ Array [
       className="contentComponent top edgeCenter hasTooltip"
     >
       <div
-        className="tooltip error"
+        className="tooltip error paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
       <div
         className="arrow arrow error paddingSizeUndefined"
@@ -392,13 +364,9 @@ Array [
 
 exports[`Tooltip renders correctly with withoutDialog 1`] = `
 <div
-  className="tooltip dark"
+  className="tooltip dark paddingSizeUndefined"
 >
-  <div
-    className="content paddingSizeUndefined"
-  >
-    test
-  </div>
+  test
 </div>
 `;
 
@@ -431,15 +399,11 @@ Array [
       className="contentComponent top edgeCenter"
     >
       <div
-        className="tooltip dark"
+        className="tooltip dark paddingSizeUndefined"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
-          className="content paddingSizeUndefined"
-        >
-          test
-        </div>
+        test
       </div>
     </div>
   </span>,
