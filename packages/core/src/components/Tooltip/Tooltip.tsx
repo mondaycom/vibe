@@ -207,26 +207,46 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     if (!contentValue) {
       return null;
     }
+
+    if (title || image) {
+      return (
+        <div
+          style={style}
+          className={cx(
+            styles.tooltip,
+            styles.tooltipWithContent,
+            getStyle(styles, camelCase(theme)),
+            { [styles.withMaxWidth]: withMaxWidth },
+            className
+          )}
+        >
+          {image && <img className={styles.image} src={image} alt="" />}
+          <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
+            {title && (
+              <Flex gap={Flex.gaps.XS}>
+                {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
+                <div className={styles.title}>{title}</div>
+              </Flex>
+            )}
+            {contentValue}
+          </div>
+        </div>
+      );
+    }
+
+    // TODO: remove in next major, use (title || image) variant instead
     return (
       <div
         style={style}
         className={cx(
           styles.tooltip,
           getStyle(styles, camelCase(theme)),
+          getStyle(styles, camelCase("padding-size-" + paddingSize)),
           { [styles.withMaxWidth]: withMaxWidth },
           className
         )}
       >
-        {image && <img className={styles.image} src={image} alt="" />}
-        <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
-          {title && (
-            <Flex gap={Flex.gaps.XS}>
-              {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
-              <div className={styles.title}>{title}</div>
-            </Flex>
-          )}
-          {contentValue}
-        </div>
+        {contentValue}
       </div>
     );
   }

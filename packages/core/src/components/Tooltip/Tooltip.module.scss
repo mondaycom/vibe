@@ -4,11 +4,17 @@ $tooltip-z-index: 9999999999999999;
 
 .tooltip {
   position: relative;
+  display: inline-block;
   border-radius: var(--tooltip-border-radius, var(--border-radius-small));
+  padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
   box-shadow: var(--box-shadow-medium);
   @include font-input();
   max-width: var(--tooltip-max-width, 50vw);
   word-break: break-word;
+
+  &.tooltipWithContent {
+    padding: unset;
+  }
 
   &.withMaxWidth {
     --tooltip-max-width: 240px;
@@ -35,13 +41,13 @@ $tooltip-z-index: 9999999999999999;
     word-break: break-word;
     display: inline-block;
     padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
-
-    &.paddingSizeMd {
-      border-radius: var(--border-radius-medium);
-      padding: var(--spacing-medium);
-      @include font-input();
-    }
   }
+}
+
+.tooltip.paddingSizeMd {
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-medium);
+  @include font-input();
 }
 
 .tooltip a.tooltipWhiteLink {

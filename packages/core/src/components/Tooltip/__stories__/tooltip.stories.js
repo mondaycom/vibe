@@ -57,7 +57,7 @@ export const TooltipWithTitle = () => (
   </div>
 );
 
-export const TooltipWitImage = () => (
+export const TooltipWithImage = () => (
   <div className="monday-storybook-tooltip_image">
     <Tooltip
       content="Max width tooltip with a long text example"
@@ -67,6 +67,7 @@ export const TooltipWitImage = () => (
       image={image}
       position={Tooltip.positions.RIGHT}
       modifiers={modifiers}
+      className="monday-storybook-tooltip_image__tooltip"
     >
       <div />
     </Tooltip>

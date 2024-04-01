@@ -11,8 +11,12 @@
   }
 
   &_image {
-    padding: 140px 0;
+    padding: 120px 0;
     display: flex;
+
+    &__tooltip > img {
+      min-height: 135px;
+    }
   }
 
   &_tabs {
