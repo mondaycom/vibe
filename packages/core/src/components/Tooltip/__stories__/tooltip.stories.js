@@ -6,10 +6,18 @@ import IconButton from "../../IconButton/IconButton";
 import { modifiers } from "./tooltip.stories.helpers";
 import "./tooltip.stories.scss";
 import image from "./assets/tooltip-image.png";
+import { createStoryMetaSettingsDecorator } from "../../../storybook";
+
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: Tooltip,
+  iconPropNamesArray: ["icon"]
+});
 
 export default {
   title: "Popover/Tooltip",
-  component: Tooltip
+  component: Tooltip,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
 };
 
 const tooltipTemplate = args => {
