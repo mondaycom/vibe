@@ -1,4 +1,4 @@
-import Tooltip from "../Tooltip";
+import Tooltip, { TooltipProps } from "../Tooltip";
 import { Hide, Menu, Subitems } from "../../Icon/Icons";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
@@ -20,7 +20,7 @@ export default {
   decorators: metaSettings.decorators
 };
 
-const tooltipTemplate = args => {
+const tooltipTemplate = (args: TooltipProps) => {
   return (
     <div className="monday-storybook-tooltip_overview">
       <Tooltip
