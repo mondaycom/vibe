@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-style",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/mondaycom/monday-ui-react-core/compare/vibe-storybook-components@0.17.2...vibe-storybook-components@0.18.0) (2024-04-03)
+
+
+### Features
+
+* **Tooltip:** Rich tooltip ([#2040](https://github.com/mondaycom/monday-ui-react-core/issues/2040)) ([dc0c470](https://github.com/mondaycom/monday-ui-react-core/commit/dc0c470b23e38f93007c1518fc6cc3b07e913d47))
+
+
+
+
+
 ## [0.17.2](https://github.com/mondaycom/monday-ui-react-core/compare/vibe-storybook-components@0.17.1...vibe-storybook-components@0.17.2) (2024-03-25)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.100.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.99.0...monday-ui-react-core@2.100.0) (2024-04-03)
+
+
+### Features
+
+* **Label:** celebration animation ([#2032](https://github.com/mondaycom/monday-ui-react-core/issues/2032)) ([1af527c](https://github.com/mondaycom/monday-ui-react-core/commit/1af527cce8dad30fdf81fb7c3c0b805de4097910))
+* **Tooltip:** Rich tooltip ([#2040](https://github.com/mondaycom/monday-ui-react-core/issues/2040)) ([dc0c470](https://github.com/mondaycom/monday-ui-react-core/commit/dc0c470b23e38f93007c1518fc6cc3b07e913d47))
+
+
+
+
+
 # [2.99.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.4...monday-ui-react-core@2.99.0) (2024-03-25)
 
 
