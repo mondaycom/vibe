@@ -1,3 +1,5 @@
+// DO NOT MODIFY THIS FILE - use Label.types.ts instead
+
 export enum LabelKind {
   FILL = "fill",
   LINE = "line"

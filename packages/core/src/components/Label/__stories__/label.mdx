@@ -104,21 +104,13 @@ A label indicates the status of an item.
     },
     {
       positive: {
-        component: [<Label text="New" kind={Label.kinds.LINE} />, <Label text="Beta" />],
+        component: [<Label text="New" kind="line" />, <Label text="Beta" />],
         description: "Use only the UI colors above."
       },
       negative: {
         component: [
-          <Label
-            className="monday-storybook-label_bad-lable monday-storybook-label_purple"
-            kind={Label.kinds.LINE}
-            text="Beta"
-          />,
-          <Label
-            className="monday-storybook-label_bad-lable monday-storybook-label_pink"
-            kind={Label.kinds.LINE}
-            text="Beta"
-          />
+          <Label className="monday-storybook-label_bad-lable monday-storybook-label_purple" kind="line" text="Beta" />,
+          <Label className="monday-storybook-label_bad-lable monday-storybook-label_pink" kind="line" text="Beta" />
         ],
         description: "Don’t use any content colors for labels. If the page is full of CTAs, use the outline state."
       }

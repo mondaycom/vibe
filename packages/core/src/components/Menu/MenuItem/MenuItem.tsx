@@ -363,7 +363,7 @@ const MenuItem: VibeComponent<MenuItemProps | MenuItemTitleComponentProps> & {
             {title}
           </div>
         </Tooltip>
-        {label && <Label kind={Label.kinds.LINE} text={label} />}
+        {label && <Label kind="line" text={label} />}
         {renderSubMenuIconIfNeeded()}
         <div
           style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}

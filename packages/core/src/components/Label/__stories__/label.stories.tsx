@@ -41,7 +41,7 @@ export const Kinds = {
         Fill
       </div>
       <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-        <Label text="New" kind={Label.kinds.LINE} />
+        <Label text="New" kind="line" />
         Outline
       </div>
     </>
@@ -61,19 +61,20 @@ export const Colors = {
     <>
       <div className="monday-storybook-label_group">
         <Label text="New" />
-        <Label text="New" kind={Label.kinds.LINE} />
+        <Label text="New" kind="fill" />
+        <Label text="New" kind="fill" />
       </div>
       <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.NEGATIVE} />
-        <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
+        <Label text="New" color="negative" />
+        <Label text="New" color="negative" kind="line" />
       </div>
       <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.POSITIVE} />
-        <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
+        <Label text="New" color="positive" />
+        <Label text="New" color="positive" kind="line" />
       </div>
       <div className="monday-storybook-label_group">
-        <Label text="New" color={Label.colors.DARK} />
-        <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
+        <Label text="New" color="dark" />
+        <Label text="New" color="dark" kind="line" />
       </div>
     </>
   ),
@@ -94,7 +95,7 @@ export const Clickable = {
         <Label text="New" onClick={NOOP} />
       </div>
       <div className="monday-storybook-label_group monday-storybook-label_states-gap">
-        <Label text="New" kind={Label.kinds.LINE} onClick={NOOP} />
+        <Label text="New" kind="line" onClick={NOOP} />
       </div>
     </>
   ),
@@ -113,12 +114,12 @@ export const SecondaryLabel = {
     <MultipleStoryElementsWrapper className="monday-storybook-label_column-block">
       <div className="monday-storybook-label_article">
         <h5 className="monday-storybook-label_title">Gannt</h5>
-        <Label text="New" kind={Label.kinds.LINE} />
+        <Label text="New" kind="line" />
         <p>Plan, track and present your projects visually using the Gannt chart</p>
       </div>
       <div className="monday-storybook-label_article">
         <h5 className="monday-storybook-label_title">Apps</h5>
-        <Label text="New" kind={Label.kinds.LINE} />
+        <Label text="New" kind="line" />
         <p>Enhance your dashboard with widgets built on the monday apps framework</p>
       </div>
     </MultipleStoryElementsWrapper>
@@ -145,7 +146,7 @@ export const Celebration = {
 
     return (
       <>
-        <Label text="New" kind={Label.kinds.LINE} celebrationAnimation={animate} isAnimationDisabled />
+        <Label text="New" kind="line" celebrationAnimation={animate} isAnimationDisabled />
         <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} onClick={() => setAnimate(true)}>
           Click to celebrate
         </Button>
