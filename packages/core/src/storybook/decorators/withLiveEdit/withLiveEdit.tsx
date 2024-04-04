@@ -17,7 +17,7 @@ const globalScope = { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext
 type Parameters = StorybookParameters & {
   liveEdit?: {
     scope?: Record<string, unknown>;
-    enableLiveEdit?: boolean;
+    isEnabled?: boolean;
   };
 };
 
@@ -43,7 +43,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
     });
   }, []);
 
-  const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.enableLiveEdit;
+  const shouldAllowLiveEdit = viewMode === "docs" && parameters.docs?.liveEdit?.isEnabled;
 
   return (
     <>

@@ -7,7 +7,8 @@ type CanvasWrapper = ComponentProps<typeof Canvas>;
 const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const { story } = useOf(of || "story", ["story"]);
+  // resolve Storybook story module to get the story id and parameters of current rendered story
+  const { story } = useOf(of, ["story"]);
 
   const toggleCodeAction = useMemo(
     () => ({
@@ -17,7 +18,7 @@ const CanvasWrapper: FC<CanvasWrapper> = ({ of }) => {
     []
   );
 
-  const liveEditEnabledForStory = story.parameters.docs?.liveEdit?.enableLiveEdit;
+  const liveEditEnabledForStory = story.parameters.docs?.liveEdit?.isEnabled;
 
   return (
     <>

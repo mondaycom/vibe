@@ -47,7 +47,7 @@ const preview: Preview = {
     },
     docs: {
       liveEdit: {
-        enableLiveEdit: true
+        isEnabled: true
       },
       canvas: {
         layout: "fullscreen"

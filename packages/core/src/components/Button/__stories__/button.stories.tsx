@@ -29,7 +29,7 @@ export const Overview = {
   },
   parameters: {
     docs: {
-      liveEdit: { enableLiveEdit: false }
+      liveEdit: { isEnabled: false }
     }
   }
 };
