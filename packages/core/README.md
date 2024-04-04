@@ -75,4 +75,4 @@ npm start
 
 ## Themes
 
-We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](./THEME_README.md) file
+Theming is supported using CSS variables - for more info on theming please read the [theme guidelines](./THEME_README.md) file

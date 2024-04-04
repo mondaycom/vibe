@@ -14,18 +14,17 @@ Welcome to the Vibe Design System repository! This monorepo contains various ope
 
 ## Overview
 
-Vibe Design System offers a collection of packages designed to streamline your development process and enhance the user experience. Below is a list of our main packages:
+Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience. Below is a list of our main packages:
 
-1. [core](packages/core/README.md): [monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com).
-2. [style](packages/style/README.md): [monday.com](https://www.monday.com) styling foundations library.
+1. [core](packages/core/README.md): Vibe ([monday.com](https://www.monday.com)) React components library - [Storybook](https://style.monday.com).
+2. [style](packages/style/README.md): Vibe ([monday.com](https://www.monday.com)) styling foundations library.
+3. [storybook-blocks](packages/storybook-blocks/README.md): Vibe ([monday.com](https://www.monday.com)) collection of Storybook blocks library.
 
 Each package comes with its own README providing detailed information about its usage, installation instructions, and getting started guide.
 
 ## Installation
 
-Install the component library
-
-```
+```bash
 npm install monday-ui-react-core
 ```
 
