@@ -1,35 +1,6 @@
-<!--
+<!-- Thank you for contributing!
+Before we can review your submission, please fill the information below:
 
-Please go over the checklist and make sure all conditions are met.
+Please describe the changes you're making. Include the motivation for these changes, any additional context, and the impact on the project. If your changes are related to any open issues, please link to them here. -->
 
---->
-
-#### Basic
-
-- [ ] Used plop (`npm run plop`) to create a new component.
-- [ ] PR has description.
-- [ ] New component is functional and uses Hooks.
-- [ ] Component is written in TypeScript.
-
-#### Style
-
-- [ ] Styles are added to `NewComponent.modules.scss` file inside the `NewComponent` folder.
-- [ ] Component uses CSS Modules.
-- [ ] Design is compatible with [Monday Design System](https://design.monday.com/).
-- [ ] Styles are defined using [monday-ui-style](https://github.com/mondaycom/monday-ui-react-core/tree/master/packages/style) tokens
-- [ ] Displays correctly in all the themes
-
-#### Storybook
-
-- [ ] Stories were added to `/src/components/NewComponent/__stories__/NewComponent.mdx` file.
-- [ ] Stories include all flows of using the component.
-- [ ] Stories implemented using [vibe-storybook-components](https://github.com/mondaycom/monday-ui-react-core/tree/master/packages/storybook-blocks) components and tokens.
-
-#### Tests
-
-- [ ] Tests are compliant with [TESTING_README.md](/packages/core/TESTING_README.md) instructions.
-
-#### Accessibility
-
-- [ ] Component is accessible.
-- [ ] Component is compatible with [Vibe Accessibility Guidelines](https://style.monday.com/?path=/docs/foundations-accessibility--docs)
+- [ ] I have read the [Contribution Guide](../packages/core/CONTRIBUTING.md) for this project.
