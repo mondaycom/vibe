@@ -30,7 +30,7 @@ export interface TabProps extends VibeComponentProps {
   /**
    * Tab link-name
    */
-  children?: string | ReactElement[];
+  children?: string | ReactElement | ReactElement[];
 }
 
 const Tab: FC<TabProps> = forwardRef(
