@@ -1,3 +1,5 @@
+@import "~monday-ui-style/dist/mixins";
+
 .tableHeaderCell {
   height: var(--table-row-size);
   padding: var(--spacing-small);
@@ -9,9 +11,11 @@
   display: flex;
   justify-content: space-between;
   background-color: inherit;
+  @include focus-style();
 
-  &:hover {
-    background-color: var(--allgrey-background-color);
+  &:hover,
+  &.sortActive {
+    background-color: var(--primary-background-hover-color);
   }
 
   .tableHeaderCellContent {
@@ -31,10 +35,16 @@
 
     .sort {
       color: var(--icon-color);
+      transition: opacity 0.1s;
 
       &.asc,
       &.desc {
         color: var(--primary-text-color);
+      }
+
+      &:not(.show) {
+        opacity: 0;
+        pointer-events: none;
       }
     }
   }

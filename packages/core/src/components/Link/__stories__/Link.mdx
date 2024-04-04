@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Link from "../Link.tsx";
 import { ExternalPage, Gallery } from "../../Icon/Icons";
 import { BREADCRUBMS, BUTTON, BADGE } from "../../../storybook/components/related-components/component-description-map";
@@ -22,9 +22,7 @@ import * as LinkStories from "./Link.stories";
 
 Link is an actionable text component with connection to another web pages.
 
-<Canvas>
-  <Story of={LinkStories.Overview} />
-</Canvas>
+<Canvas of={LinkStories.Overview} />
 
 ## Props
 
@@ -46,21 +44,15 @@ Link is an actionable text component with connection to another web pages.
 
 ### States
 
-<Canvas>
-  <Story of={LinkStories.States} />
-</Canvas>
+<Canvas of={LinkStories.States} />
 
 ### Right to left
 
-<Canvas>
-  <Story of={LinkStories.RightToLeft} />
-</Canvas>
+<Canvas of={LinkStories.RightToLeft} />
 
 ### With icons
 
-<Canvas>
-  <Story of={LinkStories.WithIcons} />
-</Canvas>
+<Canvas of={LinkStories.WithIcons} />
 
 ## Do’s and Don’ts
 
@@ -120,17 +112,13 @@ Link is an actionable text component with connection to another web pages.
 
 Use this menu to allow a user to either select one or more items from the list.
 
-<Canvas>
-  <Story of={LinkStories.ReferenceLink} />
-</Canvas>
+<Canvas of={LinkStories.ReferenceLink} />
 
 ### Shortening texts
 
 Use read more to shorten long paragraphs of text
 
-<Canvas>
-  <Story of={LinkStories.ShorteningTexts} />
-</Canvas>
+<Canvas of={LinkStories.ShorteningTexts} />
 
 ## Related components
 

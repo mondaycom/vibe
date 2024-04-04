@@ -15,7 +15,7 @@ import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
-interface AvatarGroupCounterProps extends VibeComponentProps {
+export interface AvatarGroupCounterProps extends VibeComponentProps {
   /**
    * Array of Avatar elements
    */
@@ -45,7 +45,8 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
     count: counterValue = counterTooltipAvatars.length,
     prefix: counterPrefix = "+",
     maxDigits: counterMaxDigits = 3,
-    ariaLabelItemsName: counterAriaLabelItemsName = "items"
+    ariaLabelItemsName: counterAriaLabelItemsName = "items",
+    noAnimation
   } = counterProps || {};
 
   const counterSizeStyle = getStyle(styles, size?.toString());
@@ -62,9 +63,18 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         prefix={counterPrefix}
         maxDigits={counterMaxDigits}
         ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
+        noAnimation={noAnimation}
       />
     );
-  }, [counterAriaLabel, counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue]);
+  }, [
+    counterAriaLabel,
+    counterAriaLabelItemsName,
+    counterColor,
+    counterMaxDigits,
+    counterPrefix,
+    counterValue,
+    noAnimation
+  ]);
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;

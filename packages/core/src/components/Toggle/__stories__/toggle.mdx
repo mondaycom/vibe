@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Toggle from "../Toggle";
 import {
   BUTTON_GROUP,
@@ -27,9 +27,7 @@ import "./toggle.stories.scss";
 
 Allow users to turn an single option on or off. They are usually used to activate or deactivate a specific setting.
 
-<Canvas>
-  <Story of={ToggleStories.Overview} />
-</Canvas>
+<Canvas of={ToggleStories.Overview} />
 
 ## Props
 
@@ -55,15 +53,11 @@ Allow users to turn an single option on or off. They are usually used to activat
 
 ### States
 
-<Canvas>
-  <Story of={ToggleStories.States} />
-</Canvas>
+<Canvas of={ToggleStories.States} />
 
 ### Disabled
 
-<Canvas>
-  <Story of={ToggleStories.Disabled} />
-</Canvas>
+<Canvas of={ToggleStories.Disabled} />
 
 ## Do’s and Don’ts
 
@@ -117,9 +111,7 @@ Allow users to turn an single option on or off. They are usually used to activat
 
 In the automations center, a user can turn the automation on or off.
 
-<Canvas>
-  <Story of={ToggleStories.TurnOnOffAnAutomation} />
-</Canvas>
+<Canvas of={ToggleStories.TurnOnOffAnAutomation} />
 
 ## Related components
 

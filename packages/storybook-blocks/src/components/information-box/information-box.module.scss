@@ -1,0 +1,15 @@
+@import '../../styles/mixins/typography';
+
+.informationBox {
+  .component {
+    width: 100%;
+    height: fit-content;
+    margin: 0 0 var(--sb-spacing-medium);
+  }
+
+  .description {
+    @include sb-content-text;
+    line-height: var(--sb-text-line-height-small);
+    font-size: var(--sb-small-text-font-size);
+  }
+}

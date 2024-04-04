@@ -10,7 +10,7 @@ import { ComboboxOptionIconType, IComboboxOption, IComboboxOptionEvents } from "
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 
-interface ComboboxOptionProps extends IComboboxOptionEvents {
+export interface ComboboxOptionProps extends IComboboxOptionEvents {
   index?: number;
   option?: IComboboxOption;
   className?: string;

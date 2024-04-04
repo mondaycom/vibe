@@ -1,0 +1,13 @@
+@import '../../styles/mixins/layout';
+
+$related-components-grid-gap: var(--sb-spacing-large);
+$related-components-cell-min-width: $sb-grid-auto-fit-cell-width-medium;
+$related-components-grid-cell-array-calc: calc(33.3% - #{$related-components-grid-gap});
+
+.relatedComponents {
+  @include sb-grid-auto-fit(
+    $grid-gap: $related-components-grid-gap,
+    $grid-cell-min-width: $related-components-cell-min-width,
+    $grid-cell-array-calc: $related-components-grid-cell-array-calc
+  );
+}

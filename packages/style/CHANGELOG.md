@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.3.0...monday-ui-style@0.4.0) (2024-04-03)
+
+
+### Features
+
+* **colors:** change colors ([#2042](https://github.com/mondaycom/monday-ui-react-core/issues/2042)) ([5f510c1](https://github.com/mondaycom/monday-ui-react-core/commit/5f510c19155ec7f4575b2bfaa03162a0a5d509a5))
+
+
+
+
+
+# [0.3.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.2.1...monday-ui-style@0.3.0) (2024-03-13)
+
+
+### Features
+
+* Align vibe's colors to new a11y based colors ([#2009](https://github.com/mondaycom/monday-ui-react-core/issues/2009)) ([6c6e156](https://github.com/mondaycom/monday-ui-react-core/commit/6c6e156b875d06a17ba4697c92cfcdf7dba4d020))
+
+
+
+
+
+## [0.2.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.2.0...monday-ui-style@0.2.1) (2024-03-12)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
+# [0.2.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.215...monday-ui-style@0.2.0) (2024-02-28)
+
+
+### Features
+
+* **colors:** add --primary-highlighted-color token ([#1986](https://github.com/mondaycom/monday-ui-react-core/issues/1986)) ([1207a4a](https://github.com/mondaycom/monday-ui-react-core/commit/1207a4a7bac5d00b90dcd0792396e0c82df7131c))
+* **colors:** change primary-background-hover-color for all themes ([#1980](https://github.com/mondaycom/monday-ui-react-core/issues/1980)) ([2b9cbda](https://github.com/mondaycom/monday-ui-react-core/commit/2b9cbdad1e70b1542450d8c61a08228b7cb63550))
+
+
+
+
+
+## [0.1.215](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.214...monday-ui-style@0.1.215) (2024-02-14)
+
+
+### Bug Fixes
+
+* fix build in release ([#1965](https://github.com/mondaycom/monday-ui-react-core/issues/1965)) ([8177d9a](https://github.com/mondaycom/monday-ui-react-core/commit/8177d9a799c4fb469316f4cdeefc15250eea4c61))
+
+
+
+
+
+## [0.1.214](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-style@0.1.213...monday-ui-style@0.1.214) (2024-02-14)
+
+
+### Bug Fixes
+
+* release ([#1963](https://github.com/mondaycom/monday-ui-react-core/issues/1963)) ([1817e5a](https://github.com/mondaycom/monday-ui-react-core/commit/1817e5a663f00b000e547f2f5d5aabbb5c25cd15))
+
+
+
+
+
+## 0.1.213 (2024-02-14)
+
+
+### Bug Fixes
+
+* docs ([#1960](https://github.com/mondaycom/monday-ui-react-core/issues/1960)) ([ed0d787](https://github.com/mondaycom/monday-ui-react-core/commit/ed0d7872462e83b72557c8dbc8ff0c48b3d23752))
+
+
+
+
+
+## 0.1.212 (2024-02-14)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
 ## 0.1.211 (2024-02-13)
 
 **Note:** Version bump only for package monday-ui-style

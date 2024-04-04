@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.tsx";
 import Avatar from "../../Avatar/Avatar";
@@ -30,9 +30,7 @@ import * as BreadcrumbsBarStories from "./breadcrumbsBar.stories";
 
 Breadcrumbs allow users to keep track and maintain awareness of their location as they navigate through pages, folders, files, etc.
 
-<Canvas>
-  <Story of={BreadcrumbsBarStories.Overview} />
-</Canvas>
+<Canvas of={BreadcrumbsBarStories.Overview} />
 
 ## Props
 
@@ -56,15 +54,11 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
 
 ### Text only
 
-<Canvas>
-  <Story of={BreadcrumbsBarStories.TextOnly} />
-</Canvas>
+<Canvas of={BreadcrumbsBarStories.TextOnly} />
 
 ### With icons
 
-<Canvas>
-  <Story of={BreadcrumbsBarStories.WithIcons} />
-</Canvas>
+<Canvas of={BreadcrumbsBarStories.WithIcons} />
 
 ## Do’s and Don’ts
 
@@ -134,9 +128,7 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
 
 Use when breadcrumbs are clickable and are used for information and navigation
 
-<Canvas>
-  <Story of={BreadcrumbsBarStories.NavigatableBreadcrumbs} />
-</Canvas>
+<Canvas of={BreadcrumbsBarStories.NavigatableBreadcrumbs} />
 
 ## Related components
 

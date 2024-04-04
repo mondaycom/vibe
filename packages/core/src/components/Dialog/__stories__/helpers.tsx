@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Flex, Skeleton } from "../../../components";
 import "./Dialog.stories.scss";
 
-interface ExampleContent {
+export interface ExampleContent {
   rowsCount?: number;
 }
 export const ExampleContent: FC<ExampleContent> = ({ rowsCount = 3 }) => {

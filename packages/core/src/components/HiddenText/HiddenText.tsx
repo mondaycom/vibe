@@ -5,7 +5,7 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";
 
-interface HiddenTextProps extends VibeComponentProps {
+export interface HiddenTextProps extends VibeComponentProps {
   text: string;
 }
 

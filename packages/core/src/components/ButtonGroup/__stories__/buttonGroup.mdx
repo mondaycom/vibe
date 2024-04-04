@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import ButtonGroup from "../ButtonGroup";
 import { Mobile } from "../../Icon/Icons";
@@ -24,9 +24,7 @@ import * as ButtonGroupStories from "./buttonGroup.stories";
 
 ButtonGroup can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container.
 
-<Canvas>
-  <Story of={ButtonGroupStories.Overview} />
-</Canvas>
+<Canvas of={ButtonGroupStories.Overview} />
 
 ## Props
 
@@ -57,33 +55,23 @@ ButtonGroup can be used to group related options. To emphasize groups of related
 
 ### Default
 
-<Canvas>
-  <Story of={ButtonGroupStories.Default} />
-</Canvas>
+<Canvas of={ButtonGroupStories.Default} />
 
 ### Tertiary
 
-<Canvas>
-  <Story of={ButtonGroupStories.Tertiary} />
-</Canvas>
+<Canvas of={ButtonGroupStories.Tertiary} />
 
 ### Disabled - all buttons
 
-<Canvas>
-  <Story of={ButtonGroupStories.Disabled} />
-</Canvas>
+<Canvas of={ButtonGroupStories.Disabled} />
 
 ### Disabled - single button
 
-<Canvas>
-  <Story of={ButtonGroupStories.DisabledSingeButton} />
-</Canvas>
+<Canvas of={ButtonGroupStories.DisabledSingeButton} />
 
 ### Size
 
-<Canvas>
-  <Story of={ButtonGroupStories.Size} />
-</Canvas>
+<Canvas of={ButtonGroupStories.Size} />
 
 ## Do’s and Don’ts
 
@@ -213,18 +201,14 @@ ButtonGroup can be used to group related options. To emphasize groups of related
 
 For example: on the views settings you can choose only one option.
 
-<Canvas>
-  <Story of={ButtonGroupStories.ButtonGroupInSettings} />
-</Canvas>
+<Canvas of={ButtonGroupStories.ButtonGroupInSettings} />
 
 ### Button group as toggle
 
 Use button group as toggle for change the view between two states.
 For on and off actions, use the <StorybookLink page="Inputs/Toggle">Toggle</StorybookLink> component.
 
-<Canvas>
-  <Story of={ButtonGroupStories.ButtonGroupAsToggle} />
-</Canvas>
+<Canvas of={ButtonGroupStories.ButtonGroupAsToggle} />
 
 ## Related components
 

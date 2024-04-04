@@ -157,6 +157,7 @@ const Combobox: React.FC<ComboboxProps> & {
     const [filterValue, setFilterValue] = useState(defaultFilterValue);
     const onChangeCallback = useCallback(
       (value: string) => {
+        setActiveOptionIndex(-1);
         if (onFilterChanged) {
           onFilterChanged(value);
         }

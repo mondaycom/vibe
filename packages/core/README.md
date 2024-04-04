@@ -1,4 +1,4 @@
-# Vibe Design System
+# Vibe Design System - Core
 
 [![npm](https://img.shields.io/npm/v/monday-ui-react-core)](https://www.npmjs.com/package/monday-ui-react-core)
 

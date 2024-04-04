@@ -1,0 +1,17 @@
+.wrapper {
+  width: 100%;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--sb-spacing-large);
+  }
+
+  .icon {
+    color: var(--sb-icon-color);
+  }
+
+  .search {
+    margin-bottom: var(--sb-spacing-large);
+  }
+}

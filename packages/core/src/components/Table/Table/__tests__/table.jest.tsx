@@ -201,11 +201,19 @@ describe("Table", () => {
     describe.each([
       ["asc", "ascending"],
       ["desc", "descending"],
-      ["none", null]
+      ["none", "none"]
     ])("Sort", (sortState: ITableHeaderCellProps["sortState"], ariaSort) => {
-      it(`Should apply aria-sort to header element (${sortState}, ${ariaSort})`, () => {
-        const { getByRole } = render(<TableHeaderCell title="Title" sortState={sortState} />);
+      it(`Should apply aria-sort to header element (${sortState}, ${ariaSort}) when onSortClicked is defined`, () => {
+        const onSortClicked = jest.fn();
+        const { getByRole } = render(
+          <TableHeaderCell title="Title" sortState={sortState} onSortClicked={onSortClicked} />
+        );
         expect(getByRole("columnheader").getAttribute("aria-sort")).toBe(ariaSort);
+      });
+
+      it(`Should not apply aria-sort to header element (${sortState}, ${ariaSort}) when onSortClicked isn't defined`, () => {
+        const { getByRole } = render(<TableHeaderCell title="Title" sortState={sortState} />);
+        expect(getByRole("columnheader")).not.toHaveAttribute("aria-sort");
       });
     });
   });

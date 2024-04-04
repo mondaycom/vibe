@@ -51,6 +51,8 @@ export interface ButtonProps extends VibeComponentProps {
   successText?: string;
   /** loading boolean which switches the text to a loader */
   loading?: boolean;
+  /** className which is applied to loader container **/
+  loaderClassName?: string;
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
@@ -71,6 +73,10 @@ export interface ButtonProps extends VibeComponentProps {
   /** aria controls - receives id for the controlled region */
   ariaControls?: string;
   "aria-describedby"?: AriaAttributes["aria-describedby"];
+  /**
+   * aria to be used for screen reader to know if the button is hidden
+   */
+  "aria-hidden"?: AriaAttributes["aria-hidden"];
   /** On Button Focus callback */
   onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
@@ -116,6 +122,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       successIcon,
       style,
       loading: isLoading,
+      loaderClassName,
       active,
       activeButtonClassName,
       id,
@@ -136,6 +143,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaExpanded,
       ariaControls,
       "aria-describedby": ariaDescribedBy,
+      "aria-hidden": ariaHidden,
       blurOnMouseUp,
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
@@ -206,7 +214,6 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         getStyle(styles, camelCase("kind-" + kind)),
         getStyle(styles, camelCase("color-" + calculatedColor)),
         {
-          [styles.loading]: loading,
           [styles.success]: success,
           [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [activeButtonClassName]: active,
@@ -251,7 +258,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         id,
         onFocus,
         onBlur,
-        tabIndex: disabled ? -1 : tabIndex,
+        tabIndex: disabled || ariaHidden ? -1 : tabIndex,
         "data-testid": overrideDataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
@@ -261,7 +268,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls,
-        "aria-describedby": ariaDescribedBy
+        "aria-describedby": ariaDescribedBy,
+        "aria-hidden": ariaHidden
       };
       return props;
     }, [
@@ -285,7 +293,8 @@ const Button: VibeComponent<ButtonProps, unknown> & {
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      ariaDescribedBy
+      ariaDescribedBy,
+      ariaHidden
     ]);
 
     const leftIconSize = useMemo(() => {
@@ -339,7 +348,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
     if (loading) {
       return (
         <button {...buttonProps} key={`${id}-loading`}>
-          <span className={styles.loader}>
+          <span className={cx(styles.loader, loaderClassName)}>
             <Loader className={styles.loaderSvg} />
             <span aria-hidden className={styles.textPlaceholder}>
               {buttonContent}
@@ -399,6 +408,7 @@ Button.defaultProps = {
   successText: "",
   successIcon: null,
   loading: false,
+  loaderClassName: undefined,
   active: false,
   marginRight: false,
   marginLeft: false,

@@ -1,14 +1,12 @@
 # monday.com UI styles
 
-> This package includes all of the styling foundations of monday.com
+> This package includes all of the styling foundations of monday.com's Vibe Design System
 > Theme definition, colors, shadows, dimensions, icons, etc.
-
-Although we use React in our product this library will try to stay framework agnostic, we expose here the foundations of our design system so they can be used regardless the framework/environment you are using.
 
 ## Installation
 
 ```
-npm install monday-ui-style --save
+npm install monday-ui-style
 ```
 
 ## Usage
@@ -31,7 +29,7 @@ import "monday-ui-style/dist/index.min.css";
 import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ```
 
-**Mixins and functions**: We export multiple scss mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.
+**Mixins and functions**: We export multiple SCSS mixins and function helpers that can be used in your application if you use SASS. All helpers can be imported as demonstrated below.
 
 ```scss
 @import "~monday-ui-style/dist/mixins";
@@ -67,7 +65,7 @@ In some rare occasions when you want to preserve a color within the icon please 
 
 ## New icon request
 
-If you want us to create a non existing monday.com style icon open a PR with please see the [guidelines](ICON_REQUEST.md)
+To create a non existing monday.com style icon open a PR with please see the [guidelines](ICON_REQUEST.md)
 
 ## Stylelint rules
 

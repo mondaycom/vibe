@@ -7,3 +7,15 @@
 .referenceWrapper {
   display: inline-flex;
 }
+
+.referenceWrapper button .loader {
+  width: 16px;
+  height: 16px;
+  &.xxs {
+    width: 10px;
+    height: 10px;
+    svg {
+      display: block;
+    }
+  }
+}

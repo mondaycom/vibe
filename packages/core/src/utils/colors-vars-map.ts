@@ -15,6 +15,10 @@ export const colorsMap = [
     description: "Use to indicate hover state on a primary-selected-color items"
   },
   {
+    color: "--primary-highlighted-color",
+    description: "Use this to indicate highlighted components of primary items"
+  },
+  {
     color: "--primary-selected-on-secondary-color",
     description: "Use to indicate selected state of primary items on secondary background color"
   },
@@ -116,7 +120,8 @@ export const colorsMap = [
   { color: "--primary-background-color", description: "Primary background color" },
   { color: "--secondary-background-color", description: "Secondary background color" },
   { color: "--grey-background-color", description: "Grey background color" },
-  { color: "--allgrey-background-color", description: "Grey background color, stays grey in dark and black themes" }
+  { color: "--allgrey-background-color", description: "Grey background color, stays grey in dark and black themes" },
+  { color: "--ui-background-color", description: "Background color for UI elements and components" }
 ];
 
 export const colorsHashMap = colorsMap.reduce((map, current) => {

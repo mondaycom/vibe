@@ -1,0 +1,16 @@
+@import "../../styles/mixins/layout";
+
+.frame {
+  @include sb-frame;
+  padding: 32px;
+  margin: var(--sb-spacing-between-section-items) 0;
+
+  &.noBorder {
+    border: 0;
+  }
+
+  &.noGutter {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

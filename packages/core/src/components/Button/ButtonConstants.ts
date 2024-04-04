@@ -10,6 +10,7 @@ export enum ButtonColor {
   PRIMARY = "primary",
   POSITIVE = "positive",
   NEGATIVE = "negative",
+  INVERTED = "inverted",
   ON_PRIMARY_COLOR = "on-primary-color",
   ON_INVERTED_BACKGROUND = "on-inverted-background",
   BRAND = "brand",

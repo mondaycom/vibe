@@ -1,5 +1,5 @@
 import Skeleton from "../Skeleton";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   COUNTER,
   LINEAR_PROGRESS_BAR,
@@ -26,9 +26,7 @@ import "./skeleton.stories.scss";
 
 Skeleton loading componet used to indicate content and ui loading that will appear after its loaded. It helps to decrease perceived duration time
 
-<Canvas>
-  <Story of={SkeletonStories.Overview} />
-</Canvas>
+<Canvas of={SkeletonStories.Overview} />
 
 ## Props
 
@@ -51,17 +49,13 @@ Skeleton loading componet used to indicate content and ui loading that will appe
 
 Use shaes to mimic Avatars, images, buttons etc...
 
-<Canvas>
-  <Story of={SkeletonStories.Shapes} />
-</Canvas>
+<Canvas of={SkeletonStories.Shapes} />
 
 ### Text
 
 Presents a classic menu or equivalent picker
 
-<Canvas>
-  <Story of={SkeletonStories.Text} />
-</Canvas>
+<Canvas of={SkeletonStories.Text} />
 
 ## Do’s and Don’ts
 
@@ -125,9 +119,7 @@ Presents a classic menu or equivalent picker
 
 Use this menu to allow a user to either select one or more items from the list.
 
-<Canvas>
-  <Story of={SkeletonStories.UpdateInTheSystem} />
-</Canvas>
+<Canvas of={SkeletonStories.UpdateInTheSystem} />
 
 ## Related components
 

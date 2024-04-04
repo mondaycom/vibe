@@ -1,0 +1,116 @@
+:root,
+.light-app-theme,
+.default-app-theme {
+  --sb-link-color: #1f76c2;
+  --sb-primary-background-color: #ffffff;
+  --sb-primary-text-color: #323338;
+  --sb-ui-border-color: #c3c6d4;
+  --sb-dark-background-on-secondary-color: #f6f7fb;
+  --sb-text-color-on-primary: #ffffff;
+  --sb-positive-color: #00854d;
+  --sb-negative-color: #d83a52;
+  --sb-color-purple: #a25ddc;
+  --sb-color-winter: #9aadbd;
+  --sb-color-sofia_pink: #ff158a;
+  --sb-layout-border-color: #d0d4e4;
+  --sb-secondary-background-color: #ffffff;
+  --sb-primary-hover-color: #0060b9;
+  --sb-secondary-text-color: #676879;
+  --sb-primary-color: #0073ea;
+  --sb-primary-selected-color: #cce5ff;
+  --sb-positive-color-selected: #bbdbc9;
+  --sb-warning-color-selected: #fceba1;
+  --sb-negative-color-selected: #f4c3cb;
+  --sb-icon-color: #676879;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #323338;
+  --sb-disabled-background-color: #ecedf5;
+  --sb-primary-background-hover-color: rgba(103, 104, 121, 0.1);
+  --sb-dark-background-color: #f6f7fb;
+  --sb-brand-color: #5034ff;
+}
+
+.dark-app-theme {
+  --sb-link-color: #69a7ef;
+  --sb-primary-background-color: #181b34;
+  --sb-primary-text-color: #d5d8df;
+  --sb-ui-border-color: #797e93;
+  --sb-dark-background-on-secondary-color: #4b4e69;
+  --sb-text-color-on-primary: #ffffff;
+  --sb-positive-color: #00854d;
+  --sb-negative-color: #d83a52;
+  --sb-color-purple: #b57de3;
+  --sb-color-winter: #aebdca;
+  --sb-color-sofia_pink: #ff44a1;
+  --sb-layout-border-color: #4b4e69;
+  --sb-secondary-background-color: #30324e;
+  --sb-primary-hover-color: #0060b9;
+  --sb-secondary-text-color: #9699a6;
+  --sb-primary-color: #0073ea;
+  --sb-primary-selected-color: #133774;
+  --sb-negative-color-selected: #642830;
+  --sb-icon-color: #c3c6d4;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #ffffff;
+  --sb-disabled-background-color: #3c3f59;
+  --sb-primary-background-hover-color: #4b4e69;
+  --sb-dark-background-color: #393b53;
+}
+
+.black-app-theme {
+  --sb-link-color: #69a7ef;
+  --sb-primary-background-color: #111111;
+  --sb-primary-text-color: #eeeeee;
+  --sb-ui-border-color: #8d8d8d;
+  --sb-dark-background-on-secondary-color: #4b4e69;
+  --sb-text-color-on-primary: #ffffff;
+  --sb-positive-color: #00854d;
+  --sb-negative-color: #d83a52;
+  --sb-color-purple: #b57de3;
+  --sb-color-winter: #aebdca;
+  --sb-color-sofia_pink: #ff44a1;
+  --sb-layout-border-color: #636363;
+  --sb-secondary-background-color: #2c2c2c;
+  --sb-primary-hover-color: #0060b9;
+  --sb-secondary-text-color: #aaaaaa;
+  --sb-primary-color: #0073ea;
+  --sb-primary-selected-color: #133774;
+  --sb-negative-color-selected: #642830;
+  --sb-icon-color: #aaaaaa;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #eeeeee;
+  --sb-disabled-background-color: #3a3a3a;
+  --sb-primary-background-hover-color: #636363;
+  --sb-dark-background-color: #2c2c2c;
+}
+
+.hacker_theme-app-theme {
+  --sb-link-color: #bd93f9;
+  --sb-primary-background-color: #282a36;
+  --sb-primary-text-color: #d5d8df;
+  --sb-ui-border-color: #797e93;
+  --sb-dark-background-on-secondary-color: #595959;
+  --sb-text-color-on-primary: #ffffff;
+  --sb-positive-color: #50fa7b;
+  --sb-negative-color: #ff5555;
+  --sb-color-purple: #b57de3;
+  --sb-color-winter: #aebdca;
+  --sb-color-sofia_pink: #ff44a1;
+  --sb-layout-border-color: #414458;
+  --sb-secondary-background-color: #30324e;
+  --sb-primary-hover-color: #fe5ab9;
+  --sb-secondary-text-color: #9699a6;
+  --sb-primary-color: #fe78c6;
+  --sb-primary-selected-color: #9f4077;
+  --sb-negative-color-selected: #642830;
+  --sb-icon-color: #c3c6d4;
+  --sb-text-color-fixed-light: #ffffff;
+  --sb-text-color-fixed-dark: #323338;
+  --sb-inverted-color-background: #ffffff;
+  --sb-disabled-background-color: #3a3a3a;
+  --sb-primary-background-hover-color: #4b4e69;
+  --sb-dark-background-color: #303241;
+}

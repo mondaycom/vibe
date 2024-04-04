@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import MultiStepIndicator, { type Step } from "../MultiStepIndicator";
+import MultiStepIndicator, { Step } from "../MultiStepIndicator";
 
 describe("MultiStepIndicator tests", () => {
   it("onClick works and is called once", () => {

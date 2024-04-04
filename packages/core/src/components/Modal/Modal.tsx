@@ -13,12 +13,12 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Modal.module.scss";
 
-interface ModalProps {
+export interface ModalProps {
   /**
    * Id of the modal, used internally and for accessibility
    */
   id?: string;
-  "data-testid": string;
+  "data-testid"?: string;
   /**
    * Show/hide the Dialog
    */
@@ -49,7 +49,7 @@ interface ModalProps {
    */
   width?: typeof ModalWidth | string;
   /**
-   *  Hide the modal close button
+   * @deprecated
    */
   hideCloseButton?: boolean;
   /**

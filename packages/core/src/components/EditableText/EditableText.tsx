@@ -43,6 +43,8 @@ const EditableText: VibeComponent<EditableTextProps, HTMLElement> & {
         component={Text}
         typographyClassName={cx(getStyle(styles, camelCase(type + "-" + weight)), styles.typography)}
         clearable
+        type={type}
+        weight={weight}
         {...editableTypographyProps}
       />
     );

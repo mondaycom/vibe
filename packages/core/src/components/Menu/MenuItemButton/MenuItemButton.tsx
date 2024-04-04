@@ -14,7 +14,7 @@ import { SubIcon, VibeComponentProps, withStaticProps, ElementContent } from "..
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 
-interface MenuItemButtonProps extends VibeComponentProps {
+export interface MenuItemButtonProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */

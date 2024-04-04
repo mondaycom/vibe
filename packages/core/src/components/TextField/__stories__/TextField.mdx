@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import TextField from "../TextField";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
 import { COMBOBOX, DROPDOWN, SEARCH } from "../../../storybook/components/related-components/component-description-map";
@@ -21,9 +21,7 @@ import * as TextFieldStories from "./TextField.stories";
 
 An input field includes a label and a text field users can type text into. They typically appear in forms and dialogs.
 
-<Canvas>
-  <Story of={TextFieldStories.Overview} />
-</Canvas>
+<Canvas of={TextFieldStories.Overview} />
 
 ## Props
 
@@ -45,15 +43,11 @@ An input field includes a label and a text field users can type text into. They 
 
 There are three sizes available: Small (32px), Medium (40px) and Large (48px).
 
-<Canvas>
-  <Story of={TextFieldStories.Sizes} />
-</Canvas>
+<Canvas of={TextFieldStories.Sizes} />
 
 ### States
 
-<Canvas>
-  <Story of={TextFieldStories.States} />
-</Canvas>
+<Canvas of={TextFieldStories.States} />
 
 ### Validation
 
@@ -61,9 +55,7 @@ Use validation to give feedback to the user for a case where he has provided an 
 
 <code>The validation object has two status states - error, success</code>
 
-<Canvas>
-  <Story of={TextFieldStories.Validation} />
-</Canvas>
+<Canvas of={TextFieldStories.Validation} />
 
 ## Do’s and Don’ts
 
@@ -123,35 +115,25 @@ Use validation to give feedback to the user for a case where he has provided an 
 
 Users can insert text.
 
-<Canvas>
-  <Story of={TextFieldStories.TextFieldInAForm} />
-</Canvas>
+<Canvas of={TextFieldStories.TextFieldInAForm} />
 
 ### Input field with placeholder text
 
-<Canvas>
-  <Story of={TextFieldStories.InputFieldWithPlaceholderText} />
-</Canvas>
+<Canvas of={TextFieldStories.InputFieldWithPlaceholderText} />
 
 ### Required input field
 
 Use the <code>requiredAsterisk</code> prop to indicate that a field is required. When set to <code>true</code>, an asterisk (\*) will appear next to the label.
 
-<Canvas>
-  <Story of={TextFieldStories.RequiredInputField} />
-</Canvas>
+<Canvas of={TextFieldStories.RequiredInputField} />
 
 ### Input field with date
 
-<Canvas>
-  <Story of={TextFieldStories.InputFieldWithDate} />
-</Canvas>
+<Canvas of={TextFieldStories.InputFieldWithDate} />
 
 ### Input field with datetime
 
-<Canvas>
-  <Story of={TextFieldStories.InputFieldWithDateAndTime} />
-</Canvas>
+<Canvas of={TextFieldStories.InputFieldWithDateAndTime} />
 
 ## Related components
 

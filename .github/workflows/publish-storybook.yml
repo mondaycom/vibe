@@ -1,4 +1,4 @@
-name: Publish Storybook
+name: Publish Storybooks
 
 on:
   workflow_run:
@@ -12,22 +12,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
-      - name: Build & deploy Storybook to GitHub Pages
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - name: Build & deploy Storybooks to GitHub Pages
         run: |
-          yarn
+          yarn lerna run build --include-dependencies
           yarn lerna run --scope monday-ui-react-core build-storybook
+          yarn lerna run --scope vibe-storybook-components build-storybook
           cd packages/core/static_storybook
           echo "style.monday.com" > ./CNAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Push to Storybook's branch
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Push storybook-blocks Storybook to Github Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          target_branch: "gh-pages"
-          build_dir: packages/core/static_storybook
+          folder: packages/storybook-blocks/storybook-static
+          branch: gh-pages
+          target-folder: storybook-blocks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push core Storybook to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          clean-exclude: storybook-blocks/*
+          folder: packages/core/static_storybook
+          branch: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

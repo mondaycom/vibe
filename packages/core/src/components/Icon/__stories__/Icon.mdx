@@ -1,5 +1,5 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
-import "./Icon.stories.scss";
+import { Canvas, Meta } from "@storybook/blocks";
+import "./Icon.stories.module.scss";
 import * as IconStories from "./Icon.stories";
 
 <Meta of={IconStories} />
@@ -18,9 +18,7 @@ import * as IconStories from "./Icon.stories";
 
 Icon component is our component to unify the supported icon types (Vibe Icons, FontIcon and Custom SVG Icons)
 
-<Canvas>
-  <Story of={IconStories.Overview} />
-</Canvas>
+<Canvas of={IconStories.Overview} />
 
 ## Props
 
@@ -39,21 +37,15 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 
 ### Vibe Icon
 
-<Canvas>
-  <Story of={IconStories.VibeIcon} />
-</Canvas>
+<Canvas of={IconStories.VibeIcon} />
 
 ### FontIcon
 
-<Canvas>
-  <Story of={IconStories.FontIcon} />
-</Canvas>
+<Canvas of={IconStories.FontIcon} />
 
 ### Custom SVG
 
-<Canvas>
-  <Story of={IconStories.CustomSvg} />
-</Canvas>
+<Canvas of={IconStories.CustomSvg} />
 
 ## States
 
@@ -61,9 +53,7 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 
 As a default the icon will inherit the color of it's parent container
 
-<Canvas>
-  <Story of={IconStories.Color} />
-</Canvas>
+<Canvas of={IconStories.Color} />
 
 ## Icons List
 
@@ -73,6 +63,4 @@ Icons are exported by name from `monday-ui-react-core/icons`:
 import { DoubleCheck } from "monday-ui-react-core/icons";
 ```
 
-<Canvas>
-  <Story of={IconStories.IconsListStory} />
-</Canvas>
+<Canvas of={IconStories.IconsListStory} />

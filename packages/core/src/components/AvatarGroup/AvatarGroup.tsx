@@ -15,9 +15,10 @@ export type AvatarGroupCounterVisualProps = {
   prefix?: string;
   maxDigits?: number;
   ariaLabelItemsName?: string;
+  noAnimation?: boolean;
 };
 
-interface AvatarGroupProps extends VibeComponentProps {
+export interface AvatarGroupProps extends VibeComponentProps {
   avatarClassName?: string;
   /**
    * Array of `Avatar` components

@@ -1,0 +1,91 @@
+.celebration {
+  // Fallback perimeter, changes according to the path length
+  --container-perimeter: 840;
+  position: relative;
+
+  .svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .stroke {
+      fill: none;
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: stroke-rotate cubic-bezier(0.33, 0, 0.67, 1) forwards;
+      stroke-dasharray: var(--container-perimeter);
+      stroke-dashoffset: var(--container-perimeter);
+
+      &.base {
+        stroke: var(--color-egg_yolk);
+        animation: fade 200ms linear forwards;
+        animation-delay: 80ms;
+        stroke-dasharray: 0;
+        stroke-dashoffset: 0;
+        opacity: 0;
+      }
+
+      &.first {
+        stroke: var(--color-done-green);
+        animation-delay: 80ms;
+        animation-duration: 320ms;
+      }
+
+      &.second {
+        stroke: var(--color-stuck-red);
+        animation-delay: 200ms;
+        animation-duration: 320ms;
+      }
+
+      &.third {
+        stroke: var(--primary-color);
+        animation-delay: 360ms;
+        animation-duration: 320ms;
+      }
+    }
+  }
+
+  [data-celebration-text] {
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-text-fill 680ms linear forwards;
+    background-image: linear-gradient(
+      to right,
+      var(--primary-color) 30%,
+      var(--color-stuck-red) 40%,
+      var(--color-done-green) 60%,
+      var(--color-egg_yolk) 85%,
+      transparent 90%
+    );
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes stroke-rotate {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes gradient-text-fill {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}

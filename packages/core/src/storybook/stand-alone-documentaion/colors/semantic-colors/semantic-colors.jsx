@@ -5,6 +5,7 @@ const colorKeys = [
   "primary-hover-color",
   "primary-selected-color",
   "primary-selected-hover-color",
+  "primary-highlighted-color",
   "positive-color",
   "positive-color-hover",
   "positive-color-selected",

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import Counter from "../Counter";
 import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
@@ -22,9 +22,7 @@ import * as CounterStories from "./counter.stories";
 
 Counters show the count of some adjacent data.
 
-<Canvas>
-  <Story of={CounterStories.Overview} />
-</Canvas>
+<Canvas of={CounterStories.Overview} />
 
 ## Props
 
@@ -42,27 +40,19 @@ Counters show the count of some adjacent data.
 
 There are two sizes of counters
 
-<Canvas>
-  <Story of={CounterStories.Sizes} />
-</Canvas>
+<Canvas of={CounterStories.Sizes} />
 
 ### Colors
 
-<Canvas>
-  <Story of={CounterStories.Colors} />
-</Canvas>
+<Canvas of={CounterStories.Colors} />
 
 ### Outline
 
-<Canvas>
-  <Story of={CounterStories.Outline} />
-</Canvas>
+<Canvas of={CounterStories.Outline} />
 
 ### Limits
 
-<Canvas>
-  <Story of={CounterStories.Limits} />
-</Canvas>
+<Canvas of={CounterStories.Limits} />
 
 ## Do’s and Don’ts
 
@@ -102,25 +92,19 @@ There are two sizes of counters
 
 Used on the notification icon to indicate the number of new notifications.
 
-<Canvas>
-  <Story of={CounterStories.NotificationCounter} />
-</Canvas>
+<Canvas of={CounterStories.NotificationCounter} />
 
 ### Counter on inbox filters
 
 The counter represents the number of items on each topic.
 
-<Canvas>
-  <Story of={CounterStories.CounterOnInboxFilters} />
-</Canvas>
+<Canvas of={CounterStories.CounterOnInboxFilters} />
 
 ### Count the number of updates
 
 The counter represents the number of items on each topic.
 
-<Canvas>
-  <Story of={CounterStories.CountTheNumberOfUpdates} />
-</Canvas>
+<Canvas of={CounterStories.CountTheNumberOfUpdates} />
 
 ## Related components
 

@@ -18,7 +18,7 @@ function defineFilledTrackProps(dimension: number, offset: number, reverse: bool
   };
 }
 
-interface SliderFilledTrackProps extends VibeComponentProps {
+export interface SliderFilledTrackProps extends VibeComponentProps {
   /**
    * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
    */

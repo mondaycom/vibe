@@ -10,7 +10,7 @@ import { withStaticProps } from "../../types";
 import styles from "./Text.module.scss";
 
 export interface TextProps extends TypographyProps {
-  type: TextType;
+  type?: TextType;
   weight?: TextWeight;
   children: ReactNode;
 }

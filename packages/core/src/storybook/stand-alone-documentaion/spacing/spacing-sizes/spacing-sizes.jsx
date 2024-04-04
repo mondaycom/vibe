@@ -1,9 +1,8 @@
-import { Frame } from "vibe-storybook-components";
 import SpacingComponent from "./spacing-component/spacing-component";
 import "./spacing-sizes.scss";
 
 export const SpacingSizes = () => (
-  <Frame className="monday-storybook-spacing-sizes">
+  <div className="monday-storybook-spacing-sizes">
     <SpacingComponent title="XS" sizeInPx="4px" spacingVariableName="spacing-xs" />
     <SpacingComponent title="S" sizeInPx="8px" spacingVariableName="spacing-small" />
     <SpacingComponent title="MD" sizeInPx="16px" spacingVariableName="spacing-medium" />
@@ -11,5 +10,5 @@ export const SpacingSizes = () => (
     <SpacingComponent title="XL" sizeInPx="32px" spacingVariableName="spacing-xl" />
     <SpacingComponent title="XXL" sizeInPx="48px" spacingVariableName="spacing-xxl" />
     <SpacingComponent title="XXXL" sizeInPx="64px" spacingVariableName="spacing-xxxl" />
-  </Frame>
+  </div>
 );

@@ -172,6 +172,22 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--negative-color-hover);
 }
 
+.kindPrimary.colorInverted {
+  background: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
+}
+
+.kindPrimary.colorInvertedActive,
+.kindPrimary.colorInverted:hover,
+.kindPrimary.colorInverted:focus {
+  background: var(--placeholder-color);
+}
+
+.kindPrimary.button.colorInverted.disabled {
+  background: var(--disabled-text-color);
+  color: var(--disabled-background-color);
+}
+
 .kindPrimary.colorOnPrimaryColor {
   background: var(--text-color-on-primary);
 }
@@ -204,6 +220,23 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindPrimary.colorFixedLight.disabled {
   opacity: $disabled-on-primary-color-opacity;
   color: var(--fixed-light-color);
+}
+
+.kindPrimary.colorOnInvertedBackground {
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+}
+
+.kindPrimary.colorOnInvertedBackgroundActive,
+.kindPrimary.colorOnInvertedBackground:hover,
+.kindPrimary.colorOnInvertedBackground:focus {
+  background: var(--ui-background-color);
+}
+
+.kindPrimary.button.colorOnInvertedBackground.disabled {
+  background: var(--ui-background-color);
+  color: var(--primary-text-color);
+  opacity: $disabled-on-primary-color-opacity;
 }
 
 .kindPrimary.button.disabled {
@@ -280,6 +313,22 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--negative-color-selected);
 }
 
+.kindSecondary.colorInverted {
+  color: var(--primary-text-color);
+  border-color: var(--primary-text-color);
+}
+
+.kindSecondary.colorInvertedActive,
+.kindSecondary.colorInverted:hover,
+.kindSecondary.colorInverted:focus {
+  background: var(--primary-background-hover-color);
+}
+
+.kindSecondary.colorInverted.disabled {
+  border-color: var(--disabled-text-color);
+  color: var(--disabled-text-color);
+}
+
 .kindSecondary.colorOnPrimaryColor {
   color: var(--text-color-on-primary);
   border-color: var(--text-color-on-primary);
@@ -307,6 +356,23 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindSecondary.colorFixedLight:focus {
   backdrop-filter: brightness(85%);
   @include focus-style-on-primary();
+}
+
+.kindSecondary.colorOnInvertedBackground {
+  border-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
+}
+
+.kindSecondary.colorOnInvertedBackgroundActive,
+.kindSecondary.colorOnInvertedBackground:hover,
+.kindSecondary.colorOnInvertedBackground:focus {
+  background: var(--icon-color);
+}
+
+.kindSecondary.colorOnInvertedBackground.disabled {
+  border-color: var(--text-color-on-inverted);
+  color: var(--text-color-on-inverted);
+  opacity: $disabled-on-primary-color-opacity;
 }
 
 .kindSecondary.colorFixedLight.disabled {
@@ -374,6 +440,20 @@ $disabled-on-primary-color-opacity: 0.5;
   background: var(--negative-color-selected);
 }
 
+.kindTertiary.colorInverted {
+  color: var(--primary-text-color);
+}
+
+.kindTertiary.colorInvertedActive,
+.kindTertiary.colorInverted:hover,
+.kindTertiary.colorInverted:focus {
+  background: var(--primary-background-hover-color);
+}
+
+.kindTertiary.colorInverted.disabled {
+  color: var(--disabled-text-color);
+}
+
 .kindTertiary.colorOnPrimaryColor {
   color: var(--text-color-on-primary);
 }
@@ -413,7 +493,13 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindTertiary.colorOnInvertedBackgroundActive,
 .kindTertiary.colorOnInvertedBackground:hover,
 .kindTertiary.colorOnInvertedBackground:focus {
-  backdrop-filter: brightness(85%);
+  background: var(--icon-color);
+}
+
+.kindTertiary.colorOnInvertedBackground.disabled {
+  background: var(--icon-color);
+  opacity: $disabled-on-primary-color-opacity;
+  color: var(--text-color-on-inverted);
 }
 
 .kindTertiary.disabled {

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as MenuTitleStories from "./MenuTitle.stories";
 
 <Meta of={MenuTitleStories} />
@@ -12,9 +12,7 @@ import * as MenuTitleStories from "./MenuTitle.stories";
 
 ## Overview
 
-<Canvas>
-  <Story of={MenuTitleStories.Overview} />
-</Canvas>
+<Canvas of={MenuTitleStories.Overview} />
 
 ## Props
 
@@ -24,6 +22,4 @@ import * as MenuTitleStories from "./MenuTitle.stories";
 
 ### Caption positions
 
-<Canvas>
-  <Story of={MenuTitleStories.CaptionPlacements} />
-</Canvas>
+<Canvas of={MenuTitleStories.CaptionPlacements} />

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as TabPanelStories from "./tab-panel.stories";
 
 <Meta of={TabPanelStories} />
@@ -14,9 +14,7 @@ import * as TabPanelStories from "./tab-panel.stories";
 
 Tab panel contains the content of one tab in a Tabs component.
 
-<Canvas>
-  <Story of={TabPanelStories.Overview} />
-</Canvas>
+<Canvas of={TabPanelStories.Overview} />
 
 ## Props
 

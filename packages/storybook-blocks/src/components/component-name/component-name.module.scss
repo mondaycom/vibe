@@ -1,0 +1,20 @@
+@import "../../styles/mixins/typography";
+
+.componentName {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: var(--sb-spacing-between-section-items);
+  @include sb-basic-text;
+  font-family: var(--sb-title-font-family);
+  font-size: var(--sb-h1-font-size);
+  line-height: 48px;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  text-align: left;
+  display: grid;
+  border-radius: var(--sb-border-radius-small);
+  padding: 40px 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--sb-text-color-fixed-dark);
+}

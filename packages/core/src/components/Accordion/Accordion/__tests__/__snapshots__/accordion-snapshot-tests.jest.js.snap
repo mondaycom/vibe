@@ -267,7 +267,7 @@ exports[`Accordion renders correctly with className 1`] = `
 />
 `;
 
-exports[`Accordion renders correctly with custom AccordioItem title 1`] = `
+exports[`Accordion renders correctly with custom AccordionItem title 1`] = `
 <div
   className="accordion"
   data-testid="monday-accordion"

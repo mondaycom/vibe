@@ -45,7 +45,7 @@ export type VirtualizedListItem = {
   offsetTop?: number;
 };
 
-interface VirtualizedListProps extends VibeComponentProps {
+export interface VirtualizedListProps extends VibeComponentProps {
   /**
    * class name to add to the component scrollable container
    */

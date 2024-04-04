@@ -24,13 +24,17 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
   }
 
   &_image {
-    width: 320px;
     height: 175px;
   }
 
   &_inline-container {
     width: 300px;
     height: 20px;
+
+    &.right {
+      width: 84px;
+      height: 100%;
+    }
   }
 
   &_inline-spacing {
@@ -44,6 +48,7 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     align-items: center;
     height: 30px;
     gap: 10px;
+    min-width: 160px;
   }
 
   &_column-wrapper {
@@ -52,11 +57,22 @@ $component-rules-grid-cell-array-calc: calc(50% - #{$tipseen-rules-cell-min-widt
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    &.right {
+      justify-content: flex-start;
+    }
   }
 
   &_box {
     padding-right: 280px;
-    padding-top: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &_small-box {
+    padding-right: 312px;
     height: 100%;
   }
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import * as VirtualizedGridStories from "./VirtualizedGrid.stories";
 
@@ -17,9 +17,7 @@ VirtualizedGrid is a component which only renders visible grid items, it is a lo
 
 Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
 
-<Canvas>
-  <Story of={VirtualizedGridStories.Overview} />
-</Canvas>
+<Canvas of={VirtualizedGridStories.Overview} />
 
 ## Props
 

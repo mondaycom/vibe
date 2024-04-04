@@ -1,0 +1,26 @@
+import { Controls, Canvas, Meta } from '@storybook/blocks';
+import * as UsageGuidelinesStory from './usage-guidelines.stories';
+
+<Meta of={UsageGuidelinesStory} />
+
+# UsageGuidelines
+
+## Overview
+
+Checklist of detailed technical and “copy” guidelines that we are expecting developers using this component to follow.
+
+<Canvas of={UsageGuidelinesStory.Overview} />
+
+## Props
+
+<Controls />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    'There is no unique syntax for creating a UsageGuideline component in MDX files. Therefore, use the component as you would in a regular JSX file.',
+    'Write down between three and five guidelines (technical or “copy”).',
+    'Guideline content can contain JSX elements, not only strings',
+  ]}
+/>

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import { TipClickable } from "./useClickableProps.stories.helpers";
 import * as UseClickablePropsStories from "./useClickableProps.stories";
@@ -16,9 +16,7 @@ import * as UseClickablePropsStories from "./useClickableProps.stories";
 
 Return props for making an element or component clickable by mouse and keyboard with screen reader support.
 
-<Canvas>
-  <Story of={UseClickablePropsStories.Overview} />
-</Canvas>
+<Canvas of={UseClickablePropsStories.Overview} />
 
 <TipClickable />
 

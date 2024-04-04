@@ -2,7 +2,7 @@ import { camelCase } from "lodash-es";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Text from "../Text/Text";
 import Leg from "./Leg";
@@ -11,8 +11,9 @@ import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types"
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
+import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 
-interface LabelProps extends VibeComponentProps {
+export interface LabelProps extends VibeComponentProps {
   /**
    * @deprecated - use className instead
    */
@@ -27,6 +28,7 @@ interface LabelProps extends VibeComponentProps {
   isAnimationDisabled?: boolean;
   isLegIncluded?: boolean;
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  celebrationAnimation?: boolean;
 }
 
 const Label: VibeComponent<LabelProps> & {
@@ -45,12 +47,14 @@ const Label: VibeComponent<LabelProps> & {
       isLegIncluded = false,
       id,
       "data-testid": dataTestId,
-      onClick
+      onClick,
+      celebrationAnimation
     },
     ref
   ) => {
     const labelRef = useRef<HTMLSpanElement>(null);
     const mergedRef = useMergeRef(ref, labelRef);
+    const [isCelebrationAnimation, setIsCelebrationAnimation] = useState(celebrationAnimation);
 
     const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]) as string;
     const isClickable = Boolean(onClick);
@@ -62,12 +66,13 @@ const Label: VibeComponent<LabelProps> & {
           getStyle(styles, camelCase("kind" + "-" + kind)),
           getStyle(styles, camelCase("color" + "-" + color)),
           {
-            [styles.withAnimation]: !isAnimationDisabled,
+            // When celebrationAnimation is active it wins over the default animation
+            [styles.withAnimation]: !isAnimationDisabled && !isCelebrationAnimation,
             [styles.withLeg]: isLegIncluded
           },
           labelClassName
         ),
-      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName]
+      [kind, color, isAnimationDisabled, isLegIncluded, labelClassName, isCelebrationAnimation]
     );
 
     const onClickCallback = useCallback(
@@ -91,21 +96,55 @@ const Label: VibeComponent<LabelProps> & {
       labelRef
     );
 
-    return (
-      <span
-        {...(isClickable && clickableProps)}
-        className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
-        ref={mergedRef}
-      >
-        <Text element="span" type={Text.types.TEXT2} className={classNames} color={Text.colors.ON_INVERTED}>
-          <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
-            {text}
+    useEffect(() => {
+      setIsCelebrationAnimation(celebrationAnimation);
+    }, [celebrationAnimation]);
+
+    const label = useMemo(() => {
+      return (
+        <span
+          {...(isClickable && clickableProps)}
+          className={cx({ [styles.clickable]: isClickable }, overrideClassName)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
+          ref={mergedRef}
+        >
+          <Text
+            element="span"
+            type={Text.types.TEXT2}
+            className={classNames}
+            color={Text.colors.ON_INVERTED}
+            data-celebration-text={isCelebrationAnimation}
+          >
+            <Text element="span" type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+              {text}
+            </Text>
+            <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
           </Text>
-          <span className={cx(styles.legWrapper)}>{isLegIncluded ? <Leg /> : null}</span>
-        </Text>
-      </span>
-    );
+        </span>
+      );
+    }, [
+      isClickable,
+      clickableProps,
+      overrideClassName,
+      dataTestId,
+      id,
+      mergedRef,
+      classNames,
+      isCelebrationAnimation,
+      text,
+      isLegIncluded
+    ]);
+
+    // Celebration animation is applied only for line kind
+    if (isCelebrationAnimation && kind === "line") {
+      return (
+        <LabelCelebrationAnimation onAnimationEnd={() => setIsCelebrationAnimation(false)}>
+          {label}
+        </LabelCelebrationAnimation>
+      );
+    }
+
+    return label;
   }
 );
 

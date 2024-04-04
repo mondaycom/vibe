@@ -2,7 +2,7 @@ import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
 import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
 
-interface FontIconProps extends VibeComponentProps {
+export interface FontIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   "aria-label"?: string;
   tabIndex?: number;

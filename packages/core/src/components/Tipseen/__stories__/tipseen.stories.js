@@ -52,33 +52,52 @@ export const Overview = {
 
   args: {
     title: "Title",
-    children: "Popover message will appear here loremipsum dolor samet…",
+    children: "Message for the user will appear here, to give more information about the feature.",
     position: Tipseen.positions.RIGHT,
-    isDismissHidden: false
+    isDismissHidden: false,
+    color: Tipseen.colors.INVERTED
   }
 };
 
-export const Default = {
+export const Colors = {
   // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
   render:
     // Therefore, there is no need to move this prop in your implementations.
     () => {
       return (
-        <Tipseen
-          modifiers={modifiers}
-          position={Tipseen.positions.RIGHT}
-          content={
-            <TipseenContent title="This is a title" hideDismiss>
-              Popover message will appear here loremipsum dolor samet…
-            </TipseenContent>
-          }
-        >
-          <div className="monday-storybook-tipseen_container" />
-        </Tipseen>
+        <>
+          <div className="monday-storybook-tipseen_small-box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              color={Tipseen.colors.INVERTED}
+              content={
+                <TipseenContent title="This is a title" hideDismiss>
+                  Message for the user will appear here, to give more information about the feature.
+                </TipseenContent>
+              }
+            >
+              <div className="monday-storybook-tipseen_container" />
+            </Tipseen>
+          </div>
+          <div className="monday-storybook-tipseen_small-box">
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.RIGHT}
+              content={
+                <TipseenContent title="This is a title" hideDismiss>
+                  Message for the user will appear here, to give more information about the feature.
+                </TipseenContent>
+              }
+            >
+              <div className="monday-storybook-tipseen_container" />
+            </Tipseen>
+          </div>
+        </>
       );
     },
 
-  name: "Default"
+  name: "Colors"
 };
 
 export const TipseenWithAWizard = {
@@ -104,6 +123,7 @@ export const TipseenWithAWizard = {
         <Tipseen
           modifiers={modifiers}
           position={Tipseen.positions.RIGHT}
+          color={Tipseen.colors.INVERTED}
           content={
             <TipseenWizard
               title="This is a title"
@@ -128,11 +148,11 @@ export const TipseenWithImage = {
     // Therefore, there is no need to move this prop in your implementations.
     () => {
       const content = [
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
-        <div>Popover message will appear here lorem ipsum dolor samet…</div>
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>,
+        <div>Message for the user will appear here, to give more information about the feature.</div>
       ];
 
       return (
@@ -140,6 +160,7 @@ export const TipseenWithImage = {
           position={Tipseen.positions.RIGHT}
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+          color={Tipseen.colors.INVERTED}
           content={
             <>
               <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
@@ -165,6 +186,7 @@ export const TipseenWithCustomMedia = {
           position={Tipseen.positions.RIGHT}
           modifiers={modifiers}
           closeButtonTheme={Tipseen.closeButtonThemes.DARK}
+          color={Tipseen.colors.INVERTED}
           content={
             <>
               <TipseenMedia>
@@ -179,7 +201,7 @@ export const TipseenWithCustomMedia = {
                 />
               </TipseenMedia>
               <TipseenContent title="This is a title">
-                Popover message will appear here lorem ipsum dolor samet…
+                Message for the user will appear here, to give more information about the feature.
               </TipseenContent>
             </>
           }
@@ -199,11 +221,12 @@ export const FloatingTipseen = {
       <Tipseen
         closeButtonTheme={Tipseen.closeButtonThemes.DARK}
         floating
+        color={Tipseen.colors.INVERTED}
         content={
           <>
             <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
             <TipseenContent title="This is a Floating Tipseen">
-              Popover message will appear here lorem ipsum dolor samet…
+              Message for the user will appear here, to give more information about the feature.
             </TipseenContent>
           </>
         }
