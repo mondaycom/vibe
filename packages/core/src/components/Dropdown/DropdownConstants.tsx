@@ -29,6 +29,6 @@ export enum DROPDOWN_MENU_PLACEMENT {
 
 export type DropdownOption = {
   label: string;
-  value: string | number;
+  value: string | number | Theme;
   isMandatory?: boolean;
 };
