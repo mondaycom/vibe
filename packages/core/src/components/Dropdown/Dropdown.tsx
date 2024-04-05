@@ -3,7 +3,15 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, SIZES, SIZES_VALUES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import Select, { InputProps, MenuProps, OptionProps, SingleValueProps, components, createFilter } from "react-select";
+import Select, {
+  InputProps,
+  MenuProps,
+  OptionProps,
+  SingleValueProps,
+  components,
+  createFilter,
+  OptionTypeBase
+} from "react-select";
 import AsyncSelect from "react-select/async";
 import { noop as NOOP } from "lodash-es";
 import { WindowedMenuList } from "react-windowed-select";
@@ -29,8 +37,6 @@ import Control from "./components/Control/Control";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import { VibeComponent, VibeComponentProps } from "../../types";
-import { IComboboxOption } from "../Combobox/components/ComboboxConstants";
-import { Option } from "react-select/src/filters";
 
 interface CustomSingleValueProps extends SingleValueProps<DropdownOption> {
   Renderer: React.ComponentType;
@@ -38,11 +44,11 @@ interface CustomSingleValueProps extends SingleValueProps<DropdownOption> {
   selectedOption: DropdownOption;
 }
 
-interface CustomMenuProps extends MenuProps<Option, boolean> {
+interface CustomMenuProps extends MenuProps<OptionTypeBase, boolean> {
   dropdownMenuWrapperClassName: string;
 }
 
-interface CustomOptionProps extends OptionProps<Option, boolean> {
+interface CustomOptionProps extends OptionProps<OptionTypeBase, boolean> {
   optionWrapperClassName?: string;
 }
 
@@ -82,31 +88,34 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Called when menu is opened
    */
-  onMenuOpen?: () => void;
+  onMenuOpen?: (event: React.MouseEvent) => void;
   /**
    * Called when menu is closed
    */
-  onMenuClose?: () => void;
+  onMenuClose?: (event: React.MouseEvent) => void;
   /**
    * Called when key is pressed in the dropdown
    */
-  onKeyDown?: (...args: unknown[]) => unknown;
+  onKeyDown?: (event: React.MouseEvent) => void;
   /**
    * Called when focused
    */
-  onFocus?: (...args: unknown[]) => unknown;
+  onFocus?: (event: React.MouseEvent) => void;
   /**
    * Called when blurred
    */
-  onBlur?: (...args: unknown[]) => unknown;
+  onBlur?: (event: React.MouseEvent) => void;
   /**
    * Called when selected value has changed
    */
-  onChange?: (...args: unknown[]) => unknown;
+  onChange?: (
+    option: DropdownOption | DropdownOption[],
+    event: SelectEvent | React.MouseEvent | React.KeyboardEvent
+  ) => void;
   /**
    * Called when the dropdown's input changes.
    */
-  onInputChange?: (...args: unknown[]) => unknown;
+  onInputChange?: (event: React.KeyboardEvent) => void;
   /**
    * If true, search in options will be enabled
    */
@@ -134,7 +143,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * custom option render function
    */
-  optionRenderer?: (option: IComboboxOption) => JSX.Element;
+  optionRenderer?: (option: DropdownOption) => JSX.Element;
   /**
    * custom value render function
    */
@@ -203,7 +212,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
    * Tab index for keyboard navigation purposes
    */
-  tabIndex?: number;
+  tabIndex?: number | string;
   /**
    * ID for the select container
    */
@@ -283,7 +292,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   filterOption?: (option: unknown, inputValue: string) => boolean;
 
   withReadOnlyStyle?: boolean;
-  OptionRenderer?: (option: IComboboxOption) => JSX.Element;
+  OptionRenderer?: (option: DropdownOption) => JSX.Element;
   menuIsOpen?: boolean;
   onOptionSelect?: (...args: unknown[]) => void;
   onClear?: (...args: unknown[]) => void;
