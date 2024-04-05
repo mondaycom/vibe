@@ -167,7 +167,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
    * The component's value.
    * When passed, makes this a [controlled](https://reactjs.org/docs/forms.html#controlled-components) component.
    */
-  value?: DropdownOption[];
+  value?: DropdownOption[] | DropdownOption;
   /**
    * Select menu size from `Dropdown.size` - Dropdown.sizes.LARGE | Dropdown.sizes.MEDIUM | Dropdown.sizes.SMALL
    */
@@ -231,7 +231,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
    * If menu should be closed on scroll - helpful for some tricky use cases
    * @default false, but true when insideOverflowContainer or insideOverflowWithTransformContainer are true
    */
-  closeMenuOnScroll?: ((event: React.FocusEvent) => boolean) | boolean;
+  closeMenuOnScroll?: boolean;
   /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
@@ -364,7 +364,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLDivElement> = forwardR
     const controlRef = useRef();
     const overrideMenuPortalTarget =
       menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
-    const overrideDefaultValue = useMemo(() => {
+    const overrideDefaultValue: DropdownOption | DropdownOption[] = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
           ? defaultValue.map(df => ({ ...df, isMandatory: true }))
