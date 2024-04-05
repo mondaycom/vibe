@@ -29,8 +29,8 @@ export enum DROPDOWN_MENU_PLACEMENT {
   AUTO = "auto"
 }
 
-export type DropdownDefaultValue = {
+export type DropdownOption = {
   label: string;
-  value: string | number | Theme;
+  value: string | number;
   isMandatory?: boolean;
 };
