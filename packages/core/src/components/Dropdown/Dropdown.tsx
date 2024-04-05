@@ -248,7 +248,7 @@ export interface DropdownComponentProps extends VibeComponentProps {
   /**
   Pass Ref for reference of the actual dropdown component
   */
-  ref?: React.ForwardedRef<HTMLDivElement>;
+  ref?: React.ForwardedRef<HTMLDivElement> | string;
   /**
   The options set by default will be set as mandatory and the user will not be able to cancel their selection
   */
