@@ -22,7 +22,7 @@ type Parameters = StorybookParameters & {
 };
 
 const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters) => {
-  const scope = { ...globalScope, ...parameters.liveEdit?.scope };
+  const scope = { ...globalScope, ...parameters.docs?.liveEdit?.scope };
   const originalCode = useRef<string>(extractCodeFromSource(parameters.docs.source?.originalSource) || "");
   const [code, setCode] = useState<string>(originalCode.current);
   const [dirty, setDirty] = useState<boolean>(false);
