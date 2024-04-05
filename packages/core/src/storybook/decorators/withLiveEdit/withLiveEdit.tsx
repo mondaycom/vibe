@@ -58,6 +58,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
         <Story />
       )}
       {shouldAllowLiveEdit &&
+        document.getElementById(id) &&
         createPortal(
           <LiveEditor
             placeholder={"Insert code here"}
@@ -73,7 +74,7 @@ const withLiveEdit: Decorator = (Story, { id, parameters, viewMode }: Parameters
               autocompletion: false
             }}
           />,
-          document.getElementById(id) || document.body
+          document.getElementById(id)
         )}
     </>
   );
