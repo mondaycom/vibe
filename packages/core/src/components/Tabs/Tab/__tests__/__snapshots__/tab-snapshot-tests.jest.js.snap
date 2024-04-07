@@ -121,9 +121,7 @@ exports[`Tab renders correctly with icon on left 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    T
-    a
-    b
+    Tab
   </a>
 </li>
 `;
@@ -140,9 +138,7 @@ exports[`Tab renders correctly with icon on right 1`] = `
     className="tabInner"
     onClick={[Function]}
   >
-    T
-    a
-    b
+    Tab
     <svg
       aria-hidden={true}
       className="icon tabIcon right noFocusStyle"
