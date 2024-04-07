@@ -100,7 +100,11 @@ module.exports = {
       }
     },
     {
-      files: ["*.stories.@(js|jsx|ts|tsx)", "*.stories.helpers.@(js|jsx|ts|tsx)"],
+      files: [
+        "*.stories.@(js|jsx|ts|tsx)",
+        "*.stories.helpers.@(js|jsx|ts|tsx)",
+        "src/storybook/decorators/**/with*.{js,jsx,ts,tsx}"
+      ],
       rules: {
         ...commonRules,
         "react-hooks/rules-of-hooks": "off",

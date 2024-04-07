@@ -1,0 +1,28 @@
+.editorContainer {
+  position: relative;
+  top: -40px;
+  width: 100%;
+  background: transparent;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.1s ease-out, opacity 0.1s ease-out;
+  overflow: auto;
+  border-radius: 0 0 4px 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+  border: 1px solid hsla(203, 50%, 30%, 0.15);
+  border-top: none;
+
+  &[data-editor-open="true"] {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  & :global(.cm-editor) {
+    padding: var(--sb-spacing-medium);
+  }
+}
+
+.canvas:has(+ [data-editor-open="true"]) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

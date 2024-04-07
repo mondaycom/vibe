@@ -51,6 +51,11 @@ export const Overview = {
         <MenuItem icon={Announcement} title="There" />
       </SplitButtonMenu>
     )
+  },
+  parameters: {
+    docs: {
+      liveEdit: { isEnabled: false }
+    }
   }
 };
 
@@ -89,7 +94,13 @@ export const Types = {
     </>
   ),
 
-  name: "Types"
+  name: "Types",
+
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Check, Announcement } }
+    }
+  }
 };
 
 export const Sizes = {
@@ -128,7 +139,12 @@ export const Sizes = {
     </>
   ),
 
-  name: "Sizes"
+  name: "Sizes",
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Check, Announcement } }
+    }
+  }
 };
 
 export const SplitButtonWithIcons = {
@@ -159,7 +175,12 @@ export const SplitButtonWithIcons = {
     </>
   ),
 
-  name: "Split button with icons"
+  name: "Split button with icons",
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Add, Check, Announcement } }
+    }
+  }
 };
 
 export const SplitButtonAsThePrimaryAction = {
@@ -176,7 +197,12 @@ export const SplitButtonAsThePrimaryAction = {
     />
   ),
 
-  name: "Split button as the primary action"
+  name: "Split button as the primary action",
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Download, Upload } }
+    }
+  }
 };
 
 export const SecondarySplitButton = {
@@ -217,5 +243,10 @@ export const CustomMenu = {
     </SplitButton>
   ),
 
-  name: "Custom menu"
+  name: "Custom menu",
+  parameters: {
+    docs: {
+      liveEdit: { scope: { Sun, Moon, Favorite } }
+    }
+  }
 };
