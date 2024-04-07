@@ -30,7 +30,7 @@ export interface TabProps extends VibeComponentProps {
   /**
    * Tab link-name
    */
-  children?: string | ReactElement[];
+  children?: string | ReactElement | ReactElement[];
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -70,11 +70,13 @@ const Tab: FC<TabProps> = forwardRef(
         />
       );
 
+      const childrenArray = React.Children.toArray(children);
+
       if (iconSide === "left") {
-        return [iconElement, ...children];
+        return [iconElement, ...childrenArray];
       }
 
-      return [...children, iconElement];
+      return [...childrenArray, iconElement];
     }
     return (
       <li
