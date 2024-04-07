@@ -1,5 +1,5 @@
 export const jsx = `() => {
-  const [timesClicked, setTimesClicked] = React.useState<boolean>(0);
+  const [timesClicked, setTimesClicked] = React.useState<number>(0);
 
   function onButtonClick(): void {
     if (timesClicked === 0) {
