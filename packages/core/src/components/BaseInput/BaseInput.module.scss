@@ -20,10 +20,16 @@
   transition: border-color var(--motion-productive-medium) ease-in;
 
   &.small {
+    height: 32px;
     @include vibe-text(text2, normal);
   }
 
+  &.medium {
+    height: 40px;
+  }
+
   &.large {
+    height: 48px;
     padding-block: var(--spacing-small);
   }
 
