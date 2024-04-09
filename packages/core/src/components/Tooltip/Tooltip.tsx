@@ -166,8 +166,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     disableDialogSlide: true,
     animationType: AnimationType.EXPAND,
     withoutDialog: false,
-    // TODO: remove in next major
-    containerSelector: "#tooltips-container",
     tip: true,
     hideWhenReferenceHidden: false,
     modifiers: new Array<Modifier<unknown>>(),
@@ -189,8 +187,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   getContainer() {
-    // TODO: remove tooltips-container in next major
-    return document.getElementById("tooltips-container") || document.querySelector("body");
+    return document.querySelector("body");
   }
 
   renderTooltipContent() {
