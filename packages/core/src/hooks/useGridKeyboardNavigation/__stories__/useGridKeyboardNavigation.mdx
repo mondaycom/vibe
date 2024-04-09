@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { action } from "@storybook/addon-actions";
 import "./useGridKeyboardNavigation.stories.scss";
 import * as UseGridKeyboardNavigationStories from "./useGridKeyboardNavigation.stories";
@@ -22,9 +22,7 @@ export const PADDING_PX = 24;
 
 export const ON_CLICK = action("item selected");
 
-<Canvas>
-  <Story of={UseGridKeyboardNavigationStories.Overview} />
-</Canvas>
+<Canvas of={UseGridKeyboardNavigationStories.Overview} />
 
 ## Usage
 

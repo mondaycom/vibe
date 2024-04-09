@@ -1,5 +1,5 @@
 import MultiStepIndicator from "../MultiStepIndicator";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { BREADCRUBMS, STEPS, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps, TipNotWhatYouAreLookingFor } from "./multiStepIndicator.stories.helpers";
 import * as MultiStepIndicatorStories from "./multiStepIndicator.stories";
@@ -21,9 +21,7 @@ import * as MultiStepIndicatorStories from "./multiStepIndicator.stories";
 
 Tabular navigation component that helps users visualize and interact with a multi-step process.
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.Overview} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.Overview} />
 
 ## Props
 
@@ -47,39 +45,29 @@ Tabular navigation component that helps users visualize and interact with a mult
 
 Placements
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.Placements} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.Placements} />
 
 ### Types
 
 There are 4 types: Primary, success, danger, dark.
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.Types} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.Types} />
 
 ### Sizes
 
 Compact is a smaller version of the Regular Wizard Stepper, and is suitable for smaller containers. In case you need to display more content, use the Regular size. As of now, vertical placement is not supported.
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.Sizes} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.Sizes} />
 
 ### Fulfilled Icons
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.FulfilledIcons} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.FulfilledIcons} />
 
 ### Transition Animation
 
 State transition automatic example
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.TransitionAnimation} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.TransitionAnimation} />
 
 ## Do’s and Don’ts
 
@@ -146,9 +134,7 @@ State transition automatic example
 
 ### Multi step wizard
 
-<Canvas>
-  <Story of={MultiStepIndicatorStories.MultiStepWizard} />
-</Canvas>
+<Canvas of={MultiStepIndicatorStories.MultiStepWizard} />
 
 ## Related components
 

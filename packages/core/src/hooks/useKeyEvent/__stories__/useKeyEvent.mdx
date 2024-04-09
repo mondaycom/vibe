@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, UsageGuidelines } from "vibe-storybook-components";
 import * as UseKeyEventStories from "./useKeyEvent.stories";
 
@@ -16,9 +16,7 @@ import * as UseKeyEventStories from "./useKeyEvent.stories";
 
 Attaches a listener to keyboard DOM events on a specific element, firing a provided callback when the event is triggered.
 
-<Canvas>
-  <Story of={UseKeyEventStories.Overview} />
-</Canvas>
+<Canvas of={UseKeyEventStories.Overview} />
 
 ## Arguments
 

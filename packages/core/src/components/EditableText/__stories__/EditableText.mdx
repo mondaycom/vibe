@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   EDITABLE_HEADING,
   HEADING,
@@ -22,9 +22,7 @@ import * as EditableTextStories from "./EditableText.stories";
 
 Editable text allows users to seamlessly and dynamically edit in-line content. Its default state is a read-view, based on the <StorybookLink page="Text/Text">Text</StorybookLink> component, and it becomes editable after clicking on it.
 
-<Canvas>
-  <Story of={EditableTextStories.Overview} />
-</Canvas>
+<Canvas of={EditableTextStories.Overview} />
 
 ## Props
 
@@ -47,9 +45,7 @@ Editable text allows users to seamlessly and dynamically edit in-line content. I
 
 Editable text can be used with any of the <StorybookLink page="Text/Text">Text</StorybookLink> component sizes and weights.
 
-<Canvas>
-  <Story of={EditableTextStories.Types} />
-</Canvas>
+<Canvas of={EditableTextStories.Types} />
 
 ## Related components
 

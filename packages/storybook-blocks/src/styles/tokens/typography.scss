@@ -1,0 +1,19 @@
+:root {
+  // Line height
+  --sb-text-line-height-small: 20px;
+  --sb-text-line-height: 24px;
+  // Font weight
+  --sb-font-weight-normal: 400;
+  // Font size
+  --sb-h1-font-size: 40px;
+  --sb-h2-font-size: 28px;
+  --sb-h3-font-size: 24px;
+  --sb-text-font-size: 16px;
+  --sb-small-text-font-size: 14px;
+  // Font family
+  --sb-font-family: 'Figtree', 'Roboto', 'Noto Sans Hebrew', 'Noto Kufi Arabic', 'Noto Sans JP', sans-serif;
+  --sb-title-font-family: 'Poppins', 'Roboto', 'Noto Sans Hebrew', 'Noto Kufi Arabic', 'Noto Sans JP', sans-serif;
+  // Font definition
+  --sb-font-general-label: var(--sb-font-weight-normal) var(--sb-small-text-font-size) / var(--sb-text-line-height)
+    var(--sb-font-family);
+}

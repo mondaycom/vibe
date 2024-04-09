@@ -14,3 +14,9 @@ export enum StepsDotAriaCurrent {
   DATE = "date",
   TIME = "time"
 }
+
+export enum StepsColor {
+  PRIMARY = "primary",
+  ON_PRIMARY_COLOR = "on-primary-color",
+  ON_INVERTED_BACKGROUND = "on-inverted-background"
+}

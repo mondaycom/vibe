@@ -1,6 +1,6 @@
 import Tab from "../Tab/Tab";
 import TabList from "../TabList/TabList";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Calendar, Chart, Gantt, NavigationChevronDown, NewTab, Table } from "../../Icon/Icons";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { UsageGuidelines } from "vibe-storybook-components";
@@ -29,9 +29,7 @@ import { TipButtonGroup } from "./tabs.stories.helpers";
 
 Tabs allow users to navigate between related views of content while remaining in the context of the page.
 
-<Canvas>
-  <Story of={TabsStories.Overview} />
-</Canvas>
+<Canvas of={TabsStories.Overview} />
 
 ## Props
 
@@ -54,25 +52,19 @@ Tabs allow users to navigate between related views of content while remaining in
 
 ### Default - compact tabs
 
-<Canvas>
-  <Story of={TabsStories.Default} />
-</Canvas>
+<Canvas of={TabsStories.Default} />
 
 ### Stretched
 
 The width of the list is responsive to the screen's width.
 
-<Canvas>
-  <Story of={TabsStories.Stretched} />
-</Canvas>
+<Canvas of={TabsStories.Stretched} />
 
 ### Motion
 
 Tabs animation direction
 
-<Canvas>
-  <Story of={TabsStories.Motion} />
-</Canvas>
+<Canvas of={TabsStories.Motion} />
 
 ## Do’s and Don’ts
 
@@ -141,17 +133,13 @@ Tabs animation direction
 
 The tabs are presenting the same content, in a different view.
 
-<Canvas>
-  <Story of={TabsStories.BoardViewsTabs} />
-</Canvas>
+<Canvas of={TabsStories.BoardViewsTabs} />
 
 ### Admin section tabs
 
 In the admin section tabs used to navigate between the different preferences
 
-<Canvas>
-  <Story of={TabsStories.AdminSectionTabs} />
-</Canvas>
+<Canvas of={TabsStories.AdminSectionTabs} />
 
 ## Related components
 

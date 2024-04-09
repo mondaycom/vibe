@@ -12,6 +12,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Button from "../Button/Button";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonType } from "../Button/ButtonConstants";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {
@@ -86,6 +87,8 @@ export interface IconButtonProps extends VibeComponentProps {
   insetFocus?: boolean;
   /** Specifies the tab order of an element */
   tabIndex?: number;
+  /** Show a loader instead of the icon  */
+  loading?: boolean;
 }
 
 const IconButton: VibeComponent<IconButtonProps> & {
@@ -116,7 +119,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
       dataTestId: backwardCompatabilityDataTestId,
       "data-testid": dataTestId,
       insetFocus = false,
-      tabIndex
+      tabIndex,
+      loading = false
     },
     ref
   ) => {
@@ -198,6 +202,8 @@ const IconButton: VibeComponent<IconButtonProps> & {
             style={overrideStyle}
             insetFocus={insetFocus}
             tabIndex={tabIndex}
+            loading={loading}
+            loaderClassName={cx(styles.loader, getStyle(styles, size))}
           >
             <Icon
               icon={icon}

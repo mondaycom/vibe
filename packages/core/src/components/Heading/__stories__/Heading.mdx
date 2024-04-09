@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import Heading from "../Heading";
 import {
   EDITABLE_HEADING,
@@ -26,9 +26,7 @@ import { TipEditableHeading } from "./Heading.stories.helpers";
 
 Heading components are used for titles at the top of pages and sub-sections.
 
-<Canvas>
-  <Story of={HeadingStories.Overview} />
-</Canvas>
+<Canvas of={HeadingStories.Overview} />
 
 ## Import
 
@@ -59,17 +57,13 @@ just like any other component.
 
 Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and three weights: bold (700), normal (500), light (300)
 
-<Canvas>
-  <Story of={HeadingStories.TypesAndWeights} />
-</Canvas>
+<Canvas of={HeadingStories.TypesAndWeights} />
 
 ### Colors
 
 Heading component comes in four colors: primary, secondary, on primary, on inverted
 
-<Canvas>
-  <Story of={HeadingStories.Colors} />
-</Canvas>
+<Canvas of={HeadingStories.Colors} />
 
 ### Overflow
 
@@ -78,9 +72,7 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 
 We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
 
-<Canvas>
-  <Story of={HeadingStories.Overflow} />
-</Canvas>
+<Canvas of={HeadingStories.Overflow} />
 
 ## Do’s and Don’ts
 
@@ -103,15 +95,11 @@ We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed 
 
 ### Built-in page header (not editable)
 
-<Canvas>
-  <Story of={HeadingStories.BuiltInPageHeaderNotEditable} />
-</Canvas>
+<Canvas of={HeadingStories.BuiltInPageHeaderNotEditable} />
 
 ### Empty state heading
 
-<Canvas>
-  <Story of={HeadingStories.EmptyStateHeading} />
-</Canvas>
+<Canvas of={HeadingStories.EmptyStateHeading} />
 
 ## Related components
 

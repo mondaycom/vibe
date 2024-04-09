@@ -1,5 +1,5 @@
 import Avatar from "../Avatar";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   AVATAR_GROUP,
   BADGE,
@@ -29,9 +29,7 @@ export const avatarTemplate = createComponentTemplate(Avatar);
 
 Avatar is a graphical representation of a person through a profile picture, image, icon, or set of initials.
 
-<Canvas>
-  <Story of={AvatarStories.Overview} />
-</Canvas>
+<Canvas of={AvatarStories.Overview} />
 
 ## Props
 
@@ -57,33 +55,25 @@ Avatar is a graphical representation of a person through a profile picture, imag
 
 Avatars appear in 3 sizes: Small, Medium, and Large.
 
-<Canvas>
-  <Story of={AvatarStories.Size} />
-</Canvas>
+<Canvas of={AvatarStories.Size} />
 
 ### Disabled
 
 Use when a user is inactive in the system.
 
-<Canvas>
-  <Story of={AvatarStories.Disable} />
-</Canvas>
+<Canvas of={AvatarStories.Disable} />
 
 ### Avatar with text
 
 Use when a user’s image is not available, use their initials.
 
-<Canvas>
-  <Story of={AvatarStories.AvatarWithText} />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithText} />
 
 ### Square avatar with icon or text
 
 Use for non-person avatars, such as a workspace or team.
 
-<Canvas>
-  <Story of={AvatarStories.SquareAvatar} />
-</Canvas>
+<Canvas of={AvatarStories.SquareAvatar} />
 
 ## Do’s and Don’ts
 
@@ -145,41 +135,31 @@ Use for non-person avatars, such as a workspace or team.
 
 Use to indicate the user’s permissions such as: Guest, owner.
 
-<Canvas>
-  <Story of={AvatarStories.AvatarWithRightBadge} />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithRightBadge} />
 
 ### Avatar with left badge
 
 Use to indicate the status of a user such as: Working from home, out of office etc.
 
-<Canvas>
-  <Story of={AvatarStories.AvatarWithLeftBadge} />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithLeftBadge} />
 
 ### Avatar with tooltip
 
 Use to display tooltip on onHover Avatar event.
 
-<Canvas>
-  <Story of={AvatarStories.AvatarWithTooltip} />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithTooltip} />
 
 ### Clickable avatar
 
 Use to fire actions on avatar click event.
 
-<Canvas>
-  <Story of={AvatarStories.ClickableAvatar} />
-</Canvas>
+<Canvas of={AvatarStories.ClickableAvatar} />
 
 ### Multiple avatars
 
 To group multiple Avatars together, use the <StorybookLink page="Media/Avatar/AvatarGroup">AvatarGroup</StorybookLink> component.
 
-<Canvas>
-  <Story of={AvatarStories.MultipleAvatars} />
-</Canvas>
+<Canvas of={AvatarStories.MultipleAvatars} />
 
 ## Related components
 

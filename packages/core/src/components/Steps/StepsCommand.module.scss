@@ -15,7 +15,11 @@
   &.disabled {
     color: var(--disabled-text-color);
   }
-  &.onPrimary {
+  &.colorOnPrimaryColor {
     color: var(--text-color-on-primary);
   }
+  &.colorOnInvertedBackground {
+    color: var(--text-color-on-inverted);
+  }
 }
+

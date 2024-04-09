@@ -7,7 +7,14 @@ export const TIPSEEN_CLOSE_BUTTON_TEST_ID = "close-tipseen";
 export const TIPSEEN_CLOSE_BUTTON_ARIA_LABEL = "Close";
 export enum TipseenCloseButtonTheme {
   LIGHT = "light",
-  DARK = "dark"
+  DARK = "dark",
+  FIXED_LIGHT = "fixed-light",
+  FIXED_DARK = "fixed-dark"
+}
+
+export enum TipseenColor {
+  PRIMARY = "primary",
+  INVERTED = "inverted"
 }
 
 /**

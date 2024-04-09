@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import {
   DIALOG_CONTENT_CONTAINER,
@@ -28,9 +28,7 @@ Box component is used as a wrapper component.
 Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. <br />It can be used as a container for
 atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
 
-<Canvas>
-  <Story of={BoxStories.Overview} />
-</Canvas>
+<Canvas of={BoxStories.Overview} />
 
 ## Props
 
@@ -52,49 +50,35 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 ### BACKGROUNDS COLORS
 
-<Canvas>
-  <Story of={BoxStories.BackgroundColors} />
-</Canvas>
+<Canvas of={BoxStories.BackgroundColors} />
 
 ### TEXT COLORS
 
-<Canvas>
-  <Story of={BoxStories.TextColors} />
-</Canvas>
+<Canvas of={BoxStories.TextColors} />
 
 ### BORDER
 
-<Canvas>
-  <Story of={BoxStories.Border} />
-</Canvas>
+<Canvas of={BoxStories.Border} />
 
 ### BORDER COLOR
 
-<Canvas>
-  <Story of={BoxStories.BorderColor} />
-</Canvas>
+<Canvas of={BoxStories.BorderColor} />
 
 ### ROUNDED CORNERS
 
 #### Size props
 
-<Canvas>
-  <Story of={BoxStories.RoundCorners} />
-</Canvas>
+<Canvas of={BoxStories.RoundCorners} />
 
 ### SHADOW
 
-<Canvas>
-  <Story of={BoxStories.Shadow} />
-</Canvas>
+<Canvas of={BoxStories.Shadow} />
 
 ### MARGIN
 
 #### Size props
 
-<Canvas>
-  <Story of={BoxStories.Margin} />
-</Canvas>
+<Canvas of={BoxStories.Margin} />
 
 #### Property variations per each size:
 
@@ -121,9 +105,7 @@ NONE
 
 #### Size props
 
-<Canvas>
-  <Story of={BoxStories.Padding} />
-</Canvas>
+<Canvas of={BoxStories.Padding} />
 
 #### Property variations per each size:
 
@@ -139,9 +121,7 @@ paddingStart
 
 ### Component Disabled
 
-<Canvas>
-  <Story of={BoxStories.Disabled} />
-</Canvas>
+<Canvas of={BoxStories.Disabled} />
 
 ## Related components
 

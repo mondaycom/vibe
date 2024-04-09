@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import {
   LINEAR_PROGRESS_BAR,
@@ -23,9 +23,7 @@ import * as SliderStories from "./Slider.stories";
 
 Slider is a visual input component that reflects current state status in its appearance.
 
-<Canvas>
-  <Story of={SliderStories.Overview} />
-</Canvas>
+<Canvas of={SliderStories.Overview} />
 
 ## Props
 
@@ -50,57 +48,43 @@ Slider is a visual input component that reflects current state status in its app
 
 Sizes small/medium/large are available.
 
-<Canvas>
-  <Story of={SliderStories.Sizes} />
-</Canvas>
+<Canvas of={SliderStories.Sizes} />
 
 ### Ranged Slider
 
 Slider can define range instead of single value
 
-<Canvas>
-  <Story of={SliderStories.Ranged} />
-</Canvas>
+<Canvas of={SliderStories.Ranged} />
 
 ### Colors
 
 Color Modes primary/positive/negative are available.
 
-<Canvas>
-  <Story of={SliderStories.Colors} />
-</Canvas>
+<Canvas of={SliderStories.Colors} />
 
 ### Disabled
 
 Slider can be disabled.
 
-<Canvas>
-  <Story of={SliderStories.Disabled} />
-</Canvas>
+<Canvas of={SliderStories.Disabled} />
 
 ### With labels
 
 Indicate selection at Label, Add Prefix and/or Postfix Icons or Labels
 
-<Canvas>
-  <Story of={SliderStories.WithLabels} />
-</Canvas>
+<Canvas of={SliderStories.WithLabels} />
 
 ### Always show Slider's value
 
 Always show value of slider (instead of Tooltip).
 
-<Canvas>
-  <Story of={SliderStories.ShowValue} />
-</Canvas>
+<Canvas of={SliderStories.ShowValue} />
 
 ### Limit and Step
 
 Limit and Step can be customized.
 
-<Canvas>
-  <Story of={SliderStories.LimitsSteps} />
-</Canvas>
+<Canvas of={SliderStories.LimitsSteps} />
 
 ### Customisation
 
@@ -108,9 +92,7 @@ Custom ID, custom `data-testid` and Custom Class. Add Custom Items as Prefix and
 
 **Important!** Please use customisation very careful, only if you really need it. Check twice with your Product/Designer.
 
-<Canvas>
-  <Story of={SliderStories.Customisation} />
-</Canvas>
+<Canvas of={SliderStories.Customisation} />
 
 ## Related components
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as UseMediaQueryStories from "./useMediaQuery.stories";
 
 <Meta of={UseMediaQueryStories} />
@@ -14,13 +14,9 @@ import * as UseMediaQueryStories from "./useMediaQuery.stories";
 
 This hook helps maps if a media query is matched or not
 
-<Canvas>
-  <Story of={UseMediaQueryStories.SingleRule} />
-</Canvas>
+<Canvas of={UseMediaQueryStories.SingleRule} />
 
-<Canvas>
-  <Story of={UseMediaQueryStories.MultipleRules} />
-</Canvas>
+<Canvas of={UseMediaQueryStories.MultipleRules} />
 
 ## Arguments
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import {
   COMBOBOX,
@@ -26,9 +26,7 @@ import { TipDevTipPopover } from "./dropdown.stories.helpers";
 
 Dropdown present a list of options from which a user can select one or several.
 
-<Canvas>
-  <Story of={DropdownStories.Overview} />
-</Canvas>
+<Canvas of={DropdownStories.Overview} />
 
 ## Props
 
@@ -52,59 +50,41 @@ Dropdown present a list of options from which a user can select one or several.
 
 There are three sizes available: Small, Medium, and Large
 
-<Canvas>
-  <Story of={DropdownStories.Sizes} />
-</Canvas>
+<Canvas of={DropdownStories.Sizes} />
 
 ### Disabled
 
-<Canvas>
-  <Story of={DropdownStories.Disabled} />
-</Canvas>
+<Canvas of={DropdownStories.Disabled} />
 
 ### Readonly
 
-<Canvas>
-  <Story of={DropdownStories.Readonly} />
-</Canvas>
+<Canvas of={DropdownStories.Readonly} />
 
 ### RTL
 
-<Canvas>
-  <Story of={DropdownStories.Rtl} />
-</Canvas>
+<Canvas of={DropdownStories.Rtl} />
 
 ### Multi line states
 
 The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
 
-<Canvas>
-  <Story of={DropdownStories.MultiChoiceWithDifferentStates} />
-</Canvas>
+<Canvas of={DropdownStories.MultiChoiceWithDifferentStates} />
 
 ### Dropdown with avatar
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithAvatar} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithAvatar} />
 
 ### Dropdown with icon
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithIcon} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithIcon} />
 
 ### Dropdown with chip colors
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithChipColors} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithChipColors} />
 
 ### Dropdown with tooltips on items
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithTooltipsOnItems} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithTooltipsOnItems} />
 
 ## Do’s and Don’ts
 
@@ -156,39 +136,29 @@ The Dropdown component supports multiple options selection in two different stat
 
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithChips} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithChips} />
 
 ### Searchable Dropdown
 
 In case of multiple options, you can use the `onInputChange` prop to allow filtering options.
 
-<Canvas>
-  <Story of={DropdownStories.SearchableDropdown} />
-</Canvas>
+<Canvas of={DropdownStories.SearchableDropdown} />
 
 ### Dropdown with labels
 
 A dropdown menu can include labels.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithLabels} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithLabels} />
 
 ### Dropdown inside a form
 
 A classic dropdown presents options a user needs to choose from.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownInsideAForm} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownInsideAForm} />
 
 ### Dropdown with groups
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithGroups} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithGroups} />
 
 ### Dropdown inside popover
 
@@ -197,33 +167,25 @@ component) or container with overflow hidden content.
 
 <TipDevTipPopover />
 
-<Canvas>
-  <Story of={DropdownStories.DropdownInsidePopover} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownInsidePopover} />
 
 ### Dropdown with loading
 
 If importing the dropdown options may take time, you can reflect this to the user using Dropdown isLoading flag with optional custom message.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithLoading} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithLoading} />
 
 ### Dropdown with ref
 
 If you need to programmatically control Dropdown state, use `ref` prop. Pay attention that type of returned ref will be `StateManager` from <Link withoutSpacing href="https://react-select.com/home">`react-select`</Link> library.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownWithRef} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownWithRef} />
 
 ### Dropdown value selection
 
 Control the value selection mechanism with the <code>tabSelectsValue</code> (default: true) prop.
 
-<Canvas>
-  <Story of={DropdownStories.DropdownValueSelection} />
-</Canvas>
+<Canvas of={DropdownStories.DropdownValueSelection} />
 
 ## Related components
 

@@ -1,5 +1,5 @@
 import Badge from "../Badge";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import person from "./assets/person.png";
 import { WhatsNew } from "../../Icon/Icons";
 import Link from "../../Link/Link";
@@ -25,9 +25,7 @@ import * as BadgeStories from "./Badge.stories";
 
 Badge component is responsible for layout an indicator/counter on a child component
 
-<Canvas>
-  <Story of={BadgeStories.Overview} />
-</Canvas>
+<Canvas of={BadgeStories.Overview} />
 
 ## Props
 
@@ -39,33 +37,25 @@ Badge component is responsible for layout an indicator/counter on a child compon
 
 Badge can be of type Indicator or type Counter
 
-<Canvas>
-  <Story of={BadgeStories.States} />
-</Canvas>
+<Canvas of={BadgeStories.States} />
 
 ### Button
 
 When using Badge on a Button element, use alignment of RECTANGULAR in order to attach it to the element
 
-<Canvas>
-  <Story of={BadgeStories.ButtonStory} />
-</Canvas>
+<Canvas of={BadgeStories.ButtonStory} />
 
 ### Avatar
 
 When using Badge on an Avatar element, use alignment of CIRCULAR in order to attach it to the element
 
-<Canvas>
-  <Story of={BadgeStories.AvatarStory} />
-</Canvas>
+<Canvas of={BadgeStories.AvatarStory} />
 
 ### Inline elements
 
 When using Badge on an inline element, use alignment of OUTSIDE in order to attach it to the element
 
-<Canvas>
-  <Story of={BadgeStories.InlineElements} />
-</Canvas>
+<Canvas of={BadgeStories.InlineElements} />
 
 ## Do’s and Don’ts
 

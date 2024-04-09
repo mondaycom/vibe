@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   SKELETON,
   SPINNER,
@@ -28,9 +28,7 @@ import * as LinearProgressBarStories from "./linearProgressBar.stories";
 
 Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains.
 
-<Canvas>
-  <Story of={LinearProgressBarStories.Overview} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.Overview} />
 
 ## Props
 
@@ -48,21 +46,15 @@ Progress bars show continuous progress through a process, such as a percentage v
 
 ### Regular
 
-<Canvas>
-  <Story of={LinearProgressBarStories.Regular} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.Regular} />
 
 ### With secondary value
 
-<Canvas>
-  <Story of={LinearProgressBarStories.WithSecondaryValue} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.WithSecondaryValue} />
 
 ### Multi progress bar
 
-<Canvas>
-  <Story of={LinearProgressBarStories.MultiProgressBar} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.MultiProgressBar} />
 
 ## Do’s and Don’ts
 
@@ -87,15 +79,11 @@ Progress bars show continuous progress through a process, such as a percentage v
 
 The user can see in a clear way the number of items used in the account.
 
-<Canvas>
-  <Story of={LinearProgressBarStories.ProgressBarAsACounter} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.ProgressBarAsACounter} />
 
 ### Progress bar as loading indicator
 
-<Canvas>
-  <Story of={LinearProgressBarStories.ProgressBarAsLoadingIndicator} />
-</Canvas>
+<Canvas of={LinearProgressBarStories.ProgressBarAsLoadingIndicator} />
 
 ## Related components
 

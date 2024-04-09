@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import Label from "../Label";
 import { CHIP, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
@@ -22,9 +22,7 @@ import { TipCheckYourself } from "./label.stories.helpers";
 
 A label indicates the status of an item.
 
-<Canvas>
-  <Story of={LabelStories.Overview} />
-</Canvas>
+<Canvas of={LabelStories.Overview} />
 
 ## Props
 
@@ -46,21 +44,15 @@ A label indicates the status of an item.
 
 ### Kinds
 
-<Canvas>
-  <Story of={LabelStories.Kinds} />
-</Canvas>
+<Canvas of={LabelStories.Kinds} />
 
 ### Colors
 
-<Canvas>
-  <Story of={LabelStories.Colors} />
-</Canvas>
+<Canvas of={LabelStories.Colors} />
 
 ### Clickable
 
-<Canvas>
-  <Story of={LabelStories.Clickable} />
-</Canvas>
+<Canvas of={LabelStories.Clickable} />
 
 ## Do’s and Don’ts
 
@@ -140,9 +132,13 @@ A label indicates the status of an item.
 
 In case of visual overload, use the secondary label in order to create hirarchy.
 
-<Canvas>
-  <Story of={LabelStories.SecondaryLabel} />
-</Canvas>
+<Canvas of={LabelStories.SecondaryLabel} />
+
+### Celebration
+
+To celebrate new feature, outline label can be highlighted by adding celebrate animation.
+
+<Canvas of={LabelStories.Celebration} />
 
 ## Related components
 

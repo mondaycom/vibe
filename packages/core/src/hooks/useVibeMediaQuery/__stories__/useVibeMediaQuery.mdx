@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 import { TableMediaQuery } from "./useVibeMediaQuery.stories.helpers";
 import * as UseVibeMediaQueryStories from "./useVibeMediaQuery.stories";
@@ -18,9 +18,7 @@ This hook will return the value of the current vibe break point
 
 <TableMediaQuery />
 
-<Canvas>
-  <Story of={UseVibeMediaQueryStories.Overview} />
-</Canvas>
+<Canvas of={UseVibeMediaQueryStories.Overview} />
 
 ## Arguments
 

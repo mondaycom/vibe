@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import * as TabListStories from "./tab-list.stories";
 
 <Meta of={TabListStories} />
@@ -14,9 +14,7 @@ import * as TabListStories from "./tab-list.stories";
 
 TabList is a container of all the tabs headers inside the tabs component
 
-<Canvas>
-  <Story of={TabListStories.Overview} />
-</Canvas>
+<Canvas of={TabListStories.Overview} />
 
 ## Props
 
@@ -26,20 +24,14 @@ TabList is a container of all the tabs headers inside the tabs component
 
 ### Default - compact tabs
 
-<Canvas>
-  <Story of={TabListStories.Default} />
-</Canvas>
+<Canvas of={TabListStories.Default} />
 
 ### Stretched
 
 The width of the list is responsive to the screen's width.
 
-<Canvas>
-  <Story of={TabListStories.Stretched} />
-</Canvas>
+<Canvas of={TabListStories.Stretched} />
 
 ### Sizes
 
-<Canvas>
-  <Story of={TabListStories.Sizes} />
-</Canvas>
+<Canvas of={TabListStories.Sizes} />

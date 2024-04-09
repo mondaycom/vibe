@@ -1,5 +1,5 @@
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Story, Canvas, Meta } from "@storybook/blocks";
 import { DIALOG, TIPSEEN, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import {
   DialogAsModalBadExample,
@@ -28,9 +28,7 @@ import * as ModalStories from "./modal.stories";
 Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
 Use modal for short and non-frequent tasks. For common tasks consider using the main flow.
 
-<Canvas>
-  <Story of={ModalStories.Overview} />
-</Canvas>
+<Canvas of={ModalStories.Overview} />
 
 ## Props
 
@@ -65,18 +63,14 @@ Use modal for short and non-frequent tasks. For common tasks consider using the 
 
 Use the ModalHeader component to display a Header with an icon
 
-<Canvas>
-  <Story of={ModalStories.ModalWithIcon} />
-</Canvas>
+<Canvas of={ModalStories.ModalWithIcon} />
 
 ### Alert Modal
 
 Use the <code>alertDialog</code> boolean prop in order to allow closing the modal only by the close buttons and not by ESC or by
 clicking outside. Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
 
-<Canvas>
-  <Story of={ModalStories.AlertModal} />
-</Canvas>
+<Canvas of={ModalStories.AlertModal} />
 
 ## Do’s and Don’ts
 
@@ -105,9 +99,7 @@ clicking outside. Use this variant in case of sensitive or important messages, a
 
 ### Modal with editable title
 
-<Canvas>
-  <Story of={ModalStories.ModalWithEditableTitle} />
-</Canvas>
+<Canvas of={ModalStories.ModalWithEditableTitle} />
 
 ## Related components
 

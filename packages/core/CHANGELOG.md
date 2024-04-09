@@ -3,6 +3,163 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.100.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.100.0...monday-ui-react-core@2.100.1) (2024-04-07)
+
+
+### Bug Fixes
+
+* **Label:** changes selectors ([#2051](https://github.com/mondaycom/monday-ui-react-core/issues/2051)) ([a504ce9](https://github.com/mondaycom/monday-ui-react-core/commit/a504ce99f876275757ebb58563c1c81c33e06949))
+
+
+
+
+
+# [2.100.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.99.0...monday-ui-react-core@2.100.0) (2024-04-03)
+
+
+### Features
+
+* **Label:** celebration animation ([#2032](https://github.com/mondaycom/monday-ui-react-core/issues/2032)) ([1af527c](https://github.com/mondaycom/monday-ui-react-core/commit/1af527cce8dad30fdf81fb7c3c0b805de4097910))
+* **Tooltip:** Rich tooltip ([#2040](https://github.com/mondaycom/monday-ui-react-core/issues/2040)) ([dc0c470](https://github.com/mondaycom/monday-ui-react-core/commit/dc0c470b23e38f93007c1518fc6cc3b07e913d47))
+
+
+
+
+
+# [2.99.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.4...monday-ui-react-core@2.99.0) (2024-03-25)
+
+
+### Features
+
+* **IconButton:** loading state ([#2029](https://github.com/mondaycom/monday-ui-react-core/issues/2029)) ([a38dd2b](https://github.com/mondaycom/monday-ui-react-core/commit/a38dd2b3d1af515ca51859b7e2e7915b11fc1d89))
+
+
+
+
+
+## [2.98.4](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.3...monday-ui-react-core@2.98.4) (2024-03-25)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+## [2.98.3](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.2...monday-ui-react-core@2.98.3) (2024-03-24)
+
+
+### Bug Fixes
+
+* **MultiStepIndicator:** nest divider style ([#2036](https://github.com/mondaycom/monday-ui-react-core/issues/2036)) ([2faf7e4](https://github.com/mondaycom/monday-ui-react-core/commit/2faf7e4413894e7a0739526636585353f62105ac))
+
+
+
+
+
+## [2.98.2](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.1...monday-ui-react-core@2.98.2) (2024-03-21)
+
+
+### Bug Fixes
+
+* all elements inside an app that consumes vibe had button with active state that turns to 0.95 scale on active pseudo state ([#2031](https://github.com/mondaycom/monday-ui-react-core/issues/2031)) ([1b6e92a](https://github.com/mondaycom/monday-ui-react-core/commit/1b6e92aab423df632c5fe178a57ddc093e1626f3))
+
+
+
+
+
+## [2.98.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.98.0...monday-ui-react-core@2.98.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* **MenuButton:** call `onMenuHide` on all cases where menu is closed ([#2027](https://github.com/mondaycom/monday-ui-react-core/issues/2027)) ([1c80b4c](https://github.com/mondaycom/monday-ui-react-core/commit/1c80b4cb149e303c47fa2f4efe58541d3c209859))
+
+
+
+
+
+# [2.98.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.0...monday-ui-react-core@2.98.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* **EditableTypography:** fix specificity issues when changing types a… ([#2028](https://github.com/mondaycom/monday-ui-react-core/issues/2028)) ([bebcdbd](https://github.com/mondaycom/monday-ui-react-core/commit/bebcdbd1dd82cc381988f7c84d6f97686357471b))
+
+
+### Features
+
+* changed proptype from `string`/`IconSubComponentProps` to `SubIcon` ([#2026](https://github.com/mondaycom/monday-ui-react-core/issues/2026)) ([f30ab8a](https://github.com/mondaycom/monday-ui-react-core/commit/f30ab8a702bff73b0fb05a67891470a3e915493f))
+
+
+
+
+
+## [2.97.2](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.1...monday-ui-react-core@2.97.2) (2024-03-19)
+
+
+### Bug Fixes
+
+* **EditableTypography:** fix specificity issues when changing types a… ([#2028](https://github.com/mondaycom/monday-ui-react-core/issues/2028)) ([bebcdbd](https://github.com/mondaycom/monday-ui-react-core/commit/bebcdbd1dd82cc381988f7c84d6f97686357471b))
+
+
+
+
+
+## [2.97.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.97.0...monday-ui-react-core@2.97.1) (2024-03-19)
+
+**Note:** Version bump only for package monday-ui-react-core
+
+
+
+
+
+# [2.97.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.96.1...monday-ui-react-core@2.97.0) (2024-03-18)
+
+
+### Features
+
+* **Modal:** make data-testid optional ([#2024](https://github.com/mondaycom/monday-ui-react-core/issues/2024)) ([590c7ce](https://github.com/mondaycom/monday-ui-react-core/commit/590c7ce2debe8281bef057d914830472b0482b3a))
+
+
+
+
+
+## [2.96.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.96.0...monday-ui-react-core@2.96.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* **Combobox:** clear selected option when query changes ([#2020](https://github.com/mondaycom/monday-ui-react-core/issues/2020)) ([fe83d89](https://github.com/mondaycom/monday-ui-react-core/commit/fe83d89136c882d5d7e39b6272f6dc60b06c75c0))
+
+
+
+
+
+# [2.96.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.95.0...monday-ui-react-core@2.96.0) (2024-03-13)
+
+
+### Features
+
+* Add inverted variant to Tipseen and Steps ([#1995](https://github.com/mondaycom/monday-ui-react-core/issues/1995)) ([6e4bbb4](https://github.com/mondaycom/monday-ui-react-core/commit/6e4bbb42c51b36f4a15c438bee011f7edf9e88be))
+* Align vibe's colors to new a11y based colors ([#2009](https://github.com/mondaycom/monday-ui-react-core/issues/2009)) ([6c6e156](https://github.com/mondaycom/monday-ui-react-core/commit/6c6e156b875d06a17ba4697c92cfcdf7dba4d020))
+* **ModalFooterButtons:** support disable buttons and remove secondary ([#2016](https://github.com/mondaycom/monday-ui-react-core/issues/2016)) ([41d2a99](https://github.com/mondaycom/monday-ui-react-core/commit/41d2a991bc10ce1bc43627bb292459f29b31ee83))
+
+
+
+
+
+# [2.95.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.94.0...monday-ui-react-core@2.95.0) (2024-03-12)
+
+
+### Features
+
+* **AvatarGroupCounter:** pass noAnimation prop ([#2010](https://github.com/mondaycom/monday-ui-react-core/issues/2010)) ([048b163](https://github.com/mondaycom/monday-ui-react-core/commit/048b1639fe6f648450802889624d876c181fc12f))
+* **Table:** new sort behavior ([#1935](https://github.com/mondaycom/monday-ui-react-core/issues/1935)) ([32790f4](https://github.com/mondaycom/monday-ui-react-core/commit/32790f4309daf9bd38c9eeb62e6b11cbd52baea0))
+
+
+
+
+
 # [2.94.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.93.0...monday-ui-react-core@2.94.0) (2024-03-05)
 
 

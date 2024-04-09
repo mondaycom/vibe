@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { UsageGuidelines } from "vibe-storybook-components";
 import {
   COMBOBOX,
@@ -25,9 +25,7 @@ import * as SearchStories from "./Search.stories";
 
 Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
 
-<Canvas>
-  <Story of={SearchStories.Overview} />
-</Canvas>
+<Canvas of={SearchStories.Overview} />
 
 ## Props
 
@@ -53,17 +51,13 @@ Search lets users quickly find relevant content. A search field allows a user to
 
 There are three sizes available: Small (32px), Medium (40px), and Large (48px).
 
-<Canvas>
-  <Story of={SearchStories.Sizes} />
-</Canvas>
+<Canvas of={SearchStories.Sizes} />
 
 ## Use cases and examples
 
 ### Filter in combobox
 
-<Canvas>
-  <Story of={SearchStories.FilterInCombobox} />
-</Canvas>
+<Canvas of={SearchStories.FilterInCombobox} />
 
 ## Related components
 

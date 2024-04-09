@@ -16,7 +16,7 @@ runs:
           since_flag="--since"
           echo "Running on master branch, checking for all changes."
         else
-          since_flag="--since=origin/master"
+          since_flag="--since=origin/master...HEAD"
           echo "Not running on master branch, checking for changes since origin/master."
         fi
 

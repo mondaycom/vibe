@@ -13,6 +13,9 @@ import { MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { SubIcon } from "../../types";
+import Icon from "../Icon/Icon";
+import Flex from "../Flex/Flex";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);
 
@@ -116,12 +119,24 @@ interface TooltipBaseProps extends VibeComponentProps {
    * Overwrites z-index of the tooltip
    */
   zIndex?: number;
-  // TODO: make defualt next major
+  // TODO: make default next major
   /**
    * Limit tooltip to 240px
    */
   withMaxWidth?: boolean;
   layerClassName?: string;
+  /**
+   * The title of the tooltip
+   */
+  title?: string;
+  /**
+   * The image of the tooltip
+   */
+  image?: string;
+  /**
+   * The icon of the tooltip next to the title
+   */
+  icon?: SubIcon;
 }
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -179,7 +194,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className, style, withMaxWidth } = this.props;
+    const { theme, content, paddingSize, className, style, withMaxWidth, title, image, icon } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -196,6 +211,34 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     if (!contentValue) {
       return null;
     }
+
+    if (title || image) {
+      return (
+        <div
+          style={style}
+          className={cx(
+            styles.tooltip,
+            styles.tooltipWithContent,
+            getStyle(styles, camelCase(theme)),
+            { [styles.withMaxWidth]: withMaxWidth },
+            className
+          )}
+        >
+          {image && <img className={styles.image} src={image} alt="" />}
+          <div className={cx(styles.content, getStyle(styles, camelCase("padding-size-" + paddingSize)))}>
+            {title && (
+              <Flex gap={Flex.gaps.XS}>
+                {icon && <Icon iconSize="20" icon={icon} clickable={false} />}
+                <div className={styles.title}>{title}</div>
+              </Flex>
+            )}
+            {contentValue}
+          </div>
+        </div>
+      );
+    }
+
+    // TODO: remove in next major, use (title || image) variant instead
     return (
       <div
         style={style}

@@ -1,0 +1,13 @@
+.modifiedVersionIndicator {
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--sb-spacing-large));
+  margin: 0;
+  border-radius: 0 0 4px 4px;
+  background: var(--sb-primary-color);
+  color: var(--sb-text-color-on-primary);
+  padding: var(--sb-spacing-xs);
+  font-size: 10px;
+  pointer-events: none;
+  user-select: none;
+}

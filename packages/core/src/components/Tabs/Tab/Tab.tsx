@@ -4,11 +4,12 @@ import React, { FC, forwardRef, ReactElement, useRef } from "react";
 import { noop as NOOP } from "lodash-es";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import Icon, { IconSubComponentProps } from "../../Icon/Icon";
+import Icon from "../../Icon/Icon";
 import VibeComponentProps from "../../../types/VibeComponentProps";
 import { IconType } from "../../Icon/IconConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
+import { SubIcon } from "../../../types/SubIcon";
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -22,14 +23,14 @@ export interface TabProps extends VibeComponentProps {
   disabled?: boolean;
   active?: boolean;
   focus?: boolean;
-  icon?: string | React.FunctionComponent<IconSubComponentProps> | null;
+  icon?: SubIcon;
   iconType?: IconType;
   iconSide?: string;
   onClick?: (value: number) => void;
   /**
    * Tab link-name
    */
-  children?: string | ReactElement[];
+  children?: string | ReactElement | ReactElement[];
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -69,11 +70,13 @@ const Tab: FC<TabProps> = forwardRef(
         />
       );
 
+      const childrenArray = React.Children.toArray(children);
+
       if (iconSide === "left") {
-        return [iconElement, ...children];
+        return [iconElement, ...childrenArray];
       }
 
-      return [...children, iconElement];
+      return [...childrenArray, iconElement];
     }
     return (
       <li

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { StepsGalleryDontTemplate, StepsNumbersDoTemplate } from "./steps.stories.helpers";
 import {
   BREADCRUBMS,
@@ -25,9 +25,7 @@ import * as StepsStories from "./steps.stories";
 
 Steps display progress through a sequence of logical and numbered steps. They may also be used for navigation.
 
-<Canvas>
-  <Story of={StepsStories.Overview} />
-</Canvas>
+<Canvas of={StepsStories.Overview} />
 
 ## Props
 
@@ -49,15 +47,11 @@ Steps display progress through a sequence of logical and numbered steps. They ma
 
 Steps with a number view or gallery view.
 
-<Canvas>
-  <Story of={StepsStories.Types} />
-</Canvas>
+<Canvas of={StepsStories.Types} />
 
 ### On primary
 
-<Canvas>
-  <Story of={StepsStories.OnPrimary} />
-</Canvas>
+<Canvas of={StepsStories.OnPrimary} />
 
 ## Do’s and Don’ts
 
@@ -82,17 +76,13 @@ Steps with a number view or gallery view.
 
 Navigable steps with proper code example.
 
-<Canvas>
-  <Story of={StepsStories.NavigableSteps} />
-</Canvas>
+<Canvas of={StepsStories.NavigableSteps} />
 
 ### Steps inside a tipseen
 
 Our Tipseen component includes support for steps as content.
 
-<Canvas>
-  <Story of={StepsStories.StepsInsideATipseen} />
-</Canvas>
+<Canvas of={StepsStories.StepsInsideATipseen} />
 
 ## Related components
 

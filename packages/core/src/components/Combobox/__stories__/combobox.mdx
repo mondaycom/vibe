@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Link } from "vibe-storybook-components";
 import Combobox from "../Combobox";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -23,9 +23,7 @@ import * as ComboboxStories from "./combobox.stories";
 
 Combobox allowing users to filter longer lists to only the selections matching a query.
 
-<Canvas>
-  <Story of={ComboboxStories.Overview} />
-</Canvas>
+<Canvas of={ComboboxStories.Overview} />
 
 ## Props
 
@@ -51,76 +49,56 @@ Combobox allowing users to filter longer lists to only the selections matching a
 
 Default Combobox can be used without dialog or as part of the layout.
 
-<Canvas>
-  <Story of={ComboboxStories.Default} />
-</Canvas>
+<Canvas of={ComboboxStories.Default} />
 
 ### Combobox inside a dialog
 
 Use this for Combobox that triggered by button.
 
-<Canvas>
-  <Story of={ComboboxStories.ComboboxInsideADialog} />
-</Canvas>
+<Canvas of={ComboboxStories.ComboboxInsideADialog} />
 
 ### Sizes
 
 We have three pre-defined sizes for Combobox width size: Small 200px, Medium 240px, Large 260px.
 
-<Canvas>
-  <Story of={ComboboxStories.Sizes} />
-</Canvas>
+<Canvas of={ComboboxStories.Sizes} />
 
 ### With categories
 
 When having a lot of options, you may use headings to categorize them.
 
-<Canvas>
-  <Story of={ComboboxStories.WithCategories} />
-</Canvas>
+<Canvas of={ComboboxStories.WithCategories} />
 
 ### With icons
 
-<Canvas>
-  <Story of={ComboboxStories.WithIcons} />
-</Canvas>
+<Canvas of={ComboboxStories.WithIcons} />
 
 ### With optionRenderer
 
-<Canvas>
-  <Story of={ComboboxStories.WithOptionRenderer} />
-</Canvas>
+<Canvas of={ComboboxStories.WithOptionRenderer} />
 
 ### With Button
 
 If Combobox requires action, use button component at the end of the list.
 
-<Canvas>
-  <Story of={ComboboxStories.WithButton} />
-</Canvas>
+<Canvas of={ComboboxStories.WithButton} />
 
 ### With creation when no items are available
 
-<Canvas>
-  <Story of={ComboboxStories.WithCreation} />
-</Canvas>
+<Canvas of={ComboboxStories.WithCreation} />
 
 ### With virtualization optimization
 
 When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
 
-<Canvas>
-  <Story of={ComboboxStories.WithVirtualizationOptimization} />
-</Canvas>
+<Canvas of={ComboboxStories.WithVirtualizationOptimization} />
 
 ### Loading state
 
 If importing the Combobox options may take time, you reflect this to the user by using our Combobox loading mode.
 
-<Canvas>
-  <Story of={ComboboxStories.LoadingState} />
-</Canvas>
+<Canvas of={ComboboxStories.LoadingState} />
 
 ## Do’s and Don’ts
 
@@ -213,9 +191,7 @@ If importing the Combobox options may take time, you reflect this to the user by
 
 We are using Combobox component for our board person picker.
 
-<Canvas>
-  <Story of={ComboboxStories.ComboboxAsPersonPicker} />
-</Canvas>
+<Canvas of={ComboboxStories.ComboboxAsPersonPicker} />
 
 ## Related components
 

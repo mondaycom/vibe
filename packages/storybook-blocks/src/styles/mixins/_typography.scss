@@ -1,0 +1,44 @@
+@mixin sb-basic-text {
+  color: var(--sb-primary-text-color);
+  -webkit-font-smoothing: initial;
+}
+
+@mixin sb-content-text-without-color {
+  font-family: var(--sb-font-family);
+  font-size: var(--sb-text-font-size);
+  line-height: var(--sb-text-line-height);
+  font-weight: 400;
+}
+
+@mixin sb-content-text {
+  @include sb-content-text-without-color;
+  @include sb-basic-text;
+}
+
+@mixin sb-small-text-without-color {
+  font-size: var(--sb-small-text-font-size);
+  font-weight: 400;
+  line-height: var(--sb-text-line-height);
+}
+
+@mixin sb-small-text {
+  @include sb-basic-text;
+  @include sb-small-text-without-color;
+}
+
+@mixin sb-title-appearance {
+  margin-bottom: var(--sb-spacing-between-title-to-content);
+  font-family: var(--sb-title-font-family);
+  @include sb-basic-text;
+  font-size: var(--sb-h3-font-size);
+  line-height: 28px;
+  letter-spacing: -0.21px;
+  text-align: left;
+  font-weight: 300;
+}
+
+@mixin sb-font-link {
+  font: var(--sb-font-general-label);
+  text-decoration: none;
+  color: var(--sb-link-color);
+}

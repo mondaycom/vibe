@@ -19,7 +19,7 @@ export interface ModalProps {
    * Id of the modal, used internally and for accessibility
    */
   id?: string;
-  "data-testid": string;
+  "data-testid"?: string;
   /**
    * Show/hide the Dialog
    */
@@ -50,7 +50,7 @@ export interface ModalProps {
    */
   width?: typeof ModalWidth | string;
   /**
-   *  Hide the modal close button
+   * @deprecated
    */
   hideCloseButton?: boolean;
   /**

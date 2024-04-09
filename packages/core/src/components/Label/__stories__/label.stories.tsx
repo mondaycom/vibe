@@ -1,8 +1,10 @@
 import Label from "../Label";
+import Button from "../../Button/Button";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import "./label.stories.scss";
+import { useEffect, useState } from "react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Label,
@@ -124,6 +126,32 @@ export const SecondaryLabel = {
 
   name: "Secondary label",
 
+  parameters: {
+    chromatic: {
+      pauseAnimationAtEnd: true
+    }
+  }
+};
+
+export const Celebration = {
+  render: () => {
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+      setTimeout(() => {
+        setAnimate(false);
+      }, 500);
+    }, [animate]);
+
+    return (
+      <>
+        <Label text="New" kind={Label.kinds.LINE} celebrationAnimation={animate} isAnimationDisabled />
+        <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} onClick={() => setAnimate(true)}>
+          Click to celebrate
+        </Button>
+      </>
+    );
+  },
   parameters: {
     chromatic: {
       pauseAnimationAtEnd: true

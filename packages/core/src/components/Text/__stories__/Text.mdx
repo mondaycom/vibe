@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Tip } from "vibe-storybook-components";
 import Text from "../Text";
 import Flex from "../../Flex/Flex";
@@ -27,9 +27,7 @@ import * as TextStories from "./Text.stories";
 
 The text component serves as a wrapper for applying typography styles to the text it contains.
 
-<Canvas>
-  <Story of={TextStories.Overview} />
-</Canvas>
+<Canvas of={TextStories.Overview} />
 
 <TipHeading />
 
@@ -47,17 +45,13 @@ The text component serves as a wrapper for applying typography styles to the tex
 
 Text component comes in two sizes: text1 (16px) and text2 (14px), and in three weights: bold (700), medium (600) and normal (400)
 
-<Canvas>
-  <Story of={TextStories.SizesAndWeights} />
-</Canvas>
+<Canvas of={TextStories.SizesAndWeights} />
 
 ### Colors
 
 Text component comes in four colors: primary, secondary, on-primary and on-inverted
 
-<Canvas>
-  <Story of={TextStories.Colors} />
-</Canvas>
+<Canvas of={TextStories.Colors} />
 
 ### Overflow
 
@@ -66,9 +60,7 @@ When the text is longer than its container and the ellipsis flag is on, the end 
 
 We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
 
-<Canvas>
-  <Story of={TextStories.Overflow} />
-</Canvas>
+<Canvas of={TextStories.Overflow} />
 
 <Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
 
@@ -79,17 +71,13 @@ This changes the text wrapper element to `p`, enabling the creation of paragraph
 The paragraph will receive default top and bottom margins based on browser settings for `p` elements.
 Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
 
-<Canvas>
-  <Story of={TextStories.Paragraph} />
-</Canvas>
+<Canvas of={TextStories.Paragraph} />
 
 ### Links
 
 A Text component with a link skin can be used to create a link within running text that redirects to an external webpage, as demonstrated in the following example.
 
-<Canvas>
-  <Story of={TextStories.LinksInsideRunningText} />
-</Canvas>
+<Canvas of={TextStories.LinksInsideRunningText} />
 
 <TipLink />
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments, Link } from "vibe-storybook-components";
 import { TipTooltip } from "./useIsOverflowing.stories.helpers";
 import * as UseIsOverflowingStories from "./useIsOverflowing.stories";
@@ -16,9 +16,7 @@ import * as UseIsOverflowingStories from "./useIsOverflowing.stories";
 
 Use this hook, when there is a chance that content won't fit into the container, to track if overflow occurs.
 
-<Canvas>
-  <Story of={UseIsOverflowingStories.Overview} />
-</Canvas>
+<Canvas of={UseIsOverflowingStories.Overview} />
 
 ## Usage
 

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   BUTTON,
   ICON_BUTTON,
@@ -21,9 +21,7 @@ import * as MenuButtonStories from "./MenuButton.stories";
 
 MenuButton is a component that opens a Dialog next to a button, the content of the dialog could be anything you want.
 
-<Canvas>
-  <Story of={MenuButtonStories.Overview} />
-</Canvas>
+<Canvas of={MenuButtonStories.Overview} />
 
 ## Props
 
@@ -42,33 +40,23 @@ MenuButton is a component that opens a Dialog next to a button, the content of t
 
 ### Sizes
 
-<Canvas>
-  <Story of={MenuButtonStories.Sizes} />
-</Canvas>
+<Canvas of={MenuButtonStories.Sizes} />
 
 ### Different Icon
 
-<Canvas>
-  <Story of={MenuButtonStories.DifferentIcon} />
-</Canvas>
+<Canvas of={MenuButtonStories.DifferentIcon} />
 
 ### With Text
 
-<Canvas>
-  <Story of={MenuButtonStories.WithText} />
-</Canvas>
+<Canvas of={MenuButtonStories.WithText} />
 
 ### With Text and Icon at the end
 
-<Canvas>
-  <Story of={MenuButtonStories.WithTextAndIconAtTheEnd} />
-</Canvas>
+<Canvas of={MenuButtonStories.WithTextAndIconAtTheEnd} />
 
 ### Disabled
 
-<Canvas>
-  <Story of={MenuButtonStories.Disabled} />
-</Canvas>
+<Canvas of={MenuButtonStories.Disabled} />
 
 ### Custom trigger element
 

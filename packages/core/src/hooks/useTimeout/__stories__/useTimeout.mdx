@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 import * as UseTimeoutStories from "./useTimeout.stories";
 
@@ -15,9 +15,7 @@ import * as UseTimeoutStories from "./useTimeout.stories";
 
 Use this hook when you need to perform an action with timeout, this hook will cancel the timeout when the component unmounts.
 
-<Canvas>
-  <Story of={UseTimeoutStories.Overview} />
-</Canvas>
+<Canvas of={UseTimeoutStories.Overview} />
 
 ## Arguments
 

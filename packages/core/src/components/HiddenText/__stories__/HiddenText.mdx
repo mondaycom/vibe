@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { Tip } from "vibe-storybook-components";
 import {
   CLICKABLE,
@@ -21,9 +21,7 @@ import * as HiddenTextStories from "./HiddenText.stories";
 
 Hidden text helps us to create a text which is accessible to screen reader users but not to users who see the screen.
 
-<Canvas>
-  <Story of={HiddenTextStories.Overview} />
-</Canvas>
+<Canvas of={HiddenTextStories.Overview} />
 
 ## Props
 

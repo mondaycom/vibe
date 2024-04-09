@@ -28,10 +28,15 @@ import {
   MultipleStoryElementsWrapper,
   StorybookLink
 } from "vibe-storybook-components";
+import CanvasWrapper from "../src/storybook/components/canvas-wrapper/CanvasWrapper";
+import withGlobalStyle from "../src/storybook/decorators/withGlobalStyle/withGlobalStyle";
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
+import { generateAutocompletion } from "storybook-addon-playground";
 import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
+import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
+import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -43,6 +48,12 @@ const preview: Preview = {
       sort: "alpha"
     },
     docs: {
+      liveEdit: {
+        isEnabled: true
+      },
+      canvas: {
+        layout: "fullscreen"
+      },
       container: ({ children, context }: { children: any; context: any }) => (
         <DocsContainer context={context}>
           <Unstyled>
@@ -53,6 +64,7 @@ const preview: Preview = {
       ),
       page: DocsPage,
       components: {
+        Canvas: CanvasWrapper,
         Controls: PropsTable,
         PropsTable,
         h1: ComponentNameDecorator,
@@ -101,17 +113,13 @@ const preview: Preview = {
     playground: {
       storyId: "playground",
       components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext },
-      introCode
+      introCode,
+      autocompletions: generateAutocompletion(reactDocgenOutput)
     }
   },
   decorators: [
-    (Story, { className }: { className: string }) => {
-      return (
-        <MultipleStoryElementsWrapper className={className}>
-          <Story />
-        </MultipleStoryElementsWrapper>
-      );
-    },
+    withLiveEdit,
+    withGlobalStyle,
     withMemoryStats,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
     withThemeByClassName({

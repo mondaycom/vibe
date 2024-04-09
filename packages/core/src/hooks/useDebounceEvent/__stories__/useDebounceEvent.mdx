@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { FunctionArgument, FunctionArguments } from "vibe-storybook-components";
 import * as UseDebounceEventStories from "./useDebounceEvent.stories";
 
@@ -17,9 +17,7 @@ import * as UseDebounceEventStories from "./useDebounceEvent.stories";
 
 This hook generates an easy to use debounced value updater.
 
-<Canvas>
-  <Story of={UseDebounceEventStories.Overview} />
-</Canvas>
+<Canvas of={UseDebounceEventStories.Overview} />
 
 ## Arguments
 
@@ -69,18 +67,12 @@ This hook generates an easy to use debounced value updater.
 
 ### Passing an initial value
 
-<Canvas>
-  <Story of={UseDebounceEventStories.PassingAnInitialValue} />
-</Canvas>
+<Canvas of={UseDebounceEventStories.PassingAnInitialValue} />
 
 ### Passing an `onChange` handler
 
-<Canvas>
-  <Story of={UseDebounceEventStories.PassingAnOnChangeHandler} />
-</Canvas>
+<Canvas of={UseDebounceEventStories.PassingAnOnChangeHandler} />
 
 ### Trimming the value
 
-<Canvas>
-  <Story of={UseDebounceEventStories.WithTrim} />
-</Canvas>
+<Canvas of={UseDebounceEventStories.WithTrim} />

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { ACCORDION, DROPDOWN, TABLE } from "../../../storybook/components/related-components/component-description-map";
 import { TipCombineMultiple } from "./ExpandCollapse.stories.helpers";
 import * as ExpandCollapseStories from "./ExpandCollapse.stories";
@@ -17,9 +17,7 @@ import * as ExpandCollapseStories from "./ExpandCollapse.stories";
 
 ExpandCollapse is a component that allows you to hide and show content.
 
-<Canvas>
-  <Story of={ExpandCollapseStories.Overview} />
-</Canvas>
+<Canvas of={ExpandCollapseStories.Overview} />
 
 <TipCombineMultiple />
 
@@ -31,29 +29,21 @@ ExpandCollapse is a component that allows you to hide and show content.
 
 ### Open by default
 
-<Canvas>
-  <Story of={ExpandCollapseStories.OpenByDefault} />
-</Canvas>
+<Canvas of={ExpandCollapseStories.OpenByDefault} />
 
 ### Controlled open state
 
 You can control the open state of the ExpandCollapse component by passing the <code>open</code> prop.
 
-<Canvas>
-  <Story of={ExpandCollapseStories.ControlledOpenState} />
-</Canvas>
+<Canvas of={ExpandCollapseStories.ControlledOpenState} />
 
 ### Custom header renderer
 
-<Canvas>
-  <Story of={ExpandCollapseStories.CustomHeaderRenderer} />
-</Canvas>
+<Canvas of={ExpandCollapseStories.CustomHeaderRenderer} />
 
 ### Without borders
 
-<Canvas>
-  <Story of={ExpandCollapseStories.WithoutBorders} />
-</Canvas>
+<Canvas of={ExpandCollapseStories.WithoutBorders} />
 
 ## Related components
 

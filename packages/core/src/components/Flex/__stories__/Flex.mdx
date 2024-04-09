@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import { LIST, MENU, TABS } from "../../../storybook/components/related-components/component-description-map";
 import * as FlexStories from "./Flex.stories";
 
@@ -19,9 +19,7 @@ import * as FlexStories from "./Flex.stories";
 
 Use Flex component to position group of sub-elements in one dimension, horizontal or vertical, without being dependent on a custom CSS file for positioning the sub-elements.
 
-<Canvas>
-  <Story of={FlexStories.Overview} />
-</Canvas>
+<Canvas of={FlexStories.Overview} />
 
 ## Props
 
@@ -41,42 +39,30 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
 
 ### Directions
 
-<Canvas>
-  <Story of={FlexStories.Directions} />
-</Canvas>
+<Canvas of={FlexStories.Directions} />
 
 ### Horizontal spacing between items
 
-<Canvas>
-  <Story of={FlexStories.HorizontalSpacingBetweenItems} />
-</Canvas>
+<Canvas of={FlexStories.HorizontalSpacingBetweenItems} />
 
 ### Vertical spacing between items
 
-<Canvas>
-  <Story of={FlexStories.VerticalSpacingBetweenItems} />
-</Canvas>
+<Canvas of={FlexStories.VerticalSpacingBetweenItems} />
 
 ### Horizontal positions
 
-<Canvas>
-  <Story of={FlexStories.HorizontalPositions} />
-</Canvas>
+<Canvas of={FlexStories.HorizontalPositions} />
 
 ### Vertical positions
 
-<Canvas>
-  <Story of={FlexStories.VerticalPositions} />
-</Canvas>
+<Canvas of={FlexStories.VerticalPositions} />
 
 ### Support multi lines layout
 
 You can display a layout that includes multiple lines using the flex component wrap mode.
 This mode allows the layout to break into multiple lines if all the component children cannot fit into one only.
 
-<Canvas>
-  <Story of={FlexStories.SupportMultiLinesLayout} />
-</Canvas>
+<Canvas of={FlexStories.SupportMultiLinesLayout} />
 
 ## Use cases and examples
 
@@ -84,9 +70,7 @@ This mode allows the layout to break into multiple lines if all the component ch
 
 You can use flex component for create responsive toolbars
 
-<Canvas>
-  <Story of={FlexStories.FlexAsToolbarContainer} />
-</Canvas>
+<Canvas of={FlexStories.FlexAsToolbarContainer} />
 
 ## Related components
 

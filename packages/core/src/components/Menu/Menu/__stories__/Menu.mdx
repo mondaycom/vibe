@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
+import { Canvas, Meta } from "@storybook/blocks";
 import {
   COMBOBOX,
   DROPDOWN,
@@ -31,9 +31,7 @@ import * as MenuStories from "./Menu.stories";
 
 A menu is a navigable contextual list of items that can be selected.
 
-<Canvas>
-  <Story of={MenuStories.Overview} />
-</Canvas>
+<Canvas of={MenuStories.Overview} />
 
 ## Props
 
@@ -58,15 +56,11 @@ A menu is a navigable contextual list of items that can be selected.
 
 ### Sizes
 
-<Canvas>
-  <Story of={MenuStories.Sizes} />
-</Canvas>
+<Canvas of={MenuStories.Sizes} />
 
 ### Menu with icons
 
-<Canvas>
-  <Story of={MenuStories.MenuWithIcons} />
-</Canvas>
+<Canvas of={MenuStories.MenuWithIcons} />
 
 ## Do’s and Don’ts
 
@@ -104,23 +98,17 @@ A menu is a navigable contextual list of items that can be selected.
 
 ### Menu with sub menu
 
-<Canvas>
-  <Story of={MenuStories.MenuWithSubMenu} />
-</Canvas>
+<Canvas of={MenuStories.MenuWithSubMenu} />
 
 ### Menu with 2-depth sub menu
 
-<Canvas>
-  <Story of={MenuStories.MenuWith2DepthSubMenu} />
-</Canvas>
+<Canvas of={MenuStories.MenuWith2DepthSubMenu} />
 
 ### Menu with grid items and sub menu
 
 Grid menu items are navigable with a keyboard as well
 
-<Canvas>
-  <Story of={MenuStories.MenuWithGridItemsAndSubMenu} />
-</Canvas>
+<Canvas of={MenuStories.MenuWithGridItemsAndSubMenu} />
 
 ## Related components
 

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
 import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
-import { StepsType, FINISH_TEXT } from "./StepsConstants";
+import { StepsType, FINISH_TEXT, StepsColor } from "./StepsConstants";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import Button, { ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
@@ -18,7 +18,7 @@ export interface StepsHeaderProps extends VibeComponentProps {
   nextButtonProps: ButtonProps;
   finishButtonProps: ButtonProps;
   areButtonsIconsHidden: boolean;
-  isOnPrimary: boolean;
+  color?: StepsColor;
   onFinish?: (e: React.MouseEvent) => void;
 }
 
@@ -32,7 +32,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   nextButtonProps,
   finishButtonProps,
   areButtonsIconsHidden,
-  isOnPrimary,
+  color = StepsColor.PRIMARY,
   onFinish,
   className
 }) => {
@@ -57,23 +57,20 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
           activeStepIndex={activeStepIndex}
           stepsCount={stepsCount}
           buttonProps={backButtonProps}
-          isOnPrimary={isOnPrimary}
+          color={color}
         />
       )}
       <SubHeaderComponent
         activeStepIndex={activeStepIndex}
         stepsCount={stepsCount}
         onChangeActiveStep={onChangeActiveStep}
-        isOnPrimary={isOnPrimary}
+        color={color}
       />
       {areNavigationButtonsHidden ? null : (
         <>
           {showFinishButton ? (
-            <Button
-              onClick={onFinish}
-              color={isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined}
-              {...finishButtonProps}
-            >
+            // @ts-ignore
+            <Button onClick={onFinish} color={color} {...finishButtonProps}>
               {finishButtonProps?.children || FINISH_TEXT}
             </Button>
           ) : (
@@ -84,7 +81,7 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
               onChangeActiveStep={onChangeActiveStep}
               stepsCount={stepsCount}
               buttonProps={nextButtonProps}
-              isOnPrimary={isOnPrimary}
+              color={color}
             />
           )}
         </>
