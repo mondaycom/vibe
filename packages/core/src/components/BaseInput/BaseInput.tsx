@@ -29,7 +29,3 @@ const BaseInput: VibeComponent<BaseInputProps, HTMLInputElement> = forwardRef(
 );
 
 export default BaseInput;
-
-const App = () => {
-  return <BaseInput inputSize={"small"}></BaseInput>;
-};
