@@ -35,7 +35,6 @@ exports[`RadioButton renders correctly when checked 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       checked={true}
       className="input"
       disabled={false}
@@ -61,7 +60,6 @@ exports[`RadioButton renders correctly when default checked 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={true}
       disabled={false}
@@ -87,7 +85,6 @@ exports[`RadioButton renders correctly when disabled 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={true}
@@ -113,7 +110,6 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       checked={false}
       className="input"
       disabled={false}
@@ -139,7 +135,6 @@ exports[`RadioButton renders correctly with componentClassName 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={false}
@@ -165,7 +160,6 @@ exports[`RadioButton renders correctly with empty props 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={false}
@@ -191,7 +185,6 @@ exports[`RadioButton renders correctly with name 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={false}
@@ -217,7 +210,6 @@ exports[`RadioButton renders correctly with text 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={false}
@@ -248,7 +240,6 @@ exports[`RadioButton renders correctly with value 1`] = `
     className="inputContainer"
   >
     <input
-      autoFocus={false}
       className="input"
       defaultChecked={false}
       disabled={false}
