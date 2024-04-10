@@ -12104,6 +12104,17 @@
             "computed": false
           }
         },
+        "autoFocus": {
+          "required": false,
+          "tsType": {
+            "name": "boolean"
+          },
+          "description": "autoFocus when component mount",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
         "disabled": {
           "required": false,
           "tsType": {
