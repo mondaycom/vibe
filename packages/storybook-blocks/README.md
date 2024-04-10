@@ -84,7 +84,7 @@ Most of the components have a `className` prop that can be used to style them. T
 To run the storybook locally run this command:
 
 ```
-npm run storybook
+yarn storybook
 ```
 
 the storybook will hosted on http://localhost:6005
