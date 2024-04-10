@@ -6,16 +6,16 @@ describe("RadioButton tests", () => {
   const formName = "myForm";
   const radiosName = "radios";
 
-  const option1Value = "1";
-  const option1Text = "Option 1";
-  const option2Value = "2";
-  const option2Text = "Option 2";
-  const option3Value = "3";
-  const option3Text = "Option 3";
-
   let onChangeMock1: jest.Mock;
   let onChangeMock2: jest.Mock;
   let onChangeMock3: jest.Mock;
+
+  const option1Text = "Option 1";
+  const option1Value = "1";
+  const option2Text = "Option 2";
+  const option2Value = "2";
+  const option3Text = "Option 3";
+  const option3Value = "3";
 
   describe("With one of the radio buttons is checked by default", () => {
     beforeEach(() => {
