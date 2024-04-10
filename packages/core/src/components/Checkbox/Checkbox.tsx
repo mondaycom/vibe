@@ -36,6 +36,8 @@ export interface CheckBoxProps extends VibeComponentProps {
   checked?: boolean;
   /** An in between state to display a non selected */
   indeterminate?: boolean;
+  /** is autoFocus */
+  autoFocus?: boolean;
   /** Set the option to be disabled */
   disabled?: boolean;
   /** the default value which the checkbox will start from  */
@@ -63,6 +65,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       ariaLabelledBy,
       onChange = NOOP,
       checked,
+      autoFocus,
       indeterminate = false,
       disabled = false,
       defaultChecked,
@@ -127,6 +130,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
           value={value}
           name={name}
           type="checkbox"
+          autoFocus={autoFocus}
           onChange={onChange}
           defaultChecked={overrideDefaultChecked}
           disabled={disabled}
