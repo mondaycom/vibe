@@ -1,4 +1,3 @@
-import React from "react";
 import renderer from "react-test-renderer";
 import RadioButton from "../RadioButton";
 
@@ -30,6 +29,11 @@ describe("RadioButton renders correctly", () => {
 
   it("when checked", () => {
     const tree = renderer.create(<RadioButton checked />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("when autoFocus", () => {
+    const tree = renderer.create(<RadioButton autoFocus />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
