@@ -66,7 +66,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
        */
       radioButtonClassName,
       disabled = false,
-      autoFocus = false,
+      autoFocus,
       disabledReason,
       defaultChecked = false,
       children,
