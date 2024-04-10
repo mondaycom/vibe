@@ -48,7 +48,7 @@ We are using storybook in order to develop the components independently of any c
 run this to build & run the storybook locally:
 
 ```bash
-npm run storybook
+yarn storybook
 ```
 
 the storybook will be served on `http://localhost:7007`
