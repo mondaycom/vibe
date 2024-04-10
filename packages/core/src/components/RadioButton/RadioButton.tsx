@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../Clickable/Clickable";
 import Text from "../Text/Text";
@@ -83,15 +83,6 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
     const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRef(ref, inputRef);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-
-    useEffect(() => {
-      if (!inputRef?.current || !autoFocus) {
-        return;
-      }
-
-      const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
-      return () => cancelAnimationFrame(animationFrame);
-    }, [inputRef, autoFocus]);
 
     const onChildClick = useCallback(() => {
       if (disabled || !retainChildClick) return;
