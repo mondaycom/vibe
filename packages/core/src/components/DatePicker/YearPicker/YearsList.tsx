@@ -1,4 +1,5 @@
 import Button from "../../Button/Button";
+import styles from "./YearPicker.module.scss";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const NOOP = () => {};
@@ -19,7 +20,15 @@ const YearsList = ({ yearsItems, isYearBlocked, onSelect, selectedYear }: YearsL
         const kind = parseInt(selectedYear, 10) === currYear ? Button?.kinds?.PRIMARY : Button?.kinds?.TERTIARY;
 
         return (
-          <Button key={currYear} kind={kind} onClick={onClick} disabled={shouldBlockYear} marginLeft marginRight>
+          <Button
+            className={styles.pickerOption}
+            key={currYear}
+            kind={kind}
+            onClick={onClick}
+            disabled={shouldBlockYear}
+            marginLeft
+            marginRight
+          >
             {currYear.toString()}
           </Button>
         );
