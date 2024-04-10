@@ -38,6 +38,10 @@
     position: absolute;
     top: 55px;
     pointer-events: all;
+
+    .pickerOption {
+      min-width: 66px;
+    }
   }
 
   :global(.CalendarYear--blocked) {

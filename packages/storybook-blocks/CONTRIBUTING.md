@@ -7,11 +7,11 @@ This library is open-sourced, and we encourage everyone to use and contribute in
 
 1. Create a fork of this repository
 2. Please use the correct node version it is listed in the `.nvmrc` file (you can use `nvm use` in order to switch to the right node version).
-3. Install dependencies with `npm install` command
+3. Install dependencies with `yarn install` command
 4. Sync from upstream if needed
-5. Run Storybook environment locally with `npm run storybook` command.
-6. Make sure all components behave as expected by running all Jest tests locally with 'npm run test'.
-7. If there are changes in some of the library snapshot tests, make sure all changes are intentional. If they are, update them with 'npm run test:update'.
+5. Run Storybook environment locally with `yarn storybook` command.
+6. Make sure all components behave as expected by running all Jest tests locally with 'yarn test'.
+7. If there are changes in some of the library snapshot tests, make sure all changes are intentional. If they are, update them with 'yarn test:update'.
 8. Commit to your local fork using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
 9. Create a PR with title based using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
    For example: `docs: add <ComponentName> story page`
