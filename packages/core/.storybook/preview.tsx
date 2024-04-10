@@ -33,7 +33,9 @@ import withGlobalStyle from "../src/storybook/decorators/withGlobalStyle/withGlo
 import { ComponentNameDecorator, PropsTable, RelatedComponentsDecorator } from "../src/storybook";
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
+import { generateAutocompletion } from "storybook-addon-playground";
 import introCode from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
+import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
 import withLiveEdit from "../src/storybook/decorators/withLiveEdit/withLiveEdit";
 
 const fontLoader = async () => ({
@@ -111,7 +113,8 @@ const preview: Preview = {
     playground: {
       storyId: "playground",
       components: { ...VibeComponents, VibeIcons, VibeNext: VibeComponentsNext },
-      introCode
+      introCode,
+      autocompletions: generateAutocompletion(reactDocgenOutput)
     }
   },
   decorators: [

@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/keyframes";
 
-.clickable {
+.clickableWrapper {
   @include clickable.clickable;
 
   &:active {
@@ -46,8 +46,8 @@
       fill: var(--primary-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--primary-hover-color);
     }
   }
@@ -67,8 +67,8 @@
       fill: var(--negative-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--negative-color-hover);
     }
   }
@@ -80,8 +80,8 @@
       fill: var(--positive-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--positive-color-hover);
     }
   }
@@ -103,8 +103,8 @@
       fill: var(--primary-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--primary-background-hover-color);
     }
   }
@@ -116,8 +116,8 @@
       fill: var(--inverted-color-background);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--primary-background-hover-color);
     }
   }
@@ -129,8 +129,8 @@
       fill: var(--negative-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--negative-color-selected);
     }
   }
@@ -142,8 +142,8 @@
       fill: var(--positive-color);
     }
 
-    .clickable:hover &,
-    .clickable:active & {
+    &.clickable:hover,
+    &.clickable:active {
       background-color: var(--positive-color-selected);
     }
   }

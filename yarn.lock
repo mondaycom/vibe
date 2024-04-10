@@ -18165,10 +18165,10 @@ store2@^2.14.2:
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
-storybook-addon-playground@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/storybook-addon-playground/-/storybook-addon-playground-1.6.0.tgz#4a7bbec30131fb389d0d8f722228d8fbb7792db4"
-  integrity sha512-IMna53qidb1+shiSyScLC9sllFLgYS64NPowy5ssYKwqkGjuyPRumLvOXOkjf6i5yQBZLjgYQDwHvA/Viipw5Q==
+storybook-addon-playground@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/storybook-addon-playground/-/storybook-addon-playground-1.7.1.tgz#2ec62d55ff3a96c993d6843252dff35d1504f51f"
+  integrity sha512-EAvMohWAsNAxGS6ApwynkfXMI8S4B1+nJNptdnbd4hQh7ClRIvmX9jc4VtIgo3G8Nz1AEJXPp1xVEvnRPEQudA==
   dependencies:
     "@storybook/addon-links" "^7.6.4"
     "@uiw/codemirror-extensions-langs" "^4.21.21"
