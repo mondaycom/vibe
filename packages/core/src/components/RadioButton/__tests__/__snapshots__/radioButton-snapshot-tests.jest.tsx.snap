@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RadioButton renders correctly when autoFocus 1`] = `
+<label
+  className="radioButton"
+  data-testid="radio-button"
+>
+  <span
+    className="inputContainer"
+  >
+    <input
+      autoFocus={true}
+      className="input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="control labelAnimation"
+      data-testid="radio-button-control"
+    />
+  </span>
+  
+</label>
+`;
+
 exports[`RadioButton renders correctly when checked 1`] = `
 <label
   className="radioButton"

@@ -27,6 +27,8 @@ export interface RadioButtonProps extends VibeComponentProps {
   value?: string;
   /** A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted. */
   name?: string;
+  /** is autoFocus */
+  autoFocus?: boolean;
   /** is disabled */
   disabled?: boolean;
   /** why the input is disabled */
@@ -64,6 +66,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
        */
       radioButtonClassName,
       disabled = false,
+      autoFocus,
       disabledReason,
       defaultChecked = false,
       children,
@@ -80,6 +83,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
     const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRef(ref, inputRef);
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
     const onChildClick = useCallback(() => {
       if (disabled || !retainChildClick) return;
       if (inputRef.current) {
@@ -114,6 +118,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
               type="radio"
               value={value}
               name={name}
+              autoFocus={autoFocus}
               disabled={disabled}
               {...checkedProps}
               onChange={onSelect}
