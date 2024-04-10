@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1](https://github.com/mondaycom/monday-ui-react-core/compare/vibe-storybook-components@0.18.0...vibe-storybook-components@0.18.1) (2024-04-10)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 # [0.18.0](https://github.com/mondaycom/monday-ui-react-core/compare/vibe-storybook-components@0.17.2...vibe-storybook-components@0.18.0) (2024-04-03)
 
 
