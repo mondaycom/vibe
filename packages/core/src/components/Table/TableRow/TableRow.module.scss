@@ -29,8 +29,5 @@
 .expandableRowContent {
   &:global(.visible) {
     border-bottom: 1px solid var(--layout-border-color);
-    padding: var(--spacing-medium);
   }
 }
-
-
