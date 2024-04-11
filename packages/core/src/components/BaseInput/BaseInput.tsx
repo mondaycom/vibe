@@ -1,27 +1,41 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
 import styles from "./BaseInput.module.scss";
-import { BaseInputProps } from "./BaseInput.types";
-import VibeComponent from "../../types/VibeComponent";
+import { BaseInputComponent } from "./BaseInput.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
-const BaseInput: VibeComponent<BaseInputProps, HTMLInputElement> = forwardRef(
-  ({ inputSize = "medium", leftRender, rightRender, withReadOnlyStyle, underline, success, error, ...props }, ref) => {
+const BaseInput: BaseInputComponent = forwardRef(
+  (
+    {
+      size = "medium",
+      leftRender,
+      rightRender,
+      withReadOnlyStyle,
+      success,
+      error,
+      wrapperRole,
+      inputRole,
+      className,
+      wrapperClassName,
+      ...props
+    },
+    ref
+  ) => {
     const wrapperClassNames = cx(
       styles.wrapper,
       {
         [styles.rightThinnerPadding]: !rightRender,
         [styles.withReadOnlyStyle]: withReadOnlyStyle,
-        [styles.underline]: underline,
         [styles.success]: success
       },
-      getStyle(styles, inputSize)
+      getStyle(styles, size),
+      wrapperClassName
     );
 
     return (
-      <div className={wrapperClassNames}>
+      <div className={wrapperClassNames} role={wrapperRole}>
         {leftRender}
-        <input {...props} ref={ref} className={cx(styles.input, props.className)} aria-invalid={error} />
+        <input {...props} ref={ref} className={cx(styles.input, className)} aria-invalid={error} role={inputRole} />
         {rightRender}
       </div>
     );
