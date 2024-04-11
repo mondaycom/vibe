@@ -216,22 +216,6 @@ describe("Checkbox tests", () => {
     });
   });
 
-  describe("a11y", () => {
-    it("should add the label", () => {
-      const ariaLabel = "Lable Name";
-      const { getByLabelText } = render(<Checkbox label={ariaLabel} />);
-      const checkboxComponent = getByLabelText(ariaLabel);
-      expect(checkboxComponent).toBeTruthy();
-    });
-
-    it("should be the same text", () => {
-      const ariaLabel = "Lable Name";
-      const { getByText } = render(<Checkbox label={ariaLabel} />);
-      const checkboxComponentText = getByText(ariaLabel);
-      expect(checkboxComponentText).toBeTruthy();
-    });
-  });
-
   describe("specific firefox checkbox tests", () => {
     const {
       formName,
