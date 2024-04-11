@@ -24,6 +24,13 @@ addons.setConfig({
       }
 
       return <SidebarItem status={parameters.status}>{name.replace(storyStatus, "").trim()}</SidebarItem>;
+    },
+    filters: {
+      patterns: filterInternalStoryDocsPage
     }
   }
 });
+
+function filterInternalStoryDocsPage(item) {
+  return process.env.STORYBOOK_ENV === "development" || !item.tags?.includes?.("internal");
+}
