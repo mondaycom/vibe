@@ -18,4 +18,19 @@
       background-color: var(--primary-selected-hover-color);
     }
   }
+
+  &:global(.withExpandableContent) {
+    &:hover {
+        cursor: pointer;
+    }
+  }
 }
+
+.expandableRowContent {
+  &:global(.visible) {
+    border-bottom: 1px solid var(--layout-border-color);
+    padding: var(--spacing-medium);
+  }
+}
+
+

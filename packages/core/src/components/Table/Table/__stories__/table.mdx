@@ -1,4 +1,4 @@
-import { Canvas, Meta } from "@storybook/blocks";
+import { Canvas, Meta, Story } from "@storybook/blocks";
 import Table from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
@@ -40,7 +40,9 @@ import styles from "./table.stories.module.scss";
 
 Tables are used to organize data, making it easier to understand.
 
-<Canvas of={TableStories.Overview} />
+<Canvas>
+  <Story of={TableStories.Overview} />
+</Canvas>
 
 ## Props
 
@@ -64,32 +66,51 @@ The table is available with or without an outer border. When using a table insid
 
 Sorting, Icons and Information added to selected columns
 
-<Canvas of={TableStories.TableHeaderFunctionality} />
+<Canvas>
+  <Story of={TableStories.TableHeaderFunctionality} />
+</Canvas>
 
 ## Loading
 
 Using skeleton
 
-<Canvas of={TableStories.Loading} />
+<Canvas>
+  <Story of={TableStories.Loading} />
+</Canvas>
 
 ## Scroll
 
 Table with both vertical and horizontal scroll
 
-<Canvas of={TableStories.Scroll} />
+<Canvas>
+  <Story of={TableStories.Scroll} />
+</Canvas>
 
 ## Virtualized Scroll
 
 This is an example of a table with 5000 rows
 
-<Canvas of={TableStories.VirtualizedScroll} />
+<Canvas>
+  <Story of={TableStories.VirtualizedScroll} />
+</Canvas>
 
 ## Highlighted row
 
 Use a highlighted row to mark a single row of the table.
 A highlighted row allows adding additional information for the entire row, using a system trigger such as a side-panel or model.
 
-<Canvas of={TableStories.HighlightedRow} />
+<Canvas>
+  <Story of={TableStories.HighlightedRow} />
+</Canvas>
+
+## Expandable Row Content
+
+The expandable row content is fully customizable and can be used to display additional information about a row when it is expanded.
+
+<Canvas>
+  <Story of={TableStories.ExpandableRow} />
+</Canvas>
+
 
 ## Do’s and Don’ts
 
@@ -228,3 +249,4 @@ A highlighted row allows adding additional information for the entire row, using
 ## Related components
 
 <RelatedComponents componentsNames={[LABEL, ICON_BUTTON, SKELETON]} />
+

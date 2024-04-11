@@ -23,3 +23,22 @@
     }
   }
 }
+.table {
+  background-color: var(--primary-background-color);
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+
+  &.border {
+    border: 1px solid var(--layout-border-color);
+    border-bottom: none;
+    border-radius: var(--border-radius-small);
+  }
+
+  [role="rowgroup"] {
+    [role="row"] {
+      border-bottom: 1px solid var(--layout-border-color);
+    }
+  }
+}
+

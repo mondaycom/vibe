@@ -594,3 +594,50 @@ export const HighlightedRow = {
 
   name: "Highlighted row"
 };
+
+const ContentExample = () => (
+  <div
+    style={{
+      background: "lightblue",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "16px",
+      gap: "8px"
+    }}
+  >
+    <h3 style={{ margin: 0 }}>Content Example</h3>
+    <span>The row expandable content is fully customizable</span>
+  </div>
+);
+
+export const ExpandableRow = {
+  render: () => {
+    return (
+      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+        <TableHeader>
+          {emailColumns.map((headerCell, index) => (
+            <TableHeaderCell key={index} title={headerCell.title} />
+          ))}
+        </TableHeader>
+        <TableBody>
+          {emailTableData.map(rowItem => (
+            <TableRow key={rowItem.id} expandableRowRenderer={ContentExample}>
+              <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>{rowItem.subject}</TableCell>
+              <TableCell>
+                <TableAvatar text={rowItem.sentBy} />
+              </TableCell>
+              <TableCell>
+                <Label text={rowItem.status} isAnimationDisabled color="positive" />
+              </TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+
+  name: "Expandable Row"
+};
