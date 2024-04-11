@@ -41,7 +41,7 @@ type RenderHelper = {
   option3Value: string;
   onChangeMock3: jest.MockedFunction<MockedFunction>;
   defaultChecked?: boolean;
-  autoFocusOption2?: boolean;
+  autoFocus?: boolean;
 };
 
 function renderCheckboxes({
@@ -59,7 +59,7 @@ function renderCheckboxes({
   option3Value,
   onChangeMock3,
   defaultChecked,
-  autoFocusOption2
+  autoFocus
 }: RenderHelper) {
   render(
     <form name={formName}>
@@ -69,14 +69,9 @@ function renderCheckboxes({
         label={option1Text}
         defaultChecked={defaultChecked}
         onChange={onChangeMock1}
+        autoFocus={autoFocus}
       />
-      <Checkbox
-        name={checkbox2Name}
-        value={option2Value}
-        label={option2Text}
-        onChange={onChangeMock2}
-        autoFocus={autoFocusOption2}
-      />
+      <Checkbox name={checkbox2Name} value={option2Value} label={option2Text} onChange={onChangeMock2} />
       <Checkbox name={checkbox3Name} value={option3Value} label={option3Text} onChange={onChangeMock3} />
     </form>
   );
@@ -209,14 +204,14 @@ describe("Checkbox tests", () => {
         checkbox1Name,
         checkbox2Name,
         checkbox3Name,
-        autoFocusOption2: true
+        autoFocus: true
       });
 
       const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
       const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
       const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
-      expect(option1).not.toHaveFocus();
-      expect(option2).toHaveFocus();
+      expect(option1).toHaveFocus();
+      expect(option2).not.toHaveFocus();
       expect(option3).not.toHaveFocus();
     });
   });
