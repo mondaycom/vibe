@@ -7,8 +7,7 @@ import "./Search.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,
-  enumPropNamesArray: ["type", "size"],
-  iconPropNamesArray: ["secondaryIconName", "iconName"]
+  iconPropNamesArray: ["searchIconName", "clearIconName"]
 });
 
 const searchTemplate = createComponentTemplate(Search);
