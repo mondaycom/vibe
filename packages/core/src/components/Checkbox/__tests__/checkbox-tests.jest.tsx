@@ -189,7 +189,7 @@ describe("Checkbox tests", () => {
   });
 
   describe("regular checkbox tests with no default checked", () => {
-    it("should auto focus 2nd checkbox", () => {
+    it("should auto focus 1st checkbox", () => {
       renderCheckboxes({
         formName,
         onChangeMock1,
