@@ -8,11 +8,19 @@
     border: 1px solid var(--layout-border-color);
     border-bottom: none;
     border-radius: var(--border-radius-small);
+
+    [role="rowgroup"] {
+      [role="row"] {
+        border-bottom: 1px solid var(--layout-border-color);
+      }
+    }
   }
 
-  [role="rowgroup"] {
-    [role="row"] {
-      border-bottom: 1px solid var(--layout-border-color);
+  &:not(.border) {
+    [role="rowgroup"] {
+      [role="row"]:not(:last-child) {
+        border-bottom: 1px solid var(--layout-border-color);
+      }
     }
   }
 }
