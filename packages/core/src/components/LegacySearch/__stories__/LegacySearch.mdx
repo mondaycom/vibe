@@ -1,5 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks";
-import { UsageGuidelines } from "vibe-storybook-components";
+import { DeprecatedWarning, UsageGuidelines } from "vibe-storybook-components";
 import {
   COMBOBOX,
   DROPDOWN,
@@ -11,6 +11,8 @@ import * as LegacySearchStories from "./LegacySearch.stories";
 <Meta of={LegacySearchStories} />
 
 # LegacySearch
+
+<DeprecatedWarning alternativeName="Search" alternativeLink="/?path=/docs/inputs-search" />
 
 - [Overview](#overview)
 - [Props](#props)
@@ -26,6 +28,12 @@ import * as LegacySearchStories from "./LegacySearch.stories";
 LegacySearch lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
 
 <Canvas of={LegacySearchStories.Overview} />
+
+## Import
+
+```ts
+import { Search } from "monday-ui-react-core";
+```
 
 ## Props
 
