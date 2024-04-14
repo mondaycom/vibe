@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RelatedComponentsDecorator } from "../../../components";
 import { RelatedComponents } from "vibe-storybook-components";
 import { DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP } from "../../../components/related-components/component-description-map";
-import { LegacySearch } from "../../../../components";
+import Search from "../../../../components/Search/Search";
 import { CatalogEmptyState } from "../EmptyState/Catalog.stories.EmptyState";
 import styles from "./Catalog.stories.templates.module.scss";
 
@@ -18,7 +18,7 @@ export const CatalogTemplate = () => {
 
   return (
     <div className={styles.container}>
-      <LegacySearch
+      <Search
         placeholder="Search by component name..."
         value={query}
         onChange={setQuery}
