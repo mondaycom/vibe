@@ -12228,7 +12228,7 @@
       "displayName": "Refable"
     }
   ],
-  "src/components/Search/Search.tsx": [
+  "src/components/LegacySearch/LegacySearch.tsx": [
     {
       "description": "",
       "methods": [],

@@ -5,7 +5,7 @@ import { createComponentTemplate, StoryDescription } from "vibe-storybook-compon
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
-import Search from "../../Search/Search";
+import LegacySearch from "../../LegacySearch/LegacySearch";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
@@ -159,7 +159,7 @@ export const AttentionBoxInsideADialogCombobox = {
 
     return (
       <DialogContentContainer className="monday-storybook-attention-box_search-bar">
-        <Search placeholder="Search by name, role, team, or email" />
+        <LegacySearch placeholder="Search by name, role, team, or email" />
         <div className="monday-storybook-attention-box_lable">Suggested people</div>
         <div className="monday-storybook-attention-box_search">
           <div className="monday-storybook-attention-box_inline-container">

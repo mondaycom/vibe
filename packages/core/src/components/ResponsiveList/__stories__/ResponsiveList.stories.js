@@ -16,7 +16,7 @@ import ResponsiveList from "../ResponsiveList";
 import Menu from "../../Menu/Menu/Menu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import SplitButton from "../../SplitButton/SplitButton";
-import Search from "../../Search/Search";
+import LegacySearch from "../../LegacySearch/LegacySearch";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import "./ResponsiveList.stories.scss";
@@ -72,17 +72,17 @@ const componentTemplate = responseListProps => {
           className="responsive-lst-search"
           // eslint-disable-next-line
           responsiveListPlaceholder={
-            <Search
+            <LegacySearch
               id="search-icon-inside"
-              size={Search.sizes.MEDIUM}
+              size={LegacySearch.sizes.MEDIUM}
               placeholder="search for content"
               iconName={SearchIcon}
               secondaryIconName={CloseSmall}
             />
           }
         >
-          <Search
-            size={Search.sizes.MEDIUM}
+          <LegacySearch
+            size={LegacySearch.sizes.MEDIUM}
             placeholder="search for content"
             iconName={SearchIcon}
             secondaryIconName={CloseSmall}

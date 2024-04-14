@@ -1,7 +1,7 @@
 import Heading from "../LegacyHeading";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";
-import Search from "../../Search/Search";
+import LegacySearch from "../../LegacySearch/LegacySearch";
 import Checkbox from "../../Checkbox/Checkbox";
 import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
@@ -127,7 +127,7 @@ export const NotEditableHeaderOfAPage = {
       <Heading type={Heading.types.h1} value="My Work" id="my-work-id" />
       <Divider />
       <Flex align={Flex.align.CENTER} gap={Flex.gaps.SMALL} aria-labelledby="my-work-id">
-        <Search wrapperClassName={styles["page-header_search"]} placeholder="Search" />
+        <LegacySearch wrapperClassName={styles["page-header_search"]} placeholder="Search" />
         <Checkbox label="Hide done items" checked />
         <Button leftIcon={Custom} kind={Button.kinds.TERTIARY}>
           Customize
