@@ -1,0 +1,121 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { StorybookLink, Tip, UsageGuidelines } from "vibe-storybook-components";
+import {
+  COMBOBOX,
+  DROPDOWN,
+  TEXT_FIELD
+} from "../../../storybook/components/related-components/component-description-map";
+import * as SearchStories from "./Search.stories";
+import Search from "../Search";
+import CloseSmall from "../../Icon/Icons/components/CloseSmall";
+import SearchIcon from "../../Icon/Icons/components/Search";
+import styles from "./Search.stories.module.scss";
+
+<Meta of={SearchStories} />
+
+# Search
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do's and don'ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
+
+<Canvas of={SearchStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Search query input methods can be extended to include historical suggestions and auto-completion of queries.",
+    "Search results are displayed below the search bar.",
+    "Always use the search icon to help users identify search fields. Display the search icon as a presentational icon inside the search input.",
+    "Let users submit their search by hitting enter. For live-filtering search, update search results immediately without hitting enter and be mindful of performance.",
+    "Consider helping users understand what they can search for by offering placeholder examples or autosuggested results.",
+    "Once the user starts typing, clear button should appear and remain accessible, even after a search is performed."
+  ]}
+/>
+
+<Tip title="Not what you were looking for?">
+  <span>If you need to filter results from a long list, consider using the </span>
+  <StorybookLink page="Inputs/Combobox" size={StorybookLink.sizes.SMALL}>
+    <span>Combobox</span>
+  </StorybookLink>
+  <span> component.</span>
+</Tip>
+
+## Variants
+
+### Sizes
+
+There are three sizes available: Small (32px), Medium (40px), and Large (48px).
+
+<Canvas of={SearchStories.Sizes} />
+
+### With additional action
+
+The search field can contain one more search-related action (like filtering). This action should be represented by an icon button on the right.
+
+<Canvas of={SearchStories.WithAdditionalAction} />
+
+### With clear button
+
+Once the user starts typing, include a clear button that lets the user delete their current search quickly.
+
+<Canvas of={SearchStories.WithClearButton} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Search value="User typing" wrapperClassName={styles.fixedWidth} />,
+        description: "Keep the search icon on the left side of the input, and the clear button on the right side."
+      },
+      negative: {
+        component: (
+          <Search
+            value="User typing"
+            searchIconName={CloseSmall}
+            clearIconName={SearchIcon}
+            wrapperClassName={styles.fixedWidth}
+          />
+        ),
+        description: "Don't place the search icon on the right side of the input, or the clear button on the left side."
+      }
+    },
+    {
+      positive: {
+        component: <Search value="User typin" wrapperClassName={styles.fixedWidth} />,
+        description:
+          "Show clear button when the user starts typing, and keep it visible even after a search is performed."
+      },
+      negative: {
+        component: <Search value="User typing" clearIconName={null} wrapperClassName={styles.fixedWidth} />,
+        description: "Don't remove the clear button after the user has performed the search."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Filter in combobox
+
+<Canvas of={SearchStories.FilterInCombobox} />
+
+## Related components
+
+<RelatedComponents componentsNames={[DROPDOWN, TEXT_FIELD, COMBOBOX]} />
