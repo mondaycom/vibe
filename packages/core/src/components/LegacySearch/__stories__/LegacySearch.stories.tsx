@@ -1,20 +1,21 @@
 import { createComponentTemplate } from "vibe-storybook-components";
-import Search from "../Search";
+import LegacySearch from "../LegacySearch";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Combobox from "../../Combobox/Combobox";
-import "./Search.stories.scss";
+import "./LegacySearch.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
-  component: Search,
-  iconPropNamesArray: ["searchIconName", "clearIconName"]
+  component: LegacySearch,
+  enumPropNamesArray: ["type", "size"],
+  iconPropNamesArray: ["secondaryIconName", "iconName"]
 });
 
-const searchTemplate = createComponentTemplate(Search);
+const searchTemplate = createComponentTemplate(LegacySearch);
 
 export default {
-  title: "Inputs/Search",
-  component: Search,
+  title: "Inputs/LegacySearch [deprecated]",
+  component: LegacySearch,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
 };
@@ -32,9 +33,9 @@ export const Overview = {
 export const Sizes = {
   render: () => (
     <div className="monday-storybook-search_box">
-      <Search placeholder="Small" size={Search.sizes.SMALL} />
-      <Search placeholder="Medium" />
-      <Search placeholder="Large" size={Search.sizes.LARGE} />
+      <LegacySearch placeholder="Small" size={LegacySearch.sizes.SMALL} />
+      <LegacySearch placeholder="Medium" />
+      <LegacySearch placeholder="Large" size={LegacySearch.sizes.LARGE} />
     </div>
   ),
 

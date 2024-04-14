@@ -5,12 +5,12 @@ import {
   DROPDOWN,
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
-import { TipCombobox } from "./Search.stories.helpers";
-import * as SearchStories from "./Search.stories";
+import { TipCombobox } from "./LegacySearch.stories.helpers";
+import * as LegacySearchStories from "./LegacySearch.stories";
 
-<Meta of={SearchStories} />
+<Meta of={LegacySearchStories} />
 
-# Search
+# LegacySearch
 
 - [Overview](#overview)
 - [Props](#props)
@@ -23,9 +23,9 @@ import * as SearchStories from "./Search.stories";
 
 ## Overview
 
-Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
+LegacySearch lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
 
-<Canvas of={SearchStories.Overview} />
+<Canvas of={LegacySearchStories.Overview} />
 
 ## Props
 
@@ -35,8 +35,8 @@ Search lets users quickly find relevant content. A search field allows a user to
 
 <UsageGuidelines
   guidelines={[
-    "Search query input methods can be extended to include historical suggestions and auto-completion of queries.",
-    "Search results are displayed below the search bar.",
+    "LegacySearch query input methods can be extended to include historical suggestions and auto-completion of queries.",
+    "LegacySearch results are displayed below the search bar.",
     "Always use the search icon to help users identify search fields. Display the search icon as a presentational icon inside the search input.",
     "Let users submit their search by hitting enter. For live-filtering search, update search results immediately without hitting enter and be mindful of performance.",
     "If used as filter, position the search field above and in context to the list of filterable items"
@@ -51,13 +51,13 @@ Search lets users quickly find relevant content. A search field allows a user to
 
 There are three sizes available: Small (32px), Medium (40px), and Large (48px).
 
-<Canvas of={SearchStories.Sizes} />
+<Canvas of={LegacySearchStories.Sizes} />
 
 ## Use cases and examples
 
 ### Filter in combobox
 
-<Canvas of={SearchStories.FilterInCombobox} />
+<Canvas of={LegacySearchStories.FilterInCombobox} />
 
 ## Related components
 
