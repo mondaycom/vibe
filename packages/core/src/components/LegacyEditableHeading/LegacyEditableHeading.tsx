@@ -34,6 +34,7 @@ export interface EditableHeadingProps extends EditableInputProps, HeadingProps {
   tooltip?: string;
   insetFocus?: boolean;
   contentRenderer?: React.FC;
+  enableTextSelection?: boolean;
 }
 
 /**
@@ -67,7 +68,8 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
     size = HeadingSizes.LARGE,
     displayPlaceholderInTextMode = true,
     suggestEditOnHover = true,
-    type = Heading.types.h1
+    type = Heading.types.h1,
+    enableTextSelection = false
   } = props;
 
   const overrideDataTestId = backwardCompatibilityForProperties([dataTestId, backwardCompatabilityDataTestId]);
@@ -211,7 +213,8 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
-      ariaLabel: props.inputAriaLabel
+      ariaLabel: props.inputAriaLabel,
+      enableTextSelection
     };
   };
 
@@ -234,7 +237,12 @@ const LegacyEditableHeading: React.FC<EditableHeadingProps> & {
       id={id}
       data-testid={overrideDataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
     >
-      <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
+      <Clickable
+        role={shouldEdit ? "button" : "input"}
+        onClick={onClick}
+        disabled={disabled}
+        enableTextSelection={enableTextSelection}
+      >
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
       </Clickable>
     </div>

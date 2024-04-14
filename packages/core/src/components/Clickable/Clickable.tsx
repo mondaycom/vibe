@@ -81,7 +81,8 @@ const Clickable: VibeComponent<ClickableProps, HTMLElement> = forwardRef(
         ariaLabel,
         ariaHidden,
         ariaHasPopup,
-        ariaExpanded
+        ariaExpanded,
+        enableTextSelection
       },
       ref
     );
