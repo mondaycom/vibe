@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.102.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.101.0...monday-ui-react-core@2.102.0) (2024-04-11)
+
+
+### Features
+
+* add autoFocus to CheckBox ([#2059](https://github.com/mondaycom/monday-ui-react-core/issues/2059)) ([cd26e7c](https://github.com/mondaycom/monday-ui-react-core/commit/cd26e7cf7b666da211efc7dd7af4f58a25a1b7a0))
+
+
+
+
+
 # [2.101.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.100.1...monday-ui-react-core@2.101.0) (2024-04-10)
 
 

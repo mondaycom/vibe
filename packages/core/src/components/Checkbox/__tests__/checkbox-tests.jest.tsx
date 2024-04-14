@@ -1,4 +1,5 @@
 import React from "react";
+import "@testing-library/jest-dom";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import Checkbox from "../Checkbox";
 
@@ -39,6 +40,8 @@ type RenderHelper = {
   option3Text: string;
   option3Value: string;
   onChangeMock3: jest.MockedFunction<MockedFunction>;
+  defaultChecked?: boolean;
+  autoFocus?: boolean;
 };
 
 function renderCheckboxes({
@@ -54,7 +57,9 @@ function renderCheckboxes({
   checkbox3Name,
   option3Text,
   option3Value,
-  onChangeMock3
+  onChangeMock3,
+  defaultChecked,
+  autoFocus
 }: RenderHelper) {
   render(
     <form name={formName}>
@@ -62,8 +67,9 @@ function renderCheckboxes({
         name={checkbox1Name}
         value={option1Value}
         label={option1Text}
-        defaultChecked={true}
+        defaultChecked={defaultChecked}
         onChange={onChangeMock1}
+        autoFocus={autoFocus}
       />
       <Checkbox name={checkbox2Name} value={option2Value} label={option2Text} onChange={onChangeMock2} />
       <Checkbox name={checkbox3Name} value={option3Value} label={option3Text} onChange={onChangeMock3} />
@@ -87,23 +93,24 @@ function testUnselectFirstOption(
 }
 
 describe("Checkbox tests", () => {
-  describe("regular checkbox tests", () => {
-    const {
-      formName,
-      checkbox1Name,
-      option1Value,
-      option1Text,
-      checkbox2Name,
-      option2Value,
-      option2Text,
-      checkbox3Name,
-      option3Value,
-      option3Text
-    } = createCheckboxesVariables();
+  const {
+    formName,
+    checkbox1Name,
+    option1Value,
+    option1Text,
+    checkbox2Name,
+    option2Value,
+    option2Text,
+    checkbox3Name,
+    option3Value,
+    option3Text
+  } = createCheckboxesVariables();
 
-    let onChangeMock1: jest.MockedFunction<MockedFunction>,
-      onChangeMock2: jest.MockedFunction<MockedFunction>,
-      onChangeMock3: jest.MockedFunction<MockedFunction>;
+  let onChangeMock1: jest.MockedFunction<MockedFunction>,
+    onChangeMock2: jest.MockedFunction<MockedFunction>,
+    onChangeMock3: jest.MockedFunction<MockedFunction>;
+
+  describe("regular checkbox tests with default checked", () => {
     beforeEach(() => {
       onChangeMock1 = jest.fn();
       onChangeMock2 = jest.fn();
@@ -122,7 +129,8 @@ describe("Checkbox tests", () => {
         option1Value,
         checkbox1Name,
         checkbox2Name,
-        checkbox3Name
+        checkbox3Name,
+        defaultChecked: true
       });
     });
 
@@ -139,7 +147,7 @@ describe("Checkbox tests", () => {
       expect(option3.checked).toBeFalsy();
     });
 
-    it("should unselect  1st option", () => {
+    it("should unselect 1st option", () => {
       testUnselectFirstOption(option1Text, option2Text, option3Text);
     });
 
@@ -179,6 +187,35 @@ describe("Checkbox tests", () => {
       });
     });
   });
+
+  describe("regular checkbox tests with no default checked", () => {
+    it("should auto focus 1st checkbox", () => {
+      renderCheckboxes({
+        formName,
+        onChangeMock1,
+        onChangeMock2,
+        onChangeMock3,
+        option3Text,
+        option3Value,
+        option2Text,
+        option2Value,
+        option1Text,
+        option1Value,
+        checkbox1Name,
+        checkbox2Name,
+        checkbox3Name,
+        autoFocus: true
+      });
+
+      const option1 = screen.getByLabelText<HTMLInputElement>(option1Text);
+      const option2 = screen.getByLabelText<HTMLInputElement>(option2Text);
+      const option3 = screen.getByLabelText<HTMLInputElement>(option3Text);
+      expect(option1).toHaveFocus();
+      expect(option2).not.toHaveFocus();
+      expect(option3).not.toHaveFocus();
+    });
+  });
+
   describe("specific firefox checkbox tests", () => {
     const {
       formName,
@@ -230,7 +267,8 @@ describe("Checkbox tests", () => {
         option1Value,
         checkbox1Name,
         checkbox2Name,
-        checkbox3Name
+        checkbox3Name,
+        defaultChecked: true
       });
     });
 
