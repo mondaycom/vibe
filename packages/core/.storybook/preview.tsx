@@ -97,6 +97,7 @@ const preview: Preview = {
           "Catalog",
           "Change Log",
           "Typography Migration Guide",
+          "Internal",
           "Foundations",
           "Buttons",
           "Inputs",
