@@ -89,6 +89,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
   className="referenceWrapper"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}

@@ -3822,6 +3822,7 @@ exports[`Dropdown renders correctly with tooltipContent 1`] = `
     className=""
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}
