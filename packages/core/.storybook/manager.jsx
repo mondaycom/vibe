@@ -33,7 +33,6 @@ addons.setConfig({
 });
 
 function filterStory(item) {
-  console.log(process.env.NODE_ENV === "development", item.title, ...item.tags, { item });
   const isDev = isChromatic() || process.env.NODE_ENV === "development";
   const isInternal = !item.tags?.includes?.("internal") && !item.title?.startsWith?.("Internal");
   return isDev || isInternal;
