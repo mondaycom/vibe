@@ -7,7 +7,17 @@ import styles from "./option.module.scss";
 
 const Option = ({ Renderer, data, children, optionWrapperClassName, ...props }) => {
   const tooltipProps = data?.tooltipProps || {};
-  const rendererProps = { children, data, ...props };
+  const rendererProps = {
+    children,
+    data,
+    ...props,
+    innerProps: {
+      ...props.innerProps,
+      role: "option",
+      "aria-selected": props.isSelected
+    }
+  };
+
   return (
     <Tooltip {...tooltipProps} position={Tooltip.positions.RIGHT}>
       {Renderer ? (

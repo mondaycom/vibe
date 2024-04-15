@@ -14,9 +14,10 @@ exports[`Search renders correctly when disabled 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -114,9 +115,10 @@ exports[`Search renders correctly when underline 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -214,9 +216,10 @@ exports[`Search renders correctly with className 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="testClassName search input inputHasIcon"
         data-testid="search_search"
@@ -314,9 +317,10 @@ exports[`Search renders correctly with icon 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -404,9 +408,10 @@ exports[`Search renders correctly with id 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_testId"
@@ -504,9 +509,10 @@ exports[`Search renders correctly with loading 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -633,9 +639,10 @@ exports[`Search renders correctly with placeholder 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label="placeholder"
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -733,9 +740,10 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -823,9 +831,10 @@ exports[`Search renders correctly with underline type 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -926,6 +935,7 @@ exports[`Search renders correctly with validation 1`] = `
         aria-invalid={true}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -1023,9 +1033,10 @@ exports[`Search renders correctly with value 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -1123,9 +1134,10 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"
@@ -1223,9 +1235,10 @@ exports[`Search renders correctly without props 1`] = `
     >
       <input
         aria-activedescendant=""
-        aria-invalid={null}
+        aria-invalid={false}
         aria-label=""
         aria-owns=""
+        aria-required={false}
         autoComplete="off"
         className="search input inputHasIcon"
         data-testid="search_search"

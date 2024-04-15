@@ -19,6 +19,8 @@ import {
   defaultCustomStyles,
   DROPDOWN_CHIP_COLORS,
   DROPDOWN_ID,
+  DROPDOWN_MENU_ID,
+  DROPDOWN_MENU_ARIA_LABEL,
   DROPDOWN_MENU_PLACEMENT,
   DROPDOWN_MENU_POSITION
 } from "./DropdownConstants";
@@ -69,6 +71,8 @@ const Dropdown = forwardRef(
       menuIsOpen,
       tabIndex,
       id,
+      menuId,
+      menuAriaLabel,
       autoFocus,
       multi = false,
       multiline = false,
@@ -178,9 +182,15 @@ const Dropdown = forwardRef(
 
     const Menu = useCallback(
       props => (
-        <MenuComponent {...props} Renderer={menuRenderer} dropdownMenuWrapperClassName={dropdownMenuWrapperClassName} />
+        <MenuComponent
+          {...props}
+          id={menuId}
+          ariaLabel={menuAriaLabel}
+          Renderer={menuRenderer}
+          dropdownMenuWrapperClassName={dropdownMenuWrapperClassName}
+        />
       ),
-      [dropdownMenuWrapperClassName, menuRenderer]
+      [dropdownMenuWrapperClassName, menuRenderer, menuId, menuAriaLabel]
     );
 
     const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
@@ -192,7 +202,10 @@ const Dropdown = forwardRef(
       [finalOptionRenderer, optionWrapperClassName]
     );
 
-    const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
+    const Input = useCallback(
+      props => <components.Input {...props} aria-label="Dropdown input" aria-controls={menuId} />,
+      [menuId]
+    );
 
     const SingleValue = useCallback(
       props => (
@@ -334,6 +347,10 @@ const Dropdown = forwardRef(
         aria-readonly={readOnly}
         aria-label={overrideAriaLabel}
         aria-details={tooltipContent}
+        aria-expanded={!readOnly && menuIsOpen}
+        aria-haspopup="listbox"
+        aria-activedescendant
+        role="combobox"
         defaultValue={defaultValue}
         value={value}
         onMenuOpen={onMenuOpen}
@@ -406,6 +423,8 @@ Dropdown.defaultProps = {
   tabIndex: "0",
   onOptionRemove: undefined,
   id: DROPDOWN_ID,
+  menuId: DROPDOWN_MENU_ID,
+  menuAriaLabel: DROPDOWN_MENU_ARIA_LABEL,
   autoFocus: false,
   closeMenuOnSelect: undefined,
   closeMenuOnScroll: false,
@@ -599,6 +618,14 @@ Dropdown.propTypes = {
    * ID for the select container
    */
   id: PropTypes.string,
+  /**
+   * ID for the menu container
+   */
+  menuId: PropTypes.string,
+  /**
+   * aria-label attribute for the menu container
+   */
+  menuAriaLabel: PropTypes.string,
   /**
    * focusAuto when component mount
    */
