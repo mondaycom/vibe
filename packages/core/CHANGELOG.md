@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.103.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.102.0...monday-ui-react-core@2.103.0) (2024-04-15)
+
+
+### Features
+
+* Dropdown and TextFeild accessibility improvements ([#1898](https://github.com/mondaycom/monday-ui-react-core/issues/1898)) ([de99f06](https://github.com/mondaycom/monday-ui-react-core/commit/de99f06b472b350cba6f43d960505f430769fb9e))
+
+
+
+
+
 # [2.102.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.101.0...monday-ui-react-core@2.102.0) (2024-04-11)
 
 
