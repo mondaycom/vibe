@@ -1,8 +1,9 @@
-import { addons } from "@storybook/manager-api";
 import React from "react";
+import { addons } from "@storybook/manager-api";
 import { SidebarItem } from "vibe-storybook-components";
 import "vibe-storybook-components/index.css";
 import theme from "./theme";
+import isChromatic from "chromatic/isChromatic";
 
 window.STORYBOOK_GA_ID = "UA-308574295";
 window.STORYBOOK_REACT_GA_OPTIONS = {};
@@ -26,11 +27,14 @@ addons.setConfig({
       return <SidebarItem status={parameters.status}>{name.replace(storyStatus, "").trim()}</SidebarItem>;
     },
     filters: {
-      patterns: filterInternalStoryDocsPage
+      patterns: filterStory
     }
   }
 });
 
-function filterInternalStoryDocsPage(item) {
-  return process.env.STORYBOOK_ENV === "development" || !item.tags?.includes?.("internal");
+function filterStory(item) {
+  console.log(process.env.NODE_ENV === "development", item.title, ...item.tags, { item });
+  const isDev = isChromatic() || process.env.NODE_ENV === "development";
+  const isInternal = !item.tags?.includes?.("internal") && !item.title?.startsWith?.("Internal");
+  return isDev || isInternal;
 }
