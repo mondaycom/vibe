@@ -4,7 +4,18 @@ import { components } from "react-select";
 import styles from "./menu.module.scss";
 
 const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, id, ariaLabel, ...props }) => {
-  const rendererProps = { children, selectProps, ...props };
+  const rendererProps = {
+    children,
+    selectProps,
+    ...props,
+    innerProps: {
+      ...props.innerProps,
+      id,
+      role: "listbox",
+      "aria-label": ariaLabel
+    }
+  };
+
   const withFixedPosition =
     selectProps?.selectProps?.insideOverflowContainer || selectProps?.selectProps?.insideOverflowWithTransformContainer;
 
@@ -27,11 +38,6 @@ const Menu = ({ children, Renderer, selectProps, dropdownMenuWrapperClassName, i
         },
         dropdownMenuWrapperClassName
       )}
-      innerProps={{
-        id,
-        role: "listbox",
-        "aria-label": ariaLabel
-      }}
     >
       {Renderer && Renderer(rendererProps)}
       {!Renderer && children}
