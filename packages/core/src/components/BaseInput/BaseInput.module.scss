@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: var(--spacing-small);
   padding-block: var(--spacing-xs);
   padding-inline: var(--spacing-medium) var(--spacing-xs);
