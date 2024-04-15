@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useCallback, useRef } from "react";
 import cx from "classnames";
-import { Flex, Search } from "../../../components";
+import Flex from "../../../components/Flex/Flex";
+import Search from "../../../components/Search/Search";
 import useActiveDescendantListFocus from "../index";
 import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
 import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
@@ -38,7 +39,7 @@ export const Overview = {
         <Search
           ref={focusedElementRef}
           role={focusedElementProps.role}
-          activeDescendant={focusedElementProps["aria-activedescendant"]}
+          currentAriaResultId={focusedElementProps["aria-activedescendant"]}
         />
         <ul>
           <li

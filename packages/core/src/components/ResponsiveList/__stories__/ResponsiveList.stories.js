@@ -1,22 +1,10 @@
 import { ResizableBox } from "react-resizable";
-import {
-  Activity,
-  Alert,
-  API,
-  Bolt,
-  Broom,
-  CloseSmall,
-  Group,
-  Moon,
-  Search as SearchIcon,
-  Sun,
-  Open
-} from "../../Icon/Icons";
+import { Activity, Alert, API, Bolt, Broom, Group, Moon, Sun, Open } from "../../Icon/Icons";
 import ResponsiveList from "../ResponsiveList";
 import Menu from "../../Menu/Menu/Menu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import SplitButton from "../../SplitButton/SplitButton";
-import LegacySearch from "../../LegacySearch/LegacySearch";
+import Search from "../../Search/Search";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import "./ResponsiveList.stories.scss";
@@ -71,22 +59,9 @@ const componentTemplate = responseListProps => {
         <div
           className="responsive-lst-search"
           // eslint-disable-next-line
-          responsiveListPlaceholder={
-            <LegacySearch
-              id="search-icon-inside"
-              size={LegacySearch.sizes.MEDIUM}
-              placeholder="search for content"
-              iconName={SearchIcon}
-              secondaryIconName={CloseSmall}
-            />
-          }
+          responsiveListPlaceholder={<Search id="search-icon-inside" size="medium" placeholder="search for content" />}
         >
-          <LegacySearch
-            size={LegacySearch.sizes.MEDIUM}
-            placeholder="search for content"
-            iconName={SearchIcon}
-            secondaryIconName={CloseSmall}
-          />
+          <Search size="medium" placeholder="search for content" />
         </div>
         <Button kind={Button.kinds.TERTIARY} marginLeft>
           <Icon icon={Broom} ignoreFocusStyle className="responsive-icon-margin" />
