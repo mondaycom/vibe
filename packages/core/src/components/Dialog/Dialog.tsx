@@ -530,6 +530,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                 onMouseDown={chainOnPropsAndInstance("onMouseDown", this, this.props)}
                 onMouseEnter={chainOnPropsAndInstance("onMouseEnter", this, this.props)}
                 onMouseLeave={chainOnPropsAndInstance("onMouseLeave", this, this.props)}
+                onContextMenu={chainOnPropsAndInstance("onContextMenu", this, this.props)}
               >
                 {children}
               </Refable>
