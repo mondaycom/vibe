@@ -28,9 +28,10 @@ exports[`Combobox renders correctly when disabled 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -148,9 +149,10 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -268,9 +270,10 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -388,9 +391,10 @@ exports[`Combobox renders correctly with className 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -508,9 +512,10 @@ exports[`Combobox renders correctly with custom search icon 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -628,9 +633,10 @@ exports[`Combobox renders correctly with divider 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -846,9 +852,10 @@ exports[`Combobox renders correctly with divider and colored categories 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1074,9 +1081,10 @@ exports[`Combobox renders correctly with empty props 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1194,9 +1202,10 @@ exports[`Combobox renders correctly with id 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1314,9 +1323,10 @@ exports[`Combobox renders correctly with loading 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1463,9 +1473,10 @@ exports[`Combobox renders correctly with optionClassName 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1583,9 +1594,10 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1703,9 +1715,10 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1876,9 +1889,10 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -1996,9 +2010,10 @@ exports[`Combobox renders correctly with placeholder 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"
@@ -2116,9 +2131,10 @@ exports[`Combobox renders correctly with size 1`] = `
         >
           <input
             aria-activedescendant=""
-            aria-invalid={null}
+            aria-invalid={false}
             aria-label="Search for content"
             aria-owns=""
+            aria-required={false}
             autoComplete="off"
             className="comboboxSearch search input inputHasIcon"
             data-testid="search_combobox-search"

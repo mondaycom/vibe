@@ -50,7 +50,7 @@ We maintain a metadata file for each icon, it helps our icon library be more rea
 
 How to add a new icon?
 Add the icon in SVG format under the src/Icons folder (size 20x20)
-then run `npm run generate-meta` and fill in the relevant information (you can add multiple icons and run the command once)
+then run `yarn generate-meta` and fill in the relevant information (you can add multiple icons and run the command once)
 
 ### Icon colors
 

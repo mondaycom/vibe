@@ -1,4 +1,4 @@
-import React from "react";
+import "@testing-library/jest-dom";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import RadioButton from "../RadioButton";
 
@@ -17,60 +17,81 @@ describe("RadioButton tests", () => {
   let onChangeMock2: jest.Mock;
   let onChangeMock3: jest.Mock;
 
-  beforeEach(() => {
-    onChangeMock1 = jest.fn();
-    onChangeMock2 = jest.fn();
-    onChangeMock3 = jest.fn();
+  describe("With one of the radio buttons is checked by default", () => {
+    beforeEach(() => {
+      onChangeMock1 = jest.fn();
+      onChangeMock2 = jest.fn();
+      onChangeMock3 = jest.fn();
 
-    render(
-      <form name={formName}>
-        <RadioButton
-          name={radiosName}
-          value={option1Value}
-          text={option1Text}
-          onSelect={onChangeMock1}
-          defaultChecked={true}
-        />
-        <RadioButton name={radiosName} value={option2Value} text={option2Text} onSelect={onChangeMock2} />
-        <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3} />
-      </form>
-    );
+      render(
+        <form name={formName}>
+          <RadioButton
+            name={radiosName}
+            value={option1Value}
+            text={option1Text}
+            onSelect={onChangeMock1}
+            defaultChecked
+          />
+          <RadioButton name={radiosName} value={option2Value} text={option2Text} onSelect={onChangeMock2} />
+          <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3} />
+        </form>
+      );
+    });
+
+    afterEach(() => {
+      cleanup();
+    });
+
+    it("should default select 1st option", () => {
+      const option1: HTMLInputElement = screen.getByLabelText(option1Text);
+      const option2: HTMLInputElement = screen.getByLabelText(option2Text);
+      const option3: HTMLInputElement = screen.getByLabelText(option3Text);
+      expect(option1.checked).toBeTruthy();
+      expect(option2.checked).toBeFalsy();
+      expect(option3.checked).toBeFalsy();
+    });
+
+    it("should select 2nd option", () => {
+      const option1: HTMLInputElement = screen.getByLabelText(option1Text);
+      const option2: HTMLInputElement = screen.getByLabelText(option2Text);
+      const option3: HTMLInputElement = screen.getByLabelText(option3Text);
+      fireEvent.click(option2);
+      expect(option1.checked).toBeFalsy();
+      expect(option2.checked).toBeTruthy();
+      expect(option3.checked).toBeFalsy();
+    });
+
+    it("should call the onChange callback when clicked", () => {
+      const option2 = screen.getByLabelText(option2Text);
+      fireEvent.click(option2);
+      expect(onChangeMock2.mock.calls.length).toBe(1);
+      expect(onChangeMock2.mock.calls[0]).toBeTruthy();
+    });
+
+    it("should be the same text", () => {
+      const text = "test text";
+      const { getByText } = render(<RadioButton text={text} />);
+      const radioButtonComponentText = getByText(text);
+      expect(radioButtonComponentText).toBeTruthy();
+    });
   });
 
-  afterEach(() => {
-    cleanup();
-  });
+  describe("When all radio buttons are unchecked", () => {
+    it("should auto focus 2nd option", () => {
+      render(
+        <form name={formName}>
+          <RadioButton text={option1Text} />
+          <RadioButton text={option2Text} autoFocus />
+          <RadioButton text={option3Text} />
+        </form>
+      );
 
-  it("should default select 1st option", () => {
-    const option1: HTMLInputElement = screen.getByLabelText(option1Text);
-    const option2: HTMLInputElement = screen.getByLabelText(option2Text);
-    const option3: HTMLInputElement = screen.getByLabelText(option3Text);
-    expect(option1.checked).toBeTruthy();
-    expect(option2.checked).toBeFalsy();
-    expect(option3.checked).toBeFalsy();
-  });
-
-  it("should select 2nd option", () => {
-    const option1: HTMLInputElement = screen.getByLabelText(option1Text);
-    const option2: HTMLInputElement = screen.getByLabelText(option2Text);
-    const option3: HTMLInputElement = screen.getByLabelText(option3Text);
-    fireEvent.click(option2);
-    expect(option1.checked).toBeFalsy();
-    expect(option2.checked).toBeTruthy();
-    expect(option3.checked).toBeFalsy();
-  });
-
-  it("should call the onChange callback when clicked", () => {
-    const option2 = screen.getByLabelText(option2Text);
-    fireEvent.click(option2);
-    expect(onChangeMock2.mock.calls.length).toBe(1);
-    expect(onChangeMock2.mock.calls[0]).toBeTruthy();
-  });
-
-  it("should be the same text", () => {
-    const text = "test text";
-    const { getByText } = render(<RadioButton text={text} />);
-    const radioButtonComponentText = getByText(text);
-    expect(radioButtonComponentText).toBeTruthy();
+      const option1: HTMLInputElement = screen.getByLabelText(option1Text);
+      const option2: HTMLInputElement = screen.getByLabelText(option2Text);
+      const option3: HTMLInputElement = screen.getByLabelText(option3Text);
+      expect(option1).not.toHaveFocus();
+      expect(option2).toHaveFocus();
+      expect(option3).not.toHaveFocus();
+    });
   });
 });

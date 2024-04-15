@@ -1,7 +1,8 @@
 import { CatalogTemplate } from "./Catalog/Catalog.stories.templates";
 
 export default {
-  title: "Catalog"
+  title: "Catalog",
+  tags: ["internal"]
 };
 
 export const Catalog = {

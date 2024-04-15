@@ -62,7 +62,7 @@ describe("Tipseen tests", () => {
 
 ### Running Vibe tests
 **Snapshot and Behavior Tests:**
-To run all snapshot and behavior tests locally, use the command: `npm run test`.
+To run all snapshot and behavior tests locally, use the command: `yarn test`.
 
 **Local Storybook Interaction Tests:**
 To check interaction tests for a specific story in Storybook:

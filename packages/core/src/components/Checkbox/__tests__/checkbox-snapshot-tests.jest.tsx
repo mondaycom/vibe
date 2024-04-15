@@ -25,6 +25,11 @@ describe("Checkbox renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("when autoFocus", () => {
+    const tree = renderer.create(<Checkbox autoFocus />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("with name", () => {
     const tree = renderer.create(<Checkbox name="checkbox" />).toJSON();
     expect(tree).toMatchSnapshot();

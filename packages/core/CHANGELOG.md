@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.103.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.102.0...monday-ui-react-core@2.103.0) (2024-04-15)
+
+
+### Features
+
+* Dropdown and TextFeild accessibility improvements ([#1898](https://github.com/mondaycom/monday-ui-react-core/issues/1898)) ([de99f06](https://github.com/mondaycom/monday-ui-react-core/commit/de99f06b472b350cba6f43d960505f430769fb9e))
+
+
+
+
+
+# [2.102.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.101.0...monday-ui-react-core@2.102.0) (2024-04-11)
+
+
+### Features
+
+* add autoFocus to CheckBox ([#2059](https://github.com/mondaycom/monday-ui-react-core/issues/2059)) ([cd26e7c](https://github.com/mondaycom/monday-ui-react-core/commit/cd26e7cf7b666da211efc7dd7af4f58a25a1b7a0))
+
+
+
+
+
+# [2.101.0](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.100.1...monday-ui-react-core@2.101.0) (2024-04-10)
+
+
+### Bug Fixes
+
+* **DatePicker:** added min width to buttons inside year picker ([#2050](https://github.com/mondaycom/monday-ui-react-core/issues/2050)) ([7c35041](https://github.com/mondaycom/monday-ui-react-core/commit/7c35041363e880667899df8f033b117058be3a25))
+
+
+### Features
+
+* add autoFocus to RadioButton ([#2057](https://github.com/mondaycom/monday-ui-react-core/issues/2057)) ([d40b49e](https://github.com/mondaycom/monday-ui-react-core/commit/d40b49efc63fe943a71bf9ba643b513cf5f66d97))
+
+
+
+
+
 ## [2.100.1](https://github.com/mondaycom/monday-ui-react-core/compare/monday-ui-react-core@2.100.0...monday-ui-react-core@2.100.1) (2024-04-07)
 
 
