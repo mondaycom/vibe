@@ -90,6 +90,7 @@ exports[`Renders correctly renders correctly with text highlight 1`] = `
     data-testid="text-with-highlight"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onMouseDown={[Function]}

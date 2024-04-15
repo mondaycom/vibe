@@ -18,6 +18,7 @@ exports[`renders correctly with empty props 1`] = `
       data-testid="menu-button"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
