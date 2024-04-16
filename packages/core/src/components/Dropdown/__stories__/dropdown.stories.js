@@ -10,6 +10,7 @@ import { Attach, Email } from "../../Icon/Icons";
 import { Avatar, Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./dropdown.stories.scss";
+import { fakeFetchUsers } from "./dropdown.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
@@ -276,7 +277,7 @@ export const AsyncOptions = {
   render: () => {
     const fetchUserOptions = async () => {
       try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const response = await fakeFetchUsers();
         const users = await response.json();
 
         return users.slice(0, 5).map(user => ({
