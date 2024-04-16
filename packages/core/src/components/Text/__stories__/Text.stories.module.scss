@@ -19,3 +19,15 @@
   @include spacing;
   width: 420px;
 }
+
+.textBoxContainer {
+  box-shadow: var(--box-shadow-small);
+  border-radius: var(--border-radius-small);
+  background-color: var(--primary-background-color);
+  padding: 12px 16px;
+  width: 60%
+}
+
+.textBoxContent {
+  margin-left: var(--spacing-large);
+}

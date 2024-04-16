@@ -207,6 +207,29 @@ We use two key type styles: heading and text
       }
     ]}
   />
+  <Text type={Text.types.TEXT1} weight={Text.weights.BOLD}>
+    Text3 - 12px
+  </Text>
+  <ExamplesTable
+    data={[
+      {
+        name: (
+          <Text type={Text.types.TEXT3} weight={Text.weights.MEDIUM}>
+            Text3 medium
+          </Text>
+        ),
+        sass: "@include vibe-text(text3, medium);"
+      },
+      {
+        name: (
+          <Text type={Text.types.TEXT3} weight={Text.weights.NORMAL}>
+            Text3 normal
+          </Text>
+        ),
+        sass: "@include vibe-text(text3, normal);"
+      }
+    ]}
+  />
 </Frame>
 
 ## Text colors
