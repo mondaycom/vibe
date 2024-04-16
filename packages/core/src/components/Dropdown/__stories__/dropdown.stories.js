@@ -10,6 +10,7 @@ import { Attach, Email } from "../../Icon/Icons";
 import { Avatar, Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "../../index";
 import ModalExampleContent from "../../../storybook/patterns/dropdown-in-modals/ModalExampleContent";
 import "./dropdown.stories.scss";
+import { fakeFetchUsers } from "./dropdown.stories.helpers";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dropdown,
@@ -270,6 +271,37 @@ export const MultiChoiceWithDifferentStates = {
 
   name: "Multi-choice with different states",
   play: multiInteractionTests
+};
+
+export const AsyncOptions = {
+  render: () => {
+    const fetchUserOptions = async () => {
+      try {
+        const response = await fakeFetchUsers();
+        const users = await response.json();
+
+        return users.slice(0, 5).map(user => ({
+          label: user.name,
+          value: user.id
+        }));
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+      return [];
+    };
+
+    return (
+      <div
+        style={{
+          width: "400px"
+        }}
+      >
+        <Dropdown asyncOptions={fetchUserOptions} placeholder="Async options" cacheOptions defaultOptions />
+      </div>
+    );
+  },
+
+  name: "Async Dropdown"
 };
 
 export const DropdownWithAvatar = {

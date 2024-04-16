@@ -20,3 +20,19 @@ export const TipDevTipPopover = () => (
     .
   </Tip>
 );
+
+export const fakeFetchUsers = () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const users = [
+        { id: "1", name: "Yossi Saadi" },
+        { id: "2", name: "Shahar Zilberman" },
+        { id: "3", name: "Tal Koren" },
+        { id: "4", name: "Meirav Ron" },
+        { id: "5", name: "Yael Bein" }
+      ];
+
+      resolve({ json: () => Promise.resolve(users) });
+    }, 1000);
+  });
+};
