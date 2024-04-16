@@ -8,6 +8,9 @@ import cx from "classnames";
 import styles from "./TableRow.module.scss";
 import { useSwitch } from "../../../hooks";
 
+const ENTER_KEY = "Enter";
+const SPACE_KEY = " ";
+
 export interface ITableRowProps extends VibeComponentProps {
   /**
    * Does the row have a highlighted style
@@ -17,6 +20,7 @@ export interface ITableRowProps extends VibeComponentProps {
   style?: React.CSSProperties;
   expandableRowRenderer?: () => React.ReactNode;
   onClick?: (event: MouseEvent) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
 }
 
 const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
@@ -28,7 +32,8 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
       id,
       className,
       "data-testid": dataTestId,
-      onClick: propsOnClick = () => {},
+      onClick = () => {},
+      onKeyDown = () => {},
       expandableRowRenderer
     },
     ref
@@ -37,12 +42,25 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(componentRef, ref);
 
-    const onClick = (event: MouseEvent) => {
+    const onClickCallback = (event: MouseEvent) => {
       if (expandableRowRenderer) {
         toggleExpandableContent();
       }
 
-      propsOnClick(event);
+      onClick(event);
+    };
+
+    const onKeyDownCallback = (e: React.KeyboardEvent<HTMLElement>) => {
+      const expandableContentTriggerKeys = [ENTER_KEY, SPACE_KEY];
+
+      const shouldToggleRowExpand =
+        (e?.target as HTMLDivElement)?.role === "row" && expandableContentTriggerKeys.includes(e.key);
+
+      if (shouldToggleRowExpand) {
+        toggleExpandableContent();
+      }
+
+      onKeyDown(e);
     };
 
     const renderExpandableContentIfNeeded = () => {
@@ -61,7 +79,6 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
 
     return (
       <>
-        {/* eslint-disable-next-line jsx-a11y/interactive-supports-focus,jsx-a11y/click-events-have-key-events */}
         <div
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_ROW, id)}
@@ -70,7 +87,9 @@ const TableRow: VibeComponent<ITableRowProps, HTMLDivElement> = forwardRef(
           aria-selected={highlighted || false}
           className={cx(styles.tableRow, { withExpandableContent: !!expandableRowRenderer }, className)}
           style={style}
-          onClick={onClick}
+          onClick={onClickCallback}
+          onKeyDown={onKeyDownCallback}
+          tabIndex={0}
         >
           {children}
         </div>
