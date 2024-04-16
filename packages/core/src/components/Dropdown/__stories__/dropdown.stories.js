@@ -272,6 +272,37 @@ export const MultiChoiceWithDifferentStates = {
   play: multiInteractionTests
 };
 
+export const AsyncOptions = {
+  render: () => {
+    const fetchUserOptions = async () => {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const users = await response.json();
+
+        return users.slice(0, 5).map(user => ({
+          label: user.name,
+          value: user.id
+        }));
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+      return [];
+    };
+
+    return (
+      <div
+        style={{
+          width: "400px"
+        }}
+      >
+        <Dropdown asyncOptions={fetchUserOptions} placeholder="Async options" cacheOptions defaultOptions />
+      </div>
+    );
+  },
+
+  name: "Async Dropdown"
+};
+
 export const DropdownWithAvatar = {
   render: () => {
     const optionsAvatar = useMemo(
