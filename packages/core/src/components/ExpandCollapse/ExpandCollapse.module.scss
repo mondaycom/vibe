@@ -24,11 +24,6 @@
   background-color: var(--primary-background-hover-color);
 }
 
-/* TODO track and remove, added because of specificity issue in MenuButton's button:active */
-.header:active {
-  transform: scale(1);
-}
-
 .header .headerContent {
   margin: 0;
 }
